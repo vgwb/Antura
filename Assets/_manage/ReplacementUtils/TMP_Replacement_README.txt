@@ -1,0 +1,21 @@
+Here is the procedure to convert from TextMeshPro commercial to free.
+
+- Start with the project that has TMP commercial. 
+- Rename all the components you use so that they have a "_OLD" suffix.
+  - Example: TextMeshPro -> TextMeshPro_OLD
+- Rename also the TMP_FontAsset to TMP_FontAsset_OLD
+- Move all the renamed components out of the library. Keep them in Standard Assets.
+- Move also th default font assets out of the library. Keep them in Standard Assets.
+- Rename all font assets you use wth a "_OLD" suffix as well.
+- Delete the old commercial library. This will give a lot of errors, but you can ignore them.
+- Import the new free library.
+- Create a new version for all the old font assets. Note that Arial should be replaced with LiberationSans.
+- Make all the old components and assets derive from the new versions. Also delete all their contents. 
+  - This should clear all errors.
+  - If all goes well, all references and values in components should still be correct
+- Change all scripts that reference the old versions so they reference the new versions. 
+  - Note that this should not break references, as the old versions are derived from the new ones.
+- Import the Replace Utilities and make sure the TMP_Replacer and TMP_Replacer_Referencer code is uncommented. 
+- Fill the TMP_Replacer_Referencer prefab with font pairs, old and new.
+- Use the script through Tools -> Replace Text Mesh Pro for each scene you want to fix. This will replace all old components with the new components, keeping their fields and references intact. This will also update references to the old components with references to the new components. 
+  - Note that this will behave strangely with prefabs, so make sure you disconnect prefabs before doing this (you can reconnect them later)

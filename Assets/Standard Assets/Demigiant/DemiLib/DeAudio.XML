@@ -1,0 +1,473 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DeAudio</name>
+    </assembly>
+    <members>
+        <member name="M:DG.DeAudio.DeAudioClipData.Play">
+            <summary>
+            Plays this DeAudioClipData
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioClipData.Stop">
+            <summary>
+            Stops all sounds using this DeAudioClipData clip
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioClipData.Pause">
+            <summary>
+            Pauses all sounds using this DeAudioClipData clip
+            </summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioClipGUIMode">
+            <summary>
+            Display mode used when drawing <see cref="T:DG.DeAudio.DeAudioClipData"/> objects in a custom editor.
+            Public so it can be serialized for advanced editors.
+            </summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.ClipOnly">
+            <summary>1 row > AudioClip only</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.Compact">
+            <summary>1 row > AudioClip and GroupId</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.CompactPreviewOnly">
+            <summary>1 row > AudioClip and play/stop buttons</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.CompactWithGroupAndPreview">
+            <summary>1 row > AudioClip, GroupId and play/stop buttons</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.VolumeWithPreview">
+            <summary>2 rows > AudioClip, GroupId, Volume, play/stop buttons</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.VolumeAndLoopsWithPreview">
+            <summary>2 rows > AudioClip, GroupId, Volume, play/stop/loops buttons</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.Full">
+            <summary>3 rows > All options</summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioCollection">
+            <summary>
+            A collection of audio files. Still needs to be completed.
+            </summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioGroup">
+            <summary>
+            Audio group, connected to an AudioMixerGroup.
+            Create it using the DeAudioManager Inspector
+            </summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioGroup.maxSources">
+            <summary>Max AudioSources for this group. DO NOT change this at runtime</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Play(DG.DeAudio.DeAudioClipData,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Plays the given <see cref="T:DG.DeAudio.DeAudioClipData"/> with the stored volume, pitch and loop settings (unless set otherwise).
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Play(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound with the given options.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.PlayFrom(DG.DeAudio.DeAudioClipData,System.Single,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Plays the given sound with the stored volume, pitch and loop settings (unless set otherwise).
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.PlayFrom(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound with the given options from the given time.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Stop">
+            <summary>Stops all sounds for this group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Stop(UnityEngine.AudioClip)">
+            <summary>Stops all sources for this group that are using the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.StopAllPaused">
+            <summary>Stops all sounds for this group that are in a paused state</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Pause">
+            <summary>Pauses all sounds for this group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Pause(UnityEngine.AudioClip)">
+            <summary>Pauses all sources for this group that are using the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Resume(System.Single)">
+            <summary>Resumes all paused sounds for this group</summary>
+            <param name="volume">If >=0 also sets the group volume, otherwise leaves as it was</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Resume(UnityEngine.AudioClip,System.Single)">
+            <summary>Resumes all paused sources for this group that are using the given clip</summary>
+            <param name="volume">If >=0 also sets the volume for the sources resuming the clip, otherwise leaves as it was</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.ChangePitch(System.Single)">
+            <summary>Changes the pitch for all existing sources of this group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.SetVolume(System.Single)">
+            <summary>Sets the volume for this group (same as setting <see cref="P:DG.DeAudio.DeAudioGroup.volume"/> directly)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.SetVolume(UnityEngine.AudioClip,System.Single)">
+            <summary>Sets the volume for all sources in this group that are using the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Unlock">
+            <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances for this group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Unlock(UnityEngine.AudioClip)">
+            <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances for this group that are using the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeOut(System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out this group's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeIn(System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in this group's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeTo(System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades this group's volume to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeSourcesOut(System.Single,System.Boolean,DG.DeAudio.FadeBehaviour)">
+            <summary>Fades out the volume of each source in this group (not this group's volume)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeSourcesIn(System.Single,System.Boolean)">
+            <summary>Fades in the volume of each source in this group (not this group's volume)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.FadeSourcesTo(System.Single,System.Single,System.Boolean)">
+            <summary>Fades the volume of each source in this group (not this group's volume) to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Crossfade(DG.DeAudio.DeAudioClipData,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>
+            Fades out then stops all sources in this group, while starting the given <see cref="T:DG.DeAudio.DeAudioClipData"/> with a fade-in effect.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Crossfade(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>
+            Fades out then stops all sources in this group, while starting the given clip with a fade-in effect.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioGroupId.INTERNAL_Global">
+            <summary>Don't use/assign this! It's assigned automatically to the global group</summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioManager">
+            <summary>
+            Global AudioManager. Only use its static methods.
+            <para>Must be instantiated only once per project (either manually or via code), and its GameObject is set automatically to DontDestroyOnLoad.</para>
+            </summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioManager.inspectorUpdater">
+            <summary>Used internally inside Unity Editor, as a trick to update DeAudioManager's inspector at every frame</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Init">
+            <summary>
+            Creates a DeAudioManager instance (if it's not present already) and sets it as DontDestroyOnLoad.
+            Returns TRUE if the initialization is successful, FALSE otherwise.
+            <para>Use this method if you want to use DeAudioManager without setting up any DeAudioGroup.
+            Though the recommended way is to create a prefab with the required settings and instantiate it once at startup.</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Init(System.String)">
+            <summary>
+            Instantiates the DeAudioManager prefab at the given Resources path (if it's not present already) and sets it as DontDestroyOnLoad.
+            Returns TRUE if the initialization is successful, FALSE otherwise.
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Init(DG.DeAudio.DeAudioGroup[])">
+            <summary>
+            Creates a DeAudioManager instance (if it's not present already), sets it as DontDestroyOnLoad, and sets it with the given groups.
+            Returns TRUE if the initialization is successful, FALSE otherwise.
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Play(DG.DeAudio.DeAudioClipData,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Plays the given <see cref="T:DG.DeAudio.DeAudioClipData"/> on the stored group,
+            with the stored volume, pitch and loop settings (unless set otherwise).
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually play.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Play(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound with the given options and using the given group id.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually play.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Play(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound external to any group, using the given options.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.PlayFrom(DG.DeAudio.DeAudioClipData,System.Single,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Plays the given <see cref="T:DG.DeAudio.DeAudioClipData"/> on the stored group,
+            with the stored volume, pitch, loop settings (unless set otherwise), and from the given time.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually play.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.PlayFrom(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound with the given options, using the given group id, and from the given time.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually play.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.PlayFrom(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Plays the given sound external to any group, using the given options and from the given time.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Stop">
+            <summary>Stops all sounds</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Stop(DG.DeAudio.DeAudioGroupId)">
+            <summary>Stops all sounds for the given group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Stop(UnityEngine.AudioClip)">
+            <summary>Stops all sounds for the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.StopAllPaused">
+            <summary>Stops all paused sounds</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.StopAllPaused(DG.DeAudio.DeAudioGroupId)">
+            <summary>Stops all paused sounds for the given group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Pause">
+            <summary>Pauses all sounds</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Pause(DG.DeAudio.DeAudioGroupId)">
+            <summary>Pauses all sounds for the given group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Pause(UnityEngine.AudioClip)">
+            <summary>Pauses all sounds for the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Resume">
+            <summary>Resumes all paused sounds</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Resume(DG.DeAudio.DeAudioGroupId,System.Single)">
+            <summary>Resumes all paused sounds for the given group</summary>
+            <param name="groupId">Group ID</param>
+            <param name="volume">If >=0 also sets the group volume, otherwise leaves as it was</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Resume(UnityEngine.AudioClip,System.Single)">
+            <summary>Resumes all paused sounds for the given clip</summary>
+            <param name="clip">Clip</param>
+            <param name="volume">If >= 0 also sets the volume for the sources resuming the given clip, otherwise leaves as it was</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.ChangePitch(DG.DeAudio.DeAudioGroupId,System.Single)">
+            <summary>Changes the pitch for the given group's existing sources</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.ChangePitch(System.Single)">
+            <summary>Changes the pitch for all audio groups' existing sources</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.SetVolume(System.Single)">
+            <summary>Sets the global volume (same as setting <see cref="P:DG.DeAudio.DeAudioManager.globalVolume"/> directly</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.SetVolume(DG.DeAudio.DeAudioGroupId,System.Single)">
+            <summary>Sets the volume for the given group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.SetVolume(UnityEngine.AudioClip,System.Single)">
+            <summary>Sets the volume for the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Unlock">
+            <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Unlock(DG.DeAudio.DeAudioGroupId)">
+            <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances for the given group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Unlock(UnityEngine.AudioClip)">
+            <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances for the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.GetAudioGroup(DG.DeAudio.DeAudioGroupId)">
+            <summary>
+            Returns the <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID, or NULL if there is none
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.GetMixerGroup(DG.DeAudio.DeAudioGroupId)">
+            <summary>
+            Returns the AudioMixerGroup for <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID, or null if there is none
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeOut(System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out the global volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeIn(System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in the global volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeTo(System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades the global volume to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesOut(System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out the volume of every source without touching global and group volumes</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesIn(System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in the volume of every source without touching global and group volumes</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesTo(System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades the volume of every source to the given value without touching global and group volumes</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeOut(DG.DeAudio.DeAudioGroupId,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out the given group's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeIn(DG.DeAudio.DeAudioGroupId,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in the given group's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeTo(DG.DeAudio.DeAudioGroupId,System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades the given group's volume to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesOut(DG.DeAudio.DeAudioGroupId,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out the volume of each source in the given group (not the given group's volume)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesIn(DG.DeAudio.DeAudioGroupId,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in the volume of each source in the given group (not the given group's volume)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeSourcesTo(DG.DeAudio.DeAudioGroupId,System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades the volume of each source in the given group (not the given group's volume) to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeOut(UnityEngine.AudioClip,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out the given clip's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeIn(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Starts playing the given clip with a fade-in volume effect</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeIn(UnityEngine.AudioClip,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Starts playing the given clip external to any group, with a fade-in volume effect</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeIn(DG.DeAudio.DeAudioClipData,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Starts playing the given <see cref="T:DG.DeAudio.DeAudioClipData"/> with a fade-in volume effect</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.FadeTo(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades the given clip's volume to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Crossfade(DG.DeAudio.DeAudioClipData,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>
+            Fades out then stops all sources in the given <see cref="T:DG.DeAudio.DeAudioClipData"/> group,
+            while starting the given <see cref="T:DG.DeAudio.DeAudioClipData"/> with a fade-in effect.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Crossfade(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Single,System.Boolean,System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>
+            Fades out then stops all sources in the given group, while starting the given clip with a fade-in effect.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioNotificator">
+            <summary>
+            Static event notificator for all DeAudio events
+            </summary>
+        </member>
+        <member name="T:DG.DeAudio.DeAudioSource">
+            <summary>
+            Data connected to every AudioSource added by <see cref="T:DG.DeAudio.DeAudioManager"/>
+            </summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioSource.locked">
+            <summary>If TRUE, the AudioSource won't be reused until it's unlocked</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.isFree">
+            <summary>TRUE if the audioSource is not playing and is not locked</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.isPaused">
+            <summary>TRUE if the clip was playing and has been paused - FALSE if it was/is stopped</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioSource.targetVolume">
+            <summary>Target volume to use when fading in (taken by DeAudioClipData, but can also be set manually)</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.unscaledVolume">
+            <summary>Unscaled volume (doesn't include modifiers caused by global, group and target volumes)</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.volume">
+            <summary>Current volume (including modifiers caused by global, group and target volumes)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Play(DG.DeAudio.DeAudioClipData)">
+            <summary>
+            Play the given clip with the stored volume, pitch and loop settings.
+            Calling Play directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Play(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Play the given clip with the given options.
+            Calling Play directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.PlayFrom(DG.DeAudio.DeAudioClipData,System.Single)">
+            <summary>
+            Play the given clip with the stored volume, pitch and loop settings.
+            Calling Play directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.PlayFrom(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Play the given clip with the given options from the given time.
+            Calling PlayFrom directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Pause">
+            <summary>
+            If the source was actually playing something, pauses it and returns TRUE, otherwise returns FALSE
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Resume">
+            <summary>
+            Resumes playing if paused
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Stop">
+            <summary>
+            Stops any sound connected to this source
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.StopIfPaused">
+            <summary>
+            If this source was paused, stops any sound connected to it
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Seek(System.Single)">
+            <summary>
+            Sends this source's clip to the given time position
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.SeekPercentage(System.Single)">
+            <summary>
+            Sends this source's clip to the given percentage position, 0 to 1 (but beware: 1 can't be seeked because it's the end of the clip),
+            and returns the actual time position where the source went.
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.FadeOut(System.Single,System.Boolean,DG.DeAudio.FadeBehaviour,DG.Tweening.TweenCallback)">
+            <summary>Fades out this source's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.FadeIn(System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades in this source's volume</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.FadeTo(System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades this source's volume to the given value</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.FadeFrom(System.Single,System.Single,System.Boolean,DG.Tweening.TweenCallback)">
+            <summary>Fades this source's volume from the given value to its current one</summary>
+        </member>
+        <member name="P:DG.DeAudio.Events.DeAudioEventArgs.type">
+            <summary>Type of event</summary>
+        </member>
+        <member name="P:DG.DeAudio.Events.DeAudioEventArgs.audioGroup">
+            <summary>Eventual <see cref="T:DG.DeAudio.DeAudioGroup"/> involved in the event (can be NULL)</summary>
+        </member>
+        <member name="P:DG.DeAudio.Events.DeAudioEventArgs.source">
+            <summary>Eventual <see cref="T:DG.DeAudio.DeAudioSource"/> involved in the event (can be NULL)</summary>
+        </member>
+    </members>
+</doc>

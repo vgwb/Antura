@@ -1,0 +1,80 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1000011353243712}
+  m_IsPrefabParent: 1
+--- !u!1 &1000011353243712
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 4000013682659882}
+  - 114: {fileID: 114000013493082588}
+  - 114: {fileID: 114000011111333640}
+  m_Layer: 0
+  m_Name: GameManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000013682659882
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011353243712}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &114000011111333640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011353243712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4d5f4b078d9162740aec50eb7fbe174f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_StartFingerPosition: {fileID: 0}
+  m_EndFingerPosition: {fileID: 0}
+  m_MaxDelay: 2
+  StartTutorial: 0
+--- !u!114 &114000013493082588
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1000011353243712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 072976ec296e82a4a9fa9426952a3652, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UseTestGameplayInfo: 0
+  m_LetterPrefab: {fileID: 0}
+  m_ColorsCanvas: {fileID: 0}
+  m_AnturaController: {fileID: 0}
+  m_EndCanvas: {fileID: 0}
+  m_StarsFlowers: {fileID: 0}
+  m_Rounds: 3
+  m_MaxLives: 3
+  m_fDifficulty: 0
+  m_oBackgroundMusic: 1
+  m_Stars: 0

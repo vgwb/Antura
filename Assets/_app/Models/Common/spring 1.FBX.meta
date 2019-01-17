@@ -1,0 +1,146 @@
+fileFormatVersion: 2
+guid: 6fd452504d4e1a048a3f42ed53a0f6a2
+timeCreated: 1486491114
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: arrow
+    100002: catapult
+    100004: Spring
+    100006: //RootNode
+    100008: spring_bone_01
+    100010: spring_bone_02
+    100012: spring_bone_03
+    100014: spring_bone_04
+    400000: arrow
+    400002: catapult
+    400004: Spring
+    400006: //RootNode
+    400008: spring_bone_01
+    400010: spring_bone_02
+    400012: spring_bone_03
+    400014: spring_bone_04
+    2300000: arrow
+    2300002: catapult
+    3300000: arrow
+    3300002: catapult
+    4300000: Spring
+    4300002: catapult
+    4300004: arrow
+    7400000: Base
+    9500000: //RootNode
+    11100000: //RootNode
+    13700000: Spring
+  materials:
+    importMaterials: 0
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Base
+      takeName: Take 001
+      firstFrame: 10
+      lastFrame: 30
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Spring
+        weight: 1
+      - path: spring_bone_01
+        weight: 1
+      - path: spring_bone_01/spring_bone_02
+        weight: 1
+      - path: spring_bone_01/spring_bone_02/spring_bone_03
+        weight: 1
+      - path: spring_bone_01/spring_bone_02/spring_bone_03/spring_bone_04
+        weight: 1
+      - path: spring_bone_01/spring_bone_02/spring_bone_03/spring_bone_04/catapult
+        weight: 1
+      - path: spring_bone_01/spring_bone_02/spring_bone_03/spring_bone_04/catapult/arrow
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1.5
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 1
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 1
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
