@@ -20,19 +20,19 @@ namespace Antura.Core
         /// <summary>
         /// Version of the application. Displayed in the Home scene.
         /// </summary>
-        public static Version AppVersion = new Version(1, 2, 2, 19);
+        public static Version AppVersion = new Version(0, 1, 0, 1);
 
         /// <summary>
         /// Version of the Static Database Scheme.
         /// v1.0.7 - added ArabicFemale to LocalizationData
         /// </summary>
-        public const string StaticDbSchemeVersion = "1.2.1.0";
+        public const string StaticDbSchemeVersion = "1.0.0.0";
 
         /// <summary>
         /// Version of the MySQL Database Scheme.
         /// @note: Change with EXTREME CAUTION, as the MySQL databases are regenerated (and thus the data is removed) when a change is detected.
         /// </summary>
-        public const string DynamicDbSchemeVersion = "1.2.0.0";
+        public const string DynamicDbSchemeVersion = "1.0.0.0";
 
         #region Debug Options
 
