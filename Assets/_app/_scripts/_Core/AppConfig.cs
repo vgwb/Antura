@@ -40,19 +40,19 @@ namespace Antura.Core
         /// Enabled the Advanced Debug Panel.
         /// Set to FALSE for production.
         /// </summary>
-        public static bool DebugPanelEnabledAtStartup = false;
+        public static bool DebugPanelEnabledAtStartup = true;
 
         /// <summary>
         /// Tracks common events using Unity Analytics.
         /// Set to TRUE for production.
         /// </summary>
-        public static bool OnlineAnalyticsEnabled = true;
+        public static bool OnlineAnalyticsEnabled = false;
 
         /// <summary>
         /// Switches on all Debug.Log calls for performance.
         /// Set to FALSE for production.
         /// </summary>
-        public static bool DebugLogEnabled = false;
+        public static bool DebugLogEnabled = true;
 
         /// <summary>
         /// Logs all MySQL database inserts.
