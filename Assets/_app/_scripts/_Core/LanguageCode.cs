@@ -2,7 +2,7 @@ namespace Antura.Core
 {
     public enum LanguageCode
     {
-        en,
-        ar
+        english = 1,
+        arabic = 2
     }
 }

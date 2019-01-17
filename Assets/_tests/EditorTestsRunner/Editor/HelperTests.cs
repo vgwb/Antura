@@ -40,7 +40,7 @@ namespace Antura.Tests
         [Test]
         public void ArabicStringTest()
         {
-            var dbManager = new DatabaseManager(Core.LanguageCode.ar);
+            var dbManager = new DatabaseManager(Core.LanguageCode.arabic);
 
             var wordList = dbManager.FindWordData(x => x.Id == "color_brown");
             var word = wordList[0];
