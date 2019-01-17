@@ -15,12 +15,16 @@ using UnityEngine;
 
 namespace Antura.Core
 {
+
     /// <summary>
     /// Core of the application.
     /// Works as a general manager and entry point for all other systems and managers.
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
+        public SAppConfig AppConfig;
+        public LanguageSwitcher LanguageSwitcher;
+
         public AppSettingsManager AppSettingsManager;
         public TeacherAI Teacher;
         public VocabularyHelper VocabularyHelper;
@@ -79,13 +83,16 @@ namespace Antura.Core
 
             AppSettingsManager = new AppSettingsManager();
 
-            DB = new DatabaseManager();
+            LanguageSwitcher = new LanguageSwitcher();
+            var learningDB = LanguageSwitcher.GetManager(LanguageUse.Learning);
+            DB = learningDB;
+
             // TODO refactor: standardize initialisation of managers
             LogManager = new LogManager();
-            VocabularyHelper = new VocabularyHelper(DB);
-            JourneyHelper = new JourneyHelper(DB);
-            ScoreHelper = new ScoreHelper(DB);
-            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
+            VocabularyHelper = new VocabularyHelper(learningDB);
+            JourneyHelper = new JourneyHelper(learningDB);
+            ScoreHelper = new ScoreHelper(learningDB);
+            Teacher = new TeacherAI(learningDB, VocabularyHelper, ScoreHelper);
             GameLauncher = new MiniGameLauncher(Teacher);
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager();
@@ -110,7 +117,7 @@ namespace Antura.Core
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
-            Debug.unityLogger.logEnabled = AppConfig.DebugLogEnabled;
+            Debug.unityLogger.logEnabled = Core.AppConfig.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
             Debug.Log("AppManager Init(): UpdateAppVersion");
@@ -178,7 +185,7 @@ namespace Antura.Core
             parameters += "?entry.346861357=" + WWW.EscapeURL(new DeviceInfo().ToJsonData());
             parameters += "&entry.1999287882=" + WWW.EscapeURL(Player.ToJsonData());
 
-            Application.OpenURL(AppConfig.UrlSupportForm + parameters);
+            Application.OpenURL(Core.AppConfig.UrlSupportForm + parameters);
         }
 
         #region TMPro hack

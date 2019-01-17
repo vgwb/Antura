@@ -7,6 +7,7 @@ using UnityEngine;
 
 namespace Antura.Database
 {
+
     /// <summary>
     /// Entry point for the rest of the application to access database entries.
     /// This class is responsible for loading all data and provide access to both static (learning) and dynamic (logging) data. 
@@ -20,6 +21,8 @@ namespace Antura.Database
         private DatabaseObject staticDb;
 
         private DBService dynamicDb;
+
+        private LanguageCode langCode;
 
         public List<Type> staticDataTypes = new List<Type>()
         {
@@ -76,8 +79,9 @@ namespace Antura.Database
 
         #endregion
 
-        public DatabaseManager()
+        public DatabaseManager(LanguageCode langCode)
         {
+            this.langCode = langCode;
             // Only the static DB is available until the player profile is also assigned
             LoadStaticDB();
         }
@@ -98,7 +102,7 @@ namespace Antura.Database
         void LoadStaticDB()
         {
             var dbName = STATIC_DATABASE_NAME;
-            this.staticDb = DatabaseObject.LoadDB(dbName);
+            this.staticDb = DatabaseObject.LoadDB(langCode, dbName);
         }
 
         #region Profile
@@ -353,7 +357,7 @@ namespace Antura.Database
             if (locData != null) {
                 return locData;
             }
-            return new LocalizationData { Id = id, Arabic = ("MISSING " + id), English = ("MISSING " + id), AudioFile = "" };
+            return new LocalizationData { Id = id, InstructionText = ("MISSING " + id), LearningText = ("MISSING " + id), AudioFile = "" };
         }
 
         public List<LocalizationData> GetAllLocalizationData()

@@ -46,7 +46,7 @@ namespace Antura.Core.Services.Notification
             ScheduleSimpleWithAppIcon(
                 TimeSpan.FromSeconds(CalculateSecondsToTomorrow()),
                 "Antura and the Letters",
-                arabicString.Arabic,
+                arabicString.LearningText,
                 Color.blue
             );
 

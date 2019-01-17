@@ -68,11 +68,11 @@ namespace Antura.ReservedArea
             var sectionErrorLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_SectionDescription_Error);
 
             englishTextUI.text =
-                "<b>" + titleLoc.English + "</b>" +
-                "\n" + sectionIntroLoc.English + //"This section is reserved for parents and guardians." +
+                "<b>" + titleLoc.InstructionText + "</b>" +
+                "\n" + sectionIntroLoc.InstructionText + //"This section is reserved for parents and guardians." +
                 "\n\nPress <b>" + numberWord + "</b> times the <b>" + firstColorWord + "</b> button, then press the <b>" + secondColorWord +
                 "</b> one once." +
-                "\n\n" + sectionErrorLoc.English; //"If you make an error, retry by re - accessing this panel");
+                "\n\n" + sectionErrorLoc.InstructionText; //"If you make an error, retry by re - accessing this panel");
 
             string numberWordArabic = timesWordsArabic[firstButtonClicksTarget - 1];
             string firstColorWordArabic = colorsWordsArabic[firstButtonIndex];

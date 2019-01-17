@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using System;
@@ -40,7 +40,7 @@ namespace Antura.Tests
         [Test]
         public void ArabicStringTest()
         {
-            var dbManager = new DatabaseManager();
+            var dbManager = new DatabaseManager(Core.LanguageCode.ar);
 
             var wordList = dbManager.FindWordData(x => x.Id == "color_brown");
             var word = wordList[0];

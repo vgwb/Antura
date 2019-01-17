@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Antura.Database.Management
 {
@@ -12,17 +12,15 @@ namespace Antura.Database.Management
             var data = new LocalizationData();
 
             data.Id = ToString(dict["Id"]);
-            data.Character = ToString(dict["Character"]);
-            data.Area = ToString(dict["Area"]);
-            data.When = ToString(dict["When"]);
-            data.Context = ToString(dict["Context"]);
-            data.English = ToString(dict["English"]);
-            data.Italian = ToString(dict["Italian"]);
-            data.Arabic = ToString(dict["Arabic"]);
-            data.ArabicFemale = ToString(dict["ArabicFemale"]);
+            //data.Character = ToString(dict["Character"]);
+            //data.Area = ToString(dict["Area"]);
+            //data.When = ToString(dict["When"]);
+            //data.Context = ToString(dict["Context"]);
+            data.InstructionText = ToString(dict["LocalizedText"]);
+            //data.Italian = ToString(dict["Italian"]);
+            data.LearningText = ToString(dict["LocalizedText"]);
+            data.LocalizedTextFemale = ToString(dict["LocalizedTextFemale"]);
             data.AudioFile = ToString(dict["AudioFile"]);
-            //data.HasF = (ToString(dict["ArabicFemale"]) == "1") ? (data.Arabic + "_F") : "";
-
             return data;
         }
 

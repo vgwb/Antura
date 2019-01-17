@@ -1,6 +1,7 @@
-﻿#if UNITY_EDITOR
+#if UNITY_EDITOR
 using UnityEngine;
 using UnityEditor;
+using Antura.Core;
 
 namespace Antura.Database.Management
 {
@@ -12,22 +13,24 @@ namespace Antura.Database.Management
         public DatabaseInputData inputData;
         private DatabaseObject _databaseObject;
         public bool verbose;
+        [HideInInspector]
+        public LanguageCode langCode;
 
         public void RecreateDatabase()
         {
             CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME+"/", DatabaseManager.STATIC_DATABASE_NAME);
-            this._databaseObject = DatabaseObject.LoadDB(DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
         }
 
         public void CopyCurrentDatabaseForTesting()
         {
-            this._databaseObject = DatabaseObject.LoadDB(DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
-            var test_db = DatabaseObject.LoadDB(DatabaseManager.STATIC_DATABASE_NAME_TEST);
+            var test_db = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             if (!test_db.HasTables())
             {
                 CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME_TEST+"/", DatabaseManager.STATIC_DATABASE_NAME_TEST);
-                test_db = DatabaseObject.LoadDB(DatabaseManager.STATIC_DATABASE_NAME_TEST);
+                test_db = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             }
 
             {
@@ -163,7 +166,7 @@ namespace Antura.Database.Management
         {
             if (verbose) Debug.Log("Loading data from JSON files...");
 
-            this._databaseObject = DatabaseObject.LoadDB(DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
             LoadDataFrom(inputData);
 
             if (verbose) Debug.Log("Finished loading!");

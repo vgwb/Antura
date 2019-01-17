@@ -18,13 +18,13 @@ namespace Antura.Database
 
         public string Title_En
         {
-            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").English; }
+            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").InstructionText; }
             set { }
         }
 
         public string Title_Ar
         {
-            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").Arabic; }
+            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").LearningText; }
             set { }
         }
 

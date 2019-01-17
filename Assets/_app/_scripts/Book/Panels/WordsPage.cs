@@ -118,8 +118,8 @@ namespace Antura.Book
                         area = VocabularyChapter.Words,
                         wordCategory = cat,
                         Id = cat.ToString(),
-                        Title = CategoryData.Arabic,
-                        TitleEn = CategoryData.English,
+                        Title = CategoryData.LearningText,
+                        TitleEn = CategoryData.InstructionText,
                         Stage = 0
                     },
                     currentCategory.wordCategory == cat

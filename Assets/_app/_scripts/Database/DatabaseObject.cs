@@ -1,7 +1,8 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Core;
 
 namespace Antura.Database
 {
@@ -23,10 +24,10 @@ namespace Antura.Database
 
         #region Creation
 
-        public static DatabaseObject LoadDB(string staticDbNameToLoad)
+        public static DatabaseObject LoadDB(LanguageCode language, string staticDbNameToLoad)
         {
             var db = new DatabaseObject();
-            db.LoadTables(staticDbNameToLoad);
+            db.LoadTables(language, staticDbNameToLoad);
             return db;
         }
 
@@ -62,9 +63,11 @@ namespace Antura.Database
             return true;
         }
 
-        public void LoadTables(string dbName)
+        public void LoadTables(LanguageCode language, string dbName)
         {
-            var path = dbName + "/" + dbName + "_";
+            var path = language + "/"+ dbName + "/" + dbName + "_";
+
+            Debug.LogWarning("Loading database at path " + path);
 
             stageDb = Resources.Load<StageDatabase>(path + "Stage");
             if (!stageDb) {

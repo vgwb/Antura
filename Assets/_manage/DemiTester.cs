@@ -27,7 +27,7 @@ namespace Antura
                     else
                     {
                         var testData = new Database.LocalizationData();
-                        testData.Arabic = "من فضلك، حاول اصطياد البعض منها. من فضلك، حاول التقاطها.";
+                        testData.LearningText = "من فضلك، حاول اصطياد البعض منها. من فضلك، حاول التقاطها.";
                         WidgetSubtitles.I.DisplaySentence(testData, 2, Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift));
                     }
                 }

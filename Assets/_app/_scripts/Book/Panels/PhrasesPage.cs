@@ -72,8 +72,8 @@ namespace Antura.Book
                         area = VocabularyChapter.Phrases,
                         phraseCategory = cat,
                         Id = cat.ToString(),
-                        Title = CategoryData.Arabic,
-                        TitleEn = CategoryData.English
+                        Title = CategoryData.InstructionText,
+                        TitleEn = CategoryData.InstructionText
                     },
                     currentPhraseCategory == cat
                 );

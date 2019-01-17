@@ -1,10 +1,11 @@
-﻿using Antura.Helpers;
+using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using Antura.Utilities;
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using Antura.Core;
 
 namespace Antura.LivingLetters
 {
@@ -169,6 +170,7 @@ namespace Antura.LivingLetters
             ImageSprite.enabled = false;
             Drawing.enabled = false;
             Label.enabled = false;
+            Label.font = AppManager.I.LanguageSwitcher.GetLangConfig(Database.LanguageUse.Learning).font;
         }
 
         void Start()

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,13 +10,13 @@ namespace Antura.Teacher
     public static class ConfigAI
     {
         // Reporting
-        public static bool VerboseTeacher = false;
+        public static bool VerboseTeacher = true;
         // these depends on main VerboseTeacher bool
         public static bool VerboseMinigameSelection = false;
         public static bool VerboseDifficultySelection = false;
         public static bool VerboseQuestionPacks = false;
         public static bool VerboseDataFiltering = false;
-        public static bool VerboseDataSelection = false;
+        public static bool VerboseDataSelection = true;
         public static bool VerbosePlaySessionInitialisation = false;
 
         // If true, the Teacher will keep retrying if it encounters a selection error, to avoid blocking the game

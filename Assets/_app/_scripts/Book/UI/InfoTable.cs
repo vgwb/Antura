@@ -20,7 +20,7 @@ namespace Antura.Book
             var loc = LocalizationManager.GetLocalizationData(_locaData);
             rowGO = Instantiate(RowPrefab);
             rowGO.transform.SetParent(transform, false);
-            rowGO.GetComponent<TableRow>().Init(loc.English, loc.Arabic, _value);
+            rowGO.GetComponent<TableRow>().Init(loc.InstructionText, loc.LearningText, _value);
         }
 
         public void AddSliderRow(Database.LocalizationDataId _locaData, float _value, float _valueMax)
@@ -28,7 +28,7 @@ namespace Antura.Book
             var loc = LocalizationManager.GetLocalizationData(_locaData);
             rowGO = Instantiate(RowSliderPrefab);
             rowGO.transform.SetParent(transform, false);
-            rowGO.GetComponent<TableRow>().InitSlider(loc.English, loc.Arabic, _value, _valueMax);
+            rowGO.GetComponent<TableRow>().InitSlider(loc.InstructionText, loc.LearningText, _value, _valueMax);
         }
 
         void emptyListContainers()

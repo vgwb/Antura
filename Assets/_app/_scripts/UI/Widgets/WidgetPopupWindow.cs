@@ -127,7 +127,7 @@ namespace Antura.UI
             LocalizationData row = LocalizationManager.GetLocalizationData(SentenceId);
 
             TitleGO.GetComponent<TextRender>().isArabic = true;
-            TitleGO.GetComponent<TextRender>().text = row.Arabic;
+            TitleGO.GetComponent<TextRender>().text = row.LearningText;
 
             AudioManager.I.PlayDialogue(SentenceId);
 

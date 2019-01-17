@@ -33,12 +33,14 @@ namespace Antura.Database.Management
         private ScoreHelper scoreHelper;
 
         public static string DEBUG_PLAYER_UUID = "TEST";
+        public LanguageCode langCode;
 
         void Awake()
         {
             this.dbLoader = GetComponentInChildren<DatabaseLoader>();
+            dbLoader.langCode = langCode;
 
-            dbManager = new DatabaseManager();
+            dbManager = new DatabaseManager(langCode);
             vocabularyHelper = new VocabularyHelper(dbManager);
             scoreHelper = new ScoreHelper(dbManager);
             teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
