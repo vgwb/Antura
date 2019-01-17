@@ -110,7 +110,7 @@ namespace Antura.Core
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
-            Debug.logger.logEnabled = AppConfig.DebugLogEnabled;
+            Debug.unityLogger.logEnabled = AppConfig.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
             Debug.Log("AppManager Init(): UpdateAppVersion");

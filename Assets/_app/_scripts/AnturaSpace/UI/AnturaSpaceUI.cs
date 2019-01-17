@@ -11,7 +11,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Remoting.Messaging;
 using Antura.Audio;
 using Antura.Database;
 using Antura.Profile;
@@ -197,8 +196,7 @@ namespace Antura.AnturaSpace.UI
         {
             // Cannot close the shop panel while we are confirming a purchase
             if (ShopDecorationsManager.I.ShopContext != ShopContext.Closed
-                && ShopDecorationsManager.I.ShopContext != ShopContext.Purchase)
-            {
+                && ShopDecorationsManager.I.ShopContext != ShopContext.Purchase) {
                 AudioManager.I.PlaySound(Sfx.KO);
                 return;
             }
@@ -207,14 +205,12 @@ namespace Antura.AnturaSpace.UI
             var scene = AnturaSpaceScene.I as AnturaSpaceScene;
             if (scene.TutorialMode
                 && scene.tutorialManager.CurrentTutorialFocus != BtBonesShop.Bt
-            )
-            {
+            ) {
                 return;
             }
 
             // If we have no bones, we mention that
-            if (AppManager.I.Player.TotalNumberOfBones == 0 && !alreadyCommentedZeroBones)
-            {
+            if (AppManager.I.Player.TotalNumberOfBones == 0 && !alreadyCommentedZeroBones) {
                 alreadyCommentedZeroBones = true;
                 AudioManager.I.PlayDialogue(LocalizationDataId.AnturaSpace_Tuto_Cookie_3);
             }
@@ -223,11 +219,10 @@ namespace Antura.AnturaSpace.UI
                 ShopPanelContainer.gameObject.SetActive(true);
                 ShopDecorationsManager.I.SetContextPurchase();
                 showShopTween.PlayForward();
-            } else if (ShopDecorationsManager.I.ShopContext == ShopContext.Purchase)
-            { 
+            } else if (ShopDecorationsManager.I.ShopContext == ShopContext.Purchase) {
                 ShopDecorationsManager.I.SetContextClosed();
                 showShopTween.PlayBackwards();
-            } 
+            }
 
         }
 
@@ -305,15 +300,12 @@ namespace Antura.AnturaSpace.UI
         /// </summary>
         public AnturaSpaceCategoryButton GetFirstUnlockedCategoryButton()
         {
-            if (!IsModsPanelOpen)
-            {
+            if (!IsModsPanelOpen) {
                 Debug.LogWarning("AnturaSpaceUI.GetNewCategoryButton > Mods Panel is not open");
                 return null;
             }
-            foreach (AnturaSpaceCategoryButton bt in btsCategories)
-            {
-                if (bt.Unlocked)
-                {
+            foreach (AnturaSpaceCategoryButton bt in btsCategories) {
+                if (bt.Unlocked) {
                     return bt;
                 }
             }
@@ -326,15 +318,12 @@ namespace Antura.AnturaSpace.UI
         /// </summary>
         public AnturaSpaceItemButton GetFirstUnlockedItemButton()
         {
-            if (!IsModsPanelOpen || !ItemsContainer.gameObject.activeSelf)
-            {
+            if (!IsModsPanelOpen || !ItemsContainer.gameObject.activeSelf) {
                 Debug.LogWarning("AnturaSpaceUI.GetRandomItemButton > Mods Panel is not open or category is not selected");
                 return null;
             }
-            foreach (var bt in btsItems)
-            {
-                if (!bt.IsItemLocked)
-                {
+            foreach (var bt in btsItems) {
+                if (!bt.IsItemLocked) {
                     return bt;
                 }
             }
@@ -446,8 +435,7 @@ namespace Antura.AnturaSpace.UI
                 AnturaSpaceSwatchButton swatch = btsSwatches[i];
                 swatch.gameObject.SetActive(true);
                 swatch.Data = swatchData;
-                if (swatchData != null)
-                {
+                if (swatchData != null) {
                     swatch.SetAsNew(false); // @note: we force the swatch colors to never be shown as new
                     //swatch.SetAsNew(!swatchData.IsSelected && swatchData.IsNew);
                     swatch.Toggle(swatchData.IsSelected);
@@ -493,14 +481,12 @@ namespace Antura.AnturaSpace.UI
         {
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
-            if (currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
-            {
+            if (currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears) {
                 currRewardBaseItems = AppManager.I.RewardSystemManager.GetRewardBaseItems(_currRewardBaseType, rewardsContainers, "EAR_L");
                 List<Transform> altRewardContainers = new List<Transform>(rewardsContainers);
                 altRewardContainers.RemoveRange(0, currRewardBaseItems.Count);
                 currRewardBaseItems.AddRange(AppManager.I.RewardSystemManager.GetRewardBaseItems(_currRewardBaseType, altRewardContainers, "EAR_R"));
-            } else
-            {
+            } else {
                 currRewardBaseItems = AppManager.I.RewardSystemManager.GetRewardBaseItems(_currRewardBaseType,
                     useImages ? rewardsImagesContainers : rewardsContainers, currCategory.ToString());
             }
@@ -528,8 +514,7 @@ namespace Antura.AnturaSpace.UI
 
                 bool isNew = false;
                 bool isUnlocked = false;
-                foreach (var categoryString in categoryStrings)
-                {
+                foreach (var categoryString in categoryStrings) {
                     isNew = isNew || rewardSystemManager.DoesRewardCategoryContainNewElements(rewardBaseType, categoryString);
                     isUnlocked = isUnlocked || rewardSystemManager.DoesRewardCategoryContainUnlockedElements(rewardBaseType, categoryString);
                 }
@@ -624,16 +609,15 @@ namespace Antura.AnturaSpace.UI
             if (scene.TutorialMode && scene.tutorialManager.CurrentTutorialFocus != _bt) return;
 
             SelectReward(_bt.Data);
-            RewardBase rewardBase = _bt.Data.data; 
+            RewardBase rewardBase = _bt.Data.data;
             if (rewardBase != null && onRewardSelectedInCustomization != null) {
                 onRewardSelectedInCustomization(rewardBase.ID);
             }
 
             RewardProp rewardProp = rewardBase as RewardProp;
             if (rewardProp != null
-                &&  (rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L")
-                && onRewardCategorySelectedInCustomization != null)
-            {
+                && (rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L")
+                && onRewardCategorySelectedInCustomization != null) {
                 onRewardCategorySelectedInCustomization(rewardProp.Category);
             }
         }
