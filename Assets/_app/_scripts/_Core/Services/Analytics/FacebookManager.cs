@@ -95,8 +95,11 @@ namespace Antura.Core.Services.OnlineAnalytics
         }
 
         public void LogAppEvent(string logEvent, float? valueToSum = default(float?), Dictionary<string, object> parameters = null)
-        { 
-            FB.LogAppEvent(logEvent, valueToSum, parameters);
+        {
+            if (!FB.IsInitialized)
+                CheckActivation();
+            else 
+                FB.LogAppEvent(logEvent, valueToSum, parameters);
         }
 
     }

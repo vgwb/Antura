@@ -24,7 +24,7 @@ namespace Antura.AnturaSpace
         private void HandleDragStart(ShopDecorationObject decorationObject)
         {
             isDragging = true;
-            iconUI.texture = decorationObject.rawImage.texture;
+            iconUI.texture = decorationObject.RawImage.texture;
         }
 
         private void HandleDragStop()

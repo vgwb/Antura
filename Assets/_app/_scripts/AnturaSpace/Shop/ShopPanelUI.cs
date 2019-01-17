@@ -41,7 +41,7 @@ namespace Antura.AnturaSpace
 
         public ShopActionUI GetActionUIByName(string actionName)
         {
-            return actionUIs.FirstOrDefault(x => x.ShopAction.name == actionName);
+            return actionUIs.FirstOrDefault(x => String.Equals(x.ShopAction.name, actionName, StringComparison.CurrentCultureIgnoreCase));
         }
 
 

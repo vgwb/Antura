@@ -1,4 +1,5 @@
-﻿using DG.DeExtensions;
+﻿using Antura.AnturaSpace.UI;
+using DG.DeExtensions;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,7 +10,17 @@ namespace Antura.AnturaSpace
     {
         public ShopDecorationSlotType slotType;
         public string id;
-        public RawImage rawImage;
+
+        private ShopActionUI shopActionUI;
+        public RawImage RawImage
+        {
+            get
+            {
+                if (shopActionUI == null)
+                    shopActionUI = AnturaSpaceUI.I.ShopPanelUI.GetActionUIByName("ShopAction_Decoration_" + id);
+                return shopActionUI.renderedMeshUI.GetRawImage();
+            }
+        }
 
         public void OnMouseDown()
         {

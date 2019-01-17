@@ -30,12 +30,6 @@ namespace Antura.AnturaSpace
                 renderedMeshUI.scaleMultiplier = shopAction.scaleMultiplier;
                 renderedMeshUI.eulOffset = shopAction.eulOffset;
                 renderedMeshUI.AssignObjectToRender(shopAction.ObjectToRender);
-
-                ShopAction_UnlockDecoration shopAction_unlock = shopAction as ShopAction_UnlockDecoration;
-                if (shopAction_unlock != null)
-                {
-                    shopAction_unlock.UnlockableDecorationObject.rawImage = renderedMeshUI.GetRawImage();
-                }
                 iconUI.enabled = false;
             }
             else
