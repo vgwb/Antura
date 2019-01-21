@@ -1,25 +1,75 @@
-﻿using UnityEngine;
+﻿using Antura.LivingLetters;
+using UnityEngine;
 using UnityEngine.Assertions;
-using DG.Tweening;
 using System;
 using System.Collections.Generic;
-using Antura.LivingLetters;
+using DG.Tweening;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Options;
 using DG.Tweening.Plugins.Core.PathCore;
 
 namespace Antura.Minigames.MissingLetter
 {
-
     public class LetterBehaviour : MonoBehaviour
     {
+        #region VARS
+        private List<Vector3> positions = new List<Vector3>();
+        private Tweener moveTweener;
+        private Tweener rotationTweener;
+        private Collider mCollider;
+
+        private bool mbIsSpeaking;
+        private ILivingLetterData m_sInPhrase = null;
+
+        public ILivingLetterData LetterData
+        {
+            get {
+                return mLetterData;
+            }
+            set {
+                mLetterData = value;
+                mLetter.Init(value);
+            }
+        }
+
+        public LivingLetterController mLetter;
+#pragma warning disable 649
+        [SerializeField]
+        private GameObject m_oLetterLightRef;
+#pragma warning restore 649
+        private GameObject m_oLetterLightInstance;
+
+        [HideInInspector]
+        public ILivingLetterData mLetterData;
+        [HideInInspector]
+        public Action onEnterScene;
+        [HideInInspector]
+        public Action onExitScene;
+        [HideInInspector]
+        public Action<LetterBehaviour> onLetterClick;
+        [HideInInspector]
+        public event Action<GameObject> onLetterBecameInvisible;
+
+        //public for pool
+        [HideInInspector]
+        public float mfDistanceBetweenLetters;
+        [HideInInspector]
+        public Vector3 mv3StartPosition;
+        [HideInInspector]
+        public Vector3 mv3CenterPosition;
+        [HideInInspector]
+        public Vector3 mv3EndPosition;
+
+        public LLAnimationStates m_oDefaultIdleAnimation { get; set; }
+        #endregion
 
         #region API
 
         /// <summary>
         /// reset position, rotation - disable callback, click action and light of LL
         /// </summary>
-        public void Reset() {
+        public void Reset()
+        {
             gameObject.transform.position = mv3StartPosition;
             gameObject.transform.rotation = Quaternion.identity;
             onEnterScene = null;
@@ -115,8 +165,7 @@ namespace Antura.Minigames.MissingLetter
             float radius = dist.x + 0.1f;
 
             float accuracy = 4f;
-            for (int i = 1; i <= accuracy; ++i)
-            {
+            for (int i = 1; i <= accuracy; ++i) {
                 Vector3 p = Vector3.zero;
                 p += pivot;
                 p.x += Mathf.Cos(3.14f * (i / accuracy)) * radius;
@@ -150,27 +199,24 @@ namespace Antura.Minigames.MissingLetter
         /// </summary>
         public void Speak()
         {
-            if (mLetterData != null && !mbIsSpeaking)
-            {
+            if (mLetterData != null && !mbIsSpeaking) {
                 mbIsSpeaking = true;
-                if(m_sInPhrase != null)
-                {
+                if (m_sInPhrase != null) {
                     MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true);
-                }
-                else
-                {
+                } else {
                     MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true);
                 }
                 StartCoroutine(Utils.LaunchDelay(0.8f, SetIsSpeaking, false));
             }
         }
-        
+
         private void SetIsSpeaking(bool _isSpeaking)
         {
             mbIsSpeaking = _isSpeaking;
         }
 
-        public void SetEnabledCollider(bool _enabled) {
+        public void SetEnabledCollider(bool _enabled)
+        {
             mCollider.enabled = _enabled;
         }
 
@@ -186,19 +232,17 @@ namespace Antura.Minigames.MissingLetter
 
         public void LightOn()
         {
-            if(m_oLetterLightInstance == null)
-            {
+            if (m_oLetterLightInstance == null) {
                 m_oLetterLightInstance = Instantiate(m_oLetterLightRef);
             }
             m_oLetterLightInstance.transform.parent = transform;
-            m_oLetterLightInstance.transform.position = transform.position + Vector3.up*0.1f;
+            m_oLetterLightInstance.transform.position = transform.position + Vector3.up * 0.1f;
             m_oLetterLightInstance.SetActive(true);
         }
 
         public void LightOff()
         {
-            if (m_oLetterLightInstance != null)
-            {
+            if (m_oLetterLightInstance != null) {
                 m_oLetterLightInstance.SetActive(false);
             }
         }
@@ -227,21 +271,17 @@ namespace Antura.Minigames.MissingLetter
             PlayAnimation(LLAnimationStates.LL_walking);
             mLetter.SetWalkingSpeed(1);
 
-            if (moveTweener != null)
-            {
+            if (moveTweener != null) {
                 moveTweener.Kill();
             }
 
             moveTweener = transform.DOLocalMove(_position, _duration).OnComplete(
                 delegate () {
                     PlayAnimation(m_oDefaultIdleAnimation);
-                    if (entering)
-                    { 
+                    if (entering) {
                         if (onEnterScene != null)
-                        onEnterScene();
-                    }
-                    else
-                    {
+                            onEnterScene();
+                    } else {
                         if (onExitScene != null)
                             onExitScene();
                     }
@@ -255,8 +295,7 @@ namespace Antura.Minigames.MissingLetter
         /// <param name="_duration"> duration of rotation </param>
         void RotateTo(Vector3 _rotation, float _duration)
         {
-            if (rotationTweener != null)
-            {
+            if (rotationTweener != null) {
                 rotationTweener.Kill();
             }
             rotationTweener = transform.DORotate(_rotation, _duration);
@@ -266,8 +305,7 @@ namespace Antura.Minigames.MissingLetter
         {
             Reset();
 
-            if (onLetterBecameInvisible != null)
-            {
+            if (onLetterBecameInvisible != null) {
                 onLetterBecameInvisible(gameObject);
             }
         }
@@ -276,8 +314,7 @@ namespace Antura.Minigames.MissingLetter
         {
             Speak();
 
-            if (onLetterClick != null)
-            {
+            if (onLetterClick != null) {
                 StartCoroutine(Utils.LaunchDelay(0.2f, onLetterClick, this));
                 mCollider.enabled = false;
             }
@@ -291,66 +328,10 @@ namespace Antura.Minigames.MissingLetter
         /// <returns></returns>
         private Vector3 CalculatePos(int _idxPos, int _length)
         {
-            Vector3 _GoalPos = mv3CenterPosition + new Vector3(mfDistanceBetweenLetters * (0.5f + _idxPos - _length*0.5f), 0, 0);
+            Vector3 _GoalPos = mv3CenterPosition + new Vector3(mfDistanceBetweenLetters * (0.5f + _idxPos - _length * 0.5f), 0, 0);
 
             return _GoalPos;
         }
         #endregion
-
-        #region VARS
-        private List<Vector3> positions = new List<Vector3>();
-
-        private Tweener moveTweener;
-        private Tweener rotationTweener;
-        private Collider mCollider;
-
-        private bool mbIsSpeaking;
-        private ILivingLetterData m_sInPhrase = null;
-
-        public ILivingLetterData LetterData
-        {
-            get
-            {
-                return mLetterData;
-            }
-            set
-            {
-                mLetterData = value;
-                mLetter.Init(value);
-            }
-        }
-
-        public LivingLetterController mLetter;
-
-        [SerializeField]
-        private GameObject m_oLetterLightRef;
-        private GameObject m_oLetterLightInstance;
-
-        [HideInInspector]
-        public ILivingLetterData mLetterData;
-        [HideInInspector]
-        public Action onEnterScene;
-        [HideInInspector]
-        public Action onExitScene;
-        [HideInInspector]
-        public Action<LetterBehaviour> onLetterClick;
-        [HideInInspector]
-        public event Action<GameObject> onLetterBecameInvisible;
-
-
-        //public for pool
-        [HideInInspector]
-        public float mfDistanceBetweenLetters;
-        [HideInInspector]
-        public Vector3 mv3StartPosition;
-        [HideInInspector]
-        public Vector3 mv3CenterPosition;
-        [HideInInspector]
-        public Vector3 mv3EndPosition;
-
-
-        public LLAnimationStates m_oDefaultIdleAnimation { get; set; }
-        #endregion
-
     }
 }

@@ -7,6 +7,7 @@ namespace Antura.Minigames.ColorTickle
     public class ColorTickle_LLController : MonoBehaviour
     {
         #region EXPOSED MEMBERS
+#pragma warning disable 649
         [Header("Movement")]
         [SerializeField]
         private float m_fMovementSpeed = 10; //Movement speed
@@ -25,6 +26,7 @@ namespace Antura.Minigames.ColorTickle
         private LLAnimationStates m_eAnimationOnMoving = LLAnimationStates.LL_still; //Animation to execute while moving
         [SerializeField]
         private LLAnimationStates m_eAnimationOnDestReached = LLAnimationStates.LL_still; //Animation to execute on reaching destination
+#pragma warning restore 649
         #endregion
 
         #region PRIVATE MEMBERS
@@ -83,12 +85,9 @@ namespace Antura.Minigames.ColorTickle
         void Start()
         {
             m_oLetter = gameObject.GetComponent<LivingLetterController>();
-            if (!m_bSetStartPosition)
-            {
+            if (!m_bSetStartPosition) {
                 m_v3StartPosition = m_oLetter.gameObject.transform.position;
-            }
-            else
-            {
+            } else {
                 m_oLetter.gameObject.transform.position = m_v3StartPosition;
             }
             m_v3Destination = m_Destination.position;
@@ -96,8 +95,7 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (m_bMovingToDestination)
-            {
+            if (m_bMovingToDestination) {
                 MoveTo(m_v3Destination);
             }
 
@@ -154,9 +152,8 @@ namespace Antura.Minigames.ColorTickle
                 {
                     OnDestinationReached();
                 }
-            }
-            else //make the progress for this frame
-            {
+            } else //make the progress for this frame
+              {
                 m_oLetter.SetWalkingSpeed(1);
 
                 m_oLetter.SetState(m_eAnimationOnMoving);

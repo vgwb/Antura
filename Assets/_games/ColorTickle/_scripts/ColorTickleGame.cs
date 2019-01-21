@@ -6,6 +6,7 @@ namespace Antura.Minigames.ColorTickle
     {
         #region PUBLIC MEMBERS
 
+#pragma warning disable 649
         [SerializeField]
         private GameObject m_LetterPrefab;
         [SerializeField]
@@ -20,6 +21,7 @@ namespace Antura.Minigames.ColorTickle
         private GameObject m_oWinParticle;
         [SerializeField]
         private Music m_oBackgroundMusic;
+#pragma warning restore 649
 
         // GAME STATES
         public IntroductionGameState IntroductionState { get; private set; }

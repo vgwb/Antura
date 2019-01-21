@@ -5,8 +5,9 @@ namespace Antura.Minigames.ColorTickle
 {
     public class SurfaceColoring : MonoBehaviour
     {
-        
+
         #region EXPOSED MEMBERS
+#pragma warning disable 649
         [SerializeField]
         private ColoringParameters m_oBrush; //The brush used to color
         [SerializeField]
@@ -19,6 +20,7 @@ namespace Antura.Minigames.ColorTickle
         private Color m_oBaseColor = Color.white; //The base color for the texture to color
         [SerializeField]
         private bool m_bEnableColor = true; //Flag used to enable the coloring functions 
+#pragma warning restore 649
         #endregion
 
         #region PRIVATE MEMBERS
@@ -66,26 +68,18 @@ namespace Antura.Minigames.ColorTickle
                 //Debug.DrawRay(_mouseRay.origin, _mouseRay.direction * 100, Color.yellow, 10);
 
                 //check for ray collision
-                if (m_oBody.Raycast(_mouseRay, out m_oRayHit, Mathf.Infinity))
-                {
-                    if (OnBodyHit != null)
-                    {
+                if (m_oBody.Raycast(_mouseRay, out m_oRayHit, Mathf.Infinity)) {
+                    if (OnBodyHit != null) {
                         OnBodyHit(true);
                     }
-                    ColorBodyTexturePoint(m_oRayHit.textureCoord);            
-                }
-                else
-                {
-                    if (OnBodyHit != null)
-                    {
+                    ColorBodyTexturePoint(m_oRayHit.textureCoord);
+                } else {
+                    if (OnBodyHit != null) {
                         OnBodyHit(false);
                     }
                 }
-            }
-            else
-            {
-                if (OnBodyHit != null)
-                {
+            } else {
+                if (OnBodyHit != null) {
                     OnBodyHit(false);
                 }
             }
@@ -128,8 +122,7 @@ namespace Antura.Minigames.ColorTickle
         private void ColorBodyTexturePoint(Vector2 targetUV)
         {
 
-            if (!m_bEnableColor)
-            {
+            if (!m_bEnableColor) {
                 return;
             }
 
@@ -171,8 +164,7 @@ namespace Antura.Minigames.ColorTickle
             float _fAlphaOver = 0f;
             float _fAlphaBack = 0f;
 
-            for (int idx = 0; idx < _aColors_BrushClampedShape.Length; ++idx)
-            {
+            for (int idx = 0; idx < _aColors_BrushClampedShape.Length; ++idx) {
                 //Blend brush color with texture
                 _fAlphaOver = _aColors_BrushClampedShape[idx].a;
                 _fAlphaBack = _aColors_CurrentDynamicTex[idx].a;

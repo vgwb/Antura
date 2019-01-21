@@ -24,12 +24,15 @@ namespace Antura.Rewards
         public GameObject todayPivot;
         public GameObject yesterdayTextGo;
         public Button claimButton;
+
+#pragma warning disable 649
         [SerializeField]
         private DailyRewardPopupPool popupPool;
         [SerializeField]
         private RectTransform fromPopupPivot;
         [SerializeField]
         private RectTransform toPopupPivot;
+#pragma warning restore 649
 
         private DailyRewardManager dailyRewardManager;
         private List<DailyRewardUI> dailyRewardUIs;

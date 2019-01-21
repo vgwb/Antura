@@ -17,7 +17,7 @@ namespace Antura.AnturaSpace
         public bool Catchable = false;
 
         #region EXPOSED MEMBERS
-
+#pragma warning disable 649
         [Header("References")]
         [SerializeField]
         private Rigidbody m_oRigidbody;
@@ -64,7 +64,7 @@ namespace Antura.AnturaSpace
 
         [SerializeField]
         private ForceMode m_eReleaseForceMode;
-
+#pragma warning restore 649
         #endregion
 
         #region PRIVATE MEMBERS

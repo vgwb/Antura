@@ -8,11 +8,13 @@ namespace Antura.AnturaSpace
     /// </summary>
     public class BoneShadowController : MonoBehaviour
     {
+#pragma warning disable 649
         [SerializeField]
         private float m_fWorldY;
 
         [SerializeField]
         private Transform m_oTarget;
+#pragma warning restore 649
 
         private Quaternion m_oOriginalRotation;
 

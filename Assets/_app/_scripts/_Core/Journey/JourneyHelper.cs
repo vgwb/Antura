@@ -44,15 +44,10 @@ namespace Antura.Teacher
         public IEnumerable<JourneyPosition> GetAllJourneyPositionsUpTo(JourneyPosition targetPosition)
         {
             var allPlaySessions = dbManager.GetAllPlaySessionData();
-            int next_id = -1;
-            for (int ps_i = 0; ps_i < allPlaySessions.Count; ps_i++)
-            {
-                if (allPlaySessions[ps_i].Id != targetPosition.Id)
-                {
+            for (int ps_i = 0; ps_i < allPlaySessions.Count; ps_i++) {
+                if (allPlaySessions[ps_i].Id != targetPosition.Id) {
                     yield return allPlaySessions[ps_i].GetJourneyPosition();
-                }
-                else
-                {
+                } else {
                     yield break;
                 }
             }

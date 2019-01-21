@@ -81,11 +81,11 @@ namespace Antura.Database
         {
             return InstructionText;
             // TODO: the distintion should be performed before accessing this by the localizer
-            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian) {
-                return InstructionText;
-            } else {
-                return InstructionText;
-            }
+            //if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian) {
+            //    return InstructionText;
+            //} else {
+            //    return InstructionText;
+            //}
         }
     }
 }

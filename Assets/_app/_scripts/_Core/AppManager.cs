@@ -12,7 +12,7 @@ using Antura.Teacher;
 using Antura.UI;
 using Antura.Utilities;
 using UnityEngine;
-
+using UnityEngine.Networking;
 namespace Antura.Core
 {
 
@@ -182,8 +182,8 @@ namespace Antura.Core
         public void OpenSupportForm()
         {
             var parameters = "";
-            parameters += "?entry.346861357=" + WWW.EscapeURL(new DeviceInfo().ToJsonData());
-            parameters += "&entry.1999287882=" + WWW.EscapeURL(Player.ToJsonData());
+            parameters += "?entry.346861357=" + UnityWebRequest.EscapeURL(new DeviceInfo().ToJsonData());
+            parameters += "&entry.1999287882=" + UnityWebRequest.EscapeURL(Player.ToJsonData());
 
             Application.OpenURL(Core.AppConfig.UrlSupportForm + parameters);
         }

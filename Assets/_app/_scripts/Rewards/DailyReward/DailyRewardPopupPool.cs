@@ -9,10 +9,10 @@ namespace Antura.Rewards
     public class DailyRewardPopupPool : MonoBehaviour
     {
         #region Serialized
-
+#pragma warning disable 649
         [SerializeField]
-        DailyRewardPopup popup;
-
+        private DailyRewardPopup popup;
+#pragma warning restore 649
         #endregion
 
         bool initialized;

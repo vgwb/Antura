@@ -5,12 +5,10 @@ namespace Antura.Minigames.ColorTickle
 {
     public class ColorsUIManager : MonoBehaviour
     {
-
         #region PUBLIC MEMBERS
+#pragma warning disable 649
         [SerializeField]
-		private Button m_SampleButton;
-		//[SerializeField]
-		//private int m_NumberOfButtons = 4;
+        private Button m_SampleButton;
         [SerializeField]
         private float m_OutlineSize = 1.2f;
         [SerializeField]
@@ -19,19 +17,16 @@ namespace Antura.Minigames.ColorTickle
         [Header("Max Colors = Number of Buttons * Rounds")]
         public Color[] m_Colors;
         public event System.Action<Color> SetBrushColor;
-
+#pragma warning restore 649
         #endregion
 
-        #region PRIVATE MEMBERS
-        
-        Button[] m_Buttons;
-        Button m_OutlineButton;
-        RectTransform m_OutlineTransform;
-        int m_PreviousColor;
-        int m_ColorNumber = 0;
-        int m_NumberOfButtons = 4;
-        int selectedButton = -1;
-        #endregion
+        private Button[] m_Buttons;
+        private Button m_OutlineButton;
+        private RectTransform m_OutlineTransform;
+        private int m_PreviousColor;
+        private int m_ColorNumber = 0;
+        private int m_NumberOfButtons = 4;
+        private int selectedButton = -1;
 
         #region GETTER/SETTERS
 
@@ -43,9 +38,9 @@ namespace Antura.Minigames.ColorTickle
 
         // Use this for initialization
         void Awake()
-		{
-            m_Buttons = new Button[m_NumberOfButtons];	        
-            
+        {
+            m_Buttons = new Button[m_NumberOfButtons];
+
             BuildButtons();
             BuildOutlineButton();
             SelectButton(0);
@@ -53,8 +48,7 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (selectedButton >= 0 && selectedButton < m_NumberOfButtons)
-            {
+            if (selectedButton >= 0 && selectedButton < m_NumberOfButtons) {
                 m_OutlineButton.transform.position = m_Buttons[selectedButton].transform.position;
                 if (m_OutlineTransform == null)
                     m_OutlineTransform = m_OutlineButton.GetComponent<RectTransform>();
@@ -76,11 +70,10 @@ namespace Antura.Minigames.ColorTickle
 
         void BuildButtons()
         {
-            for (int i = 0; i < m_NumberOfButtons; ++i)
-            {
+            for (int i = 0; i < m_NumberOfButtons; ++i) {
                 m_Buttons[i] = Instantiate(m_SampleButton);
                 m_Buttons[i].transform.SetParent(gameObject.transform);
-               
+
                 m_Colors[i].a = 255.0f;
                 m_Buttons[i].image.color = m_Colors[i];
 
@@ -99,19 +92,16 @@ namespace Antura.Minigames.ColorTickle
         {
             selectedButton = buttonNumber;
 
-            if (SetBrushColor != null)
-            {
+            if (SetBrushColor != null) {
                 SetBrushColor(m_Buttons[buttonNumber].image.color);
             }
         }
 
         public void ChangeButtonsColor()
         {
-            for (int i = 0; i < m_NumberOfButtons; ++i)
-            {
+            for (int i = 0; i < m_NumberOfButtons; ++i) {
                 m_ColorNumber++;
-                if (m_ColorNumber >= m_Colors.Length)
-                {
+                if (m_ColorNumber >= m_Colors.Length) {
                     m_ColorNumber = 0;
                 }
                 m_Colors[m_ColorNumber].a = 255.0f;
