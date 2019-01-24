@@ -1004,7 +1004,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -19.999878, y: -4.999939}
+  m_AnchoredPosition: {x: -19.999878, y: -4.999878}
   m_SizeDelta: {x: 100, y: 80}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &678813669
@@ -1621,6 +1621,16 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114287632626746698, guid: d0aa0493284483142877cd50411922ec,
+        type: 3}
+      propertyPath: shadow
+      value: 
+      objectReference: {fileID: 1151531681}
+    - target: {fileID: 114287632626746698, guid: d0aa0493284483142877cd50411922ec,
+        type: 3}
+      propertyPath: game
+      value: 
+      objectReference: {fileID: 1474454552}
     - target: {fileID: 4999014066696994, guid: d0aa0493284483142877cd50411922ec, type: 3}
       propertyPath: m_LocalPosition.x
       value: 8.5
@@ -1658,16 +1668,6 @@ PrefabInstance:
       propertyPath: boneToScaleTransform
       value: 
       objectReference: {fileID: 45399098}
-    - target: {fileID: 114287632626746698, guid: d0aa0493284483142877cd50411922ec,
-        type: 3}
-      propertyPath: shadow
-      value: 
-      objectReference: {fileID: 1151531681}
-    - target: {fileID: 114287632626746698, guid: d0aa0493284483142877cd50411922ec,
-        type: 3}
-      propertyPath: game
-      value: 
-      objectReference: {fileID: 1474454552}
     - target: {fileID: 33247875231518582, guid: d0aa0493284483142877cd50411922ec,
         type: 3}
       propertyPath: m_Mesh
@@ -1936,6 +1936,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1000013414386608, guid: 247846043502f674c8b94f2b72e40d4a, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4000014236805578, guid: 247846043502f674c8b94f2b72e40d4a, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1
