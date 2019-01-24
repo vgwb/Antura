@@ -10,7 +10,6 @@ using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
-using Antura.Language;
 
 // refactor: standardize random use across the codebase
 using RND = UnityEngine.Random;
