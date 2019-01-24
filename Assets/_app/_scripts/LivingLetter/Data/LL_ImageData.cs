@@ -43,7 +43,7 @@ namespace Antura.LivingLetters
         /// </summary>
         public string TextForLivingLetter
         {
-            get { return ArabicAlphabetHelper.ProcessArabicString(Data.Arabic); } // TODO refactor: remove reference to the Arabic language
+            get { return ArabicAlphabetHelper.ProcessArabicString(Data.Text); } // TODO refactor: remove reference to the Arabic language
         }
 
         public string DrawingCharForLivingLetter

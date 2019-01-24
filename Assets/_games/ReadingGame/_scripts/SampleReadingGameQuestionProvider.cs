@@ -21,7 +21,7 @@ namespace Antura.Minigames.ReadingGame
 
             StringTestData fakeData = new StringTestData(
                  ArabicAlphabetHelper.ProcessArabicString(
-                     "منذ لم نرك منذ مدة " + randomWord.Data.Arabic + " منذ مدة" +
+                     "منذ لم نرك منذ مدة " + randomWord.Data.Text + " منذ مدة" +
                       "منذ لم نرك منذ مدة " +
                         "منذ لم نرك منذ مدة "));
 

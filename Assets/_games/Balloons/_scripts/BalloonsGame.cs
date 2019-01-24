@@ -403,7 +403,7 @@ namespace Antura.Minigames.Balloons
                 {
                     case BalloonsVariation.Spelling:
                         var spellingWordData = question as LL_WordData;
-                        var spellingWord = ArabicFixer.Fix(spellingWordData.Data.Arabic);
+                        var spellingWord = ArabicFixer.Fix(spellingWordData.Data.Text);
 
                         // Display
                         wordPrompt.DisplayWord(correctAnswers.Cast<LL_LetterData>().ToList());
@@ -420,7 +420,7 @@ namespace Antura.Minigames.Balloons
                     case BalloonsVariation.Words:
                         correctAnswers = new List<ILivingLetterData>() { question };
                         var wordToKeepData = question as LL_WordData;
-                        var wordToKeep = ArabicFixer.Fix(wordToKeepData.Data.Arabic);
+                        var wordToKeep = ArabicFixer.Fix(wordToKeepData.Data.Text);
 
                         // Display
                         wordFlexibleContainer.gameObject.SetActive(true);
@@ -428,8 +428,8 @@ namespace Antura.Minigames.Balloons
 
                         // Debug
                         Debug.Log("[New Round] Word To Keep: " + wordToKeep);
-                        Debug.Log(" Matching word: " + ArabicFixer.Fix(correctAnswers.Cast<LL_WordData>().ToList()[0].Data.Arabic));
-                        Debug.Log(" Random words (" + wrongAnswers.Count() + "): " + string.Join(" / ", wrongAnswers.Cast<LL_WordData>().ToList().Select(x => ArabicFixer.Fix(x.Data.Arabic)).ToArray()));
+                        Debug.Log(" Matching word: " + ArabicFixer.Fix(correctAnswers.Cast<LL_WordData>().ToList()[0].Data.Text));
+                        Debug.Log(" Random words (" + wrongAnswers.Count() + "): " + string.Join(" / ", wrongAnswers.Cast<LL_WordData>().ToList().Select(x => ArabicFixer.Fix(x.Data.Text)).ToArray()));
 
                         // Start round
                         StartCoroutine(StartNewRound_Coroutine());

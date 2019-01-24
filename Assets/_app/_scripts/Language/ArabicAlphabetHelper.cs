@@ -111,7 +111,7 @@ namespace Antura.Helpers
         public static string GetWordWithMissingLetterText(WordData arabicWord, ArabicStringPart partToRemove,
             string removedLetterChar = "_")
         {
-            string text = ProcessArabicString(arabicWord.Arabic);
+            string text = ProcessArabicString(arabicWord.Text);
 
             int toCharacterIndex = partToRemove.toCharacterIndex + 1;
             text = text.Substring(0, partToRemove.fromCharacterIndex) + removedLetterChar +
@@ -145,13 +145,13 @@ namespace Antura.Helpers
         public static List<ArabicStringPart> SplitWord(DatabaseManager database, WordData arabicWord, bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(arabicWord.Arabic), separateDiacritics, separateVariations);
+            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(arabicWord.Text), separateDiacritics, separateVariations);
         }
 
         public static List<ArabicStringPart> SplitWord(DatabaseObject staticDatabase, WordData arabicWord, bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(staticDatabase, ProcessArabicString(arabicWord.Arabic), separateDiacritics, separateVariations);
+            return AnalyzeArabicString(staticDatabase, ProcessArabicString(arabicWord.Text), separateDiacritics, separateVariations);
         }
 
         /// <summary>

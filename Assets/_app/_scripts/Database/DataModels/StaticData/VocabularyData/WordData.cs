@@ -81,22 +81,18 @@ namespace Antura.Database
         [SerializeField]
         private string _LinkedWord;
 
-        public string Arabic
+        public string Text
         {
-            get { return _Arabic; }
-            set { _Arabic = value; }
+            get { return _Text; }
+            set { _Text = value; }
         }
         [SerializeField]
-        private string _Arabic;
+        private string _Text;
 
-        public string ArabicNoShaddah
-        {
-            get { return _ArabicNoShaddah; }
-            set { _ArabicNoShaddah = value; }
-        }
-        [SerializeField]
-        private string _ArabicNoShaddah;
-
+        /// <summary>
+        /// the contextual value of this word (for example "green" for the green color
+        /// </summary>
+        /// <value>The value.</value>
         public string Value
         {
             get { return _Value; }
@@ -151,7 +147,7 @@ namespace Antura.Database
 
         public override string ToString()
         {
-            string s = Id + ": " + Arabic;
+            string s = Id + ": " + Text;
             s += "  ";
             foreach (var letter in Letters) s += letter + ", ";
             return s;

@@ -176,7 +176,7 @@ namespace Antura.Database.Management
         public void DumpWordById(string id)
         {
             var data = dbManager.GetWordDataById(id);
-            var arabic_text = data.Arabic;
+            var arabic_text = data.Text;
             PrintArabicOutput(arabic_text);
             DumpDataById(id, data);
         }
@@ -227,7 +227,7 @@ namespace Antura.Database.Management
         public void DumpArabicWord(string id)
         {
             var data = dbManager.GetWordDataById(id);
-            var arabic_text = data.Arabic;
+            var arabic_text = data.Text;
             PrintArabicOutput(arabic_text);
         }
 
