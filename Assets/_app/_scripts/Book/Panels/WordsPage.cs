@@ -80,9 +80,11 @@ namespace Antura.Book
             List<WordInfo> info_list = AppManager.I.ScoreHelper.GetAllWordInfo();
             foreach (var info_item in info_list) {
                 if (wordsList.Contains(info_item.data)) {
-                    btnGO = Instantiate(WordItemPrefab);
-                    btnGO.transform.SetParent(ListContainer.transform, false);
-                    btnGO.GetComponent<ItemWord>().Init(this, info_item, false);
+                    if (info_item.data.Active) {
+                        btnGO = Instantiate(WordItemPrefab);
+                        btnGO.transform.SetParent(ListContainer.transform, false);
+                        btnGO.GetComponent<ItemWord>().Init(this, info_item, false);
+                    }
                 }
             }
 

@@ -9,6 +9,7 @@ namespace Antura.Language
     [CreateAssetMenu]
     public class LangConfig : ScriptableObject
     {
+        public LanguageCode Code;
         public TMP_FontAsset font;
         public TextDirection TextDirection;
     }
