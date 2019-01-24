@@ -422,7 +422,8 @@ namespace Antura.Audio
         {
             AudioClip res;
             var audiofile = data.GetAudioFilename(soundType);
-            res = GetCachedResource(langResFolder + "Letters/" + audiofile);
+            var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
+            res = GetCachedResource(langDir + "/Audio/Letters/" + audiofile);
 
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for letter:" + data + " filename:" + audiofile);
@@ -432,7 +433,8 @@ namespace Antura.Audio
 
         public AudioClip GetAudioClip(WordData data)
         {
-            var res = GetCachedResource(langResFolder + "Words/" + data.Id);
+            var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
+            var res = GetCachedResource(langDir + "/Audio/Words/" + data.Id);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for " + data);
             }
