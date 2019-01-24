@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Database;
@@ -36,17 +36,17 @@ namespace Antura.Language
 
         List<StringPart> FindLetter(DatabaseManager database, WordData arabicWord, LetterData letterToFind, bool findSameForm);
 
-        List<StringPart> SplitWord(DatabaseManager database, WordData arabicWord,
+        List<StringPart> SplitWord(DatabaseManager database, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false);
 
-        List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData arabicWord,
+        List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false);
 
-        List<StringPart> SplitPhrase(DatabaseManager database, PhraseData phrase,
+        List<StringPart> SplitPhrase(DatabaseManager database, PhraseData phraseData,
             bool separateDiacritics = false,
             bool separateVariations = true);
 
-        List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phrase,
+        List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phraseData,
             bool separateDiacritics = false,
             bool separateVariations = true);
 

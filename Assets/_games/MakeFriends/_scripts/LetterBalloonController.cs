@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Antura.LivingLetters;
 using TMPro;
@@ -32,7 +32,7 @@ namespace Antura.Minigames.MakeFriends
         public void Init(ILivingLetterData _data)
         {
             letterData = _data;
-            displayedText.text = letterData.TextForLivingLetter;//ArabicAlphabetHelper.GetLetterFromUnicode(letterData.Data.Isolated_Unicode);
+            displayedText.text = letterData.TextForLivingLetter;
         }
 
         public void SetColor(Color color)

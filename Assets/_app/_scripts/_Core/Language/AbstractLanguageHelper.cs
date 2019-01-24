@@ -3,6 +3,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Antura.Database;
 using Antura.Helpers;
+using System;
 
 namespace Antura.Language 
 {
@@ -19,12 +20,21 @@ namespace Antura.Language
 
         public virtual string GetLetterFromUnicode(string hexCode)
         {
-            return hexCode;
+            if (hexCode == "")
+            {
+                Debug.LogError(
+                    "Letter requested with an empty hexacode (data is probably missing from the DataBase). Returning - for now.");
+                hexCode = "002D";
+            }
+
+            int unicode = int.Parse(hexCode, System.Globalization.NumberStyles.HexNumber);
+            var character = (char)unicode;
+            return character.ToString();
         }
 
         public virtual string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false)
         {
-            return "";
+            return string.Format("{1}{0:X4}", Convert.ToUInt16(_char), unicodePrefix ? "/U" : string.Empty);
         }
 
         public virtual string GetWordWithMissingLetterText(WordData arabicWord, StringPart partToRemove, string removedLetterChar = "_")
@@ -37,14 +47,13 @@ namespace Antura.Language
             return new List<StringPart>();
         }
 
-        public virtual List<StringPart> SplitWord(DatabaseManager database, WordData arabicWord,
+        public virtual List<StringPart> SplitWord(DatabaseManager database, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false)
         {
             return new List<StringPart>();
         }
 
-
-        public virtual List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData arabicWord,
+        public virtual List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false)
         {
             return new List<StringPart>();

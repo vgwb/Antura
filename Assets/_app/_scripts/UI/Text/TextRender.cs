@@ -13,6 +13,7 @@ using Antura.Language;
 // TODO refactor: remove reference to Arabic
 namespace Antura.UI
 {
+    // TODO: remove all references to arabic and use LTR / RTL based on language configuration
     public class TextRender : MonoBehaviour
     {
         public string text
