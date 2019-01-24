@@ -51,8 +51,8 @@ namespace Antura.Debugging
 
         public bool VerboseTeacher
         {
-            get { return Teacher.ConfigAI.VerboseTeacher; }
-            set { Teacher.ConfigAI.VerboseTeacher = value; }
+            get { return SAppConfig.I.VerboseTeacher; }
+            set  { SAppConfig.I.VerboseTeacher = value;}
         }
 
         /// <summary>

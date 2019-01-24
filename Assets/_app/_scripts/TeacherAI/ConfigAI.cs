@@ -1,3 +1,4 @@
+using Antura.Core;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -10,14 +11,14 @@ namespace Antura.Teacher
     public static class ConfigAI
     {
         // Reporting
-        public static bool VerboseTeacher = true;
+        public static bool VerboseTeacher { get { return SAppConfig.I.VerboseTeacher; } }
         // these depends on main VerboseTeacher bool
-        public static bool VerboseMinigameSelection = false;
-        public static bool VerboseDifficultySelection = false;
-        public static bool VerboseQuestionPacks = false;
-        public static bool VerboseDataFiltering = false;
-        public static bool VerboseDataSelection = true;
-        public static bool VerbosePlaySessionInitialisation = false;
+        public static bool VerboseMinigameSelection { get { return SAppConfig.I.VerboseMinigameSelection; } }
+        public static bool VerboseDifficultySelection { get { return SAppConfig.I.VerboseDifficultySelection; } }
+        public static bool VerboseQuestionPacks { get { return SAppConfig.I.VerboseQuestionPacks; } }
+        public static bool VerboseDataFiltering { get { return SAppConfig.I.VerboseDataFiltering; } }
+        public static bool VerboseDataSelection { get { return SAppConfig.I.VerboseDataSelection; } }
+        public static bool VerbosePlaySessionInitialisation { get { return SAppConfig.I.VerbosePlaySessionInitialisation; } }
 
         // If true, the Teacher will keep retrying if it encounters a selection error, to avoid blocking the game
         // @note: this may HANG the game if an error keeps appearing, so use it only for extreme cases!

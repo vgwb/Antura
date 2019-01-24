@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.Teacher;
 using System;
 
@@ -37,7 +37,6 @@ namespace Antura.Minigames.SickLetters
             TutorialEnabled = true;
             //SickLettersQuestions = new SickLettersQuestionProvider();
             Difficulty = 0.1f;
-            ConfigAI.VerboseTeacher = true;
         }
 
         public override IQuestionBuilder SetupBuilder()

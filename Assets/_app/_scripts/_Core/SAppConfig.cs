@@ -12,5 +12,14 @@ namespace Antura.Core
         public LanguageCode LearningLanguage;
         public LanguageCode InstructionsLanguage;
         public LanguageCode TutorLanguage;
+
+        [Header("Debug - AI")]
+        public bool VerboseTeacher;
+        public bool VerboseMinigameSelection;
+        public bool VerboseDifficultySelection;
+        public bool VerboseQuestionPacks;
+        public bool VerboseDataFiltering;
+        public bool VerboseDataSelection;
+        public bool VerbosePlaySessionInitialisation;
     }
 }
