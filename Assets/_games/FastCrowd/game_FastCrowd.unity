@@ -7823,6 +7823,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Environment Lighting
       objectReference: {fileID: 0}
+    - target: {fileID: 126296, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 419540, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -7859,11 +7863,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010480914444, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
+    - target: {fileID: 1000010684126046, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010684126046, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
+    - target: {fileID: 1000010480914444, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -14449,16 +14453,6 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 114240858757177336, guid: 9957d9cfc035045cb9a389ed852a2e79,
-        type: 3}
-      propertyPath: m_havePropertiesChanged
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114240858757177336, guid: 9957d9cfc035045cb9a389ed852a2e79,
-        type: 3}
-      propertyPath: m_isInputParsingRequired
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 114000013858608506, guid: 9957d9cfc035045cb9a389ed852a2e79,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -14468,6 +14462,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_isInputParsingRequired
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114240858757177336, guid: 9957d9cfc035045cb9a389ed852a2e79,
+        type: 3}
+      propertyPath: m_havePropertiesChanged
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114240858757177336, guid: 9957d9cfc035045cb9a389ed852a2e79,
+        type: 3}
+      propertyPath: m_isInputParsingRequired
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9957d9cfc035045cb9a389ed852a2e79, type: 3}
@@ -20103,14 +20107,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
-      propertyPath: m_CastShadows
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
       propertyPath: m_LocalScale.z
       value: 42.656403
@@ -20118,6 +20114,14 @@ PrefabInstance:
     - target: {fileID: 400004, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
       propertyPath: m_LocalScale.z
       value: 42.656403
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300000, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2300002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
+      propertyPath: m_CastShadows
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
