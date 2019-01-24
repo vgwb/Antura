@@ -101,7 +101,7 @@ namespace Antura.Language
         public override string GetWordWithMissingLetterText(WordData arabicWord, StringPart partToRemove,
             string removedLetterChar = "_")
         {
-            string text = ProcessArabicString(arabicWord.Arabic);
+            string text = ProcessArabicString(arabicWord.Text);
 
             int toCharacterIndex = partToRemove.toCharacterIndex + 1;
             text = text.Substring(0, partToRemove.fromCharacterIndex) + removedLetterChar +
@@ -140,7 +140,7 @@ namespace Antura.Language
             bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(arabicWord.Arabic),
+            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(arabicWord.Text),
                 separateDiacritics, separateVariations);
         }
 
@@ -148,7 +148,7 @@ namespace Antura.Language
             bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(staticDatabase, ProcessArabicString(arabicWord.Arabic), separateDiacritics,
+            return AnalyzeArabicString(staticDatabase, ProcessArabicString(arabicWord.Text), separateDiacritics,
                 separateVariations);
         }
 
