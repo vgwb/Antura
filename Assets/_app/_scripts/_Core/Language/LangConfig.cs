@@ -11,5 +11,10 @@ namespace Antura.Language
     {
         public TMP_FontAsset font;
         public TextDirection TextDirection;
+
+        public bool IsRightToLeft()
+        {
+            return TextDirection == TextDirection.RightToLeft;
+        }
     }
 }

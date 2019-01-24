@@ -65,5 +65,14 @@ namespace Antura.Language
             return loadedLanguageData[useMapping[use]].config;
         }
 
+        #region Shortcuts
+
+        public bool IsLearningLanguageRTL()
+        {
+            return GetLangConfig(LanguageUse.Learning).IsRightToLeft();
+        }
+
+        #endregion
+
     }
 }

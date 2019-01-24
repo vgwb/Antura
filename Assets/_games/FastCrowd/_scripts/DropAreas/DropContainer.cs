@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Antura.Audio;
 using Antura.LivingLetters;
 using DG.Tweening;
+using Antura.Language;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -183,15 +184,18 @@ namespace Antura.Minigames.FastCrowd
         /// <returns></returns>
         Vector3 getPosition(DropAreaPositions _position)
         {
+            bool isRTL = LanguageSwitcher.I.IsLearningLanguageRTL();
+            int dirRTL = isRTL ? 1 : -1;
+
             switch (_position) {
                 case DropAreaPositions.ActivePos:
-                    return new Vector3(0, 0.1f, 0);
+                    return new Vector3(0 , 0.1f, 0);
                 case DropAreaPositions.NextPos:
-                    return new Vector3(-6, 0.1f, -1.5f);
+                    return new Vector3(-6 * dirRTL, 0.1f, -1.5f);
                 case DropAreaPositions.NextsPos:
-                    return new Vector3(-12, 0.1f, -6);
+                    return new Vector3(-12 * dirRTL, 0.1f, -6);
                 case DropAreaPositions.CompletedPos:
-                    return new Vector3(6, 0.1f, 0);
+                    return new Vector3(6 * dirRTL, 0.1f, 0);
                 default:
                     Debug.LogError("Position not found");
                     break;
@@ -206,13 +210,16 @@ namespace Antura.Minigames.FastCrowd
         /// <returns></returns>
         Vector3 getRotation(DropAreaPositions _position)
         {
+            bool isRTL = LanguageSwitcher.I.IsLearningLanguageRTL();
+            int dirRTL = isRTL ? 1 : -1;
+
             switch (_position) {
                 case DropAreaPositions.ActivePos:
                     return new Vector3(90, 0, 0);
                 case DropAreaPositions.NextPos:
-                    return new Vector3(90, -30, 0);
+                    return new Vector3(90, -30 * dirRTL, 0);
                 case DropAreaPositions.NextsPos:
-                    return new Vector3(90, -30, 30);
+                    return new Vector3(90, -30 * dirRTL, 30);
                 case DropAreaPositions.CompletedPos:
                     return new Vector3(90, 0, 0);
                 default:

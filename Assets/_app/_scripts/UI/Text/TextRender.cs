@@ -186,11 +186,14 @@ namespace Antura.UI
         {
             isArabic = false;
 
+            bool isRTL = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).IsRightToLeft();
+
             if (isUI) {
-                gameObject.GetComponent<TextMeshProUGUI>().isRightToLeftText = true;
+                gameObject.GetComponent<TextMeshProUGUI>().isRightToLeftText = isRTL;
             } else {
-                gameObject.GetComponent<TextMeshPro>().isRightToLeftText = true;
+                gameObject.GetComponent<TextMeshPro>().isRightToLeftText = isRTL;
             }
+
             if (livingLetterData.DataType == LivingLetterDataType.Letter) {
                 text = livingLetterData.TextForLivingLetter;
             } else if (livingLetterData.DataType == LivingLetterDataType.Word) {
