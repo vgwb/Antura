@@ -111,9 +111,6 @@ namespace Antura.Core
         // used for float to float comparisons
         public const float EPSILON = 0.00001f;
 
-        // Language specifics
-        public static readonly TextDirection TextDirection = TextDirection.RightToLeft;
-
         // Resource Paths
         public const string RESOURCES_DIR_AVATARS = "Images/Avatars/";
         public const string RESOURCES_PATH_DEBUG_PANEL = "Prefabs/Debug/Debug UI Canvas";

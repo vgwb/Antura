@@ -1,6 +1,7 @@
 using Antura.Core;
 using UnityEngine;
 using UnityEngine.UI;
+using Antura.Language;
 
 namespace Antura.UI
 {
@@ -14,7 +15,7 @@ namespace Antura.UI
         void Awake()
         {
             gridLayoutGroup = GetComponent<GridLayoutGroup>();
-            switch (AppConfig.TextDirection)
+            switch (LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).TextDirection)
             {
                 case TextDirection.LeftToRight:
                     switch (gridLayoutGroup.startCorner)

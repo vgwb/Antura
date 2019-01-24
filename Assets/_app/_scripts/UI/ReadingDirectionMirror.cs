@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Language;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -13,7 +14,7 @@ namespace Antura.UI
         {
             foreach (Transform childTr in transform)
             {
-                switch (AppConfig.TextDirection)
+                switch (LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).TextDirection)
                 {
                     case TextDirection.LeftToRight:
                         // Default

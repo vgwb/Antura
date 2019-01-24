@@ -2,6 +2,7 @@ using System;
 using Antura.Language;
 using UnityEngine;
 using TMPro;
+using Antura.Core;
 
 namespace Antura.Language
 {
@@ -9,5 +10,6 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public TMP_FontAsset font;
+        public TextDirection TextDirection;
     }
 }
