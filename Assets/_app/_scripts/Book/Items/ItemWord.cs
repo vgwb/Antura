@@ -34,7 +34,7 @@ namespace Antura.Book
                 OkIcon.enabled = false;
             }
 
-            Title.text = myWordInfo.data.Arabic;
+            Title.text = myWordInfo.data.Text;
             SubTitle.text = myWordInfo.data.Id;
 
             if (myWordInfo.data.Drawing != "") {

@@ -27,7 +27,8 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
+
 
             string startText = text.Substring(0, letterToMark.fromCharacterIndex);
             string letterText = text.Substring(letterToMark.fromCharacterIndex,
@@ -76,7 +77,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
 
             string markedText = "";
 
@@ -109,7 +110,7 @@ namespace Antura.UI
         public static IEnumerator GetWordWithFlashingText(Database.WordData arabicWord, int fromIndexToFlash, int toIndexToFlash, Color flashColor,
             float cycleDuration, int numCycles, System.Action<string> callback, bool markPrecedingLetters = false)
         {
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
 
             string markTagStart = "<color=#" + GenericHelper.ColorToHex(flashColor) + ">";
             string markTagEnd = "</color>";
@@ -167,7 +168,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
 
             return tagStart + text + tagEnd;
         }

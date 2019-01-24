@@ -252,7 +252,7 @@ namespace Antura.Minigames.MakeFriends
             commonLetters = question.GetCorrectAnswers().ToList();
             uncommonLetters = question.GetWrongAnswers().ToList();
 
-            Debug.Log("[New Round] Word 1: " + ArabicFixer.Fix(wordData1.Data.Arabic) + ", Word 2: " + ArabicFixer.Fix(wordData2.Data.Arabic)
+            Debug.Log("[New Round] Word 1: " + ArabicFixer.Fix(wordData1.Data.Text) + ", Word 2: " + ArabicFixer.Fix(wordData2.Data.Text)
                 + "\nCommon: " + string.Join(" / ", commonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray())
                 + ", Uncommon: " + string.Join(" / ", uncommonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray()));
         }

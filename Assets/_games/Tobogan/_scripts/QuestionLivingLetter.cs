@@ -126,7 +126,7 @@ namespace Antura.Minigames.Tobogan
 
         public void SetQuestionText(LL_WordData word, LL_LetterData markedLetter, Color color)
         {
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Text);
             var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, false);
             if (parts.Count > 0) {
                 text = ArabicTextUtilities.GetWordWithMarkedLetterText(word.Data, parts[0], color, ArabicTextUtilities.MarkType.SingleLetter);
@@ -136,7 +136,7 @@ namespace Antura.Minigames.Tobogan
 
         public void SetQuestionText(LL_WordData word, int letterToMark, Color color)
         {
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Text);
 
             var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, word.Data, false, false);
             if (parts.Count > letterToMark) {

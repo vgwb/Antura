@@ -147,7 +147,7 @@ namespace Antura.Book
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
             }
 
-            WordArabicText.text = currentWordInfo.data.Arabic;
+            WordArabicText.text = currentWordInfo.data.Text;
 
             if (currentWordInfo.data.Drawing != "") {
                 WordDrawingText.text = AppManager.I.VocabularyHelper.GetWordDrawing(currentWordInfo.data);
@@ -160,7 +160,7 @@ namespace Antura.Book
 
             if (AppConfig.DebugLogEnabled) {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
-                Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Arabic));
+                Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
                 Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordArabicText.RenderedText));
             }
             //ScoreText.text = "Score: " + currentWord.score;

@@ -16,6 +16,9 @@ namespace Antura.Audio
     {
         public static AudioManager I;
 
+        // TODO make dynamic by language manager
+        private string langResFolder = "arabic/Audio/";
+
         public bool IsAppPaused { get; private set; }
 
         private List<AudioSourceWrapper> playingAudio = new List<AudioSourceWrapper>();
@@ -401,14 +404,14 @@ namespace Antura.Audio
         public AudioClip GetAudioClip(LocalizationData data)
         {
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
-            var res = GetCachedResource("AudioArabic/Dialogs/" + localizedAudioFileName);
+            var res = GetCachedResource(langResFolder + "Dialogs/" + localizedAudioFileName);
 
             // Fallback to neutral version if not found
             if (res == null) {
                 var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
                 if (localizedAudioFileName != neutralAudioFileName) {
                     Debug.LogWarning("Female audio file expected for localization ID " + data.Id + " was not found");
-                    res = GetCachedResource("AudioArabic/Dialogs/" + neutralAudioFileName);
+                    res = GetCachedResource(langResFolder + "Dialogs/" + neutralAudioFileName);
                 }
             }
 
@@ -419,7 +422,7 @@ namespace Antura.Audio
         {
             AudioClip res;
             var audiofile = data.GetAudioFilename(soundType);
-            res = GetCachedResource("AudioArabic/Letters/" + audiofile);
+            res = GetCachedResource(langResFolder + "Letters/" + audiofile);
 
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for letter:" + data + " filename:" + audiofile);
@@ -429,7 +432,7 @@ namespace Antura.Audio
 
         public AudioClip GetAudioClip(WordData data)
         {
-            var res = GetCachedResource("AudioArabic/Words/" + data.Id);
+            var res = GetCachedResource(langResFolder + "Words/" + data.Id);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for " + data);
             }
@@ -438,7 +441,7 @@ namespace Antura.Audio
 
         public AudioClip GetAudioClip(PhraseData data)
         {
-            var res = GetCachedResource("AudioArabic/Phrases/" + data.Id);
+            var res = GetCachedResource(langResFolder + "Phrases/" + data.Id);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for " + data);
             }
@@ -447,7 +450,7 @@ namespace Antura.Audio
 
         public AudioClip GetLearningBlockAudioClip(string AudioFile)
         {
-            var res = GetCachedResource("AudioArabic/LearningBlocks/" + AudioFile);
+            var res = GetCachedResource(langResFolder + "LearningBlocks/" + AudioFile);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for LearningBlocks" + AudioFile);
             }
