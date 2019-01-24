@@ -22,7 +22,6 @@ namespace Antura.Language
                 var letterDataID = chars[iChar].ToString();
                 var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), letterDataID);
                 stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
-                Debug.Log("Char " + chars[iChar] + " is letter data " + letterData);
             }
             return stringParts;
         }
