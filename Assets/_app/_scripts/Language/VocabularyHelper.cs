@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using Antura.Helpers;
 using Antura.Teacher;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Database
 {
@@ -258,7 +259,7 @@ namespace Antura.Database
             List<LetterData> letters = null;
             var dictCache = wordsToLetterCache;
             if (!dictCache.ContainsKey(wordData.Id)) {
-                var parts = ArabicAlphabetHelper.SplitWord(dbManager.StaticDatabase, wordData, separateVariations: false);
+                var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager.StaticDatabase, wordData, separateVariations: false);
                 letters = parts.ConvertAll(x => ConvertToLetterWithForcedForm(x.letter, x.letterForm));
                 dictCache[wordData.Id] = letters;
             }

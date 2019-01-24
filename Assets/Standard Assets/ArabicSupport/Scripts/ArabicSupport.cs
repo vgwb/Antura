@@ -16,7 +16,8 @@ using System.Collections.Generic;
 
 namespace ArabicSupport
 {
-	
+
+    // TODO: REMOVE DEPENDENCY FROM ARABIC FROM ALL CODE
 	public class ArabicFixer
 	{	
 		/// <summary>

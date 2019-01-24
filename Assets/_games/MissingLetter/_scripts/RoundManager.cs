@@ -7,6 +7,7 @@ using System.Linq;
 using System.Collections.Generic;
 using System;
 using Antura.Database;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Minigames.MissingLetter
@@ -301,16 +302,16 @@ namespace Antura.Minigames.MissingLetter
             m_oCurrentCorrectAnswer = _correctAnswer;
         }
 
-        ArabicAlphabetHelper.ArabicStringPart RemoveLetterFromQuestion(LL_LetterData letter)
+        StringPart RemoveLetterFromQuestion(LL_LetterData letter)
         {
             LL_WordData word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
 
             LivingLetterController letterView = m_aoCurrentQuestionScene[0].GetComponent<LetterBehaviour>().mLetter;
 
-            var parts = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, word.Data, letter.Data, true);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, true);
 
             var partToRemove = parts[0];
-            letterView.Label.text = ArabicAlphabetHelper.GetWordWithMissingLetterText(word.Data, partToRemove, mk_sRemovedLetterChar);
+            letterView.Label.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove, mk_sRemovedLetterChar);
             return partToRemove;
         }
 
@@ -496,7 +497,7 @@ namespace Antura.Minigames.MissingLetter
 
         private IQuestionPack m_oCurrQuestionPack;
         private ILivingLetterData m_oCurrentCorrectAnswer;
-        private ArabicAlphabetHelper.ArabicStringPart m_oRemovedLetter;
+        private StringPart m_oRemovedLetter;
 
         private GameObjectPool m_oAnswerPool;
         private GameObjectPool m_oQuestionPool;

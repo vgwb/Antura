@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Antura.Helpers;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -34,7 +35,7 @@ namespace Antura.Database.Management
 
         private string[] CustomParseLetters(WordData wordData, DatabaseObject db)
         {
-            var parts = ArabicAlphabetHelper.SplitWord(db, wordData);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(db, wordData);
 
             string[] letters = new string[parts.Count];
 

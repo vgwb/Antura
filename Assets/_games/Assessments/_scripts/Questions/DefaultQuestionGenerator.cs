@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Kore.Coroutines;
@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Assessment
 {
@@ -279,10 +280,10 @@ namespace Antura.Assessment
             LL_WordData word = question as LL_WordData;
             var wordGO = ItemFactory.Instance.SpawnQuestion(word);
 
-            var partsToRemove = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, false);
+            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, false);
             partsToRemove.Shuffle(); //pick a random letter
 
-            string text = ArabicAlphabetHelper.GetWordWithMissingLetterText(
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
                 word.Data, partsToRemove[0], RemovedLetterChar);
 
             if (config == DefaultQuestionType.MissingForm) {

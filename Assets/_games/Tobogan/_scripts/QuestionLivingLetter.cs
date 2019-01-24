@@ -1,10 +1,11 @@
-﻿using UnityEngine;
+using UnityEngine;
 using DG.Tweening;
 using System;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.UI;
 using Antura.Core;
+using Antura.Language;
 
 namespace Antura.Minigames.Tobogan
 {
@@ -125,8 +126,8 @@ namespace Antura.Minigames.Tobogan
 
         public void SetQuestionText(LL_WordData word, LL_LetterData markedLetter, Color color)
         {
-            string text = ArabicAlphabetHelper.ProcessArabicString(word.Data.Arabic);
-            var parts = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, false);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Arabic);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, false);
             if (parts.Count > 0) {
                 text = ArabicTextUtilities.GetWordWithMarkedLetterText(word.Data, parts[0], color, ArabicTextUtilities.MarkType.SingleLetter);
             }
@@ -135,9 +136,9 @@ namespace Antura.Minigames.Tobogan
 
         public void SetQuestionText(LL_WordData word, int letterToMark, Color color)
         {
-            string text = ArabicAlphabetHelper.ProcessArabicString(word.Data.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(word.Data.Arabic);
 
-            var parts = ArabicAlphabetHelper.SplitWord(AppManager.I.DB, word.Data, false, false);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, word.Data, false, false);
             if (parts.Count > letterToMark) {
                 text = ArabicTextUtilities.GetWordWithMarkedLetterText(word.Data, parts[letterToMark], color, ArabicTextUtilities.MarkType.SingleLetter);
             }

@@ -1,4 +1,4 @@
-﻿namespace Antura.Database
+namespace Antura.Language
 {
     public enum LanguageUse
     {

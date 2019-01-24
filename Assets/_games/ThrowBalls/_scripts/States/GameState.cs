@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Antura.Language;
 
 namespace Antura.Minigames.ThrowBalls
 {
@@ -321,7 +322,7 @@ namespace Antura.Minigames.ThrowBalls
 
             var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[0];
 
-            var letterDataToFlash = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, ((LL_WordData)question).Data, letterToFlash.Data, false)[0];
+            var letterDataToFlash = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, ((LL_WordData)question).Data, letterToFlash.Data, false)[0];
 
             flashingTextCoroutine = ArabicTextUtilities.GetWordWithFlashingText(((LL_WordData)question).Data, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                     (string text) => {
@@ -500,7 +501,7 @@ namespace Antura.Minigames.ThrowBalls
                 } else {
                     var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
                     int numTimesLetterHasBeenFlashed = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
-                    var letterDataToFlash = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
+                    var letterDataToFlash = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
                     flashedLettersInLiWVariation.Add(letterToFlash);
 
                     flashingTextCoroutine = ArabicTextUtilities.GetWordWithFlashingText(word, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,

@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.LivingLetters;
@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Minigames.Balloons
 {
@@ -250,7 +251,7 @@ namespace Antura.Minigames.Balloons
         private IEnumerator FlashLetterInWordCoroutine(LetterData letterToFlash, Color color)
         {
             if (letterData is LL_WordData) {
-                var splitLetters = ArabicAlphabetHelper.SplitWord(AppManager.I.DB, ((LL_WordData)letterData).Data);
+                var splitLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, ((LL_WordData)letterData).Data);
 
                 int charPosition = 0;
                 List<int> foundLetterIndices = new List<int>();
@@ -273,7 +274,7 @@ namespace Antura.Minigames.Balloons
 
                     float halfDuration = FLASH_CYCLE_DURATION * 0.5f;
 
-                    string preparedText = ArabicAlphabetHelper.ProcessArabicString(originalText);
+                    string preparedText = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(originalText);
                     preparedText = originalText;
 
                     while (numCompletedCycles < NUM_FLASH_CYCLES) {

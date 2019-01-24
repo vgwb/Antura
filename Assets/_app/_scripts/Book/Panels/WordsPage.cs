@@ -6,6 +6,7 @@ using Antura.Teacher;
 using Antura.UI;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Book
@@ -138,7 +139,7 @@ namespace Antura.Book
             foreach (Transform t in SpellingContainer.transform) {
                 Destroy(t.gameObject);
             }
-            var splittedLetters = ArabicAlphabetHelper.SplitWord(AppManager.I.DB, currentWordInfo.data, false, false);
+            var splittedLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false, false);
             foreach (var letter in splittedLetters) {
                 btnGO = Instantiate(SpellingLetterItemPrefab);
                 btnGO.transform.SetParent(SpellingContainer.transform, false);
@@ -159,8 +160,8 @@ namespace Antura.Book
 
             if (AppConfig.DebugLogEnabled) {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
-                Debug.Log("word unicodes: " + ArabicAlphabetHelper.GetStringUnicodes(currentWordInfo.data.Arabic));
-                Debug.Log("word unicodes forms: " + ArabicAlphabetHelper.GetStringUnicodes(WordArabicText.RenderedText));
+                Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Arabic));
+                Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordArabicText.RenderedText));
             }
             //ScoreText.text = "Score: " + currentWord.score;
         }

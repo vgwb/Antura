@@ -3,9 +3,12 @@ using Antura.Helpers;
 using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Database;
+using Antura.Language;
 
 namespace Antura.UI
 {
+    // TODO: remove Arabic dependency here
     public static class ArabicTextUtilities
     {
         public enum MarkType
@@ -18,13 +21,13 @@ namespace Antura.UI
         /// <summary>
         /// Return a string of a word with the "color" tag enveloping a character. The word is already reversed and fixed for rendering.
         /// </summary>
-        public static string GetWordWithMarkedLetterText(Database.WordData arabicWord, ArabicAlphabetHelper.ArabicStringPart letterToMark,
+        public static string GetWordWithMarkedLetterText(Database.WordData arabicWord, StringPart letterToMark,
             Color color, MarkType type)
         {
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = ArabicAlphabetHelper.ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
 
             string startText = text.Substring(0, letterToMark.fromCharacterIndex);
             string letterText = text.Substring(letterToMark.fromCharacterIndex,
@@ -48,7 +51,7 @@ namespace Antura.UI
         /// <summary>
         /// Return a string of a word with the "color" tag enveloping multiple characters. The word is already reversed and fixed for rendering.
         /// </summary>
-        public static string GetWordWithMarkedLettersText(Database.WordData arabicWord, List<ArabicAlphabetHelper.ArabicStringPart> lettersToMark,
+        public static string GetWordWithMarkedLettersText(Database.WordData arabicWord, List<StringPart> lettersToMark,
             Color color)
         {
             // Sort letters To Mark
@@ -73,7 +76,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = ArabicAlphabetHelper.ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
 
             string markedText = "";
 
@@ -106,7 +109,7 @@ namespace Antura.UI
         public static IEnumerator GetWordWithFlashingText(Database.WordData arabicWord, int fromIndexToFlash, int toIndexToFlash, Color flashColor,
             float cycleDuration, int numCycles, System.Action<string> callback, bool markPrecedingLetters = false)
         {
-            string text = ArabicAlphabetHelper.ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
 
             string markTagStart = "<color=#" + GenericHelper.ColorToHex(flashColor) + ">";
             string markTagEnd = "</color>";
@@ -164,7 +167,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = ArabicAlphabetHelper.ProcessArabicString(arabicWord.Arabic);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Arabic);
 
             return tagStart + text + tagEnd;
         }

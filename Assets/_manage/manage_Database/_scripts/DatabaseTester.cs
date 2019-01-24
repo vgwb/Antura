@@ -10,6 +10,7 @@ using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Antura.Language;
 
 // refactor: standardize random use across the codebase
 using RND = UnityEngine.Random;
@@ -256,12 +257,12 @@ namespace Antura.Database.Management
             }
 
             foreach (var w in dbManager.StaticDatabase.GetWordTable().GetValuesTyped()) {
-                Helpers.ArabicAlphabetHelper.SplitWord(dbManager, w, false, false);
+                LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, w, false, false);
             }
 
 
             foreach (var w in dbManager.StaticDatabase.GetPhraseTable().GetValuesTyped()) {
-                Helpers.ArabicAlphabetHelper.SplitPhrase(dbManager, w, false, false);
+                LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitPhrase(dbManager, w, false, false);
             }
 
             /*

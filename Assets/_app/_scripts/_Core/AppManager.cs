@@ -25,7 +25,7 @@ namespace Antura.Core
     {
         public SAppConfig AppConfig;
         public LanguageSwitcher LanguageSwitcher;
-
+        
         public AppSettingsManager AppSettingsManager;
         public TeacherAI Teacher;
         public VocabularyHelper VocabularyHelper;
@@ -68,8 +68,12 @@ namespace Antura.Core
 
         protected override void Awake()
         {
+            GetComponent<AppBootstrap>().InitManagers();
+
             base.Awake();
             DontDestroyOnLoad(this);
+
+            GlobalUI.Init();
         }
 
         /// <summary>
@@ -82,9 +86,9 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
+            LanguageSwitcher = new LanguageSwitcher();
             AppSettingsManager = new AppSettingsManager();
 
-            LanguageSwitcher = new LanguageSwitcher();
             var learningDB = LanguageSwitcher.GetManager(LanguageUse.Learning);
             DB = learningDB;
 
@@ -124,6 +128,7 @@ namespace Antura.Core
             Debug.Log("AppManager Init(): UpdateAppVersion");
             // Update settings
             AppSettingsManager.UpdateAppVersion();
+
         }
         #endregion
 
@@ -207,7 +212,7 @@ namespace Antura.Core
         void On_TMPro_Text_Changed(Object obj)
         {
             var tmpText = obj as TMPro.TMP_Text;
-            if (tmpText != null && ArabicAlphabetHelper.FixTMProDiacriticPositions(tmpText.textInfo)) {
+            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo)) {
                 tmpText.UpdateVertexData();
             }
         }

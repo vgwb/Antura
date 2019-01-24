@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using Antura.Helpers;
 using Antura.Core;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.LivingLetters
 {
@@ -43,7 +44,7 @@ namespace Antura.LivingLetters
         /// </summary>
         public string TextForLivingLetter
         {
-            get { return ArabicAlphabetHelper.ProcessArabicString(Data.Arabic); } // TODO refactor: remove reference to the Arabic language
+            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(Data.Arabic); } // TODO refactor: remove reference to the Arabic language
         }
 
         public string DrawingCharForLivingLetter

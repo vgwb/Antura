@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -14,7 +14,7 @@ namespace Antura.Core
         public GameObject AudioManager;
         public GameObject EventsManager;
 
-        void Awake()
+        public void InitManagers()
         {
             if (FindObjectOfType(typeof(AudioManager)) == null) {
                 Instantiate(AudioManager);
@@ -23,9 +23,6 @@ namespace Antura.Core
             if (FindObjectOfType(typeof(EventSystem)) == null) {
                 Instantiate(EventsManager);
             }
-
-            // init the mighty GlobalUI
-            GlobalUI.Init();
         }
     }
 }

@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.Minigames;
@@ -8,6 +8,7 @@ using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Assessment
 {
@@ -68,7 +69,7 @@ namespace Antura.Assessment
             var wordInner = word as LL_WordData;
             var letterInner = letter as LL_LetterData;
 
-            var parts = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, false);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, false);
 
             var partToRemove = parts[0];
 

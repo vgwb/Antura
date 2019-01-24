@@ -1,9 +1,10 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Antura.Language;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
  * so we just need to reference the TextRender as controller
@@ -141,9 +142,9 @@ namespace Antura.UI
             if (isTMPro) {
                 if (isArabic) {
                     if (isUI) {
-                        gameObject.GetComponent<TextMeshProUGUI>().text = ArabicAlphabetHelper.ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
                     } else {
-                        gameObject.GetComponent<TextMeshPro>().text = ArabicAlphabetHelper.ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
                     }
                 } else {
                     if (isUI) {
@@ -155,9 +156,9 @@ namespace Antura.UI
             } else {
                 if (isArabic) {
                     if (isUI) {
-                        gameObject.GetComponent<Text>().text = ArabicAlphabetHelper.ProcessArabicString(m_text);
+                        gameObject.GetComponent<Text>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
                     } else {
-                        gameObject.GetComponent<TextMesh>().text = ArabicAlphabetHelper.ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMesh>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
                     }
                 } else {
                     if (isUI) {

@@ -1,9 +1,10 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Linq;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Core;
+using Antura.Language;
 
 namespace Antura.Minigames.ReadingGame
 {
@@ -20,7 +21,7 @@ namespace Antura.Minigames.ReadingGame
             LL_WordData randomWord = new LL_WordData(answerData.Id, answerData);
 
             StringTestData fakeData = new StringTestData(
-                 ArabicAlphabetHelper.ProcessArabicString(
+                 LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(
                      "منذ لم نرك منذ مدة " + randomWord.Data.Arabic + " منذ مدة" +
                       "منذ لم نرك منذ مدة " +
                         "منذ لم نرك منذ مدة "));

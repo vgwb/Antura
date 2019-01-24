@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.Minigames;
+using Antura.Language;
 
 namespace Antura.Minigames.ReadingGame
 {
@@ -126,7 +127,7 @@ namespace Antura.Minigames.ReadingGame
 
             for (int i = 0; i < karaokeLines.Count; ++i)
             {
-                words[i] = ArabicAlphabetHelper.ProcessArabicString(karaokeLines[i].text);
+                words[i] = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(karaokeLines[i].text);
                 lineBreaks[i] = karaokeLines[i].starsWithLineBreak;
             }
 

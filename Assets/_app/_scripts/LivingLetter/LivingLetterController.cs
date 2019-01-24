@@ -6,6 +6,8 @@ using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
 using Antura.Core;
+using Antura.Database;
+using Antura.Language;
 
 namespace Antura.LivingLetters
 {
@@ -170,7 +172,7 @@ namespace Antura.LivingLetters
             ImageSprite.enabled = false;
             Drawing.enabled = false;
             Label.enabled = false;
-            Label.font = AppManager.I.LanguageSwitcher.GetLangConfig(Database.LanguageUse.Learning).font;
+            Label.font = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).font;
         }
 
         void Start()
@@ -469,10 +471,10 @@ namespace Antura.LivingLetters
             {
                 //string text = ArabicAlphabetHelper.ProcessArabicString(word.Data.Arabic);
 
-                List<ArabicAlphabetHelper.ArabicStringPart> parts = new List<ArabicAlphabetHelper.ArabicStringPart>();
+                List<StringPart> parts = new List<StringPart>();
 
                 foreach (var markedLetter in toMark)
-                    parts.AddRange(ArabicAlphabetHelper.FindLetter(Core.AppManager.I.DB, word.Data, markedLetter.Data, true));
+                    parts.AddRange(LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(Core.AppManager.I.DB, word.Data, markedLetter.Data, true));
 
                 if (parts.Count > 0)
                 {

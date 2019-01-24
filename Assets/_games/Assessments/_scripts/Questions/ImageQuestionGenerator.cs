@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
 using DG.Tweening;
@@ -8,6 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Assessment
 {
@@ -223,10 +224,10 @@ namespace Antura.Assessment
 
             cacheCompleteWord = word.TextForLivingLetter;
 
-            var partsToRemove = ArabicAlphabetHelper.FindLetter(AppManager.I.DB, word.Data, letter.Data, false);
+            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, false);
             partsToRemove.Shuffle(); //pick a random letter
 
-            string text = ArabicAlphabetHelper.GetWordWithMissingLetterText(
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
                 word.Data, partsToRemove[0], RemovedLetterChar);
 
             //Spawn word, then replace text with text with missing letter

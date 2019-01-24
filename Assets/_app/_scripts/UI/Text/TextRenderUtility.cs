@@ -1,6 +1,7 @@
-﻿using Antura.Helpers;
+using Antura.Helpers;
 using UnityEngine;
 using TMPro;
+using Antura.Language;
 
 namespace Antura.UI
 {
@@ -23,18 +24,18 @@ namespace Antura.UI
                 int newYOffset = 0;
                 int charPosition = 1;
 
-                if (ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0627"
-                    && ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B") {
+                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0627"
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B") {
                     newYOffset = 10;
                 }
 
-                if (ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0623"
-                    && ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E") {
+                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0623"
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E") {
                     newYOffset = 16;
                 }
 
-                if (ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0639"
-                    && ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650") {
+                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0639"
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650") {
                     newYOffset = -25;
                 }
 
@@ -97,7 +98,7 @@ namespace Antura.UI
                     Debug.Log("CHAR: " + i
                               + "index: " + textInfo.characterInfo[i].index
                               + "char: " + textInfo.characterInfo[i].character.ToString()
-                              + "UNICODE: " + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[i].character)
+                              + "UNICODE: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[i].character)
                     );
                 }
                 //textInfo.characterInfo[1].textElement.yOffset += yOffset;

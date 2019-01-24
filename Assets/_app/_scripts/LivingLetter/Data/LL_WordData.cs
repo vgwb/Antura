@@ -1,5 +1,6 @@
-﻿using Antura.Helpers;
+using Antura.Helpers;
 using Antura.Core;
+using Antura.Language;
 
 namespace Antura.LivingLetters
 {
@@ -42,7 +43,7 @@ namespace Antura.LivingLetters
         public string TextForLivingLetter
         {
             get {
-                return ArabicAlphabetHelper.ProcessArabicString(Data.Arabic); // TODO refactor: remove reference to Arabic
+                return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(Data.Arabic); // TODO refactor: remove reference to Arabic
             }
         }
 

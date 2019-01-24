@@ -1,9 +1,10 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
 using SQLite;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Database
 {
@@ -530,15 +531,15 @@ namespace Antura.Database
             string output = "";
             if (Symbol_Unicode != "") {
                 output = "// " + Id + "\n";
-                output += Helpers.ArabicAlphabetHelper.DebugShowDiacriticFix(Isolated_Unicode, Symbol_Unicode) + "\n";
+                output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Isolated_Unicode, Symbol_Unicode) + "\n";
                 if (Initial_Unicode != Isolated_Unicode) {
-                    output += Helpers.ArabicAlphabetHelper.DebugShowDiacriticFix(Initial_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Initial_Unicode, Symbol_Unicode) + "\n";
                 }
                 if (Medial_Unicode != Isolated_Unicode && Medial_Unicode != Initial_Unicode) {
-                    output += Helpers.ArabicAlphabetHelper.DebugShowDiacriticFix(Medial_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Medial_Unicode, Symbol_Unicode) + "\n";
                 }
                 if (Final_Unicode != Medial_Unicode && Final_Unicode != Initial_Unicode && Final_Unicode != Isolated_Unicode) {
-                    output += Helpers.ArabicAlphabetHelper.DebugShowDiacriticFix(Final_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Final_Unicode, Symbol_Unicode) + "\n";
                 }
                 //Debug.Log(output);
             }

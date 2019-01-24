@@ -1,7 +1,9 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
+
 
 namespace Antura.LivingLetters.Sample
 {
@@ -33,7 +35,7 @@ namespace Antura.LivingLetters.Sample
                     return;
                 }
 
-                foreach (var letterData in ArabicAlphabetHelper.SplitWord(AppManager.I.DB, newWordData.Data)) {
+                foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData.Data)) {
                     correctAnswers.Add(new LL_LetterData(letterData.letter));
                 }
 

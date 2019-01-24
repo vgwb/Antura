@@ -7,6 +7,14 @@ namespace Antura.Language
 {
     public class LanguageSwitcher
     {
+        public static LanguageSwitcher I
+        { get
+            {
+                if (AppManager.I == null) return null;
+                return AppManager.I.LanguageSwitcher;
+            }
+        }
+
         public class LanguageData
         {
             public LangConfig config;
