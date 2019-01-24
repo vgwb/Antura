@@ -1,4 +1,4 @@
-namespace Antura.Core
+namespace Antura.Language
 {
     public enum LanguageCode
     {

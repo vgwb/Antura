@@ -1,7 +1,9 @@
+using System;
+using Antura.Language;
 using UnityEngine;
 using TMPro;
 
-namespace Antura.Core
+namespace Antura.Language
 {
     [CreateAssetMenu]
     public class LangConfig : ScriptableObject

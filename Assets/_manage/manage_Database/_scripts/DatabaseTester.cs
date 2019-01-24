@@ -4,6 +4,7 @@ using Antura.Core;
 using Antura.Helpers;
 using Antura.Profile;
 using Antura.Rewards;
+using Antura.Language;
 using Antura.Teacher;
 using Antura.UI;
 using UnityEngine;

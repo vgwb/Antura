@@ -1,24 +1,26 @@
 using Antura.Core;
 using System.Collections.Generic;
+using Antura.Database;
 using UnityEngine;
 
-namespace Antura.Database
+namespace Antura.Language
 {
     public class LanguageSwitcher
     {
-        private Dictionary<LanguageUse, LanguageCode> useMapping;
-        private Dictionary<LanguageCode, DatabaseManager> loadedManagers;
-
-        public DatabaseManager GetManager(LanguageUse use)
+        public class LanguageData
         {
-            return loadedManagers[useMapping[use]];
+            public LangConfig config;
+            public DatabaseManager dbManager;
+            public ILanguageHelper helper;
         }
+
+        private Dictionary<LanguageUse, LanguageCode> useMapping;
+        private Dictionary<LanguageCode, LanguageData> loadedLanguageData;
 
         public LanguageSwitcher()
         {
             useMapping = new Dictionary<LanguageUse, LanguageCode>();
-            loadedManagers = new Dictionary<LanguageCode, DatabaseManager>();
-            loadedConfigs = new Dictionary<LanguageCode, LangConfig>();
+            loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
 
             LoadLanguage(LanguageUse.Learning, SAppConfig.I.LearningLanguage);
             LoadLanguage(LanguageUse.Instructions, SAppConfig.I.InstructionsLanguage);
@@ -28,25 +30,32 @@ namespace Antura.Database
         private void LoadLanguage(LanguageUse use, LanguageCode language)
         {
             useMapping[use] = language;
-            if (loadedManagers.ContainsKey(language))
+            if (loadedLanguageData.ContainsKey(language))
             {
                 // Nothing to do
                 return;
             }
-            var db = new DatabaseManager(language);
-            loadedManagers[language] = db;
-            loadedConfigs[language] = Resources.Load<LangConfig>(language +"/" + "LangConfig");
+            var languageData = new LanguageData();
+            languageData.dbManager = new DatabaseManager(language);
+            languageData.config = Resources.Load<LangConfig>(language + "/" + "LangConfig");
+            languageData.helper = Resources.Load<AbstractLanguageHelper>(language + "/" + "LanguageHelper");
+            loadedLanguageData[language] = languageData;
         }
 
-        #region Language Configs
+        public ILanguageHelper GetHelper(LanguageUse use)
+        {
+            return loadedLanguageData[useMapping[use]].helper;
+        }
 
-        private Dictionary<LanguageCode, LangConfig> loadedConfigs;
+        public DatabaseManager GetManager(LanguageUse use)
+        {
+            return loadedLanguageData[useMapping[use]].dbManager;
+        }
 
         public LangConfig GetLangConfig(LanguageUse use)
         {
-            return loadedConfigs[useMapping[use]];
+            return loadedLanguageData[useMapping[use]].config;
         }
 
-        #endregion
     }
 }

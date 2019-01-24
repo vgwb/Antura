@@ -1,7 +1,9 @@
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using NUnit.Framework;
+using Antura.Language;
 
 namespace Antura.Tests
 {
@@ -11,14 +13,14 @@ namespace Antura.Tests
         [Test]
         public void QueryStaticDB()
         {
-            var dbManager = new DatabaseManager(Core.LanguageCode.arabic);
+            var dbManager = new DatabaseManager(LanguageCode.arabic);
             dbManager.GetAllLetterData();
         }
 
         [Test]
         public void QueryDynamicDB()
         {
-            var dbManager = new DatabaseManager(Core.LanguageCode.arabic);
+            var dbManager = new DatabaseManager(LanguageCode.arabic);
             dbManager.LoadDatabaseForPlayer("TEST");
             dbManager.FindLogInfoData(x => x.Timestamp > 1000);
         }
@@ -26,7 +28,7 @@ namespace Antura.Tests
         [Test]
         public void InsertDynamicDB()
         {
-            var dbManager = new DatabaseManager(Core.LanguageCode.arabic);
+            var dbManager = new DatabaseManager(LanguageCode.arabic);
             dbManager.LoadDatabaseForPlayer("TEST");
             var newLogInfoData = new LogInfoData();
             newLogInfoData.AppSession = GenericHelper.GetTimestampForNow();

@@ -7,6 +7,7 @@ using System.Diagnostics;
 using System.Threading;
 using NUnit.Framework;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Tests
 {
@@ -40,7 +41,7 @@ namespace Antura.Tests
         [Test]
         public void ArabicStringTest()
         {
-            var dbManager = new DatabaseManager(Core.LanguageCode.arabic);
+            var dbManager = new DatabaseManager(LanguageCode.arabic);
 
             var wordList = dbManager.FindWordData(x => x.Id == "color_brown");
             var word = wordList[0];

@@ -1,4 +1,5 @@
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Core
 {
