@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using Antura.LivingLetters;
 using Antura.Minigames;
@@ -91,12 +91,14 @@ namespace Antura.Minigames.Egg
 
             if (isSequence)
             {
-                game.eggController.SetQuestion(game.CurrentQuestion.Letters);
+                game.eggController.SetQuestion(game.CurrentQuestion.Question);
+                game.eggController.SetAnswers(game.CurrentQuestion.Letters);
                 game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, lightUpButtons, false, 0f, OnQuestionAudioComplete);
             }
             else
             {
-                game.eggController.SetQuestion(game.CurrentQuestion.Letters[0]);
+                game.eggController.SetQuestion(null);
+                game.eggController.SetAnswers(game.CurrentQuestion.Letters[0]);
 
                 if (lightUpButtons)
                 {

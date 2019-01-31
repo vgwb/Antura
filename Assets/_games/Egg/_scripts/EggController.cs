@@ -59,7 +59,8 @@ namespace Antura.Minigames.Egg
         private IAudioSource audioSource;
         private List<ILivingLetterData> lLDAudioQuestion = new List<ILivingLetterData>();
 
-        private List<ILivingLetterData> questionData = new List<ILivingLetterData>();
+        private ILivingLetterData questionData;
+        private List<ILivingLetterData> answersData = new List<ILivingLetterData>();
 
         private int piecePoofCompleteCount = 0;
         private bool eggEggCrackCompleteSent = false;
@@ -346,19 +347,23 @@ namespace Antura.Minigames.Egg
             notRotatedObjects.eulerAngles = notRotation;
         }
 
-        public void SetQuestion(ILivingLetterData questionData)
-        {
-            this.questionData.Clear();
 
-            this.questionData.Add(questionData);
+        public void SetQuestion(ILivingLetterData _questionData)
+        {
+            questionData = _questionData;
         }
 
-        public void SetQuestion(IEnumerable<ILivingLetterData> questionData)
+        public void SetAnswers(ILivingLetterData _answersData)
         {
-            this.questionData.Clear();
+            answersData.Clear();
+            answersData.Add(_answersData);
+        }
 
-            foreach (ILivingLetterData letterData in questionData) {
-                this.questionData.Add(letterData);
+        public void SetAnswers(IEnumerable<ILivingLetterData> _answersData)
+        {
+            answersData.Clear();
+            foreach (ILivingLetterData answerData in _answersData) {
+                answersData.Add(answerData);
             }
         }
 
@@ -370,8 +375,8 @@ namespace Antura.Minigames.Egg
 
             lLDAudioQuestion.Clear();
 
-            for (int i = 0; i < questionData.Count; i++) {
-                lLDAudioQuestion.Add(questionData[i]);
+            for (int i = 0; i < answersData.Count; i++) {
+                lLDAudioQuestion.Add(answersData[i]);
             }
         }
 
@@ -442,11 +447,21 @@ namespace Antura.Minigames.Egg
 
             Vector3[] lettersEndPositions = GetLettersEndPositions();
 
-            for (int i = 0; i < questionData.Count; i++) {
-                Vector3 lLetterPosition = new Vector3(transform.localPosition.x, egg.transform.localPosition.y, transform.localPosition.z);
-                letter = new EggLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab, questionData[i], lLetterPosition, transform.localPosition, lettersEndPositions[i], (jumpDelay * i) + startDelay, null);
+            Vector3 lLetterPosition = new Vector3(transform.localPosition.x, egg.transform.localPosition.y, transform.localPosition.z);
+            for (int i = 0; i < answersData.Count; i++) {
+                letter = new EggLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab, answersData[i], lLetterPosition, transform.localPosition, lettersEndPositions[i], (jumpDelay * i) + startDelay, null);
 
                 eggLivingLetters.Add(letter);
+            }
+
+            if (questionData != null)
+            {
+                Vector3 finalLivingLetterEndPosition = new Vector3(0, -0.3f, -14);
+                var questionImageData = new LL_ImageData(questionData.Id);
+                var finalLivingLetter = new EggLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab,
+                    questionImageData, lLetterPosition, transform.localPosition, finalLivingLetterEndPosition, (jumpDelay * answersData.Count) + startDelay, null);
+
+                eggLivingLetters.Add(finalLivingLetter);
             }
         }
 
@@ -461,7 +476,7 @@ namespace Antura.Minigames.Egg
 
         Vector3[] GetLettersEndPositions()
         {
-            int questionDataCount = questionData.Count;
+            int questionDataCount = answersData.Count;
 
             Vector3[] lettersEndPositions = new Vector3[questionDataCount];
 

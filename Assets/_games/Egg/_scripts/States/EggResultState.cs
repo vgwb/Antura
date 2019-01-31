@@ -21,7 +21,10 @@ namespace Antura.Minigames.Egg
 
             if (game.stagePositiveResult) {
                 game.Context.GetAudioManager().PlaySound(Sfx.Win);
-                game.Context.GetCheckmarkWidget().Show(true);
+                if (!game.CurrentQuestion.IsSequence())
+                {
+                    game.Context.GetCheckmarkWidget().Show(true);
+                }
                 toNextState = true;
             } else {
                 game.Context.GetAudioManager().PlaySound(Sfx.Lose);

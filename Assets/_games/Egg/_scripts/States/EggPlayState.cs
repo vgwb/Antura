@@ -403,6 +403,7 @@ namespace Antura.Minigames.Egg
         {
             if (isSequence) {
                 game.eggButtonBox.SetButtonsOnPressedColor();
+                game.eggButtonBox.HideButtons();
             } else {
                 //game.eggButtonBox.GetEggButton(game.CurrentQuestion.Letters[0]).SetPressed();
             }
