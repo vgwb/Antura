@@ -252,11 +252,11 @@ namespace Antura.Minigames.ThrowBalls
 
                 if (i == indexOfCorrectLetter) {
                     letterObj.tag = Constants.CORRECT_LETTER_TAG;
-                    letterControllers[i].SetLetter(correctDatum);
+                    letterControllers[i].SetData(correctDatum);
                     tutorialTarget = letterObj;
                 } else {
                     letterObj.tag = Constants.WRONG_LETTER_TAG;
-                    letterControllers[i].SetLetter(wrongData[0]);
+                    letterControllers[i].SetData(wrongData[0]);
                     wrongData.RemoveAt(0);
                 }
             }
@@ -341,7 +341,7 @@ namespace Antura.Minigames.ThrowBalls
 
                 ConfigureLetterPropAndMotionVariation(letterControllers[letterObjectIndex]);
 
-                letterControllers[letterObjectIndex].SetLetter(currentLettersForLettersInWord[i]);
+                letterControllers[letterObjectIndex].SetData(currentLettersForLettersInWord[i]);
                 letterObj.tag = currentLettersForLettersInWord[i].Id == currentLettersForLettersInWord[0].Id ? Constants.CORRECT_LETTER_TAG : Constants.WRONG_LETTER_TAG;
 
                 if (i == 0) {
@@ -582,8 +582,10 @@ namespace Antura.Minigames.ThrowBalls
             correctLetterCntrl.transform.rotation = Quaternion.Euler(-Camera.main.transform.rotation.eulerAngles.x, 180, 0);
             correctLetterCntrl.shadow.SetActive(false);
 
-            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
-                correctLetterCntrl.SetLetter(question);
+            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord)
+            {
+                var imageQuestion = new LL_ImageData(question.Id);
+                correctLetterCntrl.SetData(imageQuestion);
             }
 
             correctLetterCntrl.Show();

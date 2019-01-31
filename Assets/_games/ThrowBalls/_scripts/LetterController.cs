@@ -124,7 +124,7 @@ namespace Antura.Minigames.ThrowBalls
             StopAllCoroutines();
         }
 
-        public void SetLetter(ILivingLetterData _data)
+        public void SetData(ILivingLetterData _data)
         {
             letterData = _data;
             letterObjectView.Init(letterData);
