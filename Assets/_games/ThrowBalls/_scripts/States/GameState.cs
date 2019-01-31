@@ -204,7 +204,7 @@ namespace Antura.Minigames.ThrowBalls
             if (!uiInitialised && !IsTutorialRound()) {
                 uiInitialised = true;
 
-                
+
                 game.Context.GetOverlayWidget().Initialize(true, false, true);
                 game.Context.GetOverlayWidget().SetStarsThresholds(1, 3, 5);
                 game.Context.GetOverlayWidget().SetMaxLives(MAX_NUM_BALLS);
@@ -222,8 +222,7 @@ namespace Antura.Minigames.ThrowBalls
                 for (int i = 0; i < wrongData.Count; i++) {
                     wrongData[i] = new LL_ImageData(wrongData[i].Id);
                 }
-            }
-            else
+            } else
                 SayQuestion();
 
             yield return new WaitForSeconds(1f);
@@ -380,8 +379,8 @@ namespace Antura.Minigames.ThrowBalls
 
         private List<int> SortLettersByZIndex(int numLetters)
         {
-            List<float> zIndices = new List<float>();
-            List<int> sortedIndices = new List<int>();
+            var zIndices = new List<float>();
+            var sortedIndices = new List<int>();
 
             for (int i = 0; i < numLetters; i++) {
                 sortedIndices.Add(i);
@@ -400,13 +399,11 @@ namespace Antura.Minigames.ThrowBalls
                         int tempIndex = sortedIndices[j - 1];
                         sortedIndices[j - 1] = sortedIndices[j];
                         sortedIndices[j] = tempIndex;
-
                     }
 
                     j--;
                 }
             }
-
             return sortedIndices;
         }
 
@@ -447,7 +444,7 @@ namespace Antura.Minigames.ThrowBalls
         {
             if (isRoundOngoing && !IsTutorialRound()) {
                 numBalls--;
-                
+
                 game.Context.GetOverlayWidget().SetLives(numBalls);
 
                 if (numBalls == 0) {
@@ -531,9 +528,7 @@ namespace Antura.Minigames.ThrowBalls
             if (isRoundOngoing) {
                 if (!IsTutorialRound()) {
                     numRoundsWon++;
-
                     game.Context.GetOverlayWidget().SetStarsScore(numRoundsWon);
-
                 } else {
                     TutorialUI.Clear(true);
                 }
@@ -734,7 +729,7 @@ namespace Antura.Minigames.ThrowBalls
             numBalls = MAX_NUM_BALLS;
 
             if (roundNumber > 1 || !game.TutorialEnabled && roundNumber > 0) {
-                
+
                 game.Context.GetOverlayWidget().SetLives(MAX_NUM_BALLS);
             }
 
