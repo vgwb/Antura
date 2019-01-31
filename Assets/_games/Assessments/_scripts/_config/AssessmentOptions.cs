@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Language;
 using Antura.LivingLetters;
 
 namespace Antura.Assessment
@@ -21,7 +22,7 @@ namespace Antura.Assessment
             instance = new AssessmentOptions();
         }
 
-        public TextDirection LocaleTextDirection { get; set; }
+        public TextDirection LocaleTextDirection => LanguageSwitcher.LearningConfig.TextDirection;
         public bool PronunceQuestionWhenClicked { get; set; }
         public bool PronunceAnswerWhenClicked { get; set; }
         public bool ShowQuestionAsImage { get; set; }

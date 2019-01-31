@@ -517,7 +517,6 @@ namespace Antura.Assessment
         private static void Init(AssessmentContext context)
         {
             // ARABIC SETTINGS
-            AssessmentOptions.Instance.LocaleTextDirection = TextDirection.RightToLeft;
             AssessmentOptions.Instance.ReadQuestionAndAnswer = false;
             AssessmentOptions.Instance.CompleteWordOnAnswered = false;
             AssessmentOptions.Instance.ShowFullWordOnAnswered = false;

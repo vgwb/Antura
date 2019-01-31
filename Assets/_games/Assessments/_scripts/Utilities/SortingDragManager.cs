@@ -2,6 +2,7 @@ using Kore.Coroutines;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using Antura.Minigames;
 using UnityEngine;
 
@@ -97,6 +98,8 @@ namespace Antura.Assessment
 
             //Answers like are actually sorted
             var sorted = sortables.OrderByDescending(x => x.transform.position.x).ToArray();
+            if (!LanguageSwitcher.LearningRTL)
+                sorted = sorted.Reverse().ToArray();
 
             int index = 0;
             foreach (var a in answers) {
