@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using Antura.Tutorial;
 using UnityEngine;
 
@@ -267,7 +267,16 @@ namespace Antura.Minigames.Egg
 
             game.eggController.EmoticonInterrogative();
             isPlayingQuestion = true;
-            game.eggController.PlayAudioQuestion(delegate () { isPlayingQuestion = false; game.eggController.EmoticonClose(); EnableAllGameplayInput(); });
+            if (isSequence)
+            {
+                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, false, false, 0f,
+                    delegate () { isPlayingQuestion = false; game.eggController.EmoticonClose(); EnableAllGameplayInput(); }
+                    );
+            }
+            else
+            {
+                game.eggController.PlayAudioQuestion(delegate () { isPlayingQuestion = false; game.eggController.EmoticonClose(); EnableAllGameplayInput(); });
+            }
         }
 
         void PositiveFeedback()
