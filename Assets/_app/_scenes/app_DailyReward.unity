@@ -749,7 +749,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -179.41974, y: 4.9999847}
+  m_AnchoredPosition: {x: 180, y: 4.9999847}
   m_SizeDelta: {x: 98.839966, y: 97.00006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &602511197
@@ -767,7 +767,6 @@ MonoBehaviour:
   m_text: YESTERDAY
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 416
 --- !u!114 &602511198
@@ -957,7 +956,6 @@ MonoBehaviour:
   m_text: TODAY
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 415
 --- !u!114 &617324459
@@ -1327,6 +1325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d30db10620bbeab4dbe7c1bd19fbb91e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LanguageUse: 0
 --- !u!1 &809695001
 GameObject:
   m_ObjectHideFlags: 0
@@ -1797,6 +1796,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 999b084b8edde104b84e8bb93aae195e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  LanguageUse: 0
 --- !u!222 &1111254307
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1823,7 +1823,7 @@ MonoBehaviour:
     m_Top: 0
     m_Bottom: 0
   m_ChildAlignment: 3
-  m_StartCorner: 0
+  m_StartCorner: 1
   m_StartAxis: 0
   m_CellSize: {x: 180, y: 170}
   m_Spacing: {x: 0, y: 0}
@@ -2200,7 +2200,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 174.58026, y: 5}
+  m_AnchoredPosition: {x: -180, y: 5}
   m_SizeDelta: {x: 98.839966, y: 97.00006}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1353358225
@@ -2218,7 +2218,6 @@ MonoBehaviour:
   m_text: TOMORROW
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 417
 --- !u!114 &1353358226
@@ -2857,6 +2856,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632139757}
   - component: {fileID: 1632139758}
+  - component: {fileID: 1632139759}
   m_Layer: 5
   m_Name: DailyRewardsPivot
   m_TagString: Untagged
@@ -2892,6 +2892,19 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1632139756}
   m_CullTransparentMesh: 0
+--- !u!114 &1632139759
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632139756}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d30db10620bbeab4dbe7c1bd19fbb91e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LanguageUse: 0
 --- !u!1 &1775565532
 GameObject:
   m_ObjectHideFlags: 0
@@ -3103,7 +3116,6 @@ MonoBehaviour:
   m_text: Daily Reward
   isTMPro: 1
   isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &2003751175
@@ -3280,7 +3292,7 @@ MonoBehaviour:
   fromPopupPivot: {fileID: 1632139757}
   toPopupPivot: {fileID: 1150042955}
   useForcedConsecutiveDays: 0
-  forcedConsecutiveDays: 2
+  forcedConsecutiveDays: 3
 --- !u!4 &2006303659
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Antura.Database;
+using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -122,9 +123,11 @@ namespace Antura.Rewards
 
             // Start from the left
             bool withTranslation = nCurrentConsecutiveDaysOfPlaying != 1;
+            int rtlDir = LanguageSwitcher.LearningRTL ? 1 : -1;
             float targetX = dailyRewardUIPivot.transform.localPosition.x;
-            if (withTranslation) {
-                dailyRewardUIPivot.transform.localPosition += Vector3.left * 200;
+            if (withTranslation)
+            {
+                dailyRewardUIPivot.transform.localPosition += Vector3.left * 200 * rtlDir;
             }
 
             StartCoroutine(ShowRewardsCO(withTranslation, targetX));
@@ -153,19 +156,6 @@ namespace Antura.Rewards
 
             AudioManager.I.PlaySound(Sfx.Win);
             dailyRewardUIs[newRewardUIIndex].Bounce(true);
-
-            //            yield return new WaitForSeconds(1.0f);
-            //
-            //            //  Translate to the middle
-            //            if (withTranslation)
-            //                dailyRewardUIPivot.DOLocalMoveX(0, 1f).SetEase(Ease.InOutSine);
-            //
-            //            dailyRewardUIs[newRewardUIIndex].transform.DOScale(1.3f, 1f).SetEase(Ease.OutBack);
-            //
-            //            yield return new WaitForSeconds(1.0f);
-
-            // Show the TODAY on the new one
-            //            todayPivot.transform.position = dailyRewardUIs[newRewardUIIndex].transform.position;
 
             bonesCounter.Show();
 
@@ -221,8 +211,6 @@ namespace Antura.Rewards
             }
             AppManager.I.Player.AddBones(nNewBones);
 
-            //yield return new WaitForSeconds(0.1f);
-
             // Log
             LogManager.I.LogInfo(InfoEvent.DailyRewardReceived);
 
@@ -232,8 +220,6 @@ namespace Antura.Rewards
                     LocalizationDataId.DailyReward_ComeBack_1,
                     LocalizationDataId.DailyReward_ComeBack_2
                 }.GetRandom(), Continue);
-
-            //Invoke("Continue", 0.5f);
         }
 
         private void Continue()
