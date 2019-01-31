@@ -16,7 +16,7 @@ namespace Antura.Minigames.Egg
 
         public void EnterState()
         {
-            nextStateTimer = 2f;
+            nextStateTimer = 5f;
             toNextState = false;
 
             if (game.stagePositiveResult) {

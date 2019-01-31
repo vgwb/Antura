@@ -132,7 +132,7 @@ namespace Antura.Minigames.Egg
 
                             if (isSequence)
                             {
-                                runLetterData = game.CurrentQuestion.Question;
+                                runLetterData = new LL_ImageData(game.CurrentQuestion.Question.Id);
                             }
                             else
                             {
