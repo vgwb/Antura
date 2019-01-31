@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System;
 
 namespace Antura.Minigames.ColorTickle
@@ -97,6 +97,7 @@ namespace Antura.Minigames.ColorTickle
 
             if (s_tBaseLetterFullTexture==null && m_oTextMeshObject.fontMaterial.mainTexture is Texture2D) //if there isn't a copy already
             {
+
                 //assuming the atlas isn't readable, make a copy of the source
                 RenderTexture _tRenderTmp = RenderTexture.GetTemporary(   // Create a temporary RenderTexture of the same size as the texture
                                     m_oTextMeshObject.fontMaterial.mainTexture.width,

@@ -79,7 +79,8 @@ namespace Antura.Minigames.ColorTickle
                 _lldata = _qp.GetCorrectAnswers().ToList()[0];
                
                 game.myLetters[i].GetComponent<LivingLetterController>().Init(_lldata);
-                
+                game.myLetters[i].GetComponent<LivingLetterController>().SetOutlineMaterial();
+
                 game.myLetters[i].GetComponent<ColorTickle_LLController>().movingToDestination = false;
                 
             }
@@ -87,12 +88,13 @@ namespace Antura.Minigames.ColorTickle
 
         void BuildTutorialLetter()
         {
-            LL_LetterData LLdata = new LL_LetterData(AppManager.I.DB.GetLetterDataById("beh"));
+            LL_LetterData LLdata = new LL_LetterData(AppManager.I.DB.GetAllLetterData().First());
             game.tutorialLetter = Object.Instantiate(game.letterPrefab);
             game.tutorialLetter.SetActive(true);
             // HACK fix for the automatic reset of the color after update at Unity 5.4.2
             game.tutorialLetter.GetComponent<LivingLetterController>().Label.color = Color.white;
             game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata);
+            game.tutorialLetter.GetComponent<LivingLetterController>().SetOutlineMaterial();
             game.tutorialLetter.GetComponent<ColorTickle_LLController>().movingToDestination = false;
         }
 

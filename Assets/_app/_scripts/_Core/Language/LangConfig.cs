@@ -10,8 +10,10 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
-        public TMP_FontAsset font;
+        public TMP_FontAsset Font;
         public TextDirection TextDirection;
+
+        public Material OutlineFontMaterial;
 
         public bool IsRightToLeft()
         {

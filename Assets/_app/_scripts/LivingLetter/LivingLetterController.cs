@@ -172,7 +172,7 @@ namespace Antura.LivingLetters
             ImageSprite.enabled = false;
             Drawing.enabled = false;
             Label.enabled = false;
-            Label.font = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).font;
+            Label.font = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Font;
         }
 
         void Start()
@@ -686,5 +686,14 @@ namespace Antura.LivingLetters
         {
             --dancingRefs;
         }
+
+        #region Materials
+
+        public void SetOutlineMaterial()
+        {
+            Label.fontSharedMaterial = LanguageSwitcher.I.LearningLangConfig.OutlineFontMaterial;
+        }
+
+        #endregion
     }
 }
