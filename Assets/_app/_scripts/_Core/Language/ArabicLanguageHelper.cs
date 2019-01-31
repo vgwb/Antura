@@ -52,112 +52,12 @@ namespace Antura.Language
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
 
-        public override string GetStringUnicodes(string str)
-        {
-            char[] chars = str.ToCharArray();
-            string output = "";
-            for (int i = 0; i < chars.Length; i++)
-            {
-                char character = chars[i];
-                output += GetHexUnicodeFromChar(character) + ", ";
-            }
-            return output;
-        }
-
-        /// <summary>
-        /// Return single letter string start from unicode hex code.
-        /// </summary>
-        /// <param name="hexCode">string Hexadecimal number</param>
-        /// <returns>string char</returns>
-        public override string GetLetterFromUnicode(string hexCode)
-        {
-            if (hexCode == "")
-            {
-                Debug.LogError(
-                    "Letter requested with an empty hexacode (data is probably missing from the DataBase). Returning - for now.");
-                hexCode = "002D";
-            }
-
-            int unicode = int.Parse(hexCode, System.Globalization.NumberStyles.HexNumber);
-            var character = (char) unicode;
-            return character.ToString();
-        }
-
-        /// <summary>
-        /// Get char hexa code.
-        /// </summary>
-        /// <param name="_char"></param>
-        /// <param name="unicodePrefix"></param>
-        /// <returns></returns>
-        public override string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false)
-        {
-            return string.Format("{1}{0:X4}", Convert.ToUInt16(_char), unicodePrefix ? "/U" : string.Empty);
-        }
-
-        /// <summary>
-        /// Return a string of a word without a character. Warning: the word is already reversed and fixed for rendering.
-        /// This is mandatory since PrepareArabicStringForDisplay should be called before adding removedLetterChar.
-        /// </summary>
-        public override string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove,
-            string removedLetterChar = "_")
-        {
-            string text = ProcessString(wordData.Text);
-
-            int toCharacterIndex = partToRemove.toCharacterIndex + 1;
-            text = text.Substring(0, partToRemove.fromCharacterIndex) + removedLetterChar +
-                   (toCharacterIndex >= text.Length ? "" : text.Substring(toCharacterIndex));
-
-            return text;
-        }
-
-        public override List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData,
-            LetterData letterToFind, bool findSameForm)
-        {
-            var result = new List<StringPart>();
-
-            var parts = SplitWord(databaseManager, wordData, false, letterToFind.Kind != LetterDataKind.LetterVariation);
-
-            for (int i = 0, count = parts.Count; i < count; ++i)
-            {
-                if (parts[i].letter.Id == letterToFind.Id &&
-                    (!findSameForm || (parts[i].letterForm == letterToFind.Form)))
-                {
-                    result.Add(parts[i]);
-                }
-            }
-
-            return result;
-        }
-
-        /*
-        /// <summary>
-        /// Returns the list of letters found in a word string
-        /// </summary>
-        public override List<StringPart> SplitWord(DatabaseManager database, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false)
-        {
-            // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(wordData.Text),
-                separateDiacritics, separateVariations);
-        }*/
-
+        
         public override List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
             return AnalyzeArabicString(staticDatabase, ProcessString(wordData.Text), separateDiacritics,
-                separateVariations);
-        }
-
-        /// <summary>
-        /// Returns the list of letters found in a word string
-        /// </summary>
-        public override List<StringPart> SplitPhrase(DatabaseManager database, PhraseData phrase,
-            bool separateDiacritics = false,
-            bool separateVariations = true)
-        {
-            // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(database.StaticDatabase, ProcessString(phrase.Arabic), separateDiacritics,
                 separateVariations);
         }
 
@@ -169,6 +69,8 @@ namespace Antura.Language
             return AnalyzeArabicString(staticDatabase, ProcessString(phrase.Arabic), separateDiacritics,
                 separateVariations);
         }
+
+        #region Private
 
         List<StringPart> AnalyzeArabicString(DatabaseObject staticDatabase, string processedArabicString,
             bool separateDiacritics = false, bool separateVariations = true)
@@ -1189,6 +1091,9 @@ namespace Antura.Language
                     "DiacriticCombos2Fix.Add(new DiacriticComboEntry(\"{0}\", \"{1}\"), new Vector2({2}, {3}));",
                     unicode1, unicode2, delta.x, delta.y);
         }
+
+        #endregion
+
 
         #endregion
 

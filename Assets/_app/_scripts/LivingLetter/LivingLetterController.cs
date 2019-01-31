@@ -474,11 +474,11 @@ namespace Antura.LivingLetters
                 List<StringPart> parts = new List<StringPart>();
 
                 foreach (var markedLetter in toMark)
-                    parts.AddRange(LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(Core.AppManager.I.DB, word.Data, markedLetter.Data, true));
+                    parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, true));
 
                 if (parts.Count > 0)
                 {
-                    Label.text = Antura.UI.ArabicTextUtilities.GetWordWithMarkedLettersText(word.Data, parts, color);
+                    Label.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
                 }
             }
         }
@@ -691,7 +691,7 @@ namespace Antura.LivingLetters
 
         public void SetOutlineMaterial()
         {
-            Label.fontSharedMaterial = LanguageSwitcher.I.LearningLangConfig.OutlineFontMaterial;
+            Label.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
         }
 
         #endregion

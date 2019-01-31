@@ -12,6 +12,7 @@ using System.Linq;
 using System;
 using Antura.Language;
 
+
 namespace Antura.Minigames.ThrowBalls
 {
     public class GameState : FSM.IState
@@ -322,9 +323,9 @@ namespace Antura.Minigames.ThrowBalls
 
             var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[0];
 
-            var letterDataToFlash = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, ((LL_WordData)question).Data, letterToFlash.Data, false)[0];
+            var letterDataToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, ((LL_WordData)question).Data, letterToFlash.Data, false)[0];
 
-            flashingTextCoroutine = ArabicTextUtilities.GetWordWithFlashingText(((LL_WordData)question).Data, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
+            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(((LL_WordData)question).Data, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                     (string text) => {
                         UIController.instance.SetText(text);
                     }, false);
@@ -496,7 +497,7 @@ namespace Antura.Minigames.ThrowBalls
                 }
 
                 if (numLettersRemaining == 0) {
-                    string markedText = ArabicTextUtilities.GetWordWithMarkedText(word, Color.green);
+                    string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
                     UIController.instance.SetText(markedText);
                 } else {
                     var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
@@ -504,7 +505,7 @@ namespace Antura.Minigames.ThrowBalls
                     var letterDataToFlash = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
                     flashedLettersInLiWVariation.Add(letterToFlash);
 
-                    flashingTextCoroutine = ArabicTextUtilities.GetWordWithFlashingText(word, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
+                    flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                         (string text) => {
                             UIController.instance.SetText(text);
                         }, true);

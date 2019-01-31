@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Helpers;
 using Antura.LivingLetters;
@@ -352,7 +352,7 @@ namespace Antura.Minigames.MissingLetter
                 letterView.Label.text = "<color=" + color + ">" + letterView.Label.text + "</color>";
             } else {
                 LL_WordData word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
-                letterView.Label.text = ArabicTextUtilities.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, ArabicTextUtilities.MarkType.SingleLetter);
+                letterView.Label.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
             }
 
         }

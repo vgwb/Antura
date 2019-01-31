@@ -10,6 +10,7 @@ using TMPro;
 using UnityEngine;
 using Antura.Language;
 
+
 namespace Antura.Assessment
 {
     /// <summary>
@@ -69,13 +70,13 @@ namespace Antura.Assessment
             var wordInner = word as LL_WordData;
             var letterInner = letter as LL_LetterData;
 
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, false);
+            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, false);
 
             var partToRemove = parts[0];
 
             // .. and voil�! Thank you Davide! :)
-            Label.text = ArabicTextUtilities.GetWordWithMarkedLetterText(
-                wordInner.Data, partToRemove, SpecialGreen, ArabicTextUtilities.MarkType.SingleLetter
+            Label.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(
+                wordInner.Data, partToRemove, SpecialGreen, MarkType.SingleLetter
             );
         }
 

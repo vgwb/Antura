@@ -1,4 +1,4 @@
-﻿using Antura.Helpers;
+using Antura.Helpers;
 using Antura.LivingLetters;
 using System;
 using SQLite;
@@ -40,6 +40,7 @@ namespace Antura.Database
         [SerializeField]
         private string _English;
 
+        // TODO: rename to Text
         public string Arabic
         {
             get { return _Arabic; }

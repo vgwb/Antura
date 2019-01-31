@@ -1,9 +1,11 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using ArabicSupport;
+using UnityEngine;
 
 namespace Antura.Language
 {
@@ -29,7 +31,6 @@ namespace Antura.Language
 
         string GetStringUnicodes(string str);
         string GetLetterFromUnicode(string hexCode);
-
         string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false);
 
         string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "_");
@@ -57,6 +58,15 @@ namespace Antura.Language
         bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo);
 
         string DebugShowDiacriticFix(string unicode1, string unicode2);
+
+
+        // Text Utilities
+
+        string GetWordWithMarkedLetterText(WordData wordData, StringPart letterToMark, Color color, MarkType type);
+        string GetWordWithMarkedLettersText(WordData wordData, List<StringPart> lettersToMark, Color color);
+        IEnumerator GetWordWithFlashingText(WordData wordData, int fromIndexToFlash, int toIndexToFlash, Color flashColor,
+            float cycleDuration, int numCycles, Action<string> callback, bool markPrecedingLetters = false);
+        string GetWordWithMarkedText(WordData wordData, Color color);
 
     }
 }
