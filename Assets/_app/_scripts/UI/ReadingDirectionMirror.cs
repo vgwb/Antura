@@ -14,12 +14,9 @@ namespace Antura.UI
 
         void Awake()
         {
-            Debug.Log("AWAKING");
             foreach (Transform childTr in GetComponentsInChildren<Transform>(true))
             {
                 if (childTr.parent != transform) continue;
-                
-                Debug.Log("CHECK CHILD " + childTr.name);
                 switch (LanguageSwitcher.I.GetLangConfig(LanguageUse).TextDirection)
                 {
                     case TextDirection.RightToLeft:
@@ -29,9 +26,7 @@ namespace Antura.UI
                         var rectTransform = childTr.GetComponent<RectTransform>();
                         if (rectTransform != null)
                         {
-                            Debug.Log("Anchor pos: " + rectTransform.anchoredPosition.x);
                             rectTransform.SetAnchoredPosX(-rectTransform.anchoredPosition.x);
-                            Debug.Log("New pos: " + rectTransform.anchoredPosition.x);
                         }
                         break;
                 }
