@@ -1,4 +1,5 @@
 using System;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
 using UnityEngine;
@@ -79,7 +80,7 @@ namespace Antura.Minigames
 
         public void SetTitle(string text)
         {
-            WidgetPopupWindow.I.SetTitle(text, false);
+            WidgetPopupWindow.I.SetTitle(text, LanguageUse.Instructions);
         }
 
         public void SetMessage(string text)

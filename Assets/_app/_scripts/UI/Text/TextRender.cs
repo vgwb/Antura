@@ -11,7 +11,6 @@ using TMPro;
 
 namespace Antura.UI
 {
-    // TODO: remove all references to arabic and use LTR / RTL based on language configuration
     public class TextRender : MonoBehaviour
     {
         [SerializeField]
@@ -19,14 +18,16 @@ namespace Antura.UI
 
         public bool isTMPro = true;
         public bool isUI;
-        public bool isArabic;
         public bool isEnglishSubtitle;
+
+        private LanguageUse languageUse;
         public Database.LocalizationDataId LocalizationId;
 
         public string text
         {
             get { return m_text; }
-            set {
+            set
+            {
                 if (m_text == value) return;
                 if (SAppConfig.I.ForceALLCAPSTextRendering) {
                     m_text = value.ToUpper();
@@ -85,8 +86,6 @@ namespace Antura.UI
                 gameObject.SetActive(AppManager.I.AppSettings.EnglishSubtitles);
             }
 
-            checkConfiguration();
-
             if (LocalizationId != Database.LocalizationDataId.None) {
                 SetSentence(LocalizationId);
             }
@@ -100,26 +99,14 @@ namespace Antura.UI
         public void SetText(string _text)
         {
             text = _text;
+            CheckRTL();
         }
 
-        /// <summary>
-        /// here we can force the arabic setup of this text field (in case needs to be changed by code)
-        /// </summary>
-        /// <param name="_text">Text.</param>
-        /// <param name="arabic">forces the arabic parsing ON/OFF</param>
-        public void SetText(string _text, bool arabic)
+        public void SetText(string _text, LanguageUse _languageUse)
         {
-            isArabic = arabic;
+            languageUse = _languageUse;
             text = _text;
-        }
-
-        void checkConfiguration()
-        {
-            if (isTMPro && isUI && isArabic) {
-                if (!gameObject.GetComponent<TextMeshProUGUI>().isRightToLeftText) {
-                    Debug.LogWarning("TextMeshPro on component " + gameObject.name + " isn't RTL");
-                }
-            }
+            CheckRTL();
         }
 
         public void SetTextUnfiltered(string text)
@@ -137,39 +124,27 @@ namespace Antura.UI
                     gameObject.GetComponent<TextMesh>().text = text;
                 }
             }
+            CheckRTL();
         }
 
         private void updateText()
         {
             if (isTMPro) {
-                if (isArabic) {
-                    if (isUI) {
-                        gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
-                    } else {
-                        gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
-                    }
+                if (isUI) {
+                    gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
                 } else {
-                    if (isUI) {
-                        gameObject.GetComponent<TextMeshProUGUI>().text = m_text;
-                    } else {
-                        gameObject.GetComponent<TextMeshPro>().text = m_text;
-                    }
+                    gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
                 }
             } else {
-                if (isArabic) {
-                    if (isUI) {
-                        gameObject.GetComponent<Text>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
-                    } else {
-                        gameObject.GetComponent<TextMesh>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
-                    }
+                if (isUI) {
+                    gameObject.GetComponent<Text>().text = m_text;
                 } else {
-                    if (isUI) {
-                        gameObject.GetComponent<Text>().text = m_text;
-                    } else {
-                        gameObject.GetComponent<TextMesh>().text = m_text;
-                    }
+                    gameObject.GetComponent<TextMesh>().text = m_text;
                 }
             }
+
+            if (RenderedText == "") text = " "; // Avoid no text not getting update correctly
+            CheckRTL();
         }
 
         public void SetColor(Color color)
@@ -183,17 +158,23 @@ namespace Antura.UI
             }
         }
 
-        public void SetLetterData(ILivingLetterData livingLetterData)
+        void CheckRTL()
         {
-            isArabic = false;
-
-            bool isRTL = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).IsRightToLeft();
-
-            if (isUI) {
+            bool isRTL = LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
+            if (isUI)
+            {
                 gameObject.GetComponent<TextMeshProUGUI>().isRightToLeftText = isRTL;
-            } else {
+            }
+            else
+            {
                 gameObject.GetComponent<TextMeshPro>().isRightToLeftText = isRTL;
             }
+        }
+
+        public void SetLetterData(ILivingLetterData livingLetterData)
+        {
+            languageUse =LanguageUse.Learning;
+            CheckRTL();
 
             if (livingLetterData.DataType == LivingLetterDataType.Letter) {
                 text = livingLetterData.TextForLivingLetter;
@@ -204,8 +185,6 @@ namespace Antura.UI
 
         public void SetSentence(Database.LocalizationDataId sentenceId)
         {
-            // Debug.Log("SetSentence " + sentenceId);
-            isArabic = true;
             text = LocalizationManager.GetTranslation(sentenceId);
         }
     }

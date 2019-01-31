@@ -1,8 +1,9 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters;
 using System;
+using Antura.Language;
 using TMPro;
 using DG.DeExtensions;
 using DG.Tweening;
@@ -63,7 +64,7 @@ namespace Antura.UI
         {
             clicked = false;
             TutorialImageGO.SetActive(false);
-            SetTitle("", false);
+            SetTitle("", LanguageUse.Instructions);
             SetWord("", null);
             MarkOK.SetActive(false);
             MarkKO.SetActive(false);
@@ -106,8 +107,7 @@ namespace Antura.UI
             currentCallback = callback;
             ButtonGO.gameObject.SetActive(callback != null);
 
-            TitleGO.GetComponent<TextRender>().isArabic = false;
-            TitleGO.GetComponent<TextRender>().text = myText;
+            TitleGO.GetComponent<TextRender>().SetTextUnfiltered(myText);
 
             Show(true);
         }
@@ -125,9 +125,7 @@ namespace Antura.UI
             ButtonGO.gameObject.SetActive(callback != null);
 
             LocalizationData row = LocalizationManager.GetLocalizationData(SentenceId);
-
-            TitleGO.GetComponent<TextRender>().isArabic = true;
-            TitleGO.GetComponent<TextRender>().text = row.LearningText;
+            TitleGO.GetComponent<TextRender>().SetText(row.LearningText, LanguageUse.Learning);
 
             AudioManager.I.PlayDialogue(SentenceId);
 
@@ -146,9 +144,7 @@ namespace Antura.UI
                 TutorialImageGO.SetActive(true);
             }
 
-            TitleGO.GetComponent<TextRender>().isArabic = true;
-            TitleGO.GetComponent<TextRender>().text = LocalizationManager.GetTranslation(sentenceId);
-
+            TitleGO.GetComponent<TextRender>().SetText(LocalizationManager.GetTranslation(sentenceId), LanguageUse.Learning);
             AudioManager.I.PlayDialogue(sentenceId);
 
             Show(true);
@@ -247,10 +243,9 @@ namespace Antura.UI
             Show(true);
         }
 
-        public void SetTitle(string text, bool isArabic)
+        public void SetTitle(string text, LanguageUse languageUse)
         {
-            TitleGO.GetComponent<TextRender>().isArabic = isArabic;
-            TitleGO.GetComponent<TextRender>().text = text;
+            TitleGO.GetComponent<TextRender>().SetText(text, languageUse);
         }
 
         public void SetMessage(LocalizationDataId SentenceId)
@@ -260,8 +255,7 @@ namespace Antura.UI
 
         public void SetMessage(string text)
         {
-            MessageTextGO.GetComponent<TextRender>().isArabic = false;
-            MessageTextGO.GetComponent<TextRender>().text = text;
+            MessageTextGO.GetComponent<TextRender>().SetTextUnfiltered(text);
         }
 
         public void SetTitleSentence(LocalizationDataId SentenceId)

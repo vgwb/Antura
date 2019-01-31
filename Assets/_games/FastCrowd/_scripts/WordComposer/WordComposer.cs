@@ -1,8 +1,10 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using DG.Tweening;
 using System.Collections;
 using Antura.Audio;
+using Antura.Core;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
 
@@ -23,9 +25,9 @@ namespace Antura.Minigames.FastCrowd
             UpdateWord();
         }
 
-        void UpdateWord()
+        void UpdateWord(bool onlyIfActive = true)
         {
-            if (!isActiveAndEnabled)
+            if (onlyIfActive && !isActiveAndEnabled)
                 return;
 
             string word = string.Empty;
@@ -44,7 +46,9 @@ namespace Antura.Minigames.FastCrowd
                         word += " " + letter.Data.GetStringForDisplay(letter.Form);
                 }
                 else
+                {
                     word += letter.Data.GetStringForDisplay(letter.Form);
+                }
             }
 
             if (splitMode)
@@ -63,7 +67,7 @@ namespace Antura.Minigames.FastCrowd
             }
 
             //WordLabel.SetText(word, !splitMode);
-            WordLabel.SetText(word, false);
+            WordLabel.SetText(word, LanguageUse.Learning);
         }
 
         public void AddLetter(ILivingLetterData data)
@@ -77,7 +81,7 @@ namespace Antura.Minigames.FastCrowd
         public void Clean()
         {
             CompletedLetters = new List<LL_LetterData>();
-            UpdateWord();
+            UpdateWord(onlyIfActive:false);
 
             StopAllCoroutines();
         }

@@ -1,6 +1,7 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
 using TMPro;
@@ -115,7 +116,7 @@ namespace Antura.Minigames.SickLetters
 
             string letterWithoutDiac = removeDiacritics(newLetter.TextForLivingLetter);
 
-            dotlessLetter.GetComponent<TextRender>().SetText(letterWithoutDiac, true);
+            dotlessLetter.GetComponent<TextRender>().SetText(letterWithoutDiac, LanguageUse.Learning);
 
             //Deal with dotless letters
             if (!game.LettersWithDots.Contains(letterWithoutDiac))

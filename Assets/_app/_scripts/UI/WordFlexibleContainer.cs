@@ -1,4 +1,5 @@
-﻿using Antura.LivingLetters;
+using Antura.Language;
+using Antura.LivingLetters;
 using UnityEngine;
 
 namespace Antura.UI
@@ -11,11 +12,11 @@ namespace Antura.UI
         public TextRender Label;
         public TextRender NumbersLabel;
 
-        public void SetText(string text, bool arabic)
+        public void SetText(string text, LanguageUse languageUse)
         {
             Label.gameObject.SetActive(true);
             NumbersLabel.gameObject.SetActive(false);
-            Label.SetText(text, arabic);
+            Label.SetText(text, languageUse);
         }
 
         public void SetText(ILivingLetterData data)
@@ -37,7 +38,7 @@ namespace Antura.UI
         {
             Label.gameObject.SetActive(false);
             NumbersLabel.gameObject.SetActive(true);
-            NumbersLabel.SetText(numberValue.ToString(), false);
+            NumbersLabel.SetTextUnfiltered(numberValue.ToString());
         }
     }
 }

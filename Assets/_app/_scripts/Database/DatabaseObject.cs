@@ -68,7 +68,7 @@ namespace Antura.Database
         {
             var path = language + "/"+ dbName + "/" + dbName + "_";
 
-            Debug.LogWarning("Loading database at path " + path);
+            //Debug.LogWarning("Loading database at path " + path);
 
             stageDb = Resources.Load<StageDatabase>(path + "Stage");
             if (!stageDb) {

@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using Antura.UI;
@@ -6,6 +6,7 @@ using ArabicSupport;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using TMPro;
 using DG.Tweening;
 using UnityEngine;
@@ -449,8 +450,7 @@ namespace Antura.Minigames.Balloons
                         text += " " + letterToKeepData.Data.GetStringForDisplay(LetterForm.Medial);
                         text += " " + letterToKeepData.Data.GetStringForDisplay(LetterForm.Final);
 
-                        wordFlexibleContainer.SetText(text, false);
-
+                        wordFlexibleContainer.SetText(text, LanguageUse.Learning);
 
                         // Debug
                         Debug.Log("[New Round] Letter To Keep: " + letterToKeep);
