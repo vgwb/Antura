@@ -72,6 +72,7 @@ namespace Antura.Language
             return GetLangConfig(LanguageUse.Learning).IsRightToLeft();
         }
 
+        public static bool LearningRTL => LearningConfig.IsRightToLeft();
         public static LangConfig LearningConfig => I.GetLangConfig(LanguageUse.Learning);
         public static ILanguageHelper LearningHelper => I.GetHelper(LanguageUse.Learning);
 

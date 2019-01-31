@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.Teacher;
 using System;
 using UnityEngine;
@@ -67,6 +67,7 @@ namespace Antura.Minigames.Egg
                     break;
                 case EggVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
+                    builderParams.wordFilters.excludeDuplicateLetters = true;
                     builder = new LettersInWordQuestionBuilder(nPacks, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 case EggVariation.LetterPhoneme:

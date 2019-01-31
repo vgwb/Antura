@@ -2,6 +2,7 @@ using Antura.LivingLetters;
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Minigames.Egg
@@ -83,7 +84,7 @@ namespace Antura.Minigames.Egg
             piecePoofCompleteCount = 0;
             eggEggCrackCompleteSent = false;
 
-            InitializeEggPices();
+            InitializeEggPieces();
 
             currentRotation = new Vector3(0f, 0f, -90f);
             GoToPosition(0, currentRotation);
@@ -141,7 +142,7 @@ namespace Antura.Minigames.Egg
             }
         }
 
-        public void InitializeEggPices()
+        public void InitializeEggPieces()
         {
             for (int i = 0; i < eggPieces.Length; i++) {
                 eggPieces[i].onPoofEnd = OnPiecePoofComplete;
@@ -469,8 +470,13 @@ namespace Antura.Minigames.Egg
 
             float positionLerp = 1f / (questionDataCount + 1);
 
-            for (int i = 0; i < questionDataCount; i++) {
-                lettersEndPositions[i] = Vector3.Lerp(maxLeft, maxRight, 1f - (positionLerp * (i + 1)));
+            for (int i = 0; i < questionDataCount; i++)
+            {
+                float l = 1f - (positionLerp * (i + 1));
+                if (!LanguageSwitcher.LearningRTL)
+                    l = 1 - l;
+
+                lettersEndPositions[i] = Vector3.Lerp(maxLeft, maxRight, l);
             }
 
             return lettersEndPositions;

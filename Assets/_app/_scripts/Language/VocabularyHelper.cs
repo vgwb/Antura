@@ -364,6 +364,10 @@ namespace Antura.Database
             if (filters.excludeDipthongs && WordHasDipthongs(data)) {
                 return false;
             }
+            if (filters.excludeDuplicateLetters && WordContainsDuplicateLetters(data))
+            {
+                return false;
+            }
             return true;
         }
 
@@ -395,6 +399,12 @@ namespace Antura.Database
                 }
             }
             return false;
+        }
+
+        public bool WordContainsDuplicateLetters(WordData selectedWord, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        {
+            var wordLetters = GetLettersInWord(selectedWord);
+            return wordLetters.GroupBy(x => x.Id).Any(g => g.Count() > 1);
         }
 
         public int WordContainsLetterTimes(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)

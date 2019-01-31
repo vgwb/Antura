@@ -1,4 +1,4 @@
-﻿namespace Antura.Teacher
+namespace Antura.Teacher
 {
     // TODO refactor: remove references to Arabic
 
@@ -53,6 +53,7 @@
         public bool requireDrawings;
         public bool excludeColorWords;
         public bool excludeDipthongs;
+        public bool excludeDuplicateLetters;
 
         public WordFilters(
             bool excludeDiacritics = false,
