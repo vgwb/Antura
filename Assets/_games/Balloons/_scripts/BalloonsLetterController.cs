@@ -274,7 +274,7 @@ namespace Antura.Minigames.Balloons
 
                     float halfDuration = FLASH_CYCLE_DURATION * 0.5f;
 
-                    string preparedText = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(originalText);
+                    string preparedText = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(originalText);
                     preparedText = originalText;
 
                     while (numCompletedCycles < NUM_FLASH_CYCLES) {

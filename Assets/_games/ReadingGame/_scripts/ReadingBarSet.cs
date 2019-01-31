@@ -127,7 +127,7 @@ namespace Antura.Minigames.ReadingGame
 
             for (int i = 0; i < karaokeLines.Count; ++i)
             {
-                words[i] = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(karaokeLines[i].text);
+                words[i] = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(karaokeLines[i].text);
                 lineBreaks[i] = karaokeLines[i].starsWithLineBreak;
             }
 

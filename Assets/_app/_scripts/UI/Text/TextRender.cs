@@ -143,9 +143,9 @@ namespace Antura.UI
             if (isTMPro) {
                 if (isArabic) {
                     if (isUI) {
-                        gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
                     } else {
-                        gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
                     }
                 } else {
                     if (isUI) {
@@ -157,9 +157,9 @@ namespace Antura.UI
             } else {
                 if (isArabic) {
                     if (isUI) {
-                        gameObject.GetComponent<Text>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
+                        gameObject.GetComponent<Text>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
                     } else {
-                        gameObject.GetComponent<TextMesh>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(m_text);
+                        gameObject.GetComponent<TextMesh>().text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(m_text);
                     }
                 } else {
                     if (isUI) {

@@ -47,7 +47,7 @@ namespace Antura.Language
         /// Collapses diacritics and letters, collapses multiple words variations (e.g. lam + alef), selects correct forms unicodes, and reverses the string.
         /// </summary>
         /// <returns>The string, ready for display or further processing.</returns>
-        public override string ProcessArabicString(string str)
+        public override string ProcessString(string str)
         {
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
@@ -98,10 +98,10 @@ namespace Antura.Language
         /// Return a string of a word without a character. Warning: the word is already reversed and fixed for rendering.
         /// This is mandatory since PrepareArabicStringForDisplay should be called before adding removedLetterChar.
         /// </summary>
-        public override string GetWordWithMissingLetterText(WordData arabicWord, StringPart partToRemove,
+        public override string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove,
             string removedLetterChar = "_")
         {
-            string text = ProcessArabicString(arabicWord.Text);
+            string text = ProcessString(wordData.Text);
 
             int toCharacterIndex = partToRemove.toCharacterIndex + 1;
             text = text.Substring(0, partToRemove.fromCharacterIndex) + removedLetterChar +
@@ -110,16 +110,12 @@ namespace Antura.Language
             return text;
         }
 
-        /// <summary>
-        /// Find all the occurrences of "letterToFind" in "arabicWord"
-        /// </summary>
-        /// <returns>the list of occurrences</returns>
-        public override List<StringPart> FindLetter(DatabaseManager database, WordData wordData,
+        public override List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData,
             LetterData letterToFind, bool findSameForm)
         {
             var result = new List<StringPart>();
 
-            var parts = SplitWord(database, wordData, false, letterToFind.Kind != LetterDataKind.LetterVariation);
+            var parts = SplitWord(databaseManager, wordData, false, letterToFind.Kind != LetterDataKind.LetterVariation);
 
             for (int i = 0, count = parts.Count; i < count; ++i)
             {
@@ -133,6 +129,7 @@ namespace Antura.Language
             return result;
         }
 
+        /*
         /// <summary>
         /// Returns the list of letters found in a word string
         /// </summary>
@@ -142,13 +139,13 @@ namespace Antura.Language
             // Use ArabicFixer to deal only with combined unicodes
             return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(wordData.Text),
                 separateDiacritics, separateVariations);
-        }
+        }*/
 
         public override List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(staticDatabase, ProcessArabicString(wordData.Text), separateDiacritics,
+            return AnalyzeArabicString(staticDatabase, ProcessString(wordData.Text), separateDiacritics,
                 separateVariations);
         }
 
@@ -160,7 +157,7 @@ namespace Antura.Language
             bool separateVariations = true)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(database.StaticDatabase, ProcessArabicString(phrase.Arabic), separateDiacritics,
+            return AnalyzeArabicString(database.StaticDatabase, ProcessString(phrase.Arabic), separateDiacritics,
                 separateVariations);
         }
 
@@ -169,7 +166,7 @@ namespace Antura.Language
             bool separateVariations = true)
         {
             // Use ArabicFixer to deal only with combined unicodes
-            return AnalyzeArabicString(staticDatabase, ProcessArabicString(phrase.Arabic), separateDiacritics,
+            return AnalyzeArabicString(staticDatabase, ProcessString(phrase.Arabic), separateDiacritics,
                 separateVariations);
         }
 

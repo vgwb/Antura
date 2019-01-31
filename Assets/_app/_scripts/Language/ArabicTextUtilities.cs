@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using Antura.Helpers;
 using UnityEngine;
 using System.Collections.Generic;
@@ -8,6 +8,7 @@ using Antura.Language;
 
 namespace Antura.UI
 {
+    // TODO: merge into AbstractTexTHelper
     // TODO: remove Arabic dependency here
     public static class ArabicTextUtilities
     {
@@ -27,7 +28,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(arabicWord.Text);
 
 
             string startText = text.Substring(0, letterToMark.fromCharacterIndex);
@@ -77,7 +78,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(arabicWord.Text);
 
             string markedText = "";
 
@@ -110,7 +111,7 @@ namespace Antura.UI
         public static IEnumerator GetWordWithFlashingText(Database.WordData arabicWord, int fromIndexToFlash, int toIndexToFlash, Color flashColor,
             float cycleDuration, int numCycles, System.Action<string> callback, bool markPrecedingLetters = false)
         {
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(arabicWord.Text);
 
             string markTagStart = "<color=#" + GenericHelper.ColorToHex(flashColor) + ">";
             string markTagEnd = "</color>";
@@ -168,7 +169,7 @@ namespace Antura.UI
             string tagStart = "<color=#" + GenericHelper.ColorToHex(color) + ">";
             string tagEnd = "</color>";
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(arabicWord.Text);
+            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(arabicWord.Text);
 
             return tagStart + text + tagEnd;
         }

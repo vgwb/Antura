@@ -21,7 +21,7 @@ namespace Antura.Minigames.ReadingGame
             LL_WordData randomWord = new LL_WordData(answerData.Id, answerData);
 
             StringTestData fakeData = new StringTestData(
-                 LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(
+                 LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(
                      "منذ لم نرك منذ مدة " + randomWord.Data.Text + " منذ مدة" +
                       "منذ لم نرك منذ مدة " +
                         "منذ لم نرك منذ مدة "));

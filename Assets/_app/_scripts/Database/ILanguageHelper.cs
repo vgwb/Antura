@@ -25,33 +25,34 @@ namespace Antura.Language
 
     public interface ILanguageHelper
     {
-        string ProcessArabicString(string str);
-        string GetStringUnicodes(string str);
+        string ProcessString(string str);
 
+        string GetStringUnicodes(string str);
         string GetLetterFromUnicode(string hexCode);
 
         string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false);
 
-        string GetWordWithMissingLetterText(WordData arabicWord, StringPart partToRemove, string removedLetterChar = "_");
+        string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "_");
 
-        List<StringPart> FindLetter(DatabaseManager database, WordData arabicWord, LetterData letterToFind, bool findSameForm);
+        /// <summary>
+        /// Find all the occurrences of "letterToFind" in "wordData"
+        /// </summary>
+        /// <returns>the list of occurrences</returns>
+        List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, bool findSameForm);
 
-        List<StringPart> SplitWord(DatabaseManager database, WordData wordData,
+        List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false);
 
         List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false);
 
-        List<StringPart> SplitPhrase(DatabaseManager database, PhraseData phraseData,
+        List<StringPart> SplitPhrase(DatabaseManager databaseManager, PhraseData phraseData,
             bool separateDiacritics = false,
             bool separateVariations = true);
 
         List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phraseData,
             bool separateDiacritics = false,
             bool separateVariations = true);
-
-        List<StringPart> AnalyzeArabicString(DatabaseObject staticDatabase, string processedArabicString,
-            bool separateDiacritics = false, bool separateVariations = true);
 
         bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo);
 

@@ -44,7 +44,7 @@ namespace Antura.LivingLetters
         /// </summary>
         public string TextForLivingLetter
         {
-            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessArabicString(Data.Text); } 
+            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); } 
         }
 
         public string DrawingCharForLivingLetter

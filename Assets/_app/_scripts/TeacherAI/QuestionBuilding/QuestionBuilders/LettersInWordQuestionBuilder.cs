@@ -88,7 +88,7 @@ namespace Antura.Teacher
             );
             var wordQuestion = usableWords[0];
             currentRound_words.Add(wordQuestion);
-            //UnityEngine.Debug.LogWarning("Chosen word: " + question);
+            //UnityEngine.Debug.LogWarning("Chosen word: " + wordQuestion);
 
             // Get letters of that word
             var wordLetters = vocabularyHelper.GetLettersInWord(wordQuestion);
@@ -153,7 +153,7 @@ namespace Antura.Teacher
 
                 eligibleWords.Add(word);
             }
-            //UnityEngine.Debug.Log("Eligible words: " + eligibleWords.Count + " out of " + teacher.VocabularyHelper.GetWordsByCategory(category, parameters.wordFilters).Count);
+            //UnityEngine.Debug.Log("Eligible words: " + eligibleWords.Count + " out of " + vocabularyHelper.GetWordsByCategory(category, parameters.wordFilters).Count);
             return eligibleWords;
         }
 

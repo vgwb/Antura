@@ -6,6 +6,7 @@ namespace Antura.Language
 {
     public class EnglishLanguageHelper : AbstractLanguageHelper
     {
+        /*
         public override List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false)
         {
@@ -24,7 +25,7 @@ namespace Antura.Language
                 stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
             }
             return stringParts;
-        }
+        }*/
 
     }
 }
