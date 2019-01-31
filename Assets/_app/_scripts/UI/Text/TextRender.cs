@@ -1,27 +1,38 @@
 using Antura.Core;
-using Antura.Helpers;
+using Antura.Language;
 using Antura.LivingLetters;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using Antura.Language;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
  * so we just need to reference the TextRender as controller
  */
 
-// TODO refactor: remove reference to Arabic
 namespace Antura.UI
 {
     // TODO: remove all references to arabic and use LTR / RTL based on language configuration
     public class TextRender : MonoBehaviour
     {
+        [SerializeField]
+        protected string m_text;
+
+        public bool isTMPro = true;
+        public bool isUI;
+        public bool isArabic;
+        public bool isEnglishSubtitle;
+        public Database.LocalizationDataId LocalizationId;
+
         public string text
         {
             get { return m_text; }
             set {
                 if (m_text == value) return;
-                m_text = value;
+                if (SAppConfig.I.ForceALLCAPSTextRendering) {
+                    m_text = value.ToUpper();
+                } else {
+                    m_text = value;
+                }
                 updateText();
             }
         }
@@ -67,16 +78,6 @@ namespace Antura.UI
                 }
             }
         }
-
-        [SerializeField]
-        protected string m_text;
-
-        public bool isTMPro = true;
-        public bool isUI;
-        public bool isArabic;
-        public bool isEnglishSubtitle;
-
-        public Database.LocalizationDataId LocalizationId;
 
         void Awake()
         {

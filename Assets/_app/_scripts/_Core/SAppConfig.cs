@@ -13,6 +13,8 @@ namespace Antura.Core
         public LanguageCode InstructionsLanguage;
         public LanguageCode TutorLanguage;
 
+        public readonly bool ForceALLCAPSTextRendering = true;
+
         [Header("Debug - AI")]
         public bool VerboseTeacher;
         public bool VerboseMinigameSelection;
