@@ -1,7 +1,6 @@
 ﻿// Author: Daniele Giardini - http://www.demigiant.com
 // Created: 2018/07/13
 
-using System;
 using UnityEngine;
 using DG.Tweening.Core;
 using DG.Tweening.Plugins.Core.PathCore;
@@ -35,7 +34,28 @@ namespace DG.Tweening
 
             _initialized = true;
             DOTweenExternalCommand.SetOrientationOnPath += Physics.SetOrientationOnPath;
+
+#if UNITY_EDITOR
+#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5
+            UnityEditor.EditorApplication.playmodeStateChanged += PlaymodeStateChanged;
+#else
+            UnityEditor.EditorApplication.playModeStateChanged += PlaymodeStateChanged;
+#endif
+#endif
         }
+
+#if UNITY_EDITOR
+        // Fires OnApplicationPause in DOTweenComponent even when Editor is paused (otherwise it's only fired at runtime)
+#if UNITY_4_3 || UNITY_4_4 || UNITY_4_5 || UNITY_4_6 || UNITY_5
+        static void PlaymodeStateChanged()
+        #else
+        static void PlaymodeStateChanged(UnityEditor.PlayModeStateChange state)
+#endif
+        {
+            if (DOTween.instance == null) return;
+            DOTween.instance.OnApplicationPause(UnityEditor.EditorApplication.isPaused);
+        }
+#endif
 
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
         // ███ INTERNAL CLASSES ████████████████████████████████████████████████████████████████████████████████████████████████
