@@ -129,7 +129,16 @@ namespace Antura.Minigames.Egg
                             game.correctStages++;
 
                             ILivingLetterData runLetterData;
-                            runLetterData = game.CurrentQuestion.Letters[0];
+
+                            if (isSequence)
+                            {
+                                runLetterData = game.CurrentQuestion.Question;
+                            }
+                            else
+                            {
+                                runLetterData = game.CurrentQuestion.Letters[0];
+                            }
+
                             game.runLettersBox.AddRunLetter(runLetterData);
                         }
 
