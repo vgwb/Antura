@@ -124,12 +124,14 @@ namespace Antura.Database
 
         public string GetIconResourcePath()
         {
-            return "Images/GameIcons/minigame_Ico_" + Main;
+            var prefix = SAppConfig.I.GetLearningLangResourcePrefix();
+            return prefix + "Images/GameIcons/minigame_Ico_" + Main;
         }
 
         public string GetBadgeIconResourcePath()
         {
-            return "Images/GameIcons/minigame_BadgeIco_" + Badge;
+            var prefix = SAppConfig.I.GetLearningLangResourcePrefix();
+            return prefix + "Images/GameIcons/minigame_BadgeIco_" + Badge;
         }
     }
 

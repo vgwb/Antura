@@ -23,5 +23,10 @@ namespace Antura.Core
         public bool VerboseDataFiltering;
         public bool VerboseDataSelection;
         public bool VerbosePlaySessionInitialisation;
+
+        public string GetLearningLangResourcePrefix()
+        {
+            return LearningLanguage.ToString() + "/";
+        }
     }
 }

@@ -16,9 +16,6 @@ namespace Antura.Audio
     {
         public static AudioManager I;
 
-        // TODO make dynamic by language manager
-        private string langResFolder = "arabic/Audio/";
-
         public bool IsAppPaused { get; private set; }
 
         private List<AudioSourceWrapper> playingAudio = new List<AudioSourceWrapper>();
@@ -404,17 +401,17 @@ namespace Antura.Audio
         public AudioClip GetAudioClip(LocalizationData data)
         {
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
-            var res = GetCachedResource(langResFolder + "Dialogs/" + localizedAudioFileName);
+            var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
+            var res = GetCachedResource(langDir + "Audio/Dialogs/" + localizedAudioFileName);
 
             // Fallback to neutral version if not found
             if (res == null) {
                 var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
                 if (localizedAudioFileName != neutralAudioFileName) {
                     Debug.LogWarning("Female audio file expected for localization ID " + data.Id + " was not found");
-                    res = GetCachedResource(langResFolder + "Dialogs/" + neutralAudioFileName);
+                    res = GetCachedResource(langDir + "Audio/Dialogs/" + neutralAudioFileName);
                 }
             }
-
             return res;
         }
 
@@ -443,7 +440,8 @@ namespace Antura.Audio
 
         public AudioClip GetAudioClip(PhraseData data)
         {
-            var res = GetCachedResource(langResFolder + "Phrases/" + data.Id);
+            var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
+            var res = GetCachedResource(langDir + "/Audio/Phrases/" + data.Id);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for " + data);
             }
@@ -452,7 +450,8 @@ namespace Antura.Audio
 
         public AudioClip GetLearningBlockAudioClip(string AudioFile)
         {
-            var res = GetCachedResource(langResFolder + "LearningBlocks/" + AudioFile);
+            var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
+            var res = GetCachedResource(langDir + "/Audio/LearningBlocks/" + AudioFile);
             if (res == null) {
                 Debug.LogWarning("Warning: cannot find audio clip for LearningBlocks" + AudioFile);
             }

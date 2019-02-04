@@ -1,6 +1,6 @@
 using Antura.Core;
-using System.Collections.Generic;
 using Antura.Database;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Antura.Language
@@ -8,8 +8,8 @@ namespace Antura.Language
     public class LanguageSwitcher
     {
         public static LanguageSwitcher I
-        { get
-            {
+        {
+            get {
                 if (AppManager.I == null) return null;
                 return AppManager.I.LanguageSwitcher;
             }
@@ -38,8 +38,7 @@ namespace Antura.Language
         private void LoadLanguage(LanguageUse use, LanguageCode language)
         {
             useMapping[use] = language;
-            if (loadedLanguageData.ContainsKey(language))
-            {
+            if (loadedLanguageData.ContainsKey(language)) {
                 // Nothing to do
                 return;
             }
