@@ -23,6 +23,7 @@ namespace Antura.Assessment
         /// Injected properties
         /// </summary>
         public TMP_Text Label;
+        public TextRender LabelRender;
         public TextMeshPro Drawing;
         public ParticleSystem poofPrefab;
 
@@ -75,7 +76,7 @@ namespace Antura.Assessment
             var partToRemove = parts[0];
 
             // .. and voil�! Thank you Davide! :)
-            Label.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(
+            LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(
                 wordInner.Data, partToRemove, SpecialGreen, MarkType.SingleLetter
             );
         }
@@ -222,7 +223,7 @@ namespace Antura.Assessment
                 } else {
                     Drawing.enabled = false;
                     Label.enabled = true;
-                    Label.text = Data.TextForLivingLetter;
+                    LabelRender.text = Data.TextForLivingLetter;
 
                     SetWidness(data.DataType);
                 }
