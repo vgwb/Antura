@@ -358,7 +358,7 @@ namespace Antura.Database
             if (locData != null) {
                 return locData;
             }
-            return new LocalizationData { Id = id, InstructionText = ("MISSING " + id), LearningText = ("MISSING " + id), AudioFile = "" };
+            return new LocalizationData { Id = id, NativeText = ("MISSING " + id), LearningText = ("MISSING " + id), LearningAudio = "" };
         }
 
         public List<LocalizationData> GetAllLocalizationData()

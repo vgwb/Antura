@@ -21,39 +21,60 @@ namespace Antura.Database
         [SerializeField]
         private string _Id;
 
-        // TODO: merge these two
-        public string InstructionText
+        // NATIVE
+        public string NativeText
         {
-            get { return _LocalizedText; }
-            set { _LocalizedText = value; }
+            get { return _NativeText; }
+            set { _NativeText = value; }
         }
+        [SerializeField]
+        private string _NativeText;
+
+        public string NativeText_F
+        {
+            get { return _NativeText_F; }
+            set { _NativeText_F = value; }
+        }
+        [SerializeField]
+        private string _NativeText_F;
+
+        public string NativeAudio
+        {
+            get { return _NativeAudio; }
+            set { _NativeAudio = value; }
+        }
+        [SerializeField]
+        private string _NativeAudio;
+
+        // LEARNING
         public string LearningText
         {
-            get { return InstructionText; }
-            set { InstructionText = value; }
+            get { return _LearningText; }
+            set { _LearningText = value; }
         }
         [SerializeField]
-        private string _LocalizedText;
+        private string _LearningText;
 
-        public string LocalizedTextFemale
+        public string LearningText_F
         {
-            get { return _LocalizedTextFemale; }
-            set { _LocalizedTextFemale = value; }
+            get { return _LearningText_F; }
+            set { _LearningText_F = value; }
         }
         [SerializeField]
-        private string _LocalizedTextFemale;
+        private string _LearningText_F;
 
-        public string AudioFile
+        public string LearningAudio
         {
-            get { return _AudioFile; }
-            set { _AudioFile = value; }
+            get { return _LearningAudio; }
+            set { _LearningAudio = value; }
         }
         [SerializeField]
-        private string _AudioFile;
+        private string _LearningAudio;
 
+        #region methods
         public override string ToString()
         {
-            return Id + ": " + InstructionText;
+            return Id + ": " + NativeText;
         }
 
         public string GetId()
@@ -63,23 +84,23 @@ namespace Antura.Database
 
         public string GetLocalizedAudioFileName(PlayerGender playerGender)
         {
-            if (playerGender == PlayerGender.F && LocalizedTextFemale != string.Empty && AudioFile != string.Empty) {
-                return AudioFile + "_F";
+            if (playerGender == PlayerGender.F && LearningText_F != string.Empty && LearningAudio != string.Empty) {
+                return LearningAudio + "_F";
             }
-            return AudioFile;
+            return LearningAudio;
         }
 
         public string GetLocalizedText(PlayerGender playerGender)
         {
-            if (playerGender == PlayerGender.F && LocalizedTextFemale != string.Empty) {
-                return LocalizedTextFemale;
+            if (playerGender == PlayerGender.F && LearningText_F != string.Empty) {
+                return LearningText_F;
             }
-            return InstructionText;
+            return LearningText;
         }
 
         public string GetSubtitleTranslation()
         {
-            return InstructionText;
+            return NativeText;
             // TODO: the distintion should be performed before accessing this by the localizer
             //if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian) {
             //    return InstructionText;
@@ -87,5 +108,6 @@ namespace Antura.Database
             //    return InstructionText;
             //}
         }
+        #endregion
     }
 }

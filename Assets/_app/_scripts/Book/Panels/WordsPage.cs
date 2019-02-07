@@ -122,7 +122,7 @@ namespace Antura.Book
                         wordCategory = cat,
                         Id = cat.ToString(),
                         Title = CategoryData.LearningText,
-                        TitleEn = CategoryData.InstructionText,
+                        TitleEn = CategoryData.NativeText,
                         Stage = 0
                     },
                     currentCategory.wordCategory == cat

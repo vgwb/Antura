@@ -14,9 +14,12 @@ namespace Antura.Database.Management
             data.Id = ToString(dict["Id"]);
 
             data.LearningText = ToString(dict["english"]);
-            data.InstructionText = ToString(dict["spanish"]);
-            data.LocalizedTextFemale = ToString(dict["spanish_F"]);
-            data.AudioFile = ToString(dict["spanish_AUDIO"]);
+            data.LearningText_F = ToString(dict["english_F"]);
+            data.LearningAudio = ToString(dict["english_AUDIO"]);
+
+            data.NativeText = ToString(dict["spanish"]);
+            data.NativeText_F = ToString(dict["spanish_F"]);
+            data.NativeAudio = ToString(dict["spanish_AUDIO"]);
             return data;
         }
 

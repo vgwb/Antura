@@ -16,7 +16,7 @@ namespace Antura.Core
             var titleText = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Attention);
             var panelText = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_AlertFinalRelease);
 
-            EnglishText.text = "<b>" + titleText.InstructionText + "</b>\n\n" + panelText.InstructionText;
+            EnglishText.text = "<b>" + titleText.NativeText + "</b>\n\n" + panelText.NativeText;
             ArabicText.text = "<b>" + titleText.LearningText + "<b/>\n\n" + panelText.LearningText;
 
             gameObject.SetActive(true);

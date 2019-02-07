@@ -73,7 +73,7 @@ namespace Antura.Book
                         phraseCategory = cat,
                         Id = cat.ToString(),
                         Title = CategoryData.LearningText,
-                        TitleEn = CategoryData.InstructionText
+                        TitleEn = CategoryData.NativeText
                     },
                     currentPhraseCategory == cat
                 );

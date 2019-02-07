@@ -18,7 +18,7 @@ namespace Antura.Database
 
         public string Title_En
         {
-            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").InstructionText; }
+            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").NativeText; }
             set { }
         }
 
