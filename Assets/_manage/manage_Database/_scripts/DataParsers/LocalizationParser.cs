@@ -12,15 +12,11 @@ namespace Antura.Database.Management
             var data = new LocalizationData();
 
             data.Id = ToString(dict["Id"]);
-            //data.Character = ToString(dict["Character"]);
-            //data.Area = ToString(dict["Area"]);
-            //data.When = ToString(dict["When"]);
-            //data.Context = ToString(dict["Context"]);
-            data.InstructionText = ToString(dict["LocalizedText"]);
-            //data.Italian = ToString(dict["Italian"]);
-            data.LearningText = ToString(dict["LocalizedText"]);
-            data.LocalizedTextFemale = ToString(dict["LocalizedTextFemale"]);
-            data.AudioFile = ToString(dict["AudioFile"]);
+
+            data.LearningText = ToString(dict["english"]);
+            data.InstructionText = ToString(dict["spanish"]);
+            data.LocalizedTextFemale = ToString(dict["spanish_f"]);
+            data.AudioFile = ToString(dict["spanish_AUDIO"]);
             return data;
         }
 
