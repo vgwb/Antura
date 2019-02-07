@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using System.Collections;
@@ -45,9 +45,9 @@ namespace Antura.Minigames.HideAndSeek
                 ShowFinger();
         }
 
-        private LL_LetterData GetCorrectAnswer()
+        private ILivingLetterData GetCorrectAnswer()
         {
-            return (LL_LetterData)currentQuestion.GetCorrectAnswers().ToList()[0];
+            return currentQuestion.GetCorrectAnswers().ToList()[0];
         }
 
         void SetupTutorial()
@@ -57,6 +57,13 @@ namespace Antura.Minigames.HideAndSeek
 
             ILivingLetterData right = currentQuestion.GetCorrectAnswers().ToList()[0];
             ILivingLetterData wrong = currentQuestion.GetWrongAnswers().ToList()[0];
+
+            if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.Image)
+            {
+                right = new LL_ImageData(right.Id);
+                wrong = new LL_ImageData(wrong.Id);
+            }
+
             letterList.Add(right);
             letterList.Add(wrong);
 

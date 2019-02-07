@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.LivingLetters;
 using Antura.Helpers;
 using DG.Tweening;
@@ -86,10 +86,10 @@ namespace Antura.Minigames.HideAndSeek
             return -1;
         }
 
-        private LL_LetterData GetCorrectAnswer()
+        private ILivingLetterData GetCorrectAnswer()
         {
             //correctAnswer is the first answer
-            return (LL_LetterData)currentQuestion.GetCorrectAnswers().ToList()[0];
+            return currentQuestion.GetCorrectAnswers().ToList()[0];
         }
 
         public void RepeatAudio()
@@ -227,16 +227,25 @@ namespace Antura.Minigames.HideAndSeek
             ActiveTrees = new List<GameObject>();
 
             List<ILivingLetterData> letterList = new List<ILivingLetterData>();
-            foreach (LL_LetterData letter in currentQuestion.GetCorrectAnswers()) {
-                letterList.Add(letter);
+            foreach (var letter in currentQuestion.GetCorrectAnswers())
+            {
+                ILivingLetterData data = letter;
+                if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.Image)
+                    data = new LL_ImageData(data.Id);
+
+                letterList.Add(data);
             }
 
             int numWrong = Mathf.RoundToInt(2 + HideAndSeekConfiguration.Instance.Difficulty * 4);
-            foreach (LL_LetterData letter in currentQuestion.GetWrongAnswers()) {
+            foreach (var letter in currentQuestion.GetWrongAnswers()) {
                 if (numWrong-- == 0)
                     break;
 
-                letterList.Add(letter);
+                ILivingLetterData data = letter;
+                if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.Image)
+                    data = new LL_ImageData(data.Id);
+
+                letterList.Add(data);
             }
 
             ActiveLetters = letterList.Count;

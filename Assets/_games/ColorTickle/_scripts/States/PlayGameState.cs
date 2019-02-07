@@ -213,6 +213,9 @@ namespace Antura.Minigames.ColorTickle
         {
             m_LetterObjectView = m_CurrentLetter.GetComponent<LivingLetterController>();
 
+            if (ColorTickleConfiguration.Instance.Variation == ColorTickleVariation.Image)
+                m_LetterObjectView.TransformIntoImage();
+
             m_TMPTextColoringLetter = m_CurrentLetter.GetComponent<TMPTextColoring>();
             m_SurfaceColoringLetter = m_CurrentLetter.GetComponent<SurfaceColoring>();
 

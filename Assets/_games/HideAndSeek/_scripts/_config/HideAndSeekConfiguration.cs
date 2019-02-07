@@ -56,6 +56,10 @@ namespace Antura.Minigames.HideAndSeek
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams,
                             avoidWrongLettersWithSameSound: true);
                     break;
+                case HideAndSeekVariation.Image:
+                    builderParams.wordFilters.requireDrawings = true;
+                    builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, parameters: builderParams);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }

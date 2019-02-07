@@ -12,7 +12,7 @@ namespace Antura.Minigames.ColorTickle
 
     public class ColorTickleConfiguration : AbstractGameConfiguration
     {
-        private ColorTickleVariation Variation { get; set; }
+        public ColorTickleVariation Variation { get; set; }
 
         public override void SetMiniGameCode(MiniGameCode code)
         {
@@ -58,6 +58,7 @@ namespace Antura.Minigames.ColorTickle
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, parameters: builderParams);
                     break;
                 case ColorTickleVariation.Image:
+                    builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.excludeDiacritics = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, parameters: builderParams);

@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -578,6 +579,78 @@ MonoBehaviour:
       _Variation: sunmoon
       _Badge: sunmoon
       _Scene: game_Tobogan
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 40
+      _Active: 0
+      _Type: 1
+      _Main: Egg
+      _Variation: image
+      _Badge: image
+      _Scene: game_Egg
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 41
+      _Active: 0
+      _Type: 1
+      _Main: HideAndSeek
+      _Variation: image
+      _Badge: image
+      _Scene: game_HideAndSeek
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 42
+      _Active: 0
+      _Type: 1
+      _Main: Balloons
+      _Variation: image
+      _Badge: image
+      _Scene: game_Balloons
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 43
+      _Active: 0
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: image
+      _Badge: image
+      _Scene: game_FastCrowd
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 44
+      _Active: 0
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: image
+      _Badge: image
+      _Scene: game_ThrowBalls
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
+    - _Code: 45
+      _Active: 0
+      _Type: 1
+      _Main: ColorTickle
+      _Variation: image
+      _Badge: image
+      _Scene: game_ColorTickle
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.8
