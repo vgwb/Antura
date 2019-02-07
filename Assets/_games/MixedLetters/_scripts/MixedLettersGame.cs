@@ -1,7 +1,8 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using UnityEngine;
@@ -235,6 +236,8 @@ namespace Antura.Minigames.MixedLetters
 
                 Vector3 dropZonePosition = dropZoneController.transform.position;
                 dropZonePosition.x = dropZoneXStart - i * dropZoneWidthWithSpace;
+                if (!LanguageSwitcher.LearningRTL)
+                    dropZonePosition.x *= -1;
                 dropZoneController.SetPosition(dropZonePosition);
             }
 

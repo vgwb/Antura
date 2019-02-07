@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 
@@ -6,7 +6,8 @@ namespace Antura.Minigames.HideAndSeek
 {
     public enum HideAndSeekVariation
     {
-        LetterPhoneme = MiniGameCode.HideSeek_letterphoneme
+        LetterPhoneme = MiniGameCode.HideSeek_letterphoneme,
+        Image = MiniGameCode.HideSeek_image
     }
 
     public class HideAndSeekConfiguration : AbstractGameConfiguration

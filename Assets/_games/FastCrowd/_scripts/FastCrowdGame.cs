@@ -43,6 +43,7 @@ namespace Antura.Minigames.FastCrowd
                 switch (FastCrowdConfiguration.Instance.Variation)
                 {
                     case FastCrowdVariation.Word:
+                    case FastCrowdVariation.Image:
                         return 8;
                     case FastCrowdVariation.Alphabet:
                         return (int)(CurrentChallenge.Count * 0.333f);

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 
@@ -9,7 +9,8 @@ namespace Antura.Minigames.Balloons
         Spelling = MiniGameCode.Balloons_spelling,
         Words = MiniGameCode.Balloons_word,
         LetterInWord = MiniGameCode.Balloons_letterinword,
-        Counting = MiniGameCode.Balloons_counting
+        Counting = MiniGameCode.Balloons_counting,
+        Image = MiniGameCode.Balloons_image
     }
 
     public class BalloonsConfiguration : AbstractGameConfiguration
@@ -61,6 +62,7 @@ namespace Antura.Minigames.Balloons
                     builder = new LettersInWordQuestionBuilder(nPacks, useAllCorrectLetters: true, nWrong: nWrong, parameters: builderParams);
                     break;
                 case BalloonsVariation.Words:
+                case BalloonsVariation.Image:
                     builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, 1, nWrong, firstCorrectIsQuestion: true, parameters: builderParams);

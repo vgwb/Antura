@@ -1,8 +1,9 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using UnityEngine.SocialPlatforms;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -13,7 +14,8 @@ namespace Antura.Minigames.FastCrowd
         LetterName = MiniGameCode.FastCrowd_lettername,
         LetterForm = MiniGameCode.FastCrowd_letterform,
         Counting = MiniGameCode.FastCrowd_counting,
-        Alphabet = MiniGameCode.FastCrowd_alphabet
+        Alphabet = MiniGameCode.FastCrowd_alphabet,
+        Image = MiniGameCode.FastCrowd_image
     }
 
     public class FastCrowdConfiguration : AbstractGameConfiguration
@@ -92,6 +94,7 @@ namespace Antura.Minigames.FastCrowd
                         parameters: builderParams);
                     break;
                 case FastCrowdVariation.Word:
+                case FastCrowdVariation.Image:
                     builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
@@ -122,6 +125,7 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.LetterName:
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
+                case FastCrowdVariation.Image:
                     strictness = LetterEqualityStrictness.LetterOnly;
                     break;
                 default:
@@ -143,6 +147,7 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.LetterForm:
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
+                case FastCrowdVariation.Image:
                     soundType = LetterDataSoundType.Phoneme;
                     break;
                 default:
@@ -167,6 +172,8 @@ namespace Antura.Minigames.FastCrowd
                         return LocalizationDataId.FastCrowd_counting_Title;
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Title;
+                    case FastCrowdVariation.Image:
+                        return LocalizationDataId.FastCrowd_word_Title; // TODO: correct one
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -189,6 +196,8 @@ namespace Antura.Minigames.FastCrowd
                         return LocalizationDataId.FastCrowd_counting_Intro;
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Intro;
+                    case FastCrowdVariation.Image:
+                        return LocalizationDataId.FastCrowd_word_Intro;  // TODO: add the correct one here
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -206,6 +215,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Counting:
                     case FastCrowdVariation.Alphabet:
                     case FastCrowdVariation.LetterName:
+                    case FastCrowdVariation.Image:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -224,6 +234,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Word:
                     case FastCrowdVariation.Counting:
                     case FastCrowdVariation.Alphabet:
+                    case FastCrowdVariation.Image:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -242,6 +253,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Word:
                     case FastCrowdVariation.Counting:
                     case FastCrowdVariation.Alphabet:
+                    case FastCrowdVariation.Image:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -265,6 +277,8 @@ namespace Antura.Minigames.FastCrowd
                         return LocalizationDataId.FastCrowd_counting_Tuto;
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Tuto;
+                    case FastCrowdVariation.Image:
+                        return LocalizationDataId.FastCrowd_word_Tuto;  // TODO: add the correct one here
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using Antura.Minigames;
 
 namespace Antura.Minigames.FastCrowd
@@ -124,7 +124,8 @@ namespace Antura.Minigames.FastCrowd
 
             game.Context.GetAudioManager().PlaySound(result ? Sfx.OK : Sfx.KO);
 
-            if (result && (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word))
+            if (result && (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
+                                                                                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image))
                 game.Context.GetAudioManager().PlayVocabularyData(data);
 
             if (game.CurrentStars == 3)

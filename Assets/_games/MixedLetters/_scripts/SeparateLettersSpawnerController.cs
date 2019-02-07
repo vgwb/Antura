@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using System;
@@ -242,10 +242,13 @@ namespace Antura.Minigames.MixedLetters
             if (MixedLettersConfiguration.Instance.Variation == MixedLettersVariation.BuildWord)
             {
                 MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(VictimLLController.instance.letterObjectView.Data);
+                VictimLLController.instance.letterObjectView.TransformIntoImage();
             }
 
             yield return new WaitForSeconds(WIN_ANIMATION_BIG_LL_TWIRL_DELAY);
 
+            MixedLettersGame.instance.HideDropZones();
+            DisableLetters();
             VictimLLController.instance.letterObjectView.DoTwirl(OnVictimLLIsShowingBack);
 
             yield return new WaitForSeconds(WIN_ANIMATION_BIG_LL_TWIRL_DURATION);

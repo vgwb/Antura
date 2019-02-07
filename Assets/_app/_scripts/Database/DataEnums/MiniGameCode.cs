@@ -1,4 +1,4 @@
-﻿namespace Antura
+namespace Antura
 {
     /// <summary>
     /// Enumerator specifying a minigame (or minigame variation) that is supported by the core application. 
@@ -16,7 +16,7 @@
         Balloons_word = 8,
         ColorTickle_lettername = 9,
         DancingDots_lettername = 10, // DISABLED
-        DancingDots_letterany = 36,  // NEW
+        DancingDots_letterany = 36, // NEW
         Egg_lettername = 11,
         Egg_letterphoneme = 37, // NEW
         Egg_buildword = 34,
@@ -46,6 +46,13 @@
         ThrowBalls_word = 28,
         Tobogan_letterinword = 29, // DISABLED
         Tobogan_sunmoon = 30, // DISABLED
+
+        Egg_image = 40,
+        HideSeek_image = 41,
+        Balloons_image = 42,
+        FastCrowd_image = 43,
+        ThrowBalls_image = 44,
+        ColorTickle_image = 45,
 
         Assessment_LetterName = 100,
         Assessment_LetterAny = 115, // NEW

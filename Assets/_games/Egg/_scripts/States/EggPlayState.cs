@@ -51,7 +51,7 @@ namespace Antura.Minigames.Egg
             questionProgress = 0;
 
             if (isSequence) {
-                correctAnswers = game.CurrentQuestion.Letters.Count;
+                correctAnswers = game.CurrentQuestion.Answers.Count;
             } else {
                 correctAnswers = 3;
             }
@@ -134,7 +134,7 @@ namespace Antura.Minigames.Egg
                             }
                             else
                             {
-                                runLetterData = game.CurrentQuestion.Letters[0];
+                                runLetterData = game.CurrentQuestion.Answers[0];
                             }
 
                             game.runLettersBox.AddRunLetter(runLetterData);
@@ -221,7 +221,7 @@ namespace Antura.Minigames.Egg
                 tutorialCorrectActive = false;
             }
 
-            if (letterData == game.CurrentQuestion.Letters[letterOnSequence]) {
+            if (letterData == game.CurrentQuestion.Answers[letterOnSequence]) {
                 if (isSequence) {
                     game.eggButtonBox.GetEggButton(letterData).SetPressed();
                     PositiveFeedback();

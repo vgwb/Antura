@@ -67,7 +67,7 @@ namespace Antura.Minigames.Egg
 
         void SetAndShowEggButtons()
         {
-            List<ILivingLetterData> lLetterDataSequence = game.CurrentQuestion.Letters;
+            List<ILivingLetterData> lLetterDataSequence = game.CurrentQuestion.Answers;
 
             for (int i = 0; i < lLetterDataSequence.Count; i++)
             {
@@ -92,13 +92,13 @@ namespace Antura.Minigames.Egg
             if (isSequence)
             {
                 game.eggController.SetQuestion(game.CurrentQuestion.Question);
-                game.eggController.SetAnswers(game.CurrentQuestion.Letters);
+                game.eggController.SetAnswers(game.CurrentQuestion.Answers);
                 game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, lightUpButtons, false, 0f, OnQuestionAudioComplete);
             }
             else
             {
                 game.eggController.SetQuestion(null);
-                game.eggController.SetAnswers(game.CurrentQuestion.Letters[0]);
+                game.eggController.SetAnswers(game.CurrentQuestion.Answers[0]);
 
                 if (lightUpButtons)
                 {

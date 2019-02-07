@@ -9,7 +9,8 @@ namespace Antura.Minigames.ThrowBalls
         LetterName = MiniGameCode.ThrowBalls_lettername,
         LetterAny = MiniGameCode.ThrowBalls_letterany,
         Word = MiniGameCode.ThrowBalls_word,
-        BuildWord = MiniGameCode.ThrowBalls_buildword
+        BuildWord = MiniGameCode.ThrowBalls_buildword,
+        Image = MiniGameCode.ThrowBalls_image
     }
 
     public class ThrowBallsConfiguration : AbstractGameConfiguration

@@ -237,6 +237,9 @@ namespace Antura.Minigames.Balloons
                 case BalloonsVariation.Counting:
                     title = LocalizationDataId.Balloons_counting_Title;
                     break;
+                case BalloonsVariation.Image:
+                    title = LocalizationDataId.Balloons_counting_Title; // TODO: LocalizationDataId.Balloons_image_Title; 
+                    break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");
                     break;
@@ -261,6 +264,9 @@ namespace Antura.Minigames.Balloons
                 case BalloonsVariation.Counting:
                     tutorial = LocalizationDataId.Balloons_counting_Tuto;
                     break;
+                case BalloonsVariation.Image:
+                    tutorial = LocalizationDataId.Balloons_spelling_Tuto; // TODO: LocalizationDataId.Balloons_image_Tuto; 
+                    break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");
                     break;
@@ -284,6 +290,9 @@ namespace Antura.Minigames.Balloons
                     break;
                 case BalloonsVariation.Counting:
                     intro = LocalizationDataId.Balloons_counting_Intro;
+                    break;
+                case BalloonsVariation.Image:
+                    intro = LocalizationDataId.Balloons_counting_Intro; // TODO:   intro = LocalizationDataId.Balloons_image_Intro; 
                     break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");
@@ -419,16 +428,18 @@ namespace Antura.Minigames.Balloons
                         break;
 
                     case BalloonsVariation.Words:
+                    case BalloonsVariation.Image:
                         correctAnswers = new List<ILivingLetterData>() { question };
-                        var wordToKeepData = question as LL_WordData;
-                        var wordToKeep = ArabicFixer.Fix(wordToKeepData.Data.Text);
+                        ILivingLetterData wordToKeepData = question as LL_WordData;
+                        if (BalloonsConfiguration.Instance.Variation == BalloonsVariation.Image)
+                            wordToKeepData = new LL_ImageData(wordToKeepData.Id);
 
                         // Display
                         wordFlexibleContainer.gameObject.SetActive(true);
                         wordFlexibleContainer.SetText(wordToKeepData);
 
                         // Debug
-                        Debug.Log("[New Round] Word To Keep: " + wordToKeep);
+                        Debug.Log("[New Round] Word To Keep: " + wordToKeepData.TextForLivingLetter);
                         Debug.Log(" Matching word: " + ArabicFixer.Fix(correctAnswers.Cast<LL_WordData>().ToList()[0].Data.Text));
                         Debug.Log(" Random words (" + wrongAnswers.Count() + "): " + string.Join(" / ", wrongAnswers.Cast<LL_WordData>().ToList().Select(x => ArabicFixer.Fix(x.Data.Text)).ToArray()));
 
@@ -510,12 +521,10 @@ namespace Antura.Minigames.Balloons
             float delay = 0.25f;
             yield return new WaitForSeconds(delay);
 
-            if (BalloonsConfiguration.Instance.Variation != BalloonsVariation.Words)
-                SayQuestion();
-
             switch (BalloonsConfiguration.Instance.Variation)
             {
                 case BalloonsVariation.Spelling:
+                    SayQuestion();
                     //Popup.Show();
                     //Popup.SetButtonCallback(OnRoundStartPressed);
                     //if (question.DataType == LivingLetterDataType.Word)
@@ -527,6 +536,7 @@ namespace Antura.Minigames.Balloons
                     break;
 
                 case BalloonsVariation.Words:
+                case BalloonsVariation.Image:
                     //Popup.Show();
                     //Popup.SetButtonCallback(OnRoundStartPressed);
                     //if (question.DataType == LivingLetterDataType.Word)
@@ -538,6 +548,7 @@ namespace Antura.Minigames.Balloons
                     break;
 
                 case BalloonsVariation.LetterInWord:
+                    SayQuestion();
                     //Popup.Show();
                     //Popup.SetButtonCallback(OnRoundStartPressed);
                     //Popup.SetLetterData(question);
@@ -546,6 +557,7 @@ namespace Antura.Minigames.Balloons
                     break;
 
                 case BalloonsVariation.Counting:
+                    SayQuestion();
                     //AudioManager.PlayVocabularyData(correctAnswers.Last());
                     //Popup.Show();
                     //Popup.SetButtonCallback(OnRoundStartPressed);
@@ -624,6 +636,7 @@ namespace Antura.Minigames.Balloons
                     break;
 
                 case BalloonsVariation.Words:
+                case BalloonsVariation.Image:
                     timer.DisplayTime();
                     CreateFloatingLetters_Words(currentRound);
                     if (isTutorialRound)
@@ -759,7 +772,7 @@ namespace Antura.Minigames.Balloons
                     letter.isRequired = true;
                     letter.associatedPromptIndex = requiredLetterIndex;
                     letter.Init(wordLetters[requiredLetterIndex]);
-                    Debug.Log("Create word balloon with: " + wordLetters[requiredLetterIndex].TextForLivingLetter);
+                    //Debug.Log("Create word balloon with: " + wordLetters[requiredLetterIndex].TextForLivingLetter);
                 }
                 else
                 {
@@ -1226,6 +1239,7 @@ namespace Antura.Minigames.Balloons
 
                 case BalloonsVariation.LetterInWord:
                 case BalloonsVariation.Words:
+                case BalloonsVariation.Image:
                     if (!requiredBalloonsExist)
                     {
                         EndRound(Result.FAIL);
@@ -1372,7 +1386,8 @@ namespace Antura.Minigames.Balloons
                 {
                     roundResultData = correctAnswers.ToList()[maxCountingIndex];
                 }
-                else if (BalloonsConfiguration.Instance.Variation == BalloonsVariation.Words)
+                else if (BalloonsConfiguration.Instance.Variation == BalloonsVariation.Words
+                         || BalloonsConfiguration.Instance.Variation == BalloonsVariation.Image)
                 {
                     roundResultData = new LL_ImageData(question.Id);
                 }
@@ -1449,7 +1464,9 @@ namespace Antura.Minigames.Balloons
 
         public void OnLetterHintClicked()
         {
-            if (BalloonsConfiguration.Instance.Variation != BalloonsVariation.Words && roundStatus == RoundStatus.Started)
+            if ((BalloonsConfiguration.Instance.Variation != BalloonsVariation.Words
+                && BalloonsConfiguration.Instance.Variation != BalloonsVariation.Image)
+                && roundStatus == RoundStatus.Started)
             {
                 SayQuestion();
                 WobbleLetterHint();

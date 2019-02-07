@@ -632,5 +632,10 @@ namespace Antura.LivingLetters
         }
 
         #endregion
+
+        public void TransformIntoImage()
+        {
+            Init(new LL_ImageData(data.Id));
+        }
     }
 }

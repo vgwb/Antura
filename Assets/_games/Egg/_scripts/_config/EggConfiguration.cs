@@ -9,7 +9,8 @@ namespace Antura.Minigames.Egg
     {
         LetterName = MiniGameCode.Egg_lettername,
         LetterPhoneme = MiniGameCode.Egg_letterphoneme,
-        BuildWord = MiniGameCode.Egg_buildword
+        BuildWord = MiniGameCode.Egg_buildword,
+        Image = MiniGameCode.Egg_image
     }
 
     public class EggConfiguration : AbstractGameConfiguration
@@ -65,6 +66,10 @@ namespace Antura.Minigames.Egg
                 case EggVariation.LetterName:
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
                     break;
+                case EggVariation.Image:
+                    builderParams.wordFilters.requireDrawings = true;
+                    builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
+                    break;
                 case EggVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.excludeDuplicateLetters = true;
@@ -99,6 +104,8 @@ namespace Antura.Minigames.Egg
                         return LocalizationDataId.Egg_letterphoneme_Title;
                     case EggVariation.BuildWord:
                         return LocalizationDataId.Egg_buildword_Title;
+                    case EggVariation.Image:
+                        return LocalizationDataId.Egg_buildword_Title;// TODO: LocalizationDataId.Egg_image_Title;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -110,6 +117,7 @@ namespace Antura.Minigames.Egg
             switch (Variation) {
                 case EggVariation.LetterName:
                 case EggVariation.LetterPhoneme:
+                case EggVariation.Image:
                     return true;
                 case EggVariation.BuildWord:
                     return false;
@@ -123,6 +131,7 @@ namespace Antura.Minigames.Egg
             switch (Variation) {
                 case EggVariation.LetterName:
                 case EggVariation.LetterPhoneme:
+                case EggVariation.Image:
                     return false;
                 case EggVariation.BuildWord:
                     return true;

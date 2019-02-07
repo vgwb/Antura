@@ -7,6 +7,7 @@ namespace Antura.Minigames.ColorTickle
     public enum ColorTickleVariation
     {
         LetterName = MiniGameCode.ColorTickle_lettername,
+        Image = MiniGameCode.ColorTickle_image
     }
 
     public class ColorTickleConfiguration : AbstractGameConfiguration
@@ -56,6 +57,11 @@ namespace Antura.Minigames.ColorTickle
                     builderParams.wordFilters.excludeDiacritics = true;
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, parameters: builderParams);
                     break;
+                case ColorTickleVariation.Image:
+                    builderParams.wordFilters.excludeDiacritics = true;
+                    builderParams.wordFilters.requireDrawings = true;
+                    builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, parameters: builderParams);
+                    break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -75,6 +81,7 @@ namespace Antura.Minigames.ColorTickle
             LetterDataSoundType soundType;
             switch (Variation) {
                 case ColorTickleVariation.LetterName:
+                case ColorTickleVariation.Image:
                     soundType = LetterDataSoundType.Name;
                     break;
                 default:

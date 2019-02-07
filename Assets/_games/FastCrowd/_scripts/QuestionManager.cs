@@ -52,19 +52,27 @@ namespace Antura.Minigames.FastCrowd
                 // Add drop areas
                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting)
                     dropContainer.AddDropNumber(correctAnswer, i);
-                else if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word)
+                else if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
+                         || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
                     dropContainer.AddDropData(correctAnswer, true);
                 else
                     dropContainer.AddDropData(correctAnswer, false);
 
                 // Add living letters
+                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                    correctAnswer = new LL_ImageData(correctAnswer.Id);
+
                 crowd.AddLivingLetter(correctAnswer);
             }
 
             foreach (var wrongAnswer in wrongAnswers)
             {
+                var answer = wrongAnswer;
+                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                    answer = new LL_ImageData(answer.Id);
+
                 // Add living letters
-                crowd.AddLivingLetter(wrongAnswer);
+                crowd.AddLivingLetter(answer);
             }
         }
 

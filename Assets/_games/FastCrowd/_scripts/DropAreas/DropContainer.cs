@@ -54,7 +54,8 @@ namespace Antura.Minigames.FastCrowd
                 actualAreaIndex++;
                 DOTween.Sequence().InsertCallback(1, delegate ()
                     {
-                        if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word)
+                        if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
+                            || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
                             AudioManager.I.PlaySound(Sfx.Hit);
                         dropAreaSetPosition();
                     });
@@ -65,7 +66,8 @@ namespace Antura.Minigames.FastCrowd
                         dropAreaSetPosition(delegate ()
                             {
                                 float waitAtEnd = 2;
-                                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word) { 
+                                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
+                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image) { 
                                     AudioManager.I.PlaySound(Sfx.Hit);
                                     waitAtEnd = 1;
                                 }
