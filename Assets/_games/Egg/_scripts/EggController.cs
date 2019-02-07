@@ -456,7 +456,7 @@ namespace Antura.Minigames.Egg
 
             if (questionData != null)
             {
-                Vector3 finalLivingLetterEndPosition = new Vector3(0, -0.3f, -14);
+                Vector3 finalLivingLetterEndPosition = new Vector3(0, -1f, -17);
                 var questionImageData = new LL_ImageData(questionData.Id);
                 var finalLivingLetter = new EggLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab,
                     questionImageData, lLetterPosition, transform.localPosition, finalLivingLetterEndPosition, (jumpDelay * answersData.Count) + startDelay, null);

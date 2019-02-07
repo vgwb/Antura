@@ -35,8 +35,6 @@ namespace Antura.Minigames.Egg
         private float tutorialDelayTime = 3f;
         private bool tutorialStop;
 
-        float lastTimePressed = 0;
-        const float deltaPressedInterval = 0.5f;
         bool isPlayingQuestion = false;
 
         public EggPlayState(EggGame game)
@@ -213,10 +211,7 @@ namespace Antura.Minigames.Egg
         {
             game.Context.GetAudioManager().PlaySound(Sfx.UIButtonClick);
 
-            if (Time.realtimeSinceStartup - lastTimePressed > deltaPressedInterval) {
-                game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
-            }
-            lastTimePressed = Time.realtimeSinceStartup;
+            game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
 
             if (showTutorial) {
                 if (!enteredRepeatMode) {
