@@ -2136,9 +2136,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Content: {fileID: 224000012212845702}
-  TfMessageArabic: {fileID: 114740951754920940}
-  TfMessageEnglish: {fileID: 114155859235137636}
-  TfMessageEnglishFull: {fileID: 114828658116384278}
+  TfMessageNative: {fileID: 114740951754920940}
+  TfMessageLearning: {fileID: 114155859235137636}
+  TfMessageLearningFull: {fileID: 114828658116384278}
   BtYes: {fileID: 114000013099074474}
   BtNo: {fileID: 114000010397661330}
 --- !u!223 &223557115722717688
@@ -2158,7 +2158,7 @@ Canvas:
   m_OverrideSorting: 1
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
   m_SortingOrder: 200
   m_TargetDisplay: 0
@@ -2437,7 +2437,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114147731222064166
@@ -2690,7 +2689,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114936072023116700
@@ -4885,7 +4883,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114893882310214150
@@ -5064,7 +5061,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114000011209755236
@@ -5336,7 +5332,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114591354352362506
@@ -6419,7 +6414,7 @@ GameObject:
   - component: {fileID: 114155859235137636}
   - component: {fileID: 114373433389267670}
   m_Layer: 5
-  m_Name: TF Message English
+  m_Name: TF Message Learning
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6467,7 +6462,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 1
   LocalizationId: 0
 --- !u!114 &114373433389267670
@@ -7006,7 +7000,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114385734848632904
@@ -7367,7 +7360,7 @@ GameObject:
   - component: {fileID: 114740951754920940}
   - component: {fileID: 114882329015818078}
   m_Layer: 5
-  m_Name: TF Message Arabic
+  m_Name: TF Message Native
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7415,7 +7408,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114882329015818078
@@ -7439,7 +7431,7 @@ MonoBehaviour:
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: "\u0644\u0639\u0631\u0628\u064A\u0629"
-  m_isRightToLeft: 1
+  m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 30344d57d55de4ec6acfb84117110925, type: 2}
   m_sharedMaterial: {fileID: 21863560639530978, guid: 30344d57d55de4ec6acfb84117110925,
     type: 2}
@@ -7553,7 +7545,7 @@ GameObject:
   - component: {fileID: 114828658116384278}
   - component: {fileID: 114598552248544412}
   m_Layer: 5
-  m_Name: TF Message English FULL
+  m_Name: TF Message Learning FULL
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7601,7 +7593,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!114 &114598552248544412

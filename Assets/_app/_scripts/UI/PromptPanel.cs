@@ -15,9 +15,9 @@ namespace Antura.UI
     public class PromptPanel : MonoBehaviour
     {
         public RectTransform Content;
-        public TextRender TfMessageArabic;
-        public TextRender TfMessageEnglish;
-        public TextRender TfMessageEnglishFull;
+        public TextRender TfMessageNative;
+        public TextRender TfMessageLearning;
+        public TextRender TfMessageLearningFull;
         public UIButton BtYes, BtNo;
 
         private Action onYes, onNo;
@@ -73,11 +73,11 @@ namespace Antura.UI
         {
             onCloseAction = null;
             if (_messageAr.IsNullOrEmpty()) {
-                TfMessageEnglishFull.text = _messageEn;
+                TfMessageLearningFull.text = _messageEn;
             } else {
-                TfMessageArabic.text = _messageAr.IsNullOrEmpty() ? "" : _messageAr;
-                TfMessageEnglish.text = _messageEn.IsNullOrEmpty() ? "" : _messageEn;
-                TfMessageEnglishFull.text = "";
+                TfMessageNative.text = _messageAr.IsNullOrEmpty() ? "" : _messageAr;
+                TfMessageLearning.text = _messageEn.IsNullOrEmpty() ? "" : _messageEn;
+                TfMessageLearningFull.text = "";
             }
             onYes = _onYes;
             onNo = _onNo;
