@@ -66,53 +66,53 @@ namespace Antura.Database
 
         public void LoadTables(LanguageCode language, string dbName)
         {
-            var path = language + "/"+ dbName + "/" + dbName + "_";
+            var path = language + "/" + dbName + "/" + dbName + "_";
 
             //Debug.LogWarning("Loading database at path " + path);
 
             stageDb = Resources.Load<StageDatabase>(path + "Stage");
             if (!stageDb) {
-                Debug.LogError("Could not load StageDatabase db");
+                // Debug.LogError("Could not load StageDatabase db");
             }
 
             playsessionDb = Resources.Load<PlaySessionDatabase>(path + "PlaySession");
             if (!playsessionDb) {
-                Debug.LogError("Could not load PlaySessionDatabase db");
+                // Debug.LogError("Could not load PlaySessionDatabase db");
             }
 
             learningblockDb = Resources.Load<LearningBlockDatabase>(path + "LearningBlock");
             if (!learningblockDb) {
-                Debug.LogError("Could not load LearningBlockDatabase db");
+                // Debug.LogError("Could not load LearningBlockDatabase db");
             }
 
             minigameDb = Resources.Load<MiniGameDatabase>(path + "MiniGame");
             if (!minigameDb) {
-                Debug.LogError("Could not load MiniGameDatabase db");
+                // Debug.LogError("Could not load MiniGameDatabase db");
             }
 
             letterDb = Resources.Load<LetterDatabase>(path + "Letter");
             if (!letterDb) {
-                Debug.LogError("Could not load LetterDatabase db");
+                // Debug.LogError("Could not load LetterDatabase db");
             }
 
             wordDb = Resources.Load<WordDatabase>(path + "Word");
             if (!wordDb) {
-                Debug.LogError("Could not load WordDatabase db");
+                // Debug.LogError("Could not load WordDatabase db");
             }
 
             phraseDb = Resources.Load<PhraseDatabase>(path + "Phrase");
             if (!phraseDb) {
-                Debug.LogError("Could not load PhraseDatabase db");
+                // Debug.LogError("Could not load PhraseDatabase db");
             }
 
             localizationDb = Resources.Load<LocalizationDatabase>(path + "Localization");
             if (!localizationDb) {
-                Debug.LogError("Could not load LocalizationDatabase db");
+                // Debug.LogError("Could not load LocalizationDatabase db");
             }
 
             rewardDb = Resources.Load<RewardDatabase>(path + "Reward");
             if (!rewardDb) {
-                Debug.LogError("Could not load RewardDatabase db");
+                // Debug.LogError("Could not load RewardDatabase db");
             }
         }
 
@@ -142,7 +142,7 @@ namespace Antura.Database
 
         public T GetById<T>(SerializableDataTable<T> table, string id) where T : IData
         {
-            T value = (T) table.GetValue(id);
+            T value = (T)table.GetValue(id);
             if (value == null) {
                 Debug.LogWarning("Cannot find id '" + id + "' in table " + table.GetType().Name);
                 return default(T);
@@ -152,7 +152,7 @@ namespace Antura.Database
 
         public bool HasById<T>(SerializableDataTable<T> table, string id) where T : IData
         {
-            T value = (T) table.GetValue(id);
+            T value = (T)table.GetValue(id);
             if (value == null) {
                 return false;
             }
