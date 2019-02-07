@@ -73,6 +73,7 @@ namespace Antura.Minigames.Egg
                 case EggVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.excludeDuplicateLetters = true;
+                    builderParams.wordFilters.requireDrawings = true;
                     builder = new LettersInWordQuestionBuilder(nPacks, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 case EggVariation.LetterPhoneme:
