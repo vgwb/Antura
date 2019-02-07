@@ -439,7 +439,6 @@ namespace Antura.Minigames.Egg
                 Vector3 clickPosition = game.eggButtonBox.GetButtons(false)[tutorialSequenceIndex].transform.position;
                 TutorialUI.Click(clickPosition);
             }
-            /*
             else
             {
                 tutorialCorrectTimer = 2f;
@@ -447,7 +446,6 @@ namespace Antura.Minigames.Egg
                 Vector3 clickPosition = game.eggButtonBox.GetButtons(false)[tutorialSequenceIndex].transform.position;
                 TutorialUI.ClickRepeat(clickPosition, tutorialCorrectTimer);
             }
-            */
         }
 
         void ShowTutorialPressedWrong(ILivingLetterData letterData)
