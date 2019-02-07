@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using Antura.LivingLetters;
 using Antura.Minigames;
@@ -155,8 +155,8 @@ namespace Antura.Minigames.FastCrowd
                     popupWidget.SetTitle("");
                     popupWidget.SetMark(true, true);
                 }
-                else
-                    popupWidget.SetTitle("" + QuestionNumber);
+                //else
+                //    popupWidget.SetTitle("" + QuestionNumber);
 
                 var question = CurrentQuestion.GetQuestion();
                 popupWidget.SetLetterData(question);
