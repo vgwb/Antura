@@ -311,7 +311,7 @@ namespace Antura.Minigames.MissingLetter
             var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, true);
 
             var partToRemove = parts[0];
-            letterView.Label.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove, mk_sRemovedLetterChar);
+            letterView.LabelRender.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove, mk_sRemovedLetterChar);
             return partToRemove;
         }
 
@@ -326,7 +326,7 @@ namespace Antura.Minigames.MissingLetter
             }
 
             LivingLetterController tmp = m_aoCurrentQuestionScene[index].GetComponent<LetterBehaviour>().mLetter;
-            tmp.Label.text = "";
+            tmp.LabelRender.text = "";
             return index;
         }
 
@@ -349,10 +349,10 @@ namespace Antura.Minigames.MissingLetter
             string color = result ? "#4CAF50" : "#DD2C00";
 
             if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase) {
-                letterView.Label.text = "<color=" + color + ">" + letterView.Label.text + "</color>";
+                letterView.LabelRender.text = "<color=" + color + ">" + letterView.LabelRender.text + "</color>";
             } else {
                 LL_WordData word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
-                letterView.Label.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
+                letterView.LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
             }
 
         }

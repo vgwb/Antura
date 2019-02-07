@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Antura.LivingLetters;
 
@@ -26,12 +26,12 @@ namespace Antura.Minigames.MixedLetters
 
         public void SetCustomText(string text)
         {
-            if (letterObjectView.Label.enabled == false)
+            if (letterObjectView.LabelRender.enabled == false)
             {
-                letterObjectView.Label.enabled = true;
+                letterObjectView.LabelRender.enabled = true;
             }
 
-            letterObjectView.Label.SetText(text);
+            letterObjectView.LabelRender.SetText(text);
         }
 
         public void LookTowardsAntura()

@@ -16,69 +16,47 @@ namespace Antura.UI
         [SerializeField]
         protected string m_text;
 
-        public bool isTMPro = true;
-        public bool isUI;
         public bool isEnglishSubtitle;
 
         private LanguageUse languageUse;
         public Database.LocalizationDataId LocalizationId;
 
+        public Mesh mesh
+        {
+            get => TMPText.mesh;
+        }
+
+        public Material fontSharedMaterial
+        {
+            get => TMPText.fontSharedMaterial;
+            set => TMPText.fontSharedMaterial = value;
+        }
+
+        public Color color
+        {
+            get => TMPText.color;
+            set => TMPText.color = value;
+        }
+
         public string text
         {
-            get { return m_text; }
+            get => m_text;
             set
             {
                 if (m_text == value) return;
-                if (SAppConfig.I.ForceALLCAPSTextRendering) {
-                    m_text = value.ToUpper();
-                } else {
-                    m_text = value;
-                }
+                m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
                 updateText();
             }
         }
 
         public float Alpha
         {
-            get {
-                if (isTMPro) {
-                    if (isUI) {
-                        return gameObject.GetComponent<TextMeshProUGUI>().alpha;
-                    } else {
-                        return gameObject.GetComponent<TextMeshPro>().alpha;
-                    }
-                }
-                return 0;
-            }
-            set {
-                if (isTMPro) {
-                    if (isUI) {
-                        gameObject.GetComponent<TextMeshProUGUI>().alpha = value;
-                    } else {
-                        gameObject.GetComponent<TextMeshPro>().alpha = value;
-                    }
-                }
-            }
+            get => TMPText.alpha;
+            set => TMPText.alpha = value;
         }
 
-        public string RenderedText
-        {
-            get {
-                if (isTMPro) {
-                    if (isUI) {
-                        return gameObject.GetComponent<TextMeshProUGUI>().text;
-                    } else {
-                        return gameObject.GetComponent<TextMeshPro>().text;
-                    }
-                } else {
-                    if (isUI) {
-                        return gameObject.GetComponent<Text>().text;
-                    } else {
-                        return gameObject.GetComponent<TextMesh>().text;
-                    }
-                }
-            }
-        }
+        public string RenderedText => TMPText.text;
+        private TMP_Text TMPText => gameObject.GetComponent<TMP_Text>();
 
         void Awake()
         {
@@ -111,37 +89,13 @@ namespace Antura.UI
 
         public void SetTextUnfiltered(string text)
         {
-            if (isTMPro) {
-                if (isUI) {
-                    gameObject.GetComponent<TextMeshProUGUI>().text = text;
-                } else {
-                    gameObject.GetComponent<TextMeshPro>().text = text;
-                }
-            } else {
-                if (isUI) {
-                    gameObject.GetComponent<Text>().text = text;
-                } else {
-                    gameObject.GetComponent<TextMesh>().text = text;
-                }
-            }
+            TMPText.text = text;
             CheckRTL();
         }
 
         private void updateText()
         {
-            if (isTMPro) {
-                if (isUI) {
-                    gameObject.GetComponent<TextMeshProUGUI>().text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
-                } else {
-                    gameObject.GetComponent<TextMeshPro>().text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
-                }
-            } else {
-                if (isUI) {
-                    gameObject.GetComponent<Text>().text = m_text;
-                } else {
-                    gameObject.GetComponent<TextMesh>().text = m_text;
-                }
-            }
+            TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
 
             if (RenderedText == "") text = " "; // Avoid no text not getting update correctly
             CheckRTL();
@@ -149,36 +103,29 @@ namespace Antura.UI
 
         public void SetColor(Color color)
         {
-            if (isTMPro) {
-                if (isUI) {
-                    gameObject.GetComponent<TextMeshProUGUI>().color = color;
-                } else {
-                    gameObject.GetComponent<TextMeshPro>().color = color;
-                }
-            }
+            TMPText.color = color;
         }
 
         void CheckRTL()
         {
-            bool isRTL = LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
-            if (isUI)
-            {
-                gameObject.GetComponent<TextMeshProUGUI>().isRightToLeftText = isRTL;
-            }
-            else
-            {
-                gameObject.GetComponent<TextMeshPro>().isRightToLeftText = isRTL;
-            }
+            TMPText.isRightToLeftText = LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
         }
 
         public void SetLetterData(ILivingLetterData livingLetterData)
         {
-            languageUse = LanguageUse.Learning;
-            CheckRTL();
-
-            if (livingLetterData.DataType == LivingLetterDataType.Letter) {
-                text = livingLetterData.TextForLivingLetter;
-            } else if (livingLetterData.DataType == LivingLetterDataType.Word) {
+            if (livingLetterData.DataType == LivingLetterDataType.Image)
+            {
+                TMPText.enableAutoSizing = false;
+                TMPText.fontSize = 40;
+                text = livingLetterData.DrawingCharForLivingLetter;
+                TMPText.font = Resources.Load<TMP_FontAsset>("EA4S_WordDrawings SDF");
+            }
+            else
+            {
+                TMPText.enableAutoSizing = true;
+                languageUse = LanguageUse.Learning;
+                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).Font;
+                CheckRTL();
                 text = livingLetterData.TextForLivingLetter;
             }
         }

@@ -1,3 +1,4 @@
+using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using UnityEngine;
@@ -128,9 +129,13 @@ namespace Antura.Minigames.Egg
 
                             ILivingLetterData runLetterData;
 
-                            if (isSequence)
+                            if (EggConfiguration.Instance.Variation == EggVariation.BuildWord)
                             {
                                 runLetterData = new LL_ImageData(game.CurrentQuestion.Question.Id);
+                            }
+                            else if (EggConfiguration.Instance.Variation == EggVariation.Image)
+                            {
+                                runLetterData = new LL_ImageData(game.CurrentQuestion.Answers[0].Id);
                             }
                             else
                             {
@@ -221,7 +226,7 @@ namespace Antura.Minigames.Egg
                 tutorialCorrectActive = false;
             }
 
-            if (letterData == game.CurrentQuestion.Answers[letterOnSequence]) {
+            if (DataMatchingHelper.IsDataMatching(letterData, game.CurrentQuestion.Answers[letterOnSequence], LetterEqualityStrictness.LetterOnly)) {
                 if (isSequence) {
                     game.eggButtonBox.GetEggButton(letterData).SetPressed();
                     PositiveFeedback();

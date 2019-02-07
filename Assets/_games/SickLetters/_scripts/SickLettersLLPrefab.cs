@@ -109,7 +109,7 @@ namespace Antura.Minigames.SickLetters
         {
             ILivingLetterData newLetter = game.questionManager.getNewLetter();
             letterView.Init(newLetter);
-            letterView.Label.GetComponent<TextRender>().SetLetterData(newLetter);
+            letterView.LabelRender.SetLetterData(newLetter);
 
 
             //game.LLPrefab.dotlessLetter.text = newLetter.TextForLivingLetter;
@@ -135,7 +135,7 @@ namespace Antura.Minigames.SickLetters
             //Deal with Diacritics if any
             if (letterWithoutDiac != newLetter.TextForLivingLetter)
             {
-                Debug.Log(newLetter.TextForLivingLetter + " " + letterWithoutDiac +" " + letterView.Label.mesh.vertexCount);
+                //Debug.Log(newLetter.TextForLivingLetter + " " + letterWithoutDiac +" " + letterView.LabelRender.mesh.vertexCount);
 
                 StopCoroutine(processCorrectDiacPose());
                 StartCoroutine(processCorrectDiacPose());
@@ -210,9 +210,9 @@ namespace Antura.Minigames.SickLetters
         IEnumerator processCorrectDiacPose() {
             while (true)
             {
-                if (letterView.Label.mesh.vertexCount > 0)
+                if (letterView.LabelRender.mesh.vertexCount > 0)
                 {
-                    correctDiacriticPos = letterView.Label.transform.TransformPoint(Vector3.Lerp(letterView.Label.mesh.vertices[4], letterView.Label.mesh.vertices[6], 0.5f));
+                    correctDiacriticPos = letterView.LabelRender.transform.TransformPoint(Vector3.Lerp(letterView.LabelRender.mesh.vertices[4], letterView.LabelRender.mesh.vertices[6], 0.5f));
 
                     if (correctDiacCollider.transform.childCount == 0)
                     {

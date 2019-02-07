@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using System;
 using UnityEngine;
 using DG.Tweening;
@@ -28,9 +28,13 @@ namespace Antura.Minigames.Egg
 
             livingLetter.transform.SetParent(parent);
             livingLetter.transform.localPosition = startPosition;
+
             livingLetter.Init(livingLetterData);
             livingLetter.transform.localScale *= startScale;
             livingLetter.gameObject.SetActive(false);
+
+            if (EggConfiguration.Instance.Variation == EggVariation.Image)
+                livingLetter.TransformIntoImage();
 
             shadowTransform = UnityEngine.Object.Instantiate(shadowPrefab).transform;
             shadowTransform.SetParent(parent);

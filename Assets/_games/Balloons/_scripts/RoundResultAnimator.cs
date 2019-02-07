@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using Antura.LivingLetters;
 using Antura.Tutorial;
@@ -68,7 +68,7 @@ namespace Antura.Minigames.Balloons
 
             if (hide)
             {
-                LLPrefab.Label.text = "";
+                LLPrefab.LabelRender.text = "";
                 LLPrefab.gameObject.SetActive(false);
                 vfx.gameObject.SetActive(false);
             }

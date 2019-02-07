@@ -267,7 +267,7 @@ namespace Antura.Minigames.Balloons
                 if (foundLetterIndices.Count != 0) {
                     string originalText = ((LL_WordData)letterData).TextForLivingLetter;
 
-                    letterObjectView.Label.SetText(originalText);
+                    letterObjectView.LabelRender.SetText(originalText);
 
                     float timeElapsed = 0f;
                     int numCompletedCycles = 0;
@@ -299,7 +299,7 @@ namespace Antura.Minigames.Balloons
 
                         composedString += preparedText.Substring(foundLetterIndices[foundLetterIndices.Count - 1] + letterToFlash.GetStringForDisplay().Length);
 
-                        letterObjectView.Label.SetText(composedString);
+                        letterObjectView.LabelRender.SetText(composedString);
 
                         timeElapsed += Time.fixedDeltaTime;
                         if (timeElapsed >= FLASH_CYCLE_DURATION) {
@@ -310,7 +310,7 @@ namespace Antura.Minigames.Balloons
                         yield return new WaitForFixedUpdate();
                     }
 
-                    letterObjectView.Label.SetText(originalText);
+                    letterObjectView.LabelRender.SetText(originalText);
                 }
             }
 

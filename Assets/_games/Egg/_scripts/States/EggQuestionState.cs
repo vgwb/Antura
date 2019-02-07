@@ -71,7 +71,11 @@ namespace Antura.Minigames.Egg
 
             for (int i = 0; i < lLetterDataSequence.Count; i++)
             {
-                game.eggButtonBox.AddButton(lLetterDataSequence[i]);
+                var data = lLetterDataSequence[i];
+                if (EggConfiguration.Instance.Variation == EggVariation.Image)
+                    data = new LL_ImageData(data.Id);
+
+                game.eggButtonBox.AddButton(data);
             }
 
             game.eggButtonBox.SetButtonsOnPosition();

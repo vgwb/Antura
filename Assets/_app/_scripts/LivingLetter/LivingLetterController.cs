@@ -2,10 +2,8 @@ using Antura.Core;
 using Antura.Language;
 using Antura.Helpers;
 using Antura.Minigames;
-using Antura.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 namespace Antura.LivingLetters
 {
@@ -30,9 +28,7 @@ namespace Antura.LivingLetters
 
         public Transform boneToScaleTransform;
 
-        public TMP_Text Label;
         public UI.TextRender LabelRender;
-        public TextMeshPro Drawing;
         public SpriteRenderer ImageSprite;
 
         private Vector3 startScale;
@@ -70,28 +66,21 @@ namespace Antura.LivingLetters
 
                 if (Data == null) {
                     ImageSprite.enabled = false;
-                    Drawing.enabled = false;
-                    Label.enabled = false;
                 } else {
                     if (Data.DataType == LivingLetterDataType.Image) {
-                        Drawing.text = Data.DrawingCharForLivingLetter;
-                        Drawing.enabled = true;
+                        LabelRender.enabled = true;
+                        LabelRender.SetLetterData(Data);
 
                         LL_ImageData data = (LL_ImageData)Data;
                         if (data.Data.Category == Database.WordDataCategory.Color) {
-                            Drawing.color = GenericHelper.GetColorFromString(data.Data.Value);
+                            LabelRender.color = GenericHelper.GetColorFromString(data.Data.Value);
                         } else {
-                            Drawing.color = Color.black;
+                            LabelRender.color = Color.black;
                         }
 
-                        //ImageSprite.sprite = Data.DrawForLivingLetter;
-                        //ImageSprite.enabled = true;
-                        Label.enabled = false;
                     } else {
                         ImageSprite.enabled = false;
-                        Drawing.enabled = false;
-                        Label.enabled = true;
-                        LabelRender.text = Data.TextForLivingLetter;
+                        LabelRender.SetLetterData(data);
 
                         // Scale modification
                         switch (data.DataType) {
@@ -153,9 +142,6 @@ namespace Antura.LivingLetters
             startTextScale = textTransform.sizeDelta;
 
             ImageSprite.enabled = false;
-            Drawing.enabled = false;
-            Label.enabled = false;
-            Label.font = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Font;
         }
 
         void Start()
@@ -184,8 +170,6 @@ namespace Antura.LivingLetters
             idleTimer = Random.Range(3, 8);
             Data = _data;
             ImageSprite.enabled = false;
-            Drawing.enabled = false;
-            Label.enabled = true;
             LabelRender.text = _customText;
             Scale = _scale;
         }
@@ -628,7 +612,7 @@ namespace Antura.LivingLetters
 
         public void SetOutlineMaterial()
         {
-            Label.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
+            LabelRender.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
         }
 
         #endregion

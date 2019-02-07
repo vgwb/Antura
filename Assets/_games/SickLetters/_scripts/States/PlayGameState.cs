@@ -82,8 +82,8 @@ namespace Antura.Minigames.SickLetters
             if (game.LLPrefab.correctDotCollider.transform.childCount == 0)
                 game.LLPrefab.correctDotCollider.transform.position = correctDotPos;
 
-            if (game.LLPrefab.letterView.Label.color.a > 0)
-                game.LLPrefab.letterView.Label.color = new Color32(0, 0, 0, 0);
+            if (game.LLPrefab.letterView.LabelRender.color.a > 0)
+                game.LLPrefab.letterView.LabelRender.color = new Color32(0, 0, 0, 0);
 
             Debug.DrawRay(correctDotPos, -Vector3.forward * 10, Color.red);
             Debug.DrawRay(correctDotPos, -Vector3.right * 10, Color.yellow);
