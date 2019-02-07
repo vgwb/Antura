@@ -173,7 +173,7 @@ namespace Antura.UI
 
         public void SetLetterData(ILivingLetterData livingLetterData)
         {
-            languageUse =LanguageUse.Learning;
+            languageUse = LanguageUse.Learning;
             CheckRTL();
 
             if (livingLetterData.DataType == LivingLetterDataType.Letter) {
