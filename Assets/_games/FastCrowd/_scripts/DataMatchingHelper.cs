@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.LivingLetters;
 
 namespace Antura.Database
@@ -15,11 +15,9 @@ namespace Antura.Database
                 //UnityEngine.Debug.Log("Matching letters " + letter1.Data + " and " + letter2.Data);
                 return letter1.Data.IsSameLetterAs(letter2.Data, strictness: letterEqualityStrictness);
             }
-            else if (ll1 is LL_WordData && ll2 is LL_WordData)
+            else if ((ll1 is LL_WordData || ll1 is LL_ImageData) && (ll2 is LL_WordData || ll2 is LL_ImageData))
             {
-                var word1 = ll1 as LL_WordData;
-                var word2 = ll2 as LL_WordData;
-                return word1.Data.Id == word2.Data.Id;
+                return ll1.Id == ll2.Id;
             }
             else if (ll1 is LL_PhraseData && ll2 is LL_PhraseData)
             {
