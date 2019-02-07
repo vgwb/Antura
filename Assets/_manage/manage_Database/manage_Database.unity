@@ -2802,7 +2802,6 @@ MonoBehaviour:
   m_text: 
   isTMPro: 1
   isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
 --- !u!1001 &469721544
@@ -2941,6 +2940,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Drop selected profile
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012266269348, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
+        type: 3}
+      propertyPath: m_PreferredHeight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012076151160, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
         type: 3}
       propertyPath: m_Color.r
@@ -2955,11 +2959,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.1750108
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012266269348, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
-        type: 3}
-      propertyPath: m_PreferredHeight
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000014187559028, guid: a898bf7b2a9ca4b71804c0342fe7ae88, type: 3}
@@ -5365,7 +5364,7 @@ MonoBehaviour:
     wordDataAsset: {fileID: 4900000, guid: 5fefc79144b73aa4382f12b10df2f3da, type: 3}
     playSessionDataAsset: {fileID: 4900000, guid: f4dffd93f51a0e2438768213bc773ea7,
       type: 3}
-    localizationDataAsset: {fileID: 4900000, guid: 742d986602ca8d34b98ceca174f93b73,
+    localizationDataAsset: {fileID: 4900000, guid: a47b711b75239431b9ec3cf8b28594cd,
       type: 3}
     phraseDataAsset: {fileID: 4900000, guid: 6e3b86f1cb7247344924e65f9dddf7a4, type: 3}
     stageDataAsset: {fileID: 4900000, guid: 404ca03363fdcbd4496be47c79f6ec5d, type: 3}
@@ -11483,6 +11482,11 @@ PrefabInstance:
       propertyPath: m_Text
       value: Drop selected profile
       objectReference: {fileID: 0}
+    - target: {fileID: 114000012266269348, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
+        type: 3}
+      propertyPath: m_PreferredHeight
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 114000012076151160, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
         type: 3}
       propertyPath: m_Color.r
@@ -11497,11 +11501,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Color.b
       value: 0.1750108
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000012266269348, guid: a898bf7b2a9ca4b71804c0342fe7ae88,
-        type: 3}
-      propertyPath: m_PreferredHeight
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 114000014187559028, guid: a898bf7b2a9ca4b71804c0342fe7ae88, type: 3}

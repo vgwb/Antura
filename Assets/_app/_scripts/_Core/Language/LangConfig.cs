@@ -10,6 +10,7 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
+        public string Iso2;
         public TMP_FontAsset Font;
         public TextDirection TextDirection;
 
