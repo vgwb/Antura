@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.eduapp4syria.antura" xmlns:tools="http://schemas.android.com/tools" android:installLocation="preferExternal" android:versionName="1.2.1" android:versionCode="1020100">
+<manifest xmlns:android="http://schemas.android.com/apk/res/android" package="org.antura.learnenglish" xmlns:tools="http://schemas.android.com/tools" android:installLocation="preferExternal" android:versionName="1.2.1" android:versionCode="1020100">
   <supports-screens android:smallScreens="true" android:normalScreens="true" android:largeScreens="true" android:xlargeScreens="true" android:anyDensity="true" />
-  <application android:theme="@style/UnityThemeSelector" android:icon="@drawable/app_icon" android:label="@string/app_name">
+  <application android:theme="@style/UnityThemeSelector" android:icon="@drawable/app_icon" android:label="@string/app_name" tools:replace="android:icon">
     <activity android:name="com.unity3d.player.UnityPlayerActivity" android:label="@string/app_name" android:hardwareAccelerated="true">
       <intent-filter>
         <action android:name="android.intent.action.MAIN" />
