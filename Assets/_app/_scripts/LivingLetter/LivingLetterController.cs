@@ -49,6 +49,8 @@ namespace Antura.LivingLetters
         private bool inIdleAlternative;
         private bool started;
 
+        private bool outline;
+
         #endregion
 
         #region runtime variables
@@ -69,18 +71,11 @@ namespace Antura.LivingLetters
                 } else {
                     if (Data.DataType == LivingLetterDataType.Image) {
                         LabelRender.enabled = true;
-                        LabelRender.SetLetterData(Data);
-
-                        LL_ImageData data = (LL_ImageData)Data;
-                        if (data.Data.Category == Database.WordDataCategory.Color) {
-                            LabelRender.color = GenericHelper.GetColorFromString(data.Data.Value);
-                        } else {
-                            LabelRender.color = Color.black;
-                        }
+                        LabelRender.SetLetterData(Data, outline);
 
                     } else {
                         ImageSprite.enabled = false;
-                        LabelRender.SetLetterData(data);
+                        LabelRender.SetLetterData(data, outline);
 
                         // Scale modification
                         switch (data.DataType) {
@@ -153,9 +148,10 @@ namespace Antura.LivingLetters
         /// Initializes object with the specified data.
         /// </summary>
         /// <param name="data">The data.</param>
-        public void Init(ILivingLetterData data)
+        public void Init(ILivingLetterData data, bool _outline = false)
         {
             idleTimer = Random.Range(3, 8);
+            outline = _outline;
             Data = data;
         }
 
@@ -165,9 +161,10 @@ namespace Antura.LivingLetters
         /// <param name="_data">Used as data reference.</param>
         /// <param name="_customText">The text.</param>
         /// <param name="_scale">The scale used to resize the LL.</param>
-        public void Init(ILivingLetterData _data, string _customText, float _scale)
+        public void Init(ILivingLetterData _data, string _customText, float _scale, bool _outline = false)
         {
             idleTimer = Random.Range(3, 8);
+            outline = _outline;
             Data = _data;
             ImageSprite.enabled = false;
             LabelRender.text = _customText;
@@ -607,15 +604,6 @@ namespace Antura.LivingLetters
         {
             --dancingRefs;
         }
-
-        #region Materials
-
-        public void SetOutlineMaterial()
-        {
-            LabelRender.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
-        }
-
-        #endregion
 
         public void TransformIntoImage()
         {

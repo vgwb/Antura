@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Linq;
 using Antura.Core;
 using Antura.LivingLetters;
+using UnityEngine.UI;
 
 namespace Antura.Minigames.ColorTickle
 {
@@ -72,15 +73,12 @@ namespace Antura.Minigames.ColorTickle
             {
                 game.myLetters[i] = Object.Instantiate(game.letterPrefab);
                 game.myLetters[i].SetActive(true);
-                // HACK fix for the automatic reset of the color after update at Unity 5.4.2
-                game.myLetters[i].GetComponent<LivingLetterController>().LabelRender.color = Color.white;
 
                 _qp = ColorTickleConfiguration.Instance.Questions.GetNextQuestion();
                 _lldata = _qp.GetCorrectAnswers().ToList()[0];
-               
-                game.myLetters[i].GetComponent<LivingLetterController>().Init(_lldata);
-                game.myLetters[i].GetComponent<LivingLetterController>().SetOutlineMaterial();
 
+                game.myLetters[i].GetComponent<LivingLetterController>().Init(_lldata, _outline: true);
+                game.myLetters[i].GetComponent<LivingLetterController>().LabelRender.color = Color.white;
                 game.myLetters[i].GetComponent<ColorTickle_LLController>().movingToDestination = false;
                 
             }
@@ -91,10 +89,8 @@ namespace Antura.Minigames.ColorTickle
             LL_LetterData LLdata = new LL_LetterData(AppManager.I.DB.GetAllLetterData().First());
             game.tutorialLetter = Object.Instantiate(game.letterPrefab);
             game.tutorialLetter.SetActive(true);
-            // HACK fix for the automatic reset of the color after update at Unity 5.4.2
+            game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata, _outline:true);
             game.tutorialLetter.GetComponent<LivingLetterController>().LabelRender.color = Color.white;
-            game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata);
-            game.tutorialLetter.GetComponent<LivingLetterController>().SetOutlineMaterial();
             game.tutorialLetter.GetComponent<ColorTickle_LLController>().movingToDestination = false;
         }
 
