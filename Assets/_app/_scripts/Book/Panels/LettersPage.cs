@@ -60,7 +60,7 @@ namespace Antura.Book
 
                 btnGO = Instantiate(LetterItemPrefab);
                 btnGO.transform.SetParent(ListContainer.transform, false);
-                btnGO.transform.SetAsFirstSibling();
+                //btnGO.transform.SetAsFirstSibling();
                 btnGO.GetComponent<ItemLetter>().Init(this, myLetterinfo, false);
             }
 
