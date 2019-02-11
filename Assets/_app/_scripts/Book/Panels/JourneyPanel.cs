@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Database;
 using Antura.UI;
 using Antura.Core;
@@ -101,9 +101,9 @@ namespace Antura.Book
             AudioManager.I.PlayLearningBlock(currentLearningBlock.data.AudioFile);
 
             DetailCodeText.text = currentLearningBlock.data.Id;
-            DetailTitleText.text = currentLearningBlock.data.Title_Ar;
-            DetailDescriptionEn.text = currentLearningBlock.data.Description_En;
-            DetailDescriptionAr.text = currentLearningBlock.data.Description_Ar;
+            DetailTitleText.text = currentLearningBlock.data.Title_LearningLang;
+            DetailDescriptionEn.text = currentLearningBlock.data.Description_NativeLang;
+            DetailDescriptionAr.text = currentLearningBlock.data.Description_LearningLang;
 
             HighlightItem(currentLearningBlock.data.Id);
             ScoreText.text = "Score: " + currentLearningBlock.score;

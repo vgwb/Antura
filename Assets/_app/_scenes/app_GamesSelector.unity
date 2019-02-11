@@ -185,11 +185,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: 
-  isTMPro: 1
-  isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!114 &68021758
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -870,8 +868,8 @@ MonoBehaviour:
   - {fileID: 1705891053}
   - {fileID: 792058542}
   TitleCode: {fileID: 68021757}
-  TitleEnglish: {fileID: 1081266790}
-  TitleArabic: {fileID: 1238808136}
+  TitleNativeLang: {fileID: 1081266790}
+  TitleLearningLang: {fileID: 1238808136}
 --- !u!1 &1081266787
 GameObject:
   m_ObjectHideFlags: 0
@@ -886,7 +884,7 @@ GameObject:
   - component: {fileID: 1081266790}
   - component: {fileID: 1081266789}
   m_Layer: 5
-  m_Name: Title English
+  m_Name: Title NativeLang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1046,11 +1044,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: 
-  isTMPro: 1
-  isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!222 &1081266791
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1084,7 +1080,7 @@ GameObject:
   - component: {fileID: 1238808136}
   - component: {fileID: 1238808134}
   m_Layer: 5
-  m_Name: Title Arabic
+  m_Name: Title LearningLang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1252,11 +1248,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: 
-  isTMPro: 1
-  isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!1 &1689218425
 GameObject:
   m_ObjectHideFlags: 0

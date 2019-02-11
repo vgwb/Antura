@@ -2,6 +2,7 @@ using System.Linq;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.Rewards;
 using Antura.UI;
 using UnityEngine;
@@ -17,8 +18,8 @@ namespace Antura.GamesSelector
     {
         public GameObject[] Stars;
         public TextRender TitleCode;
-        public TextRender TitleEnglish;
-        public TextRender TitleArabic;
+        public TextRender TitleNativeLang;
+        public TextRender TitleLearningLang;
 
         void Start()
         {
@@ -27,8 +28,8 @@ namespace Antura.GamesSelector
             var playSession = AppManager.I.DB.GetPlaySessionDataById(journeyPos.Id);
             var learningBlock = AppManager.I.DB.GetLearningBlockDataById(playSession.Stage + "." + playSession.LearningBlock.ToString());
             TitleCode.text = journeyPos.ToString();
-            TitleArabic.text = learningBlock.Title_Ar;
-            TitleEnglish.text = learningBlock.Title_En;
+            TitleLearningLang.SetText(learningBlock.Title_LearningLang, LanguageUse.Learning);
+            TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Instructions);
 
             // play the tutorial only if in LB 1.1
             if (journeyPos.Stage == 1 && journeyPos.LearningBlock == 1) {

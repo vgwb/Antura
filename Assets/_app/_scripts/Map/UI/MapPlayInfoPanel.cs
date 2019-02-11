@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
@@ -60,7 +60,7 @@ namespace Antura.Map
             //lockedBtn.gameObject.SetActive(pin.isLocked);
 
             psNumberTextUI.SetText(pin.journeyPosition.ToDisplayedString(true));
-            psNameTextUI.SetText(lbData.Title_Ar);
+            psNameTextUI.SetText(lbData.Title_LearningLang);
         }
 
     }

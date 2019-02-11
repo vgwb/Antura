@@ -46,7 +46,7 @@ namespace Antura.Database
         [SerializeField]
         private int _NumberOfPlaySessions;
 
-        public string Description_En
+        public string Description_NativeLang
         {
             get { return _Description_En; }
             set { _Description_En = value; }
@@ -54,7 +54,7 @@ namespace Antura.Database
         [SerializeField]
         private string _Description_En;
 
-        public string Description_Ar
+        public string Description_LearningLang
         {
             get { return _Description_Ar; }
             set { _Description_Ar = value; }
@@ -62,7 +62,7 @@ namespace Antura.Database
         [SerializeField]
         private string _Description_Ar;
 
-        public string Title_En
+        public string Title_NativeLang
         {
             get { return _Title_En; }
             set { _Title_En = value; }
@@ -78,7 +78,7 @@ namespace Antura.Database
         [SerializeField]
         private string _AudioFile;
 
-        public string Title_Ar
+        public string Title_LearningLang
         {
             get {
                 if (_Title_Ar != "") {
@@ -111,7 +111,7 @@ namespace Antura.Database
         public override string ToString()
         {
             string output = "";
-            output += string.Format("[LearningBlock: S={0}, LB={1}, description={2}]", Stage, LearningBlock, Description_En);
+            output += string.Format("[LearningBlock: S={0}, LB={1}, description={2}]", Stage, LearningBlock, Description_NativeLang);
             return output;
         }
     }

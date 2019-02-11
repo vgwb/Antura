@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.UI;
 using Antura.Core;
 using UnityEngine;
@@ -30,8 +30,8 @@ namespace Antura.Book
             manager = _manager;
 
             Info.text = learningBlockInfo.data.Id;
-            Title.text = learningBlockInfo.data.Title_Ar;
-            SubTitle.text = learningBlockInfo.data.Title_En;
+            Title.text = learningBlockInfo.data.Title_LearningLang;
+            SubTitle.text = learningBlockInfo.data.Title_NativeLang;
 
             if (learningBlockInfo.unlocked || AppManager.I.Player.IsDemoUser) {
                 LockIcon.enabled = false;

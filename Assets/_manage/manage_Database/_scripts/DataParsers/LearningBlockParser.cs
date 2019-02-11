@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Antura.Database.Management
 {
@@ -15,10 +15,10 @@ namespace Antura.Database.Management
             data.LearningBlock = ToInt(dict["LearningBlock"]);
             data.Id = data.Stage + "." + data.LearningBlock;
 
-            data.Description_En = ToString(dict["Description_En"]);
-            data.Description_Ar = ToString(dict["Description_Ar"]);
-            data.Title_Ar = ToString(dict["Title_Ar"]);
-            data.Title_En = ToString(dict["Title_En"]);
+            data.Description_NativeLang = ToString(dict["Description_En"]);
+            data.Description_LearningLang = ToString(dict["Description_Ar"]);
+            data.Title_LearningLang = ToString(dict["Title_Ar"]);
+            data.Title_NativeLang = ToString(dict["Title_En"]);
             data.AudioFile = ToString(dict["AudioFile"]);
             //data.Reward = ParseID<RewardData, RewardTable>(data, (string)dict["Reward"], db.GetRewardTable());
             data.Focus = ParseEnum<LearningBlockDataFocus>(data, (string)dict["Focus"]);
