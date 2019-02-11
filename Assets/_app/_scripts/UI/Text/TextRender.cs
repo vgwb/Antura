@@ -1,8 +1,8 @@
 using Antura.Core;
+using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
@@ -112,14 +112,19 @@ namespace Antura.UI
         }
 
         public int drawingFontSize = 40;
-        public void SetLetterData(ILivingLetterData livingLetterData)
+        public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
         {
             if (livingLetterData.DataType == LivingLetterDataType.Image) {
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
                 TMPText.font = Resources.Load<TMP_FontAsset>("EA4S_WordDrawings SDF");
-                color = Color.black;
+
+                LL_ImageData imageData = (LL_ImageData)livingLetterData;
+                color = imageData.Data.Category == Database.WordDataCategory.Color ? GenericHelper.GetColorFromString(imageData.Data.Value) : Color.black;
+
+                if (outlined)
+                    TMPText.fontSharedMaterial = Resources.Load<Material>("EA4S_WordDrawings SDF Outline");
             } else {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
@@ -127,6 +132,9 @@ namespace Antura.UI
                 CheckRTL();
                 text = livingLetterData.TextForLivingLetter;
                 color = Color.black;
+
+                if (outlined)
+                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
             }
         }
 
@@ -134,5 +142,6 @@ namespace Antura.UI
         {
             text = LocalizationManager.GetTranslation(sentenceId);
         }
+
     }
 }
