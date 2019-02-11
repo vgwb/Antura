@@ -86,8 +86,9 @@ namespace Antura.Minigames.ThrowBalls
 
             // Configure num balls:
             if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
-                MAX_NUM_BALLS = 10;
-            } else {
+                MAX_NUM_BALLS = 5;
+            }
+            else {
                 var difficulty = game.Difficulty;
 
                 if (difficulty <= ThrowBallsGame.ThrowBallsDifficulty.Normal) {
@@ -443,11 +444,9 @@ namespace Antura.Minigames.ThrowBalls
 
         public void OnBallLost()
         {
-            if (isRoundOngoing && !IsTutorialRound()) {
+            if (isRoundOngoing && !IsTutorialRound() && !hitCorrect) {
                 numBalls--;
-
                 game.Context.GetOverlayWidget().SetLives(numBalls);
-
                 if (numBalls == 0) {
                     BallController.instance.Disable();
                     OnRoundLost();
@@ -455,6 +454,7 @@ namespace Antura.Minigames.ThrowBalls
             } else if (IsTutorialRound()) {
                 ShowTutorialUI();
             }
+            hitCorrect = false;
         }
 
         public void OnRoundConcluded()
@@ -484,8 +484,14 @@ namespace Antura.Minigames.ThrowBalls
             }
         }
 
+        public void OnWrongLetterHit(LetterController wrongLetterCntrl)
+        {
+        }
+
+        private bool hitCorrect = false;
         public void OnCorrectLetterHit(LetterController correctLetterCntrl)
         {
+            hitCorrect = true;
             if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
                 numLettersRemaining--;
                 var word = ((LL_WordData)question).Data;
@@ -527,6 +533,7 @@ namespace Antura.Minigames.ThrowBalls
         private void OnRoundWon(LetterController correctLetterCntrl)
         {
             if (isRoundOngoing) {
+
                 if (!IsTutorialRound()) {
                     numRoundsWon++;
                     game.Context.GetOverlayWidget().SetStarsScore(numRoundsWon);

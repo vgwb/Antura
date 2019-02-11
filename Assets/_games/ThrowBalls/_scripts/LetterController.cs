@@ -142,7 +142,9 @@ namespace Antura.Minigames.ThrowBalls
                     GameState.instance.OnCorrectLetterHit(this);
                     ThrowBallsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Poof);
                 } else {
-                    if (ThrowBallsGame.instance.GameState.isRoundOngoing) {
+                    if (ThrowBallsGame.instance.GameState.isRoundOngoing)
+                    {
+                        GameState.instance.OnWrongLetterHit(this);   
                         letterObjectView.DoTwirl(null);
                         BallController.instance.OnRebounded();
                     }
