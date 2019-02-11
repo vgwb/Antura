@@ -49,7 +49,7 @@ namespace Antura.Minigames.FastCrowd
 
                 if (FastCrowdConfiguration.Instance.Variation != FastCrowdVariation.Counting &&
                     FastCrowdConfiguration.Instance.Variation != FastCrowdVariation.Word &&
-                    FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                    FastCrowdConfiguration.Instance.Variation != FastCrowdVariation.Image)
                     FastCrowdConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(data, true, soundType: FastCrowdConfiguration.Instance.GetVocabularySoundType());
             }
         }
