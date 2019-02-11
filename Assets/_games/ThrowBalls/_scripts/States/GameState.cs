@@ -135,10 +135,6 @@ namespace Antura.Minigames.ThrowBalls
 
             ThrowBallsGame.instance.letterWithPropsPrefab.SetActive(false);
 
-            audioManager.PlayDialogue(ThrowBallsConfiguration.Instance.TitleLocalizationId, OnTitleVoiceOverDone);
-
-            AudioManager.I.PlayMusic(Music.Theme10);
-
             BallController.instance.Reset();
             Catapult.instance.DisableCollider();
             BallController.instance.Disable();
@@ -146,6 +142,11 @@ namespace Antura.Minigames.ThrowBalls
             AnturaController.instance.Disable();
             ArrowHeadController.instance.Disable();
             ArrowBodyController.instance.Disable();
+
+            AudioManager.I.PlayMusic(Music.Theme10);
+
+            audioManager.PlayDialogue(ThrowBallsConfiguration.Instance.TitleLocalizationId, OnTitleVoiceOverDone);
+
         }
 
         private void OnTitleVoiceOverDone()
