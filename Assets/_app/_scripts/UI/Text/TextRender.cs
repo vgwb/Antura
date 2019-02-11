@@ -41,10 +41,10 @@ namespace Antura.UI
         public string text
         {
             get => m_text;
-            set
-            {
+            set {
                 if (m_text == value) return;
-                m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
+                //m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
+                m_text = value;
                 updateText();
             }
         }
@@ -114,8 +114,7 @@ namespace Antura.UI
         public int drawingFontSize = 40;
         public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
         {
-            if (livingLetterData.DataType == LivingLetterDataType.Image)
-            {
+            if (livingLetterData.DataType == LivingLetterDataType.Image) {
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
@@ -126,9 +125,7 @@ namespace Antura.UI
 
                 if (outlined)
                     TMPText.fontSharedMaterial = Resources.Load<Material>("EA4S_WordDrawings SDF Outline");
-            }
-            else
-            {
+            } else {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).Font;
