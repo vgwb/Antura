@@ -111,12 +111,13 @@ namespace Antura.UI
             TMPText.isRightToLeftText = LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
         }
 
+        public int drawingFontSize = 40;
         public void SetLetterData(ILivingLetterData livingLetterData)
         {
             if (livingLetterData.DataType == LivingLetterDataType.Image)
             {
                 TMPText.enableAutoSizing = false;
-                TMPText.fontSize = 40;
+                TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
                 TMPText.font = Resources.Load<TMP_FontAsset>("EA4S_WordDrawings SDF");
                 color = Color.black; 
