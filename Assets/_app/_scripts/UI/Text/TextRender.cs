@@ -1,8 +1,8 @@
 using Antura.Core;
-using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
@@ -41,10 +41,10 @@ namespace Antura.UI
         public string text
         {
             get => m_text;
-            set
-            {
+            set {
                 if (m_text == value) return;
-                m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
+                //m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
+                m_text = value;
                 updateText();
             }
         }
@@ -112,32 +112,21 @@ namespace Antura.UI
         }
 
         public int drawingFontSize = 40;
-        public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
+        public void SetLetterData(ILivingLetterData livingLetterData)
         {
-            if (livingLetterData.DataType == LivingLetterDataType.Image)
-            {
+            if (livingLetterData.DataType == LivingLetterDataType.Image) {
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
                 TMPText.font = Resources.Load<TMP_FontAsset>("EA4S_WordDrawings SDF");
-
-                LL_ImageData imageData = (LL_ImageData)livingLetterData;
-                color = imageData.Data.Category == Database.WordDataCategory.Color ? GenericHelper.GetColorFromString(imageData.Data.Value) : Color.black;
-
-                if (outlined)
-                    TMPText.fontSharedMaterial = Resources.Load<Material>("EA4S_WordDrawings SDF Outline");
-            }
-            else
-            {
+                color = Color.black;
+            } else {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).Font;
                 CheckRTL();
                 text = livingLetterData.TextForLivingLetter;
                 color = Color.black;
-
-                if (outlined)
-                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineFontMaterial;
             }
         }
 
@@ -145,6 +134,5 @@ namespace Antura.UI
         {
             text = LocalizationManager.GetTranslation(sentenceId);
         }
-
     }
 }
