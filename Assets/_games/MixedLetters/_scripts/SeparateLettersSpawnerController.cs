@@ -247,11 +247,11 @@ namespace Antura.Minigames.MixedLetters
 
             yield return new WaitForSeconds(WIN_ANIMATION_BIG_LL_TWIRL_DELAY);
 
-            MixedLettersGame.instance.HideDropZones();
-            DisableLetters();
             VictimLLController.instance.letterObjectView.DoTwirl(OnVictimLLIsShowingBack);
 
             yield return new WaitForSeconds(WIN_ANIMATION_BIG_LL_TWIRL_DURATION);
+            MixedLettersGame.instance.HideDropZones();
+            DisableLetters();
 
             yield return new WaitForSeconds(WIN_ANIMATION_END_DELAY);
 
