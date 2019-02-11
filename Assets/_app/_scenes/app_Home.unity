@@ -386,11 +386,20 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 114000011031556424, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: contentTransform
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1000010297039176, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1000011230653396, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010297039176, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
+    - target: {fileID: 1000011044468152, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -398,7 +407,7 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000011044468152, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
+    - target: {fileID: 1000012218711828, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -410,15 +419,12 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 1000012218711828, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 114000011031556424, guid: d5826ab7f51b7c549919cf0b6fe83693,
+    - target: {fileID: 23000012757446106, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
-      propertyPath: contentTransform
+      propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 21863560639530978, guid: 30344d57d55de4ec6acfb84117110925,
+        type: 2}
     - target: {fileID: 114867388294968946, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -444,12 +450,6 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 21561593201977922, guid: 19b6204822022490d88948a36701cc8c,
-        type: 2}
-    - target: {fileID: 23000012757446106, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 21863560639530978, guid: 30344d57d55de4ec6acfb84117110925,
         type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
@@ -510,8 +510,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d3f3b8658d7a43758847d5532380d6e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  englishTextUI: {fileID: 697174520}
-  arabicTextUI: {fileID: 1309388140}
+  nativeTextUI: {fileID: 697174520}
+  learningTextUI: {fileID: 1309388140}
 --- !u!222 &190705674
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1447,7 +1447,7 @@ GameObject:
   - component: {fileID: 697174520}
   - component: {fileID: 697174518}
   m_Layer: 5
-  m_Name: OutputText english
+  m_Name: OutputText nativeLang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1619,11 +1619,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: 
-  isTMPro: 1
-  isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!1 &723588309
 GameObject:
   m_ObjectHideFlags: 0
@@ -7750,12 +7748,12 @@ GameObject:
   - component: {fileID: 1309388140}
   - component: {fileID: 1309388139}
   m_Layer: 5
-  m_Name: OutputText  arabic
+  m_Name: OutputText learningLang
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1309388138
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7911,11 +7909,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: "\u0641\u0631\u064A\u0642"
-  isTMPro: 1
-  isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!222 &1309388141
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8959,11 +8955,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_text: "\u0641\u0631\u064A\u0642"
-  isTMPro: 1
-  isUI: 1
-  isArabic: 1
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!222 &1811684028
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -10059,11 +10053,9 @@ MonoBehaviour:
     the letters for helping us playing the beta version.   Unfortunately all player
     profiles that were created with the previous version are no longer compatible
     with the game and must be deleted. '
-  isTMPro: 1
-  isUI: 1
-  isArabic: 0
   isEnglishSubtitle: 0
   LocalizationId: 0
+  drawingFontSize: 40
 --- !u!222 &2043515248
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.UI;
@@ -14,8 +14,8 @@ namespace Antura.ReservedArea
     /// </summary>
     public class ReservedAreaDialog : MonoBehaviour
     {
-        public TextRender englishTextUI;
-        public TextRender arabicTextUI;
+        public TextRender nativeTextUI;
+        public TextRender learningTextUI;
 
         private int firstButtonClickCounter;
         private const int nButtons = 4;
@@ -43,10 +43,12 @@ namespace Antura.ReservedArea
             firstButtonClicksTarget = Random.Range(min_number, max_number);
 
             // Update text
-            string[] numberWords = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            string[] colorsWords = { "green", "red", "blue", "yellow" };
-            string[] colorsWordsArabic = { "الأخضر", "الأحمر", "الأزرق", "الأصفر" };
-            string[] timesWordsArabic =
+            string[] numberWordsNative = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
+            string[] colorsWordsNative = { "green", "red", "blue", "yellow" };
+
+            // TODO: refactor this and get them from the localization data instead
+            string[] colorsWordsLearning = { "الأخضر", "الأحمر", "الأزرق", "الأصفر" };
+            string[] timesWordsLearning =
             {
                 "مرة واحدة",
                 "مرتين",
@@ -59,34 +61,36 @@ namespace Antura.ReservedArea
                 "تسع مرات"
             };
 
-            string numberWord = numberWords[firstButtonClicksTarget - 1];
-            string firstColorWord = colorsWords[firstButtonIndex];
-            string secondColorWord = colorsWords[secondButtonIndex];
+            var forcedLanguageUse = Language.LanguageUse.Learning;
+
+            string numberWordNative = numberWordsNative[firstButtonClicksTarget - 1];
+            string firstColorWordNative = colorsWordsNative[firstButtonIndex];
+            string secondColorWordNative = colorsWordsNative[secondButtonIndex];
 
             var titleLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_Title);
             var sectionIntroLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_SectionDescription_Intro);
             var sectionErrorLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_SectionDescription_Error);
 
-            englishTextUI.text =
-                "<b>" + titleLoc.NativeText + "</b>" +
-                "\n" + sectionIntroLoc.NativeText + //"This section is reserved for parents and guardians." +
-                "\n\nPress <b>" + numberWord + "</b> times the <b>" + firstColorWord + "</b> button, then press the <b>" + secondColorWord +
+            nativeTextUI.text =
+                "<b>" + titleLoc.LearningText + "</b>" +
+                "\n" + sectionIntroLoc.LearningText + //"This section is reserved for parents and guardians." +
+                "\n\nPress <b>" + numberWordNative + "</b> times the <b>" + firstColorWordNative + "</b> button, then press the <b>" + secondColorWordNative +
                 "</b> one once." +
-                "\n\n" + sectionErrorLoc.NativeText; //"If you make an error, retry by re - accessing this panel");
+                "\n\n" + sectionErrorLoc.LearningText; //"If you make an error, retry by re - accessing this panel");
 
-            string numberWordArabic = timesWordsArabic[firstButtonClicksTarget - 1];
-            string firstColorWordArabic = colorsWordsArabic[firstButtonIndex];
-            string secondColorWordArabic = colorsWordsArabic[secondButtonIndex];
+            string numberWordArabic = timesWordsLearning[firstButtonClicksTarget - 1];
+            string firstColorWordArabic = colorsWordsLearning[firstButtonIndex];
+            string secondColorWordArabic = colorsWordsLearning[secondButtonIndex];
 
-            string arabicIntroduction = "";
-            arabicIntroduction += "<b>" + LocalizationManager.GetTranslation(titleLoc.Id) + "<b/> \n";
-            arabicIntroduction += LocalizationManager.GetTranslation(sectionIntroLoc.Id) + "\n\n";
-            arabicIntroduction += string.Format("لفتح القفل، اضغط الزر {0} {2} ، ثم الزر {1} مرة واحدة", firstColorWordArabic,
+            string learningIntroduction = "";
+            learningIntroduction += "<b>" + LocalizationManager.GetTranslation(titleLoc.Id) + "<b/> \n";
+            learningIntroduction += LocalizationManager.GetTranslation(sectionIntroLoc.Id) + "\n\n";
+            learningIntroduction += string.Format("لفتح القفل، اضغط الزر {0} {2} ، ثم الزر {1} مرة واحدة", firstColorWordArabic,
                 secondColorWordArabic, numberWordArabic);
-            arabicIntroduction += "\n\n" + LocalizationManager.GetTranslation(sectionErrorLoc.Id);
+            learningIntroduction += "\n\n" + LocalizationManager.GetTranslation(sectionErrorLoc.Id);
 
             //Debug.Log(arabicIntroduction);
-            arabicTextUI.text = arabicIntroduction;
+            learningTextUI.text = learningIntroduction;
         }
 
         public void OnButtonClick(int buttonIndex)
