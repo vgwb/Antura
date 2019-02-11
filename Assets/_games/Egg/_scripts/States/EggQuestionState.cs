@@ -20,6 +20,7 @@ namespace Antura.Minigames.Egg
 
         public void EnterState()
         {
+            passed = false;
             game.eggButtonBox.RemoveButtons();
 
             bool onlyLetter = Random.Range(0, 2) == 0;
@@ -129,8 +130,12 @@ namespace Antura.Minigames.Egg
             game.PlayState.OnEggButtonPressed(letterData);
         }
 
+        private bool passed = false;
         void OnQuestionAudioComplete()
         {
+            if (passed) return;
+            passed = true;
+
             DisableEggButtonsInput();
 
             game.eggController.EmoticonClose();

@@ -62,6 +62,7 @@ namespace Antura.Minigames.ThrowBalls
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.Word:
+                case ThrowBallsVariation.Image:
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, 1, nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
@@ -93,6 +94,8 @@ namespace Antura.Minigames.ThrowBalls
                         return LocalizationDataId.ThrowBalls_lettername_Title; // TODO: get the correct title here
                     case ThrowBallsVariation.Word:
                         return LocalizationDataId.ThrowBalls_word_Title;
+                    case ThrowBallsVariation.Image:
+                        return LocalizationDataId.ThrowBalls_word_Title; // TODO: get the correct title here
                     case ThrowBallsVariation.BuildWord:
                         return LocalizationDataId.ThrowBalls_buildword_Title;
                     default:

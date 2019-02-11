@@ -190,6 +190,7 @@ namespace Antura.Minigames.ThrowBalls
                     game.StartCoroutine(StartNewRound());
                     break;
                 case ThrowBallsVariation.Word:
+                case ThrowBallsVariation.Image:
                     game.StartCoroutine(StartNewRound());
                     break;
                 case ThrowBallsVariation.BuildWord:
@@ -218,12 +219,18 @@ namespace Antura.Minigames.ThrowBalls
             ILivingLetterData correctDatum = newQuestionPack.GetCorrectAnswers().ToList()[0];
             List<ILivingLetterData> wrongData = newQuestionPack.GetWrongAnswers().ToList();
 
-            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.Word) {
+            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.Word
+                || ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.Image)
+            {
                 correctDatum = new LL_ImageData(correctDatum.Id);
 
                 for (int i = 0; i < wrongData.Count; i++) {
                     wrongData[i] = new LL_ImageData(wrongData[i].Id);
                 }
+
+                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.Image)
+                    question = new LL_ImageData(question.Id);
+
             } else
                 SayQuestion();
 
@@ -281,6 +288,10 @@ namespace Antura.Minigames.ThrowBalls
                         break;
                     case ThrowBallsVariation.Word:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
+                        break;
+                    case ThrowBallsVariation.Image:
+                        // TODO:
+                        // audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
                         break;
                     case ThrowBallsVariation.BuildWord:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
@@ -365,6 +376,9 @@ namespace Antura.Minigames.ThrowBalls
                         break;
                     case ThrowBallsVariation.Word:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
+                        break;
+                    case ThrowBallsVariation.Image:
+                        // TODO: audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
                         break;
                     case ThrowBallsVariation.BuildWord:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
