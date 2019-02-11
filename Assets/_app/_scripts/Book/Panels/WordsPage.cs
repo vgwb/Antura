@@ -145,7 +145,7 @@ namespace Antura.Book
             foreach (var letter in splittedLetters) {
                 btnGO = Instantiate(SpellingLetterItemPrefab);
                 btnGO.transform.SetParent(SpellingContainer.transform, false);
-                btnGO.transform.SetAsFirstSibling();
+                //btnGO.transform.SetAsFirstSibling();
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
             }
 
