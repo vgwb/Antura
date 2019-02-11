@@ -214,8 +214,14 @@ namespace Antura.Minigames.Egg
 
         public void OnEggButtonPressed(ILivingLetterData letterData)
         {
-            //game.Context.GetAudioManager().PlaySound(Sfx.UIButtonClick);
-            game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
+            if (!enteredRepeatMode)
+            {
+                game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
+            }
+            else
+            {
+                game.Context.GetAudioManager().PlaySound(Sfx.UIButtonClick);
+            }
 
             if (showTutorial) {
                 if (!enteredRepeatMode) {
