@@ -68,30 +68,29 @@ namespace Antura.LivingLetters
 
                 if (Data == null) {
                     ImageSprite.enabled = false;
-                } else {
-                    if (Data.DataType == LivingLetterDataType.Image) {
-                        LabelRender.enabled = true;
-                        LabelRender.SetLetterData(Data, outline);
-
-                    } else {
-                        ImageSprite.enabled = false;
-                        LabelRender.SetLetterData(data, outline);
-
-                        // Scale modification
-                        switch (data.DataType) {
-                            case LivingLetterDataType.Word:
-                                Scale = 1.3f;
-                                break;
-                            case LivingLetterDataType.Phrase:
-                                Scale = 2f;
-                                break;
-                            case LivingLetterDataType.Letter:
-                                Scale = 1f;
-                                break;
-                            default:
-                                Scale = 1f;
-                                break;
-                        }
+                } else
+                {
+                    ImageSprite.enabled = false;
+                    LabelRender.enabled = true;
+                    LabelRender.SetLetterData(data, outline);
+                    // Scale modification
+                    switch (data.DataType)
+                    {
+                        case LivingLetterDataType.Image:
+                            Scale = 1f;
+                            break;
+                        case LivingLetterDataType.Word:
+                            Scale = 1.3f;
+                            break;
+                        case LivingLetterDataType.Phrase:
+                            Scale = 2f;
+                            break;
+                        case LivingLetterDataType.Letter:
+                            Scale = 1f;
+                            break;
+                        default:
+                            Scale = 1f;
+                            break;
                     }
                 }
             }
@@ -607,7 +606,7 @@ namespace Antura.LivingLetters
 
         public void TransformIntoImage()
         {
-            Init(new LL_ImageData(data.Id));
+            Init(new LL_ImageData(data.Id), outline);
         }
     }
 }
