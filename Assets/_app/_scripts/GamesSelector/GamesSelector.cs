@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using DG.Tweening;
 using Antura.Teacher;
 using UnityEngine;
@@ -222,8 +223,13 @@ namespace Antura.GamesSelector
             float bubbleW = mainBubble.Main.GetComponent<Renderer>().bounds.size.x;
             float area = totBubbles * bubbleW + (totBubbles - 1) * bubblesDist;
             float startX = -area * 0.5f + bubbleW * 0.5f;
-            for (int i = 0; i < totBubbles; ++i) {
-                MiniGameData mgData = games[totBubbles - i - 1];
+            //if (!LanguageSwitcher.LearningRTL) startX *= -1;
+
+            for (int i = 0; i < totBubbles; ++i)
+            {
+                int iRTL = LanguageSwitcher.LearningRTL ? totBubbles - i - 1 : i;
+
+                MiniGameData mgData = games[iRTL];
                 GamesSelectorBubble bubble = i == 0 ? mainBubble : (GamesSelectorBubble)Instantiate(mainBubble, this.transform);
                 bubble.Setup(mgData.GetIconResourcePath(), mgData.GetBadgeIconResourcePath(), startX + (bubbleW + bubblesDist) * i);
                 bubbles.Add(bubble);

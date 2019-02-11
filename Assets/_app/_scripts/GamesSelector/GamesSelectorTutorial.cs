@@ -1,5 +1,6 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
+using Antura.Language;
 using DG.Tweening;
 using UnityEngine;
 
@@ -52,11 +53,16 @@ namespace Antura.GamesSelector
             Vector3[] path = new Vector3[_bubbles.Count + 1];
 //            transform.localPosition = _bubbles[0].transform.localPosition - new Vector3(2, 0, 0);
 //            path[path.Length - 1] = _bubbles[_bubbles.Count - 1].transform.localPosition + new Vector3(2, 0, 0);
-            transform.localPosition = _bubbles[_bubbles.Count - 1].transform.localPosition + new Vector3(2, 0, 0);
-            path[path.Length - 1] = _bubbles[0].transform.localPosition - new Vector3(2, 0, 0);
-            for (int i = 0; i < _bubbles.Count; ++i) {
-                path[i] = _bubbles[_bubbles.Count - i - 1].transform.localPosition;
+            int rtlDirection = LanguageSwitcher.LearningRTL ? 1 : -1;
+
+            transform.localPosition = _bubbles[LanguageSwitcher.LearningRTL ?  _bubbles.Count - 1 : 0].transform.localPosition + new Vector3(rtlDirection*2, 0, 0);
+
+            for (int i = 0; i < _bubbles.Count; ++i)
+            {
+                int iRTL = LanguageSwitcher.LearningRTL ? _bubbles.Count - i - 1 : i;
+                path[i] = _bubbles[iRTL].transform.localPosition;
             }
+            path[path.Length - 1] = _bubbles[LanguageSwitcher.LearningRTL ? 0 : _bubbles.Count-1].transform.localPosition - new Vector3(rtlDirection*2, 0, 0);
 
             showTween.Restart();
             moveTween = DOTween.Sequence().SetAutoKill(false)
