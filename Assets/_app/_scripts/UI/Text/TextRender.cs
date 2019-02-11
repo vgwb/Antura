@@ -119,6 +119,7 @@ namespace Antura.UI
                 TMPText.fontSize = 40;
                 text = livingLetterData.DrawingCharForLivingLetter;
                 TMPText.font = Resources.Load<TMP_FontAsset>("EA4S_WordDrawings SDF");
+                color = Color.black; 
             }
             else
             {
@@ -127,6 +128,7 @@ namespace Antura.UI
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).Font;
                 CheckRTL();
                 text = livingLetterData.TextForLivingLetter;
+                color = Color.black;
             }
         }
 
