@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using UnityEngine;
@@ -406,7 +407,9 @@ namespace Antura.Minigames.Egg
 
             for (int i = 0; i < buttons.Count; i++)
             {
-                if (i == buttons.Count - 1)
+                int iRTL = LanguageSwitcher.I.IsLearningLanguageRTL() ? i : buttons.Count - 1 - i;
+
+                if (iRTL == buttons.Count - 1)
                 {
                     eCallback = () =>
                     {
@@ -419,12 +422,12 @@ namespace Antura.Minigames.Egg
                     };
                 }
 
-                if (i == 0)
+                if (iRTL == 0)
                 {
                     sCallback = startCallback;
                 }
 
-                delay += buttons[i].PlayButtonAudio(lightUp, delay, eCallback, sCallback);
+                delay += buttons[iRTL].PlayButtonAudio(lightUp, delay, eCallback, sCallback);
             }
         }
 
