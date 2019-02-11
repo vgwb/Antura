@@ -23,9 +23,9 @@ namespace Antura.Database.Management
             data.Article = ParseEnum<WordDataArticle>(data, dict["Article"]);
             data.Gender = CustomParseGender(data, dict["Gender"]);
             data.LinkedWord = ToString(dict["LinkedWord"]);
-            data.Text = ToString(dict["Arabic"]);
+            data.Text = ToString(dict["Text"]);
             data.Value = ToString(dict["Value"]);
-            data.Letters = CustomParseLetters(data, db);
+            // data.Letters = CustomParseLetters(data, db);
             data.Drawing = ToString(dict["Drawing"]);
             data.Complexity = ToFloat(dict["Complexity"]);
 
