@@ -537,6 +537,7 @@ namespace Antura.Minigames.Balloons
 
                 case BalloonsVariation.Words:
                 case BalloonsVariation.Image:
+                    SayQuestion();
                     //Popup.Show();
                     //Popup.SetButtonCallback(OnRoundStartPressed);
                     //if (question.DataType == LivingLetterDataType.Word)
@@ -1464,9 +1465,7 @@ namespace Antura.Minigames.Balloons
 
         public void OnLetterHintClicked()
         {
-            if ((BalloonsConfiguration.Instance.Variation != BalloonsVariation.Words
-                && BalloonsConfiguration.Instance.Variation != BalloonsVariation.Image)
-                && roundStatus == RoundStatus.Started)
+            if (roundStatus == RoundStatus.Started)
             {
                 SayQuestion();
                 WobbleLetterHint();
