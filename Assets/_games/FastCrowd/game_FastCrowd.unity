@@ -1122,8 +1122,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a5fd23481066d4b87c7d20e2f46eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiniGameCode: 14
-  Stage: 1
+  MiniGameCode: 1
+  Stage: 6
   LearningBlock: 2
   PlaySession: 1
   Difficulty: 0.5
@@ -7859,11 +7859,12 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 3
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010830544318, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
-      propertyPath: m_IsActive
-      value: 1
+    - target: {fileID: 108000012859444562, guid: 25204511df7ed9b4897034df9466e2f4,
+        type: 3}
+      propertyPath: m_RenderMode
+      value: 2
       objectReference: {fileID: 0}
-    - target: {fileID: 1000010684126046, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
+    - target: {fileID: 1000010830544318, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
@@ -7871,12 +7872,11 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 108000010379347226, guid: 25204511df7ed9b4897034df9466e2f4,
-        type: 3}
-      propertyPath: m_RenderMode
-      value: 2
+    - target: {fileID: 1000010684126046, guid: 25204511df7ed9b4897034df9466e2f4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 108000012859444562, guid: 25204511df7ed9b4897034df9466e2f4,
+    - target: {fileID: 108000010379347226, guid: 25204511df7ed9b4897034df9466e2f4,
         type: 3}
       propertyPath: m_RenderMode
       value: 2
@@ -20107,14 +20107,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 400002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 42.656403
-      objectReference: {fileID: 0}
-    - target: {fileID: 400004, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
-      propertyPath: m_LocalScale.z
-      value: 42.656403
-      objectReference: {fileID: 0}
     - target: {fileID: 2300000, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -20122,6 +20114,14 @@ PrefabInstance:
     - target: {fileID: 2300002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
       propertyPath: m_CastShadows
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 42.656403
+      objectReference: {fileID: 0}
+    - target: {fileID: 400004, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 42.656403
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 562aa999dc8e5814a99dc3d001db2dc8, type: 3}
