@@ -229,9 +229,13 @@ namespace Antura.Minigames.ThrowBalls
                 }
 
                 if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.Image)
+                {
                     question = new LL_ImageData(question.Id);
+                }
 
-            } else
+            }
+
+            if (ThrowBallsConfiguration.Instance.Variation != ThrowBallsVariation.Word)
                 SayQuestion();
 
             yield return new WaitForSeconds(1f);
