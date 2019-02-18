@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
@@ -50,14 +50,6 @@ namespace Antura.Teacher.Test
                 data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.WithActualForm).Count.ToString());
         }
 
-
-        [DeMethodButton("Word Length")]
-        public void DoWordLength()
-        {
-            DoStatsList("Frequency of word length", _wordDatas,
-                data => false,
-                data => data.Letters.Length.ToString());
-        }
 
         [DeMethodButton("Letter Audio PHONEME")]
         public void DoLetterAudioPhoneme()

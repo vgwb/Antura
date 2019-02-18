@@ -25,23 +25,10 @@ namespace Antura.Database.Management
             data.LinkedWord = ToString(dict["LinkedWord"]);
             data.Text = ToString(dict["Text"]);
             data.Value = ToString(dict["Value"]);
-            // data.Letters = CustomParseLetters(data, db);
             data.Drawing = ToString(dict["Drawing"]);
             data.Complexity = ToFloat(dict["Complexity"]);
 
             return data;
-        }
-
-        private string[] CustomParseLetters(WordData wordData, DatabaseObject db)
-        {
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(db, wordData);
-
-            string[] letters = new string[parts.Count];
-
-            for (int i = 0, count = letters.Length; i < count; ++i)
-                letters[i] = parts[i].letter.Id;
-
-            return letters;
         }
 
         private WordDataForm CustomParseForm(WordData data, object enum_object)

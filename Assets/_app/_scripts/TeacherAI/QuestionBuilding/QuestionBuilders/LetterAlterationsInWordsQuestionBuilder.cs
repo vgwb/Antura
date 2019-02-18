@@ -228,7 +228,7 @@ namespace Antura.Teacher
         private bool WordContainsLetter(WordData word, LetterData letter, int maxWordLength, LetterEqualityStrictness strictness)
         {
             // Check max length
-            if (word.Letters.Length > maxWordLength)
+            if (AppManager.I.VocabularyHelper.GetLettersInWord(word).Count > maxWordLength)
             {
                 return false;
             }

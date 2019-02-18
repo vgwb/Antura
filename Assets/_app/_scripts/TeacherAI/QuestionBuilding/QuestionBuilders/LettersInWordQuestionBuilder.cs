@@ -137,7 +137,7 @@ namespace Antura.Teacher
             var eligibleWords = new List<WordData>();
             foreach (var word in vocabularyHelper.GetWordsByCategory(category, parameters.wordFilters)) {
                 // Check max length
-                if (word.Letters.Length > maxWordLength) {
+                if (AppManager.I.VocabularyHelper.GetLettersInWord(word).Count> maxWordLength) {
                     continue;
                 }
 

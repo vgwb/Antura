@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Linq;
 using Antura.LivingLetters;
 using Antura.Helpers;
@@ -101,6 +101,7 @@ namespace Antura.Database
         [SerializeField]
         private string _Value;
 
+        /*
         [Ignore]
         public string[] Letters
         {
@@ -109,11 +110,13 @@ namespace Antura.Database
         }
         [SerializeField]
         private string[] _Letters;
+      
         public string Letters_list
         {
             get { return _Letters.ToJoinedString(); }
             set { }
         }
+          */
 
         public string Drawing
         {
@@ -133,8 +136,6 @@ namespace Antura.Database
 
         //public LetterSymbol[] Symbols; //TODO
 
-        public int NumberOfLetters { get { return Letters.Length; } }
-
         public string GetId()
         {
             return Id;
@@ -148,8 +149,6 @@ namespace Antura.Database
         public override string ToString()
         {
             string s = Id + ": " + Text;
-            s += "  ";
-            foreach (var letter in Letters) s += letter + ", ";
             return s;
         }
 

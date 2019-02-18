@@ -196,7 +196,7 @@ namespace Antura.Teacher
         private bool WordIsEligible(WordData word, LetterData containedLetter, LetterForm form, int maxWordLength)
         {
             // Check max length
-            if (word.Letters.Length > maxWordLength)
+            if (AppManager.I.VocabularyHelper.GetLettersInWord(word).Count > maxWordLength)
             {
                 return false;
             }
