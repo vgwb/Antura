@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.UI;
@@ -26,7 +26,10 @@ namespace Antura.Book
             } else {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
                 LetterText.SetTextUnfiltered(isolatedChar);
-                SubtitleText.SetText(myLetterData.Id);
+                if (SAppConfig.I.ShowSubtitles)
+                    SubtitleText.SetText(myLetterData.Id);
+                else
+                    SubtitleText.SetText("");
             }
         }
 

@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Database;
 using Antura.UI;
 using UnityEngine;
@@ -38,7 +38,7 @@ namespace Antura.Book
             }
 
             Title.text = myLetterInfo.data.GetStringForDisplay();
-            SubTitle.text = myLetterInfo.data.Id; //  + (myLetterInfo.data.Number > 0 ? " (" + myLetterInfo.data.Number + ")" : "");
+            SubTitle.text = SAppConfig.I.ShowSubtitles ? myLetterInfo.data.Id : ""; //  + (myLetterInfo.data.Number > 0 ? " (" + myLetterInfo.data.Number + ")" : "");
             // + " " + myLetterInfo.data.Kind.ToString();
             highlight(_selected);
         }
