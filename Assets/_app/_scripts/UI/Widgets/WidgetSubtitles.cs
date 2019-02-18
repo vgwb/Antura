@@ -3,6 +3,7 @@ using ArabicSupport;
 using DG.Tweening;
 using System;
 using System.Collections;
+using Antura.Language;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,8 +21,8 @@ namespace Antura.UI
         [Header("References")]
         public GameObject Background;
 
-        public TextMeshProUGUI TextUI;
-        public TextMeshProUGUI TextUItranslation;
+        public TextRender TextUI;
+        public TextRender TextUItranslation;
         public WalkieTalkie WalkieTalkie;
 
         public static WidgetSubtitles I;
@@ -35,8 +36,6 @@ namespace Antura.UI
             I = this;
             WalkieTalkie.gameObject.SetActive(true);
             WalkieTalkie.Setup();
-
-            TextUI.isRightToLeftText = true;
 
             showTween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(this.GetComponent<RectTransform>().DOAnchorPosY(170, 0.3f).From().SetEase(Ease.OutBack))
@@ -125,8 +124,9 @@ namespace Antura.UI
             this.StopAllCoroutines();
             textTween.Kill();
             TextUI.text = "";
-            var localizedText = LocalizationManager.GetTranslation(data.Id);
-            if (string.IsNullOrEmpty(localizedText)) {
+
+            var learningText = LocalizationManager.GetTranslation(data.Id);
+            if (string.IsNullOrEmpty(learningText)) {
                 this.gameObject.SetActive(false);
                 return;
             }
@@ -134,9 +134,12 @@ namespace Antura.UI
             this.gameObject.SetActive(true);
             if (WalkieTalkie.IsShown) { WalkieTalkie.Pulse(); }
 
-            TextUI.text = string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppSettings.EnglishSubtitles && SAppConfig.I.ShowSubtitles) {
-                TextUItranslation.text = string.IsNullOrEmpty(localizedText) ? data.Id : data.GetSubtitleTranslation();
+            TextUI.SetText(learningText, LanguageUse.Learning);
+
+            //string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
+            if (AppManager.I.AppSettings.EnglishSubtitles && SAppConfig.I.ShowSubtitles)
+            {
+                TextUItranslation.SetText(data.NativeText, LanguageUse.Instructions);
             }
             this.StartCoroutine(DisplayTextCoroutine(_duration));
 
@@ -156,8 +159,9 @@ namespace Antura.UI
         {
             yield return null; // Wait 1 frame otherwise TMP doesn't update characterCount
 
-            TextUI.maxVisibleCharacters = TextUI.textInfo.characterCount;
-            textTween = DOTween.To(() => TextUI.maxVisibleCharacters, x => TextUI.maxVisibleCharacters = x, 0, _duration)
+            var tmpro = TextUI.GetComponent<TextMeshProUGUI>();
+            tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
+            textTween = DOTween.To(() => tmpro.maxVisibleCharacters, x => tmpro.maxVisibleCharacters = x, 0, _duration)
                                .From().SetUpdate(true).SetEase(Ease.Linear)
                                .OnComplete(() => {
                                    WalkieTalkie.StopPulse();
