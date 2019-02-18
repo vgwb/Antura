@@ -402,14 +402,14 @@ namespace Antura.Audio
         {
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
             var langDir = Language.LanguageSwitcher.I.GetLangConfig(Language.LanguageUse.Learning).Code.ToString();
-            var res = GetCachedResource(langDir + "Audio/Dialogs/" + localizedAudioFileName);
+            var res = GetCachedResource(langDir + "/Audio/Dialogs/" + localizedAudioFileName);
 
             // Fallback to neutral version if not found
             if (res == null) {
                 var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
                 if (localizedAudioFileName != neutralAudioFileName) {
                     Debug.LogWarning("Female audio file expected for localization ID " + data.Id + " was not found");
-                    res = GetCachedResource(langDir + "Audio/Dialogs/" + neutralAudioFileName);
+                    res = GetCachedResource(langDir + "/Audio/Dialogs/" + neutralAudioFileName);
                 }
             }
             return res;
