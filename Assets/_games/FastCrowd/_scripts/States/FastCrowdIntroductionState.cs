@@ -1,5 +1,3 @@
-﻿using Antura.Core;
-using Antura.Keeper;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -19,12 +17,8 @@ namespace Antura.Minigames.FastCrowd
         {
             nextState = false;
             playIntro = false;
-            if (AppManager.I.AppSettings.EnglishSubtitles) {
-                KeeperManager.I.PlayDialog(FastCrowdConfiguration.Instance.TitleLocalizationId, true, true, () => { playIntro = true; });
-            } else {
-                game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.TitleLocalizationId, () => { playIntro = true; });
-            }
 
+            game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.TitleLocalizationId, () => { playIntro = true; });
             game.Context.GetAudioManager().PlayMusic(Music.Theme10);
         }
 
@@ -42,11 +36,7 @@ namespace Antura.Minigames.FastCrowd
             if (playIntro) {
                 playIntro = false;
 
-                if (AppManager.I.AppSettings.EnglishSubtitles) {
-                    KeeperManager.I.PlayDialog(FastCrowdConfiguration.Instance.IntroLocalizationId, true, true, () => { nextState = true; });
-                } else {
-                    game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.IntroLocalizationId, () => { nextState = true; });
-                }
+                game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.IntroLocalizationId, () => { nextState = true; });
             }
         }
 
