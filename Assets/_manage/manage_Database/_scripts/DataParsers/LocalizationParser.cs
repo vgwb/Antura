@@ -19,7 +19,7 @@ namespace Antura.Database.Management
 
             data.NativeText = ToString(dict["spanish"]);
             data.NativeText_F = ToString(dict["spanish_F"]);
-            data.NativeAudio = ToString(dict["spanish_AUDIO"]);
+            data.NativeAudio = ToString(dict["english_AUDIO"]);
             return data;
         }
 
