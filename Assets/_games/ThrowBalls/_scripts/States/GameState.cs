@@ -294,8 +294,7 @@ namespace Antura.Minigames.ThrowBalls
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
                         break;
                     case ThrowBallsVariation.Image:
-                        // TODO:
-                        // audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
+                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
                         break;
                     case ThrowBallsVariation.BuildWord:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
@@ -382,7 +381,7 @@ namespace Antura.Minigames.ThrowBalls
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
                         break;
                     case ThrowBallsVariation.Image:
-                        // TODO: audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
+                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
                         break;
                     case ThrowBallsVariation.BuildWord:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);

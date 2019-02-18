@@ -94,11 +94,7 @@ namespace Antura.Minigames.HideAndSeek
 
             yield return new WaitForSeconds(answerAudio.Duration);
 
-            if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.LetterPhoneme)
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_letterphoneme_Tuto);
-            else
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_Words_Tuto);
-
+            game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.TutorialLocalizationId);
 
             buttonRepeater.SetActive(true);
 

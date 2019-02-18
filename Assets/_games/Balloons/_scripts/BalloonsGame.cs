@@ -238,7 +238,7 @@ namespace Antura.Minigames.Balloons
                     title = LocalizationDataId.Balloons_counting_Title;
                     break;
                 case BalloonsVariation.Image:
-                    title = LocalizationDataId.Balloons_counting_Title; // TODO: LocalizationDataId.Balloons_image_Title; 
+                    title = LocalizationDataId.Balloons_image_Title;
                     break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");
@@ -265,7 +265,7 @@ namespace Antura.Minigames.Balloons
                     tutorial = LocalizationDataId.Balloons_counting_Tuto;
                     break;
                 case BalloonsVariation.Image:
-                    tutorial = LocalizationDataId.Balloons_spelling_Tuto; // TODO: LocalizationDataId.Balloons_image_Tuto; 
+                    tutorial = LocalizationDataId.Balloons_image_Tuto; 
                     break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");
@@ -292,7 +292,7 @@ namespace Antura.Minigames.Balloons
                     intro = LocalizationDataId.Balloons_counting_Intro;
                     break;
                 case BalloonsVariation.Image:
-                    intro = LocalizationDataId.Balloons_counting_Intro; // TODO:   intro = LocalizationDataId.Balloons_image_Intro; 
+                    intro = LocalizationDataId.Balloons_image_Intro;
                     break;
                 default:
                     Debug.LogError("Invalid Balloons Game Variation!");

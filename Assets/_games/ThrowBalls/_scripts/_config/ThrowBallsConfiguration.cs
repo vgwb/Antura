@@ -96,7 +96,7 @@ namespace Antura.Minigames.ThrowBalls
                     case ThrowBallsVariation.Word:
                         return LocalizationDataId.ThrowBalls_word_Title;
                     case ThrowBallsVariation.Image:
-                        return LocalizationDataId.ThrowBalls_word_Title; // TODO: get the correct title here
+                        return LocalizationDataId.ThrowBalls_image_Title;
                     case ThrowBallsVariation.BuildWord:
                         return LocalizationDataId.ThrowBalls_buildword_Title;
                     default:

@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Linq;
 using Antura.Core;
+using Antura.Database;
 using Antura.LivingLetters;
 using UnityEngine.UI;
 
@@ -21,7 +22,21 @@ namespace Antura.Minigames.ColorTickle
 
         public void EnterState()
         {
-            game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.ColorTickle_lettername_Title);
+            LocalizationDataId title = default(LocalizationDataId);
+            switch (ColorTickleConfiguration.Instance.Variation)
+            {
+                case ColorTickleVariation.LetterName:
+                    title = LocalizationDataId.ColorTickle_lettername_Title;
+                    break;
+                case ColorTickleVariation.Image:
+                    title = LocalizationDataId.ColorTickle_image_Title;
+                    break;
+                default:
+                    Debug.LogError("Invalid Color Tickle Game Variation!");
+                    break;
+            }
+
+            game.Context.GetAudioManager().PlayDialogue(title);
 
             game.colorsCanvas.gameObject.SetActive(false);
 

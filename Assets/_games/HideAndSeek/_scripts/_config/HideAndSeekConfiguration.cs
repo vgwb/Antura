@@ -1,4 +1,5 @@
 using System;
+using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 
@@ -72,6 +73,54 @@ namespace Antura.Minigames.HideAndSeek
             var rules = new MiniGameLearnRules();
             // example: a.minigameVoteSkewOffset = 1f;
             return rules;
+        }
+
+        public override LocalizationDataId TitleLocalizationId
+        {
+            get
+            {
+                switch (Variation)
+                {
+                    case HideAndSeekVariation.LetterPhoneme:
+                        return LocalizationDataId.HideSeek_letterphoneme_Title;
+                    case HideAndSeekVariation.Image:
+                        return LocalizationDataId.HideSeek_image_Title;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public LocalizationDataId TutorialLocalizationId
+        {
+            get
+            {
+                switch (Variation)
+                {
+                    case HideAndSeekVariation.LetterPhoneme:
+                        return LocalizationDataId.HideSeek_letterphoneme_Tuto;
+                    case HideAndSeekVariation.Image:
+                        return LocalizationDataId.HideSeek_image_Tuto;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public LocalizationDataId IntroLocalizationId
+        {
+            get
+            {
+                switch (Variation)
+                {
+                    case HideAndSeekVariation.LetterPhoneme:
+                        return LocalizationDataId.HideSeek_letterphoneme_Intro;
+                    case HideAndSeekVariation.Image:
+                        return LocalizationDataId.HideSeek_image_Intro;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
         }
 
     }

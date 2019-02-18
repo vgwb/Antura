@@ -106,7 +106,27 @@ namespace Antura.Minigames.Egg
                     case EggVariation.BuildWord:
                         return LocalizationDataId.Egg_buildword_Title;
                     case EggVariation.Image:
-                        return LocalizationDataId.Egg_buildword_Title;// TODO: LocalizationDataId.Egg_image_Title;
+                        return LocalizationDataId.Egg_image_Title;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        public LocalizationDataId TutorialLocalizationId
+        {
+            get
+            {
+                switch (Variation)
+                {
+                    case EggVariation.LetterName:
+                        return LocalizationDataId.Egg_letterphoneme_Tuto;
+                    case EggVariation.LetterPhoneme:
+                        return LocalizationDataId.Egg_letterphoneme_Tuto;
+                    case EggVariation.BuildWord:
+                        return LocalizationDataId.Egg_buildword_Tuto;
+                    case EggVariation.Image:
+                        return LocalizationDataId.Egg_image_Tuto;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

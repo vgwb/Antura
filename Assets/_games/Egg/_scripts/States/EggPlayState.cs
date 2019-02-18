@@ -86,11 +86,7 @@ namespace Antura.Minigames.Egg
             if (showTutorial) {
                 ShowTutorialPressCorrect();
 
-                if (isSequence) {
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Egg_buildword_Tuto);
-                } else {
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Egg_letterphoneme_Tuto);
-                }
+                game.Context.GetAudioManager().PlayDialogue(EggConfiguration.Instance.TutorialLocalizationId);
             }
 
             if (!showTutorial) {

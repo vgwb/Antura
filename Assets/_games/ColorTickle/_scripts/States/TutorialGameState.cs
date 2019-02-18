@@ -1,4 +1,6 @@
+using Antura.Database;
 using Antura.LivingLetters;
+using Antura.Minigames.Balloons;
 using UnityEngine;
 
 namespace Antura.Minigames.ColorTickle
@@ -125,16 +127,44 @@ namespace Antura.Minigames.ColorTickle
 
             //m_LLController.OnDestinationReached += EnableTutorialAnimation;
 
+            LocalizationDataId intro = default(LocalizationDataId);
+            switch (ColorTickleConfiguration.Instance.Variation)
+            {
+                case ColorTickleVariation.LetterName:
+                    intro = LocalizationDataId.ColorTickle_lettername_Intro;
+                    break;
+                case ColorTickleVariation.Image:
+                    intro = LocalizationDataId.ColorTickle_image_Intro;
+                    break;
+                default:
+                    Debug.LogError("Invalid Color Tickle Game Variation!");
+                    break;
+            }
+
+            LocalizationDataId tuto = default(LocalizationDataId);
+            switch (ColorTickleConfiguration.Instance.Variation)
+            {
+                case ColorTickleVariation.LetterName:
+                    tuto = LocalizationDataId.ColorTickle_lettername_Tuto;
+                    break;
+                case ColorTickleVariation.Image:
+                    tuto = LocalizationDataId.ColorTickle_image_Tuto;
+                    break;
+                default:
+                    Debug.LogError("Invalid Color Tickle Game Variation!");
+                    break;
+            }
+
             m_LLController.OnDestinationReached += delegate () {
                 //play intro dialogue
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.ColorTickle_lettername_Intro, delegate () {
+                game.Context.GetAudioManager().PlayDialogue(intro, delegate () {
                     //play tutorial dialogue on intro finish
 
                     //for now this is broken, COLORTICKLE_TUTO is repeated like a loop
                     // HACK stop audio and replay music
                     //game.Context.GetAudioManager().PlayDialogue(Db.LocalizationDataId.ColorTickle_Tuto, delegate() { game.Context.GetAudioManager().StopMusic(); game.Context.GetAudioManager().PlayMusic(game.backgroundMusic); });
 
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.ColorTickle_lettername_Tuto);
+                    game.Context.GetAudioManager().PlayDialogue(tuto);
 
                     EnableLetterComponents();
                     EnableTutorialAnimation();

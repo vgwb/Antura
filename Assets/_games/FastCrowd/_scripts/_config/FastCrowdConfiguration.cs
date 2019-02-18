@@ -173,7 +173,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Title;
                     case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_word_Title; // TODO: correct one
+                        return LocalizationDataId.FastCrowd_image_Title;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -197,7 +197,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Intro;
                     case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_word_Intro;  // TODO: add the correct one here
+                        return LocalizationDataId.FastCrowd_image_Intro;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
@@ -278,7 +278,7 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Alphabet:
                         return LocalizationDataId.FastCrowd_lettername_Tuto;
                     case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_word_Tuto;  // TODO: add the correct one here
+                        return LocalizationDataId.FastCrowd_image_Tuto;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }

@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.HideAndSeek
+namespace Antura.Minigames.HideAndSeek
 {
     public class IntroductionGameState : FSM.IState
     {
@@ -15,11 +15,7 @@
 
         public void EnterState()
         {
-
-            if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.LetterPhoneme)
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_letterphoneme_Title, OnTitleEnded);
-            else
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_Words_Title, OnTitleEnded);
+            game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.TitleLocalizationId, OnTitleEnded);
         }
 
         void OnTitleEnded()
@@ -37,10 +33,7 @@
 
                 if (startIntroDelay <= 0)
                 {
-                    if (HideAndSeekConfiguration.Instance.Variation == HideAndSeekVariation.LetterPhoneme)
-                        game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_letterphoneme_Intro, () => dialogueEnded = true);
-                    else
-                        game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.HideSeek_Words_Intro, () => dialogueEnded = true);
+                    game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.IntroLocalizationId, () => dialogueEnded = true);
                 }
             }
 
