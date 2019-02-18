@@ -67,6 +67,7 @@ namespace Antura.Minigames.ThrowBalls
                     builder = new RandomWordsQuestionBuilder(nPacks, 1, nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.BuildWord:
+                    builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
                     builder = new LettersInWordQuestionBuilder(nPacks, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;

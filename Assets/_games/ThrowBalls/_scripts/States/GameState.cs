@@ -18,7 +18,7 @@ namespace Antura.Minigames.ThrowBalls
     public class GameState : FSM.IState
     {
         public const int MAX_NUM_ROUNDS = 5;
-        public const int NUM_LETTERS_IN_POOL = 7;
+        public const int NUM_LETTERS_IN_POOL = 15;
         public readonly int MAX_NUM_BALLS;
         public const float TUTORIAL_UI_PERIOD = 4;
         private const float FLASHING_TEXT_CYCLE_DURATION = 1f;
