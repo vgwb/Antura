@@ -129,6 +129,7 @@ namespace Antura.Core
             // Update settings
             AppSettingsManager.UpdateAppVersion();
 
+            Time.timeScale = 1;
         }
         #endregion
 
