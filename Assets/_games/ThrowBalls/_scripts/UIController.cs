@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using Antura.UI;
 using DG.Tweening;
 using UnityEngine;

@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.UI;
 using Antura.Core;
 using UnityEngine;
@@ -31,7 +31,7 @@ namespace Antura.Book
             }
 
             Title.text = info.data.Arabic;
-            SubTitle.text = info.data.English;
+            SubTitle.text = SAppConfig.I.ShowSubtitles ? info.data.English : "";
         }
 
         public void OnPointerClick(PointerEventData eventData)

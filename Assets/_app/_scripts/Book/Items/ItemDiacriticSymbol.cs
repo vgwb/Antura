@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Database;
 using Antura.UI;
 using UnityEngine;
@@ -36,7 +36,7 @@ namespace Antura.Book
                 var isolatedChar = myLetterInfo.data.GetStringForDisplay(LetterForm.Isolated);
 
                 LetterText.SetTextUnfiltered(isolatedChar);
-                EnglishLetterText.SetText(myLetterInfo.data.Id);
+                EnglishLetterText.text = SAppConfig.I.ShowSubtitles ? myLetterInfo.data.Id : "";
             }
 
             hightlight(_selected);

@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.Helpers;
 using Antura.UI;
 using Antura.Core;
@@ -35,7 +35,7 @@ namespace Antura.Book
             }
 
             Title.text = myWordInfo.data.Text;
-            SubTitle.text = myWordInfo.data.Id;
+            SubTitle.text = SAppConfig.I.ShowSubtitles ? myWordInfo.data.Id : "";
 
             if (myWordInfo.data.Drawing != "") {
                 Drawing.text = AppManager.I.VocabularyHelper.GetWordDrawing(myWordInfo.data);
