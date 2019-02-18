@@ -72,11 +72,11 @@ namespace Antura.UI
         public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageLearning.IsNullOrEmpty() || !SAppConfig.I.ShowSubtitles) {
-                TfMessageLearningFull.text = _messageNative;
+            if (_messageNative.IsNullOrEmpty() || !SAppConfig.I.ShowSubtitles) {
+                TfMessageLearningFull.text = _messageLearning;
             } else {
-                TfMessageNative.text = _messageLearning.IsNullOrEmpty() ? "" : _messageLearning;
-                TfMessageLearning.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;
+                TfMessageNative.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;
+                TfMessageLearning.text = _messageLearning.IsNullOrEmpty() ? "" : _messageLearning;
                 TfMessageLearningFull.text = "";
             }
             onYes = _onYes;
