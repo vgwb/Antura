@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using ArabicSupport;
 using DG.Tweening;
 using System;
@@ -135,7 +135,7 @@ namespace Antura.UI
             if (WalkieTalkie.IsShown) { WalkieTalkie.Pulse(); }
 
             TextUI.text = string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppSettings.EnglishSubtitles) {
+            if (AppManager.I.AppSettings.EnglishSubtitles && SAppConfig.I.ShowSubtitles) {
                 TextUItranslation.text = string.IsNullOrEmpty(localizedText) ? data.Id : data.GetSubtitleTranslation();
             }
             this.StartCoroutine(DisplayTextCoroutine(_duration));

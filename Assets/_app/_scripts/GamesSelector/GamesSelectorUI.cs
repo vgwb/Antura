@@ -29,7 +29,11 @@ namespace Antura.GamesSelector
             var learningBlock = AppManager.I.DB.GetLearningBlockDataById(playSession.Stage + "." + playSession.LearningBlock.ToString());
             TitleCode.text = journeyPos.ToString();
             TitleLearningLang.SetText(learningBlock.Title_LearningLang, LanguageUse.Learning);
-            TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Instructions);
+
+            if (SAppConfig.I.ShowSubtitles)
+                TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Instructions);
+            else
+                TitleNativeLang.text = "";
 
             // play the tutorial only if in LB 1.1
             if (journeyPos.Stage == 1 && journeyPos.LearningBlock == 1) {

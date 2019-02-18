@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.UI;
@@ -10,8 +10,8 @@ namespace Antura.Book
     {
         public VocabularyChapter area;
         public string Id;
-        public string Title;
-        public string TitleEn;
+        public string TitleLearning;
+        public string TitleNative;
         public int Stage;
         public WordDataCategory wordCategory;
         public PhraseDataCategory phraseCategory;

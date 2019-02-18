@@ -1,4 +1,5 @@
-﻿using Antura.UI;
+using Antura.Core;
+using Antura.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -24,8 +25,8 @@ namespace Antura.Book
             categoryData = _data;
             myManager = _manager;
 
-            Title.text = categoryData.Title;
-            SubTitle.text = categoryData.TitleEn;
+            Title.text = categoryData.TitleLearning;
+            SubTitle.text = SAppConfig.I.ShowSubtitles ? categoryData.TitleNative : "";
 
             if (categoryData.Stage > 0) {
                 Code.text = categoryData.Stage.ToString();

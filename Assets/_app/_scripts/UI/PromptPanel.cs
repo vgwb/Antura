@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using System;
 using UnityEngine;
@@ -64,19 +64,19 @@ namespace Antura.UI
             Show(LocalizationManager.GetTranslation(id), localizationData.GetSubtitleTranslation(), _onYes, _onNo);
         }
 
-        public void Show(string _messageAr, Action _onYes, Action _onNo)
+        public void Show(string _messageLearning, Action _onYes, Action _onNo)
         {
-            Show(_messageAr, "", _onYes, _onNo);
+            Show(_messageLearning, "", _onYes, _onNo);
         }
 
-        public void Show(string _messageAr, string _messageEn, Action _onYes, Action _onNo)
+        public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageAr.IsNullOrEmpty()) {
-                TfMessageLearningFull.text = _messageEn;
+            if (_messageLearning.IsNullOrEmpty() || !SAppConfig.I.ShowSubtitles) {
+                TfMessageLearningFull.text = _messageNative;
             } else {
-                TfMessageNative.text = _messageAr.IsNullOrEmpty() ? "" : _messageAr;
-                TfMessageLearning.text = _messageEn.IsNullOrEmpty() ? "" : _messageEn;
+                TfMessageNative.text = _messageLearning.IsNullOrEmpty() ? "" : _messageLearning;
+                TfMessageLearning.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;
                 TfMessageLearningFull.text = "";
             }
             onYes = _onYes;

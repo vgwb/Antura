@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -98,8 +98,8 @@ namespace Antura.Book
                     {
                         area = VocabularyChapter.Words,
                         Id = stage.Id,
-                        Title = LocalizationManager.GetTranslation(LocalizationDataId.UI_Stage),
-                        TitleEn = "stage",
+                        TitleLearning = LocalizationManager.GetTranslation(LocalizationDataId.UI_Stage),
+                        TitleNative = "stage",
                         Stage = int.Parse(stage.Id)
                     },
                     int.Parse(stage.Id) == currentCategory.Stage
@@ -121,8 +121,8 @@ namespace Antura.Book
                         area = VocabularyChapter.Words,
                         wordCategory = cat,
                         Id = cat.ToString(),
-                        Title = CategoryData.LearningText,
-                        TitleEn = CategoryData.NativeText,
+                        TitleLearning = CategoryData.LearningText,
+                        TitleNative = CategoryData.NativeText,
                         Stage = 0
                     },
                     currentCategory.wordCategory == cat

@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.Scenes;
 using Antura.UI;
 using System;
@@ -16,8 +16,8 @@ namespace Antura.Core
             var titleText = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Attention);
             var panelText = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_AlertFinalRelease);
 
-            EnglishText.text = "<b>" + titleText.NativeText + "</b>\n\n" + panelText.NativeText;
-            ArabicText.text = "<b>" + titleText.LearningText + "<b/>\n\n" + panelText.LearningText;
+            ArabicText.text = "<b>" + titleText.LearningText + "</b>\n\n" + panelText.LearningText;
+            EnglishText.text = SAppConfig.I.ShowSubtitles ? "<b>" + titleText.NativeText + "</b>\n\n" + panelText.NativeText : "";
 
             gameObject.SetActive(true);
         }

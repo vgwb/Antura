@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Helpers;
 using System;
 using SQLite;
@@ -16,16 +16,14 @@ namespace Antura.Database
     public class MiniGameData : IData
     {
 
-        public string Title_En
-        {
-            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").NativeText; }
-            set { }
-        }
-
-        public string Title_Ar
+        public string Title_Learning
         {
             get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").LearningText; }
-            set { }
+        }
+
+        public string Title_Native
+        {
+            get { return LocalizationManager.GetLocalizationData(Code.ToString() + "_Title").NativeText; }
         }
 
         [PrimaryKey]
@@ -114,7 +112,7 @@ namespace Antura.Database
 
         public override string ToString()
         {
-            return string.Format("[Minigame: id={0}, type={4}, available={1},  title_en={2}, title_ar={3}]", GetId(), Active, Title_En, Title_Ar, Type.ToString());
+            return string.Format("[Minigame: id={0}, type={4}, available={1},  title_en={2}, title_ar={3}]", GetId(), Active, Title_Native, Title_Learning, Type.ToString());
         }
 
         public string GetTitleSoundFilename()

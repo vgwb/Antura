@@ -9,9 +9,12 @@ namespace Antura.Core
     {
         public static SAppConfig I => AppManager.I.AppConfig;
 
+        [Header("Language")]
         public LanguageCode LearningLanguage;
         public LanguageCode InstructionsLanguage;
         public LanguageCode TutorLanguage;
+
+        public bool ShowSubtitles; 
 
         public readonly bool ForceALLCAPSTextRendering = true;
 

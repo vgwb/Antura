@@ -81,8 +81,8 @@ namespace Antura.Book
                     {
                         area = VocabularyChapter.LearningBlock,
                         Id = stage.Id,
-                        Title = stage.Id,
-                        TitleEn = stage.Id
+                        TitleLearning = stage.Id,
+                        TitleNative = stage.Id
                     },
                     int.Parse(stage.Id) == currentStage
                 );

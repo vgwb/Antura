@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Minigames;
@@ -112,8 +112,8 @@ namespace Antura.Book
 
             AudioManager.I.PlayDialogue(selectedGameInfo.data.GetTitleSoundFilename());
 
-            ArabicText.text = selectedGameInfo.data.Title_Ar;
-            EnglishText.text = selectedGameInfo.data.Title_En;
+            ArabicText.text = selectedGameInfo.data.Title_Learning;
+            EnglishText.text = SAppConfig.I.ShowSubtitles ? selectedGameInfo.data.Title_Native : "";
 
             //var Output = "";
             //Output += "Score: " + selectedGameInfo.score;

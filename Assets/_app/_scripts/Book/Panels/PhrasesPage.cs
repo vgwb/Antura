@@ -1,4 +1,4 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -72,8 +72,8 @@ namespace Antura.Book
                         area = VocabularyChapter.Phrases,
                         phraseCategory = cat,
                         Id = cat.ToString(),
-                        Title = CategoryData.LearningText,
-                        TitleEn = CategoryData.NativeText
+                        TitleLearning = CategoryData.LearningText,
+                        TitleNative = CategoryData.NativeText
                     },
                     currentPhraseCategory == cat
                 );
