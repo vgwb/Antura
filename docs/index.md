@@ -4,12 +4,11 @@ this documentation website is dedicated to Teachers, Designers and Developers, m
 - **GitHub project:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)
 - **Public Website:** [www.antura.org](http://www.antura.org)
 
-- [Changelog](Changelog.md) history of app releases and major changelog
+- [Changelog](https://github.com/vgwb/Antura/blob/master/CHANGELOG.md) history of app releases and major changelog
 - [User, Tester and Dev HowTo](HowTo/) several HowTo guides
 - [Game Design](GameDesign/)
 - [Project Architecture and Modules](Modules/) mostly for Developers
 - [MiniGames](Minigames/) Design and Developer docs
-- [API](API/) the automatically generated DoxyGen docs
 - [Credits](Credits.md)
 
 ## Issues and Contacts
