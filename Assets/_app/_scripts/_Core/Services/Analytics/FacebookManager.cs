@@ -1,6 +1,9 @@
 ﻿using System.Collections.Generic;
-using Facebook.Unity;
 using UnityEngine;
+
+#if FB_SDK
+using Facebook.Unity;
+#endif
 
 namespace Antura.Core.Services.OnlineAnalytics
 {
@@ -16,30 +19,27 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         private void HandleEnableShareAnalytics(bool choice)
         {
-            if (choice)
-            {
+            if (choice) {
                 CheckActivation();
-            }
-            else
-            {
+            } else {
                 StopEvents();
             }
         }
 
         private void StopEvents()
         {
-            if (FB.IsInitialized)
-            {
+#if FB_SDK
+            if (FB.IsInitialized) {
                 FB.Mobile.SetAutoLogAppEventsEnabled(false);
-                FB.LogOut();   
+                FB.LogOut();
             }
+#endif
         }
 
         void OnApplicationPause(bool pauseStatus)
         {
             // Check the pauseStatus to see if we are in the foreground or background
-            if (!pauseStatus)
-            {
+            if (!pauseStatus) {
                 CheckActivation();
             }
         }
@@ -48,34 +48,35 @@ namespace Antura.Core.Services.OnlineAnalytics
         {
             if (!AppManager.I.AppSettings.ShareAnalyticsEnabled) return;
 
-            if (FB.IsInitialized)
-            {
+#if FB_SDK
+            if (FB.IsInitialized) {
                 Activate();
-            }
-            else
-            {
+            } else {
                 FB.Init(OnInitComplete, OnHideUnity);
             }
+#endif
         }
 
         private void OnInitComplete()
         {
-            if (verbose)
-            {
+#if FB_SDK
+            if (verbose) {
                 string logMessage = string.Format(
                     "OnInitComplete IsLoggedIn='{0}' IsInitialized='{1}'",
                     FB.IsLoggedIn,
                     FB.IsInitialized);
                 Debug.Log(logMessage);
             }
+#endif
             Activate();
         }
 
         private void Activate()
         {
+#if FB_SDK
             FB.ActivateApp();
             FB.Mobile.SetAutoLogAppEventsEnabled(true);
-
+#endif
             //if (!FB.IsLoggedIn) FB.LogInWithReadPermissions();
 
             //var parameters = new Dictionary<string, object>();
@@ -87,8 +88,7 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         private void OnHideUnity(bool isGameShown)
         {
-            if (verbose)
-            {
+            if (verbose) {
                 string logMessage = string.Format("Success Response: OnHideUnity {0}\n", isGameShown);
                 Debug.Log(logMessage);
             }
@@ -96,10 +96,13 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void LogAppEvent(string logEvent, float? valueToSum = default(float?), Dictionary<string, object> parameters = null)
         {
-            if (!FB.IsInitialized)
+#if FB_SDK
+            if (!FB.IsInitialized) {
                 CheckActivation();
-            else 
+            } else {
                 FB.LogAppEvent(logEvent, valueToSum, parameters);
+            }
+#endif
         }
 
     }
