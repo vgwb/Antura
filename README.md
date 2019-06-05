@@ -15,7 +15,7 @@ please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Co
 
 ## Technology
 
-This repository is a Unity 2018.3 project ([download it here](https://unity3d.com/get-unity/download/archive))
+This repository is a Unity 2018.4 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive))
 
 ## Licensing
 
