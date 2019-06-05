@@ -735,7 +735,11 @@ PlayerSettings:
   allowUnsafeCode: 0
   additionalIl2CppArgs: 
   scriptingRuntimeVersion: 1
-  apiCompatibilityLevelPerPlatform: {}
+  apiCompatibilityLevelPerPlatform:
+    Android: 3
+    Standalone: 3
+    WebGL: 3
+    iOS: 3
   m_RenderingPath: 1
   m_MobileRenderingPath: 1
   metroPackageName: EA4S_Antura_U3D_dev
