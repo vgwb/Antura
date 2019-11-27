@@ -1,0 +1,8328 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b6e637db5c2acc0458bc7881edc216d0, type: 3}
+  m_Name: Database_Word
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Id: active
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0634\u064A\u0637"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - sheen
+      - yeh
+      - tah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: adoption
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0628\u064E\u0646\u0651\u064A"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - beh_fathah
+      - noon
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: agreed
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u0627\u0641\u064E\u0642\u064E"
+      _Value: 
+      _Letters:
+      - waw
+      - alef
+      - feh_fathah
+      - qaf_fathah
+      _Drawing: 
+      _Complexity: 1
+    - _Id: al
+      _Active: 1
+      _Kind: 3
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0640"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: alive
+      _Active: 1
+      _Kind: 1
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u064A\u0651"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - yeh
+      _Drawing: 101
+      _Complexity: 0
+    - _Id: and
+      _Active: 1
+      _Kind: 4
+      _Category: 2
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0648\u064E"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: anger
+      _Active: 1
+      _Kind: 5
+      _Category: 3
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u063A\u064A\u0638"
+      _Value: 
+      _Letters:
+      - ghain
+      - yeh
+      - zah
+      _Drawing: 41
+      _Complexity: 1
+    - _Id: apple
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064F\u0641\u0651\u0627\u062D"
+      _Value: 
+      _Letters:
+      - teh_dammah
+      - feh
+      - alef
+      - hah
+      _Drawing: 42
+      _Complexity: 0.6
+    - _Id: apricot
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0634\u0652\u0645\u0650\u0634"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - sheen_sukun
+      - meem_kasrah
+      - sheen
+      _Drawing: 43
+      _Complexity: 0.6
+    - _Id: are
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0647\u064E\u0644"
+      _Value: 
+      _Letters:
+      - heh_fathah
+      - lam
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: ate
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u064E\u0643\u064E\u0644\u064E"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_fathah
+      - kaf_fathah
+      - lam_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: aunt_father
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0645\u064E\u0651\u0629"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - meem_fathah
+      - teh_marbuta
+      _Drawing: A1
+      _Complexity: 0.3
+    - _Id: aunt_mother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062E\u0627\u0644\u064E\u0629"
+      _Value: 
+      _Letters:
+      - khah
+      - alef
+      - lam_fathah
+      - teh_marbuta
+      _Drawing: 3B
+      _Complexity: 0.3
+    - _Id: back
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0638\u064E\u0647\u064E\u0631"
+      _Value: 
+      _Letters:
+      - zah_fathah
+      - heh_fathah
+      - reh
+      _Drawing: 45
+      _Complexity: 0.6
+    - _Id: ball
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0643\u064F\u0631\u064E\u0629"
+      _Value: 
+      _Letters:
+      - kaf_dammah
+      - reh_fathah
+      - teh_marbuta
+      _Drawing: A3
+      _Complexity: 0.3
+    - _Id: banana
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0648\u0652\u0632"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - waw_sukun
+      - zain
+      _Drawing: 46
+      _Complexity: 0.3
+    - _Id: bank
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0635\u0652\u0631\u064E\u0641"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - sad_sukun
+      - reh_fathah
+      - feh
+      _Drawing: 47
+      _Complexity: 1
+    - _Id: basketball
+      _Active: 1
+      _Kind: 5
+      _Category: 9
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0643\u064F\u0631\u064E\u0629 \u0627\u0644\u0633\u064E\u0651\u0644\u064E\u0651\u0629"
+      _Value: 
+      _Letters:
+      - kaf_dammah
+      - reh_fathah
+      - teh_marbuta
+      - alef
+      - lam
+      - seen_fathah
+      - lam_fathah
+      - teh_marbuta
+      _Drawing: 48
+      _Complexity: 1
+    - _Id: bear
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062F\u064F\u0628\u0651"
+      _Value: 
+      _Letters:
+      - dal_dammah
+      - beh
+      _Drawing: 49
+      _Complexity: 0.3
+    - _Id: beautiful
+      _Active: 1
+      _Kind: 1
+      _Category: 11
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0645\u064A\u0644"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - meem
+      - yeh
+      - lam
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: bed
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u0650\u0631\u0627\u0634"
+      _Value: 
+      _Letters:
+      - feh_kasrah
+      - reh
+      - alef
+      - sheen
+      _Drawing: 4A
+      _Complexity: 0.6
+    - _Id: believed
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0622\u0645\u064E\u0646\u064E"
+      _Value: 
+      _Letters:
+      - alef_maddah
+      - meem_fathah
+      - noon_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: belly
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0637\u0652\u0646"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - tah_sukun
+      - noon
+      _Drawing: 4B
+      _Complexity: 0.6
+    - _Id: berry
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u0648\u062A"
+      _Value: 
+      _Letters:
+      - teh
+      - waw
+      - teh
+      _Drawing: 4C
+      _Complexity: 0.3
+    - _Id: between
+      _Active: 1
+      _Kind: 4
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u064A\u0652\u0646\u064E"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - yeh_sukun
+      - noon_fathah
+      _Drawing: 105
+      _Complexity: 0
+    - _Id: between_me
+      _Active: 1
+      _Kind: 4
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u064A\u0652\u0646\u0650\u064A"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - yeh_sukun
+      - noon_kasrah
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: big
+      _Active: 1
+      _Kind: 1
+      _Category: 13
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u0628\u064A\u0631"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - beh
+      - yeh
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: bird
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064F\u0635\u0652\u0641\u0648\u0631"
+      _Value: 
+      _Letters:
+      - ain_dammah
+      - sad_sukun
+      - feh
+      - waw
+      - reh
+      _Drawing: 4D
+      _Complexity: 1
+    - _Id: book
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u0650\u062A\u0627\u0628"
+      _Value: 
+      _Letters:
+      - kaf_kasrah
+      - teh
+      - alef
+      - beh
+      _Drawing: 4E
+      _Complexity: 0.6
+    - _Id: books
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064F\u062A\u064F\u0628"
+      _Value: 
+      _Letters:
+      - kaf_dammah
+      - teh_dammah
+      - beh
+      _Drawing: 4F
+      _Complexity: 0.6
+    - _Id: box
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064F\u0646\u062F\u0648\u0642"
+      _Value: 
+      _Letters:
+      - sad_dammah
+      - noon
+      - dal
+      - waw
+      - qaf
+      _Drawing: 50
+      _Complexity: 1
+    - _Id: boy
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0628\u064A"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - beh
+      - yeh
+      _Drawing: 51
+      _Complexity: 1
+    - _Id: boys
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0646\u064A\u0646"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - noon
+      - yeh
+      - noon
+      _Drawing: 99
+      _Complexity: 0
+    - _Id: brain
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062F\u0650\u0645\u0627\u063A"
+      _Value: 
+      _Letters:
+      - dal_kasrah
+      - meem
+      - alef
+      - ghain
+      _Drawing: 52
+      _Complexity: 1
+    - _Id: brave
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064F\u062C\u0627\u0639"
+      _Value: 
+      _Letters:
+      - sheen_dammah
+      - jeem
+      - alef
+      - ain
+      _Drawing: 
+      _Complexity: 1
+    - _Id: bread
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u064F\u0628\u0652\u0632"
+      _Value: 
+      _Letters:
+      - khah_dammah
+      - beh_sukun
+      - zain
+      _Drawing: 53
+      _Complexity: 0.6
+    - _Id: breeze
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0633\u0652\u0645\u064E\u0629"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - seen_sukun
+      - meem_fathah
+      - teh_marbuta
+      _Drawing: 54
+      _Complexity: 0.6
+    - _Id: broad_bean
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u0648\u0644"
+      _Value: 
+      _Letters:
+      - feh
+      - waw
+      - lam
+      _Drawing: 55
+      _Complexity: 0.3
+    - _Id: brother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u062E"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - khah
+      _Drawing: 2F
+      _Complexity: 0.3
+    - _Id: bulgar
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0631\u0652\u063A\u064F\u0644"
+      _Value: 
+      _Letters:
+      - beh_dammah
+      - reh_sukun
+      - ghain_dammah
+      - lam
+      _Drawing: 5F
+      _Complexity: 0.6
+    - _Id: bus
+      _Active: 1
+      _Kind: 5
+      _Category: 15
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0627\u0635"
+      _Value: 
+      _Letters:
+      - beh
+      - alef
+      - sad
+      _Drawing: 44
+      _Complexity: 0.3
+    - _Id: camel
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0645\u064E\u0644"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - meem_fathah
+      - lam
+      _Drawing: 56
+      _Complexity: 0.3
+    - _Id: caring
+      _Active: 1
+      _Kind: 1
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0646\u0650\u064A\u0646"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - noon_kasrah
+      - yeh
+      - noon
+      _Drawing: 106
+      _Complexity: 0
+    - _Id: carpenter
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u062C\u0651\u0627\u0631"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - jeem
+      - alef
+      - reh
+      _Drawing: 57
+      _Complexity: 0.6
+    - _Id: carried
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0645\u064E\u0644\u064E"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - meem_fathah
+      - lam_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: carrot
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0632\u064E\u0631"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - zain_fathah
+      - reh
+      _Drawing: 58
+      _Complexity: 0.6
+    - _Id: cat
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0647\u0631"
+      _Value: 
+      _Letters:
+      - heh
+      - reh
+      _Drawing: 59
+      _Complexity: 0.3
+    - _Id: caught
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0633\u064E\u0643\u064E"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - seen_fathah
+      - kaf_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: chair
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064F\u0631\u0652\u0633\u064A"
+      _Value: 
+      _Letters:
+      - kaf_dammah
+      - reh_sukun
+      - seen
+      - yeh
+      _Drawing: 5A
+      _Complexity: 0.6
+    - _Id: cheese
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064F\u0628\u0652\u0646"
+      _Value: 
+      _Letters:
+      - jeem_dammah
+      - beh_sukun
+      - noon
+      _Drawing: 61
+      _Complexity: 0.3
+    - _Id: cherry
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u0631\u064E\u0632"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - reh_fathah
+      - zain
+      _Drawing: 62
+      _Complexity: 0.3
+    - _Id: chest
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u062F\u0652\u0631"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - dal_sukun
+      - reh
+      _Drawing: 63
+      _Complexity: 0.6
+    - _Id: chickpea
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064F\u0645\u064F\u0651\u0635"
+      _Value: 
+      _Letters:
+      - hah_dammah
+      - meem_dammah
+      - sad
+      _Drawing: 64
+      _Complexity: 0.6
+    - _Id: classroom
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0641\u0651"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - feh
+      _Drawing: 30
+      _Complexity: 0.3
+    - _Id: clean
+      _Active: 1
+      _Kind: 1
+      _Category: 11
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0638\u064A\u0641"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - zah
+      - yeh
+      - feh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: cloud
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u063A\u064E\u064A\u0645\u064E\u0629"
+      _Value: 
+      _Letters:
+      - ghain_fathah
+      - yeh
+      - meem_fathah
+      - teh_marbuta
+      _Drawing: 65
+      _Complexity: 1
+    - _Id: club
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0646\u0652\u062A\u064E\u062F\u0649"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - noon_sukun
+      - teh_fathah
+      - dal
+      - alef_maqsura
+      _Drawing: 102
+      _Complexity: 1
+    - _Id: coat
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0639\u0652\u0637\u064E\u0641"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - ain_sukun
+      - tah_fathah
+      - feh
+      _Drawing: 104
+      _Complexity: 1
+    - _Id: coffee_bean
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0646\u0651"
+      _Value: 
+      _Letters:
+      - beh_dammah
+      - noon
+      _Drawing: 10D
+      _Complexity: 0
+    - _Id: cold
+      _Active: 1
+      _Kind: 5
+      _Category: 11
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0631\u0652\u062F"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - reh_sukun
+      - dal
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: cold_adjective
+      _Active: 1
+      _Kind: 1
+      _Category: 25
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0627\u0631\u0650\u062F"
+      _Value: 
+      _Letters:
+      - beh
+      - alef
+      - reh_kasrah
+      - dal
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: color_black
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0633\u0652\u0648\u064E\u062F\u0652"
+      _Value: black
+      _Letters:
+      - alef_hamza_hi
+      - seen_sukun
+      - waw_fathah
+      - dal_sukun
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_blue
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0632\u0652\u0631\u064E\u0642\u0652"
+      _Value: blue
+      _Letters:
+      - alef_hamza_hi
+      - zain_sukun
+      - reh_fathah
+      - qaf_sukun
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_brown
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0646\u0650\u0651\u064A"
+      _Value: brown
+      _Letters:
+      - beh_dammah
+      - noon_kasrah
+      - yeh
+      _Drawing: 100
+      _Complexity: 0.3
+    - _Id: color_gold
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0630\u064E\u0647\u064E\u0628\u064A"
+      _Value: gold
+      _Letters:
+      - thal_fathah
+      - heh_fathah
+      - beh
+      - yeh
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_green
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u062E\u0652\u0636\u064E\u0631\u0652"
+      _Value: green
+      _Letters:
+      - alef_hamza_hi
+      - khah_sukun
+      - dad_fathah
+      - reh_sukun
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: color_grey
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0645\u0627\u062F\u064A"
+      _Value: grey
+      _Letters:
+      - reh_fathah
+      - meem
+      - alef
+      - dal
+      - yeh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: color_orange
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0631\u0652\u062A\u064F\u0642\u0627\u0644\u064A"
+      _Value: orange
+      _Letters:
+      - beh_dammah
+      - reh_sukun
+      - teh_dammah
+      - qaf
+      - alef
+      - lam
+      - yeh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: color_pink
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u0631\u0652\u062F\u064A"
+      _Value: pink
+      _Letters:
+      - waw_fathah
+      - reh_sukun
+      - dal
+      - yeh
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_purple
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0646\u064E\u0641\u0652\u0633\u064E\u062C\u064A"
+      _Value: purple
+      _Letters:
+      - beh_fathah
+      - noon_fathah
+      - feh_sukun
+      - seen_fathah
+      - jeem
+      - yeh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: color_red
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u062D\u0652\u0645\u064E\u0631\u0652"
+      _Value: red
+      _Letters:
+      - alef_hamza_hi
+      - hah_sukun
+      - meem_fathah
+      - reh_sukun
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_silver
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064E\u0636\u0651\u064A"
+      _Value: silver
+      _Letters:
+      - feh_fathah
+      - dad
+      - yeh
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_white
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0628\u0652\u064A\u064E\u0636\u0652"
+      _Value: white
+      _Letters:
+      - alef_hamza_hi
+      - beh_sukun
+      - yeh_fathah
+      - dad_sukun
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: color_yellow
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0635\u0652\u0641\u064E\u0631\u0652"
+      _Value: yellow
+      _Letters:
+      - alef_hamza_hi
+      - sad_sukun
+      - feh_fathah
+      - reh_sukun
+      _Drawing: 100
+      _Complexity: 0.6
+    - _Id: congratulations
+      _Active: 1
+      _Kind: 6
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0628\u0652\u0631\u0648\u0643"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - beh_sukun
+      - reh
+      - waw
+      - kaf
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: consonant
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0631\u0652\u0641 \u0633\u0627\u0643\u0646"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - reh_sukun
+      - feh
+      - seen
+      - alef
+      - kaf
+      - noon
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: costume
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u0650\u0628\u0627\u0633"
+      _Value: 
+      _Letters:
+      - lam_kasrah
+      - beh
+      - alef
+      - seen
+      _Drawing: 67
+      _Complexity: 1
+    - _Id: cried
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0643\u064E\u0649"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - kaf_fathah
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: cucumber
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u0650\u064A\u0627\u0631"
+      _Value: 
+      _Letters:
+      - khah_kasrah
+      - yeh
+      - alef
+      - reh
+      _Drawing: 68
+      _Complexity: 0.6
+    - _Id: cupboard
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u0632\u0627\u0646\u064E\u0629"
+      _Value: 
+      _Letters:
+      - khah_fathah
+      - zain
+      - alef
+      - noon_fathah
+      - teh_marbuta
+      _Drawing: C1
+      _Complexity: 1
+    - _Id: darling
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0628\u064A\u0628"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - beh
+      - yeh
+      - beh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: day
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u0648\u0645"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - waw
+      - meem
+      _Drawing: 2B
+      _Complexity: 0.3
+    - _Id: day_friday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062C\u064F\u0645\u064F\u0639\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - jeem_dammah
+      - meem_dammah
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 2212
+      _Complexity: 1
+    - _Id: day_monday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0627\u0650\u062B\u0652\u0646\u064E\u064A\u0646"
+      _Value: 
+      _Letters:
+      - alef
+      - lam_alef_kasrah
+      - theh_sukun
+      - noon_fathah
+      - yeh
+      - noon
+      _Drawing: D7
+      _Complexity: 1
+    - _Id: day_saturday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0633\u064E\u0628\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - seen_fathah
+      - beh_sukun
+      - teh
+      _Drawing: F7
+      _Complexity: 0.6
+    - _Id: day_sunday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0623\u062D\u064E\u062F"
+      _Value: 
+      _Letters:
+      - alef
+      - lam_alef_hamza_hi
+      - hah_fathah
+      - dal
+      _Drawing: 3D
+      _Complexity: 1
+    - _Id: day_thursday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062E\u064E\u0645\u064A\u0633"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - khah_fathah
+      - meem
+      - yeh
+      - seen
+      _Drawing: 2260
+      _Complexity: 1
+    - _Id: day_tuesday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062B\u064F\u0644\u0627\u062B\u064E\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - theh_dammah
+      - lam_alef
+      - theh_fathah
+      - alef
+      - hamza
+      _Drawing: 3E
+      _Complexity: 1
+    - _Id: day_wednesday
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0623\u0631\u0652\u0628\u0650\u0639\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef
+      - lam_alef_hamza_hi
+      - reh_sukun
+      - beh_kasrah
+      - ain
+      - alef
+      - hamza
+      _Drawing: 3C
+      _Complexity: 1
+    - _Id: deer
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u063A\u064E\u0632\u0627\u0644"
+      _Value: 
+      _Letters:
+      - ghain_fathah
+      - zain
+      - alef
+      - lam
+      _Drawing: 69
+      _Complexity: 0.6
+    - _Id: delicious
+      _Active: 1
+      _Kind: 1
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u064E\u0630\u064A\u0630"
+      _Value: 
+      _Letters:
+      - lam_fathah
+      - thal
+      - yeh
+      - thal
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: do_need
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0647\u064E\u0644"
+      _Value: 
+      _Letters:
+      - heh_fathah
+      - lam
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: doctor
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0637\u064E\u0628\u064A\u0628"
+      _Value: 
+      _Letters:
+      - tah_fathah
+      - beh
+      - yeh
+      - beh
+      _Drawing: 6A
+      _Complexity: 0.6
+    - _Id: dog
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u0644\u0652\u0628"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - lam_sukun
+      - beh
+      _Drawing: 6B
+      _Complexity: 0.3
+    - _Id: door
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0627\u0628"
+      _Value: 
+      _Letters:
+      - beh
+      - alef
+      - beh
+      _Drawing: 6C
+      _Complexity: 0.3
+    - _Id: drank
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0631\u0650\u0628\u064E"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - reh_kasrah
+      - beh_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: drank_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0631\u0650\u0628\u064E\u062A"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - reh_kasrah
+      - beh_fathah
+      - teh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: dual
+      _Active: 1
+      _Kind: 1
+      _Category: 25
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u062B\u064E\u0646\u0649"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - theh_fathah
+      - noon
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: ducks
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 3
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0637\u0652"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - tah_sukun
+      _Drawing: 31
+      _Complexity: 0.3
+    - _Id: eagle
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0633\u0652\u0631"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - seen_sukun
+      - reh
+      _Drawing: 6D
+      _Complexity: 0.3
+    - _Id: ear
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u064F\u0630\u064F\u0646"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_dammah
+      - thal_dammah
+      - noon
+      _Drawing: 6E
+      _Complexity: 0.6
+    - _Id: elephant
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064A\u0644"
+      _Value: 
+      _Letters:
+      - feh
+      - yeh
+      - lam
+      _Drawing: 6F
+      _Complexity: 0.3
+    - _Id: engineer
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0647\u064E\u0646\u0652\u062F\u0650\u0633"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - heh_fathah
+      - noon_sukun
+      - dal_kasrah
+      - seen
+      _Drawing: F2
+      _Complexity: 1
+    - _Id: evening
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0633\u064E\u0627\u0621"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - seen_fathah
+      - alef
+      - hamza
+      _Drawing: 7D
+      _Complexity: 0.6
+    - _Id: eye
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u064A\u0646"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - yeh
+      - noon
+      _Drawing: 70
+      _Complexity: 0.3
+    - _Id: face
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u062C\u064E\u0647"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - jeem_fathah
+      - heh
+      _Drawing: 71
+      _Complexity: 0.6
+    - _Id: fall
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u0631\u064A\u0641"
+      _Value: 
+      _Letters:
+      - khah_fathah
+      - reh
+      - yeh
+      - feh
+      _Drawing: 7B
+      _Complexity: 0.6
+    - _Id: farmer
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064E\u0644\u0651\u0627\u062D"
+      _Value: 
+      _Letters:
+      - feh_fathah
+      - lam_alef
+      - hah
+      _Drawing: 72
+      _Complexity: 0.6
+    - _Id: father
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0627\u0628\u0627"
+      _Value: 
+      _Letters:
+      - beh
+      - alef
+      - beh
+      - alef
+      _Drawing: 5B
+      _Complexity: 0.3
+    - _Id: field
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u0642\u0644"
+      _Value: 
+      _Letters:
+      - hah
+      - qaf
+      - lam
+      _Drawing: 73
+      _Complexity: 0.6
+    - _Id: fig
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064A\u0646"
+      _Value: 
+      _Letters:
+      - teh
+      - yeh
+      - noon
+      _Drawing: 74
+      _Complexity: 0.3
+    - _Id: fine
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u062E\u064E\u064A\u0631"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - khah_fathah
+      - yeh
+      - reh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: finger
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0625\u0635\u0652\u0628\u064E\u0639"
+      _Value: 
+      _Letters:
+      - alef_hamza_low
+      - sad_sukun
+      - beh_fathah
+      - ain
+      _Drawing: 75
+      _Complexity: 1
+    - _Id: flag
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0644\u064E\u0645"
+      _Value: 
+      _Letters:
+      - ain
+      - lam_fathah
+      - meem
+      _Drawing: 76
+      _Complexity: 0.6
+    - _Id: flapped
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0641\u0652\u0631\u064E\u0641\u064E"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - feh_sukun
+      - reh_fathah
+      - feh_fathah
+      _Drawing: 
+      _Complexity: 1
+    - _Id: flew
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0637\u0627\u0631\u064E"
+      _Value: 
+      _Letters:
+      - tah
+      - alef
+      - reh_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: flower
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u0631\u0652\u062F"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - reh_sukun
+      - dal
+      _Drawing: 77
+      _Complexity: 0.3
+    - _Id: food
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0643\u064E\u0644\u0652"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - kaf_fathah
+      - lam_sukun
+      _Drawing: 5D
+      _Complexity: 0.6
+    - _Id: foot
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0642\u064E\u062F\u064E\u0645"
+      _Value: 
+      _Letters:
+      - qaf_fathah
+      - dal_fathah
+      - meem
+      _Drawing: CC
+      _Complexity: 0.3
+    - _Id: football
+      _Active: 1
+      _Kind: 5
+      _Category: 9
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0643\u064F\u0631\u064E\u0629 \u0627\u0644\u0642\u064E\u062F\u064E\u0645"
+      _Value: 
+      _Letters:
+      - kaf_dammah
+      - reh_fathah
+      - teh_marbuta
+      - alef
+      - lam
+      - qaf_fathah
+      - dal_fathah
+      - meem
+      _Drawing: 78
+      _Complexity: 1
+    - _Id: forest
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u063A\u0627\u0628\u064E\u0629"
+      _Value: 
+      _Letters:
+      - ghain
+      - alef
+      - beh_fathah
+      - teh_marbuta
+      _Drawing: 79
+      _Complexity: 0.6
+    - _Id: fridge
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0644\u0651\u0627\u062C\u064E\u0629"
+      _Value: 
+      _Letters:
+      - theh_fathah
+      - lam_alef
+      - jeem_fathah
+      - teh_marbuta
+      _Drawing: 7A
+      _Complexity: 1
+    - _Id: from
+      _Active: 1
+      _Kind: 4
+      _Category: 22
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0646\u0652"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - noon_sukun
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: furniture
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u062B\u0627\u062B"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - theh
+      - alef
+      - theh
+      _Drawing: 32
+      _Complexity: 1
+    - _Id: garden
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0633\u062A\u0627\u0646"
+      _Value: 
+      _Letters:
+      - beh_dammah
+      - seen
+      - teh
+      - alef
+      - noon
+      _Drawing: C2
+      _Complexity: 1
+    - _Id: garlic
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062B\u0648\u0645"
+      _Value: 
+      _Letters:
+      - theh
+      - waw
+      - meem
+      _Drawing: C4
+      _Complexity: 0.6
+    - _Id: girl
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u0646\u0652\u062A"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - noon_sukun
+      - teh
+      _Drawing: C0
+      _Complexity: 0.3
+    - _Id: glue
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0645\u063A"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - meem
+      - ghain
+      _Drawing: C5
+      _Complexity: 1
+    - _Id: go
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0630\u0652\u0647\u064E\u0628\u064F"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - thal_sukun
+      - heh_fathah
+      - beh_dammah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: go_v2
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u0650\u0646\u064E\u0630\u0652\u0647\u064E\u0628"
+      _Value: 
+      _Letters:
+      - lam_kasrah
+      - noon_fathah
+      - thal_sukun
+      - heh_fathah
+      - beh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: goodbye
+      _Active: 1
+      _Kind: 6
+      _Category: 21
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u062F\u064E\u0627\u0639\u0627"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - dal_fathah
+      - alef
+      - ain
+      - alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: granddaughter
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0641\u064A\u062F\u064E\u0629"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - feh
+      - yeh
+      - dal_fathah
+      - teh_marbuta
+      _Drawing: 33
+      _Complexity: 1
+    - _Id: grandfather
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u062F\u0651"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - dal
+      _Drawing: 34
+      _Complexity: 0.3
+    - _Id: grandmother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u062F\u0651\u0629"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - dal
+      - teh_marbuta
+      _Drawing: 35
+      _Complexity: 0.3
+    - _Id: grandson
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0641\u064A\u062F"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - feh
+      - yeh
+      - dal
+      _Drawing: 36
+      _Complexity: 0.6
+    - _Id: grapes
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0650\u0646\u064E\u0628"
+      _Value: 
+      _Letters:
+      - ain_kasrah
+      - noon_fathah
+      - beh
+      _Drawing: C6
+      _Complexity: 0.3
+    - _Id: ground
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0631\u0652\u0636"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - reh_sukun
+      - dad
+      _Drawing: 37
+      _Complexity: 0.6
+    - _Id: hair
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0639\u064E\u0631"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - ain_fathah
+      - reh
+      _Drawing: C7
+      _Complexity: 0.3
+    - _Id: hand
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u062F\u0651"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - dal
+      _Drawing: D0
+      _Complexity: 0.3
+    - _Id: happy
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0639\u064A\u062F"
+      _Value: 
+      _Letters:
+      - seen_fathah
+      - ain
+      - yeh
+      - dal
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: hat
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0642\u064F\u0628\u0652\u0639\u064E\u0629"
+      _Value: 
+      _Letters:
+      - qaf_dammah
+      - beh_sukun
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: C9
+      _Complexity: 0.6
+    - _Id: he_loves
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064F\u062D\u0650\u0628\u064F"
+      _Value: 
+      _Letters:
+      - yeh_dammah
+      - hah_kasrah
+      - beh_dammah
+      _Drawing: 107
+      _Complexity: 0
+    - _Id: he_planted
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0628\u064E\u062A\u064E"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - beh_fathah
+      - teh_fathah
+      _Drawing: 10A
+      _Complexity: 0
+    - _Id: he_plants
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064F\u0646\u0652\u0628\u0650\u062A\u064F"
+      _Value: 
+      _Letters:
+      - yeh_dammah
+      - noon_sukun
+      - beh_kasrah
+      - teh_dammah
+      _Drawing: 108
+      _Complexity: 0
+    - _Id: he_praises
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u062B\u0652\u0646\u064A"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - theh_sukun
+      - noon
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: he_proves
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u062B\u0652\u0628\u064E\u062A\u064F"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - theh_sukun
+      - beh_fathah
+      - teh_dammah
+      _Drawing: 10B
+      _Complexity: 0
+    - _Id: he_searches
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u0628\u0652\u062D\u064E\u062B\u064F"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - beh_sukun
+      - hah_fathah
+      - theh_dammah
+      _Drawing: 109
+      _Complexity: 0
+    - _Id: he_took_a_look
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0628\u064E\u062A\u064E"
+      _Value: 
+      _Letters:
+      - theh_fathah
+      - beh_fathah
+      - teh_fathah
+      _Drawing: 114
+      _Complexity: 0
+    - _Id: head
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u0623\u0633"
+      _Value: 
+      _Letters:
+      - reh
+      - alef_hamza_hi
+      - seen
+      _Drawing: CA
+      _Complexity: 0.6
+    - _Id: help
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0633\u0627\u0639\u064E\u062F\u064E\u0629"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - seen
+      - alef
+      - ain_fathah
+      - dal_fathah
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 1
+    - _Id: hi
+      _Active: 1
+      _Kind: 6
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0631\u0652\u062D\u064E\u0628\u0627"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - reh_sukun
+      - hah_fathah
+      - beh
+      - alef
+      _Drawing: 
+      _Complexity: 1
+    - _Id: hospital
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0633\u0652\u062A\u064E\u0634\u0652\u0641\u0649"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - seen_sukun
+      - teh_fathah
+      - sheen_sukun
+      - feh
+      - alef_maqsura
+      _Drawing: CB
+      _Complexity: 1
+    - _Id: hot_temperature
+      _Active: 1
+      _Kind: 1
+      _Category: 25
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u0627\u062E\u0650\u0646"
+      _Value: 
+      _Letters:
+      - seen
+      - alef
+      - khah_kasrah
+      - noon
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: hot_weather
+      _Active: 1
+      _Kind: 1
+      _Category: 25
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u0627\u0631"
+      _Value: 
+      _Letters:
+      - hah
+      - alef
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: hour
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0633\u0627\u0639\u064E\u0629"
+      _Value: 
+      _Letters:
+      - seen
+      - alef
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 38
+      _Complexity: 0.6
+    - _Id: house
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u064A\u0652\u062A"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - yeh_sukun
+      - teh
+      _Drawing: C8
+      _Complexity: 0.3
+    - _Id: how
+      _Active: 1
+      _Kind: 5
+      _Category: 23
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u064A\u0652\u0641\u064E"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - yeh_sukun
+      - feh_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: i_am
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u064E\u0646\u0627"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_fathah
+      - noon
+      - alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: icecream
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0628\u0648\u0638\u0629"
+      _Value: 
+      _Letters:
+      - beh
+      - waw
+      - zah
+      - teh_marbuta
+      _Drawing: CD
+      _Complexity: 1
+    - _Id: in
+      _Active: 1
+      _Kind: 4
+      _Category: 24
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0641\u064A"
+      _Value: 
+      _Letters:
+      - feh
+      - yeh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: in_morning
+      _Active: 1
+      _Kind: 6
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0628\u064E\u0627\u062D\u0627"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - beh_fathah
+      - alef
+      - hah
+      - alef
+      _Drawing: 
+      _Complexity: 1
+    - _Id: insistent
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0644\u0650\u062D\u0651"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - lam_kasrah
+      - hah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: is
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0647\u064F\u0648"
+      _Value: 
+      _Letters:
+      - heh_dammah
+      - waw
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: islands
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062C\u064F\u0632\u064F\u0631"
+      _Value: 
+      _Letters:
+      - jeem_dammah
+      - zain_dammah
+      - reh
+      _Drawing: CE
+      _Complexity: 0.6
+    - _Id: it_is
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0625\u0646\u064E\u0651\u0647\u0627"
+      _Value: 
+      _Letters:
+      - alef_hamza_low
+      - noon_fathah
+      - heh
+      - alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: juice
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0635\u064A\u0631"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - sad
+      - yeh
+      - reh
+      _Drawing: 39
+      _Complexity: 1
+    - _Id: kid
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u0644\u064E\u062F"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - lam_fathah
+      - dal
+      _Drawing: 28
+      _Complexity: 0.3
+    - _Id: knowledge
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0650\u0644\u0652\u0645"
+      _Value: 
+      _Letters:
+      - ain_kasrah
+      - lam_sukun
+      - meem
+      _Drawing: 5C
+      _Complexity: 1
+    - _Id: last
+      _Active: 1
+      _Kind: 1
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0645\u0627\u0636\u064A"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - meem
+      - alef
+      - dad
+      - yeh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: laughed
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0636\u064E\u062D\u0650\u0643\u064E"
+      _Value: 
+      _Letters:
+      - dad_fathah
+      - hah_kasrah
+      - kaf_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: lazy
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u0633\u0648\u0644"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - seen
+      - waw
+      - lam
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: leg
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u0650\u062C\u0652\u0644"
+      _Value: 
+      _Letters:
+      - reh_kasrah
+      - jeem_sukun
+      - lam
+      _Drawing: CF
+      _Complexity: 0.3
+    - _Id: lentil
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u062F\u064E\u0633"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - dal_fathah
+      - seen
+      _Drawing: 29
+      _Complexity: 0.3
+    - _Id: lets
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0647\u064E\u064A\u0651\u0627"
+      _Value: 
+      _Letters:
+      - heh_fathah
+      - yeh
+      - alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: light
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0636\u0648\u0621"
+      _Value: 
+      _Letters:
+      - dad
+      - waw
+      - hamza
+      _Drawing: B7
+      _Complexity: 0.6
+    - _Id: lion
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0633\u064E\u062F"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - seen_fathah
+      - dal
+      _Drawing: D1
+      _Complexity: 0.6
+    - _Id: lion_dual
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 2
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0633\u064E\u062F\u064E\u0627\u0646"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - seen_fathah
+      - dal_fathah
+      - alef
+      - noon
+      _Drawing: 2039
+      _Complexity: 1
+    - _Id: lion_plural
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 3
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0623\u064F\u0633\u064F\u0648\u062F"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_dammah
+      - seen_dammah
+      - waw
+      - dal
+      _Drawing: 203A
+      _Complexity: 1
+    - _Id: lips
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0641\u0627\u0647"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - feh
+      - alef
+      - heh
+      _Drawing: 2022
+      _Complexity: 0.6
+    - _Id: love
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064F\u0628"
+      _Value: 
+      _Letters:
+      - hah_dammah
+      - beh
+      _Drawing: 115
+      _Complexity: 0
+    - _Id: man
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u062C\u064F\u0644"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - jeem_dammah
+      - lam
+      _Drawing: 2D
+      _Complexity: 0.3
+    - _Id: market
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u0648\u0642"
+      _Value: 
+      _Letters:
+      - seen
+      - waw
+      - qaf
+      _Drawing: AB
+      _Complexity: 0.3
+    - _Id: meat
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u064E\u062D\u064E\u0645"
+      _Value: 
+      _Letters:
+      - lam_fathah
+      - hah_fathah
+      - meem
+      _Drawing: D3
+      _Complexity: 0.3
+    - _Id: melancholy
+      _Active: 1
+      _Kind: 5
+      _Category: 3
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0643\u0627\u0628\u0629"
+      _Value: 
+      _Letters:
+      - kaf
+      - alef
+      - beh
+      - teh_marbuta
+      _Drawing: BB
+      _Complexity: 1
+    - _Id: month
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0647\u0652\u0631"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - heh_sukun
+      - reh
+      _Drawing: 2265
+      _Complexity: 0.3
+    - _Id: month_april
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064A\u0633\u0627\u0646"
+      _Value: 
+      _Letters:
+      - noon
+      - yeh
+      - seen
+      - alef
+      - noon
+      _Drawing: 2264
+      _Complexity: 0.6
+    - _Id: month_august
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0622\u0628"
+      _Value: 
+      _Letters:
+      - alef_maddah
+      - beh
+      _Drawing: B1
+      _Complexity: 0.6
+    - _Id: month_december
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u0623\u0648\u064E\u0644"
+      _Value: 
+      _Letters:
+      - kaf
+      - alef
+      - noon
+      - waw
+      - noon
+      - alef
+      - lam_alef_hamza_hi
+      - waw_fathah
+      - lam
+      _Drawing: 2248
+      _Complexity: 1
+    - _Id: month_february
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0634\u0628\u0627\u0637"
+      _Value: 
+      _Letters:
+      - sheen
+      - beh
+      - alef
+      - tah
+      _Drawing: 7E
+      _Complexity: 1
+    - _Id: month_january
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0643\u0627\u0646\u0648\u0646 \u0627\u0644\u062B\u0627\u0646\u064A"
+      _Value: 
+      _Letters:
+      - kaf
+      - alef
+      - noon
+      - waw
+      - noon
+      - alef
+      - lam
+      - theh
+      - alef
+      - noon
+      - yeh
+      _Drawing: AC
+      _Complexity: 1
+    - _Id: month_july
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062A\u0645\u0648\u0632"
+      _Value: 
+      _Letters:
+      - teh
+      - meem
+      - waw
+      - zain
+      _Drawing: 2205
+      _Complexity: 1
+    - _Id: month_june
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u0632\u064A\u0631\u0627\u0646"
+      _Value: 
+      _Letters:
+      - hah
+      - zain
+      - yeh
+      - reh
+      - alef
+      - noon
+      _Drawing: 221E
+      _Complexity: 1
+    - _Id: month_march
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0622\u0630\u0627\u0631"
+      _Value: 
+      _Letters:
+      - alef_maddah
+      - thal
+      - alef
+      - reh
+      _Drawing: 222B
+      _Complexity: 1
+    - _Id: month_may
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0623\u064A\u0627\u0631"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - yeh
+      - alef
+      - reh
+      _Drawing: 220F
+      _Complexity: 1
+    - _Id: month_november
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u062B\u0627\u0646\u064A"
+      _Value: 
+      _Letters:
+      - teh
+      - sheen
+      - reh
+      - yeh
+      - noon
+      - alef
+      - lam
+      - theh
+      - alef
+      - noon
+      - yeh
+      _Drawing: 2211
+      _Complexity: 1
+    - _Id: month_october
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u0623\u0648\u0644"
+      _Value: 
+      _Letters:
+      - teh
+      - sheen
+      - reh
+      - yeh
+      - noon
+      - alef
+      - lam_alef_hamza_hi
+      - waw
+      - lam
+      _Drawing: 221A
+      _Complexity: 1
+    - _Id: month_september
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0623\u064A\u0644\u0648\u0644"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - yeh
+      - lam
+      - waw
+      - lam
+      _Drawing: 2202
+      _Complexity: 1
+    - _Id: moon
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0642\u0645\u064E\u0631"
+      _Value: 
+      _Letters:
+      - qaf
+      - meem_fathah
+      - reh
+      _Drawing: D4
+      _Complexity: 0.6
+    - _Id: morning
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0628\u0627\u062D"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - beh
+      - alef
+      - hah
+      _Drawing: 25
+      _Complexity: 0.6
+    - _Id: mother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0645\u0627\u0645\u0627"
+      _Value: 
+      _Letters:
+      - meem
+      - alef
+      - meem
+      - alef
+      _Drawing: D6
+      _Complexity: 0.3
+    - _Id: mountain
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0628\u064E\u0644"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - beh_fathah
+      - lam
+      _Drawing: D2
+      _Complexity: 0.6
+    - _Id: mountain_dual
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 2
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0628\u064E\u0644\u0627\u0646"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - beh_fathah
+      - lam_alef
+      - noon
+      _Drawing: B0
+      _Complexity: 1
+    - _Id: mountain_plural
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 3
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062C\u0650\u0628\u0627\u0644"
+      _Value: 
+      _Letters:
+      - jeem_kasrah
+      - beh
+      - alef
+      - lam
+      _Drawing: 7C
+      _Complexity: 1
+    - _Id: mouse
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u0623\u0631"
+      _Value: 
+      _Letters:
+      - feh
+      - alef_hamza_hi
+      - reh
+      _Drawing: D8
+      _Complexity: 0.6
+    - _Id: mouth
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064E\u0645"
+      _Value: 
+      _Letters:
+      - feh_fathah
+      - meem
+      _Drawing: D5
+      _Complexity: 0.3
+    - _Id: must
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u064A\u064E\u062C\u0650\u0628"
+      _Value: 
+      _Letters:
+      - yeh_fathah
+      - jeem_kasrah
+      - beh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: my_aunt_father
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0645\u0651\u064E\u062A\u064A"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - meem_fathah
+      - teh
+      - yeh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: my_aunt_mother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u0627\u0644\u064E\u062A\u064A"
+      _Value: 
+      _Letters:
+      - khah_fathah
+      - alef
+      - lam_fathah
+      - teh
+      - yeh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: my_brother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u064E\u062E\u064A"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_fathah
+      - khah
+      - yeh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: my_darling
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0628\u064A\u0628\u064A"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - beh
+      - yeh
+      - beh
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: my_daughter
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u0646\u0652\u062A\u064A"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - noon_sukun
+      - teh
+      - yeh
+      _Drawing: 90
+      _Complexity: 0
+    - _Id: my_face
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u062C\u0652\u0647\u064A"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - jeem_sukun
+      - heh
+      - yeh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: my_grandfather
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u062F\u0651\u064A"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - dal
+      - yeh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: my_house
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u064A\u0652\u062A\u064A"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - yeh_sukun
+      - teh
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: my_name
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0650\u0633\u0652\u0645\u064A"
+      _Value: 
+      _Letters:
+      - alef_kasrah
+      - seen_sukun
+      - meem
+      - yeh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: my_sister
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0623\u064F\u062E\u0652\u062A\u064A"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_dammah
+      - khah_sukun
+      - teh
+      - yeh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: my_uncle_father
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0645\u0651\u064A"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - meem
+      - yeh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: my_uncle_mother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u0627\u0644\u064A"
+      _Value: 
+      _Letters:
+      - khah
+      - alef
+      - lam
+      - yeh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: nail
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0638\u064E\u0641\u064E\u0631"
+      _Value: 
+      _Letters:
+      - zah_fathah
+      - feh_fathah
+      - reh
+      _Drawing: 152
+      _Complexity: 0.6
+    - _Id: need
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062D\u0652\u062A\u0627\u062C"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - hah_sukun
+      - teh
+      - alef
+      - jeem
+      _Drawing: 
+      _Complexity: 1
+    - _Id: needle
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0625\u0628\u0652\u0631\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_hamza_low
+      - beh_sukun
+      - reh_fathah
+      - teh_marbuta
+      _Drawing: DE
+      _Complexity: 0.6
+    - _Id: nest
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064F\u0634"
+      _Value: 
+      _Letters:
+      - ain_dammah
+      - sheen
+      _Drawing: DA
+      _Complexity: 0.3
+    - _Id: next
+      _Active: 1
+      _Kind: 1
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0642\u0627\u062F\u0650\u0645"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - qaf
+      - alef
+      - dal_kasrah
+      - meem
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: nose
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0623\u0646\u0652\u0641"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - noon_sukun
+      - feh
+      _Drawing: DB
+      _Complexity: 0.3
+    - _Id: notebook
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062F\u064E\u0641\u0652\u062A\u064E\u0631"
+      _Value: 
+      _Letters:
+      - dal_fathah
+      - feh_sukun
+      - teh_fathah
+      - reh
+      _Drawing: DC
+      _Complexity: 0.6
+    - _Id: now
+      _Active: 1
+      _Kind: 6
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0622\u0646"
+      _Value: 
+      _Letters:
+      - alef
+      - lam_alef_kasrah
+      - noon
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: number_00
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0635\u0650\u0641\u064E\u0631"
+      _Value: 0
+      _Letters:
+      - sad_kasrah
+      - feh_fathah
+      - reh
+      _Drawing: 2669
+      _Complexity: 0.6
+    - _Id: number_01
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0648\u0627\u062D\u0650\u062F"
+      _Value: 1
+      _Letters:
+      - waw
+      - alef
+      - hah_kasrah
+      - dal
+      _Drawing: 266A
+      _Complexity: 0.6
+    - _Id: number_02
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0650\u062B\u0652\u0646\u064E\u0627\u0646"
+      _Value: 2
+      _Letters:
+      - alef_kasrah
+      - theh_sukun
+      - noon_fathah
+      - alef
+      - noon
+      _Drawing: 266B
+      _Complexity: 0.6
+    - _Id: number_03
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0644\u0627\u062B\u064E\u0629"
+      _Value: 3
+      _Letters:
+      - theh_fathah
+      - lam_alef
+      - theh_fathah
+      - teh_marbuta
+      _Drawing: 266C
+      _Complexity: 0.6
+    - _Id: number_04
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0623\u0631\u0652\u0628\u064E\u0639\u064E\u0629"
+      _Value: 4
+      _Letters:
+      - alef_hamza_hi
+      - reh_sukun
+      - beh_fathah
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 266D
+      _Complexity: 0.6
+    - _Id: number_05
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u0645\u0652\u0633\u064E\u0629"
+      _Value: 5
+      _Letters:
+      - khah_fathah
+      - meem_sukun
+      - seen_fathah
+      - teh_marbuta
+      _Drawing: 266E
+      _Complexity: 0.6
+    - _Id: number_06
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0633\u0650\u062A\u064E\u0651\u0629"
+      _Value: 6
+      _Letters:
+      - seen_kasrah
+      - teh_fathah
+      - teh_marbuta
+      _Drawing: 266F
+      _Complexity: 0.3
+    - _Id: number_07
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0628\u0652\u0639\u064E\u0629"
+      _Value: 7
+      _Letters:
+      - seen_fathah
+      - beh_sukun
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 10E
+      _Complexity: 0.6
+    - _Id: number_08
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0645\u0627\u0646\u064A\u0629"
+      _Value: 8
+      _Letters:
+      - theh_fathah
+      - meem
+      - alef
+      - noon
+      - yeh
+      - teh_marbuta
+      _Drawing: 122
+      _Complexity: 0.6
+    - _Id: number_09
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u0650\u0633\u0652\u0639\u064E\u0629"
+      _Value: 9
+      _Letters:
+      - teh_kasrah
+      - seen_sukun
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 12A
+      _Complexity: 0.3
+    - _Id: number_10
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0634\u064E\u0631\u064E\u0629"
+      _Value: 10
+      _Letters:
+      - ain_fathah
+      - sheen_fathah
+      - reh_fathah
+      - teh_marbuta
+      _Drawing: 12E
+      _Complexity: 0.3
+    - _Id: number_11
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u062D\u064E\u062F\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 11
+      _Letters:
+      - alef_fathah
+      - hah_fathah
+      - dal_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 136
+      _Complexity: 1
+    - _Id: number_12
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0650\u062B\u0652\u0646\u064E\u0649 \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 12
+      _Letters:
+      - alef_kasrah
+      - theh_sukun
+      - noon_fathah
+      - alef_maqsura
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 14A
+      _Complexity: 1
+    - _Id: number_13
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0644\u0627\u062B\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 13
+      _Letters:
+      - theh_fathah
+      - lam_alef
+      - theh_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 103
+      _Complexity: 1
+    - _Id: number_14
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0623\u0631\u0652\u0628\u064E\u0639\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 14
+      _Letters:
+      - alef_hamza_hi
+      - reh_sukun
+      - beh_fathah
+      - ain_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 10F
+      _Complexity: 1
+    - _Id: number_15
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u0645\u0652\u0633\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 15
+      _Letters:
+      - khah_fathah
+      - meem_sukun
+      - seen_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 113
+      _Complexity: 1
+    - _Id: number_16
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0633\u0650\u062A\u064E\u0651\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 16
+      _Letters:
+      - seen_kasrah
+      - teh_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 119
+      _Complexity: 1
+    - _Id: number_17
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0628\u0652\u0639\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 17
+      _Letters:
+      - seen_fathah
+      - beh_sukun
+      - ain_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 123
+      _Complexity: 1
+    - _Id: number_18
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0645\u0627\u0646\u064A\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 18
+      _Letters:
+      - theh_fathah
+      - meem
+      - alef
+      - noon
+      - yeh_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 12B
+      _Complexity: 1
+    - _Id: number_19
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062A\u0650\u0633\u0652\u0639\u064E\u0629\u064E \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 19
+      _Letters:
+      - teh_kasrah
+      - seen_sukun
+      - ain_fathah
+      - teh_marbuta_fathah
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 12F
+      _Complexity: 1
+    - _Id: number_20
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0634\u0652\u0631\u0648\u0646"
+      _Value: 20
+      _Letters:
+      - ain_fathah
+      - sheen_sukun
+      - reh
+      - waw
+      - noon
+      _Drawing: 137
+      _Complexity: 1
+    - _Id: number_2000
+      _Active: 1
+      _Kind: 5
+      _Category: 26
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0652\u0641\u064E\u064A\u0646"
+      _Value: 2000
+      _Letters:
+      - alef_fathah
+      - lam_sukun
+      - feh_fathah
+      - yeh
+      - noon
+      _Drawing: 14B
+      _Complexity: 1
+    - _Id: number_o01
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0623\u0648\u064E\u0644"
+      _Value: 
+      _Letters:
+      - alef
+      - lam_alef_hamza_hi
+      - waw_fathah
+      - lam
+      _Drawing: AE
+      _Complexity: 1
+    - _Id: number_o02
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062B\u064E\u0651\u0627\u0646\u064A"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - theh_fathah
+      - alef
+      - noon
+      - yeh
+      _Drawing: A6
+      _Complexity: 1
+    - _Id: number_o03
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062B\u064E\u0651\u0627\u0644\u0650\u062B"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - theh_fathah
+      - alef
+      - lam_kasrah
+      - theh
+      _Drawing: 2020
+      _Complexity: 1
+    - _Id: number_o04
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0631\u0651\u0627\u0628\u0650\u0639"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - reh
+      - alef
+      - beh_kasrah
+      - ain
+      _Drawing: 2021
+      _Complexity: 1
+    - _Id: number_o05
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062E\u0627\u0645\u0650\u0633"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - khah
+      - alef
+      - meem_kasrah
+      - seen
+      _Drawing: 5E
+      _Complexity: 1
+    - _Id: number_o06
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0633\u0651\u0627\u062F\u0650\u0633"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - seen
+      - alef
+      - dal_kasrah
+      - seen
+      _Drawing: 308
+      _Complexity: 1
+    - _Id: number_o07
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0633\u0651\u0627\u0628\u0650\u0639"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - seen
+      - alef
+      - beh_kasrah
+      - ain
+      _Drawing: 307
+      _Complexity: 1
+    - _Id: number_o08
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062B\u0651\u0627\u0645\u0650\u0646"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - theh
+      - alef
+      - meem_kasrah
+      - noon
+      _Drawing: 300
+      _Complexity: 1
+    - _Id: number_o09
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062A\u0651\u0627\u0633\u0650\u0639"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - teh
+      - alef
+      - seen_kasrah
+      - ain
+      _Drawing: 301
+      _Complexity: 1
+    - _Id: number_o10
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0639\u0627\u0634\u0650\u0631"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - ain
+      - alef
+      - sheen_kasrah
+      - reh
+      _Drawing: 302
+      _Complexity: 1
+    - _Id: number_o11
+      _Active: 1
+      _Kind: 5
+      _Category: 27
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u062D\u0627\u062F\u064A \u0639\u064E\u0634\u064E\u0631\u0652"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - hah
+      - alef
+      - dal
+      - yeh
+      - ain_fathah
+      - sheen_fathah
+      - reh_sukun
+      _Drawing: 10C
+      _Complexity: 1
+    - _Id: of_course
+      _Active: 1
+      _Kind: 6
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0637\u064E\u0628\u0652\u0639\u0627"
+      _Value: 
+      _Letters:
+      - tah_fathah
+      - beh_sukun
+      - ain
+      - alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: oil
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0632\u064E\u064A\u0652\u062A"
+      _Value: 
+      _Letters:
+      - zain_fathah
+      - yeh_sukun
+      - teh
+      _Drawing: D9
+      _Complexity: 0.3
+    - _Id: on
+      _Active: 1
+      _Kind: 4
+      _Category: 24
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0644\u0649"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - lam
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: onion
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0635\u064E\u0644"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - sad_fathah
+      - lam
+      _Drawing: DD
+      _Complexity: 0.6
+    - _Id: OokaDH
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0639\u0643\u0627\u0638"
+      _Value: 
+      _Letters:
+      - ain
+      - kaf
+      - alef
+      - zah
+      _Drawing: A9
+      _Complexity: 1
+    - _Id: opened
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064E\u062A\u064E\u062D\u064E"
+      _Value: 
+      _Letters:
+      - feh_fathah
+      - teh_fathah
+      - hah_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: oven
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064F\u0631\u0652\u0646"
+      _Value: 
+      _Letters:
+      - feh_dammah
+      - reh_sukun
+      - noon
+      _Drawing: A7
+      _Complexity: 0.3
+    - _Id: paper
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0648\u064E\u0631\u064E\u0642"
+      _Value: 
+      _Letters:
+      - waw_fathah
+      - reh_fathah
+      - qaf
+      _Drawing: E1
+      _Complexity: 0.3
+    - _Id: parrot
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0628\u064E\u063A\u0627\u0621"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - beh_fathah
+      - ghain
+      - alef
+      - hamza
+      _Drawing: E2
+      _Complexity: 0.6
+    - _Id: peace
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0644\u0627\u0645"
+      _Value: 
+      _Letters:
+      - seen_fathah
+      - lam_alef
+      - meem
+      _Drawing: 40
+      _Complexity: 0.6
+    - _Id: pear
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0625\u062C\u0627\u0635"
+      _Value: 
+      _Letters:
+      - alef_hamza_low
+      - jeem
+      - alef
+      - sad
+      _Drawing: E4
+      _Complexity: 1
+    - _Id: pear_big
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u0645\u062B\u0631\u0649"
+      _Value: 
+      _Letters:
+      - kaf
+      - meem
+      - theh
+      - reh
+      - alef_maqsura
+      _Drawing: B6
+      _Complexity: 1
+    - _Id: pencil
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0642\u064E\u0644\u064E\u0645"
+      _Value: 
+      _Letters:
+      - qaf_fathah
+      - lam_fathah
+      - meem
+      _Drawing: E5
+      _Complexity: 0.6
+    - _Id: played
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u064E\u0639\u0650\u0628\u064E"
+      _Value: 
+      _Letters:
+      - lam_fathah
+      - ain_kasrah
+      - beh_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: player
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u0627\u0639\u0650\u0628"
+      _Value: 
+      _Letters:
+      - lam_alef
+      - ain_kasrah
+      - beh
+      _Drawing: 20AC
+      _Complexity: 0.6
+    - _Id: playground
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0644\u0652\u0639\u064E\u0628"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - lam_sukun
+      - ain_fathah
+      - beh
+      _Drawing: 11A
+      _Complexity: 0.6
+    - _Id: please
+      _Active: 1
+      _Kind: 6
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0631\u062C\u0627\u0621"
+      _Value: 
+      _Letters:
+      - reh
+      - jeem
+      - alef
+      - hamza
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: pleat
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0646\u064A"
+      _Value: 
+      _Letters:
+      - theh_fathah
+      - noon
+      - yeh
+      _Drawing: 91
+      _Complexity: 0
+    - _Id: plum
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u0648\u062E"
+      _Value: 
+      _Letters:
+      - khah
+      - waw
+      - khah
+      _Drawing: E3
+      _Complexity: 0.3
+    - _Id: plural
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0645\u0652\u0639"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - meem_sukun
+      - ain
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: policeman
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064F\u0631\u0652\u0637\u064A"
+      _Value: 
+      _Letters:
+      - sheen_dammah
+      - reh_sukun
+      - tah
+      - yeh
+      _Drawing: E6
+      _Complexity: 0.6
+    - _Id: potato
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0637\u0627\u0637\u0627"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - tah
+      - alef
+      - tah
+      - alef
+      _Drawing: E7
+      _Complexity: 1
+    - _Id: rain
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0637\u064E\u0631"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - tah_fathah
+      - reh
+      _Drawing: F0
+      _Complexity: 0.6
+    - _Id: rainy
+      _Active: 1
+      _Kind: 1
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0627\u0637\u0650\u0631"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - alef
+      - tah_kasrah
+      - reh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: ready
+      _Active: 1
+      _Kind: 6
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0627\u0647\u0650\u0632"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - alef
+      - heh_kasrah
+      - zain
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: released
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0631\u064E\u0643\u064E"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - reh_fathah
+      - kaf_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: remain
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0635\u0652\u0628\u064E\u062D\u064F"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - sad_sukun
+      - beh_fathah
+      - hah_dammah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: restaurant
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0637\u0652\u0639\u064E\u0645"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - tah_sukun
+      - ain_fathah
+      - meem
+      _Drawing: 26
+      _Complexity: 0.6
+    - _Id: rice
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064F\u0632"
+      _Value: 
+      _Letters:
+      - reh_dammah
+      - zain
+      _Drawing: E9
+      _Complexity: 0.3
+    - _Id: river
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0647\u0652\u0631"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - heh_sukun
+      - reh
+      _Drawing: EA
+      _Complexity: 0.3
+    - _Id: river_dual
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 2
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0647\u0652\u0631\u0627\u0646"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - heh_sukun
+      - reh
+      - alef
+      - noon
+      _Drawing: 2195
+      _Complexity: 0.6
+    - _Id: river_plural
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 3
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0623\u0646\u0652\u0647\u0627\u0631"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - noon_sukun
+      - heh
+      - alef
+      - reh
+      _Drawing: 2194
+      _Complexity: 0.6
+    - _Id: room
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u063A\u064F\u0631\u0652\u0641\u064E\u0629"
+      _Value: 
+      _Letters:
+      - ghain_dammah
+      - reh_sukun
+      - feh_fathah
+      - teh_marbuta
+      _Drawing: 3A
+      _Complexity: 0.6
+    - _Id: sad
+      _Active: 1
+      _Kind: 1
+      _Category: 3
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0632\u064A\u0646"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - zain
+      - yeh
+      - noon
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: sad_feminine
+      _Active: 1
+      _Kind: 1
+      _Category: 3
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u0632\u064A\u0646\u064E\u0629"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - zain
+      - yeh
+      - noon_fathah
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: safe
+      _Active: 1
+      _Kind: 1
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0645\u0650\u0646\u0652"
+      _Value: 
+      _Letters:
+      - alef
+      - meem_kasrah
+      - noon_sukun
+      _Drawing: 
+      _Complexity: 1
+    - _Id: salt
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0644\u0652\u062D"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - lam_sukun
+      - hah
+      _Drawing: EB
+      _Complexity: 0.3
+    - _Id: samer
+      _Active: 1
+      _Kind: 5
+      _Category: 28
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u0627\u0645\u0631"
+      _Value: 
+      _Letters:
+      - seen
+      - alef
+      - meem
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: sat
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0644\u064E\u0633\u064E"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - lam_fathah
+      - seen_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: sat_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0644\u064E\u0633\u064E\u062A"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - lam_fathah
+      - seen_fathah
+      - teh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: saw
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0623\u0649"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - alef_hamza_hi
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: school
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u062F\u0652\u0631\u064E\u0633\u064E\u0629"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - dal_sukun
+      - reh_fathah
+      - seen_fathah
+      - teh_marbuta
+      _Drawing: 2196
+      _Complexity: 1
+    - _Id: scientist
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0627\u0644\u0650\u0645"
+      _Value: 
+      _Letters:
+      - ain
+      - alef
+      - lam_kasrah
+      - meem
+      _Drawing: 2C
+      _Complexity: 0.6
+    - _Id: scientist_dual
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 2
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0627\u0644\u0650\u0645\u0627\u0646"
+      _Value: 
+      _Letters:
+      - ain
+      - alef
+      - lam_kasrah
+      - meem
+      - alef
+      - noon
+      _Drawing: 2190
+      _Complexity: 1
+    - _Id: scientist_plural
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 3
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064F\u0644\u064E\u0645\u0627\u0621"
+      _Value: 
+      _Letters:
+      - ain_dammah
+      - lam_fathah
+      - meem
+      - alef
+      - hamza
+      _Drawing: 2199
+      _Complexity: 1
+    - _Id: scissors
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0642\u064E\u0635\u0651"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - qaf_fathah
+      - sad
+      _Drawing: E8
+      _Complexity: 0.6
+    - _Id: search
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u062D\u0652\u062B"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - hah_sukun
+      - theh
+      _Drawing: 92
+      _Complexity: 0
+    - _Id: second
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062B\u0627\u0646\u0650\u064A\u064E\u0629"
+      _Value: 
+      _Letters:
+      - theh
+      - alef
+      - noon_kasrah
+      - yeh_fathah
+      - teh_marbuta
+      _Drawing: 2193
+      _Complexity: 0.6
+    - _Id: she_loves
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064F\u062D\u0650\u0628\u064F"
+      _Value: 
+      _Letters:
+      - teh_dammah
+      - hah_kasrah
+      - beh_dammah
+      _Drawing: 93
+      _Complexity: 0
+    - _Id: she_praises
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062B\u0652\u0646\u064A"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - theh_sukun
+      - noon
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: she_proves
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062B\u0652\u0628\u064E\u062A\u064F"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - theh_sukun
+      - beh_fathah
+      - teh_dammah
+      _Drawing: 94
+      _Complexity: 0
+    - _Id: she_searches
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0628\u0652\u062D\u064E\u062B\u064F"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - beh_sukun
+      - hah_fathah
+      - theh_dammah
+      _Drawing: 95
+      _Complexity: 0
+    - _Id: she_took_a_look
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0628\u064E\u062A\u064E\u062A"
+      _Value: 
+      _Letters:
+      - theh_fathah
+      - beh_fathah
+      - teh_fathah
+      - teh
+      _Drawing: 96
+      _Complexity: 0
+    - _Id: shirt
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0642\u064E\u0645\u064A\u0635"
+      _Value: 
+      _Letters:
+      - qaf_fathah
+      - meem
+      - yeh
+      - sad
+      _Drawing: ED
+      _Complexity: 0.6
+    - _Id: shoe
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u0650\u0630\u0627\u0621"
+      _Value: 
+      _Letters:
+      - hah_kasrah
+      - thal
+      - alef
+      - hamza
+      _Drawing: 112
+      _Complexity: 0.6
+    - _Id: shop
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062F\u064F\u0643\u0651\u0627\u0646"
+      _Value: 
+      _Letters:
+      - dal_dammah
+      - kaf
+      - alef
+      - noon
+      _Drawing: 2198
+      _Complexity: 0.6
+    - _Id: side
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0646\u0652\u0628"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - noon_sukun
+      - beh
+      _Drawing: 97
+      _Complexity: 0
+    - _Id: singular
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0641\u0631\u064E\u062F"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - feh
+      - reh_fathah
+      - dal
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: sister
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0623\u064F\u062E\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_dammah
+      - khah_sukun
+      - teh
+      _Drawing: EE
+      _Complexity: 0.3
+    - _Id: sky
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0645\u0627\u0621"
+      _Value: 
+      _Letters:
+      - seen_fathah
+      - meem
+      - alef
+      - hamza
+      _Drawing: 2026
+      _Complexity: 0.6
+    - _Id: slow
+      _Active: 1
+      _Kind: 1
+      _Category: 11
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064E\u0637\u064A\u0621"
+      _Value: 
+      _Letters:
+      - beh_fathah
+      - tah
+      - yeh
+      - hamza
+      _Drawing: 
+      _Complexity: 1
+    - _Id: small
+      _Active: 1
+      _Kind: 1
+      _Category: 13
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u063A\u064A\u0631"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - ghain
+      - yeh
+      - reh
+      _Drawing: 
+      _Complexity: 1
+    - _Id: snow
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062B\u064E\u0644\u0652\u062C"
+      _Value: 
+      _Letters:
+      - theh_fathah
+      - lam_sukun
+      - jeem
+      _Drawing: EF
+      _Complexity: 0.6
+    - _Id: son
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u0646"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - noon
+      _Drawing: 98
+      _Complexity: 0
+    - _Id: sound
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u0648\u062A"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - waw
+      - teh
+      _Drawing: EC
+      _Complexity: 0.6
+    - _Id: spring
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0628\u064A\u0639"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - beh
+      - yeh
+      - ain
+      _Drawing: 2192
+      _Complexity: 0.3
+    - _Id: station
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u062D\u064E\u0637\u064E\u0651\u0629"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - hah_fathah
+      - tah_fathah
+      - teh_marbuta
+      _Drawing: 2197
+      _Complexity: 0.6
+    - _Id: studied
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062F\u064E\u0631\u064E\u0633\u064E"
+      _Value: 
+      _Letters:
+      - dal_fathah
+      - reh_fathah
+      - seen_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: sugar
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u064F\u0643\u064E\u0651\u0631"
+      _Value: 
+      _Letters:
+      - seen_dammah
+      - kaf_fathah
+      - reh
+      _Drawing: 2191
+      _Complexity: 0.3
+    - _Id: summer
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u064E\u064A\u0652\u0641"
+      _Value: 
+      _Letters:
+      - sad_fathah
+      - yeh_sukun
+      - feh
+      _Drawing: 2030
+      _Complexity: 0.3
+    - _Id: sun
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u0645\u0652\u0633"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - meem_sukun
+      - seen
+      _Drawing: F1
+      _Complexity: 0.3
+    - _Id: sure
+      _Active: 1
+      _Kind: 6
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0641\u0652\u0648\u064E\u0627"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - feh_sukun
+      - waw_fathah
+      - alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: table
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0637\u0627\u0650\u0648\u0644\u064E\u0629"
+      _Value: 
+      _Letters:
+      - tah
+      - alef_kasrah
+      - waw
+      - lam_fathah
+      - teh_marbuta
+      _Drawing: F3
+      _Complexity: 1
+    - _Id: tea
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u0627\u064A"
+      _Value: 
+      _Letters:
+      - sheen
+      - alef
+      - yeh
+      _Drawing: F4
+      _Complexity: 0.3
+    - _Id: teacher
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u0639\u064E\u0644\u0650\u0651\u0645"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - ain_fathah
+      - lam_kasrah
+      - meem
+      _Drawing: F6
+      _Complexity: 0.6
+    - _Id: television
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0644\u0652\u0641\u0627\u0632"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - lam_sukun
+      - feh
+      - alef
+      - zain
+      _Drawing: A5
+      _Complexity: 1
+    - _Id: thankyou
+      _Active: 1
+      _Kind: 6
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0634\u064F\u0643\u0652\u0631\u064E\u0627"
+      _Value: 
+      _Letters:
+      - sheen_dammah
+      - kaf_sukun
+      - reh_fathah
+      - alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_active
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: active
+      _Text: "\u0627\u064E\u0644\u0646\u064E\u0651\u0634\u0650\u064A\u0637"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_fathah
+      - sheen_kasrah
+      - yeh
+      - tah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_apple
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: apple
+      _Text: "\u0627\u064E\u0644\u062A\u064F\u0651\u0641\u0627\u062D"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - teh_dammah
+      - feh
+      - alef
+      - hah
+      _Drawing: 42
+      _Complexity: 0.6
+    - _Id: the_back
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: back
+      _Text: "\u0627\u064E\u0644\u0638\u064E\u0651\u0647\u0652\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - zah_fathah
+      - heh_sukun
+      - reh
+      _Drawing: 45
+      _Complexity: 0.6
+    - _Id: the_ball
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: ball
+      _Text: "\u0627\u064E\u0644\u0643\u064F\u0631\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - kaf_dammah
+      - reh_fathah
+      - teh_marbuta
+      _Drawing: A3
+      _Complexity: 0.3
+    - _Id: the_bear
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: bear
+      _Text: "\u0627\u064E\u0644\u062F\u064F\u0651\u0628"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - dal_dammah
+      - beh
+      _Drawing: 49
+      _Complexity: 0.3
+    - _Id: the_beautiful
+      _Active: 1
+      _Kind: 1
+      _Category: 25
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: beautiful
+      _Text: "\u0627\u064E\u0644\u062C\u064E\u0645\u064A\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - jeem_fathah
+      - meem
+      - yeh
+      - lam
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_bed
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: bed
+      _Text: "\u0627\u064E\u0644\u0641\u0650\u0631\u0627\u0634"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - feh_kasrah
+      - reh
+      - alef
+      - sheen
+      _Drawing: 4A
+      _Complexity: 0.6
+    - _Id: the_berry
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: berry
+      _Text: "\u0627\u064E\u0644\u062A\u0651\u0648\u062A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - teh
+      - waw
+      - teh
+      _Drawing: 4C
+      _Complexity: 0.3
+    - _Id: the_bird
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: bird
+      _Text: "\u0627\u064E\u0644\u0639\u064E\u0635\u0652\u0641\u064F\u0648\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ain_fathah
+      - sad_sukun
+      - feh_dammah
+      - waw
+      - reh
+      _Drawing: 4D
+      _Complexity: 1
+    - _Id: the_book
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: book
+      _Text: "\u0627\u064E\u0644\u0643\u0650\u062A\u0627\u0628"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - kaf_kasrah
+      - teh
+      - alef
+      - beh
+      _Drawing: 4E
+      _Complexity: 0.6
+    - _Id: the_box
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: box
+      _Text: "\u0627\u064E\u0644\u0635\u064E\u0651\u0646\u0652\u062F\u064F\u0648\u0642"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sad_fathah
+      - noon_sukun
+      - dal_dammah
+      - waw
+      - qaf
+      _Drawing: 50
+      _Complexity: 1
+    - _Id: the_boy
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: boy
+      _Text: "\u0627\u064E\u0644\u0635\u064E\u0651\u0628\u064A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sad_fathah
+      - beh
+      - yeh
+      _Drawing: 51
+      _Complexity: 0.6
+    - _Id: the_bread
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: bread
+      _Text: "\u0627\u064E\u0644\u062E\u064F\u0628\u0652\u0632"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - khah_dammah
+      - beh_sukun
+      - zain
+      _Drawing: 53
+      _Complexity: 0.3
+    - _Id: the_bus
+      _Active: 1
+      _Kind: 5
+      _Category: 15
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: bus
+      _Text: "\u0627\u064E\u0644\u0628\u0627\u0635"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh
+      - alef
+      - sad
+      _Drawing: 44
+      _Complexity: 0.6
+    - _Id: the_carpenter
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: carpenter
+      _Text: "\u0627\u064E\u0644\u0646\u064E\u0651\u062C\u064E\u0651\u0627\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_fathah
+      - jeem_fathah
+      - alef
+      - reh
+      _Drawing: 57
+      _Complexity: 0.6
+    - _Id: the_carrot
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: carrot
+      _Text: "\u0627\u064E\u0644\u062C\u064E\u0632\u064E\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - jeem_fathah
+      - zain_fathah
+      - reh
+      _Drawing: 58
+      _Complexity: 0.6
+    - _Id: the_chair
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: chair
+      _Text: "\u0627\u064E\u0644\u0643\u064F\u0631\u0652\u0633\u064A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - kaf_dammah
+      - reh_sukun
+      - seen
+      - yeh
+      _Drawing: 5A
+      _Complexity: 0.6
+    - _Id: the_club
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: club
+      _Text: "\u0627\u064E\u0644\u0645\u064F\u0646\u0652\u062A\u064E\u062F\u0649"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_dammah
+      - noon_sukun
+      - teh_fathah
+      - dal
+      - alef_maqsura
+      _Drawing: 102
+      _Complexity: 1
+    - _Id: the_coat
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: coat
+      _Text: "\u0627\u064E\u0644\u0645\u0650\u0639\u0652\u0637\u064E\u0641"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_kasrah
+      - ain_sukun
+      - tah_fathah
+      - feh
+      _Drawing: 66
+      _Complexity: 0.6
+    - _Id: the_cold
+      _Active: 1
+      _Kind: 5
+      _Category: 29
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0628\u064E\u0631\u0652\u062F"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_fathah
+      - reh_sukun
+      - dal
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: the_color_brown
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: color_brown
+      _Text: "\u0627\u064E\u0644\u0628\u064F\u0646\u0651\u064A"
+      _Value: brown
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_dammah
+      - noon
+      - yeh
+      _Drawing: 100
+      _Complexity: 0.3
+    - _Id: the_color_green
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: color_green
+      _Text: "\u0627\u064E\u0644\u0623\u062E\u0652\u0636\u064E\u0631"
+      _Value: green
+      _Letters:
+      - alef_fathah
+      - lam_alef_hamza_hi
+      - khah_sukun
+      - dad_fathah
+      - reh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: the_color_orange
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: color_orange
+      _Text: "\u0627\u064E\u0644\u0628\u064F\u0631\u0652\u062A\u064F\u0642\u0627\u0644\u064A"
+      _Value: orange
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_dammah
+      - reh_sukun
+      - teh_dammah
+      - qaf
+      - alef
+      - lam
+      - yeh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: the_color_purple
+      _Active: 1
+      _Kind: 1
+      _Category: 18
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: color_purple
+      _Text: "\u0627\u064E\u0644\u0628\u064E\u0646\u064E\u0641\u0652\u0633\u064E\u062C\u064A"
+      _Value: purple
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_fathah
+      - noon_fathah
+      - feh_sukun
+      - seen_fathah
+      - jeem
+      - yeh
+      _Drawing: 100
+      _Complexity: 1
+    - _Id: the_cupboard
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: cupboard
+      _Text: "\u0627\u064E\u0644\u062E\u064E\u0632\u0627\u0646\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - khah_fathah
+      - zain
+      - alef
+      - noon_fathah
+      - teh_marbuta
+      _Drawing: C1
+      _Complexity: 1
+    - _Id: the_deer
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: deer
+      _Text: "\u0627\u064E\u0644\u063A\u064E\u0632\u0627\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ghain_fathah
+      - zain
+      - alef
+      - lam
+      _Drawing: 69
+      _Complexity: 0.6
+    - _Id: the_doctor
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: doctor
+      _Text: "\u0627\u064E\u0644\u0637\u064E\u0651\u0628\u064A\u0628"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - tah_fathah
+      - beh
+      - yeh
+      - beh
+      _Drawing: 6A
+      _Complexity: 0.6
+    - _Id: the_engineer
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: engineer
+      _Text: "\u0627\u064E\u0644\u0645\u064F\u0647\u064E\u0646\u0652\u062F\u0650\u0633"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_dammah
+      - heh_fathah
+      - noon_sukun
+      - dal_kasrah
+      - seen
+      _Drawing: F2
+      _Complexity: 1
+    - _Id: the_eye
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: eye
+      _Text: "\u0627\u064E\u0644\u0639\u064E\u064A\u0652\u0646"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ain_fathah
+      - yeh_sukun
+      - noon
+      _Drawing: 70
+      _Complexity: 0.3
+    - _Id: the_flower
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: flower
+      _Text: "\u0627\u064E\u0644\u0648\u064E\u0631\u0652\u062F"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - waw_fathah
+      - reh_sukun
+      - dal
+      _Drawing: 77
+      _Complexity: 0.3
+    - _Id: the_forest
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: forest
+      _Text: "\u0627\u064E\u0644\u063A\u064E\u0627\u0628\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ghain_fathah
+      - alef
+      - beh_fathah
+      - teh_marbuta
+      _Drawing: 79
+      _Complexity: 0.6
+    - _Id: the_fridge
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: fridge
+      _Text: "\u0627\u064E\u0644\u062B\u064E\u0651\u0644\u0651\u0627\u062C\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - theh_fathah
+      - lam_alef
+      - jeem_fathah
+      - teh_marbuta
+      _Drawing: 7A
+      _Complexity: 1
+    - _Id: the_girl
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: girl
+      _Text: "\u0627\u064E\u0644\u0628\u0650\u0646\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_kasrah
+      - noon_sukun
+      - teh
+      _Drawing: C0
+      _Complexity: 0.3
+    - _Id: the_happy
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: happy
+      _Text: "\u0627\u064E\u0644\u0633\u064E\u0651\u0639\u0650\u064A\u062F"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - seen_fathah
+      - ain_kasrah
+      - yeh
+      - dal
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_hat
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: hat
+      _Text: "\u0627\u064E\u0644\u0642\u064F\u0628\u0652\u0639\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - qaf_dammah
+      - beh_sukun
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: C9
+      _Complexity: 0.6
+    - _Id: the_hospital
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: hospital
+      _Text: "\u0627\u064E\u0644\u0645\u064F\u0633\u0652\u062A\u064E\u0634\u0652\u0641\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_dammah
+      - seen_sukun
+      - teh_fathah
+      - sheen_sukun
+      - feh_fathah
+      - teh_marbuta
+      _Drawing: CB
+      _Complexity: 1
+    - _Id: the_house
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: house
+      _Text: "\u0627\u064E\u0644\u0628\u064E\u064A\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_fathah
+      - yeh_sukun
+      - teh
+      _Drawing: C8
+      _Complexity: 0.3
+    - _Id: the_icecream
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: icecream
+      _Text: "\u0627\u064E\u0644\u0628\u064F\u0648\u0638\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_dammah
+      - waw
+      - zah_fathah
+      - teh_marbuta
+      _Drawing: CD
+      _Complexity: 0.6
+    - _Id: the_juice
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: juice
+      _Text: "\u0627\u064E\u0644\u0639\u064E\u0635\u0650\u064A\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ain_fathah
+      - sad_kasrah
+      - yeh
+      - reh
+      _Drawing: 39
+      _Complexity: 0.6
+    - _Id: the_lazy
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: lazy
+      _Text: "\u0627\u064E\u0644\u0643\u064E\u0633\u064F\u0648\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - kaf_fathah
+      - seen_dammah
+      - waw
+      - lam
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_leg
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: leg
+      _Text: "\u0627\u064E\u0644\u0631\u0650\u0651\u062C\u0652\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - reh_kasrah
+      - jeem_sukun
+      - lam
+      _Drawing: CF
+      _Complexity: 0.6
+    - _Id: the_light
+      _Active: 1
+      _Kind: 5
+      _Category: 7
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: light
+      _Text: "\u0627\u064E\u0644\u0636\u064F\u0651\u0648\u0621"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - dad_dammah
+      - waw
+      - hamza
+      _Drawing: B7
+      _Complexity: 0.6
+    - _Id: the_light_v2
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0646\u064F\u0651\u0648\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_dammah
+      - waw
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: the_meeting
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 1
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0644\u0650\u0651\u0642\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - lam_kasrah
+      - qaf
+      - alef
+      - hamza
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_month
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: month
+      _Text: "\u0627\u064E\u0644\u0634\u064E\u0651\u0647\u064E\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sheen_fathah
+      - heh_fathah
+      - reh
+      _Drawing: 2265
+      _Complexity: 0.3
+    - _Id: the_moon
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: moon
+      _Text: "\u0627\u064E\u0644\u0642\u064E\u0645\u064E\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - qaf_fathah
+      - meem_fathah
+      - reh
+      _Drawing: D4
+      _Complexity: 0.3
+    - _Id: the_mountain
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: mountain
+      _Text: "\u0627\u064E\u0644\u062C\u064E\u0628\u064E\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - jeem_fathah
+      - beh_fathah
+      - lam
+      _Drawing: D2
+      _Complexity: 0.3
+    - _Id: the_oil
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: oil
+      _Text: "\u0627\u064E\u0644\u0632\u064E\u0651\u064A\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - zain_fathah
+      - yeh_sukun
+      - teh
+      _Drawing: D9
+      _Complexity: 0.3
+    - _Id: the_oven
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: oven
+      _Text: "\u0627\u064E\u0644\u0641\u064F\u0631\u0652\u0646"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - feh_dammah
+      - reh_sukun
+      - noon
+      _Drawing: A7
+      _Complexity: 0.3
+    - _Id: the_parrot
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: parrot
+      _Text: "\u0627\u064E\u0644\u0628\u064E\u0628\u064E\u063A\u064E\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_fathah
+      - beh_fathah
+      - ghain_fathah
+      - alef
+      - hamza
+      _Drawing: E2
+      _Complexity: 1
+    - _Id: the_player
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: player
+      _Text: "\u0627\u064E\u0644\u0644\u0651\u0627\u0639\u0650\u0628"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - lam_alef
+      - ain_kasrah
+      - beh
+      _Drawing: 20AC
+      _Complexity: 1
+    - _Id: the_playground
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: playground
+      _Text: "\u0627\u064E\u0644\u0645\u064E\u0644\u0652\u0639\u064E\u0628"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_fathah
+      - lam_sukun
+      - ain_fathah
+      - beh
+      _Drawing: 11A
+      _Complexity: 0.6
+    - _Id: the_policeman
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: policeman
+      _Text: "\u0627\u064E\u0644\u0634\u064F\u0651\u0631\u0652\u0637\u0650\u064A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sheen_dammah
+      - reh_sukun
+      - tah_kasrah
+      - yeh
+      _Drawing: E6
+      _Complexity: 1
+    - _Id: the_restaurant
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: restaurant
+      _Text: "\u0627\u064E\u0644\u0645\u064E\u0637\u0652\u0639\u064E\u0645"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_fathah
+      - tah_sukun
+      - ain_fathah
+      - meem
+      _Drawing: 26
+      _Complexity: 1
+    - _Id: the_river
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: river
+      _Text: "\u0627\u064E\u0644\u0646\u064E\u0651\u0647\u064E\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_fathah
+      - heh_fathah
+      - reh
+      _Drawing: EA
+      _Complexity: 0.6
+    - _Id: the_room
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: room
+      _Text: "\u0627\u064E\u0644\u063A\u064F\u0631\u0652\u0641\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ghain_dammah
+      - reh_sukun
+      - feh_fathah
+      - teh_marbuta
+      _Drawing: 3A
+      _Complexity: 0.6
+    - _Id: the_sad
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: sad
+      _Text: "\u0627\u064E\u0644\u062D\u064E\u0632\u0650\u064A\u0646"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - hah_fathah
+      - zain_kasrah
+      - yeh
+      - noon
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_scientist
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: scientist
+      _Text: "\u0627\u064E\u0644\u0639\u064E\u0627\u0644\u0650\u0645"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ain_fathah
+      - alef
+      - lam_kasrah
+      - meem
+      _Drawing: 2C
+      _Complexity: 0.6
+    - _Id: the_shirt
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: shirt
+      _Text: "\u0627\u064E\u0644\u0642\u064E\u0645\u0650\u064A\u0635"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - qaf_fathah
+      - meem_kasrah
+      - yeh
+      - sad
+      _Drawing: ED
+      _Complexity: 1
+    - _Id: the_shoe
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: shoe
+      _Text: "\u0627\u064E\u0644\u062D\u0650\u0630\u064E\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - hah_kasrah
+      - thal_fathah
+      - alef
+      - hamza
+      _Drawing: 23
+      _Complexity: 1
+    - _Id: the_shop
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: shop
+      _Text: "\u0627\u064E\u0644\u062F\u064F\u0651\u0643\u064E\u0651\u0627\u0646"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - dal_dammah
+      - kaf_fathah
+      - alef
+      - noon
+      _Drawing: 2198
+      _Complexity: 0.6
+    - _Id: the_snow
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: snow
+      _Text: "\u0627\u064E\u0644\u062B\u064E\u0651\u0644\u0652\u062C"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - theh_fathah
+      - lam_sukun
+      - jeem
+      _Drawing: EF
+      _Complexity: 0.6
+    - _Id: the_station
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: station
+      _Text: "\u0627\u064E\u0644\u0645\u064E\u062D\u064E\u0637\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_fathah
+      - hah_fathah
+      - tah_fathah
+      - teh_marbuta
+      _Drawing: 2197
+      _Complexity: 1
+    - _Id: the_sun
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: sun
+      _Text: "\u0627\u064E\u0644\u0634\u064E\u0651\u0645\u0652\u0633"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sheen_fathah
+      - meem_sukun
+      - seen
+      _Drawing: F1
+      _Complexity: 0.6
+    - _Id: the_table
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: table
+      _Text: "\u0627\u064E\u0644\u0637\u064E\u0651\u0627\u0648\u0650\u0644\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - tah_fathah
+      - alef
+      - waw_kasrah
+      - lam_fathah
+      - teh_marbuta
+      _Drawing: F3
+      _Complexity: 1
+    - _Id: the_teacher
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: teacher
+      _Text: "\u0627\u064E\u0644\u0645\u064F\u0639\u064E\u0644\u0650\u0645"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - meem_dammah
+      - ain_fathah
+      - lam_kasrah
+      - meem
+      _Drawing: F6
+      _Complexity: 0.6
+    - _Id: the_ten_oclock
+      _Active: 1
+      _Kind: 1
+      _Category: 20
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0639\u064E\u0627\u0634\u0650\u0631\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - ain_fathah
+      - alef
+      - sheen_kasrah
+      - reh_fathah
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 1
+    - _Id: the_tiger
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: tiger
+      _Text: "\u0627\u064E\u0644\u0646\u064E\u0651\u0645\u0652\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_fathah
+      - meem_sukun
+      - reh
+      _Drawing: F5
+      _Complexity: 0.3
+    - _Id: the_time
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0627\u064E\u0644\u0633\u064E\u0651\u0627\u0639\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - seen_fathah
+      - alef
+      - ain_fathah
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: the_tooth
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: tooth
+      _Text: "\u0627\u064E\u0644\u0633\u0650\u0651\u0646"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - seen_kasrah
+      - noon
+      _Drawing: DF
+      _Complexity: 0.3
+    - _Id: the_trousers
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: trousers
+      _Text: "\u0627\u064E\u0644\u0628\u064E\u0646\u0652\u0637\u064E\u0627\u0644"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - beh_fathah
+      - noon_sukun
+      - tah_fathah
+      - alef
+      - lam
+      _Drawing: F8
+      _Complexity: 1
+    - _Id: the_well-being
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 1
+      _Gender: 0
+      _LinkedWord: well-being
+      _Text: "\u0627\u064E\u0644\u062E\u064E\u064A\u0652\u0631"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - khah_fathah
+      - yeh_sukun
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: the_whale
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: whale
+      _Text: "\u0627\u064E\u0644\u062D\u064F\u0648\u062A"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - hah_dammah
+      - waw
+      - teh
+      _Drawing: FD
+      _Complexity: 0.3
+    - _Id: the_window
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 1
+      _Gender: 1
+      _LinkedWord: window
+      _Text: "\u0627\u064E\u0644\u0646\u064E\u0651\u0627\u0641\u0650\u0630\u064E\u0629"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - noon_fathah
+      - alef
+      - feh_kasrah
+      - thal_fathah
+      - teh_marbuta
+      _Drawing: 177
+      _Complexity: 1
+    - _Id: the_winter
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: winter
+      _Text: "\u0627\u064E\u0644\u0634\u0650\u0651\u062A\u064E\u0627\u0621"
+      _Value: 
+      _Letters:
+      - alef_fathah
+      - lam
+      - sheen_kasrah
+      - teh_fathah
+      - alef
+      - hamza
+      _Drawing: BF
+      _Complexity: 0.6
+    - _Id: the_wonderful
+      _Active: 1
+      _Kind: 5
+      _Category: 11
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: wonderful
+      _Text: "\u0627\u0644\u0631\u0651\u0627\u0626\u0639"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - reh
+      - alef
+      - yeh_hamza
+      - ain
+      _Drawing: 24
+      _Complexity: 0.6
+    - _Id: the_worker
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 1
+      _Gender: 2
+      _LinkedWord: worker
+      _Text: "\u0627\u0644\u0639\u0627\u0645\u0644"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - ain
+      - alef
+      - meem
+      - lam
+      _Drawing: 27
+      _Complexity: 0.6
+    - _Id: tiger
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0645\u0652\u0631"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - meem_sukun
+      - reh
+      _Drawing: F5
+      _Complexity: 0.3
+    - _Id: to
+      _Active: 1
+      _Kind: 4
+      _Category: 22
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0625\u0644\u0649"
+      _Value: 
+      _Letters:
+      - alef_hamza_low
+      - lam
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: today
+      _Active: 1
+      _Kind: 6
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u064A\u064E\u0648\u0645"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - yeh_fathah
+      - waw
+      - meem
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: toilet
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0650\u0631\u0652\u062D\u064E\u0627\u0636"
+      _Value: 
+      _Letters:
+      - meem_kasrah
+      - reh_sukun
+      - hah_fathah
+      - alef
+      - dad
+      _Drawing: 153
+      _Complexity: 1
+    - _Id: tomato
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0628\u0646\u062F\u0648\u0631\u0629"
+      _Value: 
+      _Letters:
+      - beh
+      - noon
+      - dal
+      - waw
+      - reh
+      - teh_marbuta
+      _Drawing: FE
+      _Complexity: 0.6
+    - _Id: tomorrow
+      _Active: 1
+      _Kind: 6
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u063A\u064E\u062F\u0627"
+      _Value: 
+      _Letters:
+      - ghain_fathah
+      - dal
+      - alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: tongue
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u0650\u0633\u0627\u0646"
+      _Value: 
+      _Letters:
+      - lam_kasrah
+      - seen
+      - alef
+      - noon
+      _Drawing: 118
+      _Complexity: 0.6
+    - _Id: tooth
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0646\u0651"
+      _Value: 
+      _Letters:
+      - seen_fathah
+      - noon
+      _Drawing: DF
+      _Complexity: 0.3
+    - _Id: tower
+      _Active: 1
+      _Kind: 5
+      _Category: 8
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u064F\u0631\u0652\u062C"
+      _Value: 
+      _Letters:
+      - beh_dammah
+      - reh_sukun
+      - jeem
+      _Drawing: FA
+      _Complexity: 0.3
+    - _Id: tree
+      _Active: 1
+      _Kind: 5
+      _Category: 14
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u064E\u062C\u064E\u0631"
+      _Value: 
+      _Letters:
+      - sheen_fathah
+      - jeem_fathah
+      - reh
+      _Drawing: FB
+      _Complexity: 0.3
+    - _Id: triangle
+      _Active: 1
+      _Kind: 5
+      _Category: 30
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064F\u062B\u064E\u0644\u064E\u0651\u062B"
+      _Value: 
+      _Letters:
+      - meem_dammah
+      - theh_fathah
+      - lam_fathah
+      - theh
+      _Drawing: FC
+      _Complexity: 1
+    - _Id: trousers
+      _Active: 1
+      _Kind: 5
+      _Category: 17
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0646\u0637\u0627\u0644"
+      _Value: 
+      _Letters:
+      - beh
+      - noon
+      - tah
+      - alef
+      - lam
+      _Drawing: F8
+      _Complexity: 0.6
+    - _Id: two_girls
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 2
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u0646\u0652\u062A\u064E\u064A\u0646"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - noon_sukun
+      - teh_fathah
+      - yeh
+      - noon
+      _Drawing: 9A
+      _Complexity: 0
+    - _Id: uncle_father
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064E\u0645\u0651"
+      _Value: 
+      _Letters:
+      - ain_fathah
+      - meem
+      _Drawing: A4
+      _Complexity: 0.3
+    - _Id: uncle_mother
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062E\u0627\u0644"
+      _Value: 
+      _Letters:
+      - khah
+      - alef
+      - lam
+      _Drawing: A2
+      _Complexity: 0.3
+    - _Id: under
+      _Active: 1
+      _Kind: 4
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062D\u0652\u062A"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - hah_sukun
+      - teh
+      _Drawing: 9B
+      _Complexity: 0
+    - _Id: understood
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0641\u064E\u0647\u0650\u0645\u064E"
+      _Value: 
+      _Letters:
+      - feh_fathah
+      - heh_kasrah
+      - meem_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: vegetables
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062E\u064F\u0636\u064E\u0631"
+      _Value: 
+      _Letters:
+      - khah_dammah
+      - dad_fathah
+      - reh
+      _Drawing: 2E
+      _Complexity: 0.3
+    - _Id: vegetarian
+      _Active: 1
+      _Kind: 1
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0628\u064E\u0627\u062A\u064A"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - beh_fathah
+      - alef
+      - teh
+      - yeh
+      _Drawing: 9C
+      _Complexity: 0
+    - _Id: vegetarians
+      _Active: 1
+      _Kind: 1
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0628\u064E\u0627\u062A\u064A\u0651\u0646"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - beh_fathah
+      - alef
+      - teh
+      - yeh
+      - noon
+      _Drawing: 9D
+      _Complexity: 0
+    - _Id: verymuch
+      _Active: 1
+      _Kind: 6
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062C\u064E\u0632\u064A\u0644\u0627"
+      _Value: 
+      _Letters:
+      - jeem_fathah
+      - zain
+      - yeh
+      - lam_alef
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: virtuous
+      _Active: 1
+      _Kind: 1
+      _Category: 1
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0632\u064A\u0647"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - zain
+      - yeh
+      - heh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: voice
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0635\u0648\u062A"
+      _Value: 
+      _Letters:
+      - sad
+      - waw
+      - teh
+      _Drawing: F9
+      _Complexity: 0.3
+    - _Id: vowel
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u0631\u0641 \u0639\u0644\u0651\u0629"
+      _Value: 
+      _Letters:
+      - hah
+      - reh
+      - feh
+      - ain
+      - lam
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 1
+    - _Id: walked
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0634\u064E\u0649"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - sheen_fathah
+      - alef_maqsura
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: was
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u0627\u0646"
+      _Value: 
+      _Letters:
+      - kaf
+      - alef
+      - noon
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: washing_machine
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u063A\u064E\u0633\u0651\u0627\u0644\u064E\u0629"
+      _Value: 
+      _Letters:
+      - ghain_fathah
+      - seen
+      - alef
+      - lam_fathah
+      - teh_marbuta
+      _Drawing: 175
+      _Complexity: 0.6
+    - _Id: water
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0645\u0627\u0621"
+      _Value: 
+      _Letters:
+      - meem
+      - alef
+      - hamza
+      _Drawing: 2019
+      _Complexity: 0.6
+    - _Id: watermelon
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0628\u0637\u064A\u062E"
+      _Value: 
+      _Letters:
+      - beh
+      - tah
+      - yeh
+      - khah
+      _Drawing: 3F
+      _Complexity: 0.6
+    - _Id: we_love
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064F\u062D\u0650\u0628\u064F"
+      _Value: 
+      _Letters:
+      - noon_dammah
+      - hah_kasrah
+      - beh_dammah
+      _Drawing: 9E
+      _Complexity: 0
+    - _Id: we_praise
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u062B\u0652\u0646\u064A"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - theh_sukun
+      - noon
+      - yeh
+      _Drawing: 
+      _Complexity: 0
+    - _Id: we_prove
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u062B\u0652\u0628\u064E\u062A\u064F"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - theh_sukun
+      - beh_fathah
+      - teh_dammah
+      _Drawing: 80
+      _Complexity: 0
+    - _Id: we_search
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 3
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0628\u0652\u062D\u064E\u062B\u064F"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - beh_sukun
+      - hah_fathah
+      - theh_dammah
+      _Drawing: 9F
+      _Complexity: 0
+    - _Id: welcome
+      _Active: 1
+      _Kind: 6
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0623\u0647\u0652\u0644\u0627"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi
+      - heh_sukun
+      - lam_alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: welcome_assertion
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0633\u064E\u0647\u0652\u0644\u0627"
+      _Value: 
+      _Letters:
+      - seen_fathah
+      - heh_sukun
+      - lam_alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: well-being
+      _Active: 1
+      _Kind: 5
+      _Category: 19
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062E\u064E\u064A\u0631"
+      _Value: 
+      _Letters:
+      - khah_fathah
+      - yeh
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: went
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0630\u064E\u0647\u064E\u0628\u064E"
+      _Value: 
+      _Letters:
+      - thal_fathah
+      - heh_fathah
+      - beh_fathah
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: went_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0630\u064E\u0647\u064E\u0628\u064E\u062A"
+      _Value: 
+      _Letters:
+      - thal_fathah
+      - heh_fathah
+      - beh_fathah
+      - teh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: whale
+      _Active: 1
+      _Kind: 5
+      _Category: 10
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u062D\u0648\u062A"
+      _Value: 
+      _Letters:
+      - hah
+      - waw
+      - teh
+      _Drawing: FD
+      _Complexity: 0.3
+    - _Id: what
+      _Active: 1
+      _Kind: 4
+      _Category: 23
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u0627"
+      _Value: 
+      _Letters:
+      - meem
+      - alef
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: whats
+      _Active: 1
+      _Kind: 4
+      _Category: 23
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u0645"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - meem
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: when
+      _Active: 1
+      _Kind: 4
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u064A\u0646"
+      _Value: 
+      _Letters:
+      - hah
+      - yeh
+      - noon
+      _Drawing: 11B
+      _Complexity: 0
+    - _Id: where
+      _Active: 1
+      _Kind: 4
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u064E\u064A\u062B"
+      _Value: 
+      _Letters:
+      - hah_fathah
+      - yeh
+      - theh
+      _Drawing: 82
+      _Complexity: 0
+    - _Id: window
+      _Active: 1
+      _Kind: 5
+      _Category: 12
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0627\u0641\u0650\u0630\u064E\u0629"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - alef
+      - feh_kasrah
+      - thal_fathah
+      - teh_marbuta
+      _Drawing: 177
+      _Complexity: 0.6
+    - _Id: winter
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0634\u0650\u062A\u0627\u0621"
+      _Value: 
+      _Letters:
+      - sheen_kasrah
+      - teh
+      - alef
+      - hamza
+      _Drawing: BF
+      _Complexity: 0.6
+    - _Id: with_article
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0645\u064E\u0639\u064E \u0623\u062F\u0627\u0629 \u0627\u064E\u0644\u0652\u062A\u064E\u0639\u0652\u0631\u0650\u064A\u0641"
+      _Value: 
+      _Letters:
+      - meem_fathah
+      - ain_fathah
+      - alef_hamza_hi
+      - dal
+      - alef
+      - teh_marbuta
+      - alef_fathah
+      - lam_sukun
+      - teh_fathah
+      - ain_sukun
+      - reh_kasrah
+      - yeh
+      - feh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: with_well-being
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0628\u0650\u062E\u064E\u064A\u0631"
+      _Value: 
+      _Letters:
+      - beh_kasrah
+      - khah_fathah
+      - yeh
+      - reh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: without_article
+      _Active: 1
+      _Kind: 7
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062F\u0648\u0646 \u0623\u062F\u0627\u0629 \u0627\u0644\u062A\u0639\u0631\u064A\u0641"
+      _Value: 
+      _Letters:
+      - dal
+      - waw
+      - noon
+      - alef_hamza_hi
+      - dal
+      - alef
+      - teh_marbuta
+      - alef
+      - lam
+      - teh
+      - ain
+      - reh
+      - yeh
+      - feh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: woman
+      _Active: 1
+      _Kind: 5
+      _Category: 5
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0627\u0645\u0631\u0623\u0629"
+      _Value: 
+      _Letters:
+      - alef
+      - meem
+      - reh
+      - alef_hamza_hi
+      - teh_marbuta
+      _Drawing: 22
+      _Complexity: 1
+    - _Id: won
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0628\u0650\u062D\u064E"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - beh_kasrah
+      - hah_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: won_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0628\u0650\u062D\u064E\u062A"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - beh_kasrah
+      - hah_fathah
+      - teh
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: wonderful
+      _Active: 1
+      _Kind: 1
+      _Category: 11
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0631\u064E\u0627\u0626\u0639"
+      _Value: 
+      _Letters:
+      - reh_fathah
+      - alef
+      - yeh_hamza
+      - ain
+      _Drawing: 24
+      _Complexity: 0.6
+    - _Id: wore
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u064E\u0628\u0650\u0633\u064E"
+      _Value: 
+      _Letters:
+      - lam_fathah
+      - beh_kasrah
+      - seen_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: worker
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0627\u0645\u0650\u0644"
+      _Value: 
+      _Letters:
+      - ain
+      - alef
+      - meem_kasrah
+      - lam
+      _Drawing: 27
+      _Complexity: 0.6
+    - _Id: worker_dual
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 2
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0627\u0645\u0650\u0644\u0627\u0646"
+      _Value: 
+      _Letters:
+      - ain
+      - alef
+      - meem_kasrah
+      - lam_alef
+      - noon
+      _Drawing: 201D
+      _Complexity: 0.6
+    - _Id: worker_plural
+      _Active: 1
+      _Kind: 5
+      _Category: 16
+      _Form: 3
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u064F\u0645\u0651\u0627\u0644"
+      _Value: 
+      _Letters:
+      - ain_dammah
+      - meem
+      - alef
+      - lam
+      _Drawing: 2018
+      _Complexity: 0.6
+    - _Id: wrote
+      _Active: 1
+      _Kind: 2
+      _Category: 31
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0643\u064E\u062A\u064E\u0628\u064E"
+      _Value: 
+      _Letters:
+      - kaf_fathah
+      - teh_fathah
+      - beh_fathah
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: year
+      _Active: 1
+      _Kind: 5
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0639\u0627\u0645"
+      _Value: 
+      _Letters:
+      - ain
+      - alef
+      - meem
+      _Drawing: 201C
+      _Complexity: 0.3
+    - _Id: yes
+      _Active: 1
+      _Kind: 6
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0646\u064E\u0639\u064E\u0645"
+      _Value: 
+      _Letters:
+      - noon_fathah
+      - ain_fathah
+      - meem
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: yesterday
+      _Active: 1
+      _Kind: 6
+      _Category: 20
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u0627\u0644\u0628\u0627\u0631\u062D\u0629"
+      _Value: 
+      _Letters:
+      - alef
+      - lam
+      - beh
+      - alef
+      - reh
+      - hah
+      - teh_marbuta
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: yogurt
+      _Active: 1
+      _Kind: 5
+      _Category: 4
+      _Form: 1
+      _Article: 0
+      _Gender: 2
+      _LinkedWord: 
+      _Text: "\u0644\u064E\u0628\u064E\u0646"
+      _Value: 
+      _Letters:
+      - lam_fathah
+      - beh_fathah
+      - noon
+      _Drawing: 2A
+      _Complexity: 0.3
+    - _Id: you
+      _Active: 1
+      _Kind: 8
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0623\u064E\u0646\u0652\u062A"
+      _Value: 
+      _Letters:
+      - alef_hamza_hi_fathah
+      - noon_sukun
+      - teh
+      _Drawing: 
+      _Complexity: 0.3
+    - _Id: you_love_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064F\u062D\u0650\u0628\u064A\u0646\u064E"
+      _Value: 
+      _Letters:
+      - teh_dammah
+      - hah_kasrah
+      - beh
+      - yeh
+      - noon_fathah
+      _Drawing: 
+      _Complexity: 0
+    - _Id: you_praise
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062B\u0652\u0646\u064A\u0646\u064E"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - theh_sukun
+      - noon
+      - yeh
+      - noon_fathah
+      _Drawing: 
+      _Complexity: 0
+    - _Id: you_prove
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u062B\u0652\u0628\u064E\u062A\u064A\u0646\u064E"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - theh_sukun
+      - beh_fathah
+      - teh
+      - yeh
+      - noon_fathah
+      _Drawing: 
+      _Complexity: 0
+    - _Id: you_search_feminine
+      _Active: 1
+      _Kind: 2
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 1
+      _LinkedWord: 
+      _Text: "\u062A\u064E\u0628\u0652\u062D\u064E\u062B\u0650\u064A\u0646\u064E"
+      _Value: 
+      _Letters:
+      - teh_fathah
+      - beh_sukun
+      - hah_fathah
+      - theh_kasrah
+      - yeh
+      - noon_fathah
+      _Drawing: 
+      _Complexity: 0
+    - _Id: your_name
+      _Active: 1
+      _Kind: 5
+      _Category: 0
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u0627\u0650\u0633\u0652\u0645\u064F\u0643"
+      _Value: 
+      _Letters:
+      - alef_kasrah
+      - seen_sukun
+      - meem_dammah
+      - kaf
+      _Drawing: 
+      _Complexity: 0.6
+    - _Id: your_situation
+      _Active: 1
+      _Kind: 5
+      _Category: 21
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062D\u0627\u0644\u064F\u0643"
+      _Value: 
+      _Letters:
+      - hah
+      - alef
+      - lam_dammah
+      - kaf
+      _Drawing: 
+      _Complexity: 0.6

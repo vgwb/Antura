@@ -1,0 +1,3617 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88365ef119df47041ba7768b282cea54, type: 3}
+  m_Name: Database_Localization
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Id: Action_ChooseAvatar
+      _NativeText: Elegir un animal que lo represente
+      _NativeText_F: 
+      _NativeAudio: Action_ChooseAvatar
+      _LearningText: Choose an animal to represent you
+      _LearningText_F: 
+      _LearningAudio: Action_ChooseAvatar
+    - _Id: Action_ConfirmNewProfile
+      _NativeText: "\xBFEst\xE1 seguro de que desea crear un nuevo perfil?"
+      _NativeText_F: 
+      _NativeAudio: Action_ConfirmNewProfile
+      _LearningText: Are you sure you want to create a new profile?
+      _LearningText_F: 
+      _LearningAudio: Action_ConfirmNewProfile
+    - _Id: Action_Createprofile
+      _NativeText: "Pulse el bot\xF3n PLUS para crear su perfil"
+      _NativeText_F: 
+      _NativeAudio: Action_Createprofile
+      _LearningText: Press the PLUS button to create your profile
+      _LearningText_F: 
+      _LearningAudio: Action_Createprofile
+    - _Id: Action_PressPlay
+      _NativeText: "\xA1Presiona play!"
+      _NativeText_F: 
+      _NativeAudio: Action_PressPlay
+      _LearningText: Press PLAY!
+      _LearningText_F: 
+      _LearningAudio: Action_PressPlay
+    - _Id: AlphabetSong_letters_Intro
+      _NativeText: Es hora de cantar todas las letras
+      _NativeText_F: 
+      _NativeAudio: AlphabetSong_letters_Intro
+      _LearningText: It's time to sing all the letters
+      _LearningText_F: 
+      _LearningAudio: AlphabetSong_letters_Intro
+    - _Id: AlphabetSong_letters_Title
+      _NativeText: "Diacr\xEDtica canci\xF3n!"
+      _NativeText_F: 
+      _NativeAudio: AlphabetSong_letters_Title
+      _LearningText: Diacritic Song!
+      _LearningText_F: 
+      _LearningAudio: AlphabetSong_letters_Title
+    - _Id: AnturaSpace_Custom_1
+      _NativeText: Puede personalizar Antura con todos los regalos que te doy
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Custom_1
+      _LearningText: You can customize Antura with all the Gifts I give you
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Custom_1
+    - _Id: AnturaSpace_Custom_2
+      _NativeText: "Pulse el bot\xF3n ANTURA le personalizar"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Custom_2
+      _LearningText: Press the ANTURA button to customize him
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Custom_2
+    - _Id: AnturaSpace_Custom_3
+      _NativeText: "\xA1Hermoso! Y usted puede cambiar los colores a su gusto ..."
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Custom_3
+      _LearningText: Beautiful! And you can change the colors the way you like...
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Custom_3
+    - _Id: AnturaSpace_Custom_4
+      _NativeText: "Una vez que est\xE9 satisfecho con los colores que puede seguir
+        adelante"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Custom_4
+      _LearningText: Once you are happy with the colors you can move on
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Custom_4
+    - _Id: AnturaSpace_Exit
+      _NativeText: "Pulse el bot\xF3n Salir"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Exit
+      _LearningText: Press the Exit button
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Exit
+    - _Id: AnturaSpace_Intro
+      _NativeText: "Aqu\xED se juega con Antura, intenta tocarlo"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Intro
+      _LearningText: Here you play with Antura, try to touch him
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Intro
+    - _Id: AnturaSpace_Intro_Cookie
+      _NativeText: Antura ama las galletas!
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Intro_Cookie
+      _LearningText: Antura loves cookies!
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Intro_Cookie
+    - _Id: AnturaSpace_Intro_Touch
+      _NativeText: "\xBFLo ves? Antura siempre est\xE1 dispuesto a jugar contigo"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Intro_Touch
+      _LearningText: You see? Antura is always willing to play with you
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Intro_Touch
+    - _Id: AnturaSpace_Photo_Gallery
+      _NativeText: "Las fotos se guardan en el dispositivo Galer\xEDa de fotos"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Photo_Gallery
+      _LearningText: Photos are saved into your device Photo Gallery
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Photo_Gallery
+    - _Id: AnturaSpace_Photo_Intro
+      _NativeText: Mira Antura! Se merece una foto ...
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Photo_Intro
+      _LearningText: Look at Antura! He deserves a photo...
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Photo_Intro
+    - _Id: AnturaSpace_Photo_Take
+      _NativeText: "Pulse el bot\xF3n PHOTO"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Photo_Take
+      _LearningText: Press the PHOTO button
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Photo_Take
+    - _Id: AnturaSpace_PlayAndExit
+      _NativeText: "Juega con Antura todo el tiempo que desee, a continuaci\xF3n,
+        salga para continuar su aventura"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_PlayAndExit
+      _LearningText: Play with Antura as long as you want, then exit to continue your
+        adventure
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_PlayAndExit
+    - _Id: AnturaSpace_Shop_BuyItem
+      _NativeText: Arrastre un objeto para comprarlo
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_BuyItem
+      _LearningText: Drag an object to buy it
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_BuyItem
+    - _Id: AnturaSpace_Shop_Close
+      _NativeText: "Pulse de nuevo el bot\xF3n de galletas para cerrar la tienda"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_Close
+      _LearningText: Press again the COOKIE button to close the Shop
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_Close
+    - _Id: AnturaSpace_Shop_Cookie
+      _NativeText: Arrastre una cookie, y echarlo a Antura
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_Cookie
+      _LearningText: Drag a cookie and throw it to Antura
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_Cookie
+    - _Id: AnturaSpace_Shop_Intro
+      _NativeText: "Puede utilizar las cookies para comprar art\xEDculos para Antura"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_Intro
+      _LearningText: You can use your Cookies to buy items for Antura
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_Intro
+    - _Id: AnturaSpace_Shop_MoveItem
+      _NativeText: Arrastre de nuevo el objeto para moverlo
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_MoveItem
+      _LearningText: Drag again the object to move it around
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_MoveItem
+    - _Id: AnturaSpace_Shop_Open
+      _NativeText: "Presione el bot\xF3n de galletas para abrir la tienda"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Shop_Open
+      _LearningText: Press the COOKIE button to open the Shop
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Shop_Open
+    - _Id: AnturaSpace_Tuto_Cookie_1
+      _NativeText: "Presione el bot\xF3n de galletas para lanzar una cookie para Antura"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Tuto_Cookie_1
+      _LearningText: Press the COOKIE button to throw a cookie for Antura
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Tuto_Cookie_1
+    - _Id: AnturaSpace_Tuto_Cookie_2
+      _NativeText: "Tambi\xE9n puede arrastrar una cookie alrededor antes de tirarlo"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Tuto_Cookie_2
+      _LearningText: You can also drag a cookie around before throwing it
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Tuto_Cookie_2
+    - _Id: AnturaSpace_Tuto_Cookie_3
+      _NativeText: "No se preocupe, cuanto m\xE1s juegue los m\xE1s cookies que usted
+        conseguir\xE1!"
+      _NativeText_F: 
+      _NativeAudio: AnturaSpace_Tuto_Cookie_3
+      _LearningText: "Don\u2019t worry, the more you play the more cookies you will
+        get!"
+      _LearningText_F: 
+      _LearningAudio: AnturaSpace_Tuto_Cookie_3
+    - _Id: Assessment_Classify_Letters
+      _NativeText: Las cartas pueden ser vocales o consonantes. Arrastrarlos al grupo
+        correcto.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Classify_Letters
+      _LearningText: Letters can be Vowels or Consonants. Drag them to the correct
+        group.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Classify_Letters
+    - _Id: Assessment_Classify_Letters_Article
+      _NativeText: Las cartas pueden ser Luna o Sol Arrastrarlos al grupo correcto.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Classify_Letters_Article
+      _LearningText: Letters can be Moon or Sun. Drag them to correct group.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Classify_Letters_Article
+    - _Id: Assessment_Classify_Word_Article
+      _NativeText: "Las palabras pueden aceptar el art\xEDculo \"Al\" o no. Arrastrarlos
+        al grupo correcto."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Classify_Word_Article
+      _LearningText: Words can accept the "Al" article or not. Drag them to the correct
+        group.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Classify_Word_Article
+    - _Id: Assessment_Classify_Word_Nouns
+      _NativeText: Las palabras pueden ser singular, dual o plural. Arrastrarlos al
+        grupo correcto.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Classify_Word_Nouns
+      _LearningText: Words can be Singular, Dual or Plural. Drag them to the correct
+        group.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Classify_Word_Nouns
+    - _Id: Assessment_Classify_Words_Article
+      _NativeText: Las palabras pueden ser pronunced como "La Luna" o como "The Sun".
+        Arrastrarlos al grupo correcto.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Classify_Words_Article
+      _LearningText: Words can be pronunced like "The Moon" or like "The Sun". Drag
+        them to correct group.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Classify_Words_Article
+    - _Id: Assessment_Complete_1
+      _NativeText: "\xA1Lo hiciste!"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Complete_1
+      _LearningText: You did it!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Complete_1
+    - _Id: Assessment_Complete_2
+      _NativeText: "\xA1Sab\xEDa que podr\xEDas hacerlo!"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Complete_2
+      _LearningText: I knew you could do it!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Complete_2
+    - _Id: Assessment_Complete_3
+      _NativeText: "\xA1S\xED! \xA1Bien hecho!"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Complete_3
+      _LearningText: Yes! Well done!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Complete_3
+    - _Id: Assessment_Dog_Gone_1
+      _NativeText: "\xA1Bien hecho! Ahora puede comenzar ..."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Dog_Gone_1
+      _LearningText: Well done! Now you can start...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Dog_Gone_1
+    - _Id: Assessment_Dog_Gone_2
+      _NativeText: "\xA1Finalmente! Es hora de empezar."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Dog_Gone_2
+      _LearningText: Finally! It's time to start.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Dog_Gone_2
+    - _Id: Assessment_Dog_Gone_3
+      _NativeText: Bye bye Antura! Vamonos...
+      _NativeText_F: 
+      _NativeAudio: Assessment_Dog_Gone_3
+      _LearningText: Bye bye Antura! Let's go...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Dog_Gone_3
+    - _Id: Assessment_Match_Letters_Words
+      _NativeText: Estas cartas pertenecen a estas palabras. Arrastre cada letra a
+        la palabra correcta.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Match_Letters_Words
+      _LearningText: These Letters belong to these Words. Drag each Letter to the
+        correct Word.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Match_Letters_Words
+    - _Id: Assessment_Match_Sentences
+      _NativeText: Arrastre cada frase a la que corresponde.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Match_Sentences
+      _LearningText: Drag each Sentence to the corresponding one.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Match_Sentences
+    - _Id: Assessment_Match_Word_Image
+      _NativeText: Arrastra cada palabra de la imagen correcta.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Match_Word_Image
+      _LearningText: Drag each Word to the correct Image.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Match_Word_Image
+    - _Id: Assessment_Order_Letters
+      _NativeText: Poner las letras en el orden correcto para formar esta Palabra
+      _NativeText_F: 
+      _NativeAudio: Assessment_Order_Letters
+      _LearningText: Put the Letters in the correct order to form this Word
+      _LearningText_F: 
+      _LearningAudio: Assessment_Order_Letters
+    - _Id: Assessment_Push_Dog_1
+      _NativeText: Por favor, deshacerse de Antura para que podamos empezar ...
+      _NativeText_F: 
+      _NativeAudio: Assessment_Push_Dog_1
+      _LearningText: Please get rid of Antura so we can start...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Push_Dog_1
+    - _Id: Assessment_Push_Dog_2
+      _NativeText: "\xC9l / ella no puede quedarse aqu\xED, empujarlo ..."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Push_Dog_2
+      _LearningText: He/she cannot stay here, push him away...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Push_Dog_2
+    - _Id: Assessment_Push_Dog_3
+      _NativeText: Vamos a empezar tan pronto como deja Antura
+      _NativeText_F: 
+      _NativeAudio: Assessment_Push_Dog_3
+      _LearningText: We will start as soon as Antura leaves
+      _LearningText_F: 
+      _LearningAudio: Assessment_Push_Dog_3
+    - _Id: Assessment_Select_Letter_Image
+      _NativeText: Esta palabra no se encuentra una carta. Arrastre la correcta.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Select_Letter_Image
+      _LearningText: This word is missing a Letter. Drag the correct one.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Select_Letter_Image
+    - _Id: Assessment_Select_Letter_Listen
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, arrastre la letra
+        correcta"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Select_Letter_Listen
+      _LearningText: Listen carefully, then drag the correct Letter
+      _LearningText_F: 
+      _LearningAudio: Assessment_Select_Letter_Listen
+    - _Id: Assessment_Select_Word_Listen
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, arrastre la palabra
+        correcta."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Select_Word_Listen
+      _LearningText: Listen carefully, then drag the correct Word.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Select_Word_Listen
+    - _Id: Assessment_Select_Words
+      _NativeText: Esta carta pertenece a algunas de las palabras de abajo. Arrastre
+        todos ellos.
+      _NativeText_F: 
+      _NativeAudio: Assessment_Select_Words
+      _LearningText: This letter belongs to some of the words below. Drag all of them.
+      _LearningText_F: 
+      _LearningAudio: Assessment_Select_Words
+    - _Id: Assessment_Start_1
+      _NativeText: Es hora de demostrar lo que ha aprendido hasta ahora!
+      _NativeText_F: 
+      _NativeAudio: Assessment_Start_1
+      _LearningText: It's time to prove what you learned so far!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Start_1
+    - _Id: Assessment_Start_2
+      _NativeText: "Vamos a ver si usted prest\xF3 atenci\xF3n \xFAltimamente ..."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Start_2
+      _LearningText: Let's see if you paid attention lately...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Start_2
+    - _Id: Assessment_Start_3
+      _NativeText: "\xBFEst\xE1s listo para mostrar lo que ha aprendido?"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Start_3
+      _LearningText: Are you ready to show what you learned?
+      _LearningText_F: 
+      _LearningAudio: Assessment_Start_3
+    - _Id: Assessment_Upset_1
+      _NativeText: "\xBFQu\xE9? Antura No es este el momento para jugar con usted!"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Upset_1
+      _LearningText: What? Antura this not the moment to play with you!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Upset_1
+    - _Id: Assessment_Upset_2
+      _NativeText: "\xA1Oh no! Antura que est\xE1n siempre en el medio!"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Upset_2
+      _LearningText: Oh no! Antura you are always in the middle!
+      _LearningText_F: 
+      _LearningAudio: Assessment_Upset_2
+    - _Id: Assessment_Upset_3
+      _NativeText: "\xBFOtra vez tu? \xBFQu\xE9 puedo hacer con este perro?"
+      _NativeText_F: 
+      _NativeAudio: Assessment_Upset_3
+      _LearningText: Again you? What can I do with this dog?
+      _LearningText_F: 
+      _LearningAudio: Assessment_Upset_3
+    - _Id: Assessment_Wrong_1
+      _NativeText: Oh oh ... vamos a probar de nuevo ...
+      _NativeText_F: 
+      _NativeAudio: Assessment_Wrong_1
+      _LearningText: Oh oh... let's try again...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Wrong_1
+    - _Id: Assessment_Wrong_2
+      _NativeText: Mmm ... ahora que va a hacer mejor
+      _NativeText_F: 
+      _NativeAudio: Assessment_Wrong_2
+      _LearningText: Mmm... now you'll do better
+      _LearningText_F: 
+      _LearningAudio: Assessment_Wrong_2
+    - _Id: Assessment_Wrong_3
+      _NativeText: "Todav\xEDa no ... una vez m\xE1s ..."
+      _NativeText_F: 
+      _NativeAudio: Assessment_Wrong_3
+      _LearningText: Not yet... one more time...
+      _LearningText_F: 
+      _LearningAudio: Assessment_Wrong_3
+    - _Id: Balloons_counting_Intro
+      _NativeText: "\xA1Mira! Todas estas palabras son n\xFAmeros ..."
+      _NativeText_F: 
+      _NativeAudio: Balloons_counting_Intro
+      _LearningText: Look! All these Words are numbers...
+      _LearningText_F: 
+      _LearningAudio: Balloons_counting_Intro
+    - _Id: Balloons_counting_Title
+      _NativeText: "Globos y n\xFAmeros!"
+      _NativeText_F: 
+      _NativeAudio: Balloons_counting_Title
+      _LearningText: Balloons & Numbers!
+      _LearningText_F: 
+      _LearningAudio: Balloons_counting_Title
+    - _Id: Balloons_counting_Tuto
+      _NativeText: "Estallar los globos en el orden correcto: desde el n\xFAmero m\xE1s
+        peque\xF1o que el m\xE1s grande"
+      _NativeText_F: 
+      _NativeAudio: Balloons_counting_Tuto
+      _LearningText: 'Pop the balloons in the right order: from the smallest number
+        to the biggest one'
+      _LearningText_F: 
+      _LearningAudio: Balloons_counting_Tuto
+    - _Id: Balloons_image_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Balloons_Image_Intro
+      _LearningText: There are too many Images...
+      _LearningText_F: 
+      _LearningAudio: Balloons_Image_Intro
+    - _Id: Balloons_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Balloons_Image_Title
+      _LearningText: Balloons & the Image!
+      _LearningText_F: 
+      _LearningAudio: Balloons_Image_Title
+    - _Id: Balloons_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Balloons_Image_Tuto
+      _LearningText: Pop the balloons of the correct one
+      _LearningText_F: 
+      _LearningAudio: Balloons_Image_Tuto
+    - _Id: Balloons_letterinword_Intro
+      _NativeText: Carta que pertenece a algunas de las palabras de arriba
+      _NativeText_F: 
+      _NativeAudio: Game_Balloons_letterinword_Intro
+      _LearningText: That Letter belongs to some of the Words above
+      _LearningText_F: 
+      _LearningAudio: Game_Balloons_letterinword_Intro
+    - _Id: Balloons_letterinword_Title
+      _NativeText: Globos y la Carta compartido!
+      _NativeText_F: 
+      _NativeAudio: Game_Balloons_letterinword_Title
+      _LearningText: Balloons & the Shared Letter!
+      _LearningText_F: 
+      _LearningAudio: Game_Balloons_letterinword_Title
+    - _Id: Balloons_letterinword_Tuto
+      _NativeText: Estallar los globos de las palabras correctas
+      _NativeText_F: 
+      _NativeAudio: Game_Balloons_letterinword_Tuto
+      _LearningText: Pop the balloons of the right Words
+      _LearningText_F: 
+      _LearningAudio: Game_Balloons_letterinword_Tuto
+    - _Id: Balloons_spelling_Intro
+      _NativeText: Hay demasiadas letras para formar esta Palabra!
+      _NativeText_F: 
+      _NativeAudio: Balloons_spelling_Intro
+      _LearningText: There are too many Letters to form this Word!
+      _LearningText_F: 
+      _LearningAudio: Balloons_spelling_Intro
+    - _Id: Balloons_spelling_Title
+      _NativeText: Globos y la palabra oculta!
+      _NativeText_F: 
+      _NativeAudio: Balloons_spelling_Title
+      _LearningText: Balloons & the Hidden Word!
+      _LearningText_F: 
+      _LearningAudio: Balloons_spelling_Title
+    - _Id: Balloons_spelling_Tuto
+      _NativeText: "Estallar los globos y dejar s\xF3lo las letras correctas"
+      _NativeText_F: 
+      _NativeAudio: Balloons_spelling_Tuto
+      _LearningText: Pop the balloons and LEAVE ONLY the right Letters
+      _LearningText_F: 
+      _LearningAudio: Balloons_spelling_Tuto
+    - _Id: Balloons_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Balloons_Title
+      _LearningText: Balloons!
+      _LearningText_F: 
+      _LearningAudio: Balloons_Title
+    - _Id: Balloons_word_Intro
+      _NativeText: "Hay demasiadas im\xE1genes para esta sola Palabra ..."
+      _NativeText_F: 
+      _NativeAudio: Balloons_word_Intro
+      _LearningText: There are too many Images for this single Word...
+      _LearningText_F: 
+      _LearningAudio: Balloons_word_Intro
+    - _Id: Balloons_word_Title
+      _NativeText: Globos y la palabra!
+      _NativeText_F: 
+      _NativeAudio: Balloons_word_Title
+      _LearningText: Balloons & the Word!
+      _LearningText_F: 
+      _LearningAudio: Balloons_word_Title
+    - _Id: Balloons_word_Tuto
+      _NativeText: Estallar los globos de la imagen derecha
+      _NativeText_F: 
+      _NativeAudio: Balloons_word_Tuto
+      _LearningText: Pop the balloons of the right Image
+      _LearningText_F: 
+      _LearningAudio: Balloons_word_Tuto
+    - _Id: Book_Games
+      _NativeText: Juegos
+      _NativeText_F: 
+      _NativeAudio: Book_Games
+      _LearningText: Games
+      _LearningText_F: 
+      _LearningAudio: Book_Games
+    - _Id: Book_Intro
+      _NativeText: "Esta es tu cuaderno! Aqu\xED se puede ver lo que ha aprendido
+        y lo que tiene que aprender todav\xEDa!"
+      _NativeText_F: 
+      _NativeAudio: Book_Intro
+      _LearningText: This is your copybook! Here you can see what you learned and
+        what you have still to learn!
+      _LearningText_F: 
+      _LearningAudio: Book_Intro
+    - _Id: Book_Letters
+      _NativeText: Letras
+      _NativeText_F: 
+      _NativeAudio: Book_Letters
+      _LearningText: Letters
+      _LearningText_F: 
+      _LearningAudio: Book_Letters
+    - _Id: Book_Phrases
+      _NativeText: frases
+      _NativeText_F: 
+      _NativeAudio: Book_Phrases
+      _LearningText: Phrases
+      _LearningText_F: 
+      _LearningAudio: Book_Phrases
+    - _Id: Book_Rewards
+      _NativeText: Regalos
+      _NativeText_F: 
+      _NativeAudio: Book_Rewards
+      _LearningText: Gifts
+      _LearningText_F: 
+      _LearningAudio: Book_Rewards
+    - _Id: Book_Words
+      _NativeText: Palabras
+      _NativeText_F: 
+      _NativeAudio: Book_Words
+      _LearningText: Words
+      _LearningText_F: 
+      _LearningAudio: Book_Words
+    - _Id: ColorTickle_image_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_image_Intro
+      _LearningText: The IMAGE lost her color!
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_image_Intro
+    - _Id: ColorTickle_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_image_Title
+      _LearningText: Image Tickle
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_image_Title
+    - _Id: ColorTickle_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_image_Tuto
+      _LearningText: Color the IMAGE without going out of the borders.
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_image_Tuto
+    - _Id: ColorTickle_lettername_Intro
+      _NativeText: El texto no han perdido su color!
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_lettername_Intro
+      _LearningText: The LETTER have lost her color!
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_lettername_Intro
+    - _Id: ColorTickle_lettername_Title
+      _NativeText: carta Tickle
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_lettername_Title
+      _LearningText: Letter Tickle
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_lettername_Title
+    - _Id: ColorTickle_lettername_Tuto
+      _NativeText: El color de la carta sin salir de las fronteras.
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_lettername_Tuto
+      _LearningText: Color the LETTER without going out of the borders.
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_lettername_Tuto
+    - _Id: ColorTickle_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_Title
+      _LearningText: Color Tickle
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_Title
+    - _Id: ColorTickle_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ColorTickle_Tuto
+      _LearningText: Color it without going out of the borders.
+      _LearningText_F: 
+      _LearningAudio: ColorTickle_Tuto
+    - _Id: DailyReward_Collect
+      _NativeText: Tocar las cookies para recogerlos
+      _NativeText_F: 
+      _NativeAudio: DailyReward_Collect
+      _LearningText: Touch the Cookies to collect them
+      _LearningText_F: 
+      _LearningAudio: DailyReward_Collect
+    - _Id: DailyReward_ComeBack_1
+      _NativeText: "Vuelve ma\xF1ana por m\xE1s!"
+      _NativeText_F: 
+      _NativeAudio: DailyReward_ComeBack_1
+      _LearningText: Come back tomorrow for more!
+      _LearningText_F: 
+      _LearningAudio: DailyReward_ComeBack_1
+    - _Id: DailyReward_ComeBack_2
+      _NativeText: "Jugar todos los d\xEDas para recibir m\xE1s cookies"
+      _NativeText_F: 
+      _NativeAudio: DailyReward_ComeBack_2
+      _LearningText: Play every day to receive more cookies
+      _LearningText_F: 
+      _LearningAudio: DailyReward_ComeBack_2
+    - _Id: DailyReward_Intro_1
+      _NativeText: "Todos los d\xEDas se juega Te dan unas galletas"
+      _NativeText_F: 
+      _NativeAudio: DailyReward_Intro_1
+      _LearningText: Every day you play I give you some cookies
+      _LearningText_F: 
+      _LearningAudio: DailyReward_Intro_1
+    - _Id: DailyReward_Intro_2
+      _NativeText: "Aqu\xED tienes las cookies diarias"
+      _NativeText_F: 
+      _NativeAudio: DailyReward_Intro_2
+      _LearningText: Here you have your daily cookies
+      _LearningText_F: 
+      _LearningAudio: DailyReward_Intro_2
+    - _Id: DancingDots_letterany_Intro
+      _NativeText: "Las se\xF1ales correctas dan energ\xEDa a la letra para que pueda
+        bailar! \xA1Ayudarla!"
+      _NativeText_F: 
+      _NativeAudio: Game_DancingDots_letterany_Intro
+      _LearningText: The right signs give energy to the LETTER so she can dance! Help
+        her!
+      _LearningText_F: 
+      _LearningAudio: Game_DancingDots_letterany_Intro
+    - _Id: DancingDots_letterany_Title
+      _NativeText: Bailando estrella!
+      _NativeText_F: 
+      _NativeAudio: Game_DancingDots_letterany_Title
+      _LearningText: Dancing Star!
+      _LearningText_F: 
+      _LearningAudio: Game_DancingDots_letterany_Title
+    - _Id: DancingDots_letterany_Tuto
+      _NativeText: Arrastre los signos correctos en el lugar adecuado sobre la carta.
+      _NativeText_F: 
+      _NativeAudio: Game_DancingDots_letterany_Tuto
+      _LearningText: Drag the right signs to the right place over the LETTER.
+      _LearningText_F: 
+      _LearningAudio: Game_DancingDots_letterany_Tuto
+    - _Id: Egg_buildword_Title
+      _NativeText: El huevo y la palabra oculta!
+      _NativeText_F: 
+      _NativeAudio: Egg_buildword_Title
+      _LearningText: The Egg and the hidden Word!
+      _LearningText_F: 
+      _LearningAudio: Egg_buildword_Title
+    - _Id: Egg_buildword_Tuto
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, pulse los botones
+        en el orden correcto para repetir lo que has o\xEDdo."
+      _NativeText_F: 
+      _NativeAudio: Egg_buildword_Tuto
+      _LearningText: Listen carefully, then press the buttons in the right sequence
+        to repeat what you heard.
+      _LearningText_F: 
+      _LearningAudio: Egg_buildword_Tuto
+    - _Id: Egg_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Egg_image_Title
+      _LearningText: The Egg and the Image!
+      _LearningText_F: 
+      _LearningAudio: Egg_image_Title
+    - _Id: Egg_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Egg_image_Tuto
+      _LearningText: Listen carefully, then bash the correct Image
+      _LearningText_F: 
+      _LearningAudio: Egg_image_Tuto
+    - _Id: Egg_Intro
+      _NativeText: "El huevo dijo algo! Ayudar a salir del cascar\xF3n!"
+      _NativeText_F: 
+      _NativeAudio: Egg_Intro
+      _LearningText: The egg said something! Help it to hatch!
+      _LearningText_F: 
+      _LearningAudio: Egg_Intro
+    - _Id: Egg_letterphoneme_Title
+      _NativeText: El huevo y las letras!
+      _NativeText_F: 
+      _NativeAudio: Egg_letterphoneme_Title
+      _LearningText: The Egg and the Letters!
+      _LearningText_F: 
+      _LearningAudio: Egg_letterphoneme_Title
+    - _Id: Egg_letterphoneme_Tuto
+      _NativeText: Escuche cuidadosamente y luego golpear la letra correcta
+      _NativeText_F: 
+      _NativeAudio: Egg_letterphoneme_Tuto
+      _LearningText: Listen carefully, then bash the correct Letter
+      _LearningText_F: 
+      _LearningAudio: Egg_letterphoneme_Tuto
+    - _Id: Egg_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Egg_Title
+      _LearningText: The Egg
+      _LearningText_F: 
+      _LearningAudio: Egg_Title
+    - _Id: Egg_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Egg_Tuto
+      _LearningText: Listen carefully, then bash the correct button.
+      _LearningText_F: 
+      _LearningAudio: Egg_Tuto
+    - _Id: End_Scene_1_1
+      _NativeText: "\xA1Magn\xEDfico! Su premio para terminar su viaje es superpotencias
+        en la vida real!"
+      _NativeText_F: 
+      _NativeAudio: End_Scene_1_1
+      _LearningText: Superb! Your prize for finishing your journey is superpowers
+        in real life!
+      _LearningText_F: 
+      _LearningAudio: End_Scene_1_1
+    - _Id: End_Scene_1_2
+      _NativeText: Que tiene ahora el poder de leer esto ...
+      _NativeText_F: 
+      _NativeAudio: End_Scene_1_2
+      _LearningText: "You have now the power to read this\u2026"
+      _LearningText_F: 
+      _LearningAudio: End_Scene_1_2
+    - _Id: End_Scene_2
+      _NativeText: "\xA1Usted es maravilloso!"
+      _NativeText_F: 
+      _NativeAudio: End_Scene_2
+      _LearningText: You are awesome!
+      _LearningText_F: 
+      _LearningAudio: End_Scene_2
+    - _Id: End_Scene_3_1
+      _NativeText: Ahora ve, dejar su huella en el mundo!
+      _NativeText_F: 
+      _NativeAudio: End_Scene_3_1
+      _LearningText: Now go, leave your mark in the world!
+      _LearningText_F: 
+      _LearningAudio: End_Scene_3_1
+    - _Id: End_Scene_3_2
+      _NativeText: Pero no se olvide que superpotencias necesitan ser entrenados.
+      _NativeText_F: 
+      _NativeAudio: End_Scene_3_2
+      _LearningText: But don't forget that superpowers need to be trained.
+      _LearningText_F: 
+      _LearningAudio: End_Scene_3_2
+    - _Id: End_Scene_3_3
+      _NativeText: "Volver a visitar! \xA1Te echaremos de menos!"
+      _NativeText_F: 
+      _NativeAudio: End_Scene_3_3
+      _LearningText: Come back to visit! We'll miss you!
+      _LearningText_F: 
+      _LearningAudio: End_Scene_3_3
+    - _Id: FastCrowd_buildword_Intro
+      _NativeText: "\xA1Que desastre! Vamos a poner las notas a fin de formar una
+        palabra"
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_buildword_Intro
+      _LearningText: What a mess! Let's put the Letters in order to form a Word
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_buildword_Intro
+    - _Id: FastCrowd_buildword_Title
+      _NativeText: 'Carta de Multitudes: formar una palabra!'
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_buildword_Title
+      _LearningText: 'Letter Crowd: Form a Word!'
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_buildword_Title
+    - _Id: FastCrowd_buildword_Tuto
+      _NativeText: Arrastra las letras correctas, uno por uno
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_spelling_Tuto
+      _LearningText: Drag the correct Letters, one by one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_spelling_Tuto
+    - _Id: FastCrowd_counting_Intro
+      _NativeText: "\xA1Que desastre! Vamos a poner estos n\xFAmeros en el orden correcto
+        ..."
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_counting_Intro
+      _LearningText: What a mess! Let's put these numbers in the right order...
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_counting_Intro
+    - _Id: FastCrowd_counting_Title
+      _NativeText: "N\xFAmero multitud!"
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_counting_Title
+      _LearningText: Number Crowd!
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_counting_Title
+    - _Id: FastCrowd_counting_Tuto
+      _NativeText: "Arrastra las palabras una por una, a partir del n\xFAmero m\xE1s
+        peque\xF1o al m\xE1s grande uno"
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_counting_Tuto
+      _LearningText: Drag the Words one by one, from the smallest number to the biggest
+        one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_counting_Tuto
+    - _Id: FastCrowd_image_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_image_Intro
+      _LearningText: What a mess! Let's put the Images in the right order...
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_image_Intro
+    - _Id: FastCrowd_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_image_Title
+      _LearningText: Image Crowd!
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_image_Title
+    - _Id: FastCrowd_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_image_Tuto
+      _LearningText: Drag the correct Images one by one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_image_Tuto
+    - _Id: FastCrowd_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_Intro
+      _LearningText: What a mess! Let's put everything in order
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_Intro
+    - _Id: FastCrowd_letterform_Intro
+      _NativeText: "\xA1Que desastre! Vamos a poner las letras en el orden correcto
+        ..."
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_letterform_Intro
+      _LearningText: What a mess! Let's put the Letters in the right order...
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_letterform_Intro
+    - _Id: FastCrowd_letterform_Title
+      _NativeText: Carta multitud!
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_letterform_Title
+      _LearningText: Letter Crowd!
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_letterform_Title
+    - _Id: FastCrowd_letterform_Tuto
+      _NativeText: Arrastra las letras correctas, uno por uno
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_letterform_Tuto
+      _LearningText: Drag the correct Letters, one by one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_letterform_Tuto
+    - _Id: FastCrowd_lettername_Intro
+      _NativeText: "\xA1Que desastre! Vamos a poner las letras en el orden correcto
+        ..."
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_lettername_Intro
+      _LearningText: What a mess! Let's put the Letters in the right order...
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_lettername_Intro
+    - _Id: FastCrowd_lettername_Title
+      _NativeText: Carta multitud!
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_letterform_Title
+      _LearningText: Letter Crowd!
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_letterform_Title
+    - _Id: FastCrowd_lettername_Tuto
+      _NativeText: Arrastra las letras correctas, uno por uno
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_letterform_Tuto
+      _LearningText: Drag the correct Letters, one by one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_letterform_Tuto
+    - _Id: FastCrowd_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_Title
+      _LearningText: The Crowd
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_Title
+    - _Id: FastCrowd_word_Intro
+      _NativeText: "\xA1Que desastre! Vamos a poner las palabras en el orden correcto
+        ..."
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_word_Intro
+      _LearningText: What a mess! Let's put the Words in the right order...
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_word_Intro
+    - _Id: FastCrowd_word_Title
+      _NativeText: Palabra multitud!
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_word_Title
+      _LearningText: Word Crowd!
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_word_Title
+    - _Id: FastCrowd_word_Tuto
+      _NativeText: Arrastra las palabras correctas, uno por uno
+      _NativeText_F: 
+      _NativeAudio: FastCrowd_word_Tuto
+      _LearningText: Drag the correct Words one by one
+      _LearningText_F: 
+      _LearningAudio: FastCrowd_word_Tuto
+    - _Id: Game_Title
+      _NativeText: ANTURA y las letras
+      _NativeText_F: 
+      _NativeAudio: Game_Title
+      _LearningText: ANTURA AND THE LETTERS
+      _LearningText_F: 
+      _LearningAudio: Game_Title
+    - _Id: HideSeek_image_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Image_Intro
+      _LearningText: The Words hide and you have to find them!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Image_Intro
+    - _Id: HideSeek_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Image_Title
+      _LearningText: Hidden Words!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Image_Title
+    - _Id: HideSeek_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Image_Tuto
+      _LearningText: Listen carefully, touch a bush to make a Word come out, then
+        touch the correct Word.
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Image_Tuto
+    - _Id: HideSeek_letterphoneme_Intro
+      _NativeText: Las letras ocultar y hay que encontrarlos!
+      _NativeText_F: 
+      _NativeAudio: HideSeek_letterphoneme_Intro
+      _LearningText: The LETTERS hide and you have to find them!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_letterphoneme_Intro
+    - _Id: HideSeek_letterphoneme_Title
+      _NativeText: Las cartas ocultas!
+      _NativeText_F: 
+      _NativeAudio: HideSeek_letterphoneme_Title
+      _LearningText: Hidden Letters!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_letterphoneme_Title
+    - _Id: HideSeek_letterphoneme_Tuto
+      _NativeText: "Escuchar con atenci\xF3n, toque un arbusto para hacer una carta
+        de salir, a continuaci\xF3n, toque la correcta."
+      _NativeText_F: 
+      _NativeAudio: HideSeek_letterphoneme_Tuto
+      _LearningText: Listen carefully, touch a bush to make a LETTER come out, then
+        touch the correct one.
+      _LearningText_F: 
+      _LearningAudio: HideSeek_letterphoneme_Tuto
+    - _Id: HideSeek_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Title
+      _LearningText: Hide and Seek!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Title
+    - _Id: HideSeek_Words_Intro
+      _NativeText: Las palabras ocultar y hay que encontrarlos!
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Words_Intro
+      _LearningText: The Words hide and you have to find them!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Words_Intro
+    - _Id: HideSeek_Words_Title
+      _NativeText: Las palabras ocultas!
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Words_Title
+      _LearningText: Hidden Words!
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Words_Title
+    - _Id: HideSeek_Words_Tuto
+      _NativeText: "Escuchar con atenci\xF3n, toque un arbusto para hacer una palabra
+        sale, a continuaci\xF3n, toque la palabra correcta."
+      _NativeText_F: 
+      _NativeAudio: HideSeek_Words_Tuto
+      _LearningText: Listen carefully, touch a bush to make a Word come out, then
+        touch the correct Word.
+      _LearningText_F: 
+      _LearningAudio: HideSeek_Words_Tuto
+    - _Id: Intro_Dog
+      _NativeText: "Mi perro, Antura, vendr\xE1 con usted. \xC9l es muy divertido,
+        pero puede ser un poco inc\xF3modo!"
+      _NativeText_F: 
+      _NativeAudio: Intro_Dog
+      _LearningText: My dog, Antura, will come with you. He is very fun but he can
+        be messy!
+      _LearningText_F: 
+      _LearningAudio: Intro_Dog
+    - _Id: Intro_Dog_Chase
+      _NativeText: "\xBFLo ves? De todos modos, estoy seguro de que tendr\xE1 mucha
+        diversi\xF3n con Antura"
+      _NativeText_F: 
+      _NativeAudio: Intro_Dog_Chase
+      _LearningText: You see? Anyway, I'm sure you will have lot of fun with Antura
+      _LearningText_F: 
+      _LearningAudio: Intro_Dog_Chase
+    - _Id: Intro_Letters_1
+      _NativeText: Todas las cartas han llegado a la vida ... es un desastre!
+      _NativeText_F: 
+      _NativeAudio: Intro_Letters_1
+      _LearningText: All the Letters have come to life... it's a mess!
+      _LearningText_F: 
+      _LearningAudio: Intro_Letters_1
+    - _Id: Intro_Letters_2
+      _NativeText: "\xBFMe ayudar\xEDas a poner las cosas en orden? Pleeeease?"
+      _NativeText_F: 
+      _NativeAudio: Intro_Letters_2
+      _LearningText: Would you help me putting things in order? Pleeeease?
+      _LearningText_F: 
+      _LearningAudio: Intro_Letters_2
+    - _Id: Intro_Welcome
+      _NativeText: "\xA1Bienvenido! Te estaba esperando..."
+      _NativeText_F: 
+      _NativeAudio: Intro_Welcome
+      _LearningText: Welcome! I was waiting for you...
+      _LearningText_F: 
+      _LearningAudio: Intro_Welcome
+    - _Id: Keeper_AttempsOver
+      _NativeText: "\xA1Juego terminado!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_AttempsOver
+      _LearningText: Game over!
+      _LearningText_F: 
+      _LearningAudio: Keeper_AttempsOver
+    - _Id: Keeper_Bad_1
+      _NativeText: "\xA1Demasiado!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Bad_1
+      _LearningText: Too bad!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Bad_1
+    - _Id: Keeper_Bad_2
+      _NativeText: "La pr\xF3xima vez lo har\xE1 mejor!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Bad_2
+      _LearningText: Next time will do better!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Bad_2
+    - _Id: Keeper_Bad_3
+      _NativeText: "\xA1Oh no!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Bad_3
+      _LearningText: Oh no!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Bad_3
+    - _Id: Keeper_Bad_4
+      _NativeText: "\xA1Venga!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Bad_4
+      _LearningText: Come on!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Bad_4
+    - _Id: Keeper_Bad_5
+      _NativeText: "Sigue intent\xE1ndolo!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Bad_5
+      _LearningText: Keep trying!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Bad_5
+    - _Id: Keeper_GetReady
+      _NativeText: "\xA1Prepararse!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_GetReady
+      _LearningText: Get ready!
+      _LearningText_F: 
+      _LearningAudio: Keeper_GetReady
+    - _Id: Keeper_Good_1
+      _NativeText: "\xA1Est\xE1s a tope!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_1
+      _LearningText: You are on fire!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_1
+    - _Id: Keeper_Good_10
+      _NativeText: "\xA1Excelente!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_10
+      _LearningText: Excellent!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_10
+    - _Id: Keeper_Good_11
+      _NativeText: "\xA1Maravilloso!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_11
+      _LearningText: Wonderful!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_11
+    - _Id: Keeper_Good_12
+      _NativeText: "\xA1Incre\xEDble!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_12
+      _LearningText: Amazing!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_12
+    - _Id: Keeper_Good_2
+      _NativeText: "Continuar as\xED!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_2
+      _LearningText: Continue like that!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_2
+    - _Id: Keeper_Good_3
+      _NativeText: Oh oh oh!
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_3
+      _LearningText: Oh oh oh!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_3
+    - _Id: Keeper_Good_4
+      _NativeText: "\xA1Bueno!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_4
+      _LearningText: Good!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_4
+    - _Id: Keeper_Good_5
+      _NativeText: "\xA1Bien hecho!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_5
+      _LearningText: Well done!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_5
+    - _Id: Keeper_Good_6
+      _NativeText: "\xA1Lo hiciste!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_6
+      _LearningText: You did it!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_6
+    - _Id: Keeper_Good_7
+      _NativeText: "\xA1Genial!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_7
+      _LearningText: Great!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_7
+    - _Id: Keeper_Good_8
+      _NativeText: "\xA1Brillante!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_8
+      _LearningText: Brilliant!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_8
+    - _Id: Keeper_Good_9
+      _NativeText: "\xA1S\xED!"
+      _NativeText_F: 
+      _NativeAudio: Keeper_Good_9
+      _LearningText: Yeah!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Good_9
+    - _Id: Keeper_Last_Attempt_1
+      _NativeText: "Esta es tu \xFAltima oportunidad..."
+      _NativeText_F: 
+      _NativeAudio: Keeper_Last_Attempt_1
+      _LearningText: This is your last chance...
+      _LearningText_F: 
+      _LearningAudio: Keeper_Last_Attempt_1
+    - _Id: Keeper_Last_Attempt_2
+      _NativeText: Sigues teniendo una oportunidad
+      _NativeText_F: 
+      _NativeAudio: Keeper_Last_Attempt_2
+      _LearningText: You still have a chance
+      _LearningText_F: 
+      _LearningAudio: Keeper_Last_Attempt_2
+    - _Id: Keeper_Last_Attempt_3
+      _NativeText: "Un \xFAltimo intento ..."
+      _NativeText_F: 
+      _NativeAudio: Keeper_Last_Attempt_3
+      _LearningText: One last attempt...
+      _LearningText_F: 
+      _LearningAudio: Keeper_Last_Attempt_3
+    - _Id: Keeper_Remember
+      _NativeText: 'Recuerda: ...'
+      _NativeText_F: 
+      _NativeAudio: Keeper_Remember
+      _LearningText: 'Remember: ...'
+      _LearningText_F: 
+      _LearningAudio: Keeper_Remember
+    - _Id: Keeper_Time_1
+      _NativeText: Harry arriba!
+      _NativeText_F: 
+      _NativeAudio: Keeper_Time_1
+      _LearningText: Harry up!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Time_1
+    - _Id: Keeper_Time_2
+      _NativeText: El tiempo es casi terminado!
+      _NativeText_F: 
+      _NativeAudio: Keeper_Time_2
+      _LearningText: Time is almost over!
+      _LearningText_F: 
+      _LearningAudio: Keeper_Time_2
+    - _Id: Keeper_Time_3
+      _NativeText: Unos segundos en el reloj ...
+      _NativeText_F: 
+      _NativeAudio: Keeper_Time_3
+      _LearningText: Few seconds left...
+      _LearningText_F: 
+      _LearningAudio: Keeper_Time_3
+    - _Id: Keeper_TimeUp
+      _NativeText: Tiempo para arriba!
+      _NativeText_F: 
+      _NativeAudio: Keeper_TimeUp
+      _LearningText: Time up!
+      _LearningText_F: 
+      _LearningAudio: Keeper_TimeUp
+    - _Id: MakeFriends_letterinword_Intro
+      _NativeText: "Las palabras est\xE1n discutiendo! Mostrarles que tienen algo
+        en com\xFAn!"
+      _NativeText_F: 
+      _NativeAudio: Game_MakeFriends_letterinword_Intro
+      _LearningText: The WORDS are arguing! Show them they have something in common!
+      _LearningText_F: 
+      _LearningAudio: Game_MakeFriends_letterinword_Intro
+    - _Id: MakeFriends_letterinword_Title
+      _NativeText: Spark amistad!
+      _NativeText_F: 
+      _NativeAudio: Game_MakeFriends_letterinword_Title
+      _LearningText: Friendship Spark!
+      _LearningText_F: 
+      _LearningAudio: Game_MakeFriends_letterinword_Title
+    - _Id: MakeFriends_letterinword_Tuto
+      _NativeText: Estas palabras comparten una letra. Arrastrarla hasta el centro
+        de la pantalla.
+      _NativeText_F: 
+      _NativeAudio: Game_MakeFriends_letterinword_Tuto
+      _LearningText: These WORDS share one letter. Drag it to the center of the screen.
+      _LearningText_F: 
+      _LearningAudio: Game_MakeFriends_letterinword_Tuto
+    - _Id: Map_Back_1
+      _NativeText: Has progresado mucho! Sigan con el buen trabajo...
+      _NativeText_F: 
+      _NativeAudio: Map_Back_1
+      _LearningText: You have progressed a lot! Keep up with the good work...
+      _LearningText_F: 
+      _LearningAudio: Map_Back_1
+    - _Id: Map_Back_2
+      _NativeText: "\xA1Bien hecho! Usted es un paso m\xE1s cerca de completar su
+        misi\xF3n!"
+      _NativeText_F: 
+      _NativeAudio: Map_Back_2
+      _LearningText: Well done! You are one step closer to complete your mission!
+      _LearningText_F: 
+      _LearningAudio: Map_Back_2
+    - _Id: Map_Back_3
+      _NativeText: "Otro paso adelante. Continuar as\xED!"
+      _NativeText_F: 
+      _NativeAudio: Map_Back_3
+      _LearningText: Another step forward. Continue like that!
+      _LearningText_F: 
+      _LearningAudio: Map_Back_3
+    - _Id: Map_Bones_Collect_1
+      _NativeText: Tocar las cookies para recogerlos
+      _NativeText_F: 
+      _NativeAudio: Map_Bones_Collect_1
+      _LearningText: Touch the Cookies to collect them
+      _LearningText_F: 
+      _LearningAudio: Map_Bones_Collect_1
+    - _Id: Map_Bones_Collect_2
+      _NativeText: Recoger las cookies que ve a su alrededor
+      _NativeText_F: 
+      _NativeAudio: Map_Bones_Collect_2
+      _LearningText: Collect the Cookies you see around
+      _LearningText_F: 
+      _LearningAudio: Map_Bones_Collect_2
+    - _Id: Map_Bones_Counter_1
+      _NativeText: Esta es la cantidad de galletas que tiene. Puede pasar con Antura.
+      _NativeText_F: 
+      _NativeAudio: Map_Bones_Counter_1
+      _LearningText: This is the amount of cookies you have. You can spend them with
+        Antura.
+      _LearningText_F: 
+      _LearningAudio: Map_Bones_Counter_1
+    - _Id: Map_Bones_Counter_2
+      _NativeText: 'Recuerde: usted puede pasar las galletas con Antura.'
+      _NativeText_F: 
+      _NativeAudio: Map_Bones_Counter_2
+      _LearningText: 'Remember: you can spend the cookies with Antura.'
+      _LearningText_F: 
+      _LearningAudio: Map_Bones_Counter_2
+    - _Id: Map_End_LB_1
+      _NativeText: "\xBFEst\xE1s listo para demostrar lo que ha aprendido?"
+      _NativeText_F: 
+      _NativeAudio: Map_End_LB_1
+      _LearningText: Are you ready to prove what you learned?
+      _LearningText_F: 
+      _LearningAudio: Map_End_LB_1
+    - _Id: Map_End_LB_2
+      _NativeText: "El siguiente paso ser\xE1 un desaf\xEDo!"
+      _NativeText_F: 
+      _NativeAudio: Map_End_LB_2
+      _LearningText: The next step will challenge you!
+      _LearningText_F: 
+      _LearningAudio: Map_End_LB_2
+    - _Id: Map_End_LB_3
+      _NativeText: "Es hora de mostrar lo que est\xE1 aprendiendo."
+      _NativeText_F: 
+      _NativeAudio: Map_End_LB_3
+      _LearningText: It's time to show what you are learning.
+      _LearningText_F: 
+      _LearningAudio: Map_End_LB_3
+    - _Id: Map_EndGame
+      _NativeText: "Yeaaaah! \xA1Excelente trabajo! Que complet\xF3 su misi\xF3n!"
+      _NativeText_F: 
+      _NativeAudio: Map_EndGame
+      _LearningText: Yeaaaah! Excellent job! You completed your mission!
+      _LearningText_F: 
+      _LearningAudio: Map_EndGame
+    - _Id: Map_EndWorld
+      _NativeText: "\xA1Excelente! Ha alcanzado el final del mundo! Pero todav\xEDa
+        tiene mucho para ganar regalos!"
+      _NativeText_F: 
+      _NativeAudio: Map_EndWorld
+      _LearningText: Excellent! You reached the end of the World! But you still have
+        lot of Gifts to gain!
+      _LearningText_F: 
+      _LearningAudio: Map_EndWorld
+    - _Id: Map_First
+      _NativeText: "Dejar que el inicio aventura. \xA1Buena suerte!"
+      _NativeText_F: 
+      _NativeAudio: Map_First
+      _LearningText: Let the adventure start. Good luck!
+      _LearningText_F: 
+      _LearningAudio: Map_First
+    - _Id: Map_Intro
+      _NativeText: Va a viajar por el mundo para encontrar todas las letras.
+      _NativeText_F: 
+      _NativeAudio: Map_Intro
+      _LearningText: You will travel the world to find all the Letters.
+      _LearningText_F: 
+      _LearningAudio: Map_Intro
+    - _Id: Map_Intro_AnturaSpace
+      _NativeText: "Haga todo lo posible y te dar\xE1 un mont\xF3n de regalos para
+        jugar con Antura"
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_AnturaSpace
+      _LearningText: Do your best and I will give you lots of Gifts to play with Antura
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_AnturaSpace
+    - _Id: Map_Intro_Map1
+      _NativeText: "En primer lugar hay que atravesar todas las monta\xF1as ..."
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map1
+      _LearningText: First of all you have to cross all the Mountains...
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map1
+    - _Id: Map_Intro_Map2
+      _NativeText: "\xA1Bien hecho! Usted ha llegado a las islas tropicales."
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map2
+      _LearningText: Well done! You have reached the tropical Islands.
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map2
+    - _Id: Map_Intro_Map3
+      _NativeText: "Este es el prado sin fin. Ser\xE1 un largo viaje."
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map3
+      _LearningText: This is the endless Grassland. It will be a long journey.
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map3
+    - _Id: Map_Intro_Map4
+      _NativeText: "Bienvenido al desierto de la quema. Las cosas se ponen m\xE1s
+        dif\xEDcil ..."
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map4
+      _LearningText: Welcome to the burning Desert. Things are getting harder...
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map4
+    - _Id: Map_Intro_Map5
+      _NativeText: "El bosque oscuro! Se est\xE1n acercando a lograr su misi\xF3n
+        ..."
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map5
+      _LearningText: The dark Forest! You are getting closer to accomplish your mission...
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map5
+    - _Id: Map_Intro_Map6
+      _NativeText: "Finalmente alcanzado el pueblo Letras! Vamos, s\xF3lo un \xFAltimo
+        esfuerzo!"
+      _NativeText_F: 
+      _NativeAudio: Map_Intro_Map6
+      _LearningText: Finally you reached the Letters Village! Come on, just a last
+        effort!
+      _LearningText_F: 
+      _LearningAudio: Map_Intro_Map6
+    - _Id: Map_NewMap
+      _NativeText: "\xA1Guauu! Usted descubri\xF3 un nuevo mapa!"
+      _NativeText_F: 
+      _NativeAudio: Map_NewMap
+      _LearningText: Wow! You discovered a new Map!
+      _LearningText_F: 
+      _LearningAudio: Map_NewMap
+    - _Id: Map_Unveal_Book_Intro
+      _NativeText: "Usted est\xE1 aprendiendo mucho! Ahora tambi\xE9n se puede comprobar
+        el diccionario en cualquier momento"
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_Book_Intro
+      _LearningText: You are learning a lot! Now you can also check the dictionary
+        at any time
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_Book_Intro
+    - _Id: Map_Unveal_Book_Open
+      _NativeText: "Pulsar el bot\xF3n AGENDA"
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_Book_Open
+      _LearningText: Press the BOOK button
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_Book_Open
+    - _Id: Map_Unveal_GameLauncher_Intro
+      _NativeText: "\xA1Sorpresa! Ahora puede jugar a cualquier juego siempre que
+        lo desee"
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_GameLauncher_Intro
+      _LearningText: Surprise! You can now play any game whenever you want
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_GameLauncher_Intro
+    - _Id: Map_Unveal_GameLauncher_Open
+      _NativeText: "Pulse el bot\xF3n JUEGOS"
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_GameLauncher_Open
+      _LearningText: Press the GAMES button
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_GameLauncher_Open
+    - _Id: Map_Unveal_Profile_Intro
+      _NativeText: "Todo el su progreso y las estad\xEDsticas est\xE1n aqu\xED."
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_Profile_Intro
+      _LearningText: All your your progress and stats are here.
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_Profile_Intro
+    - _Id: Map_Unveal_Profile_Open
+      _NativeText: "Presione el bot\xF3n de la cara"
+      _NativeText_F: 
+      _NativeAudio: Map_Unveal_Profile_Open
+      _LearningText: Press the FACE button
+      _LearningText_F: 
+      _LearningAudio: Map_Unveal_Profile_Open
+    - _Id: Map_Welcome_1
+      _NativeText: "Todav\xEDa tiene un largo camino delante de usted. Mejor que a
+        Harry!"
+      _NativeText_F: 
+      _NativeAudio: Map_Welcome_1
+      _LearningText: You still have a long journey in front of you. Better you harry
+        up!
+      _LearningText_F: 
+      _LearningAudio: Map_Welcome_1
+    - _Id: Map_Welcome_2
+      _NativeText: "Vamos, que su misi\xF3n no ha terminado todav\xEDa!"
+      _NativeText_F: 
+      _NativeAudio: Map_Welcome_2
+      _LearningText: Come on, your mission is not over yet!
+      _LearningText_F: 
+      _LearningAudio: Map_Welcome_2
+    - _Id: Map_Welcome_3
+      _NativeText: "Conf\xEDo en ti. Va a completar su misi\xF3n pronto!"
+      _NativeText_F: 
+      _NativeAudio: Map_Welcome_3
+      _LearningText: I trust you. You will complete your mission soon!
+      _LearningText_F: 
+      _LearningAudio: Map_Welcome_3
+    - _Id: Maze_lettername_Intro
+      _NativeText: "\xA1Tiempo de carrera! Ayuda a la CARTA llegan al final de la
+        pista."
+      _NativeText_F: 
+      _NativeAudio: Game_Maze_lettername_Intro
+      _LearningText: Race time! Help the LETTER reach the track's end.
+      _LearningText_F: 
+      _LearningAudio: Game_Maze_lettername_Intro
+    - _Id: Maze_lettername_Title
+      _NativeText: Carrera de cohetes!
+      _NativeText_F: 
+      _NativeAudio: Game_Maze_lettername_Title
+      _LearningText: Rocket Race!
+      _LearningText_F: 
+      _LearningAudio: Game_Maze_lettername_Title
+    - _Id: Maze_lettername_Tuto
+      _NativeText: Siga las flechas, dibujar sobre la ruta y no salir de la pista!
+      _NativeText_F: 
+      _NativeAudio: Game_Maze_lettername_Tuto
+      _LearningText: Follow the arrows, draw over the path and don't get out of the
+        track!
+      _LearningText_F: 
+      _LearningAudio: Game_Maze_lettername_Tuto
+    - _Id: MissingLetter_Intro
+      _NativeText: "\xA1Oh no! Esta palabra ha perdido una carta ... ayudarla a recuperarlo!"
+      _NativeText_F: 
+      _NativeAudio: Game_MissingLetter_Intro
+      _LearningText: Oh no! This WORD has lost a LETTER... help her to get it back!
+      _LearningText_F: 
+      _LearningAudio: Game_MissingLetter_Intro
+    - _Id: MissingLetter_letterform_Title
+      _NativeText: Forma que falta!
+      _NativeText_F: 
+      _NativeAudio: Game_MissingLetter_letterinword_Title
+      _LearningText: Missing Form!
+      _LearningText_F: 
+      _LearningAudio: Game_MissingLetter_letterinword_Title
+    - _Id: MissingLetter_letterinword_Title
+      _NativeText: "\xA1Carta perdida!"
+      _NativeText_F: 
+      _NativeAudio: Game_MissingLetter_letterinword_Title
+      _LearningText: Missing Letter!
+      _LearningText_F: 
+      _LearningAudio: Game_MissingLetter_letterinword_Title
+    - _Id: MissingLetter_phrases_Intro
+      _NativeText: "\xA1Oh no! Esta frase ha perdido una palabra!"
+      _NativeText_F: 
+      _NativeAudio: MissingLetter_phrases_Intro
+      _LearningText: Oh no! This SENTENCE has lost a WORD!
+      _LearningText_F: 
+      _LearningAudio: MissingLetter_phrases_Intro
+    - _Id: MissingLetter_phrases_Title
+      _NativeText: "\xA1Palabra faltante!"
+      _NativeText_F: 
+      _NativeAudio: MissingLetter_phrases_Title
+      _LearningText: Missing Word!
+      _LearningText_F: 
+      _LearningAudio: MissingLetter_phrases_Title
+    - _Id: MissingLetter_phrases_Tuto
+      _NativeText: Detectar la palabra que falta y tocarlo.
+      _NativeText_F: 
+      _NativeAudio: MissingLetter_phrases_Tuto
+      _LearningText: Spot the missing WORD and touch it.
+      _LearningText_F: 
+      _LearningAudio: MissingLetter_phrases_Tuto
+    - _Id: MissingLetter_Tuto
+      _NativeText: Detectar la letra que falta y tocarlo.
+      _NativeText_F: 
+      _NativeAudio: Game_MissingLetter_Tuto
+      _LearningText: Spot the missing LETTER and touch it.
+      _LearningText_F: 
+      _LearningAudio: Game_MissingLetter_Tuto
+    - _Id: MixedLetters_alphabet_Intro
+      _NativeText: Mira todas esas cartas! Ponerlos en el orden correcto.
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_alphabet_Intro
+      _LearningText: Look at all those LETTERS! Put them in the right order.
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_alphabet_Intro
+    - _Id: MixedLetters_alphabet_Title
+      _NativeText: Ensalada carta!
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_alphabet_Title
+      _LearningText: Letter Salad!
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_alphabet_Title
+    - _Id: MixedLetters_alphabet_Tuto
+      _NativeText: "Siga el orden del alfabeto, arrastre cada carta a la posici\xF3n
+        correcta y el uso de los botones para girar correctamente."
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_alphabet_Tuto
+      _LearningText: Follow the Alphabet order, drag each LETTER to the right position
+        and use the buttons to rotate it correctly.
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_alphabet_Tuto
+    - _Id: MixedLetters_buildword_Intro
+      _NativeText: "\xA1Oh no! Se corri\xF3 la voz revueltos!"
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_buildword_Intro
+      _LearningText: Oh no! The WORD got scrambled!
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_buildword_Intro
+    - _Id: MixedLetters_buildword_Title
+      _NativeText: Ensalada palabra!
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_buildword_Title
+      _LearningText: Word Salad!
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_buildword_Title
+    - _Id: MixedLetters_buildword_Tuto
+      _NativeText: "Arrastra cada carta a la posici\xF3n correcta y utilizar el bot\xF3n
+        para girar correctamente .."
+      _NativeText_F: 
+      _NativeAudio: MixedLetters_buildword_Tuto
+      _LearningText: Drag each LETTER to the right position and use the button to
+        rotate it correctly..
+      _LearningText_F: 
+      _LearningAudio: MixedLetters_buildword_Tuto
+    - _Id: Mood_Question_1
+      _NativeText: "\xBFComo te sientes hoy?"
+      _NativeText_F: 
+      _NativeAudio: Mood_Question_1
+      _LearningText: How do you feel today?
+      _LearningText_F: 
+      _LearningAudio: Mood_Question_1
+    - _Id: Mood_Question_2
+      _NativeText: "\xBFC\xF3mo est\xE1s hoy?"
+      _NativeText_F: 
+      _NativeAudio: Mood_Question_2
+      _LearningText: How are you today?
+      _LearningText_F: 
+      _LearningAudio: Mood_Question_2
+    - _Id: Mood_Question_3
+      _NativeText: "\xBFQue pasa?"
+      _NativeText_F: 
+      _NativeAudio: Mood_Question_3
+      _LearningText: How's going?
+      _LearningText_F: 
+      _LearningAudio: Mood_Question_3
+    - _Id: Options_Credits
+      _NativeText: "cr\xE9ditos"
+      _NativeText_F: 
+      _NativeAudio: Options_Credits
+      _LearningText: Credits
+      _LearningText_F: 
+      _LearningAudio: Options_Credits
+    - _Id: Options_English_OFF
+      _NativeText: "Ingl\xE9s OFF"
+      _NativeText_F: 
+      _NativeAudio: Options_English_OFF
+      _LearningText: English OFF
+      _LearningText_F: 
+      _LearningAudio: Options_English_OFF
+    - _Id: Options_English_ON
+      _NativeText: "Ingl\xE9s EN"
+      _NativeText_F: 
+      _NativeAudio: Options_English_ON
+      _LearningText: English ON
+      _LearningText_F: 
+      _LearningAudio: Options_English_ON
+    - _Id: Options_Generic_OFF
+      _NativeText: Apagando
+      _NativeText_F: 
+      _NativeAudio: Options_Generic_OFF
+      _LearningText: Switching OFF
+      _LearningText_F: 
+      _LearningAudio: Options_Generic_OFF
+    - _Id: Options_Generic_ON
+      _NativeText: Encendido
+      _NativeText_F: 
+      _NativeAudio: Options_Generic_ON
+      _LearningText: Switching ON
+      _LearningText_F: 
+      _LearningAudio: Options_Generic_ON
+    - _Id: Options_Music_OFF
+      _NativeText: "OFF m\xFAsica"
+      _NativeText_F: 
+      _NativeAudio: Options_Music_OFF
+      _LearningText: Music OFF
+      _LearningText_F: 
+      _LearningAudio: Options_Music_OFF
+    - _Id: Options_Music_ON
+      _NativeText: "M\xFAsica encendida"
+      _NativeText_F: 
+      _NativeAudio: Options_Music_ON
+      _LearningText: Music ON
+      _LearningText_F: 
+      _LearningAudio: Options_Music_ON
+    - _Id: Options_Subtitles_OFF
+      _NativeText: "subt\xEDtulos"
+      _NativeText_F: 
+      _NativeAudio: Options_Subtitles_OFF
+      _LearningText: Subtitles OFF
+      _LearningText_F: 
+      _LearningAudio: Options_Subtitles_OFF
+    - _Id: Options_Subtitles_ON
+      _NativeText: "subt\xEDtulos"
+      _NativeText_F: 
+      _NativeAudio: Options_Subtitles_ON
+      _LearningText: Subtitles ON
+      _LearningText_F: 
+      _LearningAudio: Options_Subtitles_ON
+    - _Id: Parental_Gate
+      _NativeText: "Esta secci\xF3n est\xE1 reservada a los padres y tutores"
+      _NativeText_F: 
+      _NativeAudio: Parental_Gate
+      _LearningText: This section is reserved to Parents and Tutors
+      _LearningText_F: 
+      _LearningAudio: Parental_Gate
+    - _Id: Profile_Age
+      _NativeText: "\xBFCuantos a\xF1os tienes?"
+      _NativeText_F: 
+      _NativeAudio: Profile_Age
+      _LearningText: How old are you?
+      _LearningText_F: 
+      _LearningAudio: Profile_Age
+    - _Id: Profile_Avatar
+      _NativeText: Seleccione una cara
+      _NativeText_F: 
+      _NativeAudio: Profile_Avatar
+      _LearningText: Select a face
+      _LearningText_F: 
+      _LearningAudio: Profile_Avatar
+    - _Id: Profile_Color
+      _NativeText: Seleccione un color
+      _NativeText_F: 
+      _NativeAudio: Profile_Color
+      _LearningText: Select a color
+      _LearningText_F: 
+      _LearningAudio: Profile_Color
+    - _Id: Profile_Gender
+      _NativeText: "\xBFEres una ni\xF1a o un ni\xF1o?"
+      _NativeText_F: 
+      _NativeAudio: Profile_Gender
+      _LearningText: Are you a girl or a boy?
+      _LearningText_F: 
+      _LearningAudio: Profile_Gender
+    - _Id: Profile_Years_10
+      _NativeText: "10 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_10
+      _LearningText: 10 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_10
+    - _Id: Profile_Years_11
+      _NativeText: "11 a\xF1os o m\xE1s"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_11
+      _LearningText: 11 years or older
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_11
+    - _Id: Profile_Years_4
+      _NativeText: "4 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_4
+      _LearningText: 4 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_4
+    - _Id: Profile_Years_5
+      _NativeText: "5 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_5
+      _LearningText: 5 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_5
+    - _Id: Profile_Years_6
+      _NativeText: "6 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_6
+      _LearningText: 6 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_6
+    - _Id: Profile_Years_7
+      _NativeText: "7 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_7
+      _LearningText: 7 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_7
+    - _Id: Profile_Years_8
+      _NativeText: "8 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_8
+      _LearningText: 8 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_8
+    - _Id: Profile_Years_9
+      _NativeText: "9 a\xF1os"
+      _NativeText_F: 
+      _NativeAudio: Profile_Years_9
+      _LearningText: 9 years
+      _LearningText_F: 
+      _LearningAudio: Profile_Years_9
+    - _Id: ReadingGame_Intro
+      _NativeText: Esta frase se esconde un misterio ... resolverlo!
+      _NativeText_F: 
+      _NativeAudio: ReadingGame_Intro
+      _LearningText: This SENTENCE hides a mistery... solve it!
+      _LearningText_F: 
+      _LearningAudio: ReadingGame_Intro
+    - _Id: ReadingGame_Title
+      _NativeText: Descubrimiento de lectura!
+      _NativeText_F: 
+      _NativeAudio: ReadingGame_Title
+      _LearningText: Reading Discovery!
+      _LearningText_F: 
+      _LearningAudio: ReadingGame_Title
+    - _Id: ReadingGame_Tuto
+      _NativeText: "Arrastre la lente con el dedo, ley\xF3 la sentencia y luego responder
+        correctamente"
+      _NativeText_F: 
+      _NativeAudio: ReadingGame_Tuto
+      _LearningText: Drag the lens with your finger, read the SENTENCE and then answer
+        correctly
+      _LearningText_F: 
+      _LearningAudio: ReadingGame_Tuto
+    - _Id: ReservedArea_CreateDemoUser
+      _NativeText: "Crear reproductor de demostraci\xF3n"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Create demo player
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_DeleteProfile
+      _NativeText: Borrar
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Delete
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_DemoUserAlreadyExists
+      _NativeText: "Demostraci\xF3n de usuario ya existe"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Demo user already exists
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_ExportProfile
+      _NativeText: Exportar
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Export
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_InstallInstructions
+      _NativeText: "instrucciones de instalaci\xF3n"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Install instructions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_Privacy
+      _NativeText: "Pol\xEDtica de privacidad"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Privacy Policy
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_Rate
+      _NativeText: Tarifa
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Rate
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_Recommend
+      _NativeText: Recomendar
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Recommend
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_ReviewProfile
+      _NativeText: "revisi\xF3n"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Review
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_SectionDescription_Error
+      _NativeText: Si comete un error, vuelva a intentar por volver a acceder a este
+        panel
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: If you make an error, retry by re-accessing this panel
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_SectionDescription_Intro
+      _NativeText: "Esta secci\xF3n est\xE1 reservada para padres y tutores."
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: This section is reserved for parents and guardians.
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_Title
+      _NativeText: ZONA RESERVADA
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: RESERVED AREA
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_UnlockingWaring
+      _NativeText: DESBLOQUEO ... por favor espere
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: UNLOCKING... please wait
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: ReservedArea_Website
+      _NativeText: Sitio web
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Website
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: Reward_0Star
+      _NativeText: "\xA1Demasiado! La pr\xF3xima vez que va a hacer mejor!"
+      _NativeText_F: 
+      _NativeAudio: Reward_0Star
+      _LearningText: Too bad! Next time you will do better!
+      _LearningText_F: 
+      _LearningAudio: Reward_0Star
+    - _Id: Reward_0Star_1
+      _NativeText: Puede volver a intentarlo si quieres ...
+      _NativeText_F: 
+      _NativeAudio: Reward_0Star_1
+      _LearningText: You can retry if you want...
+      _LearningText_F: 
+      _LearningAudio: Reward_0Star_1
+    - _Id: Reward_1Star_1
+      _NativeText: "\xA1Bien hecho! Pero usted tendr\xE1 que practicar m\xE1s"
+      _NativeText_F: 
+      _NativeAudio: Reward_1Star_1
+      _LearningText: Well done! But you will have to practice more
+      _LearningText_F: 
+      _LearningAudio: Reward_1Star_1
+    - _Id: Reward_1Star_2
+      _NativeText: "\xA1Lo hiciste! Y estoy seguro de que puede hacer a\xFAn mejor
+        ..."
+      _NativeText_F: 
+      _NativeAudio: Reward_1Star_2
+      _LearningText: You did it! And I'm sure you can do even better...
+      _LearningText_F: 
+      _LearningAudio: Reward_1Star_2
+    - _Id: Reward_1Star_3
+      _NativeText: "\xA1Hecho! Y todav\xEDa tiene mucho margen de mejora ..."
+      _NativeText_F: 
+      _NativeAudio: Reward_1Star_3
+      _LearningText: Done! And you still have lot of margin for improvement...
+      _LearningText_F: 
+      _LearningAudio: Reward_1Star_3
+    - _Id: Reward_2Star_1
+      _NativeText: "\xA1Genial! Casi lo tienes todo"
+      _NativeText_F: 
+      _NativeAudio: Reward_2Star_1
+      _LearningText: Great! You almost got it all
+      _LearningText_F: 
+      _LearningAudio: Reward_2Star_1
+    - _Id: Reward_2Star_2
+      _NativeText: "\xA1Brillante! Tan cerca de llegar a la cima!"
+      _NativeText_F: 
+      _NativeAudio: Reward_2Star_2
+      _LearningText: Brilliant! So close to reach the top!
+      _LearningText_F: 
+      _LearningAudio: Reward_2Star_2
+    - _Id: Reward_2Star_3
+      _NativeText: "\xA1Bien hecho! Acercarse a la perfecci\xF3n ..."
+      _NativeText_F: 
+      _NativeAudio: Reward_2Star_3
+      _LearningText: Well Done! Getting close to perfection...
+      _LearningText_F: 
+      _LearningAudio: Reward_2Star_3
+    - _Id: Reward_3Star_1
+      _NativeText: "\xA1Excelente! Ha llegado a la m\xE1xima!"
+      _NativeText_F: 
+      _NativeAudio: Reward_3Star_1
+      _LearningText: Excellent! You reached the maximum!
+      _LearningText_F: 
+      _LearningAudio: Reward_3Star_1
+    - _Id: Reward_3Star_2
+      _NativeText: "\xA1Brillante! \xA1Lo merec\xEDas!"
+      _NativeText_F: 
+      _NativeAudio: Reward_3Star_2
+      _LearningText: Brilliant! You deserved it!
+      _LearningText_F: 
+      _LearningAudio: Reward_3Star_2
+    - _Id: Reward_3Star_3
+      _NativeText: "\xA1Incre\xEDble! \xA1Eres un campeon!"
+      _NativeText_F: 
+      _NativeAudio: Reward_3Star_3
+      _LearningText: Amazing! You are a champion!
+      _LearningText_F: 
+      _LearningAudio: Reward_3Star_3
+    - _Id: Reward_Big_1
+      _NativeText: "Aqu\xED est\xE1 tu regalo!"
+      _NativeText_F: 
+      _NativeAudio: Reward_Big_1
+      _LearningText: Here's your Gift!
+      _LearningText_F: 
+      _LearningAudio: Reward_Big_1
+    - _Id: Reward_Big_2
+      _NativeText: "\xA1Mira esto! Antura va a encantar!"
+      _NativeText_F: 
+      _NativeAudio: Reward_Big_2
+      _LearningText: Look at this! Antura will love it!
+      _LearningText_F: 
+      _LearningAudio: Reward_Big_2
+    - _Id: Reward_Big_3
+      _NativeText: Un nuevo regalo para usted!
+      _NativeText_F: 
+      _NativeAudio: Reward_Big_3
+      _LearningText: A new Gift for you!
+      _LearningText_F: 
+      _LearningAudio: Reward_Big_3
+    - _Id: Reward_Intro
+      _NativeText: "Aqu\xED tienes un primer regalo, para que pueda empezar a jugar
+        con Antura inmediatamente"
+      _NativeText_F: 
+      _NativeAudio: Reward_Intro
+      _LearningText: Here you have a first Gift, so you can start playing with Antura
+        immediately
+      _LearningText_F: 
+      _LearningAudio: Reward_Intro
+    - _Id: Scanner_Intro
+      _NativeText: La palabra es a punto de viajar y ella necesita su maleta.
+      _NativeText_F: 
+      _NativeAudio: Scanner_Intro
+      _LearningText: The WORD is about to travel and she needs her suitcase.
+      _LearningText_F: 
+      _LearningAudio: Scanner_Intro
+    - _Id: Scanner_phrase_Intro
+      _NativeText: "Estas palabras est\xE1n a punto de viajar y que necesitan sus
+        maletas."
+      _NativeText_F: 
+      _NativeAudio: Scanner_phrase_Intro
+      _LearningText: These WORDS are about to travel and they need their suitcases.
+      _LearningText_F: 
+      _LearningAudio: Scanner_phrase_Intro
+    - _Id: Scanner_phrase_Title
+      _NativeText: "Esc\xE1ner de la frase!"
+      _NativeText_F: 
+      _NativeAudio: Scanner_phrase_Title
+      _LearningText: Phrase Scanner!
+      _LearningText_F: 
+      _LearningAudio: Scanner_phrase_Title
+    - _Id: Scanner_phrase_Tuto
+      _NativeText: "Arrastre el esc\xE1ner a trav\xE9s de las palabras para hacerlos
+        hablar. A continuaci\xF3n, dar la suitecase correcta de cada palabra."
+      _NativeText_F: 
+      _NativeAudio: Scanner_phrase_Tuto
+      _LearningText: Drag the scanner over the WORDS to make them speak. Then give
+        the correct suitecase to each WORD.
+      _LearningText_F: 
+      _LearningAudio: Scanner_phrase_Tuto
+    - _Id: Scanner_Title
+      _NativeText: "Palabra esc\xE1ner!"
+      _NativeText_F: 
+      _NativeAudio: Scanner_Title
+      _LearningText: Word Scanner!
+      _LearningText_F: 
+      _LearningAudio: Scanner_Title
+    - _Id: Scanner_Tuto
+      _NativeText: "Arrastre el esc\xE1ner a trav\xE9s de la Palabra para hacerla
+        hablar. A continuaci\xF3n, darle la maleta que le ha hablado."
+      _NativeText_F: 
+      _NativeAudio: Scanner_Tuto
+      _LearningText: Drag the scanner over the WORD to make her speak. Then give her
+        the suitcase she told you about.
+      _LearningText_F: 
+      _LearningAudio: Scanner_Tuto
+    - _Id: Scanner_Tuto_Antura
+      _NativeText: "Arrastre el esc\xE1ner a trav\xE9s de Antura de alejarlo"
+      _NativeText_F: 
+      _NativeAudio: Scanner_Tuto_Antura
+      _LearningText: Drag the scanner over Antura to push him away
+      _LearningText_F: 
+      _LearningAudio: Scanner_Tuto_Antura
+    - _Id: SelectGame_Begin_1
+      _NativeText: "\xBFEst\xE1s listo?"
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Begin_1
+      _LearningText: Are you ready?
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Begin_1
+    - _Id: SelectGame_Begin_2
+      _NativeText: Ahora depende de ti...
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Begin_2
+      _LearningText: Now it's up to you...
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Begin_2
+    - _Id: SelectGame_Begin_3
+      _NativeText: Esto va a ser un reto ...
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Begin_3
+      _LearningText: This is going to be challenging...
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Begin_3
+    - _Id: SelectGame_Tuto_1
+      _NativeText: Deslizar para hacer estallar las burbujas
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Tuto_1
+      _LearningText: Swipe to pop the bubbles
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Tuto_1
+    - _Id: SelectGame_Tuto_2
+      _NativeText: Deslizar para descubrir los juegos que van a jugar
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Tuto_2
+      _LearningText: Swipe to discover the games you are going to play
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Tuto_2
+    - _Id: SelectGame_Tuto_3
+      _NativeText: Toque las burbujas para hacerlas explotar
+      _NativeText_F: 
+      _NativeAudio: SelectGame_Tuto_3
+      _LearningText: Touch the bubbles to make them explode
+      _LearningText_F: 
+      _LearningAudio: SelectGame_Tuto_3
+    - _Id: SickLetters_lettername_Intro
+      _NativeText: "Demasiados signos! Recoger los incorrectos para alcanzar el peso
+        m\xE1ximo."
+      _NativeText_F: 
+      _NativeAudio: Game_SickLetters_lettername_Intro
+      _LearningText: Too many signs! Collect the wrong ones to reach the maximum weight.
+      _LearningText_F: 
+      _LearningAudio: Game_SickLetters_lettername_Intro
+    - _Id: SickLetters_lettername_Title
+      _NativeText: Cartas enfermo!
+      _NativeText_F: 
+      _NativeAudio: Game_SickLetters_lettername_Title
+      _LearningText: Sick Letters!
+      _LearningText_F: 
+      _LearningAudio: Game_SickLetters_lettername_Title
+    - _Id: SickLetters_lettername_Tuto
+      _NativeText: "Arrastre las se\xF1ales equivocadas de la letra y soltarlos en
+        el interior del vaso."
+      _NativeText_F: 
+      _NativeAudio: Game_SickLetters_lettername_Tuto
+      _LearningText: Drag the wrong signs out of the LETTER and drop them inside the
+        vase.
+      _LearningText_F: 
+      _LearningAudio: Game_SickLetters_lettername_Tuto
+    - _Id: Song_alphabet_Intro
+      _NativeText: Es hora de cantar todas las letras en orden.
+      _NativeText_F: 
+      _NativeAudio: Song_alphabet_Intro
+      _LearningText: It's time to sing all the letters in order.
+      _LearningText_F: 
+      _LearningAudio: Song_alphabet_Intro
+    - _Id: Song_alphabet_Title
+      _NativeText: "La canci\xF3n del abecedario"
+      _NativeText_F: 
+      _NativeAudio: Song_alphabet_Title
+      _LearningText: The Alphabet Song
+      _LearningText_F: 
+      _LearningAudio: Song_alphabet_Title
+    - _Id: Song_alphabet_Tuto
+      _NativeText: Siga las letras con el dedo.
+      _NativeText_F: 
+      _NativeAudio: Song_alphabet_Tuto
+      _LearningText: Follow the lyrics with your finger.
+      _LearningText_F: 
+      _LearningAudio: Song_alphabet_Tuto
+    - _Id: Song_word_Intro
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Song_word_Intro
+      _LearningText: It's time to recap the words you learned
+      _LearningText_F: 
+      _LearningAudio: Song_word_Intro
+    - _Id: Song_word_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Song_word_Title
+      _LearningText: The Word Song
+      _LearningText_F: 
+      _LearningAudio: Song_word_Title
+    - _Id: Song_word_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: Song_word_Tuto
+      _LearningText: Listen carefully and touch the right image
+      _LearningText_F: 
+      _LearningAudio: Song_word_Tuto
+    - _Id: TakeMeHome_Intro
+      _NativeText: "Esta carta viene de alg\xFAn lugar en la boca! Traerla de vuelta
+        a casa!"
+      _NativeText_F: 
+      _NativeAudio: TakeMeHome_Intro
+      _LearningText: This LETTER comes from somewhere in your mouth! Bring it back
+        home!
+      _LearningText_F: 
+      _LearningAudio: TakeMeHome_Intro
+    - _Id: TakeMeHome_Title
+      _NativeText: "\xA1Ll\xE9vame a casa!"
+      _NativeText_F: 
+      _NativeAudio: TakeMeHome_Title
+      _LearningText: Take Me Home!
+      _LearningText_F: 
+      _LearningAudio: TakeMeHome_Title
+    - _Id: TakeMeHome_Tuto
+      _NativeText: "Decir en voz alta la carta que ha o\xEDdo, para entender qu\xE9
+        parte de la boca est\xE1 involucrado. A continuaci\xF3n, arrastre la carta
+        a la tuber\xEDa correcta."
+      _NativeText_F: 
+      _NativeAudio: TakeMeHome_Tuto
+      _LearningText: Say aloud the letter you heard, to understand what part of your
+        mouth is involved. Then drag the LETTER to the correct pipe.
+      _LearningText_F: 
+      _LearningAudio: TakeMeHome_Tuto
+    - _Id: TakeMeHome_Tuto_Reminder
+      _NativeText: "Int\xE9ntelo de nuevo diciendo que la carta en voz alta y prestar
+        atenci\xF3n a su movimiento de la boca"
+      _NativeText_F: 
+      _NativeAudio: TakeMeHome_Tuto_Reminder
+      _LearningText: Try again saying the letter aloud and pay attention to your mouth
+        movement
+      _LearningText_F: 
+      _LearningAudio: TakeMeHome_Tuto_Reminder
+    - _Id: ThrowBalls_buildword_Title
+      _NativeText: 'Catapulta: formar una palabra!'
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_buildword_Title
+      _LearningText: 'SlingShot: Form a Word!'
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_buildword_Title
+    - _Id: ThrowBalls_buildword_Tuto
+      _NativeText: Arrastrar la bola hacia abajo para cargar la honda y golpear las
+        letras en orden.
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_buildword_Tuto
+      _LearningText: Drag the ball down to charge the slingshot and hit the LETTERS
+        in order.
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_buildword_Tuto
+    - _Id: ThrowBalls_Extra_Intro
+      _NativeText: Una de las cartas pertenece a la Palabra.
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Extra_Intro
+      _LearningText: One of the letters belongs to the Word.
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Extra_Intro
+    - _Id: ThrowBalls_image_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Image_Title
+      _LearningText: 'SlingShot: Images!'
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Image_Title
+    - _Id: ThrowBalls_image_Tuto
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Image_Tuto
+      _LearningText: Drag the ball down to charge the slingshot and hit the right
+        IMAGE.
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Image_Tuto
+    - _Id: ThrowBalls_Intro
+      _NativeText: tiempo de tirachinas! Cumplir los objetivos correctos!
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Intro
+      _LearningText: Slingshot time! Hit the right targets!
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Intro
+    - _Id: ThrowBalls_letterany_Title
+      _NativeText: 'Catapulta: Cartas caza'
+      _NativeText_F: 
+      _NativeAudio: Game_ThrowBalls_letterany_Title
+      _LearningText: 'SlingShot: Letters Hunt'
+      _LearningText_F: 
+      _LearningAudio: Game_ThrowBalls_letterany_Title
+    - _Id: ThrowBalls_lettername_Title
+      _NativeText: 'Catapulta: Cartas caza'
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_lettername_Title
+      _LearningText: 'SlingShot: Letters Hunt'
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_lettername_Title
+    - _Id: ThrowBalls_lettername_Tuto
+      _NativeText: Arrastrar la bola hacia abajo para cargar la honda y pulsa la letra
+        correcta.
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_lettername_Tuto
+      _LearningText: Drag the ball down to charge the slingshot and hit the right
+        LETTER.
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_lettername_Tuto
+    - _Id: ThrowBalls_Title
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Title
+      _LearningText: SlingShot
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Title
+    - _Id: ThrowBalls_word_Title
+      _NativeText: 'SlingShot: Palabras!'
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_word_Title
+      _LearningText: 'SlingShot: Words!'
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_word_Title
+    - _Id: ThrowBalls_word_Tuto
+      _NativeText: Arrastrar la bola hacia abajo para cargar la honda y golpear la
+        imagen de la derecha.
+      _NativeText_F: 
+      _NativeAudio: ThrowBalls_Image_Tuto
+      _LearningText: Drag the ball down to charge the slingshot and hit the right
+        IMAGE.
+      _LearningText_F: 
+      _LearningAudio: ThrowBalls_Image_Tuto
+    - _Id: Tobogan_letters_Intro
+      _NativeText: "Vamos a ver qu\xE9 tan alto puede construir la torre!"
+      _NativeText_F: 
+      _NativeAudio: Tobogan_letters_Intro
+      _LearningText: Let's see how tall you can build the tower!
+      _LearningText_F: 
+      _LearningAudio: Tobogan_letters_Intro
+    - _Id: Tobogan_letters_Title
+      _NativeText: "\xA1La Torre!"
+      _NativeText_F: 
+      _NativeAudio: Tobogan_letters_Title
+      _LearningText: The Tower!
+      _LearningText_F: 
+      _LearningAudio: Tobogan_letters_Title
+    - _Id: Tobogan_letters_Tuto
+      _NativeText: "Arrastre la palabra a la tuber\xEDa que muestra una de sus cartas"
+      _NativeText_F: 
+      _NativeAudio: Tobogan_letters_Tuto
+      _LearningText: Drag the WORD to the pipe that shows one of its letters
+      _LearningText_F: 
+      _LearningAudio: Tobogan_letters_Tuto
+    - _Id: Tobogan_words_Title
+      _NativeText: Sol y la Luna Torre!
+      _NativeText_F: 
+      _NativeAudio: Tobogan_words_Title
+      _LearningText: Sun & Moon Tower!
+      _LearningText_F: 
+      _LearningAudio: Tobogan_words_Title
+    - _Id: Tobogan_words_Tuto_Article
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, arrastre la PALABRA
+        a la tuber\xEDa correcta dependiendo de la pronunciaci\xF3n del art\xEDculo,
+        as\xED como \"La Luna\" o como \"The Sun\""
+      _NativeText_F: 
+      _NativeAudio: Tobogan_words_Tuto_Article
+      _LearningText: Listen carefully, then drag the WORD to the correct pipe depending
+        on the pronunciation of the article, like "The Moon" or like "The Sun"
+      _LearningText_F: 
+      _LearningAudio: Tobogan_words_Tuto_Article
+    - _Id: Tobogan_words_Tuto_Letter
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, arrastre la carta
+        a la tuber\xEDa correcta"
+      _NativeText_F: 
+      _NativeAudio: Tobogan_words_Tuto_Letter
+      _LearningText: Listen carefully, then drag the LETTER to the correct pipe
+      _LearningText_F: 
+      _LearningAudio: Tobogan_words_Tuto_Letter
+    - _Id: Tobogan_words_Tuto_Word
+      _NativeText: "Escuchar con atenci\xF3n, a continuaci\xF3n, arrastre la PALABRA
+        a la tuber\xEDa correcta"
+      _NativeText_F: 
+      _NativeAudio: Tobogan_words_Tuto_Word
+      _LearningText: Listen carefully, then drag the WORD to the correct pipe
+      _LearningText_F: 
+      _LearningAudio: Tobogan_words_Tuto_Word
+    - _Id: UI_AlertFinalRelease
+      _NativeText: "Gracias por descargar la versi\xF3n final de Antura y las letras
+        y por ayudarnos a jugar la versi\xF3n beta ti. Todos los perfiles de los jugadores
+        actuales no son m\xE1s compatibles con el juego y que deben ser eliminados."
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Thank you for downloading the final release of Antura and the
+        Letters and for helping us playing the beta version. All existing player profiles
+        are no more compatible with the game and they must be deleted.
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_All
+      _NativeText: Todos
+      _NativeText_F: 
+      _NativeAudio: UI_All
+      _LearningText: All
+      _LearningText_F: 
+      _LearningAudio: UI_All
+    - _Id: UI_Animals
+      _NativeText: animales
+      _NativeText_F: 
+      _NativeAudio: UI_Animals
+      _LearningText: Animals
+      _LearningText_F: 
+      _LearningAudio: UI_Animals
+    - _Id: UI_Antura_Category_Back
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Back
+      _LearningText: Back
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Back
+    - _Id: UI_Antura_Category_Ears
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Ears
+      _LearningText: Ears
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Ears
+    - _Id: UI_Antura_Category_Head
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Head
+      _LearningText: Head
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Head
+    - _Id: UI_Antura_Category_Material
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Material
+      _LearningText: Material
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Material
+    - _Id: UI_Antura_Category_Mouth
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Mouth
+      _LearningText: Mouth
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Mouth
+    - _Id: UI_Antura_Category_Neck
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Neck
+      _LearningText: Neck
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Neck
+    - _Id: UI_Antura_Category_Nose
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Nose
+      _LearningText: Nose
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Nose
+    - _Id: UI_Antura_Category_Style
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Style
+      _LearningText: Style
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Style
+    - _Id: UI_Antura_Category_Tail
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Category_Tail
+      _LearningText: Tail
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Category_Tail
+    - _Id: UI_Antura_Color_Black
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Black
+      _LearningText: Black
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Black
+    - _Id: UI_Antura_Color_Black_and_Blue
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Black_and_Blue
+      _LearningText: Black_and_Blue
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Black_and_Blue
+    - _Id: UI_Antura_Color_Black_and_White
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Black_and_White
+      _LearningText: Black_and_White
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Black_and_White
+    - _Id: UI_Antura_Color_Blue
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Blue
+      _LearningText: Blue
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Blue
+    - _Id: UI_Antura_Color_Blue_and_Green
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Blue_and_Green
+      _LearningText: Blue_and_Green
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Blue_and_Green
+    - _Id: UI_Antura_Color_Blue_and_Orange
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Blue_and_Orange
+      _LearningText: Blue_and_Orange
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Blue_and_Orange
+    - _Id: UI_Antura_Color_Brown_and_Yellow
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Brown_and_Yellow
+      _LearningText: Brown_and_Yellow
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Brown_and_Yellow
+    - _Id: UI_Antura_Color_Green_and_Orange
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Green_and_Orange
+      _LearningText: Green_and_Orange
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Green_and_Orange
+    - _Id: UI_Antura_Color_Green_and_Pink
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Green_and_Pink
+      _LearningText: Green_and_Pink
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Green_and_Pink
+    - _Id: UI_Antura_Color_Green_and_Red
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Green_and_Red
+      _LearningText: Green_and_Red
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Green_and_Red
+    - _Id: UI_Antura_Color_Orange_and_Pink
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Orange_and_Pink
+      _LearningText: Orange_and_Pink
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Orange_and_Pink
+    - _Id: UI_Antura_Color_Pink_And_Black
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Pink_And_Black
+      _LearningText: Pink_And_Black
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Pink_And_Black
+    - _Id: UI_Antura_Color_Pink_and_Blue
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Pink_and_Blue
+      _LearningText: Pink_and_Blue
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Pink_and_Blue
+    - _Id: UI_Antura_Color_Purple_and_Pink
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Purple_and_Pink
+      _LearningText: Purple_and_Pink
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Purple_and_Pink
+    - _Id: UI_Antura_Color_Purple_and_Yellow
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Purple_and_Yellow
+      _LearningText: Purple_and_Yellow
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Purple_and_Yellow
+    - _Id: UI_Antura_Color_Red_and_Blue
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Red_and_Blue
+      _LearningText: Red_and_Blue
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Red_and_Blue
+    - _Id: UI_Antura_Color_Red_and_Orange
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Red_and_Orange
+      _LearningText: Red_and_Orange
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Red_and_Orange
+    - _Id: UI_Antura_Color_Red_and_Purple
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_Red_and_Purple
+      _LearningText: Red_and_Purple
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_Red_and_Purple
+    - _Id: UI_Antura_Color_White_and_Purple
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_White_and_Purple
+      _LearningText: White_and_Purple
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_White_and_Purple
+    - _Id: UI_Antura_Color_White_and_Red
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Color_White_and_Red
+      _LearningText: White_and_Red
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Color_White_and_Red
+    - _Id: UI_Antura_Item_Backpack
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Backpack
+      _LearningText: Backpack
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Backpack
+    - _Id: UI_Antura_Item_Big_Nose
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Big_Nose
+      _LearningText: Big_Nose
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Big_Nose
+    - _Id: UI_Antura_Item_BowTie
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_BowTie
+      _LearningText: BowTie
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_BowTie
+    - _Id: UI_Antura_Item_Box
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Box
+      _LearningText: Box
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Box
+    - _Id: UI_Antura_Item_Bricks
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Bricks
+      _LearningText: Bricks
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Bricks
+    - _Id: UI_Antura_Item_Classic
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Classic
+      _LearningText: Classic
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Classic
+    - _Id: UI_Antura_Item_Cloth
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Cloth
+      _LearningText: Cloth
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Cloth
+    - _Id: UI_Antura_Item_Console
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Console
+      _LearningText: Console
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Console
+    - _Id: UI_Antura_Item_Cotton
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Cotton
+      _LearningText: Cotton
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Cotton
+    - _Id: UI_Antura_Item_Crest
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Crest
+      _LearningText: Crest
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Crest
+    - _Id: UI_Antura_Item_Curly_Beard
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Curly_Beard
+      _LearningText: Curly_Beard
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Curly_Beard
+    - _Id: UI_Antura_Item_Diamond_Collar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Diamond_Collar
+      _LearningText: Diamond_Collar
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Diamond_Collar
+    - _Id: UI_Antura_Item_Dots
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Dots
+      _LearningText: Dots
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Dots
+    - _Id: UI_Antura_Item_Double_Earring
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Double_Earring
+      _LearningText: Double_Earring
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Double_Earring
+    - _Id: UI_Antura_Item_Earring
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Earring
+      _LearningText: Earring
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Earring
+    - _Id: UI_Antura_Item_Flowers
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Flowers
+      _LearningText: Flowers
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Flowers
+    - _Id: UI_Antura_Item_Glasses
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Glasses
+      _LearningText: Glasses
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Glasses
+    - _Id: UI_Antura_Item_Guitar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Guitar
+      _LearningText: Guitar
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Guitar
+    - _Id: UI_Antura_Item_Hat
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Hat
+      _LearningText: Hat
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Hat
+    - _Id: UI_Antura_Item_Hearts
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Hearts
+      _LearningText: Hearts
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Hearts
+    - _Id: UI_Antura_Item_Helmet
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Helmet
+      _LearningText: Helmet
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Helmet
+    - _Id: UI_Antura_Item_Hook
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Hook
+      _LearningText: Hook
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Hook
+    - _Id: UI_Antura_Item_Long_Beard
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Long_Beard
+      _LearningText: Long_Beard
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Long_Beard
+    - _Id: UI_Antura_Item_Mailbox
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Mailbox
+      _LearningText: Mailbox
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Mailbox
+    - _Id: UI_Antura_Item_Modern
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Modern
+      _LearningText: Modern
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Modern
+    - _Id: UI_Antura_Item_Monocular
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Monocular
+      _LearningText: Monocular
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Monocular
+    - _Id: UI_Antura_Item_Mustache
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Mustache
+      _LearningText: Mustache
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Mustache
+    - _Id: UI_Antura_Item_Ribbon
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Ribbon
+      _LearningText: Ribbon
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Ribbon
+    - _Id: UI_Antura_Item_Ribbon_Collar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Ribbon_Collar
+      _LearningText: Ribbon_Collar
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Ribbon_Collar
+    - _Id: UI_Antura_Item_Scales
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Scales
+      _LearningText: Scales
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Scales
+    - _Id: UI_Antura_Item_Short_Beard
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Short_Beard
+      _LearningText: Short_Beard
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Short_Beard
+    - _Id: UI_Antura_Item_Shovel
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Shovel
+      _LearningText: Shovel
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Shovel
+    - _Id: UI_Antura_Item_Solid
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Solid
+      _LearningText: Solid
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Solid
+    - _Id: UI_Antura_Item_Spike_Collar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Spike_Collar
+      _LearningText: Spike_Collar
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Spike_Collar
+    - _Id: UI_Antura_Item_Sport
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Sport
+      _LearningText: Sport
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Sport
+    - _Id: UI_Antura_Item_Star
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Star
+      _LearningText: Star
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Star
+    - _Id: UI_Antura_Item_Star_Earring
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Star_Earring
+      _LearningText: Star_Earring
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Star_Earring
+    - _Id: UI_Antura_Item_Straw
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Straw
+      _LearningText: Straw
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Straw
+    - _Id: UI_Antura_Item_Thin_Collar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Thin_Collar
+      _LearningText: Thin_Collar
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Thin_Collar
+    - _Id: UI_Antura_Item_Umbrella
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Umbrella
+      _LearningText: Umbrella
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Umbrella
+    - _Id: UI_Antura_Item_Wool
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Item_Wool
+      _LearningText: Wool
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Item_Wool
+    - _Id: UI_Antura_Rewards
+      _NativeText: Las recompensas ANTURA
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Antura Rewards
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Antura_Shop_Cactus
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Cactus
+      _LearningText: Cactus
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Cactus
+    - _Id: UI_Antura_Shop_Cookie
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Cookie
+      _LearningText: Cookie
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Cookie
+    - _Id: UI_Antura_Shop_Forrest
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Forrest
+      _LearningText: Forrest
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Forrest
+    - _Id: UI_Antura_Shop_Grass
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Grass
+      _LearningText: Grass
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Grass
+    - _Id: UI_Antura_Shop_Green_Tree
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Green_Tree
+      _LearningText: Green_Tree
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Green_Tree
+    - _Id: UI_Antura_Shop_House
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_House
+      _LearningText: House
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_House
+    - _Id: UI_Antura_Shop_Orange_Carpet
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Orange_Carpet
+      _LearningText: Orange_Carpet
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Orange_Carpet
+    - _Id: UI_Antura_Shop_Orange_Tree
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Orange_Tree
+      _LearningText: Orange_Tree
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Orange_Tree
+    - _Id: UI_Antura_Shop_Pencil
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Pencil
+      _LearningText: Pencil
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Pencil
+    - _Id: UI_Antura_Shop_Pink_Carpet
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Pink_Carpet
+      _LearningText: Pink_Carpet
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Pink_Carpet
+    - _Id: UI_Antura_Shop_Plant
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Plant
+      _LearningText: Plant
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Plant
+    - _Id: UI_Antura_Shop_Purple_Carpet
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Purple_Carpet
+      _LearningText: Purple_Carpet
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Purple_Carpet
+    - _Id: UI_Antura_Shop_Rocks
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Rocks
+      _LearningText: Rocks
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Rocks
+    - _Id: UI_Antura_Shop_Scissors
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Scissors
+      _LearningText: Scissors
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Scissors
+    - _Id: UI_Antura_Shop_Shovel
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Shovel
+      _LearningText: Shovel
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Shovel
+    - _Id: UI_Antura_Shop_Tower
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Tower
+      _LearningText: Tower
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Tower
+    - _Id: UI_Antura_Shop_Yellow_Carpet
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Antura_Shop_Yellow_Carpet
+      _LearningText: Yellow_Carpet
+      _LearningText_F: 
+      _LearningAudio: UI_Antura_Shop_Yellow_Carpet
+    - _Id: UI_AreYouSure
+      _NativeText: "\xBFEst\xE1s seguro?"
+      _NativeText_F: 
+      _NativeAudio: UI_AreYouSure
+      _LearningText: Are you sure?
+      _LearningText_F: 
+      _LearningAudio: UI_AreYouSure
+    - _Id: UI_Attention
+      _NativeText: Advertencia importante
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Important Warning
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Body_Parts
+      _NativeText: Partes del cuerpo
+      _NativeText_F: 
+      _NativeAudio: UI_Body_Parts
+      _LearningText: Body Parts
+      _LearningText_F: 
+      _LearningAudio: UI_Body_Parts
+    - _Id: UI_Bones
+      _NativeText: Galletas
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Cookies
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Calendar
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Calendar
+      _LearningText: Calendar
+      _LearningText_F: 
+      _LearningAudio: UI_Calendar
+    - _Id: UI_City_and_Places
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_City_and_Places
+      _LearningText: City and Places
+      _LearningText_F: 
+      _LearningAudio: UI_City_and_Places
+    - _Id: UI_Clothes
+      _NativeText: Ropa
+      _NativeText_F: 
+      _NativeAudio: UI_Clothes
+      _LearningText: Clothes
+      _LearningText_F: 
+      _LearningAudio: UI_Clothes
+    - _Id: UI_Cloths_and_Objects
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Cloths_and_Objects
+      _LearningText: Cloths and Objects
+      _LearningText_F: 
+      _LearningAudio: UI_Cloths_and_Objects
+    - _Id: UI_Colors
+      _NativeText: Colores
+      _NativeText_F: 
+      _NativeAudio: UI_Colors
+      _LearningText: Colors
+      _LearningText_F: 
+      _LearningAudio: UI_Colors
+    - _Id: UI_Combinations
+      _NativeText: combinaciones
+      _NativeText_F: 
+      _NativeAudio: UI_Combinations
+      _LearningText: Combinations
+      _LearningText_F: 
+      _LearningAudio: UI_Combinations
+    - _Id: UI_Conjunctions
+      _NativeText: conjunciones
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Conjunctions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Directions
+      _NativeText: Direcciones
+      _NativeText_F: 
+      _NativeAudio: UI_Directions
+      _LearningText: Directions
+      _LearningText_F: 
+      _LearningAudio: UI_Directions
+    - _Id: UI_FamilyMembers
+      _NativeText: Miembros de la familia
+      _NativeText_F: 
+      _NativeAudio: UI_Family Members
+      _LearningText: Family Members
+      _LearningText_F: 
+      _LearningAudio: UI_Family Members
+    - _Id: UI_Feelings
+      _NativeText: Sentimientos
+      _NativeText_F: 
+      _NativeAudio: UI_Feelings
+      _LearningText: Feelings
+      _LearningText_F: 
+      _LearningAudio: UI_Feelings
+    - _Id: UI_Food
+      _NativeText: Comida
+      _NativeText_F: 
+      _NativeAudio: UI_Food
+      _LearningText: Food
+      _LearningText_F: 
+      _LearningAudio: UI_Food
+    - _Id: UI_Furniture
+      _NativeText: Mueble
+      _NativeText_F: 
+      _NativeAudio: UI_Furniture
+      _LearningText: Furniture
+      _LearningText_F: 
+      _LearningAudio: UI_Furniture
+    - _Id: UI_Games
+      _NativeText: Juegos
+      _NativeText_F: 
+      _NativeAudio: UI_Games
+      _LearningText: Games
+      _LearningText_F: 
+      _LearningAudio: UI_Games
+    - _Id: UI_Games_played
+      _NativeText: Juegos jugados
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Games played
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_General
+      _NativeText: "A\xF1o"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Year
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Greetings_and_Expressions
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_Greetings_and_Expressions
+      _LearningText: Greetings and Expressions
+      _LearningText_F: 
+      _LearningAudio: UI_Greetings_and_Expressions
+    - _Id: UI_House_and_Family
+      _NativeText: 
+      _NativeText_F: 
+      _NativeAudio: UI_House_and_Family
+      _LearningText: House and Family
+      _LearningText_F: 
+      _LearningAudio: UI_House_and_Family
+    - _Id: UI_Jobs
+      _NativeText: Trabajos
+      _NativeText_F: 
+      _NativeAudio: UI_Jobs
+      _LearningText: Jobs
+      _LearningText_F: 
+      _LearningAudio: UI_Jobs
+    - _Id: UI_Journey_duration
+      _NativeText: "la duraci\xF3n del viaje"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Journey duration
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_LearningBlock
+      _NativeText: Bloque de aprendizaje
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Learning Block
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Letters
+      _NativeText: Letras
+      _NativeText_F: 
+      _NativeAudio: UI_Letters
+      _LearningText: Letters
+      _LearningText_F: 
+      _LearningAudio: UI_Letters
+    - _Id: UI_Nature
+      _NativeText: Naturaleza
+      _NativeText_F: 
+      _NativeAudio: UI_Nature
+      _LearningText: Nature
+      _LearningText_F: 
+      _LearningAudio: UI_Nature
+    - _Id: UI_No
+      _NativeText: No
+      _NativeText_F: 
+      _NativeAudio: UI_No
+      _LearningText: No
+      _LearningText_F: 
+      _LearningAudio: UI_No
+    - _Id: UI_None
+      _NativeText: Nada
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Nothing
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Notification_24h
+      _NativeText: "Antura est\xE1 esperando para jugar!"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Antura is waiting for you to play!
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Noun
+      _NativeText: Sustantivo
+      _NativeText_F: 
+      _NativeAudio: UI_Noun
+      _LearningText: Noun
+      _LearningText_F: 
+      _LearningAudio: UI_Noun
+    - _Id: UI_Numbers
+      _NativeText: "N\xFAmeros"
+      _NativeText_F: 
+      _NativeAudio: UI_Numbers
+      _LearningText: Numbers
+      _LearningText_F: 
+      _LearningAudio: UI_Numbers
+    - _Id: UI_NumbersOrdinal
+      _NativeText: "N\xFAmeros ordinales"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Ordinal Numbers
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_OverallStats
+      _NativeText: "Estad\xEDsticas generales"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Overall Stats
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_People
+      _NativeText: Gente
+      _NativeText_F: 
+      _NativeAudio: UI_People
+      _LearningText: People
+      _LearningText_F: 
+      _LearningAudio: UI_People
+    - _Id: UI_Phrases
+      _NativeText: frases
+      _NativeText_F: 
+      _NativeAudio: UI_Phrases
+      _LearningText: Phrases
+      _LearningText_F: 
+      _LearningAudio: UI_Phrases
+    - _Id: UI_Phrases_Expressions
+      _NativeText: expresiones
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Expressions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Phrases_Greetings
+      _NativeText: Saludos
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Greetings
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Phrases_Questions
+      _NativeText: preguntas
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Questions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Phrases_Replies
+      _NativeText: respuestas
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Replies
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Phrases_Years
+      _NativeText: "A\xF1os"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Years
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Places
+      _NativeText: lugares
+      _NativeText_F: 
+      _NativeAudio: UI_Places
+      _LearningText: Places
+      _LearningText_F: 
+      _LearningAudio: UI_Places
+    - _Id: UI_Player
+      _NativeText: ID del jugador
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Player Id
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Playing_time
+      _NativeText: Tiempo para jugar
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Playing time
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_PlayWithSound
+      _NativeText: "Aseg\xFArese de jugar con suficiente volumen de audio para escuchar
+        las instrucciones de voz"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Be sure to play with enough audio volume to listen the voice
+        instructions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Positions
+      _NativeText: posiciones
+      _NativeText_F: 
+      _NativeAudio: UI_Positions
+      _LearningText: Positions
+      _LearningText_F: 
+      _LearningAudio: UI_Positions
+    - _Id: UI_Preposition
+      _NativeText: "Preposici\xF3n"
+      _NativeText_F: 
+      _NativeAudio: UI_Preposition
+      _LearningText: Preposition
+      _LearningText_F: 
+      _LearningAudio: UI_Preposition
+    - _Id: UI_Prompt_AndroidInstallPDF
+      _NativeText: "La apertura de un archivo PDF con las instrucciones de instalaci\xF3n.
+        Si el documento no se abre, por favor, instale una aplicaci\xF3n de visor
+        de PDF y vuelva a intentar!"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Opening a PDF with the Install instructions. If the document
+        doesn't open, please install a PDF viewer app and retry!
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Prompt_bugreport
+      _NativeText: "Si se encuentra un problema o tiene alguna sugerencia, por favor
+        indique el uso de esta p\xE1gina Web"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: If you found a problem or have a suggestion, please tell us using
+        this web page
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Prompt_rate
+      _NativeText: "Si te gusta esta aplicaci\xF3n, por favor dejar un comentario
+        sobre la tienda. Puede ayudar a llegar a m\xE1s ni\xF1os!"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: If you like this app, please write a review on the store. It
+        can help reaching more kids!
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Prompt_ShareData
+      _NativeText: "Recopilamos datos de uso an\xF3nimos para mejorar la aplicaci\xF3n.
+        gracias por compartir la suya. Nunca se recoge informaci\xF3n personal y sensible."
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: We collect anonymous usage data to improve the app. thank you
+        for sharing yours. We never collect personal and sensible information.
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_PromptOnlineAnalytics
+      _NativeText: "\xBFLe gustar\xEDa ayudar a mejorar esta aplicaci\xF3n de aprendizaje
+        en l\xEDnea mediante el intercambio de su AN\xD3NIMO reproducir datos?"
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Would you like to help us improve this learning app by sharing
+        online your ANONYMOUS play data?
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_ReservedArea
+      _NativeText: "\xC1rea padres"
+      _NativeText_F: 
+      _NativeAudio: UI_ReservedArea
+      _LearningText: Parents Area
+      _LearningText_F: 
+      _LearningAudio: UI_ReservedArea
+    - _Id: UI_Sentences
+      _NativeText: Frases
+      _NativeText_F: 
+      _NativeAudio: UI_Sentences
+      _LearningText: Sentences
+      _LearningText_F: 
+      _LearningAudio: UI_Sentences
+    - _Id: UI_Shapes
+      _NativeText: formas
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Shapes
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Size
+      _NativeText: Volumen
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Volume
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Special
+      _NativeText: Especial
+      _NativeText_F: 
+      _NativeAudio: UI_Special
+      _LearningText: Special
+      _LearningText_F: 
+      _LearningAudio: UI_Special
+    - _Id: UI_Sports
+      _NativeText: Deportes
+      _NativeText_F: 
+      _NativeAudio: UI_Sports
+      _LearningText: Sports
+      _LearningText_F: 
+      _LearningAudio: UI_Sports
+    - _Id: UI_Stage
+      _NativeText: Escenario
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Stage
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Stage_and_Level
+      _NativeText: Fase y el nivel
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Stage and Level
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Stars
+      _NativeText: Estrellas
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Stars
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Symbols
+      _NativeText: "s\xEDmbolos"
+      _NativeText_F: 
+      _NativeAudio: UI_Symbols
+      _LearningText: Symbols
+      _LearningText_F: 
+      _LearningAudio: UI_Symbols
+    - _Id: UI_Things
+      _NativeText: Cosas
+      _NativeText_F: 
+      _NativeAudio: UI_Things
+      _LearningText: Things
+      _LearningText_F: 
+      _LearningAudio: UI_Things
+    - _Id: UI_Time
+      _NativeText: Hora
+      _NativeText_F: 
+      _NativeAudio: UI_Time
+      _LearningText: Time
+      _LearningText_F: 
+      _LearningAudio: UI_Time
+    - _Id: UI_TimeSpent
+      _NativeText: Tiempo para jugar
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Playing Time
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Today
+      _NativeText: Hoy
+      _NativeText_F: 
+      _NativeAudio: UI_Today
+      _LearningText: Today
+      _LearningText_F: 
+      _LearningAudio: UI_Today
+    - _Id: UI_Tomorrow
+      _NativeText: "ma\xF1ana"
+      _NativeText_F: 
+      _NativeAudio: UI_Tomorrow
+      _LearningText: Tomorrow
+      _LearningText_F: 
+      _LearningAudio: UI_Tomorrow
+    - _Id: UI_Unlocked_Letters
+      _NativeText: Cartas desbloqueados
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Unlocked Letters
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Unlocked_Levels
+      _NativeText: Los niveles desbloqueados
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Unlocked Levels
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Unlocked_Phrases
+      _NativeText: Frases desbloqueado
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Unlocked Phrases
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Unlocked_Words
+      _NativeText: Palabras desbloqueados
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Unlocked Words
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Vehicles
+      _NativeText: "veh\xEDculos"
+      _NativeText_F: 
+      _NativeAudio: UI_Vehicles
+      _LearningText: Vehicles
+      _LearningText_F: 
+      _LearningAudio: UI_Vehicles
+    - _Id: UI_Verb
+      _NativeText: Verbo
+      _NativeText_F: 
+      _NativeAudio: UI_Verb
+      _LearningText: Verb
+      _LearningText_F: 
+      _LearningAudio: UI_Verb
+    - _Id: UI_WordCat_Adjectives
+      _NativeText: adjetivos
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Adjectives
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_WordCat_Expressions
+      _NativeText: expresiones
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Expressions
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_WordCat_Greetings
+      _NativeText: Saludos
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Greetings
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_WordCat_Names
+      _NativeText: nombres
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Names
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_WordCat_Verbs
+      _NativeText: verbos
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Verbs
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_WordCat_Weather
+      _NativeText: Clima
+      _NativeText_F: 
+      _NativeAudio: 
+      _LearningText: Weather
+      _LearningText_F: 
+      _LearningAudio: 
+    - _Id: UI_Words
+      _NativeText: Palabras
+      _NativeText_F: 
+      _NativeAudio: UI_Words
+      _LearningText: Words
+      _LearningText_F: 
+      _LearningAudio: UI_Words
+    - _Id: UI_Yes
+      _NativeText: "S\xED"
+      _NativeText_F: 
+      _NativeAudio: UI_Yes
+      _LearningText: Yes
+      _LearningText_F: 
+      _LearningAudio: UI_Yes
+    - _Id: UI_Yesterday
+      _NativeText: Ayer
+      _NativeText_F: 
+      _NativeAudio: UI_Yesterday
+      _LearningText: Yesterday
+      _LearningText_F: 
+      _LearningAudio: UI_Yesterday

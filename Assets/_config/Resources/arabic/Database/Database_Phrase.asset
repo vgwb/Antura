@@ -1,0 +1,954 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8dc816d8d6e54d8325fbac00e0782, type: 3}
+  m_Name: Database_Phrase
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Id: goodmorning_Q
+      _Active: 1
+      _English: good morning - question
+      _Arabic: "\u0635\u0628\u0627\u062D \u0627\u0644\u062E\u064A\u0631"
+      _Category: 1
+      _Linked: goodmorning_R
+      _Words:
+      - morning
+      - the_well-being
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodmorning_R
+      _Active: 1
+      _English: good morning - reply
+      _Arabic: "\u0635\u0628\u0627\u062D \u0627\u0644\u0646\u0648\u0631"
+      _Category: 2
+      _Linked: goodmorning_Q
+      _Words:
+      - morning
+      - the_light_v2
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodevening_Q
+      _Active: 1
+      _English: good evening - question
+      _Arabic: "\u0645\u0633\u0627\u0621 \u0627\u0644\u062E\u064A\u0631"
+      _Category: 1
+      _Linked: goodevening_R
+      _Words:
+      - evening
+      - the_well-being
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodevening_R
+      _Active: 1
+      _English: good evening - reply
+      _Arabic: "\u0645\u0633\u0627\u0621 \u0627\u0644\u0646\u0648\u0631"
+      _Category: 2
+      _Linked: goodevening_Q
+      _Words:
+      - evening
+      - the_light_v2
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: hi
+      _Active: 1
+      _English: Hi
+      _Arabic: "\u0645\u0631\u062D\u0628\u0627\u064B"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - hi
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: yourwelcome
+      _Active: 1
+      _English: you are welcome
+      _Arabic: "\u0623\u0647\u0644\u0627\u064B \u0648\u0633\u0647\u0644\u0627\u064B"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - welcome
+      - and
+      - welcome_assertion
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: howareyou
+      _Active: 1
+      _English: how are you doing?
+      _Arabic: "\u0643\u064A\u0641 \u062D\u0627\u0644\u0643\u061F"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - how
+      - your_situation
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: fine
+      _Active: 1
+      _English: fine
+      _Arabic: "\u0628\u062E\u064A\u0631"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - fine
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: thankyou
+      _Active: 1
+      _English: thank you
+      _Arabic: "\u0634\u0643\u0631\u0627\u064B"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - thankyou
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: sure
+      _Active: 1
+      _English: sure
+      _Arabic: "\u0639\u0641\u0648\u0627\u064B"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - sure
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: seeyou
+      _Active: 1
+      _English: see you
+      _Arabic: "\u0625\u0644\u0649 \u0627\u0644\u0644\u0642\u0627\u0621"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - to
+      - the_meeting
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodbye
+      _Active: 1
+      _English: good-bye
+      _Arabic: "\u0648\u062F\u0627\u0639\u0627\u064B"
+      _Category: 3
+      _Linked: 
+      _Words:
+      - goodbye
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: the_year_2016
+      _Active: 1
+      _English: the year two thousand and sixteen
+      _Arabic: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u0633\u062A\u0629
+        \u0639\u0634\u0631"
+      _Category: 4
+      _Linked: 
+      _Words:
+      - year
+      - number_2000
+      - and
+      - number_16
+      _Answers: []
+      _Complexity: 1
+    - _Id: the_year_2017
+      _Active: 1
+      _English: the year two thousand and seventeen
+      _Arabic: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u0633\u0628\u0639\u0629
+        \u0639\u0634\u0631"
+      _Category: 4
+      _Linked: 
+      _Words:
+      - year
+      - number_2000
+      - and
+      - number_17
+      _Answers: []
+      _Complexity: 1
+    - _Id: the_year_2018
+      _Active: 1
+      _English: the year twothousand and eighteen
+      _Arabic: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062B\u0645\u0627\u0646\u064A\u0629
+        \u0639\u0634\u0631"
+      _Category: 4
+      _Linked: 
+      _Words:
+      - year
+      - number_2000
+      - and
+      - number_18
+      _Answers: []
+      _Complexity: 1
+    - _Id: the_year_2015
+      _Active: 1
+      _English: the year two thousand and fifteen
+      _Arabic: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062E\u0645\u0633\u0629
+        \u0639\u0634\u0631"
+      _Category: 4
+      _Linked: 
+      _Words:
+      - year
+      - number_2000
+      - and
+      - number_15
+      _Answers: []
+      _Complexity: 1
+    - _Id: the_year_2009
+      _Active: 1
+      _English: the year two thousand and nine
+      _Arabic: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062A\u0633\u0639\u0629"
+      _Category: 4
+      _Linked: 
+      _Words:
+      - year
+      - number_2000
+      - and
+      - number_09
+      _Answers: []
+      _Complexity: 1
+    - _Id: theboyopenedthewindow
+      _Active: 1
+      _English: the boy opened the window
+      _Arabic: "\u0641\u062A\u062D \u0627\u0644\u0635\u0628\u064A \u0627\u0644\u0646\u0627\u0641\u0630\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_boy
+      - opened
+      - the_window
+      _Answers: []
+      _Complexity: 1
+    - _Id: theteacherlaughed
+      _Active: 1
+      _English: the teacher laughed
+      _Arabic: "\u0636\u062D\u0643 \u0627\u0644\u0645\u0639\u0644\u0645"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_teacher
+      - laughed
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: theworkercarriedthebox
+      _Active: 1
+      _English: the worker carried the box
+      _Arabic: "\u062D\u0645\u0644 \u0627\u0644\u0639\u0627\u0645\u0644 \u0627\u0644\u0635\u0646\u062F\u0648\u0642"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_worker
+      - carried
+      - the_box
+      _Answers: []
+      _Complexity: 1
+    - _Id: thegirldrankthejuice
+      _Active: 1
+      _English: the girl drank the juice
+      _Arabic: "\u0634\u0631\u0628\u062A \u0627\u0644\u0628\u0646\u062A \u0627\u0644\u0639\u0635\u064A\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - drank_feminine
+      - the_girl
+      - the_juice
+      _Answers: []
+      _Complexity: 1
+    - _Id: themountainisbig
+      _Active: 1
+      _English: the mountain is big
+      _Arabic: "\u0627\u0644\u062C\u0628\u0644 \u0643\u0628\u064A\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_mountain
+      - big
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: therestaurantisclean
+      _Active: 1
+      _English: the restaurant is clean
+      _Arabic: "\u0627\u0644\u0645\u0637\u0639\u0645 \u0646\u0638\u064A\u0641"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_restaurant
+      - clean
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: thetigeratethedeer
+      _Active: 1
+      _English: the tiger ate the deer
+      _Arabic: "\u0623\u0643\u0644 \u0627\u0644\u0646\u0645\u0631 \u0627\u0644\u063A\u0632\u0627\u0644"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_tiger
+      - ate
+      - the_deer
+      _Answers: []
+      _Complexity: 1
+    - _Id: redberry
+      _Active: 1
+      _English: red berry
+      _Arabic: "\u062A\u0648\u062A \u0623\u062D\u0645\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - color_red
+      - berry
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: yellowflower
+      _Active: 1
+      _English: yellowe flower
+      _Arabic: "\u0648\u0631\u062F \u0623\u0635\u0641\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - color_yellow
+      - flower
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: greencucumber
+      _Active: 1
+      _English: green cucumber
+      _Arabic: "\u062E\u064A\u0627\u0631 \u0623\u062E\u0636\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - color_green
+      - cucumber
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: thecarpenterwenthome
+      _Active: 1
+      _English: the carpenter went (left) home
+      _Arabic: "\u0630\u0647\u0628 \u0627\u0644\u0646\u062C\u0627\u0631 \u0625\u0644\u0649
+        \u0627\u0644\u0628\u064A\u062A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_carpenter
+      - went
+      - to
+      - the_house
+      _Answers: []
+      _Complexity: 1
+    - _Id: thebirdflew
+      _Active: 1
+      _English: the bird flew
+      _Arabic: "\u0637\u0627\u0631 \u0627\u0644\u0639\u0635\u0641\u0648\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_bird
+      - flew
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: theshopissmall
+      _Active: 1
+      _English: the shop is small
+      _Arabic: "\u0627\u0644\u062F\u0643\u0627\u0646 \u0635\u063A\u064A\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_shop
+      - small
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: thedoctoropenedthehospital
+      _Active: 1
+      _English: the doctor opened the hospital
+      _Arabic: "\u0641\u062A\u062D \u0627\u0644\u0637\u0628\u064A\u0628 \u0627\u0644\u0645\u0633\u062A\u0634\u0641\u0649"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_doctor
+      - opened
+      - the_hospital
+      _Answers: []
+      _Complexity: 1
+    - _Id: eightscientists
+      _Active: 1
+      _English: eight scientists
+      _Arabic: "\u062B\u0645\u0627\u0646\u064A\u0629 \u0639\u0644\u0645\u0627\u0621"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - number_08
+      - scientist_plural
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: theengineerworethecoat
+      _Active: 1
+      _English: the engineer wore the coat
+      _Arabic: "\u0644\u0628\u0633 \u0627\u0644\u0645\u0647\u0646\u062F\u0633 \u0627\u0644\u0645\u0639\u0637\u0641"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_engineer
+      - wore
+      - the_coat
+      _Answers: []
+      _Complexity: 1
+    - _Id: theplayerwon
+      _Active: 1
+      _English: the player won
+      _Arabic: "\u0631\u0628\u062D \u0627\u0644\u0644\u0627\u0639\u0628"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_player
+      - won
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: theshirtisclean
+      _Active: 1
+      _English: the shirt is clean
+      _Arabic: "\u0627\u0644\u0642\u0645\u064A\u0635 \u0646\u0638\u064A\u0641"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_shirt
+      - clean
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: yesterdaywassunday
+      _Active: 1
+      _English: yesterday was Sunday
+      _Arabic: "\u0643\u0627\u0646 \u0627\u0644\u0628\u0627\u0631\u062D\u0629 \u0623\u062D\u062F"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - yesterday
+      - was
+      - day_sunday
+      _Answers: []
+      _Complexity: 1
+    - _Id: thewinteriscold
+      _Active: 1
+      _English: the winter is cold
+      _Arabic: "\u0627\u0644\u0634\u062A\u0627\u0621 \u0628\u0627\u0631\u062F"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_winter
+      - cold
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: novemberistheeleventhmonth
+      _Active: 1
+      _English: November is the eleventh month
+      _Arabic: "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u062B\u0627\u0646\u064A
+        \u0647\u0648 \u0627\u0644\u0634\u0647\u0631 \u0627\u0644\u062D\u0627\u062F\u064A
+        \u0639\u0634\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - month_november
+      - is
+      - the_month
+      - number_o11
+      _Answers: []
+      _Complexity: 1
+    - _Id: theparrotisbeautiful
+      _Active: 1
+      _English: the parrot is beautiful
+      _Arabic: "\u0627\u0644\u0628\u0628\u063A\u0627\u0621 \u062C\u0645\u064A\u0644"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_parrot
+      - beautiful
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: mayisthefifthmonth
+      _Active: 1
+      _English: May is the fifth month
+      _Arabic: "\u0623\u064A\u0627\u0631 \u0647\u0648 \u0627\u0644\u0634\u0647\u0631
+        \u0627\u0644\u062E\u0627\u0645\u0633"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - month_may
+      - is
+      - the_month
+      - number_o05
+      _Answers: []
+      _Complexity: 1
+    - _Id: thepolicemanwalked
+      _Active: 1
+      _English: the policeman walked
+      _Arabic: "\u0645\u0634\u0649 \u0627\u0644\u0634\u0631\u0637\u064A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_policeman
+      - walked
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: theicecreamisdelicious
+      _Active: 1
+      _English: the ice-cream is delicious
+      _Arabic: "\u0627\u0644\u0628\u0648\u0638\u0629 \u0644\u0630\u064A\u0630\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_icecream
+      - delicious
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: fivebooks
+      _Active: 1
+      _English: five books
+      _Arabic: "\u062E\u0645\u0633\u0629 \u0643\u062A\u0628"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - number_05
+      - books
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: please
+      _Active: 1
+      _English: please
+      _Arabic: "\u0631\u062C\u0627\u0621"
+      _Category: 6
+      _Linked: 
+      _Words:
+      - please
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: thankyouverymuch
+      _Active: 1
+      _English: thank you very much
+      _Arabic: "\u0634\u0643\u0631\u0627\u064B \u062C\u0632\u064A\u0644\u0627\u064B"
+      _Category: 6
+      _Linked: 
+      _Words:
+      - thankyou
+      - verymuch
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodnight_Q
+      _Active: 1
+      _English: good night - question
+      _Arabic: "\u062A\u0635\u0628\u062D \u0639\u0644\u0649 \u062E\u064A\u0631"
+      _Category: 1
+      _Linked: goodnight_R
+      _Words:
+      - remain
+      - on
+      - well-being
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: goodnight_R
+      _Active: 1
+      _English: good night - reply
+      _Arabic: "\u0648\u0623\u0646\u062A \u0628\u062E\u064A\u0631"
+      _Category: 2
+      _Linked: goodnight_Q
+      _Words:
+      - and
+      - you
+      - with_well-being
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: congratulations
+      _Active: 1
+      _English: congratulations
+      _Arabic: "\u0645\u0628\u0631\u0648\u0643"
+      _Category: 6
+      _Linked: 
+      _Words:
+      - congratulations
+      _Answers: []
+      _Complexity: 0.3
+    - _Id: letsgo_Q
+      _Active: 1
+      _English: let's go - question
+      _Arabic: "\u0647\u064A\u0627 \u0644\u0646\u0630\u0647\u0628"
+      _Category: 1
+      _Linked: letsgo_R
+      _Words:
+      - lets
+      - go_v2
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: letsgo_R
+      _Active: 1
+      _English: let's go - reply
+      _Arabic: "\u0647\u064A\u0627 \u0646\u0630\u0647\u0628"
+      _Category: 2
+      _Linked: letsgo_Q
+      _Words:
+      - lets
+      - go
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: areyouready_Q
+      _Active: 1
+      _English: are you ready - question
+      _Arabic: "\u0647\u0644 \u0623\u0646\u062A \u062C\u0627\u0647\u0632\u061F"
+      _Category: 1
+      _Linked: yesiamready_R
+      _Words:
+      - are
+      - you
+      - ready
+      _Answers: []
+      _Complexity: 1
+    - _Id: yesiamready_R
+      _Active: 1
+      _English: yes I am ready - reply
+      _Arabic: "\u0646\u0639\u0645 \u0623\u0646\u0627 \u062C\u0627\u0647\u0632"
+      _Category: 2
+      _Linked: areyouready_Q
+      _Words:
+      - yes
+      - i_am
+      - ready
+      _Answers: []
+      _Complexity: 1
+    - _Id: whatisyourname_Q
+      _Active: 1
+      _English: what is your name - question
+      _Arabic: "\u0645\u0627 \u0627\u0633\u0645\u0643\u061F"
+      _Category: 1
+      _Linked: mynameissamer_R
+      _Words:
+      - what
+      - your_name
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: mynameissamer_R
+      _Active: 1
+      _English: my name is samer - reply
+      _Arabic: "\u0627\u0633\u0645\u064A \u0633\u0627\u0645\u0631"
+      _Category: 2
+      _Linked: whatisyourname_Q
+      _Words:
+      - my_name
+      - samer
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: whatisthetimenow_Q
+      _Active: 1
+      _English: what is the time now - question
+      _Arabic: "\u0643\u0645 \u0627\u0644\u0633\u0627\u0639\u0629 \u0627\u0644\u0622\u0646\u061F"
+      _Category: 1
+      _Linked: itis10oclockinthemorning_R
+      _Words:
+      - whats
+      - the_time
+      - now
+      _Answers: []
+      _Complexity: 1
+    - _Id: itis10oclockinthemorning_R
+      _Active: 1
+      _English: it is 10 o'clock in the morning - reply
+      _Arabic: "\u0625\u0646\u0647\u0627 \u0627\u0644\u0633\u0627\u0639\u0629 \u0627\u0644\u0639\u0627\u0634\u0631\u0629
+        \u0635\u0628\u0627\u062D\u0627\u064B"
+      _Category: 2
+      _Linked: whatisthetimenow_Q
+      _Words:
+      - it_is
+      - the_ten_oclock
+      - in_morning
+      _Answers: []
+      _Complexity: 1
+    - _Id: doyouneedhelp_Q
+      _Active: 1
+      _English: do you need help - question
+      _Arabic: "\u0647\u0644 \u062A\u062D\u062A\u0627\u062C \u0645\u0633\u0627\u0639\u062F\u0629\u061F"
+      _Category: 1
+      _Linked: yesplease_R
+      _Words:
+      - do_need
+      - need
+      - help
+      _Answers: []
+      _Complexity: 1
+    - _Id: yesplease_R
+      _Active: 1
+      _English: yes please - reply
+      _Arabic: "\u0646\u0639\u0645 \u0631\u062C\u0627\u0621"
+      _Category: 2
+      _Linked: doyouneedhelp_Q
+      _Words:
+      - yes
+      - please
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: myfatherisabraveman
+      _Active: 1
+      _English: my father is a brave man
+      _Arabic: "\u0628\u0627\u0628\u0627 \u0631\u062C\u0644\u064C \u0634\u062C\u0627\u0639\u064C"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - father
+      - brave
+      - man
+      _Answers: []
+      _Complexity: 1
+    - _Id: avirtuouspoliceman
+      _Active: 1
+      _English: a virtuous policeman
+      _Arabic: "\u0634\u0631\u0637\u064A\u064C \u0646\u0632\u064A\u0647\u064C"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - virtuous
+      - policeman
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: thescientistwenttothestation
+      _Active: 1
+      _English: the scientist went to the station
+      _Arabic: "\u0630\u0647\u0628 \u0627\u0644\u0639\u0627\u0644\u0645 \u0625\u0644\u0649
+        \u0627\u0644\u0645\u062D\u0637\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_scientist
+      - went
+      - to
+      - the_station
+      _Answers: []
+      _Complexity: 1
+    - _Id: thegirlwonaball
+      _Active: 1
+      _English: the girl won a ball
+      _Arabic: "\u0631\u0628\u062D\u062A \u0627\u0644\u0628\u0646\u062A \u0643\u0631\u0629\u064B"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_girl
+      - won_feminine
+      - ball
+      _Answers: []
+      _Complexity: 1
+    - _Id: abigwhale
+      _Active: 1
+      _English: a big whale
+      _Arabic: "\u062D\u0648\u062A\u064C \u0643\u0628\u064A\u0631\u064C"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - big
+      - whale
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: mybrotheropenedtheoragebox
+      _Active: 1
+      _English: my brother opened the orange box
+      _Arabic: "\u0641\u062A\u062D\u064E \u0623\u062E\u064A \u0627\u0644\u0635\u0646\u062F\u0648\u0642
+        \u0627\u0644\u0628\u0631\u062A\u0642\u0627\u0644\u064A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_brother
+      - opened
+      - the_color_orange
+      - the_box
+      _Answers: []
+      _Complexity: 1
+    - _Id: myauntsatonthechair
+      _Active: 1
+      _English: my aunt sat on the chair
+      _Arabic: "\u062C\u0644\u0633\u062A \u062E\u0627\u0644\u062A\u064A \u0639\u0644\u0649
+        \u0627\u0644\u0643\u0631\u0633\u064A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_aunt_mother
+      - sat_feminine
+      - on
+      - the_chair
+      _Answers: []
+      _Complexity: 1
+    - _Id: thankyouforthepurpleflower
+      _Active: 1
+      _English: thank you for the purple flower
+      _Arabic: "\u0634\u0643\u0631\u0627\u064B \u0639\u0644\u0649 \u0627\u0644\u0648\u0631\u062F
+        \u0627\u0644\u0628\u0646\u0641\u0633\u062C\u064A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - thankyou
+      - on
+      - the_color_purple
+      - the_flower
+      _Answers: []
+      _Complexity: 1
+    - _Id: congrats_forthebedandthecupboard
+      _Active: 1
+      _English: congratulations for the bed and the cupboard
+      _Arabic: "\u0645\u0628\u0631\u0648\u0643 \u0627\u0644\u0641\u0631\u0627\u0634
+        \u0648\u0627\u0644\u062E\u0632\u0627\u0646\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - congratulations
+      - the_bed
+      - and
+      - the_cupboard
+      _Answers: []
+      _Complexity: 1
+    - _Id: congrats_for_the_fridge_and_the_oven
+      _Active: 1
+      _English: congratulations for the fridge and the oven
+      _Arabic: "\u0645\u0628\u0631\u0648\u0643 \u0627\u0644\u062B\u0644\u0627\u062C\u0629
+        \u0648\u0627\u0644\u0641\u0631\u0646"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - congratulations
+      - the_fridge
+      - and
+      - the_oven
+      _Answers: []
+      _Complexity: 1
+    - _Id: theparrotishappyandactive
+      _Active: 1
+      _English: the parrot is happy and active
+      _Arabic: "\u0627\u0644\u0628\u0628\u063A\u0627\u0621 \u0633\u0639\u064A\u062F\u064C
+        \u0648\u0646\u0634\u064A\u0637\u064C"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_parrot
+      - happy
+      - active
+      _Answers: []
+      _Complexity: 1
+    - _Id: thetigerwasintheforest
+      _Active: 1
+      _English: the tiger was in the forest
+      _Arabic: "\u0643\u0627\u0646 \u0627\u0644\u0646\u0645\u0631 \u0641\u064A \u0627\u0644\u063A\u0627\u0628\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_tiger
+      - was
+      - in
+      - the_forest
+      _Answers: []
+      _Complexity: 1
+    - _Id: myauntissad
+      _Active: 1
+      _English: my aunt is sad
+      _Arabic: "\u0639\u0645\u062A\u064A \u062D\u0632\u064A\u0646\u0629"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_aunt_father
+      - sad_feminine
+      _Answers: []
+      _Complexity: 0.6
+    - _Id: thegreenappleisdelicious
+      _Active: 1
+      _English: the green apple is delicious
+      _Arabic: "\u0627\u0644\u062A\u0641\u0627\u062D \u0627\u0644\u0623\u062E\u0636\u0631
+        \u0644\u0630\u064A\u0630"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_color_green
+      - the_apple
+      - delicious
+      _Answers: []
+      _Complexity: 1
+    - _Id: myfaceisbluefromthecold
+      _Active: 1
+      _English: my face is blue from the cold
+      _Arabic: "\u0648\u062C\u0647\u064A \u0623\u0632\u0631\u0642 \u0645\u0646 \u0627\u0644\u0628\u0631\u062F"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_face
+      - color_blue
+      - from
+      - the_cold
+      _Answers: []
+      _Complexity: 1
+    - _Id: mysisterwenttotheclub
+      _Active: 1
+      _English: my sister went to the club
+      _Arabic: "\u0630\u0647\u0628\u062A \u0623\u062E\u062A\u064A \u0625\u0644\u0649
+        \u0627\u0644\u0645\u0646\u062A\u062F\u0649"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - sister
+      - went_feminine
+      - to
+      - the_club
+      _Answers: []
+      _Complexity: 1
+    - _Id: mygrandfathercaughtthebird
+      _Active: 1
+      _English: my grandfather caught the bird
+      _Arabic: "\u0645\u0633\u0643 \u062C\u062F\u064A \u0627\u0644\u0639\u0635\u0641\u0648\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_grandfather
+      - caught
+      - the_bird
+      _Answers: []
+      _Complexity: 1
+    - _Id: myuncleworethebrownshirt
+      _Active: 1
+      _English: my uncle wore the brown shirt
+      _Arabic: "\u0644\u0628\u0633 \u062E\u0627\u0644\u064A \u0627\u0644\u0642\u0645\u064A\u0635
+        \u0627\u0644\u0628\u0646\u064A"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_uncle_mother
+      - wore
+      - the_color_brown
+      - the_shirt
+      _Answers: []
+      _Complexity: 1
+    - _Id: myuncleisabraveman
+      _Active: 1
+      _English: my uncle is a brave man
+      _Arabic: "\u0639\u0645\u064A \u0631\u062C\u0644 \u0634\u062C\u0627\u0639"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - my_uncle_father
+      - brave
+      - man
+      _Answers: []
+      _Complexity: 1
+    - _Id: the_river_water_is_cold
+      _Active: 1
+      _English: the river's water is cold
+      _Arabic: "\u0645\u0627\u0621 \u0627\u0644\u0646\u0647\u0631 \u0628\u0627\u0631\u062F"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_river
+      - water
+      - cold_adjective
+      _Answers: []
+      _Complexity: 1
+    - _Id: thecarpenterleft
+      _Active: 1
+      _English: the carpenter left
+      _Arabic: "\u0630\u0647\u0628 \u0627\u0644\u0646\u062C\u0627\u0631"
+      _Category: 5
+      _Linked: 
+      _Words:
+      - the_carpenter
+      - went
+      _Answers: []
+      _Complexity: 0.6
