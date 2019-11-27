@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Database.Management
@@ -8,7 +9,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class PlaySessionParser : DataParser<PlaySessionData, PlaySessionTable>
     {
-        override protected PlaySessionData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected PlaySessionData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new PlaySessionData();
 

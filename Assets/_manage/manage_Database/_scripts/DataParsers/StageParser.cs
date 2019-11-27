@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -7,7 +8,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class StageParser : DataParser<StageData, StageTable>
     {
-        override protected StageData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected StageData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new StageData();
 

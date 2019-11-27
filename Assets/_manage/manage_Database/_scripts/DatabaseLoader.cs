@@ -31,17 +31,17 @@ namespace Antura.Database.Management
         public void RecreateDatabase()
         {
             CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME + "/", DatabaseManager.STATIC_DATABASE_NAME);
-            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
         }
 
         public void CopyCurrentDatabaseForTesting()
         {
-            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
-            var test_db = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
+            var test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             if (!test_db.HasTables()) {
                 CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME_TEST + "/", DatabaseManager.STATIC_DATABASE_NAME_TEST);
-                test_db = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
+                test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             }
 
             {
@@ -195,7 +195,7 @@ namespace Antura.Database.Management
         {
             if (verbose) Debug.Log("Loading data from JSON files...");
 
-            this._databaseObject = DatabaseObject.LoadDB(langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
             LoadDataFrom(inputData);
 
             if (verbose) Debug.Log("Finished loading!");
@@ -211,7 +211,7 @@ namespace Antura.Database.Management
                 {
                     Debug.Log("Loading Letters...");
                     var parser = new LetterParser();
-                    parser.Parse(DBInputData.letterDataAsset.text, _databaseObject, _databaseObject.GetLetterTable());
+                    parser.Parse(DBInputData.letterDataAsset.text, _databaseObject, _databaseObject.GetLetterTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.letterDb);
             }
@@ -221,7 +221,7 @@ namespace Antura.Database.Management
                     // @note: depends on Letter
                     Debug.Log("Loading Words...");
                     var parser = new WordParser();
-                    parser.Parse(DBInputData.wordDataAsset.text, _databaseObject, _databaseObject.GetWordTable());
+                    parser.Parse(DBInputData.wordDataAsset.text, _databaseObject, _databaseObject.GetWordTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.wordDb);
             }
@@ -231,7 +231,7 @@ namespace Antura.Database.Management
                     // @note: depends on Word
                     Debug.Log("Loading Phrases...");
                     var parser = new PhraseParser();
-                    parser.Parse(DBInputData.phraseDataAsset.text, _databaseObject, _databaseObject.GetPhraseTable());
+                    parser.Parse(DBInputData.phraseDataAsset.text, _databaseObject, _databaseObject.GetPhraseTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.phraseDb);
             }
@@ -240,7 +240,7 @@ namespace Antura.Database.Management
                 {
                     Debug.Log("Loading Localization...");
                     var parser = new LocalizationParser();
-                    parser.Parse(DBInputData.localizationDataAsset.text, _databaseObject, _databaseObject.GetLocalizationTable());
+                    parser.Parse(DBInputData.localizationDataAsset.text, _databaseObject, _databaseObject.GetLocalizationTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.localizationDb);
             }
@@ -250,7 +250,7 @@ namespace Antura.Database.Management
                 {
                     Debug.Log("Loading MiniGames...");
                     var parser = new MiniGameParser();
-                    parser.Parse(DBInputData.minigameDataAsset.text, _databaseObject, _databaseObject.GetMiniGameTable());
+                    parser.Parse(DBInputData.minigameDataAsset.text, _databaseObject, _databaseObject.GetMiniGameTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.minigameDb);
             }
@@ -260,7 +260,7 @@ namespace Antura.Database.Management
                     // @note: depends on Minigame
                     Debug.Log("Loading PlaySessions...");
                     var parser = new PlaySessionParser();
-                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetPlaySessionTable());
+                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetPlaySessionTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.playsessionDb);
             }
@@ -270,7 +270,7 @@ namespace Antura.Database.Management
                     // @note: depends on Letter, Word, Phrase, PlaySession
                     Debug.Log("Loading LearningBlocks...");
                     var parser = new LearningBlockParser();
-                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetLearningBlockTable());
+                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetLearningBlockTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.learningblockDb);
             }
@@ -279,7 +279,7 @@ namespace Antura.Database.Management
                 {
                     Debug.Log("Loading Stages...");
                     var parser = new StageParser();
-                    parser.Parse(DBInputData.stageDataAsset.text, _databaseObject, _databaseObject.GetStageTable());
+                    parser.Parse(DBInputData.stageDataAsset.text, _databaseObject, _databaseObject.GetStageTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.stageDb);
             }
@@ -288,7 +288,7 @@ namespace Antura.Database.Management
                 {
                     Debug.Log("Loading Rewards...");
                     var parser = new RewardParser();
-                    parser.Parse(DBInputData.rewardDataAsset.text, _databaseObject, _databaseObject.GetRewardTable());
+                    parser.Parse(DBInputData.rewardDataAsset.text, _databaseObject, _databaseObject.GetRewardTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.rewardDb);
             }

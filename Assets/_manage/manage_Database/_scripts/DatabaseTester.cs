@@ -41,7 +41,7 @@ namespace Antura.Database.Management
             this.dbLoader = GetComponentInChildren<DatabaseLoader>();
             dbLoader.langCode = langCode;
 
-            dbManager = new DatabaseManager(langCode);
+            dbManager = new DatabaseManager(true, langCode);
             vocabularyHelper = new VocabularyHelper(dbManager);
             scoreHelper = new ScoreHelper(dbManager);
             teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
@@ -646,8 +646,8 @@ namespace Antura.Database.Management
         public void TestDynamicProfileData()
         {
             dbManager.UpdatePlayerProfileData(
-                new PlayerProfileData(DEBUG_PLAYER_UUID, 1, PlayerGender.M, PlayerTint.Blue, false, false, false, false,
-                                      5, 8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState()
+                new PlayerProfileData(DEBUG_PLAYER_UUID, 1, Color.yellow, Color.red, Color.magenta, false, false, false, false,
+                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState()
                                      )
             );
             var playerProfileData = dbManager.GetPlayerProfileData();

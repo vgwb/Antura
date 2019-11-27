@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -8,7 +9,8 @@ namespace Antura.Database.Management
     // refactor: this is not used for now!
     public class RewardParser : DataParser<RewardData, RewardTable>
     {
-        override protected RewardData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected RewardData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new RewardData();
 

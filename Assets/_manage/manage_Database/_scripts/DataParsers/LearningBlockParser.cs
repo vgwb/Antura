@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -7,7 +8,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class LearningBlockParser : DataParser<LearningBlockData, LearningBlockTable>
     {
-        override protected LearningBlockData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected LearningBlockData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new LearningBlockData();
 
@@ -17,7 +19,7 @@ namespace Antura.Database.Management
 
             data.Description_NativeLang = ToString(dict["Description_En"]);
             data.Description_LearningLang = ToString(dict["Description_Ar"]);
-            data.Title_LearningLang = ToString(dict["Title_Ar"]);
+            data.Title_LearningLang = ToString(dict["Title_En"]);
             data.Title_NativeLang = ToString(dict["Title_En"]);
             data.AudioFile = ToString(dict["AudioFile"]);
             //data.Reward = ParseID<RewardData, RewardTable>(data, (string)dict["Reward"], db.GetRewardTable());

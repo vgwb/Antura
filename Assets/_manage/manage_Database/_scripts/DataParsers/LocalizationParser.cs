@@ -1,4 +1,6 @@
+using System;
 using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -7,19 +9,39 @@ namespace Antura.Database.Management
     /// </summary>
     public class LocalizationParser : DataParser<LocalizationData, LocalizationTable>
     {
-        override protected LocalizationData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected LocalizationData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language) // TODO: Deprecate "language"
         {
             var data = new LocalizationData();
 
             data.Id = ToString(dict["Id"]);
+            data.AudioKey = ToString(dict["audio_key"]);
 
-            data.LearningText = ToString(dict["english"]);
-            data.LearningText_F = ToString(dict["english_F"]);
-            data.LearningAudio = ToString(dict["english_AUDIO"]);
+            data._LocalizedDatas = new LocalizedData[Enum.GetNames(typeof(LanguageCode)).Length];
 
-            data.NativeText = ToString(dict["spanish"]);
-            data.NativeText_F = ToString(dict["spanish_F"]);
-            data.NativeAudio = ToString(dict["english_AUDIO"]);
+            foreach (LanguageCode lang in Enum.GetValues(typeof(LanguageCode))) {
+                var langData = new LocalizedData();
+                langData.Text = ToString(dict[lang.ToString().ToLower()]);
+                if (dict.ContainsKey(lang.ToString().ToLower() + "_F")) {
+                    langData.TextF = ToString(dict[lang.ToString().ToLower() + "_F"]);
+                }
+                data._LocalizedDatas[(int)lang - 1] = langData;
+            }
+
+            //var engData = new LocalizedData();
+            //engData.Text = ToString(dict["english"]);
+
+            //var spanishData = new LocalizedData();
+            //spanishData.Text = ToString(dict["spanish"]);
+
+            //var arabicData = new LocalizedData();
+            //arabicData.Text = ToString(dict["arabic"]);
+            //arabicData.TextF = ToString(dict["arabic_F"]);
+
+            //var itaData = new LocalizedData();
+            //itaData.Text = ToString(dict["italian"]);
+
+            //data._LocalizedDatas = new[] { engData, arabicData, spanishData, itaData };
             return data;
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 using MiniJSON;
 using UnityEngine;
 
@@ -12,7 +13,7 @@ namespace Antura.Database.Management
     /// <typeparam name="Dtable">Type for a table of the type to parse</typeparam>
     public abstract class DataParser<D, Dtable> where D : IData where Dtable : SerializableDataTable<D>
     {
-        public void Parse(string json, DatabaseObject db, Dtable table)
+        public void Parse(string json, DatabaseObject db, Dtable table, LanguageCode language)
         {
             table.Clear();  // we re-generate the whole table
 
@@ -21,7 +22,7 @@ namespace Antura.Database.Management
                 var list = rootPair.Value as List<object>;
                 foreach (var row in list) {
                     var dict = row as Dictionary<string, object>;
-                    var data = CreateData(dict, db);
+                    var data = CreateData(dict, db, language);
                     if (data == null) {
                         continue;
                     }
@@ -49,7 +50,7 @@ namespace Antura.Database.Management
             }
         }
 
-        protected abstract D CreateData(Dictionary<string, object> dict, DatabaseObject db);
+        protected abstract D CreateData(Dictionary<string, object> dict, DatabaseObject db, LanguageCode language);
         protected virtual void FinalValidation(Dtable table, DatabaseObject db) { }
 
         protected T ParseEnum<T>(D data, object enum_object)
@@ -103,6 +104,7 @@ namespace Antura.Database.Management
         #region Conversions
         protected string ToString(object _input)
         {
+            if (_input == null) return "";
             return ((string)_input).Trim();
         }
 

@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Antura.Helpers;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -8,7 +9,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class MiniGameParser : DataParser<MiniGameData, MiniGameTable>
     {
-        override protected MiniGameData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected MiniGameData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new MiniGameData();
 
@@ -17,8 +19,10 @@ namespace Antura.Database.Management
             data.Variation = ToString(dict["Variation"]);
             data.Badge = ToString(dict["Badge"]);
             data.Type = ParseEnum<MiniGameDataType>(data, dict["Type"]);
-            //data.Title_En = ToString(dict["Title_En"]);
-            //data.Title_Ar = ToString(dict["Title_Ar"]);
+            data.TitleId = ToString(dict["title_id"]);
+            data.VariationId = ToString(dict["variation_id"]);
+            data.IntroId = ToString(dict["intro_id"]);
+            data.TutorialId = ToString(dict["tutorial_id"]);
             data.Scene = ToString(dict["Scene"]);
             data.Active = ToString(dict["Status"]) == "active";
             data.AffectedPlaySkills = CustomParsePlaySkills(data, dict);

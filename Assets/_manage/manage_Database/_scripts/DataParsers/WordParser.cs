@@ -9,7 +9,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class WordParser : DataParser<WordData, WordTable>
     {
-        override protected WordData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected WordData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new WordData();
 
@@ -25,7 +26,11 @@ namespace Antura.Database.Management
             data.LinkedWord = ToString(dict["LinkedWord"]);
             data.Text = ToString(dict["Text"]);
             data.Value = ToString(dict["Value"]);
+            data.SortValue = ToString(dict["SortValue"]);
             data.Drawing = ToString(dict["Drawing"]);
+            if (dict.ContainsKey("DrawingCeibal")) {
+                data.DrawingCeibal = ToString(dict["DrawingCeibal"]);
+            }
             data.Complexity = ToFloat(dict["Complexity"]);
 
             return data;

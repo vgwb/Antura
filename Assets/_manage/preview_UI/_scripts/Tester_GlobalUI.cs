@@ -1,4 +1,4 @@
-﻿using Antura.Helpers;
+using Antura.Helpers;
 using Antura.UI;
 using UnityEngine;
 
@@ -97,7 +97,7 @@ namespace Antura.Test
 
         public void Subtitles_DisplaySentence(bool _isKeeper)
         {
-            GlobalUI.WidgetSubtitles.DisplaySentence(RandomTextId(), 3f, _isKeeper);
+            GlobalUI.WidgetSubtitles.DisplayDialogue(RandomTextId(), 3f, _isKeeper);
         }
 
         public void Subtitles_Close()

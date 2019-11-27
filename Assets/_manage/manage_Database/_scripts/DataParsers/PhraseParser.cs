@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -7,7 +8,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class PhraseParser : DataParser<PhraseData, PhraseTable>
     {
-        override protected PhraseData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected PhraseData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new PhraseData();
 
@@ -15,8 +17,8 @@ namespace Antura.Database.Management
             data.Active = (ToInt(dict["Active"]) == 1);
             if (!data.Active) return null;  // Skip this data if inactive
 
-            data.English = ToString(dict["English"]);
-            data.Arabic = ToString(dict["Arabic"]);
+            string langKey = language.ToString().ToUpper()[0] + language.ToString().Substring(1);
+            data.Text = ToString(dict[langKey]);
             data.Category = ParseEnum<PhraseDataCategory>(data, dict["Category"]);
             data.Linked = ToString(dict["Linked"]);
             data.Words = ParseIDArray<WordData, WordTable>(data, (string)dict["Words"], db.GetWordTable());

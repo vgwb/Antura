@@ -1,12 +1,13 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Assessment;
 using Antura.UI;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 using Antura.Core;
+using Antura.Database;
+using Antura.Minigames;
 
 namespace Antura.Teacher.Test
 {
@@ -54,16 +55,20 @@ namespace Antura.Teacher.Test
         [DeEndGroup]
         [DeToggleButton(DePosition.HHalfRight)]
         public bool verbosePlaySessionInitialisation = false;
+        [DeToggleButton(DePosition.HHalfLeft)]
+        public bool PrintReport = false;
 
         [DeBeginGroup]
         [Header("Simulation")]
         public int numberOfSimulations = 50;
+        public int attemptsPerSimulation = 10;
         [DeEndGroup]
-        public int yieldEverySimulations = 20;
 
         // Current options
         [DeBeginGroup]
         [Header("Journey")]
+        [DeToggleButton()]
+        public bool simulateInsideJourney = true;
         [DeToggleButton()]
         public bool ignoreJourneyPlaySessionSelection = false;
         [Range(1, 6)]
@@ -73,7 +78,8 @@ namespace Antura.Teacher.Test
         [DeToggleButton()]
         [DeEndGroup]
         public bool isAssessment = false;
-        //int currentJourneyPS = 1;
+        [DeToggleButton()]
+        public bool isRecap = false;
 
         [DeToggleButton()]
         public bool testWholeJourneyAtButtonClick = false;
@@ -136,7 +142,7 @@ namespace Antura.Teacher.Test
         {
             // Setup for testing
             Application.runInBackground = true;
-            SAppConfig.I.VerboseTeacher = true;
+            ApplicationConfig.I.VerboseTeacher = true;
             ConfigAI.ForceJourneyIgnore = false;
 
             /*
@@ -161,11 +167,12 @@ namespace Antura.Teacher.Test
             GlobalUI.ShowPauseMenu(false);
         }
 
-        private void InitialisePlaySession(Core.JourneyPosition jp = null)
+        private void InitialisePlaySession(JourneyPosition jp = null)
         {
-            if (jp == null)
-            {
-                jp = new Core.JourneyPosition(currentJourneyStage, currentJourneyLB, isAssessment ? 100 : 1);
+            if (jp == null) {
+                jp = new JourneyPosition(currentJourneyStage, currentJourneyLB, 1);
+                if (isAssessment) jp.PlaySession = JourneyPosition.ASSESSMENT_PLAY_SESSION_INDEX;
+                if (isRecap) jp.PlaySession = JourneyPosition.RECAP_PLAY_SESSION_INDEX;
             }
             AppManager.I.Player.CurrentJourneyPosition.SetPosition(jp.Stage, jp.LearningBlock, jp.PlaySession);
             AppManager.I.Teacher.InitNewPlaySession();
@@ -173,24 +180,23 @@ namespace Antura.Teacher.Test
 
         void SetVerboseAI(bool choice)
         {
-            SAppConfig.I.VerboseTeacher = choice;
+            ApplicationConfig.I.VerboseTeacher = choice;
         }
 
         #region Testing API
 
         void ApplyParameters()
         {
-            SAppConfig.I.VerboseQuestionPacks = verboseQuestionPacks;
-            SAppConfig.I.VerboseDataFiltering = verboseDataFiltering;
-            SAppConfig.I.VerboseDataSelection = verboseDataSelection;
-            SAppConfig.I.VerbosePlaySessionInitialisation = verbosePlaySessionInitialisation;
+            ApplicationConfig.I.VerboseQuestionPacks = verboseQuestionPacks;
+            ApplicationConfig.I.VerboseDataFiltering = verboseDataFiltering;
+            ApplicationConfig.I.VerboseDataSelection = verboseDataSelection;
+            ApplicationConfig.I.VerbosePlaySessionInitialisation = verbosePlaySessionInitialisation;
         }
 
         private bool IsCodeValid(MiniGameCode code)
         {
             bool isValid = true;
-            switch (code)
-            {
+            switch (code) {
                 case MiniGameCode.Invalid:
                 case MiniGameCode.Assessment_VowelOrConsonant:
                     isValid = false;
@@ -202,8 +208,7 @@ namespace Antura.Teacher.Test
         private bool IsCodeValid(QuestionBuilderType code)
         {
             bool isValid = true;
-            switch (code)
-            {
+            switch (code) {
                 case QuestionBuilderType.Empty:
                 case QuestionBuilderType.MAX:
                     isValid = false;
@@ -215,14 +220,12 @@ namespace Antura.Teacher.Test
         [DeMethodButton("Cleanup")]
         public void DoCleanup()
         {
-            foreach (var code in Helpers.GenericHelper.SortEnums<QuestionBuilderType>())
-            {
+            foreach (var code in Helpers.GenericHelper.SortEnums<QuestionBuilderType>()) {
                 if (!IsCodeValid(code)) continue;
                 SetButtonStatus(qbButtonsDict[code], Color.white);
             }
 
-            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>())
-            {
+            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
                 SetButtonStatus(minigamesButtonsDict[code], Color.white);
             }
@@ -236,8 +239,7 @@ namespace Antura.Teacher.Test
         private IEnumerator DoTestMinimumJourneyCO()
         {
             // Test all minigames at their minimum journey
-            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>())
-            {
+            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
                 var jp = AppManager.I.JourneyHelper.GetMinimumJourneyPositionForMiniGame(code);
                 if (jp == null) jp = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
@@ -254,8 +256,7 @@ namespace Antura.Teacher.Test
         private IEnumerator DoTestCompleteJourneyCO()
         {
             // Test all minigames at all their available journeys. Stop when we find a wrong one.
-            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>())
-            {
+            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
                 yield return StartCoroutine(DoTestMinigameWholeJourneyCO(code));
             }
@@ -267,7 +268,7 @@ namespace Antura.Teacher.Test
             StartCoroutine(DoTest(() => DoTestEverythingCO()));
         }
         private IEnumerator DoTestEverythingCO()
-        { 
+        {
             yield return StartCoroutine(DoTestAllMiniGamesCO());
             yield return StartCoroutine(DoTestAllQuestionBuildersCO());
         }
@@ -279,8 +280,7 @@ namespace Antura.Teacher.Test
         }
         private IEnumerator DoTestAllMiniGamesCO()
         {
-            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>())
-            {
+            foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
                 yield return StartCoroutine(DoTestMinigameCO(code));
             }
@@ -293,8 +293,7 @@ namespace Antura.Teacher.Test
         }
         private IEnumerator DoTestAllQuestionBuildersCO()
         {
-            foreach (var type in Helpers.GenericHelper.SortEnums<QuestionBuilderType>())
-            {
+            foreach (var type in Helpers.GenericHelper.SortEnums<QuestionBuilderType>()) {
                 if (!IsCodeValid(type)) continue;
                 yield return StartCoroutine(DoTestQuestionBuilderCO(type));
             }
@@ -309,12 +308,9 @@ namespace Antura.Teacher.Test
             SetButtonStatus(qbButtonsDict[type], Color.yellow);
             yield return new WaitForSeconds(0.1f);
             var statusColor = Color.green;
-            try
-            {
+            try {
                 SimulateQuestionBuilder(type);
-            }
-            catch (Exception e)
-            {
+            } catch (Exception e) {
                 Debug.LogError("!! " + type + "\n " + e.Message);
                 statusColor = Color.red;
             }
@@ -324,12 +320,9 @@ namespace Antura.Teacher.Test
 
         public void DoTestMinigame(MiniGameCode code)
         {
-            if (testWholeJourneyAtButtonClick)
-            {
+            if (testWholeJourneyAtButtonClick) {
                 StartCoroutine(DoTest(() => DoTestMinigameWholeJourneyCO(code)));
-            }
-            else
-            {
+            } else {
                 StartCoroutine(DoTest(() => DoTestMinigameCO(code)));
             }
         }
@@ -338,30 +331,26 @@ namespace Antura.Teacher.Test
         {
             int lastStage = 0;
             bool isCorrect = true;
-            foreach (var psData in AppManager.I.DB.GetAllPlaySessionData())
-            {
+            foreach (var psData in AppManager.I.DB.GetAllPlaySessionData()) {
                 if (!AppManager.I.Teacher.CanMiniGameBePlayedAtPlaySession(psData.GetJourneyPosition(), code)) continue;
 
                 InitialisePlaySession(psData.GetJourneyPosition());
 
                 // Log
                 Debug.Log("Testing " + code + " at ps " + psData.GetJourneyPosition());
-                if (psData.Stage != lastStage)
-                {
+                if (psData.Stage != lastStage) {
                     lastStage = psData.Stage;
                 }
 
                 // Skip minigames that found errors
                 yield return StartCoroutine(DoTestMinigameCO(code, 0.01f));
-                if (minigamesButtonsDict[code].colors.normalColor == Color.red)
-                {
+                if (minigamesButtonsDict[code].colors.normalColor == Color.red) {
                     Debug.LogError("Minigame " + code + " first wrong at ps " + psData.GetJourneyPosition());
                     isCorrect = false;
                     break;
                 }
             }
-            if (isCorrect)
-            {
+            if (isCorrect) {
                 Debug.Log("Minigame " + code + " is always fine");
             }
         }
@@ -371,29 +360,20 @@ namespace Antura.Teacher.Test
         {
             SetButtonStatus(minigamesButtonsDict[code], Color.yellow);
             yield return new WaitForSeconds(delay);
-            var statusColor = Color.green; 
+            var statusColor = Color.green;
 
-            if (!ignoreJourneyPlaySessionSelection && !AppManager.I.Teacher.CanMiniGameBePlayedAtAnyPlaySession(code))
-            {
+            if (!ignoreJourneyPlaySessionSelection && !AppManager.I.Teacher.CanMiniGameBePlayedAtAnyPlaySession(code)) {
                 Debug.LogError("Cannot select " + code + " for any journey position!");
                 statusColor = Color.magenta;
-            }
-            else
-            {
-                if (ignoreJourneyPlaySessionSelection || AppManager.I.Teacher.CanMiniGameBePlayedAfterMinPlaySession(AppManager.I.Player.CurrentJourneyPosition, code))
-                {
-                    try
-                    {
+            } else {
+                if (ignoreJourneyPlaySessionSelection || AppManager.I.Teacher.CanMiniGameBePlayedAfterMinPlaySession(AppManager.I.Player.CurrentJourneyPosition, code)) {
+                    try {
                         SimulateMiniGame(code);
-                    }
-                    catch (Exception e)
-                    {
+                    } catch (Exception e) {
                         Debug.LogError("!! " + code + " at PS(" + AppManager.I.Player.CurrentJourneyPosition + ")\n " + e.Message);
                         statusColor = Color.red;
                     }
-                }
-                else
-                {
+                } else {
                     Debug.LogError("Cannot select " + code + " for position " + AppManager.I.Player.CurrentJourneyPosition);
                     statusColor = Color.gray;
                 }
@@ -412,16 +392,16 @@ namespace Antura.Teacher.Test
         }
         private IEnumerator DoTest(Func<IEnumerator> CoroutineFunc)
         {
-            ConfigAI.StartTeacherReport();
+            if (PrintReport) ConfigAI.StartTeacherReport();
             ApplyParameters();
             InitialisePlaySession();
-            for (int i = 1; i <= numberOfSimulations; i++)
-            {
+            for (int i = 1; i <= numberOfSimulations; i++) {
                 Debug.Log("************ Simulation " + i + " ************");
-                ConfigAI.AppendToTeacherReport("************ Simulation " + i + " ************");
+                if (PrintReport) ConfigAI.AppendToTeacherReport("************ Simulation " + i + " ************");
                 yield return StartCoroutine(CoroutineFunc());
+                yield return null;
             }
-            ConfigAI.PrintTeacherReport();
+            if (PrintReport) ConfigAI.PrintTeacherReport();
         }
 
         #endregion
@@ -429,19 +409,19 @@ namespace Antura.Teacher.Test
 
         #region Minigames Simulation
 
+        MinigameLaunchConfiguration minigameLaunchConfig = new MinigameLaunchConfiguration();
         private void SimulateMiniGame(MiniGameCode code)
         {
-            var config = AppManager.I.GameLauncher.ConfigureMiniGameScene(code, System.DateTime.Now.Ticks.ToString());
-            if (config is IAssessmentConfiguration)
-            {
-                (config as IAssessmentConfiguration).NumberOfRounds = nPacks;
-            }
+            minigameLaunchConfig.NumberOfRounds = nPacks;
+            minigameLaunchConfig.InsideJourney = simulateInsideJourney;
+            minigameLaunchConfig.DirectGame = false;
 
+            var config = AppManager.I.GameLauncher.ConfigureMiniGameScene(code, System.DateTime.Now.Ticks.ToString(), minigameLaunchConfig);
             var builder = config.SetupBuilder();
-            ConfigAI.AppendToTeacherReport("** Minigame " + code + " - " + builder.GetType().Name);
+            if (PrintReport) ConfigAI.AppendToTeacherReport("** Minigame " + code + " - " + builder.GetType().Name + " PS: " + AppManager.I.Player.CurrentJourneyPosition);
 
             var questionPacksGenerator = new QuestionPacksGenerator();
-            questionPacksGenerator.GenerateQuestionPacks(builder);
+            questionPacksGenerator.GenerateQuestionPacks(builder, attemptsPerSimulation);
         }
 
         #endregion
@@ -454,8 +434,7 @@ namespace Antura.Teacher.Test
         {
 
             LetterAlterationFilters letterAlterationFilters = null;
-            switch (lettersVariationChoice)
-            {
+            switch (lettersVariationChoice) {
                 case 0:
                     letterAlterationFilters = LetterAlterationFilters.FormsOfSingleLetter;
                     break;
@@ -479,8 +458,7 @@ namespace Antura.Teacher.Test
 
             var builderParams = SetupBuilderParameters();
             IQuestionBuilder builder = null;
-            switch (builderType)
-            {
+            switch (builderType) {
                 case QuestionBuilderType.RandomLetters:
                     builder = new RandomLettersQuestionBuilder(nPacks: nPacks, nCorrect: nCorrectAnswers, nWrong: nWrongAnswers, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
@@ -512,7 +490,8 @@ namespace Antura.Teacher.Test
                     builder = new RandomWordsQuestionBuilder(nPacks: nPacks, nCorrect: nCorrectAnswers, nWrong: nWrongAnswers, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
                 case QuestionBuilderType.OrderedWords:
-                    builder = new OrderedWordsQuestionBuilder(Database.WordDataCategory.Number, parameters: builderParams);
+                    builderParams.wordFilters.allowedCategories = new[] { WordDataCategory.Numbers };
+                    builder = new OrderedWordsQuestionBuilder(parameters: builderParams);
                     break;
                 case QuestionBuilderType.WordsWithLetter:
                     builder = new WordsWithLetterQuestionBuilder(nRounds: nPacks, nPacksPerRound: nPacksPerRound, nCorrect: nCorrectAnswers, nWrong: nWrongAnswers, parameters: builderParams);

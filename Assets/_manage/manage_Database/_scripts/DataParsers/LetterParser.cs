@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Language;
 
 namespace Antura.Database.Management
 {
@@ -7,7 +8,8 @@ namespace Antura.Database.Management
     /// </summary>
     public class LetterParser : DataParser<LetterData, LetterTable>
     {
-        override protected LetterData CreateData(Dictionary<string, object> dict, DatabaseObject db)
+        override protected LetterData CreateData(Dictionary<string, object> dict, DatabaseObject db,
+            LanguageCode language)
         {
             var data = new LetterData();
 
@@ -45,6 +47,10 @@ namespace Antura.Database.Management
             data.MedialFix = ToString(dict["MedialFix"]);
             data.FinalFix = ToString(dict["FinalFix"]);
             data.Complexity = ToFloat(dict["Complexity"]);
+
+            if (dict.ContainsKey("LinkedWords")) {
+                data.LinkedWords = ParseIDArray<WordData, WordTable>(data, (string)dict["LinkedWords"], db.GetWordTable());
+            }
 
             return data;
         }
