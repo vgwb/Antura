@@ -22,7 +22,7 @@ namespace Antura.Assessment
 
         public void EnterState()
         {
-            audioManager.PlayAssessmentMusic();
+            if (audioManager != null) audioManager.PlayAssessmentMusic();
         }
 
         public void ExitState()

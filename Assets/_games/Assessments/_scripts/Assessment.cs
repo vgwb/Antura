@@ -41,6 +41,7 @@ namespace Antura.Assessment
                 yield return Koroutine.Nested(RoundBegin());
                 yield return Koroutine.Nested(PlaceAnswers());
 
+                LogicInjector.EnableDragOnly();
 
                 if (round == 0) {
                     executingRound0 = true;
@@ -129,7 +130,6 @@ namespace Antura.Assessment
             }
 
             LogicInjector.CompleteWiring();
-            LogicInjector.EnableDragOnly();
 
             QuestionGenerator.CompleteRound();
         }

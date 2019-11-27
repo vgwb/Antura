@@ -6,7 +6,6 @@ namespace Antura.Minigames.DancingDots
     {
         DancingDotsGame game;
 
-        float timer = 1.5f;
         public IntroductionGameState(DancingDotsGame game)
         {
             this.game = game;
@@ -15,9 +14,14 @@ namespace Antura.Minigames.DancingDots
         public void EnterState()
         {
             this.game.dancingDotsLL.contentGO.SetActive(false);
-            game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.DancingDots_letterany_Title);
             game.dancingDotsLL.letterObjectView.DoTwirl(null);
             game.disableInput = true;
+
+            game.PlayIntro(EndIntro);
+        }
+        public void EndIntro()
+        {
+            game.SetCurrentState(game.QuestionState);
         }
 
         public void ExitState()
@@ -26,11 +30,6 @@ namespace Antura.Minigames.DancingDots
 
         public void Update(float delta)
         {
-            timer -= delta;
-
-            if (timer < 0) {
-                game.SetCurrentState(game.QuestionState);
-            }
         }
 
         public void UpdatePhysics(float delta)

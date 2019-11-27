@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.LivingLetters;
-using Antura.Minigames;
 using UnityEngine;
 
 namespace Antura.Minigames.FastCrowd
@@ -15,26 +15,11 @@ namespace Antura.Minigames.FastCrowd
         public List<ILivingLetterData> CurrentChallenge = new List<ILivingLetterData>();
         public List<ILivingLetterData> NoiseData = new List<ILivingLetterData>();
 
-        public IQuestionPack CurrentQuestion = null; // optional
+        public IQuestionPack CurrentQuestion = null;
 
-        private int currentScore;
-        public int CurrentScore
-        {
-            get
-            {
-                return currentScore;
-            }
-            private set
-            {
-                currentScore = value;
-                Context.GetOverlayWidget().SetStarsScore(currentScore);
-            }
-        }
+        #region Score
 
-        public int QuestionNumber = 0;
-
-        [HideInInspector]
-        public bool isTimesUp;
+        public override int MaxScore => stars3Threshold;
 
         int stars1Threshold
         {
@@ -45,29 +30,21 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Word:
                     case FastCrowdVariation.Image:
                         return 8;
-                    case FastCrowdVariation.Alphabet:
-                        return (int)(CurrentChallenge.Count * 0.333f);
                     default:
-                        return 5;
+                        return (int)(stars3Threshold * 0.25f);
                 }
             }
         }
 
-        int stars2Threshold
+        private int stars2Threshold
         {
             get
             {
-                switch (FastCrowdConfiguration.Instance.Variation)
-                {
-                    case FastCrowdVariation.Alphabet:
-                        return (int)(CurrentChallenge.Count * 0.666f);
-                    default:
-                        return 10;
-                }
+                return (int) (stars3Threshold * 0.5f);
             }
         }
 
-        int stars3Threshold
+        private int stars3Threshold
         {
             get
             {
@@ -75,12 +52,27 @@ namespace Antura.Minigames.FastCrowd
                 {
                     case FastCrowdVariation.Alphabet:
                         return CurrentChallenge.Count;
+                    case FastCrowdVariation.Counting:
+                    case FastCrowdVariation.OrderedImage_Numbers:
+                    case FastCrowdVariation.OrderedImage_Colors:
+                    case FastCrowdVariation.OrderedImage_Months:
+                    case FastCrowdVariation.OrderedImage_Days_Seasons:
+                    {
+                        var provider = (FastCrowdConfiguration.Instance.Questions as SequentialQuestionPackProvider);
+                        return provider?.EnumerateAllPacks().Sum(pack => pack.GetCorrectAnswers().Count()) * 2 ?? 15;
+                    }
+                    case FastCrowdVariation.BuildWord:
+                    {
+                        var provider = (FastCrowdConfiguration.Instance.Questions as SequentialQuestionPackProvider);
+                        var firstPack = provider.PeekFirstQuestion();
+                        int totLetters = (int)(provider?.EnumerateAllPacks().Sum(pack => pack.GetCorrectAnswers().Count()) - firstPack.GetCorrectAnswers().Count());
+                        return totLetters;
+                    }
                     default:
                         return 15;
                 }
             }
         }
-
 
         public int CurrentStars
         {
@@ -95,6 +87,8 @@ namespace Antura.Minigames.FastCrowd
                 return 3;
             }
         }
+
+        #endregion
 
         public bool showTutorial { get; set; }
 
@@ -127,8 +121,6 @@ namespace Antura.Minigames.FastCrowd
 
         protected override void OnInitialize(IGameContext context)
         {
-            //float difficulty = FastCrowdConfiguration.Instance.Difficulty;
-
             showTutorial = GetConfiguration().TutorialEnabled;
 
             IntroductionState = new FastCrowdIntroductionState(this);

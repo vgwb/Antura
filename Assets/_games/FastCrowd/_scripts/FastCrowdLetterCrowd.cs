@@ -47,11 +47,7 @@ namespace Antura.Minigames.FastCrowd
 
                 var data = dragging.GetComponent<LivingLetterController>().Data;
 
-                if (FastCrowdConfiguration.Instance.Variation != FastCrowdVariation.Counting &&
-                    FastCrowdConfiguration.Instance.Variation != FastCrowdVariation.Word )
-                {
-                    FastCrowdConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(data, true, soundType: FastCrowdConfiguration.Instance.GetVocabularySoundType());
-                }
+                FastCrowdConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(data, true, soundType: FastCrowdConfiguration.Instance.GetVocabularySoundType());
             }
         }
 

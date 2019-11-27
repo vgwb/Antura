@@ -100,17 +100,9 @@ namespace Antura.Minigames.Balloons
         //            }
         //        }
 
-        private int _currentScore = 0;
+        #region Score
 
-        public int CurrentScore
-        {
-            get { return _currentScore; }
-            set
-            {
-                _currentScore = value;
-                Context.GetOverlayWidget().SetStarsScore(CurrentScore);
-            }
-        }
+        public override int MaxScore => STARS_3_THRESHOLD;
 
         private readonly int STARS_1_THRESHOLD = Mathf.CeilToInt(0.33f * numberOfRounds);
         private readonly int STARS_2_THRESHOLD = Mathf.CeilToInt(0.66f * numberOfRounds);
@@ -129,6 +121,8 @@ namespace Antura.Minigames.Balloons
                 return 3;
             }
         }
+
+        #endregion
 
         enum Result
         {
@@ -159,11 +153,8 @@ namespace Antura.Minigames.Balloons
         private IAudioManager AudioManager { get { return GetConfiguration().Context.GetAudioManager(); } }
 
         public BalloonsIntroductionState IntroductionState { get; private set; }
-
         public BalloonsQuestionState QuestionState { get; private set; }
-
         public BalloonsPlayState PlayState { get; private set; }
-
         public BalloonsResultState ResultState { get; private set; }
 
         protected override void OnInitialize(IGameContext context)
@@ -220,85 +211,9 @@ namespace Antura.Minigames.Balloons
             GetConfiguration().Context.GetAudioManager().PlayMusic(Music.Relax);
         }
 
-        public void PlayTitleVoiceOver()
-        {
-            LocalizationDataId title = default(LocalizationDataId);
-            switch (BalloonsConfiguration.Instance.Variation)
-            {
-                case BalloonsVariation.Spelling:
-                    title = LocalizationDataId.Balloons_spelling_Title;
-                    break;
-                case BalloonsVariation.LetterInWord:
-                    title = LocalizationDataId.Balloons_letterinword_Title;
-                    break;
-                case BalloonsVariation.Words:
-                    title = LocalizationDataId.Balloons_word_Title;
-                    break;
-                case BalloonsVariation.Counting:
-                    title = LocalizationDataId.Balloons_counting_Title;
-                    break;
-                case BalloonsVariation.Image:
-                    title = LocalizationDataId.Balloons_image_Title;
-                    break;
-                default:
-                    Debug.LogError("Invalid Balloons Game Variation!");
-                    break;
-            }
-            StartCoroutine(PlayDialog_Coroutine(title, 0f));
-        }
-
         public void PlayTutorialVoiceOver(float delay = 2f)
         {
-            LocalizationDataId tutorial = default(LocalizationDataId);
-            switch (BalloonsConfiguration.Instance.Variation)
-            {
-                case BalloonsVariation.Spelling:
-                    tutorial = LocalizationDataId.Balloons_spelling_Tuto;
-                    break;
-                case BalloonsVariation.LetterInWord:
-                    tutorial = LocalizationDataId.Balloons_letterinword_Tuto;
-                    break;
-                case BalloonsVariation.Words:
-                    tutorial = LocalizationDataId.Balloons_word_Tuto;
-                    break;
-                case BalloonsVariation.Counting:
-                    tutorial = LocalizationDataId.Balloons_counting_Tuto;
-                    break;
-                case BalloonsVariation.Image:
-                    tutorial = LocalizationDataId.Balloons_image_Tuto; 
-                    break;
-                default:
-                    Debug.LogError("Invalid Balloons Game Variation!");
-                    break;
-            }
-            StartCoroutine(PlayDialog_Coroutine(tutorial, delay));
-        }
-
-        public void PlayIntroVoiceOver(float delay = 2f)
-        {
-            LocalizationDataId intro = default(LocalizationDataId);
-            switch (BalloonsConfiguration.Instance.Variation)
-            {
-                case BalloonsVariation.Spelling:
-                    intro = LocalizationDataId.Balloons_spelling_Intro;
-                    break;
-                case BalloonsVariation.LetterInWord:
-                    intro = LocalizationDataId.Balloons_letterinword_Intro;
-                    break;
-                case BalloonsVariation.Words:
-                    intro = LocalizationDataId.Balloons_word_Intro;
-                    break;
-                case BalloonsVariation.Counting:
-                    intro = LocalizationDataId.Balloons_counting_Intro;
-                    break;
-                case BalloonsVariation.Image:
-                    intro = LocalizationDataId.Balloons_image_Intro;
-                    break;
-                default:
-                    Debug.LogError("Invalid Balloons Game Variation!");
-                    break;
-            }
-            StartCoroutine(PlayDialog_Coroutine(intro, delay));
+            StartCoroutine(PlayDialog_Coroutine(BalloonsConfiguration.Instance.TutorialLocalizationId, delay));
         }
 
         private IEnumerator PlayDialog_Coroutine(LocalizationDataId dialog, float delay)
@@ -317,12 +232,12 @@ namespace Antura.Minigames.Balloons
         {
             AudioManager.PlaySound(Sfx.UIButtonClick);
             Popup.Hide();
-            Play();
+            Play(true);
         }
 
-        public void Play()
+        public void Play(bool advanceRound)
         {
-            currentRound++;
+            if (advanceRound) currentRound++;
             if (currentRound <= numberOfRounds)
             {
                 StartNewRound();
@@ -397,6 +312,7 @@ namespace Antura.Minigames.Balloons
 
         public void StartNewRound()
         {
+            alreadyClicked = false;
             if (roundStatus != RoundStatus.Started)
             {
                 roundStatus = RoundStatus.Started;
@@ -436,7 +352,7 @@ namespace Antura.Minigames.Balloons
 
                         // Display
                         wordFlexibleContainer.gameObject.SetActive(true);
-                        wordFlexibleContainer.SetText(wordToKeepData);
+                        wordFlexibleContainer.SetLetterData(wordToKeepData);
 
                         // Debug
                         Debug.Log("[New Round] Word To Keep: " + wordToKeepData.TextForLivingLetter);
@@ -453,7 +369,6 @@ namespace Antura.Minigames.Balloons
 
                         // Display
                         wordFlexibleContainer.gameObject.SetActive(true);
-                        //wordFlexibleContainer.SetText(letterToKeepData);
 
                         string text = "";
                         text = "<size=130%>" + letterToKeepData.Data.GetStringForDisplay(LetterForm.Isolated) + "</size>";
@@ -461,7 +376,7 @@ namespace Antura.Minigames.Balloons
                         text += " " + letterToKeepData.Data.GetStringForDisplay(LetterForm.Medial);
                         text += " " + letterToKeepData.Data.GetStringForDisplay(LetterForm.Final);
 
-                        wordFlexibleContainer.SetText(text, LanguageUse.Learning);
+                        wordFlexibleContainer.SetTextUnfiltered(text);
 
                         // Debug
                         Debug.Log("[New Round] Letter To Keep: " + letterToKeep);
@@ -499,21 +414,9 @@ namespace Antura.Minigames.Balloons
                 return;
             }
 
-            int numberValue = countingIndex + 1;
-            //var numberId = "number_" + string.Format("{0:00}", numberValue);
-            //.Replace('0', '\u----')
-            //.Replace('1', '\u----')
-            //.Replace('2', '\u----')
-            //.Replace('3', '\u----')
-            //.Replace('4', '\u----')
-            //.Replace('5', '\u----')
-            //.Replace('6', '\u----')
-            //.Replace('7', '\u----')
-            //.Replace('8', '\u----')
-            //.Replace('9', '\u----');
-
             wordFlexibleContainer.gameObject.SetActive(true);
-            wordFlexibleContainer.SetNumber(numberValue - 1);
+            var imageData = new LL_ImageData(correctAnswers[countingIndex].Id);
+            wordFlexibleContainer.SetLetterData(imageData);
         }
 
         private IEnumerator StartNewRound_Coroutine()
@@ -565,6 +468,7 @@ namespace Antura.Minigames.Balloons
                     //Popup.SetLetterData(question);
                     OnRoundStartPressed();
                     uiCanvas.gameObject.SetActive(true);
+                    DisplayWordFlexibleContainer_Counting();
                     break;
 
                 default:
@@ -622,7 +526,7 @@ namespace Antura.Minigames.Balloons
             {
                 case BalloonsVariation.Spelling:
                     timer.DisplayTime();
-                    CreateFloatingLetters_Spelling(currentRound);
+                    CreateFloatingLetters_Spelling();
                     if (isTutorialRound)
                     {
                         FreezeFloatingLetters();
@@ -639,7 +543,7 @@ namespace Antura.Minigames.Balloons
                 case BalloonsVariation.Words:
                 case BalloonsVariation.Image:
                     timer.DisplayTime();
-                    CreateFloatingLetters_Words(currentRound);
+                    CreateFloatingLetters_Words();
                     if (isTutorialRound)
                     {
                         FreezeFloatingLetters();
@@ -655,7 +559,7 @@ namespace Antura.Minigames.Balloons
 
                 case BalloonsVariation.LetterInWord:
                     timer.DisplayTime();
-                    CreateFloatingLetters_Letter(currentRound);
+                    CreateFloatingLetters_Letter();
                     if (isTutorialRound)
                     {
                         FreezeFloatingLetters();
@@ -671,7 +575,7 @@ namespace Antura.Minigames.Balloons
 
                 case BalloonsVariation.Counting:
                     timer.DisplayTime();
-                    CreateFloatingLetters_Counting(currentRound);
+                    CreateFloatingLetters_Counting();
                     if (isTutorialRound)
                     {
                         FreezeFloatingLetters();
@@ -697,13 +601,14 @@ namespace Antura.Minigames.Balloons
             countdownAnimator.SetTrigger("Count");
         }
 
-        private void CreateFloatingLetters_Spelling(int numberOfExtraLetters)
+        private int ExtraAnswers => (int)Mathf.Lerp(1, 10, Difficulty);
+
+        private void CreateFloatingLetters_Spelling()
         {
             var wordLetters = correctAnswers.Cast<LL_LetterData>().ToList();
             var randomLetters = wrongAnswers.Cast<LL_LetterData>().GetEnumerator();
 
-            numberOfExtraLetters = numberOfExtraLetters > 0 ? numberOfExtraLetters : 1;
-            var numberOfLetters = Mathf.Clamp(wordLetters.Count + numberOfExtraLetters, 0, floatingLetterLocations.Length);
+            var numberOfLetters = Mathf.Clamp(wordLetters.Count + ExtraAnswers, 0, floatingLetterLocations.Length);
 
             // Determine indices of required letters
             List<int> requiredLetterIndices = new List<int>();
@@ -801,10 +706,9 @@ namespace Antura.Minigames.Balloons
             }
         }
 
-        private void CreateFloatingLetters_Words(int numberOfExtraImages)
+        private void CreateFloatingLetters_Words()
         {
-            numberOfExtraImages = numberOfExtraImages > 0 ? numberOfExtraImages : 1;
-            var numberOfImages = Mathf.Clamp(correctAnswers.Count() + numberOfExtraImages, 0, floatingLetterLocations.Length);
+            var numberOfImages = Mathf.Clamp(correctAnswers.Count() + ExtraAnswers, 0, floatingLetterLocations.Length);
             var correctWord = correctAnswers.Cast<LL_WordData>().ToList()[0];
             var wrongWords = wrongAnswers.Cast<LL_WordData>().GetEnumerator();
 
@@ -905,10 +809,9 @@ namespace Antura.Minigames.Balloons
 
         public static bool HACK_INVERTED_BALLOONS_LOGIC = true;
 
-        private void CreateFloatingLetters_Letter(int numberOfExtraWords)
+        private void CreateFloatingLetters_Letter()
         {
-            numberOfExtraWords = numberOfExtraWords > 0 ? numberOfExtraWords : 1;
-            var numberOfWords = Mathf.Clamp(correctAnswers.Count() + numberOfExtraWords, 0, floatingLetterLocations.Length);
+            var numberOfWords = Mathf.Clamp(correctAnswers.Count() + ExtraAnswers, 0, floatingLetterLocations.Length);
             var correctWords = correctAnswers.Cast<LL_WordData>().GetEnumerator();
             var wrongWords = wrongAnswers.Cast<LL_WordData>().GetEnumerator();
 
@@ -1020,10 +923,9 @@ namespace Antura.Minigames.Balloons
             }
         }
 
-        private void CreateFloatingLetters_Counting(int numberOfExtraWords)
+        private void CreateFloatingLetters_Counting()
         {
-            numberOfExtraWords = numberOfExtraWords > 0 ? numberOfExtraWords : 1;
-            var numberOfWords = Mathf.Clamp(3 + numberOfExtraWords, 0, (floatingLetterLocations.Length <= correctAnswers.Count() ? floatingLetterLocations.Length : correctAnswers.Count()));
+            var numberOfWords = Mathf.Clamp(3 + ExtraAnswers, 0, (floatingLetterLocations.Length <= correctAnswers.Count() ? floatingLetterLocations.Length : correctAnswers.Count()));
             var correctWords = correctAnswers.Cast<LL_WordData>().GetEnumerator();
             maxCountingIndex = numberOfWords - 1;
 
@@ -1338,8 +1240,11 @@ namespace Antura.Minigames.Balloons
             }
         }
 
+        private bool alreadyClicked = false;
         private void ProcessRoundResult(Result result)
         {
+            if (alreadyClicked) return;
+            alreadyClicked = true;
             bool win = false;
 
             switch (result)
@@ -1416,7 +1321,7 @@ namespace Antura.Minigames.Balloons
                 }
                 else
                 {
-                    Play();
+                    Play(true);
                 }
             }
             else
@@ -1459,7 +1364,7 @@ namespace Antura.Minigames.Balloons
 
                 var resumePlayingDelay = 2f;
                 yield return new WaitForSeconds(resumePlayingDelay);
-                Play();
+                Play(true);
             }
         }
 

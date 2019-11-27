@@ -1,4 +1,4 @@
-﻿using Antura.Helpers;
+using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
 using UnityEngine;
@@ -8,55 +8,36 @@ namespace Antura.Minigames.FastCrowd
 {
     public class DropSingleArea : MonoBehaviour
     {
-        public TMP_FontAsset normalFont;
         public TMP_FontAsset numbersFont;
 
-        public TMP_Text LetterLable;
-        public TextMeshPro DrawText;
+        public TMP_Text NumberLabel;
+        public TextRender LetterText;
+
         public ILivingLetterData Data;
-        public DropContainer DropContain;
 
         Vector3 enabledPos, disabledPos;
 
         #region Api
         public void Init(ILivingLetterData _data, DropContainer _dropContainer, bool asImage)
         {
-            DropContain = _dropContainer;
             Data = _data;
-            if (asImage && !(_data is LL_LetterData)) {
-                LetterLable.text = string.Empty;
-                DrawText.gameObject.SetActive(true);
 
-                DrawText.text = Data.DrawingCharForLivingLetter;
-            } else {
-                LetterLable.font = normalFont;
-                LetterLable.GetComponent<TextRender>().SetLetterData(Data);
-                DrawText.gameObject.SetActive(false);
-            }
+            if (asImage)
+                _data = new LL_ImageData(_data.Id);
+
+            LetterText.SetLetterData(_data);
+            LetterText.gameObject.SetActive(true);
 
             AreaState = State.disabled;
         }
 
         public void Init(ILivingLetterData _data, int text, DropContainer _dropContainer)
         {
-            DropContain = _dropContainer;
             Data = _data;
 
-            LetterLable.font = numbersFont;
-            LetterLable.text = GenericHelper.ReverseText(text.ToString());
-            DrawText.gameObject.SetActive(false);
-
-            AreaState = State.disabled;
-        }
-
-        public void Init(ILivingLetterData _data, string text, DropContainer _dropContainer)
-        {
-            DropContain = _dropContainer;
-            Data = _data;
-
-            LetterLable.font = normalFont;
-            LetterLable.text = GenericHelper.ReverseText(text);
-            DrawText.gameObject.SetActive(false);
+            NumberLabel.font = numbersFont;
+            NumberLabel.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(text.ToString());
+            LetterText.gameObject.SetActive(false);
 
             AreaState = State.disabled;
         }

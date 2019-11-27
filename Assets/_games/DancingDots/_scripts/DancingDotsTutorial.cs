@@ -1,8 +1,9 @@
-using UnityEngine;
-using System.Collections;
 using Antura.Audio;
 using Antura.Database;
+using Antura.Keeper;
 using Antura.Tutorial;
+using UnityEngine;
+using System.Collections;
 using TMPro;
 
 namespace Antura.Minigames.DancingDots
@@ -13,7 +14,7 @@ namespace Antura.Minigames.DancingDots
         public TextMeshPro hintDot;
         public DancingDotsDiacriticPosition[] targetDDs;
         //public Vector3[] path;
-        public float startDelay,repeatDelay = 3;
+        public float startDelay, repeatDelay = 3;
 
         private bool doTutOnDots;
 
@@ -30,7 +31,7 @@ namespace Antura.Minigames.DancingDots
         {
             if (gameManager.TutorialEnabled)
                 StartCoroutine(coDoTutorial());
-            
+
             //warm up
             TutorialUI.DrawLine(-100 * Vector3.up, -100 * Vector3.up, TutorialUI.DrawLineMode.Arrow);
         }
@@ -48,8 +49,7 @@ namespace Antura.Minigames.DancingDots
             doTutOnDots = false;
 
             foreach (DancingDotsDraggableDot dd in gameManager.dragableDots)
-                if (dd.isNeeded && dd.gameObject.activeSelf)
-                {
+                if (dd.isNeeded && dd.gameObject.activeSelf) {
                     currentDD = dd;
                     doTutOnDots = true;
                     source = currentDD.transform;
@@ -57,20 +57,17 @@ namespace Antura.Minigames.DancingDots
                 }
 
 
-            if (!doTutOnDots)
-            {
+            if (!doTutOnDots) {
 
                 foreach (DancingDotsDraggableDot dd in gameManager.dragableDiacritics)
-                    if (dd.isNeeded)
-                    {
+                    if (dd.isNeeded) {
                         currentDD = dd;
                         source = currentDD.transform;
                         break;
                     }
 
                 foreach (DancingDotsDiacriticPosition dd in targetDDs)
-                    if (dd.gameObject.activeInHierarchy)
-                    {
+                    if (dd.gameObject.activeInHierarchy) {
                         target = dd.transform;
                         break;
                     }
@@ -83,16 +80,13 @@ namespace Antura.Minigames.DancingDots
             yield return new WaitForSeconds(startDelay);
             StartCoroutine(sayTut(repeatDelay));
 
-            while (gameManager.isTutRound)
-            {
-                if (currentDD)
-                {
+            while (gameManager.isTutRound) {
+                if (currentDD) {
 
                     yield return new WaitForSeconds(repeatDelay);
 
 
-                    if (currentDD.isDragging || !gameManager.isTutRound)
-                    {
+                    if (currentDD.isDragging || !gameManager.isTutRound) {
                         yield return null;
                         continue;
                     }
@@ -102,7 +96,7 @@ namespace Antura.Minigames.DancingDots
                     else
                         targetPosition = target.position;
 
-                    TutorialUI.DrawLine(source.position - Vector3.forward*2, targetPosition - Vector3.forward*2, TutorialUI.DrawLineMode.FingerAndArrow);
+                    TutorialUI.DrawLine(source.position - Vector3.forward * 2, targetPosition - Vector3.forward * 2, TutorialUI.DrawLineMode.FingerAndArrow);
 
                     //yield return new WaitForSeconds(repeatDelay/2);
                 }
@@ -116,7 +110,7 @@ namespace Antura.Minigames.DancingDots
         IEnumerator sayTut(float delay)
         {
             yield return new WaitForSeconds(delay);
-			AudioManager.I.PlayDialogue(LocalizationDataId.DancingDots_letterany_Tuto);
+            gameManager.PlayTutorial();
         }
     }
 }

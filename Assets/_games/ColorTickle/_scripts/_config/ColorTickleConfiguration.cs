@@ -36,7 +36,6 @@ namespace Antura.Minigames.ColorTickle
             // Default values
             Questions = new ColorTickleLetterProvider();
             Context = new MinigamesGameContext(MiniGameCode.ColorTickle_lettername, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
             TutorialEnabled = true;
             Variation = ColorTickleVariation.LetterName;
         }
@@ -48,7 +47,7 @@ namespace Antura.Minigames.ColorTickle
             int nPacks = 10;
             int nCorrect = 1;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case ColorTickleVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -90,5 +89,8 @@ namespace Antura.Minigames.ColorTickle
             }
             return soundType;
         }
+
+        public override bool AutoPlayIntro => false;
+
     }
 }

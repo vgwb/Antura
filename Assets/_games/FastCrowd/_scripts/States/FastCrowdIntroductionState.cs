@@ -5,9 +5,6 @@ namespace Antura.Minigames.FastCrowd
     {
         FastCrowdGame game;
 
-        bool nextState;
-        bool playIntro;
-
         public FastCrowdIntroductionState(FastCrowdGame game)
         {
             this.game = game;
@@ -15,11 +12,8 @@ namespace Antura.Minigames.FastCrowd
 
         public void EnterState()
         {
-            nextState = false;
-            playIntro = false;
-
-            game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.TitleLocalizationId, () => { playIntro = true; });
             game.Context.GetAudioManager().PlayMusic(Music.Theme10);
+            game.SetCurrentState(game.QuestionState);
         }
 
         public void ExitState()
@@ -28,16 +22,6 @@ namespace Antura.Minigames.FastCrowd
 
         public void Update(float delta)
         {
-            if (nextState) {
-                nextState = false;
-                game.SetCurrentState(game.QuestionState);
-            }
-
-            if (playIntro) {
-                playIntro = false;
-
-                game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.IntroLocalizationId, () => { nextState = true; });
-            }
         }
 
         public void UpdatePhysics(float delta) { }

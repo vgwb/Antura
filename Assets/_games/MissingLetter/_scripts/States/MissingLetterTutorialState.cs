@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Keeper;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using UnityEngine;
@@ -44,13 +45,9 @@ namespace Antura.Minigames.MissingLetter
         public void Update(float delta)
         {
             m_fDelayTime -= delta;
-            if (m_fDelayTime < 0 && !m_bSuggested) {
-                if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm ||
-                    MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterInWord) {
-                    AudioManager.I.PlayDialogue(Database.LocalizationDataId.MissingLetter_Tuto);
-                } else {
-                    AudioManager.I.PlayDialogue(Database.LocalizationDataId.MissingLetter_phrases_Tuto);
-                }
+            if (m_fDelayTime < 0 && !m_bSuggested)
+            {
+                KeeperManager.I.PlayDialogue(MissingLetterConfiguration.Instance.TutorialLocalizationId);
 
                 m_oGame.m_oRoundManager.GetCorrectLLObject().GetComponent<LetterBehaviour>().PlayAnimation(LLAnimationStates.LL_dancing);
                 Vector3 pos = m_oGame.m_oRoundManager.GetCorrectLLObject().transform.position + Vector3.back * 0.8f + Vector3.up * 3;

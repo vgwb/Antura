@@ -49,6 +49,9 @@ namespace Antura.Assessment
                 case AssessmentVariation.SelectPronouncedWord:
                     return ArabicAssessmentsFactory.CreatePronouncedWordAssessment(context);
 
+                case AssessmentVariation.SelectPronouncedWordByImage:
+                    return ArabicAssessmentsFactory.CreatePronouncedWordByImageAssessment(context);
+
                 case AssessmentVariation.SingularDualPlural:
                     return ArabicAssessmentsFactory.CreateSingularDualPluralAssessment(context);
 

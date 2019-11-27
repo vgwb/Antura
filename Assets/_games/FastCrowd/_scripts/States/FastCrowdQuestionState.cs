@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.LivingLetters;
 using UnityEngine;
 
@@ -20,8 +20,15 @@ namespace Antura.Minigames.FastCrowd
             if (game.showTutorial) {
                 game.QuestionManager.crowd.MaxConcurrentLetters = 2;
             } else {
-                game.QuestionManager.crowd.MaxConcurrentLetters = UnityEngine.Mathf.RoundToInt(4 + FastCrowdConfiguration.Instance.Difficulty * 4);
+                game.QuestionManager.crowd.MaxConcurrentLetters = UnityEngine.Mathf.RoundToInt(4 + game.Difficulty * 4);
             }
+
+            // Forced number of letters
+            if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.CategoryForm)
+            {
+                game.QuestionManager.crowd.MaxConcurrentLetters = 4;
+            }
+
             game.CurrentChallenge.Clear();
             game.NoiseData.Clear();
 
@@ -44,9 +51,6 @@ namespace Antura.Minigames.FastCrowd
                     game.NoiseData.Add(l);
                 }
             }
-
-
-            ++game.QuestionNumber;
 
             if (game.CurrentChallenge.Count > 0) {
                 // Show question

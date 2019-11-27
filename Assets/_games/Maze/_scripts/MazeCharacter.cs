@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using Antura.Minigames.Tobogan;
 using DG.Tweening;
 using System.Collections;

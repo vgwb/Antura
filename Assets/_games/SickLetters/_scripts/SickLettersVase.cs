@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 using DG.Tweening;
@@ -169,8 +169,8 @@ namespace Antura.Minigames.SickLetters
 
             StartCoroutine(dropVase());
 
-            if(game.scale.counter > game.maxWieght)
-                game.maxWieght = game.scale.counter;
+            if(game.scale.counter > game.maxReachedCounter)
+                game.maxReachedCounter = game.scale.counter;
 
             game.scale.counter = 0;
 

@@ -8,7 +8,6 @@ namespace Antura.Minigames.DancingDots
 {
     public class DancingDotsBeatDetection : MonoBehaviour
     {
-
         public float minInterval = 0.3f, pitchThreshold = 2000f, RmsThreshold = 0.19f;
         DancingDotsQuadManager disco;
         //DancingDotsGame game;
@@ -40,21 +39,20 @@ namespace Antura.Minigames.DancingDots
             _fSample = AudioSettings.outputSampleRate;
         }
 
-        IEnumerator reset() {
+        IEnumerator reset()
+        {
             yield return new WaitForSeconds(minInterval);
             canBeat = true;
-              
+
         }
-        
+
         void Update()
         {
             if (!AnalyzeSound())
                 return;
 
-            if (PitchValue > pitchThreshold || RmsValue > RmsThreshold)
-            {
-                if (canBeat)
-                {
+            if (PitchValue > pitchThreshold || RmsValue > RmsThreshold) {
+                if (canBeat) {
                     canBeat = false;
                     StartCoroutine(reset());
                     disco.swap();
@@ -87,8 +85,7 @@ namespace Antura.Minigames.DancingDots
             source.GetOutputData(_samples, 0); // fill array with samples
             int i;
             float sum = 0;
-            for (i = 0; i < QSamples; i++)
-            {
+            for (i = 0; i < QSamples; i++) {
                 sum += _samples[i] * _samples[i]; // sum squared samples
             }
             RmsValue = Mathf.Sqrt(sum / QSamples); // rms = square root of average
@@ -98,8 +95,7 @@ namespace Antura.Minigames.DancingDots
             source.GetSpectrumData(_spectrum, 0, FFTWindow.BlackmanHarris);
             float maxV = 0;
             var maxN = 0;
-            for (i = 0; i < QSamples; i++)
-            { // find max 
+            for (i = 0; i < QSamples; i++) { // find max
                 if (!(_spectrum[i] > maxV) || !(_spectrum[i] > Threshold))
                     continue;
 
@@ -107,8 +103,7 @@ namespace Antura.Minigames.DancingDots
                 maxN = i; // maxN is the index of max
             }
             float freqN = maxN; // pass the index to a float variable
-            if (maxN > 0 && maxN < QSamples - 1)
-            { // interpolate index using neighbours
+            if (maxN > 0 && maxN < QSamples - 1) { // interpolate index using neighbours
                 var dL = _spectrum[maxN - 1] / _spectrum[maxN];
                 var dR = _spectrum[maxN + 1] / _spectrum[maxN];
                 freqN += 0.5f * (dR * dR - dL * dL);

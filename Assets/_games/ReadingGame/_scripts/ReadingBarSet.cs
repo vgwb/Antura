@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Antura.Database;
 using Antura.Helpers;
+using Antura.Keeper;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using Antura.Language;
@@ -156,7 +158,7 @@ namespace Antura.Minigames.ReadingGame
         public void SetShowTargets(bool show)
         {
             showTargets = show;
-            for (int i = 0; i < bars.Count; ++i)
+            for(int i = 0; i < bars.Count; ++i)
             {
                 bars[i].showTarget = show;
             }
@@ -199,7 +201,7 @@ namespace Antura.Minigames.ReadingGame
             }
 
             bars.Add(currentReadingBar);
-            float lastBarSize = barWords[0].end = currentReadingBar.text.GetPreferredValues().x;
+            float lastBarSize = barWords[0].end = currentReadingBar.text.TMPText.GetPreferredValues().x;
 
             for (int i = 1; i < wordsCount; ++i)
             {
@@ -208,7 +210,7 @@ namespace Antura.Minigames.ReadingGame
 
                 var previousText = currentReadingBar.text.text;
                 currentReadingBar.text.text = currentReadingBar.text.text + word;
-                float currentBarSize = currentReadingBar.text.GetPreferredValues().x;
+                float currentBarSize = currentReadingBar.text.TMPText.GetPreferredValues().x;
                 barWords[i].start = lastBarSize;
                 barWords[i].end = currentBarSize;
                 barWords[i].barId = barWords[i - 1].barId;
@@ -233,7 +235,7 @@ namespace Antura.Minigames.ReadingGame
 
                     barWords[i].start = 0;
                     barWords[i].barId = currentReadingBar.Id;
-                    currentBarSize = barWords[i].end = currentReadingBar.text.GetPreferredValues().x;
+                    currentBarSize = barWords[i].end = currentReadingBar.text.TMPText.GetPreferredValues().x;
                     bars.Add(currentReadingBar);
                     barStarts.Add(i);
                 }
@@ -369,19 +371,36 @@ namespace Antura.Minigames.ReadingGame
                             {
                                 if (activeBar != null && activeBar.Id == currentBarWord.barId)
                                     activeBar.currentTarget = 0;
-
                                 break;
                             }
                             else if (currentTime > timeEnd)
                             {
                                 barsCompleted = (i == songWords.Count - 1);
+
+                                if (activeBar != null && activeBar.Id == currentBarWord.barId)
+                                {
+                                    if (i == 3 || i == 7) // only at specific rows   // TODO: find a better way to stop the music halfway
+                                    {
+                                        ((ReadingGameGame)(ReadingGameGame.I)).hiddenText.gameObject.SetActive(false);
+                                        bars[0].transform.parent.gameObject.SetActive(false);
+                                        KeeperManager.I.PlayDialogue(LocalizationDataId.Song_alphabet_SingWithMe, false, keeperMode:KeeperMode.SubtitlesOnly);
+                                    }
+                                }
                             }
                             else
                             {
+                                // Show bar
+                                if (!bars[0].transform.parent.gameObject.activeInHierarchy)
+                                {
+                                    ((ReadingGameGame)(ReadingGameGame.I)).hiddenText.gameObject.SetActive(true);
+                                    bars[0].transform.parent.gameObject.SetActive(true);
+                                    KeeperManager.I.CloseSubtitles();
+                                }
+
                                 float tInWord = (currentTime - timeStart) / (timeEnd - timeStart);
 
                                 float t = Mathf.Lerp(currentBarWord.start, currentBarWord.end, tInWord);
-                                activeBar.currentTarget = t;
+                                if (activeBar != null) activeBar.currentTarget = t;
                                 songInsideAWord = true;
 
                                 break;

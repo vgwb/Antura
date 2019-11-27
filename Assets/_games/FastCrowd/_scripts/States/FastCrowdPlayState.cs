@@ -17,11 +17,6 @@ namespace Antura.Minigames.FastCrowd
         {
             this.game = game;
 
-            gameTime = new CountdownTimer(UnityEngine.Mathf.Lerp(90.0f, 60.0f, FastCrowdConfiguration.Instance.Difficulty));
-            gameTime.onTimesUp += OnTimesUp;
-
-            gameTime.Reset();
-
             initializeOveralyWidget = true;
         }
 
@@ -47,14 +42,20 @@ namespace Antura.Minigames.FastCrowd
             {
                 game.QuestionManager.StartQuestion(game.CurrentChallenge, game.NoiseData);
 
+                if (gameTime != null) gameTime.onTimesUp -= OnTimesUp;
                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Alphabet)
                 {
-                    if (gameTime != null)
-                        gameTime.onTimesUp -= OnTimesUp;
-
                     gameTime = new CountdownTimer(game.CurrentChallenge.Count * 4f);
-                    gameTime.onTimesUp += OnTimesUp;
                 }
+                else if (FastCrowdConfiguration.Instance.IsOrderingVariation)
+                {
+                    gameTime = new CountdownTimer(game.CurrentChallenge.Count * 5f);
+                }
+                else
+                {
+                    gameTime = new CountdownTimer(UnityEngine.Mathf.Lerp(90.0f, 60.0f, game.Difficulty));
+                }
+                gameTime.onTimesUp += OnTimesUp;
             }
             else
                 game.QuestionManager.Clean();
@@ -74,6 +75,7 @@ namespace Antura.Minigames.FastCrowd
             StopAntura();
 
             game.QuestionManager.wordComposer.gameObject.SetActive(FastCrowdConfiguration.Instance.NeedsWordComposer);
+
         }
 
         public void ExitState()
@@ -124,10 +126,6 @@ namespace Antura.Minigames.FastCrowd
 
             game.Context.GetAudioManager().PlaySound(result ? Sfx.OK : Sfx.KO);
 
-            if (result && (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
-                                                                                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image))
-                game.Context.GetAudioManager().PlayVocabularyData(data);
-
             if (game.CurrentStars == 3)
                 game.SetCurrentState(game.EndState);
         }
@@ -137,7 +135,7 @@ namespace Antura.Minigames.FastCrowd
             isAnturaRunning = false;
             game.antura.SetAnturaTime(false);
             // Schedule next exit
-            anturaTimer = UnityEngine.Mathf.Lerp(20, 10, FastCrowdConfiguration.Instance.Difficulty);
+            anturaTimer = UnityEngine.Mathf.Lerp(20, 10, game.Difficulty);
 
             game.Context.GetAudioManager().PlayMusic(Music.Theme10);
         }
@@ -147,7 +145,7 @@ namespace Antura.Minigames.FastCrowd
             isAnturaRunning = true;
             game.antura.SetAnturaTime(true);
             // Schedule next duration
-            anturaTimer = UnityEngine.Mathf.Lerp(5, 15, FastCrowdConfiguration.Instance.Difficulty);
+            anturaTimer = UnityEngine.Mathf.Lerp(5, 15, game.Difficulty);
 
             game.Context.GetAudioManager().PlayMusic(Music.MainTheme);
         }
@@ -175,7 +173,6 @@ namespace Antura.Minigames.FastCrowd
         void OnTimesUp()
         {
             // Time's up!
-            game.isTimesUp = true;
             game.Context.GetOverlayWidget().OnClockCompleted();
             game.SetCurrentState(game.EndState);
         }

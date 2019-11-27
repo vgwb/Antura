@@ -15,8 +15,7 @@ namespace Antura.Minigames.ColorTickle
         private ColorTickle_AnturaController m_AnturaController;
         [SerializeField]
         private int m_Rounds = 3;
-        [SerializeField]
-        private int m_MaxLives = 3;
+
         [SerializeField]
         private GameObject m_oWinParticle;
         [SerializeField]
@@ -69,17 +68,18 @@ namespace Antura.Minigames.ColorTickle
             get { return m_AnturaController; }
         }
 
-        public int lives
-        {
-            get { return m_MaxLives; }
-        }
+        #region Score
 
-        public int score { get; set; }
+        public override int MaxScore => 6; // means 3 stars
 
-        public int starsAwarded
-        {
-            get { return Mathf.CeilToInt(score / 2f); }
-        }
+        public int starsAwarded => Mathf.CeilToInt(CurrentScore / 2f);
+
+        // Difficulty-controlled parameters
+        private int m_MaxLives => 2 + Mathf.RoundToInt(3 * (1 - Difficulty));
+        public int MaxLives => m_MaxLives;
+
+        #endregion
+
 
         public int rounds
         {
@@ -119,14 +119,6 @@ namespace Antura.Minigames.ColorTickle
             TutorialState = new TutorialGameState(this);
             PlayState = new PlayGameState(this);
             ResultState = new ResultGameState(this);
-
-            //Difficulty is decided like this: 0 <= easy <= 0.333 < medium <= 0.666 < hard <=1
-            var difficulty = GetConfiguration().Difficulty;
-
-            //Adjust parameters accordingly:
-            //- max lives: 2 on hard, 5 on very easy
-            m_MaxLives = 2 + Mathf.RoundToInt(3 * (1 - difficulty));
-
         }
 
         protected override FSM.IState GetInitialState()

@@ -1,14 +1,14 @@
-﻿using UnityEngine;
+using UnityEngine;
 using UnityEngine.EventSystems;
 using System.Collections;
 using Antura.LivingLetters;
-using TMPro;
+using Antura.UI;
 
 namespace Antura.Minigames.MakeFriends
 {
     public class DropZoneController : MonoBehaviour, IDropHandler, IPointerEnterHandler
     {
-        public TMP_Text LetterText;
+        public TextRender LetterText;
         public Animator animator;
 
         [HideInInspector]
@@ -39,7 +39,7 @@ namespace Antura.Minigames.MakeFriends
         public void DisplayText(ILivingLetterData _letterData)
         {
             letterData = _letterData;
-            LetterText.text = letterData.TextForLivingLetter;//ArabicAlphabetHelper.GetLetterFromUnicode(letterData.Data.Isolated_Unicode);
+            LetterText.text = letterData.TextForLivingLetter;
         }
 
 

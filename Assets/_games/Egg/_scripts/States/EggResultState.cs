@@ -1,4 +1,5 @@
 using Antura.Minigames;
+using UnityEngine;
 
 namespace Antura.Minigames.Egg
 {
@@ -23,7 +24,7 @@ namespace Antura.Minigames.Egg
                 game.Context.GetAudioManager().PlaySound(Sfx.Win);
                 if (!game.CurrentQuestion.IsSequence())
                 {
-                    game.Context.GetCheckmarkWidget().Show(true);
+                    game.Context.GetCheckmarkWidget().Show(true, new Vector2(0,250));
                 }
                 toNextState = true;
             } else {
@@ -48,7 +49,7 @@ namespace Antura.Minigames.Egg
                         game.runLettersBox.RemoveAllRunLetters();
                         game.eggButtonBox.RemoveButtons();
                         game.Context.GetAudioManager().PlayMusic(Music.Relax);
-                        game.EndGame(game.CurrentStars, game.correctStages);
+                        game.EndGame(game.CurrentStars, game.CurrentScore);
                     } else {
                         game.SetCurrentState(game.QuestionState);
                     }

@@ -79,14 +79,13 @@ namespace Antura.Minigames.Egg
             game.eggButtonBox.SetOnPressedCallback(OnEggButtonPressed);
 
             showTutorial = game.ShowTutorial;
+            game.EndTutorial();
             tutorialCorrectActive = false;
             tutorialDelayTimer = tutorialDelayTime;
             tutorialStop = false;
 
             if (showTutorial) {
                 ShowTutorialPressCorrect();
-
-                game.Context.GetAudioManager().PlayDialogue(EggConfiguration.Instance.TutorialLocalizationId);
             }
 
             if (!showTutorial) {
@@ -121,7 +120,7 @@ namespace Antura.Minigames.Egg
 
                     if (!showTutorial) {
                         if (game.stagePositiveResult) {
-                            game.correctStages++;
+                            game.CurrentScore++;
 
                             ILivingLetterData runLetterData;
 
@@ -141,7 +140,6 @@ namespace Antura.Minigames.Egg
                             game.runLettersBox.AddRunLetter(runLetterData);
                         }
 
-                        game.Context.GetOverlayWidget().SetStarsScore(game.correctStages);
                         game.currentStage++;
                         game.antura.NextStage();
                     }
@@ -210,6 +208,11 @@ namespace Antura.Minigames.Egg
 
         public void OnEggButtonPressed(ILivingLetterData letterData)
         {
+            if (isSequence && game.eggButtonBox.GetEggButton(letterData).IsPressed())
+            {
+                return;
+            }
+
             if (!enteredRepeatMode)
             {
                 game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
@@ -249,10 +252,6 @@ namespace Antura.Minigames.Egg
                     }
                 }
             } else {
-                if (isSequence && game.eggButtonBox.GetEggButton(letterData).IsPressed()) {
-                    return;
-                }
-
                 game.eggButtonBox.SetButtonsOnStandardColor(game.eggButtonBox.GetEggButton(letterData));
 
                 if (showTutorial) {
@@ -279,14 +278,27 @@ namespace Antura.Minigames.Egg
             isPlayingQuestion = true;
             if (isSequence)
             {
-                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, false, false, 0f,
-                    delegate () { isPlayingQuestion = false; game.eggController.EmoticonClose(); EnableAllGameplayInput(); }
-                    );
+                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f,
+                    () =>
+                    {
+                        isPlayingQuestion = false;
+                        game.eggController.EmoticonClose();
+                        EnableAllGameplayInput();
+                        ResetSequenceProgress();
+                        game.eggButtonBox.SetButtonsOnStandardColor();
+                    }
+                );
             }
             else
             {
                 game.eggController.PlayAudioQuestion(delegate () { isPlayingQuestion = false; game.eggController.EmoticonClose(); EnableAllGameplayInput(); });
             }
+        }
+
+        void ResetSequenceProgress()
+        {
+            letterOnSequence = 0;
+            questionProgress = 0;
         }
 
         void PositiveFeedback()

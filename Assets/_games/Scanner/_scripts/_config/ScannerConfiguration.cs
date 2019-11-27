@@ -1,6 +1,8 @@
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Database;
+using Antura.Minigames.ReadingGame;
 
 namespace Antura.Minigames.Scanner
 {
@@ -33,7 +35,6 @@ namespace Antura.Minigames.Scanner
         private ScannerConfiguration()
         {
             // Default values
-            Difficulty = 0.13f;
             Variation = ScannerVariation.OneWord;
 
             Questions = new SampleQuestionProvider();
@@ -51,7 +52,7 @@ namespace Antura.Minigames.Scanner
             nCorrect = 1;
             int nWrong = 4;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.wordFilters.excludeColorWords = true;
             builderParams.wordFilters.requireDrawings = true;
 
@@ -62,7 +63,7 @@ namespace Antura.Minigames.Scanner
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
                     break;
                 case ScannerVariation.MultipleWords:
-                    if (Difficulty < 0.5f) {
+                    if (ScannerGame.I.Difficulty < 0.5f) {
                         nCorrect = 3;
                     } else {
                         nCorrect = 5;
@@ -83,6 +84,8 @@ namespace Antura.Minigames.Scanner
             // example: a.minigameVoteSkewOffset = 1f;
             return rules;
         }
+
+        public override bool AutoPlayIntro => false;
 
     }
 }

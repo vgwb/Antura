@@ -10,14 +10,10 @@ namespace Antura.Minigames.MixedLetters
 
         private IAudioManager audioManager;
 
-        private bool isSpelling;
-
         public TutorialGameState(MixedLettersGame game)
         {
             this.game = game;
             audioManager = game.Context.GetAudioManager();
-
-            isSpelling = MixedLettersConfiguration.Instance.Variation == MixedLettersVariation.BuildWord;
         }
 
         public void EnterState()
@@ -35,17 +31,18 @@ namespace Antura.Minigames.MixedLetters
                 VictimLLController.instance.SetPosition(victimLLPosition);
             }
 
-            audioManager.PlayDialogue(isSpelling ? Database.LocalizationDataId.MixedLetters_buildword_Title : Database.LocalizationDataId.MixedLetters_alphabet_Title, OnTitleVoiceOverDone);
-        }
-
-        private void OnTitleVoiceOverDone()
-        {
             if (!game.TutorialEnabled) {
                 game.SetCurrentState(game.IntroductionState);
                 return;
             }
 
             game.StartCoroutine(OnTitleVoiceOverDoneCoroutine());
+        }
+
+        private IEnumerator OnTitleVoiceOverDoneCoroutine()
+        {
+            yield return new WaitForSeconds(0.75f);
+            game.SayQuestion(OnQuestionOver);
         }
 
         private void OnQuestionOver()
@@ -65,13 +62,6 @@ namespace Antura.Minigames.MixedLetters
 
             AnturaController.instance.Enable();
             AnturaController.instance.EnterScene(OnFightBegan, OnAnturaExitedScene);
-        }
-
-        private IEnumerator OnTitleVoiceOverDoneCoroutine()
-        {
-            yield return new WaitForSeconds(0.75f);
-
-            game.SayQuestion(OnQuestionOver);
         }
 
         private void OnFightBegan()
@@ -94,14 +84,14 @@ namespace Antura.Minigames.MixedLetters
 
         private void OnAnturaExitedScene()
         {
-            audioManager.PlayDialogue(isSpelling ? Database.LocalizationDataId.MixedLetters_buildword_Intro : Database.LocalizationDataId.MixedLetters_alphabet_Intro, OnIntroVoiceOverDone);
+            game.PlayIntro(OnIntroVoiceOverDone);
         }
 
         private void OnIntroVoiceOverDone()
         {
             MixedLettersGame.instance.OnRoundStarted();
             game.EnableRepeatPromptButton();
-            audioManager.PlayDialogue(isSpelling ? Database.LocalizationDataId.MixedLetters_buildword_Tuto : Database.LocalizationDataId.MixedLetters_alphabet_Tuto);
+            audioManager.PlayDialogue(MixedLettersConfiguration.Instance.TutorialLocalizationId);
         }
 
         public void ExitState()

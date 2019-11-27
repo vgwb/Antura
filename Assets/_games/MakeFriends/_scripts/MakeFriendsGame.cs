@@ -1,4 +1,4 @@
-﻿using Antura.Database;
+using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using Antura.UI;
@@ -20,7 +20,9 @@ namespace Antura.Minigames.MakeFriends
         public LetterPickerController letterPicker;
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
+
         public const int numberOfRounds = 6;
+
         //public float uiDelay;
         public float feedbackDuration;
         public float loseDuration;
@@ -36,16 +38,20 @@ namespace Antura.Minigames.MakeFriends
         public Transform[] tutorialLetterLocations;
         public Vector3 correctChoiceIndicatorPosition;
         public Camera uiCamera;
-        [Header("Difficulty Override")]
-        public bool overrideDifficulty;
-        public MakeFriendsDifficulty difficultySetting;
-        public static MakeFriendsGame Instance { get { return I as MakeFriendsGame; } }
+
+        public static MakeFriendsGame Instance
+        {
+            get { return I as MakeFriendsGame; }
+        }
 
         public bool IsIntroducingLetter = false;
         public int SpokenWords = 0;
 
         [HideInInspector]
-        public MakeFriendsConfiguration Configuration { get { return MakeFriendsConfiguration.Instance; } }
+        public MakeFriendsConfiguration Configuration
+        {
+            get { return MakeFriendsConfiguration.Instance; }
+        }
 
         private LL_WordData wordData1;
         private List<ILivingLetterData> wordLetters1 = new List<ILivingLetterData>();
@@ -57,37 +63,14 @@ namespace Antura.Minigames.MakeFriends
         private List<ILivingLetterData> correctChoices = new List<ILivingLetterData>();
         private List<ILivingLetterData> incorrectChoices = new List<ILivingLetterData>();
         private int currentRound = 0;
-        private int _currentScore = 0;
         private bool isTutorialRound;
 
         MakeFriendsLivingLetter livingLetter1;
         MakeFriendsLivingLetter livingLetter2;
 
-        public bool TutorialEnabled
-        {
-            get { return GetConfiguration().TutorialEnabled; }
-        }
+        #region Score
 
-        public int CurrentScore
-        {
-            get { return _currentScore; }
-            set {
-                _currentScore = value;
-                Context.GetOverlayWidget().SetStarsScore(CurrentScore);
-            }
-        }
-
-        private IPopupWidget Popup { get { return GetConfiguration().Context.GetPopupWidget(); } }
-
-        private IAudioManager AudioManager { get { return GetConfiguration().Context.GetAudioManager(); } }
-
-        public MakeFriendsIntroductionState IntroductionState { get; private set; }
-
-        public MakeFriendsQuestionState QuestionState { get; private set; }
-
-        public MakeFriendsPlayState PlayState { get; private set; }
-
-        public MakeFriendsResultState ResultState { get; private set; }
+        public override int MaxScore => numberOfRounds;
 
         private readonly int STARS_1_THRESHOLD = Mathf.CeilToInt(0.33f * numberOfRounds);
         private readonly int STARS_2_THRESHOLD = Mathf.CeilToInt(0.66f * numberOfRounds);
@@ -95,7 +78,8 @@ namespace Antura.Minigames.MakeFriends
 
         public int CurrentStars
         {
-            get {
+            get
+            {
                 if (CurrentScore < STARS_1_THRESHOLD)
                     return 0;
                 if (CurrentScore < STARS_2_THRESHOLD)
@@ -105,6 +89,57 @@ namespace Antura.Minigames.MakeFriends
                 return 3;
             }
         }
+
+        private const float MEDIUM_THRESHOLD = 0.3f;
+        private const float HARD_THRESHOLD = 0.7f;
+
+        public MakeFriendsDifficulty DifficultyChoice
+        {
+            get
+            {
+                // Get Variation based on Difficulty
+                MakeFriendsDifficulty variation;
+                var diff = Difficulty;
+                if (diff < MEDIUM_THRESHOLD)
+                {
+                    variation = MakeFriendsDifficulty.EASY;
+                }
+                else if (diff < HARD_THRESHOLD)
+                {
+                    variation = MakeFriendsDifficulty.MEDIUM;
+                }
+                else
+                {
+                    variation = MakeFriendsDifficulty.HARD;
+                }
+                return variation;
+            }
+        }
+        #endregion
+
+        public bool TutorialEnabled
+        {
+            get { return GetConfiguration().TutorialEnabled; }
+        }
+
+        private IPopupWidget Popup
+        {
+            get { return GetConfiguration().Context.GetPopupWidget(); }
+        }
+
+        private IAudioManager AudioManager
+        {
+            get { return GetConfiguration().Context.GetAudioManager(); }
+        }
+
+        public MakeFriendsIntroductionState IntroductionState { get; private set; }
+
+        public MakeFriendsQuestionState QuestionState { get; private set; }
+
+        public MakeFriendsPlayState PlayState { get; private set; }
+
+        public MakeFriendsResultState ResultState { get; private set; }
+
 
         protected override void OnInitialize(IGameContext context)
         {
@@ -146,19 +181,9 @@ namespace Antura.Minigames.MakeFriends
             AudioManager.PlayMusic(Music.Relax);
         }
 
-        public void PlayTitleVoiceOver()
-        {
-            AudioManager.PlayDialogue(LocalizationDataId.MakeFriends_letterinword_Title);
-        }
-
         public void PlayTutorialVoiceOver()
         {
-            StartCoroutine(PlayDialog_Coroutine(LocalizationDataId.MakeFriends_letterinword_Tuto));
-        }
-
-        public void PlayIntroVoiceOver()
-        {
-            StartCoroutine(PlayDialog_Coroutine(LocalizationDataId.MakeFriends_letterinword_Intro));
+            StartCoroutine(PlayDialog_Coroutine(MakeFriendsConfiguration.Instance.TutorialLocalizationId));
         }
 
         private IEnumerator PlayDialog_Coroutine(LocalizationDataId dialog)

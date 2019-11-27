@@ -1,4 +1,5 @@
 using System;
+using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 
@@ -23,10 +24,8 @@ namespace Antura.Minigames.Tobogan
         static ToboganConfiguration instance;
         public static ToboganConfiguration Instance
         {
-            get
-            {
-                if (instance == null)
-                {
+            get {
+                if (instance == null) {
                     instance = new ToboganConfiguration();
                 }
                 return instance;
@@ -43,7 +42,6 @@ namespace Antura.Minigames.Tobogan
             Variation = ToboganVariation.LetterInWord;
 
             Context = new MinigamesGameContext(MiniGameCode.Tobogan_letterinword, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.0f;
             TutorialEnabled = true;
         }
 
@@ -55,9 +53,8 @@ namespace Antura.Minigames.Tobogan
             int nCorrect = 1;
             int nWrong = 5;
 
-            var builderParams = new QuestionBuilderParameters();
-            switch (Variation)
-            {
+            var builderParams = InitQuestionBuilderParamaters();
+            switch (Variation) {
                 case ToboganVariation.LetterInWord:
                     builderParams.wordFilters.excludeLetterVariations = true;
                     builderParams.wordFilters.excludeDipthongs = true;
@@ -79,6 +76,8 @@ namespace Antura.Minigames.Tobogan
             // example: a.minigameVoteSkewOffset = 1f;
             return rules;
         }
+
+        public override bool AutoPlayIntro => false;
 
     }
 }

@@ -1,13 +1,14 @@
-﻿using UnityEngine;
+using Antura.Dog;
+using Antura.Audio;
+using Antura.Keeper;
+using Antura.LivingLetters;
+using Antura.Minigames;
+using Antura.Tutorial;
+using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
-using Antura.Dog;
-using Antura.Audio;
-using Antura.LivingLetters;
-using Antura.Minigames;
-using Antura.Tutorial;
 
 namespace Antura.Minigames.DancingDots
 {
@@ -16,13 +17,12 @@ namespace Antura.Minigames.DancingDots
 
     public class DancingDotsGame : MiniGameController
     {
-
         public IntroductionGameState IntroductionState { get; private set; }
         public QuestionGameState QuestionState { get; private set; }
         public PlayGameState PlayState { get; private set; }
         public ResultGameState ResultState { get; private set; }
 
-        public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled; }}
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
         protected override void OnInitialize(IGameContext context)
         {
@@ -41,10 +41,6 @@ namespace Antura.Minigames.DancingDots
         {
             return DancingDotsConfiguration.Instance;
         }
-
-        //public static DancingDotsGame instance;
-        public Canvas endGameCanvas;
-        //        public StarFlowers starFlowers;
 
         public const string DANCING_DOTS = "DancingDots_DotZone";
         public const string DANCING_DIACRITICS = "DancingDots_Diacritic";
@@ -120,10 +116,33 @@ namespace Antura.Minigames.DancingDots
         private bool isCorrectDot = false;
         private bool isCorrectDiacritic = false;
 
-        public int currStarsNum = 0;
-        public int numberOfRoundsWon = 0;
         private int numberOfRoundsPlayed = -1;
         private int numberOfFailedMoves = 0;
+
+        #region Score
+
+        public override int MaxScore => STARS_3_THRESHOLD;
+
+        // Stars
+        const int STARS_1_THRESHOLD = 2;
+        const int STARS_2_THRESHOLD = 4;
+        const int STARS_3_THRESHOLD = 6;
+
+        public int CurrentStars
+        {
+            get
+            {
+                if (CurrentScore < STARS_1_THRESHOLD)
+                    return 0;
+                if (CurrentScore < STARS_2_THRESHOLD)
+                    return 1;
+                if (CurrentScore < STARS_3_THRESHOLD)
+                    return 2;
+                return 3;
+            }
+        }
+
+        #endregion
 
         enum Level { Level1, Level2, Level3, Level4, Level5, Level6 };
 
@@ -141,7 +160,7 @@ namespace Antura.Minigames.DancingDots
             //AudioManager.I.transform.FindChild("Music").gameObject.AddComponent<AudioProcessor>();
             var beatDetection = gameObject.AddComponent<DancingDotsBeatDetection>();
             beatDetection.Initialize(source as AudioSourceWrapper);
-            
+
             //StartCoroutine(beat());
 
             questionsManager = new DancingDotsQuestionsManager();
@@ -154,6 +173,7 @@ namespace Antura.Minigames.DancingDots
             //StartRound();
 
             isPlaying = true;
+
 
             //			StartCoroutine(AnimateAntura());
 
@@ -245,7 +265,7 @@ namespace Antura.Minigames.DancingDots
 
             numberOfRoundsPlayed++;
 
-            dancingDotsLL.letterObjectView.SetDancingSpeed(1f);
+            dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
 
             if (splats != null)
                 splats.Clear();
@@ -254,7 +274,6 @@ namespace Antura.Minigames.DancingDots
 
             Debug.Log("[Dancing Dots] Round: " + numberOfRoundsPlayed);
             numberOfFailedMoves = 0;
-
 
             if (pedagogicalLevel == 0f) // TODO for testing only each round increment Level. Remove later!
             {
@@ -280,7 +299,7 @@ namespace Antura.Minigames.DancingDots
             } else {
                 // TODO Move later to Start method
                 var numberOfLevels = Enum.GetNames(typeof(Level)).Length;
-                pedagogicalLevel = DancingDotsConfiguration.Instance.Difficulty;
+                pedagogicalLevel = 0;
                 currentLevel = (Level)Mathf.Clamp((int)Mathf.Floor(pedagogicalLevel * numberOfLevels), 0, numberOfLevels - 1);
             }
 
@@ -383,14 +402,17 @@ namespace Antura.Minigames.DancingDots
             }
         }
 
+        public float StartingRoundDancingSpeed => Mathf.Lerp(0.75f, 1.5f, Difficulty);
+
         IEnumerator CorrectMove(bool roundWon)
         {
             //AudioManager.I.PlayDialog("comment_welldone");
             DancingDotsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.OK);
             TutorialUI.MarkYes(dancingDotsLL.transform.position + Vector3.up * 19 - Vector3.forward * 4, TutorialUI.MarkSize.Big);
-            AudioManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
+            KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
+
             dancingDotsLL.ShowRainbow();
-            dancingDotsLL.letterObjectView.SetDancingSpeed(1f);
+            dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
 
 
             if (roundWon) {
@@ -443,9 +465,9 @@ namespace Antura.Minigames.DancingDots
             //DancingDotsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.StampOK);
             TutorialUI.MarkNo(dancingDotsLL.transform.position + Vector3.up * 19 - Vector3.forward * 4, TutorialUI.MarkSize.Big);
 
-            AudioManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
+            KeeperManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
             numberOfFailedMoves++;
-            dancingDotsLL.letterObjectView.SetDancingSpeed(1f - numberOfFailedMoves * 0.25f);
+            dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed - numberOfFailedMoves * 0.25f);
             GameObject splat = (GameObject)Instantiate(splatPrefab);
             splat.transform.parent = splatParent;
             splat.transform.localScale = new Vector3(1f, 1f, 1f);
@@ -463,7 +485,7 @@ namespace Antura.Minigames.DancingDots
 
         IEnumerator CheckNewRound()
         {
-            dancingDotsLL.letterObjectView.SetDancingSpeed(1f);
+            dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
 
             if (numberOfRoundsPlayed >= numberOfRounds) {
                 DancingDotsEndGame();
@@ -478,7 +500,7 @@ namespace Antura.Minigames.DancingDots
             }
         }
 
-       
+
         IEnumerator RoundLost()
         {
             //wonLastRound = false;
@@ -488,7 +510,7 @@ namespace Antura.Minigames.DancingDots
 
             StartCoroutine(PoofOthers(dragableDots));
             StartCoroutine(PoofOthers(dragableDiacritics));
-            dancingDotsLL.letterObjectView.SetDancingSpeed(1f);
+            dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
             dancingDotsLL.letterObjectView.DoDancingLose();
             yield return new WaitForSeconds(1.5f);
             dancingDotsLL.letterObjectView.DoSmallJump();
@@ -501,10 +523,7 @@ namespace Antura.Minigames.DancingDots
             if (!isTutRound)
             {
                 Context.GetLogManager().OnAnswered(dancingDotsLL.letterData, true);
-                numberOfRoundsWon++;
-                currStarsNum = Mathf.FloorToInt( numberOfRoundsWon / 2f);
-                Context.GetOverlayWidget().SetStarsThresholds(2, 4, 6);
-                Context.GetOverlayWidget().SetStarsScore(numberOfRoundsWon);
+                CurrentScore++;
             }
 
             //wonLastRound = true;
@@ -529,11 +548,13 @@ namespace Antura.Minigames.DancingDots
             StartCoroutine(EndGame_Coroutine());
         }
 
-        IEnumerator EndGame_Coroutine() {
+        IEnumerator EndGame_Coroutine()
+        {
             yield return new WaitForSeconds(2f);
             this.SetCurrentState(this.ResultState);
         }
-        IEnumerator setIdle() {
+        IEnumerator setIdle()
+        {
             yield return new WaitForSeconds(2.5f);
             dancingDotsLL.letterObjectView.SetState(LLAnimationStates.LL_still);
         }
@@ -546,56 +567,45 @@ namespace Antura.Minigames.DancingDots
             Debug.Log("UI Started");
             Context.GetOverlayWidget().Initialize(true, true, false);
             Context.GetOverlayWidget().SetClockDuration(gameDuration);
-            Context.GetOverlayWidget().SetStarsThresholds(2, 3, 6);
-            Context.GetOverlayWidget().SetStarsScore(0);
+            Context.GetOverlayWidget().SetStarsThresholds(STARS_1_THRESHOLD, STARS_2_THRESHOLD, STARS_3_THRESHOLD);
         }
 
 
         public string removeDiacritics(string letter)
         {
             //nasb
-            if (letter.Contains("ً"))
-            {
+            if (letter.Contains("ً")) {
                 return letter.Replace("ً", string.Empty);
             }
             //jarr
-            else if (letter.Contains("ٍ"))
-            {
+            else if (letter.Contains("ٍ")) {
                 return letter.Replace("ٍ", string.Empty);
             }
             //damm
-            else if (letter.Contains("ٌ"))
-            {
+            else if (letter.Contains("ٌ")) {
                 return letter.Replace("ٌ", string.Empty);
             }
             //kasra
-            else if (letter.Contains("ِ"))
-            {
+            else if (letter.Contains("ِ")) {
                 return letter.Replace("ِ", string.Empty);
             }
             //fatha
-            else if (letter.Contains("َ"))
-            {
+            else if (letter.Contains("َ")) {
                 return letter.Replace("َ", string.Empty);
             }
             //damma
-            else if (letter.Contains("ُ"))
-            {
+            else if (letter.Contains("ُ")) {
                 return letter.Replace("ُ", string.Empty);
             }
             //shadda
-            else if (letter.Contains("ّ"))
-            {
+            else if (letter.Contains("ّ")) {
                 return letter.Replace("ّ", string.Empty);
 
             }
             //sukon
-            else if (letter.Contains("ْ"))
-            {
+            else if (letter.Contains("ْ")) {
                 return letter.Replace("ْ", string.Empty);
-            }
-            else
-            {
+            } else {
                 return letter;
             }
         }
@@ -606,7 +616,7 @@ namespace Antura.Minigames.DancingDots
         public float add;
         IEnumerator doBeatAt(float t)
         {
-            
+
             while (AudioSettings.dspTime < t + time+ add)
                 yield return null;
             Debug.LogError(AudioSettings.dspTime);
@@ -672,5 +682,5 @@ namespace Antura.Minigames.DancingDots
         */
     }
 
-    
+
 }

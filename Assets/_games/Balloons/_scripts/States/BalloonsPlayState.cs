@@ -1,4 +1,4 @@
-﻿using Antura.UI;
+using Antura.UI;
 
 namespace Antura.Minigames.Balloons
 {
@@ -15,8 +15,7 @@ namespace Antura.Minigames.Balloons
         {
             game.InitializeMinigameUI();
             
-            game.PlayIntroVoiceOver();
-            game.Play();
+            game.Play(true);
         }
 
         public void ExitState()

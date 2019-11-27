@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text.RegularExpressions;
@@ -16,6 +16,7 @@ namespace Antura.Minigames.ReadingGame
             BreakLine
         }
 
+        private const string PAUSE_TOLEN = "PAUSE";
         const string BREAK_TOKEN = "BREAK";
         const string DELIMITATOR1_TOKEN = "[";
         const string DELIMITATOR2_TOKEN = "]";

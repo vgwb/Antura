@@ -1,5 +1,7 @@
 using Antura.LivingLetters;
 using System.Collections;
+using Antura.Core;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Assessment
@@ -72,6 +74,7 @@ namespace Antura.Assessment
         /// </summary>
         void OnMouseDown()
         {
+            if (GlobalUI.PauseMenu.IsMenuOpen) return;  
             if (AssessmentOptions.Instance.PronunceAnswerWhenClicked) {
                 dialogues.PlayLetterData(Data());
             }

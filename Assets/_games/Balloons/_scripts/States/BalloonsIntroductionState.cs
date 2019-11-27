@@ -1,10 +1,12 @@
-﻿namespace Antura.Minigames.Balloons
+using System.Collections;
+using UnityEngine;
+
+namespace Antura.Minigames.Balloons
 {
     public class BalloonsIntroductionState : FSM.IState
     {
         BalloonsGame game;
 
-        float timer = 1.5f;
         bool playTutorial;
         bool takenAction = false;
 
@@ -16,7 +18,6 @@
 
         public void EnterState()
         {
-            game.PlayTitleVoiceOver();
         }
 
         public void ExitState()
@@ -33,17 +34,12 @@
             if (takenAction) {
                 return;
             }
+            takenAction = true;
 
-            timer -= delta;
-
-            if (timer < 0) {
-                takenAction = true;
-
-                if (playTutorial) {
-                    this.game.PlayTutorial();
-                } else {
-                    game.SetCurrentState(game.QuestionState);
-                }
+            if (playTutorial) {
+                game.PlayTutorial();
+            } else {
+                game.SetCurrentState(game.QuestionState);
             }
         }
 

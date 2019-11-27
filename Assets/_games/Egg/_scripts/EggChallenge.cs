@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Antura.LivingLetters;
+using UnityEngine;
 
 namespace Antura.Minigames.Egg
 {
@@ -9,7 +10,7 @@ namespace Antura.Minigames.Egg
         public ILivingLetterData Question { get; private set; }
         bool sequence;
 
-        public EggChallenge(float difficulty, bool onlyLetter)
+        public EggChallenge(float difficulty)
         {
             Answers = new List<ILivingLetterData>();
             sequence = false;
@@ -48,7 +49,7 @@ namespace Antura.Minigames.Egg
                 }
                 else
                 {
-                    numberOfAnswers += (int)(difficulty * 5);
+                    numberOfAnswers += Mathf.CeilToInt(difficulty * 3);
 
                     if (numberOfAnswers > 8)
                     {

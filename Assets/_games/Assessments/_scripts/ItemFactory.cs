@@ -45,6 +45,11 @@ namespace Antura.Assessment
 
         public Answer SpawnAnswer(ILivingLetterData data, bool correct, AssessmentAudioManager dialogues)
         {
+            if (AssessmentOptions.Instance.ShowAnswersAsImages)
+            {
+                data = new LL_ImageData(data.Id);
+            }
+
             // Organize LLs in inspector's hierarchy view
             var letter = SpawnStillLetter(Answers);
 

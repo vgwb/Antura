@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using Antura.LivingLetters;
 
@@ -92,8 +92,8 @@ namespace Antura.Minigames.Tobogan
                     if (i == correctPosition)
                     {
                         pipeAnswers[i].SetAnswer(correctAnswers, true,
-                            ToboganConfiguration.Instance.Difficulty <= 0.1f ? game.markedTextMaterial : game.textMaterial,
-                            ToboganConfiguration.Instance.Difficulty <= 0.1f ? (Color)ToboganGame.LETTER_MARK_PIPE_COLOR : Color.black);
+                            ToboganGame.I.Difficulty <= 0.1f ? game.markedTextMaterial : game.textMaterial,
+                            ToboganGame.I.Difficulty <= 0.1f ? (Color)ToboganGame.LETTER_MARK_PIPE_COLOR : Color.black);
                     }
                     else
                     {

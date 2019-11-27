@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using Antura.UI;
@@ -23,10 +23,6 @@ namespace Antura.Minigames.TakeMeHome
 		[HideInInspector]
 		public int currentTube = 0;
         
-
-		public int CurrentScore { get; private set; }
-
-
 		[HideInInspector]
 		public bool isTimesUp;
 
@@ -238,7 +234,7 @@ namespace Antura.Minigames.TakeMeHome
             Context.GetOverlayWidget().SetStarsThresholds(2, 4, 6);
             //Context.GetOverlayWidget().SetClockTime( UnityEngine.Mathf.Lerp(90.0f, 60.0f, TakeMeHomeConfiguration.Instance.Difficulty));
 
-            MinigamesUI.Timer.Setup( UnityEngine.Mathf.Lerp(90.0f, 60.0f, TakeMeHomeConfiguration.Instance.Difficulty));
+            MinigamesUI.Timer.Setup(Mathf.Lerp(90.0f, 60.0f, Difficulty));
         }
 
 

@@ -23,7 +23,8 @@ namespace Antura.Minigames.FastCrowd
                         FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting ||
                         FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word ||
                         FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.LetterName
-                        || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image;
+                        || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                        || FastCrowdConfiguration.Instance.IsOrderingVariation;
             }
         }
 
@@ -47,13 +48,7 @@ namespace Antura.Minigames.FastCrowd
             }
             tutorialStarted = false;
 
-            // TODO: make this more robust to variations
-
-            if (AppManager.I.AppSettings.EnglishSubtitles) {
-                KeeperManager.I.PlayDialog(FastCrowdConfiguration.Instance.TutorialLocalizationId, false, true, () => { StartTutorial(); });
-            } else {
-                game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.TutorialLocalizationId, () => { StartTutorial(); });
-            }
+            game.Context.GetAudioManager().PlayDialogue(FastCrowdConfiguration.Instance.TutorialLocalizationId, StartTutorial);
 
             game.QuestionManager.wordComposer.gameObject.SetActive(FastCrowdConfiguration.Instance.NeedsWordComposer);
         }
@@ -89,7 +84,8 @@ namespace Antura.Minigames.FastCrowd
             game.Context.GetAudioManager().PlaySound(result ? Sfx.OK : Sfx.KO);
 
             if (result && (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
-                                                                                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)) {
+                                                                                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                                                                                                    || FastCrowdConfiguration.Instance.IsOrderingVariation)) {
                 game.Context.GetAudioManager().PlayVocabularyData(data);
             }
 

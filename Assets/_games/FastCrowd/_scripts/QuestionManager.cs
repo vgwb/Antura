@@ -18,7 +18,7 @@ namespace Antura.Minigames.FastCrowd
             dropContainer.OnComplete += OnContainerComplete;
             crowd.onDropped += OnLetterDropped;
 
-            crowd.MaxConcurrentLetters = Mathf.RoundToInt(4 + FastCrowdConfiguration.Instance.Difficulty * 4);
+            //crowd.MaxConcurrentLetters = Mathf.RoundToInt(4 + game.Difficulty * 4);
         }
 
         void OnContainerComplete()
@@ -51,15 +51,24 @@ namespace Antura.Minigames.FastCrowd
 
                 // Add drop areas
                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting)
-                    dropContainer.AddDropNumber(correctAnswer, i);
-                else if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
-                         || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
                     dropContainer.AddDropData(correctAnswer, true);
+                else if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
+                         || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                         || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.CategoryForm
+                         || FastCrowdConfiguration.Instance.IsOrderingVariation)
+                {
+                    dropContainer.AddDropData(correctAnswer, true);
+                }
                 else
+                {
                     dropContainer.AddDropData(correctAnswer, false);
+                }
 
                 // Add living letters
-                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.CategoryForm
+                    || FastCrowdConfiguration.Instance.IsOrderingVariation
+                    )
                     correctAnswer = new LL_ImageData(correctAnswer.Id);
 
                 crowd.AddLivingLetter(correctAnswer);
@@ -68,7 +77,9 @@ namespace Antura.Minigames.FastCrowd
             foreach (var wrongAnswer in wrongAnswers)
             {
                 var answer = wrongAnswer;
-                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.CategoryForm
+                    || FastCrowdConfiguration.Instance.IsOrderingVariation)
                     answer = new LL_ImageData(answer.Id);
 
                 // Add living letters

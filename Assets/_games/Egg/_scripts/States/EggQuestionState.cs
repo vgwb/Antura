@@ -23,15 +23,8 @@ namespace Antura.Minigames.Egg
             passed = false;
             game.eggButtonBox.RemoveButtons();
 
-            bool onlyLetter = Random.Range(0, 2) == 0;
-
-            game.CurrentQuestion = new EggChallenge(game.GameDifficulty, onlyLetter);
+            game.CurrentQuestion = new EggChallenge(game.Difficulty);
             game.eggController.Reset();
-
-            if (firstQuestion)
-            {
-                game.Context.GetAudioManager().PlayDialogue(EggConfiguration.Instance.TitleLocalizationId);
-            }
 
             EggEnter();
         }
@@ -57,13 +50,17 @@ namespace Antura.Minigames.Egg
         void OnEggEnterComplete()
         {
             if (firstQuestion)
-            {
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Egg_Intro, delegate () { SetAndShowEggButtons(); });
-            }
+                game.PlayIntro(PlayTutorial);
             else
-            {
+                PlayTutorial();
+        }
+
+        void PlayTutorial()
+        {
+            if (game.ShowTutorial) 
+                game.PlayTutorial(SetAndShowEggButtons);
+            else
                 SetAndShowEggButtons();
-            }
         }
 
         void SetAndShowEggButtons()
@@ -90,33 +87,24 @@ namespace Antura.Minigames.Egg
 
         void ShowQuestionSequence()
         {
-            bool lightUpButtons = game.GameDifficulty < 0.5f;
-
             bool isSequence = game.CurrentQuestion.IsSequence();
 
             if (isSequence)
             {
                 game.eggController.SetQuestion(game.CurrentQuestion.Question);
                 game.eggController.SetAnswers(game.CurrentQuestion.Answers);
-                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, lightUpButtons, false, 0f, OnQuestionAudioComplete);
+                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f, OnQuestionAudioComplete);
             }
             else
             {
                 game.eggController.SetQuestion(null);
                 game.eggController.SetAnswers(game.CurrentQuestion.Answers[0]);
 
-                if (lightUpButtons)
+                game.eggController.PlayAudioQuestion(delegate ()
                 {
-                    game.eggController.PlayAudioQuestion(delegate ()
-                    {
-                        EnableEggButtonsInput();
-                        game.eggButtonBox.PlayButtonsAudio(null, null, true, true, 0.5f, OnQuestionAudioComplete);
-                    });
-                }
-                else
-                {
-                    game.eggController.PlayAudioQuestion(OnQuestionAudioComplete);
-                }
+                    EnableEggButtonsInput();
+                    game.eggButtonBox.PlayButtonsAudio(null, null, true, true, 0.5f, OnQuestionAudioComplete);
+                });
             }
         }
 

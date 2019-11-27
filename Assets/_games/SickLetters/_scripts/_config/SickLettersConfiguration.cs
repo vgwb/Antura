@@ -36,7 +36,6 @@ namespace Antura.Minigames.SickLetters
             Questions = new SickLettersQuestionProvider();
             TutorialEnabled = true;
             //SickLettersQuestions = new SickLettersQuestionProvider();
-            Difficulty = 0.1f;
         }
 
         public override IQuestionBuilder SetupBuilder()
@@ -47,8 +46,7 @@ namespace Antura.Minigames.SickLetters
             int nCorrect = 1;
             int nWrong = 0;
 
-            var builderParams = new QuestionBuilderParameters();
-
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case SickLettersVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -74,5 +72,8 @@ namespace Antura.Minigames.SickLetters
         {
             return LetterDataSoundType.Name;
         }
+
+        public override bool AutoPlayIntro => false;
+
     }
 }

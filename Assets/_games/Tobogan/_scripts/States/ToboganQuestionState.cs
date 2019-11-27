@@ -7,7 +7,6 @@ namespace Antura.Minigames.Tobogan
         ToboganGame game;
 
         bool nextState;
-        bool playIntro;
 
         public ToboganQuestionState(ToboganGame game)
         {
@@ -18,24 +17,9 @@ namespace Antura.Minigames.Tobogan
         {
             game.questionsManager.Initialize();
             nextState = false;
-            playIntro = false;
-
-            if (ToboganConfiguration.Instance.Variation == ToboganVariation.LetterInWord)
-            {
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_letters_Title, delegate ()
-                {
-                    playIntro = true;
-                });
-            }
-            else
-            {
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_words_Title, delegate ()
-                {
-                    playIntro = true;
-                });
-            }
 
             game.Context.GetAudioManager().PlayMusic(Music.Theme6);
+            game.PlayIntro(() => nextState = true);
         }
 
         public void ExitState() { }
@@ -51,27 +35,6 @@ namespace Antura.Minigames.Tobogan
                 else
                 {
                     game.SetCurrentState(game.PlayState);
-                }
-                return;
-            }
-
-            if(playIntro)
-            {
-                playIntro = false;
-
-                if (ToboganConfiguration.Instance.Variation == ToboganVariation.LetterInWord)
-                {
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_letters_Intro, delegate ()
-                    {
-                        nextState = true;
-                    });
-                }
-                else
-                {
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_letters_Intro, delegate ()
-                    {
-                        nextState = true;
-                    });
                 }
             }
         }

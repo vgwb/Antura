@@ -1,7 +1,8 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Tutorial;
 using UnityEngine;
 using System.Collections;
+using Antura.Keeper;
 
 namespace Antura.Minigames.Scanner
 {
@@ -232,7 +233,7 @@ namespace Antura.Minigames.Scanner
             }
 
             yield return new WaitForSeconds(delay);
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.Scanner_Tuto);
+            KeeperManager.I.PlayDialogue(ScannerConfiguration.Instance.TutorialLocalizationId);
         }
 
         bool pauseTut()

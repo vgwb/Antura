@@ -19,5 +19,6 @@ namespace Antura.Assessment
         QuestionAndReply = MiniGameCode.Assessment_QuestionAndReply,
         CompleteWord_Form = MiniGameCode.Assessment_CompleteWord_Form,
         MatchLettersToWord_Form = MiniGameCode.Assessment_MatchLettersToWord_Form,
+        SelectPronouncedWordByImage = MiniGameCode.Assessment_SelectPronouncedWordByImage,
     }
 }

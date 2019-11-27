@@ -207,26 +207,10 @@ namespace Antura.Assessment
                 Drawing.enabled = false;
                 Label.enabled = false;
             } else {
-                if (Data.DataType == LivingLetterDataType.Image) {
-                    Drawing.text = Data.DrawingCharForLivingLetter;
-                    Drawing.enabled = true;
-
-                    var imageData = (LL_ImageData)Data;
-                    if (imageData.Data.Category == Database.WordDataCategory.Color) {
-                        Drawing.color = GenericHelper.GetColorFromString(imageData.Data.Value);
-                    } else {
-                        Drawing.color = Color.black;
-                    }
-
-                    Label.enabled = false;
-                    Wideness = 1.0f;
-                } else {
-                    Drawing.enabled = false;
-                    Label.enabled = true;
-                    LabelRender.text = Data.TextForLivingLetter;
-
-                    SetWidness(data.DataType);
-                }
+                Drawing.enabled = false;
+                Label.enabled = true;
+                LabelRender.SetLetterData(Data);
+                SetWidness(data.DataType);
             }
         }
 

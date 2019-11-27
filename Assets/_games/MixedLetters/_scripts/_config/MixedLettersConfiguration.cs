@@ -2,7 +2,6 @@ using System;
 using Antura.Database;
 using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
-using Antura.Minigames.FastCrowd;
 using Antura.Teacher;
 
 namespace Antura.Minigames.MixedLetters
@@ -26,8 +25,7 @@ namespace Antura.Minigames.MixedLetters
         static MixedLettersConfiguration instance;
         public static MixedLettersConfiguration Instance
         {
-            get
-            {
+            get {
                 if (instance == null)
                     instance = new MixedLettersConfiguration();
                 return instance;
@@ -40,7 +38,6 @@ namespace Antura.Minigames.MixedLetters
             Questions = new SampleQuestionProvider();
             Variation = MixedLettersVariation.Alphabet;
             Context = new MinigamesGameContext(MiniGameCode.MixedLetters_alphabet, DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
             TutorialEnabled = true;
         }
 
@@ -48,11 +45,8 @@ namespace Antura.Minigames.MixedLetters
         {
             IQuestionBuilder builder = null;
 
-            int nPacks = 10;
-
-            var builderParams = new QuestionBuilderParameters();
-            switch (Variation)
-            {
+            var builderParams = InitQuestionBuilderParamaters();
+            switch (Variation) {
                 case MixedLettersVariation.Alphabet:
                     builderParams.useJourneyForCorrect = false; // Force no journey, or the minigame will block
                     builder = new AlphabetQuestionBuilder(parameters: builderParams);
@@ -60,7 +54,7 @@ namespace Antura.Minigames.MixedLetters
                 case MixedLettersVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.requireDrawings = true;
-                    builder = new LettersInWordQuestionBuilder(nPacks, maximumWordLength: 6, useAllCorrectLetters: true, parameters: builderParams);
+                    builder = new LettersInWordQuestionBuilder(6, maximumWordLength: 8, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -79,8 +73,7 @@ namespace Antura.Minigames.MixedLetters
         public override bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
         {
             LetterEqualityStrictness strictness;
-            switch (Variation)
-            {
+            switch (Variation) {
                 case MixedLettersVariation.Alphabet:
                     strictness = LetterEqualityStrictness.WithVisualForm;
                     break;
@@ -92,5 +85,8 @@ namespace Antura.Minigames.MixedLetters
             }
             return DataMatchingHelper.IsDataMatching(data1, data2, strictness);
         }
+
+        public override bool AutoPlayIntro => false;
+
     }
 }

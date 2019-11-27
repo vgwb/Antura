@@ -1,5 +1,7 @@
-using System;
+using Antura.Database;
+using Antura.Minigames.ColorTickle;
 using Antura.Teacher;
+using System;
 
 namespace Antura.Minigames.DancingDots
 {
@@ -20,8 +22,7 @@ namespace Antura.Minigames.DancingDots
 
         // Singleton Pattern
         static DancingDotsConfiguration instance;
-        public static DancingDotsConfiguration Instance
-        {
+        public static DancingDotsConfiguration Instance {
             get {
                 if (instance == null) {
                     instance = new DancingDotsConfiguration();
@@ -47,7 +48,7 @@ namespace Antura.Minigames.DancingDots
             int nCorrect = 1;
             int nWrong = 0;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
 
             switch (Variation) {
                 case DancingDotsVariation.LetterName:
@@ -72,6 +73,7 @@ namespace Antura.Minigames.DancingDots
             return rules;
         }
 
-    }
+        public override bool AutoPlayIntro => false;
 
+    }
 }

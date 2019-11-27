@@ -79,6 +79,11 @@ namespace Antura.Assessment
         IEnumerator AllCorrectCoroutine()
         {
             audioManager.PlayStampSound();
+
+            // NDMichele: playing question as we finish dragging
+            var question = GameObject.FindObjectOfType<QuestionBehaviour>();
+            if (question != null) question.ReadMeSound();
+
             yield return Wait.For(0.4f);
             widget.Show(true);
             yield return Wait.For(1.0f);

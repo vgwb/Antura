@@ -19,7 +19,6 @@ namespace Antura.Minigames.ThrowBalls
     {
         public const int MAX_NUM_ROUNDS = 5;
         public const int NUM_LETTERS_IN_POOL = 15;
-        public readonly int MAX_NUM_BALLS;
         public const float TUTORIAL_UI_PERIOD = 4;
         private const float FLASHING_TEXT_CYCLE_DURATION = 1f;
 
@@ -28,12 +27,38 @@ namespace Antura.Minigames.ThrowBalls
 
         public bool isRoundOngoing;
 
+        public int MAX_NUM_BALLS
+        {
+            get
+            {
+                // Configure num balls:
+                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord)
+                {
+                    return 5;
+                }
+                else
+                {
+                    var difficulty = game.Difficulty;
+                    if (difficulty <= MiniGameController.NORMAL)
+                    {
+                        return 5;
+                    }
+                    else if (difficulty <= MiniGameController.HARD)
+                    {
+                        return 4;
+                    }
+                    else
+                    {
+                        return 3;
+                    }
+                }
+            }
+        }
+
         // Round number is 1-based. (Round 1, round 2,...)
         // Round 0 is the tutorial round.
         private int roundNumber = 0;
         private int numBalls;
-
-        private int numRoundsWon = 0;
 
         private float timeLeftToShowTutorialUI = TUTORIAL_UI_PERIOD;
         private bool isIdle = true;
@@ -65,8 +90,10 @@ namespace Antura.Minigames.ThrowBalls
             get {
                 if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
                     return currentLettersForLettersInWord.Count;
-                } else {
-                    return 3;
+                }
+                else
+                {
+                    return Mathf.RoundToInt(Mathf.Lerp(3, 5, game.Difficulty));
                 }
             }
         }
@@ -83,22 +110,6 @@ namespace Antura.Minigames.ThrowBalls
             inputManager.Enabled = false;
 
             currentLettersForLettersInWord = new List<ILivingLetterData>();
-
-            // Configure num balls:
-            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
-                MAX_NUM_BALLS = 5;
-            }
-            else {
-                var difficulty = game.Difficulty;
-
-                if (difficulty <= ThrowBallsGame.ThrowBallsDifficulty.Normal) {
-                    MAX_NUM_BALLS = 5;
-                } else if (difficulty == ThrowBallsGame.ThrowBallsDifficulty.Hard) {
-                    MAX_NUM_BALLS = 4;
-                } else {
-                    MAX_NUM_BALLS = 3;
-                }
-            }
 
             flashedLettersInLiWVariation = new List<LL_LetterData>();
         }
@@ -146,19 +157,12 @@ namespace Antura.Minigames.ThrowBalls
 
             AudioManager.I.PlayMusic(Music.Theme10);
 
-            audioManager.PlayDialogue(ThrowBallsConfiguration.Instance.TitleLocalizationId, OnTitleVoiceOverDone);
-
-        }
-
-        private void OnTitleVoiceOverDone()
-        {
             SlingshotController.instance.Enable();
-
             GameObject poof = UnityEngine.Object.Instantiate(ThrowBallsGame.instance.poofPrefab, SlingshotController.instance.transform.position + new Vector3(0f, -5f, -2f), Quaternion.identity);
             UnityEngine.Object.Destroy(poof, 10);
             ThrowBallsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Poof);
 
-            audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_Intro, OnIntroVoiceOverDone);
+            game.PlayIntro(OnIntroVoiceOverDone);
         }
 
         private void OnIntroVoiceOverDone()
@@ -184,14 +188,14 @@ namespace Antura.Minigames.ThrowBalls
 
             switch (ThrowBallsConfiguration.Instance.Variation) {
                 case ThrowBallsVariation.LetterName:
-                    game.StartCoroutine(StartNewRound());
+                    game.StartCoroutine(StartNewRound_Single());
                     break;
                 case ThrowBallsVariation.LetterAny:
-                    game.StartCoroutine(StartNewRound());
+                    game.StartCoroutine(StartNewRound_Single());
                     break;
                 case ThrowBallsVariation.Word:
                 case ThrowBallsVariation.Image:
-                    game.StartCoroutine(StartNewRound());
+                    game.StartCoroutine(StartNewRound_Single());
                     break;
                 case ThrowBallsVariation.BuildWord:
                     game.StartCoroutine(StartNewRound_LettersInWord());
@@ -199,14 +203,35 @@ namespace Antura.Minigames.ThrowBalls
             }
         }
 
+        private int nModes
+        {
+            get
+            {
+                switch (ThrowBallsConfiguration.Instance.Variation)
+                {
+                    case ThrowBallsVariation.LetterName:
+                    case ThrowBallsVariation.LetterAny:
+                    case ThrowBallsVariation.Word:
+                    case ThrowBallsVariation.Image:
+                        return (int)LetterAnimationMode.IdleSwerving + 1;
+                    case ThrowBallsVariation.BuildWord:
+                        return (int)LetterAnimationMode.JumpGround + 1;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+            }
+        }
+
+        private LetterAnimationMode prevMode => (LetterAnimationMode)Mathf.FloorToInt(game.Difficulty * (nModes - 1));
+        private LetterAnimationMode nextMode => prevMode + 1;
+
         private bool uiInitialised = false;
-        public IEnumerator StartNewRound()
+        public IEnumerator StartNewRound_Single()
         {
             ResetScene();
 
             if (!uiInitialised && !IsTutorialRound()) {
                 uiInitialised = true;
-
 
                 game.Context.GetOverlayWidget().Initialize(true, false, true);
                 game.Context.GetOverlayWidget().SetStarsThresholds(1, 3, 5);
@@ -235,14 +260,13 @@ namespace Antura.Minigames.ThrowBalls
 
             }
 
-            if (ThrowBallsConfiguration.Instance.Variation != ThrowBallsVariation.Word)
-                SayQuestion();
+            SayQuestion();
 
             yield return new WaitForSeconds(1f);
 
             int indexOfCorrectLetter = 0;
 
-            if (game.Difficulty <= ThrowBallsGame.ThrowBallsDifficulty.Easy || IsTutorialRound()) {
+            if (game.Difficulty <= MiniGameController.EASY || IsTutorialRound()) {
                 for (int i = 0; i < NumLettersInCurrentRound; i++) {
                     letterPool[i].SetActive(true);
                 }
@@ -256,12 +280,15 @@ namespace Antura.Minigames.ThrowBalls
                 indexOfCorrectLetter = indexOfUnobstructedLetter;
             }
 
-            for (int i = 0; i < NumLettersInCurrentRound; i++) {
+            var prevIndices = ExtractPrevIndices();
+
+            for (int i = 0; i < NumLettersInCurrentRound; i++)
+            {
                 GameObject letterObj = letterPool[i];
 
                 letterObj.SetActive(true);
 
-                ConfigureLetterPropAndMotionVariation(letterControllers[i]);
+                ConfigureLetterPropAndMotionVariation(letterControllers[i], prevIndices.Contains(i) ? prevMode : nextMode);
 
                 if (i == indexOfCorrectLetter) {
                     letterObj.tag = Constants.CORRECT_LETTER_TAG;
@@ -282,31 +309,33 @@ namespace Antura.Minigames.ThrowBalls
             UIController.instance.EnableLetterHint();
             UIController.instance.SetLivingLetterData(question);
 
-            if (IsTutorialRound()) {
-                switch (ThrowBallsConfiguration.Instance.Variation) {
-                    case ThrowBallsVariation.LetterName:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
-                        break;
-                    case ThrowBallsVariation.LetterAny:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
-                        break;
-                    case ThrowBallsVariation.Word:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
-                        break;
-                    case ThrowBallsVariation.Image:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
-                        break;
-                    case ThrowBallsVariation.BuildWord:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-
+            if (IsTutorialRound())
+            {
+                audioManager.PlayDialogue(ThrowBallsConfiguration.Instance.TutorialLocalizationId);
                 inputManager.Enabled = true;
                 isVoiceOverDone = true;
                 ShowTutorialUI();
             }
+        }
+
+        private List<int> ExtractPrevIndices()
+        {
+            float delta = 1f / nModes;
+            float prevDifficulty = (int)prevMode * delta;
+            //Debug.LogWarning("PrevDiff " + prevDifficulty);
+            //Debug.LogWarning("delta " + delta);
+            var lerp = 1f - (game.Difficulty - prevDifficulty) / delta;
+            //Debug.LogWarning("lerp " + lerp);
+            float percentPrevMode = Mathf.Lerp(0, 1, lerp);
+            int nPrevMode = Mathf.RoundToInt(percentPrevMode * NumLettersInCurrentRound);
+            //Debug.LogWarning("DIFFICULTY " + game.Difficulty + " from mode " + prevMode + " to next mode " + nextMode +
+            // " with " + nPrevMode + " using PREV (percent " + percentPrevMode + ")");
+            List<int> prevIndices = new List<int>();
+            for (int i = 0; i < NumLettersInCurrentRound; i++)
+                prevIndices.Add(i);
+            for (int i = 0; i < NumLettersInCurrentRound - nPrevMode; i++)
+                prevIndices.RemoveAt(Random.Range(0, nPrevMode));
+            return prevIndices;
         }
 
         public IEnumerator StartNewRound_LettersInWord()
@@ -337,25 +366,19 @@ namespace Antura.Minigames.ThrowBalls
             UIController.instance.SetLivingLetterData(question);
 
             var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[0];
-
-            var letterDataToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, ((LL_WordData)question).Data, letterToFlash.Data, false)[0];
-
-            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(((LL_WordData)question).Data, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
-                    (string text) => {
-                        UIController.instance.SetText(text);
-                    }, false);
-
-            flashedLettersInLiWVariation.Add(letterToFlash);
+            FlashLetter(letterToFlash);
 
             ThrowBallsGame.instance.StartCoroutine(flashingTextCoroutine);
 
+            var prevIndices = ExtractPrevIndices();
+
             for (int i = 0; i < currentLettersForLettersInWord.Count; i++) {
-                int letterObjectIndex = game.Difficulty <= ThrowBallsGame.ThrowBallsDifficulty.Easy ? sortedIndices[i] : i;
+                int letterObjectIndex = game.Difficulty <= MiniGameController.EASY ? sortedIndices[i] : i;
                 GameObject letterObj = letterPool[letterObjectIndex];
 
                 letterObj.SetActive(true);
 
-                ConfigureLetterPropAndMotionVariation(letterControllers[letterObjectIndex]);
+                ConfigureLetterPropAndMotionVariation(letterControllers[letterObjectIndex], prevIndices.Contains(i) ? prevMode : nextMode);
 
                 letterControllers[letterObjectIndex].SetData(currentLettersForLettersInWord[i]);
                 letterObj.tag = currentLettersForLettersInWord[i].Id == currentLettersForLettersInWord[0].Id ? Constants.CORRECT_LETTER_TAG : Constants.WRONG_LETTER_TAG;
@@ -394,6 +417,29 @@ namespace Antura.Minigames.ThrowBalls
                 isVoiceOverDone = true;
                 ShowTutorialUI();
             }
+        }
+
+        private void FlashLetter(LL_LetterData letterToFlash)
+        {
+            var word = ((LL_WordData)question).Data;
+            int numTimesLetterHasBeenFlashed = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
+            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
+            flashedLettersInLiWVariation.Add(letterToFlash);
+
+            int toCharIndex = letterPartToFlash.toCharacterIndex;
+            if (letterPartToFlash.fromCharacterIndex != letterPartToFlash.toCharacterIndex)
+            {
+                var hexCode = LanguageSwitcher.LearningHelper.GetHexUnicodeFromChar(word.Text[letterPartToFlash.toCharacterIndex]);
+                if (hexCode == "0651")   // Shaddah
+                {
+                    toCharIndex -= 1;
+                }
+            }
+
+            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
+                text => {
+                    UIController.instance.SetText(text);
+                }, true);
         }
 
         private List<int> SortLettersByZIndex(int numLetters)
@@ -461,7 +507,8 @@ namespace Antura.Minigames.ThrowBalls
 
         public void OnBallLost()
         {
-            if (isRoundOngoing && !IsTutorialRound() && !hitCorrect) {
+            if (isRoundOngoing && !IsTutorialRound() && !hitCorrect)
+            {
                 numBalls--;
                 game.Context.GetOverlayWidget().SetLives(numBalls);
                 if (numBalls == 0) {
@@ -486,7 +533,7 @@ namespace Antura.Minigames.ThrowBalls
                 if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
                     game.StartCoroutine(StartNewRound_LettersInWord());
                 } else {
-                    game.StartCoroutine(StartNewRound());
+                    game.StartCoroutine(StartNewRound_Single());
                 }
             }
         }
@@ -521,15 +568,10 @@ namespace Antura.Minigames.ThrowBalls
                     string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
                     UIController.instance.SetText(markedText);
                 } else {
-                    var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
-                    int numTimesLetterHasBeenFlashed = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
-                    var letterDataToFlash = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
-                    flashedLettersInLiWVariation.Add(letterToFlash);
 
-                    flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterDataToFlash.fromCharacterIndex, letterDataToFlash.toCharacterIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
-                        (string text) => {
-                            UIController.instance.SetText(text);
-                        }, true);
+                    var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
+
+                    FlashLetter(letterToFlash);
 
                     ThrowBallsGame.instance.StartCoroutine(flashingTextCoroutine);
                 }
@@ -552,8 +594,7 @@ namespace Antura.Minigames.ThrowBalls
             if (isRoundOngoing) {
 
                 if (!IsTutorialRound()) {
-                    numRoundsWon++;
-                    game.Context.GetOverlayWidget().SetStarsScore(numRoundsWon);
+                    game.CurrentScore++;
                 } else {
                     TutorialUI.Clear(true);
                 }
@@ -645,20 +686,31 @@ namespace Antura.Minigames.ThrowBalls
 
             int numberOfStars = 2;
 
-            if (numRoundsWon == 0) {
+            if (game.CurrentScore == 0) {
                 numberOfStars = 0;
-            } else if (numRoundsWon == 1 || numRoundsWon == 2) {
+            } else if (game.CurrentScore == 1 || game.CurrentScore == 2) {
                 numberOfStars = 1;
-            } else if (numRoundsWon == 3 || numRoundsWon == 4) {
+            } else if (game.CurrentScore == 3 || game.CurrentScore == 4) {
                 numberOfStars = 2;
             } else {
                 numberOfStars = 3;
             }
 
-            game.EndGame(numberOfStars, 0);
+            game.EndGame(numberOfStars, game.CurrentScore);
         }
 
-        private void ConfigureLetterPropAndMotionVariation(LetterController letterController)
+        public enum LetterAnimationMode
+        {
+            IdleGround = 0,
+            JumpGround = 1,
+            IdleCrate = 2,
+            IdleSwerving = 3,
+            JumpCrate = 4,
+            JumpSwerving = 5,
+            Bush = 6
+        }
+
+        private void ConfigureLetterPropAndMotionVariation(LetterController letterController, LetterAnimationMode mode)
         {
             if (IsTutorialRound()) {
                 letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
@@ -666,61 +718,117 @@ namespace Antura.Minigames.ThrowBalls
                 return;
             }
 
-            switch (game.Difficulty) {
-                case ThrowBallsGame.ThrowBallsDifficulty.VeryEasy:
+            switch (mode)
+            {
+                case LetterAnimationMode.IdleGround:
                     letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
                     letterController.SetPropVariation(LetterController.PropVariation.Nothing);
                     break;
-                case ThrowBallsGame.ThrowBallsDifficulty.Easy:
-                    if (numRoundsWon < 2) {
-                        letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
-                        letterController.SetPropVariation(LetterController.PropVariation.Nothing);
-                    } else {
-                        letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
-                        letterController.SetPropVariation(LetterController.PropVariation.Nothing);
-                    }
+                case LetterAnimationMode.JumpGround:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.Nothing);
                     break;
-                case ThrowBallsGame.ThrowBallsDifficulty.Normal:
-                    if (numRoundsWon < 1) {
+                case LetterAnimationMode.IdleCrate:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                    letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
+                    break;
+                case LetterAnimationMode.JumpCrate:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
+                    break;
+                case LetterAnimationMode.IdleSwerving:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                    letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
+                    break;
+                case LetterAnimationMode.JumpSwerving:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
+                    break;
+                case LetterAnimationMode.Bush:
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Popping);
+                    letterController.SetPropVariation(LetterController.PropVariation.Bush);
+                    break;
+            }
+
+            /*
+            if (game.Difficulty <= MiniGameController.VERY_EASY)
+            {
+                letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                letterController.SetPropVariation(LetterController.PropVariation.Nothing);
+            }
+            else if (game.Difficulty <= MiniGameController.EASY)
+            {
+                if (game.CurrentScore < 2)
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                    letterController.SetPropVariation(LetterController.PropVariation.Nothing);
+                }
+                else
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.Nothing);
+                }
+            }
+            else if (game.Difficulty <= MiniGameController.NORMAL)
+            {
+                if (game.CurrentScore < 1)
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.Nothing);
+                }
+                else if (game.CurrentScore < 3)
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                    letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
+                }
+                else
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
+                    letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
+                }
+            }
+            else if (game.Difficulty <= MiniGameController.HARD)
+            {
+                if (roundNumber < 4)
+                {
+                    if (Random.value <= 0.5f)
+                    {
                         letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
-                        letterController.SetPropVariation(LetterController.PropVariation.Nothing);
-                    } else if (numRoundsWon < 3) {
-                        letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
                         letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
-                    } else {
-                        letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
-                        letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
                     }
-                    break;
-                case ThrowBallsGame.ThrowBallsDifficulty.Hard:
-                    if (roundNumber < 4) {
-                        if (Random.value <= 0.5f) {
-                            letterController.SetMotionVariation(LetterController.MotionVariation.Jumping);
-                            letterController.SetPropVariation(LetterController.PropVariation.StaticPileOfCrates);
-                        } else {
-                            letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
-                            letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
-                        }
-                    } else {
-                        if (Random.value <= 0.6f) {
-                            letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
-                            letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
-                        } else {
-                            letterController.SetMotionVariation(LetterController.MotionVariation.Popping);
-                            letterController.SetPropVariation(LetterController.PropVariation.Bush);
-                        }
-                    }
-                    break;
-                case ThrowBallsGame.ThrowBallsDifficulty.VeryHard:
-                    if (Random.value <= 0.4f) {
+                    else
+                    {
                         letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
                         letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
-                    } else {
+                    }
+                }
+                else
+                {
+                    if (Random.value <= 0.6f)
+                    {
+                        letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                        letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
+                    }
+                    else
+                    {
                         letterController.SetMotionVariation(LetterController.MotionVariation.Popping);
                         letterController.SetPropVariation(LetterController.PropVariation.Bush);
                     }
-                    break;
+                }
             }
+            else if (game.Difficulty <= MiniGameController.VERY_HARD)
+            {
+                if (Random.value <= 0.4f)
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
+                    letterController.SetPropVariation(LetterController.PropVariation.SwervingPileOfCrates);
+                }
+                else
+                {
+                    letterController.SetMotionVariation(LetterController.MotionVariation.Popping);
+                    letterController.SetPropVariation(LetterController.PropVariation.Bush);
+                }
+            }*/
         }
 
         public Vector3 GetPositionOfLetter(int index)
@@ -730,6 +838,7 @@ namespace Antura.Minigames.ThrowBalls
 
         public void ResetScene()
         {
+            hitCorrect = false;
             UIController.instance.Reset();
             UIController.instance.Disable();
 
@@ -754,9 +863,7 @@ namespace Antura.Minigames.ThrowBalls
             BallController.instance.Reset();
 
             numBalls = MAX_NUM_BALLS;
-
             if (roundNumber > 1 || !game.TutorialEnabled && roundNumber > 0) {
-
                 game.Context.GetOverlayWidget().SetLives(MAX_NUM_BALLS);
             }
 

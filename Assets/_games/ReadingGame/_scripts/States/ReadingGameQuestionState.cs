@@ -1,3 +1,5 @@
+using System;
+using System.Diagnostics;
 using Antura.Tutorial;
 
 namespace Antura.Minigames.ReadingGame
@@ -18,64 +20,135 @@ namespace Antura.Minigames.ReadingGame
             game.antura.AllowSitting = true;
             game.isTimesUp = false;
 
-            if (game.CurrentQuestionNumber >= ReadingGameGame.MAX_QUESTIONS) {
+            int maxQuestions = ReadingGameGame.MAX_QUESTIONS;
+
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
+                case ReadingGameConfiguration.GameType.SimonSong:
+                    maxQuestions = ReadingGameGame.MAX_QUESTIONS_SIMON_SONG;
+                    break;
+            }
+
+            if (game.CurrentQuestionNumber >= maxQuestions)
+            {
                 game.EndGame(game.CurrentStars, game.CurrentScore);
                 return;
             }
 
-            if (ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.ReadAndAnswer) {
-                game.Context.GetOverlayWidget().SetClockDuration(game.TimeToAnswer);
-                game.Context.GetOverlayWidget().SetClockTime(game.TimeToAnswer);
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
+                case ReadingGameConfiguration.GameType.FollowReading:
+                    game.Context.GetOverlayWidget().SetClockDuration(game.TimeToAnswer);
+                    game.Context.GetOverlayWidget().SetClockTime(game.TimeToAnswer);
+                    break;
+                case ReadingGameConfiguration.GameType.ReadAndListen:
+                    break;
+                case ReadingGameConfiguration.GameType.FollowSong:
+                    break;
+                case ReadingGameConfiguration.GameType.SimonSong:
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
+
             game.blurredText.SetActive(true);
-            //game.circleBox.SetActive(false);
 
-            if (ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.ReadAndAnswer) {
-                // Pick a question
-                var pack = ReadingGameConfiguration.Instance.Questions.GetNextQuestion();
-                game.CurrentQuestion = pack;
-                if (pack != null)
-                    game.barSet.SetData(pack.GetQuestion());
-                else
-                    game.EndGame(game.CurrentStars, game.CurrentScore);
-            } else {
-                game.barSet.SetShowTargets(ReadingGameConfiguration.Instance.Difficulty < 0.5f);
-                game.barSet.SetShowArrows(ReadingGameConfiguration.Instance.Difficulty < 0.8f);
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
+                case ReadingGameConfiguration.GameType.FollowReading:
+                {
+                    // Pick a question and show it
+                    var pack = ReadingGameConfiguration.Instance.Questions.GetNextQuestion();
+                    game.CurrentQuestion = pack;
 
-                game.barSet.SetData(game.songToPlay);
+                    if (pack != null)
+                    {
+                        // Show the bar
+                        game.barSet.SetData(pack.GetQuestion());
+                    }
+                    else
+                        game.EndGame(game.CurrentStars, game.CurrentScore);
+
+                    break;
+                }
+
+                case ReadingGameConfiguration.GameType.ReadAndListen:
+                { 
+                    // Pick a question pack
+                    var pack = ReadingGameConfiguration.Instance.Questions.GetNextQuestion();
+                    game.CurrentQuestion = pack;
+                    break;
+                }
+
+                case ReadingGameConfiguration.GameType.FollowSong:
+
+                    // Just follow the bars
+                    game.UpdateFollowDifficulty();
+                    game.barSet.SetData(game.songToPlay);
+                    break;
+
+                case ReadingGameConfiguration.GameType.SimonSong:
+                {
+                    // Pick a question pack
+                    var pack = ReadingGameConfiguration.Instance.Questions.GetNextQuestion();
+                    game.CurrentQuestion = pack;
+                    break;
+                }
+                default:
+                    throw new ArgumentOutOfRangeException();
             }
 
             game.barSet.active = false;
 
-            if (firstRun) {
-                if (ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.ReadAndAnswer) {
-                    game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.ReadingGame_Intro, () => { completed = true; });
-                    game.ReadState.TutorialMode = true;
-                } else {
-                    var introDialogue = ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.Alphabet ?
-                        Database.LocalizationDataId.Song_alphabet_Intro : Database.LocalizationDataId.AlphabetSong_letters_Intro;
+            if (firstRun)
+            {
+                switch (ReadingGameConfiguration.Instance.CurrentGameType)
+                {
+                    case ReadingGameConfiguration.GameType.FollowReading:
+                    case ReadingGameConfiguration.GameType.ReadAndListen:
+                        game.PlayIntro(() => { completed = true; });
+                        game.ReadState.TutorialMode = game.TutorialEnabled;
+                        break;
 
-                    game.Context.GetAudioManager().PlayDialogue(introDialogue, () => {
-                        var firstBar = game.barSet.GetNextBar();
-                        var handleOffset = firstBar.glass.handleOffset.position - firstBar.glass.transform.position;
+                    case ReadingGameConfiguration.GameType.SimonSong:
+                        game.PlayIntro(() => { completed = true; });
+                        game.ReadState.TutorialMode = game.TutorialEnabled;
+                        break;
 
-                        if (game.TutorialEnabled) {
-                            TutorialUI.DrawLine(firstBar.start.transform.position + handleOffset, firstBar.endCompleted.transform.position + handleOffset, TutorialUI.DrawLineMode.FingerAndArrow, false, true);
-                        }
-                        game.barSet.SwitchToNextBar();
+                    case ReadingGameConfiguration.GameType.FollowSong:
 
-                        if (game.TutorialEnabled) {
-                            game.Context.GetAudioManager()
-                                .PlayDialogue(Database.LocalizationDataId.Song_alphabet_Tuto, () => {
-                                    completed = true;
-                                });
-                        } else {
-                            completed = true;
-                        }
-                    });
+                        game.PlayIntro(() => {
+                            var firstBar = game.barSet.GetNextBar();
+                            var handleOffset = firstBar.glass.handleOffset.position - firstBar.glass.transform.position;
+
+                            if (game.TutorialEnabled)
+                            {
+                                TutorialUI.DrawLine(firstBar.start.transform.position + handleOffset, firstBar.endCompleted.transform.position + handleOffset, TutorialUI.DrawLineMode.FingerAndArrow, false, true);
+                            }
+                            game.barSet.SwitchToNextBar();
+
+                            if (game.TutorialEnabled)
+                            {
+                                UnityEngine.Debug.LogError("TUTORIAL ON");
+                                game.Context.GetAudioManager()
+                                    .PlayDialogue(ReadingGameConfiguration.Instance.TutorialLocalizationId, () => {
+                                        completed = true;
+                                    });
+                            }
+                            else
+                            {
+                                completed = true;
+                            }
+                        });
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
-            } else {
+
+            }
+            else
+            {
                 ++game.CurrentQuestionNumber;
                 completed = true;
                 game.ReadState.TutorialMode = false;

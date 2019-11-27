@@ -6,7 +6,9 @@ using Antura.UI;
 using System.Linq;
 using System.Collections.Generic;
 using System;
+using System.Collections;
 using Antura.Database;
+using Antura.Keeper;
 using Antura.Language;
 using UnityEngine;
 
@@ -19,7 +21,7 @@ namespace Antura.Minigames.MissingLetter
         public int m_iCurrentRound { get; private set; }
 
         #region API
-        public IQuestionPack CurrentQuestion {
+        public IQuestionPack CurrentQuestionPack {
             get { return m_oCurrQuestionPack; }
         }
 
@@ -45,7 +47,7 @@ namespace Antura.Minigames.MissingLetter
             m_oGame.m_oLetterPrefab.GetComponent<LetterBehaviour>().SetPositions(m_v3QstPos + Vector3.right * m_oGame.m_sQuestionOffset.fINOffset, m_v3QstPos, m_v3QstPos + Vector3.right * m_oGame.m_sQuestionOffset.fOUTOffset);
             m_oQuestionPool = new GameObjectPool(m_oGame.m_oLetterPrefab, qstPoolSize, false);
 
-            int ansPoolSize = m_oGame.m_iNumberOfPossibleAnswers * 3;
+            int ansPoolSize = 15;
             m_oGame.m_oLetterPrefab.GetComponent<LetterBehaviour>().SetPositions(m_v3AnsPos + Vector3.right * m_oGame.m_sAnswerOffset.fINOffset, m_v3AnsPos, m_v3AnsPos + Vector3.right * m_oGame.m_sAnswerOffset.fOUTOffset);
             m_oAnswerPool = new GameObjectPool(m_oGame.m_oLetterPrefab, ansPoolSize, false);
 
@@ -67,7 +69,7 @@ namespace Antura.Minigames.MissingLetter
             }
 
             // Force the game to end if you reach the max score
-            if (m_oGame.m_iCurrentScore >= m_oGame.STARS_3_THRESHOLD)
+            if (m_oGame.CurrentScore >= m_oGame.STARS_3_THRESHOLD)
             {
                 m_oGame.SetCurrentState(m_oGame.ResultState);
                 return;
@@ -154,16 +156,23 @@ namespace Antura.Minigames.MissingLetter
             ILivingLetterData questionData = m_oCurrQuestionPack.GetQuestion();
 
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
-            var _correctAnswer = m_oCurrQuestionPack.GetCorrectAnswers().ToList().GetRandom() as LL_LetterData;
+            var _correctAnswer = m_oCurrQuestionPack.GetCorrectAnswers().ToList().GetRandom();
 
-            Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => (x as LL_LetterData).Data).ToDebugStringNewline());
-            Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => (x as LL_LetterData).Data).ToDebugStringNewline());
+            Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
+            Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
 
             GameObject oQuestion = m_oQuestionPool.GetElement();
 
             LetterBehaviour qstBehaviour = oQuestion.GetComponent<LetterBehaviour>();
             qstBehaviour.Reset();
             qstBehaviour.LetterData = questionData;
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
+            {
+                qstBehaviour.mLetter.LabelRender.SetTextUnfiltered("???");
+                //qstBehaviour.LetterData = new LL_ImageData(questionData.Id);
+                //qstBehaviour.mLetter.LabelRender.gameObject.SetActive(false);   // Hidden image
+            }
+
             qstBehaviour.onEnterScene += qstBehaviour.Speak;
             qstBehaviour.onLetterBecameInvisible += OnQuestionLetterBecameInvisible;
             qstBehaviour.m_oDefaultIdleAnimation = LLAnimationStates.LL_idle;
@@ -172,15 +181,20 @@ namespace Antura.Minigames.MissingLetter
             m_oEmoticonsController.init(qstBehaviour.transform);
 
             //after insert in mCurrentQuestionScen
-            m_oRemovedLetter = RemoveLetterFromQuestion(_correctAnswer);
+            if (MissingLetterConfiguration.Instance.VariationIsMissingLetter)
+            {
+                m_oRemovedLetter = RemoveLetterFromQuestion(_correctAnswer as LL_LetterData);
+            }
 
             GameObject _correctAnswerObject = m_oAnswerPool.GetElement();
             LetterBehaviour corrAnsBheaviour = _correctAnswerObject.GetComponent<LetterBehaviour>();
             corrAnsBheaviour.Reset();
 
             corrAnsBheaviour.LetterData = _correctAnswer;
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
+                corrAnsBheaviour.LetterData = new LL_ImageData(_correctAnswer.Id);
 
-            corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
+             corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
             corrAnsBheaviour.onLetterClick += OnAnswerClicked;
 
             corrAnsBheaviour.m_oDefaultIdleAnimation = m_bTutorialEnabled ? LLAnimationStates.LL_still : LLAnimationStates.LL_idle;
@@ -201,6 +215,9 @@ namespace Antura.Minigames.MissingLetter
                     */
 
                 wrongAnsBheaviour.LetterData = answer;
+                if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
+                    wrongAnsBheaviour.LetterData = new LL_ImageData(answer.Id);
+
                 wrongAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
 
                 if (!m_bTutorialEnabled) {
@@ -211,26 +228,34 @@ namespace Antura.Minigames.MissingLetter
                 m_aoCurrentAnswerScene.Add(_wrongAnswerObject);
             }
 
-            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterInWord ||
-                MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm)
-                m_aoCurrentAnswerScene.Sort((a, b) => {
-                    var first = (LL_LetterData)a.GetComponent<LetterBehaviour>().LetterData;
-                    var second = (LL_LetterData)b.GetComponent<LetterBehaviour>().LetterData;
+            switch (MissingLetterConfiguration.Instance.Variation)
+            {
+                case MissingLetterVariation.LetterForm:
+                case MissingLetterVariation.LetterInWord:
+                    m_aoCurrentAnswerScene.Sort((a, b) =>
+                    {
+                        var first = (LL_LetterData) a.GetComponent<LetterBehaviour>().LetterData;
+                        var second = (LL_LetterData) b.GetComponent<LetterBehaviour>().LetterData;
 
-                    return Comparer<int>.Default.Compare(
-                        (int)second.Form,
-                        (int)first.Form);
-                });
-            else 
-                m_aoCurrentAnswerScene.Shuffle();
-
+                        return Comparer<int>.Default.Compare(
+                            (int) second.Form,
+                            (int) first.Form);
+                    });
+                    break;
+                case MissingLetterVariation.Phrase:
+                case MissingLetterVariation.Image:
+                    m_aoCurrentAnswerScene.Shuffle();
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
             m_oCurrentCorrectAnswer = _correctAnswer;
         }
 
         private List<LL_WordData> GetWordsFromPhrase(LL_PhraseData _phrase)
         {
             List<LL_WordData> phrase = new List<LL_WordData>();
-            var dbWords = AppManager.I.VocabularyHelper.GetWordsInPhrase(_phrase.Id);
+            var dbWords = AppManager.I.VocabularyHelper.GetWordsFromPhraseText(_phrase.Data);
             foreach (var dbWord in dbWords) {
                 phrase.Add((LL_WordData)dbWord.ConvertToLivingLetterData());
             }
@@ -242,7 +267,7 @@ namespace Antura.Minigames.MissingLetter
             m_oCurrQuestionPack = MissingLetterConfiguration.Instance.Questions.GetNextQuestion();
 
             List<LL_WordData> questionData = GetWordsFromPhrase((LL_PhraseData)m_oCurrQuestionPack.GetQuestion());
-            questionData.Reverse();
+            if (LanguageSwitcher.I.IsLearningLanguageRTL()) questionData.Reverse();
 
             var _correctAnswer = (LL_WordData)m_oCurrQuestionPack.GetCorrectAnswers().ToList()[0];
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
@@ -269,6 +294,7 @@ namespace Antura.Minigames.MissingLetter
 
             corrAnsBheaviour.Reset();
             corrAnsBheaviour.LetterData = _correctAnswer;
+            corrAnsBheaviour.mLetter.TransformIntoImage();
             corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
             corrAnsBheaviour.onLetterClick += OnAnswerClicked;
 
@@ -286,6 +312,7 @@ namespace Antura.Minigames.MissingLetter
 
                 wrongAnsBheaviour.LetterData = answer;
                 wrongAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
+                wrongAnsBheaviour.mLetter.TransformIntoImage();
 
                 if (!m_bTutorialEnabled) {
                     wrongAnsBheaviour.onLetterClick += OnAnswerClicked;
@@ -348,13 +375,19 @@ namespace Antura.Minigames.MissingLetter
             Color32 markColor = result ? new Color32(0x4C, 0xAF, 0x50, 0xFF) : new Color32(0xDD, 0x2C, 0x00, 0xFF);
             string color = result ? "#4CAF50" : "#DD2C00";
 
-            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase) {
-                letterView.LabelRender.text = "<color=" + color + ">" + letterView.LabelRender.text + "</color>";
-            } else {
-                LL_WordData word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
-                letterView.LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
+            switch (MissingLetterConfiguration.Instance.Variation)
+            {
+                case MissingLetterVariation.Phrase:
+                    letterView.LabelRender.text = "<color=" + color + ">" + letterView.LabelRender.text + "</color>";
+                    break;
+                case MissingLetterVariation.LetterForm:
+                case MissingLetterVariation.LetterInWord:
+                    var word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
+                    letterView.LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
+                    break;
+                case MissingLetterVariation.Image:
+                    break;
             }
-
         }
 
         void EnterCurrentScene()
@@ -405,11 +438,7 @@ namespace Antura.Minigames.MissingLetter
 
         private bool isCorrectAnswer(ILivingLetterData data)
         {
-            // TODO: place this into the configuration, like in FastCrowd!
-            return DataMatchingHelper.IsDataMatching(
-                (data as LL_LetterData),
-                (m_oCurrentCorrectAnswer as LL_LetterData), LetterEqualityStrictness.WithVisualForm);
-            //return m_oCurrentCorrectAnswer.Equals(data);
+            return DataMatchingHelper.IsDataMatching(data, m_oCurrentCorrectAnswer, LetterEqualityStrictness.WithVisualForm);
         }
 
         //call after clicked answer animation
@@ -425,8 +454,20 @@ namespace Antura.Minigames.MissingLetter
 
             if (onAnswered != null) {
                 m_oGame.OnResult(correct);
-                m_oGame.StartCoroutine(Utils.LaunchDelay(2.0f, onAnswered, correct));
+                m_oGame.StartCoroutine(AnswerReactionCO(correct));
             }
+        }
+
+        private IEnumerator AnswerReactionCO(bool correct)
+        {
+            yield return new WaitForSeconds(2.0f);
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase)
+            {
+                var question = m_oGame.m_oRoundManager.CurrentQuestionPack.GetQuestion();
+                MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, keeperMode: KeeperMode.NativeNoSubtitles);
+                yield return new WaitForSeconds(2.0f);
+            }
+            onAnswered?.Invoke(correct);
         }
 
         private void PlayParticleSystem(Vector3 _pos)
@@ -450,8 +491,15 @@ namespace Antura.Minigames.MissingLetter
                     m_oGame.StartCoroutine(Utils.LaunchDelay(UnityEngine.Random.Range(0, 0.5f), PoofLetter, m_aoCurrentAnswerScene[i]));
                 }
             }
-
             m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().LightOn();
+
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
+            {
+                m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().LetterData = new LL_ImageData(
+                    m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().LetterData.Id
+                    );
+                m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().mLetter.LabelRender.gameObject.SetActive(true);
+            }
 
             for (int i = 0; i < m_aoCurrentQuestionScene.Count; ++i) {
                 m_aoCurrentQuestionScene[i].GetComponent<LetterBehaviour>().mLetter.DoHighFive();
@@ -484,6 +532,14 @@ namespace Antura.Minigames.MissingLetter
                 } else {
                     m_aoCurrentAnswerScene[i].GetComponent<LetterBehaviour>().mLetter.Crouching = true;
                 }
+            }
+
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
+            {
+                m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().LetterData = new LL_ImageData(
+                    m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().LetterData.Id
+                );
+                m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().mLetter.LabelRender.gameObject.SetActive(true);
             }
         }
         #endregion

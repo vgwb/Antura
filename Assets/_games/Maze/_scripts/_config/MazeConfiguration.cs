@@ -38,7 +38,6 @@ namespace Antura.Minigames.Maze
             Variation = MazeVariation.LetterName;
 
             Context = new MinigamesGameContext(MiniGameCode.Maze_lettername, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
             TutorialEnabled = false;
         }
 
@@ -46,7 +45,7 @@ namespace Antura.Minigames.Maze
         {
             IQuestionBuilder builder = null;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case MazeVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -80,5 +79,7 @@ namespace Antura.Minigames.Maze
             }
             return soundType;
         }
+
+
     }
 }

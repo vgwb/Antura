@@ -22,22 +22,6 @@ namespace Antura.Minigames.ColorTickle
 
         public void EnterState()
         {
-            LocalizationDataId title = default(LocalizationDataId);
-            switch (ColorTickleConfiguration.Instance.Variation)
-            {
-                case ColorTickleVariation.LetterName:
-                    title = LocalizationDataId.ColorTickle_lettername_Title;
-                    break;
-                case ColorTickleVariation.Image:
-                    title = LocalizationDataId.ColorTickle_image_Title;
-                    break;
-                default:
-                    Debug.LogError("Invalid Color Tickle Game Variation!");
-                    break;
-            }
-
-            game.Context.GetAudioManager().PlayDialogue(title);
-
             game.colorsCanvas.gameObject.SetActive(false);
 
             game.Context.GetAudioManager().PlayMusic(game.backgroundMusic);

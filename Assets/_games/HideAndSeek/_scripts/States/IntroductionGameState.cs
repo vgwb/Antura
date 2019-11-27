@@ -15,7 +15,7 @@ namespace Antura.Minigames.HideAndSeek
 
         public void EnterState()
         {
-            game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.TitleLocalizationId, OnTitleEnded);
+            OnTitleEnded();
         }
 
         void OnTitleEnded()
@@ -33,7 +33,8 @@ namespace Antura.Minigames.HideAndSeek
 
                 if (startIntroDelay <= 0)
                 {
-                    game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.IntroLocalizationId, () => dialogueEnded = true);
+                    dialogueEnded = true;
+                    // game.PlayIntro(() => dialogueEnded = true);
                 }
             }
 

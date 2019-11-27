@@ -3,7 +3,6 @@ using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
-using UnityEngine.SocialPlatforms;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -15,7 +14,12 @@ namespace Antura.Minigames.FastCrowd
         LetterForm = MiniGameCode.FastCrowd_letterform,
         Counting = MiniGameCode.FastCrowd_counting,
         Alphabet = MiniGameCode.FastCrowd_alphabet,
-        Image = MiniGameCode.FastCrowd_image
+        Image = MiniGameCode.FastCrowd_image,
+        CategoryForm = MiniGameCode.FastCrowd_categoryform,
+        OrderedImage_Numbers = MiniGameCode.FastCrowd_orderedimage_numbers,
+        OrderedImage_Colors = MiniGameCode.FastCrowd_orderedimage_colors,
+        OrderedImage_Months = MiniGameCode.FastCrowd_orderedimage_months,
+        OrderedImage_Days_Seasons = MiniGameCode.FastCrowd_orderedimage_days_seasons,
     }
 
     public class FastCrowdConfiguration : AbstractGameConfiguration
@@ -56,7 +60,6 @@ namespace Antura.Minigames.FastCrowd
             TutorialEnabled = true;
 
             Context = new MinigamesGameContext(MiniGameCode.FastCrowd_buildword, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
         }
 
         public override IQuestionBuilder SetupBuilder()
@@ -67,14 +70,27 @@ namespace Antura.Minigames.FastCrowd
             int nCorrect = 4;
             int nWrong = 4;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
 
             switch (Variation) {
                 case FastCrowdVariation.Alphabet:
                     builder = new AlphabetQuestionBuilder();
                     break;
                 case FastCrowdVariation.Counting:
-                    builder = new OrderedWordsQuestionBuilder(WordDataCategory.Number, builderParams, false);
+                    builderParams.wordFilters.allowedCategories = new[] { WordDataCategory.Numbers };
+                    builder = new OrderedWordsQuestionBuilder(builderParams);
+                    break;
+                case FastCrowdVariation.OrderedImage_Numbers:
+                    builder = CreateOrderedImageBuilder(builderParams, WordDataCategory.Numbers);
+                    break;
+                case FastCrowdVariation.OrderedImage_Colors:
+                    builder = CreateOrderedImageBuilder(builderParams, WordDataCategory.Colors);
+                    break;
+                case FastCrowdVariation.OrderedImage_Months:
+                    builder = CreateOrderedImageBuilder(builderParams, WordDataCategory.Months);
+                    break;
+                case FastCrowdVariation.OrderedImage_Days_Seasons:
+                    builder = CreateOrderedImageBuilder(builderParams, WordDataCategory.Days, WordDataCategory.Seasons);
                     break;
                 case FastCrowdVariation.LetterName:
                     // Only base letters
@@ -84,18 +100,22 @@ namespace Antura.Minigames.FastCrowd
                     break;
                 case FastCrowdVariation.LetterForm:
                     // @note: we pass 4 as nCorrect, so we get all the four forms of a single letter, which will be shown one after the other
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter);
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter, parameters: builderParams);
+                    break;
+                case FastCrowdVariation.CategoryForm:
+                    // @note: we pass 4 as nCorrect, so we get all the four forms from a single category
+                    builderParams.wordFilters.allowedCategories = new[] { WordDataCategory.Seasons };
+                    builderParams.wordFilters.requireDrawings = true;
+                    builder = new RandomWordsQuestionBuilder(nPacks, 4, nWrong, true, builderParams);
                     break;
                 case FastCrowdVariation.BuildWord:
-                    builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builder = new LettersInWordQuestionBuilder(nPacks, nWrong: nWrong, useAllCorrectLetters: true,
+                    builder = new LettersInWordQuestionBuilder(7, nWrong: nWrong, useAllCorrectLetters: true,
                         parameters: builderParams);
                     break;
                 case FastCrowdVariation.Word:
                 case FastCrowdVariation.Image:
-                    builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
                     break;
@@ -106,6 +126,12 @@ namespace Antura.Minigames.FastCrowd
             return builder;
         }
 
+        private IQuestionBuilder CreateOrderedImageBuilder(QuestionBuilderParameters builderParams, params WordDataCategory[] categories)
+        {
+            builderParams.wordFilters.allowedCategories = categories;
+            builderParams.wordFilters.requireDrawings = true;
+            return new OrderedWordsQuestionBuilder(parameters: builderParams);
+        }
         public override MiniGameLearnRules SetupLearnRules()
         {
             var rules = new MiniGameLearnRules();
@@ -126,6 +152,11 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
                 case FastCrowdVariation.Image:
+                case FastCrowdVariation.CategoryForm:
+                case FastCrowdVariation.OrderedImage_Numbers:
+                case FastCrowdVariation.OrderedImage_Colors:
+                case FastCrowdVariation.OrderedImage_Months:
+                case FastCrowdVariation.OrderedImage_Days_Seasons:
                     strictness = LetterEqualityStrictness.LetterOnly;
                     break;
                 default:
@@ -137,8 +168,7 @@ namespace Antura.Minigames.FastCrowd
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation)
-            {
+            switch (Variation) {
                 case FastCrowdVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;
@@ -148,60 +178,17 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
                 case FastCrowdVariation.Image:
+                case FastCrowdVariation.CategoryForm:
+                case FastCrowdVariation.OrderedImage_Numbers:
+                case FastCrowdVariation.OrderedImage_Colors:
+                case FastCrowdVariation.OrderedImage_Months:
+                case FastCrowdVariation.OrderedImage_Days_Seasons:
                     soundType = LetterDataSoundType.Phoneme;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
             return soundType;
-        }
-
-        public override LocalizationDataId TitleLocalizationId
-        {
-            get {
-                switch (Variation) {
-                    case FastCrowdVariation.BuildWord:
-                        return LocalizationDataId.FastCrowd_buildword_Title;
-                    case FastCrowdVariation.Word:
-                        return LocalizationDataId.FastCrowd_word_Title;
-                    case FastCrowdVariation.LetterName:
-                        return LocalizationDataId.FastCrowd_letterform_Title;
-                    case FastCrowdVariation.LetterForm:
-                        return LocalizationDataId.FastCrowd_letterform_Title;   // TODO: add the correct one here
-                    case FastCrowdVariation.Counting:
-                        return LocalizationDataId.FastCrowd_counting_Title;
-                    case FastCrowdVariation.Alphabet:
-                        return LocalizationDataId.FastCrowd_lettername_Title;
-                    case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_image_Title;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public LocalizationDataId IntroLocalizationId
-        {
-            get {
-                switch (Variation) {
-                    case FastCrowdVariation.BuildWord:
-                        return LocalizationDataId.FastCrowd_buildword_Intro;
-                    case FastCrowdVariation.Word:
-                        return LocalizationDataId.FastCrowd_word_Intro;
-                    case FastCrowdVariation.LetterName:
-                        return LocalizationDataId.FastCrowd_letterform_Intro;
-                    case FastCrowdVariation.LetterForm:
-                        return LocalizationDataId.FastCrowd_letterform_Intro;   // TODO: add the correct one here
-                    case FastCrowdVariation.Counting:
-                        return LocalizationDataId.FastCrowd_counting_Intro;
-                    case FastCrowdVariation.Alphabet:
-                        return LocalizationDataId.FastCrowd_lettername_Intro;
-                    case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_image_Intro;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
         }
 
         public bool NeedsWordComposer
@@ -216,6 +203,11 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Alphabet:
                     case FastCrowdVariation.LetterName:
                     case FastCrowdVariation.Image:
+                    case FastCrowdVariation.CategoryForm:
+                    case FastCrowdVariation.OrderedImage_Numbers:
+                    case FastCrowdVariation.OrderedImage_Colors:
+                    case FastCrowdVariation.OrderedImage_Months:
+                    case FastCrowdVariation.OrderedImage_Days_Seasons:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -235,6 +227,11 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Counting:
                     case FastCrowdVariation.Alphabet:
                     case FastCrowdVariation.Image:
+                    case FastCrowdVariation.CategoryForm:
+                    case FastCrowdVariation.OrderedImage_Numbers:
+                    case FastCrowdVariation.OrderedImage_Colors:
+                    case FastCrowdVariation.OrderedImage_Months:
+                    case FastCrowdVariation.OrderedImage_Days_Seasons:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -254,6 +251,11 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.Counting:
                     case FastCrowdVariation.Alphabet:
                     case FastCrowdVariation.Image:
+                    case FastCrowdVariation.CategoryForm:
+                    case FastCrowdVariation.OrderedImage_Numbers:
+                    case FastCrowdVariation.OrderedImage_Colors:
+                    case FastCrowdVariation.OrderedImage_Months:
+                    case FastCrowdVariation.OrderedImage_Days_Seasons:
                         return false;
                     default:
                         throw new ArgumentOutOfRangeException();
@@ -261,28 +263,10 @@ namespace Antura.Minigames.FastCrowd
             }
         }
 
-        public LocalizationDataId TutorialLocalizationId
-        {
-            get {
-                switch (Variation) {
-                    case FastCrowdVariation.BuildWord:
-                        return LocalizationDataId.FastCrowd_buildword_Tuto;
-                    case FastCrowdVariation.Word:
-                        return LocalizationDataId.FastCrowd_word_Tuto;
-                    case FastCrowdVariation.LetterName:
-                        return LocalizationDataId.FastCrowd_letterform_Tuto;
-                    case FastCrowdVariation.LetterForm:
-                        return LocalizationDataId.FastCrowd_letterform_Tuto;   // TODO: add the correct one here
-                    case FastCrowdVariation.Counting:
-                        return LocalizationDataId.FastCrowd_counting_Tuto;
-                    case FastCrowdVariation.Alphabet:
-                        return LocalizationDataId.FastCrowd_lettername_Tuto;
-                    case FastCrowdVariation.Image:
-                        return LocalizationDataId.FastCrowd_image_Tuto;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+        public bool IsOrderingVariation =>
+            Variation == FastCrowdVariation.OrderedImage_Numbers
+            || Variation == FastCrowdVariation.OrderedImage_Colors
+            || Variation == FastCrowdVariation.OrderedImage_Months
+            || Variation == FastCrowdVariation.OrderedImage_Days_Seasons;
     }
 }

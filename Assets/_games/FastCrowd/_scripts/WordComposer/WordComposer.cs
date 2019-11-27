@@ -66,8 +66,7 @@ namespace Antura.Minigames.FastCrowd
                 }
             }
 
-            //WordLabel.SetText(word, !splitMode);
-            WordLabel.SetText(word, LanguageUse.Learning);
+            WordLabel.SetTextUnfiltered(word);
         }
 
         public void AddLetter(ILivingLetterData data)

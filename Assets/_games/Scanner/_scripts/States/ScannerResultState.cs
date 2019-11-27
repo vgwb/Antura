@@ -1,4 +1,5 @@
-﻿using Antura.Audio;
+using Antura.Audio;
+using Antura.Keeper;
 
 namespace Antura.Minigames.Scanner
 {
@@ -31,9 +32,9 @@ namespace Antura.Minigames.Scanner
 				game.EndGame(game.CurrentStars, game.CurrentScoreRecord);
 
                 if (game.CurrentStars == 0)
-                    AudioManager.I.PlayDialogue("Reward_0Star");
+                    KeeperManager.I.PlayDialogue("Reward_0Star");
                 else
-                    AudioManager.I.PlayDialogue("Reward_" + game.CurrentStars + "Star_" + UnityEngine.Random.Range(1, 4));
+                    KeeperManager.I.PlayDialogue("Reward_" + game.CurrentStars + "Star_" + UnityEngine.Random.Range(1, 4));
             }
 		}
 

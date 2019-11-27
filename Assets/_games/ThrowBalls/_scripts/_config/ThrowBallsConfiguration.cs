@@ -40,7 +40,6 @@ namespace Antura.Minigames.ThrowBalls
             Questions = new ThrowBallsQuestionProvider();
             Variation = ThrowBallsVariation.LetterName;
             Context = new MinigamesGameContext(MiniGameCode.ThrowBalls_lettername, DateTime.Now.Ticks.ToString());
-            Difficulty = 0.7f;
             TutorialEnabled = true;
         }
 
@@ -51,7 +50,7 @@ namespace Antura.Minigames.ThrowBalls
             int nPacks = 10;
             int nWrong = 4;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case ThrowBallsVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -69,7 +68,7 @@ namespace Antura.Minigames.ThrowBalls
                 case ThrowBallsVariation.BuildWord:
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builder = new LettersInWordQuestionBuilder(nPacks, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
+                    builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -85,25 +84,7 @@ namespace Antura.Minigames.ThrowBalls
             return rules;
         }
 
-        public override LocalizationDataId TitleLocalizationId
-        {
-            get {
-                switch (Instance.Variation) {
-                    case ThrowBallsVariation.LetterName:
-                        return LocalizationDataId.ThrowBalls_lettername_Title;
-                    case ThrowBallsVariation.LetterAny:
-                        return LocalizationDataId.ThrowBalls_lettername_Title; // TODO: get the correct title here
-                    case ThrowBallsVariation.Word:
-                        return LocalizationDataId.ThrowBalls_word_Title;
-                    case ThrowBallsVariation.Image:
-                        return LocalizationDataId.ThrowBalls_image_Title;
-                    case ThrowBallsVariation.BuildWord:
-                        return LocalizationDataId.ThrowBalls_buildword_Title;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+        public override bool AutoPlayIntro => false;
 
         public override LetterDataSoundType GetVocabularySoundType()
         {

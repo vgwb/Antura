@@ -4,11 +4,11 @@ namespace Antura.Minigames.HideAndSeek
     {
         HideAndSeekGame game;
 
-        public CountdownTimer gameTime = new CountdownTimer(60.0f);
+        public CountdownTimer gameTime = new CountdownTimer(90.0f);
 
-        const int STARS_1_THRESHOLD = 2;
-        const int STARS_2_THRESHOLD = 5;
-        const int STARS_3_THRESHOLD = 9;
+        int STARS_1_THRESHOLD => HideAndSeekGame.STARS_1_THRESHOLD;
+        int STARS_2_THRESHOLD => HideAndSeekGame.STARS_2_THRESHOLD;
+        int STARS_3_THRESHOLD => HideAndSeekGame.STARS_3_THRESHOLD;
 
         public PlayGameState(HideAndSeekGame game)
         {

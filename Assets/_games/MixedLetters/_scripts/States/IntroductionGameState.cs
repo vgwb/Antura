@@ -1,4 +1,4 @@
-﻿using Antura.UI;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Minigames.MixedLetters
@@ -17,30 +17,36 @@ namespace Antura.Minigames.MixedLetters
 
         private bool isAnturaEnterTimerActivated = false;
 
-        private float timePerRound = 30f;
+        private float timePerRound {
+            get
+            {
+                float difficulty = game.Difficulty;
+
+                float t;
+                if (difficulty <= 0.25f)
+                {
+                    t = 60f;
+                }
+                else if (difficulty <= 0.5f)
+                {
+                    t = 50f;
+                }
+                else if (difficulty <= 0.75f)
+                {
+                    t = 40f;
+                }
+                else
+                {
+                    t = 30f;
+                }
+
+                return t;
+            }
+         }
 
         public IntroductionGameState(MixedLettersGame game)
         {
             this.game = game;
-
-            float difficulty = MixedLettersConfiguration.Instance.Difficulty;
-
-            if (difficulty <= 0.25f)
-            {
-                timePerRound = 60f;
-            }
-            else if (difficulty <= 0.5f)
-            {
-                timePerRound = 45f;
-            }
-            else if (difficulty <= 0.75f)
-            {
-                timePerRound = 30f;
-            }
-            else
-            {
-                timePerRound = 15f;
-            }
         }
 
         private void OnQuestionOver()
@@ -81,10 +87,9 @@ namespace Antura.Minigames.MixedLetters
 
                 game.Context.GetOverlayWidget().Initialize(true, true, false);
                 game.Context.GetOverlayWidget().SetStarsThresholds(game.STARS_1_THRESHOLD, game.STARS_2_THRESHOLD, game.STARS_3_THRESHOLD);
-
-                MinigamesUI.Timer.Setup(timePerRound);
             }
 
+            MinigamesUI.Timer.Setup(timePerRound);
             MinigamesUI.Timer.Rewind();
         }
 

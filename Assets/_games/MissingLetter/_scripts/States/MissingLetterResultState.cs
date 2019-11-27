@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.MissingLetter
+namespace Antura.Minigames.MissingLetter
 {
     public class MissingLetterResultState : FSM.IState
     {
@@ -27,7 +27,7 @@
                 m_fTimer -= delta;
             }
             if (m_fTimer < 0) {
-                m_oGame.EndGame(m_oGame.m_iCurrentStars, m_oGame.m_iCurrentScore);
+                m_oGame.EndGame(m_oGame.m_iCurrentStars, m_oGame.CurrentScore);
             }
 
         }

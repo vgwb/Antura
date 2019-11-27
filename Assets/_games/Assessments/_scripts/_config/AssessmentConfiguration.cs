@@ -10,6 +10,8 @@ namespace Antura.Assessment
 {
     public class AssessmentConfiguration : IAssessmentConfiguration
     {
+        public MiniGameData GameData { get; set; }
+
         /// <summary>
         /// Externally provided Context: Inject all subsystems needed by this minigame
         /// </summary>
@@ -51,9 +53,14 @@ namespace Antura.Assessment
         /// The difficulty should be different for each assessmentType.
         /// </summary>
         public float Difficulty { get; set; }
-
         public bool TutorialEnabled { get; set; }
+        public bool InsideJourney { get; set; }
+        public bool IgnoreJourney { get; set; }
 
+        public LocalizationDataId TitleLocalizationId => LocalizationDataId.None;
+        public LocalizationDataId IntroLocalizationId => LocalizationDataId.None;
+        public LocalizationDataId TutorialLocalizationId => LocalizationDataId.None;
+        public bool AutoPlayIntro => false;
 
         /// <summary>
         /// How many questions showed simultaneously on the screen.
@@ -88,6 +95,16 @@ namespace Antura.Assessment
                 return instance;
             }
         }
+
+        protected QuestionBuilderParameters InitQuestionBuilderParamaters()
+        {
+            var builderParams = new QuestionBuilderParameters { insideJourney = InsideJourney };
+            builderParams.useJourneyForCorrect = !IgnoreJourney;
+            builderParams.useJourneyForWrong = !IgnoreJourney;
+
+            return builderParams;
+        }
+
         /////////////////
 
         /// <summary>
@@ -122,6 +139,9 @@ namespace Antura.Assessment
                 case AssessmentVariation.SelectPronouncedWord:
                     return Setup_SelectPronuncedWord_Builder();
 
+                case AssessmentVariation.SelectPronouncedWordByImage:
+                    return Setup_SelectPronuncedWordByImage_Builder();
+
                 case AssessmentVariation.SingularDualPlural:
                     return Setup_SingularDualPlural_Builder();
 
@@ -153,7 +173,7 @@ namespace Antura.Assessment
         private IQuestionBuilder Setup_CompleteWord_Form_Builder()
         {
             SimultaneosQuestions = 2;
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.sortPacksByDifficulty = false;
 
@@ -167,7 +187,7 @@ namespace Antura.Assessment
         private IQuestionBuilder Setup_MatchLettersToWord_Form_Builder()
         {
             SimultaneosQuestions = 2;
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.sortPacksByDifficulty = false;
 
@@ -182,20 +202,20 @@ namespace Antura.Assessment
         {
             SimultaneosQuestions = 1;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.wordFilters.requireDrawings = true;
             builderParams.sortPacksByDifficulty = false;
 
             // Maximum number of letters depends on the screen.
             float screenRatio = Screen.width / Screen.height;
-            int maxLetters = 7;
+            int maxLetters = 8;
 
             if (screenRatio > 1.4999f) {
-                maxLetters = 8;
+                maxLetters = 9;
             }
 
             if (screenRatio > 1.7777f) {
-                maxLetters = 9;
+                maxLetters = 10;
             }
 
             return new LettersInWordQuestionBuilder(
@@ -211,7 +231,7 @@ namespace Antura.Assessment
         {
             SimultaneosQuestions = 1;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -229,7 +249,7 @@ namespace Antura.Assessment
 
         private IQuestionBuilder Setup_MatchWordToImage_Builder()
         {
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -253,7 +273,7 @@ namespace Antura.Assessment
             SimultaneosQuestions = 2;
 
             Answers = 2;
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wordFilters.excludeArticles = false;
             builderParams.sortPacksByDifficulty = false;
@@ -268,7 +288,7 @@ namespace Antura.Assessment
             SimultaneosQuestions = 3;
             Answers = 2;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wordFilters.excludePluralDual = false;
             builderParams.sortPacksByDifficulty = false;
@@ -280,7 +300,7 @@ namespace Antura.Assessment
 
         private IQuestionBuilder Setup_SelectPronuncedWord_Builder()
         {
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -297,9 +317,29 @@ namespace Antura.Assessment
                 parameters: builderParams);
         }
 
+        private IQuestionBuilder Setup_SelectPronuncedWordByImage_Builder()
+        {
+            var builderParams = InitQuestionBuilderParamaters();
+            builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
+            builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
+            builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
+            builderParams.sortPacksByDifficulty = false;
+            builderParams.wordFilters.requireDrawings = true;
+
+            SimultaneosQuestions = 1;
+            int nCorrect = 1;
+            int nWrong = 3;
+            return new RandomWordsQuestionBuilder(
+                SimultaneosQuestions * NumberOfRounds,
+                nCorrect,
+                nWrong,
+                firstCorrectIsQuestion: true,
+                parameters: builderParams);
+        }
+
         private IQuestionBuilder Setup_QuestionAnReply_Builder()
         {
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.sortPacksByDifficulty = false;
 
             SimultaneosQuestions = 1;
@@ -316,7 +356,7 @@ namespace Antura.Assessment
             SimultaneosQuestions = 2;
             Answers = 2;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.sortPacksByDifficulty = false;
 
@@ -347,7 +387,7 @@ namespace Antura.Assessment
             }
             int nWrong = 6 - SimultaneosQuestions;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -366,7 +406,7 @@ namespace Antura.Assessment
 
         private IQuestionBuilder Setup_SunMoonWords_Builder()
         {
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.sortPacksByDifficulty = false;
 
             SimultaneosQuestions = 2;
@@ -396,7 +436,7 @@ namespace Antura.Assessment
             }
             int nWrong = 6 - SimultaneosQuestions;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -415,7 +455,7 @@ namespace Antura.Assessment
         {
             SimultaneosQuestions = 1;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -434,7 +474,7 @@ namespace Antura.Assessment
         {
             SimultaneosQuestions = 1;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongChoicesHistory = PackListHistory.RepeatWhenFull;
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
@@ -473,6 +513,9 @@ namespace Antura.Assessment
 
                 case AssessmentVariation.SelectPronouncedWord:
                     return Setup_SelectPronuncedWord_LearnRules();
+
+                case AssessmentVariation.SelectPronouncedWordByImage:
+                    return Setup_SelectPronuncedWordByImage_LearnRules();
 
                 case AssessmentVariation.SingularDualPlural:
                     return Setup_SingularDualPlural_LearnRules();
@@ -524,6 +567,11 @@ namespace Antura.Assessment
             return new MiniGameLearnRules();
         }
 
+        private MiniGameLearnRules Setup_SelectPronuncedWordByImage_LearnRules()
+        {
+            return new MiniGameLearnRules();
+        }
+
         private MiniGameLearnRules Setup_QuestionAnReply_LearnRules()
         {
             return new MiniGameLearnRules();
@@ -571,8 +619,7 @@ namespace Antura.Assessment
         public bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
         {
             LetterEqualityStrictness strictness;
-            switch (Variation)
-            {
+            switch (Variation) {
                 case AssessmentVariation.LetterName:
                     strictness = LetterEqualityStrictness.LetterOnly;
                     break;

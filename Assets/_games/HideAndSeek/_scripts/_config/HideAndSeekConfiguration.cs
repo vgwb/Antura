@@ -8,6 +8,7 @@ namespace Antura.Minigames.HideAndSeek
     public enum HideAndSeekVariation
     {
         LetterPhoneme = MiniGameCode.HideSeek_letterphoneme,
+        LetterName = MiniGameCode.HideSeek_lettername,
         Image = MiniGameCode.HideSeek_image
     }
 
@@ -24,8 +25,7 @@ namespace Antura.Minigames.HideAndSeek
         static HideAndSeekConfiguration instance;
         public static HideAndSeekConfiguration Instance
         {
-            get
-            {
+            get {
                 if (instance == null)
                     instance = new HideAndSeekConfiguration();
                 return instance;
@@ -37,7 +37,6 @@ namespace Antura.Minigames.HideAndSeek
             // Default values
             Context = new MinigamesGameContext(MiniGameCode.HideSeek_letterphoneme, System.DateTime.Now.Ticks.ToString());
             Questions = new SampleQuestionProvider();
-            Difficulty = 0.5f;
             TutorialEnabled = true;
         }
 
@@ -49,19 +48,21 @@ namespace Antura.Minigames.HideAndSeek
             int nCorrect = 1;
             int nWrong = 6;
 
-            var builderParams = new QuestionBuilderParameters();
-            switch (Variation)
-            {
+            var builderParams = InitQuestionBuilderParamaters();
+            switch (Variation) {
                 case HideAndSeekVariation.LetterPhoneme:
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams,
                             avoidWrongLettersWithSameSound: true);
                     break;
+                case HideAndSeekVariation.LetterName:
+                    builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, parameters: builderParams);
+                    break;
                 case HideAndSeekVariation.Image:
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, parameters: builderParams);
                     break;
-                default:
+                default: 
                     throw new ArgumentOutOfRangeException();
             }
 
@@ -73,54 +74,6 @@ namespace Antura.Minigames.HideAndSeek
             var rules = new MiniGameLearnRules();
             // example: a.minigameVoteSkewOffset = 1f;
             return rules;
-        }
-
-        public override LocalizationDataId TitleLocalizationId
-        {
-            get
-            {
-                switch (Variation)
-                {
-                    case HideAndSeekVariation.LetterPhoneme:
-                        return LocalizationDataId.HideSeek_letterphoneme_Title;
-                    case HideAndSeekVariation.Image:
-                        return LocalizationDataId.HideSeek_image_Title;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public LocalizationDataId TutorialLocalizationId
-        {
-            get
-            {
-                switch (Variation)
-                {
-                    case HideAndSeekVariation.LetterPhoneme:
-                        return LocalizationDataId.HideSeek_letterphoneme_Tuto;
-                    case HideAndSeekVariation.Image:
-                        return LocalizationDataId.HideSeek_image_Tuto;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public LocalizationDataId IntroLocalizationId
-        {
-            get
-            {
-                switch (Variation)
-                {
-                    case HideAndSeekVariation.LetterPhoneme:
-                        return LocalizationDataId.HideSeek_letterphoneme_Intro;
-                    case HideAndSeekVariation.Image:
-                        return LocalizationDataId.HideSeek_image_Intro;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
         }
 
     }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 namespace Antura.Minigames.DancingDots
 {
-
     public enum AnturaContollerState
     {
         LEFTHOME, RIGHTHOME, DANCING, WALKING, FINISHINGDANICING
@@ -27,10 +26,8 @@ namespace Antura.Minigames.DancingDots
         public Transform rightHome;
         public Transform[] dancingSpots;
 
-
         void Awake()
         {
-
             antura = gameObject.GetComponent<AnturaAnimationController>();
 
             antura.State = AnturaAnimationStates.sitting;
@@ -126,11 +123,9 @@ namespace Antura.Minigames.DancingDots
                     status = AnturaContollerState.WALKING;
                     movingToDestination = true;
                 }
-
-
             }
-
         }
+
         void RestartMoving()
         {
         }

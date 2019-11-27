@@ -36,7 +36,6 @@ namespace Antura.Minigames.TakeMeHome
             // Default values
             Context = new MinigamesGameContext(MiniGameCode.TakeMeHome_lettername, System.DateTime.Now.Ticks.ToString());
             Questions = new SampleQuestionProvider();
-            Difficulty = 0;
             TutorialEnabled = true;
         }
 
@@ -44,8 +43,7 @@ namespace Antura.Minigames.TakeMeHome
         {
             IQuestionBuilder builder = null;
 
-            var builderParams = new QuestionBuilderParameters();
-
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation)
             {
                 case TakeMeHomeVariation.LetterName:

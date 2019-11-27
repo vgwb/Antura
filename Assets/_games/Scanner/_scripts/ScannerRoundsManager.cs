@@ -7,6 +7,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.Collections;
+using Antura.Keeper;
 
 namespace Antura.Minigames.Scanner
 {
@@ -51,8 +52,6 @@ namespace Antura.Minigames.Scanner
                     ss.onCorrectDrop += CorrectMove;
                     ss.onWrongDrop += WrongMove;
                 }
-
-                Debug.Log("[Scanner] Diffculty: " + ScannerConfiguration.Instance.Difficulty);
 
                 SetupLLs();
 
@@ -236,7 +235,7 @@ namespace Antura.Minigames.Scanner
         {
             TutorialUI.MarkYes(GO.transform.position + Vector3.up * 3 + Vector3.right, TutorialUI.MarkSize.Normal);
             AudioManager.I.PlaySound(Sfx.StampOK);
-            AudioManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 12));
+            KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 12));
             game.LogAnswer(livingLetter.LLController.Data, true);
             game.tut.playTut = false;
 
@@ -259,7 +258,7 @@ namespace Antura.Minigames.Scanner
             numberOfFailedMoves++;
             TutorialUI.MarkNo(GO.transform.position + Vector3.up * 2 + Vector3.right * 1.5f, TutorialUI.MarkSize.Normal);
             AudioManager.I.PlaySound(Sfx.KO);
-            AudioManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
+            KeeperManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
             game.LogAnswer(livingLetter.LLController.Data, false);
             game.CreatePoof(GO.transform.position, 2f, true);
             game.Context.GetOverlayWidget().SetLives(game.allowedFailedMoves - numberOfFailedMoves);

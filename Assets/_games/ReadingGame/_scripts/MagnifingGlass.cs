@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using Antura.Language;
+using DG.DeExtensions;
+using UnityEngine;
 
 namespace Antura.Minigames.ReadingGame
 {
@@ -43,15 +45,21 @@ namespace Antura.Minigames.ReadingGame
                 startShinesAlpha[i] = shines[i].color.a;
             }
 
+            int rtlDir = LanguageSwitcher.I.IsLearningLanguageRTL() ? 1 : -1;
+
             for (int i = 0; i < leftArrows.Length; ++i)
             {
                 startLeftArrowPositions[i] = leftArrows[i].transform.localPosition;
+                startLeftArrowPositions[i].x *= rtlDir;
+                if (rtlDir == -1) leftArrows[i].transform.Rotate(0, 0, 180);
                 leftArrowsAlpha[i] = 0;
             }
 
             for (int i = 0; i < rightArrows.Length; ++i)
             {
                 startRightArrowPositions[i] = rightArrows[i].transform.localPosition;
+                startRightArrowPositions[i].x *= rtlDir;
+                if (rtlDir == -1) rightArrows[i].transform.Rotate(0,0,180);
                 rightArrowsAlpha[i] = 0;
             }
         }

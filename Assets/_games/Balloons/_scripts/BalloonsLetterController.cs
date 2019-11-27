@@ -126,9 +126,7 @@ namespace Antura.Minigames.Balloons
 
         void OnMouseDown()
         {
-            if (BalloonsConfiguration.Instance.Variation != BalloonsVariation.Counting) {
-                SpeakLetter();
-            }
+            SpeakLetter();
             FocusLetter();
 
             mousePosition = Input.mousePosition;

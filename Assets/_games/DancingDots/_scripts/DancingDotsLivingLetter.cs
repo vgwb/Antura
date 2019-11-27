@@ -1,117 +1,105 @@
-﻿using Antura.Core;
+using Antura.Core;
+using Antura.Language;
 using Antura.LivingLetters;
+using Antura.UI;
 using UnityEngine;
 using TMPro;
 
 namespace Antura.Minigames.DancingDots
 {
 
-    public enum LivingLetterAnim {
-		Nothing = 0,
-		idle = 1,
-		hold = 2,
-		run = 3,
-		walk = 4,
-		ninja = 5
-	}
+    public enum LivingLetterAnim
+    {
+        Nothing = 0,
+        idle = 1,
+        hold = 2,
+        run = 3,
+        walk = 4,
+        ninja = 5
+    }
 
-	public class DancingDotsLivingLetter : MonoBehaviour
-	{
+    public class DancingDotsLivingLetter : MonoBehaviour
+    {
 
-		[Header("References")]
-		public LivingLetterController letterObjectView;
-		public TextMeshPro hintText;
-		public TextMeshPro dotlessText;
-		public GameObject fullTextGO, contentGO;
+        [Header("References")]
+        public LivingLetterController letterObjectView;
+        public TextRender hintText;
+        public TextRender dotlessText;
+        public TextRender fullText;
+        public GameObject fullTextGO, contentGO;
 
-		public GameObject rainbow;
-		public DancingDotsGame game;
+        public GameObject rainbow;
+        public DancingDotsGame game;
 
-		TextMeshPro fullText;
 
-		public ILivingLetterData letterData { get; private set; }
+        public ILivingLetterData letterData { get; private set; }
 
-		void Start()
-		{
+        void Start()
+        {
+            fullText = fullTextGO.GetComponent<TextRender>();
+            HideRainbow();
+            PlayAnimation();
+        }
 
-			fullText = fullTextGO.GetComponent<TextMeshPro>();
-			HideRainbow();
-			PlayAnimation();
-		}
+        public void Reset()
+        {
+            SetupLetter();
+            SpeakLetter();
+        }
 
-		public void Reset()
-		{
-			SetupLetter();
-			SpeakLetter();
-		}
+        void PlayAnimation()
+        {
+            letterObjectView.SetState(LLAnimationStates.LL_dancing);
+        }
 
-		void PlayAnimation()
-		{
-			letterObjectView.SetState(LLAnimationStates.LL_dancing);
-		}
-
-		void OnMouseUp()
-		{
-			if (letterData != null)
-            {
+        void OnMouseUp()
+        {
+            if (letterData != null) {
                 DancingDotsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData);
-			}
-		}
+            }
+        }
 
-		void GetDiacritic()
-		{
-			//Debug.Log("DD Get Diacritics");
-			char FATHA1 = (char) 1611;
-			char FATHA2 = (char) 1614;
-			char DAMAH = (char) 1615;
-			char KASRAH = (char) 1616;
-			char SOUKON = (char) 1618;
+        void GetDiacritic()
+        {
+            //Debug.Log("DD Get Diacritics");
+            char FATHA1 = (char)1611;
+            char FATHA2 = (char)1614;
+            char DAMAH = (char)1615;
+            char KASRAH = (char)1616;
+            char SOUKON = (char)1618;
 
-			if (game.currentLetter.Contains(FATHA1.ToString()) ||
-				game.currentLetter.Contains(FATHA2.ToString()))
-			{
-				game.letterDiacritic = DiacriticEnum.Fatha;
-			}
-			else if (game.currentLetter.Contains(DAMAH.ToString()))
-			{
-				game.letterDiacritic = DiacriticEnum.Dameh;
-			}
-
-			else if (game.currentLetter.Contains(KASRAH.ToString()))
-			{
-				game.letterDiacritic = DiacriticEnum.Kasrah;
-			}
-
-			else if (game.currentLetter.Contains(SOUKON.ToString()))
-			{
-				game.letterDiacritic = DiacriticEnum.Sokoun;
-			}
-			else
-			{
-				game.letterDiacritic = DiacriticEnum.None;
+            if (game.currentLetter.Contains(FATHA1.ToString()) ||
+                game.currentLetter.Contains(FATHA2.ToString())) {
+                game.letterDiacritic = DiacriticEnum.Fatha;
+            } else if (game.currentLetter.Contains(DAMAH.ToString())) {
+                game.letterDiacritic = DiacriticEnum.Dameh;
+            } else if (game.currentLetter.Contains(KASRAH.ToString())) {
+                game.letterDiacritic = DiacriticEnum.Kasrah;
+            } else if (game.currentLetter.Contains(SOUKON.ToString())) {
+                game.letterDiacritic = DiacriticEnum.Sokoun;
+            } else {
+                game.letterDiacritic = DiacriticEnum.None;
             }
             //Debug.Log("DD found diacritic: " + game.letterDiacritic);
 
             StartCoroutine(game.SetupDiacritic());
 
-			string output = "";
-			foreach (char c in game.currentLetter)
-			{
-				if (c != FATHA1 && c != FATHA2 && c != DAMAH && c != KASRAH && c != SOUKON)
-				{
-					output += c;
-				}
-			}
-			game.currentLetter = output;
-		}
+            string output = "";
+            foreach (char c in game.currentLetter) {
+                if (c != FATHA1 && c != FATHA2 && c != DAMAH && c != KASRAH && c != SOUKON) {
+                    output += c;
+                }
+            }
+            game.currentLetter = output;
+        }
 
-		void SetupLetter()
-		{
-			letterData = game.questionsManager.getNewLetter();
+        void SetupLetter()
+        {
+            letterData = game.questionsManager.getNewLetter();
 
-			game.currentLetter = letterData.TextForLivingLetter;
+            game.currentLetter = letterData.TextForLivingLetter;
 
-			GetDiacritic();
+            GetDiacritic();
 
             /* HACK: removed DOTS handling
 
@@ -136,57 +124,56 @@ namespace Antura.Minigames.DancingDots
                 game.dotsCount = 0;
 			}
             */
-		    game.dotsCount = 0; // HACK: forced dots count
-					
-			hintText.text = game.currentLetter;
-			ShowText(hintText, game.dotHintAlpha);
-			dotlessText.text = game.currentLetter;
-			fullText.text = game.currentLetter;
+            game.dotsCount = 0; // HACK: forced dots count
+
+            hintText.SetText(game.currentLetter, LanguageUse.Learning);
+            ShowText(hintText, game.dotHintAlpha);
+            dotlessText.SetText(game.currentLetter, LanguageUse.Learning);
+            fullText.SetText(game.currentLetter, LanguageUse.Learning); //
 
             //fullTextGO.SetActive(false); // HACK: forced full letter appearing
         }
 
-        public void HideText(TextMeshPro tmp)
-		{
-			tmp.color = game.SetAlpha(tmp.color,0);
-		}
+        public void HideText(TextRender text)
+        {
+            text.color = game.SetAlpha(text.color, 0);
+        }
 
-		public void ShowText(TextMeshPro tmp, byte alpha)
-		{
-			tmp.color = game.SetAlpha(tmp.color, alpha);
-		}
+        public void ShowText(TextRender text, byte alpha)
+        {
+            text.color = game.SetAlpha(text.color, alpha);
+        }
 
-		public void ShowRainbow()
-		{
-			rainbow.SetActive(true);
-		}
+        public void ShowRainbow()
+        {
+            rainbow.SetActive(true);
+        }
 
-		public void HideRainbow()
-		{
-			rainbow.SetActive(false);
-		}
+        public void HideRainbow()
+        {
+            rainbow.SetActive(false);
+        }
 
-		private void SpeakLetter()
-		{
-			if (letterData != null && !game.isTutRound)
-            {
+        private void SpeakLetter()
+        {
+            if (letterData != null && !game.isTutRound) {
                 DancingDotsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData);
-			}
-		}
+            }
+        }
 
-//		public void HideAllText()
-//		{
-//			hintText.color = SetAlpha(hintText.color,0);
-//			dotlessText.color = SetAlpha(dotlessText.color,0);
-//			fullText.color = SetAlpha(fullText.color,0);
-//		}
-//
-//		public void ShowAllText()
-//		{
-//			hintText.color = SetAlpha(hintText.color,DancingDotsGameManager.instance.dotHintAlpha);
-//			dotlessText.color = SetAlpha(dotlessText.color,255);
-//			fullText.color = SetAlpha(fullText.color,255);
-//		}
+        //		public void HideAllText()
+        //		{
+        //			hintText.color = SetAlpha(hintText.color,0);
+        //			dotlessText.color = SetAlpha(dotlessText.color,0);
+        //			fullText.color = SetAlpha(fullText.color,0);
+        //		}
+        //
+        //		public void ShowAllText()
+        //		{
+        //			hintText.color = SetAlpha(hintText.color,DancingDotsGameManager.instance.dotHintAlpha);
+        //			dotlessText.color = SetAlpha(dotlessText.color,255);
+        //			fullText.color = SetAlpha(fullText.color,255);
+        //		}
 
-	}
+    }
 }

@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Minigames;
 
@@ -44,8 +45,7 @@ namespace Antura.Minigames.FastCrowd
             for (int i = 0; i < letters.Count; i++)
             {
                 LivingLetterController lov = letters[i].gameObject.GetComponent<LivingLetterController>();
-
-                if(lov.Data.Equals(data))
+                if(DataMatchingHelper.IsDataMatching(lov.Data, data, LetterEqualityStrictness.LetterOnly))
                 {
                     return letters[i];
                 }

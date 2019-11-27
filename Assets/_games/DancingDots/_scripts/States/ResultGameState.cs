@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.DancingDots
+namespace Antura.Minigames.DancingDots
 {
     public class ResultGameState : FSM.IState
     {
@@ -13,7 +13,7 @@
 
         public void EnterState()
         {
-            game.EndGame(game.currStarsNum, game.numberOfRoundsWon);
+            game.EndGame(game.CurrentStars, game.CurrentScore);
         }
 
         public void ExitState()

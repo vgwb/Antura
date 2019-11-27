@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using Antura.LivingLetters;
 
@@ -76,18 +76,6 @@ namespace Antura.Minigames.FastCrowd
             dropSingleArea.transform.SetParent(transform, false);
             dropSingleArea.transform.position = Camera.main.transform.position;
             dropSingleArea.Init(newElement, number, container);
-
-            container.AddArea(dropSingleArea);
-
-            letters[newElement] = dropSingleArea;
-        }
-
-        public void AddDropText(ILivingLetterData newElement, string text)
-        {
-            DropSingleArea dropSingleArea = Instantiate(dropAreaPrefab);
-            dropSingleArea.transform.SetParent(transform, false);
-            dropSingleArea.transform.position = Camera.main.transform.position;
-            dropSingleArea.Init(newElement, text, container);
 
             container.AddArea(dropSingleArea);
 

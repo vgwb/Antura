@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using UnityEngine;
 using DG.Tweening;
 
@@ -13,6 +13,7 @@ namespace Antura.Minigames.HideAndSeek
 
     public class HideAndSeekLetterController : MonoBehaviour
     {
+        public HideAndSeekGame game;
 
         public delegate void TouchAction(int i);
         public event TouchAction onLetterTouched;
@@ -22,7 +23,6 @@ namespace Antura.Minigames.HideAndSeek
 
         void Start()
         {
-            idleTime = 0.5f + 4f * (1 - HideAndSeekConfiguration.Instance.Difficulty);
             view = GetComponent<LivingLetterController>();
         }
 
@@ -164,7 +164,7 @@ namespace Antura.Minigames.HideAndSeek
 
         #region VARIABLES
         public int id;
-        float idleTime = 5f;
+        float idleTime => 0.5f + 4f * (1 - game.Difficulty);
         public float ray = 5f;
         float minMove = 3f;
 

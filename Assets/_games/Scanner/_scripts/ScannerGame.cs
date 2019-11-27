@@ -100,9 +100,6 @@ namespace Antura.Minigames.Scanner
             gameActive = true;
             beltSpeed = 1f;
             facingCamera = true;
-            float Difficulty = ScannerConfiguration.Instance.Difficulty;
-
-            Difficulty = Difficulty < 0.13f ? 0.13f : Difficulty;
 
             if (Difficulty <= 0.4f) {
                 beltSpeed = 1f;

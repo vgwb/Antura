@@ -8,17 +8,11 @@ namespace Antura.Minigames.ThrowBalls
 
         public static ThrowBallsGame instance;
 
-        public enum ThrowBallsDifficulty
-        {
-            VeryEasy, Easy, Normal, Hard, VeryHard
-        }
-        private ThrowBallsDifficulty _difficulty;
-        public ThrowBallsDifficulty Difficulty
-        {
-            get {
-                return _difficulty;
-            }
-        }
+        #region Score
+
+       public override int MaxScore => 6;
+
+        #endregion
 
         public bool TutorialEnabled
         {
@@ -35,7 +29,6 @@ namespace Antura.Minigames.ThrowBalls
         protected override void OnInitialize(IGameContext context)
         {
             instance = this;
-            SetDifficulty();
             GameState = new GameState(this);
         }
 
@@ -48,22 +41,5 @@ namespace Antura.Minigames.ThrowBalls
         {
             return GameState;
         }
-
-        private void SetDifficulty()
-        {
-            float difficultyAsAFloat = ThrowBallsConfiguration.Instance.Difficulty;
-
-            if (difficultyAsAFloat < 0.2f) {
-                _difficulty = ThrowBallsDifficulty.VeryEasy;
-            } else if (difficultyAsAFloat < 0.4f) {
-                _difficulty = ThrowBallsDifficulty.Easy;
-            } else if (difficultyAsAFloat < 0.6f) {
-                _difficulty = ThrowBallsDifficulty.Normal;
-            } else if (difficultyAsAFloat < 0.8f) {
-                _difficulty = ThrowBallsDifficulty.Hard;
-            } else {
-                _difficulty = ThrowBallsDifficulty.VeryHard;
-            }
-        }
-    }
 }
+    }

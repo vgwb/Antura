@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Keeper;
 using UnityEngine;
 
 namespace Antura.Minigames.SickLetters
@@ -7,7 +8,6 @@ namespace Antura.Minigames.SickLetters
     {
         SickLettersGame game;
 
-        float timer = 2.5f;
         public IntroductionGameState(SickLettersGame game)
         {
             this.game = game;
@@ -15,27 +15,27 @@ namespace Antura.Minigames.SickLetters
 
         public void EnterState()
         {
-            Debug.Log("enter intro");
-            game.processDifiiculties(SickLettersConfiguration.Instance.Difficulty);
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.SickLetters_lettername_Title);
+            game.gameDuration = 70;
+            game.targetScale = 18;
+
+            game.ProcessDifficulty(game.Difficulty);
             game.antura.sleep();
             game.disableInput = true;
+
+            game.PlayIntro(EndIntro);
+        }
+
+        private void EndIntro()
+        {
+            game.SetCurrentState(game.QuestionState);
         }
 
         public void ExitState()
         {
-            Debug.Log("exit intro");
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.SickLetters_lettername_Intro);
         }
 
         public void Update(float delta)
         {
-            timer -= delta;
-
-            if (timer < 0) {
-                game.SetCurrentState(game.QuestionState);
-            }
-
         }
 
         public void UpdatePhysics(float delta)

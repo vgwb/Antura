@@ -370,6 +370,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 1
   ray: 5
   view: {fileID: 0}
@@ -677,6 +678,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -687,11 +693,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -880,6 +881,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -890,11 +896,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -3324,6 +3325,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 6
   ray: 5
   view: {fileID: 0}
@@ -3440,6 +3442,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 3
   ray: 5
   view: {fileID: 0}
@@ -4990,6 +4993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 4
   ray: 5
   view: {fileID: 0}
@@ -5234,12 +5238,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MiniGameCode: 16
-  Stage: 1
-  LearningBlock: 1
+  Stage: 6
+  LearningBlock: 15
   PlaySession: 1
-  Difficulty: 0.5
-  TutorialEnabled: 1
-  NumberOfRounds: 1
+  Config:
+    Difficulty: 0
+    NumberOfRounds: 1
+    TutorialEnabled: 0
+    InsideJourney: 0
+    DirectGame: 0
 --- !u!114 &1167005738
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5710,6 +5717,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -5720,11 +5732,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -6058,6 +6065,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -6068,11 +6080,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -6154,6 +6161,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -6164,11 +6176,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -6286,6 +6293,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -6296,11 +6308,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -11492,6 +11499,11 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 0.9
       objectReference: {fileID: 0}
+    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 33000012812192932, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_Mesh
@@ -11502,11 +11514,6 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 0}
-    - target: {fileID: 95000011127266862, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Controller
-      value: 
-      objectReference: {fileID: 9100000, guid: b3321dbe040655b47bc1f069983664d6, type: 2}
     - target: {fileID: 114000013927319314, guid: d5826ab7f51b7c549919cf0b6fe83693,
         type: 3}
       propertyPath: m_havePropertiesChanged
@@ -13084,6 +13091,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 2
   ray: 5
   view: {fileID: 0}
@@ -13156,6 +13164,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 0
   ray: 5
   view: {fileID: 0}
@@ -13198,6 +13207,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84a3d5364d8ef48b89658727c53a660e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  game: {fileID: 0}
   id: 5
   ray: 5
   view: {fileID: 0}

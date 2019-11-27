@@ -1,4 +1,5 @@
 using System;
+using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 
@@ -26,8 +27,7 @@ namespace Antura.Minigames.Balloons
         static BalloonsConfiguration instance;
         public static BalloonsConfiguration Instance
         {
-            get
-            {
+            get {
                 if (instance == null) {
                     instance = new BalloonsConfiguration();
                 }
@@ -42,7 +42,6 @@ namespace Antura.Minigames.Balloons
             Variation = BalloonsVariation.Spelling;
             TutorialEnabled = true;
             Context = new MinigamesGameContext(MiniGameCode.Balloons_spelling, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
         }
 
         public override IQuestionBuilder SetupBuilder()
@@ -53,17 +52,15 @@ namespace Antura.Minigames.Balloons
             int nCorrect = 3;
             int nWrong = 8;
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
 
             switch (Variation) {
                 case BalloonsVariation.Spelling:
-                    builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new LettersInWordQuestionBuilder(nPacks, useAllCorrectLetters: true, nWrong: nWrong, parameters: builderParams);
                     break;
                 case BalloonsVariation.Words:
                 case BalloonsVariation.Image:
-                    builderParams.wordFilters.excludeColorWords = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, 1, nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
@@ -72,7 +69,8 @@ namespace Antura.Minigames.Balloons
                     builder = new WordsWithLetterQuestionBuilder(nPacks, nPacksPerRound: 1, nCorrect: nCorrect, nWrong: nWrong, parameters: builderParams);
                     break;
                 case BalloonsVariation.Counting:
-                    builder = new OrderedWordsQuestionBuilder(Database.WordDataCategory.Number, null, true);
+                    builderParams.wordFilters.allowedCategories = new[] { WordDataCategory.Numbers };
+                    builder = new OrderedWordsQuestionBuilder(builderParams);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

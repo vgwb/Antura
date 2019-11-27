@@ -14,7 +14,6 @@ namespace Antura.Minigames.MakeFriends
 
         public void EnterState()
         {
-            game.PlayTitleVoiceOver();
         }
 
         public void OnFinishedTutorial()

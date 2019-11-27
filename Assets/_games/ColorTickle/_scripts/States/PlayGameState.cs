@@ -10,7 +10,7 @@ namespace Antura.Minigames.ColorTickle
         ColorTickleGame game;
         GameObject m_CurrentLetter;
 
-        int m_MaxLives;
+        private int m_MaxLives => game.MaxLives;
         int m_Lives;
         int m_Rounds;
         int m_iRoundsSuccessfull;
@@ -43,7 +43,6 @@ namespace Antura.Minigames.ColorTickle
         public void EnterState()
         {
             m_Rounds = game.rounds;
-            m_MaxLives = game.lives; //max number of lives is already setted in the game according to difficulty
             m_iRoundsSuccessfull = 0;
 
             //Init ColorCanvas and PercentageLetterColoredButton
@@ -68,8 +67,7 @@ namespace Antura.Minigames.ColorTickle
 
         void ResetLaunchTimer(bool firstTime)
         {
-            float difficultyFactor = 1 - ColorTickleConfiguration.Instance.Difficulty;
-            tryAnturaTimer = Mathf.Lerp(4, 15, difficultyFactor) + Random.value * 4;
+            tryAnturaTimer = Mathf.Lerp(4, 15, 1 - game.Difficulty) + Random.value * 4;
 
             if (firstTime) {
                 tryAnturaTimer *= 0.5f;
@@ -146,8 +144,7 @@ namespace Antura.Minigames.ColorTickle
                     //LL does win or lose animation 
                     if (m_PercentageLetterColored >= 100) {
                         m_iRoundsSuccessfull += 1;
-                        game.score = m_iRoundsSuccessfull;
-                        game.gameUI.SetStarsScore(game.score);
+                        game.CurrentScore = m_iRoundsSuccessfull;
 
                         m_LetterObjectView.DoHorray();
                         ColorTickleConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Win);
@@ -187,6 +184,7 @@ namespace Antura.Minigames.ColorTickle
         private void ResetState()
         {
             m_Lives = m_MaxLives;
+            game.gameUI.SetMaxLives(m_MaxLives);
             game.gameUI.SetLives(m_MaxLives);
             m_PercentageLetterColored = 0;
         }
@@ -195,9 +193,7 @@ namespace Antura.Minigames.ColorTickle
         {
             game.gameUI = game.Context.GetOverlayWidget();
             game.gameUI.Initialize(true, false, true);
-            game.gameUI.SetMaxLives(game.lives);
             game.gameUI.SetStarsThresholds(1, 3, 5);
-            game.gameUI.SetStarsScore(0);
 
             game.colorsCanvas.gameObject.SetActive(true);
             m_ColorsUIManager = game.colorsCanvas.GetComponentInChildren<ColorsUIManager>();
@@ -300,7 +296,7 @@ namespace Antura.Minigames.ColorTickle
         private void TryEnableAntura()
         {
             if (tryAnturaTimer < 0) {
-                if (ColorTickleConfiguration.Instance.Difficulty >= 0.2f) {
+                if (game.Difficulty >= 0.6f) {
                     game.anturaController.LaunchAnturaDisruption();
                 }
 

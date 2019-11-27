@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+using Antura.Core;
+using Antura.LivingLetters;
+using UnityEngine;
 using UnityEngine.UI;
 
 namespace Antura.Minigames.ColorTickle
@@ -16,6 +18,9 @@ namespace Antura.Minigames.ColorTickle
 
         [Header("Max Colors = Number of Buttons * Rounds")]
         public Color[] m_Colors;
+        public string[] m_ColorNames;
+        private string[] m_SelectColorNames;
+
         public event System.Action<Color> SetBrushColor;
 #pragma warning restore 649
         #endregion
@@ -40,10 +45,11 @@ namespace Antura.Minigames.ColorTickle
         void Awake()
         {
             m_Buttons = new Button[m_NumberOfButtons];
+            m_SelectColorNames = new string[m_NumberOfButtons];
 
             BuildButtons();
             BuildOutlineButton();
-            SelectButton(0);
+            SelectButton(0, false);
         }
 
         void Update()
@@ -76,6 +82,7 @@ namespace Antura.Minigames.ColorTickle
 
                 m_Colors[i].a = 255.0f;
                 m_Buttons[i].image.color = m_Colors[i];
+                m_SelectColorNames[i] = m_ColorNames[i];
 
                 int buttonNumber = i;
                 m_Buttons[i].onClick.AddListener(delegate {
@@ -88,9 +95,19 @@ namespace Antura.Minigames.ColorTickle
             m_ColorNumber = m_NumberOfButtons - 1;
         }
 
-        void SelectButton(int buttonNumber)
+        void SelectButton(int buttonNumber, bool userInput = true)
         {
             selectedButton = buttonNumber;
+
+            if (userInput)
+            {
+                var colorVocabularyData = AppManager.I.DB.GetWordDataById("color_" + m_SelectColorNames[buttonNumber]);
+                if (colorVocabularyData != null)
+                {
+                    var lldata = new LL_WordData(colorVocabularyData);
+                    ColorTickleConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(lldata);
+                }
+            }
 
             if (SetBrushColor != null) {
                 SetBrushColor(m_Buttons[buttonNumber].image.color);
@@ -106,8 +123,9 @@ namespace Antura.Minigames.ColorTickle
                 }
                 m_Colors[m_ColorNumber].a = 255.0f;
                 m_Buttons[i].image.color = m_Colors[m_ColorNumber];
+                m_SelectColorNames[i] = m_ColorNames[m_ColorNumber];
             }
-            SelectButton(0);
+            SelectButton(0, false);
         }
     }
 }

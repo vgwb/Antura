@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Antura.Minigames.Maze
 {
@@ -29,6 +29,8 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
+            float anturaAppearTime = Mathf.Lerp(10f, 6f, MazeGame.instance.Difficulty);
+
             //should we replay tutorial?
             if (!isDrawing) {
                 if (!MazeGame.instance.currentCharacter || MazeGame.instance.currentCharacter.isFleeing || MazeGame.instance.currentCharacter.isAppearing)
@@ -37,12 +39,12 @@ namespace Antura.Minigames.Maze
                 if (!MazeGame.instance.isTutorialMode && MazeGame.instance.currentTutorial && MazeGame.instance.currentTutorial.isShownOnce && MazeGame.instance.isShowingAntura == false) {
                     anturaSeconds += Time.deltaTime;
 
-                    if (anturaSeconds >= 8f && !didAnturaBark) {
+                    if (anturaSeconds >= anturaAppearTime-2f && !didAnturaBark) {
                         MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.DogBarking);
                         didAnturaBark = true;
                     }
 
-                    if (anturaSeconds >= 10) {
+                    if (anturaSeconds >= anturaAppearTime) {
                         anturaSeconds = 0;
                         MazeGame.instance.onIdleTime();
                     }

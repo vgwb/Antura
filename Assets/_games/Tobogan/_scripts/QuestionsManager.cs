@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections.Generic;
 using System;
 using System.Linq;
@@ -123,7 +123,7 @@ namespace Antura.Minigames.Tobogan
             }
             else
             {
-                if (ToboganConfiguration.Instance.Difficulty <= 0.3f)
+                if (ToboganGame.I.Difficulty <= 0.3f)
                 {
                     questionLivingLetter.SetQuestionText(questionPack.GetQuestion() as LL_WordData, correctAnswer as LL_LetterData, ToboganGame.LETTER_MARK_COLOR);
                 }

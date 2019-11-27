@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Antura.Minigames.ColorTickle
 {
@@ -28,7 +28,7 @@ namespace Antura.Minigames.ColorTickle
             if (timer < 0)
             {
                 //AudioManager.I.PlayDialog(TextID.GetTextIDFromStars(game.starsAwarded).ToString());
-                game.EndGame(game.starsAwarded, game.score);
+                game.EndGame(game.starsAwarded, game.CurrentScore);
             }
         }
 

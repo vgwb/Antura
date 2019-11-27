@@ -55,7 +55,8 @@ namespace Antura.Minigames.FastCrowd
                 DOTween.Sequence().InsertCallback(1, delegate ()
                     {
                         if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
-                            || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image)
+                            || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                            || FastCrowdConfiguration.Instance.IsOrderingVariation)
                             AudioManager.I.PlaySound(Sfx.Hit);
                         dropAreaSetPosition();
                     });
@@ -67,7 +68,8 @@ namespace Antura.Minigames.FastCrowd
                             {
                                 float waitAtEnd = 2;
                                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
-                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image) { 
+                                    || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
+                                    || FastCrowdConfiguration.Instance.IsOrderingVariation) { 
                                     AudioManager.I.PlaySound(Sfx.Hit);
                                     waitAtEnd = 1;
                                 }
@@ -166,13 +168,16 @@ namespace Antura.Minigames.FastCrowd
                 {
                     if (needFade) {
                         _sequence.Append(_dropArea.GetComponent<MeshRenderer>().materials[0].DOFade(0, durantion));
-                        _sequence.Append(_dropArea.LetterLable.transform.DOLocalMove(new Vector3(getPosition(_position).x, -2, getPosition(_position).z), durantion));
+                        _sequence.Append(_dropArea.NumberLabel.transform.DOLocalMove(new Vector3(getPosition(_position).x, -2, getPosition(_position).z), durantion));
                         // pro only
                         // sequence.Append(Aree[actualAreaIndex].LetterLable.DOFade(0, 0.4f));
                         //if (_dropArea.DrawSprite)
                         //    _dropArea.DrawSprite.DOFade(0, 0.4f);
-                        if (_dropArea.DrawText)
-                            _dropArea.DrawText.DOFade(0, 0.4f);
+                        if (_dropArea.NumberLabel)
+                            _dropArea.NumberLabel.DOFade(0, 0.4f);
+                        if (_dropArea.LetterText)
+                            _dropArea.LetterText.TMPText.DOFade(0, 0.4f);
+
                     }
                     if (_callback != null)
                         _callback();

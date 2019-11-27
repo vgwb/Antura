@@ -13,7 +13,9 @@ namespace Antura.Minigames.HideAndSeek
     {
         void OnEnable()
         {
-            foreach (var a in ArrayLetters) {
+            foreach (var a in ArrayLetters)
+            {
+                a.GetComponent<HideAndSeekLetterController>().game = game;
                 a.GetComponent<HideAndSeekLetterController>().onLetterTouched += CheckResult;
                 a.GetComponent<HideAndSeekLetterController>().onLetterReturned += OnLetterReturned;
             }
@@ -236,7 +238,8 @@ namespace Antura.Minigames.HideAndSeek
                 letterList.Add(data);
             }
 
-            int numWrong = Mathf.RoundToInt(2 + HideAndSeekConfiguration.Instance.Difficulty * 4);
+            int numWrong = Mathf.RoundToInt(2 + game.Difficulty * 4);
+
             foreach (var letter in currentQuestion.GetWrongAnswers()) {
                 if (numWrong-- == 0)
                     break;

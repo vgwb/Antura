@@ -42,7 +42,6 @@ namespace Antura.Minigames.MakeFriends
             // Default values
             Questions = new MakeFriendsQuestionProvider();
             Context = new MinigamesGameContext(MiniGameCode.MakeFriends_letterinword, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0f;
             TutorialEnabled = true;
         }
 
@@ -55,8 +54,7 @@ namespace Antura.Minigames.MakeFriends
             int nWords = 2;
             var letterEqualityStrictness = LetterEqualityStrictness.WithVisualForm;
 
-
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case MakeFriendsVariation.LetterInWord:
                     builderParams.letterFilters.excludeDiphthongs = true;
@@ -79,46 +77,5 @@ namespace Antura.Minigames.MakeFriends
         }
 
 
-        #region Difficulty Choice
-
-        private const float EASY_THRESHOLD = 0f;
-        private const float MEDIUM_THRESHOLD = 0.3f;
-        private const float HARD_THRESHOLD = 0.7f;
-
-        public MakeFriendsDifficulty DifficultyChoice
-        {
-            get {
-                // GameManager Override
-                if (MakeFriendsGame.Instance.overrideDifficulty) {
-                    switch (MakeFriendsGame.Instance.difficultySetting) {
-                        case MakeFriendsDifficulty.EASY:
-                            Difficulty = EASY_THRESHOLD;
-                            break;
-
-                        case MakeFriendsDifficulty.MEDIUM:
-                            Difficulty = MEDIUM_THRESHOLD;
-                            break;
-
-                        case MakeFriendsDifficulty.HARD:
-                            Difficulty = HARD_THRESHOLD;
-                            break;
-                    }
-                }
-
-                // Get Variation based on Difficulty
-                MakeFriendsDifficulty variation;
-                if (Difficulty < MEDIUM_THRESHOLD) {
-                    variation = MakeFriendsDifficulty.EASY;
-                } else if (Difficulty < HARD_THRESHOLD) {
-                    variation = MakeFriendsDifficulty.MEDIUM;
-                } else {
-                    variation = MakeFriendsDifficulty.HARD;
-                }
-
-                return variation;
-            }
-        }
-
-        #endregion
     }
 }

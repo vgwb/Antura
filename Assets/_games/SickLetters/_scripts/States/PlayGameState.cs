@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Keeper;
 using UnityEngine;
 
 namespace Antura.Minigames.SickLetters
@@ -42,8 +43,7 @@ namespace Antura.Minigames.SickLetters
 
         public void Update(float delta)
         {
-            game.processDifiiculties(SickLettersConfiguration.Instance.Difficulty);
-
+            game.ProcessDifficulty(game.Difficulty);
 
             if (game.roundsCount > 0) {
                 timer -= delta;
@@ -60,12 +60,12 @@ namespace Antura.Minigames.SickLetters
 
                 game.Context.GetOverlayWidget().OnClockCompleted();
                 game.SetCurrentState(game.ResultState);
-                AudioManager.I.PlayDialogue(Database.LocalizationDataId.Keeper_TimeUp);
+                KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Keeper_TimeUp);
             }
 
             if (alarmIsTriggered == 0 && timer < 2) {
                 alarmIsTriggered = 1;
-                AudioManager.I.PlayDialogue("Keeper_Time_" + UnityEngine.Random.Range(1, 4));
+                KeeperManager.I.PlayDialogue("Keeper_Time_" + Random.Range(1, 4));
             }
             if (alarmIsTriggered == 1 && timer < 4) {
                 alarmIsTriggered = 2;
@@ -76,8 +76,8 @@ namespace Antura.Minigames.SickLetters
                 game.LLPrefab.jumpOut();
             }
 
-            correctDotPos = game.LLPrefab.correctDot.transform.TransformPoint(Vector3.Lerp(game.LLPrefab.correctDot.mesh.vertices[0], game.LLPrefab.correctDot.mesh.vertices[2], 0.5f));
-
+            if (game.LLPrefab.correctDot.mesh.vertices.Length > 0)
+                correctDotPos = game.LLPrefab.correctDot.transform.TransformPoint(Vector3.Lerp(game.LLPrefab.correctDot.mesh.vertices[0], game.LLPrefab.correctDot.mesh.vertices[2], 0.5f));
 
             if (game.LLPrefab.correctDotCollider.transform.childCount == 0)
                 game.LLPrefab.correctDotCollider.transform.position = correctDotPos;

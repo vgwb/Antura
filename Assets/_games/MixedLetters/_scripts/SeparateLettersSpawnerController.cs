@@ -83,7 +83,7 @@ namespace Antura.Minigames.MixedLetters
 
             bool throwLetterToTheRight = Random.Range(1, 40) % 2 == 0;
 
-            bool spawnLettersInOrder = MixedLettersGame.instance.Difficulty == MixedLettersGame.MixedLettersDifficulty.VeryEasy;
+            bool spawnLettersInOrder = MixedLettersGame.instance.Difficulty <= MiniGameController.VERY_EASY;
             int numDegreesOfRotation = GetNumDegreesOfRotation();
 
             for (int i = 0; i < lettersToSpawn.Count; i++)
@@ -120,22 +120,26 @@ namespace Antura.Minigames.MixedLetters
 
         private int GetNumDegreesOfRotation()
         {
-            MixedLettersGame.MixedLettersDifficulty difficulty = MixedLettersGame.instance.Difficulty;
-
-            switch (difficulty)
+            var diff = MixedLettersGame.instance.Difficulty;
+            if (diff < 0.2f)
             {
-                case MixedLettersGame.MixedLettersDifficulty.VeryEasy:
-                    return 1;
-                case MixedLettersGame.MixedLettersDifficulty.Easy:
-                    return 1;
-                case MixedLettersGame.MixedLettersDifficulty.Medium:
-                    return 2;
-                case MixedLettersGame.MixedLettersDifficulty.Hard:
-                    return 3;
-                case MixedLettersGame.MixedLettersDifficulty.VeryHard:
-                    return 3;
-                default:
-                    return 2;
+                return 1;
+            }
+            else if (diff < 0.4f)
+            {
+                return 1;
+            }
+            else if (diff < 0.6f)
+            {
+                return 2;
+            }
+            else if (diff < 0.8f)
+            {
+                return 3;
+            }
+            else
+            {
+                return 3;
             }
         }
 

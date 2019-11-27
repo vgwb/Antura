@@ -50,14 +50,7 @@ namespace Antura.Minigames.Tobogan
 
             sunMoonGameVariation = ToboganConfiguration.Instance.Variation == ToboganVariation.SunMoon;
 
-            if (sunMoonGameVariation)
-            {
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_words_Tuto_Article);
-            }
-            else
-            {
-                game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Tobogan_letters_Tuto);
-            }
+            game.Context.GetAudioManager().PlayDialogue(ToboganConfiguration.Instance.TutorialLocalizationId);
 
             nextQuestionTimer = 0f;
             requestNextQueston = false;
@@ -73,7 +66,7 @@ namespace Antura.Minigames.Tobogan
             TutorialUI.Clear(true);
 
             game.questionsManager.SetEnteringAudio(true);
-            game.pipesAnswerController.SetSignHidingProbability(2 * Mathf.Clamp01(ToboganConfiguration.Instance.Difficulty - 0.5f));
+            game.pipesAnswerController.SetSignHidingProbability(2 * Mathf.Clamp01(ToboganGame.I.Difficulty - 0.5f));
         }
 
         public void Update(float delta)

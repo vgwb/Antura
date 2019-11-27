@@ -14,20 +14,11 @@ namespace Antura.Minigames.MixedLetters
     {
         public static MixedLettersGame instance;
 
-        public enum MixedLettersDifficulty
-        {
-            VeryEasy, Easy, Medium, Hard, VeryHard
-        }
+        #region Score
 
-        private MixedLettersDifficulty difficulty;
-        public MixedLettersDifficulty Difficulty
-        {
-            get
-            {
-                return difficulty;
-            }
-        }
+        public override int MaxScore => STARS_3_THRESHOLD;
 
+        // Stars
         public int STARS_1_THRESHOLD { get { return Mathf.CeilToInt(0.33f * TotalNumRounds); } }
         public int STARS_2_THRESHOLD { get { return Mathf.CeilToInt(0.66f * TotalNumRounds); } }
         public int STARS_3_THRESHOLD { get { return TotalNumRounds; } }
@@ -36,15 +27,17 @@ namespace Antura.Minigames.MixedLetters
         {
             get
             {
-                if (numRoundsWon < STARS_1_THRESHOLD)
+                if (CurrentScore < STARS_1_THRESHOLD)
                     return 0;
-                if (numRoundsWon < STARS_2_THRESHOLD)
+                if (CurrentScore < STARS_2_THRESHOLD)
                     return 1;
-                if (numRoundsWon < STARS_3_THRESHOLD)
+                if (CurrentScore < STARS_3_THRESHOLD)
                     return 2;
                 return 3;
             }
         }
+
+        #endregion
 
         private readonly int[] ALPHABET_PICKING_ORDER = new int[] { 4, 3, 4, 4, 4, 4, 2, 3 };
 
@@ -132,7 +125,6 @@ namespace Antura.Minigames.MixedLetters
         public List<ILivingLetterData> entireAlphabet;
 
         public int roundNumber = 0;
-        public int numRoundsWon = 0;
 
         private bool isSpelling = true;
         public bool IsSpelling
@@ -177,38 +169,6 @@ namespace Antura.Minigames.MixedLetters
             MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayMusic(Music.Theme9);
 
             DisableRepeatPromptButton();
-
-            SetDifficulty();
-        }
-
-        private void SetDifficulty()
-        {
-            float difficultyAsFloat = GetConfiguration().Difficulty;
-
-            if (difficultyAsFloat < 0.2f)
-            {
-                difficulty = MixedLettersDifficulty.VeryEasy;
-            }
-
-            else if (difficultyAsFloat < 0.4f)
-            {
-                difficulty = MixedLettersDifficulty.Easy;
-            }
-
-            else if (difficultyAsFloat < 0.6f)
-            {
-                difficulty = MixedLettersDifficulty.Medium;
-            }
-
-            else if (difficultyAsFloat < 0.8f)
-            {
-                difficulty = MixedLettersDifficulty.Hard;
-            }
-
-            else
-            {
-                difficulty = MixedLettersDifficulty.VeryHard;
-            }
         }
 
         protected override FSM.IState GetInitialState()
@@ -225,7 +185,7 @@ namespace Antura.Minigames.MixedLetters
         {
             int numLetters = PromptLettersInOrder.Count;
             bool isEven = numLetters % 2 == 0;
-            float dropZoneWidthWithSpace = Constants.DROP_ZONE_WIDTH + 1f;
+            float dropZoneWidthWithSpace = Constants.DROP_ZONE_WIDTH + 0.6f;
             float dropZoneXStart = isEven ? numLetters / 2 - 0.5f : Mathf.Floor(numLetters / 2);
             dropZoneXStart *= dropZoneWidthWithSpace;
 
@@ -420,8 +380,7 @@ namespace Antura.Minigames.MixedLetters
         {
             _wasLastRoundWon = true;
 
-            numRoundsWon++;
-            Context.GetOverlayWidget().SetStarsScore(numRoundsWon);
+            CurrentScore++;
             
             HideRotationButtons();
             ShowGreenTicks();

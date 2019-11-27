@@ -17,7 +17,7 @@ namespace Antura.Minigames.ReadingGame
 
         IQuestionPack IQuestionProvider.GetNextQuestion()
         {
-            var answerData = AppManager.I.DB.GetWordDataByRandom();
+            var answerData = AppManager.I.DB.GetAllWordData().RandomSelectOne();
             LL_WordData randomWord = new LL_WordData(answerData.Id, answerData);
 
             StringTestData fakeData = new StringTestData(
@@ -29,7 +29,7 @@ namespace Antura.Minigames.ReadingGame
             List<ILivingLetterData> wrongAnswers = new List<ILivingLetterData>();
             while (wrongAnswers.Count < 6)
             {
-                var randomData = AppManager.I.DB.GetWordDataByRandom();
+                var randomData = AppManager.I.DB.GetAllWordData().RandomSelectOne();
 
                 if (randomData.Id != answerData.Id && !wrongAnswers.Any((a) => { return a.Id == randomData.Id; }))
                 {

@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Keeper;
 
 namespace Antura.Minigames.Scanner
 {
@@ -14,12 +15,11 @@ namespace Antura.Minigames.Scanner
 
         public void EnterState()
         {
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.Scanner_Title);
         }
 
         public void ExitState()
         {
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.Scanner_Intro);
+            game.PlayIntro(null);
         }
 
         public void Update(float delta)

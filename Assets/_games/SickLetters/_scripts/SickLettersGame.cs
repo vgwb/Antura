@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using Antura.Audio;
+using Antura.Keeper;
 using Antura.LivingLetters;
 using Antura.Minigames;
 using Antura.Tutorial;
@@ -30,13 +31,37 @@ namespace Antura.Minigames.SickLetters
         [HideInInspector]
         public MinigamesUITimer uiTimer;
         //[HideInInspector]
-        public int maxRoundsCount = 6, roundsCount = 1, wrongDraggCount = 0, correctMoveSequence = 0, currentStars = 0;
+        public int maxRoundsCount = 6, roundsCount = 1, wrongDraggCount = 0;
         [HideInInspector]
         public bool disableInput;
 
-        public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled; } }
+        #region Score
 
-        public int gameDuration = 120 ,  targetScale = 10, maxWieght;
+        public override int MaxScore => STARS_3_THRESHOLD;
+
+        private int STARS_1_THRESHOLD => Mathf.RoundToInt(targetScale / 3f);
+        private int STARS_2_THRESHOLD => Mathf.RoundToInt(targetScale * 2f / 3f);
+        private int STARS_3_THRESHOLD => Mathf.RoundToInt(targetScale);
+
+        public int CurrentStars
+        {
+            get
+            {
+                if (CurrentScore < STARS_1_THRESHOLD)
+                    return 0;
+                if (CurrentScore < STARS_2_THRESHOLD)
+                    return 1;
+                if (CurrentScore < STARS_3_THRESHOLD)
+                    return 2;
+                return 3;
+            }
+        }
+
+        #endregion
+
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
+
+        public int gameDuration = 120 ,  targetScale = 45, maxReachedCounter;
         public float vaseWidth = 5.20906f;
         public bool LLCanDance = false, with7arakat;
         public int numerOfWringDDs = 3;
@@ -135,7 +160,6 @@ namespace Antura.Minigames.SickLetters
 
                 roundsCount++;
                 disableInput = true;
-                //Context.GetOverlayWidget().SetStarsScore(roundsCount / 2);
                 LLPrefab.letterAnimator.SetBool("dancing", false);
                 LLPrefab.letterAnimator.Play("LL_idle_1", -1);
 
@@ -197,13 +221,8 @@ namespace Antura.Minigames.SickLetters
         }
 
 
-        public void setDifficulty(float diff, int gameDuration, int targetScale, float vaseWidth, bool LLCanDance, bool with7arakat)
+        private void SetDifficulty(float diff, float vaseWidth, bool LLCanDance, bool with7arakat)
         {
-            this.gameDuration = gameDuration;
-            //Context.GetOverlayWidget().SetClockDuration(gameDuration);
-            this.targetScale = targetScale;
-            //Context.GetOverlayWidget().SetStarsThresholds((targetScale / 3), (targetScale * 2 / 3), targetScale);
-
             if (diff> 0.666f)
                 scale.transform.localScale = new Vector3(vaseWidth, scale.transform.localScale.y, 7.501349f);
             else
@@ -215,31 +234,29 @@ namespace Antura.Minigames.SickLetters
         }
 
         float prevDiff = -1;
-        public void processDifiiculties(float diff)
+        public void ProcessDifficulty(float diff)
         {
             if (prevDiff == diff)
                 return;
-            else
-                prevDiff = diff;
-
+            prevDiff = diff;
 
             if (diff < 0.333f)
-                setDifficulty(diff, 70, 18, 5.20906f, false, false);
+                SetDifficulty(diff, 5.20906f, false, false);
             else if (diff < 0.666f)
-                setDifficulty(diff, 80, 30, 4.0f, false, true);
+                SetDifficulty(diff, 4.0f, false, true);
             else
-                setDifficulty(diff, 100, 42, 3.0f, false, true);
+                SetDifficulty(diff, 3.0f, false, true);
         }
 
         public void onWrongMove(bool isDDCorrect = false)
         {
             Debug.Log("XXXXX "+Time.deltaTime);
             lastMoveIsCorrect = false;
-            goodCommentCounter = correctMoveSequence = 0;
+            goodCommentCounter = 0;
             Context.GetLogManager().OnAnswered(LLPrefab.letterView.Data, false);
             if (isDDCorrect)
             {
-                AudioManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
+                KeeperManager.I.PlayDialogue("Keeper_Bad_" + Random.Range(1, 6));
                 TutorialUI.MarkNo(scale.transform.position - Vector3.forward * 2 + Vector3.up, TutorialUI.MarkSize.Big);
                 Context.GetAudioManager().PlaySound(Sfx.KO);
             }
@@ -254,17 +271,15 @@ namespace Antura.Minigames.SickLetters
 
             if (goodCommentCounter == 3 || !lastMoveIsCorrect)
             {
-                AudioManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
+                KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
                 
                 goodCommentCounter = 0;
             }
 
             scale.counter++;
-            correctMoveSequence++;
             goodCommentCounter++;
             lastMoveIsCorrect = true;
             dd.deattached = true;
-
             
 
             if (!dd.touchedVase)
@@ -275,15 +290,11 @@ namespace Antura.Minigames.SickLetters
             Context.GetAudioManager().PlaySound(Sfx.OK);
             Context.GetLogManager().OnAnswered(LLPrefab.letterView.Data, true);
 
-            //int prevStarNum = game.currentStars;
-            if (scale.counter > maxWieght)
+            if (scale.counter > maxReachedCounter)
             {
-                Context.GetOverlayWidget().SetStarsThresholds((targetScale / 3), (targetScale * 2 / 3), targetScale);
-                currentStars = (scale.counter / 2) / (targetScale / 6);
-                Context.GetOverlayWidget().SetStarsScore(scale.counter/*game.currentStars*/);
+                Context.GetOverlayWidget().SetStarsThresholds(STARS_1_THRESHOLD, STARS_2_THRESHOLD, STARS_3_THRESHOLD);
+                CurrentScore = scale.counter;
             }
-
-
 
             dd.isInVase = true;
             dd.gameObject.tag = "Finish";

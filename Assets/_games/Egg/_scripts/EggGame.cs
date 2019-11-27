@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 
 namespace Antura.Minigames.Egg
 {
@@ -10,7 +10,7 @@ namespace Antura.Minigames.Egg
         public GameObject eggButtonPrefab;
         public AnturaEggController antura;
         public GameObject letterObjectPrefab;
-        public EggRunLettersBox runLettersBox;
+        public RunLettersBox runLettersBox;
         public GameObject anturaPrefab;
         public GameObject shadowPrefab;
 
@@ -19,43 +19,36 @@ namespace Antura.Minigames.Egg
         public const int numberOfStage = 4;
         public int currentStage { get; set; }
 
-        public int correctStages { get; set; }
+        #region Score
+
+        public override int MaxScore => 4;
 
         public int CurrentStars
         {
-            get {
-                if (correctStages == 0)
+            get
+            {
+                if (CurrentScore == 0)
                     return 0;
 
-                if (correctStages == 1)
+                if (CurrentScore == 1)
                     return 1;
 
-                if (correctStages == 2 || correctStages == 3)
+                if (CurrentScore == 2 || CurrentScore == 3)
                     return 2;
 
                 return 3;
             }
         }
 
-        public float GameDifficulty
-        {
-            get { return EggConfiguration.Instance.Difficulty; }
-        }
+        #endregion
 
         public bool stagePositiveResult { get; set; }
 
         private bool tutorialFlag;
-
-        public bool ShowTutorial
+        public bool ShowTutorial => tutorialFlag;
+        public void EndTutorial()
         {
-            get {
-                if (tutorialFlag) {
-                    tutorialFlag = false;
-                    return true;
-                } else {
-                    return false;
-                }
-            }
+            tutorialFlag = false;
         }
 
         public EggChallenge CurrentQuestion;
@@ -88,7 +81,7 @@ namespace Antura.Minigames.Egg
             overlayWidgetInitialized = false;
 
             currentStage = 0;
-            correctStages = 0;
+            CurrentScore = 0;
 
             bool isSingleVariation = EggConfiguration.Instance.IsSingleVariation();
 
@@ -109,5 +102,6 @@ namespace Antura.Minigames.Egg
                 Context.GetOverlayWidget().SetStarsThresholds(1, 2, 4);
             }
         }
+
     }
 }

@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.MakeFriends
+namespace Antura.Minigames.MakeFriends
 {
     public class MakeFriendsPlayState : FSM.IState
     {
@@ -14,7 +14,7 @@
             game.InitializeMinigameUI();
 
             game.Reset();
-            game.PlayIntroVoiceOver();
+            //game.PlayIntroVoiceOver();
             game.PlayActiveMusic();
             game.Play();
         }

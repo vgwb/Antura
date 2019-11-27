@@ -12,8 +12,6 @@ namespace Antura.Minigames.HideAndSeek
         public PlayGameState PlayState { get; private set; }
         public ResultGameState ResultState { get; private set; }
         
-        public int CurrentScore { get; private set; }
-        
         public HideAndSeekGameManager GameManager;
 
         public HideAndSeekTutorialManager TutorialManager;
@@ -23,9 +21,11 @@ namespace Antura.Minigames.HideAndSeek
 
         public bool inGame = false;
 
-        const int STARS_1_THRESHOLD = 2;
-        const int STARS_2_THRESHOLD = 5;
-        const int STARS_3_THRESHOLD = 9;
+        #region Score
+
+        public static int STARS_1_THRESHOLD = 2;
+        public static int STARS_2_THRESHOLD = 5;
+        public static int STARS_3_THRESHOLD = 9;
 
         public int CurrentStars
         {
@@ -40,6 +40,10 @@ namespace Antura.Minigames.HideAndSeek
                 return 3;
             }
         }
+
+        public override int MaxScore => STARS_3_THRESHOLD;
+
+        #endregion
 
         public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled;  } }
 
@@ -73,11 +77,10 @@ namespace Antura.Minigames.HideAndSeek
 
             if (result)
             {
-                Context.GetOverlayWidget().SetStarsScore(++CurrentScore);
+                CurrentScore++;
                 if (CurrentStars >= 3) // Early end
                 {
-                    this.SetCurrentState(ResultState);
-                    //EndGame(CurrentStars, CurrentScore);
+                    SetCurrentState(ResultState);
                 }
             }
 

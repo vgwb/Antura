@@ -9061,13 +9061,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30a5fd23481066d4b87c7d20e2f46eed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MiniGameCode: 34
-  Stage: 1
-  LearningBlock: 6
+  MiniGameCode: 11
+  Stage: 5
+  LearningBlock: 15
   PlaySession: 1
-  Difficulty: 0
-  TutorialEnabled: 1
-  NumberOfRounds: 1
+  Config:
+    Difficulty: 0
+    NumberOfRounds: 1
+    TutorialEnabled: 0
+    InsideJourney: 0
+    DirectGame: 0
 --- !u!4 &1814291036
 Transform:
   m_ObjectHideFlags: 0

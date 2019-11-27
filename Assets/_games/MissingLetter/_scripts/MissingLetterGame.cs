@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.Minigames.MissingLetter
 {
@@ -16,12 +17,12 @@ namespace Antura.Minigames.MissingLetter
         #region API
         public void ResetScore()
         {
-            m_iCurrentScore = 0;
+            CurrentScore = 0;
         }
 
         public void OnResult(bool _result)
         {
-            var question = m_oRoundManager.CurrentQuestion;
+            var question = m_oRoundManager.CurrentQuestionPack;
             Context.GetLogManager().OnAnswered(question.GetQuestion(), _result);
 
             Context.GetAudioManager().PlaySound(Sfx.Blip);
@@ -35,10 +36,8 @@ namespace Antura.Minigames.MissingLetter
             Context.GetCheckmarkWidget().Show(_result);
 
             if (_result) {
-                ++m_iCurrentScore;
+                ++CurrentScore;
             }
-
-            Context.GetOverlayWidget().SetStarsScore(m_iCurrentScore);
         }
 
         public void SetInIdle(bool _idle)
@@ -56,7 +55,7 @@ namespace Antura.Minigames.MissingLetter
         #region PROTECTED_FUNCTION
         protected override void OnInitialize(IGameContext context)
         {
-            CalculateDifficulty();
+            PrepareParameters();
 
             m_oRoundManager = new RoundManager(this);
             m_oRoundManager.Initialize();
@@ -71,6 +70,7 @@ namespace Antura.Minigames.MissingLetter
 
             m_bInIdle = true;
 
+            DisableRepeatPromptButton();
         }
 
         protected override FSM.IState GetInitialState()
@@ -85,27 +85,16 @@ namespace Antura.Minigames.MissingLetter
         #endregion
 
         #region PRIVATE_FUNCTION
-        private void CalculateDifficulty()
+        private void PrepareParameters()
         {
-            float _diff = MissingLetterConfiguration.Instance.Difficulty;
-
-            //At least, they are all sets to the minimun
-            //m_iRoundsLimit = Mathf.RoundToInt(Mathf.Lerp(6, 10, _diff));
             m_iRoundsLimit = MissingLetterConfiguration.Instance.N_ROUNDS;
-            //m_iNumberOfPossibleAnswers = Mathf.RoundToInt(Mathf.Lerp(2, 6, _diff));
-            m_iNumberOfPossibleAnswers = 4;
 
-            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase) {
-                m_fGameTime = Mathf.Lerp(120, 80, _diff);
-            } else {
-                m_fGameTime = Mathf.Lerp(90, 60, _diff);
-            }
-            m_iAnturaTriggersNumber = Mathf.RoundToInt(Mathf.Lerp(1, 4, _diff));
-
-            //Calculating time entry point for Antura based off how many times it should enter
-            m_afAnturaEnterTriggers = new float[m_iAnturaTriggersNumber];
-            for (int i = 0; i < m_iAnturaTriggersNumber; ++i) {
-                m_afAnturaEnterTriggers[i] = ((m_fGameTime - 10.0f) / m_iAnturaTriggersNumber) * (m_iAnturaTriggersNumber - i);
+            if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase)
+            {
+                m_fGameTime = 120;// Mathf.Lerp(120, 80, _diff);
+            } else
+            {
+                m_fGameTime = 90; // m_fGameTime = Mathf.Lerp(90, 60, _diff);
             }
 
             // Stars threshold is computed as if we had 10 rounds
@@ -139,25 +128,9 @@ namespace Antura.Minigames.MissingLetter
         public LLOffset m_sQuestionOffset;
         public LLOffset m_sAnswerOffset;
 
-        [HideInInspector]
-        public int STARS_1_THRESHOLD = 2;
-        [HideInInspector]
-        public int STARS_2_THRESHOLD = 5;
-        [HideInInspector]
-        public int STARS_3_THRESHOLD = 9;
-
 
         [HideInInspector]
-        public int m_iNumberOfPossibleAnswers = 4;
-
-        [HideInInspector]
-        public float[] m_afAnturaEnterTriggers;
-
-        [HideInInspector]
-        public int m_iAnturaTriggersNumber;
-
-        [HideInInspector]
-        public int m_iAnturaTriggersIndex = 0;
+        public bool m_AnturaTriggered = false;
 
         [HideInInspector]
         public RoundManager m_oRoundManager;
@@ -166,27 +139,41 @@ namespace Antura.Minigames.MissingLetter
         public bool m_bIsTimesUp;
 
         [HideInInspector]
-        public int m_iCurrentScore { get; private set; }
-
-        [HideInInspector]
         public int m_iRoundsLimit;
 
         [HideInInspector]
         public float m_fGameTime;
 
+        #region Score
+
+        public override int MaxScore => STARS_3_THRESHOLD;
+
+        // Difficulty parameters
+        public int m_iNumberOfPossibleAnswers => (int)Mathf.Lerp(2, 5, Difficulty);
+
+        // Stars
+        [HideInInspector]
+        public int STARS_1_THRESHOLD = 2;
+        [HideInInspector]
+        public int STARS_2_THRESHOLD = 5;
+        [HideInInspector]
+        public int STARS_3_THRESHOLD = 9;
 
         public int m_iCurrentStars
         {
-            get {
-                if (m_iCurrentScore < STARS_1_THRESHOLD)
+            get
+            {
+                if (CurrentScore < STARS_1_THRESHOLD)
                     return 0;
-                if (m_iCurrentScore < STARS_2_THRESHOLD)
+                if (CurrentScore < STARS_2_THRESHOLD)
                     return 1;
-                if (m_iCurrentScore < STARS_3_THRESHOLD)
+                if (CurrentScore < STARS_3_THRESHOLD)
                     return 2;
                 return 3;
             }
         }
+
+        #endregion
 
         private bool m_bInIdle { get; set; }
 
@@ -203,5 +190,26 @@ namespace Antura.Minigames.MissingLetter
 
         #endregion
 
+        #region Repeat Button
+
+        public Button repeatPromptButton;
+
+        public void EnableRepeatPromptButton()
+        {
+            repeatPromptButton.gameObject.SetActive(true);
+        }
+
+        public void DisableRepeatPromptButton()
+        {
+            repeatPromptButton.gameObject.SetActive(false);
+        }
+
+        public void SayQuestion()
+        {
+            var question = m_oRoundManager.CurrentQuestionPack.GetQuestion();
+            MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question);
+        }
+
+        #endregion
     }
 }

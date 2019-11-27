@@ -24,7 +24,6 @@ namespace Antura.Minigames.Tobogan
 
         public QuestionsManager questionsManager;
 
-        public int CurrentScore { get; private set; }
         public int CurrentScoreRecord { get; private set; }
 
         [HideInInspector]
@@ -80,7 +79,7 @@ namespace Antura.Minigames.Tobogan
         {
             tutorialFlag = GetConfiguration().TutorialEnabled;
 
-            pipesAnswerController.SetSignHidingProbability(ToboganConfiguration.Instance.Difficulty);
+            pipesAnswerController.SetSignHidingProbability(Difficulty);
             SunMoonQuestions = new SunMoonTutorialQuestionProvider(ToboganConfiguration.Instance.Questions);
 
             QuestionState = new ToboganQuestionState(this);

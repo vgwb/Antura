@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using Antura.Audio;
+using Antura.Keeper;
 using Antura.Tutorial;
 
 namespace Antura.Minigames.SickLetters
@@ -60,8 +61,7 @@ namespace Antura.Minigames.SickLetters
         void onTutStart()
         {
             game.disableInput = false;
-            AudioManager.I.PlayDialogue(Database.LocalizationDataId.SickLetters_lettername_Tuto, ()=>{ game.buttonRepeater.SetActive(true); });//, () => { WidgetSubtitles.I.gameObject.SetActive(false); });
-            //WidgetSubtitles.I.DisplaySentence(Db.LocalizationDataId.SickLetters_Tuto, 5, false);
+            game.PlayTutorial(() => game.buttonRepeater.SetActive(true));
         }
 
         void onTutEnd()

@@ -1,14 +1,14 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
+using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
-using TMPro;
 
 namespace Antura.Minigames.MakeFriends
 {
     public class LetterChoiceController : MonoBehaviour, IPointerDownHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
-        public TMP_Text LetterText;
+        public TextRender LetterText;
         public Animator animator;
         public Image image;
         public Button button;
@@ -55,7 +55,7 @@ namespace Antura.Minigames.MakeFriends
         {
             Reset();
             letterData = _letterData;
-            LetterText.text = letterData.TextForLivingLetter; //ArabicAlphabetHelper.GetLetterFromUnicode(letterData.Data.Isolated_Unicode);
+            LetterText.text = letterData.TextForLivingLetter;
         }
 
         public void OnPointerDown(PointerEventData eventData)

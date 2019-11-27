@@ -41,7 +41,6 @@ namespace Antura.Minigames.Template
             // Default values
             // THESE SETTINGS ARE FOR SAMPLE PURPOSES, THESE VALUES MUST BE SET BY GAME CORE
             Context = new MinigamesGameContext(MiniGameCode.Invalid, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.5f;
         }
 
         public override IQuestionBuilder SetupBuilder()

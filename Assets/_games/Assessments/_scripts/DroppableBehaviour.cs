@@ -1,5 +1,8 @@
 using DG.Tweening;
 using System;
+using Antura.Book;
+using Antura.Core;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Assessment
@@ -21,6 +24,7 @@ namespace Antura.Assessment
         Vector3 origin; // Memorize starting position for going back
         void OnMouseDown()
         {
+            if (GlobalUI.PauseMenu.IsMenuOpen) return;
             if (!dragEnabled) {
                 return;
             }

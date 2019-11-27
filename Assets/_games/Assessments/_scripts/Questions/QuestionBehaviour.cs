@@ -1,4 +1,6 @@
 using System;
+using Antura.Core;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Assessment
@@ -53,6 +55,7 @@ namespace Antura.Assessment
 
         void OnMouseDown()
         {
+            if (GlobalUI.PauseMenu.IsMenuOpen) return;
             if (AssessmentOptions.Instance.PronunceQuestionWhenClicked) {
                 ReadMeSound();
             }

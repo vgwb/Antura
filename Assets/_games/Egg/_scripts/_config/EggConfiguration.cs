@@ -38,7 +38,6 @@ namespace Antura.Minigames.Egg
         {
             // Default values
             Context = new MinigamesGameContext(MiniGameCode.Egg_letterphoneme, System.DateTime.Now.Ticks.ToString());
-            Difficulty = 0.1f;
             Variation = EggVariation.LetterPhoneme;
 
             if (Variation == EggVariation.BuildWord) {
@@ -59,12 +58,12 @@ namespace Antura.Minigames.Egg
 
             // Debug.LogWarning("SetupBuilder " + Variation.ToString());
 
-            var builderParams = new QuestionBuilderParameters();
+            var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctSeverity = SelectionSeverity.AsManyAsPossible;
 
             switch (Variation) {
                 case EggVariation.LetterName:
-                    builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, nWrong, parameters: builderParams);
+                    builder = new RandomLettersQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams);
                     break;
                 case EggVariation.Image:
                     builderParams.wordFilters.requireDrawings = true;
@@ -72,12 +71,11 @@ namespace Antura.Minigames.Egg
                     break;
                 case EggVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builderParams.wordFilters.excludeDuplicateLetters = true;
                     builderParams.wordFilters.requireDrawings = true;
-                    builder = new LettersInWordQuestionBuilder(nPacks, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
+                    builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8);
                     break;
                 case EggVariation.LetterPhoneme:
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, 3, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, avoidWrongLettersWithSameSound: true);
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, avoidWrongLettersWithSameSound: true);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -93,45 +91,9 @@ namespace Antura.Minigames.Egg
             return rules;
         }
 
-        #region Variation checks
-
-        public override LocalizationDataId TitleLocalizationId
-        {
-            get {
-                switch (Variation) {
-                    case EggVariation.LetterName:
-                        return LocalizationDataId.Egg_letters_Title;
-                    case EggVariation.LetterPhoneme:
-                        return LocalizationDataId.Egg_letterphoneme_Title;
-                    case EggVariation.BuildWord:
-                        return LocalizationDataId.Egg_buildword_Title;
-                    case EggVariation.Image:
-                        return LocalizationDataId.Egg_image_Title;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
-
-        public LocalizationDataId TutorialLocalizationId
-        {
-            get
-            {
-                switch (Variation)
-                {
-                    case EggVariation.LetterName:
-                        return LocalizationDataId.Egg_letterphoneme_Tuto;
-                    case EggVariation.LetterPhoneme:
-                        return LocalizationDataId.Egg_letterphoneme_Tuto;
-                    case EggVariation.BuildWord:
-                        return LocalizationDataId.Egg_buildword_Tuto;
-                    case EggVariation.Image:
-                        return LocalizationDataId.Egg_image_Tuto;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-            }
-        }
+        #region Localization IDs
+        public override bool AutoPlayIntro => false;
+        #endregion
 
         public bool IsSingleVariation()
         {
@@ -160,7 +122,5 @@ namespace Antura.Minigames.Egg
                     throw new ArgumentOutOfRangeException();
             }
         }
-        #endregion
-
     }
 }

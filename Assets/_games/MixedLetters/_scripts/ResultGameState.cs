@@ -1,4 +1,4 @@
-﻿using Antura.LivingLetters;
+using Antura.LivingLetters;
 using Antura.UI;
 using Antura.Minigames;
 
@@ -98,7 +98,7 @@ namespace Antura.Minigames.MixedLetters
 
                 if (endResultTimer < 0)
                 {
-                    game.EndGame(game.CurrentStars, game.numRoundsWon);
+                    game.EndGame(game.CurrentStars, game.CurrentScore);
                 }
             }
 

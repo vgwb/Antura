@@ -107,7 +107,7 @@ namespace Antura.Assessment
             // Assessment Specific configuration.
             context.GameDescription = LocalizationDataId.Assessment_Match_Word_Image;
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = false; // Do not pronunce name of a picture
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.ShowQuestionAsImage = true;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word of the image
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
@@ -233,8 +233,8 @@ namespace Antura.Assessment
         {
             context.GameDescription = LocalizationDataId.Assessment_Match_Sentences;
             AssessmentOptions.Instance.PlayQuestionAlsoAfterTutorial = false;
-            AssessmentOptions.Instance.PronunceQuestionWhenClicked = false; // Child should read question
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = false; // Child shuold read answer
+            AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.ShowQuestionAsImage = false;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = false;
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = false;
@@ -394,7 +394,7 @@ namespace Antura.Assessment
         {
             context.GameDescription = LocalizationDataId.Assessment_Select_Letter_Listen;
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = false; // Child shuold identify the letter
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word to sort
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
             AssessmentOptions.Instance.QuestionAnsweredFlip = true;
@@ -424,7 +424,7 @@ namespace Antura.Assessment
             // TODO new MiniGame variation (these are copied from LetterForm)
             context.GameDescription = LocalizationDataId.Assessment_Select_Letter_Listen;
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = false; // Child shuold identify the letter
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true; 
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word to sort
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
             AssessmentOptions.Instance.QuestionAnsweredFlip = true;
@@ -453,7 +453,7 @@ namespace Antura.Assessment
         {
             context.GameDescription = LocalizationDataId.Assessment_Select_Word_Listen;
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = false; // Child should identify the word
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word to sort
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
             AssessmentOptions.Instance.QuestionAnsweredFlip = true;
@@ -474,6 +474,37 @@ namespace Antura.Assessment
             context.QuestionGenerator = new DefaultQuestionGenerator(context.Configuration.Questions,
                                                                         context.AudioManager,
                                                                         context.Events);
+            context.QuestionPlacer = new DefaultQuestionPlacer(null, context.AudioManager, placerOptions);
+
+            return CreateAssessment(context);
+        }
+
+        public static Assessment CreatePronouncedWordByImageAssessment(AssessmentContext context)
+        {
+            context.GameDescription = LocalizationDataId.Assessment_Select_Image_Listen;
+            AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
+            AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word to sort
+            AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
+            AssessmentOptions.Instance.QuestionAnsweredFlip = true;
+            AssessmentOptions.Instance.ShowQuestionAsImage = false;
+            AssessmentOptions.Instance.ShowAnswersAsImages = true;
+            AssessmentOptions.Instance.PlayQuestionAlsoAfterTutorial = true;
+
+            Init(context);
+            AssessmentOptions.Instance.AnswerType = LivingLetterDataType.Image;
+            placerOptions.QuestionWideness = ElementsSize.Get(LivingLetterDataType.Image);
+            placerOptions.AnswerWideness = ElementsSize.Get(LivingLetterDataType.Word);
+
+            CreateManagers(context,
+                DragManagerType.Default,
+                LogicInjectorType.Default,
+                AnswerPlacerType.Random
+            );
+
+            context.QuestionGenerator = new DefaultQuestionGenerator(context.Configuration.Questions,
+                context.AudioManager,
+                context.Events);
             context.QuestionPlacer = new DefaultQuestionPlacer(null, context.AudioManager, placerOptions);
 
             return CreateAssessment(context);

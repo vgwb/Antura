@@ -1,4 +1,4 @@
-using Antura.Audio;
+using Antura.Keeper;
 
 namespace Antura.Minigames.DancingDots
 {
@@ -16,10 +16,8 @@ namespace Antura.Minigames.DancingDots
 
         public void EnterState()
         {
-            game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.DancingDots_letterany_Intro, delegate () {
-                game.disableInput = false;
-            });
-            this.game.dancingDotsLL.contentGO.SetActive(true);
+            game.disableInput = false;
+            game.dancingDotsLL.contentGO.SetActive(true);
             game.StartRound();
             timer = game.gameDuration;
         }
@@ -42,7 +40,7 @@ namespace Antura.Minigames.DancingDots
                 game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Keeper_TimeUp);
             } else if (!alarmIsTriggered && timer < 20) {
                 alarmIsTriggered = true;
-                AudioManager.I.PlayDialogue("Keeper_Time_" + UnityEngine.Random.Range(1, 4));
+                KeeperManager.I.PlayDialogue("Keeper_Time_" + UnityEngine.Random.Range(1, 4));
             }
         }
 

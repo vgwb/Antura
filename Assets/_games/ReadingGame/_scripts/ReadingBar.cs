@@ -1,11 +1,14 @@
-﻿using Antura.Minigames;
+using Antura.Core;
+using Antura.Language;
+using Antura.Minigames;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Minigames.ReadingGame
 {
     public class ReadingBar : MonoBehaviour
     {
-        public TMPro.TextMeshPro text;
+        public TextRender text;
 
         public RectTransform start;
         public RectTransform target;
@@ -79,7 +82,7 @@ namespace Antura.Minigames.ReadingGame
             }
 
             text.color = TextColor;
-            text.alpha = 0;
+            text.TMPText.alpha = 0;
         }
 
         void Start()
@@ -109,14 +112,17 @@ namespace Antura.Minigames.ReadingGame
             Vector2 size = lastSize;
 
             if (alpha > 0)
-                size = lastSize = text.GetPreferredValues();
+                size = lastSize = text.TMPText.GetPreferredValues();
+
+            int rtlDir = LanguageSwitcher.I.IsLearningLanguageRTL() ? 1 : -1;
+            text.TMPText.isRightToLeftText = LanguageSwitcher.I.IsLearningLanguageRTL();
 
             var oldStartPos = start.localPosition;
-            oldStartPos.x = size.x * 0.5f + startOffset;
+            oldStartPos.x = rtlDir * (size.x * 0.5f + startOffset);
             start.localPosition = oldStartPos;
 
             var oldEndPos = endCompleted.localPosition;
-            oldEndPos.x = -size.x * 0.5f - endOffset;
+            oldEndPos.x = rtlDir * (-size.x * 0.5f - endOffset);
             endCompleted.localPosition = oldEndPos;
 
             // set target position
@@ -134,9 +140,8 @@ namespace Antura.Minigames.ReadingGame
             backSprite.transform.localPosition = oldPos;
             backSprite.donePercentage = 1 - glassPercPos;
             var oldScale = backSprite.transform.localScale;
-            oldScale.x = (start.localPosition.x - endCompleted.localPosition.x) * 0.25f;
+            oldScale.x = Mathf.Abs(start.localPosition.x - endCompleted.localPosition.x) * 0.25f;
             backSprite.transform.localScale = oldScale;
-
 
             if (shineWhenNearTarget)
             {
@@ -157,6 +162,9 @@ namespace Antura.Minigames.ReadingGame
         {
             UpdateParts();
             UpdateText();
+
+            glass.ShowArrows = showArrows;
+            target.gameObject.SetActive(active && showTarget);
         }
 
         void UpdateText()
@@ -164,7 +172,7 @@ namespace Antura.Minigames.ReadingGame
 
             const float ALPHA_LERP_SPEED = 5.0f;
 
-            var textAlpha = text.alpha;
+            var textAlpha = text.TMPText.alpha;
 
             var srcAlpha = textAlpha;
             var destAlpha = TextColor.a * alpha;
@@ -175,8 +183,8 @@ namespace Antura.Minigames.ReadingGame
             else
                 textAlpha = Mathf.Lerp(srcAlpha, destAlpha, ALPHA_LERP_SPEED * Time.deltaTime);
 
-            if (text.alpha != textAlpha)
-                text.alpha = textAlpha;
+            if (text.TMPText.alpha != textAlpha)
+                text.TMPText.alpha = textAlpha;
         }
 
         public void Complete()
