@@ -1,4 +1,4 @@
-﻿namespace Antura.LivingLetters
+namespace Antura.LivingLetters
 {
     /// <summary>
     /// Common interface for data that can appear on a LivingLetter object.

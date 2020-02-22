@@ -3,34 +3,36 @@ using Antura.Keeper;
 using UnityEngine;
 using System;
 using Antura.Database;
+using DG.DeInspektor.Attributes;
+#if UNITY_EDITOR
+using System.Collections.Generic;
+using System.IO;
+using UnityEditor;
+#endif
 
 namespace Antura.Core
 {
+    public enum EditionResourceID
+    {
+        Flag,
+    }
+
     [CreateAssetMenu]
     public class EditionConfig : ScriptableObject
     {
-        public static EditionConfig I => AppManager.I.EditionConfig;
+        public static EditionConfig I => AppManager.I.Edition;
 
         [Header("Edition")]
         public AppEditions Edition;
         public string EditionTitle;
 
-        public string ProductName;
-        public string BundleIdentifier;
-
-        /// <summary>
-        /// Version of the application. Displayed in the Home scene.
-        /// Major.Minor.Patch.Build
-        /// </summary>
-        [Tooltip("Major.Minor.Patch.Build")]
-        public string AppVersion = "0.0.0.0";
+        [Header("Multi-Edition")]
+        public EditionConfig[] ChildEditions;
+        public bool IsMultiEdition => ChildEditions != null && ChildEditions.Length > 0;
 
         [Header("Settings")]
         public bool ReservedAreaForcedSeq = false;
-
-        [Header("Sprites")]
-        public Sprite HomeLogo;
-        public Sprite TransitionLogo;
+        public bool ShowAccents = false;
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
@@ -44,7 +46,7 @@ namespace Antura.Core
         public bool ShowSubtitles;
         public KeeperMode DefaultKeeperMode;
 
-        // If true, subtitles can be skipped by clicking on them 
+        // If true, subtitles can be skipped by clicking on them
         public bool AllowSubtitleSkip;
 
         // If we can skip subtitles and this is
@@ -53,6 +55,10 @@ namespace Antura.Core
         public bool SkipSingleLanguage => false;
 
         public readonly bool ForceALLCAPSTextRendering = true;
+
+        [Header("Player Data")]
+        public bool RequireGender;
+        public bool RequireAge;
 
         [Header("Modules")]
         [Tooltip("add compilation symbol: MODULE_NOTIFICATIONS")]
@@ -98,5 +104,130 @@ namespace Antura.Core
         public MiniGameDatabase MiniGameDB;
         public RewardDatabase RewardDB;
 
+        [Header("In-Game Resources")]
+        public Sprite EditionIcon;
+
+        public Sprite HomeLogo;
+
+        public Sprite TransitionLogo;
+        public GameObject Flag3D;
+
+        public GameObject GetResource(EditionResourceID id)
+        {
+            switch (id)
+            {
+                case EditionResourceID.Flag: return Flag3D;
+            }
+            return null;
+        }
+
+
+        [Header("Build Settings")]
+
+        /// <summary>
+        /// Version of the application. Displayed in the Home scene.
+        /// Major.Minor.Patch.Build
+        /// </summary>
+        [Tooltip("Major.Minor.Patch.Build")]
+        public string AppVersion = "0.0.0.0";
+
+        /// <summary>
+        /// Auto-generated at each new Cloud build
+        /// </summary>
+        [ReadOnly]
+        public string CloudManifest = "NONE";
+
+        public string ProductName;
+        public string Android_BundleIdentifier;
+        public string iOS_BundleIdentifier;
+        public string BundleVersion;
+
+        public Texture2D Android_AppIcon;
+        public Texture2D iOS_AppIcon;
+        public Sprite[] SplashLogos;
+
+#if UNITY_EDITOR
+        [DeMethodButton("Configure as Active Edition")]
+        public void ConfigureForBuild()
+        {
+            var config = ApplicationConfig.FindMainConfig();
+            if (config == null) return;
+
+            config.LoadedEdition = this;
+            PlayerSettings.productName = ProductName;
+            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
+            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
+            PlayerSettings.bundleVersion = BundleVersion;
+            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new []{ Android_AppIcon });
+            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new [] { iOS_AppIcon });
+            PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
+            for (int i = 0; i < SplashLogos.Length; i++)
+            {
+                PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
+            }
+
+            List<EditionConfig> editionsToUse = new List<EditionConfig>();
+            if (IsMultiEdition)
+            {
+                foreach (var edition in ChildEditions)
+                {
+                    editionsToUse.Add(edition);
+                }
+            }
+            else
+            {
+                editionsToUse.Add(this);
+            }
+
+            // Move folders based on language...
+            var languagesToUse = new HashSet<LanguageCode>();
+            foreach (var edition in editionsToUse)
+            {
+                languagesToUse.Add(edition.NativeLanguage);
+                languagesToUse.UnionWith(edition.SupportedNativeLanguages);
+                languagesToUse.Add(edition.LearningLanguage);
+            }
+
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
+            {
+                var langCode = (LanguageCode) iLang;
+
+                var usePath = $"{Application.dataPath}/_config/Resources/{langCode}";
+                var unusePath = $"{Application.dataPath}/_config/Resources_unused/{langCode}";
+
+                if (languagesToUse.Contains(langCode))
+                {
+                    if (!Directory.Exists(usePath) && Directory.Exists(unusePath))
+                    {
+                        Debug.Log("Enabling language: " + langCode);
+                        Directory.Move(unusePath, usePath);
+                    }
+                }
+                else
+                {
+                    if (!Directory.Exists(unusePath) && Directory.Exists(usePath))
+                    {
+                        Debug.Log("Disabling language: " + langCode);
+                        Directory.Move(usePath, unusePath);
+                    }
+                }
+            }
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
+        }
+
+
+        /*[DeMethodButton("Test set cloud config")]
+        public void TestSetCloudConfig()
+        {
+            var config = ApplicationConfig.FindMainConfig();
+            if (config == null) return;
+            config.LoadedEdition.CloudManifest = "TEST CLOUD MANIFEST";
+            AssetDatabase.SaveAssets();
+        }*/
+
+#endif
     }
 }

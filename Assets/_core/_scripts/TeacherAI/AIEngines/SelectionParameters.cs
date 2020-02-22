@@ -36,19 +36,26 @@ namespace Antura.Teacher
             CurrentLearningBlockOnly,
         }
 
+        public enum PriorityFilter
+        {
+            NoPriority,             // Data is not prioritized at all
+            CurrentThenExpand,      // If the current PS has not enough data, try the current LB, then the current Stage
+            CurrentThenPast         // If the current PS has not enough data, go to previous PS
+        }
+
         public SelectionSeverity severity;
         public int nRequired;
         public bool getMaxData;
         public bool useJourney;
         public JourneyFilter journeyFilter;
-        public bool prioritizeHigherLearningBlocks;
+        public PriorityFilter priorityFilter;
 
         public PackListHistory packListHistory;
         public List<string> filteringIds;
         public bool sortDataByDifficulty;
 
         public SelectionParameters(SelectionSeverity severity, int nRequired = 0, bool getMaxData = false, bool useJourney = true, JourneyFilter journeyFilter = JourneyFilter.CurrentJourney, PackListHistory packListHistory = PackListHistory.NoFilter, List<string> filteringIds = null, bool sortDataByDifficulty = false,
-            bool prioritizeHigherLearningBlocks = true)
+            PriorityFilter priorityFilter = PriorityFilter.CurrentThenPast)
         {
             this.nRequired = nRequired;
             this.getMaxData = getMaxData;
@@ -58,13 +65,13 @@ namespace Antura.Teacher
             this.packListHistory = packListHistory;
             this.filteringIds = filteringIds;
             this.sortDataByDifficulty = sortDataByDifficulty;
-            this.prioritizeHigherLearningBlocks = prioritizeHigherLearningBlocks;
+            this.priorityFilter = priorityFilter;
         }
 
         public void AssignJourney(bool insideJourney)
         {
-            journeyFilter = insideJourney ? JourneyFilter.CurrentLearningBlockOnly : JourneyFilter.CurrentJourney;
-            prioritizeHigherLearningBlocks = insideJourney;
+            journeyFilter = JourneyFilter.CurrentJourney;
+            priorityFilter = insideJourney ? PriorityFilter.CurrentThenPast : PriorityFilter.NoPriority;
         }
     }
 
@@ -96,7 +103,7 @@ namespace Antura.Teacher
             this.useJourneyForWrong = true;
             this.correctSeverity = SelectionSeverity.MayRepeatIfNotEnough;
             this.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
-            this.letterEqualityStrictness = LetterEqualityStrictness.LetterOnly;
+            this.letterEqualityStrictness = LetterEqualityStrictness.Letter;
             this.letterFilters = new LetterFilters();
             this.wordFilters = new WordFilters();
             this.phraseFilters = new PhraseFilters();
@@ -104,12 +111,6 @@ namespace Antura.Teacher
             this.insideJourney = true;
         }
 
-        public SelectionParameters.JourneyFilter JourneyFilter
-        {
-            get
-            {
-                return insideJourney ? SelectionParameters.JourneyFilter.CurrentLearningBlockOnly : SelectionParameters.JourneyFilter.CurrentJourney;
-            }
-        }
+        public SelectionParameters.JourneyFilter JourneyFilter => SelectionParameters.JourneyFilter.CurrentJourney;
     }
 }

@@ -77,7 +77,7 @@ namespace Antura.Minigames
 
         public virtual bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
         {
-            return DataMatchingHelper.IsDataMatching(data1, data2, LetterEqualityStrictness.LetterOnly);
+            return DataMatchingHelper.IsDataMatching(data1, data2, LetterEqualityStrictness.Letter);
         }
 
         public virtual LetterDataSoundType GetVocabularySoundType()

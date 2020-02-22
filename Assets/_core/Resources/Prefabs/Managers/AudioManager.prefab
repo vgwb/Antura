@@ -3,9 +3,10 @@
 --- !u!1 &113176
 GameObject:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  serializedVersion: 5
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
   m_Component:
   - component: {fileID: 481964}
   - component: {fileID: 114000010424636218}
@@ -19,9 +20,10 @@ GameObject:
   m_IsActive: 1
 --- !u!4 &481964
 Transform:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113176}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -30,11 +32,53 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114000010424636218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 113176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 1667931054, guid: 800d57314097a8744a3ebf47377658a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  logInfo: 0
+  fooAudioGroups:
+  - mixerGroup: {fileID: 24356758, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
+    id: 3
+    maxSources: -1
+    preallocate: 8
+    recycle: 1
+    fooVolume: 1
+  - mixerGroup: {fileID: 24331624, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
+    id: 7
+    maxSources: 8
+    preallocate: 0
+    recycle: 1
+    fooVolume: 1
+  - mixerGroup: {fileID: 24348940, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
+    id: 4
+    maxSources: 1
+    preallocate: 1
+    recycle: 1
+    fooVolume: 1
+  - mixerGroup: {fileID: 24316638, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
+    id: 8
+    maxSources: 1
+    preallocate: 0
+    recycle: 1
+    fooVolume: 1
+  fooGlobalVolume: 1
+  fadeEase: 1
+  inspectorUpdater: 0
 --- !u!114 &11439158
 MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113176}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -501,54 +545,3 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 4f2421fe58c1c449f92315e17335e141, type: 3}
   - music: 10
     clip: {fileID: 8300000, guid: b401fdacb1ac4469790238fe4516a2e4, type: 3}
---- !u!1001 &100100000
-Prefab:
-  m_ObjectHideFlags: 1
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications: []
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 0}
-  m_RootGameObject: {fileID: 113176}
-  m_IsPrefabParent: 1
---- !u!114 &114000010424636218
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 113176}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 1667931054, guid: 800d57314097a8744a3ebf47377658a9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  logInfo: 0
-  fooAudioGroups:
-  - mixerGroup: {fileID: 24356758, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
-    id: 3
-    maxSources: -1
-    preallocate: 8
-    recycle: 1
-    fooVolume: 1
-  - mixerGroup: {fileID: 24331624, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
-    id: 7
-    maxSources: 8
-    preallocate: 0
-    recycle: 1
-    fooVolume: 1
-  - mixerGroup: {fileID: 24348940, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
-    id: 4
-    maxSources: 1
-    preallocate: 1
-    recycle: 1
-    fooVolume: 1
-  - mixerGroup: {fileID: 24316638, guid: 70c451da8e70e4eb0b5d0d3a49057230, type: 2}
-    id: 8
-    maxSources: 1
-    preallocate: 0
-    recycle: 1
-    fooVolume: 1
-  fooGlobalVolume: 1
-  fadeEase: 1
-  inspectorUpdater: 0

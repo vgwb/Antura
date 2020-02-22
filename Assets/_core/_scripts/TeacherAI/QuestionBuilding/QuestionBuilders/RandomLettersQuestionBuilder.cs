@@ -22,10 +22,7 @@ namespace Antura.Teacher
         private bool firstCorrectIsQuestion;
         private QuestionBuilderParameters parameters;
 
-        public QuestionBuilderParameters Parameters
-        {
-            get { return this.parameters; }
-        }
+        public QuestionBuilderParameters Parameters => parameters;
 
         public RandomLettersQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0, bool firstCorrectIsQuestion = false, QuestionBuilderParameters parameters = null)
         {
@@ -76,7 +73,7 @@ namespace Antura.Teacher
                 packListHistory: PackListHistory.NoFilter);
             selectionParams2.AssignJourney(parameters.insideJourney);
             var wrongLetters = teacher.VocabularyAi.SelectData(
-                () => vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.LetterOnly, parameters.letterFilters, correctLetters.ToArray()),
+                () => vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.Letter, parameters.letterFilters, correctLetters.ToArray()),
                 selectionParams2
                 );
 

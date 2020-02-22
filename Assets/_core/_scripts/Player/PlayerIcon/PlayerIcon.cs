@@ -87,18 +87,12 @@ namespace Antura.Profile
             bool isOn = Uuid == _uuid;
             UIButton.Toggle(Uuid == _uuid);
             if (isOn) {
-                if (FaceImg != null)
-                {
-                    FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
-                }
+                if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
                 if (HairImg != null) HairImg.color = defHairColor;
                 if (HatImage != null) HatImage.color = HatImage.color.SetAlpha(1f);
                 
             } else {
-                if (FaceImg != null)
-                {
-                    FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
-                }
+                if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
                 if (HairImg != null) HairImg.color = HairImg.color.ChangeSaturation(0.35f);
                 if (HatImage != null) HatImage.color = HatImage.color.SetAlpha(0.5f);
             }
@@ -121,18 +115,27 @@ namespace Antura.Profile
             Color color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : playerIconData.BgColor;
 //            UIButton.Ico = FaceImg;   // forced icon
 //            UIButton.ChangeDefaultColors(color, color.SetAlpha(0.5f));
-            UIButton.ChangeDefaultColors(color, color.ChangeSaturation(0.35f));;
-            FaceImg.sprite = isDemoUser
-                ? Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "god")
-                : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.AvatarId + 1) + "_face");
-            HairImg.sprite = isDemoUser
-                ? null
-                : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.AvatarId + 1) + "_hair");
-//                : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.None ? "M" : playerIconData.Gender.ToString()) +
-//                                         playerIconData.AvatarId);
-            defFaceColor = FaceImg.color = isDemoUser ? Color.white : playerIconData.SkinColor;
+
+            if (playerIconData.IsOldAvatar)
+            {
+                color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : PlayerTintConverter.ToColor(playerIconData.Tint);
+                FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.None ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
+            }
+            else
+            {
+                FaceImg.sprite = isDemoUser
+                    ? Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "god")
+                    : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.NewAvatarId + 1) + "_face");
+                HairImg.sprite = isDemoUser
+                    ? null
+                    : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.NewAvatarId + 1) + "_hair");
+            }
+
+            UIButton.ChangeDefaultColors(color, color.ChangeSaturation(0.35f));
+
+            defFaceColor = FaceImg.color = (isDemoUser || playerIconData.IsOldAvatar) ? Color.white : playerIconData.SkinColor;
             if (HairImg.sprite != null) defHairColor = HairImg.color = playerIconData.HairColor;
-            HairImg.gameObject.SetActive(!isDemoUser);
+            HairImg.gameObject.SetActive(!isDemoUser && ! playerIconData.IsOldAvatar);
             bool hasHat = endgameState != EndgameState.Unfinished;
             HatImage.gameObject.SetActive(hasHat);
             HatImage.color = HatImage.color.SetAlpha(1);
@@ -196,6 +199,8 @@ namespace Antura.Profile
             float rnd3 = UnityEngine.Random.value;
             var rndPlayerIconData = new PlayerIconData(Uuid = "",
                                                        UnityEngine.Random.Range(0, 7),
+                                                       PlayerTint.Blue,
+                                                       PlayerGender.M,
                                                        UnityEngine.Random.ColorHSV(),
                                                        UnityEngine.Random.ColorHSV(),
                                                        UnityEngine.Random.ColorHSV(),

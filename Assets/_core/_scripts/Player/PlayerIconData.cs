@@ -12,8 +12,8 @@ namespace Antura.Profile
     {
         public string Uuid;
         public int AvatarId;
-//        public PlayerGender Gender;
-//        public PlayerTint Tint;
+        public PlayerGender Gender;
+        public PlayerTint Tint; // Kept for backwards compatibility
         public Color SkinColor;
         public Color HairColor;
         public Color BgColor;
@@ -23,7 +23,7 @@ namespace Antura.Profile
         public bool HasMaxStarsInCurrentPlaySessions;
         public JourneyPosition MaxJourneyPosition;
 
-        public PlayerIconData(string _Uuid, int _AvatarId, Color _SkinColor, Color _HairColor, Color _BgColor, bool _IsDemoUser,
+        public PlayerIconData(string _Uuid, int _AvatarId, PlayerTint _Tint, PlayerGender _Gender, Color _SkinColor, Color _HairColor, Color _BgColor, bool _IsDemoUser,
             bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition)
         {
             Uuid = _Uuid;
@@ -31,6 +31,8 @@ namespace Antura.Profile
             SkinColor = _SkinColor;
             HairColor = _HairColor;
             BgColor = _BgColor;
+            Gender = _Gender;
+            Tint = _Tint;  
             IsDemoUser = _IsDemoUser;
             HasFinishedTheGame = _HasFinishedTheGame;
             HasFinishedTheGameWithAllStars = _HasFinishedTheGameWithAllStars;
@@ -39,18 +41,7 @@ namespace Antura.Profile
             Debug.Log("CREATE PLAYER ICON DATA > " + SkinColor + " > " + HairColor);
         }
 
-        //        public PlayerIconData(string _Uuid, int _AvatarId, PlayerGender _Gender, PlayerTint _Tint, bool _IsDemoUser,
-        //            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition)
-        //        {
-        //            Uuid = _Uuid;
-        //            AvatarId = _AvatarId;
-        //            Gender = _Gender;
-        //            Tint = _Tint;
-        //            IsDemoUser = _IsDemoUser;
-        //            HasFinishedTheGame = _HasFinishedTheGame;
-        //            HasFinishedTheGameWithAllStars = _HasFinishedTheGameWithAllStars;
-        //            HasMaxStarsInCurrentPlaySessions = _HasMaxStarsInCurrentPlaySessions;
-        //            MaxJourneyPosition = _MaxJourneyPosition;
-        //        }
+        public int NewAvatarId => AvatarId - PlayerProfileManager.NEW_AVATAR_ID_START;
+        public bool IsOldAvatar => AvatarId < PlayerProfileManager.NEW_AVATAR_ID_START;
     }
 }

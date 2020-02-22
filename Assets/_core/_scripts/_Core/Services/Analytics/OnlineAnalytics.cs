@@ -57,7 +57,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             parameters["avatar_bg_color"] = ColorUtility.ToHtmlStringRGB(playerProfile.BgColor);
             parameters["avatar_hair_color"] = ColorUtility.ToHtmlStringRGB(playerProfile.HairColor);
             parameters["avatar_skin_color"] = ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor);
-            //parameters["avatar_tint"] = playerProfile.Tint;
+            parameters["avatar_tint"] = playerProfile.Tint;
             parameters["gender"] = playerProfile.Gender;
             parameters["age"] = playerProfile.Age;
 #if FB_SDK

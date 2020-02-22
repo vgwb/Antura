@@ -95,7 +95,7 @@ namespace Antura.Minigames
         {
             get
             {
-                if (AppManager.I.EditionConfig.AutomaticDifficulty)
+                if (AppManager.I.Edition.AutomaticDifficulty)
                 {
                     return DifficultyForScore(CurrentScore);
                 }

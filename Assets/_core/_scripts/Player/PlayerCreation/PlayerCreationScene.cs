@@ -21,24 +21,17 @@ namespace Antura.Scenes
 
         private void HandleSkipScene()
         {
-            CreatePlayer(0, Color.yellow, Color.red, Color.magenta);
+            CreatePlayer(0, PlayerGender.M, Color.yellow, Color.red, Color.magenta, 4);
         }
 
-        public static void CreatePlayer(int avatarID, Color skinColor, Color hairColor, Color bgColor)
+
+        public static void CreatePlayer(int avatarID, PlayerGender gender, Color skinColor, Color hairColor, Color bgColor, int age)
         {
-            Debug.Log(string.Format("Will create player of with avatarID {0}, skin color {1}, hair color {2}, bg color {3}", avatarID, skinColor, hairColor, bgColor));
-            AppManager.I.PlayerProfileManager.CreatePlayerProfile(avatarID, skinColor, hairColor, bgColor);
+            Debug.Log(string.Format("Will create player of with avatarID {0}, skin color {1}, hair color {2}, bg color {3}, age {4}, gender {5},", avatarID, skinColor, hairColor, bgColor, age, gender));
+            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, avatarID, gender, PlayerTint.None, skinColor, hairColor, bgColor, age);
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
             AppManager.I.NavigationManager.GoToNextScene();
         }
 
-        [Obsolete("Use new overload which accepts skinColor, hairColor, bgColor")]
-        public static void CreatePlayer(int age, PlayerGender gender, int avatarID, PlayerTint color)
-        {
-            Debug.Log(string.Format("Will create player of age {0}, gender {1}, avatarID {2}, color {3}", age, gender, avatarID, color));
-            AppManager.I.PlayerProfileManager.CreatePlayerProfile(age, gender, avatarID, color);
-            LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            AppManager.I.NavigationManager.GoToNextScene();
-        }
     }
 }

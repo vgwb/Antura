@@ -2,6 +2,7 @@ using Antura.LivingLetters;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Antura.Core;
 using SQLite;
 using UnityEngine;
 using Antura.Language;
@@ -15,7 +16,9 @@ namespace Antura.Database
         Base,
         LetterVariation,
         Symbol,
-        BaseAndVariations
+        BaseAndVariations,
+        AccentedLetter,
+        SpecialChar
     }
 
     [Flags]
@@ -33,9 +36,10 @@ namespace Antura.Database
     /// </summary>
     public enum LetterEqualityStrictness
     {
-        LetterOnly,         // the same letter, regardless of the form
+        LetterBase,          // the same letter, regardless of whether it has accents or not
+        Letter,             // the same letter, regardless of the form
         WithVisualForm,     // the same letter with the same form, or with different forms but with the same visual appearance
-        WithActualForm      // the same letter with the same form
+        WithActualForm,      // the same letter with the same form
     }
 
 
@@ -275,6 +279,39 @@ namespace Antura.Database
         [SerializeField]
         private string _MedialFix;
 
+        public bool HasDot
+        {
+            get { return _HasDot; }
+            set { _HasDot = value; }
+        }
+        [SerializeField]
+        private bool _HasDot;
+
+        public bool HasDiacritic
+        {
+            get { return _HasDiacritic; }
+            set { _HasDiacritic = value; }
+        }
+        [SerializeField]
+        private bool _HasDiacritic;
+
+        public bool HasAccent
+        {
+            get { return _HasAccent; }
+            set { _HasAccent = value; }
+        }
+        [SerializeField]
+        private bool _HasAccent;
+
+        public int Orientations
+        {
+            get { return _Orientations; }
+            set { _Orientations = value; }
+        }
+        [SerializeField]
+        private int _Orientations;
+
+
         public float Complexity
         {
             get { return _Complexity; }
@@ -304,6 +341,8 @@ namespace Antura.Database
                 return LetterForm.Isolated;
             }
         }
+
+        public LetterData Base => AppManager.I.VocabularyHelper.GetAccentedBase(Id);
 
         #endregion
 
@@ -348,6 +387,12 @@ namespace Antura.Database
                 case LetterKindCategory.BaseAndVariations:
                     isIt = IsBaseOrVariationLetter();
                     break;
+                case LetterKindCategory.AccentedLetter:
+                    isIt = IsAccentedLetter();
+                    break;
+                case LetterKindCategory.SpecialChar:
+                    isIt = IsSpecialCharacter();
+                    break;
             }
             return isIt;
         }
@@ -380,6 +425,14 @@ namespace Antura.Database
         private bool IsBaseOrVariationLetter()
         {
             return Kind == LetterDataKind.Letter || Kind == LetterDataKind.LetterVariation;
+        }
+        private bool IsAccentedLetter()
+        {
+            return Kind == LetterDataKind.AccentedLetter;
+        }
+        private bool IsSpecialCharacter()
+        {
+            return Kind == LetterDataKind.SpecialChar;
         }
 
         public ILivingLetterData ConvertToLivingLetterData()
@@ -428,9 +481,14 @@ namespace Antura.Database
                     return "";
             }
         }
-
-        public string GetStringForDisplay(LetterForm form = LetterForm.Isolated)
+        public string GetStringForDisplay(LetterForm form = LetterForm.Isolated, bool forceShowAccent = false)
         {
+            // Accented letters are always shown as non-accented
+            if (!forceShowAccent && !AppManager.I.Edition.ShowAccents && HasAccent)
+            {
+                return Base.GetStringForDisplay(form);
+            }
+
             // Get the string for the specific form, without fallback
             var hexunicode = GetUnicode(form, fallback: false);
             if (hexunicode == "") {
@@ -491,8 +549,12 @@ namespace Antura.Database
         public bool IsSameLetterAs(LetterData other, LetterEqualityStrictness strictness)
         {
             bool isEqual = false;
-            switch (strictness) {
-                case LetterEqualityStrictness.LetterOnly:
+            switch (strictness)
+            {
+                case LetterEqualityStrictness.LetterBase:
+                    isEqual = string.Equals(Base.Id, other.Base.Id);
+                    break;
+                case LetterEqualityStrictness.Letter:
                     isEqual = string.Equals(_Id, other._Id);
                     break;
                 case LetterEqualityStrictness.WithActualForm:
@@ -522,8 +584,8 @@ namespace Antura.Database
 
         private bool Equals(LetterData other)
         {
-            // By default, LetterData uses LetterOnly when comparing (even in collections!)
-            return IsSameLetterAs(other, LetterEqualityStrictness.LetterOnly);
+            // By default, LetterData uses Letter when comparing (even in collections!)
+            return IsSameLetterAs(other, LetterEqualityStrictness.Letter);
         }
 
         public override int GetHashCode()

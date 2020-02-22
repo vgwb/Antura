@@ -73,13 +73,14 @@ namespace Antura.Language
         /// Return a string of a word without a character. Warning: the word is already reversed and fixed for rendering.
         /// This is mandatory since PrepareArabicStringForDisplay should be called before adding removedLetterChar.
         /// </summary>
-        public string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "_")
+        public string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "\u2588", string removedLetterColor = "#F1BB3D")
         {
             string text = ProcessString(wordData.Text);
 
+            var colorStart = $"<color={removedLetterColor}>";
+            var colorEnd = "</color>";
             int toCharacterIndex = partToRemove.toCharacterIndex + 1;
-            text = text.Substring(0, partToRemove.fromCharacterIndex) + removedLetterChar +
-                   (toCharacterIndex >= text.Length ? "" : text.Substring(toCharacterIndex));
+            text = $"{text.Substring(0, partToRemove.fromCharacterIndex)}{colorStart}{removedLetterChar}{colorEnd}{(toCharacterIndex >= text.Length ? "" : text.Substring(toCharacterIndex))}";
 
             return text;
         }
@@ -89,10 +90,12 @@ namespace Antura.Language
             var stringParts = new List<StringPart>();
             var parts = SplitWord(database, wordData, false, letterToFind.Kind != LetterDataKind.LetterVariation);
 
+            var strictness = LetterEqualityStrictness.LetterBase;
+            if (findSameForm) strictness = LetterEqualityStrictness.WithActualForm;
+
             for (int i = 0, count = parts.Count; i < count; ++i)
             {
-                if (parts[i].letter.Id == letterToFind.Id &&
-                    (!findSameForm || (parts[i].letterForm == letterToFind.Form)))
+                if (parts[i].letter.IsSameLetterAs( letterToFind, strictness))
                 {
                     stringParts.Add(parts[i]);
                 }
@@ -244,7 +247,14 @@ namespace Antura.Language
         {
             string text = ProcessString(wordData.Text);
 
-            string markTagStart = "<color=#" + GenericHelper.ColorToHex(flashColor) + ">";
+            // Special behaviour for chars
+            var markedPart = text.Substring(fromIndexToFlash, 1);
+            if (markedPart == " ")
+            {
+                text = text.Replace(" ", "_");
+            }
+
+            string markTagStart = $"<color=#{GenericHelper.ColorToHex(flashColor)}>";
             string markTagEnd = "</color>";
 
             float timeElapsed = 0f;
@@ -257,7 +267,7 @@ namespace Antura.Language
                 float interpolant = timeElapsed < halfDuration
                     ? timeElapsed / halfDuration
                     : 1 - ((timeElapsed - halfDuration) / halfDuration);
-                string flashTagStart = "<color=#" + GenericHelper.ColorToHex(Color.Lerp(Color.black, flashColor, interpolant)) + ">";
+                string flashTagStart = $"<color=#{GenericHelper.ColorToHex(Color.Lerp(Color.black, flashColor, interpolant))}>";
                 string flashTagEnd = "</color>";
 
                 string resultOfThisFrame = "";

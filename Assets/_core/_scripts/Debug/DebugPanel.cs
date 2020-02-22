@@ -197,6 +197,12 @@ namespace Antura.Debugging
             Close();
         }
 
+        public void OnCreateOldProfile()
+        {
+            DebugManager.I.CreateOldProfile();
+            Close();
+        }
+
         public bool FirstContactCompleted
         {
             get { return DebugManager.I.FirstContactCompleted; }

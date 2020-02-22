@@ -25,12 +25,14 @@ namespace Antura.Database
 
         #region Letter Utilities
 
-        private bool CheckFilters(LetterFilters filters, LetterData data)
+        public bool CheckFilters(LetterFilters filters, LetterData data)
         {
             if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) { return false; }
             if (!FilterByDiacritics(filters.excludeDiacritics, data)) { return false; }
             if (!FilterByLetterVariations(filters.excludeLetterVariations, data)) { return false; }
             if (!FilterByDipthongs(filters.excludeDiphthongs, data)) { return false; }
+            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter)) { return false; }
+            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar)) { return false; }
 
             // always skip symbols
             if (data.IsOfKindCategory(LetterKindCategory.Symbol)) {
@@ -83,6 +85,15 @@ namespace Antura.Database
         public bool FilterByDipthongs(bool excludeDiphthongs, LetterData data)
         {
             if (excludeDiphthongs && data.Kind == LetterDataKind.Diphthong) {
+                return false;
+            }
+            return true;
+        }
+
+        public bool FilterByKind(bool exclude, LetterData data, LetterDataKind kind)
+        {
+            if (exclude && data.Kind == kind)
+            {
                 return false;
             }
             return true;
@@ -144,12 +155,16 @@ namespace Antura.Database
             return dbManager.FindLetterData(x => x.Type == choice && CheckFilters(filters, x));
         }
 
-        public LetterData GetBaseOf(string letterId)
+        public LetterData GetAccentedBase(string letterId)
         {
             var data = dbManager.GetLetterDataById(letterId);
-            if (data.BaseLetter == "") {
-                return null;
-            }
+
+            if (!data.IsOfKindCategory(LetterKindCategory.AccentedLetter))
+                return data;
+
+            if (string.IsNullOrEmpty(data.BaseLetter))
+                return data;
+
             return dbManager.FindLetterData(x => x.Id == data.BaseLetter)[0];
         }
 
@@ -255,27 +270,31 @@ namespace Antura.Database
 
         private Dictionary<string, List<LetterData>> wordsToLetterCache = new Dictionary<string, List<LetterData>>();
 
-        public List<LetterData> GetLettersInWord(WordData wordData)
+        public List<LetterData> GetLettersInWord(WordData wordData, bool keepBasesOnly = false)
         {
             // @note: this will always retrieve all letters with their forms, the strictness will then define whether that has any consequence or not
             List<LetterData> letters = null;
             var dictCache = wordsToLetterCache;
-            if (!dictCache.ContainsKey(wordData.Id)) {
+            if (!dictCache.ContainsKey(wordData.Id))
+            {
                 var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, wordData, separateVariations: false);
                 letters = parts.ConvertAll(x => ConvertToLetterWithForcedForm(x.letter, x.letterForm));
                 dictCache[wordData.Id] = letters;
             }
             letters = dictCache[wordData.Id];
+
+            if (keepBasesOnly) letters = letters.ConvertAll(ld => ld.Base);
+
             return letters;
         }
 
 
-        public List<LetterData> GetLettersNotInWords(LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly, params WordData[] tabooArray)
+        public List<LetterData> GetLettersNotInWords(LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase, params WordData[] tabooArray)
         {
             return GetLettersNotInWords(LetterKindCategory.Real, equalityStrictness, tabooArray);
         }
 
-        public List<LetterData> GetLettersNotInWords(LetterKindCategory category = LetterKindCategory.Real, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly, params WordData[] tabooArray)
+        public List<LetterData> GetLettersNotInWords(LetterKindCategory category = LetterKindCategory.Real, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase, params WordData[] tabooArray)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             var lettersInWords = new HashSet<LetterData>(comparer);
@@ -287,7 +306,7 @@ namespace Antura.Database
             return lettersNotInWords;
         }
 
-        public List<LetterData> GetLettersNotInWord(WordData wordData, LetterKindCategory category = LetterKindCategory.Real, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly)
+        public List<LetterData> GetLettersNotInWord(WordData wordData, LetterKindCategory category = LetterKindCategory.Real, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             var lettersInWord = GetLettersInWord(wordData);
@@ -405,13 +424,13 @@ namespace Antura.Database
             return false;
         }
 
-        public bool WordContainsDuplicateLetters(WordData selectedWord, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool WordContainsDuplicateLetters(WordData selectedWord, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var wordLetters = GetLettersInWord(selectedWord);
             return wordLetters.GroupBy(x => x.Id).Any(g => g.Count() > 1);
         }
 
-        public int WordContainsLetterTimes(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        public int WordContainsLetterTimes(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var wordLetters = GetLettersInWord(selectedWord);
             int count = 0;
@@ -421,7 +440,7 @@ namespace Antura.Database
             return count;
         }
 
-        public bool WordContainsLetter(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool WordContainsLetter(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
             //if (containedLetter.Id == "lam_alef") Debug.Log("Looking for lam-alef in " + selectedWord);
             //foreach (var l in ArabicAlphabetHelper.FindLetter(dbManager, selectedWord, containedLetter))
@@ -496,27 +515,27 @@ namespace Antura.Database
 
         #region Letter -> Word
 
-        public List<WordData> GetWordsWithLetter(WordFilters filters, LetterData okLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        public List<WordData> GetWordsWithLetter(WordFilters filters, LetterData okLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
             return GetWordsByLetters(filters, new[] { okLetter }, null, letterEqualityStrictness);
         }
 
-        public List<WordData> GetWordsWithLetters(WordFilters filters, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly, params LetterData[] okLetters)
+        public List<WordData> GetWordsWithLetters(WordFilters filters, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase, params LetterData[] okLetters)
         {
             return GetWordsByLetters(filters, okLetters, null, letterEqualityStrictness);
         }
 
-        public List<WordData> GetWordsWithoutLetter(WordFilters filters, LetterData tabooLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        public List<WordData> GetWordsWithoutLetter(WordFilters filters, LetterData tabooLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.Letter)
         {
             return GetWordsByLetters(filters, null, new[] { tabooLetter }, letterEqualityStrictness);
         }
 
-        public List<WordData> GetWordsWithoutLetters(WordFilters filters, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly, params LetterData[] tabooLetters)
+        public List<WordData> GetWordsWithoutLetters(WordFilters filters, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase, params LetterData[] tabooLetters)
         {
             return GetWordsByLetters(filters, null, tabooLetters, letterEqualityStrictness);
         }
 
-        private List<WordData> GetWordsByLetters(WordFilters filters, LetterData[] okLettersArray, LetterData[] tabooLettersArray, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly)
+        private List<WordData> GetWordsByLetters(WordFilters filters, LetterData[] okLettersArray, LetterData[] tabooLettersArray, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
             if (okLettersArray == null) okLettersArray = new LetterData[] { };
             if (tabooLettersArray == null) tabooLettersArray = new LetterData[] { };
@@ -562,7 +581,7 @@ namespace Antura.Database
             return wordsByLetters;
         }
 
-        public bool WordContainsAnyLetter(WordData word, IEnumerable<LetterData> letters, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool WordContainsAnyLetter(WordData word, IEnumerable<LetterData> letters, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             var containedLetters = GetLettersInWord(word);
@@ -574,7 +593,7 @@ namespace Antura.Database
             return false;
         }
 
-        public bool WordHasAllLettersInCommonWith(WordData word, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool WordHasAllLettersInCommonWith(WordData word, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var lettersInWord = GetLettersInWord(word);
             foreach (var letter in lettersInWord) {
@@ -585,7 +604,7 @@ namespace Antura.Database
             return true;
         }
 
-        public bool IsLetterContainedInAnyWord(LetterData letter, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool IsLetterContainedInAnyWord(LetterData letter, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             foreach (var word in words) {
@@ -597,7 +616,7 @@ namespace Antura.Database
             return false;
         }
 
-        public bool AnyWordContainsLetter(LetterData letter, IEnumerable<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterOnly)
+        public bool AnyWordContainsLetter(LetterData letter, IEnumerable<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             foreach (var word in words) {

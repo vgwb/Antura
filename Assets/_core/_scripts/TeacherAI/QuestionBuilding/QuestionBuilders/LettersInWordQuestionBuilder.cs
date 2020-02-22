@@ -1,6 +1,7 @@
 using Antura.Core;
 using Antura.Database;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace Antura.Teacher
 {
@@ -23,18 +24,17 @@ namespace Antura.Teacher
         private int nWrong;
         private int maximumWordLength;
         private bool packsUsedTogether;
-        private bool forceUnseparatedLetters;
+        private bool removeAccents;
+
         private QuestionBuilderParameters parameters;
 
-        public QuestionBuilderParameters Parameters
-        {
-            get { return this.parameters; }
-        }
+        public QuestionBuilderParameters Parameters => this.parameters;
 
         public LettersInWordQuestionBuilder(
             int nRounds, int nPacksPerRound = 1, int nCorrect = 1, int nWrong = 0,
             bool useAllCorrectLetters = false, 
             int maximumWordLength = 20,
+            bool removeAccents = true,
             QuestionBuilderParameters parameters = null)
         {
             if (parameters == null) {
@@ -47,6 +47,7 @@ namespace Antura.Teacher
             this.nWrong = nWrong;
             this.useAllCorrectLetters = useAllCorrectLetters;
             this.maximumWordLength = maximumWordLength;
+            this.removeAccents = removeAccents;
             this.parameters = parameters;
 
             this.parameters.sortPacksByDifficulty = true;
@@ -93,7 +94,8 @@ namespace Antura.Teacher
             //UnityEngine.Debug.LogWarning("Chosen word: " + wordQuestion);
 
             // Get letters of that word
-            var wordLetters = vocabularyHelper.GetLettersInWord(wordQuestion);
+            var wordLetters = vocabularyHelper.GetLettersInWord(wordQuestion, removeAccents);
+
             //UnityEngine.Debug.LogWarning("Found letters: " + wordLetters.ToArray().ToDebugString());
 
             bool useJourneyForLetters = parameters.useJourneyForCorrect;
@@ -172,6 +174,13 @@ namespace Antura.Teacher
                     continue;
                 }
 
+                // Avoid using letters that should be filtered out
+                if (!vocabularyHelper.CheckFilters(parameters.letterFilters, letter))
+                {
+                    //UnityEngine.Debug.LogError("Filtering out letter "+ letter + " from " + selectedWord);
+                    continue;
+                }
+
                 eligibleLetters.Add(letter);
             }
             return eligibleLetters;
@@ -180,7 +189,7 @@ namespace Antura.Teacher
         public List<LetterData> FindWrongLetters(WordData selectedWord, List<LetterData> wordLetters)
         {
             var vocabularyHelper = AppManager.I.VocabularyHelper;
-            var noWordLetters = vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.LetterOnly, parameters.letterFilters, wordLetters.ToArray());
+            var noWordLetters = vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.Letter, parameters.letterFilters, wordLetters.ToArray());
             var eligibleLetters = new List<LetterData>();
             var badWords = new List<WordData>(currentRound_words);
             badWords.Remove(selectedWord);

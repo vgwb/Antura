@@ -19,8 +19,7 @@ namespace Antura.Profile
         public string Uuid;
         public int AvatarId;
         public PlayerGender Gender;
-        [Obsolete("New player system doesn't have single tint but various colors for skin, hair, bg")]
-        public PlayerTint Tint;
+        public PlayerTint Tint; // Kept for backwards compatibility
         public int Age;
         public Color SkinColor;
         public Color HairColor;
@@ -514,6 +513,7 @@ namespace Antura.Profile
             Uuid = _data.Uuid;
 
             AvatarId = _data.AvatarId;
+            Tint = _data.Tint;
             Age = _data.Age;
             Gender = _data.Gender;
             SkinColor = string.IsNullOrEmpty(_data.SkinColor) ? Color.white : _data.SkinColor.HexToColor();
@@ -549,7 +549,7 @@ namespace Antura.Profile
         public PlayerProfileData ToData()
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
-                    Uuid, AvatarId, SkinColor, HairColor, BgColor, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
+                    Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
                     FirstContactState
             );
@@ -564,8 +564,8 @@ namespace Antura.Profile
             {
                 Uuid = this.Uuid,
                 AvatarId = this.AvatarId,
-//                Gender = this.Gender,
-//                Tint = this.Tint,
+                Gender = this.Gender,
+                Tint = this.Tint,
                 SkinColor = this.SkinColor,
                 HairColor = this.HairColor,
                 BgColor = this.BgColor,

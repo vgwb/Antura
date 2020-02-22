@@ -47,6 +47,8 @@ namespace Antura.Core
                 Settings = new AppSettings();
                 Settings.SetAppVersion(EditionConfig.I.AppVersion);
 
+                Settings.LoadedEdition = AppManager.I.Edition.Edition;
+
                 // set native Language
                 // first set the default / fallback language
                 Settings.NativeLanguage = EditionConfig.I.NativeLanguage;
@@ -175,6 +177,12 @@ namespace Antura.Core
         public void SetNativeLanguage(Language.LanguageCode langCode)
         {
             Settings.NativeLanguage = langCode;
+            SaveSettings();
+        }
+
+        public void SetLoadedEdition(AppEditions edition)
+        {
+            Settings.LoadedEdition = edition;
             SaveSettings();
         }
 

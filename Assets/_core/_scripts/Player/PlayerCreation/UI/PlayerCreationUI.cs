@@ -19,8 +19,10 @@ namespace Antura.Profile
     {
         public enum UIState
         {
+            GenderSelection,
             AvatarCreation,
-            BgColorSelection
+            BgColorSelection,
+            AgeSelection
         }
 
         public enum CategoryType
@@ -28,7 +30,9 @@ namespace Antura.Profile
             SkinColor,
             Avatar,
             HairColor,
-            BgColor
+            BgColor,
+            Gender,
+            Age
         }
 
         static class CategoryIndex
@@ -48,6 +52,8 @@ namespace Antura.Profile
         public RectTransform CategoriesContainer;
         public PlayerCreationUICategory[] Categories; // 0: skinColor // 1: avatar // 2: hairColor
         public PlayerCreationUICategory BgColorCategory;
+        public PlayerCreationUICategory GenderCategory;
+        public PlayerCreationUICategory AgeCategory;
 
         #endregion
 
@@ -72,17 +78,28 @@ namespace Antura.Profile
         Color[] skinColors, hairColors, bgColors;
         Color currSkinColor = Color.black, currHairColor = Color.black, currBgColor = Color.black;
         int currAvatarId = -1;
+        int currAge = -1;
+        PlayerGender currGender = PlayerGender.None;
         Tween stepTween;
 
         #region Unity
 
         void Awake()
         {
-            State = UIState.AvatarCreation;
+            if (EditionConfig.I.RequireGender)
+            {
+                State = UIState.GenderSelection;
+            }
+            else
+            {
+                State = UIState.AvatarCreation;
+            }
         }
 
         IEnumerator Start()
         {
+            AppManager.I.Player = null; // Remove current player
+
             _avatars = GetUICategoryObj(CategoryType.Avatar).GetComponentsInChildren<PlayerCreationAvatar>(true);
             _avatarBts = GetUICategoryObj(CategoryType.Avatar).GetComponentsInChildren<UIButton>(true);
             _hairColorBts = GetUICategoryObj(CategoryType.HairColor).GetComponentsInChildren<UIButton>(true);
@@ -115,15 +132,20 @@ namespace Antura.Profile
             selectionStepOffsetY = StartupOffsetY / (Categories.Length - 1f);
             CategoriesContainer.SetAnchoredPosY(StartupOffsetY);
             for (var i = 0; i < Categories.Length; ++i) {
-                Categories[i].gameObject.SetActive(i == 0);
+                //Categories[i].gameObject.SetActive(i == 0);
+                Categories[i].gameObject.SetActive(false);
             }
             BtContinue.gameObject.SetActive(false);
             BgColorCategory.gameObject.SetActive(false);
+            AgeCategory.gameObject.SetActive(false);
+            GenderCategory.gameObject.SetActive(true);
 
             // Initialize categories (wait)
             yield return null;
             foreach (PlayerCreationUICategory cat in Categories) cat.Init();
             BgColorCategory.Init();
+            AgeCategory.Init();
+            GenderCategory.Init();
 
             // Listeners
             BtContinue.Bt.onClick.AddListener(OnContinue);
@@ -133,8 +155,13 @@ namespace Antura.Profile
             }
             BgColorCategory.OnSelect += OnSelectCategory;
             BgColorCategory.OnDeselectAll += OnDeselectAllInCategory;
+            GenderCategory.OnSelect += OnSelectCategory;
+            GenderCategory.OnDeselectAll += OnDeselectAllInCategory;
+            AgeCategory.OnSelect += OnSelectCategory;
+            AgeCategory.OnDeselectAll += OnDeselectAllInCategory;
 
-            playAudioDescription(0);
+            SwitchState(State, true);
+            playAudioDescription(State, 0);
         }
 
         void OnDestroy()
@@ -146,6 +173,10 @@ namespace Antura.Profile
             }
             BgColorCategory.OnSelect -= OnSelectCategory;
             BgColorCategory.OnDeselectAll -= OnDeselectAllInCategory;
+            GenderCategory.OnSelect -= OnSelectCategory;
+            GenderCategory.OnDeselectAll -= OnDeselectAllInCategory;
+            AgeCategory.OnSelect -= OnSelectCategory;
+            AgeCategory.OnDeselectAll -= OnDeselectAllInCategory;
             stepTween.Kill();
         }
 
@@ -153,60 +184,119 @@ namespace Antura.Profile
 
         #region Methods
 
-        void SwitchState(UIState toState)
+        void SwitchState(UIState toState, bool init = false)
         {
-            if (State == toState) { return; }
+            if (State == toState && !init) { return; }
 
             State = toState;
             PlayerCreationUICategory avatarCat = Categories[CategoryIndex.Avatar];
-            switch (toState) {
+            switch (toState)
+            {
+                case UIState.GenderSelection:
+                    foreach (var cat in Categories) cat.gameObject.SetActive(false);
+                    BgColorCategory.gameObject.SetActive(false);
+                    GenderCategory.gameObject.SetActive(true);
+                    AgeCategory.gameObject.SetActive(false);
+                    BtContinue.StopPulsing();
+                    BtContinue.gameObject.SetActive(false);
+                    if (!init) KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender);
+                    break;
+
+                case UIState.AvatarCreation:
+                    BgColorCategory.gameObject.SetActive(false);
+                    GenderCategory.gameObject.SetActive(false);
+                    AgeCategory.gameObject.SetActive(false);
+                    foreach (UIButton catBt in avatarCat.UIButtons) {
+                        catBt.gameObject.SetActive(true);
+                    }
+
+                    if (!init && currAvatarId != -1)
+                    {
+                        foreach (PlayerCreationUICategory cat in Categories)
+                        {
+                            if (cat != avatarCat)
+                            {
+                                cat.gameObject.SetActive(true);
+                            }
+                        }
+
+                        _avatars[currAvatarId].SetHairColor(Color.white);
+                        OnSelectCategory(avatarCat, avatarCat.UIButtons[avatarCat.SelectedIndex]);
+                    }
+                    else
+                    {
+                        foreach (PlayerCreationUICategory cat in Categories)
+                            cat.gameObject.SetActive(false);
+                        Categories[0].gameObject.SetActive(true);
+                    }
+
+                    break;
+
                 case UIState.BgColorSelection:
-                    for (var i = 0; i < avatarCat.UIButtons.Length; i++) {
+                    for (var i = 0; i < avatarCat.UIButtons.Length; i++)
+                    {
                         avatarCat.UIButtons[i].gameObject.SetActive(i == avatarCat.SelectedIndex);
-                        if (i == avatarCat.SelectedIndex) {
+                        if (i == avatarCat.SelectedIndex)
+                        {
                             avatarCat.UIButtons[i].transform.localScale = Vector3.one * 1.65f;
                             _avatars[currAvatarId].SetHairColor(currHairColor);
                         }
                     }
-                    foreach (var cat in Categories) {
-                        if (cat != avatarCat) {
-                            cat.gameObject.SetActive(false);
-                        }
+                    foreach (var cat in Categories)
+                    {
+                        if (cat != avatarCat) cat.gameObject.SetActive(false);
                     }
                     BgColorCategory.gameObject.SetActive(true);
+                    GenderCategory.gameObject.SetActive(false);
+                    AgeCategory.gameObject.SetActive(false);
                     BtContinue.StopPulsing();
                     BtContinue.gameObject.SetActive(false);
                     KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color);
                     break;
-                case UIState.AvatarCreation:
+
+                case UIState.AgeSelection:
+                    foreach (var cat in Categories)
+                    {
+                        if (cat != avatarCat) cat.gameObject.SetActive(false);
+                    }
                     BgColorCategory.gameObject.SetActive(false);
-                    foreach (UIButton catBt in avatarCat.UIButtons) {
-                        catBt.gameObject.SetActive(true);
-                    }
-                    foreach (PlayerCreationUICategory cat in Categories) {
-                        if (cat != avatarCat) {
-                            cat.gameObject.SetActive(true);
-                        }
-                    }
-                    _avatars[currAvatarId].SetHairColor(Color.white);
-                    OnSelectCategory(avatarCat, avatarCat.UIButtons[avatarCat.SelectedIndex]);
+                    GenderCategory.gameObject.SetActive(false);
+                    AgeCategory.gameObject.SetActive(true);
+                    BtContinue.StopPulsing();
+                    BtContinue.gameObject.SetActive(false);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age);
                     break;
+
             }
         }
 
-        void playAudioDescription(int SelectedIndex)
+        void playAudioDescription(UIState state, int categoryIndex)
         {
             //Debug.Log("SelectedIndex: " + SelectedIndex);
-            switch (SelectedIndex) {
-                case 0:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor);
-                break;
-                case 1:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Avatar);
-                break;
-                case 2:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_HairColor); 
-                break;
+            switch (state) {
+                case UIState.GenderSelection:
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender);
+                    break;
+                case UIState.AgeSelection:
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age);
+                    break;
+                case UIState.BgColorSelection:
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color);
+                    break;
+                case UIState.AvatarCreation:
+                    switch (categoryIndex)
+                    {
+                        case CategoryIndex.SkinColor:
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor);
+                            break;
+                        case CategoryIndex.Avatar:
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Avatar);
+                            break;
+                        case CategoryIndex.HairColor:
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_HairColor);
+                            break;
+                    }
+                    break;
             }
         }
 
@@ -227,7 +317,7 @@ namespace Antura.Profile
             Categories[selectionStep].gameObject.SetActive(true);
             stepTween = CategoriesContainer.DOAnchorPosY(StartupOffsetY - selectionStepOffsetY * selectionStep, 0.4f);
 
-            playAudioDescription(selectionStep);
+            playAudioDescription(State, selectionStep);
         }
 
         void AvatarCreation_StepBackwards(int toStep)
@@ -244,27 +334,18 @@ namespace Antura.Profile
             }
             selectionStep = toStep;
             stepTween = CategoriesContainer.DOAnchorPosY(StartupOffsetY - selectionStepOffsetY * selectionStep, 0.4f);
-            playAudioDescription(selectionStep);
+            playAudioDescription(State, selectionStep);
         }
-
-//        void AvatarCreation_SetGender()
-//        {
-//            Categories[CategoryIndex.Avatar].AvatarSetIcon(Categories[CategoryIndex.Gender].SelectedIndex == 1);
-//            if (AppManager.I.Player != null) {
-//                AppManager.I.Player.Gender = Categories[CategoryIndex.Gender].SelectedIndex == 0 ? PlayerGender.M : PlayerGender.F;
-//            } else {
-//                AppManager.I.PlayerProfileManager.TemporaryPlayerGender = Categories[CategoryIndex.Gender].SelectedIndex == 0 ? PlayerGender.M : PlayerGender.F;
-//            }
-//            //    Debug.Log("AvatarCreation_SetGender " + AppManager.I.PlayerProfileManager.TemporaryPlayerGender);
-//        }
 
         void CreateProfile()
         {
-            PlayerCreationScene.CreatePlayer(currAvatarId, currSkinColor, currHairColor, currBgColor);
+            PlayerCreationScene.CreatePlayer(currAvatarId, currGender, currSkinColor, currHairColor, currBgColor, currAge);
         }
 
         PlayerCreationUICategory GetUICategoryObj(CategoryType type)
         {
+            if (type == CategoryType.Age) return AgeCategory;
+            if (type == CategoryType.Gender) return GenderCategory;
             if (type == CategoryType.BgColor) return BgColorCategory;
             for (int i = 0; i < Categories.Length; ++i) {
                 if (Categories[i].CategoryType == type) return Categories[i];
@@ -278,7 +359,17 @@ namespace Antura.Profile
 
         void OnSelectCategory(PlayerCreationUICategory category, UIButton uiButton)
         {
-            switch (State) {
+            switch (State)
+            {
+                case UIState.GenderSelection:
+                    BtContinue.gameObject.SetActive(true);
+                    BtContinue.Pulse();
+                    currGender = Array.IndexOf(GenderCategory.UIButtons, uiButton) == 0
+                        ? PlayerGender.M
+                        : PlayerGender.F;
+                    AppManager.I.PlayerProfileManager.TemporaryPlayerGender = currGender;
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                    break;
                 case UIState.AvatarCreation:
                     int catIndex = Array.IndexOf(Categories, category);
                     if (selectionStep < Categories.Length - 1 && catIndex == selectionStep) {
@@ -324,6 +415,22 @@ namespace Antura.Profile
                             break;
                     }
                     break;
+                case UIState.AgeSelection:
+                    switch (category.CategoryType)
+                    {
+                        case CategoryType.Age:
+                            BtContinue.gameObject.SetActive(true);
+                            BtContinue.Pulse();
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                            currAge = 4 + Array.IndexOf(AgeCategory.UIButtons, uiButton);
+                            break;
+                        case CategoryType.Avatar:
+                            AgeCategory.Select(-1);
+                            _avatars[currAvatarId].GetComponent<UIButton>().Bt.image.color = Color.white;
+                            SwitchState(UIState.AvatarCreation);
+                            break;
+                    }
+                    break;
             }
         }
 
@@ -346,11 +453,21 @@ namespace Antura.Profile
 
         void OnContinue()
         {
-            switch (State) {
+            switch (State)
+            {
+                case UIState.GenderSelection:
+                    SwitchState(UIState.AvatarCreation);
+                    break;
                 case UIState.AvatarCreation:
                     SwitchState(UIState.BgColorSelection);
                     break;
                 case UIState.BgColorSelection:
+                    if (EditionConfig.I.RequireAge)
+                        SwitchState(UIState.AgeSelection);
+                    else
+                        CreateProfile();
+                    break;
+                case UIState.AgeSelection:
                     CreateProfile();
                     break;
             }

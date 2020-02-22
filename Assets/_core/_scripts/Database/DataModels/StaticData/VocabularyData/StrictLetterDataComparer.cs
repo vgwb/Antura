@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
+using Antura.Core;
 
 namespace Antura.Database
 {
@@ -24,8 +25,13 @@ namespace Antura.Database
             var hashCode = (obj.Id != null ? obj.Id.GetHashCode() : 0);
             switch (comparisonStrictness)
             {
-                case LetterEqualityStrictness.LetterOnly:
+                case LetterEqualityStrictness.Letter:
                     break;
+
+                case LetterEqualityStrictness.LetterBase:
+                    hashCode = obj.Base.GetHashCode();
+                    break;
+
                 case LetterEqualityStrictness.WithActualForm:
                     hashCode = (hashCode * 397) ^ obj.Form.GetHashCode();
                     break;

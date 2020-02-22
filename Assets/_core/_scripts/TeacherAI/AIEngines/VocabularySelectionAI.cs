@@ -264,52 +264,73 @@ namespace Antura.Teacher
             //if(selectionParams.filteringIds != null) Debug.Log("Filtered ids:: " + selectionParams.filteringIds.ToDebugStringNewline());
 
             // (4) Priority filtering based on current focus
-            List<T> priorityFilteredList = null;
-            if (!isTest && !selectionParams.getMaxData && selectionParams.prioritizeHigherLearningBlocks)
+            List<T> priorityFilteredList = dataList;
+            if (!isTest && !selectionParams.getMaxData && selectionParams.priorityFilter != SelectionParameters.PriorityFilter.NoPriority)
             {
                 HashSet<T> priorityFilteredHash = new HashSet<T>();
                 string s = ConfigAI.FormatTeacherReportHeader("Priority Filtering");
-                int nBefore = selectionParams.nRequired;
-                int nRemaining = selectionParams.nRequired;
-                AddToHashSetFilteringByContents(currentPlaySessionContents, dataList, priorityFilteredHash, ref nRemaining);
+               
+                switch (selectionParams.priorityFilter)
+                {
+                    case SelectionParameters.PriorityFilter.CurrentThenExpand:
+                        {
+                            int nBefore = selectionParams.nRequired;
+                            int nRemaining = selectionParams.nRequired;
+                            AddToHashSetFilteringByContents(currentPlaySessionContents, dataList, priorityFilteredHash, ref nRemaining);
 
-                s += "\n Required: " + nRemaining + " " + typeof(T).Name.ToString();
-                s += "\n" + (nBefore - nRemaining) + " from PS";
-                if (nRemaining > 0)
-                {
-                    nBefore = nRemaining;
-                    AddToHashSetFilteringByContents(currentLearningBlockContents, dataList, priorityFilteredHash, ref nRemaining);
-                    s += "\n" + (nBefore - nRemaining) + " from LB";
-                }
-                if (nRemaining > 0)
-                {
-                    nBefore = nRemaining;
-                    AddToHashSetFilteringByContents(currentStageContents, dataList, priorityFilteredHash, ref nRemaining);
-                    s += "\n" + (nBefore - nRemaining) + " from ST";
-                }
-                if (nRemaining > 0)
-                {
-                    nBefore = nRemaining;
-                    AddToHashSetFilteringByContents(currentJourneyContents, dataList, priorityFilteredHash, ref nRemaining);
-                    s += "\n" + (nBefore - nRemaining) + " from the current Journey";
-                }
-                // @note: when journey filtering is disabled, we may still have to get some data from the rest of the journey
-                if (nRemaining > 0 && !selectionParams.useJourney)
-                {
-                    nBefore = nRemaining;
-                    AddToHashSetFilteringByContents(progressionContents.AllContents, dataList, priorityFilteredHash, ref nRemaining);
-                    s += "\n" + (nBefore - nRemaining) + " from the complete contents.";
+                            s += "\n Required: " + nRemaining + " " + typeof(T).Name.ToString();
+                            s += "\n" + (nBefore - nRemaining) + " from PS";
+                            if (nRemaining > 0)
+                            {
+                                nBefore = nRemaining;
+                                AddToHashSetFilteringByContents(currentLearningBlockContents, dataList, priorityFilteredHash, ref nRemaining);
+                                s += "\n" + (nBefore - nRemaining) + " from LB";
+                            }
+                            if (nRemaining > 0)
+                            {
+                                nBefore = nRemaining;
+                                AddToHashSetFilteringByContents(currentStageContents, dataList, priorityFilteredHash, ref nRemaining);
+                                s += "\n" + (nBefore - nRemaining) + " from ST";
+                            }
+                            if (nRemaining > 0)
+                            {
+                                nBefore = nRemaining;
+                                AddToHashSetFilteringByContents(currentJourneyContents, dataList, priorityFilteredHash, ref nRemaining);
+                                s += "\n" + (nBefore - nRemaining) + " from the current Journey";
+                            }
+                            // @note: when journey filtering is disabled, we may still have to get some data from the rest of the journey
+                            if (nRemaining > 0 && !selectionParams.useJourney)
+                            {
+                                nBefore = nRemaining;
+                                AddToHashSetFilteringByContents(progressionContents.AllContents, dataList, priorityFilteredHash, ref nRemaining);
+                                s += "\n" + (nBefore - nRemaining) + " from the complete contents.";
+                            }
+                        }
+                        break;
+                    case SelectionParameters.PriorityFilter.CurrentThenPast:
+                        {
+                            int nBefore = selectionParams.nRequired;
+                            int nRemaining = selectionParams.nRequired;
+                            var loopPos = AppManager.I.Player.CurrentJourneyPosition;
+                            s += "\n Required: " + nRemaining + " " + typeof(T).Name.ToString();
+                            while (nRemaining > 0)
+                            {
+                                var loopContents = progressionContents.GetContentsOfPlaySession(loopPos);
+                                AddToHashSetFilteringByContents(loopContents, dataList, priorityFilteredHash, ref nRemaining);
+                                s += "\n" + (nBefore - nRemaining) + " from PS " + loopPos.ToDisplayedString(true);
+                                if (loopPos.Equals(JourneyPosition.InitialJourneyPosition)) break;
+                                loopPos = AppManager.I.JourneyHelper.FindPreviousJourneyPosition(loopPos);
+                            }
+                        }
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
                 }
 
-                if (ConfigAI.VerboseDataFiltering)
-                {
-                    ConfigAI.AppendToTeacherReport(s);
-                }
+                if (ConfigAI.VerboseDataFiltering) ConfigAI.AppendToTeacherReport(s);
                 priorityFilteredList = new List<T>();
                 priorityFilteredList.AddRange(priorityFilteredHash);
                 if (ConfigAI.VerboseDataFiltering) debugString_selectData += ("\n  Priority: " + priorityFilteredList.Count);
-            } else {
-                priorityFilteredList = dataList;
             }
             //Debug.Log("Priority: " + priorityFilteredList.ToDebugStringNewline());
 

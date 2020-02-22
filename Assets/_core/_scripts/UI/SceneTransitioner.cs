@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using Antura.Audio;
 using Antura.Database;
 using DG.Tweening;
@@ -34,7 +34,7 @@ namespace Antura.UI
         void Awake()
         {
             defIcon = Icon.sprite;
-            Logo.sprite = AppManager.I.EditionConfig.TransitionLogo;
+            Logo.sprite = AppManager.I.Edition.TransitionLogo;
 
             tween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(MaskCover.DOFillAmount(0, AnimationDuration).From())

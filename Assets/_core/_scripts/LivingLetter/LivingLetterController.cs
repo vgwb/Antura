@@ -50,6 +50,7 @@ namespace Antura.LivingLetters
         private bool started;
 
         private bool outline;
+        private bool forceShowAccent;
 
         #endregion
 

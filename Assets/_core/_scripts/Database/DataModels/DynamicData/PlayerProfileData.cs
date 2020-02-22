@@ -82,8 +82,8 @@ namespace Antura.Database
         /// <summary>
         /// Tint of the player icon.
         /// Part of PlayerIconData.
+        /// Kept for backwards compatibility.
         /// </summary>
-        [Obsolete]
         public PlayerTint Tint { get; set; }
 
         /// <summary>Skin color</summary>
@@ -199,15 +199,16 @@ namespace Antura.Database
         public PlayerProfileData(
                 string _Uuid,
                 int _AvatarId,
-                //                PlayerGender _Gender,
+                PlayerGender _Gender,
+                PlayerTint _Tint,
                 Color _SkinColor,
                 Color _HairColor,
                 Color _BgColor,
+                int _Age,
                 bool _IsDemoUser,
                 bool _HasFinishedTheGame,
                 bool _HasFinishedTheGameWithAllStars,
                 bool _HasMaxStarsInCurrentPlaySessions,
-                //                int age,
                 int totalBones,
                 ProfileCompletionState profileCompletion,
                 string currentAnturaCustomization,
@@ -220,7 +221,8 @@ namespace Antura.Database
             AppVersion = EditionConfig.I.AppVersion.ToString();
             Uuid = _Uuid;
             AvatarId = _AvatarId;
-            //            Gender = _Gender;
+            Gender = _Gender;
+            Tint = _Tint;
             SkinColor = _SkinColor.ToHex();
             HairColor = _HairColor.ToHex();
             BgColor = _BgColor.ToHex();
@@ -228,7 +230,7 @@ namespace Antura.Database
             JourneyCompleted = _HasFinishedTheGame;
             TotalScore = (_HasFinishedTheGameWithAllStars ? 1f : 0f);
 
-            //            Age = age;
+            Age = _Age;
             ProfileCompletion = profileCompletion;
             TotalBones = totalBones;
             SetMaxJourneyPosition(JourneyPosition.InitialJourneyPosition);

@@ -102,8 +102,9 @@ namespace Antura.UI
             }
 
             if (!isNumber && !isLetter) TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
-            else if (isLetter) TMPText.text = m_text;   // Processed already
-                 
+            else if (isLetter) TMPText.text = m_text; // Processed already
+            else TMPText.text = m_text; // Raw
+
             if (RenderedText == "") text = " "; // Avoid no text not getting update correctly
             CheckRTL();
         }
@@ -129,22 +130,23 @@ namespace Antura.UI
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
 
                 LL_ImageData imageData = (LL_ImageData)livingLetterData;
                 color = imageData.Data.Category == Database.WordDataCategory.Colors ? GenericHelper.GetColorFromString(imageData.Data.Value) : Color.black;
 
+                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
                 if (outlined) TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
             }
             else
             {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LetterFont;
                 CheckRTL();
-                text = livingLetterData.TextForLivingLetter;
                 color = Color.black;
 
+                text = livingLetterData.TextForLivingLetter;
+
+                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LetterFont;
                 if (outlined) TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLetterFontMaterial;
             }
         }

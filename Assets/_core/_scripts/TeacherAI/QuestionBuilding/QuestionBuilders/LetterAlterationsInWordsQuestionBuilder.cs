@@ -25,18 +25,16 @@ namespace Antura.Teacher
         private int nRounds;
         private int nWrongs;
         private int maximumWordLength;
-        private bool forceUnseparatedLetters;
+        private bool removeAccents;
         private QuestionBuilderParameters parameters;
         private LetterAlterationFilters letterAlterationFilters;
 
-        public QuestionBuilderParameters Parameters
-        {
-            get { return this.parameters; }
-        }
+        public QuestionBuilderParameters Parameters => this.parameters;
 
         public LetterAlterationsInWordsQuestionBuilder(int nPacksPerRound, int nRounds,
             int nWrongs = 4,
             int maximumWordLength = 20,
+            bool removeAccents = true,
             LetterAlterationFilters letterAlterationFilters = null,
             QuestionBuilderParameters parameters = null)
         {
@@ -47,6 +45,7 @@ namespace Antura.Teacher
             this.maximumWordLength = maximumWordLength;
             this.parameters = parameters;
             this.letterAlterationFilters = letterAlterationFilters;
+            this.removeAccents = removeAccents;
 
             // Forced parameters
             this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -78,11 +77,11 @@ namespace Antura.Teacher
             //Debug.Log(FindLettersThatAppearInWords(maxWordLength: maximumWordLength).ToDebugStringNewline());
 
             // First, choose a letter (base only, due to filters)
-            var eligibleLetters = teacher.VocabularyAi.SelectData(
-                () => FindLettersThatAppearInWords(maxWordLength: maximumWordLength),
-                    new SelectionParameters(parameters.correctSeverity, 1, useJourney: parameters.useJourneyForCorrect,
-                        packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_letters)
-            );
+            var selectionParams1 = new SelectionParameters(parameters.correctSeverity, 1, useJourney: parameters.useJourneyForCorrect,
+                packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_letters);
+            selectionParams1.AssignJourney(parameters.insideJourney);
+
+            var eligibleLetters = teacher.VocabularyAi.SelectData(() => FindLettersThatAppearInWords(maxWordLength: maximumWordLength), selectionParams1);
             //Debug.Log(eligibleLetters.ToDebugStringNewline());
 
             // Choose one letter randomly from the eligible ones
@@ -90,18 +89,18 @@ namespace Antura.Teacher
             //Debug.Log("Chosen: " + chosenLetter);
 
             // Find a word with the letter (strict)
+            var selectionParams2 = new SelectionParameters(parameters.correctSeverity, 1, useJourney: parameters.useJourneyForCorrect,
+                packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_words);
+            selectionParams2.AssignJourney(parameters.insideJourney);
             var usableWords = teacher.VocabularyAi.SelectData(
-                () => FindWordsWithLetterStrict(chosenLetter, maximumWordLength),
-                    new SelectionParameters(parameters.correctSeverity, 1, useJourney: parameters.useJourneyForCorrect,
-                        packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_words)
-            );
-            var question = usableWords[0];
+                () => FindWordsWithLetterStrict(chosenLetter, maximumWordLength), selectionParams2);
 
+            var question = usableWords[0];
             // Get the correct form inside the word
             //Debug.Log("Word is: " + question.ToString());
             //Debug.Log("Letters: " + vocabularyHelper.GetLettersInWord(question).ToDebugString());
             //Debug.Log("Letters correct: " + vocabularyHelper.GetLettersInWord(question).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterOnly)).ToDebugString());
-            var chosenLetterWithForm = vocabularyHelper.GetLettersInWord(question).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterOnly)).ToList().RandomSelectOne();
+            var chosenLetterWithForm = vocabularyHelper.GetLettersInWord(question, removeAccents).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToList().RandomSelectOne();
             //chosenLetterWithForm = vocabularyHelper.ExtractLettersWithForms(chosenLetterWithForm);
             //Debug.Log("Correct form: " + chosenLetterWithForm + " form is " + chosenLetterWithForm.Form);
 
@@ -180,7 +179,7 @@ namespace Antura.Teacher
                     int nTimesAppearing = 0;
                     foreach (var wordData in allWords)
                     {
-                        if (WordContainsLetter(wordData, letterData, maxWordLength, LetterEqualityStrictness.LetterOnly))
+                        if (WordContainsLetter(wordData, letterData, maxWordLength, LetterEqualityStrictness.LetterBase))
                         {
                             nTimesAppearing++;
                             break;
@@ -211,7 +210,7 @@ namespace Antura.Teacher
             {
                 foreach (var word in vocabularyHelper.GetAllWords(parameters.wordFilters))
                 {
-                    if (!WordContainsLetter(word, containedLetter, maxWordLength, LetterEqualityStrictness.LetterOnly)) continue;
+                    if (!WordContainsLetter(word, containedLetter, maxWordLength, LetterEqualityStrictness.LetterBase)) continue;
                     eligibleWords.Add(word);
                     //Debug.Log("Letter: " + containedLetter + " in Word: " + word);
                 }
@@ -219,7 +218,7 @@ namespace Antura.Teacher
             }
             eligibleWords = eligibleWordsForLetters[containedLetter];
 
-            //Debug.LogWarning("Eligible words: " + eligibleWords.Count + " out of " + vocabularyHelper.GetWordsByCategory(category, parameters.wordFilters).Count);
+            //Debug.LogWarning("Eligible words: " + eligibleWords.Count + " out of " + vocabularyHelper.GetAllWords(parameters.wordFilters).Count);
             return eligibleWords;
         }
 

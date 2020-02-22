@@ -7,5 +7,7 @@ namespace Antura.Database
         Symbol = 3,
         LetterVariation = 4,
         DiacriticCombo = 5,
+        AccentedLetter = 6,
+        SpecialChar = 7
     }
 }

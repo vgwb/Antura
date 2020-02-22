@@ -13,6 +13,7 @@ namespace Antura.Profile
     public class PlayerProfileManager
     {
         public PlayerGender TemporaryPlayerGender = PlayerGender.M;
+        public const int NEW_AVATAR_ID_START = 100;  // The actual ID for new avatar starts from this value
 
         #region Current Player
 
@@ -161,58 +162,20 @@ namespace Antura.Profile
         /// <summary>
         /// Creates the player profile.
         /// </summary>
-        /// <param name="age">The age.</param>
-        /// <param name="gender">The gender.</param>
-        /// <param name="avatarID">The avatar identifier.</param>
-        /// <param name="tint">The color.</param>
-        /// <returns></returns>
-        [Obsolete("Use overload that accepts skinColor, hairColor, bgColor")]
-        public string CreatePlayerProfile(int age, PlayerGender gender, int avatarID, PlayerTint tint, bool isDemoUser = false)
+        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, bool isDemoUser = false)
         {
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
             returnProfile.Uuid = System.Guid.NewGuid().ToString();
-            returnProfile.Age = age;
+            if (isNewAvatar) avatarID += NEW_AVATAR_ID_START;
+            returnProfile.AvatarId = avatarID;
             returnProfile.Gender = gender;
-            returnProfile.AvatarId = avatarID;
             returnProfile.Tint = tint;
-            returnProfile.IsDemoUser = isDemoUser;
-            returnProfile.ProfileCompletion =
-                isDemoUser ? ProfileCompletionState.GameCompletedAndFinalShown : ProfileCompletionState.New;
-            returnProfile.GiftInitialBones();
-
-            // DB Creation
-            AppManager.I.DB.CreateDatabaseForPlayer(returnProfile.ToData());
-            // Added to list
-            AppManager.I.AppSettings.SavedPlayers.Add(returnProfile.GetPlayerIconData());
-            // Set player profile as current player
-            AppManager.I.PlayerProfileManager.CurrentPlayer = returnProfile;
-            // Unlock the first Antura rewards
-            AppManager.I.RewardSystemManager.UnlockFirstSetOfRewards();
-
-            // Call Event Profile creation
-            if (OnNewProfileCreated != null) {
-                OnNewProfileCreated();
-            }
-
-            AppManager.I.Services.Analytics.TrackCompletedRegistration(returnProfile);
-
-            return returnProfile.Uuid;
-        }
-
-        /// <summary>
-        /// Creates the player profile.
-        /// </summary>
-        public string CreatePlayerProfile(int avatarID, Color skinColor, Color hairColor, Color bgColor, bool isDemoUser = false)
-        {
-            PlayerProfile returnProfile = new PlayerProfile();
-            // Data
-            returnProfile.Uuid = System.Guid.NewGuid().ToString();
-            returnProfile.AvatarId = avatarID;
             returnProfile.SkinColor = skinColor;
             returnProfile.HairColor = hairColor;
             returnProfile.BgColor = bgColor;
             returnProfile.IsDemoUser = isDemoUser;
+            returnProfile.Age = age;
             returnProfile.ProfileCompletion =
                 isDemoUser ? ProfileCompletionState.GameCompletedAndFinalShown : ProfileCompletionState.New;
             returnProfile.GiftInitialBones();

@@ -25,7 +25,7 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public EditionConfig EditionConfig => ApplicationConfig.LoadedConfig;
+        public EditionConfig Edition => ApplicationConfig.UsedEdition;
         public ApplicationConfig ApplicationConfig;
         public LanguageSwitcher LanguageSwitcher;
 

@@ -12,7 +12,11 @@ namespace Antura.Core
         LearnEnglish_Ceibal = 11,
         Arabic = 20,
         Arabic_Darija = 21,
-        Arabic_ProFuturo = 22
+        Arabic_ProFuturo = 22,
+        Afgha_Dari = 23,
+        Afgha_Pashto = 24,
+        LearnFrench = 30,
+        LearnItalian = 40,
     }
 
     public enum AppLanguages

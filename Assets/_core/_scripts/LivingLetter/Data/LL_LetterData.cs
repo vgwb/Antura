@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using Antura.Database;
 
 namespace Antura.LivingLetters
@@ -11,16 +11,14 @@ namespace Antura.LivingLetters
     {
         public LetterData Data;
         public LetterForm Form = LetterForm.Isolated; // TODO refactor: this is tied to the Arabic language
+        public bool ForceShowAccent = false;
 
-        public LivingLetterDataType DataType
-        {
-            get { return LivingLetterDataType.Letter; }
-        }
+        public LivingLetterDataType DataType => LivingLetterDataType.Letter;
 
         public string Id
         {
-            get { return Data.Id; }
-            set { Data = AppManager.I.DB.GetLetterDataById(value); }
+            get => Data.Id;
+            set => Data = AppManager.I.DB.GetLetterDataById(value);
         }
 
         // @note: this should be the only constructor for LL_LetterData
@@ -32,15 +30,9 @@ namespace Antura.LivingLetters
 
         #region API
 
-        public string TextForLivingLetter
-        {
-            get { return Data.GetStringForDisplay(Form); }
-        }
+        public string TextForLivingLetter => Data.GetStringForDisplay(Form, ForceShowAccent);
 
-        public string DrawingCharForLivingLetter
-        {
-            get { return null; }
-        }
+        public string DrawingCharForLivingLetter => null;
 
         public bool Equals(ILivingLetterData data)
         {
@@ -49,14 +41,15 @@ namespace Antura.LivingLetters
                 return false;
             }
 
-            return Data.IsSameLetterAs(other.Data, LetterEqualityStrictness.LetterOnly);
+            return Data.IsSameLetterAs(other.Data, LetterEqualityStrictness.LetterBase);
         }
 
         public override string ToString()
         {
-            return "LL-" + Data;
+            return $"LL-{Data}";
         }
 
         #endregion
+        
     }
 }

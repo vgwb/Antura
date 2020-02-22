@@ -35,7 +35,7 @@ namespace Antura.Teacher
 
         public CommonLetterInWordQuestionBuilder(int nPacks,
             int nWrong = 0, int nWords = 1,
-            LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterOnly,
+            LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.Letter,
             QuestionBuilderParameters parameters = null)
         {
             if (parameters == null) parameters = new QuestionBuilderParameters();

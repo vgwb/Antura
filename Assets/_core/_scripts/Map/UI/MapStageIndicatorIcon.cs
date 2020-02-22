@@ -1,4 +1,4 @@
-﻿using Antura.UI;
+using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -22,7 +22,7 @@ namespace Antura.Map
             set
             {
                 _assignedStage = value;
-                text.text = _assignedStage.ToString();
+                text.SetTextUnfiltered(_assignedStage.ToString());
             }
         }
 

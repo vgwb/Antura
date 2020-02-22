@@ -1,4 +1,4 @@
-﻿using Antura.Core;
+using Antura.Core;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -12,7 +12,7 @@ namespace Antura.UI
 
         void Start()
         {
-            Logo.sprite = AppManager.I.EditionConfig.HomeLogo;
+            Logo.sprite = AppManager.I.Edition.HomeLogo;
         }
 
     }
