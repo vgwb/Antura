@@ -4,6 +4,12 @@
         <name>DeAudio</name>
     </assembly>
     <members>
+        <member name="T:DG.DeAudio.Attributes.DeAudioClipDataModeAttribute">
+            <summary>
+            <code>Property attribute</code> for <see cref="T:DG.DeAudio.DeAudioClipData"/> elements<para/>
+            Sets how it should be drawn in the editor
+            </summary>
+        </member>
         <member name="M:DG.DeAudio.DeAudioClipData.Play">
             <summary>
             Plays this DeAudioClipData
@@ -17,6 +23,19 @@
         <member name="M:DG.DeAudio.DeAudioClipData.Pause">
             <summary>
             Pauses all sounds using this DeAudioClipData clip
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioClipData.GetAudioSource(System.Boolean,System.Boolean)">
+            <summary>
+            If the clip is active in an AudioSource (even if not playing) returns it,
+            otherwise returns NULL
+            </summary>
+            <param name="ignorePaused">If TRUE ignores sources that are not playing</param>
+            <param name="ignoreFadingOut">If TRUE ignores sources that are fading out</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioClipData.IsPlaying">
+            <summary>
+            Returns TRUE if this clip is currently playing
             </summary>
         </member>
         <member name="T:DG.DeAudio.DeAudioClipGUIMode">
@@ -42,6 +61,9 @@
         </member>
         <member name="F:DG.DeAudio.DeAudioClipGUIMode.VolumeAndLoopsWithPreview">
             <summary>2 rows > AudioClip, GroupId, Volume, play/stop/loops buttons</summary>
+        </member>
+        <member name="F:DG.DeAudio.DeAudioClipGUIMode.FullNoGroup">
+            <summary>3 rows > All options except GroupId</summary>
         </member>
         <member name="F:DG.DeAudio.DeAudioClipGUIMode.Full">
             <summary>3 rows > All options</summary>
@@ -109,6 +131,13 @@
         </member>
         <member name="M:DG.DeAudio.DeAudioGroup.ChangePitch(System.Single)">
             <summary>Changes the pitch for all existing sources of this group</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.ChangeRealPitch(System.Single,System.Boolean)">
+            <summary>
+            Sets the real pitch of all sources for this group (ignoring targetPitch modifiers).
+            </summary>
+            <param name="value">Pitch to set</param>
+            <param name="assignAsTargetPitch">If TRUE also sets this pitch as the new targetPitch for each source</param>
         </member>
         <member name="M:DG.DeAudio.DeAudioGroup.SetVolume(System.Single)">
             <summary>Sets the volume for this group (same as setting <see cref="P:DG.DeAudio.DeAudioGroup.volume"/> directly)</summary>
@@ -380,14 +409,46 @@
         <member name="P:DG.DeAudio.DeAudioSource.isPaused">
             <summary>TRUE if the clip was playing and has been paused - FALSE if it was/is stopped</summary>
         </member>
-        <member name="F:DG.DeAudio.DeAudioSource.targetVolume">
-            <summary>Target volume to use when fading in (taken by DeAudioClipData, but can also be set manually)</summary>
+        <member name="P:DG.DeAudio.DeAudioSource.isFadingOut">
+            <summary>TRUE while the source is fading out towards 0.
+            Sources that are fading out are ignored when calling a DeAudioGroup Fade tween</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.targetVolume">
+            <summary>Target volume set when a clip starts playing.<para/>
+            Setting volume to 1 will actually set it to this value (plus group and global modifiers).</summary>
         </member>
         <member name="P:DG.DeAudio.DeAudioSource.unscaledVolume">
             <summary>Unscaled volume (doesn't include modifiers caused by global, group and target volumes)</summary>
         </member>
         <member name="P:DG.DeAudio.DeAudioSource.volume">
-            <summary>Current volume (including modifiers caused by global, group and target volumes)</summary>
+            <summary>Getter returns current audioSource.volume (which is influenced by global, group and target volumes).<para/>
+            Setter automatically applies scale factors (target, audioGroup and global volumes)</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.targetPitch">
+            <summary>Target pitch set when a clip starts playing.<para/>
+            Setting pitch to 1 will actually set it to this value (plus group and global modifiers).</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.unscaledPitch">
+            <summary>Unscaled pitch (doesn't include modifiers caused by targetPitch)</summary>
+        </member>
+        <member name="P:DG.DeAudio.DeAudioSource.pitch">
+            <summary>Getter returns current audioSource.pitch (which is influenced by targetPitch).<para/>
+            Setter automatically applies scale factors (targetPitch)</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.SetTargetVolume(System.Single,System.Boolean)">
+            <summary>
+            Changes the <see cref="P:DG.DeAudio.DeAudioSource.targetVolume"/> with options to keep the current real volume the same
+            </summary>
+            <param name="value">Target volume to set</param>
+            <param name="adaptRealVolume">If TRUE adapts the current volume so that the actual volume output
+            will be the same it was before calling this method</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.SetRealPitch(System.Single,System.Boolean)">
+            <summary>
+            Sets the real pitch of the AudioSource (ignoring targetPitch modifiers).
+            </summary>
+            <param name="value">Pitch to set</param>
+            <param name="assignAsTargetPitch">If TRUE also sets this pitch as the new targetPitch</param>
         </member>
         <member name="M:DG.DeAudio.DeAudioSource.Play(DG.DeAudio.DeAudioClipData)">
             <summary>

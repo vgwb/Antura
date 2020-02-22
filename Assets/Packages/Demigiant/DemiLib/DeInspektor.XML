@@ -189,6 +189,18 @@
             Shows a bigger preview image for the given sprite/texture.
             </summary>
         </member>
+        <member name="T:DG.DeInspektor.Attributes.DeLayerAttribute">
+            <summary>
+            <code>Property attribute</code><para/>
+            Shows a popup with available layers in the Inspector. Requires a valye of type <see cref="T:System.Int32"/>.
+            </summary>
+        </member>
+        <member name="T:DG.DeInspektor.Attributes.DeObjectGuidAttribute">
+            <summary>
+            <code>Property attribute</code><para/>
+            Shows the GUID with as a clickable button that pings the target object (if it exist), only works with string fields
+            </summary>
+        </member>
         <member name="T:DG.DeInspektor.Attributes.DeRangeAttribute">
             <summary>
             <code>Property attribute</code><para/>
@@ -204,6 +216,12 @@
             <param name="min">Min value</param>
             <param name="max">Max value</param>
             <param name="label">Override field label</param>
+        </member>
+        <member name="T:DG.DeInspektor.Attributes.DeSortingLayer">
+            <summary>
+            <code>Property attribute</code><para/>
+            Shows a popup with available SortingLayers in the Inspector. Requires a valye of type <see cref="T:System.Int32"/>.
+            </summary>
         </member>
         <member name="T:DG.DeInspektor.Attributes.DeButtonMode">
             <summary>
@@ -257,7 +275,7 @@
             <summary>Background color</summary>
         </member>
         <member name="F:DG.DeInspektor.Attributes.DeCommentAttribute.marginBottom">
-            <summary>Margin bottom (default = 1)</summary>
+            <summary>Margin bottom (default = 0)</summary>
         </member>
         <member name="F:DG.DeInspektor.Attributes.DeCommentAttribute.style">
             <summary>Comment style (default = Box)</summary>

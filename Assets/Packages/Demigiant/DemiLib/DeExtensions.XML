@@ -4,6 +4,27 @@
         <name>DeExtensions</name>
     </assembly>
     <members>
+        <member name="M:DG.DeExtensions.ColorExtensions.ChangeBrightness(UnityEngine.Color,System.Single,System.Nullable{System.Single})">
+            <summary>
+            Returns a new color equal to the given one with changed brightness
+            </summary>
+            <param name="color">Color to evaluate</param>
+            <param name="brightnessFactor">Brightness factor (multiplied by current brightness)</param>
+            <param name="alpha">If set applies this alpha value</param>
+        </member>
+        <member name="M:DG.DeExtensions.ColorExtensions.ChangeSaturation(UnityEngine.Color,System.Single,System.Nullable{System.Single})">
+            <summary>
+            Returns a new color equal to the given one with changed saturation
+            </summary>
+            <param name="color">Color to evaluate</param>
+            <param name="saturationFactor">Saturation factor (multiplied by current brightness)</param>
+            <param name="alpha">If set applies this alpha value</param>
+        </member>
+        <member name="M:DG.DeExtensions.ColorExtensions.SetAlpha(UnityEngine.Color,System.Single)">
+            <summary>
+            Changes the alpha of this color and returns it
+            </summary>
+        </member>
         <member name="M:DG.DeExtensions.ColorExtensions.ToHex(UnityEngine.Color32,System.Boolean)">
             <summary>
             Returns a HEX version of the given Unity Color, without the initial #
@@ -17,11 +38,6 @@
             </summary>
             <param name="includeAlpha">If TRUE, also converts the alpha value and returns a hex of 8 characters,
             otherwise doesn't and returns a hex of 6 characters</param>
-        </member>
-        <member name="M:DG.DeExtensions.ColorExtensions.SetAlpha(UnityEngine.Color,System.Single)">
-            <summary>
-            Changes the alpha of this color and returns it
-            </summary>
         </member>
         <member name="F:DG.DeExtensions.ComponentExtensions.CopyMode.Add">
             <summary>Adds the component even if another component of the same type already exists on the target</summary>
@@ -195,6 +211,21 @@
             Returns a copy of the Rect with its width property set to the given value
             </summary>
         </member>
+        <member name="M:DG.DeExtensions.RectExtensions.SetCenter(UnityEngine.Rect,System.Single,System.Single)">
+            <summary>
+            Returns a copy of the Rect with its X,Y properties set so the rect center corresponds to the given values
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.RectExtensions.SetCenterX(UnityEngine.Rect,System.Single)">
+            <summary>
+            Returns a copy of the Rect with its X property set so the rect X center corresponds to the given value
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.RectExtensions.SetCenterY(UnityEngine.Rect,System.Single)">
+            <summary>
+            Returns a copy of the Rect with its Y property set so the rect Y center corresponds to the given value
+            </summary>
+        </member>
         <member name="M:DG.DeExtensions.StringExtensions.IsNullOrEmpty(System.String,System.Boolean)">
             <summary>
             Returns TRUE if the string is null or empty
@@ -220,10 +251,27 @@
             NOTE: doesn't use try/catch (TryParse) since on some platforms that won't work.
             </summary>
         </member>
+        <member name="M:DG.DeExtensions.StringExtensions.ToFloat(System.String,System.Single)">
+            <summary>
+            Converts the given string to a float and returns it.
+            Returns <code>defaultValue</code> if the conversion fails or the string is empty
+            </summary>
+            <param name="defaultValue">Default value to return if conversion fails</param>
+        </member>
         <member name="M:DG.DeExtensions.StringExtensions.VersionIsMinorThan(System.String,System.String)">
             <summary>
             Compares a version string (in format #.#.###) with another of the same format,
             and return TRUE if this one is minor. Boths trings must have the same number of dot separators.
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.TextureExtensions.GetRect(UnityEngine.Texture2D,System.Single,System.Single,System.Single)">
+            <summary>
+            Returns the full Rect of this texture, with options for position and scale
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.UIExtensions.StretchToFill(UnityEngine.RectTransform)">
+            <summary>
+            Sets the given RectTransform to stretch to the exact borders of its parent
             </summary>
         </member>
         <member name="M:DG.DeExtensions.VectorExtensions.SetX(UnityEngine.Vector2,System.Single)">
@@ -244,6 +292,16 @@
         <member name="M:DG.DeExtensions.VectorExtensions.Floor(UnityEngine.Vector2)">
             <summary>
             Returns a copy of the vector with its values rounded to integers, using a fast int cast.
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.VectorExtensions.RotateAroundPivot(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Vector3)">
+            <summary>
+            Rotates the given vector around the given pivot by the given angles
+            </summary>
+        </member>
+        <member name="M:DG.DeExtensions.VectorExtensions.RotateAroundPivot(UnityEngine.Vector3,UnityEngine.Vector3,UnityEngine.Quaternion)">
+            <summary>
+            Rotates the given vector around the given pivot by the given angles
             </summary>
         </member>
         <member name="M:DG.DeExtensions.VectorExtensions.SetX(UnityEngine.Vector3,System.Single)">
