@@ -1,11 +1,14 @@
 # How to create the Drawings font
 
-## NOTE for the artists:
-the vectorial drawings must have all paths closed and no hidden layers.
+## How to Draw a word
+the vectorial drawings are Black and White and must be saved in SVG format with all paths closed and no hidden layer.
+In this repo you can find current used drawings: [Antura_assets](https://github.com/vgwb/Antura_assets/tree/master/Drawings/Words/used)
+
+## Create the Font
 
 1. Open it with Affinity Designer (maybe we could use Inkscape but i'm not sure it exports slices). check that every layer is named as the word_id in the Sheet.
 2. Export all groups/layers as slices as SVG (for web) into the SVG/todo
-3. Import all these single SVG files into Glyph (could be any OTF font maker), assigning the Unicode to the Sheet and moving the svg file into the "used" folder
+3. Import all these single SVG files into Glyph (could be any OTF font maker), assigning the Unicode to the Sheet and moving the SVG file into the "used" folder
 4. make sure that every unicode id in Google Sheet WordData is unique
 5. Export the OTF font into `/Assets/_app/Fonts/EA4S_WordDrawings.otf`
 6. open TextMesh Pro Font Asset Creator using these parameters:
@@ -28,5 +31,3 @@ Font Render Mode: Distance Field 32
 ```
 
 save as Antura_WordDrawings SDF.asset
-
-
