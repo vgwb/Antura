@@ -45,15 +45,15 @@ namespace Antura.Core
                 isFirstIstall = true;
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
-                Settings.SetAppVersion(EditionConfig.I.AppVersion);
+                Settings.SetAppVersion(AppManager.I.ParentEdition.AppVersion);
 
-                Settings.LoadedEdition = AppManager.I.Edition.Edition;
+                Settings.SpecificEdition = AppManager.I.SpecificEdition.Edition;
 
                 // set native Language
                 // first set the default / fallback language
-                Settings.NativeLanguage = EditionConfig.I.NativeLanguage;
-                if (EditionConfig.I.DetectSystemLanguage) {
-                    foreach (var lang in EditionConfig.I.SupportedNativeLanguages) {
+                Settings.NativeLanguage = AppManager.I.SpecificEdition.NativeLanguage;
+                if (AppManager.I.SpecificEdition.DetectSystemLanguage) {
+                    foreach (var lang in AppManager.I.SpecificEdition.SupportedNativeLanguages) {
                         if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian) {
                             Settings.NativeLanguage = lang;
                         }
@@ -124,8 +124,8 @@ namespace Antura.Core
             } else {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
-            Debug.Log("UpdateAppVersion() previous: " + AppVersionPrevious + " current: " + EditionConfig.I.AppVersion);
-            Settings.SetAppVersion(EditionConfig.I.AppVersion);
+            Debug.Log("UpdateAppVersion() previous: " + AppVersionPrevious + " current: " + AppManager.I.ParentEdition.AppVersion);
+            Settings.SetAppVersion(AppManager.I.ParentEdition.AppVersion);
             SaveSettings();
         }
 
@@ -180,9 +180,9 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public void SetLoadedEdition(AppEditions edition)
+        public void SetSpecificEdition(AppEditions edition)
         {
-            Settings.LoadedEdition = edition;
+            Settings.SpecificEdition = edition;
             SaveSettings();
         }
 

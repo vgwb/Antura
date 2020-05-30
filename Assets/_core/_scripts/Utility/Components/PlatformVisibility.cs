@@ -26,10 +26,10 @@ namespace Antura.Utilities
                     visible = true;
                 }
 
-                if (EditionOnly == AppEditions.LearnEnglish_Ceibal && EditionConfig.I.Edition == AppEditions.LearnEnglish_Ceibal) {
+                if (EditionOnly == AppEditions.LearnEnglish_Ceibal && AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal) {
                     visible = true;
                 }
-                if (EditionOnly == AppEditions.LearnEnglish && EditionConfig.I.Edition == AppEditions.LearnEnglish) {
+                if (EditionOnly == AppEditions.LearnEnglish && AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish) {
                     visible = true;
                 }
 

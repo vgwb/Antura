@@ -484,7 +484,7 @@ namespace Antura.Database
         public string GetStringForDisplay(LetterForm form = LetterForm.Isolated, bool forceShowAccent = false)
         {
             // Accented letters are always shown as non-accented
-            if (!forceShowAccent && !AppManager.I.Edition.ShowAccents && HasAccent)
+            if (!forceShowAccent && !AppManager.I.ParentEdition.ShowAccents && HasAccent)
             {
                 return Base.GetStringForDisplay(form);
             }

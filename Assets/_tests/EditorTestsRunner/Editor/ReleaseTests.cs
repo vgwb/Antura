@@ -16,17 +16,17 @@ namespace Antura.Tests.Release
         public void CheckAppConstants()
         {
             var failed = false;
-            if (AppConfig.DebugLogEnabled) {
+            if (ApplicationConfig.I.DebugLogEnabled) {
                 UnityEngine.Debug.Log("DebugLogEnabled should be FALSE");
                 failed = true;
             }
 
-            if (AppConfig.OnlineAnalyticsEnabled == false) {
+            if (AppManager.I.ParentEdition.OnlineAnalyticsEnabled == false) {
                 UnityEngine.Debug.Log("UnityAnalyticsEnabled should be TRUE");
                 failed = true;
             }
 
-            if (AppConfig.DebugPanelEnabledAtStartup) {
+            if (ApplicationConfig.I.DebugPanelEnabledAtStartup) {
                 UnityEngine.Debug.Log("DebugPanelEnabledAtStartup should be FALSE");
                 failed = true;
             }

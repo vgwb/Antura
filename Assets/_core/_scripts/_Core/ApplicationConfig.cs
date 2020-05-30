@@ -1,3 +1,4 @@
+using System.Linq;
 using Antura.Profile;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -27,7 +28,24 @@ namespace Antura.Core
         public static ApplicationConfig I => AppManager.I.ApplicationConfig;
 
         public EditionConfig LoadedEdition;
-        public EditionConfig UsedEdition => LoadedEdition; // TODO: detect MULTI, and use the APPSETTINGS in that case
+        public EditionConfig SpecificEdition
+        {
+            get
+            {
+                if (LoadedEdition.IsMultiEdition)
+                {
+                    var wantedEdition = AppManager.I.AppSettings.SpecificEdition;
+                    var editionConfig = LoadedEdition.ChildEditions.FirstOrDefault(ed => ed.Edition == wantedEdition);
+                    if (editionConfig == null)
+                    {
+                        AppManager.I.AppSettingsManager.SetSpecificEdition(LoadedEdition.ChildEditions[0].Edition);
+                        editionConfig = LoadedEdition.ChildEditions[0];
+                    }
+                    return editionConfig;
+                }
+                return LoadedEdition;
+            }
+        }
 
         [Header("Debug")]
         /// <summary>

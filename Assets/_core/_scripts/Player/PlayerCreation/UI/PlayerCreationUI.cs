@@ -86,7 +86,7 @@ namespace Antura.Profile
 
         void Awake()
         {
-            if (EditionConfig.I.RequireGender)
+            if (AppManager.I.ParentEdition.RequireGender)
             {
                 State = UIState.GenderSelection;
             }
@@ -462,7 +462,7 @@ namespace Antura.Profile
                     SwitchState(UIState.BgColorSelection);
                     break;
                 case UIState.BgColorSelection:
-                    if (EditionConfig.I.RequireAge)
+                    if (AppManager.I.ParentEdition.RequireAge)
                         SwitchState(UIState.AgeSelection);
                     else
                         CreateProfile();

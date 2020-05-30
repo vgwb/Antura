@@ -245,7 +245,7 @@ namespace Antura.Database
                             // If we are using forms and only one form per letter must appear, add just one at random
                             letterPool.Add(availableForms.RandomSelectOne());
                         } else {
-                            // Add all the (different) forms 
+                            // Add all the (different) forms
                             var visualFormComparer = new StrictLetterDataComparer(LetterEqualityStrictness.WithVisualForm);
                             foreach (var availableForm in availableForms) {
                                 if (letterAlterationFilters.visuallyDifferentForms && letterPool.Contains(availableForm, visualFormComparer)) {
@@ -459,7 +459,7 @@ namespace Antura.Database
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
             if (word.Drawing != "") {
                 string drawingHexCode = word.Drawing;
-                if (EditionConfig.I.Edition == AppEditions.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
+                if (AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
                     drawingHexCode = word.DrawingCeibal;
                 }
 

@@ -34,7 +34,7 @@ namespace Antura.ReservedArea
             KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.NativeNoSubtitles);
             firstButtonClickCounter = 0;
 
-            UseForcedSequence = EditionConfig.I.ReservedAreaForcedSeq;
+            UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
@@ -107,7 +107,7 @@ namespace Antura.ReservedArea
             if (UseForcedSequence)
                 learningIntroduction += sectionGateCodeLoc.LearningText;
             else
-                learningIntroduction += string.Format("Press <b>{0}</b> times the <b>{1}</b> button, then press the <b>{2}</b> one once.", numberWordLearning, firstColorWordLearning, secondColorWordLearning);
+                learningIntroduction += string.Format("Press the <b>{1}</b> button <b>{0}</b> times, then press the <b>{2}</b> button once.", numberWordLearning, firstColorWordLearning, secondColorWordLearning);
             // arabic
             //learningIntroduction += string.Format("لفتح القفل، اضغط الزر {0} {2} ، ثم الزر {1} مرة واحدة", firstColorWordLearning,
             //secondColorWordLearning, numberWordLearning);

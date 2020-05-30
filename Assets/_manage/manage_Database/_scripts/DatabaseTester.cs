@@ -299,7 +299,7 @@ namespace Antura.Database.Management
             Debug.Log("Letters in that word: " + lettersInWord.ToDebugString());
 
             var testLetter = lettersInWord[0];
-            var wordsWithLetters = vocabularyHelper.GetWordsWithLetter(new WordFilters(), testLetter, LetterEqualityStrictness.LetterOnly);
+            var wordsWithLetters = vocabularyHelper.GetWordsWithLetter(new WordFilters(), testLetter, LetterEqualityStrictness.Letter);
             Debug.Log("Words with unstrict letter " + testLetter + ": \n" + wordsWithLetters.ToDebugStringNewline());
 
             wordsWithLetters = vocabularyHelper.GetWordsWithLetter(new WordFilters(), testLetter, LetterEqualityStrictness.WithActualForm);
@@ -646,9 +646,8 @@ namespace Antura.Database.Management
         public void TestDynamicProfileData()
         {
             dbManager.UpdatePlayerProfileData(
-                new PlayerProfileData(DEBUG_PLAYER_UUID, 1, Color.yellow, Color.red, Color.magenta, false, false, false, false,
-                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState()
-                                     )
+                new PlayerProfileData(DEBUG_PLAYER_UUID, 1, PlayerGender.M, PlayerTint.Blue, Color.yellow, Color.red, Color.magenta, 4, false, false, false, false,
+                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState(), AppManager.I.SpecificEdition.Edition, AppManager.I.ParentEdition.AppVersion)
             );
             var playerProfileData = dbManager.GetPlayerProfileData();
             PrintOutput(playerProfileData.ToString());
@@ -692,7 +691,7 @@ namespace Antura.Database.Management
             PrintOutput(output);
         }
 
-        #endregion 
+        #endregion
 
         #region Utilities
 

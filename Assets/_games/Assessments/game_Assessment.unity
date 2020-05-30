@@ -15,11 +15,11 @@ RenderSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 9
   m_Fog: 0
-  m_FogColor: {r: 0.7254902, g: 0.7254902, b: 0.9411765, a: 1}
+  m_FogColor: {r: 0.8666667, g: 0.9411765, b: 0.7254902, a: 1}
   m_FogMode: 1
-  m_FogDensity: 0.0014
-  m_LinearFogStart: 122.2
-  m_LinearFogEnd: 397.54
+  m_FogDensity: 1.52
+  m_LinearFogStart: 20
+  m_LinearFogEnd: 160
   m_AmbientSkyColor: {r: 0.28389922, g: 0.3317474, b: 0.43382353, a: 1}
   m_AmbientEquatorColor: {r: 0.114, g: 0.125, b: 0.133, a: 1}
   m_AmbientGroundColor: {r: 0.047, g: 0.043, b: 0.035, a: 1}
@@ -319,6 +319,21 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 20531331840456612, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.8666667
+      objectReference: {fileID: 0}
+    - target: {fileID: 20531331840456612, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 20531331840456612, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.7254902
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcc03a4064752b4482d37c708ca7ca8, type: 3}
 --- !u!1001 &1815004157
@@ -337,8 +352,60 @@ PrefabInstance:
       propertyPath: m_AllowMSAA
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
+        type: 3}
+      propertyPath: m_BackGroundColor.r
+      value: 0.9411765
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
+        type: 3}
+      propertyPath: m_BackGroundColor.g
+      value: 0.87058824
+      objectReference: {fileID: 0}
+    - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
+        type: 3}
+      propertyPath: m_BackGroundColor.b
+      value: 0.7254902
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c40b3d64f039ead4eafff60965672935, type: 3}
+--- !u!1 &1856453813 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1273504572677950, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+    type: 3}
+  m_PrefabInstance: {fileID: 1363417576}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1856453814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856453813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 620a30765e10ffc4e8104cbdea590ec8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  color: {r: 0.8666667, g: 0.9411765, b: 0.7254902, a: 1}
+  fogMode: 1
+  fogDensity: 1.52
+  fogStartDistance: 20
+  fogEndDistance: 160
+--- !u!114 &1856453815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1856453813}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289b6eabfb927a243996c3876d4cac77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColorSet: {fileID: 11400000, guid: 5cf93738384933c43ac0ed46b088f1d5, type: 2}
+  testWorld: 4
 --- !u!1001 &1937749325
 PrefabInstance:
   m_ObjectHideFlags: 0

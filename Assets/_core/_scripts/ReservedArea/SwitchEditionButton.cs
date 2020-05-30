@@ -16,17 +16,18 @@ namespace Antura.UI
         public Image selectedImage;
         public AppEditions Edition => edition;
 
-        public void Setup(AppEditions _edition)
+        public void Setup(EditionConfig _editionConfig)
         {
-            this.edition = _edition;
+            this.edition = _editionConfig.Edition;
 
-            iconImage.sprite = AppManager.I.Edition.EditionIcon;
-            nameText.text = AppManager.I.Edition.EditionTitle;
+            iconImage.sprite = _editionConfig.EditionIcon;
+            nameText.text = _editionConfig.EditionTitle;
         }
 
         public void OnClick()
         {
-            AppManager.I.AppSettingsManager.SetLoadedEdition(edition);
+            AppManager.I.AppSettingsManager.SetSpecificEdition(edition);
+            AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();
             AppManager.I.NavigationManager.GoToHome(true);
         }

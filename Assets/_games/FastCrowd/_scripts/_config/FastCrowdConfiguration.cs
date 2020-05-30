@@ -111,7 +111,9 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.BuildWord:
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builder = new LettersInWordQuestionBuilder(7, nWrong: nWrong, useAllCorrectLetters: true,
+                    builderParams.letterFilters.includeSpecialCharacters = true;
+                    builderParams.letterFilters.includeAccentedLetters = true;
+                    builder = new LettersInWordQuestionBuilder(7, nWrong: nWrong, useAllCorrectLetters: true, removeAccents:false,
                         parameters: builderParams);
                     break;
                 case FastCrowdVariation.Word:
@@ -157,7 +159,7 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.OrderedImage_Colors:
                 case FastCrowdVariation.OrderedImage_Months:
                 case FastCrowdVariation.OrderedImage_Days_Seasons:
-                    strictness = LetterEqualityStrictness.LetterOnly;
+                    strictness = LetterEqualityStrictness.LetterBase;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

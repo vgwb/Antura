@@ -26,7 +26,7 @@ namespace Antura.UI
 
         public void Awake()
         {
-            foreach (var editionConfig in EditionConfig.I.ChildEditions)
+            foreach (var editionConfig in AppManager.I.ParentEdition.ChildEditions)
             {
                 var edition = editionConfig.Edition;
                 var buttonGO = Instantiate(prefabButton.gameObject);
@@ -34,7 +34,7 @@ namespace Antura.UI
                 buttonGO.transform.localScale = Vector3.one;
                 buttonGO.SetActive(true);
                 var button = buttonGO.GetComponent<SwitchEditionButton>();
-                button.Setup(edition);
+                button.Setup(editionConfig);
                 buttons.Add(button);
             }
             prefabButton.gameObject.SetActive(false);
@@ -50,7 +50,7 @@ namespace Antura.UI
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (button.Edition == AppManager.I.AppSettings.LoadedEdition) button.SetSelected();
+                if (button.Edition == AppManager.I.AppSettings.SpecificEdition) button.SetSelected();
             }
             currentIcon.OnEnable();
         }

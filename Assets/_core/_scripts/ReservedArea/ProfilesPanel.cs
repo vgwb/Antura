@@ -140,10 +140,13 @@ namespace Antura.ReservedArea
             yield return null;
             activateWaitingScreen(true);
             yield return null;
-            var demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4, true);
+            var demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
+                        AppManager.I.SpecificEdition.Edition,
+                        AppManager.I.ParentEdition.AppVersion,
+                        true);
             SelectedPlayerId = demoUserUiid;
 
-            // Populate with complete data              
+            // Populate with complete data
             var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
             yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
             AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);

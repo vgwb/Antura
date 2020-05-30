@@ -97,7 +97,7 @@ namespace Antura.UI
 
         private void DisplayText(string learningText, string nativeText, float fillPeriod = 2, bool _isKeeper = false,
                 Action _callback = null)
-        { 
+        {
             if (!AppManager.I.AppSettings.SubtitlesEnabled) {
                 return;
             }
@@ -134,7 +134,7 @@ namespace Antura.UI
             TextUI.SetText(learningText, LanguageUse.Learning);
 
             //string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppSettings.EnglishSubtitles && EditionConfig.I.ShowSubtitles)
+            if (AppManager.I.AppSettings.EnglishSubtitles && AppManager.I.ParentEdition.ShowSubtitles)
             {
                 TextUItranslation.SetText(nativeText, LanguageUse.Native);
             }
@@ -198,7 +198,7 @@ namespace Antura.UI
 
         public void OnHintClicked()
         {
-            if (EditionConfig.I.AllowSubtitleSkip)
+            if (AppManager.I.ParentEdition.AllowSubtitleSkip)
             {
                 AudioManager.I.SkipCurrentDialogue();
             }

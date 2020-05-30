@@ -25,6 +25,9 @@ namespace Antura.Minigames.FastCrowd
             UpdateWord();
         }
 
+
+        const string invisiblePlaceholder = "<color=#0000>ﺟ</color>";
+
         void UpdateWord(bool onlyIfActive = true)
         {
             if (onlyIfActive && !isActiveAndEnabled)
@@ -39,30 +42,36 @@ namespace Antura.Minigames.FastCrowd
                 if (splitMode)
                 {
                     if (i == 0)
-                        word = "<size=130%>" + letter.Data.GetStringForDisplay(letter.Form) + "</size>";
+                        word = $"<size=130%>{letter.Data.GetStringForDisplay(letter.Form, true)}</size>";
                     else if (i == 1)
-                        word += "\n" + letter.Data.GetStringForDisplay(letter.Form);
+                        word += $"\n{letter.Data.GetStringForDisplay(letter.Form, true)}";
                     else
-                        word += " " + letter.Data.GetStringForDisplay(letter.Form);
+                        word += $" {letter.Data.GetStringForDisplay(letter.Form, true)}";
                 }
                 else
                 {
-                    word += letter.Data.GetStringForDisplay(letter.Form);
+                    if (letter.Id == " ")
+                    {
+                        word += invisiblePlaceholder;
+                    }
+                    else
+                    {
+                        word += letter.Data.GetStringForDisplay(letter.Form, true);
+                    }
                 }
             }
 
             if (splitMode)
             {
                 // Hack to fix space
-                string placeholder = "<color=#0000>ﺟ</color>";
                 for (int i = CompletedLetters.Count; i < 4; ++i)
                 {
                     if (i == 0)
-                        word = "<size=130%>" + placeholder + "</size>";
+                        word = $"<size=130%>{invisiblePlaceholder}</size>";
                     else if (i == 1)
-                        word += "\n" + placeholder;
+                        word += $"\n{invisiblePlaceholder}";
                     else
-                        word += " " + placeholder;
+                        word += $" {invisiblePlaceholder}";
                 }
             }
 

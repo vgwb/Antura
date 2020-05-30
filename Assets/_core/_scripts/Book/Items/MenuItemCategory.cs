@@ -26,7 +26,7 @@ namespace Antura.Book
             myManager = _manager;
 
             Title.text = categoryData.TitleLearning;
-            SubTitle.text = EditionConfig.I.ShowSubtitles ? categoryData.TitleNative : "";
+            SubTitle.text = AppManager.I.ParentEdition.ShowSubtitles ? categoryData.TitleNative : "";
 
             if (categoryData.Stage > 0) {
                 Code.text = categoryData.Stage.ToString();

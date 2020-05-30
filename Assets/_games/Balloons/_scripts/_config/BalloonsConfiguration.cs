@@ -57,6 +57,7 @@ namespace Antura.Minigames.Balloons
             switch (Variation) {
                 case BalloonsVariation.Spelling:
                     builderParams.wordFilters.requireDrawings = true;
+                    builderParams.letterFilters.includeSpecialCharacters = true;
                     builder = new LettersInWordQuestionBuilder(nPacks, useAllCorrectLetters: true, nWrong: nWrong, parameters: builderParams);
                     break;
                 case BalloonsVariation.Words:

@@ -1,4 +1,3 @@
-using Antura.Audio;
 using Antura.Keeper;
 
 namespace Antura.Minigames.SickLetters
@@ -6,7 +5,6 @@ namespace Antura.Minigames.SickLetters
     public class ResultGameState : FSM.IState
     {
         SickLettersGame game;
-        int stars, score;
 
         float timer = 0;
         public ResultGameState(SickLettersGame game)
@@ -42,17 +40,10 @@ namespace Antura.Minigames.SickLetters
 
                 if (game.CurrentStars == 0) {
                     KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Reward_0Star);
-                    //WidgetSubtitles.I.DisplaySentence(Db.LocalizationDataId.Reward_0Star, 4, true);
                 } else {
-                    //string dia = "Reward_" + game.currentStars + "Star_" + UnityEngine.Random.Range(1, 4);
                     Database.LocalizationDataId data = randomRewardData();
-                    //WidgetSubtitles.I.gameObject.SetActive(true);
                     KeeperManager.I.PlayDialogue(data);
-                    //WidgetSubtitles.I.DisplaySentence(data , 2, true);
                 }
-                //game.Context.GetAudioManager().PlayDialogue(Db.LocalizationData)
-                //WidgetSubtitles.I.DisplaySentence()
-                //game.EndGame(game.scale.counter / (game.targetScale / 3), game.scale.counter);
             }
         }
 

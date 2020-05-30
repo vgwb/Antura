@@ -61,7 +61,7 @@ namespace Antura.Minigames
         #region Outcome
 
         /// <summary>
-        /// State reached when the minigame ends. 
+        /// State reached when the minigame ends.
         /// Exists regardless of the specific minigame.
         /// </summary>
         private OutcomeGameState OutcomeState;
@@ -75,7 +75,7 @@ namespace Antura.Minigames
         /// <summary>
         /// Value of the score measured inside the minigame.
         /// </summary>
-        public int CurrentScore 
+        public int CurrentScore
         {
             get => currentScore;
             set
@@ -95,7 +95,7 @@ namespace Antura.Minigames
         {
             get
             {
-                if (AppManager.I.Edition.AutomaticDifficulty)
+                if (AppManager.I.ParentEdition.AutomaticDifficulty)
                 {
                     return DifficultyForScore(CurrentScore);
                 }
@@ -145,7 +145,7 @@ namespace Antura.Minigames
         bool hasToPause;
 
         /// <summary>
-        /// Gravity 
+        /// Gravity
         /// </summary>
         protected virtual Vector3 GetGravity()
         {
@@ -191,7 +191,7 @@ namespace Antura.Minigames
 
         private void PlayTitle(Action onComplete)
         {
-            if (EditionConfig.I.PlayTitleAtMiniGameStart)
+            if (AppManager.I.ParentEdition.PlayTitleAtMiniGameStart)
             {
                 Context.GetAudioManager().PlayDialogue(GetConfiguration().TitleLocalizationId, onComplete);
             }
@@ -203,7 +203,7 @@ namespace Antura.Minigames
 
         public void PlayIntro(Action onComplete)
         {
-            if (EditionConfig.I.PlayIntroAtMiniGameStart)
+            if (AppManager.I.ParentEdition.PlayIntroAtMiniGameStart)
             {
                 Context.GetAudioManager().PlayDialogue(GetConfiguration().IntroLocalizationId, onComplete);
             }

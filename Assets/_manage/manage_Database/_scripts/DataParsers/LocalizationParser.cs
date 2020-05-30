@@ -1,3 +1,4 @@
+using UnityEngine;
 using System;
 using System.Collections.Generic;
 using Antura.Language;
@@ -20,7 +21,9 @@ namespace Antura.Database.Management
             data._LocalizedDatas = new LocalizedData[Enum.GetNames(typeof(LanguageCode)).Length];
 
             foreach (LanguageCode lang in Enum.GetValues(typeof(LanguageCode))) {
+                if (lang == LanguageCode.COUNT || lang == LanguageCode.NONE) { continue; }
                 var langData = new LocalizedData();
+                Debug.Log(lang);
                 langData.Text = ToString(dict[lang.ToString().ToLower()]);
                 if (dict.ContainsKey(lang.ToString().ToLower() + "_F")) {
                     langData.TextF = ToString(dict[lang.ToString().ToLower() + "_F"]);

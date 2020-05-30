@@ -10,7 +10,7 @@ namespace Antura.Utilities
 
         void Start()
         {
-            bool isVisible = EditionConfig.I.IsMultiEdition;
+            bool isVisible = AppManager.I.ParentEdition.IsMultiEdition;
 
             gameObject.SetActive(isVisible);
         }

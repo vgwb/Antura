@@ -15,7 +15,7 @@ namespace Antura.Editor
         void OnGUI()
         {
             this.titleContent.text = "Antura";
-            // EditorGUILayout.LabelField("Version " + EditionConfig.I.AppVersion);
+            // EditorGUILayout.LabelField("Version " + AppManager.I.Edition.AppVersion);
 
             DrawFooterLayout(Screen.width);
         }

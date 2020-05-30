@@ -29,7 +29,14 @@ namespace Antura.Minigames.Egg
             livingLetter.transform.SetParent(parent);
             livingLetter.transform.localPosition = startPosition;
 
+
+            if (livingLetterData.DataType == LivingLetterDataType.Letter)
+            {
+                ((LL_LetterData)livingLetterData).ForceShowAccent = true;
+            }
             livingLetter.Init(livingLetterData);
+
+
             livingLetter.transform.localScale *= startScale;
             livingLetter.gameObject.SetActive(false);
 

@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Core;
+using Antura.Database;
 using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
@@ -35,7 +37,7 @@ namespace Antura.Minigames.SickLetters
             letterView = GetComponent<LivingLetterController>();
             letterAnimator = GetComponent<Animator>();
             statPos = transform.position;
-            
+
         }
 
 
@@ -53,18 +55,18 @@ namespace Antura.Minigames.SickLetters
         {
             showLLMesh(true);
             getNewLetterData();
-            scatterDDs();
-            StartCoroutine(fadShadow());
+            scatterWrongDDs();
+            StartCoroutine(fadeShadow());
 
             GetComponent<Rigidbody>().isKinematic = false;
             GetComponent<CapsuleCollider>().isTrigger = false;
             letterView.Falling = true;
             yield return new WaitForSeconds(0.30f);
 
-            
+
             letterView.OnJumpEnded();
             letterAnimator.SetBool("dancing", game.LLCanDance);
-            
+
 
             if (game.roundsCount > 0)
                 game.disableInput = false;
@@ -76,8 +78,8 @@ namespace Antura.Minigames.SickLetters
                 game.tut.doTutorial(thisLLWrongDDs[Random.Range(0, thisLLWrongDDs.Count-1)].transform);
             }
             else
-                SickLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterView.Data, true, soundType: SickLettersConfiguration.Instance.GetVocabularySoundType());          
-            
+                SickLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterView.Data, true, soundType: SickLettersConfiguration.Instance.GetVocabularySoundType());
+
         }
 
         IEnumerator coJumpOut(float delay, bool endGame)
@@ -111,99 +113,98 @@ namespace Antura.Minigames.SickLetters
             letterView.Init(newLetter);
             letterView.LabelRender.SetLetterData(newLetter);
 
+            string extractedDiacritic;
+            string letterWithoutDiac;
+            ExtractDiacritics(newLetter.TextForLivingLetter, out letterWithoutDiac, out extractedDiacritic);
+            correctDiac.text = extractedDiacritic;
 
-            //game.LLPrefab.dotlessLetter.text = newLetter.TextForLivingLetter;
-
-            string letterWithoutDiac = removeDiacritics(newLetter.TextForLivingLetter);
-
+            // @note: TODO: this Text UI  uses a special font without dots
             dotlessLetter.GetComponent<TextRender>().SetText(letterWithoutDiac, LanguageUse.Learning);
 
-            //Deal with dotless letters
-            if (!game.LettersWithDots.Contains(letterWithoutDiac))
+            var letterData = (newLetter as LL_LetterData).Data;
+
+            // Deal with Dots if any
+            if (letterData.HasDot)
+            {
+                // @note: this Text UI uses a special font with dots only and no letters
+                correctDot.text = letterWithoutDiac;
+                correctDotCollider.GetComponent<BoxCollider>().enabled = true;
+            }
+            else
             {
                 correctDot.text = "";
                 correctDotCollider.GetComponent<BoxCollider>().enabled = false;
             }
 
-            //Deal with letters with dots
-            else
+            // Deal with Diacritics if any
+            if (letterData.HasDiacritic)// letterWithoutDiac != newLetter.TextForLivingLetter)
             {
-                correctDot.text = letterWithoutDiac;
-                correctDotCollider.GetComponent<BoxCollider>().enabled = true;
-            }
-
-            //Deal with Diacritics if any
-            if (letterWithoutDiac != newLetter.TextForLivingLetter)
-            {
-                //Debug.Log(newLetter.TextForLivingLetter + " " + letterWithoutDiac +" " + letterView.LabelRender.mesh.vertexCount);
-
                 StopCoroutine(processCorrectDiacPose());
                 StartCoroutine(processCorrectDiacPose());
-
-                //dotlessLetter.GetComponent<TextRender>().setText(letterWithoutDiac, true);
-
                 correctDiacCollider.GetComponent<BoxCollider>().enabled = true;
             }
             else
+            {
                 correctDiacCollider.GetComponent<BoxCollider>().enabled = false;
-
+            }
         }
 
-        string removeDiacritics(string letter)
+        // TODO: move to LanguageHelper and make this a "RemoveAllSymbols" instead
+        // this could remove diacritics & accents
+        void ExtractDiacritics(string letter, out string letterWithoutDiacritic, out string extractedDiacritic)
         {
             //nasb
             if (letter.Contains("ً"))
             {
-                correctDiac.text = "ً";
-                return letter.Replace("ً", string.Empty);      
+                extractedDiacritic = "ً";
+                letterWithoutDiacritic = letter.Replace("ً", string.Empty);
             }
             //jarr
             else if (letter.Contains("ٍ"))
             {
-                correctDiac.text = "ٍ";
-                return letter.Replace("ٍ", string.Empty);
+                extractedDiacritic = "ٍ";
+                letterWithoutDiacritic = letter.Replace("ٍ", string.Empty);
             }
             //damm
             else if (letter.Contains("ٌ"))
             {
-                correctDiac.text = "ٌ";
-                return letter.Replace("ٌ", string.Empty);
+                extractedDiacritic = "ٌ";
+                letterWithoutDiacritic = letter.Replace("ٌ", string.Empty);
             }
             //kasra
             else if (letter.Contains("ِ"))
             {
-                correctDiac.text = "ِ";
-                return letter.Replace("ِ", string.Empty);
+                extractedDiacritic = "ِ";
+                letterWithoutDiacritic = letter.Replace("ِ", string.Empty);
             }
             //fatha
             else if (letter.Contains("َ"))
             {
-                correctDiac.text = "َ";
-                return letter.Replace("َ", string.Empty);
+                extractedDiacritic = "َ";
+                letterWithoutDiacritic = letter.Replace("َ", string.Empty);
             }
             //damma
             else if (letter.Contains("ُ"))
             {
-                correctDiac.text = "ُ";
-                return letter.Replace("ُ", string.Empty);
+                extractedDiacritic = "ُ";
+                letterWithoutDiacritic = letter.Replace("ُ", string.Empty);
             }
             //shadda
             else if (letter.Contains("ّ"))
             {
-                correctDiac.text = "ّ";
-                return letter.Replace("ّ", string.Empty);
-
+                extractedDiacritic = "ّ";
+                letterWithoutDiacritic = letter.Replace("ّ", string.Empty);
             }
             //sukon
             else if (letter.Contains("ْ"))
             {
-                correctDiac.text = "ْ";
-                return letter.Replace("ْ", string.Empty);
+                extractedDiacritic = "ْ";
+                letterWithoutDiacritic = letter.Replace("ْ", string.Empty);
             }
             else
             {
-                correctDiac.text = "";
-                return letter;
+                extractedDiacritic = "";
+                letterWithoutDiacritic = letter;
             }
         }
 
@@ -227,45 +228,48 @@ namespace Antura.Minigames.SickLetters
             }
         }
 
-        int i = 0;
-        public void scatterDDs(bool isSimpleLetter = true)
+        int foundWrongDDCount = 0;
+        public void scatterWrongDDs(bool useLetter = true)
         {
-            i = 0;
-            string letter = "x";
+            foundWrongDDCount = 0;
             thisLLWrongDDs.Clear();
 
-            if (isSimpleLetter)
-               letter = game.LLPrefab.dotlessLetter.text;
-
-            foreach (SickLettersDropZone dz in game.DropZones)
+            Vector2[] emptyZones;
+            if (useLetter)
             {
-                if (dz.letters.Contains(letter))
-                {
-                    if (i < game.Draggables.Length)
-                    {
-                        if (game.Draggables[i].diacritic != Diacritic.None && i>=game.numerOfWringDDs/*!game.with7arakat*/)
-                        {
-                            i++;
-                            continue;
-                        }
-                        SickLettersDraggableDD newDragable = game.createNewDragable(game.Draggables[i].gameObject);
-                        newDragable.transform.parent = dz.transform;
-                        newDragable.transform.localPosition = Vector3.zero;
-                        newDragable.transform.localEulerAngles = new Vector3(0, -90, 0);
-                        //newDragable.setInitPos(newDragable.transform.localPosition);
-                        newDragable.checkDDCollision = true;
-                        //newDragable.isAttached = true;
-
-                        thisLLWrongDDs.Add(newDragable);
-                        game.allWrongDDs.Add(newDragable);
-
-                        i++;
-                    }
-                }                
+                var sideData = Resources.Load<SideLetterData>($"{AppManager.I.SpecificEdition.LearningLanguage}/SideData/Letters/sideletter_{letterView.Data.Id}");
+                emptyZones = sideData.EmptyZones;
+            }
+            else
+            {
+                // Fallback
+                emptyZones = new[]{new Vector2(-0.055f, 1.054f) };
             }
 
-            if (i == 0)
-                scatterDDs(false);
+            for (int iZone = 0; iZone < emptyZones.Length; iZone++)
+            {
+                if (foundWrongDDCount >= game.Draggables.Length) continue;
+
+                if (game.Draggables[foundWrongDDCount].IsDiacritic && foundWrongDDCount >= game.numberOfWrongDDs)
+                {
+                    foundWrongDDCount++;
+                    continue;
+                }
+
+                SickLettersDraggableDD newDragable = game.createNewDragable(game.Draggables[foundWrongDDCount].gameObject);
+                newDragable.transform.parent = game.DropZonesGO.transform;
+                newDragable.transform.localPosition = new Vector3(emptyZones[iZone].x, 0, emptyZones[iZone].y);
+                newDragable.transform.localEulerAngles = new Vector3(0, -90, 0);
+                newDragable.checkDDCollision = true;
+                thisLLWrongDDs.Add(newDragable);
+                game.allWrongDDs.Add(newDragable);
+                foundWrongDDCount++;
+            }
+
+            if (foundWrongDDCount == 0)
+            {
+                scatterWrongDDs(false);
+            }
         }
 
         void showLLMesh(bool show)
@@ -279,7 +283,7 @@ namespace Antura.Minigames.SickLetters
                 shadow.localScale = Vector3.zero;
         }
 
-        IEnumerator fadShadow()
+        IEnumerator fadeShadow()
         {
             while(shadow.localScale.x < shadowStartSize.x - 0.01f)
             {

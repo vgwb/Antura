@@ -20,8 +20,6 @@ namespace Antura.Core
     [CreateAssetMenu]
     public class EditionConfig : ScriptableObject
     {
-        public static EditionConfig I => AppManager.I.Edition;
-
         [Header("Edition")]
         public AppEditions Edition;
         public string EditionTitle;
@@ -30,21 +28,42 @@ namespace Antura.Core
         public EditionConfig[] ChildEditions;
         public bool IsMultiEdition => ChildEditions != null && ChildEditions.Length > 0;
 
-        [Header("Settings")]
-        public bool ReservedAreaForcedSeq = false;
-        public bool ShowAccents = false;
-
-        [Header("Language")]
+        [Header("Specific - Language")]
+        [Space(30)]
         public LanguageCode LearningLanguage;
         public LanguageCode NativeLanguage;
         public LanguageCode SubtitlesLanguage;
-
         public LanguageCode[] SupportedNativeLanguages;
         [Tooltip("try to set the native language to the device language, otherwise use NativeLanguage")]
         public bool DetectSystemLanguage;
 
-        public bool ShowSubtitles;
+        public string GetLearningLangResourcePrefix()
+        {
+            return LearningLanguage.ToString() + "/";
+        }
+
+        [Header("Specific - Data - Vocabulary")]
+        public LetterDatabase LetterDB;
+        public WordDatabase WordDB;
+        public PhraseDatabase PhraseDB;
+        public LocalizationDatabase LocalizationDB;
+
+        [Header("Specific - Data - Journey")]
+        public StageDatabase StageDB;
+        public LearningBlockDatabase LearningBlockDB;
+        public PlaySessionDatabase PlaySessionDB;
+        public MiniGameDatabase MiniGameDB;
+        public RewardDatabase RewardDB;
+
+
+        [Header("Settings")]
+        [Space(30)]
+        public bool ReservedAreaForcedSeq = false;
+        public bool ShowAccents = false;
+
+        [Header("Settings - Subtitles")]
         public KeeperMode DefaultKeeperMode;
+        public bool ShowSubtitles;
 
         // If true, subtitles can be skipped by clicking on them
         public bool AllowSubtitleSkip;
@@ -53,8 +72,6 @@ namespace Antura.Core
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages
         //  - false: clicking once skips all languages at once
         public bool SkipSingleLanguage => false;
-
-        public readonly bool ForceALLCAPSTextRendering = true;
 
         [Header("Player Data")]
         public bool RequireGender;
@@ -75,40 +92,9 @@ namespace Antura.Core
         public bool PlayIntroAtMiniGameStart;
         public bool AutomaticDifficulty;
 
-        public string GetLearningLangResourcePrefix()
-        {
-            return LearningLanguage.ToString() + "/";
-        }
-
-        public string GetAppVersionString()
-        {
-            var VersionArray = AppVersion.Split('.');
-            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
-            if (EditionTitle != "") {
-                v += " " + EditionTitle;
-            }
-
-            return v;
-        }
-
-        [Header("Data - Vocabulary")]
-        public LetterDatabase LetterDB;
-        public WordDatabase WordDB;
-        public PhraseDatabase PhraseDB;
-        public LocalizationDatabase LocalizationDB;
-
-        [Header("Data - Journey")]
-        public StageDatabase StageDB;
-        public LearningBlockDatabase LearningBlockDB;
-        public PlaySessionDatabase PlaySessionDB;
-        public MiniGameDatabase MiniGameDB;
-        public RewardDatabase RewardDB;
-
         [Header("In-Game Resources")]
         public Sprite EditionIcon;
-
         public Sprite HomeLogo;
-
         public Sprite TransitionLogo;
         public GameObject Flag3D;
 
@@ -130,6 +116,22 @@ namespace Antura.Core
         /// </summary>
         [Tooltip("Major.Minor.Patch.Build")]
         public string AppVersion = "0.0.0.0";
+
+        public string GetAppVersionString()
+        {
+            var VersionArray = AppVersion.Split('.');
+            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
+            if (EditionTitle != "") {
+                v += " " + EditionTitle;
+            }
+
+            if (IsMultiEdition)
+            {
+                v += " - " + AppManager.I.SpecificEdition.EditionTitle;
+            }
+
+            return v;
+        }
 
         /// <summary>
         /// Auto-generated at each new Cloud build

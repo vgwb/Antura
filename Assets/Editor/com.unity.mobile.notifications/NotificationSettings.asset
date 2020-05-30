@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0863bf92b4fcc45b0b9267325249bf0f, type: 3}
   m_Name: NotificationSettings
   m_EditorClassIdentifier: 
-  toolbarInt: 1
+  toolbarInt: 0
   iOSNotificationEditorSettingsValues:
     keys:
     - UnityNotificationRequestAuthorizationOnAppLaunch
@@ -21,7 +21,6 @@ MonoBehaviour:
     - UnityAPSReleaseEnvironment
     - UnityNotificationRequestAuthorizationForRemoteNotificationsOnAppLaunch
     - UnityRemoteNotificationForegroundPresentationOptions
-    - UnityAddRemoteNotificationCapability
     values:
     - True
     - -1
@@ -29,13 +28,9 @@ MonoBehaviour:
     - False
     - False
     - -1
-    - False
   AndroidNotificationEditorSettingsValues:
     keys:
     - UnityNotificationAndroidRescheduleOnDeviceRestart
     values:
     - False
-  TrackedResourceAssets:
-  - Id: icon_antura
-    Type: 1
-    Asset: {fileID: 2800000, guid: 78258a6cfc6d14a2dae30b28bb053a3a, type: 3}
+  TrackedResourceAssets: []

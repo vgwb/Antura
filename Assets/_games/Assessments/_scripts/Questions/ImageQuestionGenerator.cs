@@ -213,7 +213,6 @@ namespace Antura.Assessment
             return new DefaultQuestion(cacheFullWordDataLL, 0, audioManager);
         }
 
-        private const string RemovedLetterChar = "_";
         private AssessmentAudioManager audioManager;
 
         private IQuestion GenerateMissingLetterQuestion(ILivingLetterData data, ILivingLetterData letterToRemove)
@@ -228,7 +227,7 @@ namespace Antura.Assessment
             partsToRemove.Shuffle(); //pick a random letter
 
             string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
-                word.Data, partsToRemove[0], RemovedLetterChar);
+                word.Data, partsToRemove[0], removedLetterColor: "#000000");
 
             //Spawn word, then replace text with text with missing letter
             var wordGO = ItemFactory.Instance.SpawnQuestion(word);

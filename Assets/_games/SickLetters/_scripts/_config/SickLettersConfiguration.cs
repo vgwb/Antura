@@ -35,7 +35,6 @@ namespace Antura.Minigames.SickLetters
             Context = new MinigamesGameContext(MiniGameCode.SickLetters_lettername, System.DateTime.Now.Ticks.ToString());
             Questions = new SickLettersQuestionProvider();
             TutorialEnabled = true;
-            //SickLettersQuestions = new SickLettersQuestionProvider();
         }
 
         public override IQuestionBuilder SetupBuilder()

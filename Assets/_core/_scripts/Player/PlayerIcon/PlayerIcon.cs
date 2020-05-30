@@ -90,7 +90,7 @@ namespace Antura.Profile
                 if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
                 if (HairImg != null) HairImg.color = defHairColor;
                 if (HatImage != null) HatImage.color = HatImage.color.SetAlpha(1f);
-                
+
             } else {
                 if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
                 if (HairImg != null) HairImg.color = HairImg.color.ChangeSaturation(0.35f);
@@ -208,7 +208,9 @@ namespace Antura.Profile
                                                        rnd1 <= 0.5f,
                                                        rnd2 <= 0.5f,
                                                        rnd3 <= 0.5f,
-                                                       new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1));
+                                                       new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1),
+                                                       AppEditions.LearnEnglish,
+                                                       "TEST");
             SetAppearance(rndPlayerIconData,
                 rnd2 < 0.33f ? EndgameState.Unfinished : rnd2 < 0.66f ? EndgameState.Finished : EndgameState.FinishedWAllStars
             );

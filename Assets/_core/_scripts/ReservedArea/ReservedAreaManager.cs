@@ -18,7 +18,7 @@ namespace Antura.ReservedArea
 
         void Start()
         {
-            SupportText.text = EditionConfig.I.GetAppVersionString();
+            SupportText.text = AppManager.I.ParentEdition.GetAppVersionString();
             AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
         }
 
@@ -56,7 +56,7 @@ namespace Antura.ReservedArea
 
         public void OnOpenInstallInstructions()
         {
-            if (EditionConfig.I.Edition == AppEditions.LearnEnglish_Ceibal) {
+            if (AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal) {
                 var pdfViewerPrefab = Resources.Load("Pdf/CeibalPDFViewer") as GameObject;
                 var pdfViewer = Instantiate(pdfViewerPrefab);
                 pdfViewer.transform.SetParent(GameObject.Find("[GlobalUI]").transform, false);
@@ -153,7 +153,7 @@ namespace Antura.ReservedArea
         }
 
         /// <summary>
-        /// exports all databases found in 
+        /// exports all databases found in
         /// </summary>
         public void OnExportDatabasesJoined()
         {

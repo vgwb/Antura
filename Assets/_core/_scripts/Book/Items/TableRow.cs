@@ -17,7 +17,7 @@ namespace Antura.Book
 
             if (TxTitleEn != null)
             {
-                TxTitleEn.gameObject.SetActive(EditionConfig.I.ShowSubtitles);
+                TxTitleEn.gameObject.SetActive(AppManager.I.ParentEdition.ShowSubtitles);
                 TxTitleEn.text = _titleEn;
             }
 
@@ -30,7 +30,7 @@ namespace Antura.Book
 
             if (TxTitleEn != null)
             {
-                TxTitleEn.gameObject.SetActive(EditionConfig.I.ShowSubtitles);
+                TxTitleEn.gameObject.SetActive(AppManager.I.ParentEdition.ShowSubtitles);
                 TxTitleEn.text = _titleEn;
             }
             slider.SetValue(_value, _valueMax);

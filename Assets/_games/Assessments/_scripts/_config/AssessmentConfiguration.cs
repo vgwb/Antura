@@ -621,7 +621,7 @@ namespace Antura.Assessment
             LetterEqualityStrictness strictness;
             switch (Variation) {
                 case AssessmentVariation.LetterName:
-                    strictness = LetterEqualityStrictness.LetterOnly;
+                    strictness = LetterEqualityStrictness.LetterBase;
                     break;
                 case AssessmentVariation.LetterAny:
                 case AssessmentVariation.MatchLettersToWord:

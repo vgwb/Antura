@@ -1,4 +1,3 @@
-using Antura.Audio;
 using Antura.Keeper;
 using UnityEngine;
 
@@ -72,9 +71,9 @@ namespace Antura.Minigames.SickLetters
                 //clockSound = SickLettersConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.DangerClockLong);
             }
 
-            if (Input.GetKeyDown(KeyCode.A)) {
+            /*if (Input.GetKeyDown(KeyCode.A)) {
                 game.LLPrefab.jumpOut();
-            }
+            }*/
 
             if (game.LLPrefab.correctDot.mesh.vertices.Length > 0)
                 correctDotPos = game.LLPrefab.correctDot.transform.TransformPoint(Vector3.Lerp(game.LLPrefab.correctDot.mesh.vertices[0], game.LLPrefab.correctDot.mesh.vertices[2], 0.5f));

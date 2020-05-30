@@ -215,7 +215,7 @@ namespace Antura.Teacher.Test
                 data => true,
                 data => {
                     string s = "";
-                    var words = _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.LetterOnly);
+                    var words = _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter);
                     foreach (var word in words) {
                         s += word.Id + ", ";
                     }

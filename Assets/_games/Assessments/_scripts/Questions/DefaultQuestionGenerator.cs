@@ -267,7 +267,6 @@ namespace Antura.Assessment
             return question;
         }
 
-        private const string RemovedLetterChar = "_";
 
         private IQuestion GenerateCustomQuestion(ILivingLetterData question, LL_LetterData correctLetter)
         {
@@ -284,7 +283,7 @@ namespace Antura.Assessment
             partsToRemove.Shuffle(); //pick a random letter
 
             string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
-                word.Data, partsToRemove[0], RemovedLetterChar);
+                word.Data, partsToRemove[0], removedLetterColor: "#000000");
 
             if (config == DefaultQuestionType.MissingForm) {
                 wordGO.Label.text = text;

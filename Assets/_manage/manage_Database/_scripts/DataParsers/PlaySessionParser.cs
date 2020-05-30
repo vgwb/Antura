@@ -94,7 +94,7 @@ namespace Antura.Database.Management
                     // this checks if a minigame isn't used in the PlaySession table
                     if (!dict.ContainsKey(enum_string)) {
                         if (!notFoundCodes.Contains((MiniGameCode)enum_i)) {
-                            Debug.LogWarning(PSdata.GetType() + " could not find minigame column for " + enum_string);
+                            //                           Debug.LogWarning(PSdata.GetType() + " could not find minigame column for " + enum_string);
                             notFoundCodes.Add((MiniGameCode)enum_i);
                         }
                         continue;

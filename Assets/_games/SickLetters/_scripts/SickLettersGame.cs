@@ -1,15 +1,19 @@
 using System.Collections.Generic;
-using Antura.Audio;
+using System.Linq;
+using Antura.Core;
+using Antura.Database;
+using Antura.EditorUtilities;
 using Antura.Keeper;
 using Antura.LivingLetters;
-using Antura.Minigames;
 using Antura.Tutorial;
 using Antura.UI;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Antura.Minigames.SickLetters
 {
-    public enum Diacritic { Sokoun, Fatha, Dameh, Kasrah, None };
 
     public class SickLettersGame : MiniGameController
     {
@@ -26,11 +30,6 @@ namespace Antura.Minigames.SickLetters
         public SickLettersCamera slCamera;
         public SickLettersGameManager manager;
 
-        [HideInInspector]
-        public MinigamesUIStarbar uiSideBar;
-        [HideInInspector]
-        public MinigamesUITimer uiTimer;
-        //[HideInInspector]
         public int maxRoundsCount = 6, roundsCount = 1, wrongDraggCount = 0;
         [HideInInspector]
         public bool disableInput;
@@ -61,24 +60,18 @@ namespace Antura.Minigames.SickLetters
 
         public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
-        public int gameDuration = 120 ,  targetScale = 45, maxReachedCounter;
+        public int gameDuration = 120,  targetScale = 45, maxReachedCounter;
         public float vaseWidth = 5.20906f;
         public bool LLCanDance = false, with7arakat;
-        public int numerOfWringDDs = 3;
-        public string dotlessLetters = " إ إ أ ا ى ر س ل ص ع ه ح د م ك ط ئ ء ؤ و إ";
-        public string LettersWithDots = "ض ث ق ف غ خ ج ش ي ب ت ن ة ظ ز ذ";
+        public int numberOfWrongDDs = 3;
 
         public SickLettersDraggableDD[] Draggables;
 
         [HideInInspector]
         public SickLettersDropZone[] DropZones;
 
-
         [HideInInspector]
         public List<SickLettersDraggableDD> allWrongDDs = new List<SickLettersDraggableDD>();
-        [HideInInspector]
-        public QuestionsManager questionsManager;
-
 
         public IntroductionGameState IntroductionState { get; private set; }
         public QuestionGameState QuestionState { get; private set; }
@@ -135,7 +128,7 @@ namespace Antura.Minigames.SickLetters
                 main.scalingMode = ParticleSystemScalingMode.Hierarchy;
             }
 
-            puffGo.transform.localScale *= t.lossyScale.y * 1.2f/3f;//0.75f;
+            puffGo.transform.localScale *= t.lossyScale.y * 1.2f/3f;
 
             return puffGo.transform;
         }
@@ -154,7 +147,7 @@ namespace Antura.Minigames.SickLetters
             {
                 if (roundsCount == maxRoundsCount)
                 {
-                    this.SetCurrentState(ResultState);
+                    SetCurrentState(ResultState);
                     return false;
                 }
 
@@ -213,7 +206,7 @@ namespace Antura.Minigames.SickLetters
             int i = 0;
             foreach (SickLettersDraggableDD dd in LLPrefab.thisLLWrongDDs)
             {
-                if (dd && dd.transform.root.GetComponent<LivingLetterController>())//if (dd && !dd.deattached)
+                if (dd && dd.transform.root.GetComponent<LivingLetterController>())
                     i++;
             }
 
@@ -230,7 +223,7 @@ namespace Antura.Minigames.SickLetters
 
             this.LLCanDance = LLCanDance;
             this.with7arakat = with7arakat;
-            numerOfWringDDs = targetScale/6;
+            numberOfWrongDDs = targetScale/6;
         }
 
         float prevDiff = -1;
@@ -250,7 +243,6 @@ namespace Antura.Minigames.SickLetters
 
         public void onWrongMove(bool isDDCorrect = false)
         {
-            Debug.Log("XXXXX "+Time.deltaTime);
             lastMoveIsCorrect = false;
             goodCommentCounter = 0;
             Context.GetLogManager().OnAnswered(LLPrefab.letterView.Data, false);
@@ -267,12 +259,9 @@ namespace Antura.Minigames.SickLetters
         int goodCommentCounter;
         public void onCorrectMove(SickLettersDraggableDD dd)
         {
-            //AudioManager.I.PlayDialog("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
-
             if (goodCommentCounter == 3 || !lastMoveIsCorrect)
             {
                 KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
-                
                 goodCommentCounter = 0;
             }
 
@@ -286,7 +275,6 @@ namespace Antura.Minigames.SickLetters
                 dd.boxCollider.isTrigger = false;
 
             TutorialUI.MarkYes(scale.transform.position - Vector3.forward * 2 + Vector3.up, TutorialUI.MarkSize.Big);
-            //game.Context.GetCheckmarkWidget().Show(true);
             Context.GetAudioManager().PlaySound(Sfx.OK);
             Context.GetLogManager().OnAnswered(LLPrefab.letterView.Data, true);
 
@@ -308,7 +296,41 @@ namespace Antura.Minigames.SickLetters
                 Context.GetAudioManager().PlayVocabularyData(LLPrefab.letterView.Data, true, soundType: SickLettersConfiguration.Instance.GetVocabularySoundType());
         }
 
-    }
 
+#if UNITY_EDITOR
+        [ContextMenu("Recreate Side Letters Data")]
+        public void RecreateSideLettersData()
+        {
+            // RECREATE SIDE LETTERS DATA
+            foreach (var letterData in AppManager.I.DB.GetAllLetterData())
+            {
+                var path = "Assets/_config/Resources/arabic/SideData/Letters/";
+                var asset = CustomAssetUtility.CreateAsset<SideLetterData>(path, $"sideletter_{letterData.Id}");
+
+                string s = "DROP ZONES FOR " + letterData.Isolated;
+                var zones = new List<Vector2>();
+                foreach (SickLettersDropZone dz in DropZones)
+                {
+                    var letters = dz.letters.Split(' ');
+                    var found = letters.Any(x => x.Trim() == letterData.GetStringForDisplay());
+                    if (found)
+                    {
+                        var v = new Vector2(dz.transform.localPosition.x, dz.transform.localPosition.z);
+                        s += "\n" + v;
+                        //  s += "\n" + dz.name + ": " + dz.letters.Split(' ').ToJoinedString();
+                        zones.Add(v);
+                    }
+                }
+
+                asset.EmptyZones = zones.ToArray();
+                EditorUtility.SetDirty(asset);
+
+                Debug.LogError(s);
+            }
+            AssetDatabase.SaveAssets();
+
+        }
+#endif
+    }
     
 }

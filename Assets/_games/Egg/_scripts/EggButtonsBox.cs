@@ -403,7 +403,10 @@ namespace Antura.Minigames.Egg
             Action eCallback = null;
 
             if (playBefore != null)
-                delay += 0.5f + audioManager.PlayVocabularyData(playBefore).Duration;
+            {
+                var source = audioManager.PlayVocabularyData(playBefore);
+                if (source != null) delay += 0.5f + source.Duration;
+            }
 
             for (int i = 0; i < buttons.Count; i++)
             {

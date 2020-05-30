@@ -58,7 +58,7 @@ namespace Antura.Keeper
             Debug.LogWarning("Keeper playing Dialogue " + data.Id);
 
             if (keeperMode == KeeperMode.Default) {
-                keeperMode = EditionConfig.I.DefaultKeeperMode;
+                keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
             }
 
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
@@ -100,7 +100,7 @@ namespace Antura.Keeper
             //Debug.LogWarning("Keeper playing Vocabulary " + data.Id);
 
             if (keeperMode == KeeperMode.Default)
-                keeperMode = EditionConfig.I.DefaultKeeperMode;
+                keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
 
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||

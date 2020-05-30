@@ -158,8 +158,8 @@ namespace Antura.Minigames.MissingLetter
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
             var _correctAnswer = m_oCurrQuestionPack.GetCorrectAnswers().ToList().GetRandom();
 
-            Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
-            Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
+            //Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
+            //Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
 
             GameObject oQuestion = m_oQuestionPool.GetElement();
 
@@ -335,10 +335,12 @@ namespace Antura.Minigames.MissingLetter
 
             LivingLetterController letterView = m_aoCurrentQuestionScene[0].GetComponent<LetterBehaviour>().mLetter;
 
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, true);
+            bool findSameForm = MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm;
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm);
+            //Debug.LogWarning("Looking for letter " + letter.Id + " into word " + word.Id);
 
             var partToRemove = parts[0];
-            letterView.LabelRender.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove, mk_sRemovedLetterChar);
+            letterView.LabelRender.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove);
             return partToRemove;
         }
 
@@ -545,7 +547,6 @@ namespace Antura.Minigames.MissingLetter
         #endregion
 
         #region VARS
-        private const string mk_sRemovedLetterChar = "_";
 
         private MissingLetterGame m_oGame;
 

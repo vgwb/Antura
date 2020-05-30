@@ -30,6 +30,8 @@ namespace Antura.Profile
         public bool HasMaxStarsInCurrentPlaySessions;
         public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
+        public AppEditions Edition;
+        public string AppVersion;
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
 
@@ -439,7 +441,7 @@ namespace Antura.Profile
         /// </summary>
         public void AddRewardUnlockedRange()//List<RewardPackUnlockData> rewardPackUnlockDatas)
         {
-            //Debug.Log(this.RewardsUnlocked); 
+            //Debug.Log(this.RewardsUnlocked);
             //AppManager.I.Player.UnlockedRewardsData.AddRange(rewardPackUnlockDatas);
             AppManager.I.DB.UpdateRewardPackUnlockDataAll(_rewardPackUnlockDataList);
         }
@@ -515,6 +517,8 @@ namespace Antura.Profile
             AvatarId = _data.AvatarId;
             Tint = _data.Tint;
             Age = _data.Age;
+            AppVersion = _data.AppVersion;
+            Edition = _data.Edition;
             Gender = _data.Gender;
             SkinColor = string.IsNullOrEmpty(_data.SkinColor) ? Color.white : _data.SkinColor.HexToColor();
             HairColor = string.IsNullOrEmpty(_data.HairColor) ? Color.white : _data.HairColor.HexToColor();
@@ -551,7 +555,7 @@ namespace Antura.Profile
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
-                    FirstContactState
+                    FirstContactState, Edition, AppVersion
             );
             newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
             newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
@@ -573,7 +577,9 @@ namespace Antura.Profile
                 HasFinishedTheGame = this.HasFinishedTheGame,
                 HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
                 HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
-                MaxJourneyPosition = this.MaxJourneyPosition
+                MaxJourneyPosition = this.MaxJourneyPosition,
+                Edition = this.Edition,
+                AppVersion = this.AppVersion,
             };
             return returnIconData;
         }

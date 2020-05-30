@@ -146,7 +146,7 @@ namespace Antura.Minigames.ReadingGame
             finished = true;
 
             bool isCorrect =
-                DataMatchingHelper.IsDataMatching(clickedButton.Answer, correctLLData, LetterEqualityStrictness.LetterOnly);
+                DataMatchingHelper.IsDataMatching(clickedButton.Answer, correctLLData, LetterEqualityStrictness.Letter);
 
             game.Context.GetAudioManager().PlaySound(isCorrect ? Sfx.OK : Sfx.KO);
 

@@ -78,7 +78,7 @@ namespace Antura.UI
         public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageNative.IsNullOrEmpty() || !EditionConfig.I.ShowSubtitles) {
+            if (_messageNative.IsNullOrEmpty() || !AppManager.I.ParentEdition.ShowSubtitles) {
                 TfMessageLearningFull.text = _messageLearning;
             } else {
                 TfMessageNative.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;

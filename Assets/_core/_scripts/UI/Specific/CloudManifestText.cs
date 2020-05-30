@@ -8,7 +8,7 @@ namespace Antura.UI
     {
         void Start()
         {
-            var str = "CLOUD MANIFEST TEXT: \n" + EditionConfig.I.CloudManifest;
+            var str = "CLOUD MANIFEST TEXT: \n" + AppManager.I.ParentEdition.CloudManifest;
             gameObject.GetComponent<TextMeshProUGUI>().text = str;
         }
     }

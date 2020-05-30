@@ -13,14 +13,14 @@ namespace Antura.Tests
         [Test]
         public void QueryStaticDB()
         {
-            var dbManager = new DatabaseManager(LanguageCode.arabic);
+            var dbManager = new DatabaseManager(false, LanguageCode.arabic);
             dbManager.GetAllLetterData();
         }
 
         [Test]
         public void QueryDynamicDB()
         {
-            var dbManager = new DatabaseManager(LanguageCode.arabic);
+            var dbManager = new DatabaseManager(false, LanguageCode.arabic);
             dbManager.LoadDatabaseForPlayer("TEST");
             dbManager.FindLogInfoData(x => x.Timestamp > 1000);
         }
@@ -28,7 +28,7 @@ namespace Antura.Tests
         [Test]
         public void InsertDynamicDB()
         {
-            var dbManager = new DatabaseManager(LanguageCode.arabic);
+            var dbManager = new DatabaseManager(false, LanguageCode.arabic);
             dbManager.LoadDatabaseForPlayer("TEST");
             var newLogInfoData = new LogInfoData();
             newLogInfoData.AppSession = GenericHelper.GetTimestampForNow();

@@ -12,8 +12,6 @@ namespace Antura.Minigames.SickLetters
         public void EnterState()
         {
             game.SetCurrentState(game.PlayState);
-
-            //game.Context.GetPopupWidget().Show(OnQuestionCompleted, TextID.ASSESSMENT_RESULT_GOOD, true, null);
         }
 
         public void ExitState()

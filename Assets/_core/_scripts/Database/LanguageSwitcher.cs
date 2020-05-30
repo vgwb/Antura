@@ -1,6 +1,7 @@
 using Antura.Core;
 using Antura.Database;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 namespace Antura.Language
@@ -30,14 +31,14 @@ namespace Antura.Language
             useMapping = new Dictionary<LanguageUse, LanguageCode>();
             loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
 
-            LoadLanguage(LanguageUse.Learning, EditionConfig.I.LearningLanguage);
+            LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
             ReloadNativeLanguage();
-            LoadLanguage(LanguageUse.Subtitle, EditionConfig.I.SubtitlesLanguage);
+            LoadLanguage(LanguageUse.Subtitle, AppManager.I.SpecificEdition.SubtitlesLanguage);
         }
 
         public void ReloadNativeLanguage()
         {
-            LoadLanguage(LanguageUse.Native, EditionConfig.I.NativeLanguage);
+            LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
         }
 
         private void LoadLanguage(LanguageUse use, LanguageCode language)
@@ -50,9 +51,20 @@ namespace Antura.Language
         {
             if (loadedLanguageData.ContainsKey(language)) return;
             var languageData = new LanguageData();
-            //languageData.dbManager = new DatabaseManager(false, language);
-            languageData.config = Resources.Load<LangConfig>(language + "/" + "LangConfig");
-            languageData.helper = Resources.Load<AbstractLanguageHelper>(language + "/" + "LanguageHelper");
+
+            languageData.config = Resources.Load<LangConfig>($"{language}/LangConfig");
+            if (languageData.config == null)
+            {
+                Debug.LogError($"Could not find the LangConfig file in the language resources! Did you setup the {language} language correctly?");
+                throw new FileNotFoundException();
+            }
+
+            languageData.helper = Resources.Load<AbstractLanguageHelper>($"{language}/LanguageHelper");
+            if (languageData.config == null)
+            {
+                Debug.LogError($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
+                throw new FileNotFoundException();
+            }
             loadedLanguageData[language] = languageData;
         }
 
@@ -70,7 +82,7 @@ namespace Antura.Language
         {
             return loadedLanguageData[useMapping[use]].config;
         }
-        
+
         public LangConfig GetLangConfig(LanguageCode code)
         {
             LoadLanguageData(code);

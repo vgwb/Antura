@@ -1,4 +1,4 @@
-﻿using System.Linq;
+using System.Linq;
 using Antura.Core;
 using Antura.Dog;
 using Antura.Helpers;
@@ -12,18 +12,30 @@ namespace Antura.Test.Rewards
     {
         public AnturaModelManager AnturaModelManager;
 
+        [DeMethodButton("Print Reward Check")]
+        void PrintRewardCheck()
+        {
+            int allRewardsWeHave = AppManager.I.RewardSystemManager.GetTotalRewardPacksCount(true);
+            int allRewardsWeNeed = AppManager.I.RewardSystemManager.CountTotalNeededRewards();
+
+            string s = "";
+            s += "Total rewards we can generate: " + allRewardsWeHave;
+            s += "\nTotal rewards we need for the whole journey: " + allRewardsWeNeed;
+            Debug.Log(s);
+        }
+
         [DeMethodButton("Print Reward Stats")]
         void PrintRewardStats()
         {
             string s = "";
             s += "All rewards: " + AppManager.I.RewardSystemManager.GetTotalRewardPacksCount();
-            s += "\n All rewards (1 color props): " + AppManager.I.RewardSystemManager.GetTotalRewardPacksCount(true);
+            s += "\n All rewards (ignoring color): " + AppManager.I.RewardSystemManager.GetTotalRewardPacksCount(true);
             s += "\n Decal Packs: " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Decal).Count;
-            s += "\n Decal Packs (1 color):  " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Decal, true).Count;
+            s += "\n Decal Packs (ignoring color):  " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Decal, true).Count;
             s += "\n Texture Packs: " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Texture).Count;
-            s += "\n Texture Packs (1 color): " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Texture, true).Count;
+            s += "\n Texture Packs (ignoring color): " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Texture, true).Count;
             s += "\n Prop Packs: " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Prop).Count;
-            s += "\n Prop Packs (1 color): " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Prop, true).Count;
+            s += "\n Prop Packs (ignoring color): " + AppManager.I.RewardSystemManager.GetAllRewardPacksOfBaseType(RewardBaseType.Prop, true).Count;
             Debug.Log(s);
         }
 

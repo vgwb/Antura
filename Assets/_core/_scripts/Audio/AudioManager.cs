@@ -385,7 +385,7 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogueNoClear();
-            if (!EditionConfig.I.SkipSingleLanguage)
+            if (!AppManager.I.ParentEdition.SkipSingleLanguage)
             {
                 Invoke("StopDialogueNoClear", 0.01f);
             }
@@ -414,7 +414,7 @@ namespace Antura.Audio
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
             var res = GetAudioClip("/Audio/Dialogs", localizedAudioFileName, use);
 
-            Debug.LogWarning(localizedAudioFileName); 
+            Debug.LogWarning(localizedAudioFileName);
 
             // Fallback to neutral version if not found
             if (res == null) {

@@ -2,6 +2,7 @@ using Antura.Core;
 using Antura.Database;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -90,7 +91,7 @@ namespace Antura.Profile
 
         #endregion
 
-        #region Settings        
+        #region Settings
 
         /// <summary>
         /// Reloads all the settings and, optionally, the current player
@@ -140,7 +141,10 @@ namespace Antura.Profile
         /// <returns></returns>
         public List<PlayerIconData> GetPlayersIconData()
         {
-            return AppManager.I.AppSettings.SavedPlayers;
+            return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
+                pl.Edition == AppManager.I.SpecificEdition.Edition
+                    || pl.Edition == AppEditions.All
+                ).ToList();
         }
 
         /// <summary>
@@ -162,7 +166,7 @@ namespace Antura.Profile
         /// <summary>
         /// Creates the player profile.
         /// </summary>
-        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, bool isDemoUser = false)
+        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, AppEditions edition, string appVersion, bool isDemoUser = false)
         {
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
@@ -176,6 +180,8 @@ namespace Antura.Profile
             returnProfile.BgColor = bgColor;
             returnProfile.IsDemoUser = isDemoUser;
             returnProfile.Age = age;
+            returnProfile.AppVersion = appVersion;
+            returnProfile.Edition = edition;
             returnProfile.ProfileCompletion =
                 isDemoUser ? ProfileCompletionState.GameCompletedAndFinalShown : ProfileCompletionState.New;
             returnProfile.GiftInitialBones();

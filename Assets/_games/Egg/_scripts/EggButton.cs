@@ -69,9 +69,9 @@ namespace Antura.Minigames.Egg
             playButtonAudioCallback = callback;
 
             audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
-            audioSource.Stop();
+            if (audioSource != null) audioSource.Stop();
 
-            float duration = audioSource.Duration;
+            float duration = audioSource != null ? audioSource.Duration : 0;
 
             if (animationTweener != null)
                 animationTweener.Kill();
@@ -81,32 +81,23 @@ namespace Antura.Minigames.Egg
 
             if (useEnlargeAnimation) {
                 animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * newSize, duration / 2f).OnComplete(delegate () {
-                    animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * sizeStandard, duration / 2f).OnComplete(delegate () {
-                        if (playButtonAudioCallback != null) {
-                            playButtonAudioCallback();
-                        }
+                    animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * sizeStandard, duration / 2f).OnComplete(delegate ()
+                    {
+                        playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
                     audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
-
-                    if (startButtonAudioCallback != null) {
-                        startButtonAudioCallback();
-                    }
-
+                    startButtonAudioCallback?.Invoke();
                 }).SetDelay(delay);
             } else {
                 animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, newColor, duration / 2f).OnComplete(delegate () {
-                    animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, colorStandard, duration / 2f).OnComplete(delegate () {
-                        if (playButtonAudioCallback != null) {
-                            playButtonAudioCallback();
-                        }
+                    animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, colorStandard, duration / 2f).OnComplete(delegate ()
+                    {
+                        playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
                     audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
-
-                    if (startButtonAudioCallback != null) {
-                        startButtonAudioCallback();
-                    }
+                    startButtonAudioCallback?.Invoke();
 
                 }).SetDelay(delay);
             }
@@ -122,9 +113,7 @@ namespace Antura.Minigames.Egg
                 audioSource.Stop();
             }
 
-            if (playButtonAudioCallback != null) {
-                playButtonAudioCallback();
-            }
+            playButtonAudioCallback?.Invoke();
         }
 
         public void SetOnPressedCallback(Action<ILivingLetterData> callback)
@@ -138,9 +127,7 @@ namespace Antura.Minigames.Egg
                 if (!holdPressed)
                     ChangeColorOnButtonPressed();
 
-                if (onButtonPressed != null) {
-                    onButtonPressed(livingLetterData);
-                }
+                onButtonPressed?.Invoke(livingLetterData);
             }
         }
 

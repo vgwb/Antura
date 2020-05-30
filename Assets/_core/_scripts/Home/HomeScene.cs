@@ -11,7 +11,7 @@ using UnityEngine;
 namespace Antura.Scenes
 {
     /// <summary>
-    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile. 
+    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile.
     /// </summary>
     public class HomeScene : SceneBase
     {
@@ -102,7 +102,7 @@ namespace Antura.Scenes
 
         public void OnBtnSwitchLanguage()
         {
-            ChangeLearningLanguage(EditionConfig.I.NativeLanguage == LanguageCode.spanish
+            ChangeLearningLanguage(AppManager.I.SpecificEdition.NativeLanguage == LanguageCode.spanish
                 ? LanguageCode.italian
                 : LanguageCode.spanish);
         }

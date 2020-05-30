@@ -48,6 +48,11 @@ namespace Antura.Database.Management
             data.FinalFix = ToString(dict["FinalFix"]);
             data.Complexity = ToFloat(dict["Complexity"]);
 
+            data.HasDot = (ToInt(dict["HasDot"]) == 1);
+            data.HasAccent = (ToInt(dict["HasAccent"]) == 1);
+            data.HasDiacritic = (ToInt(dict["HasDiacritic"]) == 1);
+            data.Orientations = ToInt(dict["Orientations"]);
+
             if (dict.ContainsKey("LinkedWords")) {
                 data.LinkedWords = ParseIDArray<WordData, WordTable>(data, (string)dict["LinkedWords"], db.GetWordTable());
             }

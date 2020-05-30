@@ -8,7 +8,7 @@ namespace Antura.UI
     {
         public void OnEnable()
         {
-            GetComponent<Image>().sprite = AppManager.I.Edition.EditionIcon;
+            GetComponent<Image>().sprite = AppManager.I.SpecificEdition.EditionIcon;
         }
     }
 }

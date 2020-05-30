@@ -72,7 +72,9 @@ namespace Antura.Minigames.Egg
                 case EggVariation.BuildWord:
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.requireDrawings = true;
-                    builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8);
+                    builderParams.letterFilters.includeSpecialCharacters = true;
+                    builderParams.letterFilters.includeAccentedLetters = true;
+                    builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8, removeAccents:false);
                     break;
                 case EggVariation.LetterPhoneme:
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, avoidWrongLettersWithSameSound: true);

@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using TMPro;
 
@@ -6,26 +6,30 @@ namespace Antura.Minigames.SickLetters
 {
 	public class SickLettersDraggableDD : MonoBehaviour {
 
-		private Vector3 screenPoint;
+        [Header("Parameters")]
+
+        public bool IsDot;
+        public bool IsDiacritic => !IsDot;
+
+        private Vector3 screenPoint;
 		private Vector3 offset;
 
+        [Header("State")]
         public SickLettersGame game;
-		public bool isDot, deattached;
-		[Range (0, 3)] public int dots;
+		public bool deattached;
 
-		public Diacritic diacritic;
 
-		public Vector3 fingerOffset;
+        public Vector3 fingerOffset;
 		public TextMeshPro draggableText;
 
         public bool isCorrect;
-        public bool isNeeded = false, isInVase = false, touchedVase = false, collidedWithVase;
+        public bool isInVase, touchedVase, collidedWithVase;
 
-        public bool isDragging = false;
+        public bool isDragging;
 
-		bool overPlayermarker = false;
-        bool shake = false;
-        bool release = false;
+		bool overPlayermarker;
+        bool shake;
+        bool release;
 
         [HideInInspector]
         public Rigidbody thisRigidBody;
@@ -50,6 +54,7 @@ namespace Antura.Minigames.SickLetters
                
         }
 
+
         IEnumerator resetCheckDDCollision()
         {
             yield return new WaitForSeconds(1);
@@ -60,7 +65,6 @@ namespace Antura.Minigames.SickLetters
         {
             thisRigidBody = GetComponent<Rigidbody>();
             boxCollider = GetComponent<BoxCollider>();
-            //Reset();
         }
 
         void OnMouseDown()
@@ -75,12 +79,6 @@ namespace Antura.Minigames.SickLetters
             release = false;
             isDragging = true;
 
-			
-
-            //origParent = transform.parent;
-            //origLocalRotation = transform.localEulerAngles;
-            
-
             transform.parent = null;
 
             if (isCorrect)
@@ -88,15 +86,14 @@ namespace Antura.Minigames.SickLetters
                 if(game.roundsCount > 0)
                     game.wrongDraggCount++;
                 shake = true;
-                //draggableText.transform.parent = transform;
                 draggableText.transform.SetParent(transform, true);
             }
-
             else
+            {
                 offset = gameObject.transform.position - 
-				    Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
-
-		}
+                         Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
+            }
+        }
 
 		void OnMouseDrag()
 		{
@@ -127,7 +124,6 @@ namespace Antura.Minigames.SickLetters
         }
 
 
-        bool destroy;
         public void releaseDD()
         {
             release = true;
@@ -148,33 +144,23 @@ namespace Antura.Minigames.SickLetters
             else //pointer isn't over LL
             {
                 transform.parent = null;
-                //if (!isTouchingVase)
-                {
-                    thisRigidBody.isKinematic = false;
-                    thisRigidBody.useGravity = true;
-                    boxCollider.isTrigger = false;
-                }
+                thisRigidBody.isKinematic = false;
+                thisRigidBody.useGravity = true;
+                boxCollider.isTrigger = false;
 
                 boxCollider.center = Vector3.zero;
                 boxCollider.size = new Vector3(0.1f, 0.25f, 0.1f);
-
-                //if (isTouchingVase)
-                //  game.scale.addNewDDToVas(this);
-
-                //if (game.scale.vaseCollider.bounds.Contains(transform.position))
 
                 if (game.wrongDDsOnLL() == 0 || isCorrect)
                     game.disableInput = true;
             }
 
             overPlayermarker = false;
-
             StartCoroutine(destroyIfStuck());
         }
 
         IEnumerator destroyIfStuck()
         {
-            
             yield return new WaitForSeconds(2);
             if (!isInVase && touchedVase)
             {
@@ -182,28 +168,18 @@ namespace Antura.Minigames.SickLetters
                 poofDD();
             }
         }
-
-        /*public void setInitPos(Vector3 initPos)
-        {
-            //startX = initPos.x;
-            //startY = initPos.y;
-            //startZ = initPos.z;
-        }*/
-
-        
-			
 		void Update() {
   
             if (shake && game.wrongDraggCount <= 1)
-                shakeTransform(game.scale.transform, 20, 10, game.scale.vaseStartPose);
+                shakeTransform(game.scale.transform, game.scale.vaseStartPose);
         }
-
 
         void Setmarker(Collider other, bool markerStatus)
         {
             if (other.tag == "Player")
                 overPlayermarker = markerStatus;
 		}
+
         public void resetWrongDD()
         {
             transform.parent = origParent;
@@ -227,13 +203,12 @@ namespace Antura.Minigames.SickLetters
             thisRigidBody.useGravity = false;
             boxCollider.enabled = true;
 
-            //draggableText.transform.parent = origParent;
             draggableText.transform.SetParent(origParent, true);
             draggableText.transform.localPosition = new Vector3(-0.5f, 0.5f,0);
             draggableText.transform.localEulerAngles = new Vector3(90, 0.0f, 90);
             draggableText.transform.localScale = Vector3.one;
 
-            boxCollider.size = new Vector3(1, 1, 0.75f); //(1,1,1.21f);
+            boxCollider.size = new Vector3(1, 1, 0.75f);
             boxCollider.isTrigger = true;
             transform.localEulerAngles = origLocalRotation;
 
@@ -241,9 +216,7 @@ namespace Antura.Minigames.SickLetters
 
             if (game.wrongDDsOnLL() > 0)
                 game.disableInput = false;
-
         }
-
 
         void OnTriggerEnter(Collider other)
 		{
@@ -268,23 +241,16 @@ namespace Antura.Minigames.SickLetters
 
         void OnCollisionEnter(Collision coll)
         {
-            //Debug.LogError(coll.gameObject.name);
             if (coll.gameObject.tag == "Marker")
             {
                 touchedVase = true;
             }
             if (coll.gameObject.tag == "Obstacle")
             {
-                
                 poofOnCollision(coll);
             }
-            /*else if (!isDragging &&!isInVase && coll.gameObject.tag == "Finish")
-            {
-                game.scale.addNewDDToVas(this);
-                thisRigidBody.isKinematic = true;
-                
-            }*/
         }
+
         void OnCollisionStay(Collision coll)
         {
             if(deattached)
@@ -293,7 +259,6 @@ namespace Antura.Minigames.SickLetters
 
         void checkDDsOverlapping(Collider coll)
         {
-            
             SickLettersDraggableDD dd = coll.gameObject.GetComponent<SickLettersDraggableDD>();
             if (dd && dd.checkDDCollision && !dd.isCorrect && !dd.isDragging && dd.transform.parent)
                 foreach (Transform t in game.safeDropZones)
@@ -318,7 +283,8 @@ namespace Antura.Minigames.SickLetters
             StartCoroutine(coPoof(delay));
         }
 
-        IEnumerator coPoof(float delay) {
+        IEnumerator coPoof(float delay)
+        {
             yield return new WaitForSeconds(delay);
 
             if (!this)
@@ -360,15 +326,13 @@ namespace Antura.Minigames.SickLetters
             }
         }
 
-        void shakeTransform(Transform t, float speed, float amount, Vector2 startPose)
+        void shakeTransform(Transform t, Vector2 startPose)
         {
             t.position = new Vector3(startPose.x + Mathf.Sin(Time.time * 20f) / 10, t.position.y, t.position.z);
-
         }
 
         IEnumerator offToON()
         {
-            //yield return new WaitForSeconds(.25f);
             boxCollider.enabled = false;
             yield return new WaitForSeconds(.1f);
             boxCollider.enabled = true;

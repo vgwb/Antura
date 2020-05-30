@@ -936,6 +936,12 @@ PrefabInstance:
       propertyPath: contentTransform
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 23000012772693672, guid: d5826ab7f51b7c549919cf0b6fe83693,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 21561593201977922, guid: 19b6204822022490d88948a36701cc8c,
+        type: 2}
     - target: {fileID: 1000010297039176, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -964,12 +970,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 23000012772693672, guid: d5826ab7f51b7c549919cf0b6fe83693,
-        type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 21561593201977922, guid: 19b6204822022490d88948a36701cc8c,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5826ab7f51b7c549919cf0b6fe83693, type: 3}
 --- !u!4 &174993109 stripped
@@ -10109,7 +10109,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1918712260}
         m_MethodName: Close
         m_Mode: 1
         m_Arguments:

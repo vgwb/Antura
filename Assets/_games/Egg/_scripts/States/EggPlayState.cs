@@ -230,7 +230,7 @@ namespace Antura.Minigames.Egg
                 tutorialCorrectActive = false;
             }
 
-            if (DataMatchingHelper.IsDataMatching(letterData, game.CurrentQuestion.Answers[letterOnSequence], LetterEqualityStrictness.LetterOnly)) {
+            if (DataMatchingHelper.IsDataMatching(letterData, game.CurrentQuestion.Answers[letterOnSequence], LetterEqualityStrictness.Letter)) {
                 if (isSequence) {
                     game.eggButtonBox.GetEggButton(letterData).SetPressed();
                     PositiveFeedback();

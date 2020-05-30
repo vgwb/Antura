@@ -25,7 +25,9 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public EditionConfig Edition => ApplicationConfig.UsedEdition;
+        public EditionConfig ParentEdition => ApplicationConfig.LoadedEdition;
+        public EditionConfig SpecificEdition => ApplicationConfig.SpecificEdition;
+
         public ApplicationConfig ApplicationConfig;
         public LanguageSwitcher LanguageSwitcher;
 
@@ -90,16 +92,14 @@ namespace Antura.Core
             alreadySetup = true;
 
             AppSettingsManager = new AppSettingsManager();
-            LanguageSwitcher = new LanguageSwitcher();
 
-            var learningDB = new DatabaseManager(true);
-            DB = learningDB;
+            ReloadEdition();
 
             // TODO refactor: standardize initialisation of managers
-            VocabularyHelper = new VocabularyHelper(learningDB);
-            JourneyHelper = new JourneyHelper(learningDB);
-            ScoreHelper = new ScoreHelper(learningDB);
-            Teacher = new TeacherAI(learningDB, VocabularyHelper, ScoreHelper);
+            VocabularyHelper = new VocabularyHelper(DB);
+            JourneyHelper = new JourneyHelper(DB);
+            ScoreHelper = new ScoreHelper(DB);
+            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
             LogManager = new LogManager();
             GameLauncher = new MiniGameLauncher(Teacher);
             FirstContactManager = new FirstContactManager();
@@ -138,10 +138,16 @@ namespace Antura.Core
             Time.timeScale = 1;
         }
 
+        public void ReloadEdition()
+        {
+            LanguageSwitcher = new LanguageSwitcher();
+            DB = new DatabaseManager(true);
+        }
+
         public void ResetLanguageSetup(LanguageCode langCode)
         {
-            EditionConfig.I.NativeLanguage = langCode;
-            EditionConfig.I.SubtitlesLanguage = langCode;
+            AppManager.I.SpecificEdition.NativeLanguage = langCode;
+            AppManager.I.SpecificEdition.SubtitlesLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             LanguageSwitcher.ReloadNativeLanguage();
@@ -149,7 +155,7 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (EditionConfig.I.EnableNotifications) {
+            if (AppManager.I.ParentEdition.EnableNotifications) {
                 Services.Notifications.Init();
             }
         }
@@ -183,7 +189,7 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (EditionConfig.I.EnableNotifications) {
+            if (AppManager.I.ParentEdition.EnableNotifications) {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
@@ -211,14 +217,14 @@ namespace Antura.Core
             if (IsPaused) {
                 // app is pausing
                 LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (EditionConfig.I.EnableNotifications) {
+                if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppSuspended();
                 }
             } else {
                 // app is resuming
                 LogManager.I.LogInfo(InfoEvent.AppResume);
                 LogManager.I.InitNewSession();
-                if (EditionConfig.I.EnableNotifications) {
+                if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppResumed();
                 }
             }

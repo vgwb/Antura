@@ -181,13 +181,13 @@ namespace Antura.Database
 
         public string GetIconResourcePath()
         {
-            var prefix = EditionConfig.I.GetLearningLangResourcePrefix();
+            var prefix = AppManager.I.SpecificEdition.GetLearningLangResourcePrefix();
             return prefix + "Images/GameIcons/minigame_Ico_" + Main;
         }
 
         public string GetBadgeIconResourcePath()
         {
-            var prefix = EditionConfig.I.GetLearningLangResourcePrefix();
+            var prefix = AppManager.I.SpecificEdition.GetLearningLangResourcePrefix();
             return prefix + "Images/GameIcons/minigame_BadgeIco_" + Badge;
         }
     }

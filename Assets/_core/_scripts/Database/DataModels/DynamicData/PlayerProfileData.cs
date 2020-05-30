@@ -58,6 +58,8 @@ namespace Antura.Database
 
         public string AppVersion { get; set; }
 
+        public AppEditions Edition { get; set; }
+
         #region PlayerIconData
 
         /// <summary>
@@ -214,11 +216,14 @@ namespace Antura.Database
                 string currentAnturaCustomization,
                 int comboPlayDays,
                 AnturaSpace.ShopState currentShopState,
-                FirstContactState currentFirstContactState
+                FirstContactState currentFirstContactState,
+                AppEditions edition,
+                string appVersion
                 )
         {
             Id = UNIQUE_ID;  // Only one record
-            AppVersion = EditionConfig.I.AppVersion.ToString();
+            AppVersion = appVersion;
+            Edition = edition;
             Uuid = _Uuid;
             AvatarId = _AvatarId;
             Gender = _Gender;
@@ -239,6 +244,7 @@ namespace Antura.Database
             CurrentAnturaCustomization = currentAnturaCustomization;
             AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_HasMaxStarsInCurrentPlaySessions, comboPlayDays, currentShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
+
         }
 
         public bool HasFinishedTheGameWithAllStars()
