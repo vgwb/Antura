@@ -19,10 +19,10 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 // THE SOFTWARE.
 //
+// https://github.com/praeclarum/sqlite-net/
 // - 2017-05-27
 // - Modified for Antura & The Letters
 //    - Added possibility for specifying a custom table name
-
 
 #if WINDOWS_PHONE && !USE_WP8_NATIVE_SQLITE
 #define USE_CSHARP_SQLITE
@@ -295,7 +295,8 @@ namespace SQLite
         /// Sets a busy handler to sleep the specified amount of time when a table is locked.
         /// The handler will sleep multiple times until a total time of <see cref="BusyTimeout"/> has accumulated.
         /// </summary>
-        public TimeSpan BusyTimeout {
+        public TimeSpan BusyTimeout
+        {
             get { return _busyTimeout; }
             set {
                 _busyTimeout = value;
@@ -309,7 +310,8 @@ namespace SQLite
         /// Returns the mappings from types to tables that the connection
         /// currently understands.
         /// </summary>
-        public IEnumerable<TableMapping> TableMappings {
+        public IEnumerable<TableMapping> TableMappings
+        {
             get {
                 return _tables != null ? _tables.Values : Enumerable.Empty<TableMapping>();
             }
@@ -435,7 +437,8 @@ namespace SQLite
                     var iname = i.Name ?? map.TableName + "_" + c.Name;
                     IndexInfo iinfo;
                     if (!indexes.TryGetValue(iname, out iinfo)) {
-                        iinfo = new IndexInfo {
+                        iinfo = new IndexInfo
+                        {
                             IndexName = iname,
                             TableName = map.TableName,
                             Unique = i.Unique,
@@ -447,7 +450,8 @@ namespace SQLite
                     if (i.Unique != iinfo.Unique)
                         throw new Exception("All the columns in an index must have the same value for their Unique property");
 
-                    iinfo.Columns.Add(new IndexedColumn {
+                    iinfo.Columns.Add(new IndexedColumn
+                    {
                         Order = i.Order,
                         ColumnName = c.Name
                     });
@@ -900,7 +904,8 @@ namespace SQLite
         /// <summary>
         /// Whether <see cref="BeginTransaction"/> has been called and the database is waiting for a <see cref="Commit"/>.
         /// </summary>
-        public bool IsInTransaction {
+        public bool IsInTransaction
+        {
             get { return _transactionDepth > 0; }
         }
 
@@ -1643,7 +1648,8 @@ namespace SQLite
     [AttributeUsage(AttributeTargets.Property)]
     public class UniqueAttribute : IndexedAttribute
     {
-        public override bool Unique {
+        public override bool Unique
+        {
             get { return true; }
             set { /* throw?  */ }
         }
@@ -1753,7 +1759,8 @@ namespace SQLite
             }
         }
 
-        public Column[] InsertColumns {
+        public Column[] InsertColumns
+        {
             get {
                 if (_insertColumns == null) {
                     _insertColumns = Columns.Where(c => !c.IsAutoInc).ToArray();
@@ -1762,7 +1769,8 @@ namespace SQLite
             }
         }
 
-        public Column[] InsertOrReplaceColumns {
+        public Column[] InsertOrReplaceColumns
+        {
             get {
                 if (_insertOrReplaceColumns == null) {
                     _insertOrReplaceColumns = Columns.ToArray();
@@ -2165,7 +2173,8 @@ namespace SQLite
 
         public void Bind(string name, object val)
         {
-            _bindings.Add(new Binding {
+            _bindings.Add(new Binding
+            {
                 Name = name,
                 Value = val
             });
@@ -2551,7 +2560,8 @@ namespace SQLite
                     if (q._orderBys == null) {
                         q._orderBys = new List<Ordering>();
                     }
-                    q._orderBys.Add(new Ordering {
+                    q._orderBys.Add(new Ordering
+                    {
                         ColumnName = Table.FindColumnWithPropertyName(mem.Member.Name).Name,
                         Ascending = asc
                     });
@@ -2579,7 +2589,8 @@ namespace SQLite
             Expression<Func<TInner, TKey>> innerKeySelector,
             Expression<Func<T, TInner, TResult>> resultSelector)
         {
-            var q = new TableQuery<TResult>(Connection, Connection.GetMapping(typeof(TResult))) {
+            var q = new TableQuery<TResult>(Connection, Connection.GetMapping(typeof(TResult)))
+            {
                 _joinOuter = this,
                 _joinOuterKeySelector = outerKeySelector,
                 _joinInner = inner,
@@ -2690,7 +2701,8 @@ namespace SQLite
             } else if (expr.NodeType == ExpressionType.Constant) {
                 var c = (ConstantExpression)expr;
                 queryArgs.Add(c.Value);
-                return new CompileResult {
+                return new CompileResult
+                {
                     CommandText = "?",
                     Value = c.Value
                 };
@@ -2698,7 +2710,8 @@ namespace SQLite
                 var u = (UnaryExpression)expr;
                 var ty = u.Type;
                 var valr = CompileExpr(u.Operand, queryArgs);
-                return new CompileResult {
+                return new CompileResult
+                {
                     CommandText = valr.CommandText,
                     Value = valr.Value != null ? ConvertTo(valr.Value, ty) : null
                 };
@@ -2771,13 +2784,15 @@ namespace SQLite
                             head = ",";
                         }
                         sb.Append(")");
-                        return new CompileResult {
+                        return new CompileResult
+                        {
                             CommandText = sb.ToString(),
                             Value = val
                         };
                     } else {
                         queryArgs.Add(val);
-                        return new CompileResult {
+                        return new CompileResult
+                        {
                             CommandText = "?",
                             Value = val
                         };
