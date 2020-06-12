@@ -55,7 +55,7 @@ namespace Antura.Keeper
 
         private void PlayDialogue(LocalizationData data, bool isKeeper = true, bool autoClose = true, Action _callback = null, KeeperMode keeperMode = KeeperMode.Default)
         {
-            Debug.LogWarning("Keeper playing Dialogue " + data.Id);
+            Debug.Log("Keeper PlayDialogue: " + data.Id);
 
             if (keeperMode == KeeperMode.Default) {
                 keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;

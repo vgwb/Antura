@@ -46,42 +46,31 @@ namespace Antura.Audio
                     return;
                 }
 
-                try
-                {
+                try {
                     musicEnabled = value;
-                    if (musicEnabled && currentMusic != Music.Silence)
-                    {
-                        if (musicGroup != null)
-                        {
+                    if (musicEnabled && currentMusic != Music.Silence) {
+                        if (musicGroup != null) {
                             musicGroup.Resume();
 
                             bool hasToReset = true;
-                            if (musicGroup.sources != null)
-                            {
-                                foreach (var s in musicGroup.sources)
-                                {
-                                    if (s.isPlaying)
-                                    {
+                            if (musicGroup.sources != null) {
+                                foreach (var s in musicGroup.sources) {
+                                    if (s.isPlaying) {
                                         hasToReset = false;
                                         break;
                                     }
                                 }
                             }
 
-                            if (hasToReset)
-                            {
+                            if (hasToReset) {
                                 musicGroup.Play(currentMusic == Music.Custom ? customMusic : GetAudioClip(currentMusic),
                                     1, 1, true);
                             }
                         }
-                    }
-                    else
-                    {
+                    } else {
                         musicGroup?.Pause();
                     }
-                }
-                catch (Exception e)
-                {
+                } catch (Exception e) {
                     Debug.LogError("Exception ignored: " + e.Message);
                 }
 
@@ -385,8 +374,7 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogueNoClear();
-            if (!AppManager.I.ParentEdition.SkipSingleLanguage)
-            {
+            if (!AppManager.I.ParentEdition.SkipSingleLanguage) {
                 Invoke("StopDialogueNoClear", 0.01f);
             }
         }
@@ -414,7 +402,7 @@ namespace Antura.Audio
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
             var res = GetAudioClip("/Audio/Dialogs", localizedAudioFileName, use);
 
-            Debug.LogWarning(localizedAudioFileName);
+            Debug.Log("localizedAudioFileName: " + localizedAudioFileName);
 
             // Fallback to neutral version if not found
             if (res == null) {
