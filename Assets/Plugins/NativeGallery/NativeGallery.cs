@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using UnityEngine;
 
@@ -114,6 +114,27 @@ namespace Antura.Plugins.NativeGallery
 
 		Debug.Log( "Saving to Pictures: " + Path.GetFileName( path ) );
 #endif
+        }
+
+        public static bool CheckWriteAccess(string directoryName)
+        {
+            var path = GetSavePath(directoryName, "testwrite");
+            try
+            {
+                var mediaBytes = new Texture2D(10, 10).EncodeToPNG();
+                File.WriteAllBytes(path, mediaBytes);
+                SaveToGallery(path, true);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Could not write to gallery: " + e.Message);
+                return false;
+            }
+            finally
+            {
+                if (File.Exists(path)) File.Delete(path);
+            }
+            return true;
         }
 
         private static string GetSavePath(string directoryName, string filenameFormatted)
