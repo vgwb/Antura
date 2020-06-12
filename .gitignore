@@ -21,6 +21,7 @@ ExportedObj/
 *.svd
 .vscode/
 .gradle/
+.vs
 
 # Unity3D generated meta files
 *.pidb.meta
@@ -39,8 +40,7 @@ ehthumbs.db
 Icon7
 
 # Local stuff
-LocalTemp/
-LocalTemp.meta
+/_production
 Local/
 Local.meta
 
@@ -50,8 +50,13 @@ Local.meta
 -HOToolsData*
 
 # optional plugins
-/Assets/StompyRobot
-/Assets/StompyRobot.meta
 ProjectSettings/APlusBlacklist.asset
 ProjectSettings/MaintainerSettings.asset
 docs/_draft
+
+# commercial and private
+/Assets/Packages/_private/
+/Assets/Packages/_private.meta
+/Assets/Editor Default Resources/crosstales
+/Assets/Editor Default Resources/crosstales.meta
+
