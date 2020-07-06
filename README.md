@@ -1,6 +1,6 @@
 # Antura
 
-the open source project for game "Antura"
+the open source project for game "Antura" and all its editions: Antura Arabic, Antura Darija, Antura Learn English, Antura Learn French
 
 ## Project references
 
@@ -13,9 +13,9 @@ the open source project for game "Antura"
 Anybody is invited to collaborate to this open source project:
 please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Collaborator.html).
 
-## Technology
+## Requirements
 
-This repository is a Unity 2018.4 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive))
+This repository is a Unity 2018.4 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive)) and works on mobile (iOS and Android) and Desktop computers
 
 ## Licensing
 
