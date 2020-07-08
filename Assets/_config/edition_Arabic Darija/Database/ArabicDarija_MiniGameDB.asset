@@ -1,0 +1,802 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d97afd5d2f1ea234c94ad7f12986e9b7, type: 3}
+  m_Name: ArabicDarija_MiniGameDB
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Code: 5
+      _Active: 1
+      _Type: 1
+      _Main: Song
+      _Variation: alphabet
+      _Badge: alphabet
+      _Scene: game_ReadingGame
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.2
+      - Skill: 1
+        Weight: 0.8
+    - _Code: 33
+      _Active: 0
+      _Type: 1
+      _Main: Song
+      _Variation: diacritics
+      _Badge: letters
+      _Scene: game_ReadingGame
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.2
+      - Skill: 1
+        Weight: 0.8
+    - _Code: 103
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: CompleteWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 113
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: CompleteWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 115
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: LetterAny
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 100
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: LetterName
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 102
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: MatchLettersToWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 114
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: MatchLettersToWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 107
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: MatchWordToImage
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 104
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: OrderLettersOfWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 112
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: QuestionAndReply
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 106
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: SelectPronouncedWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 109
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: SingularDualPlural
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 111
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: SunMoonLetter
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 110
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: SunMoonWord
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 105
+      _Active: 0
+      _Type: 2
+      _Main: Assessment
+      _Variation: VowelOrConsonant
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 108
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: WordArticle
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 101
+      _Active: 1
+      _Type: 2
+      _Main: Assessment
+      _Variation: WordsWithLetter
+      _Badge: 
+      _Scene: game_Assessment
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 6
+      _Active: 1
+      _Type: 1
+      _Main: Balloons
+      _Variation: counting
+      _Badge: counting
+      _Scene: game_Balloons
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 0.6
+      - Skill: 2
+        Weight: 0.4
+    - _Code: 7
+      _Active: 0
+      _Type: 1
+      _Main: Balloons
+      _Variation: letterinword
+      _Badge: spelling
+      _Scene: game_Balloons
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 0.6
+      - Skill: 2
+        Weight: 0.4
+    - _Code: 3
+      _Active: 0
+      _Type: 1
+      _Main: Balloons
+      _Variation: spelling
+      _Badge: spelling
+      _Scene: game_Balloons
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.5
+      - Skill: 5
+        Weight: 0.3
+      - Skill: 2
+        Weight: 0.2
+    - _Code: 8
+      _Active: 1
+      _Type: 1
+      _Main: Balloons
+      _Variation: word
+      _Badge: images
+      _Scene: game_Balloons
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.5
+      - Skill: 5
+        Weight: 0.3
+      - Skill: 2
+        Weight: 0.2
+    - _Code: 9
+      _Active: 1
+      _Type: 1
+      _Main: ColorTickle
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_ColorTickle
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 2
+        Weight: 1
+    - _Code: 10
+      _Active: 0
+      _Type: 1
+      _Main: DancingDots
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_DancingDots
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.6
+      - Skill: 3
+        Weight: 0.2
+      - Skill: 2
+        Weight: 0.2
+    - _Code: 36
+      _Active: 1
+      _Type: 1
+      _Main: DancingDots
+      _Variation: letterany
+      _Badge: phonemes
+      _Scene: game_DancingDots
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 11
+      _Active: 0
+      _Type: 1
+      _Main: Egg
+      _Variation: lettername
+      _Badge: alphabet
+      _Scene: game_Egg
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 1
+        Weight: 0.2
+    - _Code: 37
+      _Active: 1
+      _Type: 1
+      _Main: Egg
+      _Variation: letterphoneme
+      _Badge: phonemes
+      _Scene: game_Egg
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 34
+      _Active: 1
+      _Type: 1
+      _Main: Egg
+      _Variation: buildword
+      _Badge: spelling
+      _Scene: game_Egg
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.2
+      - Skill: 3
+        Weight: 0.6
+      - Skill: 1
+        Weight: 0.2
+    - _Code: 12
+      _Active: 0
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: alphabet
+      _Badge: alphabet
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 1
+    - _Code: 13
+      _Active: 1
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: counting
+      _Badge: counting
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 1
+    - _Code: 14
+      _Active: 1
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 1
+    - _Code: 38
+      _Active: 1
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: letterform
+      _Badge: phonemes
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 1
+      _Active: 1
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: buildword
+      _Badge: spelling
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 1
+    - _Code: 4
+      _Active: 1
+      _Type: 1
+      _Main: FastCrowd
+      _Variation: word
+      _Badge: images
+      _Scene: game_FastCrowd
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.4
+      - Skill: 5
+        Weight: 0.6
+    - _Code: 16
+      _Active: 1
+      _Type: 1
+      _Main: HideSeek
+      _Variation: letterphoneme
+      _Badge: phonemes
+      _Scene: game_HideAndSeek
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.4
+      - Skill: 5
+        Weight: 0.3
+      - Skill: 1
+        Weight: 0.3
+    - _Code: 17
+      _Active: 1
+      _Type: 1
+      _Main: MakeFriends
+      _Variation: letterinword
+      _Badge: spelling
+      _Scene: game_MakeFriends
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.6
+      - Skill: 4
+        Weight: 0.4
+    - _Code: 18
+      _Active: 1
+      _Type: 1
+      _Main: Maze
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_Maze
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 2
+        Weight: 1
+    - _Code: 19
+      _Active: 0
+      _Type: 1
+      _Main: MissingLetter
+      _Variation: letter
+      _Badge: letters
+      _Scene: game_MissingLetter
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.6
+      - Skill: 4
+        Weight: 0.4
+    - _Code: 39
+      _Active: 1
+      _Type: 1
+      _Main: MissingLetter
+      _Variation: letterform
+      _Badge: phonemes
+      _Scene: game_MissingLetter
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 35
+      _Active: 1
+      _Type: 1
+      _Main: MissingLetter
+      _Variation: letterinword
+      _Badge: spelling
+      _Scene: game_MissingLetter
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.6
+      - Skill: 4
+        Weight: 0.4
+    - _Code: 20
+      _Active: 0
+      _Type: 1
+      _Main: MissingLetter
+      _Variation: word
+      _Badge: words
+      _Scene: game_MissingLetter
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 21
+      _Active: 0
+      _Type: 1
+      _Main: MixedLetters
+      _Variation: alphabet
+      _Badge: alphabet
+      _Scene: game_MixedLetters
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.4
+      - Skill: 4
+        Weight: 0.4
+      - Skill: 3
+        Weight: 0.2
+    - _Code: 22
+      _Active: 1
+      _Type: 1
+      _Main: MixedLetters
+      _Variation: buildword
+      _Badge: spelling
+      _Scene: game_MixedLetters
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.4
+      - Skill: 4
+        Weight: 0.4
+      - Skill: 3
+        Weight: 0.2
+    - _Code: 24
+      _Active: 0
+      _Type: 1
+      _Main: ReadingGame
+      _Variation: word
+      _Badge: words
+      _Scene: game_ReadingGame
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.8
+    - _Code: 26
+      _Active: 0
+      _Type: 1
+      _Main: Scanner
+      _Variation: phrase
+      _Badge: words
+      _Scene: game_Scanner
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.6
+      - Skill: 1
+        Weight: 0.2
+    - _Code: 25
+      _Active: 0
+      _Type: 1
+      _Main: Scanner
+      _Variation: word
+      _Badge: images
+      _Scene: game_Scanner
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.6
+      - Skill: 1
+        Weight: 0.2
+    - _Code: 23
+      _Active: 1
+      _Type: 1
+      _Main: SickLetters
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_SickLetters
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.3
+      - Skill: 5
+        Weight: 0.4
+      - Skill: 2
+        Weight: 0.3
+    - _Code: 31
+      _Active: 0
+      _Type: 1
+      _Main: TakeMeHome
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_TakeMeHome
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 1
+    - _Code: 27
+      _Active: 1
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: lettername
+      _Badge: letters
+      _Scene: game_ThrowBalls
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.3
+      - Skill: 2
+        Weight: 0.5
+    - _Code: 15
+      _Active: 1
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: letterany
+      _Badge: phonemes
+      _Scene: game_ThrowBalls
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 5
+        Weight: 0.4
+      - Skill: 2
+        Weight: 0.6
+    - _Code: 32
+      _Active: 1
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: buildword
+      _Badge: spelling
+      _Scene: game_ThrowBalls
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills: []
+    - _Code: 28
+      _Active: 1
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: word
+      _Badge: images
+      _Scene: game_ThrowBalls
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.3
+      - Skill: 2
+        Weight: 0.5
+    - _Code: 29
+      _Active: 0
+      _Type: 1
+      _Main: Tobogan
+      _Variation: letterinword
+      _Badge: letter
+      _Scene: game_Tobogan
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 4
+        Weight: 0.2
+      - Skill: 5
+        Weight: 0.8
+    - _Code: 30
+      _Active: 0
+      _Type: 1
+      _Main: Tobogan
+      _Variation: sunmoon
+      _Badge: sunmoon
+      _Scene: game_Tobogan
+      _TitleId: 
+      _VariationId: 
+      _IntroId: 
+      _TutorialId: 
+      _AffectedPlaySkills:
+      - Skill: 6
+        Weight: 0.8
+      - Skill: 4
+        Weight: 0.2
