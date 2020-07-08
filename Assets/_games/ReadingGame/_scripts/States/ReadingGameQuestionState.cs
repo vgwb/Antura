@@ -35,23 +35,6 @@ namespace Antura.Minigames.ReadingGame
                 return;
             }
 
-            switch (ReadingGameConfiguration.Instance.CurrentGameType)
-            {
-                case ReadingGameConfiguration.GameType.FollowReading:
-                    game.Context.GetOverlayWidget().SetClockDuration(game.TimeToAnswer);
-                    game.Context.GetOverlayWidget().SetClockTime(game.TimeToAnswer);
-                    break;
-                case ReadingGameConfiguration.GameType.ReadAndListen:
-                    break;
-                case ReadingGameConfiguration.GameType.FollowSong:
-                    break;
-                case ReadingGameConfiguration.GameType.SimonSong:
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
-
-
             game.blurredText.SetActive(true);
 
             switch (ReadingGameConfiguration.Instance.CurrentGameType)
@@ -152,6 +135,12 @@ namespace Antura.Minigames.ReadingGame
                 ++game.CurrentQuestionNumber;
                 completed = true;
                 game.ReadState.TutorialMode = false;
+            }
+
+            if (ReadingGameConfiguration.Instance.ShowTimer && !game.ReadState.TutorialMode)
+            {
+                game.Context.GetOverlayWidget().SetClockDuration(game.TimeToAnswer);
+                game.Context.GetOverlayWidget().SetClockTime(game.TimeToAnswer);
             }
 
             firstRun = false;

@@ -334,6 +334,16 @@ PrefabInstance:
       propertyPath: m_BackGroundColor.b
       value: 0.7254902
       objectReference: {fileID: 0}
+    - target: {fileID: 114526265007275798, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+        type: 3}
+      propertyPath: prefabSet
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 114534907814936036, guid: 8fcc03a4064752b4482d37c708ca7ca8,
+        type: 3}
+      propertyPath: prefabSet
+      value: 
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8fcc03a4064752b4482d37c708ca7ca8, type: 3}
 --- !u!1001 &1815004157
@@ -355,20 +365,40 @@ PrefabInstance:
     - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
         type: 3}
       propertyPath: m_BackGroundColor.r
-      value: 0.9411765
+      value: 0.16862746
       objectReference: {fileID: 0}
     - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
         type: 3}
       propertyPath: m_BackGroundColor.g
-      value: 0.87058824
+      value: 0.08627451
       objectReference: {fileID: 0}
     - target: {fileID: 20000011159399202, guid: c40b3d64f039ead4eafff60965672935,
         type: 3}
       propertyPath: m_BackGroundColor.b
-      value: 0.7254902
+      value: 0.30588236
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c40b3d64f039ead4eafff60965672935, type: 3}
+--- !u!1 &1815004158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000013357315696, guid: c40b3d64f039ead4eafff60965672935,
+    type: 3}
+  m_PrefabInstance: {fileID: 1815004157}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1815004159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1815004158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 289b6eabfb927a243996c3876d4cac77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  backgroundColorSet: {fileID: 11400000, guid: 5cf93738384933c43ac0ed46b088f1d5, type: 2}
+  testWorld: 5
 --- !u!1 &1856453813 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1273504572677950, guid: 8fcc03a4064752b4482d37c708ca7ca8,
@@ -459,6 +489,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4000013022712494, guid: 998c7211c33aab649a372bdc784b9b87, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114936065076134122, guid: 998c7211c33aab649a372bdc784b9b87,
+        type: 3}
+      propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

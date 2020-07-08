@@ -124,6 +124,8 @@ namespace Antura.Minigames.ReadingGame
             return rules;
         }
 
+        public bool ShowTimer => CurrentGameType == GameType.FollowReading || CurrentGameType == GameType.ReadAndListen;
+
         public GameType CurrentGameType
         {
             get {

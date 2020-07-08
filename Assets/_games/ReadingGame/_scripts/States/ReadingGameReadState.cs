@@ -121,7 +121,7 @@ namespace Antura.Minigames.ReadingGame
             completedDragging = false;
 
             if (firstRealRun) {
-                bool showClock = ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading;
+                bool showClock = ReadingGameConfiguration.Instance.ShowTimer;
                 bool showLives = ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading;
 
                 if (!TutorialMode) {

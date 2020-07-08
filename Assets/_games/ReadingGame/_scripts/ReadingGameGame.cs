@@ -39,13 +39,29 @@ namespace Antura.Minigames.ReadingGame
 
         public AudioClip alphabetSongAudio => LoadSongClip("AlphabetSong");
         public AudioClip diacriticSongAudio => LoadSongClip("DiacriticSong");
-        
+
+        public static T LoadSongAsset<T>(string id, string suffix = "") where T : class
+        {
+            var langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code.ToString();
+            string completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
+            var res = Resources.Load(completePath) as T;
+
+            Debug.LogError("READ " + res);
+
+            if (res == null)
+            {
+                langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
+                completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
+                res = Resources.Load(completePath) as T;
+                Debug.LogError("OTHER READ " + res);
+            }
+
+            return res;
+        }
+
         public static AudioClip LoadSongClip(string id)
         {
-            var langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
-            string completePath = langDir + "/Audio/Songs/" + id;
-            var res = Resources.Load(completePath) as AudioClip;
-            return res;
+            return LoadSongAsset<AudioClip>(id);
         }
 
         public TextAsset alphabetSongSrt => LoadSongSrt("AlphabetSong");
@@ -53,10 +69,7 @@ namespace Antura.Minigames.ReadingGame
 
         public static TextAsset LoadSongSrt(string id)
         {
-            var langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
-            string completePath = langDir + "/Audio/Songs/" + id + ".akr";
-            var res = Resources.Load(completePath) as TextAsset;
-            return res;
+            return LoadSongAsset<TextAsset>(id, ".akr");
         }
 
         [Header("Parameters - Simon Song")]
@@ -340,6 +353,7 @@ namespace Antura.Minigames.ReadingGame
 
         public void SayQuestion()
         {
+            if (AnswerState.Finished) return;
             var question = CurrentQuestion.GetQuestion();
             ReadingGameConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question);
         }
