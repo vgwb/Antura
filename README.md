@@ -2,13 +2,15 @@
 
 ![antura_gametitle](docs/images/antura_gametitle.jpg)
 
-the open source project for the multiple awards winning game "Antura and the Letters" and all its editions: Antura Arabic, Antura Darija, Antura Learn English, Antura Learn French
+The open source project for the multiple awards winning game "Antura and the Letters" and all its editions: Antura Arabic, Antura Darija, Antura Learn English, Antura Learn French and many others under development.
+This project is a multi edition evolution of the original [Antura Edu App 4 Syria](https://github.com/vgwb/Antura_arabic) game.
 
 ## Project references
 
 - **Antura Docs:** [docs.antura.org](http://docs.antura.org)
 - **Source Code:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)
 - **Public Website:** [www.antura.org](http://www.antura.org)
+- **original Antura Arabic** [github.com/vgwb/Antura_arabic](https://github.com/vgwb/Antura_arabic)
 
 ## Collaborate
 
