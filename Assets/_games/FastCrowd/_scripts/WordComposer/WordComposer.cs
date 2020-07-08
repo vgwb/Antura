@@ -92,6 +92,9 @@ namespace Antura.Minigames.FastCrowd
             UpdateWord(onlyIfActive:false);
 
             StopAllCoroutines();
+
+            // FIX - bug with wordlabel not getting cleared
+            WordLabel.SetTextUnfiltered("");
         }
 
         IEnumerator AddLetter(ILivingLetterData data, float _delay)
