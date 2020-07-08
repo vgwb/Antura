@@ -1,7 +1,9 @@
-﻿using Antura.Helpers;
+﻿using Antura.Core;
+using Antura.Helpers;
 using DG.Tweening;
 using System.Collections;
 using UnityEngine;
+using TMPro;
 
 namespace Antura.UI
 {
@@ -21,11 +23,10 @@ namespace Antura.UI
         public int Level1FontPerc = 110;
 
         [Header("References")]
-        public TextAsset CreditsTxt;
 
         public RectTransform CreditsContainer;
         public UIButton BtBack;
-        public TMPro.TextMeshProUGUI TfCredits;
+        public TextMeshProUGUI TfCredits;
 
         public bool HasAwoken { get; private set; }
         private RectTransform rectT;
@@ -48,8 +49,11 @@ namespace Antura.UI
 
             // Listeners
             BtBack.Bt.onClick.AddListener(OnClick);
+        }
 
-            TfCredits.text = FormatCredits(CreditsTxt.text);
+        void Start()
+        {
+            TfCredits.text = FormatCredits(AppManager.I.SpecificEdition.CreditsText.text);
         }
 
         void Update()

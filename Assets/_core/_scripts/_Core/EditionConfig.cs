@@ -55,11 +55,15 @@ namespace Antura.Core
         public MiniGameDatabase MiniGameDB;
         public RewardDatabase RewardDB;
 
-
         [Header("Settings")]
         [Space(30)]
-        public bool ReservedAreaForcedSeq = false;
         public bool ShowAccents = false;
+        public TextAsset CreditsText;
+
+        [Header("Settings - Reserved Area")]
+        public bool ReservedAreaForcedSeq = false;
+        public bool ShowDonate = false;
+        public bool ShowTeacherGuide = false;
 
         [Header("Settings - Subtitles")]
         public KeeperMode DefaultKeeperMode;
@@ -100,8 +104,7 @@ namespace Antura.Core
 
         public GameObject GetResource(EditionResourceID id)
         {
-            switch (id)
-            {
+            switch (id) {
                 case EditionResourceID.Flag: return Flag3D;
             }
             return null;
@@ -125,8 +128,7 @@ namespace Antura.Core
                 v += " " + EditionTitle;
             }
 
-            if (IsMultiEdition)
-            {
+            if (IsMultiEdition) {
                 v += " - " + AppManager.I.SpecificEdition.EditionTitle;
             }
 
@@ -140,6 +142,7 @@ namespace Antura.Core
         public string CloudManifest = "NONE";
 
         public string ProductName;
+        public string UnityProjectId;
         public string Android_BundleIdentifier;
         public string iOS_BundleIdentifier;
         public string BundleVersion;
@@ -160,55 +163,43 @@ namespace Antura.Core
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
             PlayerSettings.bundleVersion = BundleVersion;
-            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new []{ Android_AppIcon });
-            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new [] { iOS_AppIcon });
+            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
+            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
             PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            for (int i = 0; i < SplashLogos.Length; i++)
-            {
+            for (int i = 0; i < SplashLogos.Length; i++) {
                 PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
             }
 
             List<EditionConfig> editionsToUse = new List<EditionConfig>();
-            if (IsMultiEdition)
-            {
-                foreach (var edition in ChildEditions)
-                {
+            if (IsMultiEdition) {
+                foreach (var edition in ChildEditions) {
                     editionsToUse.Add(edition);
                 }
-            }
-            else
-            {
+            } else {
                 editionsToUse.Add(this);
             }
 
             // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
-            foreach (var edition in editionsToUse)
-            {
+            foreach (var edition in editionsToUse) {
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
             }
 
-            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
-            {
-                var langCode = (LanguageCode) iLang;
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {
+                var langCode = (LanguageCode)iLang;
 
                 var usePath = $"{Application.dataPath}/_config/Resources/{langCode}";
                 var unusePath = $"{Application.dataPath}/_config/Resources_unused/{langCode}";
 
-                if (languagesToUse.Contains(langCode))
-                {
-                    if (!Directory.Exists(usePath) && Directory.Exists(unusePath))
-                    {
+                if (languagesToUse.Contains(langCode)) {
+                    if (!Directory.Exists(usePath) && Directory.Exists(unusePath)) {
                         Debug.Log("Enabling language: " + langCode);
                         Directory.Move(unusePath, usePath);
                     }
-                }
-                else
-                {
-                    if (!Directory.Exists(unusePath) && Directory.Exists(usePath))
-                    {
+                } else {
+                    if (!Directory.Exists(unusePath) && Directory.Exists(usePath)) {
                         Debug.Log("Disabling language: " + langCode);
                         Directory.Move(usePath, unusePath);
                     }
