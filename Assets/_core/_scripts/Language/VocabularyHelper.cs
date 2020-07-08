@@ -391,6 +391,9 @@ namespace Antura.Database
             if (filters.excludeDuplicateLetters && WordContainsDuplicateLetters(data)) {
                 return false;
             }
+            if (filters.excludeSpaces && WordContainsLetter(data, AppManager.I.DB.GetLetterDataById(" "))) {
+                return false;
+            }
             return true;
         }
 
@@ -428,6 +431,12 @@ namespace Antura.Database
         {
             var wordLetters = GetLettersInWord(selectedWord);
             return wordLetters.GroupBy(x => x.Id).Any(g => g.Count() > 1);
+        }
+
+        public bool WordHasSpecialCharacters(WordData selectedWord)
+        {
+            var wordLetters = GetLettersInWord(selectedWord);
+            return wordLetters.Any(x => x.IsOfKindCategory(LetterKindCategory.SpecialChar));
         }
 
         public int WordContainsLetterTimes(WordData selectedWord, LetterData containedLetter, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
@@ -668,12 +677,18 @@ namespace Antura.Database
             List<WordData> outputDatas = new List<WordData>();
             var phraseText = phraseData.Text;
             var wordsInString = phraseText.Split(' ');
-            foreach (var wordText in wordsInString) {
-                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(wordText, StringComparison.InvariantCultureIgnoreCase));
+            foreach (var wordText in wordsInString)
+            {
+                // We ignore apostrophes when deciding if a word is found or not
+                var splits = wordText.Split('\'');
+                var strippedWordText = splits[splits.Length-1];
+
+                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
+
                 if (wd != null) {
-                    outputDatas.Add(wd);
+                    outputDatas.Add(new WordData { Id = wd.Id, Text = wordText.ToUpper() });
                 } else {
-                    outputDatas.Add(new WordData() { Id = "RUNTIME-" + wordText, Text = wordText.ToUpper() });
+                    outputDatas.Add(new WordData { Id = $"RUNTIME-{wordText}", Text = wordText.ToUpper() });
                 }
             }
             return outputDatas;

@@ -1,5 +1,6 @@
 using Antura.Helpers;
 using Antura.Core;
+using Antura.Database;
 using Antura.Language;
 
 namespace Antura.LivingLetters
@@ -43,7 +44,7 @@ namespace Antura.LivingLetters
         public string TextForLivingLetter
         {
             get {
-                return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); 
+                return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text);
             }
         }
 
@@ -59,7 +60,7 @@ namespace Antura.LivingLetters
                 return false;
             }
 
-            return other.Data.Id == Data.Id;
+            return Data.IsSameAs(other.Data, WordEqualityStrictness.Spelling);
         }
 
         public override string ToString()

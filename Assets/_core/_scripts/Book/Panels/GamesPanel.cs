@@ -22,9 +22,7 @@ namespace Antura.Book
         public GameObject DetailPanel;
 
         public GameObject ElementsContainer;
-        public TextRender GameTitleNative;
-        public TextRender GameTitleLearning;
-        //public TextRender ScoreText;
+        public TextRender GameTitle;
         public Image MiniGameLogoImage;
         public Image MiniGameBadgeImage;
         public Button LaunchGameButton;
@@ -96,9 +94,7 @@ namespace Antura.Book
         {
             if (selectedGameInfo == null) {
                 currentMiniGame = null;
-                GameTitleNative.text = "";
-                GameTitleLearning.text = "";
-                //ScoreText.text = "";
+                GameTitle.text = "";
                 MiniGameLogoImage.enabled = false;
                 MiniGameBadgeImage.enabled = false;
                 LaunchGameButton.gameObject.SetActive(false);
@@ -115,8 +111,7 @@ namespace Antura.Book
             currentMiniGame = selectedGameInfo.data;
 
             VariationsContainer.BroadcastMessage("Select", selectedGameInfo, SendMessageOptions.DontRequireReceiver);
-            GameTitleNative.text = selectedGameInfo.data.GetFullTitle(true);
-            //EnglishText.text = SAppConfig.I.ShowSubtitles ? selectedGameInfo.data.Title_Native : "";
+            GameTitle.text = selectedGameInfo.data.GetFullTitle(true);
 
             //var Output = "";
             //Output += "Score: " + selectedGameInfo.score;

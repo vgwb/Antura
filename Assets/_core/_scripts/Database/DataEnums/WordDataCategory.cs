@@ -1,6 +1,6 @@
 namespace Antura.Database
 {
-    // last is 18
+    // last is 19
     public enum WordDataCategory
     {
         None = 0,
@@ -21,6 +21,7 @@ namespace Antura.Database
         Expressions = 15,
         Feelings = 16,
         Jobs = 17,
-        NumbersOrdinal = 18
+        NumbersOrdinal = 18,
+        Math = 19
     }
 }

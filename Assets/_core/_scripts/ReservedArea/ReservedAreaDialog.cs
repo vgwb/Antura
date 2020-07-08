@@ -1,3 +1,4 @@
+using System;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
@@ -5,7 +6,9 @@ using Antura.UI;
 using Antura.Helpers;
 using System.Collections.Generic;
 using Antura.Keeper;
+using JetBrains.Annotations;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Antura.ReservedArea
 {
@@ -15,7 +18,7 @@ namespace Antura.ReservedArea
     /// </summary>
     public class ReservedAreaDialog : MonoBehaviour
     {
-        public TextRender nativeTextUI;
+        [UsedImplicitly] public TextRender nativeTextUI;
         public TextRender learningTextUI;
 
         private int firstButtonClickCounter;
@@ -31,7 +34,7 @@ namespace Antura.ReservedArea
 
         void OnEnable()
         {
-            KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.NativeNoSubtitles);
+            KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.LearningThenNativeNoSubtitles);
             firstButtonClickCounter = 0;
 
             UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
@@ -55,66 +58,49 @@ namespace Antura.ReservedArea
 
             if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 
-            // Native
-            string[] numbersWordsNative = { "uno", "dos", "tres", "cuatro", "cinco", "seis", "siete", "ocho", "nueve" };
-            string[] colorsWordsNative = { "verde", "rojo", "azul", "amarillo" };
+            var numberWord = AppManager.I.DB.GetWordDataById($"number_0{firstButtonClicksTarget}");
 
-            // Learning
-            string[] numbersWordsLearning = { "one", "two", "three", "four", "five", "six", "seven", "eight", "nine" };
-            string[] colorsWordsLearning = { "green", "red", "blue", "yellow" };
+            WordData[] colorWords = new WordData[4];
+            colorWords[0] = AppManager.I.DB.GetWordDataById("color_green");;
+            colorWords[1] = AppManager.I.DB.GetWordDataById("color_red");
+            colorWords[2] = AppManager.I.DB.GetWordDataById("color_blue");
+            colorWords[3] = AppManager.I.DB.GetWordDataById("color_yellow");
 
-            //// arabic
-            //// TODO: refactor this and get them from the localization data instead
-            //string[] colorsWordsLearning = { "الأخضر", "الأحمر", "الأزرق", "الأصفر" };
-            //string[] numbersWordsLearning =
-            //{
-            //    "مرة واحدة",
-            //    "مرتين",
-            //    "ثلاث مرات",
-            //    "أربع مرات",
-            //    "خمس مرات",
-            //    "ست مرات",
-            //    "سبع مرات",
-            //    "ثماني مرات",
-            //    "تسع مرات"
-            //};
 
-            string numberWordNative = numbersWordsNative[firstButtonClicksTarget - 1];
-            string firstColorWordNative = colorsWordsNative[firstButtonIndex];
-            string secondColorWordNative = colorsWordsNative[secondButtonIndex];
+            var firstColorLocData = colorWords[firstButtonIndex];
+            var secondColorLocData = colorWords[secondButtonIndex];
 
             var titleLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_Title);
             var sectionIntroLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_SectionDescription_Intro);
             var sectionErrorLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.ReservedArea_SectionDescription_Error);
             var sectionGateCodeLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code);
+            var sectionGateCodeForcedLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code_Forced);
 
+            /* NATIVE INTRODUCTION
+            // this is deprecated now. If we want this, we need to extract color and number words for the Native language too.
+            //
             string nativeIntroduction = "";
             nativeIntroduction += "<b>" + titleLoc.NativeText + "</b> \n";
             nativeIntroduction += sectionIntroLoc.NativeText + "\n\n";
-            nativeIntroduction += sectionGateCodeLoc.NativeText;
+
+            if (UseForcedSequence)
+                nativeIntroduction += sectionGateForcedCodeLoc.NativeText;
+            else
+                nativeIntroduction += string.Format(sectionGateCodeLoc.NativeText, numberWord.get(), firstColorLocData.GetNativeText(), secondColorLocData.GetNativeText());
             //nativeIntroduction += string.Format("Pulsa <b>{0}</b> veces el botón <b>{1}</b>, luego pulsa <b>{2}</b> una vez", numberWordNative, firstColorWordNative, secondColorWordNative);
             nativeIntroduction += "\n\n" + sectionErrorLoc.NativeText;
             nativeTextUI.SetText(nativeIntroduction, Language.LanguageUse.Learning);
-
-            string numberWordLearning = numbersWordsLearning[firstButtonClicksTarget - 1];
-            string firstColorWordLearning = colorsWordsLearning[firstButtonIndex];
-            string secondColorWordLearning = colorsWordsLearning[secondButtonIndex];
+            */
 
             string learningIntroduction = "";
-            learningIntroduction += "<b>" + titleLoc.LearningText + "</b> \n";
-            learningIntroduction += sectionIntroLoc.LearningText + "\n\n";
-
+            learningIntroduction += $"<b>{titleLoc.LearningText}</b> \n";
+            learningIntroduction += $"{sectionIntroLoc.LearningText}\n\n";
             if (UseForcedSequence)
-                learningIntroduction += sectionGateCodeLoc.LearningText;
+                learningIntroduction += sectionGateCodeForcedLoc.LearningText;
             else
-                learningIntroduction += string.Format("Press the <b>{1}</b> button <b>{0}</b> times, then press the <b>{2}</b> button once.", numberWordLearning, firstColorWordLearning, secondColorWordLearning);
-            // arabic
-            //learningIntroduction += string.Format("لفتح القفل، اضغط الزر {0} {2} ، ثم الزر {1} مرة واحدة", firstColorWordLearning,
-            //secondColorWordLearning, numberWordLearning);
+                learningIntroduction += string.Format(sectionGateCodeLoc.LearningText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
+            learningIntroduction += $"\n\n{sectionErrorLoc.LearningText}";
 
-            learningIntroduction += "\n\n" + sectionErrorLoc.LearningText;
-
-            //Debug.Log(arabicIntroduction);
             learningTextUI.SetText(learningIntroduction, Language.LanguageUse.Learning);
         }
 

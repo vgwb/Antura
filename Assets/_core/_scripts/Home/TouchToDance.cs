@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Antura.Audio;
 using Antura.Core;
+using Antura.Teacher;
 using UnityEngine;
 
 namespace Antura.LivingLetters
@@ -12,7 +13,10 @@ namespace Antura.LivingLetters
         {
             var view = GetComponent<LivingLetterController>();
             view.ToggleDance();
-            var letter = AppManager.I.Teacher.GetRandomTestLetterLL(useMaxJourneyData: true);
+
+            var letterFilters = new LetterFilters();
+            letterFilters.excludeDiphthongs = true;
+            var letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
             view.Init(letter);
 
             AudioManager.I.PlayLetter(letter.Data, true);

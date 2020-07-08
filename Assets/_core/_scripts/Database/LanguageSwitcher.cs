@@ -55,7 +55,7 @@ namespace Antura.Language
             languageData.config = Resources.Load<LangConfig>($"{language}/LangConfig");
             if (languageData.config == null)
             {
-                Debug.LogError($"Could not find the LangConfig file in the language resources! Did you setup the {language} language correctly?");
+                Debug.LogError($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
                 throw new FileNotFoundException();
             }
 

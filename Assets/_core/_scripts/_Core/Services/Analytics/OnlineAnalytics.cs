@@ -60,6 +60,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             parameters["avatar_tint"] = playerProfile.Tint;
             parameters["gender"] = playerProfile.Gender;
             parameters["age"] = playerProfile.Age;
+
+            Analytics.CustomEvent("CompletedRegistration", parameters);
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.CompletedRegistration, parameters: parameters);
 #endif
@@ -74,6 +76,9 @@ namespace Antura.Core.Services.OnlineAnalytics
             parameters["st"] = jp.Stage;
             parameters["lb"] = jp.LearningBlock;
             parameters["ps"] = jp.PlaySession;
+
+            //Analytics.CustomEvent("AchievedLevel", parameters);
+            AnalyticsEvent.LevelUp(jp.Id, parameters);
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.AchievedLevel, parameters: parameters);
 #endif
@@ -86,6 +91,9 @@ namespace Antura.Core.Services.OnlineAnalytics
             var parameters = new Dictionary<string, object>();
             parameters["phase"] = (int)phase;
             parameters["phase_name"] = phase.ToString();
+
+            //Analytics.CustomEvent("CompletedTutorial", parameters);
+            AnalyticsEvent.TutorialComplete(null, parameters);
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.CompletedTutorial, parameters: parameters);
 #endif
@@ -94,6 +102,12 @@ namespace Antura.Core.Services.OnlineAnalytics
         public void TrackSpentBones(int nSpent)
         {
             if (!AnalyticsEnabled) return;
+
+            //var parameters = new Dictionary<string, object>();
+            //parameters["spent"] = (int)nSpent;
+
+            //Analytics.CustomEvent("SpentCredits", parameters);
+            AnalyticsEvent.ItemSpent(AcquisitionType.Soft, "space", (float)nSpent, "bones");
 
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.SpentCredits, valueToSum: nSpent);
@@ -108,7 +122,10 @@ namespace Antura.Core.Services.OnlineAnalytics
             parameters["customization_json"] = customization.GetJsonListOfIds();
             parameters["antura_space_play_time"] = anturaSpacePlayTime;
 
+            Analytics.CustomEvent("custom_antura_customization", parameters);
+#if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent("custom_antura_customization", parameters: parameters);
+#endif
         }
 
         public void TrackMiniGameScore(MiniGameCode miniGameCode, int score, JourneyPosition currentJourneyPosition, float duration)
@@ -117,10 +134,16 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             var parameters = new Dictionary<string, object>();
             parameters["minigame_code"] = miniGameCode.ToString();
+            parameters["score"] = score;
             parameters["duration"] = duration;
             parameters["duration"] = duration;
             parameters["journey_position"] = currentJourneyPosition.Id;
+
+            //Analytics.CustomEvent("custom_minigame_score", parameters);
+            AnalyticsEvent.LevelComplete(currentJourneyPosition.Id, parameters);
+#if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent("custom_minigame_score", score, parameters);
+#endif
         }
 
         #region Older Events

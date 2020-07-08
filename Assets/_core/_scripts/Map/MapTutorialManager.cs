@@ -90,7 +90,7 @@ namespace Antura.Map
             KeeperManager.I.PlayDialogue(LocalizationDataId.Map_Intro, autoClose:false, _callback:
                 () =>
                 {
-                    KeeperManager.I.PlayDialogue(LocalizationDataId.Map_Intro_LB_1_1, _callback:
+                    KeeperManager.I.PlayDialogue(LocalizationDataId.Map_Intro_LB_Alphabet, _callback:
                         () =>
                         {
                             var firstPinTr = _stageMapsManager.stageMaps[0].Pins[0].transform;

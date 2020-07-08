@@ -70,6 +70,17 @@ namespace Antura.Database
         [SerializeField]
         private string _Title_En;
 
+        public string Title_LearningLang
+        {
+            get { return _Title_LearningLang; }
+            set { _Title_LearningLang = value; }
+        }
+        [SerializeField]
+        private string _Title_LearningLang;
+
+        [SerializeField]
+        private string _Title_Ar;
+
         public string AudioFile
         {
             get { return _AudioFile; }
@@ -77,20 +88,6 @@ namespace Antura.Database
         }
         [SerializeField]
         private string _AudioFile;
-
-        public string Title_LearningLang
-        {
-            get {
-                if (_Title_Ar != "") {
-                    return _Title_Ar;
-                } else {
-                    return "TODO عنوان الاختبار المراد كتابته";
-                }
-            }
-            set { _Title_Ar = value; }
-        }
-        [SerializeField]
-        private string _Title_Ar;
 
         public LearningBlockDataFocus Focus
         {

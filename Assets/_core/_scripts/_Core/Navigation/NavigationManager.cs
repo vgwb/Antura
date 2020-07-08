@@ -297,6 +297,8 @@ namespace Antura.Core
         /// <param name="_miniGame">The mini game.</param>
         private void InternalLaunchGameScene(MiniGameData _miniGame, MinigameLaunchConfiguration _launchConfig = null, bool useLastConfig = false)
         {
+            WorldManager.I.CurrentWorld = (WorldID)(NavData.CurrentPlayer.CurrentJourneyPosition.Stage - 1);
+
             // Ask the teacher for a config, if needed
             if (useLastConfig) {
                 _launchConfig = AppManager.I.GameLauncher.LastLaunchConfig;
@@ -579,8 +581,6 @@ namespace Antura.Core
 
             // Game selector -> go to the first game
             NavData.SetFirstMinigame();
-            // TODO: ???
-            WorldManager.I.CurrentWorld = (WorldID)(NavData.CurrentPlayer.CurrentJourneyPosition.Stage - 1);
             InternalLaunchGameScene(NavData.CurrentMiniGameData);
         }
 

@@ -118,9 +118,23 @@ namespace Antura.Language
             for (int iChar = 0; iChar < chars.Length; iChar++)
             {
                 var letterDataID = chars[iChar].ToString();
-                var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), letterDataID);
-                stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+
+                // HACK: Letter "Œ" is split differently as it is a ligature
+                if (letterDataID == "Œ")
+                {
+                    var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), "O");
+                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+
+                    letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), "E");
+                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+                }
+                else
+                {
+                    var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), letterDataID);
+                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+                }
             }
+
             return stringParts;
         }
 

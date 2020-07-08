@@ -143,7 +143,10 @@ namespace Antura.Database
             if (learning) {
                 fullTitle = Title.LearningText;
                 if (VariationId != "") {
-                    fullTitle += ": " + LocalizationManager.GetLocalizationData(VariationId).LearningText;
+                    var varTitle = LocalizationManager.GetLocalizationData(VariationId).LearningText;
+                    if (varTitle != "") {
+                        fullTitle += " - " + varTitle;
+                    }
                 }
             } else {
                 fullTitle = Title.NativeText;

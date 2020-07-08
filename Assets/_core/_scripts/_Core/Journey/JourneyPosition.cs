@@ -20,7 +20,9 @@ namespace Antura.Core
         public const int RECAP_PLAY_SESSION_INDEX = 200;
         public const int ENDGAME_PLAY_SESSION_INDEX = 500;
 
-        public string Id => Stage + "." + LearningBlock + "." + PlaySession;
+        public string Id => $"{Stage}.{LearningBlock}.{PlaySession}";
+
+        public string LearningBlockID => $"{Stage}.{LearningBlock}";
 
         public JourneyPosition()
         {

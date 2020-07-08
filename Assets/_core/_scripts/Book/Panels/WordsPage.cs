@@ -5,7 +5,6 @@ using Antura.Keeper;
 using Antura.Helpers;
 using Antura.Teacher;
 using Antura.UI;
-using System.Collections;
 using System.Linq;
 using System.Collections.Generic;
 using Antura.Language;
@@ -35,7 +34,6 @@ namespace Antura.Book
 
         private WordInfo currentWordInfo;
         private GenericCategoryData currentCategory;
-        private LocalizationData CategoryData;
         private GameObject btnGO;
 
         private string debugSingleWord;
@@ -119,23 +117,38 @@ namespace Antura.Book
             //btnGO = Instantiate(SpacerItemPrefab);
             //btnGO.transform.SetParent(SubmenuContainer.transform, false);
 
-            foreach (WordDataCategory cat in GenericHelper.SortEnums<WordDataCategory>()) {
-                if (cat == WordDataCategory.None) continue;
+            List<GenericCategoryData> categoriesList = new List<GenericCategoryData>();
+            GenericCategoryData categoryData;
+            foreach (WordDataCategory wordCat in GenericHelper.SortEnums<WordDataCategory>()) {
+                if (wordCat == WordDataCategory.None) continue;
+                // TODO hack disable these word categories
+                if (wordCat == WordDataCategory.Expressions
+                    || wordCat == WordDataCategory.NumbersOrdinal
+                    || wordCat == WordDataCategory.Feelings
+                    || wordCat == WordDataCategory.Jobs) continue;
+
+                var catLocData = LocalizationManager.GetWordCategoryData(wordCat);
+                if (catLocData == null) continue;
+                categoryData = new GenericCategoryData
+                {
+                    area = VocabularyChapter.Words,
+                    wordCategory = wordCat,
+                    Id = catLocData.Id,
+                    TitleLearning = catLocData.LearningText.ToUpper(),
+                    TitleNative = catLocData.NativeText.ToUpper(),
+                    Stage = 0
+                };
+                categoriesList.Add(categoryData);
+            }
+            categoriesList.Sort((x, y) => string.Compare(x.TitleLearning, y.TitleLearning));
+
+            foreach (var category in categoriesList) {
                 btnGO = Instantiate(CategoryItemPrefab);
                 btnGO.transform.SetParent(SubmenuContainer.transform, false);
-                CategoryData = LocalizationManager.GetWordCategoryData(cat);
                 btnGO.GetComponent<MenuItemCategory>().Init(
                     this,
-                    new GenericCategoryData
-                    {
-                        area = VocabularyChapter.Words,
-                        wordCategory = cat,
-                        Id = cat.ToString(),
-                        TitleLearning = CategoryData.LearningText.ToUpper(),
-                        TitleNative = CategoryData.NativeText.ToUpper(),
-                        Stage = 0
-                    },
-                    currentCategory.wordCategory == cat
+                    category,
+                    currentCategory.wordCategory == category.wordCategory
                 );
             }
         }

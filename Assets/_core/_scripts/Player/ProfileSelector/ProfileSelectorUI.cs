@@ -132,6 +132,10 @@ namespace Antura.UI
                     PlayerIconData iconData = playerIconDatas[i];
                     playerIcon.gameObject.SetActive(true);
                     playerIcon.Init(iconData);
+
+                    // Use the first available, if the player is null
+                    if (AppManager.I.Player == null) AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(playerIcon.Uuid);
+
                     playerIcon.Select(AppManager.I.Player.Uuid);
                     playerIcon.transform.localScale = Vector3.one * (AppManager.I.Player.Uuid == playerIcon.Uuid ? 1.14f : 1);
                 }

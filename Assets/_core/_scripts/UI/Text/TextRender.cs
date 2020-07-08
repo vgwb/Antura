@@ -96,14 +96,19 @@ namespace Antura.UI
         private void UpdateText()
         {
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
-            if (!isLetter && !isNumber && config.OverrideTextFonts)
-            {
+            if (!isLetter && !isNumber && config.OverrideTextFonts) {
                 TMPText.font = config.TextFont;
             }
 
-            if (!isNumber && !isLetter) TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
-            else if (isLetter) TMPText.text = m_text; // Processed already
-            else TMPText.text = m_text; // Raw
+            if (!isNumber && !isLetter) {
+                TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
+            } else if (isLetter) {
+                // Processed already
+                TMPText.text = m_text;
+            } else {
+                // Raw
+                TMPText.text = m_text;
+            }
 
             if (RenderedText == "") text = " "; // Avoid no text not getting update correctly
             CheckRTL();
@@ -119,14 +124,12 @@ namespace Antura.UI
             TMPText.isRightToLeftText = !isNumber && LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
         }
 
-
         private bool isLetter = false;
         public int drawingFontSize = 40;
         public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
         {
             isLetter = true;
-            if (livingLetterData.DataType == LivingLetterDataType.Image)
-            {
+            if (livingLetterData.DataType == LivingLetterDataType.Image) {
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
@@ -136,9 +139,7 @@ namespace Antura.UI
 
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
                 if (outlined) TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
-            }
-            else
-            {
+            } else {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
                 CheckRTL();

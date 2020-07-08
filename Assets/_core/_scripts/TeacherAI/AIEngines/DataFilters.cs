@@ -62,6 +62,7 @@ namespace Antura.Teacher
         public bool excludeColorWords;
         public bool excludeDipthongs;
         public bool excludeDuplicateLetters;
+        public bool excludeSpaces;
         public WordDataCategory[] allowedCategories;
 
         public WordFilters(
@@ -73,6 +74,7 @@ namespace Antura.Teacher
             bool requireDrawings = false,
             bool excludeColorWords = false,
             bool excludeDipthongs = false,
+            bool excludeSpaces = false,
             WordDataCategory[] allowedCategories = null)
         {
             this.excludeDiacritics = excludeDiacritics;
@@ -83,6 +85,7 @@ namespace Antura.Teacher
             this.requireDrawings = requireDrawings;
             this.excludeColorWords = excludeColorWords;
             this.excludeDipthongs = excludeDipthongs;
+            this.excludeSpaces = excludeSpaces;
             this.allowedCategories = allowedCategories;
         }
     }

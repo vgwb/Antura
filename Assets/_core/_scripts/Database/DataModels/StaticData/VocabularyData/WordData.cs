@@ -7,6 +7,17 @@ using UnityEngine;
 
 namespace Antura.Database
 {
+
+    /// <summary>
+    /// Enumerator that defines if two words are identical.
+    /// </summary>
+    public enum WordEqualityStrictness
+    {
+        Word,               // words are the same if they have the same database ID (i.e. they are the actual same word)
+        Spelling,             // words are the same if they are spelled the same
+    }
+
+
     /// <summary>
     /// Data defining a Word.
     /// This is one of the fundamental dictionary (i.e. learning content) elements.
@@ -134,6 +145,14 @@ namespace Antura.Database
         [SerializeField]
         private string _Drawing;
 
+        //public string DrawingLabel
+        //{
+        //    get { return _DrawingLabel; }
+        //    set { _DrawingLabel = value; }
+        //}
+        //[SerializeField]
+        //private string _DrawingLabel;
+
         public string DrawingCeibal
         {
             get { return _DrawingCeibal; }
@@ -178,5 +197,44 @@ namespace Antura.Database
             return Drawing != "";
         }
 
+        public bool IsSameAs(WordData other, WordEqualityStrictness strictness)
+        {
+            bool isEqual = false;
+            switch (strictness) {
+                case WordEqualityStrictness.Word:
+                    isEqual = string.Equals(Id, other.Id);
+                    break;
+                case WordEqualityStrictness.Spelling:
+                    isEqual = string.Equals(Text, other.Text);
+                    break;
+            }
+
+            return isEqual;
+        }
+
+        public override bool Equals(object obj)
+        {
+            var other = obj as WordData;
+            if (other == null) { return false; }
+            return Equals(other);
+        }
+
+        private static WordEqualityStrictness DefaultStrictness = WordEqualityStrictness.Spelling;
+        public override int GetHashCode()
+        {
+            switch (DefaultStrictness) {
+                case WordEqualityStrictness.Word:
+                    return (_Id != null ? _Id.GetHashCode() : 0);
+                case WordEqualityStrictness.Spelling:
+                    return (_Text != null ? _Text.GetHashCode() : 0);
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+
+        private bool Equals(WordData other)
+        {
+            return IsSameAs(other, DefaultStrictness);
+        }
     }
 }

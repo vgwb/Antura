@@ -5,6 +5,14 @@ namespace Antura.Utilities
 {
     public class PlatformVisibility : MonoBehaviour
     {
+        public enum ConditionSettingEnum
+        {
+            none = 0,
+            ShowDonate = 1,
+            ShowTeacherGuide = 2
+        }
+
+        public ConditionSettingEnum ConditionSetting;
         public bool MobileOnly;
         public bool AndroidOnly;
         public bool DesktopOnly;
@@ -13,7 +21,17 @@ namespace Antura.Utilities
 
         void Start()
         {
-            if (!Application.isEditor) {
+            if (ConditionSetting != ConditionSettingEnum.none) {
+                switch (ConditionSetting) {
+                    case ConditionSettingEnum.ShowDonate:
+                        gameObject.SetActive(AppManager.I.SpecificEdition.ShowDonate);
+                        break;
+                    case ConditionSettingEnum.ShowTeacherGuide:
+                        gameObject.SetActive(AppManager.I.SpecificEdition.ShowTeacherGuide);
+                        break;
+                }
+
+            } else if (!Application.isEditor) {
                 bool visible = false;
 
                 if (MobileOnly && AppConfig.IsMobilePlatform()) {

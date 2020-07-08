@@ -115,7 +115,7 @@ namespace Antura.Database
 
         public string GetLocalizedAudioFileName(PlayerGender playerGender)
         {
-            if (playerGender == PlayerGender.F && LearningText_F != string.Empty && AudioKey != string.Empty) {
+            if (playerGender == PlayerGender.F && AudioKey != string.Empty) {
                 return AudioKey + "_F";
             }
             return AudioKey;

@@ -285,11 +285,8 @@ namespace Antura.Map
                     pin.SetPlaySessionState(psState);
                 }
 
-                // Dialogues added to first JP of the stage
-                if (jp_i == 0) {
-                    var introDialogues = playPins[jp_i].gameObject.AddComponent<IntroDialogues>();
-                    introDialogues.stageNumber = stageNumber;
-                }
+                // Dialogues added to all JPs of the stage
+                var introDialogues = playPins[jp_i].gameObject.AddComponent<IntroDialogues>();
 
                 // Advance to the next journey pos
                 //Debug.Log("Current jp: " + assignedJourneyPosition);

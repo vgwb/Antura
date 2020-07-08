@@ -462,6 +462,14 @@ namespace Antura.Database
         public string GetAudioFilename(LetterDataSoundType soundType = LetterDataSoundType.Phoneme)
         {
             // Debug.Log("GetAudioFilename " + Id + " " + Kind + " " + Type);
+            if (IsAccentedLetter())
+            {
+                if (string.IsNullOrEmpty(PhonemeSound)) PhonemeSound = AppManager.I.DB.GetLetterDataById(BaseLetter).PhonemeSound;
+                if (string.IsNullOrEmpty(NameSound)) NameSound = AppManager.I.DB.GetLetterDataById(BaseLetter).NameSound;
+                if (string.IsNullOrEmpty(Sound)) Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).Sound;
+                if (string.IsNullOrEmpty(SoundZone)) Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).SoundZone;
+            }
+
             switch (soundType) {
                 case LetterDataSoundType.Phoneme:
                     if (PhonemeSound != "") {

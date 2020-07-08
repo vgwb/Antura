@@ -33,13 +33,10 @@ namespace Antura.Scenes
         {
             base.Start();
             GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
-            KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, null, KeeperMode.LearningThenNativeNoSubtitles);
+            KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, TutorCreateProfile, KeeperMode.LearningThenNativeNoSubtitles);
 
             AnturaAnimController.State = AnturaAnimation;
             LLAnimController.State = LLAnimation;
-
-            // after 2 seconds (after the game title audio) invite palyer to create a profile
-            Invoke("TutorCreateProfile", 4f);
         }
 
         void TutorCreateProfile()

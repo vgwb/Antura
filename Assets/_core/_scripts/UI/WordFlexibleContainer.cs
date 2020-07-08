@@ -25,6 +25,7 @@ namespace Antura.UI
             Label.gameObject.SetActive(true);
             NumbersLabel.gameObject.SetActive(false);
             Label.SetTextUnfiltered(text);
+            Label.TMPText.enabled  = !(string.IsNullOrEmpty(text)); // Fix to avoid the wordcomposer showing the last text sometimes (seems a TMPro bug, see https://github.com/vgwb-private/Antura/issues/298)
         }
 
         public void SetLetterData(ILivingLetterData data)
@@ -32,6 +33,7 @@ namespace Antura.UI
             Label.gameObject.SetActive(true);
             NumbersLabel.gameObject.SetActive(false);
             Label.SetLetterData(data);
+            Label.TMPText.enabled= true;
         }
 
         public void SetNumber(int numberValue)
@@ -39,6 +41,7 @@ namespace Antura.UI
             Label.gameObject.SetActive(false);
             NumbersLabel.gameObject.SetActive(true);
             NumbersLabel.SetTextUnfiltered(numberValue.ToString());
+            Label.TMPText.enabled= true;
         }
 
     }

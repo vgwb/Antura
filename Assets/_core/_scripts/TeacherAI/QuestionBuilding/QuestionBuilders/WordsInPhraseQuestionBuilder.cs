@@ -36,6 +36,9 @@ namespace Antura.Teacher
                 parameters = new QuestionBuilderParameters();
             }
 
+            // Cannot support compound words
+            parameters.wordFilters.excludeSpaces = true;
+
             this.nPacks = nPacks;
             this.nCorrect = nCorrect;
             this.nWrong = nWrong;
