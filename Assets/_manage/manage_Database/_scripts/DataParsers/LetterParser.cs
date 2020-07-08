@@ -14,6 +14,7 @@ namespace Antura.Database.Management
             var data = new LetterData();
 
             data.Id = ToString(dict["Id"]);
+            if (data.Id == "▲") data.Id = " ";
             data.Active = (ToInt(dict["Active"]) == 1);
             if (!data.Active) return null;  // Skip this data if inactive
 

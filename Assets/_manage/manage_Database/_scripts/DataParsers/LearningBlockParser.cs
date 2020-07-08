@@ -17,10 +17,10 @@ namespace Antura.Database.Management
             data.LearningBlock = ToInt(dict["LearningBlock"]);
             data.Id = data.Stage + "." + data.LearningBlock;
 
-            data.Description_NativeLang = ToString(dict["Description_En"]);
-            data.Description_LearningLang = ToString(dict["Description_Ar"]);
-            data.Title_LearningLang = ToString(dict["Title_En"]);
             data.Title_NativeLang = ToString(dict["Title_En"]);
+            data.Title_LearningLang = ToString(dict["Title_LearningLang"]);
+            data.Description_NativeLang = ToString(dict["Description_En"]);
+            data.Description_LearningLang = ToString(dict["Description_LearningLang"]);
             data.AudioFile = ToString(dict["AudioFile"]);
             //data.Reward = ParseID<RewardData, RewardTable>(data, (string)dict["Reward"], db.GetRewardTable());
             data.Focus = ParseEnum<LearningBlockDataFocus>(data, (string)dict["Focus"]);

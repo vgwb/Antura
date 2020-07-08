@@ -88,6 +88,7 @@ namespace Antura.Database.Management
             if (array_string == "") return new string[0];  // skip if empty (could happen if the string was empty)    
             for (int i = 0; i < array.Length; i++) {
                 array[i] = array[i].Trim(); // remove spaces
+                if (array[i] == "▲") array[i] = " ";
                 var value = table.GetValue(array[i]);
                 if (value == null) {
                     LogValidation(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + array[i]);

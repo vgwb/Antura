@@ -42,7 +42,9 @@ namespace Antura.Database.Management
             // Make sure to also add all combos, if a symbol is found
             HashSet<string> newLetters = new HashSet<string>();
             newLetters.UnionWith(psData.Letters);
-            foreach (var letterId in psData.Letters) {
+            foreach (var _letterId in psData.Letters) {
+                var letterId = _letterId;
+                if (letterId == "▲") letterId = " ";
                 var letterData = db.GetById(db.GetLetterTable(), letterId);
                 if (letterData.Kind == LetterDataKind.Symbol && letterData.Type == LetterDataType.DiacriticSymbol) {
                     // this is a symbol
