@@ -1,6 +1,8 @@
-# Antura
+# Antura and the Letters game
 
-the open source project for game "Antura" and all its editions: Antura Arabic, Antura Darija, Antura Learn English, Antura Learn French
+![antura_gametitle](docs/images/antura_gametitle.jpg)
+
+the open source project for the multiple awards winning game "Antura and the Letters" and all its editions: Antura Arabic, Antura Darija, Antura Learn English, Antura Learn French
 
 ## Project references
 
@@ -11,7 +13,7 @@ the open source project for game "Antura" and all its editions: Antura Arabic, A
 ## Collaborate
 
 Anybody is invited to collaborate to this open source project:
-please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Collaborator.html).
+please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Collaborator.html) and contact us if you want to help or be helped
 
 ## Requirements
 
