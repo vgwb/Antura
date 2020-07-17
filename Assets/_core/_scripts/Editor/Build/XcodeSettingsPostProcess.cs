@@ -56,9 +56,9 @@ public class XcodeSettingsPostProcess
         plist.root.SetBoolean("UIFileSharingEnabled", true);
 
         // authorize the saving screenshots into Camera Roll
-        plist.root.SetString("NSPhotoLibraryUsageDescription", "Save Antura photos");
+        plist.root.SetString("NSPhotoLibraryUsageDescription", "To save photos of the dog taken in game to the Camera Roll");
         // this is new for iOS 11
-        plist.root.SetString("NSPhotoLibraryAddUsageDescription", "Save Antura photos");
+        plist.root.SetString("NSPhotoLibraryAddUsageDescription", "To save photos of the dog taken in game to the Camera Roll");
 
         // Add URL Scheme
         //var array = plist.root.CreateArray("CFBundleURLTypes");
