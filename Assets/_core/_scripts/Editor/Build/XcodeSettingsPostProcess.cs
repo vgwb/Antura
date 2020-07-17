@@ -15,16 +15,16 @@ public class XcodeSettingsPostProcess
             return;
 
         // Initialize PbxProject
-        var projectPath = pathToBuiltProject + "/Unity-iPhone.xcodeproj/project.pbxproj";
-        PBXProject pbxProject = new PBXProject();
-        pbxProject.ReadFromFile(projectPath);
-        string targetGuid = pbxProject.TargetGuidByName("Unity-iPhone");
+        //var projectPath = pathToBuiltProject + "/Unity-iPhone.xcodeproj/project.pbxproj";
+        //PBXProject pbxProject = new PBXProject();
+        //pbxProject.ReadFromFile(projectPath);
+        //string targetGuid = pbxProject.TargetGuidByName("Unity-iPhone");
 
         // Sample of adding build property
         //pbxProject.AddBuildProperty(targetGuid, "OTHER_LDFLAGS", "-all_load");
 
         // Sample of setting build property
-        pbxProject.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");
+        // pbxProject.SetBuildProperty(targetGuid, "ENABLE_BITCODE", "NO");
 
         // Sample of update build property
         //pbxProject.UpdateBuildProperty(targetGuid, "OTHER_LDFLAGS", new string[] { "-ObjC" }, new string[] { "-weak_framework" });
@@ -42,7 +42,7 @@ public class XcodeSettingsPostProcess
         //pbxProject.SetCompileFlagsForFile(targetGuid, guid, flags);
 
         // Apply settings
-        File.WriteAllText(projectPath, pbxProject.WriteToString());
+        //File.WriteAllText(projectPath, pbxProject.WriteToString());
 
         // Samlpe of editing Info.plist
         var plistPath = Path.Combine(pathToBuiltProject, "Info.plist");
@@ -56,16 +56,9 @@ public class XcodeSettingsPostProcess
         plist.root.SetBoolean("UIFileSharingEnabled", true);
 
         // authorize the saving screenshots into Camera Roll
-        plist.root.SetString("NSPhotoLibraryUsageDescription", "To save photos of the dog taken in game to the Camera Roll");
+        plist.root.SetString("NSPhotoLibraryUsageDescription", "You will be able to customize the dog as you like and then take pictures in the app. Enabling the access to the camera roll allows us to save the pictures you take with the app. We don't access any photo on your device, we only add your photos as new photos.");
         // this is new for iOS 11
-        plist.root.SetString("NSPhotoLibraryAddUsageDescription", "To save photos of the dog taken in game to the Camera Roll");
-
-        // Add URL Scheme
-        //var array = plist.root.CreateArray("CFBundleURLTypes");
-        //var urlDict = array.AddDict();
-        //urlDict.SetString("CFBundleURLName", "hogehogeName");
-        //var urlInnerArray = urlDict.CreateArray("CFBundleURLSchemes");
-        //urlInnerArray.AddString("hogehogeValue");
+        plist.root.SetString("NSPhotoLibraryAddUsageDescription", "You will be able to customize the dog as you like and then take pictures in the app. Enabling the access to the camera roll allows us to save the pictures you take with the app. We don't access any photo on your device, we only add your photos as new photos.");
 
         // Apply editing settings to Info.plist
         plist.WriteToFile(plistPath);
