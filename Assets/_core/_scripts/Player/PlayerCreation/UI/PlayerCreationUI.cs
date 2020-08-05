@@ -6,7 +6,7 @@ using DG.DeExtensions;
 using DG.Tweening;
 using System;
 using System.Collections;
-
+using Antura.Database;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -81,6 +81,8 @@ namespace Antura.Profile
         private int currAge = -1;
         private PlayerGender currGender = PlayerGender.None;
         private Tween stepTween;
+
+        public ConfirmationPanelUI confirmationPanel;
 
         #region Unity
 
@@ -189,6 +191,13 @@ namespace Antura.Profile
             PlayerCreationUICategory avatarCat = Categories[CategoryIndex.Avatar];
             switch (toState) {
                 case UIState.GenderSelection:
+                    confirmationPanel.onSkip = () =>
+                    {
+                        SelectGender(PlayerGender.M);
+                        OnContinue();
+                    };
+                    confirmationPanel.Show(LocalizationDataId.Help_GenderSelection);
+
                     foreach (var cat in Categories) cat.gameObject.SetActive(false);
                     BgColorCategory.gameObject.SetActive(false);
                     GenderCategory.gameObject.SetActive(true);
@@ -346,16 +355,22 @@ namespace Antura.Profile
 
         #region Callbacks
 
+        private void SelectGender(PlayerGender _gender)
+        {
+            currGender = _gender;
+            AppManager.I.PlayerProfileManager.TemporaryPlayerGender = currGender;
+        }
+
         private void OnSelectCategory(PlayerCreationUICategory category, UIButton uiButton)
         {
             switch (State) {
                 case UIState.GenderSelection:
                     BtContinue.gameObject.SetActive(true);
                     BtContinue.Pulse();
-                    currGender = Array.IndexOf(GenderCategory.UIButtons, uiButton) == 0
+                    confirmationPanel.Hide();
+                    SelectGender(Array.IndexOf(GenderCategory.UIButtons, uiButton) == 0
                         ? PlayerGender.M
-                        : PlayerGender.F;
-                    AppManager.I.PlayerProfileManager.TemporaryPlayerGender = currGender;
+                        : PlayerGender.F);
                     KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
                     break;
                 case UIState.AvatarCreation:
