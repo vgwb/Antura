@@ -615,5 +615,7 @@ namespace Antura.Database
         Parental_Gate_Code_Forced = 694,
         Map_Intro_LB_Math = 695,
         UI_WordCat_Math = 696,
+        UI_Btn_Skip = 697,
+        Help_GenderSelection = 698
     }
 }
