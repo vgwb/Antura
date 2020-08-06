@@ -37,7 +37,7 @@ namespace Antura.Profile
             gameObject.SetActive(true);
             stepTween?.Kill();
             GetComponent<RectTransform>().anchoredPosition.SetY(-1000);
-            stepTween = GetComponent<RectTransform>().DOAnchorPosY(-230, 1f).SetEase(Ease.OutBack).Play();
+            stepTween = GetComponent<RectTransform>().DOAnchorPosY(-230, 1f).SetEase(Ease.OutBack).SetDelay(2f).Play();
 
             nativeMessage.SetText(LocalizationManager.GetNative(locId));
             learningMessage.SetText(LocalizationManager.GetTranslation(locId));
