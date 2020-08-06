@@ -55,7 +55,7 @@ namespace Antura.Keeper
 
         private void PlayDialogue(LocalizationData data, bool isKeeper = true, bool autoClose = true, Action _callback = null, KeeperMode keeperMode = KeeperMode.Default)
         {
-            Debug.Log("Keeper PlayDialogue: " + data.Id);
+            if (ApplicationConfig.I.DebugLogEnabled) Debug.Log("Keeper PlayDialogue: " + data.Id);
 
             if (keeperMode == KeeperMode.Default) {
                 keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
@@ -65,12 +65,9 @@ namespace Antura.Keeper
                                  keeperMode == KeeperMode.LearningAndSubtitles ||
                                  keeperMode == KeeperMode.NativeAndSubtitles || keeperMode == KeeperMode.SubtitlesOnly;
 
-            if (withSubtitles)
-            {
+            if (withSubtitles) {
                 WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper);
-            }
-            else
-            {
+            } else {
                 WidgetSubtitles.I.Close();
                 autoClose = false;
             }
