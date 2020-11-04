@@ -68,7 +68,24 @@ namespace Antura.Profile
         {
             PlayerProfile returnProfile = GetPlayerProfileByUUID(playerUUID);
             AppManager.I.PlayerProfileManager.CurrentPlayer = returnProfile;
+            UpdateProfileToCurrentVersion();
             return returnProfile;
+        }
+
+        public void UpdateProfileToCurrentVersion()
+        {
+            var currentPlayer = AppManager.I.PlayerProfileManager.CurrentPlayer;
+            if (!AppManager.I.JourneyHelper.SupportsJourneyPosition(currentPlayer.MaxJourneyPosition))
+            {
+                var newMax = AppManager.I.JourneyHelper.FindExistingJourneyPositionBackwards(currentPlayer.MaxJourneyPosition);
+                currentPlayer.SetMaxJourneyPosition(newMax, _forced:true);
+            }
+
+            if (!AppManager.I.JourneyHelper.SupportsJourneyPosition(currentPlayer.CurrentJourneyPosition))
+            {
+                var newCurrent = AppManager.I.JourneyHelper.FindExistingJourneyPositionBackwards(currentPlayer.CurrentJourneyPosition);
+                currentPlayer.SetCurrentJourneyPosition(newCurrent);
+            }
         }
 
         /// <summary>

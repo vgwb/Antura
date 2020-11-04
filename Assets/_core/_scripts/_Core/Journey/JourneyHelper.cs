@@ -95,7 +95,35 @@ namespace Antura.Teacher
             }
 
             // Check for the first session
-            if (next_id < 0) 
+            if (next_id < 0)
+            {
+                return null;
+            }
+
+            return PlaySessionIdToJourneyPosition(allPlaySessions[next_id].Id);
+        }
+
+        /// <summary>
+        /// Find the first available journey position going backwards from an old version position.
+        /// Used when updating to the new version, if the Journey Position is wrong.
+        /// </summary>
+        /// <param name="oldPosition"></param>
+        /// <returns></returns>
+        public JourneyPosition FindExistingJourneyPositionBackwards(JourneyPosition oldPosition)
+        {
+            var allPlaySessions = dbManager.GetAllPlaySessionData();
+            int next_id = -1;
+            for (int ps_i = allPlaySessions.Count - 1; ps_i >= 0; ps_i--)
+            {
+                if (allPlaySessions[ps_i].GetJourneyPosition().IsMinor(oldPosition))
+                {
+                    next_id = ps_i;
+                    break;
+                }
+            }
+
+            // Check for the first session
+            if (next_id < 0)
             {
                 return null;
             }
@@ -241,6 +269,11 @@ namespace Antura.Teacher
         public bool HasFinishedTheGame()
         {
             return PlayerIsAtFinalJourneyPosition();
+        }
+
+        public bool SupportsJourneyPosition(JourneyPosition jp)
+        {
+            return AppManager.I.DB.HasPlaySessionDataById(jp.Id);
         }
     }
 }

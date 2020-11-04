@@ -36,6 +36,9 @@ namespace Antura.Database.Management
         public static string DEBUG_PLAYER_UUID = "TEST";
         public LanguageCode langCode;
 
+        [Header("Test Custom Profile")]
+        public string TestCustomProfile;
+
         void Awake()
         {
             this.dbLoader = GetComponentInChildren<DatabaseLoader>();
@@ -46,8 +49,32 @@ namespace Antura.Database.Management
             scoreHelper = new ScoreHelper(dbManager);
             teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
 
-            // Load the first profile
-            LoadProfile(DEBUG_PLAYER_UUID);
+            if (TestCustomProfile != string.Empty)
+            {
+                LoadCustomProfile(TestCustomProfile);
+            }
+            else
+            {
+                LoadProfile(DEBUG_PLAYER_UUID);
+            }
+        }
+
+        private void LoadCustomProfile(string profileID)
+        {
+            dbManager.LoadDatabaseForPlayer(profileID);
+            PlayerProfileData playerProfile = dbManager.GetPlayerProfileData();
+            Debug.LogWarning(playerProfile.ToString());
+            Debug.LogWarning(playerProfile.AppVersion);
+            Debug.LogWarning(playerProfile.Edition);
+            Debug.LogWarning(playerProfile.Tint);
+            Debug.LogWarning(playerProfile.Gender);
+            Debug.LogWarning(dbManager.GetAllRewardPackUnlockData().ToJoinedString());
+
+            // Fake wrong JP
+            /*var pp = AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(profileID);
+            pp.SetMaxJourneyPosition(new JourneyPosition(1,2,2), _forced:true);
+            pp.SetCurrentJourneyPosition(new JourneyPosition(1,2,2));
+            */
         }
 
         #region Main Actions
