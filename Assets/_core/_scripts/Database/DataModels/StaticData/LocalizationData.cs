@@ -61,6 +61,11 @@ namespace Antura.Database
 
         public LocalizedData GetLocalized(LanguageCode lang)
         {
+            if (_LocalizedDatas == null)
+            {
+                Debug.LogWarning($"No LocalizedData found for ID {Id}");
+                return new LocalizedData();
+            }
             return _LocalizedDatas[(int)lang - 1];
         }
 

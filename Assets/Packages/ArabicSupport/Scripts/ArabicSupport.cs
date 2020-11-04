@@ -79,7 +79,9 @@ namespace ArabicSupport
 		{
 			ArabicFixerTool.showTashkeel = showTashkeel;
 			ArabicFixerTool.useHinduNumbers =useHinduNumbers;
-			
+
+            if (str.IsNullOrEmpty()) return "";
+
 			if(str.Contains("\n"))
 				str = str.Replace("\n", Environment.NewLine);
 			
