@@ -12,6 +12,8 @@
 #region Using Statements
 using System;
 using System.Collections.Generic;
+using DG.DeExtensions;
+
 #endregion
 
 namespace ArabicSupport
