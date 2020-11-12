@@ -32,7 +32,7 @@ namespace Antura.GamesSelector
             TitleCode.text = journeyPos.GetShortTitle();
             TitleLearningLang.SetText(learningBlock.Title_LearningLang, LanguageUse.Learning);
 
-            if (AppManager.I.ParentEdition.ShowSubtitles) {
+            if (AppManager.I.ParentEdition.ShowNativeTooltips) {
                 TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Native);
             } else {
                 TitleNativeLang.text = "";

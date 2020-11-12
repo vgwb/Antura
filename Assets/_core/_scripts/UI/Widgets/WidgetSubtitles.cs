@@ -134,7 +134,7 @@ namespace Antura.UI
             TextUI.SetText(learningText, LanguageUse.Learning);
 
             //string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppSettings.EnglishSubtitles && AppManager.I.ParentEdition.ShowSubtitles)
+            if (AppManager.I.AppSettings.EnglishSubtitles && AppManager.I.ParentEdition.ShowNativeTooltips)
             {
                 TextUItranslation.SetText(nativeText, LanguageUse.Native);
             }

@@ -67,10 +67,13 @@ namespace Antura.Core
 
         [Header("Settings - Subtitles")]
         public KeeperMode DefaultKeeperMode;
-        public bool ShowSubtitles;
 
         // If true, subtitles can be skipped by clicking on them
         public bool AllowSubtitleSkip;
+
+        // Show various native tooltips around the application? (Book, GamesSelector, PromptPanel)
+        public bool ShowNativeTooltips;
+
 
         // If we can skip subtitles and this is
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages

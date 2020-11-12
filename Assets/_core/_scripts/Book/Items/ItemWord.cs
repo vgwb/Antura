@@ -36,7 +36,7 @@ namespace Antura.Book
             }
 
             Title.text = myWordInfo.data.Text;
-            SubTitle.text = AppManager.I.ParentEdition.ShowSubtitles ? myWordInfo.data.Id : "";
+            SubTitle.text = AppManager.I.ParentEdition.ShowNativeTooltips ? myWordInfo.data.Id : "";
 
             if (myWordInfo.data.Drawing != "")
             {

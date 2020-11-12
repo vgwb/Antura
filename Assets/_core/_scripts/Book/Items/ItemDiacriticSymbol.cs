@@ -36,7 +36,7 @@ namespace Antura.Book
                 var isolatedChar = myLetterInfo.data.GetStringForDisplay(LetterForm.Isolated);
 
                 LetterText.SetTextUnfiltered(isolatedChar);
-                EnglishLetterText.text = AppManager.I.ParentEdition.ShowSubtitles ? myLetterInfo.data.Id : "";
+                EnglishLetterText.text = AppManager.I.ParentEdition.ShowNativeTooltips ? myLetterInfo.data.Id : "";
             }
 
             hightlight(_selected);
