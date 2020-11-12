@@ -95,6 +95,8 @@ namespace Antura.UI
 
         private void UpdateText()
         {
+            if (LanguageSwitcher.I == null) return;
+
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (!isLetter && !isNumber && config.OverrideTextFonts) {
                 TMPText.font = config.TextFont;

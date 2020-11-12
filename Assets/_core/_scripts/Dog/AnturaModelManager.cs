@@ -237,6 +237,7 @@ namespace Antura.Dog
 
         void OnEnable()
         {
+            if (AppManager.I == null || AppManager.I.RewardSystemManager == null) return;
             AppManager.I.RewardSystemManager.OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
             PlayerProfileManager.OnProfileChanged += PlayerProfileManager_OnProfileChanged;
         }
