@@ -69,6 +69,16 @@ namespace Antura.Database
             return _LocalizedDatas[(int)lang - 1];
         }
 
+        // SUBTITLES
+        public string SubtitlesText
+        {
+            get
+            {
+                var lang = AppManager.I.SpecificEdition.SubtitlesLanguage;
+                return GetLocalized(lang).Text;
+            }
+        }
+
         // NATIVE
         public string NativeText
         {

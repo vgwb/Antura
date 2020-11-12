@@ -14,6 +14,7 @@ namespace Antura.UI
     {
         public void OnEnable()
         {
+            if (LanguageSwitcher.I == null) return;
             GetComponent<Image>().sprite = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).FlagIcon;
         }
     }

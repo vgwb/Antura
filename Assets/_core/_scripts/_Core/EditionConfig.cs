@@ -188,6 +188,7 @@ namespace Antura.Core
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
+                languagesToUse.Add(edition.SubtitlesLanguage);
             }
 
             for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {

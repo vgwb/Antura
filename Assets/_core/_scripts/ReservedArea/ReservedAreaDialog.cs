@@ -89,26 +89,23 @@ namespace Antura.ReservedArea
             var sectionGateCodeLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code);
             var sectionGateCodeForcedLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code_Forced);
 
-            /* NATIVE INTRODUCTION
-            // this is deprecated now. If we want this, we need to extract color and number words for the Native language too.
-            //
+            // SUBTITLE INTRODUCTION
+            var nativeTitle = $"{titleLoc.SubtitlesText}";
+            nativeTitleUI.SetText(nativeTitle, LanguageUse.Subtitle);
             string nativeIntroduction = "";
-            nativeIntroduction += "<b>" + titleLoc.NativeText + "</b> \n";
-            nativeIntroduction += sectionIntroLoc.NativeText + "\n\n";
-
+            nativeIntroduction += $"{sectionIntroLoc.SubtitlesText}\n\n";
             if (UseForcedSequence)
-                nativeIntroduction += sectionGateForcedCodeLoc.NativeText;
+                nativeIntroduction += sectionGateCodeForcedLoc.SubtitlesText;
             else
-                nativeIntroduction += string.Format(sectionGateCodeLoc.NativeText, numberWord.get(), firstColorLocData.GetNativeText(), secondColorLocData.GetNativeText());
-            //nativeIntroduction += string.Format("Pulsa <b>{0}</b> veces el botón <b>{1}</b>, luego pulsa <b>{2}</b> una vez", numberWordNative, firstColorWordNative, secondColorWordNative);
-            nativeIntroduction += "\n\n" + sectionErrorLoc.NativeText;
-            nativeTextUI.SetText(nativeIntroduction, Language.LanguageUse.Learning);
-            */
+            // TODO: we need colors and numbers in the LocalizationUI instead
+                nativeIntroduction += string.Format(sectionGateCodeLoc.SubtitlesText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
+            nativeIntroduction += $"\n\n{sectionErrorLoc.SubtitlesText}";
+            nativeTextUI.SetText(nativeIntroduction, LanguageUse.Subtitle);
 
+            // LEARNING INTRODUCTION
             var learningTitle = $"{titleLoc.LearningText}";
             learningTitleUI.SetText(learningTitle, LanguageUse.Learning);
             learningOnlyTitleUI.SetText(learningTitle, LanguageUse.Learning);
-
             string learningIntroduction = "";
             learningIntroduction += $"{sectionIntroLoc.LearningText}\n\n";
             if (UseForcedSequence)
