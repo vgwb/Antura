@@ -46,14 +46,14 @@ namespace Antura.Minigames.ReadingGame
             string completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
             var res = Resources.Load(completePath) as T;
 
-            Debug.LogError("READ " + res);
+            //Debug.LogError("At path " +  completePath + " READ " + res);
 
             if (res == null)
             {
                 langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
                 completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
                 res = Resources.Load(completePath) as T;
-                Debug.LogError("OTHER READ " + res);
+                //Debug.LogError("OTHER READ " + res);
             }
 
             return res;

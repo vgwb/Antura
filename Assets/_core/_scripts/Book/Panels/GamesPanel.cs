@@ -140,7 +140,7 @@ namespace Antura.Book
                 MiniGameBadgeImage.enabled = false;
             }
 
-            Debug.Log("MiniGame selected: " + currentMiniGame.TitleId + " = " + currentMiniGame.Title);
+            Debug.Log($"MiniGame selected: {selectedGameInfo.data.Code}");
         }
 
         MinigameLaunchConfiguration minigameLaunchConfig = new MinigameLaunchConfiguration(0f, 1, true, insideJourney: false, directGame: true);
