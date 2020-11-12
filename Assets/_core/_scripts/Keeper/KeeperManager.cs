@@ -110,7 +110,11 @@ namespace Antura.Keeper
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||
                                  keeperMode == KeeperMode.NativeAndSubtitles || keeperMode == KeeperMode.SubtitlesOnly;
-            if (withSubtitles) WidgetSubtitles.I.DisplayVocabularyData(data, 2, isKeeper);
+            if (withSubtitles)
+            {
+                WidgetSubtitles.I.DisplayVocabularyData(data, 2, isKeeper);
+            }
+
             if (!withSubtitles) autoClose = false;
 
             IAudioSource playingSource = null;

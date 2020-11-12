@@ -4,6 +4,6 @@ namespace Antura.Language
     {
         Learning,
         Native,
-        Subtitle
+        Help
     }
 }

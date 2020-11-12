@@ -14,7 +14,7 @@ using DG.Tweening;
 namespace Antura.Scenes
 {
     /// <summary>
-    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile. 
+    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile.
     /// </summary>
     public class KioskScene : SceneBase
     {
@@ -50,8 +50,7 @@ namespace Antura.Scenes
 
             AppManager.I.AppSettings.KioskMode = true;
             AppManager.I.AppSettings.ShareAnalyticsEnabled = true;
-            AppManager.I.AppSettings.SubtitlesEnabled = true;
-            AppManager.I.AppSettings.EnglishSubtitles = true;
+            AppManager.I.AppSettings.KeeperSubtitlesEnabled = true;
             updateUI();
 
             AppManager.I.Services.Analytics.TrackKioskEvent("kiosk_home");

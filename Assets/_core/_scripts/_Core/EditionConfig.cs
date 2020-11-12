@@ -32,14 +32,14 @@ namespace Antura.Core
         [Space(30)]
         public LanguageCode LearningLanguage;
         public LanguageCode NativeLanguage;
-        public LanguageCode SubtitlesLanguage;
+        public LanguageCode HelpLanguage;
         public LanguageCode[] SupportedNativeLanguages;
         [Tooltip("try to set the native language to the device language, otherwise use NativeLanguage")]
         public bool DetectSystemLanguage;
 
         public string GetLearningLangResourcePrefix()
         {
-            return LearningLanguage.ToString() + "/";
+            return $"{LearningLanguage}/";
         }
 
         [Header("Specific - Data - Vocabulary")]
@@ -71,9 +71,14 @@ namespace Antura.Core
         // If true, subtitles can be skipped by clicking on them
         public bool AllowSubtitleSkip;
 
-        // Show various native tooltips around the application? (Book, GamesSelector, PromptPanel)
-        public bool ShowNativeTooltips;
+        // Allows the user to toggle subtitles on/off in the Options panel
+        public bool EnableSubtitlesToggle;
 
+        // Show various text around the application based on the "Help" language? (Book, GamesSelector, PromptPanel)
+        public bool ShowHelpText;
+
+        // Show a translation of the Keeper widget based on the "Help" language?
+        public bool ShowKeeperTranslation;
 
         // If we can skip subtitles and this is
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages
@@ -188,7 +193,7 @@ namespace Antura.Core
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
-                languagesToUse.Add(edition.SubtitlesLanguage);
+                languagesToUse.Add(edition.HelpLanguage);
             }
 
             for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {

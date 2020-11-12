@@ -28,12 +28,12 @@ namespace Antura.GamesSelector
             // Fill with data
             var journeyPos = AppManager.I.Player.CurrentJourneyPosition;
             var playSession = AppManager.I.DB.GetPlaySessionDataById(journeyPos.Id);
-            var learningBlock = AppManager.I.DB.GetLearningBlockDataById(playSession.Stage + "." + playSession.LearningBlock.ToString());
+            var learningBlock = AppManager.I.DB.GetLearningBlockDataById($"{playSession.Stage}.{playSession.LearningBlock}");
             TitleCode.text = journeyPos.GetShortTitle();
             TitleLearningLang.SetText(learningBlock.Title_LearningLang, LanguageUse.Learning);
 
-            if (AppManager.I.ParentEdition.ShowNativeTooltips) {
-                TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Native);
+            if (AppManager.I.ParentEdition.ShowHelpText) {
+                TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Help);
             } else {
                 TitleNativeLang.text = "";
             }

@@ -4,6 +4,7 @@ using Antura.Language;
 using Antura.LivingLetters;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
  * so we just need to reference the TextRender as controller
@@ -16,7 +17,9 @@ namespace Antura.UI
         [SerializeField]
         protected string m_text;
         public bool isNumber;
-        public bool isEnglishSubtitle;
+
+        [FormerlySerializedAs("isEnglishSubtitle")]
+        public bool isSubtitle;
 
         public LanguageUse languageUse;
         public Database.LocalizationDataId LocalizationId;
@@ -60,8 +63,8 @@ namespace Antura.UI
 
         void Awake()
         {
-            if (isEnglishSubtitle) {
-                gameObject.SetActive(AppManager.I.AppSettings.EnglishSubtitles);
+            if (isSubtitle) {
+                gameObject.SetActive(AppManager.I.ParentEdition.ShowHelpText);
             }
 
             if (LocalizationId != Database.LocalizationDataId.None) {

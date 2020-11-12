@@ -83,22 +83,21 @@ namespace Antura.UI
         {
             ShownData = null;
             var learningText = LocalizationManager.GetTranslation(data.Id);
-            var nativeText = data.NativeText;
-            DisplayText(learningText, nativeText, fillPeriod, _isKeeper, _callback);
+            var helpText = data.HelpText;
+            DisplayText(learningText, helpText, fillPeriod, _isKeeper, _callback);
         }
 
         public void DisplayVocabularyData(ILivingLetterData data, float fillPeriod = 2, bool _isKeeper = false, Action _callback = null)
         {
             ShownData = data;
             var learningText = data.TextForLivingLetter;
-            var nativeText = "";
-            DisplayText(learningText, nativeText, fillPeriod, _isKeeper, _callback);
+            DisplayText(learningText, "", fillPeriod, _isKeeper, _callback);
         }
 
-        private void DisplayText(string learningText, string nativeText, float fillPeriod = 2, bool _isKeeper = false,
+        private void DisplayText(string learningText, string helpText, float fillPeriod = 2, bool _isKeeper = false,
                 Action _callback = null)
         {
-            if (!AppManager.I.AppSettings.SubtitlesEnabled) {
+            if (!AppManager.I.AppSettings.KeeperSubtitlesEnabled) {
                 return;
             }
 
@@ -113,10 +112,10 @@ namespace Antura.UI
             }
             WalkieTalkie.Show(_isKeeper);
 
-            Display(learningText, nativeText, fillPeriod);
+            Display(learningText, helpText, fillPeriod);
         }
 
-        void Display(string learningText, string nativeText, float fillPeriod = 3)
+        void Display(string learningText, string helpText, float fillPeriod = 3)
         {
             this.StopAllCoroutines();
             textTween.Kill();
@@ -134,9 +133,9 @@ namespace Antura.UI
             TextUI.SetText(learningText, LanguageUse.Learning);
 
             //string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppSettings.EnglishSubtitles && AppManager.I.ParentEdition.ShowNativeTooltips)
+            if (AppManager.I.ParentEdition.ShowKeeperTranslation)
             {
-                TextUItranslation.SetText(nativeText, LanguageUse.Native);
+                TextUItranslation.SetText(helpText, LanguageUse.Help);
             }
 
             float lettersPerSecond = 20;

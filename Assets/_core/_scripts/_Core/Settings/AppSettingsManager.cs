@@ -72,7 +72,7 @@ namespace Antura.Core
 
             AudioManager.I.MusicEnabled = Settings.MusicEnabled;
             // force Subtitles ON
-            Settings.SubtitlesEnabled = true;
+            Settings.KeeperSubtitlesEnabled = true;
 
             // TODO: redo this without affecting SAppConfig.I
             //SAppConfig.I.NativeLanguage = SAppConfig.I.SubtitlesLanguage = Settings.NativeLanguage;
@@ -162,15 +162,9 @@ namespace Antura.Core
             // CameraGameplayController.I.EnableFX(Settings.HighQualityGfx);
         }
 
-        public void ToggleEnglishSubtitles()
+        public void ToggleKeeperSubtitles()
         {
-            Settings.EnglishSubtitles = !Settings.EnglishSubtitles;
-            SaveSettings();
-        }
-
-        public void ToggleSubtitles()
-        {
-            Settings.SubtitlesEnabled = !Settings.SubtitlesEnabled;
+            Settings.KeeperSubtitlesEnabled = !Settings.KeeperSubtitlesEnabled;
             SaveSettings();
         }
 

@@ -19,14 +19,14 @@ namespace Antura.ReservedArea
     /// </summary>
     public class ReservedAreaDialog : MonoBehaviour
     {
-        public GameObject layoutNativeAndLearning;
+        public GameObject layoutHelpAndLearning;
         public GameObject layoutLearningOnly;
 
-        public TextRender nativeTextUI;
+        public TextRender helpTextUI;
         public TextRender learningTextUI;
         public TextRender learningOnlyTextUI;
 
-        public TextRender nativeTitleUI;
+        public TextRender helpTitleUI;
         public TextRender learningTitleUI;
         public TextRender learningOnlyTitleUI;
 
@@ -49,8 +49,8 @@ namespace Antura.ReservedArea
 
             UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
 
-            layoutNativeAndLearning.SetActive(AppManager.I.ParentEdition.ShowNativeTooltips);
-            layoutLearningOnly.SetActive(!AppManager.I.ParentEdition.ShowNativeTooltips);
+            layoutHelpAndLearning.SetActive(AppManager.I.ParentEdition.ShowHelpText);
+            layoutLearningOnly.SetActive(!AppManager.I.ParentEdition.ShowHelpText);
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
@@ -89,18 +89,18 @@ namespace Antura.ReservedArea
             var sectionGateCodeLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code);
             var sectionGateCodeForcedLoc = LocalizationManager.GetLocalizationData(LocalizationDataId.Parental_Gate_Code_Forced);
 
-            // SUBTITLE INTRODUCTION
-            var nativeTitle = $"{titleLoc.SubtitlesText}";
-            nativeTitleUI.SetText(nativeTitle, LanguageUse.Subtitle);
-            string nativeIntroduction = "";
-            nativeIntroduction += $"{sectionIntroLoc.SubtitlesText}\n\n";
+            // HELP INTRODUCTION
+            var helpTitle = $"{titleLoc.HelpText}";
+            helpTitleUI.SetText(helpTitle, LanguageUse.Help);
+            string helpIntroduction = "";
+            helpIntroduction += $"{sectionIntroLoc.HelpText}\n\n";
             if (UseForcedSequence)
-                nativeIntroduction += sectionGateCodeForcedLoc.SubtitlesText;
+                helpIntroduction += sectionGateCodeForcedLoc.HelpText;
             else
             // TODO: we need colors and numbers in the LocalizationUI instead
-                nativeIntroduction += string.Format(sectionGateCodeLoc.SubtitlesText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
-            nativeIntroduction += $"\n\n{sectionErrorLoc.SubtitlesText}";
-            nativeTextUI.SetText(nativeIntroduction, LanguageUse.Subtitle);
+                helpIntroduction += string.Format(sectionGateCodeLoc.HelpText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
+            helpIntroduction += $"\n\n{sectionErrorLoc.HelpText}";
+            helpTextUI.SetText(helpIntroduction, LanguageUse.Help);
 
             // LEARNING INTRODUCTION
             var learningTitle = $"{titleLoc.LearningText}";

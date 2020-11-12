@@ -33,7 +33,7 @@ namespace Antura.Language
 
             LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
             ReloadNativeLanguage();
-            LoadLanguage(LanguageUse.Subtitle, AppManager.I.SpecificEdition.SubtitlesLanguage);
+            LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
         }
 
         public void ReloadNativeLanguage()

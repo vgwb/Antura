@@ -21,11 +21,8 @@ namespace Antura.Core
         // the uuid of currently active player
         public string LastActivePlayerUUID;
 
-        // to enable english subtitles (especially in the Book)
-        public bool EnglishSubtitles = true;
-
-        // to enable arabic subtitles / Keeper Widget that shows what he's saying
-        public bool SubtitlesEnabled = true;
+        // to enable subtitles in the Keeper Widget that shows what he's saying
+        public bool KeeperSubtitlesEnabled = true;
 
         public bool MusicEnabled = true;
 

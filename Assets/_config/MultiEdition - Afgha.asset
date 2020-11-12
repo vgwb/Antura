@@ -19,7 +19,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: f8ce374bddf416f45b1aa92ba6c76323, type: 2}
   LearningLanguage: 2
   NativeLanguage: 2
-  SubtitlesLanguage: 2
+  HelpLanguage: 2
   SupportedNativeLanguages: 02000000
   DetectSystemLanguage: 0
   LetterDB: {fileID: 11400000, guid: 88bc7ecfde4917142926cf88489a782b, type: 2}
@@ -31,11 +31,15 @@ MonoBehaviour:
   PlaySessionDB: {fileID: 11400000, guid: 72096da6455695c4b850b928ae7e6afa, type: 2}
   MiniGameDB: {fileID: 11400000, guid: 09bcba52c1afa434cb132ddf622634f2, type: 2}
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
-  ReservedAreaForcedSeq: 0
   ShowAccents: 0
+  CreditsText: {fileID: 0}
+  ReservedAreaForcedSeq: 0
+  ShowDonate: 0
+  ShowTeacherGuide: 0
   DefaultKeeperMode: 4
-  ShowSubtitles: 0
   AllowSubtitleSkip: 0
+  EnableSubtitlesToggle: 0
+  ShowHelpText: 0
   RequireGender: 1
   RequireAge: 1
   EnableNotifications: 0
@@ -50,6 +54,7 @@ MonoBehaviour:
   AppVersion: 1.3.0.0
   CloudManifest: 
   ProductName: Antura
+  UnityProjectId: 
   Android_BundleIdentifier: 
   iOS_BundleIdentifier: 
   BundleVersion: 1

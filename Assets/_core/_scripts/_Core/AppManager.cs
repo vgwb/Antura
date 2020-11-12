@@ -147,7 +147,7 @@ namespace Antura.Core
         public void ResetLanguageSetup(LanguageCode langCode)
         {
             AppManager.I.SpecificEdition.NativeLanguage = langCode;
-            AppManager.I.SpecificEdition.SubtitlesLanguage = langCode;
+            AppManager.I.SpecificEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             LanguageSwitcher.ReloadNativeLanguage();
