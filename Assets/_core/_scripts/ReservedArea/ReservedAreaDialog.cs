@@ -6,6 +6,7 @@ using Antura.UI;
 using Antura.Helpers;
 using System.Collections.Generic;
 using Antura.Keeper;
+using Antura.Language;
 using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
@@ -18,8 +19,17 @@ namespace Antura.ReservedArea
     /// </summary>
     public class ReservedAreaDialog : MonoBehaviour
     {
-        [UsedImplicitly] public TextRender nativeTextUI;
+        public GameObject layoutNativeAndLearning;
+        public GameObject layoutLearningOnly;
+
+        public TextRender nativeTextUI;
         public TextRender learningTextUI;
+        public TextRender learningOnlyTextUI;
+
+        public TextRender nativeTitleUI;
+        public TextRender learningTitleUI;
+        public TextRender learningOnlyTitleUI;
+
 
         private int firstButtonClickCounter;
         private const int nButtons = 4;
@@ -38,6 +48,9 @@ namespace Antura.ReservedArea
             firstButtonClickCounter = 0;
 
             UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
+
+            layoutNativeAndLearning.SetActive(AppManager.I.ParentEdition.ShowNativeTooltips);
+            layoutLearningOnly.SetActive(!AppManager.I.ParentEdition.ShowNativeTooltips);
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
@@ -92,8 +105,11 @@ namespace Antura.ReservedArea
             nativeTextUI.SetText(nativeIntroduction, Language.LanguageUse.Learning);
             */
 
+            var learningTitle = $"{titleLoc.LearningText}";
+            learningTitleUI.SetText(learningTitle, LanguageUse.Learning);
+            learningOnlyTitleUI.SetText(learningTitle, LanguageUse.Learning);
+
             string learningIntroduction = "";
-            learningIntroduction += $"<b>{titleLoc.LearningText}</b> \n";
             learningIntroduction += $"{sectionIntroLoc.LearningText}\n\n";
             if (UseForcedSequence)
                 learningIntroduction += sectionGateCodeForcedLoc.LearningText;
@@ -101,7 +117,8 @@ namespace Antura.ReservedArea
                 learningIntroduction += string.Format(sectionGateCodeLoc.LearningText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
             learningIntroduction += $"\n\n{sectionErrorLoc.LearningText}";
 
-            learningTextUI.SetText(learningIntroduction, Language.LanguageUse.Learning);
+            learningTextUI.SetText(learningIntroduction, LanguageUse.Learning);
+            learningOnlyTextUI.SetText(learningIntroduction, LanguageUse.Learning);
         }
 
         public void OnButtonClick(int buttonIndex)
