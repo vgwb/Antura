@@ -102,7 +102,7 @@ namespace Antura.Minigames.ColorTickle
             }
 
             LL_LetterData LLdata = new LL_LetterData(data);
-            game.tutorialLetter = Object.Instantiate(game.letterPrefab);
+            game.tutorialLetter = GameObject.Instantiate(game.letterPrefab);
             game.tutorialLetter.SetActive(true);
             game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata, _outline:true);
             game.tutorialLetter.GetComponent<LivingLetterController>().LabelRender.color = Color.white;
