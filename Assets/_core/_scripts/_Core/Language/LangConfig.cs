@@ -15,6 +15,8 @@ namespace Antura.Language
         public TextDirection TextDirection;
         public Sprite FlagIcon;
         public string LocalizedName;
+        public AlphabetCode Alphabet;
+
 
         [Space(20)]
         [Header("Fonts")]

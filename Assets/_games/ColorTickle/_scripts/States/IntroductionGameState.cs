@@ -1,9 +1,10 @@
+using System;
 using UnityEngine;
 using System.Linq;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.LivingLetters;
-using UnityEngine.UI;
 
 namespace Antura.Minigames.ColorTickle
 {
@@ -58,7 +59,7 @@ namespace Antura.Minigames.ColorTickle
         }
 
         public void UpdatePhysics(float delta)
-        {            
+        {
         }
 
         void BuildLetters()
@@ -70,7 +71,7 @@ namespace Antura.Minigames.ColorTickle
 
             for (int i = 0; i < game.rounds; ++i)
             {
-                game.myLetters[i] = Object.Instantiate(game.letterPrefab);
+                game.myLetters[i] = GameObject.Instantiate(game.letterPrefab);
                 game.myLetters[i].SetActive(true);
 
                 _qp = ColorTickleConfiguration.Instance.Questions.GetNextQuestion();
@@ -79,13 +80,28 @@ namespace Antura.Minigames.ColorTickle
                 game.myLetters[i].GetComponent<LivingLetterController>().Init(_lldata, _outline: true);
                 game.myLetters[i].GetComponent<LivingLetterController>().LabelRender.color = Color.white;
                 game.myLetters[i].GetComponent<ColorTickle_LLController>().movingToDestination = false;
-                
+
             }
         }
 
         void BuildTutorialLetter()
         {
-            LL_LetterData LLdata = new LL_LetterData(AppManager.I.DB.GetAllLetterData().First());
+            var alphabetCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Alphabet;
+
+            LetterData data;
+            switch (alphabetCode)
+            {
+                case AlphabetCode.latin:
+                    data = AppManager.I.DB.GetLetterDataById("A");
+                    break;
+                case AlphabetCode.arabic:
+                    data = AppManager.I.DB.GetLetterDataById("beh");
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+
+            LL_LetterData LLdata = new LL_LetterData(data);
             game.tutorialLetter = Object.Instantiate(game.letterPrefab);
             game.tutorialLetter.SetActive(true);
             game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata, _outline:true);
@@ -94,5 +110,5 @@ namespace Antura.Minigames.ColorTickle
         }
 
     }
-                
+
 }

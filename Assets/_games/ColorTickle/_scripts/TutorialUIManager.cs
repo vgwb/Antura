@@ -1,4 +1,6 @@
 ﻿using System.Linq;
+using Antura.Core;
+using Antura.Language;
 using Antura.Tutorial;
 using UnityEngine;
 
@@ -6,8 +8,9 @@ namespace Antura.Minigames.ColorTickle
 {
     public class TutorialUIManager : MonoBehaviour
     {
-        public Transform line1FingerPivot;
-        public Transform line2FingerPivot;
+        // One for each AlphabetCode
+        public Transform[] line1FingerPivots;
+        public Transform[] line2FingerPivots;
 
         private Transform[] m_Finger1Positions;
         private Transform[] m_Finger2Positions;
@@ -18,13 +21,15 @@ namespace Antura.Minigames.ColorTickle
         [HideInInspector]
         public bool StartTutorial = false;
 
-        float m_Delay; 
+        float m_Delay;
 
         // Use this for initialization
         void Start()
         {
-            m_Finger1Positions = line1FingerPivot.GetComponentsInChildren<Transform>().Where(tr => tr != line1FingerPivot).ToArray();
-            m_Finger2Positions = line2FingerPivot.GetComponentsInChildren<Transform>().Where(tr => tr != line2FingerPivot).ToArray();
+            int alphabetCode = (int)LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Alphabet;
+
+            m_Finger1Positions = line1FingerPivots[alphabetCode].GetComponentsInChildren<Transform>().Where(tr => tr != line1FingerPivots[alphabetCode]).ToArray();
+            m_Finger2Positions = line2FingerPivots[alphabetCode].GetComponentsInChildren<Transform>().Where(tr => tr != line2FingerPivots[alphabetCode]).ToArray();
             m_Delay = m_MaxDelay;
         }
 
@@ -33,7 +38,7 @@ namespace Antura.Minigames.ColorTickle
         {
 			if (StartTutorial) {
 				m_Delay += Time.deltaTime;
-				if (m_Delay >= m_MaxDelay) 
+				if (m_Delay >= m_MaxDelay)
 				{
 					m_Delay = 0;
 
@@ -64,4 +69,4 @@ namespace Antura.Minigames.ColorTickle
 
     }
 
-}    
+}
