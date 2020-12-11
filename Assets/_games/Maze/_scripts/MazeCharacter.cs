@@ -1,9 +1,11 @@
+using System;
 using Antura.LivingLetters;
 using Antura.Minigames.Tobogan;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Antura.Minigames.Maze
 {
@@ -904,7 +906,7 @@ namespace Antura.Minigames.Maze
                             soundType: MazeConfiguration.Instance.GetVocabularySoundType()
                         );
                         pronouncedLetter = true;
-                    } else if (pronouncedLetter && !letterPronounciation.IsPlaying) {
+                    } else if (pronouncedLetter && (letterPronounciation == null || !letterPronounciation.IsPlaying)) {
                         if (!markedEndTimeOfLetterPronounciation) {
                             endTimeOfLetterPronounciation = Time.time;
                             markedEndTimeOfLetterPronounciation = true;
