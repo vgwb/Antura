@@ -11,7 +11,6 @@ namespace Antura.Language
         persian_farsi = 6,
         persian_dari = 7,
         pashto = 8,
-        arabic_legacy = 9,
         COUNT
     }
 }
