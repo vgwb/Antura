@@ -400,15 +400,16 @@ namespace Antura.Audio
         public AudioClip GetAudioClip(LocalizationData data, LanguageUse use)
         {
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
-            var res = GetAudioClip("/Audio/Dialogs", localizedAudioFileName, use);
-
-            // Debug.Log("localizedAudioFileName: " + localizedAudioFileName);
+            var res = GetAudioClip("/Audio/Dialogs", localizedAudioFileName, use, logIfNotFound:false);
 
             // Fallback to neutral version if not found
-            if (res == null) {
+            if (res == null)
+            {
                 var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
-                if (localizedAudioFileName != neutralAudioFileName) {
-                    Debug.LogWarning("Female audio file expected for localization ID " + data.Id + " was not found");
+                if (localizedAudioFileName != neutralAudioFileName)
+                {
+                    // No female found
+                    if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] No Female audio file for localization ID {data.Id} was found. Trying to fallback to male/neutral.");
                     res = GetAudioClip("/Audio/Dialogs", neutralAudioFileName, use);
                 }
             }
@@ -431,13 +432,13 @@ namespace Antura.Audio
             return GetAudioClip("/Audio/Phrases", data.Id, use);
         }
 
-        private AudioClip GetAudioClip(string folder, string id, LanguageUse use = LanguageUse.Learning)
+        private AudioClip GetAudioClip(string folder, string id, LanguageUse use = LanguageUse.Learning, bool logIfNotFound = true)
         {
             var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
             string completePath = langDir + folder + "/" + id;
             var res = GetCachedResource(completePath);
-            if (res == null) {
-                Debug.LogWarning("Warning: cannot find audio clip at " + completePath);
+            if (logIfNotFound && res == null) {
+                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] Cannot find audio clip at " + completePath);
             }
             return res;
         }
@@ -447,7 +448,7 @@ namespace Antura.Audio
             var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
             var res = GetCachedResource(langDir + "/Audio/LearningBlocks/" + AudioFile);
             if (res == null) {
-                Debug.LogWarning("Warning: cannot find audio clip for LearningBlocks" + AudioFile);
+                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] Cannot find audio clip for LearningBlocks" + AudioFile);
             }
             return res;
         }
@@ -456,7 +457,7 @@ namespace Antura.Audio
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
             if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                Debug.LogWarning("No Audio clips configured for: " + sfx);
+                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf.clips.GetRandom();
@@ -466,7 +467,7 @@ namespace Antura.Audio
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
             if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                Debug.LogWarning("No Audio clips configured for: " + sfx);
+                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf;
