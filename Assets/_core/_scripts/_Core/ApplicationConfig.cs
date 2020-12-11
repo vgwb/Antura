@@ -60,6 +60,8 @@ namespace Antura.Core
         /// </summary>
         public bool DebugLogEnabled = false;
 
+        public bool VerboseAudio;
+
         [Header("Debug - Tutorial")]
         public bool SimulateFirstContact;
         public FirstContactPhase SimulateFirstContactPhase;
