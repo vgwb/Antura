@@ -1,6 +1,6 @@
 # How to create the Arabic font Atlas
 
-open TextMesh Pro Font Asset Creator using these parameters:
+Open TextMesh Pro Font Asset Creator using these parameters:
 
 ```text
 Font Source: EA4S Arial.ttf
