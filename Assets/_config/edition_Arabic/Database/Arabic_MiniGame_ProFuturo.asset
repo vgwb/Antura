@@ -21,10 +21,10 @@ MonoBehaviour:
       _Variation: alphabet
       _Badge: alphabet
       _Scene: game_ReadingGame
-      _TitleId: 
+      _TitleId: Song_alphabet_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Song_alphabet_Intro
+      _TutorialId: Song_alphabet_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.2
@@ -245,10 +245,10 @@ MonoBehaviour:
       _Variation: counting
       _Badge: counting
       _Scene: game_Balloons
-      _TitleId: 
+      _TitleId: Balloons_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Balloons_counting_Intro
+      _TutorialId: Balloons_counting_Tuto
       _AffectedPlaySkills:
       - Skill: 5
         Weight: 0.6
@@ -261,7 +261,7 @@ MonoBehaviour:
       _Variation: letterinword
       _Badge: spelling
       _Scene: game_Balloons
-      _TitleId: 
+      _TitleId: Balloons_Title
       _VariationId: 
       _IntroId: 
       _TutorialId: 
@@ -295,10 +295,10 @@ MonoBehaviour:
       _Variation: word
       _Badge: images
       _Scene: game_Balloons
-      _TitleId: 
+      _TitleId: Balloons_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Balloons_word_Intro
+      _TutorialId: Balloons_word_Tuto
       _AffectedPlaySkills:
       - Skill: 4
         Weight: 0.5
@@ -313,10 +313,10 @@ MonoBehaviour:
       _Variation: lettername
       _Badge: letters
       _Scene: game_ColorTickle
-      _TitleId: 
+      _TitleId: ColorTickle_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: ColorTickle_lettername_Intro
+      _TutorialId: ColorTickle_lettername_Tuto
       _AffectedPlaySkills:
       - Skill: 2
         Weight: 1
@@ -345,10 +345,10 @@ MonoBehaviour:
       _Variation: letterany
       _Badge: phonemes
       _Scene: game_DancingDots
-      _TitleId: 
+      _TitleId: DancingDots_letterany_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: DancingDots_letterany_Intro
+      _TutorialId: DancingDots_letterany_Tuto
       _AffectedPlaySkills: []
     - _Code: 11
       _Active: 0
@@ -373,10 +373,10 @@ MonoBehaviour:
       _Variation: letterphoneme
       _Badge: phonemes
       _Scene: game_Egg
-      _TitleId: 
+      _TitleId: Egg_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Egg_Intro
+      _TutorialId: Egg_letterphoneme_Tuto
       _AffectedPlaySkills: []
     - _Code: 34
       _Active: 1
@@ -385,10 +385,10 @@ MonoBehaviour:
       _Variation: buildword
       _Badge: spelling
       _Scene: game_Egg
-      _TitleId: 
+      _TitleId: Egg_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Egg_Intro
+      _TutorialId: Egg_buildword_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.2
@@ -417,10 +417,10 @@ MonoBehaviour:
       _Variation: counting
       _Badge: counting
       _Scene: game_FastCrowd
-      _TitleId: 
+      _TitleId: FastCrowd_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: FastCrowd_counting_Intro
+      _TutorialId: FastCrowd_counting_Tuto
       _AffectedPlaySkills:
       - Skill: 5
         Weight: 1
@@ -431,10 +431,10 @@ MonoBehaviour:
       _Variation: lettername
       _Badge: letters
       _Scene: game_FastCrowd
-      _TitleId: 
+      _TitleId: FastCrowd_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: FastCrowd_lettername_Intro
+      _TutorialId: FastCrowd_letterform_Tuto
       _AffectedPlaySkills:
       - Skill: 5
         Weight: 1
@@ -445,10 +445,10 @@ MonoBehaviour:
       _Variation: letterform
       _Badge: phonemes
       _Scene: game_FastCrowd
-      _TitleId: 
+      _TitleId: FastCrowd_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: FastCrowd_letterform_Intro
+      _TutorialId: FastCrowd_letterform_Tuto
       _AffectedPlaySkills: []
     - _Code: 1
       _Active: 1
@@ -457,10 +457,10 @@ MonoBehaviour:
       _Variation: buildword
       _Badge: spelling
       _Scene: game_FastCrowd
-      _TitleId: 
+      _TitleId: FastCrowd_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: FastCrowd_buildword_Intro
+      _TutorialId: FastCrowd_buildword_Tuto
       _AffectedPlaySkills:
       - Skill: 5
         Weight: 1
@@ -471,10 +471,10 @@ MonoBehaviour:
       _Variation: word
       _Badge: images
       _Scene: game_FastCrowd
-      _TitleId: 
+      _TitleId: FastCrowd_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: FastCrowd_word_Intro
+      _TutorialId: FastCrowd_word_Tuto
       _AffectedPlaySkills:
       - Skill: 4
         Weight: 0.4
@@ -487,10 +487,10 @@ MonoBehaviour:
       _Variation: letterphoneme
       _Badge: phonemes
       _Scene: game_HideAndSeek
-      _TitleId: 
+      _TitleId: HideSeek_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: HideSeek_letterphoneme_Intro
+      _TutorialId: HideSeek_letterphoneme_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.4
@@ -505,10 +505,10 @@ MonoBehaviour:
       _Variation: letterinword
       _Badge: spelling
       _Scene: game_MakeFriends
-      _TitleId: 
+      _TitleId: MakeFriends_letterinword_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: MakeFriends_letterinword_Intro
+      _TutorialId: MakeFriends_letterinword_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.6
@@ -521,10 +521,10 @@ MonoBehaviour:
       _Variation: lettername
       _Badge: letters
       _Scene: game_Maze
-      _TitleId: 
+      _TitleId: Maze_lettername_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: Maze_lettername_Intro
+      _TutorialId: Maze_lettername_Tuto
       _AffectedPlaySkills:
       - Skill: 2
         Weight: 1
@@ -551,10 +551,10 @@ MonoBehaviour:
       _Variation: letterform
       _Badge: phonemes
       _Scene: game_MissingLetter
-      _TitleId: 
+      _TitleId: MissingLetter_letterinword_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: MissingLetter_Intro
+      _TutorialId: MissingLetter_Tuto
       _AffectedPlaySkills: []
     - _Code: 35
       _Active: 1
@@ -563,10 +563,10 @@ MonoBehaviour:
       _Variation: letterinword
       _Badge: spelling
       _Scene: game_MissingLetter
-      _TitleId: 
+      _TitleId: MissingLetter_letterinword_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: MissingLetter_Intro
+      _TutorialId: MissingLetter_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.6
@@ -609,10 +609,10 @@ MonoBehaviour:
       _Variation: buildword
       _Badge: spelling
       _Scene: game_MixedLetters
-      _TitleId: 
+      _TitleId: MixedLetters_buildword_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: MixedLetters_buildword_Intro
+      _TutorialId: MixedLetters_buildword_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.4
@@ -679,10 +679,10 @@ MonoBehaviour:
       _Variation: lettername
       _Badge: letters
       _Scene: game_SickLetters
-      _TitleId: 
+      _TitleId: SickLetters_lettername_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: SickLetters_lettername_Intro
+      _TutorialId: SickLetters_lettername_Tuto
       _AffectedPlaySkills:
       - Skill: 6
         Weight: 0.3
@@ -711,10 +711,10 @@ MonoBehaviour:
       _Variation: lettername
       _Badge: letters
       _Scene: game_ThrowBalls
-      _TitleId: 
+      _TitleId: ThrowBalls_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: ThrowBalls_Intro
+      _TutorialId: ThrowBalls_lettername_Tuto
       _AffectedPlaySkills:
       - Skill: 4
         Weight: 0.2
@@ -729,10 +729,10 @@ MonoBehaviour:
       _Variation: letterany
       _Badge: phonemes
       _Scene: game_ThrowBalls
-      _TitleId: 
+      _TitleId: ThrowBalls_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: ThrowBalls_Intro
+      _TutorialId: ThrowBalls_lettername_Tuto
       _AffectedPlaySkills:
       - Skill: 5
         Weight: 0.4
@@ -745,10 +745,10 @@ MonoBehaviour:
       _Variation: buildword
       _Badge: spelling
       _Scene: game_ThrowBalls
-      _TitleId: 
+      _TitleId: ThrowBalls_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: ThrowBalls_Intro
+      _TutorialId: ThrowBalls_buildword_Tuto
       _AffectedPlaySkills: []
     - _Code: 28
       _Active: 1
@@ -757,10 +757,10 @@ MonoBehaviour:
       _Variation: word
       _Badge: images
       _Scene: game_ThrowBalls
-      _TitleId: 
+      _TitleId: ThrowBalls_Title
       _VariationId: 
-      _IntroId: 
-      _TutorialId: 
+      _IntroId: ThrowBalls_Intro
+      _TutorialId: ThrowBalls_word_Tuto
       _AffectedPlaySkills:
       - Skill: 4
         Weight: 0.2
@@ -775,7 +775,7 @@ MonoBehaviour:
       _Variation: letterinword
       _Badge: letter
       _Scene: game_Tobogan
-      _TitleId: 
+      _TitleId: Tobogan_Title
       _VariationId: 
       _IntroId: 
       _TutorialId: 
