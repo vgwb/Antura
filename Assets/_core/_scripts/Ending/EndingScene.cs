@@ -55,6 +55,12 @@ namespace Antura.Scenes
             base.Start();
             GlobalUI.ShowPauseMenu(false);
 
+            // We force subtitles on when we enter this scene to show the player that they can read
+            if (!AppManager.I.AppSettings.KeeperSubtitlesEnabled)
+            {
+                AppManager.I.AppSettingsManager.ToggleKeeperSubtitles();
+            }
+
             m_CameraEndPosition = Camera.main.transform.position;
             m_CameraStartPosition = m_CameraEndPosition + cameraOffset;
             autoMoveObjects = environment.GetComponentsInChildren<AutoMove>();
