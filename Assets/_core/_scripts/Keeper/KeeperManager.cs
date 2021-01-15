@@ -61,6 +61,12 @@ namespace Antura.Keeper
                 keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
             }
 
+            if (AppManager.I.SpecificEdition.LearningLanguage == AppManager.I.SpecificEdition.NativeLanguage)
+            {
+                if (keeperMode == KeeperMode.LearningThenNativeAndSubtitles) keeperMode = KeeperMode.LearningAndSubtitles;
+                else if (keeperMode == KeeperMode.LearningThenNativeNoSubtitles) keeperMode = KeeperMode.LearningNoSubtitles;
+            }
+
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||
                                  keeperMode == KeeperMode.NativeAndSubtitles || keeperMode == KeeperMode.SubtitlesOnly;
