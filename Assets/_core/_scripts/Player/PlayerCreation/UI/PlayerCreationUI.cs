@@ -208,6 +208,10 @@ namespace Antura.Profile
                     break;
 
                 case UIState.AvatarCreation:
+                    
+                    BtContinue.StopPulsing();
+                    BtContinue.gameObject.SetActive(false);
+
                     KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor);
 
                     BgColorCategory.gameObject.SetActive(false);
