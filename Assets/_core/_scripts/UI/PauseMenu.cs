@@ -125,7 +125,7 @@ namespace Antura.UI
             BtMusic.Toggle(AudioManager.I.MusicEnabled);
             BtFx.Toggle(AppManager.I.AppSettings.HighQualityGfx);
             BtSubtitles.Toggle(AppManager.I.AppSettings.KeeperSubtitlesEnabled);
-            BtSubtitles.gameObject.SetActive(AppManager.I.ParentEdition.EnableSubtitlesToggle);
+            BtSubtitles.gameObject.SetActive(AppManager.I.ParentEdition.CanUseSubtitles && AppManager.I.ParentEdition.EnableSubtitlesToggle);
 
             if (_open) {
                 //timeScaleAtMenuOpen = Time.timeScale;

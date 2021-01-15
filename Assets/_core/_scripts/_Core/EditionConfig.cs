@@ -68,6 +68,12 @@ namespace Antura.Core
         [Header("Settings - Subtitles")]
         public KeeperMode DefaultKeeperMode;
 
+        public bool CanUseSubtitles =>
+            DefaultKeeperMode == KeeperMode.LearningAndSubtitles
+                                       || DefaultKeeperMode == KeeperMode.SubtitlesOnly
+                                       || DefaultKeeperMode == KeeperMode.NativeAndSubtitles
+                                       || DefaultKeeperMode == KeeperMode.LearningThenNativeAndSubtitles;
+
         // If true, subtitles can be skipped by clicking on them
         public bool AllowSubtitleSkip;
 
