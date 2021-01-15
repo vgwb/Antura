@@ -38,12 +38,6 @@ namespace Antura.Minigames.SickLetters
                 game.EndGame(game.CurrentStars, game.maxReachedCounter);
                 game.buttonRepeater.SetActive(false);
 
-                if (game.CurrentStars == 0) {
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Reward_0Star);
-                } else {
-                    Database.LocalizationDataId data = randomRewardData();
-                    KeeperManager.I.PlayDialogue(data);
-                }
             }
         }
 
@@ -51,15 +45,5 @@ namespace Antura.Minigames.SickLetters
         {
         }
 
-        Database.LocalizationDataId randomRewardData()
-        {
-            if (game.CurrentStars == 1) {
-                return (Database.LocalizationDataId)(UnityEngine.Random.Range(262, 265));
-            } else if (game.CurrentStars == 2) {
-                return (Database.LocalizationDataId)(UnityEngine.Random.Range(265, 268));
-            } else {
-                return (Database.LocalizationDataId)(UnityEngine.Random.Range(268, 271));
-            }
-        }
     }
 }
