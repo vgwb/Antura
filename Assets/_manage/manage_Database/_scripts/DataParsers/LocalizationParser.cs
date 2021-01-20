@@ -21,7 +21,7 @@ namespace Antura.Database.Management
             data._LocalizedDatas = new LocalizedData[Enum.GetNames(typeof(LanguageCode)).Length];
 
             foreach (LanguageCode lang in Enum.GetValues(typeof(LanguageCode))) {
-                if (lang == LanguageCode.COUNT || lang == LanguageCode.NONE) { continue; }
+                if (lang == LanguageCode.COUNT || lang == LanguageCode.NONE || lang == LanguageCode.arabic_legacy) { continue; }
                 var langData = new LocalizedData();
                 Debug.Log(lang);
                 langData.Text = ToString(dict[lang.ToString().ToLower()]);
