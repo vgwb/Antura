@@ -7,7 +7,6 @@ using Antura.Helpers;
 using System.Collections.Generic;
 using Antura.Keeper;
 using Antura.Language;
-using JetBrains.Annotations;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -71,14 +70,12 @@ namespace Antura.ReservedArea
 
             if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 
-            var numberWord = AppManager.I.DB.GetWordDataById($"number_0{firstButtonClicksTarget}");
-
-            WordData[] colorWords = new WordData[4];
-            colorWords[0] = AppManager.I.DB.GetWordDataById("color_green");;
-            colorWords[1] = AppManager.I.DB.GetWordDataById("color_red");
-            colorWords[2] = AppManager.I.DB.GetWordDataById("color_blue");
-            colorWords[3] = AppManager.I.DB.GetWordDataById("color_yellow");
-
+            var numberWord = LocalizationManager.GetLocalizationData((LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_Number_{firstButtonClicksTarget}"));
+            var colorWords = new LocalizationData[4];
+            colorWords[0] = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Antura_Color_Green);
+            colorWords[1] = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Antura_Color_Red);
+            colorWords[2] = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Antura_Color_Blue);
+            colorWords[3] = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Antura_Color_Yellow);
 
             var firstColorLocData = colorWords[firstButtonIndex];
             var secondColorLocData = colorWords[secondButtonIndex];
@@ -97,8 +94,7 @@ namespace Antura.ReservedArea
             if (UseForcedSequence)
                 helpIntroduction += sectionGateCodeForcedLoc.HelpText;
             else
-            // TODO: we need colors and numbers in the LocalizationUI instead
-                helpIntroduction += string.Format(sectionGateCodeLoc.HelpText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
+                helpIntroduction += string.Format(sectionGateCodeLoc.HelpText, numberWord.HelpText.ToLower(), firstColorLocData.HelpText.ToLower(), secondColorLocData.HelpText.ToLower());
             helpIntroduction += $"\n\n{sectionErrorLoc.HelpText}";
             helpTextUI.SetText(helpIntroduction, LanguageUse.Help);
 
@@ -111,7 +107,7 @@ namespace Antura.ReservedArea
             if (UseForcedSequence)
                 learningIntroduction += sectionGateCodeForcedLoc.LearningText;
             else
-                learningIntroduction += string.Format(sectionGateCodeLoc.LearningText, numberWord.Text.ToLower(), firstColorLocData.Text.ToLower(), secondColorLocData.Text.ToLower());
+                learningIntroduction += string.Format(sectionGateCodeLoc.LearningText, numberWord.LearningText.ToLower(), firstColorLocData.LearningText.ToLower(), secondColorLocData.LearningText.ToLower());
             learningIntroduction += $"\n\n{sectionErrorLoc.LearningText}";
 
             learningTextUI.SetText(learningIntroduction, LanguageUse.Learning);
