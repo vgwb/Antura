@@ -13,12 +13,15 @@ namespace Antura.GoogleSheets
 {
     public class GSheetManager : MonoBehaviour
     {
-        public bool UpdateAtStartup;
-        public bool DebugOutput;
-        public bool writeTmpFile;
-        public bool TestJsonDecode;
-        public TextAsset TestJsonData;
+        [Tooltip("Import data from Google Sheet as configured")]
+        public bool ImportFromGoogleSheet;
         public GoogleSheetGroup SheetsGroup;
+
+        [Header("Debug")]
+        public bool DebugOutput;
+        public bool DebugWriteTmpFile;
+        public bool DebugTestJsonDecode;
+        public TextAsset TestJsonData;
 
         private string GoogleApiUrl = "https://sheets.googleapis.com/v4/spreadsheets/";
         private string GoogleApiUrlPostfix = "?includeGridData=true";
@@ -30,10 +33,10 @@ namespace Antura.GoogleSheets
 
         void Start()
         {
-            if (UpdateAtStartup) {
+            if (ImportFromGoogleSheet) {
                 UpdateFromServer();
             }
-            if (TestJsonDecode) {
+            if (DebugTestJsonDecode) {
                 decodeJSON("TestJsonData", TestJsonData.text);
             }
         }
@@ -69,7 +72,7 @@ namespace Antura.GoogleSheets
             Debug.Log("manageReceivedData per " + sheet.FileName);
 
             var jsonText = value;
-            if (writeTmpFile) {
+            if (DebugWriteTmpFile) {
                 var outputDirectory = Path.Combine(Application.streamingAssetsPath, PathToTmp);
 
                 //Create directory to store the json file
