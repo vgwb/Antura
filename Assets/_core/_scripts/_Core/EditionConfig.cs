@@ -60,6 +60,9 @@ namespace Antura.Core
         public bool ShowAccents = false;
         public TextAsset CreditsText;
 
+        [Header("Settings - Book")]
+        public bool BookShowRelatedWords = false;
+
         [Header("Settings - Reserved Area")]
         public bool ReservedAreaForcedSeq = false;
         public bool ShowDonate = false;
