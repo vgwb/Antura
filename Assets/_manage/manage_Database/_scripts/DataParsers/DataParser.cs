@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using Antura.Language;
 using MiniJSON;
 using UnityEngine;
@@ -141,7 +142,8 @@ namespace Antura.Database.Management
 
         public void RegenerateEnums(string json)
         {
-            var list = Json.Deserialize(json) as List<object>;
+            var rootObj = Json.Deserialize(json) as Dictionary<string,object>;
+            var list = rootObj.First().Value as List<object>;
             var rowdicts_list = new List<Dictionary<string, object>>();
             foreach (var row in list) {
                 var dict = row as Dictionary<string, object>;
@@ -152,10 +154,10 @@ namespace Antura.Database.Management
 
         protected abstract void RegenerateEnums(List<Dictionary<string, object>> rowdicts_list);
 
-        protected void ExtractEnum(List<Dictionary<string, object>> rowdicts_list, string key, bool addNoneValue = false, string customEnumName = null)
+        protected void ExtractEnum(List<Dictionary<string, object>> rowdicts_list, string key, bool addNoneValue = false, string customEnumName = null, string valueColumnKey = null)
         {
 #if UNITY_EDITOR
-            EnumGenerator.ExtractEnum(typeof(D).Name, key, rowdicts_list, addNoneValue, customEnumName);
+            EnumGenerator.ExtractEnum(typeof(D).Name, key, rowdicts_list, addNoneValue, customEnumName, valueColumnKey);
 #endif
         }
 

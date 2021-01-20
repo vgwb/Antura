@@ -50,7 +50,7 @@ namespace Antura.Database.Management
 
         protected override void RegenerateEnums(List<Dictionary<string, object>> rowdicts_list)
         {
-            ExtractEnum(rowdicts_list, "Id", addNoneValue: true);
+            ExtractEnum(rowdicts_list, "Id", addNoneValue: true, valueColumnKey: "EnumId");
         }
     }
 }
