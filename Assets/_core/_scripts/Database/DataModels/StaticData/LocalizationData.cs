@@ -67,6 +67,9 @@ namespace Antura.Database
                 return new LocalizedData($"ERROR {Id}",$"ERROR {Id}");
             }
 
+            // We force Text data to use the shared arabic text
+            if (lang == LanguageCode.arabic_legacy) lang = LanguageCode.arabic;
+
             return _LocalizedDatas[(int)lang - 1];
         }
 
