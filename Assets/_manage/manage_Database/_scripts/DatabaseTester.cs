@@ -59,6 +59,11 @@ namespace Antura.Database.Management
             }
         }
 
+        private void Start()
+        {
+            GlobalUI.I.gameObject.SetActive(false);
+        }
+
         private void LoadCustomProfile(string profileID)
         {
             dbManager.LoadDatabaseForPlayer(profileID);
