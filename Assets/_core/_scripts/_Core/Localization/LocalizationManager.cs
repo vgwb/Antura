@@ -10,7 +10,7 @@ namespace Antura.Core
     public class LocalizationManager
     {
 
-        private static PlayerGender CurrentPlayerGender
+        public static PlayerGender CurrentPlayerGender
         {
             get {
                 if (AppManager.I.Player == null) {
@@ -25,14 +25,19 @@ namespace Antura.Core
             return GetLocalizationData(id).GetNativeText();
         }
 
-        public static string GetTranslation(LocalizationDataId id)
+        public static string GetLearning(LocalizationDataId id)
         {
-            return GetLocalizationData(id).GetLocalizedText(CurrentPlayerGender);
+            return GetLocalizationData(id).GetLearningText(CurrentPlayerGender);
         }
 
-        public static string GetTranslation(string id)
+        public static string GetHelp(LocalizationDataId id)
         {
-            return GetLocalizationData(id).GetLocalizedText(CurrentPlayerGender);
+            return GetLocalizationData(id).HelpText;
+        }
+
+        public static string GetLearning(string id)
+        {
+            return GetLocalizationData(id).GetLearningText(CurrentPlayerGender);
         }
 
         public static string GetLocalizedAudioFileName(string id)

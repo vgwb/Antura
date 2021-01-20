@@ -159,11 +159,7 @@ namespace Antura.UI
 
         public void SetSentence(Database.LocalizationDataId sentenceId)
         {
-            if (languageUse == LanguageUse.Native) {
-                text = LocalizationManager.GetNative(sentenceId);
-            } else {
-                text = LocalizationManager.GetTranslation(sentenceId);
-            }
+            text = LocalizationManager.GetLocalizationData(sentenceId).GetText(languageUse);
         }
 
     }

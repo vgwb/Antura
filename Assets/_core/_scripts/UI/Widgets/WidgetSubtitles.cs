@@ -82,7 +82,7 @@ namespace Antura.UI
         public void DisplayDialogue(LocalizationData data, float fillPeriod = 2, bool _isKeeper = false, Action _callback = null)
         {
             ShownData = null;
-            var learningText = LocalizationManager.GetTranslation(data.Id);
+            var learningText = LocalizationManager.GetLearning(data.Id);
             var helpText = data.HelpText;
             DisplayText(learningText, helpText, fillPeriod, _isKeeper, _callback);
         }

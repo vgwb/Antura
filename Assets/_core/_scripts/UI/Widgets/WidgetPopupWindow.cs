@@ -145,7 +145,7 @@ namespace Antura.UI
                 TutorialImageGO.SetActive(true);
             }
 
-            TitleGO.GetComponent<TextRender>().SetText(LocalizationManager.GetTranslation(sentenceId), LanguageUse.Learning);
+            TitleGO.GetComponent<TextRender>().SetText(LocalizationManager.GetLearning(sentenceId), LanguageUse.Learning);
             KeeperManager.I.PlayDialogue(sentenceId);
 
             Show(true);

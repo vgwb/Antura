@@ -66,7 +66,7 @@ namespace Antura.UI
             if (keeperMode == KeeperMode.NativeNoSubtitles || keeperMode == KeeperMode.NativeAndSubtitles) {
                 Show(localizationData.NativeText, localizationData.GetNativeText(), _onYes, _onNo);
             } else {
-                Show(LocalizationManager.GetTranslation(id), localizationData.GetNativeText(), _onYes, _onNo);
+                Show(LocalizationManager.GetLearning(id), localizationData.GetNativeText(), _onYes, _onNo);
             }
         }
 

@@ -73,6 +73,21 @@ namespace Antura.Database
             return _LocalizedDatas[(int)lang - 1];
         }
 
+        public string GetText(LanguageUse use)
+        {
+            switch (use)
+            {
+                case LanguageUse.Learning:
+                    return GetLearningText(LocalizationManager.CurrentPlayerGender);
+                case LanguageUse.Native:
+                    return NativeText;
+                case LanguageUse.Help:
+                    return HelpText;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(use), use, null);
+            }
+        }
+
         public string HelpText
         {
             get
@@ -138,7 +153,7 @@ namespace Antura.Database
             return AudioKey;
         }
 
-        public string GetLocalizedText(PlayerGender playerGender)
+        public string GetLearningText(PlayerGender playerGender)
         {
             if (playerGender == PlayerGender.F && LearningText_F != string.Empty) {
                 return LearningText_F;

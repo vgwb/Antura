@@ -40,7 +40,7 @@ namespace Antura.Profile
             stepTween = GetComponent<RectTransform>().DOAnchorPosY(-230, 1f).SetEase(Ease.OutBack).SetDelay(2f).Play();
 
             nativeMessage.SetText(LocalizationManager.GetNative(locId));
-            learningMessage.SetText(LocalizationManager.GetTranslation(locId));
+            learningMessage.SetText(LocalizationManager.GetHelp(locId));
         }
 
         public void Hide()
