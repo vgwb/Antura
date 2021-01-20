@@ -402,7 +402,7 @@ namespace Antura.Minigames.DancingDots
             }
         }
 
-        public float StartingRoundDancingSpeed => Mathf.Lerp(0.75f, 1.5f, Difficulty);
+        public float StartingRoundDancingSpeed => Mathf.Lerp(0.75f, 1.2f, Difficulty);
 
         IEnumerator CorrectMove(bool roundWon)
         {
