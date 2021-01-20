@@ -64,8 +64,9 @@ namespace Antura.Database
             if (_LocalizedDatas == null)
             {
                 Debug.LogWarning($"No LocalizedData found for ID {Id}");
-                return new LocalizedData("ERROR","ERROR");
+                return new LocalizedData($"ERROR {Id}",$"ERROR {Id}");
             }
+
             return _LocalizedDatas[(int)lang - 1];
         }
 

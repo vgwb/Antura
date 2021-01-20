@@ -187,8 +187,6 @@ namespace Antura.Profile
         {
             if (State == toState && !init) return;
 
-            Debug.LogError(toState);
-
             State = toState;
             PlayerCreationUICategory avatarCat = Categories[CategoryIndex.Avatar];
             switch (toState) {
