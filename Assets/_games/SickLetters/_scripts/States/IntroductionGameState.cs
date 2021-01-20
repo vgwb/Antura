@@ -22,11 +22,15 @@ namespace Antura.Minigames.SickLetters
             game.antura.sleep();
             game.disableInput = true;
 
-            game.PlayIntro(EndIntro);
+            game.PlayIntro(() =>
+            {
+                game.PlayTutorialConditional(game.TutorialEnabled, EndIntro);
+            });
         }
 
         private void EndIntro()
         {
+            if (game.TutorialEnabled) game.tut.StartIt();
             game.SetCurrentState(game.QuestionState);
         }
 

@@ -17,7 +17,8 @@ namespace Antura.Minigames.SickLetters
         SickLettersGame game;
         SickLettersDraggableDD curDD;
 
-        void Start() {
+        void Start()
+        {
             game = GetComponent<SickLettersGame>();
 
             Debug.Log("Enabled tutorial? " + game.TutorialEnabled);
@@ -27,8 +28,11 @@ namespace Antura.Minigames.SickLetters
                 game.disableInput = false;
                 game.roundsCount = 1;
             }
-            else
-                StartCoroutine(coDoTutorial());
+        }
+
+        public void StartIt()
+        {
+            StartCoroutine(coDoTutorial());
         }
 
         public void doTutorial(Transform start = null)
@@ -61,13 +65,13 @@ namespace Antura.Minigames.SickLetters
         void onTutStart()
         {
             game.disableInput = false;
-            game.PlayTutorial(() => game.buttonRepeater.SetActive(true));
+            //game.PlayTutorial(() => game.buttonRepeater.SetActive(true));
         }
 
         void onTutEnd()
         {
             TutorialUI.Clear(true);
-            
+
         }
 
         IEnumerator coDoTutorial(Transform start = null)
