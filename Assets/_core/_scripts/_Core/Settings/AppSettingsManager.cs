@@ -124,7 +124,7 @@ namespace Antura.Core
             } else {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
-            Debug.Log("UpdateAppVersion() previous: " + AppVersionPrevious + " current: " + AppManager.I.ParentEdition.AppVersion);
+            Debug.Log("AppVersion is: " + AppManager.I.ParentEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
             Settings.SetAppVersion(AppManager.I.ParentEdition.AppVersion);
             SaveSettings();
         }
