@@ -97,42 +97,48 @@ namespace Antura.Book
             //string debug_output = "//////// LETTER " + myLetterData.Number + " " + myLetterData.Id + "\n";
             HighlightLetterItem(myLetterInfo.data.Id);
 
-            // diacritics
-            //emptyContainer(DiacriticsContainer);
-            //var letterbase = myLetterInfo.data.Id;
-            //var variationsletters = AppManager.I.DB.FindLetterData(
-            //    (x) => (x.BaseLetter == letterbase && (x.Kind == LetterDataKind.DiacriticCombo && x.Active))
-            //);
+            if (AppManager.I.ParentEdition.BookShowRelatedWords) {
+                // show related words
+                RelatedWordsContainer.SetActive(true);
+                DiacriticsContainer.SetActive(false);
+                emptyContainer(RelatedWordsContainer);
+                foreach (var word in letterInfo.data.LinkedWords) {
+                    WordData wdata = AppManager.I.DB.GetWordDataById(word);
+                    WordInfo winfo = new WordInfo();
+                    winfo.data = wdata;
 
-            //// diacritics box
-            //var letterGO = Instantiate(DiacriticSymbolItemPrefab);
-            //letterGO.transform.SetParent(DiacriticsContainer.transform, false);
-            //letterGO.GetComponent<ItemDiacriticSymbol>().Init(this, myLetterInfo, true);
+                    btnGO = Instantiate(WordItemPrefab);
+                    btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
+                    btnGO.GetComponent<ItemWord>().Init(this, winfo, false);
+                }
+            } else {
+                // show related diacritics
+                RelatedWordsContainer.SetActive(false);
+                DiacriticsContainer.SetActive(true);
+                emptyContainer(DiacriticsContainer);
+                var letterbase = myLetterInfo.data.Id;
+                var variationsletters = AppManager.I.DB.FindLetterData(
+                    (x) => (x.BaseLetter == letterbase && (x.Kind == LetterDataKind.DiacriticCombo && x.Active))
+                );
 
-            //List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
-            //info_list.Sort((x, y) => x.data.Id.CompareTo(y.data.Id));
-            //foreach (var info_item in info_list) {
-            //    if (variationsletters.Contains(info_item.data)) {
-            //        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {
-            //            continue;
-            //        }
-            //        btnGO = Instantiate(DiacriticSymbolItemPrefab);
-            //        btnGO.transform.SetParent(DiacriticsContainer.transform, false);
-            //        btnGO.GetComponent<ItemDiacriticSymbol>().Init(this, info_item, false);
-            //        //debug_output += info_item.data.GetDebugDiacriticFix();
-            //    }
-            //}
+                // diacritics box
+                var letterGO = Instantiate(DiacriticSymbolItemPrefab);
+                letterGO.transform.SetParent(DiacriticsContainer.transform, false);
+                letterGO.GetComponent<ItemDiacriticSymbol>().Init(this, myLetterInfo, true);
 
-            // related words
-            emptyContainer(RelatedWordsContainer);
-            foreach (var word in letterInfo.data.LinkedWords) {
-                WordData wdata = AppManager.I.DB.GetWordDataById(word);
-                WordInfo winfo = new WordInfo();
-                winfo.data = wdata;
-
-                btnGO = Instantiate(WordItemPrefab);
-                btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
-                btnGO.GetComponent<ItemWord>().Init(this, winfo, false);
+                List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
+                info_list.Sort((x, y) => x.data.Id.CompareTo(y.data.Id));
+                foreach (var info_item in info_list) {
+                    if (variationsletters.Contains(info_item.data)) {
+                        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {
+                            continue;
+                        }
+                        btnGO = Instantiate(DiacriticSymbolItemPrefab);
+                        btnGO.transform.SetParent(DiacriticsContainer.transform, false);
+                        btnGO.GetComponent<ItemDiacriticSymbol>().Init(this, info_item, false);
+                        //debug_output += info_item.data.GetDebugDiacriticFix();
+                    }
+                }
             }
 
             //Debug.Log(debug_output);
