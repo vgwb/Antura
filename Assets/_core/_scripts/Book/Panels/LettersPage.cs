@@ -1,6 +1,7 @@
 ﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -43,8 +44,18 @@ namespace Antura.Book
 
         private void LettersPanel()
         {
-            ListPanel = ListPanelLTR;
-            ListContainer = ListContainerLTR;
+            if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                ListPanel = ListPanelRTL;
+                ListContainer = ListContainerRTL;
+                ListPanelLTR.SetActive(false);
+                ListPanelRTL.SetActive(true);
+            } else {
+                ListPanel = ListPanelLTR;
+                ListContainer = ListContainerLTR;
+                ListPanelLTR.SetActive(true);
+                ListPanelRTL.SetActive(false);
+            }
+
             ListPanel.SetActive(true);
             DetailPanel.SetActive(false);
             emptyContainer(ListContainer);
@@ -68,7 +79,9 @@ namespace Antura.Book
 
                 btnGO = Instantiate(LetterItemPrefab);
                 btnGO.transform.SetParent(ListContainer.transform, false);
-                //btnGO.transform.SetAsFirstSibling();
+                if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                    btnGO.transform.SetAsFirstSibling();
+                }
                 btnGO.GetComponent<ItemLetter>().Init(this, myLetterinfo, false);
             }
 
