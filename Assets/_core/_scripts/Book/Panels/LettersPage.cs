@@ -19,13 +19,17 @@ namespace Antura.Book
         [Header("References")]
         public GameObject DetailPanel;
         public GameObject MainLetterPanel;
-        public GameObject ListPanel;
-        public GameObject ListContainer;
+        public GameObject ListPanelLTR;
+        public GameObject ListPanelRTL;
+        public GameObject ListContainerLTR;
+        public GameObject ListContainerRTL;
 
         public LetterAllForms MainLetterDisplay;
         public GameObject DiacriticsContainer;
         public GameObject RelatedWordsContainer;
 
+        private GameObject ListPanel;
+        private GameObject ListContainer;
         private LetterInfo myLetterInfo;
         private LetterData myLetterData;
         private GameObject btnGO;
@@ -39,6 +43,8 @@ namespace Antura.Book
 
         private void LettersPanel()
         {
+            ListPanel = ListPanelLTR;
+            ListContainer = ListContainerLTR;
             ListPanel.SetActive(true);
             DetailPanel.SetActive(false);
             emptyContainer(ListContainer);
