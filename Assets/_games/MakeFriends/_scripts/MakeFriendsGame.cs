@@ -39,19 +39,13 @@ namespace Antura.Minigames.MakeFriends
         public Vector3 correctChoiceIndicatorPosition;
         public Camera uiCamera;
 
-        public static MakeFriendsGame Instance
-        {
-            get { return I as MakeFriendsGame; }
-        }
+        public static MakeFriendsGame Instance => I as MakeFriendsGame;
 
         public bool IsIntroducingLetter = false;
         public int SpokenWords = 0;
 
         [HideInInspector]
-        public MakeFriendsConfiguration Configuration
-        {
-            get { return MakeFriendsConfiguration.Instance; }
-        }
+        public MakeFriendsConfiguration Configuration => MakeFriendsConfiguration.Instance;
 
         private LL_WordData wordData1;
         private List<ILivingLetterData> wordLetters1 = new List<ILivingLetterData>();
@@ -117,20 +111,11 @@ namespace Antura.Minigames.MakeFriends
         }
         #endregion
 
-        public bool TutorialEnabled
-        {
-            get { return GetConfiguration().TutorialEnabled; }
-        }
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
-        private IPopupWidget Popup
-        {
-            get { return GetConfiguration().Context.GetPopupWidget(); }
-        }
+        private IPopupWidget Popup => GetConfiguration().Context.GetPopupWidget();
 
-        private IAudioManager AudioManager
-        {
-            get { return GetConfiguration().Context.GetAudioManager(); }
-        }
+        private IAudioManager AudioManager => GetConfiguration().Context.GetAudioManager();
 
         public MakeFriendsIntroductionState IntroductionState { get; private set; }
 
