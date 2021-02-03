@@ -1,8 +1,14 @@
+using System.Collections;
 using Antura.Core;
 using Antura.Database;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
+using UnityEngine.ResourceManagement.AsyncOperations;
+
+namespace Antura
+{
+}
 
 namespace Antura.Language
 {
@@ -30,27 +36,35 @@ namespace Antura.Language
         {
             useMapping = new Dictionary<LanguageUse, LanguageCode>();
             loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
-
-            LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
-            ReloadNativeLanguage();
-            LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
         }
 
-        public void ReloadNativeLanguage()
+        public IEnumerator LoadData()
         {
-            LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
+            yield return LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
+            yield return ReloadNativeLanguage();
+            yield return LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
         }
 
-        private void LoadLanguage(LanguageUse use, LanguageCode language)
+        public IEnumerator ReloadNativeLanguage()
+        {
+            yield return LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
+        }
+
+        private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)
         {
             useMapping[use] = language;
-            LoadLanguageData(language);
+            yield return LoadLanguageData(language);
         }
 
-        void LoadLanguageData(LanguageCode language)
+
+        IEnumerator LoadLanguageData(LanguageCode language)
         {
-            if (loadedLanguageData.ContainsKey(language)) return;
+            if (loadedLanguageData.ContainsKey(language)) yield break;
             var languageData = new LanguageData();
+
+            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r);
+
+
 
             languageData.config = Resources.Load<LangConfig>($"{language}/LangConfig");
             if (languageData.config == null)
@@ -83,7 +97,6 @@ namespace Antura.Language
 
         public LangConfig GetLangConfig(LanguageCode code)
         {
-            LoadLanguageData(code);
             return loadedLanguageData[code].config;
         }
 

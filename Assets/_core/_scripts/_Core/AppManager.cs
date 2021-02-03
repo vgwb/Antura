@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
@@ -71,6 +73,11 @@ namespace Antura.Core
         /// </summary>
         private bool alreadySetup;
 
+        /// <summary>
+        /// Set to true only after the application has finished loading everything
+        /// </summary>
+        public bool Loaded;
+
         protected override void Awake()
         {
             GetComponent<AppBootstrap>().InitManagers();
@@ -91,9 +98,14 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
+            StartCoroutine(InitCO());
+        }
+
+        private IEnumerator InitCO()
+        {
             AppSettingsManager = new AppSettingsManager();
 
-            ReloadEdition();
+            yield return ReloadEdition();
 
             // TODO refactor: standardize initialisation of managers
             VocabularyHelper = new VocabularyHelper(DB);
@@ -136,21 +148,23 @@ namespace Antura.Core
             AppSettingsManager.UpdateAppVersion();
 
             Time.timeScale = 1;
+            Loaded = true;
         }
 
-        public void ReloadEdition()
+        public IEnumerator ReloadEdition()
         {
             LanguageSwitcher = new LanguageSwitcher();
+            yield return LanguageSwitcher.LoadData();
             DB = new DatabaseManager(true);
         }
 
-        public void ResetLanguageSetup(LanguageCode langCode)
+        public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
             AppManager.I.SpecificEdition.NativeLanguage = langCode;
             AppManager.I.SpecificEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
-            LanguageSwitcher.ReloadNativeLanguage();
+            yield return LanguageSwitcher.ReloadNativeLanguage();
         }
 
         private void Start()

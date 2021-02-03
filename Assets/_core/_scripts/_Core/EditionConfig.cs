@@ -8,6 +8,8 @@ using DG.DeInspektor.Attributes;
 using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
+using UnityEditor.AddressableAssets.Settings;
+
 #endif
 
 namespace Antura.Core
@@ -227,6 +229,9 @@ namespace Antura.Core
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
+
+            // TODO: AddressableAssetSettings.CleanPlayerContent();
+            // TODO: AddressableAssetSettings.BuildPlayerContent();
         }
 
 

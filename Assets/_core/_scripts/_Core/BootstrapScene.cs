@@ -1,11 +1,11 @@
 ﻿using Antura.Core;
-using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Antura.Scenes
 {
     /// <summary>
-    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile. 
+    /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile.
     /// </summary>
     public class BootstrapScene : SceneBase
     {
@@ -16,6 +16,9 @@ namespace Antura.Scenes
         protected override void Start()
         {
             Debug.Log("BootstrapScene: Start()");
+
+            StartCoroutine(StartCO());
+
             // GlobalUI.ShowPauseMenu(false);
 
             //if (AppManager.I.AppSettingsManager.IsAppJustUpdatedFromOldVersion()) {
@@ -29,6 +32,11 @@ namespace Antura.Scenes
             //} else {
             //    GoToHomeScene();
             //}
+        }
+
+        private IEnumerator StartCO()
+        {
+            while (!AppManager.I.Loaded) yield return null;
             GoToHomeScene();
         }
 

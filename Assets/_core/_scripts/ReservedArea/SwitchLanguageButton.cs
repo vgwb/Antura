@@ -1,10 +1,5 @@
-using Antura.Audio;
+using System.Collections;
 using Antura.Core;
-using Antura.Database;
-using Antura.UI;
-using Antura.Helpers;
-using System.Collections.Generic;
-using Antura.Keeper;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
@@ -32,7 +27,11 @@ namespace Antura.UI
 
         public void OnClick()
         {
-            AppManager.I.ResetLanguageSetup(langCode);
+            StartCoroutine(OnClickCO());
+        }
+        private IEnumerator OnClickCO()
+        {
+            yield return AppManager.I.ResetLanguageSetup(langCode);
             switchLanguagePanel.RefreshSelection();
             AppManager.I.NavigationManager.GoToHome(true);
         }
