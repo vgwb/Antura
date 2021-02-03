@@ -99,7 +99,7 @@ namespace Antura.Teacher
             // Get the correct form inside the word
             //Debug.Log("Word is: " + question.ToString());
             //Debug.Log("Letters: " + vocabularyHelper.GetLettersInWord(question).ToDebugString());
-            //Debug.Log("Letters correct: " + vocabularyHelper.GetLettersInWord(question).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterOnly)).ToDebugString());
+            //Debug.Log("Letters correct: " + vocabularyHelper.GetLettersInWord(question, removeAccents).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToDebugString());
             var chosenLetterWithForm = vocabularyHelper.GetLettersInWord(question, removeAccents).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToList().RandomSelectOne();
             //chosenLetterWithForm = vocabularyHelper.ExtractLettersWithForms(chosenLetterWithForm);
             //Debug.Log("Correct form: " + chosenLetterWithForm + " form is " + chosenLetterWithForm.Form);

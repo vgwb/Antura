@@ -158,8 +158,8 @@ namespace Antura.Minigames.MissingLetter
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
             var _correctAnswer = m_oCurrQuestionPack.GetCorrectAnswers().ToList().GetRandom();
 
-            //Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
-            //Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
+            //Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ToDebugStringNewline());
+            //Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ToDebugStringNewline());
 
             GameObject oQuestion = m_oQuestionPool.GetElement();
 

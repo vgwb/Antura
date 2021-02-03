@@ -52,28 +52,27 @@ namespace Antura.Language
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
 
-        
+
         public override List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false)
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
             return AnalyzeArabicString(staticDatabase, ProcessString(wordData.Text), separateDiacritics,
-                separateVariations);
+                separateVariations, keepFormInsideLetter);
         }
 
         public override List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phrase,
-            bool separateDiacritics = false,
-            bool separateVariations = true)
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
             return AnalyzeArabicString(staticDatabase, ProcessString(phrase.Text), separateDiacritics,
-                separateVariations);
+                separateVariations, keepFormInsideLetter);
         }
 
         #region Private
 
         List<StringPart> AnalyzeArabicString(DatabaseObject staticDatabase, string processedArabicString,
-            bool separateDiacritics = false, bool separateVariations = true)
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
             if (allLetterData == null)
             {
@@ -159,6 +158,7 @@ namespace Antura.Language
                 {
                     letterForm = entry.form;
                     letterData = entry.data;
+                    if (keepFormInsideLetter) letterData.ForcedLetterForm = letterForm;
                 }
 
                 if (letterData != null)
@@ -283,7 +283,7 @@ namespace Antura.Language
 
         /// <summary>
         /// these are manually configured positions of diacritic symbols relative to the main letter
-        /// since TextMesh Pro can't manage these automatically and some letters are too tall, with the symbol overlapping 
+        /// since TextMesh Pro can't manage these automatically and some letters are too tall, with the symbol overlapping
         /// </summary>
         private void BuildDiacriticCombos2Fix()
         {

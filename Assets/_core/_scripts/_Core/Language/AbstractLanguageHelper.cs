@@ -88,7 +88,7 @@ namespace Antura.Language
         public List<StringPart> FindLetter(DatabaseManager database, WordData wordData, LetterData letterToFind, bool findSameForm)
         {
             var stringParts = new List<StringPart>();
-            var parts = SplitWord(database, wordData, false, letterToFind.Kind != LetterDataKind.LetterVariation);
+            var parts = SplitWord(database, wordData, separateDiacritics:false, separateVariations: letterToFind.Kind != LetterDataKind.LetterVariation, keepFormInsideLetter:findSameForm);
 
             var strictness = LetterEqualityStrictness.LetterBase;
             if (findSameForm) strictness = LetterEqualityStrictness.WithActualForm;
@@ -105,13 +105,13 @@ namespace Antura.Language
         }
 
         public List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false)
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false)
         {
-            return SplitWord(databaseManager.StaticDatabase, wordData, separateDiacritics, separateVariations);
+            return SplitWord(databaseManager.StaticDatabase, wordData, separateDiacritics, separateVariations, keepFormInsideLetter);
         }
 
         public virtual List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false)
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false)
         {
             var stringParts = new List<StringPart>();
             char[] chars = wordData.Text.ToCharArray();
@@ -140,15 +140,13 @@ namespace Antura.Language
 
 
         public virtual List<StringPart> SplitPhrase(DatabaseManager databaseManager, PhraseData phrase,
-            bool separateDiacritics = false,
-            bool separateVariations = true)
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
-            return SplitPhrase(databaseManager.StaticDatabase, phrase, separateDiacritics, separateVariations);
+            return SplitPhrase(databaseManager.StaticDatabase, phrase, separateDiacritics, separateVariations, keepFormInsideLetter);
         }
 
         public virtual List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phrase,
-            bool separateDiacritics = false,
-            bool separateVariations = true)
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
             throw new NotImplementedException();
         }

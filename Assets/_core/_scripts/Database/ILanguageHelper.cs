@@ -42,18 +42,16 @@ namespace Antura.Language
         List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, bool findSameForm);
 
         List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false);
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false);
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitPhrase(DatabaseManager databaseManager, PhraseData phraseData,
-            bool separateDiacritics = false,
-            bool separateVariations = true);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phraseData,
-            bool separateDiacritics = false,
-            bool separateVariations = true);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo);
 

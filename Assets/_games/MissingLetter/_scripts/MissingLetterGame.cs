@@ -183,10 +183,7 @@ namespace Antura.Minigames.MissingLetter
         public MissingLetterResultState ResultState { get; private set; }
         public MissingLetterTutorialState TutorialState { get; private set; }
 
-        public bool TutorialEnabled
-        {
-            get { return GetConfiguration().TutorialEnabled; }
-        }
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
         #endregion
 
