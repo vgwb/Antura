@@ -64,9 +64,9 @@ namespace Antura.ReservedArea
             if (UseForcedSequence) secondButtonIndex = ForceSequenceSecondColorIndex;
 
             // Number of clicks at random
-            const int min_number = 4;
-            const int max_number = 7;
-            firstButtonClicksTarget = Random.Range(min_number, max_number);
+            const int min_number = 2;
+            const int max_number = 5;
+            firstButtonClicksTarget = Random.Range(min_number, max_number+1);
 
             if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 
