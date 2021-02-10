@@ -1,3 +1,4 @@
+using Antura.Language;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.UI;
@@ -35,11 +36,11 @@ namespace Antura.Book
                 OkIcon.enabled = false;
             }
 
-            Title.text = myWordInfo.data.Text;
+            Title.SetText(myWordInfo.data.Text);
+            Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
             SubTitle.text = AppManager.I.ParentEdition.ShowHelpText ? myWordInfo.data.Id : "";
 
-            if (myWordInfo.data.Drawing != "")
-            {
+            if (myWordInfo.data.Drawing != "") {
                 Drawing.SetLetterData(new LL_ImageData(myWordInfo.data));
             } else {
                 Drawing.text = "";

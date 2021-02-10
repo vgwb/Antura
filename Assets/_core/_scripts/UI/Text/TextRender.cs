@@ -129,6 +129,15 @@ namespace Antura.UI
             TMPText.isRightToLeftText = !isNumber && LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
         }
 
+        public void SetTextAlign(bool alignRight)
+        {
+            if (alignRight) {
+                TMPText.horizontalAlignment = HorizontalAlignmentOptions.Right;
+            } else {
+                TMPText.horizontalAlignment = HorizontalAlignmentOptions.Left;
+            }
+        }
+
         private bool isLetter = false;
         public int drawingFontSize = 40;
         public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
