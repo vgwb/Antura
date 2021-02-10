@@ -22,7 +22,7 @@ namespace Antura.Minigames.MakeFriends
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
 
-        public static bool VISUAL_DEBUG = true;
+        public static bool VISUAL_DEBUG = false;
 
         public const int numberOfRounds = 6;
 
@@ -265,12 +265,9 @@ namespace Antura.Minigames.MakeFriends
             commonLetters = question.GetCorrectAnswers().ToList();
             uncommonLetters = question.GetWrongAnswers().ToList();
 
-            var w = AppManager.I.DB.GetWordDataById("month_january");
-            Debug.LogError(LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, w, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString());
-
-            Debug.Log($"Word 1: {wordData1.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData1.Data, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString()}");
-            Debug.Log($"Word 2: {wordData2.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData2.Data, keepFormInsideLetter: true).ConvertAll(x => x.letter).ToJoinedString()})");
-            Debug.Log($"Common: {string.Join(" / ", commonLetters.Select(x => x.ToString()).Reverse().ToArray())}, Uncommon: {string.Join(" / ", uncommonLetters.Select(x => x.ToString()).Reverse().ToArray())}");
+            //Debug.Log($"Word 1: {wordData1.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData1.Data, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString()}");
+            //Debug.Log($"Word 2: {wordData2.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData2.Data, keepFormInsideLetter: true).ConvertAll(x => x.letter).ToJoinedString()})");
+            //Debug.Log($"Common: {string.Join(" / ", commonLetters.Select(x => x.ToString()).Reverse().ToArray())}, Uncommon: {string.Join(" / ", uncommonLetters.Select(x => x.ToString()).Reverse().ToArray())}");
         }
 
         private void SetLetterChoices()
@@ -304,8 +301,8 @@ namespace Antura.Minigames.MakeFriends
             }
             choiceLetters.Shuffle();
 
-            Debug.LogError("SHOWING: " + choiceLetters.ToJoinedString());
-            Debug.LogError("CORRECTS: " + commonLetters.ToJoinedString());
+            //Debug.LogError("SHOWING: " + choiceLetters.ToJoinedString());
+            //Debug.LogError("CORRECTS: " + commonLetters.ToJoinedString());
 
             letterPicker.DisplayLetters(choiceLetters);
 
@@ -318,7 +315,7 @@ namespace Antura.Minigames.MakeFriends
                     letterPickerLetterChoice.LetterText.color = Color.black;
                     if (commonLetters.Contains(letterPickerLetterChoice.letterData))
                     {
-                        Debug.LogError("Found correct letter data " + letterPickerLetterChoice.letterData);
+                        //Debug.LogError("Found correct letter data " + letterPickerLetterChoice.letterData);
                         letterPickerLetterChoice.LetterText.color = Color.magenta;
                     }
                 }
