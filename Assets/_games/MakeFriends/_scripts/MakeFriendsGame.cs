@@ -22,7 +22,8 @@ namespace Antura.Minigames.MakeFriends
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
 
-        public static bool VISUAL_DEBUG = false;
+        public static bool VISUAL_DEBUG = true;
+        public Color helpColor = Color.magenta;
 
         public const int numberOfRounds = 6;
 
@@ -316,7 +317,7 @@ namespace Antura.Minigames.MakeFriends
                     if (commonLetters.Contains(letterPickerLetterChoice.letterData))
                     {
                         //Debug.LogError("Found correct letter data " + letterPickerLetterChoice.letterData);
-                        letterPickerLetterChoice.LetterText.color = Color.magenta;
+                        letterPickerLetterChoice.LetterText.color = helpColor;
                     }
                 }
             }
@@ -338,8 +339,8 @@ namespace Antura.Minigames.MakeFriends
             if (VISUAL_DEBUG)
             {
                 // DEBUG: color words too for easier selection
-                livingLetter1.MarkLetters(commonLetters, Color.magenta);
-                livingLetter2.MarkLetters(commonLetters, Color.magenta);
+                livingLetter1.MarkLetters(commonLetters, helpColor);
+                livingLetter2.MarkLetters(commonLetters, helpColor);
             }
 
         }

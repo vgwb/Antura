@@ -142,6 +142,7 @@ namespace Antura.Minigames.MakeFriends
             image.enabled = false;
             button.enabled = false;
             LetterText.enabled = false;
+            LetterText.gameObject.SetActive(false);
         }
 
         private void Reset()
@@ -152,6 +153,7 @@ namespace Antura.Minigames.MakeFriends
             button.enabled = true;
             LetterText.enabled = true;
             State = ChoiceState.IDLE;
+            LetterText.gameObject.SetActive(true);
         }
 
         private void OnStateChanged()
