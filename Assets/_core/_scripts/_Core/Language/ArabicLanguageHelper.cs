@@ -158,7 +158,6 @@ namespace Antura.Language
                 {
                     letterForm = entry.form;
                     letterData = entry.data;
-                    if (keepFormInsideLetter) letterData.ForcedLetterForm = letterForm;
                 }
 
                 if (letterData != null)
@@ -262,6 +261,13 @@ namespace Antura.Language
                 ++stringIndex;
             }
 
+            if (keepFormInsideLetter)
+            {
+                foreach (var stringPart in result)
+                {
+                    stringPart.letter.ForcedLetterForm = stringPart.letterForm;
+                }
+            }
             return result;
         }
 
