@@ -325,7 +325,7 @@ namespace Antura.Minigames.MakeFriends
             isWalking = false;
         }
 
-        public void MarkLetters(List<LL_LetterData> commonLetters, Color color)
+        public void MarkLetters(List<ILivingLetterData> commonLetters, Color color)
         {
             LLPrefab.MarkLetters(commonLetters, color);
         }

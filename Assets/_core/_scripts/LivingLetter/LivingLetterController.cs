@@ -3,6 +3,7 @@ using Antura.Language;
 using Antura.Helpers;
 using Antura.Minigames;
 using System.Collections.Generic;
+using Antura.Database;
 using UnityEngine;
 
 namespace Antura.LivingLetters
@@ -401,20 +402,25 @@ namespace Antura.LivingLetters
             animator.SetTrigger("doChestStop");
         }
 
-        public void MarkLetters(List<LL_LetterData> toMark, Color color)
+        public void MarkLetters(List<ILivingLetterData> toMark, Color color)
         {
-            var word = Data as LL_WordData;
-            if (word != null) {
-                //string text = ArabicAlphabetHelper.ProcessArabicString(word.Data.Arabic);
+            Debug.LogError("WE WANT TO MARK LETTERS: " + toMark.ConvertAll(x => x as LL_LetterData).ToJoinedString());
 
-                List<StringPart> parts = new List<StringPart>();
+            if (!(Data is LL_WordData word)) return;
+            List<StringPart> parts = new List<StringPart>();
 
-                foreach (var markedLetter in toMark)
-                    parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, true));
+            foreach (var markedLetter in toMark)
+                parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, (markedLetter as LL_LetterData).Data, LetterEqualityStrictness.WithVisualForm));
 
-                if (parts.Count > 0) {
-                    LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
-                }
+            var myParts = LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, word.Data, keepFormInsideLetter: true);
+            Debug.LogError("LETTERS IN WORD: " + myParts.ConvertAll(x => x.letter).ToJoinedString());
+
+           // var letters = parts.ConvertAll(x => x.letter.ForcedLetterForm = x.letterForm);
+            //Debug.LogError("LETTERS TO MARK: " + letters.ToJoinedString());
+            Debug.LogError("PARTS MARKED: " + parts.ConvertAll(x => x.letter).ToJoinedString());
+
+            if (parts.Count > 0) {
+                LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
             }
         }
 

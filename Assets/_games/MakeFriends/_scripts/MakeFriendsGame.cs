@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Minigames.MakeFriends
@@ -20,6 +21,8 @@ namespace Antura.Minigames.MakeFriends
         public LetterPickerController letterPicker;
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
+
+        public static bool VISUAL_DEBUG = true;
 
         public const int numberOfRounds = 6;
 
@@ -175,7 +178,7 @@ namespace Antura.Minigames.MakeFriends
         {
             while (MakeFriendsGame.Instance.SpokenWords < 2)
                 yield return null;
-            
+
             AudioManager.PlayDialogue(dialog);
         }
 
@@ -262,9 +265,12 @@ namespace Antura.Minigames.MakeFriends
             commonLetters = question.GetCorrectAnswers().ToList();
             uncommonLetters = question.GetWrongAnswers().ToList();
 
-            Debug.Log("[New Round] Word 1: " + ArabicFixer.Fix(wordData1.Data.Text) + ", Word 2: " + ArabicFixer.Fix(wordData2.Data.Text)
-                + "\nCommon: " + string.Join(" / ", commonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray())
-                + ", Uncommon: " + string.Join(" / ", uncommonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray()));
+            var w = AppManager.I.DB.GetWordDataById("month_january");
+            Debug.LogError(LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, w, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString());
+
+            Debug.Log($"Word 1: {wordData1.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData1.Data, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString()}");
+            Debug.Log($"Word 2: {wordData2.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData2.Data, keepFormInsideLetter: true).ConvertAll(x => x.letter).ToJoinedString()})");
+            Debug.Log($"Common: {string.Join(" / ", commonLetters.Select(x => x.ToString()).Reverse().ToArray())}, Uncommon: {string.Join(" / ", uncommonLetters.Select(x => x.ToString()).Reverse().ToArray())}");
         }
 
         private void SetLetterChoices()
@@ -298,7 +304,27 @@ namespace Antura.Minigames.MakeFriends
             }
             choiceLetters.Shuffle();
 
+            Debug.LogError("SHOWING: " + choiceLetters.ToJoinedString());
+            Debug.LogError("CORRECTS: " + commonLetters.ToJoinedString());
+
             letterPicker.DisplayLetters(choiceLetters);
+
+            if (VISUAL_DEBUG)
+            {
+                // DEBUG: color correct answer for easier selection
+                foreach (var letterPickerLetterChoice in letterPicker.letterChoices)
+                {
+                    letterPickerLetterChoice.button.image.color = Color.black;
+                    letterPickerLetterChoice.LetterText.color = Color.black;
+                    if (commonLetters.Contains(letterPickerLetterChoice.letterData))
+                    {
+                        Debug.LogError("Found correct letter data " + letterPickerLetterChoice.letterData);
+                        letterPickerLetterChoice.LetterText.color = Color.magenta;
+                    }
+                }
+            }
+
+            letterPicker.SetCorrectChoices(commonLetters);
             if (isTutorialRound) {
                 letterPicker.SetCorrectChoices(commonLetters);
             }
@@ -311,6 +337,14 @@ namespace Antura.Minigames.MakeFriends
 
             leftArea.MakeEntrance();
             rightArea.MakeEntrance();
+
+            if (VISUAL_DEBUG)
+            {
+                // DEBUG: color words too for easier selection
+                livingLetter1.MarkLetters(commonLetters, Color.magenta);
+                livingLetter2.MarkLetters(commonLetters, Color.magenta);
+            }
+
         }
 
         private void ShowDropZone()
@@ -415,18 +449,8 @@ namespace Antura.Minigames.MakeFriends
                     HideTutorialUI();
                 }
 
-                List<LL_LetterData> letters = new List<LL_LetterData>();
-
-                foreach (var l in commonLetters)
-                {
-                    LL_LetterData data = l as LL_LetterData;
-
-                    if (data != null)
-                        letters.Add(data);
-                }
-
-                livingLetter1.MarkLetters(letters, Color.green);
-                livingLetter2.MarkLetters(letters, Color.green);
+                livingLetter1.MarkLetters(commonLetters, Color.green);
+                livingLetter2.MarkLetters(commonLetters, Color.green);
 
                 GetConfiguration().Context.GetAudioManager().PlaySound(Sfx.Win);
                 leftArea.Celebrate();

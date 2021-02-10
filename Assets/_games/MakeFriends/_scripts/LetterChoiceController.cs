@@ -55,7 +55,7 @@ namespace Antura.Minigames.MakeFriends
         {
             Reset();
             letterData = _letterData;
-            LetterText.text = letterData.TextForLivingLetter;
+            LetterText.SetLetterData(_letterData);
         }
 
         public void OnPointerDown(PointerEventData eventData)
@@ -100,7 +100,7 @@ namespace Antura.Minigames.MakeFriends
             {
                 return;
             }
-            
+
             if (wasChosen)
             {
                 Disable();

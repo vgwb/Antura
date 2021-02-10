@@ -10,6 +10,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System;
+using Antura.Database;
 using Antura.Language;
 
 
@@ -423,7 +424,7 @@ namespace Antura.Minigames.ThrowBalls
         {
             var word = ((LL_WordData)question).Data;
             int numTimesLetterHasBeenFlashed = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
-            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, false)[numTimesLetterHasBeenFlashed];
+            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, LetterEqualityStrictness.Letter)[numTimesLetterHasBeenFlashed];
             flashedLettersInLiWVariation.Add(letterToFlash);
 
             int toCharIndex = letterPartToFlash.toCharacterIndex;

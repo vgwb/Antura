@@ -336,7 +336,7 @@ namespace Antura.Minigames.MissingLetter
             LivingLetterController letterView = m_aoCurrentQuestionScene[0].GetComponent<LetterBehaviour>().mLetter;
 
             bool findSameForm = MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm;
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm ? LetterEqualityStrictness.WithActualForm : LetterEqualityStrictness.Letter);
             //Debug.LogWarning("Looking for letter " + letter.Id + " into word " + word.Id);
 
             var partToRemove = parts[0];

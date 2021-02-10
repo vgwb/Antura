@@ -85,13 +85,12 @@ namespace Antura.Language
             return text;
         }
 
-        public List<StringPart> FindLetter(DatabaseManager database, WordData wordData, LetterData letterToFind, bool findSameForm)
+        public List<StringPart> FindLetter(DatabaseManager database, WordData wordData, LetterData letterToFind, LetterEqualityStrictness strictness)
         {
             var stringParts = new List<StringPart>();
-            var parts = SplitWord(database, wordData, separateDiacritics:false, separateVariations: letterToFind.Kind != LetterDataKind.LetterVariation, keepFormInsideLetter:findSameForm);
 
-            var strictness = LetterEqualityStrictness.LetterBase;
-            if (findSameForm) strictness = LetterEqualityStrictness.WithActualForm;
+            bool findSameForm = strictness == LetterEqualityStrictness.WithActualForm || strictness == LetterEqualityStrictness.WithVisualForm;
+            var parts = SplitWord(database, wordData, separateDiacritics:false, separateVariations: letterToFind.Kind != LetterDataKind.LetterVariation, keepFormInsideLetter:findSameForm);
 
             for (int i = 0, count = parts.Count; i < count; ++i)
             {
@@ -113,6 +112,7 @@ namespace Antura.Language
         public virtual List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false)
         {
+
             var stringParts = new List<StringPart>();
             char[] chars = wordData.Text.ToCharArray();
             for (int iChar = 0; iChar < chars.Length; iChar++)

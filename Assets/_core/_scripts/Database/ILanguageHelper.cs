@@ -39,7 +39,7 @@ namespace Antura.Language
         /// Find all the occurrences of "letterToFind" in "wordData"
         /// </summary>
         /// <returns>the list of occurrences</returns>
-        List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, bool findSameForm);
+        List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, LetterEqualityStrictness strictness);
 
         List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
             bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
