@@ -158,6 +158,7 @@ namespace Antura.Language
                 {
                     letterForm = entry.form;
                     letterData = entry.data;
+                    if (keepFormInsideLetter) letterData = letterData.Clone();  // We need to clone the data, as it may be overriden later, if we want to keep forms inside it
                 }
 
                 if (letterData != null)

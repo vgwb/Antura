@@ -404,22 +404,14 @@ namespace Antura.LivingLetters
 
         public void MarkLetters(List<ILivingLetterData> toMark, Color color)
         {
-            Debug.LogError("WE WANT TO MARK LETTERS: " + toMark.ConvertAll(x => x as LL_LetterData).ToJoinedString());
-
             if (!(Data is LL_WordData word)) return;
             List<StringPart> parts = new List<StringPart>();
 
             foreach (var markedLetter in toMark)
                 parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, (markedLetter as LL_LetterData).Data, LetterEqualityStrictness.WithVisualForm));
 
-            var myParts = LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, word.Data, keepFormInsideLetter: true);
-            Debug.LogError("LETTERS IN WORD: " + myParts.ConvertAll(x => x.letter).ToJoinedString());
-
-           // var letters = parts.ConvertAll(x => x.letter.ForcedLetterForm = x.letterForm);
-            //Debug.LogError("LETTERS TO MARK: " + letters.ToJoinedString());
-            Debug.LogError("PARTS MARKED: " + parts.ConvertAll(x => x.letter).ToJoinedString());
-
-            if (parts.Count > 0) {
+            if (parts.Count > 0)
+            {
                 LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
             }
         }
