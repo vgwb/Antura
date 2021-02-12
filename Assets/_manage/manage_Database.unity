@@ -2732,13 +2732,12 @@ MonoBehaviour:
   m_fontColorGradientPreset: {fileID: 0}
   m_spriteAsset: {fileID: 0}
   m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: 0
   m_overrideHtmlColors: 0
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_outlineColor:
-    serializedVersion: 2
-    rgba: 4278190080
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
@@ -2746,7 +2745,9 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 257
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
   m_lineSpacing: 0
@@ -2756,10 +2757,8 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: -1
   m_linkedTextComponent: {fileID: 0}
-  m_isLinkedTextComponent: 0
-  m_isTextTruncated: 0
+  parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
@@ -2767,40 +2766,19 @@ MonoBehaviour:
   m_parseCtrlCharacters: 1
   m_isOrthographic: 1
   m_isCullingEnabled: 0
-  m_ignoreRectMaskCulling: 0
-  m_ignoreCulling: 1
   m_horizontalMapping: 0
   m_verticalMapping: 0
   m_uvLineOffset: 0
   m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
   m_VertexBufferAutoSizeReduction: 1
-  m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
   m_margin: {x: 0, y: 0, z: 0, w: 0}
-  m_textInfo:
-    textComponent: {fileID: 446043799}
-    characterCount: 0
-    spriteCount: 0
-    spaceCount: 0
-    wordCount: 0
-    linkCount: 0
-    lineCount: 0
-    pageCount: 0
-    materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_spriteAnimator: {fileID: 0}
+  m_Maskable: 1
   m_hasFontAssetChanged: 0
-  m_subTextObjects:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!222 &446043800
@@ -5355,23 +5333,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputData:
     minigameDataAsset: {fileID: 4900000, guid: a9c81e982655a4dff9730b380bf4ef60, type: 3}
-    letterDataAsset: {fileID: 4900000, guid: 5b5a78cc378c74b0b83439b334f0d365, type: 3}
-    wordDataAsset: {fileID: 4900000, guid: c82b57ae3a703437b907fe629aaad13a, type: 3}
-    playSessionDataAsset: {fileID: 4900000, guid: cf5cdad4a597f4ddda7211e571399d70,
+    letterDataAsset: {fileID: 4900000, guid: 791b04687087846759bfa4124a707ccf, type: 3}
+    wordDataAsset: {fileID: 4900000, guid: f8a16f2fc03b24e43a53e15391c24000, type: 3}
+    playSessionDataAsset: {fileID: 4900000, guid: 2396a1e54838049a7aecec0a260c94f8,
       type: 3}
     localizationDataAsset: {fileID: 4900000, guid: 455cb69ca3cdc460d8a86acd1907df36,
       type: 3}
-    phraseDataAsset: {fileID: 4900000, guid: 873032903d03d4293b99f942ae73fab8, type: 3}
+    phraseDataAsset: {fileID: 4900000, guid: af03d0f29a4ba4f1ba03f2ef4a848e97, type: 3}
     stageDataAsset: {fileID: 4900000, guid: 6e66f219faa61485fa14707a7408b0b0, type: 3}
     rewardDataAsset: {fileID: 4900000, guid: 9a8f84a0ca7174b87996c4bd292301cf, type: 3}
-  verbose: 0
+  verbose: 1
   ImportLetters: 0
   ImportWords: 0
   ImportPhrases: 0
-  ImportLocalizations: 1
+  ImportLocalizations: 0
   ImportMiniGames: 0
-  ImportPlaySessions: 0
-  ImportLearningBlocks: 0
+  ImportPlaySessions: 1
+  ImportLearningBlocks: 1
   ImportStages: 0
   ImportRewards: 0
   langCode: 1
