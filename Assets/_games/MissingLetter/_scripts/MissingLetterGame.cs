@@ -14,6 +14,9 @@ namespace Antura.Minigames.MissingLetter
 
     public class MissingLetterGame : MiniGameController
     {
+        public static bool VISUAL_DEBUG = true;
+        public static Color helpColor = Color.magenta;
+
         #region API
         public void ResetScore()
         {

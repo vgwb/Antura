@@ -228,6 +228,11 @@ namespace Antura.Minigames.MissingLetter
                 m_aoCurrentAnswerScene.Add(_wrongAnswerObject);
             }
 
+            if (MissingLetterGame.VISUAL_DEBUG)
+            {
+                corrAnsBheaviour.mLetter.MarkData(MissingLetterGame.helpColor);
+            }
+
             switch (MissingLetterConfiguration.Instance.Variation)
             {
                 case MissingLetterVariation.LetterForm:

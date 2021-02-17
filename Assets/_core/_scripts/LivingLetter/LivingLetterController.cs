@@ -402,6 +402,11 @@ namespace Antura.LivingLetters
             animator.SetTrigger("doChestStop");
         }
 
+        public void MarkData(Color color)
+        {
+            LabelRender.color = color;
+        }
+
         public void MarkLetters(List<ILivingLetterData> toMark, Color color)
         {
             if (!(Data is LL_WordData word)) return;
