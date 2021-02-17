@@ -194,7 +194,7 @@ namespace Antura.Minigames.MissingLetter
             if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
                 corrAnsBheaviour.LetterData = new LL_ImageData(_correctAnswer.Id);
 
-             corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
+            corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
             corrAnsBheaviour.onLetterClick += OnAnswerClicked;
 
             corrAnsBheaviour.m_oDefaultIdleAnimation = m_bTutorialEnabled ? LLAnimationStates.LL_still : LLAnimationStates.LL_idle;
