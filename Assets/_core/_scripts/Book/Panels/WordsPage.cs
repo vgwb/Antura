@@ -22,7 +22,9 @@ namespace Antura.Book
         public GameObject SpellingLetterItemPrefab;
 
         [Header("References")]
+
         public GameObject DetailPanel;
+        public GameObject DetailPanel_Inner;
         public GameObject ListPanel;
         public GameObject ListContainer;
         public GameObject SpellingContainer;
@@ -35,6 +37,8 @@ namespace Antura.Book
         private WordInfo currentWordInfo;
         private GenericCategoryData currentCategory;
         private GameObject btnGO;
+
+        public Transform[] SubPanels;
 
         private string debugSingleWord;
 
@@ -50,12 +54,20 @@ namespace Antura.Book
                 Stage = 0
             };
             WordsPanel(cat);
+
+            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL())
+            {
+                for (int i = 0; i < SubPanels.Length; i++)
+                {
+                    SubPanels[i].SetSiblingIndex(0);
+                }
+            }
         }
 
         void WordsPanel(GenericCategoryData _category)
         {
             ListPanel.SetActive(true);
-            DetailPanel.SetActive(false);
+            DetailPanel_Inner.SetActive(false);
             currentCategory = _category;
 
             //Debug.Log("current word cat: " + _category);
@@ -166,7 +178,7 @@ namespace Antura.Book
         public void DetailWord(WordInfo _currentWord)
         {
             currentWordInfo = _currentWord;
-            DetailPanel.SetActive(true);
+            DetailPanel_Inner.SetActive(true);
             HighlightWordItem(currentWordInfo.data.Id);
             PlayWord();
 
