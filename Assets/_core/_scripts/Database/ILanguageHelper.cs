@@ -33,7 +33,9 @@ namespace Antura.Language
         string GetLetterFromUnicode(string hexCode);
         string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false);
 
-        string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "\u2588", string removedLetterColor = "#F1BB3D");
+        // u2588: █
+        // u25A1: □
+        string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "\u25A1", string removedLetterColor = "#F1BB3D");
 
         /// <summary>
         /// Find all the occurrences of "letterToFind" in "wordData"
