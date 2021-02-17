@@ -369,6 +369,7 @@ namespace Antura.Minigames.ThrowBalls
             var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[0];
             FlashLetter(letterToFlash);
 
+            if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
             ThrowBallsGame.instance.StartCoroutine(flashingTextCoroutine);
 
             var prevIndices = ExtractPrevIndices();
@@ -437,6 +438,7 @@ namespace Antura.Minigames.ThrowBalls
                 }
             }
 
+            if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
             flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                 text => {
                     UIController.instance.SetText(text);
@@ -561,9 +563,7 @@ namespace Antura.Minigames.ThrowBalls
                 numLettersRemaining--;
                 var word = ((LL_WordData)question).Data;
 
-                if (flashingTextCoroutine != null) {
-                    ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
-                }
+                if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
 
                 if (numLettersRemaining == 0) {
                     string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
@@ -614,6 +614,7 @@ namespace Antura.Minigames.ThrowBalls
             if (isRoundOngoing) {
                 BallController.instance.Disable();
                 UIController.instance.DisableLetterHint();
+                if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
                 isRoundOngoing = false;
                 DisableLetters(true);
 
