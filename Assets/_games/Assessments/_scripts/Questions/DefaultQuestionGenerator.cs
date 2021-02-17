@@ -118,6 +118,7 @@ namespace Antura.Assessment
                 dialogues.PlayPoofSound();
                 boxes[i].Poof();
                 boxes[i].Label.text = words[i];
+                dialogues.PlayLetterData(boxes[i].Data);
                 yield return Wait.For(AssessmentOptions.Instance.TimeToShowCompleteWord);
             }
 

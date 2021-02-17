@@ -45,7 +45,7 @@ namespace Antura.Assessment
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
             AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the complete word
-            AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
+            AssessmentOptions.Instance.QuestionAnsweredPlaySound = false;
             AssessmentOptions.Instance.ShowQuestionAsImage = false;
             AssessmentOptions.Instance.PlayQuestionAlsoAfterTutorial = false;
             AssessmentOptions.Instance.QuestionAnsweredFlip = false;
