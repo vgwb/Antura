@@ -23,18 +23,22 @@ namespace Antura.Map
                 && Equals(AppManager.I.Player.MaxJourneyPosition, pin.journeyPosition))
             {
 
-                var maxJP = AppManager.I.Player.MaxJourneyPosition;
-                LocalizationDataId locID;
-
-                var lbData = AppManager.I.DB.GetLearningBlockDataById(maxJP.LearningBlockID);
-                if (!string.IsNullOrEmpty(lbData.AudioFile))
-                {
-                    if (Enum.TryParse($"Map_Intro_LB_{lbData.AudioFile}", out locID))
-                    {
-                        KeeperManager.I.PlayDialogue(locID, true, true);
-                    }
-                }
+                PlayCurrentAudio();
                 dialoguePlayed = true;
+            }
+        }
+
+        public static void PlayCurrentAudio()
+        {
+            var maxJP = AppManager.I.Player.MaxJourneyPosition;
+            LocalizationDataId locID;
+            var lbData = AppManager.I.DB.GetLearningBlockDataById(maxJP.LearningBlockID);
+            if (!string.IsNullOrEmpty(lbData.AudioFile))
+            {
+                if (Enum.TryParse($"{lbData.AudioFile}", out locID))
+                {
+                    KeeperManager.I.PlayDialogue(locID, true, true);
+                }
             }
         }
     }
