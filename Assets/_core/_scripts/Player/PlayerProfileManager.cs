@@ -74,6 +74,7 @@ namespace Antura.Profile
 
         public void UpdateProfileToCurrentVersion()
         {
+            // Check max position
             var currentPlayer = AppManager.I.PlayerProfileManager.CurrentPlayer;
             if (!AppManager.I.JourneyHelper.SupportsJourneyPosition(currentPlayer.MaxJourneyPosition))
             {
@@ -81,6 +82,17 @@ namespace Antura.Profile
                 currentPlayer.SetMaxJourneyPosition(newMax, _forced:true);
             }
 
+            // Check whether we should unlock the next max position
+            // Can happen if we were at the end of the game, but we have new journey positions in the new journey
+            var scoreAtMaxJP = AppManager.I.ScoreHelper.GetCurrentScoreForJourneyPosition(currentPlayer.MaxJourneyPosition);
+            var nextJP = AppManager.I.JourneyHelper.FindNextJourneyPosition(currentPlayer.MaxJourneyPosition);
+            if (scoreAtMaxJP > 0 && nextJP != null)
+            {
+                Debug.Log($"Updating max journey position to {nextJP} as we completed the previous one.");
+                currentPlayer.SetMaxJourneyPosition(nextJP, _forced:true);
+            }
+
+            // Check current position
             if (!AppManager.I.JourneyHelper.SupportsJourneyPosition(currentPlayer.CurrentJourneyPosition))
             {
                 var newCurrent = AppManager.I.JourneyHelper.FindExistingJourneyPositionBackwards(currentPlayer.CurrentJourneyPosition);
