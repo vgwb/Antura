@@ -22,7 +22,7 @@ namespace Antura.Minigames.MakeFriends
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
 
-        public static bool VISUAL_DEBUG = true;
+        public static bool VISUAL_DEBUG = false;
         public Color helpColor = Color.magenta;
 
         public const int numberOfRounds = 6;
