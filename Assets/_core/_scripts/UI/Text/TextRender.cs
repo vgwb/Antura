@@ -1,4 +1,8 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Antura.Core;
+using Antura.Database;
 using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
@@ -170,6 +174,38 @@ namespace Antura.UI
         {
             text = LocalizationManager.GetLocalizationData(sentenceId).GetText(languageUse);
         }
+
+        #region Flashing
+
+        private const float FLASHING_TEXT_CYCLE_DURATION = 1f;
+        private IEnumerator flashingTextCoroutine;
+        public void SetFlashingText(WordData word, LL_LetterData letterToFlash, bool markPrecedingLetters, int sequentialIndex = 0)
+        {
+            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, LetterEqualityStrictness.Letter)[sequentialIndex];
+
+            int toCharIndex = letterPartToFlash.toCharacterIndex;
+            if (letterPartToFlash.fromCharacterIndex != letterPartToFlash.toCharacterIndex)
+            {
+                var hexCode = LanguageSwitcher.LearningHelper.GetHexUnicodeFromChar(word.Text[letterPartToFlash.toCharacterIndex]);
+                if (hexCode == "0651")   // Shaddah
+                {
+                    toCharIndex -= 1;
+                }
+            }
+
+            if (flashingTextCoroutine != null) StopCoroutine(flashingTextCoroutine);
+            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
+                s => { text = s; }, markPrecedingLetters);
+            StartCoroutine(flashingTextCoroutine);
+        }
+
+        public void StopFlashing()
+        {
+            if (flashingTextCoroutine != null) StopCoroutine(flashingTextCoroutine);
+            flashingTextCoroutine = null;
+        }
+
+        #endregion
 
     }
 }

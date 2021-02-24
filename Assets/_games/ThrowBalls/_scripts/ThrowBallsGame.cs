@@ -14,10 +14,7 @@ namespace Antura.Minigames.ThrowBalls
 
         #endregion
 
-        public bool TutorialEnabled
-        {
-            get { return GetConfiguration().TutorialEnabled; }
-        }
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
         public GameObject ball;
         public BallController ballController;

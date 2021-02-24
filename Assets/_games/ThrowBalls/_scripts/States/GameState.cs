@@ -21,7 +21,6 @@ namespace Antura.Minigames.ThrowBalls
         public const int MAX_NUM_ROUNDS = 5;
         public const int NUM_LETTERS_IN_POOL = 15;
         public const float TUTORIAL_UI_PERIOD = 4;
-        private const float FLASHING_TEXT_CYCLE_DURATION = 1f;
 
         private const float SHOW_BALL_START_DELAY = 0.33f;
         private const float SHOW_BALL_END_DELAY = 0.67f;
@@ -82,9 +81,6 @@ namespace Antura.Minigames.ThrowBalls
 
         private GameObject tutorialTarget;
 
-        private IEnumerator flashingTextCoroutine;
-
-        private List<LL_LetterData> flashedLettersInLiWVariation;
 
         private int NumLettersInCurrentRound
         {
@@ -369,9 +365,6 @@ namespace Antura.Minigames.ThrowBalls
             var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[0];
             FlashLetter(letterToFlash);
 
-            if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
-            ThrowBallsGame.instance.StartCoroutine(flashingTextCoroutine);
-
             var prevIndices = ExtractPrevIndices();
 
             for (int i = 0; i < currentLettersForLettersInWord.Count; i++) {
@@ -421,28 +414,12 @@ namespace Antura.Minigames.ThrowBalls
             }
         }
 
+        private List<LL_LetterData> flashedLettersInLiWVariation;
         private void FlashLetter(LL_LetterData letterToFlash)
         {
-            var word = ((LL_WordData)question).Data;
-            int numTimesLetterHasBeenFlashed = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
-            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, LetterEqualityStrictness.Letter)[numTimesLetterHasBeenFlashed];
+            int sequentialIndexOfLetter = flashedLettersInLiWVariation.Count(x => x.Id == letterToFlash.Id);
+            UIController.instance.LabelRender.SetFlashingText(((LL_WordData)question).Data, letterToFlash, true, sequentialIndexOfLetter);
             flashedLettersInLiWVariation.Add(letterToFlash);
-
-            int toCharIndex = letterPartToFlash.toCharacterIndex;
-            if (letterPartToFlash.fromCharacterIndex != letterPartToFlash.toCharacterIndex)
-            {
-                var hexCode = LanguageSwitcher.LearningHelper.GetHexUnicodeFromChar(word.Text[letterPartToFlash.toCharacterIndex]);
-                if (hexCode == "0651")   // Shaddah
-                {
-                    toCharIndex -= 1;
-                }
-            }
-
-            if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
-            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
-                text => {
-                    UIController.instance.SetText(text);
-                }, true);
         }
 
         private List<int> SortLettersByZIndex(int numLetters)
@@ -563,7 +540,7 @@ namespace Antura.Minigames.ThrowBalls
                 numLettersRemaining--;
                 var word = ((LL_WordData)question).Data;
 
-                if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
+                UIController.instance.LabelRender.StopFlashing();
 
                 if (numLettersRemaining == 0) {
                     string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
@@ -573,8 +550,6 @@ namespace Antura.Minigames.ThrowBalls
                     var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
 
                     FlashLetter(letterToFlash);
-
-                    ThrowBallsGame.instance.StartCoroutine(flashingTextCoroutine);
                 }
 
                 UIController.instance.WobbleLetterHint();
@@ -614,7 +589,8 @@ namespace Antura.Minigames.ThrowBalls
             if (isRoundOngoing) {
                 BallController.instance.Disable();
                 UIController.instance.DisableLetterHint();
-                if (flashingTextCoroutine != null) ThrowBallsGame.instance.StopCoroutine(flashingTextCoroutine);
+                UIController.instance.LabelRender.StopFlashing();
+
                 isRoundOngoing = false;
                 DisableLetters(true);
 

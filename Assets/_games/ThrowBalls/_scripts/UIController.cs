@@ -42,6 +42,8 @@ namespace Antura.Minigames.ThrowBalls
             wordFlexibleContainer.Label.SetText(text);
         }
 
+        public TextRender LabelRender => wordFlexibleContainer.Label;
+
         public void WobbleLetterHint()
         {
             wordFlexibleContainer.gameObject.transform.DOKill(true);

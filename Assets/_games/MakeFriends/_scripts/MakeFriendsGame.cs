@@ -228,6 +228,9 @@ namespace Antura.Minigames.MakeFriends
 
             yield return new WaitForSeconds(0.5f);
 
+            livingLetter1.LLPrefab.LabelRender.SetFlashingText(livingLetter1.wordData.Data, commonLetters[0] as LL_LetterData, false);
+            livingLetter2.LLPrefab.LabelRender.SetFlashingText(livingLetter1.wordData.Data, commonLetters[0] as LL_LetterData, false);
+
             while (isTutorialRound) {
                 for (int i = 0; i < letterPicker.CorrectLetterChoices.Count; i++) {
                     var choice = letterPicker.CorrectLetterChoices[i];
@@ -247,6 +250,9 @@ namespace Antura.Minigames.MakeFriends
         {
             StopCoroutine("ShowTutorialUI_Coroutine");
             TutorialUI.Clear(false);
+
+            livingLetter1.LLPrefab.LabelRender.StopFlashing();
+            livingLetter2.LLPrefab.LabelRender.StopFlashing();
         }
 
         private void SetNewWords()
