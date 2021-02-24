@@ -116,19 +116,23 @@ namespace Antura.Profile
 //            UIButton.Ico = FaceImg;   // forced icon
 //            UIButton.ChangeDefaultColors(color, color.SetAlpha(0.5f));
 
-            if (playerIconData.IsOldAvatar)
+            if (isDemoUser)
             {
-                color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : PlayerTintConverter.ToColor(playerIconData.Tint);
-                FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.None ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
+                FaceImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}god");
+                HairImg.sprite = null;
             }
             else
             {
-                FaceImg.sprite = isDemoUser
-                    ? Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "god")
-                    : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.NewAvatarId + 1) + "_face");
-                HairImg.sprite = isDemoUser
-                    ? null
-                    : Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + "AvatarV2_" + (playerIconData.NewAvatarId + 1) + "_hair");
+                if (playerIconData.IsOldAvatar)
+                {
+                    color = PlayerTintConverter.ToColor(playerIconData.Tint);
+                    FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.None ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
+                }
+                else
+                {
+                    FaceImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerIconData.NewAvatarId + 1)}_face");
+                    HairImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerIconData.NewAvatarId + 1)}_hair");
+                }
             }
 
             UIButton.ChangeDefaultColors(color, color.ChangeSaturation(0.35f));
@@ -152,7 +156,7 @@ namespace Antura.Profile
             if (HideLevel || hasHat) {
                 LevelLabel.text = "";
             } else {
-                LevelLabel.text = playerIconData.MaxJourneyPosition.Stage.ToString() + "-" + playerIconData.MaxJourneyPosition.LearningBlock.ToString();
+                LevelLabel.text = $"{playerIconData.MaxJourneyPosition.Stage}-{playerIconData.MaxJourneyPosition.LearningBlock}";
             }
 
             // Debug.Log("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
