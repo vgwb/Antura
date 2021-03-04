@@ -62,7 +62,16 @@ namespace Antura.Book
             }
         }
 
-        void WordsPanel(GenericCategoryData _category)
+        private List<WordData> GetWordsByCategory(WordDataCategory _category)
+        {
+            if (_category != WordDataCategory.None) {
+                return AppManager.I.DB.FindWordData((x) => x.Category == _category);
+            } else {
+                return new List<WordData>();
+            }
+        }
+
+        private void WordsPanel(GenericCategoryData _category)
         {
             ListPanel.SetActive(true);
             DetailPanel_Inner.SetActive(false);
@@ -83,11 +92,7 @@ namespace Antura.Book
                     wordsList.AddRange(hashList);
                 }
             } else {
-                if (currentCategory.wordCategory != WordDataCategory.None) {
-                    wordsList = AppManager.I.DB.FindWordData((x) => x.Category == currentCategory.wordCategory);
-                } else {
-                    wordsList = new List<WordData>();
-                }
+                wordsList = GetWordsByCategory(currentCategory.wordCategory);
             }
 
             wordsList.Sort(WordComparison);
@@ -136,6 +141,10 @@ namespace Antura.Book
                     || wordCat == WordDataCategory.NumbersOrdinal
                     || wordCat == WordDataCategory.Feelings
                     || wordCat == WordDataCategory.Jobs) continue;
+
+                if (GetWordsByCategory(wordCat).Count < 1) {
+                    continue;
+                }
 
                 var catLocData = LocalizationManager.GetWordCategoryData(wordCat);
                 if (catLocData == null) continue;
