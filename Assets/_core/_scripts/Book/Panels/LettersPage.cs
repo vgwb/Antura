@@ -145,7 +145,7 @@ namespace Antura.Book
             ShowLetter(myLetterInfo);
         }
 
-        private void ShowLetter(LetterInfo letterInfo)
+        private void ShowLetter(LetterInfo letterInfo, LetterDataSoundType soundType = LetterDataSoundType.Name)
         {
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
@@ -160,7 +160,7 @@ namespace Antura.Book
             //LetterScoreText.text = "Score: " + myLetterInfo.score;
 
             HighlightDiacriticItem(myLetterData.Id);
-            playSound();
+            playSound(soundType);
 
             // Debug.Log(myLetterData.GetDebugDiacriticFix());
         }
@@ -175,18 +175,14 @@ namespace Antura.Book
             AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Phoneme);
         }
 
-        private void playSound()
+        private void playSound(LetterDataSoundType soundType)
         {
-            if (myLetterData.Kind == LetterDataKind.DiacriticCombo) {
-                AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Phoneme);
-            } else {
-                AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Name);
-            }
+            AudioManager.I.PlayLetter(myLetterData, true, soundType);
         }
 
         public void ShowDiacriticCombo(LetterInfo newLetterInfo)
         {
-            ShowLetter(newLetterInfo);
+            ShowLetter(newLetterInfo, LetterDataSoundType.Phoneme);
         }
 
         private void HighlightLetterItem(string id)
