@@ -13,6 +13,7 @@ namespace Antura.Book
         public string Id;
         public string TitleLearning;
         public string TitleNative;
+        public string TitleHelp;
         public int Stage;
         public WordDataCategory wordCategory;
         public PhraseDataCategory phraseCategory;

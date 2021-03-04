@@ -55,10 +55,8 @@ namespace Antura.Book
             };
             WordsPanel(cat);
 
-            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL())
-            {
-                for (int i = 0; i < SubPanels.Length; i++)
-                {
+            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL()) {
+                for (int i = 0; i < SubPanels.Length; i++) {
                     SubPanels[i].SetSiblingIndex(0);
                 }
             }
@@ -148,9 +146,11 @@ namespace Antura.Book
                     Id = catLocData.Id,
                     TitleLearning = catLocData.LearningText.ToUpper(),
                     TitleNative = catLocData.NativeText.ToUpper(),
+                    TitleHelp = catLocData.HelpText,
                     Stage = 0
                 };
                 categoriesList.Add(categoryData);
+                //               Debug.Log(categoryData.Id + " - " + catLocData.NativeText + " - " + catLocData.LearningText);
             }
             categoriesList.Sort((x, y) => string.Compare(x.TitleLearning, y.TitleLearning));
 
