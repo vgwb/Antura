@@ -19,7 +19,7 @@ namespace Antura.LivingLetters
             var letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
             view.Init(letter);
 
-            AudioManager.I.PlayLetter(letter.Data, true);
+            AudioManager.I.PlayLetter(letter.Data, true, callback: () => Debug.LogError("CALLBACK " + letter.Data.Id));
         }
     }
 }

@@ -48,7 +48,7 @@ namespace Antura.Minigames
 
         public AudioClip GetAudioClip(Sfx sfx)
         {
-            return AudioManager.I.GetAudioClip(sfx);
+            return AudioManager.I.GetSfxAudioClip(sfx);
         }
 
         public void Reset()

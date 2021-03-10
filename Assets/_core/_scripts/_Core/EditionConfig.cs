@@ -198,6 +198,8 @@ namespace Antura.Core
                 editionsToUse.Add(this);
             }
 
+            // TODO: NEW: set booleans of asset packs to generated, then rebuild the player content, instead of moving stuff
+
             // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
             foreach (var edition in editionsToUse) {

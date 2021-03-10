@@ -11,6 +11,7 @@ using System.Linq;
 using Antura.Language;
 using Antura.LivingLetters;
 using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Antura.Audio
 {
@@ -63,7 +64,7 @@ namespace Antura.Audio
                             }
 
                             if (hasToReset) {
-                                musicGroup.Play(currentMusic == Music.Custom ? customMusic : GetAudioClip(currentMusic),
+                                musicGroup.Play(currentMusic == Music.Custom ? customMusic : GetMusicAudioClip(currentMusic),
                                     1, 1, true);
                             }
                         }
@@ -160,6 +161,27 @@ namespace Antura.Audio
             musicEnabled = true;
         }
 
+        public IEnumerator PreloadDataCO()
+        {
+            /*
+            var opDialog =
+                Addressables.LoadAssetsAsync<AudioClip>("audio_dialog", obj =>
+                {
+                   // Debug.Log(obj.name);
+                    //audioCache[obj.name] = obj;
+                });
+            yield return opDialog;
+
+            var opData =
+                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj => {
+                   // Debug.Log(obj.name);
+                    // audioCache[obj.name] = obj;
+                });
+            yield return opData;
+            */
+            yield break;
+        }
+
         /// <summary>
         /// called from AppManager
         /// </summary>
@@ -184,7 +206,7 @@ namespace Antura.Audio
                 currentMusic = newMusic;
                 musicGroup.Stop();
                 customMusic = null;
-                var musicClip = GetAudioClip(currentMusic);
+                var musicClip = GetMusicAudioClip(currentMusic);
 
                 if (currentMusic == Music.Silence || musicClip == null) {
                     StopMusic();
@@ -217,7 +239,7 @@ namespace Antura.Audio
         /// <param name="sfx">Sfx.</param>
         public IAudioSource PlaySound(Sfx sfx)
         {
-            AudioClip clip = GetAudioClip(sfx);
+            AudioClip clip = GetSfxAudioClip(sfx);
             var source = new AudioSourceWrapper(sfxGroup.Play(clip), sfxGroup, this);
             var conf = GetConfiguration(sfx);
 
@@ -238,36 +260,10 @@ namespace Antura.Audio
 
         #region Learning BLocks
 
-        public IAudioSource PlayLearningBlock(string AudioFile, bool clearPreviousCallback = false)
+        public IAudioSource PlayLearningBlock(string Id, bool clearPreviousCallback = false, LanguageUse use = LanguageUse.Learning)
         {
-            if (clearPreviousCallback) {
-                dialogueEndedCallbacks.Clear();
-            }
-
-            if (!string.IsNullOrEmpty(AudioFile)) {
-                AudioClip clip = GetLearningBlockAudioClip(AudioFile);
-                return new AudioSourceWrapper(dialogueGroup.Play(clip), dialogueGroup, this);
-            }
-            return null;
-        }
-
-        public IAudioSource PlayLearningBlock(string AudioFile, System.Action callback, bool clearPreviousCallback = false)
-        {
-            if (clearPreviousCallback) {
-                dialogueEndedCallbacks.Clear();
-            }
-
-            if (!string.IsNullOrEmpty(AudioFile)) {
-                AudioClip clip = GetLearningBlockAudioClip(AudioFile);
-                var wrapper = new AudioSourceWrapper(dialogueGroup.Play(clip), dialogueGroup, this);
-                if (callback != null) {
-                    dialogueEndedCallbacks[wrapper] = callback;
-                }
-                return wrapper;
-            }
-
-            callback?.Invoke();
-            return null;
+            var sourcePath = new SourcePath(Id, "/Audio/LearningBlocks", use);
+            return PlayClip(sourcePath, dialogueEndedCallbacks, dialogueGroup, clearPreviousCallback:clearPreviousCallback);
         }
 
         #endregion
@@ -300,35 +296,31 @@ namespace Antura.Audio
         /// <param name="soundType">Phoneme or Name?</param>
         public IAudioSource PlayLetter(LetterData data, bool exclusive = true, LetterDataSoundType soundType = LetterDataSoundType.Phoneme, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            AudioClip clip = GetAudioClip(data, soundType, use);
-            return PlayClip(clip, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
+            var sourcePath = new SourcePath(data.GetAudioFilename(soundType), "/Audio/Letters", use);
+            return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
 
         public IAudioSource PlayWord(WordData data, bool exclusive = true, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            AudioClip clip = GetAudioClip(data, use);
-            return PlayClip(clip, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
+            var sourcePath = new SourcePath(data.Id, "/Audio/Words", use);
+            return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
 
         public IAudioSource PlayPhrase(PhraseData data, bool exclusive = true, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            AudioClip clip = GetAudioClip(data, use);
-            return PlayClip(clip, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
+            var sourcePath = new SourcePath(data.Id, "/Audio/Phrases", use);
+            return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
 
-        private IAudioSource PlayClip(AudioClip clip, Dictionary<IAudioSource, System.Action> callbacksDict, DeAudioGroup audioGroup,
+        private IAudioSource PlayClip(SourcePath path, Dictionary<IAudioSource, System.Action> callbacksDict, DeAudioGroup audioGroup,
             bool exclusive = true, System.Action callback = null, bool clearPreviousCallback = false)
         {
             if (exclusive) audioGroup?.Stop();
             if (clearPreviousCallback) callbacksDict.Clear();
 
-            if (clip != null) {
-                var wrapper = new AudioSourceWrapper(audioGroup.Play(clip), audioGroup, this);
-                if (callback != null) callbacksDict[wrapper] = callback;
-                return wrapper;
-            }
-            callback?.Invoke();
-            return null;
+            var wrapper = new AudioSourceWrapper(path, audioGroup, this);
+            if (callback != null) callbacksDict[wrapper] = callback;
+            return wrapper;
         }
 
 
@@ -346,25 +338,21 @@ namespace Antura.Audio
         {
             return PlayDialogue(LocalizationManager.GetLocalizationData(localizationData_id), use, callback);
         }
-        public IAudioSource PlayDialogue(LocalizationData data, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
+        public IAudioSource PlayDialogue(LocalizationData data, LanguageUse use = LanguageUse.Learning, Action callback = null, bool clearPreviousCallback = false)
         {
             if (clearPreviousCallback) {
-                //Debug.Log("-- PlayDialogue - clearPreviousCallback " + data.Id);
                 dialogueEndedCallbacks.Clear();
             }
 
             if (!string.IsNullOrEmpty(LocalizationManager.GetLocalizedAudioFileName(data.Id))) {
-                //Debug.Log("-- PlayDialogue - audio file exists - " + data.Id);
-                AudioClip clip = GetAudioClip(data, use);
-                var wrapper = new AudioSourceWrapper(dialogueGroup.Play(clip), dialogueGroup, this);
+                var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", use, gendered:true);
+                var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
                 if (callback != null) {
-                    //Debug.Log("-- PlayDialogue - callback 1 - " + data.Id);
                     dialogueEndedCallbacks[wrapper] = callback;
                 }
                 return wrapper;
             }
             if (callback != null) {
-                //Debug.Log("-- PlayDialogue - callback 2 - " + data.Id);
                 callback.Invoke();
             }
 
@@ -397,70 +385,9 @@ namespace Antura.Audio
 
         #region Audio clip management
 
-        public AudioClip GetAudioClip(LocalizationData data, LanguageUse use)
-        {
-            var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id);
-            var res = GetAudioClip("/Audio/Dialogs", localizedAudioFileName, use, logIfNotFound:false);
+        #region Audio Get
 
-            // Fallback to neutral version if not found
-            if (res == null)
-            {
-                var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
-                if (localizedAudioFileName != neutralAudioFileName)
-                {
-                    // No female found
-                    if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] No Female audio file for localization ID {data.Id} was found. Trying to fallback to male/neutral.");
-                    res = GetAudioClip("/Audio/Dialogs", neutralAudioFileName, use);
-                }
-            }
-
-            if (res == null && ApplicationConfig.I.VerboseAudio)
-            {
-                var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
-                Debug.LogError($"[Audio] Could not find any audio with name /Audio/Dialogs/{neutralAudioFileName}");
-            }
-
-            return res;
-        }
-
-        public AudioClip GetAudioClip(LetterData data, LetterDataSoundType soundType = LetterDataSoundType.Phoneme, LanguageUse use = LanguageUse.Learning)
-        {
-            var audiofileName = data.GetAudioFilename(soundType);
-            return GetAudioClip("/Audio/Letters", audiofileName, use);
-        }
-
-        public AudioClip GetAudioClip(WordData data, LanguageUse use = LanguageUse.Learning)
-        {
-            return GetAudioClip("/Audio/Words", data.Id, use);
-        }
-
-        public AudioClip GetAudioClip(PhraseData data, LanguageUse use = LanguageUse.Learning)
-        {
-            return GetAudioClip("/Audio/Phrases", data.Id, use);
-        }
-
-        private AudioClip GetAudioClip(string folder, string id, LanguageUse use = LanguageUse.Learning, bool logIfNotFound = true)
-        {
-            var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
-            string completePath = langDir + folder + "/" + id;
-            var res = GetCachedResource(completePath);
-            if (logIfNotFound && res == null) {
-                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] Cannot find audio clip at " + completePath);
-            }
-            return res;
-        }
-
-        public AudioClip GetLearningBlockAudioClip(string AudioFile, LanguageUse use = LanguageUse.Learning)
-        {
-            var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
-            var res = GetCachedResource(langDir + "/Audio/LearningBlocks/" + AudioFile);
-            if (res == null) {
-                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] Cannot find audio clip for LearningBlocks" + AudioFile);
-            }
-            return res;
-        }
-
-        public AudioClip GetAudioClip(Sfx sfx)
+        public AudioClip GetSfxAudioClip(Sfx sfx)
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
             if (conf == null || conf.clips == null || conf.clips.Count == 0) {
@@ -469,6 +396,19 @@ namespace Antura.Audio
             }
             return conf.clips.GetRandom();
         }
+
+        public AudioClip GetMusicAudioClip(Music music)
+        {
+            MusicConfiguration conf = GetMusicConfiguration(music);
+
+            if (conf == null) {
+                return null;
+            }
+
+            return conf.clip;
+        }
+
+        #endregion
 
         public SfxConfiguration GetConfiguration(Sfx sfx)
         {
@@ -480,29 +420,13 @@ namespace Antura.Audio
             return conf;
         }
 
-        public AudioClip GetAudioClip(Music music)
-        {
-            MusicConfiguration conf = GetMusicConfiguration(music);
-
-            if (conf == null) {
-                return null;
-            }
-
-            return conf.clip;
-        }
-
         AudioClip GetCachedResource(string resource)
         {
-            AudioClip clip = null;
-
+            AudioClip clip;
             if (audioCache.TryGetValue(resource, out clip)) {
                 return clip;
             }
-
-            clip = Resources.Load(resource) as AudioClip;
-
-            audioCache[resource] = clip;
-            return clip;
+            return null;
         }
 
         public void ClearCache()
@@ -513,6 +437,74 @@ namespace Antura.Audio
             audioCache.Clear();
         }
 
+
+        #region Addressable Loading
+
+        private IEnumerator LoadAudio(AudioSourceWrapper source)
+        {
+            Debug.Log($"Start loading {source.Path.id}");
+            Ref<AudioClip> clip = new Ref<AudioClip>();
+            yield return LoadAudioClip(source.Path, clip);
+            source.Loaded = true;
+            if (clip.item != null) source.ApplyClip(clip.item);
+        }
+
+        public IEnumerator LoadAudioClip(SourcePath path, Ref<AudioClip> result)
+        {
+            if (!path.gendered)
+            {
+                yield return LoadAudioClip(path.folder, path.id, result, path.use);
+                yield break;
+            }
+
+            // For dialogs, we localize them
+            var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id);
+            yield return LoadAudioClip(path.folder, localizedAudioFileName, result, path.use, logIfNotFound:false);
+
+            // Fallback to neutral version if not found
+            if (result.item == null)
+            {
+                var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id, PlayerGender.M);
+                if (localizedAudioFileName != neutralAudioFileName)
+                {
+                    // No female found
+                    if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] No Female audio file for localization ID {path.id} was found. Trying to fallback to male/neutral.");
+                    yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.use);
+                }
+            }
+
+            if (result.item == null && ApplicationConfig.I.VerboseAudio)
+            {
+                var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id, PlayerGender.M);
+                Debug.LogError($"[Audio] Could not find any audio with name /Audio/Dialogs/{neutralAudioFileName}");
+            }
+        }
+
+        private IEnumerator LoadAudioClip(string folder, string id, Ref<AudioClip> result, LanguageUse use = LanguageUse.Learning, bool logIfNotFound = true)
+        {
+            var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
+            string completePath = $"{langDir}{folder}/{id}";
+            var cachedResource = GetCachedResource(completePath);
+            if (cachedResource != null)
+            {
+                result.item = cachedResource;
+                yield break;
+            }
+
+            yield return AssetLoader.Load<AudioClip>(completePath, audioClip =>  result.item  = audioClip);
+            Debug.LogError("Loaded: " + result.item + " for id " + id);
+
+            if (logIfNotFound && result.item == null) {
+                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
+            }
+        }
+
+        public class Ref<T>
+        {
+            public T item;
+        }
+        #endregion
+
         #endregion
 
         List<KeyValuePair<AudioSourceWrapper, System.Action>> pendingCallbacks = new List<KeyValuePair<AudioSourceWrapper, System.Action>>();
@@ -520,11 +512,31 @@ namespace Antura.Audio
         public void Update()
         {
             // Check ended callbacks
-            for (int i = 0; i < playingAudio.Count; ++i) {
+            for (int i = 0; i < playingAudio.Count; ++i)
+            {
                 var source = playingAudio[i];
-                if (source.Update()) {
+
+                if (source.Asynch && !source.Loaded)
+                {
+                    //Debug.Log("Waiting for source to load... " + source.Path.id);
+                    continue;
+                }
+
+                bool failed = source.Loaded && source.CurrentSource == null;
+
+
+                if (source.Update() || failed) {
                     // could be collected
                     playingAudio.RemoveAt(i--);
+
+                    if (failed)
+                    {
+                        Debug.LogError("Missing audio for " + source.Path.id);
+                    }
+                    else
+                    {
+                        Debug.LogError("Source ended for " + source.Path.id);
+                    }
 
                     System.Action callback;
 
@@ -590,8 +602,10 @@ namespace Antura.Audio
         {
             if (!playingAudio.Contains(source)) {
                 playingAudio.Add(source);
+                if (source.Asynch) StartCoroutine(LoadAudio(source));
             }
         }
+
 
         /// <summary>
         /// Used to refresh the state of MusicEnabled if something goes wrong
@@ -607,6 +621,22 @@ namespace Antura.Audio
             if (group.sources == null) return false;
             if (group.sources.Any(s => s.isPlaying)) return true;
             return false;
+        }
+    }
+
+    public struct SourcePath
+    {
+        public string id;
+        public string folder;
+        public LanguageUse use;
+        public bool gendered;
+
+        public SourcePath(string id, string folder, LanguageUse use, bool gendered = false)
+        {
+            this.id = id;
+            this.folder = folder;
+            this.use = use;
+            this.gendered = gendered;
         }
     }
 }

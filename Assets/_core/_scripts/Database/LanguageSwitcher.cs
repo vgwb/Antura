@@ -3,6 +3,7 @@ using Antura.Core;
 using Antura.Database;
 using System.Collections.Generic;
 using System.IO;
+using Antura.Audio;
 using UnityEngine;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
@@ -64,20 +65,20 @@ namespace Antura.Language
 
             yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r);
 
-
-
-            languageData.config = Resources.Load<LangConfig>($"{language}/LangConfig");
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
-            languageData.helper = Resources.Load<AbstractLanguageHelper>($"{language}/LanguageHelper");
-            if (languageData.config == null)
+            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r);
+
+            if (languageData.helper == null)
             {
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
+
+            yield return AudioManager.I.PreloadDataCO();
         }
 
         public ILanguageHelper GetHelper(LanguageUse use)

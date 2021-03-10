@@ -9,6 +9,7 @@ namespace Antura
     {
         public static IEnumerator Load<T>(string path, Action<T> callback)
         {
+            Debug.LogError("Start loading " + path);
             var async = Addressables.LoadAssetAsync<T>(path);
             while (!async.IsDone) yield return null;
             if (async.OperationException != null)
