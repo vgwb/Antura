@@ -286,7 +286,7 @@ namespace Antura.Map
                 }
 
                 // Dialogues added to all JPs of the stage
-                var introDialogues = playPins[jp_i].gameObject.AddComponent<IntroDialogues>();
+                playPins[jp_i].gameObject.AddComponent<IntroDialogues>();
 
                 // Advance to the next journey pos
                 //Debug.Log("Current jp: " + assignedJourneyPosition);
