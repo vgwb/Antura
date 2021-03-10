@@ -10,6 +10,7 @@ namespace Antura.Minigames.MakeFriends
     {
         public LivingLetterController LLPrefab;
         public bool focusOnTouch;
+        public float focusOnTouchTime;
         public Animator animator;
         public Collider letterCollider;
         public LL_LetterData letterData;
@@ -196,7 +197,7 @@ namespace Antura.Minigames.MakeFriends
             var originalRotation = transform.rotation.eulerAngles;
 
             transform.rotation = Quaternion.Euler(0f, 180f, 0f);
-            yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(focusOnTouchTime);
 
             var focusedRotation = transform.rotation.eulerAngles;
             var interpolant = 0f;
@@ -324,7 +325,7 @@ namespace Antura.Minigames.MakeFriends
             isWalking = false;
         }
 
-        public void MarkLetters(List<LL_LetterData> commonLetters, Color color)
+        public void MarkLetters(List<ILivingLetterData> commonLetters, Color color)
         {
             LLPrefab.MarkLetters(commonLetters, color);
         }

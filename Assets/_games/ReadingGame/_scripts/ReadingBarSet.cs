@@ -129,7 +129,7 @@ namespace Antura.Minigames.ReadingGame
 
             for (int i = 0; i < karaokeLines.Count; ++i)
             {
-                words[i] = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(karaokeLines[i].text);
+                words[i] = karaokeLines[i].text;
                 lineBreaks[i] = karaokeLines[i].starsWithLineBreak;
             }
 
@@ -192,7 +192,7 @@ namespace Antura.Minigames.ReadingGame
             currentReadingBar.transform.localPosition = Vector3.zero;
             currentReadingBar.showArrows = showArrows;
             currentReadingBar.showTarget = showTargets;
-            currentReadingBar.text.text = words[0];
+            currentReadingBar.text.SetText(words[0], LanguageUse.Learning);
             currentReadingBar.Id = 0;
             if (!addOffsets)
             {
@@ -209,7 +209,7 @@ namespace Antura.Minigames.ReadingGame
                 barWords[i].word = word;
 
                 var previousText = currentReadingBar.text.text;
-                currentReadingBar.text.text = currentReadingBar.text.text + word;
+                currentReadingBar.text.SetText(previousText + word, LanguageUse.Learning);
                 float currentBarSize = currentReadingBar.text.TMPText.GetPreferredValues().x;
                 barWords[i].start = lastBarSize;
                 barWords[i].end = currentBarSize;
@@ -218,14 +218,14 @@ namespace Antura.Minigames.ReadingGame
                 // Evaluate split
                 if (currentBarSize >= maxBarSize || (forceLineBreaks != null && forceLineBreaks[i]))
                 {
-                    currentReadingBar.text.text = previousText;
+                    currentReadingBar.text.SetText(previousText, LanguageUse.Learning);
 
                     currentReadingBar = GameObject.Instantiate(readingBarPrefab);
                     currentReadingBar.showArrows = showArrows;
                     currentReadingBar.showTarget = showTargets;
                     currentReadingBar.transform.SetParent(barsStart);
                     currentReadingBar.transform.localPosition = Vector3.down * (bars.Count % 2) * distanceBetweenBars;
-                    currentReadingBar.text.text = word;
+                    currentReadingBar.text.SetText(word, LanguageUse.Learning);
                     currentReadingBar.Id = barWords[i].barId + 1;
                     if (!addOffsets)
                     {

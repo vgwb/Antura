@@ -5,6 +5,7 @@ using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.UI;
 using Antura.Core;
+using Antura.Database;
 using Antura.Language;
 
 namespace Antura.Minigames.Tobogan
@@ -127,7 +128,7 @@ namespace Antura.Minigames.Tobogan
         public void SetQuestionText(LL_WordData word, LL_LetterData markedLetter, Color color)
         {
             string text = LanguageSwitcher.LearningHelper.ProcessString(word.Data.Text);
-            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, false);
+            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, LetterEqualityStrictness.Letter);
             if (parts.Count > 0) {
                 text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[0], color, MarkType.SingleLetter);
             }

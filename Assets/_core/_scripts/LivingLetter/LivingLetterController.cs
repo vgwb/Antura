@@ -3,6 +3,7 @@ using Antura.Language;
 using Antura.Helpers;
 using Antura.Minigames;
 using System.Collections.Generic;
+using Antura.Database;
 using UnityEngine;
 
 namespace Antura.LivingLetters
@@ -401,20 +402,22 @@ namespace Antura.LivingLetters
             animator.SetTrigger("doChestStop");
         }
 
-        public void MarkLetters(List<LL_LetterData> toMark, Color color)
+        public void MarkData(Color color)
         {
-            var word = Data as LL_WordData;
-            if (word != null) {
-                //string text = ArabicAlphabetHelper.ProcessArabicString(word.Data.Arabic);
+            LabelRender.color = color;
+        }
 
-                List<StringPart> parts = new List<StringPart>();
+        public void MarkLetters(List<ILivingLetterData> toMark, Color color)
+        {
+            if (!(Data is LL_WordData word)) return;
+            List<StringPart> parts = new List<StringPart>();
 
-                foreach (var markedLetter in toMark)
-                    parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, true));
+            foreach (var markedLetter in toMark)
+                parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, (markedLetter as LL_LetterData).Data, LetterEqualityStrictness.WithVisualForm));
 
-                if (parts.Count > 0) {
-                    LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
-                }
+            if (parts.Count > 0)
+            {
+                LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
             }
         }
 

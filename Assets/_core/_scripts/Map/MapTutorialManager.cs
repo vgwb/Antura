@@ -90,6 +90,7 @@ namespace Antura.Map
             KeeperManager.I.PlayDialogue(LocalizationDataId.Map_Intro, autoClose:false, _callback:
                 () =>
                 {
+                    IntroDialogues.PlayCurrentAudio();
                     var firstPinTr = _stageMapsManager.stageMaps[0].Pins[0].transform;
                     StartCoroutine(TutorialHintClickCO(firstPinTr, _stageMapsManager.MapCamera));
                 }
@@ -130,7 +131,7 @@ namespace Antura.Map
                 if (viewportPos.x > 0 && viewportPos.x < 1)
                     TutorialUI.Click(targetTr.position);
                 yield return new WaitForSeconds(0.85f);
-            } 
+            }
         }
     }
 }

@@ -33,27 +33,27 @@ namespace Antura.Language
         string GetLetterFromUnicode(string hexCode);
         string GetHexUnicodeFromChar(char _char, bool unicodePrefix = false);
 
-        string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "\u2588", string removedLetterColor = "#F1BB3D");
+        // u2588: █
+        // u25A1: □
+        string GetWordWithMissingLetterText(WordData wordData, StringPart partToRemove, string removedLetterChar = "\u25A1", string removedLetterColor = "#F1BB3D");
 
         /// <summary>
         /// Find all the occurrences of "letterToFind" in "wordData"
         /// </summary>
         /// <returns>the list of occurrences</returns>
-        List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, bool findSameForm);
+        List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, LetterEqualityStrictness strictness);
 
         List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false);
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false);
+            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitPhrase(DatabaseManager databaseManager, PhraseData phraseData,
-            bool separateDiacritics = false,
-            bool separateVariations = true);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phraseData,
-            bool separateDiacritics = false,
-            bool separateVariations = true);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo);
 

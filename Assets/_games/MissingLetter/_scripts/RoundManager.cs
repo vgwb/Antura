@@ -158,8 +158,8 @@ namespace Antura.Minigames.MissingLetter
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
             var _correctAnswer = m_oCurrQuestionPack.GetCorrectAnswers().ToList().GetRandom();
 
-            //Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
-            //Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ConvertAll(x => x.Id).ToDebugStringNewline());
+            //Debug.Log("WRONG: " + m_oCurrQuestionPack.GetWrongAnswers().ToList().ToDebugStringNewline());
+            //Debug.Log("CORRECT: " + m_oCurrQuestionPack.GetCorrectAnswers().ToList().ToDebugStringNewline());
 
             GameObject oQuestion = m_oQuestionPool.GetElement();
 
@@ -194,7 +194,7 @@ namespace Antura.Minigames.MissingLetter
             if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Image)
                 corrAnsBheaviour.LetterData = new LL_ImageData(_correctAnswer.Id);
 
-             corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
+            corrAnsBheaviour.onLetterBecameInvisible += OnAnswerLetterBecameInvisible;
             corrAnsBheaviour.onLetterClick += OnAnswerClicked;
 
             corrAnsBheaviour.m_oDefaultIdleAnimation = m_bTutorialEnabled ? LLAnimationStates.LL_still : LLAnimationStates.LL_idle;
@@ -226,6 +226,11 @@ namespace Antura.Minigames.MissingLetter
                 wrongAnsBheaviour.m_oDefaultIdleAnimation = m_bTutorialEnabled ? LLAnimationStates.LL_still : LLAnimationStates.LL_idle;
 
                 m_aoCurrentAnswerScene.Add(_wrongAnswerObject);
+            }
+
+            if (MissingLetterGame.VISUAL_DEBUG)
+            {
+                corrAnsBheaviour.mLetter.MarkData(MissingLetterGame.helpColor);
             }
 
             switch (MissingLetterConfiguration.Instance.Variation)
@@ -336,7 +341,7 @@ namespace Antura.Minigames.MissingLetter
             LivingLetterController letterView = m_aoCurrentQuestionScene[0].GetComponent<LetterBehaviour>().mLetter;
 
             bool findSameForm = MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm;
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm);
+            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm ? LetterEqualityStrictness.WithActualForm : LetterEqualityStrictness.Letter);
             //Debug.LogWarning("Looking for letter " + letter.Id + " into word " + word.Id);
 
             var partToRemove = parts[0];

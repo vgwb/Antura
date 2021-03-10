@@ -6,6 +6,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Database;
 using UnityEngine;
 using Antura.Language;
 
@@ -117,6 +118,7 @@ namespace Antura.Assessment
                 dialogues.PlayPoofSound();
                 boxes[i].Poof();
                 boxes[i].Label.text = words[i];
+                dialogues.PlayLetterData(boxes[i].Data);
                 yield return Wait.For(AssessmentOptions.Instance.TimeToShowCompleteWord);
             }
 
@@ -279,7 +281,7 @@ namespace Antura.Assessment
             LL_WordData word = question as LL_WordData;
             var wordGO = ItemFactory.Instance.SpawnQuestion(word);
 
-            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, false);
+            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, LetterEqualityStrictness.Letter);
             partsToRemove.Shuffle(); //pick a random letter
 
             string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(

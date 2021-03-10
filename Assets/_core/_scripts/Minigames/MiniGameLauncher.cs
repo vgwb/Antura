@@ -102,6 +102,10 @@ namespace Antura.Minigames
         public IGameConfiguration ConfigureMiniGameScene(MiniGameCode code, string sessionName, MinigameLaunchConfiguration launchConfig)
         {
             var miniGameData = AppManager.I.DB.GetMiniGameDataByCode(code);
+            if (miniGameData == null)
+            {
+                throw new Exception("No game could be loaded from the DB for MiniGameCode " + code);
+            }
             var defaultContext = new MinigamesGameContext(code, sessionName);
 
             // We use reflection to get the correct configuration class given a minigame code

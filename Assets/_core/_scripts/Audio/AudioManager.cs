@@ -413,6 +413,13 @@ namespace Antura.Audio
                     res = GetAudioClip("/Audio/Dialogs", neutralAudioFileName, use);
                 }
             }
+
+            if (res == null && ApplicationConfig.I.VerboseAudio)
+            {
+                var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(data.Id, PlayerGender.M);
+                Debug.LogError($"[Audio] Could not find any audio with name /Audio/Dialogs/{neutralAudioFileName}");
+            }
+
             return res;
         }
 

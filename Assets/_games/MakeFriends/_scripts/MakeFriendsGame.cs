@@ -9,6 +9,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Minigames.MakeFriends
@@ -20,6 +21,9 @@ namespace Antura.Minigames.MakeFriends
         public LetterPickerController letterPicker;
         public Canvas endGameCanvas;
         public GameObject sceneCamera;
+
+        public static bool VISUAL_DEBUG = false;
+        public Color helpColor = Color.magenta;
 
         public const int numberOfRounds = 6;
 
@@ -39,19 +43,13 @@ namespace Antura.Minigames.MakeFriends
         public Vector3 correctChoiceIndicatorPosition;
         public Camera uiCamera;
 
-        public static MakeFriendsGame Instance
-        {
-            get { return I as MakeFriendsGame; }
-        }
+        public static MakeFriendsGame Instance => I as MakeFriendsGame;
 
         public bool IsIntroducingLetter = false;
         public int SpokenWords = 0;
 
         [HideInInspector]
-        public MakeFriendsConfiguration Configuration
-        {
-            get { return MakeFriendsConfiguration.Instance; }
-        }
+        public MakeFriendsConfiguration Configuration => MakeFriendsConfiguration.Instance;
 
         private LL_WordData wordData1;
         private List<ILivingLetterData> wordLetters1 = new List<ILivingLetterData>();
@@ -117,20 +115,11 @@ namespace Antura.Minigames.MakeFriends
         }
         #endregion
 
-        public bool TutorialEnabled
-        {
-            get { return GetConfiguration().TutorialEnabled; }
-        }
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
-        private IPopupWidget Popup
-        {
-            get { return GetConfiguration().Context.GetPopupWidget(); }
-        }
+        private IPopupWidget Popup => GetConfiguration().Context.GetPopupWidget();
 
-        private IAudioManager AudioManager
-        {
-            get { return GetConfiguration().Context.GetAudioManager(); }
-        }
+        private IAudioManager AudioManager => GetConfiguration().Context.GetAudioManager();
 
         public MakeFriendsIntroductionState IntroductionState { get; private set; }
 
@@ -190,7 +179,7 @@ namespace Antura.Minigames.MakeFriends
         {
             while (MakeFriendsGame.Instance.SpokenWords < 2)
                 yield return null;
-            
+
             AudioManager.PlayDialogue(dialog);
         }
 
@@ -239,6 +228,9 @@ namespace Antura.Minigames.MakeFriends
 
             yield return new WaitForSeconds(0.5f);
 
+            livingLetter1.LLPrefab.LabelRender.SetFlashingText(livingLetter1.wordData.Data, commonLetters[0] as LL_LetterData, false);
+            livingLetter2.LLPrefab.LabelRender.SetFlashingText(livingLetter1.wordData.Data, commonLetters[0] as LL_LetterData, false);
+
             while (isTutorialRound) {
                 for (int i = 0; i < letterPicker.CorrectLetterChoices.Count; i++) {
                     var choice = letterPicker.CorrectLetterChoices[i];
@@ -258,6 +250,9 @@ namespace Antura.Minigames.MakeFriends
         {
             StopCoroutine("ShowTutorialUI_Coroutine");
             TutorialUI.Clear(false);
+
+            livingLetter1.LLPrefab.LabelRender.StopFlashing();
+            livingLetter2.LLPrefab.LabelRender.StopFlashing();
         }
 
         private void SetNewWords()
@@ -277,9 +272,9 @@ namespace Antura.Minigames.MakeFriends
             commonLetters = question.GetCorrectAnswers().ToList();
             uncommonLetters = question.GetWrongAnswers().ToList();
 
-            Debug.Log("[New Round] Word 1: " + ArabicFixer.Fix(wordData1.Data.Text) + ", Word 2: " + ArabicFixer.Fix(wordData2.Data.Text)
-                + "\nCommon: " + string.Join(" / ", commonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray())
-                + ", Uncommon: " + string.Join(" / ", uncommonLetters.Select(x => x.TextForLivingLetter.ToString()).Reverse().ToArray()));
+            //Debug.Log($"Word 1: {wordData1.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData1.Data, keepFormInsideLetter:true).ConvertAll(x => x.letter).ToJoinedString()}");
+            //Debug.Log($"Word 2: {wordData2.Data}({LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, wordData2.Data, keepFormInsideLetter: true).ConvertAll(x => x.letter).ToJoinedString()})");
+            //Debug.Log($"Common: {string.Join(" / ", commonLetters.Select(x => x.ToString()).Reverse().ToArray())}, Uncommon: {string.Join(" / ", uncommonLetters.Select(x => x.ToString()).Reverse().ToArray())}");
         }
 
         private void SetLetterChoices()
@@ -313,7 +308,27 @@ namespace Antura.Minigames.MakeFriends
             }
             choiceLetters.Shuffle();
 
+            //Debug.LogError("SHOWING: " + choiceLetters.ToJoinedString());
+            //Debug.LogError("CORRECTS: " + commonLetters.ToJoinedString());
+
             letterPicker.DisplayLetters(choiceLetters);
+
+            if (VISUAL_DEBUG)
+            {
+                // DEBUG: color correct answer for easier selection
+                foreach (var letterPickerLetterChoice in letterPicker.letterChoices)
+                {
+                    letterPickerLetterChoice.button.image.color = Color.black;
+                    letterPickerLetterChoice.LetterText.color = Color.black;
+                    if (commonLetters.Contains(letterPickerLetterChoice.letterData))
+                    {
+                        //Debug.LogError("Found correct letter data " + letterPickerLetterChoice.letterData);
+                        letterPickerLetterChoice.LetterText.color = helpColor;
+                    }
+                }
+            }
+
+            letterPicker.SetCorrectChoices(commonLetters);
             if (isTutorialRound) {
                 letterPicker.SetCorrectChoices(commonLetters);
             }
@@ -326,6 +341,14 @@ namespace Antura.Minigames.MakeFriends
 
             leftArea.MakeEntrance();
             rightArea.MakeEntrance();
+
+            if (VISUAL_DEBUG)
+            {
+                // DEBUG: color words too for easier selection
+                livingLetter1.MarkLetters(commonLetters, helpColor);
+                livingLetter2.MarkLetters(commonLetters, helpColor);
+            }
+
         }
 
         private void ShowDropZone()
@@ -430,18 +453,8 @@ namespace Antura.Minigames.MakeFriends
                     HideTutorialUI();
                 }
 
-                List<LL_LetterData> letters = new List<LL_LetterData>();
-
-                foreach (var l in commonLetters)
-                {
-                    LL_LetterData data = l as LL_LetterData;
-
-                    if (data != null)
-                        letters.Add(data);
-                }
-
-                livingLetter1.MarkLetters(letters, Color.green);
-                livingLetter2.MarkLetters(letters, Color.green);
+                livingLetter1.MarkLetters(commonLetters, Color.green);
+                livingLetter2.MarkLetters(commonLetters, Color.green);
 
                 GetConfiguration().Context.GetAudioManager().PlaySound(Sfx.Win);
                 leftArea.Celebrate();

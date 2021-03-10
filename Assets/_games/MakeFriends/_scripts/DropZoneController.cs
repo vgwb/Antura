@@ -39,7 +39,7 @@ namespace Antura.Minigames.MakeFriends
         public void DisplayText(ILivingLetterData _letterData)
         {
             letterData = _letterData;
-            LetterText.text = letterData.TextForLivingLetter;
+            LetterText.SetLetterData(letterData);
         }
 
 

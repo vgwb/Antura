@@ -1,13 +1,14 @@
 using UnityEngine;
 using System.Collections;
 using Antura.LivingLetters;
+using Antura.UI;
 using TMPro;
 
 namespace Antura.Minigames.MakeFriends
 {
     public class LetterBalloonController : MonoBehaviour
     {
-        public TMP_Text displayedText;
+        public TextRender displayedText;
         public Rigidbody rigidBody;
         public Renderer balloonRenderer;
         public Animator animator;
@@ -27,19 +28,19 @@ namespace Antura.Minigames.MakeFriends
                 this.duration = duration;
             }
         }
-            
+
 
         public void Init(ILivingLetterData _data)
         {
             letterData = _data;
-            displayedText.text = letterData.TextForLivingLetter;
+            displayedText.SetLetterData(letterData);
         }
 
         public void SetColor(Color color)
         {
             balloonRenderer.material.color = color;
         }
-            
+
         public void EnterScene(bool correctChoice)
         {
             if (correctChoice)
@@ -54,7 +55,7 @@ namespace Antura.Minigames.MakeFriends
             StopCoroutine("EnterScene_Coroutine");
             StartCoroutine("EnterScene_Coroutine", correctChoice);
         }
-            
+
         public IEnumerator EnterScene_Coroutine(bool correctChoice)
         {
             var from =  transform.position;
@@ -80,7 +81,7 @@ namespace Antura.Minigames.MakeFriends
             this.gameObject.SetActive(false);
             Destroy(this.gameObject, 3f);
         }
-            
+
         private void Pop()
         {
             MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.BalloonPop);

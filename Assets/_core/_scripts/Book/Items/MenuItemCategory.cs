@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Language;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -26,7 +27,8 @@ namespace Antura.Book
             myManager = _manager;
 
             Title.text = categoryData.TitleLearning;
-            SubTitle.text = AppManager.I.ParentEdition.ShowHelpText ? categoryData.TitleNative : "";
+            Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
+            SubTitle.text = AppManager.I.ParentEdition.ShowHelpText ? categoryData.TitleHelp : "";
 
             if (categoryData.Stage > 0) {
                 Code.text = categoryData.Stage.ToString();

@@ -6,6 +6,7 @@ using Antura.UI;
 using Antura.Utilities;
 using DG.Tweening;
 using System;
+using Antura.Database;
 using TMPro;
 using UnityEngine;
 using Antura.Language;
@@ -71,7 +72,7 @@ namespace Antura.Assessment
             var wordInner = word as LL_WordData;
             var letterInner = letter as LL_LetterData;
 
-            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, false);
+            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, LetterEqualityStrictness.Letter);
 
             var partToRemove = parts[0];
 

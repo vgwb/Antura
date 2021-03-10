@@ -1,6 +1,7 @@
 ﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.UI;
 using System.Collections;
 using System.Collections.Generic;
@@ -19,13 +20,17 @@ namespace Antura.Book
         [Header("References")]
         public GameObject DetailPanel;
         public GameObject MainLetterPanel;
-        public GameObject ListPanel;
-        public GameObject ListContainer;
+        public GameObject ListPanelLTR;
+        public GameObject ListPanelRTL;
+        public GameObject ListContainerLTR;
+        public GameObject ListContainerRTL;
 
         public LetterAllForms MainLetterDisplay;
         public GameObject DiacriticsContainer;
         public GameObject RelatedWordsContainer;
 
+        private GameObject ListPanel;
+        private GameObject ListContainer;
         private LetterInfo myLetterInfo;
         private LetterData myLetterData;
         private GameObject btnGO;
@@ -39,6 +44,18 @@ namespace Antura.Book
 
         private void LettersPanel()
         {
+            if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                ListPanel = ListPanelRTL;
+                ListContainer = ListContainerRTL;
+                ListPanelLTR.SetActive(false);
+                ListPanelRTL.SetActive(true);
+            } else {
+                ListPanel = ListPanelLTR;
+                ListContainer = ListContainerLTR;
+                ListPanelLTR.SetActive(true);
+                ListPanelRTL.SetActive(false);
+            }
+
             ListPanel.SetActive(true);
             DetailPanel.SetActive(false);
             emptyContainer(ListContainer);
@@ -62,7 +79,9 @@ namespace Antura.Book
 
                 btnGO = Instantiate(LetterItemPrefab);
                 btnGO.transform.SetParent(ListContainer.transform, false);
-                //btnGO.transform.SetAsFirstSibling();
+                if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                    btnGO.transform.SetAsFirstSibling();
+                }
                 btnGO.GetComponent<ItemLetter>().Init(this, myLetterinfo, false);
             }
 
@@ -78,49 +97,55 @@ namespace Antura.Book
             //string debug_output = "//////// LETTER " + myLetterData.Number + " " + myLetterData.Id + "\n";
             HighlightLetterItem(myLetterInfo.data.Id);
 
-            // diacritics
-            //emptyContainer(DiacriticsContainer);
-            //var letterbase = myLetterInfo.data.Id;
-            //var variationsletters = AppManager.I.DB.FindLetterData(
-            //    (x) => (x.BaseLetter == letterbase && (x.Kind == LetterDataKind.DiacriticCombo && x.Active))
-            //);
+            if (AppManager.I.ParentEdition.BookShowRelatedWords) {
+                // show related words
+                RelatedWordsContainer.SetActive(true);
+                DiacriticsContainer.SetActive(false);
+                emptyContainer(RelatedWordsContainer);
+                foreach (var word in letterInfo.data.LinkedWords) {
+                    WordData wdata = AppManager.I.DB.GetWordDataById(word);
+                    WordInfo winfo = new WordInfo();
+                    winfo.data = wdata;
 
-            //// diacritics box
-            //var letterGO = Instantiate(DiacriticSymbolItemPrefab);
-            //letterGO.transform.SetParent(DiacriticsContainer.transform, false);
-            //letterGO.GetComponent<ItemDiacriticSymbol>().Init(this, myLetterInfo, true);
+                    btnGO = Instantiate(WordItemPrefab);
+                    btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
+                    btnGO.GetComponent<ItemWord>().Init(this, winfo, false);
+                }
+            } else {
+                // show related diacritics
+                RelatedWordsContainer.SetActive(false);
+                DiacriticsContainer.SetActive(true);
+                emptyContainer(DiacriticsContainer);
+                var letterbase = myLetterInfo.data.Id;
+                var variationsletters = AppManager.I.DB.FindLetterData(
+                    (x) => (x.BaseLetter == letterbase && (x.Kind == LetterDataKind.DiacriticCombo && x.Active))
+                );
 
-            //List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
-            //info_list.Sort((x, y) => x.data.Id.CompareTo(y.data.Id));
-            //foreach (var info_item in info_list) {
-            //    if (variationsletters.Contains(info_item.data)) {
-            //        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {
-            //            continue;
-            //        }
-            //        btnGO = Instantiate(DiacriticSymbolItemPrefab);
-            //        btnGO.transform.SetParent(DiacriticsContainer.transform, false);
-            //        btnGO.GetComponent<ItemDiacriticSymbol>().Init(this, info_item, false);
-            //        //debug_output += info_item.data.GetDebugDiacriticFix();
-            //    }
-            //}
+                // diacritics box
+                var letterGO = Instantiate(DiacriticSymbolItemPrefab);
+                letterGO.transform.SetParent(DiacriticsContainer.transform, false);
+                letterGO.GetComponent<ItemDiacriticSymbol>().Init(this, myLetterInfo, true);
 
-            // related words
-            emptyContainer(RelatedWordsContainer);
-            foreach (var word in letterInfo.data.LinkedWords) {
-                WordData wdata = AppManager.I.DB.GetWordDataById(word);
-                WordInfo winfo = new WordInfo();
-                winfo.data = wdata;
-
-                btnGO = Instantiate(WordItemPrefab);
-                btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
-                btnGO.GetComponent<ItemWord>().Init(this, winfo, false);
+                List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
+                info_list.Sort((x, y) => x.data.Id.CompareTo(y.data.Id));
+                foreach (var info_item in info_list) {
+                    if (variationsletters.Contains(info_item.data)) {
+                        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {
+                            continue;
+                        }
+                        btnGO = Instantiate(DiacriticSymbolItemPrefab);
+                        btnGO.transform.SetParent(DiacriticsContainer.transform, false);
+                        btnGO.GetComponent<ItemDiacriticSymbol>().Init(this, info_item, false);
+                        //debug_output += info_item.data.GetDebugDiacriticFix();
+                    }
+                }
             }
 
             //Debug.Log(debug_output);
             ShowLetter(myLetterInfo);
         }
 
-        private void ShowLetter(LetterInfo letterInfo)
+        private void ShowLetter(LetterInfo letterInfo, LetterDataSoundType soundType = LetterDataSoundType.Name)
         {
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
@@ -135,7 +160,7 @@ namespace Antura.Book
             //LetterScoreText.text = "Score: " + myLetterInfo.score;
 
             HighlightDiacriticItem(myLetterData.Id);
-            playSound();
+            playSound(soundType);
 
             // Debug.Log(myLetterData.GetDebugDiacriticFix());
         }
@@ -150,18 +175,14 @@ namespace Antura.Book
             AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Phoneme);
         }
 
-        private void playSound()
+        private void playSound(LetterDataSoundType soundType)
         {
-            if (myLetterData.Kind == LetterDataKind.DiacriticCombo) {
-                AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Phoneme);
-            } else {
-                AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Name);
-            }
+            AudioManager.I.PlayLetter(myLetterData, true, soundType);
         }
 
         public void ShowDiacriticCombo(LetterInfo newLetterInfo)
         {
-            ShowLetter(newLetterInfo);
+            ShowLetter(newLetterInfo, LetterDataSoundType.Phoneme);
         }
 
         private void HighlightLetterItem(string id)

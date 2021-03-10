@@ -65,13 +65,13 @@ namespace Antura.Minigames.MissingLetter
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters);
+                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters);
                     break;
 
                 case MissingLetterVariation.LetterForm:
                     // Find the correct form of the letter in the given word
                     // wrong answers are the other forms of the same letter (not the same visually, tho)
-                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.VisualFormsOfSingleLetter);
+                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: LetterAlterationFilters.VisualFormsOfSingleLetter);
                     break;
 
                 case MissingLetterVariation.Phrase:

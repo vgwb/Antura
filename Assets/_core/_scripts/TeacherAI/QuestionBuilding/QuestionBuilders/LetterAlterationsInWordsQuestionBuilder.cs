@@ -25,7 +25,7 @@ namespace Antura.Teacher
         private int nRounds;
         private int nWrongs;
         private int maximumWordLength;
-        private bool removeAccents;
+        private bool keepBasesOnly;
         private QuestionBuilderParameters parameters;
         private LetterAlterationFilters letterAlterationFilters;
 
@@ -34,7 +34,7 @@ namespace Antura.Teacher
         public LetterAlterationsInWordsQuestionBuilder(int nPacksPerRound, int nRounds,
             int nWrongs = 4,
             int maximumWordLength = 20,
-            bool removeAccents = true,
+            bool keepBasesOnly = true,
             LetterAlterationFilters letterAlterationFilters = null,
             QuestionBuilderParameters parameters = null)
         {
@@ -45,7 +45,7 @@ namespace Antura.Teacher
             this.maximumWordLength = maximumWordLength;
             this.parameters = parameters;
             this.letterAlterationFilters = letterAlterationFilters;
-            this.removeAccents = removeAccents;
+            this.keepBasesOnly = keepBasesOnly;
 
             // Forced parameters
             this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
@@ -99,8 +99,8 @@ namespace Antura.Teacher
             // Get the correct form inside the word
             //Debug.Log("Word is: " + question.ToString());
             //Debug.Log("Letters: " + vocabularyHelper.GetLettersInWord(question).ToDebugString());
-            //Debug.Log("Letters correct: " + vocabularyHelper.GetLettersInWord(question).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterOnly)).ToDebugString());
-            var chosenLetterWithForm = vocabularyHelper.GetLettersInWord(question, removeAccents).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToList().RandomSelectOne();
+            //Debug.Log("Letters correct: " + vocabularyHelper.GetLettersInWord(question, removeAccents).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToDebugString());
+            var chosenLetterWithForm = vocabularyHelper.GetLettersInWord(question, keepBasesOnly).Where(l => l.IsSameLetterAs(chosenLetter, LetterEqualityStrictness.LetterBase)).ToList().RandomSelectOne();
             //chosenLetterWithForm = vocabularyHelper.ExtractLettersWithForms(chosenLetterWithForm);
             //Debug.Log("Correct form: " + chosenLetterWithForm + " form is " + chosenLetterWithForm.Form);
 

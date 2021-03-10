@@ -62,14 +62,14 @@ namespace Antura.Core
 
         public static LocalizationData GetWordCategoryData(WordDataCategory cat)
         {
-            LocalizationDataId loc = (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_WordCat_{cat}");
-            return GetLocalizationData(loc);
+            LocalizationDataId locId = (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_WordCat_{cat}");
+            return GetLocalizationData(locId);
         }
 
         public static LocalizationData GetPhraseCategoryData(PhraseDataCategory cat)
         {
-            LocalizationDataId loc = (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_Phrases_{cat}");
-            return GetLocalizationData(loc);
+            LocalizationDataId locId = (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_Phrases_{cat}");
+            return GetLocalizationData(locId);
         }
     }
 }

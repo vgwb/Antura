@@ -22,7 +22,9 @@ namespace Antura.Book
         public GameObject SpellingLetterItemPrefab;
 
         [Header("References")]
+
         public GameObject DetailPanel;
+        public GameObject DetailPanel_Inner;
         public GameObject ListPanel;
         public GameObject ListContainer;
         public GameObject SpellingContainer;
@@ -35,6 +37,8 @@ namespace Antura.Book
         private WordInfo currentWordInfo;
         private GenericCategoryData currentCategory;
         private GameObject btnGO;
+
+        public Transform[] SubPanels;
 
         private string debugSingleWord;
 
@@ -50,12 +54,27 @@ namespace Antura.Book
                 Stage = 0
             };
             WordsPanel(cat);
+
+            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL()) {
+                for (int i = 0; i < SubPanels.Length; i++) {
+                    SubPanels[i].SetSiblingIndex(0);
+                }
+            }
         }
 
-        void WordsPanel(GenericCategoryData _category)
+        private List<WordData> GetWordsByCategory(WordDataCategory _category)
+        {
+            if (_category != WordDataCategory.None) {
+                return AppManager.I.DB.FindWordData((x) => x.Category == _category);
+            } else {
+                return new List<WordData>();
+            }
+        }
+
+        private void WordsPanel(GenericCategoryData _category)
         {
             ListPanel.SetActive(true);
-            DetailPanel.SetActive(false);
+            DetailPanel_Inner.SetActive(false);
             currentCategory = _category;
 
             //Debug.Log("current word cat: " + _category);
@@ -73,11 +92,7 @@ namespace Antura.Book
                     wordsList.AddRange(hashList);
                 }
             } else {
-                if (currentCategory.wordCategory != WordDataCategory.None) {
-                    wordsList = AppManager.I.DB.FindWordData((x) => x.Category == currentCategory.wordCategory);
-                } else {
-                    wordsList = new List<WordData>();
-                }
+                wordsList = GetWordsByCategory(currentCategory.wordCategory);
             }
 
             wordsList.Sort(WordComparison);
@@ -127,6 +142,10 @@ namespace Antura.Book
                     || wordCat == WordDataCategory.Feelings
                     || wordCat == WordDataCategory.Jobs) continue;
 
+                if (GetWordsByCategory(wordCat).Count < 1) {
+                    continue;
+                }
+
                 var catLocData = LocalizationManager.GetWordCategoryData(wordCat);
                 if (catLocData == null) continue;
                 categoryData = new GenericCategoryData
@@ -136,9 +155,11 @@ namespace Antura.Book
                     Id = catLocData.Id,
                     TitleLearning = catLocData.LearningText.ToUpper(),
                     TitleNative = catLocData.NativeText.ToUpper(),
+                    TitleHelp = catLocData.HelpText,
                     Stage = 0
                 };
                 categoriesList.Add(categoryData);
+                //               Debug.Log(categoryData.Id + " - " + catLocData.NativeText + " - " + catLocData.LearningText);
             }
             categoriesList.Sort((x, y) => string.Compare(x.TitleLearning, y.TitleLearning));
 
@@ -166,7 +187,7 @@ namespace Antura.Book
         public void DetailWord(WordInfo _currentWord)
         {
             currentWordInfo = _currentWord;
-            DetailPanel.SetActive(true);
+            DetailPanel_Inner.SetActive(true);
             HighlightWordItem(currentWordInfo.data.Id);
             PlayWord();
 
@@ -178,7 +199,9 @@ namespace Antura.Book
             foreach (var letter in splittedLetters) {
                 btnGO = Instantiate(SpellingLetterItemPrefab);
                 btnGO.transform.SetParent(SpellingContainer.transform, false);
-                //btnGO.transform.SetAsFirstSibling();
+                if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                    btnGO.transform.SetAsFirstSibling();
+                }
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
             }
 
