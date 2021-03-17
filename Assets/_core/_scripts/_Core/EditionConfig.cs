@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
+using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 
 #endif
 
@@ -209,22 +210,36 @@ namespace Antura.Core
                 languagesToUse.Add(edition.HelpLanguage);
             }
 
-            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
+            {
                 var langCode = (LanguageCode)iLang;
+                if (langCode == LanguageCode.NONE) continue;
 
-                var usePath = $"{Application.dataPath}/_config/Resources/{langCode}";
-                var unusePath = $"{Application.dataPath}/_config/Resources_unused/{langCode}";
+                string pascalcaseName = langCode.ToString();
+                var words = pascalcaseName.Split('_');
+                pascalcaseName = "";
+                for (var i = 0; i < words.Length; i++)
+                {
+                    var word = words[i];
+                    pascalcaseName += $"{Char.ToUpperInvariant(word[0])}{word.Substring(1)}";
+                    if (i < words.Length - 1) pascalcaseName += "_";
+                }
+
+                var assetGroupSchemaPath =  $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
+                var schema = AssetDatabase.LoadAssetAtPath<BundledAssetGroupSchema>(assetGroupSchemaPath);
+
+                if (schema == null)
+                {
+                    Debug.LogWarning($"Language {langCode} is not setup with Addressables. No schema found at '{assetGroupSchemaPath}'");
+                    continue;
+                }
 
                 if (languagesToUse.Contains(langCode)) {
-                    if (!Directory.Exists(usePath) && Directory.Exists(unusePath)) {
-                        Debug.Log("Enabling language: " + langCode);
-                        Directory.Move(unusePath, usePath);
-                    }
+                    schema.IncludeInBuild = true;
+                    Debug.Log("Enabling language: " + langCode);
                 } else {
-                    if (!Directory.Exists(unusePath) && Directory.Exists(usePath)) {
-                        Debug.Log("Disabling language: " + langCode);
-                        Directory.Move(usePath, unusePath);
-                    }
+                    schema.IncludeInBuild = false;
+                    Debug.Log("Disabling language: " + langCode);
                 }
             }
 
@@ -232,8 +247,8 @@ namespace Antura.Core
             AssetDatabase.Refresh();
             Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
 
-            // TODO: AddressableAssetSettings.CleanPlayerContent();
-            // TODO: AddressableAssetSettings.BuildPlayerContent();
+            AddressableAssetSettings.CleanPlayerContent();
+            AddressableAssetSettings.BuildPlayerContent();
         }
 
 
