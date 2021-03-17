@@ -139,7 +139,7 @@ namespace Antura.Book
                 // TODO hack disable these word categories
                 if (wordCat == WordDataCategory.Expressions
                     || wordCat == WordDataCategory.NumbersOrdinal
-                    || wordCat == WordDataCategory.Feelings
+                    || wordCat == WordDataCategory.StateOfBeing
                     || wordCat == WordDataCategory.Jobs) continue;
 
                 if (GetWordsByCategory(wordCat).Count < 1) {
