@@ -230,7 +230,7 @@ namespace Antura.GamesSelector
 
                 MiniGameData mgData = games[iRTL];
                 GamesSelectorBubble bubble = i == 0 ? mainBubble : (GamesSelectorBubble)Instantiate(mainBubble, this.transform);
-                bubble.Setup(mgData.GetIconResourcePath(), mgData.GetBadgeIconResourcePath(), startX + (bubbleW + bubblesDist) * i);
+                bubble.Setup(AppManager.I.AssetManager.GetMainIcon(mgData), AppManager.I.AssetManager.GetBadgeIcon(mgData), startX + (bubbleW + bubblesDist) * i);
                 bubbles.Add(bubble);
             }
         }

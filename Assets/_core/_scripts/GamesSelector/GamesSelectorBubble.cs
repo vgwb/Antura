@@ -33,13 +33,14 @@ namespace Antura.GamesSelector
 
         #region Public Methods
 
-        public void Setup(string _icoResourcePath, string _badgeIcoResourcePath, float _x)
+        public void Setup(Sprite icon, Sprite badge, float _x)
         {
-            hasBadge = !_badgeIcoResourcePath.IsNullOrEmpty();
+            hasBadge = badge != null;
             Open(false);
-            Ico.sprite = Resources.Load<Sprite>(_icoResourcePath);
-            if (hasBadge) {
-                BadgeIco.sprite = Resources.Load<Sprite>(_badgeIcoResourcePath);
+            Ico.sprite = icon;
+            if (hasBadge)
+            {
+                BadgeIco.sprite = badge;
                 if (BadgeIco.sprite == null) {
                     hasBadge = false;
                 }

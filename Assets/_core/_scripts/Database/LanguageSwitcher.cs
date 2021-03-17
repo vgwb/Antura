@@ -77,8 +77,12 @@ namespace Antura.Language
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
+        }
 
+        public IEnumerator PreloadLocalizedDataCO()
+        {
             yield return AudioManager.I.PreloadDataCO();
+            yield return AppManager.I.AssetManager.PreloadDataCO();
         }
 
         public ILanguageHelper GetHelper(LanguageUse use)

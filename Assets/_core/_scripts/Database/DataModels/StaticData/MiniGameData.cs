@@ -182,17 +182,6 @@ namespace Antura.Database
             return Title.AudioKey;
         }
 
-        public string GetIconResourcePath()
-        {
-            var prefix = AppManager.I.SpecificEdition.GetLearningLangResourcePrefix();
-            return prefix + "Images/GameIcons/minigame_Ico_" + Main;
-        }
-
-        public string GetBadgeIconResourcePath()
-        {
-            var prefix = AppManager.I.SpecificEdition.GetLearningLangResourcePrefix();
-            return prefix + "Images/GameIcons/minigame_BadgeIco_" + Badge;
-        }
     }
 
     [Serializable]

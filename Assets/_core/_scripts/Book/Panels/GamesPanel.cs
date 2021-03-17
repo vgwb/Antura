@@ -129,13 +129,15 @@ namespace Antura.Book
             }
 
             // Set icon
-            var icoPath = currentMiniGame.GetIconResourcePath();
-            var badgePath = currentMiniGame.GetBadgeIconResourcePath();
-            MiniGameLogoImage.sprite = Resources.Load<Sprite>(icoPath);
+            var icon = AppManager.I.AssetManager.GetMainIcon(currentMiniGame);
+            var badge = AppManager.I.AssetManager.GetBadgeIcon(currentMiniGame);
+
+            MiniGameLogoImage.sprite = icon;
             MiniGameLogoImage.enabled = true;
-            if (badgePath != "") {
+
+            if (badge != null) {
                 MiniGameBadgeImage.enabled = true;
-                MiniGameBadgeImage.sprite = Resources.Load<Sprite>(badgePath);
+                MiniGameBadgeImage.sprite = badge;
             } else {
                 MiniGameBadgeImage.enabled = false;
             }

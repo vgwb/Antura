@@ -1,5 +1,6 @@
 using System.Collections.Generic;
 using Antura.Audio;
+using Antura.Core;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -57,7 +58,7 @@ namespace Antura.Rewards
                 if (i < totGames) {
                     EndsessionResultData data = _sessionData[i];
                     mg.gameObject.SetActive(i < totGames);
-                    mg.SetIcon(Resources.Load<Sprite>(data.MinigameIconResourcesPath));
+                    mg.SetIcon(AppManager.I.AssetManager.GetMainIcon(data.MiniGameData));
                     mg.SetStars(data.Stars);
                 } else mg.gameObject.SetActive(false);
             }

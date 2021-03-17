@@ -9,11 +9,6 @@ namespace Antura.Minigames
         public string MainId;
         public List<MiniGameInfo> variations;
 
-        public string GetIconResourcePath()
-        {
-            return variations[0].data.GetIconResourcePath();
-        }
-
         public MiniGameCode GetFirstVariationMiniGameCode()
         {
             return variations[0].data.Code;

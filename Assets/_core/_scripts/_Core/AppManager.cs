@@ -46,6 +46,7 @@ namespace Antura.Core
         public PlayerProfileManager PlayerProfileManager;
         public RewardSystemManager RewardSystemManager;
         public FacebookManager FacebookManager;
+        public AssetManager AssetManager;
 
         [HideInInspector]
         public NavigationManager NavigationManager;
@@ -104,6 +105,7 @@ namespace Antura.Core
         private IEnumerator InitCO()
         {
             AppSettingsManager = new AppSettingsManager();
+            AssetManager = new AssetManager();
 
             yield return ReloadEdition();
 
@@ -156,6 +158,7 @@ namespace Antura.Core
             LanguageSwitcher = new LanguageSwitcher();
             yield return LanguageSwitcher.LoadData();
             DB = new DatabaseManager(true);
+            yield return LanguageSwitcher.PreloadLocalizedDataCO();
         }
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
@@ -230,14 +233,17 @@ namespace Antura.Core
             IsPaused = pause;
             if (IsPaused) {
                 // app is pausing
-                LogManager.I.LogInfo(InfoEvent.AppSuspend);
+                if (LogManager.I != null) LogManager.I.LogInfo(InfoEvent.AppSuspend);
                 if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppSuspended();
                 }
             } else {
                 // app is resuming
-                LogManager.I.LogInfo(InfoEvent.AppResume);
-                LogManager.I.InitNewSession();
+                if (LogManager.I != null)
+                {
+                    LogManager.I.LogInfo(InfoEvent.AppResume);
+                    LogManager.I.InitNewSession();
+                }
                 if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppResumed();
                 }

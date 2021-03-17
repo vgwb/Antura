@@ -1,3 +1,5 @@
+using Antura.Database;
+
 namespace Antura.Rewards
 {
     /// <summary>
@@ -7,20 +9,17 @@ namespace Antura.Rewards
     public class EndsessionResultData
     {
         public int Stars;
-        public string MinigameIconResourcesPath;
-        public string MinigameBadgeResourcesPath;
+        public MiniGameData MiniGameData;
 
         /// <summary>
         /// Data for a minigame played during the session
         /// </summary>
         /// <param name="_stars">Total stars gained</param>
-        /// <param name="_minigameIconResourcesPath">Resources path to minigame icon</param>
-        /// <param name="_minigameBadgeResourcesPath">Resource path to minigame badge (alphabet/letters/counting/etc)</param>
-        public EndsessionResultData(int _stars, string _minigameIconResourcesPath, string _minigameBadgeResourcesPath)
+        /// <param name="_miniGameData">Data of the minigame that was played</param>
+        public EndsessionResultData(int _stars, MiniGameData _miniGameData)
         {
             Stars = _stars;
-            MinigameIconResourcesPath = _minigameIconResourcesPath;
-            MinigameBadgeResourcesPath = _minigameBadgeResourcesPath;
+            MiniGameData = _miniGameData;
         }
     }
 }

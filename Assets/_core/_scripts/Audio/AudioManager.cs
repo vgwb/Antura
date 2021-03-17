@@ -1,3 +1,5 @@
+//#define PRELOAD_DATA
+
 using System;
 using System.Collections;
 using Antura.Core;
@@ -163,7 +165,8 @@ namespace Antura.Audio
 
         public IEnumerator PreloadDataCO()
         {
-            /*
+            // Optional pre-loading of all data
+#if PRELOAD_DATA
             var opDialog =
                 Addressables.LoadAssetsAsync<AudioClip>("audio_dialog", obj =>
                 {
@@ -178,7 +181,7 @@ namespace Antura.Audio
                     // audioCache[obj.name] = obj;
                 });
             yield return opData;
-            */
+#endif
             yield break;
         }
 
@@ -442,7 +445,7 @@ namespace Antura.Audio
 
         private IEnumerator LoadAudio(AudioSourceWrapper source)
         {
-            Debug.Log($"Start loading {source.Path.id}");
+            //Debug.Log($"Start loading {source.Path.id}");
             Ref<AudioClip> clip = new Ref<AudioClip>();
             yield return LoadAudioClip(source.Path, clip);
             source.Loaded = true;
@@ -468,7 +471,7 @@ namespace Antura.Audio
                 if (localizedAudioFileName != neutralAudioFileName)
                 {
                     // No female found
-                    if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] No Female audio file for localization ID {path.id} was found. Trying to fallback to male/neutral.");
+                    if (ApplicationConfig.I.VerboseAudio) Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
                     yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.use);
                 }
             }
@@ -491,8 +494,8 @@ namespace Antura.Audio
                 yield break;
             }
 
-            yield return AssetLoader.Load<AudioClip>(completePath, audioClip =>  result.item  = audioClip);
-            Debug.LogError("Loaded: " + result.item + " for id " + id);
+            yield return AssetLoader.ValidateAndLoad<AudioClip>(completePath, audioClip =>  result.item  = audioClip);
+            //Debug.LogError("Loaded: " + result.item + " for id " + id);
 
             if (logIfNotFound && result.item == null) {
                 if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
@@ -535,7 +538,7 @@ namespace Antura.Audio
                     }
                     else
                     {
-                        Debug.LogError("Source ended for " + source.Path.id);
+                        //Debug.LogError("Source ended for " + source.Path.id);
                     }
 
                     System.Action callback;
