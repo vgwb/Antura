@@ -15,8 +15,7 @@ namespace Antura.Core
         {
             var configPath = $"Assets/_config/ApplicationConfig.asset";
             var config = AssetDatabase.LoadAssetAtPath<ApplicationConfig>(configPath);
-            if (config == null)
-            {
+            if (config == null) {
                 Debug.LogError($"Could not find ApplicationConfig at path '{configPath}'");
                 return null;
             }
@@ -30,14 +29,11 @@ namespace Antura.Core
         public EditionConfig LoadedEdition;
         public EditionConfig SpecificEdition
         {
-            get
-            {
-                if (LoadedEdition.IsMultiEdition)
-                {
+            get {
+                if (LoadedEdition.IsMultiEdition) {
                     var wantedEdition = AppManager.I.AppSettings.SpecificEdition;
                     var editionConfig = LoadedEdition.ChildEditions.FirstOrDefault(ed => ed.Edition == wantedEdition);
-                    if (editionConfig == null)
-                    {
+                    if (editionConfig == null) {
                         AppManager.I.AppSettingsManager.SetSpecificEdition(LoadedEdition.ChildEditions[0].Edition);
                         editionConfig = LoadedEdition.ChildEditions[0];
                     }
@@ -60,6 +56,8 @@ namespace Antura.Core
         /// </summary>
         public bool DebugLogEnabled = false;
 
+        [Header("Debug - Verbose")]
+        public bool VerboseBook;
         public bool VerboseAudio;
 
         [Header("Debug - Tutorial")]

@@ -94,7 +94,9 @@ namespace Antura.Book
             DetailPanel.SetActive(true);
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
-            //string debug_output = "//////// LETTER " + myLetterData.Number + " " + myLetterData.Id + "\n";
+
+            if (ApplicationConfig.I.VerboseBook) Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
+
             HighlightLetterItem(myLetterInfo.data.Id);
 
             if (AppManager.I.ParentEdition.BookShowRelatedWords) {
@@ -150,7 +152,7 @@ namespace Antura.Book
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
 
-            // Debug.Log("ShowLetter " + myLetterData.Id);
+            if (ApplicationConfig.I.VerboseBook) Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             string positionsString = "";
             foreach (var p in letterInfo.data.GetAvailableForms()) {
