@@ -468,14 +468,14 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "0650"), new Vector2(50, -200));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "0650"), new Vector2(50, -200));
             // reh_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "0652"), new Vector2(100, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "0652"), new Vector2(100, 0));
             // reh_fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "064E"), new Vector2(100, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "064E"), new Vector2(100, 0));
             // reh_dammah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "064F"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0631", "064F"), new Vector2(80, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEAE", "064F"), new Vector2(80, 0));
 
             //////// LETTER zain
             // zain_fathah
@@ -496,84 +496,84 @@ namespace Antura.Language
 
             //////// LETTER 12 seen
             // seen_dammah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "064F"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "064F"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "064F"), new Vector2(100, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "064F"), new Vector2(100, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "064F"), new Vector2(200, 0));
+            // seen_fathah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "064E"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "064E"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "064E"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "064E"), new Vector2(300, 0));
             // seen_kasrah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "0650"), new Vector2(80, -160));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "0650"), new Vector2(50, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "0650"), new Vector2(50, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "0650"), new Vector2(80, -160));
-            // seen_fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "064E"), new Vector2(0, 0));
             // seen_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "0652"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "0652"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "0652"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "0652"), new Vector2(300, 0));
             // seen_shaddah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0633", "0651"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB3", "0651"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB4", "0651"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB2", "0651"), new Vector2(300, 0));
 
             //////// LETTER 13 sheen
-            // sheen_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0652"), new Vector2(0, 0));
-            // sheen_shaddah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0651"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0651"), new Vector2(0, 0));
-            // sheen_kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0650"), new Vector2(80, -160));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0650"), new Vector2(50, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0650"), new Vector2(50, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0650"), new Vector2(80, -160));
-            // sheen_fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "064E"), new Vector2(0, 0));
             // sheen_dammah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "064F"), new Vector2(0, 0));
+            // sheen_fathah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "064E"), new Vector2(0, 0));
+            // sheen_kasrah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0650"), new Vector2(80, -160));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0650"), new Vector2(50, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0650"), new Vector2(50, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0650"), new Vector2(80, -160));
+            // sheen_sukun
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0652"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0652"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0652"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0652"), new Vector2(300, 0));
+            // sheen_shaddah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0634", "0651"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB7", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB8", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEB6", "0651"), new Vector2(0, 0));
 
             //////// LETTER 14 sad
+            // sad_dammah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "064F"), new Vector2(300, -50));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "064F"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "064F"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "064F"), new Vector2(300, 0));
+            // sad_fathah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "064E"), new Vector2(400, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "064E"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "064E"), new Vector2(300, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "064E"), new Vector2(400, 0));
+            // sad_kasrah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "0650"), new Vector2(500, -60));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "0650"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "0650"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "0650"), new Vector2(500, -60));
             // sad_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "0652"), new Vector2(380, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "0652"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "0652"), new Vector2(200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "0652"), new Vector2(380, 0));
             // sad_shaddah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "0651"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "0651"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "0651"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "0651"), new Vector2(0, 0));
-            // sad_kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "0650"), new Vector2(80, -160));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "0650"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "0650"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "0650"), new Vector2(80, -160));
-            // sad_fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "064E"), new Vector2(0, 0));
-            // sad_dammah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0635", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBB", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBC", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEBA", "064F"), new Vector2(0, 0));
 
             //////// LETTER 15 dad
             // dad_sukun
@@ -808,10 +808,10 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE0", "0651"), new Vector2(0, 60));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDE", "0651"), new Vector2(40, 40));
             // lam_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0644", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDF", "0652"), new Vector2(60, 140));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE0", "0652"), new Vector2(60, 140));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDE", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0644", "0652"), new Vector2(140, 100));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDF", "0652"), new Vector2(40, 140));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE0", "0652"), new Vector2(40, 140));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDE", "0652"), new Vector2(140, 100));
             // lam_dammah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0644", "064F"), new Vector2(80, 40));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEDF", "064F"), new Vector2(0, 80));
@@ -835,10 +835,10 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE4", "0651"), new Vector2(0, 120));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE2", "0651"), new Vector2(0, 0));
             // meem_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0645", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE3", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE4", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE2", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0645", "0652"), new Vector2(50, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE3", "0652"), new Vector2(50, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE4", "0652"), new Vector2(50, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE2", "0652"), new Vector2(50, 0));
             // meem_dammah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0645", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE3", "064F"), new Vector2(0, 0));
@@ -857,10 +857,10 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE8", "0650"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE6", "0650"), new Vector2(60, -150));
             // noon_fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0646", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0646", "064E"), new Vector2(80, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE7", "064E"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE8", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE6", "064E"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE6", "064E"), new Vector2(80, 0));
             // noon_shaddah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0646", "0651"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEE7", "0651"), new Vector2(0, 0));
@@ -958,8 +958,8 @@ namespace Antura.Language
 
             //////// LETTER lam_alef_kasrah
             // lam_alef_kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEF5", "0650"), new Vector2(320, -40));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEF6", "0650"), new Vector2(-200, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEF5", "0650"), new Vector2(120, -40));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEF6", "0650"), new Vector2(100, 0));
 
             //////// LETTER teh_marbuta
             // teh_marbuta_dammah
