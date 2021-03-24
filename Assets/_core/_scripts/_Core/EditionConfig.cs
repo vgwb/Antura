@@ -199,8 +199,6 @@ namespace Antura.Core
                 editionsToUse.Add(this);
             }
 
-            // TODO: NEW: set booleans of asset packs to generated, then rebuild the player content, instead of moving stuff
-
             // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
             foreach (var edition in editionsToUse) {
@@ -236,19 +234,26 @@ namespace Antura.Core
 
                 if (languagesToUse.Contains(langCode)) {
                     schema.IncludeInBuild = true;
-                    Debug.Log("Enabling language: " + langCode);
+                    Debug.Log($"Enabling language: {langCode}");
                 } else {
                     schema.IncludeInBuild = false;
-                    Debug.Log("Disabling language: " + langCode);
+                    Debug.Log($"Disabling language: {langCode}");
                 }
             }
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
+        }
+
+        [DeMethodButton("Configure as Active & Rebuild Addressables")]
+        public void ConfigureForBuildAndBuild()
+        {
+            ConfigureForBuild();
 
             AddressableAssetSettings.CleanPlayerContent();
             AddressableAssetSettings.BuildPlayerContent();
+            Debug.LogWarning($"Rebuilt addressables");
         }
 
 

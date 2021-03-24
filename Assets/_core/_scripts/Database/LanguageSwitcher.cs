@@ -1,15 +1,8 @@
 using System.Collections;
 using Antura.Core;
-using Antura.Database;
 using System.Collections.Generic;
 using System.IO;
 using Antura.Audio;
-using UnityEngine;
-using UnityEngine.ResourceManagement.AsyncOperations;
-
-namespace Antura
-{
-}
 
 namespace Antura.Language
 {

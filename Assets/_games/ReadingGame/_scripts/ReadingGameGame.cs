@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.IO;
 using System.Text;
+using Antura.Core;
 using Antura.Dog;
 using Antura.Language;
 using Antura.LivingLetters;
@@ -22,13 +23,13 @@ namespace Antura.Minigames.ReadingGame
         public Camera uiCamera;
 
         public int CurrentQuestionNumber { get; set; }
-        public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled; } }
+        public bool TutorialEnabled => GetConfiguration().TutorialEnabled;
 
         [HideInInspector]
         public bool isTimesUp;
 
         int lives = 3;
-        public int Lives { get { return lives; } }
+        public int Lives => lives;
 
         public Material magnifyingGlassMaterial;
         public Material blurredTextMaterial;
@@ -37,40 +38,11 @@ namespace Antura.Minigames.ReadingGame
         [HideInInspector]
         public KaraokeSong songToPlay;
 
-        public AudioClip alphabetSongAudio => LoadSongClip("AlphabetSong");
-        public AudioClip diacriticSongAudio => LoadSongClip("DiacriticSong");
+        public AudioClip alphabetSongAudio => AppManager.I.AssetManager.GetSongClip("AlphabetSong");
+        public AudioClip diacriticSongAudio => AppManager.I.AssetManager.GetSongClip("DiacriticSong");
 
-        public static T LoadSongAsset<T>(string id, string suffix = "") where T : class
-        {
-            var langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code.ToString();
-            string completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
-            var res = Resources.Load(completePath) as T;
-
-            //Debug.LogError("At path " +  completePath + " READ " + res);
-
-            if (res == null)
-            {
-                langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
-                completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
-                res = Resources.Load(completePath) as T;
-                //Debug.LogError("OTHER READ " + res);
-            }
-
-            return res;
-        }
-
-        public static AudioClip LoadSongClip(string id)
-        {
-            return LoadSongAsset<AudioClip>(id);
-        }
-
-        public TextAsset alphabetSongSrt => LoadSongSrt("AlphabetSong");
-        public TextAsset diacriticSongSrt => LoadSongSrt("DiacriticSong");
-
-        public static TextAsset LoadSongSrt(string id)
-        {
-            return LoadSongAsset<TextAsset>(id, ".akr");
-        }
+        public TextAsset alphabetSongSrt => AppManager.I.AssetManager.GetSongSrt("AlphabetSong.akr");
+        public TextAsset diacriticSongSrt => AppManager.I.AssetManager.GetSongSrt("DiacriticSong.akr");
 
         [Header("Parameters - Simon Song")]
         public SimonSongBPM simonSong120;
@@ -153,8 +125,8 @@ namespace Antura.Minigames.ReadingGame
             public float questionTime;
             public int bpm;
 
-            public AudioClip song => LoadSongClip("SimonSong_Main_" + bpm);
-            public AudioClip intro => LoadSongClip("SimonSong_Intro_" + bpm);
+            public AudioClip song => AppManager.I.AssetManager.GetSongClip($"SimonSong_Main_{bpm}");
+            public AudioClip intro => AppManager.I.AssetManager.GetSongClip($"SimonSong_Intro_{bpm}");
 
             public float periodRatio
             {

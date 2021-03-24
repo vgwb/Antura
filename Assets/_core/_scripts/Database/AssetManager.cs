@@ -20,8 +20,6 @@ namespace Antura
 
         public IEnumerator PreloadDataCO()
         {
-            const bool blockingLoad = true;
-
             // First release preloaded data
             ClearCache(spriteCache);
             ClearCache(sideDataCache);
@@ -39,7 +37,7 @@ namespace Antura
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
                 iconKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(iconKeys, spriteCache, blockingLoad);
+            yield return LoadAssets(iconKeys, spriteCache);
 
             // Badges
             if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
@@ -49,7 +47,7 @@ namespace Antura
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
                 badgeKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(badgeKeys, spriteCache, blockingLoad);
+            yield return LoadAssets(badgeKeys, spriteCache);
 
             // Side data
             if (VERBOSE) Debug.Log("[Assets] Preloading Side Data");
@@ -58,19 +56,28 @@ namespace Antura
             {
                 sideKeys.Add($"{languageCode}/SideData/Letters/sideletter_{letterData.Id}");
             }
-            yield return LoadAssets(sideKeys, sideDataCache, blockingLoad);
+            yield return LoadAssets(sideKeys, sideDataCache);
 
-            /*
+
             // Song data
-            // TODO:
             if (VERBOSE) Debug.Log("[Assets] Preloading Song Data");
             var songAudioKeys = new HashSet<string>();
-            // TODO: we also need to load keys for the NATIVE songs too as a fallback
+            var prefix = $"{languageCode}/Audio/Songs/";
+            songAudioKeys.Add($"{prefix}AlphabetSong");
+            songAudioKeys.Add($"{prefix}DiacriticSong");
+            songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
+            songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
+            songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
+            songAudioKeys.Add($"{prefix}SimonSong_Main_120");
+            songAudioKeys.Add($"{prefix}SimonSong_Main_140");
+            songAudioKeys.Add($"{prefix}SimonSong_Main_160");
             yield return LoadAssets(songAudioKeys, audioCache);
-            */
 
-            //var songTextKeys = new HashSet<string>();
-            //yield return LoadAssets(songTextKeys, textCache, blockingLoad);
+            var songTextKeys = new HashSet<string>();
+            prefix = $"{languageCode}/Audio/Songs/";
+            songTextKeys.Add($"{prefix}AlphabetSong.akr");
+            songTextKeys.Add($"{prefix}DiacriticSong.akr");
+            yield return LoadAssets(songTextKeys, textCache);
         }
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
@@ -79,17 +86,17 @@ namespace Antura
             cache.Clear();
         }
 
-        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache, bool blocking) where T : UnityEngine.Object
+        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache) where T : UnityEngine.Object
         {
             int n = 0;
-            // Debug.LogError("Loading " + keys.Count);
+            Debug.Log($"Loading {keys.Count}");
             var op =
                 Addressables.LoadAssetsAsync<T>(keys, obj => {
                     cache[obj.name] = obj;
                     n++;
                 }, Addressables.MergeMode.Union);
             yield return op;
-            //Debug.LogError("Found " + n + " items");
+            Debug.Log($"Found {n} items");
         }
 
         public T Get<T>(Dictionary<string,T> cache, string key)
@@ -129,20 +136,7 @@ namespace Antura
 
         public AudioClip GetSongClip(string id)
         {
-            //var langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code.ToString();
-            //string completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
             return Get(audioCache, id);
-            //Debug.LogError("At path " +  completePath + " READ " + res);
-/*
-            // Fallback to native song (TODO: must load these too then!)
-            if (res == null)
-            {
-                langDir = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code.ToString();
-                completePath = $"{langDir}/Audio/Songs/{id}{suffix}";
-                res = Resources.Load(completePath) as T;
-                //Debug.LogError("OTHER READ " + res);
-            }
-            */
         }
 
     }
