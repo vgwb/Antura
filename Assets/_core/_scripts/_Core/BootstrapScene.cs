@@ -1,5 +1,6 @@
 ﻿using Antura.Core;
 using System.Collections;
+using Antura.Minigames;
 using UnityEngine;
 
 namespace Antura.Scenes
@@ -12,6 +13,7 @@ namespace Antura.Scenes
 
         [Header("References")]
         public PanelAppUpdate PanelAppUpdate;
+        public MiniGameAutoLauncher AutoLauncher;
 
         protected override void Start()
         {
@@ -37,6 +39,8 @@ namespace Antura.Scenes
         private IEnumerator StartCO()
         {
             while (!AppManager.I.Loaded) yield return null;
+            if (AutoLauncher.enabled) yield break;
+
             GoToHomeScene();
         }
 
