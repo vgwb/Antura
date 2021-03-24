@@ -119,7 +119,7 @@ namespace Antura
 
         public SideLetterData GetSideLetterData(string id)
         {
-            return Get(sideDataCache, id);
+            return Get(sideDataCache, $"sideletter_{id}");
         }
 
         public TextAsset GetSongSrt(string id)
