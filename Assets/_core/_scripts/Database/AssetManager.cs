@@ -64,7 +64,7 @@ namespace Antura
             var songAudioKeys = new HashSet<string>();
             var prefix = $"{languageCode}/Audio/Songs/";
             songAudioKeys.Add($"{prefix}AlphabetSong");
-            songAudioKeys.Add($"{prefix}DiacriticSong");
+            //songAudioKeys.Add($"{prefix}DiacriticSong");
             songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
             songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
             songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
@@ -76,7 +76,7 @@ namespace Antura
             var songTextKeys = new HashSet<string>();
             prefix = $"{languageCode}/Audio/Songs/";
             songTextKeys.Add($"{prefix}AlphabetSong.akr");
-            songTextKeys.Add($"{prefix}DiacriticSong.akr");
+            //songTextKeys.Add($"{prefix}DiacriticSong.akr");
             yield return LoadAssets(songTextKeys, textCache);
         }
 
