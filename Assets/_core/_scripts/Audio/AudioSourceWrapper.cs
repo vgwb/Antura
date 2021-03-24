@@ -35,6 +35,8 @@ namespace Antura.Audio
             }
         }
 
+        public bool IsLoaded => Loaded;
+
         bool loop;
 
         public bool Loop

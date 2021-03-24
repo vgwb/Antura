@@ -4,6 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
 using System;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Antura.Minigames.Egg
 {
@@ -31,7 +33,7 @@ namespace Antura.Minigames.Egg
         Action startButtonAudioCallback;
         Action playButtonAudioCallback;
         IAudioManager audioManager;
-        IAudioSource audioSource;
+        IAudioSource sourceWrapper;
 
         bool inputEnabled = false;
 
@@ -63,15 +65,19 @@ namespace Antura.Minigames.Egg
             buttonText.SetLetterData(livingLetterData);
         }
 
-        public float PlayButtonAudio(bool lightUp, float delay = 0f, Action callback = null, Action startCallback = null)
+        public IEnumerator PlayButtonAudio(bool lightUp, float delay = 0f, Action callback = null, Action startCallback = null, Ref<float> outDelay = null)
         {
             startButtonAudioCallback = startCallback;
             playButtonAudioCallback = callback;
 
-            audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
-            if (audioSource != null) audioSource.Stop();
+            sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
+            if (sourceWrapper != null)
+            {
+                while (!sourceWrapper.IsLoaded) yield return null;
+                sourceWrapper.Stop();
+            }
 
-            float duration = audioSource != null ? audioSource.Duration : 0;
+            float duration = sourceWrapper?.Duration ?? 0;
 
             if (animationTweener != null)
                 animationTweener.Kill();
@@ -86,7 +92,7 @@ namespace Antura.Minigames.Egg
                         playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
-                    audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
+                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
                     startButtonAudioCallback?.Invoke();
                 }).SetDelay(delay);
             } else {
@@ -96,21 +102,21 @@ namespace Antura.Minigames.Egg
                         playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
-                    audioSource = audioManager.PlayVocabularyData(livingLetterData, false);
+                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
                     startButtonAudioCallback?.Invoke();
 
                 }).SetDelay(delay);
             }
 
-            return duration;
+            if (outDelay != null) outDelay.v = duration;
         }
 
         public void StopButtonAudio()
         {
             SetNormal();
 
-            if (audioSource != null) {
-                audioSource.Stop();
+            if (sourceWrapper != null) {
+                sourceWrapper.Stop();
             }
 
             playButtonAudioCallback?.Invoke();
