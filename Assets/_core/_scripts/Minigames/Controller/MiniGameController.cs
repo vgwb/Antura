@@ -1,5 +1,6 @@
 using System;
 using Antura.Core;
+using Antura.Database;
 using Antura.Debugging;
 using Antura.FSM;
 using Antura.Rewards;
@@ -205,7 +206,9 @@ namespace Antura.Minigames
         {
             if (AppManager.I.ParentEdition.PlayIntroAtMiniGameStart)
             {
-                Context.GetAudioManager().PlayDialogue(GetConfiguration().IntroLocalizationId, onComplete);
+                var id = GetConfiguration().IntroLocalizationId;
+                if (id != LocalizationDataId.None) Context.GetAudioManager().PlayDialogue(id, onComplete);
+                else onComplete();
             }
             else
             {
