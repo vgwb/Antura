@@ -299,7 +299,7 @@
         <member name="M:DG.Tweening.CustomPlugins.PureQuaternionPlugin.SetFrom(DG.Tweening.Core.TweenerCore{UnityEngine.Quaternion,UnityEngine.Quaternion,DG.Tweening.Plugins.Options.NoOptions},System.Boolean)">
             <summary>INTERNAL: do not use</summary>
         </member>
-        <member name="M:DG.Tweening.CustomPlugins.PureQuaternionPlugin.SetFrom(DG.Tweening.Core.TweenerCore{UnityEngine.Quaternion,UnityEngine.Quaternion,DG.Tweening.Plugins.Options.NoOptions},UnityEngine.Quaternion,System.Boolean)">
+        <member name="M:DG.Tweening.CustomPlugins.PureQuaternionPlugin.SetFrom(DG.Tweening.Core.TweenerCore{UnityEngine.Quaternion,UnityEngine.Quaternion,DG.Tweening.Plugins.Options.NoOptions},UnityEngine.Quaternion,System.Boolean,System.Boolean)">
             <summary>INTERNAL: do not use</summary>
         </member>
         <member name="M:DG.Tweening.CustomPlugins.PureQuaternionPlugin.ConvertToStartValue(DG.Tweening.Core.TweenerCore{UnityEngine.Quaternion,UnityEngine.Quaternion,DG.Tweening.Plugins.Options.NoOptions},UnityEngine.Quaternion)">
@@ -370,6 +370,13 @@
         <member name="F:DG.Tweening.DOTween.drawGizmos">
             <summary>If TRUE draws path gizmos in Unity Editor (if the gizmos button is active).
             Deactivate this if you want to avoid gizmos overhead while in Unity Editor</summary>
+        </member>
+        <member name="F:DG.Tweening.DOTween.debugMode">
+            <summary>If TRUE activates various debug options</summary>
+        </member>
+        <member name="P:DG.Tweening.DOTween.debugStoreTargetId">
+            <summary>Stores the target id so it can be used to give more info in case of safeMode error capturing.
+            Only active if both <code>debugMode</code> and <code>useSafeMode</code> are TRUE</summary>
         </member>
         <member name="F:DG.Tweening.DOTween.defaultUpdateType">
             <summary>Default updateType for new tweens.
@@ -1004,6 +1011,18 @@
         <member name="F:DG.Tweening.LinkBehaviour.KillOnDestroy">
             <summary>Kills the tween when the link target is destroyed (becomes NULL). This is always active even if another behaviour is chosen</summary>
         </member>
+        <member name="F:DG.Tweening.LinkBehaviour.CompleteOnDisable">
+            <summary>Completes the tween when the link target is disabled</summary>
+        </member>
+        <member name="F:DG.Tweening.LinkBehaviour.CompleteAndKillOnDisable">
+            <summary>Completes and kills the tween when the link target is disabled</summary>
+        </member>
+        <member name="F:DG.Tweening.LinkBehaviour.RewindOnDisable">
+            <summary>Rewinds the tween (delay excluded) when the link target is disabled</summary>
+        </member>
+        <member name="F:DG.Tweening.LinkBehaviour.RewindAndKillOnDisable">
+            <summary>Rewinds and kills the tween when the link target is disabled</summary>
+        </member>
         <member name="T:DG.Tweening.PathMode">
             <summary>
             Path mode (used to determine correct LookAt orientation)
@@ -1038,6 +1057,11 @@
         <member name="T:DG.Tweening.Plugins.Core.PathCore.ControlPoint">
             <summary>
             Path control point
+            </summary>
+        </member>
+        <member name="F:DG.Tweening.Plugins.Core.PathCore.Path.wps">
+            <summary>
+            Path waypoints (modified by PathPlugin when setting relative end/change value or by CubicBezierDecoder) and by DOTweenPathInspector
             </summary>
         </member>
         <member name="M:DG.Tweening.Plugins.Core.PathCore.Path.GetPoint(System.Single,System.Boolean)">
@@ -1172,12 +1196,12 @@
         </member>
         <member name="M:DG.Tweening.TweenExtensions.Restart(DG.Tweening.Tween,System.Boolean,System.Single)">
             <summary>Restarts the tween from the beginning</summary>
-            <param name="includeDelay">If TRUE includes the eventual tween delay, otherwise skips it</param>
-            <param name="changeDelayTo">If >= 0 changes the startup delay to this value, otherwise doesn't touch it</param>
+            <param name="includeDelay">Ignored in case of Sequences. If TRUE includes the eventual tween delay, otherwise skips it</param>
+            <param name="changeDelayTo">Ignored in case of Sequences. If >= 0 changes the startup delay to this value, otherwise doesn't touch it</param>
         </member>
         <member name="M:DG.Tweening.TweenExtensions.Rewind(DG.Tweening.Tween,System.Boolean)">
             <summary>Rewinds and pauses the tween</summary>
-            <param name="includeDelay">If TRUE includes the eventual tween delay, otherwise skips it</param>
+            <param name="includeDelay">Ignored in case of Sequences. If TRUE includes the eventual tween delay, otherwise skips it</param>
         </member>
         <member name="M:DG.Tweening.TweenExtensions.SmoothRewind(DG.Tweening.Tween)">
             <summary>Smoothly rewinds the tween (delays excluded).
@@ -1250,6 +1274,9 @@
         <member name="M:DG.Tweening.TweenExtensions.Delay(DG.Tweening.Tween)">
             <summary>Returns the eventual delay set for this tween</summary>
         </member>
+        <member name="M:DG.Tweening.TweenExtensions.ElapsedDelay(DG.Tweening.Tween)">
+            <summary>Returns the eventual elapsed delay set for this tween</summary>
+        </member>
         <member name="M:DG.Tweening.TweenExtensions.Duration(DG.Tweening.Tween,System.Boolean)">
             <summary>Returns the duration of this tween (delays excluded).
             <para>NOTE: when using settings like SpeedBased, the duration will be recalculated when the tween starts</para></summary>
@@ -1271,7 +1298,7 @@
             based on a single loop, and calculating eventual backwards Yoyo loops as 1 to 0 instead of 0 to 1</summary>
         </member>
         <member name="M:DG.Tweening.TweenExtensions.IsActive(DG.Tweening.Tween)">
-            <summary>Returns FALSE if this tween has been killed.
+            <summary>Returns FALSE if this tween has been killed or is NULL, TRUE otherwise.
             <para>BEWARE: if this tween is recyclable it might have been spawned again for another use and thus return TRUE anyway.</para>
             When working with recyclable tweens you should take care to know when a tween has been killed and manually set your references to NULL.
             If you want to be sure your references are set to NULL when a tween is killed you can use the <code>OnKill</code> callback like this:
@@ -1778,7 +1805,7 @@
             Also stores the transform as the tween's target so it can be used for filtered operations</summary>
             <param name="path">The waypoints to go through</param>
             <param name="duration">The duration of the tween</param>
-            <param name="pathType">The type of path: Linear (straight path) or CatmullRom (curved CatmullRom path)</param>
+            <param name="pathType">The type of path: Linear (straight path), CatmullRom (curved CatmullRom path) or CubicBezier (curved with control points)</param>
             <param name="pathMode">The path mode: 3D, side-scroller 2D, top-down 2D</param>
             <param name="resolution">The resolution of the path (useless in case of Linear paths): higher resolutions make for more detailed curved paths but are more expensive.
             Defaults to 10, but a value of 5 is usually enough if you don't have dramatic long curves between waypoints</param>
@@ -1789,7 +1816,7 @@
             Also stores the transform as the tween's target so it can be used for filtered operations</summary>
             <param name="path">The waypoint to go through</param>
             <param name="duration">The duration of the tween</param>
-            <param name="pathType">The type of path: Linear (straight path) or CatmullRom (curved CatmullRom path)</param>
+            <param name="pathType">The type of path: Linear (straight path), CatmullRom (curved CatmullRom path) or CubicBezier (curved with control points)</param>
             <param name="pathMode">The path mode: 3D, side-scroller 2D, top-down 2D</param>
             <param name="resolution">The resolution of the path: higher resolutions make for more detailed curved paths but are more expensive.
             Defaults to 10, but a value of 5 is usually enough if you don't have dramatic long curves between waypoints</param>
@@ -2419,27 +2446,37 @@
             then immediately sends the target to the previously set endValue.</summary>
             <param name="isRelative">If TRUE the FROM value will be calculated as relative to the current one</param>
         </member>
-        <member name="M:DG.Tweening.TweenSettingsExtensions.From``3(DG.Tweening.Core.TweenerCore{``0,``1,``2},``1,System.Boolean)">
+        <member name="M:DG.Tweening.TweenSettingsExtensions.From``3(DG.Tweening.Core.TweenerCore{``0,``1,``2},``1,System.Boolean,System.Boolean)">
             <summary>Changes a TO tween into a FROM tween: sets the tween's starting value to the given one
             and eventually sets the tween's target to that value immediately.</summary>
             <param name="fromValue">Value to start from</param>
             <param name="setImmediately">If TRUE sets the target to from value immediately, otherwise waits for the tween to start</param>
         </member>
-        <member name="M:DG.Tweening.TweenSettingsExtensions.From(DG.Tweening.Core.TweenerCore{UnityEngine.Color,UnityEngine.Color,DG.Tweening.Plugins.Options.ColorOptions},System.Single,System.Boolean)">
+        <member name="M:DG.Tweening.TweenSettingsExtensions.From(DG.Tweening.Core.TweenerCore{UnityEngine.Color,UnityEngine.Color,DG.Tweening.Plugins.Options.ColorOptions},System.Single,System.Boolean,System.Boolean)">
             <summary>Changes a TO tween into a FROM tween: sets the tween's starting value to the given one
             and eventually sets the tween's target to that value immediately.</summary>
             <param name="fromAlphaValue">Alpha value to start from (in case of Fade tweens)</param>
             <param name="setImmediately">If TRUE sets the target to from value immediately, otherwise waits for the tween to start</param>
         </member>
-        <member name="M:DG.Tweening.TweenSettingsExtensions.From(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions},System.Single,System.Boolean)">
+        <member name="M:DG.Tweening.TweenSettingsExtensions.From(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,UnityEngine.Vector3,DG.Tweening.Plugins.Options.VectorOptions},System.Single,System.Boolean,System.Boolean)">
             <summary>Changes a TO tween into a FROM tween: sets the tween's starting value to the given one
             and eventually sets the tween's target to that value immediately.</summary>
             <param name="fromValue">Value to start from (in case of Vector tweens that act on a single coordinate or scale tweens)</param>
             <param name="setImmediately">If TRUE sets the target to from value immediately, otherwise waits for the tween to start</param>
         </member>
         <member name="M:DG.Tweening.TweenSettingsExtensions.SetDelay``1(``0,System.Single)">
-            <summary>Sets a delayed startup for the tween.
-            <para>Has no effect on Sequences or if the tween has already started</para></summary>
+            <summary>Sets a delayed startup for the tween.<para/>
+            In case of Sequences behaves the same as <see cref="M:DG.Tweening.TweenSettingsExtensions.PrependInterval(DG.Tweening.Sequence,System.Single)"/>,
+            which means the delay will repeat in case of loops (while with tweens it's ignored after the first loop cycle).<para/>
+            Has no effect if the tween has already started</summary>
+        </member>
+        <member name="M:DG.Tweening.TweenSettingsExtensions.SetDelay``1(``0,System.Single,System.Boolean)">
+            <summary>EXPERIMENTAL: implemented in v1.2.340.<para/>
+            Sets a delayed startup for the tween with options to choose how the delay is applied in case of Sequences.<para/>
+            Has no effect if the tween has already started</summary>
+            <param name="asPrependedIntervalIfSequence">Only used by <see cref="T:DG.Tweening.Sequence"/> types: If FALSE sets the delay as a one-time occurrence
+            (defaults to this for <see cref="T:DG.Tweening.Tweener"/> types),
+            otherwise as a Sequence interval which will repeat at the beginning of every loop cycle</param>
         </member>
         <member name="M:DG.Tweening.TweenSettingsExtensions.SetRelative``1(``0)">
             <summary>Sets the tween as relative
@@ -2546,6 +2583,13 @@
             If left to NULL defaults to the regular forward side of the transform</param>
             <param name="up">The vector that defines in which direction up is (default: Vector3.up)</param>
         </member>
+        <member name="M:DG.Tweening.TweenSettingsExtensions.SetLookAt(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,DG.Tweening.Plugins.Core.PathCore.Path,DG.Tweening.Plugins.Options.PathOptions},UnityEngine.Vector3,System.Boolean)">
+            <summary>Additional LookAt options for Path tweens (created via the <code>DOPath</code> shortcut).
+            Orients the target towards the given position with options to keep the Z rotation stable.
+            Must be chained directly to the tween creation method or to a <code>SetOptions</code></summary>
+            <param name="lookAtPosition">The position to look at</param>
+            <param name="stableZRotation">If TRUE doesn't rotate the target along the Z axis</param>
+        </member>
         <member name="M:DG.Tweening.TweenSettingsExtensions.SetLookAt(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,DG.Tweening.Plugins.Core.PathCore.Path,DG.Tweening.Plugins.Options.PathOptions},UnityEngine.Transform,System.Nullable{UnityEngine.Vector3},System.Nullable{UnityEngine.Vector3})">
             <summary>Additional LookAt options for Path tweens (created via the <code>DOPath</code> shortcut).
             Orients the target towards another transform.
@@ -2555,6 +2599,13 @@
             If left to NULL defaults to the regular forward side of the transform</param>
             <param name="up">The vector that defines in which direction up is (default: Vector3.up)</param>
         </member>
+        <member name="M:DG.Tweening.TweenSettingsExtensions.SetLookAt(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,DG.Tweening.Plugins.Core.PathCore.Path,DG.Tweening.Plugins.Options.PathOptions},UnityEngine.Transform,System.Boolean)">
+            <summary>Additional LookAt options for Path tweens (created via the <code>DOPath</code> shortcut).
+            Orients the target towards another transform with options to keep the Z rotation stable.
+            Must be chained directly to the tween creation method or to a <code>SetOptions</code></summary>
+            <param name="lookAtTransform">The transform to look at</param>
+            <param name="stableZRotation">If TRUE doesn't rotate the target along the Z axis</param>
+        </member>
         <member name="M:DG.Tweening.TweenSettingsExtensions.SetLookAt(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,DG.Tweening.Plugins.Core.PathCore.Path,DG.Tweening.Plugins.Options.PathOptions},System.Single,System.Nullable{UnityEngine.Vector3},System.Nullable{UnityEngine.Vector3})">
             <summary>Additional LookAt options for Path tweens (created via the <code>DOPath</code> shortcut).
             Orients the target to the path, with the given lookAhead.
@@ -2563,6 +2614,13 @@
             <param name="forwardDirection">The eventual direction to consider as "forward".
             If left to NULL defaults to the regular forward side of the transform</param>
             <param name="up">The vector that defines in which direction up is (default: Vector3.up)</param>
+        </member>
+        <member name="M:DG.Tweening.TweenSettingsExtensions.SetLookAt(DG.Tweening.Core.TweenerCore{UnityEngine.Vector3,DG.Tweening.Plugins.Core.PathCore.Path,DG.Tweening.Plugins.Options.PathOptions},System.Single,System.Boolean)">
+            <summary>Additional LookAt options for Path tweens (created via the <code>DOPath</code> shortcut).
+            Orients the path with options to keep the Z rotation stable.
+            Must be chained directly to the tween creation method or to a <code>SetOptions</code></summary>
+            <param name="lookAhead">The percentage of lookAhead to use (0 to 1)</param>
+            <param name="stableZRotation">If TRUE doesn't rotate the target along the Z axis</param>
         </member>
         <member name="T:DG.Tweening.LogBehaviour">
             <summary>
@@ -2634,11 +2692,19 @@
         <member name="P:DG.Tweening.Tween.isRelative">
             <summary>Tweeners-only (ignored by Sequences), returns TRUE if the tween was set as relative</summary>
         </member>
+        <member name="F:DG.Tweening.Tween.debugTargetId">
+            <summary>
+            Set by SetTarget if DOTween's Debug Mode is on (see DOTween Utility Panel -> "Store GameObject's ID" debug option
+            </summary>
+        </member>
         <member name="P:DG.Tweening.Tween.active">
             <summary>FALSE when tween is (or should be) despawned - set only by TweenManager</summary>
         </member>
         <member name="P:DG.Tweening.Tween.fullPosition">
             <summary>Gets and sets the time position (loops included, delays excluded) of the tween</summary>
+        </member>
+        <member name="P:DG.Tweening.Tween.hasLoops">
+            <summary>Returns TRUE if the tween is set to loop (either a set number of times or infinitely)</summary>
         </member>
         <member name="P:DG.Tweening.Tween.playedOnce">
             <summary>TRUE after the tween was set in a play state at least once, AFTER any delay is elapsed</summary>
