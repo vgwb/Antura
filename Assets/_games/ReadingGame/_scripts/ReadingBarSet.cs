@@ -383,7 +383,7 @@ namespace Antura.Minigames.ReadingGame
                                     {
                                         ((ReadingGameGame)(ReadingGameGame.I)).hiddenText.gameObject.SetActive(false);
                                         bars[0].transform.parent.gameObject.SetActive(false);
-                                        KeeperManager.I.PlayDialogue(LocalizationDataId.Song_alphabet_SingWithMe, false, keeperMode:KeeperMode.SubtitlesOnly);
+                                        //KeeperManager.I.PlayDialogue(LocalizationDataId.Song_alphabet_SingWithMe, false, keeperMode:KeeperMode.SubtitlesOnly);
                                     }
                                 }
                             }
