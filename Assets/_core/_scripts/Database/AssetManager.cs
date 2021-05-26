@@ -37,7 +37,7 @@ namespace Antura
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
                 iconKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(iconKeys, spriteCache);
+            yield return LoadAssets(iconKeys, spriteCache, AppManager.BlockingLoad);
 
             // Badges
             if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
@@ -47,7 +47,7 @@ namespace Antura
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
                 badgeKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(badgeKeys, spriteCache);
+            yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
 
             // Side data
             if (VERBOSE) Debug.Log("[Assets] Preloading Side Data");
@@ -56,7 +56,7 @@ namespace Antura
             {
                 sideKeys.Add($"{languageCode}/SideData/Letters/sideletter_{letterData.Id}");
             }
-            yield return LoadAssets(sideKeys, sideDataCache);
+            yield return LoadAssets(sideKeys, sideDataCache, AppManager.BlockingLoad);
 
 
             // Song data
@@ -71,13 +71,13 @@ namespace Antura
             songAudioKeys.Add($"{prefix}SimonSong_Main_120");
             songAudioKeys.Add($"{prefix}SimonSong_Main_140");
             songAudioKeys.Add($"{prefix}SimonSong_Main_160");
-            yield return LoadAssets(songAudioKeys, audioCache);
+            yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
 
             var songTextKeys = new HashSet<string>();
             prefix = $"{languageCode}/Audio/Songs/";
             songTextKeys.Add($"{prefix}AlphabetSong.akr");
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
-            yield return LoadAssets(songTextKeys, textCache);
+            yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
         }
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
@@ -86,7 +86,7 @@ namespace Antura
             cache.Clear();
         }
 
-        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache) where T : UnityEngine.Object
+        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache, bool sync = false) where T : UnityEngine.Object
         {
             int n = 0;
             Debug.Log($"Loading {keys.Count}");
@@ -95,7 +95,14 @@ namespace Antura
                     cache[obj.name] = obj;
                     n++;
                 }, Addressables.MergeMode.Union);
-            yield return op;
+
+            while (!op.IsDone)
+            {
+                if (sync) op.WaitForCompletion();
+                else yield return null;
+            }
+
+            //yield return op;
             Debug.Log($"Found {n} items");
         }
 

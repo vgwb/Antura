@@ -56,14 +56,14 @@ namespace Antura.Language
             if (loadedLanguageData.ContainsKey(language)) yield break;
             var languageData = new LanguageData();
 
-            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r);
+            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, AppManager.BlockingLoad);
 
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
-            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r);
+            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, AppManager.BlockingLoad);
 
             if (languageData.helper == null)
             {

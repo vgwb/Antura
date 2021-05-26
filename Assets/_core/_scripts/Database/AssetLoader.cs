@@ -7,6 +7,7 @@ namespace Antura
 {
     public static class AssetLoader
     {
+
         public static IEnumerator ValidateAndLoad<T>(string key, Action<T> callback)
         {
             var validateAddress = Addressables.LoadResourceLocationsAsync(key);
@@ -24,11 +25,15 @@ namespace Antura
             }
         }
 
-        public static IEnumerator Load<T>(string path, Action<T> callback)
+        public static IEnumerator Load<T>(string path, Action<T> callback, bool sync = false)
         {
            // Debug.LogError("Start loading " + path);
            var async = Addressables.LoadAssetAsync<T>(path);
-           while (!async.IsDone) yield return null;
+           while (!async.IsDone)
+           {
+               if (sync) async.WaitForCompletion();
+               else yield return null;
+           }
            if (async.OperationException != null)
            {
                Debug.LogError(async.OperationException);

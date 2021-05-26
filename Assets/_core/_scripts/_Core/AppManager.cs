@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
@@ -79,6 +80,16 @@ namespace Antura.Core
         /// </summary>
         public bool Loaded;
 
+
+        /// <summary>
+        /// If true, the initial load will be blocking. Used for editor use when not loading from bootstrap
+        /// </summary>
+#if UNITY_EDITOR
+        public static bool BlockingLoad = true;
+#else
+        public static bool BlockingLoad = false;
+#endif
+
         protected override void Awake()
         {
             GetComponent<AppBootstrap>().InitManagers();
@@ -99,7 +110,37 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
-            StartCoroutine(InitCO());
+            if (BlockingLoad)
+            {
+                BlockingCoroutine(InitCO());
+            }
+            else
+            {
+                StartCoroutine(InitCO());
+            }
+
+        }
+
+        private void BlockingCoroutine(IEnumerator c)
+        {
+            Stack<IEnumerator> stack = new Stack<IEnumerator>();
+            stack.Push(c);
+            while(stack.Count > 0)
+            {
+                var peek = stack.Peek();
+                bool result = peek.MoveNext();
+                if (result)
+                {
+                    if (peek.Current != null)
+                    {
+                        stack.Push(peek.Current as IEnumerator);
+                    }
+                }
+                else
+                {
+                    stack.Pop();
+                }
+            }
         }
 
         private IEnumerator InitCO()
