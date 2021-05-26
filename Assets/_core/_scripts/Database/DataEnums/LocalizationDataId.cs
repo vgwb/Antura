@@ -592,7 +592,7 @@ namespace Antura.Database
       UI_WordCat_Food = 319,
       UI_WordCat_Greetings = 397,
       UI_WordCat_Home = 493,
-      UI_WordCat_Jobs = 692,
+      UI_WordCat_Jobs = 700,
       UI_WordCat_Math = 696,
       UI_WordCat_Months = 602,
       UI_WordCat_Names = 396,
