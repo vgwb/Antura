@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 using System.Collections.Generic;
 using Antura.LivingLetters;
@@ -57,7 +58,7 @@ namespace Antura.Minigames.Egg
 
         void PlayTutorial()
         {
-            if (game.ShowTutorial) 
+            if (game.ShowTutorial)
                 game.PlayTutorial(SetAndShowEggButtons);
             else
                 SetAndShowEggButtons();
@@ -82,10 +83,10 @@ namespace Antura.Minigames.Egg
 
             game.eggController.EmoticonInterrogative();
 
-            ShowQuestionSequence();
+            game.StartCoroutine(ShowQuestionSequence());
         }
 
-        void ShowQuestionSequence()
+        IEnumerator ShowQuestionSequence()
         {
             bool isSequence = game.CurrentQuestion.IsSequence();
 
@@ -93,7 +94,7 @@ namespace Antura.Minigames.Egg
             {
                 game.eggController.SetQuestion(game.CurrentQuestion.Question);
                 game.eggController.SetAnswers(game.CurrentQuestion.Answers);
-                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f, OnQuestionAudioComplete);
+                yield return game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f, OnQuestionAudioComplete, yieldDuration:true);
             }
             else
             {
@@ -103,7 +104,7 @@ namespace Antura.Minigames.Egg
                 game.eggController.PlayAudioQuestion(delegate ()
                 {
                     EnableEggButtonsInput();
-                    game.eggButtonBox.PlayButtonsAudio(null, null, true, true, 0.5f, OnQuestionAudioComplete);
+                    game.StartCoroutine(game.eggButtonBox.PlayButtonsAudio(null, null, true, true, 0.5f, OnQuestionAudioComplete));
                 });
             }
         }

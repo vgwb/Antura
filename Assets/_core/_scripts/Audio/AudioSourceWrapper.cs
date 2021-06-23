@@ -1,4 +1,8 @@
-﻿using Antura.Minigames;
+﻿using System.Collections;
+using Antura.Core;
+using Antura.Language;
+using Antura.Minigames;
+using Antura.Profile;
 using DG.DeAudio;
 using UnityEngine;
 
@@ -8,6 +12,11 @@ namespace Antura.Audio
     {
         public DeAudioGroup Group { get; private set; }
         public DeAudioSource CurrentSource;
+
+        public SourcePath Path { get; private set; }
+
+        public bool Asynch = false;
+        public bool Loaded = false;
 
         AudioClip clip;
         AudioManager manager;
@@ -25,6 +34,8 @@ namespace Antura.Audio
                 return CurrentSource.isPlaying;
             }
         }
+
+        public bool IsLoaded => Loaded;
 
         bool loop;
 
@@ -151,6 +162,7 @@ namespace Antura.Audio
             return false;
         }
 
+        // Synch loading
         public AudioSourceWrapper(DeAudioSource source, DeAudioGroup group, AudioManager manager)
         {
             this.CurrentSource = source;
@@ -164,5 +176,28 @@ namespace Antura.Audio
 
             manager.OnAudioStarted(this);
         }
+
+        // Asynch loading
+        public AudioSourceWrapper(SourcePath path, DeAudioGroup group, AudioManager manager)
+        {
+            this.Path = path;
+            this.Group = group;
+            this.manager = manager;
+            this.Asynch = true;
+            this.Loaded = false;
+            manager.OnAudioStarted(this);
+        }
+
+        public void ApplyClip(AudioClip clip)
+        {
+            var source = Group.Play(clip);
+            this.CurrentSource = source;
+            this.clip = source.clip;
+            duration = source.duration;
+            loop = source.loop;
+            volume = source.volume;
+            pitch = source.pitch;
+        }
+
     }
 }

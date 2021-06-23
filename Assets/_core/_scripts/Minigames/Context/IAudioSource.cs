@@ -14,6 +14,8 @@ namespace Antura.Minigames
 
         bool IsPlaying { get; }
 
+        bool IsLoaded { get; }
+
         void Play();
         void Pause();
         void Stop();

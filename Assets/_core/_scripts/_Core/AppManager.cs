@@ -1,3 +1,6 @@
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
@@ -44,6 +47,7 @@ namespace Antura.Core
         public PlayerProfileManager PlayerProfileManager;
         public RewardSystemManager RewardSystemManager;
         public FacebookManager FacebookManager;
+        public AssetManager AssetManager;
 
         [HideInInspector]
         public NavigationManager NavigationManager;
@@ -71,6 +75,21 @@ namespace Antura.Core
         /// </summary>
         private bool alreadySetup;
 
+        /// <summary>
+        /// Set to true only after the application has finished loading everything
+        /// </summary>
+        public bool Loaded;
+
+
+        /// <summary>
+        /// If true, the initial load will be blocking. Used for editor use when not loading from bootstrap
+        /// </summary>
+#if UNITY_EDITOR
+        public static bool BlockingLoad = true;
+#else
+        public static bool BlockingLoad = false;
+#endif
+
         protected override void Awake()
         {
             GetComponent<AppBootstrap>().InitManagers();
@@ -91,9 +110,45 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
-            AppSettingsManager = new AppSettingsManager();
+            if (BlockingLoad)
+            {
+                BlockingCoroutine(InitCO());
+            }
+            else
+            {
+                StartCoroutine(InitCO());
+            }
 
-            ReloadEdition();
+        }
+
+        private void BlockingCoroutine(IEnumerator c)
+        {
+            Stack<IEnumerator> stack = new Stack<IEnumerator>();
+            stack.Push(c);
+            while(stack.Count > 0)
+            {
+                var peek = stack.Peek();
+                bool result = peek.MoveNext();
+                if (result)
+                {
+                    if (peek.Current != null)
+                    {
+                        stack.Push(peek.Current as IEnumerator);
+                    }
+                }
+                else
+                {
+                    stack.Pop();
+                }
+            }
+        }
+
+        private IEnumerator InitCO()
+        {
+            AppSettingsManager = new AppSettingsManager();
+            AssetManager = new AssetManager();
+
+            yield return ReloadEdition();
 
             // TODO refactor: standardize initialisation of managers
             VocabularyHelper = new VocabularyHelper(DB);
@@ -136,21 +191,24 @@ namespace Antura.Core
             AppSettingsManager.UpdateAppVersion();
 
             Time.timeScale = 1;
+            Loaded = true;
         }
 
-        public void ReloadEdition()
+        public IEnumerator ReloadEdition()
         {
             LanguageSwitcher = new LanguageSwitcher();
+            yield return LanguageSwitcher.LoadData();
             DB = new DatabaseManager(true);
+            yield return LanguageSwitcher.PreloadLocalizedDataCO();
         }
 
-        public void ResetLanguageSetup(LanguageCode langCode)
+        public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
             AppManager.I.SpecificEdition.NativeLanguage = langCode;
             AppManager.I.SpecificEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
-            LanguageSwitcher.ReloadNativeLanguage();
+            yield return LanguageSwitcher.ReloadNativeLanguage();
         }
 
         private void Start()
@@ -216,14 +274,17 @@ namespace Antura.Core
             IsPaused = pause;
             if (IsPaused) {
                 // app is pausing
-                LogManager.I.LogInfo(InfoEvent.AppSuspend);
+                if (LogManager.I != null) LogManager.I.LogInfo(InfoEvent.AppSuspend);
                 if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppSuspended();
                 }
             } else {
                 // app is resuming
-                LogManager.I.LogInfo(InfoEvent.AppResume);
-                LogManager.I.InitNewSession();
+                if (LogManager.I != null)
+                {
+                    LogManager.I.LogInfo(InfoEvent.AppResume);
+                    LogManager.I.InitNewSession();
+                }
                 if (AppManager.I.ParentEdition.EnableNotifications) {
                     Services.Notifications.AppResumed();
                 }

@@ -112,8 +112,8 @@ namespace Antura.UI
             Logo.gameObject.SetActive(!isLoadingMinigame);
             if (isLoadingMinigame) {
                 MiniGameData mgData = AppManager.I.NavigationManager.CurrentMiniGameData;
-                Icon.sprite = Resources.Load<Sprite>(mgData.GetIconResourcePath());
-                Sprite badgeSprite = Resources.Load<Sprite>(mgData.GetBadgeIconResourcePath());
+                Icon.sprite = AppManager.I.AssetManager.GetMainIcon(mgData);
+                Sprite badgeSprite = AppManager.I.AssetManager.GetBadgeIcon(mgData);
                 if (badgeSprite == null) {
                     Badge.gameObject.SetActive(false);
                 } else {

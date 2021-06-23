@@ -102,7 +102,7 @@ namespace Antura.UI
 
         private void UpdateText()
         {
-            if (LanguageSwitcher.I == null) return;
+            if (LanguageSwitcher.I == null || !AppManager.I.Loaded) return;
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (!isLetter && !isNumber && config.OverrideTextFonts) {

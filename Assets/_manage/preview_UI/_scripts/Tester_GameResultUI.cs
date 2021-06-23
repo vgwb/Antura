@@ -32,9 +32,9 @@ namespace Antura.Test
             MiniGameData d1 = new MiniGameData() { Main = MiniGameCode.DancingDots_lettername.ToString(), Variation = "alphabet" };
             MiniGameData d2 = new MiniGameData() { Main = MiniGameCode.MakeFriends_letterinword.ToString(), Variation = "counting" };
             List<EndsessionResultData> res = new List<EndsessionResultData>() {
-                new EndsessionResultData(2, d0.GetIconResourcePath(), d0.GetBadgeIconResourcePath()),
-                new EndsessionResultData(0, d1.GetIconResourcePath(), d1.GetBadgeIconResourcePath()),
-                new EndsessionResultData(3, d2.GetIconResourcePath(), d2.GetBadgeIconResourcePath()),
+                new EndsessionResultData(2, d0),
+                new EndsessionResultData(0, d1),
+                new EndsessionResultData(3, d2),
             };
             for (int i = 0; i < 3; ++i) {
                 int num = Mathf.Min(3, _totMinigamesStars);

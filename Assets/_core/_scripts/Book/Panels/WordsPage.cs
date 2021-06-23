@@ -137,10 +137,10 @@ namespace Antura.Book
             foreach (WordDataCategory wordCat in GenericHelper.SortEnums<WordDataCategory>()) {
                 if (wordCat == WordDataCategory.None) continue;
                 // TODO hack disable these word categories
-                if (wordCat == WordDataCategory.Expressions
-                    || wordCat == WordDataCategory.NumbersOrdinal
-                    || wordCat == WordDataCategory.StateOfBeing
-                    || wordCat == WordDataCategory.Jobs) continue;
+                //if (wordCat == WordDataCategory.Expressions
+                //    || wordCat == WordDataCategory.NumbersOrdinal
+                //    || wordCat == WordDataCategory.StateOfBeing
+                //    || wordCat == WordDataCategory.Jobs) continue;
 
                 if (GetWordsByCategory(wordCat).Count < 1) {
                     continue;

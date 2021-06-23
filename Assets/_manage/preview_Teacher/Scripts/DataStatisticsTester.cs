@@ -51,6 +51,7 @@ namespace Antura.Teacher.Test
         }
 
 
+        /*
         [DeMethodButton("Letter Audio PHONEME")]
         public void DoLetterAudioPhoneme()
         {
@@ -82,6 +83,7 @@ namespace Antura.Teacher.Test
                 data => AudioManager.I.GetAudioClip(data) == null,
                 data => AudioManager.I.GetAudioClip(data) == null ? "NO" : "ok");
         }
+        */
 
         // Find all letters that have no words in the same PS, or words that have no letters in the same PS
         [DeMethodButton("Data matching in PS")]

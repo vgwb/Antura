@@ -40,7 +40,7 @@ namespace Antura.Minigames
                 if (GameData == null || string.IsNullOrEmpty(GameData.IntroId))
                 {
                     Debug.LogWarning("No IntroID found for game " + GameData?.GetId());
-                    return LocalizationDataId.Game_Title;
+                    return LocalizationDataId.None;
                 }
                 return (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), GameData.IntroId);
             }

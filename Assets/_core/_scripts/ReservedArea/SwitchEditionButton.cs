@@ -1,4 +1,5 @@
-﻿using Antura.Core;
+﻿using System.Collections;
+using Antura.Core;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
@@ -26,8 +27,13 @@ namespace Antura.UI
 
         public void OnClick()
         {
+            StartCoroutine(OnClickCO());
+        }
+
+        private IEnumerator OnClickCO()
+        {
             AppManager.I.AppSettingsManager.SetSpecificEdition(edition);
-            AppManager.I.ReloadEdition();
+            yield return AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();
             AppManager.I.NavigationManager.GoToHome(true);
         }

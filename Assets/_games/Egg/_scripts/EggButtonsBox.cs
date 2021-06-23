@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Antura.Language;
 using Antura.LivingLetters;
@@ -395,7 +396,7 @@ namespace Antura.Minigames.Egg
             }
         }
 
-        public void PlayButtonsAudio(ILivingLetterData playBefore, ILivingLetterData playAfter, bool lightUp, bool inPositionOrder, float delay, Action endCallback, Action startCallback = null)
+        public IEnumerator PlayButtonsAudio(ILivingLetterData playBefore, ILivingLetterData playAfter, bool lightUp, bool inPositionOrder, float delay, Action endCallback, Action startCallback = null, bool yieldDuration = false)
         {
             List<EggButton> buttons = GetButtons(inPositionOrder);
 
@@ -404,8 +405,9 @@ namespace Antura.Minigames.Egg
 
             if (playBefore != null)
             {
-                var source = audioManager.PlayVocabularyData(playBefore);
-                if (source != null) delay += 0.5f + source.Duration;
+                var sourceWrapper = audioManager.PlayVocabularyData(playBefore);
+                while (!sourceWrapper.IsLoaded) yield return null;
+                delay += 0.5f + sourceWrapper.Duration;
             }
 
             for (int i = 0; i < buttons.Count; i++)
@@ -432,9 +434,12 @@ namespace Antura.Minigames.Egg
                     sCallback = startCallback;
                 }
 
-                delay += buttons[iRTL].PlayButtonAudio(lightUp, delay, eCallback, sCallback);
+                var delayRef = new Ref<float>();
+                yield return buttons[iRTL].PlayButtonAudio(lightUp, delay, eCallback, sCallback, delayRef);
+                delay += delayRef.v;
             }
         }
+
 
         public void StopButtonsAudio()
         {
@@ -462,5 +467,10 @@ namespace Antura.Minigames.Egg
 
             return newColor;
         }
+    }
+
+    public class Ref<T>
+    {
+        public T v;
     }
 }

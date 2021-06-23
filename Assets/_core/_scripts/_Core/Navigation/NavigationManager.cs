@@ -464,8 +464,7 @@ namespace Antura.Core
             if (NavData.CurrentMiniGameData == null) {
                 return;
             }
-            var res = new EndsessionResultData(_stars, NavData.CurrentMiniGameData.GetIconResourcePath(),
-                NavData.CurrentMiniGameData.GetBadgeIconResourcePath());
+            var res = new EndsessionResultData(_stars, NavData.CurrentMiniGameData);
             EndSessionResults.Add(res);
         }
 
@@ -604,7 +603,7 @@ namespace Antura.Core
 
                 // We finished an assessment.
                 if (AppManager.I.RewardSystemManager.AreAllJourneyPositionRewardsAlreadyUnlocked(NavData.CurrentPlayer.CurrentJourneyPosition)) {
-                    // Security Check (issue #475): if the reward for the current PS has already been unlocked 
+                    // Security Check (issue #475): if the reward for the current PS has already been unlocked
                     // we must be sure that the player is not on the most advanced PS, otherwise he/she would be stuck
                     // so we Increment MaxJourneyPosition to let him/her progress
                     if (NavData.CurrentPlayer.CurrentJourneyPosition.Equals(NavData.CurrentPlayer.MaxJourneyPosition)) {

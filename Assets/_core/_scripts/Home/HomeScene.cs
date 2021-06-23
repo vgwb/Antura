@@ -1,3 +1,4 @@
+using System.Collections;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
@@ -106,7 +107,11 @@ namespace Antura.Scenes
 
         public void ChangeLearningLanguage(LanguageCode langCode)
         {
-            AppManager.I.ResetLanguageSetup(langCode);
+            StartCoroutine(ChangeLearningLanguageCO(langCode));
+        }
+        private IEnumerator ChangeLearningLanguageCO(LanguageCode langCode)
+        {
+            yield return AppManager.I.ResetLanguageSetup(langCode);
             AppManager.I.NavigationManager.GoToHome(true);
         }
 

@@ -1,8 +1,8 @@
+using System.Collections;
 using Antura.Core;
-using Antura.Database;
 using System.Collections.Generic;
 using System.IO;
-using UnityEngine;
+using Antura.Audio;
 
 namespace Antura.Language
 {
@@ -30,40 +30,52 @@ namespace Antura.Language
         {
             useMapping = new Dictionary<LanguageUse, LanguageCode>();
             loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
-
-            LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
-            ReloadNativeLanguage();
-            LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
         }
 
-        public void ReloadNativeLanguage()
+        public IEnumerator LoadData()
         {
-            LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
+            yield return LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
+            yield return ReloadNativeLanguage();
+            yield return LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
         }
 
-        private void LoadLanguage(LanguageUse use, LanguageCode language)
+        public IEnumerator ReloadNativeLanguage()
+        {
+            yield return LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
+        }
+
+        private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)
         {
             useMapping[use] = language;
-            LoadLanguageData(language);
+            yield return LoadLanguageData(language);
         }
 
-        void LoadLanguageData(LanguageCode language)
+
+        IEnumerator LoadLanguageData(LanguageCode language)
         {
-            if (loadedLanguageData.ContainsKey(language)) return;
+            if (loadedLanguageData.ContainsKey(language)) yield break;
             var languageData = new LanguageData();
 
-            languageData.config = Resources.Load<LangConfig>($"{language}/LangConfig");
+            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, AppManager.BlockingLoad);
+
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
-            languageData.helper = Resources.Load<AbstractLanguageHelper>($"{language}/LanguageHelper");
-            if (languageData.config == null)
+            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, AppManager.BlockingLoad);
+
+            if (languageData.helper == null)
             {
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
+        }
+
+        public IEnumerator PreloadLocalizedDataCO()
+        {
+            yield return AudioManager.I.PreloadDataCO();
+            yield return AppManager.I.AssetManager.PreloadDataCO();
         }
 
         public ILanguageHelper GetHelper(LanguageUse use)
@@ -83,7 +95,6 @@ namespace Antura.Language
 
         public LangConfig GetLangConfig(LanguageCode code)
         {
-            LoadLanguageData(code);
             return loadedLanguageData[code].config;
         }
 

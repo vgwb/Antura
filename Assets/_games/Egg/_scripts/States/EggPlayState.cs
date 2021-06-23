@@ -1,3 +1,4 @@
+using System.Collections;
 using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
@@ -58,7 +59,7 @@ namespace Antura.Minigames.Egg
             }
 
             game.HintButton.gameObject.SetActive(true);
-            game.eggController.onEggPressedCallback = OnEggPressed;
+            game.eggController.onEggPressedCallback = OnHintPressed;
             UnityEngine.UI.Button.ButtonClickedEvent clickEvent = game.HintButton.onClick;
 
             if (clickEvent == null) {
@@ -265,12 +266,13 @@ namespace Antura.Minigames.Egg
 
         void OnHintPressed()
         {
-            if (!isPlayingQuestion) {
-                OnEggPressed();
+            if (!isPlayingQuestion)
+            {
+                game.StartCoroutine(OnEggPressed());
             }
         }
 
-        void OnEggPressed()
+        IEnumerator OnEggPressed()
         {
             DisableAllGameplayInput();
 
@@ -278,7 +280,7 @@ namespace Antura.Minigames.Egg
             isPlayingQuestion = true;
             if (isSequence)
             {
-                game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f,
+                yield return game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f,
                     () =>
                     {
                         isPlayingQuestion = false;
@@ -324,7 +326,7 @@ namespace Antura.Minigames.Egg
                 tutorialStop = true;
                 TutorialUI.Clear(false);
 
-                OnEggCrackComplete();
+                game.StartCoroutine(OnEggCrackComplete());
             } else {
                 PlayPositiveAudioFeedback();
                 game.eggController.EmoticonPositive();
@@ -399,16 +401,16 @@ namespace Antura.Minigames.Egg
             game.eggButtonBox.DisableButtonsInput();
         }
 
-        void OnEggCrackComplete()
+        IEnumerator OnEggCrackComplete()
         {
             tutorialStop = true;
             DisableAllGameplayInput();
             game.stagePositiveResult = true;
 
             if (isSequence) {
-                game.eggButtonBox.PlayButtonsAudio(null, game.CurrentQuestion.Question, true, false, 0.5f, OnLightUpButtonsComplete, () => { game.eggButtonBox.SetButtonsOnStandardColor(null, false); });
+                yield return game.eggButtonBox.PlayButtonsAudio(null, game.CurrentQuestion.Question, true, false, 0.5f, OnLightUpButtonsComplete, () => { game.eggButtonBox.SetButtonsOnStandardColor(null, false); });
             } else {
-                game.eggButtonBox.GetButtons(false)[0].PlayButtonAudio(true, 0.5f, OnLightUpButtonsComplete, () => { game.eggButtonBox.SetButtonsOnStandardColor(null, false); });
+                yield return game.eggButtonBox.GetButtons(false)[0].PlayButtonAudio(true, 0.5f, OnLightUpButtonsComplete, () => { game.eggButtonBox.SetButtonsOnStandardColor(null, false); });
             }
         }
 

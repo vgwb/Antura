@@ -32,7 +32,8 @@ namespace Antura.Book
             mainGameInfo = _MainMiniGame;
             panelManager = _manager;
 
-            var icoPath = mainGameInfo.GetIconResourcePath();
+            var firstMiniGame = mainGameInfo.variations[0].data;
+            var icon = AppManager.I.AssetManager.GetMainIcon(firstMiniGame);
 
             //// @note: we get the minigame saved score, which should be the maximum score achieved
             //// @note: I'm leaving the average-based method commented if we want to return to that logic
@@ -45,7 +46,7 @@ namespace Antura.Book
             //    //GetComponent<Image>().color = Color.grey;
             //}
 
-            Icon.sprite = Resources.Load<Sprite>(icoPath);
+            Icon.sprite = icon;
 
             isLocked = true;
             foreach (var gameVariation in mainGameInfo.variations) {

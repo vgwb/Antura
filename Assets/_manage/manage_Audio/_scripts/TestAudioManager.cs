@@ -27,12 +27,6 @@ namespace Antura.Test
             GlobalUI.ShowPauseMenu(false);
 
             InitUI();
-
-            foreach (var l in AppManager.I.DB.StaticDatabase.GetLetterTable().GetValuesTyped()) {
-                if (AudioManager.I.GetAudioClip(l) == null) {
-                    Debug.LogError("Cannot find audio file: " + l);
-                }
-            }
         }
 
         void InitUI()

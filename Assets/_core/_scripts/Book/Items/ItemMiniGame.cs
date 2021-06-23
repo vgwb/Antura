@@ -39,7 +39,7 @@ namespace Antura.Book
 
             //var icoPath = miniGameInfo.data.GetIconResourcePath();
             //Debug.Log("resource icon for " + miniGameInfo.data.GetId() + ":" + icoPath);
-            var badgePath = miniGameInfo.data.GetBadgeIconResourcePath();
+            var badge = AppManager.I.AssetManager.GetBadgeIcon(miniGameInfo.data);
 
             //// @note: we get the minigame saved score, which should be the maximum score achieved
             //// @note: I'm leaving the average-based method commented if we want to return to that logic
@@ -53,8 +53,9 @@ namespace Antura.Book
             }
 
             //Icon.sprite = Resources.Load<Sprite>(icoPath);
-            if (badgePath != "") {
-                BadgeIcon.sprite = Resources.Load<Sprite>(badgePath);
+            if (badge != null)
+            {
+                BadgeIcon.sprite = badge;
             }
         }
 

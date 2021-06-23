@@ -87,7 +87,7 @@ namespace Antura.UI
             TfTimer.text = Duration.ToString();
 
             // Shake tween
-            AudioClip alarmSfx = AudioManager.I.GetAudioClip(Sfx.DangerClockLong);
+            AudioClip alarmSfx = AudioManager.I.GetSfxAudioClip(Sfx.DangerClockLong);
             float duration = Mathf.Min(Duration, alarmSfx.length);
             shakeTween = DOTween.Sequence().SetAutoKill(false)
                 .Append(this.transform.DOShakeRotation(duration, new Vector3(0, 0, 20f), 20))
