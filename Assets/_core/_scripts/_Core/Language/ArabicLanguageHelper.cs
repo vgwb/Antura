@@ -976,8 +976,13 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE94", "0650"), new Vector2(0, 0));
 
             //////// SYMBOL shaddah
+            ///kasrah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0650", "0651"), new Vector2(0, 20));
+            ///fathah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("064E", "0651"), new Vector2(0, 160));
+            ///dammah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, 0));
+            ///
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
         }
 
@@ -1013,9 +1018,12 @@ namespace Antura.Language
 
                 Vector2 modificationDelta = new Vector2(0, 0);
                 for (int charPosition = 0; charPosition < characterCount - 1; charPosition++) {
+                    var UnicodeChar0 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character);
+                    var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character);
+
                     modificationDelta = FindDiacriticCombo2Fix(
-                        GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character),
-                        GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character)
+                        UnicodeChar0,
+                        UnicodeChar1
                     );
 
                     if (modificationDelta.sqrMagnitude > 0f) {
@@ -1040,6 +1048,24 @@ namespace Antura.Language
                         //          + " + "
                         //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character)
                         //          + " by " + modificationDelta);
+
+                        // check if shaddah
+                        if (UnicodeChar1 == "0651") {
+                            int materialIndex0 = textInfo.characterInfo[charPosition].materialReferenceIndex;
+                            int vertexIndex0 = textInfo.characterInfo[charPosition].vertexIndex;
+                            Vector3[] sourceVertices0 = textInfo.meshInfo[materialIndex0].vertices;
+
+                            float charsize0 = (sourceVertices0[vertexIndex0 + 2].y - sourceVertices0[vertexIndex0 + 0].y);
+                            float dx0 = 0f;
+                            float dy0 = charsize0 * 20f / 100f;
+                            Vector3 offset0 = new Vector3(dx0, dy0, 0f);
+
+                            Vector3[] destinationVertices0 = textInfo.meshInfo[materialIndex0].vertices;
+                            destinationVertices0[vertexIndex0 + 0] = sourceVertices0[vertexIndex0 + 0] + offset0;
+                            destinationVertices0[vertexIndex0 + 1] = sourceVertices0[vertexIndex0 + 1] + offset0;
+                            destinationVertices0[vertexIndex0 + 2] = sourceVertices0[vertexIndex0 + 2] + offset0;
+                            destinationVertices0[vertexIndex0 + 3] = sourceVertices0[vertexIndex0 + 3] + offset0;
+                        }
                     }
                 }
             }
