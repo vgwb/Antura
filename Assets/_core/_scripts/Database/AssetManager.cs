@@ -11,7 +11,7 @@ namespace Antura
 {
     public class AssetManager
     {
-        public static bool VERBOSE = true;
+        public static bool VERBOSE = false;
 
         private Dictionary<string, Sprite> spriteCache = new Dictionary<string, Sprite>();
         private Dictionary<string, SideLetterData> sideDataCache = new Dictionary<string, SideLetterData>();
@@ -89,7 +89,7 @@ namespace Antura
         private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache, bool sync = false) where T : UnityEngine.Object
         {
             int n = 0;
-            Debug.Log($"Loading {keys.Count}");
+            if (VERBOSE) Debug.Log($"Loading {keys.Count}");
             var op =
                 Addressables.LoadAssetsAsync<T>(keys, obj => {
                     cache[obj.name] = obj;
@@ -103,7 +103,7 @@ namespace Antura
             }
 
             //yield return op;
-            Debug.Log($"Found {n} items");
+            if (VERBOSE) Debug.Log($"Found {n} items");
         }
 
         public T Get<T>(Dictionary<string,T> cache, string key)
