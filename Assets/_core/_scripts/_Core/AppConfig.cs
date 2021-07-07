@@ -76,8 +76,8 @@ namespace Antura.Core
         public const string UrlCommunityTwitter = "https://twitter.com/AnturaGame";
         public const string UrlCommunityInstagram = "https://www.instagram.com/anturagame/";
         public const string UrlSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLScWxs5I0w-k8GlIgPFKoWBitMVJ9gxxJlKvGKOXzZsnAA0qNw/viewform";
-        public const string UrlGithubRepository = "https://github.com/vgwb/Antura_arabic";
-        public const string UrlDeveloperDocs = "https://vgwb.github.io/Antura_arabic/";
+        public const string UrlGithubRepository = "https://github.com/vgwb/Antura";
+        public const string UrlDeveloperDocs = "https://docs.antura.org";
 
         // files
         public const string PdfAndroidInstall = "TeacherManual.pdf";
