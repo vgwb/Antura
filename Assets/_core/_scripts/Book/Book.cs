@@ -22,6 +22,9 @@ namespace Antura.Book
         public GameObject JourneyPanel;
         public GameObject GamesPanel;
 
+        [Header("Debug")]
+        public bool TestShaddah;
+
         BookArea currentPanel = BookArea.None;
         BookArea previousPanel = BookArea.None;
 

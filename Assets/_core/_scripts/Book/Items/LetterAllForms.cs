@@ -1,5 +1,6 @@
 ﻿using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -12,12 +13,24 @@ namespace Antura.UI
         public TextRender LetterTextMedial;
         public TextRender LetterTextFinal;
 
+        private LetterData currentLetter;
+        private bool lastTestShaddah;
+
         public void Init(LetterData letterData)
         {
+            currentLetter = letterData;
             var isolatedChar = letterData.GetStringForDisplay(LetterForm.Isolated);
             var InitialChar = letterData.GetStringForDisplay(LetterForm.Initial);
             var MedialChar = letterData.GetStringForDisplay(LetterForm.Medial);
             var FinalChar = letterData.GetStringForDisplay(LetterForm.Final);
+
+            if (Book.Book.I.TestShaddah)
+            {
+                isolatedChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(isolatedChar + "\u0651");
+                InitialChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(InitialChar + "\u0651");
+                MedialChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(MedialChar + "\u0651");
+                FinalChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(FinalChar + "\u0651");
+            }
 
             LetterTextIsolated.SetTextUnfiltered(isolatedChar);
             LetterTextInitial.SetTextUnfiltered(InitialChar);
@@ -34,6 +47,15 @@ namespace Antura.UI
                 LetterTextInitial.gameObject.SetActive(true);
                 LetterTextMedial.gameObject.SetActive(true);
                 LetterTextFinal.gameObject.SetActive(true);
+            }
+        }
+
+        void Update()
+        {
+            if (lastTestShaddah != Book.Book.I.TestShaddah)
+            {
+                lastTestShaddah = Book.Book.I.TestShaddah;
+                Init(currentLetter);
             }
         }
     }
