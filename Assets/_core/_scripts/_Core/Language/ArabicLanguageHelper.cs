@@ -1029,37 +1029,17 @@ namespace Antura.Language
                     if (modificationDelta.sqrMagnitude > 0f) {
                         changed = true;
 
-                        if (UnicodeChar2 == "0651") {
-                            int materialIndex1 = textInfo.characterInfo[charPosition].materialReferenceIndex;
-                            int vertexIndex1 = textInfo.characterInfo[charPosition].vertexIndex;
-                            Vector3[] Vertices1 = textInfo.meshInfo[materialIndex1].vertices;
+                        if ((UnicodeChar1 == "064F" || UnicodeChar1 == "064E" || UnicodeChar1 == "0652") && UnicodeChar2 == "0651")
+                        {
+                            // Place the shaddah where the diacritic is
+                            CopyPosition(textInfo, charPosition + 1, charPosition);
 
-                            float charsize1 = (Vertices1[vertexIndex1 + 2].y - Vertices1[vertexIndex1 + 0].y);
-                            float dx1 = 0f;
-                            float dy1 = charsize1 * 100f / 100f;
-                            Vector3 offset1 = new Vector3(dx1, dy1, 0f);
-
-                            Vertices1[vertexIndex1 + 0] = Vertices1[vertexIndex1 + 0] + offset1;
-                            Vertices1[vertexIndex1 + 1] = Vertices1[vertexIndex1 + 1] + offset1;
-                            Vertices1[vertexIndex1 + 2] = Vertices1[vertexIndex1 + 2] + offset1;
-                            Vertices1[vertexIndex1 + 3] = Vertices1[vertexIndex1 + 3] + offset1;
-
-                            Debug.Log("#### FIX SHADDAD " + UnicodeChar1);
-                        } else {
-                            int materialIndex2 = textInfo.characterInfo[charPosition + 1].materialReferenceIndex;
-                            int vertexIndex2 = textInfo.characterInfo[charPosition + 1].vertexIndex;
-                            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
-
-                            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
-                            float dx2 = charsize2 * modificationDelta.x / 100f;
-                            float dy2 = charsize2 * modificationDelta.y / 100f;
-                            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
-
-                            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
-                            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
-                            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
-                            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
-
+                            // Move the diacritic a bit above
+                            ApplyOffset(textInfo, charPosition, new Vector2(0f, 100f));
+                        }
+                        else
+                        {
+                            ApplyOffset(textInfo, charPosition + 1, modificationDelta);
                             //Debug.Log("DIACRITIC FIX: "
                             //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character)
                             //          + " + "
@@ -1071,6 +1051,39 @@ namespace Antura.Language
                 }
             }
             return changed;
+        }
+
+        private void ApplyOffset(TMPro.TMP_TextInfo textInfo, int charPosition, Vector2 modificationDelta)
+        {
+            int materialIndex2 = textInfo.characterInfo[charPosition].materialReferenceIndex;
+            int vertexIndex2 = textInfo.characterInfo[charPosition].vertexIndex;
+            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
+
+            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
+            float dx2 = charsize2 * modificationDelta.x / 100f;
+            float dy2 = charsize2 * modificationDelta.y / 100f;
+            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
+
+            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
+            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
+            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
+            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
+        }
+
+        private void CopyPosition(TMPro.TMP_TextInfo textInfo, int charFrom, int charTo)
+        {
+            int materialIndex2 = textInfo.characterInfo[charTo].materialReferenceIndex;
+            int vertexIndex2 = textInfo.characterInfo[charTo].vertexIndex;
+            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
+
+            int materialIndex1 = textInfo.characterInfo[charFrom].materialReferenceIndex;
+            int vertexIndex1 = textInfo.characterInfo[charFrom].vertexIndex;
+            Vector3[] Vertices1 = textInfo.meshInfo[materialIndex1].vertices;
+
+            Vertices2[vertexIndex2 + 0] = Vertices1[vertexIndex1 + 0];
+            Vertices2[vertexIndex2 + 1] = Vertices1[vertexIndex1 + 1];
+            Vertices2[vertexIndex2 + 2] = Vertices1[vertexIndex1 + 2];
+            Vertices2[vertexIndex2 + 3] = Vertices1[vertexIndex1 + 3];
         }
 
         public override string DebugShowDiacriticFix(string unicode1, string unicode2)
