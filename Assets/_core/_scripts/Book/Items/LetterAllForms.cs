@@ -1,8 +1,6 @@
 ﻿using Antura.Core;
 using Antura.Database;
-using Antura.Language;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Antura.UI
 {
@@ -26,10 +24,10 @@ namespace Antura.UI
 
             if (Book.Book.I.TestShaddah)
             {
-                isolatedChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(isolatedChar + "\u0651");
-                InitialChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(InitialChar + "\u0651");
-                MedialChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(MedialChar + "\u0651");
-                FinalChar = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(FinalChar + "\u0651");
+                isolatedChar = isolatedChar + "\u0651";
+                InitialChar = InitialChar + "\u0651";
+                MedialChar = MedialChar + "\u0651";
+                FinalChar = FinalChar + "\u0651";
             }
 
             LetterTextIsolated.SetTextUnfiltered(isolatedChar);
