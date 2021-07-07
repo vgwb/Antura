@@ -977,11 +977,11 @@ namespace Antura.Language
 
             //////// SYMBOL shaddah
             ///kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0650", "0651"), new Vector2(0, 20));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0650", "0651"), new Vector2(0, -50));
             ///fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064E", "0651"), new Vector2(0, 160));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064E", "0651"), new Vector2(0, -50));
             ///dammah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, -50));
             ///
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
         }
@@ -1018,54 +1018,55 @@ namespace Antura.Language
 
                 Vector2 modificationDelta = new Vector2(0, 0);
                 for (int charPosition = 0; charPosition < characterCount - 1; charPosition++) {
-                    var UnicodeChar0 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character);
-                    var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character);
+                    var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character);
+                    var UnicodeChar2 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character);
 
                     modificationDelta = FindDiacriticCombo2Fix(
-                        UnicodeChar0,
-                        UnicodeChar1
+                        UnicodeChar1,
+                        UnicodeChar2
                     );
 
                     if (modificationDelta.sqrMagnitude > 0f) {
                         changed = true;
-                        int materialIndex = textInfo.characterInfo[charPosition + 1].materialReferenceIndex;
-                        int vertexIndex = textInfo.characterInfo[charPosition + 1].vertexIndex;
-                        Vector3[] sourceVertices = textInfo.meshInfo[materialIndex].vertices;
 
-                        float charsize = (sourceVertices[vertexIndex + 2].y - sourceVertices[vertexIndex + 0].y);
-                        float dx = charsize * modificationDelta.x / 100f;
-                        float dy = charsize * modificationDelta.y / 100f;
-                        Vector3 offset = new Vector3(dx, dy, 0f);
+                        if (UnicodeChar2 == "0651") {
+                            int materialIndex1 = textInfo.characterInfo[charPosition].materialReferenceIndex;
+                            int vertexIndex1 = textInfo.characterInfo[charPosition].vertexIndex;
+                            Vector3[] Vertices1 = textInfo.meshInfo[materialIndex1].vertices;
 
-                        Vector3[] destinationVertices = textInfo.meshInfo[materialIndex].vertices;
-                        destinationVertices[vertexIndex + 0] = sourceVertices[vertexIndex + 0] + offset;
-                        destinationVertices[vertexIndex + 1] = sourceVertices[vertexIndex + 1] + offset;
-                        destinationVertices[vertexIndex + 2] = sourceVertices[vertexIndex + 2] + offset;
-                        destinationVertices[vertexIndex + 3] = sourceVertices[vertexIndex + 3] + offset;
+                            float charsize1 = (Vertices1[vertexIndex1 + 2].y - Vertices1[vertexIndex1 + 0].y);
+                            float dx1 = 0f;
+                            float dy1 = charsize1 * 100f / 100f;
+                            Vector3 offset1 = new Vector3(dx1, dy1, 0f);
 
-                        //Debug.Log("DIACRITIC FIX: "
-                        //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character)
-                        //          + " + "
-                        //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character)
-                        //          + " by " + modificationDelta);
+                            Vertices1[vertexIndex1 + 0] = Vertices1[vertexIndex1 + 0] + offset1;
+                            Vertices1[vertexIndex1 + 1] = Vertices1[vertexIndex1 + 1] + offset1;
+                            Vertices1[vertexIndex1 + 2] = Vertices1[vertexIndex1 + 2] + offset1;
+                            Vertices1[vertexIndex1 + 3] = Vertices1[vertexIndex1 + 3] + offset1;
 
-                        // check if shaddah
-                        if (UnicodeChar1 == "0651") {
-                            int materialIndex0 = textInfo.characterInfo[charPosition].materialReferenceIndex;
-                            int vertexIndex0 = textInfo.characterInfo[charPosition].vertexIndex;
-                            Vector3[] sourceVertices0 = textInfo.meshInfo[materialIndex0].vertices;
+                            Debug.Log("#### FIX SHADDAD " + UnicodeChar1);
+                        } else {
+                            int materialIndex2 = textInfo.characterInfo[charPosition + 1].materialReferenceIndex;
+                            int vertexIndex2 = textInfo.characterInfo[charPosition + 1].vertexIndex;
+                            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
 
-                            float charsize0 = (sourceVertices0[vertexIndex0 + 2].y - sourceVertices0[vertexIndex0 + 0].y);
-                            float dx0 = 0f;
-                            float dy0 = charsize0 * 20f / 100f;
-                            Vector3 offset0 = new Vector3(dx0, dy0, 0f);
+                            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
+                            float dx2 = charsize2 * modificationDelta.x / 100f;
+                            float dy2 = charsize2 * modificationDelta.y / 100f;
+                            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
 
-                            Vector3[] destinationVertices0 = textInfo.meshInfo[materialIndex0].vertices;
-                            destinationVertices0[vertexIndex0 + 0] = sourceVertices0[vertexIndex0 + 0] + offset0;
-                            destinationVertices0[vertexIndex0 + 1] = sourceVertices0[vertexIndex0 + 1] + offset0;
-                            destinationVertices0[vertexIndex0 + 2] = sourceVertices0[vertexIndex0 + 2] + offset0;
-                            destinationVertices0[vertexIndex0 + 3] = sourceVertices0[vertexIndex0 + 3] + offset0;
+                            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
+                            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
+                            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
+                            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
+
+                            //Debug.Log("DIACRITIC FIX: "
+                            //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character)
+                            //          + " + "
+                            //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character)
+                            //          + " by " + modificationDelta);
                         }
+
                     }
                 }
             }
