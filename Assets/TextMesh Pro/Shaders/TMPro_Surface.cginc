@@ -25,7 +25,7 @@ void VertShader(inout appdata_full v, out Input data)
 	data.param.y = scale;
 #endif
 
-	data.param.x = (lerp(_WeightNormal, _WeightBold, bold) / 4.0 + _FaceDilate) * _ScaleRatioA * 0.5; // 
+	data.param.x = (lerp(_WeightNormal, _WeightBold, bold) / 4.0 + _FaceDilate) * _ScaleRatioA * 0.5; //
 
 	v.texcoord1.xy = UnpackUV(v.texcoord1.x);
 	data.viewDirEnv = mul((float3x3)_EnvMatrix, WorldSpaceViewDir(v.vertex));
@@ -82,7 +82,7 @@ void PixShader(Input input, inout SurfaceOutput o)
 	float3 n = float3(0, 0, -1);
 	float3 emission = float3(0, 0, 0);
 #endif
-	
+
 #if GLOW_ON
 	float4 glowColor = GetGlowColor(sd, scale);
 	glowColor.a *= input.color.a;
