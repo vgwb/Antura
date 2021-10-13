@@ -59,7 +59,7 @@ SubShader{
 		{
 			float4 vertex		: POSITION;
 			fixed4 color		: COLOR;
-			float2 texcoord0	: TEXCOORD0;
+			float4 texcoord0	: TEXCOORD0;
 			float2 texcoord1	: TEXCOORD1;
 		};
 
@@ -85,15 +85,6 @@ SubShader{
 		uniform float		_UIMaskSoftnessX;
         uniform float		_UIMaskSoftnessY;
 
-		float2 UnpackUV(float uv)
-		{
-			float2 output;
-			output.x = floor(uv / 4096);
-			output.y = uv - 4096 * output.x;
-
-			return output * 0.001953125;
-		}
-
 		v2f vert (appdata_t v)
 		{
 			float4 vert = v.vertex;
@@ -111,7 +102,7 @@ SubShader{
 			OUT.vertex = vPosition;
 			OUT.color = faceColor;
 			OUT.texcoord0 = v.texcoord0;
-			OUT.texcoord1 = TRANSFORM_TEX(UnpackUV(v.texcoord1), _FaceTex);
+			OUT.texcoord1 = TRANSFORM_TEX(v.texcoord1, _FaceTex);
 			float2 pixelSize = vPosition.w;
 			pixelSize /= abs(float2(_ScreenParams.x * UNITY_MATRIX_P[0][0], _ScreenParams.y * UNITY_MATRIX_P[1][1]));
 

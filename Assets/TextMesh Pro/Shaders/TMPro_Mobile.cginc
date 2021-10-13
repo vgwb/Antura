@@ -4,7 +4,7 @@
     float4	position		: POSITION;
     float3	normal			: NORMAL;
     float4	color			: COLOR;
-    float2	texcoord0		: TEXCOORD0;
+    float4	texcoord0		: TEXCOORD0;
     float2	texcoord1		: TEXCOORD1;
 };
 
@@ -41,7 +41,7 @@ pixel_t VertShader(vertex_t input)
     UNITY_TRANSFER_INSTANCE_ID(input, output);
     UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-    float bold = step(input.texcoord1.y, 0);
+    float bold = step(input.texcoord0.w, 0);
 
     float4 vert = input.position;
     vert.x += _VertexOffsetX;

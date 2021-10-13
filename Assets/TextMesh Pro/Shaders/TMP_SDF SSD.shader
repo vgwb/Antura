@@ -134,7 +134,7 @@ SubShader {
             float4	position        : POSITION;
             float3	normal          : NORMAL;
             float4	color           : COLOR;
-            float2	texcoord0       : TEXCOORD0;
+            float4	texcoord0       : TEXCOORD0;
             float2	texcoord1       : TEXCOORD1;
         };
 
@@ -177,7 +177,7 @@ SubShader {
             UNITY_TRANSFER_INSTANCE_ID(input,output);
             UNITY_INITIALIZE_VERTEX_OUTPUT_STEREO(output);
 
-            float bold = step(input.texcoord1.y, 0);
+            float bold = step(input.texcoord0.w, 0);
 
             float4 vert = input.position;
             vert.x += _VertexOffsetX;
@@ -201,7 +201,7 @@ SubShader {
             float4 clampedRect = clamp(_ClipRect, -2e10, 2e10);
 
             // Support for texture tiling and offset
-            float2 textureUV = UnpackUV(input.texcoord1.x);
+            float2 textureUV = input.texcoord1;
             float2 faceUV = TRANSFORM_TEX(textureUV, _FaceTex);
             float2 outlineUV = TRANSFORM_TEX(textureUV, _OutlineTex);
 
