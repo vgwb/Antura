@@ -55,7 +55,7 @@ namespace Antura.GoogleSheets
                     Debug.Log("get " + uri);
                     yield return webRequest.SendWebRequest();
 
-                    if (webRequest.isNetworkError || webRequest.isHttpError) {
+                    if ((webRequest.result == UnityWebRequest.Result.ConnectionError) || (webRequest.result == UnityWebRequest.Result.ProtocolError)) {
                         if (DebugOutput) Debug.Log("Error: " + webRequest.error);
                         break;
                     } else {
