@@ -1,0 +1,2068 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9d31b0142b8418b90aa63e247413e7a, type: 3}
+  m_Name: DiacriticsComboData
+  m_EditorClassIdentifier: 
+  page: 0
+  Keys:
+  - unicode1: 0627
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FE8E
+    unicode2: 064E
+    offsetX: -30
+    offsetY: 80
+  - unicode1: 0627
+    unicode2: 064F
+    offsetX: -30
+    offsetY: 80
+  - unicode1: FE8E
+    unicode2: 064F
+    offsetX: -50
+    offsetY: 80
+  - unicode1: 0627
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE8E
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0628
+    unicode2: 0650
+    offsetX: 160
+    offsetY: -130
+  - unicode1: FE91
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -130
+  - unicode1: FE92
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -130
+  - unicode1: FE90
+    unicode2: 0650
+    offsetX: 160
+    offsetY: -130
+  - unicode1: 0628
+    unicode2: 064E
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FE91
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE92
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE90
+    unicode2: 064E
+    offsetX: 150
+    offsetY: 0
+  - unicode1: 0628
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FE91
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE92
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE90
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 0
+  - unicode1: 0628
+    unicode2: 064F
+    offsetX: 130
+    offsetY: 0
+  - unicode1: FE91
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE92
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE90
+    unicode2: 064F
+    offsetX: 130
+    offsetY: 0
+  - unicode1: 062A
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 30
+  - unicode1: FE97
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 30
+  - unicode1: FE98
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 30
+  - unicode1: FE96
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 30
+  - unicode1: 062A
+    unicode2: 0650
+    offsetX: 160
+    offsetY: 0
+  - unicode1: FE97
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE98
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE96
+    unicode2: 0650
+    offsetX: 160
+    offsetY: 0
+  - unicode1: 062A
+    unicode2: 064E
+    offsetX: 90
+    offsetY: 0
+  - unicode1: FE97
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE98
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE96
+    unicode2: 064E
+    offsetX: 90
+    offsetY: 0
+  - unicode1: 062A
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FE97
+    unicode2: 064F
+    offsetX: -10
+    offsetY: 40
+  - unicode1: FE98
+    unicode2: 064F
+    offsetX: -10
+    offsetY: 40
+  - unicode1: FE96
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 062A
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE97
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE98
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FE96
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062B
+    unicode2: 0650
+    offsetX: 160
+    offsetY: 0
+  - unicode1: FE9B
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9C
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9A
+    unicode2: 0650
+    offsetX: 160
+    offsetY: 0
+  - unicode1: 062B
+    unicode2: 064E
+    offsetX: 100
+    offsetY: 40
+  - unicode1: FE9B
+    unicode2: 064E
+    offsetX: -20
+    offsetY: 80
+  - unicode1: FE9C
+    unicode2: 064E
+    offsetX: -20
+    offsetY: 80
+  - unicode1: FE9A
+    unicode2: 064E
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 062B
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 70
+  - unicode1: FE9B
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 90
+  - unicode1: FE9C
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 90
+  - unicode1: FE9A
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 70
+  - unicode1: 062B
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 40
+  - unicode1: FE9B
+    unicode2: 064F
+    offsetX: -30
+    offsetY: 70
+  - unicode1: FE9C
+    unicode2: 064F
+    offsetX: -30
+    offsetY: 70
+  - unicode1: FE9A
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 40
+  - unicode1: 062B
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9B
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9C
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 120
+  - unicode1: FE9A
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062C
+    unicode2: 064E
+    offsetX: 60
+    offsetY: -30
+  - unicode1: FE9F
+    unicode2: 064E
+    offsetX: 20
+    offsetY: -30
+  - unicode1: FEA0
+    unicode2: 064E
+    offsetX: 20
+    offsetY: -30
+  - unicode1: FE9E
+    unicode2: 064E
+    offsetX: 60
+    offsetY: -30
+  - unicode1: 062C
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9F
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEA0
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE9E
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062C
+    unicode2: 0650
+    offsetX: 90
+    offsetY: -260
+  - unicode1: FE9F
+    unicode2: 0650
+    offsetX: 30
+    offsetY: -110
+  - unicode1: FEA0
+    unicode2: 0650
+    offsetX: 30
+    offsetY: -110
+  - unicode1: FE9E
+    unicode2: 0650
+    offsetX: 90
+    offsetY: -260
+  - unicode1: 062C
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FE9F
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FEA0
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FE9E
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 062C
+    unicode2: 0651
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FE9F
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FEA0
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FE9E
+    unicode2: 0651
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 062D
+    unicode2: 064E
+    offsetX: 60
+    offsetY: -40
+  - unicode1: FEA3
+    unicode2: 064E
+    offsetX: 30
+    offsetY: -40
+  - unicode1: FEA4
+    unicode2: 064E
+    offsetX: 30
+    offsetY: -40
+  - unicode1: FEA2
+    unicode2: 064E
+    offsetX: 60
+    offsetY: -40
+  - unicode1: 062D
+    unicode2: 064F
+    offsetX: 50
+    offsetY: -40
+  - unicode1: FEA3
+    unicode2: 064F
+    offsetX: 10
+    offsetY: -40
+  - unicode1: FEA4
+    unicode2: 064F
+    offsetX: 40
+    offsetY: -40
+  - unicode1: FEA2
+    unicode2: 064F
+    offsetX: 40
+    offsetY: -40
+  - unicode1: 062D
+    unicode2: 0650
+    offsetX: 70
+    offsetY: -300
+  - unicode1: FEA3
+    unicode2: 0650
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEA4
+    unicode2: 0650
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEA2
+    unicode2: 0650
+    offsetX: 70
+    offsetY: -300
+  - unicode1: 062D
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEA3
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEA4
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEA2
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 062D
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEA3
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEA4
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEA2
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062E
+    unicode2: 0652
+    offsetX: 70
+    offsetY: 40
+  - unicode1: FEA7
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 20
+  - unicode1: FEA8
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 20
+  - unicode1: FEA6
+    unicode2: 0652
+    offsetX: 70
+    offsetY: 40
+  - unicode1: 062E
+    unicode2: 064F
+    offsetX: 40
+    offsetY: 40
+  - unicode1: FEA7
+    unicode2: 064F
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA8
+    unicode2: 064F
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA6
+    unicode2: 064F
+    offsetX: 40
+    offsetY: 40
+  - unicode1: 062E
+    unicode2: 064E
+    offsetX: 40
+    offsetY: 40
+  - unicode1: FEA7
+    unicode2: 064E
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA8
+    unicode2: 064E
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA6
+    unicode2: 064E
+    offsetX: 40
+    offsetY: 40
+  - unicode1: 062E
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 40
+  - unicode1: FEA7
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA8
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FEA6
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 40
+  - unicode1: 062E
+    unicode2: 0650
+    offsetX: 80
+    offsetY: -260
+  - unicode1: FEA7
+    unicode2: 0650
+    offsetX: 5
+    offsetY: 0
+  - unicode1: FEA8
+    unicode2: 0650
+    offsetX: 5
+    offsetY: 0
+  - unicode1: FEA6
+    unicode2: 0650
+    offsetX: 80
+    offsetY: -260
+  - unicode1: 062F
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAA
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062F
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAA
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062F
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAA
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 062F
+    unicode2: 0650
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FEAA
+    unicode2: 0650
+    offsetX: 20
+    offsetY: 0
+  - unicode1: 062F
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAA
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0630
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEAC
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0630
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEAC
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0630
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAC
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0630
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 110
+  - unicode1: FEAC
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 110
+  - unicode1: 0630
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 80
+  - unicode1: FEAC
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 80
+  - unicode1: 0631
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEAE
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0631
+    unicode2: 0650
+    offsetX: 50
+    offsetY: -200
+  - unicode1: FEAE
+    unicode2: 0650
+    offsetX: 50
+    offsetY: -200
+  - unicode1: 0631
+    unicode2: 0652
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEAE
+    unicode2: 0652
+    offsetX: 100
+    offsetY: 0
+  - unicode1: 0631
+    unicode2: 064E
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEAE
+    unicode2: 064E
+    offsetX: 100
+    offsetY: 0
+  - unicode1: 0631
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 0
+  - unicode1: FEAE
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 0
+  - unicode1: 0632
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 10
+  - unicode1: FEB0
+    unicode2: 064F
+    offsetX: 60
+    offsetY: 10
+  - unicode1: 0632
+    unicode2: 064E
+    offsetX: 90
+    offsetY: 0
+  - unicode1: FEB0
+    unicode2: 064E
+    offsetX: 90
+    offsetY: 0
+  - unicode1: 0632
+    unicode2: 0650
+    offsetX: 70
+    offsetY: -180
+  - unicode1: FEB0
+    unicode2: 0650
+    offsetX: 70
+    offsetY: -180
+  - unicode1: 0632
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 20
+  - unicode1: FEB0
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 20
+  - unicode1: 0632
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEB0
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0633
+    unicode2: 064F
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEB3
+    unicode2: 064F
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEB4
+    unicode2: 064F
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEB2
+    unicode2: 064F
+    offsetX: 200
+    offsetY: 0
+  - unicode1: 0633
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEB3
+    unicode2: 064E
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEB4
+    unicode2: 064E
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEB2
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 0
+  - unicode1: 0633
+    unicode2: 0650
+    offsetX: 80
+    offsetY: -160
+  - unicode1: FEB3
+    unicode2: 0650
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEB4
+    unicode2: 0650
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEB2
+    unicode2: 0650
+    offsetX: 80
+    offsetY: -160
+  - unicode1: 0633
+    unicode2: 0652
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEB3
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEB4
+    unicode2: 0652
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEB2
+    unicode2: 0652
+    offsetX: 300
+    offsetY: 0
+  - unicode1: 0633
+    unicode2: 0651
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEB3
+    unicode2: 0651
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEB4
+    unicode2: 0651
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEB2
+    unicode2: 0651
+    offsetX: 300
+    offsetY: 0
+  - unicode1: 0634
+    unicode2: 064F
+    offsetX: 210
+    offsetY: 50
+  - unicode1: FEB7
+    unicode2: 064F
+    offsetX: 110
+    offsetY: 60
+  - unicode1: FEB8
+    unicode2: 064F
+    offsetX: 110
+    offsetY: 60
+  - unicode1: FEB6
+    unicode2: 064F
+    offsetX: 230
+    offsetY: 60
+  - unicode1: 0634
+    unicode2: 064E
+    offsetX: 330
+    offsetY: 30
+  - unicode1: FEB7
+    unicode2: 064E
+    offsetX: 180
+    offsetY: 60
+  - unicode1: FEB8
+    unicode2: 064E
+    offsetX: 180
+    offsetY: 60
+  - unicode1: FEB6
+    unicode2: 064E
+    offsetX: 340
+    offsetY: 60
+  - unicode1: 0634
+    unicode2: 0650
+    offsetX: 340
+    offsetY: -30
+  - unicode1: FEB7
+    unicode2: 0650
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEB8
+    unicode2: 0650
+    offsetX: 100
+    offsetY: 0
+  - unicode1: FEB6
+    unicode2: 0650
+    offsetX: 340
+    offsetY: -30
+  - unicode1: 0634
+    unicode2: 0652
+    offsetX: 300
+    offsetY: 80
+  - unicode1: FEB7
+    unicode2: 0652
+    offsetX: 160
+    offsetY: 70
+  - unicode1: FEB8
+    unicode2: 0652
+    offsetX: 160
+    offsetY: 70
+  - unicode1: FEB6
+    unicode2: 0652
+    offsetX: 300
+    offsetY: 70
+  - unicode1: 0634
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEB7
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEB8
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEB6
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0635
+    unicode2: 064F
+    offsetX: 300
+    offsetY: -50
+  - unicode1: FEBB
+    unicode2: 064F
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEBC
+    unicode2: 064F
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEBA
+    unicode2: 064F
+    offsetX: 300
+    offsetY: 0
+  - unicode1: 0635
+    unicode2: 064E
+    offsetX: 400
+    offsetY: 0
+  - unicode1: FEBB
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEBC
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEBA
+    unicode2: 064E
+    offsetX: 400
+    offsetY: 0
+  - unicode1: 0635
+    unicode2: 0650
+    offsetX: 500
+    offsetY: -60
+  - unicode1: FEBB
+    unicode2: 0650
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEBC
+    unicode2: 0650
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEBA
+    unicode2: 0650
+    offsetX: 500
+    offsetY: -60
+  - unicode1: 0635
+    unicode2: 0652
+    offsetX: 380
+    offsetY: 0
+  - unicode1: FEBB
+    unicode2: 0652
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEBC
+    unicode2: 0652
+    offsetX: 200
+    offsetY: 0
+  - unicode1: FEBA
+    unicode2: 0652
+    offsetX: 380
+    offsetY: 0
+  - unicode1: 0635
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEBB
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEBC
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEBA
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0636
+    unicode2: 0652
+    offsetX: 300
+    offsetY: 0
+  - unicode1: FEBF
+    unicode2: 0652
+    offsetX: 160
+    offsetY: 0
+  - unicode1: FEC0
+    unicode2: 0652
+    offsetX: 180
+    offsetY: 0
+  - unicode1: FEBE
+    unicode2: 0652
+    offsetX: 250
+    offsetY: 0
+  - unicode1: 0636
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEBF
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC0
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEBE
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0636
+    unicode2: 0650
+    offsetX: 400
+    offsetY: -130
+  - unicode1: FEBF
+    unicode2: 0650
+    offsetX: 150
+    offsetY: 0
+  - unicode1: FEC0
+    unicode2: 0650
+    offsetX: 180
+    offsetY: 0
+  - unicode1: FEBE
+    unicode2: 0650
+    offsetX: 400
+    offsetY: -130
+  - unicode1: 0636
+    unicode2: 064E
+    offsetX: 400
+    offsetY: 0
+  - unicode1: FEBF
+    unicode2: 064E
+    offsetX: 190
+    offsetY: 0
+  - unicode1: FEC0
+    unicode2: 064E
+    offsetX: 210
+    offsetY: 0
+  - unicode1: FEBE
+    unicode2: 064E
+    offsetX: 400
+    offsetY: 0
+  - unicode1: 0636
+    unicode2: 064F
+    offsetX: 220
+    offsetY: 0
+  - unicode1: FEBF
+    unicode2: 064F
+    offsetX: 145
+    offsetY: 0
+  - unicode1: FEC0
+    unicode2: 064F
+    offsetX: 165
+    offsetY: 0
+  - unicode1: FEBE
+    unicode2: 064F
+    offsetX: 235
+    offsetY: 0
+  - unicode1: 0637
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC3
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC4
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC2
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 100
+  - unicode1: 0637
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC3
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC4
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC2
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0637
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC3
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC4
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC2
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: 0637
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC3
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC4
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC2
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0637
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC3
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC4
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC2
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: 0638
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC7
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC8
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC6
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 100
+  - unicode1: 0638
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC7
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC8
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC6
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0638
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC7
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC8
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEC6
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0638
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC7
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC8
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: FEC6
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 100
+  - unicode1: 0638
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC7
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC8
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEC6
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0639
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECB
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECC
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECA
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0639
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECB
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECC
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECA
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0639
+    unicode2: 0650
+    offsetX: 120
+    offsetY: -250
+  - unicode1: FECB
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECC
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECA
+    unicode2: 0650
+    offsetX: 20
+    offsetY: -300
+  - unicode1: 0639
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECB
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECC
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECA
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0639
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECB
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECC
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECA
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 063A
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 80
+  - unicode1: FECF
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FED0
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 20
+  - unicode1: FECE
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 20
+  - unicode1: 063A
+    unicode2: 0650
+    offsetX: 70
+    offsetY: -250
+  - unicode1: FECF
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED0
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECE
+    unicode2: 0650
+    offsetX: 50
+    offsetY: -250
+  - unicode1: 063A
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 80
+  - unicode1: FECF
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FED0
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FECE
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 40
+  - unicode1: 063A
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 50
+  - unicode1: FECF
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED0
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FECE
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 063A
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 50
+  - unicode1: FECF
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 10
+  - unicode1: FED0
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 10
+  - unicode1: FECE
+    unicode2: 064F
+    offsetX: 20
+    offsetY: 10
+  - unicode1: 0641
+    unicode2: 064F
+    offsetX: 180
+    offsetY: 30
+  - unicode1: FED3
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 50
+  - unicode1: FED4
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 50
+  - unicode1: FED2
+    unicode2: 064F
+    offsetX: 180
+    offsetY: 30
+  - unicode1: 0641
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 20
+  - unicode1: FED3
+    unicode2: 064E
+    offsetX: 50
+    offsetY: 70
+  - unicode1: FED4
+    unicode2: 064E
+    offsetX: 50
+    offsetY: 70
+  - unicode1: FED2
+    unicode2: 064E
+    offsetX: 300
+    offsetY: 20
+  - unicode1: 0641
+    unicode2: 0651
+    offsetX: 80
+    offsetY: 80
+  - unicode1: FED3
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FED4
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FED2
+    unicode2: 0651
+    offsetX: 80
+    offsetY: 80
+  - unicode1: 0641
+    unicode2: 0650
+    offsetX: 330
+    offsetY: 0
+  - unicode1: FED3
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED4
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED2
+    unicode2: 0650
+    offsetX: 350
+    offsetY: 0
+  - unicode1: 0641
+    unicode2: 0652
+    offsetX: 250
+    offsetY: 60
+  - unicode1: FED3
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 70
+  - unicode1: FED4
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 70
+  - unicode1: FED2
+    unicode2: 0652
+    offsetX: 250
+    offsetY: 60
+  - unicode1: 0642
+    unicode2: 0651
+    offsetX: 90
+    offsetY: 40
+  - unicode1: FED7
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 90
+  - unicode1: FED8
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 90
+  - unicode1: FED6
+    unicode2: 0651
+    offsetX: 90
+    offsetY: 40
+  - unicode1: 0642
+    unicode2: 0650
+    offsetX: 50
+    offsetY: -140
+  - unicode1: FED7
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED8
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FED6
+    unicode2: 0650
+    offsetX: 50
+    offsetY: -140
+  - unicode1: 0642
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 60
+  - unicode1: FED7
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 60
+  - unicode1: FED8
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 60
+  - unicode1: FED6
+    unicode2: 0652
+    offsetX: 80
+    offsetY: 60
+  - unicode1: 0642
+    unicode2: 064E
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FED7
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FED8
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FED6
+    unicode2: 064E
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 0642
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 20
+  - unicode1: FED7
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FED8
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FED6
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 20
+  - unicode1: 0643
+    unicode2: 064F
+    offsetX: 40
+    offsetY: 0
+  - unicode1: FEDB
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 30
+  - unicode1: FEDC
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 30
+  - unicode1: FEDA
+    unicode2: 064F
+    offsetX: 40
+    offsetY: 0
+  - unicode1: 0643
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEDB
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEDC
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEDA
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0643
+    unicode2: 0650
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEDB
+    unicode2: 0650
+    offsetX: 20
+    offsetY: 0
+  - unicode1: FEDC
+    unicode2: 0650
+    offsetX: 30
+    offsetY: 0
+  - unicode1: FEDA
+    unicode2: 0650
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 0643
+    unicode2: 0651
+    offsetX: 50
+    offsetY: 20
+  - unicode1: FEDB
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FEDC
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FEDA
+    unicode2: 0651
+    offsetX: 50
+    offsetY: 20
+  - unicode1: 0643
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 20
+  - unicode1: FEDB
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FEDC
+    unicode2: 0652
+    offsetX: 20
+    offsetY: 40
+  - unicode1: FEDA
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 20
+  - unicode1: 0644
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -100
+  - unicode1: FEDF
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE0
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEDE
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -100
+  - unicode1: 0644
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEDF
+    unicode2: 064E
+    offsetX: 40
+    offsetY: 120
+  - unicode1: FEE0
+    unicode2: 064E
+    offsetX: 40
+    offsetY: 120
+  - unicode1: FEDE
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0644
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 40
+  - unicode1: FEDF
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 60
+  - unicode1: FEE0
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 60
+  - unicode1: FEDE
+    unicode2: 0651
+    offsetX: 40
+    offsetY: 40
+  - unicode1: 0644
+    unicode2: 0652
+    offsetX: 140
+    offsetY: 100
+  - unicode1: FEDF
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 140
+  - unicode1: FEE0
+    unicode2: 0652
+    offsetX: 40
+    offsetY: 140
+  - unicode1: FEDE
+    unicode2: 0652
+    offsetX: 140
+    offsetY: 100
+  - unicode1: 0644
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 40
+  - unicode1: FEDF
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEE0
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: FEDE
+    unicode2: 064F
+    offsetX: 80
+    offsetY: 40
+  - unicode1: 0645
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -100
+  - unicode1: FEE3
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE4
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE2
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -100
+  - unicode1: 0645
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE3
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE4
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE2
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0645
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE3
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE4
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 120
+  - unicode1: FEE2
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0645
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEE3
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEE4
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEE2
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 0645
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE3
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE4
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE2
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0646
+    unicode2: 064F
+    offsetX: 30
+    offsetY: 0
+  - unicode1: FEE7
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FEE8
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FEE6
+    unicode2: 064F
+    offsetX: 40
+    offsetY: 0
+  - unicode1: 0646
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -150
+  - unicode1: FEE7
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE8
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE6
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -150
+  - unicode1: 0646
+    unicode2: 064E
+    offsetX: 80
+    offsetY: 0
+  - unicode1: FEE7
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE8
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE6
+    unicode2: 064E
+    offsetX: 80
+    offsetY: 0
+  - unicode1: 0646
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE7
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEE8
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 40
+  - unicode1: FEE6
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0646
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEE7
+    unicode2: 0652
+    offsetX: 30
+    offsetY: 50
+  - unicode1: FEE8
+    unicode2: 0652
+    offsetX: 30
+    offsetY: 50
+  - unicode1: FEE6
+    unicode2: 0652
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 0647
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEB
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEC
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEA
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0647
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEB
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEC
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEA
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0647
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEB
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEC
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -120
+  - unicode1: FEEA
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0647
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEB
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEC
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEA
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0647
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEB
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEC
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEA
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0648
+    unicode2: 064F
+    offsetX: 50
+    offsetY: 0
+  - unicode1: FEEE
+    unicode2: 064F
+    offsetX: 50
+    offsetY: 0
+  - unicode1: 0648
+    unicode2: 064E
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEEE
+    unicode2: 064E
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 0648
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -140
+  - unicode1: FEEE
+    unicode2: 0650
+    offsetX: 60
+    offsetY: -140
+  - unicode1: 0648
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: FEEE
+    unicode2: 0652
+    offsetX: 60
+    offsetY: 0
+  - unicode1: 0648
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEEE
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 064A
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF3
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF4
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF2
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 064A
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF3
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF4
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF2
+    unicode2: 0651
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 064A
+    unicode2: 0650
+    offsetX: 140
+    offsetY: -230
+  - unicode1: FEF3
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -120
+  - unicode1: FEF4
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -120
+  - unicode1: FEF2
+    unicode2: 0650
+    offsetX: 120
+    offsetY: -260
+  - unicode1: 064A
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF3
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF4
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF2
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 064A
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF3
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF4
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FEF2
+    unicode2: 0652
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0623
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 200
+  - unicode1: FE84
+    unicode2: 064E
+    offsetX: -20
+    offsetY: 200
+  - unicode1: 0623
+    unicode2: 064F
+    offsetX: -20
+    offsetY: 130
+  - unicode1: FE84
+    unicode2: 064F
+    offsetX: -20
+    offsetY: 130
+  - unicode1: 0625
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -120
+  - unicode1: FE88
+    unicode2: 0650
+    offsetX: 0
+    offsetY: -120
+  - unicode1: FEF5
+    unicode2: 0650
+    offsetX: 120
+    offsetY: -40
+  - unicode1: FEF6
+    unicode2: 0650
+    offsetX: 100
+    offsetY: 0
+  - unicode1: 0629
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE94
+    unicode2: 064F
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0629
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE94
+    unicode2: 064E
+    offsetX: 0
+    offsetY: 80
+  - unicode1: 0629
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: FE94
+    unicode2: 0650
+    offsetX: 0
+    offsetY: 0
+  - unicode1: 0650
+    unicode2: 0651
+    offsetX: 0
+    offsetY: -50
+  - unicode1: 064E
+    unicode2: 0651
+    offsetX: 0
+    offsetY: -50
+  - unicode1: 064F
+    unicode2: 0651
+    offsetX: 0
+    offsetY: -50
+  - unicode1: FEFC
+    unicode2: 0651
+    offsetX: 20
+    offsetY: 130

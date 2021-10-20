@@ -23,6 +23,7 @@ namespace Antura.Book
         public GameObject GamesPanel;
 
         [Header("Debug")]
+        public bool EditDiacritics;
         public bool TestShaddah;
 
         BookArea currentPanel = BookArea.None;

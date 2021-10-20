@@ -6,10 +6,10 @@ using Antura.Helpers;
 using Antura.Core;
 using ArabicSupport;
 using System;
+using System.Linq;
 
 namespace Antura.Language
 {
-
     // TODO refactor: this class needs a large refactoring as it is used for several different purposes
     public class ArabicLanguageHelper : AbstractLanguageHelper
     {
@@ -247,6 +247,7 @@ namespace Antura.Language
         }
 
         private static Dictionary<DiacriticComboEntry, Vector2> DiacriticCombos2Fix = null;
+        private static DiacriticsComboData DiacriticsComboData;
 
         /// <summary>
         /// these are manually configured positions of diacritic symbols relative to the main letter
@@ -255,6 +256,8 @@ namespace Antura.Language
         private void BuildDiacriticCombos2Fix()
         {
             DiacriticCombos2Fix = new Dictionary<DiacriticComboEntry, Vector2>();
+
+            if (DiacriticsComboData == null) DiacriticsComboData = Resources.Load<DiacriticsComboData>("Language/DiacriticsComboData");
 
             //////// LETTER alef
             // alef_fathah
@@ -984,7 +987,32 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, -50));
             ///
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
+
+            // @note: use this to regenerate the data table from the hardcoded values
+            if (REPOPULATE_DIACRITIC_ENTRY_TABLE)
+            {
+                var keys = DiacriticCombos2Fix.Keys.ToArray();
+                DiacriticsComboData.Keys = new List<DiacriticEntryKey>();
+                for (var i = 0; i < keys.Length; i++)
+                {
+                    var entry = keys[i];
+                    DiacriticsComboData.Keys.Add(new DiacriticEntryKey());
+                    DiacriticsComboData.Keys[i].unicode1 = entry.Unicode1;
+                    DiacriticsComboData.Keys[i].unicode2 = entry.Unicode2;
+                    DiacriticsComboData.Keys[i].offsetX = (int)DiacriticCombos2Fix[entry].x;
+                    DiacriticsComboData.Keys[i].offsetY = (int)DiacriticCombos2Fix[entry].y;
+                }
+            }
+
+            // Use the values in the data table instead
+            DiacriticCombos2Fix.Clear();
+            foreach (var key in DiacriticsComboData.Keys)
+            {
+                DiacriticCombos2Fix.Add(new DiacriticComboEntry(key.unicode2, key.unicode1), new Vector2(key.offsetX, key.offsetY));
+            }
         }
+
+        public static bool REPOPULATE_DIACRITIC_ENTRY_TABLE = false;
 
         private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
         {
@@ -993,7 +1021,13 @@ namespace Antura.Language
             }
 
             Vector2 newDelta = new Vector2(0, 0);
-            DiacriticCombos2Fix.TryGetValue(new DiacriticComboEntry(Unicode1, Unicode2), out newDelta);
+            var combo = DiacriticsComboData.Keys.FirstOrDefault(x => x.unicode1 == Unicode1
+                                                                     && x.unicode2 == Unicode2);
+            if (combo != null)
+            {
+                newDelta.x = combo.offsetX;
+                newDelta.y = combo.offsetY;
+            }
             return newDelta;
         }
 
