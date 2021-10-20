@@ -7,6 +7,9 @@ using Antura.Core;
 using ArabicSupport;
 using System;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 
 namespace Antura.Language
 {
@@ -1002,6 +1005,9 @@ namespace Antura.Language
                     DiacriticsComboData.Keys[i].offsetX = (int)DiacriticCombos2Fix[entry].x;
                     DiacriticsComboData.Keys[i].offsetY = (int)DiacriticCombos2Fix[entry].y;
                 }
+                #if UNITY_EDITOR
+                EditorUtility.SetDirty(DiacriticsComboData);
+                #endif
             }
 
             // Use the values in the data table instead
