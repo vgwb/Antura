@@ -108,8 +108,12 @@ namespace Antura.Language
             EditorGUILayout.TextField(" " +letter2, bSty, GUILayout.Width(35), GUILayout.Height(40));
             EditorGUILayout.PropertyField(property.FindPropertyRelative("unicode2"), GUIContent.none, GUILayout.Width(50));
             EditorGUILayout.BeginVertical();
-            propertyValue.offsetX = EditorGUILayout.IntSlider(propertyValue.offsetX, -100,100);
-            propertyValue.offsetY = EditorGUILayout.IntSlider(propertyValue.offsetY, -100,100);
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("offsetX"));
+            EditorGUILayout.PropertyField(property.FindPropertyRelative("offsetY"));
+            // TODO: this won't work correctly, won't make the property dirty
+            // limit = 300;
+            //propertyValue.offsetX = EditorGUILayout.IntSlider(propertyValue.offsetX, -limit,limit);
+            // propertyValue.offsetY = EditorGUILayout.IntSlider(propertyValue.offsetY, -limit,limit);
             EditorGUILayout.EndVertical();
             EditorGUILayout.EndHorizontal();
         }
