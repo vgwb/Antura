@@ -982,15 +982,15 @@ namespace Antura.Language
             //////// LETTER teh_marbuta
             // teh_marbuta_dammah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0629", "064F"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "064F"), new Vector2(0, 0));
+            //DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE94", "064F"), new Vector2(0, 80));
             // teh_marbuta_fathah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0629", "064E"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "064E"), new Vector2(0, 0));
+            //DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "064E"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE94", "064E"), new Vector2(0, 80));
             // teh_marbuta_kasrah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0629", "0650"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "0650"), new Vector2(0, 0));
+            //DiacriticCombos2Fix.Add(new DiacriticComboEntry("", "0650"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE94", "0650"), new Vector2(0, 0));
 
             //////// SYMBOL shaddah
