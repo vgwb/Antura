@@ -1,12 +1,10 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.Core;
 using ArabicSupport;
-using System;
-using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -237,6 +235,14 @@ namespace Antura.Language
 
         #region Diacritic Fix
 
+        public const string Fathah = "064E";
+        public const string Dammah = "064F";
+        public const string Kasrah = "0650";
+        public const string Sukun = "0652";
+        public const string Shaddah = "0651";
+
+        List<string> diacriticsSortOrder = new List<string> { Fathah, Dammah, Kasrah, Sukun, Shaddah };
+
         private struct DiacriticComboEntry
         {
             public string Unicode1;
@@ -274,26 +280,32 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE8E", "0650"), new Vector2(0, 0));
 
             //////// LETTER beh
-            // beh_kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "0650"), new Vector2(160, -130));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "0650"), new Vector2(0, -130));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "0650"), new Vector2(0, -130));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "0650"), new Vector2(160, -130));
             // beh_fathah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "064E"), new Vector2(150, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "064E"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "064E"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "064E"), new Vector2(150, 0));
-            // beh_sukun
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "0652"), new Vector2(150, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "0652"), new Vector2(0, 0));
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "0652"), new Vector2(150, 0));
             // beh_dammah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "064F"), new Vector2(130, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "064F"), new Vector2(0, 0));
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "064F"), new Vector2(130, 0));
+            // beh_kasrah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "0650"), new Vector2(160, -130));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "0650"), new Vector2(0, -130));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "0650"), new Vector2(0, -130));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "0650"), new Vector2(160, -130));
+            // beh_sukun
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "0652"), new Vector2(150, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "0652"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "0652"), new Vector2(150, 0));
+
+            // beh_shaddah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0628", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE91", "0651"), new Vector2(0, 0));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE92", "0651"), new Vector2(0, 100));
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE90", "0651"), new Vector2(0, 0));
 
             //////// LETTER teh
             // teh_sukun
@@ -982,39 +994,103 @@ namespace Antura.Language
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FE94", "0650"), new Vector2(0, 0));
 
             //////// SYMBOL shaddah
-            ///kasrah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0650", "0651"), new Vector2(0, -50));
-            ///fathah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064E", "0651"), new Vector2(0, -50));
-            ///dammah
-            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, -50));
-            ///
+            /// fathah  -> shaddah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064E", "0651"), new Vector2(0, 100));
+            /// dammah -> shaddah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("064F", "0651"), new Vector2(0, 100));
+            /// kasrah  -> shaddah
+            DiacriticCombos2Fix.Add(new DiacriticComboEntry("0650", "0651"), new Vector2(0, -80));
+
+            ///lam alef final
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
 
             // @note: use this to regenerate the data table from the hardcoded values
             if (REPOPULATE_DIACRITIC_ENTRY_TABLE)
             {
+                var dbLetters = AppManager.I.DB.GetAllLetterData();
                 var keys = DiacriticCombos2Fix.Keys.ToArray();
                 DiacriticsComboData.Keys = new List<DiacriticEntryKey>();
                 for (var i = 0; i < keys.Length; i++)
                 {
                     var entry = keys[i];
-                    DiacriticsComboData.Keys.Add(new DiacriticEntryKey());
-                    DiacriticsComboData.Keys[i].unicode1 = entry.Unicode1;
-                    DiacriticsComboData.Keys[i].unicode2 = entry.Unicode2;
-                    DiacriticsComboData.Keys[i].offsetX = (int)DiacriticCombos2Fix[entry].x;
-                    DiacriticsComboData.Keys[i].offsetY = (int)DiacriticCombos2Fix[entry].y;
+                    var key = new DiacriticEntryKey();
+                    DiacriticsComboData.Keys.Add(key);
+
+                    DiacriticEntryKey.Letter FindLetter(string unicode)
+                    {
+                        void PrepareLetter(DiacriticEntryKey.Letter entryLetter, LetterData l)
+                        {
+                            entryLetter.sortNumber = l.Number;
+                            entryLetter.id = l.Id;
+                            entryLetter.page = l.Base.Number;
+                            if (l.IsOfKindCategory(LetterKindCategory.LetterVariation)) entryLetter.page = 29;
+                            if (l.IsOfKindCategory(LetterKindCategory.Symbol)) entryLetter.page = 30;
+                        }
+
+                        var entryLetter = new DiacriticEntryKey.Letter();
+                        entryLetter.unicode = unicode;
+                        var l = dbLetters.FirstOrDefault(x => x.Isolated_Unicode == unicode);
+                        if (l != null)
+                        {
+                            PrepareLetter(entryLetter, l);
+                            return entryLetter;
+                        }
+                        l = dbLetters.FirstOrDefault(x => x.Initial_Unicode == unicode);
+                        if (l != null)
+                        {
+                            PrepareLetter(entryLetter, l);
+                            return entryLetter;
+                        }
+                        l = dbLetters.FirstOrDefault(x => x.Medial_Unicode == unicode);
+                        if (l != null)
+                        {
+                            PrepareLetter(entryLetter, l);
+                            return entryLetter;
+                        }
+                        l = dbLetters.FirstOrDefault(x => x.Final_Unicode == unicode);
+                        if (l != null)
+                        {
+                            PrepareLetter(entryLetter, l);
+                            return entryLetter;
+                        }
+                        return null;
+                    }
+
+                    key.letter1 = FindLetter(entry.Unicode1);
+                    key.letter2 = FindLetter(entry.Unicode2);
+
+                    key.offsetX = (int)DiacriticCombos2Fix[entry].x;
+                    key.offsetY = (int)DiacriticCombos2Fix[entry].y;
+
+
                 }
-                #if UNITY_EDITOR
+
+                // Auto-sort the data like in the book
+                DiacriticsComboData.Keys = DiacriticsComboData.Keys.OrderBy(key =>
+                    {
+                        var letter = AppManager.I.DB.GetLetterDataById(key.letter1.id);
+                        var symbolOrder = diacriticsSortOrder.IndexOf(key.letter2.unicode);
+                        switch (letter.Kind)
+                        {
+                            case LetterDataKind.LetterVariation:
+                                return 10000 + symbolOrder;
+                            case LetterDataKind.Symbol:
+                                return 20000 + diacriticsSortOrder.IndexOf(key.letter1.unicode)*100 + symbolOrder;;
+                            default:
+                                return key.letter1.sortNumber*100 + symbolOrder;
+                        }
+                    }).ToList();
+
+#if UNITY_EDITOR
                 EditorUtility.SetDirty(DiacriticsComboData);
-                #endif
+#endif
             }
 
             // Use the values in the data table instead
             DiacriticCombos2Fix.Clear();
             foreach (var key in DiacriticsComboData.Keys)
             {
-                DiacriticCombos2Fix.Add(new DiacriticComboEntry(key.unicode2, key.unicode1), new Vector2(key.offsetX, key.offsetY));
+                DiacriticCombos2Fix.Add(new DiacriticComboEntry(key.letter1.unicode, key.letter2.unicode), new Vector2(key.offsetX, key.offsetY));
             }
         }
 
@@ -1027,8 +1103,8 @@ namespace Antura.Language
             }
 
             Vector2 newDelta = new Vector2(0, 0);
-            var combo = DiacriticsComboData.Keys.FirstOrDefault(x => x.unicode1 == Unicode1
-                                                                     && x.unicode2 == Unicode2);
+            var combo = DiacriticsComboData.Keys.FirstOrDefault(x => x.letter1.unicode == Unicode1
+                                                                     && x.letter2.unicode == Unicode2);
             if (combo != null)
             {
                 newDelta.x = combo.offsetX;
@@ -1044,50 +1120,55 @@ namespace Antura.Language
         /// <param name="textInfo">Text info.</param>
         public override bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
         {
-            //Debug.Log("FixDiacriticPositions " + textInfo.characterCount);
             int characterCount = textInfo.characterCount;
+            if (characterCount <= 1) return false;
+
             bool changed = false;
+            for (int charPosition = 0; charPosition < characterCount - 1; charPosition++)
+            {
+                var char1Pos = charPosition;
+                var char2Pos = charPosition + 1;
+                var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[char1Pos].character);
+                var UnicodeChar2 = GetHexUnicodeFromChar(textInfo.characterInfo[char2Pos].character);
 
-            if (characterCount > 1) {
-                // output unicodes for DiacriticCombos2Fix
-                //string combo = "";
-                //for (int i = 0; i < characterCount; i++) {
-                //    combo += '"' + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[i].character) + '"' + ',';
-                //}
-                //Debug.Log("DiacriticCombos2Fix.Add(new DiacriticComboEntry(" + combo + " 0, 0));");
+                changed = true;
 
-                Vector2 modificationDelta = new Vector2(0, 0);
-                for (int charPosition = 0; charPosition < characterCount - 1; charPosition++) {
-                    var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character);
-                    var UnicodeChar2 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character);
+                var modificationDelta = FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2);
 
-                    modificationDelta = FindDiacriticCombo2Fix(
-                        UnicodeChar1,
-                        UnicodeChar2
-                    );
+                bool char1IsDiacritic = (UnicodeChar1 == Dammah || UnicodeChar1 == Fathah || UnicodeChar1 == Sukun || UnicodeChar1 == Kasrah);
+                bool char2IsDiacritic = (UnicodeChar2 == Dammah || UnicodeChar2 == Fathah || UnicodeChar2 == Sukun || UnicodeChar2 == Kasrah);
 
-                    if (modificationDelta.sqrMagnitude > 0f) {
-                        changed = true;
+                if (char1IsDiacritic && UnicodeChar2 == Shaddah)
+                {
+                    // Char 2 is the shaddah, char 1 the diacritic.
 
-                        if ((UnicodeChar1 == "064F" || UnicodeChar1 == "064E" || UnicodeChar1 == "0652") && UnicodeChar2 == "0651")
+                    // Place the diacritic where the shaddah is
+                    CopyPosition(textInfo, char2Pos, char1Pos);
+
+                    // the, move the diacritic in respect to the shaddah using the delta
+                    ApplyOffset(textInfo, char1Pos, modificationDelta);
+                }
+                else
+                {
+                    // Move the symbol in respect to the base letter
+                    //Debug.LogError($"Mod for {UnicodeChar1} to {UnicodeChar2}: {modificationDelta}");
+                    ApplyOffset(textInfo, char2Pos, modificationDelta);
+
+                    // If we get a Diacritic and the next char is a Shaddah, however, we need to instead first move the shaddah, then move the diacritic in respect to the shaddah
+                    if (char2IsDiacritic && charPosition < characterCount - 2)
+                    {
+                        var UnicodeChar3 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 2].character);
+                        if (UnicodeChar3 == Shaddah)
                         {
-                            // Place the shaddah where the diacritic is
-                            CopyPosition(textInfo, charPosition + 1, charPosition);
+                            var char3Pos = charPosition + 2;
 
-                            // Move the diacritic a bit above
-                            ApplyOffset(textInfo, charPosition, new Vector2(0f, 100f));
+                            // Place this Shaddah in respect to the letter
+                            var shaddahDelta = FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3);
+                            //Debug.LogError($"Mod SHADDAH for {UnicodeChar1} to {UnicodeChar3}: {shaddahDelta}");
+                            ApplyOffset(textInfo, char3Pos, shaddahDelta);
                         }
-                        else
-                        {
-                            ApplyOffset(textInfo, charPosition + 1, modificationDelta);
-                            //Debug.Log("DIACRITIC FIX: "
-                            //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition].character)
-                            //          + " + "
-                            //          + ArabicAlphabetHelper.GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 1].character)
-                            //          + " by " + modificationDelta);
-                        }
-
                     }
+
                 }
             }
             return changed;
