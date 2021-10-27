@@ -72,6 +72,13 @@ namespace Antura.Language
 
             GUILayout.BeginHorizontal();
             GUILayout.Label($"Page: {data.page}");
+
+            if (GUILayout.Button("< 10"))
+            {
+                data.page -= 10;
+                var maxPage = data.Keys.Max(x => x.letter1.page);
+                if (data.page < 0) data.page += maxPage;
+            };
             if (GUILayout.Button("<"))
             {
                 data.page -= 1;
@@ -84,7 +91,6 @@ namespace Antura.Language
                 var maxPage = data.Keys.Max(x => x.letter1.page);
                 if (data.page > maxPage) data.page = 0;
             };
-
             if (GUILayout.Button("> 10"))
             {
                 data.page += 10;
