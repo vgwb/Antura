@@ -176,14 +176,19 @@ namespace Antura.Minigames.ReadingGame
         {
             game.Context.GetAudioManager().PlayDialogue(LocalizationDataId.Song_Word_Question, keeperMode: KeeperMode.SubtitlesOnly, isKeeper:false);
 
-            game.ChangeLoopingSong(songBPM.song);
+            game.ChangeLoopingSong(songBPM.songPartLearning);
             game.StartCoroutine(ShowAnimationLetters(songBPM));
             game.StartCoroutine(SimonSongShowButtons(songBPM));
 
             // Question song
             game.onSongLoop += () => {
-                Debug.Log("END QUESTION LOOP");
-                game.StopLoopingSong();
+
+                // Second part
+                game.ChangeLoopingSong(songBPM.songPartNative);
+                game.onSongLoop = () =>
+                {
+                    game.StopLoopingSong();
+                };
             };
         }
 

@@ -125,7 +125,8 @@ namespace Antura.Minigames.ReadingGame
             public float questionTime;
             public int bpm;
 
-            public AudioClip song => AppManager.I.AssetManager.GetSongClip($"SimonSong_Main_{bpm}");
+            public AudioClip songPartNative => AppManager.I.AssetManager.GetNativeSongClip($"SimonSong_Part_{bpm}");
+            public AudioClip songPartLearning => AppManager.I.AssetManager.GetSongClip($"SimonSong_Part_{bpm}");
             public AudioClip intro => AppManager.I.AssetManager.GetSongClip($"SimonSong_Intro_{bpm}");
 
             public float periodRatio

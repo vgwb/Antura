@@ -1,11 +1,12 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
-using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Antura
 {
@@ -17,6 +18,7 @@ namespace Antura
         private Dictionary<string, SideLetterData> sideDataCache = new Dictionary<string, SideLetterData>();
         private Dictionary<string, AudioClip> audioCache = new Dictionary<string, AudioClip>();
         private Dictionary<string, TextAsset> textCache = new Dictionary<string, TextAsset>();
+        private Dictionary<string, AudioClip> nativeAudioCache = new Dictionary<string, AudioClip>();
 
         public IEnumerator PreloadDataCO()
         {
@@ -24,10 +26,12 @@ namespace Antura
             ClearCache(spriteCache);
             ClearCache(sideDataCache);
             ClearCache(audioCache);
+            ClearCache(nativeAudioCache);
             ClearCache(textCache);
 
             // Pre-load images and icons for the wanted language
-            var languageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
+            var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
+            var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
 
             // Icons
             if (VERBOSE) Debug.Log("[Assets] Preloading Icons");
@@ -35,7 +39,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
-                iconKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(iconKeys, spriteCache, AppManager.BlockingLoad);
 
@@ -45,7 +49,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
-                badgeKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                badgeKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
 
@@ -54,7 +58,7 @@ namespace Antura
             var sideKeys = new HashSet<string>();
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
-                sideKeys.Add($"{languageCode}/SideData/Letters/sideletter_{letterData.Id}");
+                sideKeys.Add($"{learningLanguageCode}/SideData/Letters/sideletter_{letterData.Id}");
             }
             yield return LoadAssets(sideKeys, sideDataCache, AppManager.BlockingLoad);
 
@@ -62,19 +66,30 @@ namespace Antura
             // Song data
             if (VERBOSE) Debug.Log("[Assets] Preloading Song Data");
             var songAudioKeys = new HashSet<string>();
-            var prefix = $"{languageCode}/Audio/Songs/";
+
+            var prefix = $"{nativeLanguageCode}/Audio/Songs/";
+            songAudioKeys.Add($"{prefix}SimonSong_Part_120");
+            songAudioKeys.Add($"{prefix}SimonSong_Part_140");
+            songAudioKeys.Add($"{prefix}SimonSong_Part_160");
+            yield return LoadAssets(songAudioKeys, nativeAudioCache, AppManager.BlockingLoad);
+
+            prefix = $"{learningLanguageCode}/Audio/Songs/";
+            songAudioKeys = new HashSet<string>();
             songAudioKeys.Add($"{prefix}AlphabetSong");
             //songAudioKeys.Add($"{prefix}DiacriticSong");
+
+            // TODO: the intro should be loaded regardless of language (it's always the same)
             songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
             songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
             songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_120");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_140");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_160");
+
+            songAudioKeys.Add($"{prefix}SimonSong_Part_120");
+            songAudioKeys.Add($"{prefix}SimonSong_Part_140");
+            songAudioKeys.Add($"{prefix}SimonSong_Part_160");
             yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
 
             var songTextKeys = new HashSet<string>();
-            prefix = $"{languageCode}/Audio/Songs/";
+            prefix = $"{learningLanguageCode}/Audio/Songs/";
             songTextKeys.Add($"{prefix}AlphabetSong.akr");
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
             yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
@@ -90,11 +105,22 @@ namespace Antura
         {
             int n = 0;
             if (VERBOSE) Debug.Log($"Loading {keys.Count}");
-            var op =
-                Addressables.LoadAssetsAsync<T>(keys, obj => {
-                    cache[obj.name] = obj;
-                    n++;
-                }, Addressables.MergeMode.Union);
+
+            AsyncOperationHandle<IList<T>> op = default;
+            try
+            {
+                op =
+                    Addressables.LoadAssetsAsync<T>(keys, obj =>
+                    {
+                        cache[obj.name] = obj;
+                        n++;
+                    }, Addressables.MergeMode.Union);
+
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Asset reading exception: " + e.Message);
+            }
 
             while (!op.IsDone)
             {
@@ -144,6 +170,11 @@ namespace Antura
         public AudioClip GetSongClip(string id)
         {
             return Get(audioCache, id);
+        }
+
+        public AudioClip GetNativeSongClip(string id)
+        {
+            return Get(nativeAudioCache, id);
         }
 
     }
