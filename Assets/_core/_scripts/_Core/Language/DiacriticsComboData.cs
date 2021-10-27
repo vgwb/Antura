@@ -116,7 +116,7 @@ namespace Antura.Language
             GUIStyle bSty = new GUIStyle(GUI.skin.label);
             bSty.fontSize = 30;
             GUIStyle tSty = new GUIStyle(GUI.skin.label);
-            bSty.fontSize = 16;
+            tSty.fontSize = 12;
 
             EditorGUILayout.TextField(letter1, bSty, GUILayout.Width(35), GUILayout.Height(40));
             EditorGUILayout.BeginVertical();
