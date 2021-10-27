@@ -75,14 +75,23 @@ namespace Antura.Language
             if (GUILayout.Button("<"))
             {
                 data.page -= 1;
-                if (data.page < 0) data.page = 0;
+                var maxPage = data.Keys.Max(x => x.letter1.page);
+                if (data.page < 0) data.page = maxPage;
             };
             if (GUILayout.Button(">"))
             {
                 data.page += 1;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
-                if (data.page > maxPage) data.page = maxPage;
+                if (data.page > maxPage) data.page = 0;
             };
+
+            if (GUILayout.Button("> 10"))
+            {
+                data.page += 10;
+                var maxPage = data.Keys.Max(x => x.letter1.page);
+                if (data.page > maxPage) data.page -= maxPage;
+            };
+
             GUILayout.EndHorizontal();
 
             var list = keys.GetSerializedValue<List<DiacriticEntryKey>>();
