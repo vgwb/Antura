@@ -1171,6 +1171,8 @@ namespace Antura.Language
                         }
                         else if (char2IsShaddah && char3IsDiacritic)
                         {
+                            Debug.LogError(textInfo.textComponent.text + " " + " has weird diacritic" );
+
                             ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
                         }
                     }
