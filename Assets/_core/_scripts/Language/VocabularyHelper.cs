@@ -283,7 +283,10 @@ namespace Antura.Database
             }
             letters = dictCache[wordData.Id];
 
-            if (keepBasesOnly) letters = letters.ConvertAll(ld => ld.Base);
+            if (keepBasesOnly)
+            {
+                letters = letters.ConvertAll(ld => ConvertToLetterWithForcedForm(ld.Base, ld.Form));
+            }
 
             return letters;
         }
