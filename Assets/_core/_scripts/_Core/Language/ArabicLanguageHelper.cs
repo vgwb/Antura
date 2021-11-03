@@ -1133,39 +1133,45 @@ namespace Antura.Language
 
                 changed = true;
 
-                var modificationDelta = FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2);
 
                 bool char1IsDiacritic = (UnicodeChar1 == Dammah || UnicodeChar1 == Fathah || UnicodeChar1 == Sukun || UnicodeChar1 == Kasrah);
                 bool char2IsDiacritic = (UnicodeChar2 == Dammah || UnicodeChar2 == Fathah || UnicodeChar2 == Sukun || UnicodeChar2 == Kasrah);
 
-                if (char1IsDiacritic && UnicodeChar2 == Shaddah)
+                bool char1IsShaddah = UnicodeChar1 == Shaddah;
+                bool char2IsShaddah = UnicodeChar2 == Shaddah;
+
+                if (char1IsDiacritic && char2IsShaddah)
                 {
-                    // Char 2 is the shaddah, char 1 the diacritic.
-
-                    // Place the diacritic where the shaddah is
-                    CopyPosition(textInfo, char2Pos, char1Pos);
-
-                    // the, move the diacritic in respect to the shaddah using the delta
-                    ApplyOffset(textInfo, char1Pos, modificationDelta);
+                    CopyPosition(textInfo, char2Pos, char1Pos);             // Place the diacritic where the shaddah is
+                    ApplyOffset(textInfo, char1Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));    // then, move the diacritic in respect to the shaddah using the delta
+                }
+                else if (char1IsShaddah && char2IsDiacritic)
+                {
+                    CopyPosition(textInfo, char1Pos, char2Pos);             // Place the diacritic where the shaddah is
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar2, UnicodeChar1));    // then, move the diacritic in respect to the shaddah using the delta
                 }
                 else
                 {
                     // Move the symbol in respect to the base letter
                     //Debug.LogError($"Mod for {UnicodeChar1} to {UnicodeChar2}: {modificationDelta}");
-                    ApplyOffset(textInfo, char2Pos, modificationDelta);
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
 
                     // If we get a Diacritic and the next char is a Shaddah, however, we need to instead first move the shaddah, then move the diacritic in respect to the shaddah
-                    if (char2IsDiacritic && charPosition < characterCount - 2)
+                    if (charPosition < characterCount - 2)
                     {
                         var UnicodeChar3 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 2].character);
-                        if (UnicodeChar3 == Shaddah)
-                        {
-                            var char3Pos = charPosition + 2;
+                        bool char3IsDiacritic = (UnicodeChar3 == Dammah || UnicodeChar3 == Fathah || UnicodeChar3 == Sukun || UnicodeChar3 == Kasrah);
+                        bool char3IsShaddah = UnicodeChar3 == Shaddah;
+                        var char3Pos = charPosition + 2;
 
-                            // Place this Shaddah in respect to the letter
-                            var shaddahDelta = FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3);
-                            //Debug.LogError($"Mod SHADDAH for {UnicodeChar1} to {UnicodeChar3}: {shaddahDelta}");
-                            ApplyOffset(textInfo, char3Pos, shaddahDelta);
+                        // Place this Shaddah in respect to the letter
+                        if (char2IsDiacritic && char3IsShaddah)
+                        {
+                            ApplyOffset(textInfo, char3Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3));
+                        }
+                        else if (char2IsShaddah && char3IsDiacritic)
+                        {
+                            ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
                         }
                     }
 
