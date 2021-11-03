@@ -520,6 +520,7 @@ namespace Antura.Database
       UI_Combinations = 315,
       UI_Conjunctions = 346,
       UI_Directions = 316,
+      UI_Donate = 708,
       UI_Feelings = 318,
       UI_Furniture = 320,
       UI_Games = 321,
