@@ -222,6 +222,16 @@ namespace Antura.Book
             //ScoreText.text = "Score: " + currentWord.score;
         }
 
+        public void Update()
+        {
+            if (Book.I.EditDiacritics)
+            {
+                // Clear so it will be re-rendered again
+                WordArabicText.text = "";
+                WordArabicText.text = currentWordInfo.data.Text;
+            }
+        }
+
         public void SelectSubCategory(GenericCategoryData _category)
         {
             switch (_category.area) {
