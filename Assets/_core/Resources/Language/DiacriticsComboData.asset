@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9d31b0142b8418b90aa63e247413e7a, type: 3}
   m_Name: DiacriticsComboData
   m_EditorClassIdentifier: 
-  page: 26
+  page: 29
   Keys:
   - letter1:
       unicode: FEF5
@@ -97,7 +97,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 10
-    offsetY: 0
+    offsetY: 20
   - letter1:
       unicode: FE8E
       id: alef
@@ -5401,7 +5401,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 0
+    offsetY: -100
   - letter1:
       unicode: FEEB
       id: heh
@@ -5412,7 +5412,7 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 20
     offsetY: 0
   - letter1:
       unicode: FEEC
@@ -5424,8 +5424,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 40
+    offsetY: -100
   - letter1:
       unicode: FEEA
       id: heh
@@ -5436,7 +5436,7 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 20
     offsetY: 0
   - letter1:
       unicode: 0647
@@ -5448,8 +5448,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: -20
+    offsetY: -50
   - letter1:
       unicode: FEEB
       id: heh
@@ -5472,8 +5472,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -50
   - letter1:
       unicode: FEEA
       id: heh
@@ -5484,7 +5484,7 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 10
     offsetY: 0
   - letter1:
       unicode: 0647
@@ -5496,7 +5496,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 20
     offsetY: 0
   - letter1:
       unicode: FEEB
@@ -5508,7 +5508,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 20
     offsetY: 0
   - letter1:
       unicode: FEEC
@@ -5520,8 +5520,8 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: -120
+    offsetX: 50
+    offsetY: -140
   - letter1:
       unicode: FEEA
       id: heh
@@ -5533,7 +5533,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 0
+    offsetY: 40
   - letter1:
       unicode: 0647
       id: heh
@@ -5545,7 +5545,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 0
+    offsetY: -50
   - letter1:
       unicode: FEEB
       id: heh
@@ -5556,8 +5556,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: 20
   - letter1:
       unicode: FEEC
       id: heh
@@ -5568,8 +5568,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -50
   - letter1:
       unicode: FEEA
       id: heh
@@ -5580,8 +5580,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: 20
   - letter1:
       unicode: 0647
       id: heh
@@ -5592,10 +5592,34 @@ MonoBehaviour:
       id: shaddah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: -20
+    offsetY: -20
   - letter1:
       unicode: FEEB
+      id: heh
+      sortNumber: 26
+      page: 26
+    letter2:
+      unicode: 0651
+      id: shaddah
+      sortNumber: 0
+      page: 30
+    offsetX: 0
+    offsetY: 50
+  - letter1:
+      unicode: FEEC
+      id: heh
+      sortNumber: 26
+      page: 26
+    letter2:
+      unicode: 0651
+      id: shaddah
+      sortNumber: 0
+      page: 30
+    offsetX: 20
+    offsetY: -20
+  - letter1:
+      unicode: FEEA
       id: heh
       sortNumber: 26
       page: 26
@@ -5607,30 +5631,6 @@ MonoBehaviour:
     offsetX: 0
     offsetY: 40
   - letter1:
-      unicode: FEEC
-      id: heh
-      sortNumber: 26
-      page: 26
-    letter2:
-      unicode: 0651
-      id: shaddah
-      sortNumber: 0
-      page: 30
-    offsetX: 0
-    offsetY: 0
-  - letter1:
-      unicode: FEEA
-      id: heh
-      sortNumber: 26
-      page: 26
-    letter2:
-      unicode: 0651
-      id: shaddah
-      sortNumber: 0
-      page: 30
-    offsetX: 0
-    offsetY: 40
-  - letter1:
       unicode: 0648
       id: waw
       sortNumber: 27
@@ -5640,8 +5640,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 60
-    offsetY: 0
+    offsetX: 120
+    offsetY: -80
   - letter1:
       unicode: FEEE
       id: waw
@@ -5652,8 +5652,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 60
-    offsetY: 0
+    offsetX: 120
+    offsetY: -80
   - letter1:
       unicode: 0648
       id: waw
@@ -5664,8 +5664,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 50
-    offsetY: 0
+    offsetX: 60
+    offsetY: -40
   - letter1:
       unicode: FEEE
       id: waw
@@ -5676,8 +5676,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 50
-    offsetY: 0
+    offsetX: 60
+    offsetY: -40
   - letter1:
       unicode: 0648
       id: waw
@@ -5688,7 +5688,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 60
+    offsetX: 120
     offsetY: -140
   - letter1:
       unicode: FEEE
@@ -5700,7 +5700,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 60
+    offsetX: 120
     offsetY: -140
   - letter1:
       unicode: 0648
@@ -5712,8 +5712,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 60
-    offsetY: 0
+    offsetX: 100
+    offsetY: -40
   - letter1:
       unicode: FEEE
       id: waw
@@ -5724,8 +5724,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 60
-    offsetY: 0
+    offsetX: 100
+    offsetY: -40
   - letter1:
       unicode: 0648
       id: waw
@@ -5736,8 +5736,8 @@ MonoBehaviour:
       id: shaddah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 80
+    offsetY: -30
   - letter1:
       unicode: FEEE
       id: waw
@@ -5748,8 +5748,8 @@ MonoBehaviour:
       id: shaddah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 80
+    offsetY: -30
   - letter1:
       unicode: 064A
       id: yeh
@@ -5760,8 +5760,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 200
+    offsetY: -80
   - letter1:
       unicode: FEF3
       id: yeh
@@ -5772,8 +5772,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -80
   - letter1:
       unicode: FEF4
       id: yeh
@@ -5784,8 +5784,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -80
   - letter1:
       unicode: FEF2
       id: yeh
@@ -5796,8 +5796,8 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 180
+    offsetY: -220
   - letter1:
       unicode: 064A
       id: yeh
@@ -5808,8 +5808,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 100
+    offsetY: -40
   - letter1:
       unicode: FEF3
       id: yeh
@@ -5821,7 +5821,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 0
+    offsetY: -40
   - letter1:
       unicode: FEF4
       id: yeh
@@ -5833,7 +5833,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 0
+    offsetY: -40
   - letter1:
       unicode: FEF2
       id: yeh
@@ -5844,8 +5844,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 80
+    offsetY: -100
   - letter1:
       unicode: 064A
       id: yeh
@@ -5856,7 +5856,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 140
+    offsetX: 150
     offsetY: -230
   - letter1:
       unicode: FEF3
@@ -5868,8 +5868,8 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: -120
+    offsetX: 20
+    offsetY: -130
   - letter1:
       unicode: FEF4
       id: yeh
@@ -5880,8 +5880,8 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: -120
+    offsetX: 20
+    offsetY: -130
   - letter1:
       unicode: FEF2
       id: yeh
@@ -5893,7 +5893,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 120
-    offsetY: -260
+    offsetY: -240
   - letter1:
       unicode: 064A
       id: yeh
@@ -5904,8 +5904,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 140
+    offsetY: -40
   - letter1:
       unicode: FEF3
       id: yeh
@@ -5916,8 +5916,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -20
   - letter1:
       unicode: FEF4
       id: yeh
@@ -5928,8 +5928,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 20
+    offsetY: -20
   - letter1:
       unicode: FEF2
       id: yeh
@@ -5940,8 +5940,8 @@ MonoBehaviour:
       id: sukun
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 120
+    offsetY: -100
   - letter1:
       unicode: 064A
       id: yeh
@@ -5952,8 +5952,8 @@ MonoBehaviour:
       id: shaddah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 120
+    offsetY: -20
   - letter1:
       unicode: FEF3
       id: yeh
@@ -5988,8 +5988,8 @@ MonoBehaviour:
       id: shaddah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: 120
+    offsetY: -100
   - letter1:
       unicode: 0623
       id: alef_hamza_hi
@@ -6024,7 +6024,7 @@ MonoBehaviour:
       id: fathah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: -20
     offsetY: 0
   - letter1:
       unicode: FE94
@@ -6037,7 +6037,7 @@ MonoBehaviour:
       sortNumber: 0
       page: 30
     offsetX: 0
-    offsetY: 80
+    offsetY: 100
   - letter1:
       unicode: 0623
       id: alef_hamza_hi
@@ -6060,7 +6060,7 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: -20
+    offsetX: -40
     offsetY: 130
   - letter1:
       unicode: 0629
@@ -6072,8 +6072,8 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
-    offsetY: 0
+    offsetX: -30
+    offsetY: 20
   - letter1:
       unicode: FE94
       id: teh_marbuta
@@ -6084,7 +6084,7 @@ MonoBehaviour:
       id: dammah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: -20
     offsetY: 80
   - letter1:
       unicode: 0625
@@ -6120,7 +6120,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 40
     offsetY: 0
   - letter1:
       unicode: FE94
@@ -6132,7 +6132,7 @@ MonoBehaviour:
       id: kasrah
       sortNumber: 0
       page: 30
-    offsetX: 0
+    offsetX: 20
     offsetY: 0
   - letter1:
       unicode: FEFC
