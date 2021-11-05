@@ -30,11 +30,10 @@ namespace Antura.UI
 
             if (Book.Book.I.TestShaddah)
             {
-                var shaddah = "\u0651";
-                isolatedChar = isolatedChar + shaddah;
-                InitialChar = InitialChar + shaddah;
-                MedialChar = MedialChar + shaddah;
-                FinalChar = FinalChar + shaddah;
+                isolatedChar = ReplaceWithShaddah(isolatedChar);
+                InitialChar = ReplaceWithShaddah(InitialChar);
+                MedialChar = ReplaceWithShaddah(MedialChar);
+                FinalChar = ReplaceWithShaddah(FinalChar);
             }
 
             LetterTextIsolated.SetTextUnfiltered(isolatedChar);
@@ -63,6 +62,16 @@ namespace Antura.UI
                 MedialSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Medial)}</color>");
                 FinalSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Final)}</color>");
             }
+        }
+
+        private string ReplaceWithShaddah(string str)
+        {
+            var shaddah = "\u0651";
+            bool hasSign = str.EndsWith("\u0640");
+            if (hasSign) str = str.Remove(str.Length-1, 1);
+            str = $"{str}{shaddah}";
+            if (hasSign) str += "\u0640";
+            return str;
         }
 
         void Update()
