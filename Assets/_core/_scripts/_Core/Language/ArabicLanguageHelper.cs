@@ -256,7 +256,6 @@ namespace Antura.Language
         }
 
         private static Dictionary<DiacriticComboEntry, Vector2> DiacriticCombos2Fix = null;
-        private static DiacriticsComboData DiacriticsComboData;
 
         /// <summary>
         /// these are manually configured positions of diacritic symbols relative to the main letter
@@ -266,8 +265,303 @@ namespace Antura.Language
         {
             DiacriticCombos2Fix = new Dictionary<DiacriticComboEntry, Vector2>();
 
-            if (DiacriticsComboData == null) DiacriticsComboData = Resources.Load<DiacriticsComboData>("Language/DiacriticsComboData");
+            var diacriticsComboData = LanguageSwitcher.I.GetDiacriticsComboData(LanguageUse.Learning);
 
+            FillCombos2Fix();
+
+            void RefreshEntrySorting(DiacriticEntryKey.Letter entryLetter, LetterData letterData)
+            {
+                entryLetter.sortNumber = letterData.Number;
+                entryLetter.id = letterData.Id;
+                entryLetter.page = letterData.Base.Number;
+                if (entryLetter.id.StartsWith("alef_hamza")) entryLetter.page = 29;
+                if (entryLetter.id.StartsWith("lam_alef")) entryLetter.page = 30;
+                if (entryLetter.id.StartsWith("alef_maqsura")) entryLetter.page = 31;
+                if (entryLetter.id.StartsWith("hamza")) entryLetter.page = 32;
+                if (entryLetter.id.StartsWith("teh_marbuta")) entryLetter.page = 33;
+                if (entryLetter.id.StartsWith("yeh_hamza")) entryLetter.page = 34;
+                if (letterData.IsOfKindCategory(LetterKindCategory.Symbol)) entryLetter.page = 35;
+            }
+
+            DiacriticEntryKey.Letter FindLetter(List<LetterData> dbLetters, string unicode)
+            {
+                var entryLetter = new DiacriticEntryKey.Letter();
+                entryLetter.unicode = unicode;
+                var l = dbLetters.FirstOrDefault(x => x.Isolated_Unicode == unicode);
+                if (l != null)
+                {
+                    RefreshEntrySorting(entryLetter, l);
+                    return entryLetter;
+                }
+                l = dbLetters.FirstOrDefault(x => x.Initial_Unicode == unicode);
+                if (l != null)
+                {
+                    RefreshEntrySorting(entryLetter, l);
+                    return entryLetter;
+                }
+                l = dbLetters.FirstOrDefault(x => x.Medial_Unicode == unicode);
+                if (l != null)
+                {
+                    RefreshEntrySorting(entryLetter, l);
+                    return entryLetter;
+                }
+                l = dbLetters.FirstOrDefault(x => x.Final_Unicode == unicode);
+                if (l != null)
+                {
+                    RefreshEntrySorting(entryLetter, l);
+                    return entryLetter;
+                }
+                return null;
+            }
+
+            // @note: use this to regenerate the data table from the hardcoded values
+            if (REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS)
+            {
+                var dbLetters = AppManager.I.DB.GetAllLetterData();
+                var keys = DiacriticCombos2Fix.Keys.ToArray();
+                diacriticsComboData.Keys = new List<DiacriticEntryKey>();
+                for (var i = 0; i < keys.Length; i++)
+                {
+                    var entry = keys[i];
+                    var key = new DiacriticEntryKey();
+                    diacriticsComboData.Keys.Add(key);
+
+                    key.letter1 = FindLetter(dbLetters, entry.Unicode1);
+                    key.letter2 = FindLetter(dbLetters, entry.Unicode2);
+
+                    key.offsetX = (int)DiacriticCombos2Fix[entry].x;
+                    key.offsetY = (int)DiacriticCombos2Fix[entry].y;
+
+                }
+            }
+
+            // @note: use this to refill the table with all letters in the DB, if not already present
+            if (REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB)
+            {
+                var dbLetters = AppManager.I.DB.GetAllLetterData();
+                for (var i = 0; i < dbLetters.Count; i++)
+                {
+                    var letter = dbLetters[i];
+                    if (!letter.Active) continue;
+                    bool isSymbol = letter.IsOfKindCategory(LetterKindCategory.Symbol);
+                    if (!letter.IsOfKindCategory(LetterKindCategory.BaseAndVariations) && !isSymbol) continue;
+
+                    //Debug.LogError("Got Letter: " + letter.Id);
+
+                    foreach (var letterForm in letter.GetAvailableForms())
+                    {
+                        //Debug.LogError("Has Letter form: " + letterForm);
+
+                        var formUnicode = letter.GetUnicode(letterForm);
+
+                        foreach (var diacriticUnicode in diacriticsSortOrder)
+                        {
+                            if ((isSymbol && diacriticUnicode != Shaddah) || formUnicode == Shaddah)
+                            {
+                                // Should not appear Remove them if there are
+                                diacriticsComboData.Keys.RemoveAll(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode);
+                                continue;
+                            }
+                            DiacriticEntryKey key;
+                            if (diacriticsComboData.Keys.Any(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode))
+                            {
+                                //Debug.Log("We already have key with unicode " + formUnicode + " and diacritic " + diacriticUnicode);
+                                key = diacriticsComboData.Keys.First(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode);
+                            }
+                            else
+                            {
+                                //Debug.LogError("Generating key with unicode " + formUnicode + " and diacritic " + diacriticUnicode);
+                                key = new DiacriticEntryKey
+                                {
+                                    letter1 = FindLetter(dbLetters, formUnicode),
+                                    letter2 = FindLetter(dbLetters, diacriticUnicode)
+                                };
+                                diacriticsComboData.Keys.Add(key);
+                            }
+
+                            // Refresh page & sorting
+                            //Debug.LogError("Check " + key.letter1.id + " " + key.letter2.id);
+                            try { RefreshEntrySorting(key.letter1, AppManager.I.DB.GetLetterDataById(key.letter1.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                            try { RefreshEntrySorting(key.letter2, AppManager.I.DB.GetLetterDataById(key.letter2.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                        }
+                    }
+                }
+
+            }
+
+            if (REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB || REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS)
+            {
+                // Auto-sort the data like in the book
+                diacriticsComboData.Keys = diacriticsComboData.Keys.OrderBy(key =>
+                {
+                    var letter = AppManager.I.DB.GetLetterDataById(key.letter1.id);
+                    if (letter == null) return 0;
+                    var symbolOrder = diacriticsSortOrder.IndexOf(key.letter2.unicode);
+                    switch (letter.Kind)
+                    {
+                        case LetterDataKind.LetterVariation:
+                            return 10000 + symbolOrder;
+                        case LetterDataKind.Symbol:
+                            return 20000 + diacriticsSortOrder.IndexOf(key.letter1.unicode)*100 + symbolOrder;;
+                        default:
+                            return key.letter1.sortNumber*100 + symbolOrder;
+                    }
+                }).ToList();
+
+#if UNITY_EDITOR
+                EditorUtility.SetDirty(diacriticsComboData);
+#endif
+            }
+
+            // Use the values in the data table instead
+            DiacriticCombos2Fix.Clear();
+            foreach (var key in diacriticsComboData.Keys)
+            {
+                DiacriticCombos2Fix.Add(new DiacriticComboEntry(key.letter1.unicode, key.letter2.unicode), new Vector2(key.offsetX, key.offsetY));
+            }
+        }
+
+
+        private static bool REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS = false;
+        private static bool REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = true;
+
+        private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
+        {
+            if (DiacriticCombos2Fix == null) {
+                BuildDiacriticCombos2Fix();
+            }
+
+            Vector2 newDelta = new Vector2(0, 0);
+            var diacriticsComboData = LanguageSwitcher.I.GetDiacriticsComboData(LanguageUse.Learning);
+            var combo = diacriticsComboData.Keys.FirstOrDefault(x => x.letter1.unicode == Unicode1
+                                                                     && x.letter2.unicode == Unicode2);
+            if (combo != null)
+            {
+                newDelta.x = combo.offsetX;
+                newDelta.y = combo.offsetY;
+            }
+            return newDelta;
+        }
+
+        /// <summary>
+        /// Adjusts the diacritic positions.
+        /// </summary>
+        /// <returns><c>true</c>, if diacritic positions was adjusted, <c>false</c> otherwise.</returns>
+        /// <param name="textInfo">Text info.</param>
+        public override bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
+        {
+            int characterCount = textInfo.characterCount;
+            if (characterCount <= 1) return false;
+
+            bool changed = false;
+            for (int charPosition = 0; charPosition < characterCount - 1; charPosition++)
+            {
+                var char1Pos = charPosition;
+                var char2Pos = charPosition + 1;
+                var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[char1Pos].character);
+                var UnicodeChar2 = GetHexUnicodeFromChar(textInfo.characterInfo[char2Pos].character);
+
+                changed = true;
+
+
+                bool char1IsDiacritic = (UnicodeChar1 == Dammah || UnicodeChar1 == Fathah || UnicodeChar1 == Sukun || UnicodeChar1 == Kasrah);
+                bool char2IsDiacritic = (UnicodeChar2 == Dammah || UnicodeChar2 == Fathah || UnicodeChar2 == Sukun || UnicodeChar2 == Kasrah);
+
+                bool char1IsShaddah = UnicodeChar1 == Shaddah;
+                bool char2IsShaddah = UnicodeChar2 == Shaddah;
+
+                if (char1IsDiacritic && char2IsShaddah)
+                {
+                    CopyPosition(textInfo, char2Pos, char1Pos);             // Place the diacritic where the shaddah is
+                    ApplyOffset(textInfo, char1Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));    // then, move the diacritic in respect to the shaddah using the delta
+                }
+                else if (char1IsShaddah && char2IsDiacritic)
+                {
+                    CopyPosition(textInfo, char1Pos, char2Pos);             // Place the diacritic where the shaddah is
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar2, UnicodeChar1));    // then, move the diacritic in respect to the shaddah using the delta
+                }
+                else
+                {
+                    // Move the symbol in respect to the base letter
+                    //Debug.LogError($"Mod for {UnicodeChar1} to {UnicodeChar2}: {modificationDelta}");
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
+
+                    // If we get a Diacritic and the next char is a Shaddah, however, we need to instead first move the shaddah, then move the diacritic in respect to the shaddah
+                    if (charPosition < characterCount - 2)
+                    {
+                        var UnicodeChar3 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 2].character);
+                        bool char3IsDiacritic = (UnicodeChar3 == Dammah || UnicodeChar3 == Fathah || UnicodeChar3 == Sukun || UnicodeChar3 == Kasrah);
+                        bool char3IsShaddah = UnicodeChar3 == Shaddah;
+                        var char3Pos = charPosition + 2;
+
+                        // Place this Shaddah in respect to the letter
+                        if (char2IsDiacritic && char3IsShaddah)
+                        {
+                            ApplyOffset(textInfo, char3Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3));
+                        }
+                        else if (char2IsShaddah && char3IsDiacritic)
+                        {
+                            Debug.LogError(textInfo.textComponent.text + " " + " has weird diacritic" );
+
+                            ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
+                        }
+                    }
+
+                }
+            }
+            return changed;
+        }
+
+        private void ApplyOffset(TMPro.TMP_TextInfo textInfo, int charPosition, Vector2 modificationDelta)
+        {
+            int materialIndex2 = textInfo.characterInfo[charPosition].materialReferenceIndex;
+            int vertexIndex2 = textInfo.characterInfo[charPosition].vertexIndex;
+            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
+
+            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
+            float dx2 = charsize2 * modificationDelta.x / 100f;
+            float dy2 = charsize2 * modificationDelta.y / 100f;
+            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
+
+            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
+            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
+            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
+            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
+        }
+
+        private void CopyPosition(TMPro.TMP_TextInfo textInfo, int charFrom, int charTo)
+        {
+            int materialIndex2 = textInfo.characterInfo[charTo].materialReferenceIndex;
+            int vertexIndex2 = textInfo.characterInfo[charTo].vertexIndex;
+            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
+
+            int materialIndex1 = textInfo.characterInfo[charFrom].materialReferenceIndex;
+            int vertexIndex1 = textInfo.characterInfo[charFrom].vertexIndex;
+            Vector3[] Vertices1 = textInfo.meshInfo[materialIndex1].vertices;
+
+            Vertices2[vertexIndex2 + 0] = Vertices1[vertexIndex1 + 0];
+            Vertices2[vertexIndex2 + 1] = Vertices1[vertexIndex1 + 1];
+            Vertices2[vertexIndex2 + 2] = Vertices1[vertexIndex1 + 2];
+            Vertices2[vertexIndex2 + 3] = Vertices1[vertexIndex1 + 3];
+        }
+
+        public override string DebugShowDiacriticFix(string unicode1, string unicode2)
+        {
+            var delta = FindDiacriticCombo2Fix(unicode1, unicode2);
+            return
+                string.Format(
+                    "DiacriticCombos2Fix.Add(new DiacriticComboEntry(\"{0}\", \"{1}\"), new Vector2({2}, {3}));",
+                    unicode1, unicode2, delta.x, delta.y);
+        }
+
+        #endregion
+
+
+        #endregion
+
+        private void FillCombos2Fix()
+        {
+            #region Hardcoded Combo Values
             //////// LETTER alef
             // alef_fathah
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("0627", "064E"), new Vector2(0, 80));
@@ -1003,231 +1297,7 @@ namespace Antura.Language
 
             ///lam alef final
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
-
-            // @note: use this to regenerate the data table from the hardcoded values
-            if (REPOPULATE_DIACRITIC_ENTRY_TABLE)
-            {
-                var dbLetters = AppManager.I.DB.GetAllLetterData();
-                var keys = DiacriticCombos2Fix.Keys.ToArray();
-                DiacriticsComboData.Keys = new List<DiacriticEntryKey>();
-                for (var i = 0; i < keys.Length; i++)
-                {
-                    var entry = keys[i];
-                    var key = new DiacriticEntryKey();
-                    DiacriticsComboData.Keys.Add(key);
-
-                    DiacriticEntryKey.Letter FindLetter(string unicode)
-                    {
-                        void PrepareLetter(DiacriticEntryKey.Letter entryLetter, LetterData l)
-                        {
-                            entryLetter.sortNumber = l.Number;
-                            entryLetter.id = l.Id;
-                            entryLetter.page = l.Base.Number;
-                            if (l.IsOfKindCategory(LetterKindCategory.LetterVariation)) entryLetter.page = 29;
-                            if (l.IsOfKindCategory(LetterKindCategory.Symbol)) entryLetter.page = 30;
-                        }
-
-                        var entryLetter = new DiacriticEntryKey.Letter();
-                        entryLetter.unicode = unicode;
-                        var l = dbLetters.FirstOrDefault(x => x.Isolated_Unicode == unicode);
-                        if (l != null)
-                        {
-                            PrepareLetter(entryLetter, l);
-                            return entryLetter;
-                        }
-                        l = dbLetters.FirstOrDefault(x => x.Initial_Unicode == unicode);
-                        if (l != null)
-                        {
-                            PrepareLetter(entryLetter, l);
-                            return entryLetter;
-                        }
-                        l = dbLetters.FirstOrDefault(x => x.Medial_Unicode == unicode);
-                        if (l != null)
-                        {
-                            PrepareLetter(entryLetter, l);
-                            return entryLetter;
-                        }
-                        l = dbLetters.FirstOrDefault(x => x.Final_Unicode == unicode);
-                        if (l != null)
-                        {
-                            PrepareLetter(entryLetter, l);
-                            return entryLetter;
-                        }
-                        return null;
-                    }
-
-                    key.letter1 = FindLetter(entry.Unicode1);
-                    key.letter2 = FindLetter(entry.Unicode2);
-
-                    key.offsetX = (int)DiacriticCombos2Fix[entry].x;
-                    key.offsetY = (int)DiacriticCombos2Fix[entry].y;
-
-
-                }
-
-                // Auto-sort the data like in the book
-                DiacriticsComboData.Keys = DiacriticsComboData.Keys.OrderBy(key =>
-                    {
-                        var letter = AppManager.I.DB.GetLetterDataById(key.letter1.id);
-                        var symbolOrder = diacriticsSortOrder.IndexOf(key.letter2.unicode);
-                        switch (letter.Kind)
-                        {
-                            case LetterDataKind.LetterVariation:
-                                return 10000 + symbolOrder;
-                            case LetterDataKind.Symbol:
-                                return 20000 + diacriticsSortOrder.IndexOf(key.letter1.unicode)*100 + symbolOrder;;
-                            default:
-                                return key.letter1.sortNumber*100 + symbolOrder;
-                        }
-                    }).ToList();
-
-#if UNITY_EDITOR
-                EditorUtility.SetDirty(DiacriticsComboData);
-#endif
-            }
-
-            // Use the values in the data table instead
-            DiacriticCombos2Fix.Clear();
-            foreach (var key in DiacriticsComboData.Keys)
-            {
-                DiacriticCombos2Fix.Add(new DiacriticComboEntry(key.letter1.unicode, key.letter2.unicode), new Vector2(key.offsetX, key.offsetY));
-            }
+#endregion
         }
-
-        public static bool REPOPULATE_DIACRITIC_ENTRY_TABLE = false;
-
-        private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
-        {
-            if (DiacriticCombos2Fix == null) {
-                BuildDiacriticCombos2Fix();
-            }
-
-            Vector2 newDelta = new Vector2(0, 0);
-            var combo = DiacriticsComboData.Keys.FirstOrDefault(x => x.letter1.unicode == Unicode1
-                                                                     && x.letter2.unicode == Unicode2);
-            if (combo != null)
-            {
-                newDelta.x = combo.offsetX;
-                newDelta.y = combo.offsetY;
-            }
-            return newDelta;
-        }
-
-        /// <summary>
-        /// Adjusts the diacritic positions.
-        /// </summary>
-        /// <returns><c>true</c>, if diacritic positions was adjusted, <c>false</c> otherwise.</returns>
-        /// <param name="textInfo">Text info.</param>
-        public override bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
-        {
-            int characterCount = textInfo.characterCount;
-            if (characterCount <= 1) return false;
-
-            bool changed = false;
-            for (int charPosition = 0; charPosition < characterCount - 1; charPosition++)
-            {
-                var char1Pos = charPosition;
-                var char2Pos = charPosition + 1;
-                var UnicodeChar1 = GetHexUnicodeFromChar(textInfo.characterInfo[char1Pos].character);
-                var UnicodeChar2 = GetHexUnicodeFromChar(textInfo.characterInfo[char2Pos].character);
-
-                changed = true;
-
-
-                bool char1IsDiacritic = (UnicodeChar1 == Dammah || UnicodeChar1 == Fathah || UnicodeChar1 == Sukun || UnicodeChar1 == Kasrah);
-                bool char2IsDiacritic = (UnicodeChar2 == Dammah || UnicodeChar2 == Fathah || UnicodeChar2 == Sukun || UnicodeChar2 == Kasrah);
-
-                bool char1IsShaddah = UnicodeChar1 == Shaddah;
-                bool char2IsShaddah = UnicodeChar2 == Shaddah;
-
-                if (char1IsDiacritic && char2IsShaddah)
-                {
-                    CopyPosition(textInfo, char2Pos, char1Pos);             // Place the diacritic where the shaddah is
-                    ApplyOffset(textInfo, char1Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));    // then, move the diacritic in respect to the shaddah using the delta
-                }
-                else if (char1IsShaddah && char2IsDiacritic)
-                {
-                    CopyPosition(textInfo, char1Pos, char2Pos);             // Place the diacritic where the shaddah is
-                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar2, UnicodeChar1));    // then, move the diacritic in respect to the shaddah using the delta
-                }
-                else
-                {
-                    // Move the symbol in respect to the base letter
-                    //Debug.LogError($"Mod for {UnicodeChar1} to {UnicodeChar2}: {modificationDelta}");
-                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
-
-                    // If we get a Diacritic and the next char is a Shaddah, however, we need to instead first move the shaddah, then move the diacritic in respect to the shaddah
-                    if (charPosition < characterCount - 2)
-                    {
-                        var UnicodeChar3 = GetHexUnicodeFromChar(textInfo.characterInfo[charPosition + 2].character);
-                        bool char3IsDiacritic = (UnicodeChar3 == Dammah || UnicodeChar3 == Fathah || UnicodeChar3 == Sukun || UnicodeChar3 == Kasrah);
-                        bool char3IsShaddah = UnicodeChar3 == Shaddah;
-                        var char3Pos = charPosition + 2;
-
-                        // Place this Shaddah in respect to the letter
-                        if (char2IsDiacritic && char3IsShaddah)
-                        {
-                            ApplyOffset(textInfo, char3Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3));
-                        }
-                        else if (char2IsShaddah && char3IsDiacritic)
-                        {
-                            Debug.LogError(textInfo.textComponent.text + " " + " has weird diacritic" );
-
-                            ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
-                        }
-                    }
-
-                }
-            }
-            return changed;
-        }
-
-        private void ApplyOffset(TMPro.TMP_TextInfo textInfo, int charPosition, Vector2 modificationDelta)
-        {
-            int materialIndex2 = textInfo.characterInfo[charPosition].materialReferenceIndex;
-            int vertexIndex2 = textInfo.characterInfo[charPosition].vertexIndex;
-            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
-
-            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
-            float dx2 = charsize2 * modificationDelta.x / 100f;
-            float dy2 = charsize2 * modificationDelta.y / 100f;
-            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
-
-            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
-            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
-            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
-            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
-        }
-
-        private void CopyPosition(TMPro.TMP_TextInfo textInfo, int charFrom, int charTo)
-        {
-            int materialIndex2 = textInfo.characterInfo[charTo].materialReferenceIndex;
-            int vertexIndex2 = textInfo.characterInfo[charTo].vertexIndex;
-            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
-
-            int materialIndex1 = textInfo.characterInfo[charFrom].materialReferenceIndex;
-            int vertexIndex1 = textInfo.characterInfo[charFrom].vertexIndex;
-            Vector3[] Vertices1 = textInfo.meshInfo[materialIndex1].vertices;
-
-            Vertices2[vertexIndex2 + 0] = Vertices1[vertexIndex1 + 0];
-            Vertices2[vertexIndex2 + 1] = Vertices1[vertexIndex1 + 1];
-            Vertices2[vertexIndex2 + 2] = Vertices1[vertexIndex1 + 2];
-            Vertices2[vertexIndex2 + 3] = Vertices1[vertexIndex1 + 3];
-        }
-
-        public override string DebugShowDiacriticFix(string unicode1, string unicode2)
-        {
-            var delta = FindDiacriticCombo2Fix(unicode1, unicode2);
-            return
-                string.Format(
-                    "DiacriticCombos2Fix.Add(new DiacriticComboEntry(\"{0}\", \"{1}\"), new Vector2({2}, {3}));",
-                    unicode1, unicode2, delta.x, delta.y);
-        }
-
-        #endregion
-
-
-        #endregion
-
     }
 }

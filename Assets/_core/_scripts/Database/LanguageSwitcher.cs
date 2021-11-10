@@ -21,6 +21,7 @@ namespace Antura.Language
             public LangConfig config;
             //public DatabaseManager dbManager;
             public ILanguageHelper helper;
+            public DiacriticsComboData diacriticsComboData;
         }
 
         private Dictionary<LanguageUse, LanguageCode> useMapping;
@@ -57,19 +58,23 @@ namespace Antura.Language
             var languageData = new LanguageData();
 
             yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, AppManager.BlockingLoad);
-
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
             yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, AppManager.BlockingLoad);
-
             if (languageData.helper == null)
             {
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
+
+            yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, AppManager.BlockingLoad);
+            /*if (languageData.diacriticsComboData == null)
+            {
+                throw new FileNotFoundException($"Could not find the DiacriticsComboData file for {language} in the language resources! Did you setup it correctly?");
+            }*/
         }
 
         public IEnumerator PreloadLocalizedDataCO()
@@ -87,6 +92,11 @@ namespace Antura.Language
         {
             return loadedLanguageData[useMapping[use]].dbManager;
         }*/
+
+        public DiacriticsComboData GetDiacriticsComboData(LanguageUse use)
+        {
+            return loadedLanguageData[useMapping[use]].diacriticsComboData;
+        }
 
         public LangConfig GetLangConfig(LanguageUse use)
         {
