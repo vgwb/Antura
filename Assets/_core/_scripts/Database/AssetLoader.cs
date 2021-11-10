@@ -36,7 +36,7 @@ namespace Antura
            }
            if (async.OperationException != null)
            {
-               Debug.LogError(async.OperationException);
+               Debug.LogError($"Error loading {path}: {async.OperationException}");
            }
            callback(async.Result);
         }

@@ -97,6 +97,7 @@ namespace Antura.UI
         public void SetTextUnfiltered(string text)
         {
             TMPText.text = text;
+            m_text = text;
             CheckRTL();
         }
 

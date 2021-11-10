@@ -1,5 +1,6 @@
 ﻿using Antura.Core;
 using Antura.Database;
+using TMPro;
 using UnityEngine;
 
 namespace Antura.UI
@@ -10,6 +11,11 @@ namespace Antura.UI
         public TextRender LetterTextInitial;
         public TextRender LetterTextMedial;
         public TextRender LetterTextFinal;
+
+        public TextMeshProUGUI IsolatedSubtitle;
+        public TextMeshProUGUI InitialSubtitle;
+        public TextMeshProUGUI MedialSubtitle;
+        public TextMeshProUGUI FinalSubtitle;
 
         private LetterData currentLetter;
         private bool lastTestShaddah;
@@ -24,16 +30,11 @@ namespace Antura.UI
 
             if (Book.Book.I.TestShaddah)
             {
-                isolatedChar = isolatedChar + "\u0651";
-                InitialChar = InitialChar + "\u0651";
-                MedialChar = MedialChar + "\u0651";
-                FinalChar = FinalChar + "\u0651";
+                isolatedChar = ReplaceWithShaddah(isolatedChar);
+                InitialChar = ReplaceWithShaddah(InitialChar);
+                MedialChar = ReplaceWithShaddah(MedialChar);
+                FinalChar = ReplaceWithShaddah(FinalChar);
             }
-
-            LetterTextIsolated.SetTextUnfiltered(isolatedChar);
-            LetterTextInitial.SetTextUnfiltered(InitialChar);
-            LetterTextMedial.SetTextUnfiltered(MedialChar);
-            LetterTextFinal.SetTextUnfiltered(FinalChar);
 
             if (AppManager.I.ParentEdition.BookShowRelatedWords) {
                 LetterTextIsolated.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
@@ -46,6 +47,30 @@ namespace Antura.UI
                 LetterTextMedial.gameObject.SetActive(true);
                 LetterTextFinal.gameObject.SetActive(true);
             }
+
+            LetterTextIsolated.SetTextUnfiltered(isolatedChar);
+            LetterTextInitial.SetTextUnfiltered(InitialChar);
+            LetterTextMedial.SetTextUnfiltered(MedialChar);
+            LetterTextFinal.SetTextUnfiltered(FinalChar);
+
+            if (Book.Book.I.EditDiacritics)
+            {
+                IsolatedSubtitle.gameObject.SetActive(true);
+                IsolatedSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Isolated)}</color>");
+                InitialSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Initial)}</color>");
+                MedialSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Medial)}</color>");
+                FinalSubtitle.text = ($"<color=black>{letterData.GetUnicode(LetterForm.Final)}</color>");
+            }
+        }
+
+        private string ReplaceWithShaddah(string str)
+        {
+            var shaddah = "\u0651";
+            bool hasSign = str.EndsWith("\u0640");
+            if (hasSign) str = str.Remove(str.Length-1, 1);
+            str = $"{str}{shaddah}";
+            if (hasSign) str += "\u0640";
+            return str;
         }
 
         void Update()
@@ -53,6 +78,17 @@ namespace Antura.UI
             if (lastTestShaddah != Book.Book.I.TestShaddah)
             {
                 lastTestShaddah = Book.Book.I.TestShaddah;
+                Init(currentLetter);
+            }
+
+            if (Book.Book.I.EditDiacritics)
+            {
+                // Clear so it will be re-rendered again
+                LetterTextIsolated.SetTextUnfiltered("");
+                LetterTextInitial.SetTextUnfiltered("");
+                LetterTextMedial.SetTextUnfiltered("");
+                LetterTextFinal.SetTextUnfiltered("");
+
                 Init(currentLetter);
             }
         }

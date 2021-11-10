@@ -63,14 +63,14 @@ namespace Antura.Book
             List<LetterData> letters = AppManager.I.DB.FindLetterData((x) => (x.Kind == LetterDataKind.Letter && x.InBook));
             letters.Sort((x, y) => x.Number.CompareTo(y.Number));
 
-            //adds Letter VAriations
+            //adds Letter Vaiations
             List<LetterData> lettersVariations = AppManager.I.DB.FindLetterData((x) => (x.Kind == LetterDataKind.LetterVariation && x.InBook));
-            lettersVariations.Sort((x, y) => x.Id.CompareTo(y.Id));
+            lettersVariations.Sort((x, y) => x.Number.CompareTo(y.Number));
             letters.AddRange(lettersVariations);
 
             //adds Symbols
             List<LetterData> symbols = AppManager.I.DB.FindLetterData((x) => (x.Kind == LetterDataKind.Symbol && x.InBook));
-            symbols.Sort((x, y) => x.Id.CompareTo(y.Id));
+            symbols.Sort((x, y) => x.Number.CompareTo(y.Number));
             letters.AddRange(symbols);
 
             List<LetterInfo> allLetterInfos = AppManager.I.ScoreHelper.GetAllLetterInfo();
@@ -122,6 +122,7 @@ namespace Antura.Book
                 var variationsletters = AppManager.I.DB.FindLetterData(
                     (x) => (x.BaseLetter == letterbase && (x.Kind == LetterDataKind.DiacriticCombo && x.Active))
                 );
+                variationsletters.Sort((x, y) => x.Number - y.Number);
 
                 // diacritics box
                 var letterGO = Instantiate(DiacriticSymbolItemPrefab);
@@ -129,7 +130,7 @@ namespace Antura.Book
                 letterGO.GetComponent<ItemDiacriticSymbol>().Init(this, myLetterInfo, true);
 
                 List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
-                info_list.Sort((x, y) => x.data.Id.CompareTo(y.data.Id));
+                info_list.Sort((x, y) => x.data.Number - y.data.Number);
                 foreach (var info_item in info_list) {
                     if (variationsletters.Contains(info_item.data)) {
                         if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {

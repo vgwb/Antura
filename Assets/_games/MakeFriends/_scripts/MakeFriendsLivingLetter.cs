@@ -143,20 +143,15 @@ namespace Antura.Minigames.MakeFriends
             StartCoroutine(HighFive_Coroutine(delay, rotate, rotation));
         }
 
-        public float SpeakWord()
+        public IAudioSource SpeakWord()
         {
-            float duration = 0;
+            IAudioSource s = null;
             if (wordData != null && wordData.Id != null)
             {
-                var s = MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(wordData, true);
-                duration = s.Duration;
+               s = MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(wordData, true);
             }
-            //if (container != null)
-            //{
-            //    container.GetComponent<Animator>().SetTrigger("Throb");
-            //}
             LookAngry();
-            return duration;
+            return s;
         }
 
         public void LookAngry()
@@ -298,7 +293,16 @@ namespace Antura.Minigames.MakeFriends
                     yield return null;
 
                 MakeFriendsGame.Instance.IsIntroducingLetter = true;
-                yield return new WaitForSeconds(SpeakWord());
+                var audioSource = SpeakWord();
+                while (!audioSource.IsLoaded)
+                {
+                    yield return null;
+                }
+
+                while (audioSource.IsPlaying)
+                {
+                    yield return null;
+                }
                 MakeFriendsGame.Instance.IsIntroducingLetter = false;
                 yield return new WaitForSeconds(0.25f);
                 MakeFriendsGame.Instance.SpokenWords++;

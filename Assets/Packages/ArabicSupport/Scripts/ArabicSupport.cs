@@ -13,6 +13,7 @@
 using System;
 using System.Collections.Generic;
 using DG.DeExtensions;
+using UnityEngine;
 
 #endregion
 
@@ -435,6 +436,12 @@ internal class ArabicFixerTool
 		for (int i = 0; i < lettersOrigin.Length; i++)
 		{
 			lettersOrigin[i] = (char)ArabicTable.ArabicMapper.Convert(lettersOrigin[i]);
+
+            if (lettersOrigin[i] == 0x6CC)
+            {
+                Debug.LogError($"We found a FARSI YEH at index {i}, we transform it into an ALEF MAKSURA");
+                lettersOrigin[i] = (char)IsolatedArabicLetters.AlefMaksora;
+            }
 		}
 		
 		for (int i = 0; i < lettersOrigin.Length; i++)
