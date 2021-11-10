@@ -423,7 +423,7 @@ namespace Antura.Language
 
 
         private static bool REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS = false;
-        private static bool REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = true;
+        private static bool REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = false;
 
         private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
         {
