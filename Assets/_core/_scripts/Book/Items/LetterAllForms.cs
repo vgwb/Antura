@@ -36,11 +36,6 @@ namespace Antura.UI
                 FinalChar = ReplaceWithShaddah(FinalChar);
             }
 
-            LetterTextIsolated.SetTextUnfiltered(isolatedChar);
-            LetterTextInitial.SetTextUnfiltered(InitialChar);
-            LetterTextMedial.SetTextUnfiltered(MedialChar);
-            LetterTextFinal.SetTextUnfiltered(FinalChar);
-
             if (AppManager.I.ParentEdition.BookShowRelatedWords) {
                 LetterTextIsolated.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
                 LetterTextInitial.gameObject.SetActive(false);
@@ -53,6 +48,10 @@ namespace Antura.UI
                 LetterTextFinal.gameObject.SetActive(true);
             }
 
+            LetterTextIsolated.SetTextUnfiltered(isolatedChar);
+            LetterTextInitial.SetTextUnfiltered(InitialChar);
+            LetterTextMedial.SetTextUnfiltered(MedialChar);
+            LetterTextFinal.SetTextUnfiltered(FinalChar);
 
             if (Book.Book.I.EditDiacritics)
             {

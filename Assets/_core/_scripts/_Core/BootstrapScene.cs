@@ -1,6 +1,7 @@
 ﻿using Antura.Core;
 using System.Collections;
 using Antura.Minigames;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Scenes
@@ -18,10 +19,9 @@ namespace Antura.Scenes
         protected override void Start()
         {
             Debug.Log("BootstrapScene: Start()");
+            GlobalUI.ShowPauseMenu(false);
 
             StartCoroutine(StartCO());
-
-            // GlobalUI.ShowPauseMenu(false);
 
             //if (AppManager.I.AppSettingsManager.IsAppJustUpdatedFromOldVersion()) {
             //    Debug.Log("BootstrapScene: Updating from Old version");
