@@ -19,7 +19,7 @@ please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Co
 
 ## Requirements
 
-This repository is a Unity 2018.4 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive)) and works on mobile (iOS and Android) and Desktop computers
+This repository is a Unity 2020 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive)) and works on mobile (iOS and Android) and Desktop computers
 
 ## Licensing
 
