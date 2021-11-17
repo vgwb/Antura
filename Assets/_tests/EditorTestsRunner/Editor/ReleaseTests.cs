@@ -21,7 +21,7 @@ namespace Antura.Tests.Release
                 failed = true;
             }
 
-            if (AppManager.I.ParentEdition.OnlineAnalyticsEnabled == false) {
+            if (AppManager.I.AppEdition.OnlineAnalyticsEnabled == false) {
                 UnityEngine.Debug.Log("UnityAnalyticsEnabled should be TRUE");
                 failed = true;
             }

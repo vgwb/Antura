@@ -9,8 +9,8 @@ namespace Antura.UI
     {
         public CurrentEditionIcon currentIcon;
 
-        public SwitchEditionButton prefabButton;
-        private List<SwitchEditionButton> buttons = new List<SwitchEditionButton>();
+        public SwitchLearningEditionButton prefabButton;
+        private List<SwitchLearningEditionButton> buttons = new List<SwitchLearningEditionButton>();
 
         public void Open()
         {
@@ -26,17 +26,18 @@ namespace Antura.UI
 
         public void Awake()
         {
-            foreach (var editionConfig in AppManager.I.ParentEdition.ChildEditions)
+            for (var iLearningEdition = 0; iLearningEdition < AppManager.I.AppEdition.LearningEditions.Length; iLearningEdition++)
             {
-                var edition = editionConfig.Edition;
+                var config = AppManager.I.AppEdition.LearningEditions[iLearningEdition];
                 var buttonGO = Instantiate(prefabButton.gameObject);
                 buttonGO.transform.SetParent(prefabButton.transform.parent);
                 buttonGO.transform.localScale = Vector3.one;
                 buttonGO.SetActive(true);
-                var button = buttonGO.GetComponent<SwitchEditionButton>();
-                button.Setup(editionConfig);
+                var button = buttonGO.GetComponent<SwitchLearningEditionButton>();
+                button.Setup(iLearningEdition, config);
                 buttons.Add(button);
             }
+
             prefabButton.gameObject.SetActive(false);
         }
 
@@ -50,7 +51,7 @@ namespace Antura.UI
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (button.Edition == AppManager.I.AppSettings.SpecificEdition) button.SetSelected();
+                if (button.LearningEditionIndex == AppManager.I.AppSettings.LearningEditionIndex) button.SetSelected();
             }
             currentIcon.OnEnable();
         }

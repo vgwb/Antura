@@ -12,7 +12,7 @@ namespace Antura.UI
 
         void Start()
         {
-            Logo.sprite = AppManager.I.ParentEdition.HomeLogo;
+            Logo.sprite = AppManager.I.LearningEdition.HomeLogo;
         }
 
     }

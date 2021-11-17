@@ -99,7 +99,7 @@ namespace Antura.Book
 
             HighlightLetterItem(myLetterInfo.data.Id);
 
-            if (AppManager.I.ParentEdition.BookShowRelatedWords) {
+            if (AppManager.I.AppEdition.BookShowRelatedWords) {
                 // show related words
                 RelatedWordsContainer.SetActive(true);
                 DiacriticsContainer.SetActive(false);

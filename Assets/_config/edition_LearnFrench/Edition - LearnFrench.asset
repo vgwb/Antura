@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Edition: 30
   EditionTitle: Learn French
-  ChildEditions: []
+  LearningEditions:
+  - {fileID: 11400000, guid: b628d71cf6fa7244ebb1250ae2a9c63b, type: 2}
   LearningLanguage: 5
   NativeLanguage: 2
   HelpLanguage: 2
@@ -31,6 +32,7 @@ MonoBehaviour:
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
   ShowAccents: 0
   CreditsText: {fileID: 4900000, guid: 5b0694565a59c45d29797229f3ee352e, type: 3}
+  BookShowRelatedWords: 0
   ReservedAreaForcedSeq: 0
   ShowDonate: 0
   ShowTeacherGuide: 0
@@ -38,6 +40,7 @@ MonoBehaviour:
   AllowSubtitleSkip: 1
   EnableSubtitlesToggle: 0
   ShowHelpText: 0
+  ShowKeeperTranslation: 0
   RequireGender: 1
   RequireAge: 0
   EnableNotifications: 0

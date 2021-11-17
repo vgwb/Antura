@@ -6,23 +6,23 @@ using UnityEngine.UI;
 
 namespace Antura.UI
 {
-    public class SwitchEditionButton : MonoBehaviour
+    public class SwitchLearningEditionButton : MonoBehaviour
     {
         public Image iconImage;
         public TextRender nameText;
 
         public SwitchEditionPanel switchEditionPanel;
-        private AppEditions edition;
+        private int learningEditionIndex;
 
         public Image selectedImage;
-        public AppEditions Edition => edition;
+        public int LearningEditionIndex => learningEditionIndex;
 
-        public void Setup(EditionConfig _editionConfig)
+        public void Setup(int index, LearningConfig _editionConfig)
         {
-            this.edition = _editionConfig.Edition;
+            this.learningEditionIndex = index;
 
-            iconImage.sprite = _editionConfig.EditionIcon;
-            nameText.text = _editionConfig.EditionTitle;
+            iconImage.sprite = _editionConfig.Icon;
+            nameText.text = _editionConfig.Title;
         }
 
         public void OnClick()
@@ -32,7 +32,7 @@ namespace Antura.UI
 
         private IEnumerator OnClickCO()
         {
-            AppManager.I.AppSettingsManager.SetSpecificEdition(edition);
+            AppManager.I.AppSettingsManager.SetLearningEditionIndex(learningEditionIndex);
             yield return AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();
             AppManager.I.NavigationManager.GoToHome(true);

@@ -36,7 +36,7 @@ namespace Antura.UI
                 FinalChar = ReplaceWithShaddah(FinalChar);
             }
 
-            if (AppManager.I.ParentEdition.BookShowRelatedWords) {
+            if (AppManager.I.AppEdition.BookShowRelatedWords) {
                 LetterTextIsolated.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
                 LetterTextInitial.gameObject.SetActive(false);
                 LetterTextMedial.gameObject.SetActive(false);

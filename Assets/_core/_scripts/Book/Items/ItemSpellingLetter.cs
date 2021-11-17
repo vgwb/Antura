@@ -26,7 +26,7 @@ namespace Antura.Book
             } else {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
                 LetterText.SetTextUnfiltered(isolatedChar);
-                if (AppManager.I.ParentEdition.ShowHelpText)
+                if (AppManager.I.AppEdition.ShowHelpText)
                     SubtitleText.SetText(myLetterData.Id);
                 else
                     SubtitleText.SetText("");

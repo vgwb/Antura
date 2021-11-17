@@ -44,7 +44,7 @@ namespace Antura.Core.Services.OnlineAnalytics
         private bool AnalyticsEnabled
         {
             get {
-                return AppManager.I.ParentEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
+                return AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
             }
         }
 

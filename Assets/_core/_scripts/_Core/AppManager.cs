@@ -28,8 +28,8 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public EditionConfig ParentEdition => ApplicationConfig.LoadedEdition;
-        public EditionConfig SpecificEdition => ApplicationConfig.SpecificEdition;
+        public EditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
+        public LearningConfig LearningEdition => ApplicationConfig.LearningEdition;
 
         public ApplicationConfig ApplicationConfig;
         public DebugConfig DebugConfig;
@@ -205,8 +205,8 @@ namespace Antura.Core
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
-            AppManager.I.SpecificEdition.NativeLanguage = langCode;
-            AppManager.I.SpecificEdition.HelpLanguage = langCode;
+            AppManager.I.LearningEdition.NativeLanguage = langCode;
+            AppManager.I.LearningEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             yield return LanguageSwitcher.ReloadNativeLanguage();
@@ -214,7 +214,7 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (AppManager.I.ParentEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications) {
                 Services.Notifications.Init();
             }
         }
@@ -248,7 +248,7 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (AppManager.I.ParentEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications) {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
@@ -276,7 +276,7 @@ namespace Antura.Core
             if (IsPaused) {
                 // app is pausing
                 if (LogManager.I != null) LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.ParentEdition.EnableNotifications) {
+                if (AppManager.I.AppEdition.EnableNotifications) {
                     Services.Notifications.AppSuspended();
                 }
             } else {
@@ -286,7 +286,7 @@ namespace Antura.Core
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.ParentEdition.EnableNotifications) {
+                if (AppManager.I.AppEdition.EnableNotifications) {
                     Services.Notifications.AppResumed();
                 }
             }

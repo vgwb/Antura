@@ -471,7 +471,7 @@ namespace Antura.Database
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
             if (word.Drawing != "") {
                 string drawingHexCode = word.Drawing;
-                if (AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
+                if (AppManager.I.AppEdition.Edition == AppEditions.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
                     drawingHexCode = word.DrawingCeibal;
                 }
 

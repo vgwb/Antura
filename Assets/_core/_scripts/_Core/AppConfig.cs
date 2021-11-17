@@ -13,8 +13,7 @@ namespace Antura.Core
         Arabic = 20,
         Arabic_Darija = 21,
         Arabic_ProFuturo = 22,
-        Afgha_Dari = 23,
-        Afgha_Pashto = 24,
+        Afgha = 23,
         LearnFrench = 30,
         LearnItalian = 40,
     }

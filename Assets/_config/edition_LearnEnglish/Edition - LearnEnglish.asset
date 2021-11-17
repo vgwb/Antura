@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Edition: 1
   EditionTitle: 
-  ChildEditions: []
+  LearningEditions:
+  - {fileID: 11400000, guid: 33f98ccff199a334abbfe30d7bf3f204, type: 2}
   LearningLanguage: 1
   NativeLanguage: 4
-  SubtitlesLanguage: 4
+  HelpLanguage: 0
   SupportedNativeLanguages: 0400000003000000
   DetectSystemLanguage: 1
   LetterDB: {fileID: 11400000, guid: 12e2e64a727f5c148a13ff004ffbd540, type: 2}
@@ -31,12 +32,15 @@ MonoBehaviour:
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
   ShowAccents: 0
   CreditsText: {fileID: 4900000, guid: f999717d164024c83a225ca2f088d5c8, type: 3}
+  BookShowRelatedWords: 0
   ReservedAreaForcedSeq: 0
   ShowDonate: 1
   ShowTeacherGuide: 0
   DefaultKeeperMode: 5
-  ShowSubtitles: 0
   AllowSubtitleSkip: 1
+  EnableSubtitlesToggle: 0
+  ShowHelpText: 0
+  ShowKeeperTranslation: 0
   RequireGender: 0
   RequireAge: 0
   EnableNotifications: 0

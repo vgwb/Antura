@@ -58,10 +58,10 @@ namespace Antura.Keeper
             if (DebugConfig.I.VerboseAudio) Debug.Log("Keeper trying to play audio for PlayDialogue: " + data.Id);
 
             if (keeperMode == KeeperMode.Default) {
-                keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
+                keeperMode = AppManager.I.AppEdition.DefaultKeeperMode;
             }
 
-            if (AppManager.I.SpecificEdition.LearningLanguage == AppManager.I.SpecificEdition.NativeLanguage)
+            if (AppManager.I.LearningEdition.LearningLanguage == AppManager.I.LearningEdition.NativeLanguage)
             {
                 if (keeperMode == KeeperMode.LearningThenNativeAndSubtitles) keeperMode = KeeperMode.LearningAndSubtitles;
                 else if (keeperMode == KeeperMode.LearningThenNativeNoSubtitles) keeperMode = KeeperMode.LearningNoSubtitles;
@@ -111,7 +111,7 @@ namespace Antura.Keeper
             //Debug.LogWarning("Keeper playing Vocabulary " + data.Id);
 
             if (keeperMode == KeeperMode.Default)
-                keeperMode = AppManager.I.ParentEdition.DefaultKeeperMode;
+                keeperMode = AppManager.I.AppEdition.DefaultKeeperMode;
 
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||

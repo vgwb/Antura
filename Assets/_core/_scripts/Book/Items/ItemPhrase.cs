@@ -31,7 +31,7 @@ namespace Antura.Book
             }
 
             Title.text = info.data.Text;
-            SubTitle.text = AppManager.I.ParentEdition.ShowHelpText ? info.data.Id : "";
+            SubTitle.text = AppManager.I.AppEdition.ShowHelpText ? info.data.Id : "";
         }
 
         public void OnPointerClick(PointerEventData eventData)

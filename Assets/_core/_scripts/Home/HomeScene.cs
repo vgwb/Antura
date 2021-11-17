@@ -100,7 +100,7 @@ namespace Antura.Scenes
 
         public void OnBtnSwitchLanguage()
         {
-            ChangeLearningLanguage(AppManager.I.SpecificEdition.NativeLanguage == LanguageCode.spanish
+            ChangeLearningLanguage(AppManager.I.LearningEdition.NativeLanguage == LanguageCode.spanish
                 ? LanguageCode.italian
                 : LanguageCode.spanish);
         }

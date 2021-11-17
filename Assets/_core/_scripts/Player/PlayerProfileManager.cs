@@ -171,7 +171,7 @@ namespace Antura.Profile
         public List<PlayerIconData> GetPlayersIconData()
         {
             return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
-                pl.Edition == AppManager.I.SpecificEdition.Edition
+                pl.Edition == AppManager.I.AppEdition.Edition
                     || pl.Edition == AppEditions.All
                 ).ToList();
         }

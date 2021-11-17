@@ -26,20 +26,14 @@ namespace Antura.Core
 
         public static ApplicationConfig I => AppManager.I.ApplicationConfig;
 
-        public EditionConfig LoadedEdition;
-        public EditionConfig SpecificEdition
+        public EditionConfig LoadedAppEdition;
+        public LearningConfig LearningEdition
         {
-            get {
-                if (LoadedEdition.IsMultiEdition) {
-                    var wantedEdition = AppManager.I.AppSettings.SpecificEdition;
-                    var editionConfig = LoadedEdition.ChildEditions.FirstOrDefault(ed => ed.Edition == wantedEdition);
-                    if (editionConfig == null) {
-                        AppManager.I.AppSettingsManager.SetSpecificEdition(LoadedEdition.ChildEditions[0].Edition);
-                        editionConfig = LoadedEdition.ChildEditions[0];
-                    }
-                    return editionConfig;
-                }
-                return LoadedEdition;
+            get
+            {
+                var index = Mathf.Min(AppManager.I.AppSettings.LearningEditionIndex, LoadedAppEdition.LearningEditions.Length - 1);
+                var config = LoadedAppEdition.LearningEditions[index];
+                return config;
             }
         }
     }

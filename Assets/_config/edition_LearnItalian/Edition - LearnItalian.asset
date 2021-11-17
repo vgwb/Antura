@@ -14,7 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Edition: 40
   EditionTitle: Learn Italian
-  ChildEditions: []
+  LearningEditions:
+  - {fileID: 11400000, guid: dfbe792501741bc428f1ec04ee18c909, type: 2}
   LearningLanguage: 4
   NativeLanguage: 1
   HelpLanguage: 1
@@ -31,6 +32,7 @@ MonoBehaviour:
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
   ShowAccents: 0
   CreditsText: {fileID: 0}
+  BookShowRelatedWords: 0
   ReservedAreaForcedSeq: 0
   ShowDonate: 0
   ShowTeacherGuide: 0
@@ -38,6 +40,7 @@ MonoBehaviour:
   AllowSubtitleSkip: 1
   EnableSubtitlesToggle: 0
   ShowHelpText: 0
+  ShowKeeperTranslation: 0
   RequireGender: 0
   RequireAge: 0
   EnableNotifications: 0

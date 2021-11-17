@@ -46,10 +46,10 @@ namespace Antura.ReservedArea
             KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.LearningThenNativeNoSubtitles);
             firstButtonClickCounter = 0;
 
-            UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
+            UseForcedSequence = AppManager.I.AppEdition.ReservedAreaForcedSeq;
 
-            layoutHelpAndLearning.SetActive(AppManager.I.ParentEdition.ShowHelpText);
-            layoutLearningOnly.SetActive(!AppManager.I.ParentEdition.ShowHelpText);
+            layoutHelpAndLearning.SetActive(AppManager.I.AppEdition.ShowHelpText);
+            layoutLearningOnly.SetActive(!AppManager.I.AppEdition.ShowHelpText);
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();

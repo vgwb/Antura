@@ -10,7 +10,7 @@ namespace Antura.UI
     {
         void Start()
         {
-            gameObject.SetActive(AppManager.I.ParentEdition.ShowHelpText);
+            gameObject.SetActive(AppManager.I.AppEdition.ShowHelpText);
         }
     }
 }

@@ -27,36 +27,8 @@ namespace Antura.Core
         public AppEditions Edition;
         public string EditionTitle;
 
-        [Header("Multi-Edition")]
-        public EditionConfig[] ChildEditions;
-        public bool IsMultiEdition => ChildEditions != null && ChildEditions.Length > 0;
-
-        [Header("Specific - Language")]
-        [Space(30)]
-        public LanguageCode LearningLanguage;
-        public LanguageCode NativeLanguage;
-        public LanguageCode HelpLanguage;
-        public LanguageCode[] SupportedNativeLanguages;
-        [Tooltip("try to set the native language to the device language, otherwise use NativeLanguage")]
-        public bool DetectSystemLanguage;
-
-        public string GetLearningLangResourcePrefix()
-        {
-            return $"{LearningLanguage}/";
-        }
-
-        [Header("Specific - Data - Vocabulary")]
-        public LetterDatabase LetterDB;
-        public WordDatabase WordDB;
-        public PhraseDatabase PhraseDB;
-        public LocalizationDatabase LocalizationDB;
-
-        [Header("Specific - Data - Journey")]
-        public StageDatabase StageDB;
-        public LearningBlockDatabase LearningBlockDB;
-        public PlaySessionDatabase PlaySessionDB;
-        public MiniGameDatabase MiniGameDB;
-        public RewardDatabase RewardDB;
+        public LearningConfig[] LearningEditions;
+        public bool HasMultipleLearningEditions => LearningEditions != null && LearningEditions.Length > 0;
 
         [Header("Settings")]
         [Space(30)]
@@ -116,21 +88,6 @@ namespace Antura.Core
         public bool PlayIntroAtMiniGameStart;
         public bool AutomaticDifficulty;
 
-        [Header("In-Game Resources")]
-        public Sprite EditionIcon;
-        public Sprite HomeLogo;
-        public Sprite TransitionLogo;
-        public GameObject Flag3D;
-
-        public GameObject GetResource(EditionResourceID id)
-        {
-            switch (id) {
-                case EditionResourceID.Flag: return Flag3D;
-            }
-            return null;
-        }
-
-
         [Header("Build Settings")]
 
         /// <summary>
@@ -147,11 +104,6 @@ namespace Antura.Core
             if (EditionTitle != "") {
                 v += " " + EditionTitle;
             }
-
-            if (IsMultiEdition) {
-                v += " - " + AppManager.I.SpecificEdition.EditionTitle;
-            }
-
             return v;
         }
 
@@ -178,7 +130,7 @@ namespace Antura.Core
             var config = ApplicationConfig.FindMainConfig();
             if (config == null) return;
 
-            config.LoadedEdition = this;
+            config.LoadedAppEdition = this;
             PlayerSettings.productName = ProductName;
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
@@ -190,18 +142,14 @@ namespace Antura.Core
                 PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
             }
 
-            List<EditionConfig> editionsToUse = new List<EditionConfig>();
-            if (IsMultiEdition) {
-                foreach (var edition in ChildEditions) {
-                    editionsToUse.Add(edition);
-                }
-            } else {
-                editionsToUse.Add(this);
+            var learningConfigsToUse = new List<LearningConfig>();
+            foreach (var edition in LearningEditions) {
+                learningConfigsToUse.Add(edition);
             }
 
             // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
-            foreach (var edition in editionsToUse) {
+            foreach (var edition in learningConfigsToUse) {
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
