@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using Antura.Language;
 using UnityEngine;
@@ -21,13 +22,13 @@ namespace Antura.Database.Management
             data.PlaySession = ToInt(dict["PlaySession"]);
             data.Id = data.Stage + "." + data.LearningBlock + "." + data.PlaySession;
 
-            data.Letters = ParseIDArray<LetterData, LetterTable>(data, (string)dict["Letters"], db.GetLetterTable());
+            data.Letters = ParseLinkedData<LetterData, LetterTable>(data, (string)dict["Letters"], db.GetLetterTable());
             //CustomAddDiacritics(data, db);
 
-            data.Words = ParseIDArray<WordData, WordTable>(data, (string)dict["Words"], db.GetWordTable());
-            data.Words_previous = ParseIDArray<WordData, WordTable>(data, (string)dict["Words_previous"], db.GetWordTable());
-            data.Phrases = ParseIDArray<PhraseData, PhraseTable>(data, (string)dict["Phrases"], db.GetPhraseTable());
-            data.Phrases_previous = ParseIDArray<PhraseData, PhraseTable>(data, (string)dict["Phrases_previous"], db.GetPhraseTable());
+            data.Words = ParseLinkedData<WordData, WordTable>(data, (string)dict["Words"], db.GetWordTable());
+            data.Words_previous = ParseLinkedData<WordData, WordTable>(data, (string)dict["Words_previous"], db.GetWordTable());
+            data.Phrases = ParseLinkedData<PhraseData, PhraseTable>(data, (string)dict["Phrases"], db.GetPhraseTable());
+            data.Phrases_previous = ParseLinkedData<PhraseData, PhraseTable>(data, (string)dict["Phrases_previous"], db.GetPhraseTable());
 
             data.Order = ParseEnum<PlaySessionDataOrder>(data, dict["Order"]);
             data.NumberOfMinigames = ToInt(dict["NumberOfMinigames"]);
@@ -35,6 +36,36 @@ namespace Antura.Database.Management
             data.NumberOfRoundsPerMinigame = ToInt(dict["NumberOfRounds"]);
 
             return data;
+        }
+
+        private string[] ParseLinkedData<OtherD, OtherDTable>(PlaySessionData psData, string array_string, OtherDTable table) where OtherDTable : SerializableDataTable<OtherD> where OtherD : IVocabularyData
+        {
+            List<string> foundIDs = new List<string>();
+
+            var array = array_string.Split(',');
+            if (array_string == string.Empty) return Array.Empty<string>();
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[i].Trim(); // remove spaces
+                if (array[i] == "▲") array[i] = " ";
+
+                var dataValues = table.GetValues();
+                foreach (var value in dataValues)
+                {
+                    var vocabularyData = value as IVocabularyData;
+                    if (value != null && array[i] == value.GetId() && !foundIDs.Contains(value.GetId()))
+                    {
+                        foundIDs.Add(value.GetId());
+                    }
+                    else if (string.Equals(vocabularyData.PlaySessionLink, array[i], StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        Debug.LogError("FOR " + psData.Id + " FOUND " + vocabularyData.GetId() + " WITH PS LINK " + vocabularyData.PlaySessionLink);
+                        foundIDs.Add(vocabularyData.GetId());
+                    }
+                }
+            }
+
+            return foundIDs.ToArray();
         }
 
         private void CustomAddDiacritics(PlaySessionData psData, DatabaseObject db)

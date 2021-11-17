@@ -32,6 +32,7 @@ namespace Antura.Database.Management
                 data.DrawingCeibal = ToString(dict["DrawingCeibal"]);
             }
             data.Complexity = ToFloat(dict["Complexity"]);
+            data.PlaySessionLink = dict.ContainsKey("PlaySessionLink") ? ToString(dict["PlaySessionLink"]) : string.Empty;
 
             return data;
         }

@@ -92,6 +92,14 @@ namespace Antura.Database
         [SerializeField]
         private float _Complexity;
 
+        public string PlaySessionLink
+        {
+            get { return _PlaySessionLink; }
+            set { _PlaySessionLink = value; }
+        }
+        [SerializeField]
+        private string _PlaySessionLink;
+
         public float GetIntrinsicDifficulty()
         {
             return Complexity;
