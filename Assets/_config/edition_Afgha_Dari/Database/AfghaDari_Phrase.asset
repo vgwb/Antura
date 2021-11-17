@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6b8dc816d8d6e54d8325fbac00e0782, type: 3}
   m_Name: AfghaDari_Phrase
   m_EditorClassIdentifier: 
-  Google_DocID: 1hPBN4cVFfJNZ6DqNM9axukSfLF0jmobv16IBA0uI_BE
-  Google_SheetTitle: PhraseData
   table:
     innerList:
     - _Id: goodmorning_Q
@@ -25,7 +23,8 @@ MonoBehaviour:
       - morning
       - the_well-being
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodmorning_R
       _Active: 1
       _Text: "\u0635\u0628\u0627\u062D \u0627\u0644\u0646\u0648\u0631"
@@ -35,7 +34,8 @@ MonoBehaviour:
       - morning
       - the_light_v2
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodevening_Q
       _Active: 1
       _Text: "\u0645\u0633\u0627\u0621 \u0627\u0644\u062E\u064A\u0631"
@@ -45,7 +45,8 @@ MonoBehaviour:
       - evening
       - the_well-being
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodevening_R
       _Active: 1
       _Text: "\u0645\u0633\u0627\u0621 \u0627\u0644\u0646\u0648\u0631"
@@ -55,7 +56,8 @@ MonoBehaviour:
       - evening
       - the_light_v2
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: hi
       _Active: 1
       _Text: "\u0645\u0631\u062D\u0628\u0627\u064B"
@@ -64,7 +66,8 @@ MonoBehaviour:
       _Words:
       - hi
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: yourwelcome
       _Active: 1
       _Text: "\u0623\u0647\u0644\u0627\u064B \u0648\u0633\u0647\u0644\u0627\u064B"
@@ -75,7 +78,8 @@ MonoBehaviour:
       - and
       - welcome_assertion
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: howareyou
       _Active: 1
       _Text: "\u0643\u064A\u0641 \u062D\u0627\u0644\u0643\u061F"
@@ -85,7 +89,8 @@ MonoBehaviour:
       - how
       - your_situation
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: fine
       _Active: 1
       _Text: "\u0628\u062E\u064A\u0631"
@@ -94,7 +99,8 @@ MonoBehaviour:
       _Words:
       - fine
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: thankyou
       _Active: 1
       _Text: "\u0634\u0643\u0631\u0627\u064B"
@@ -103,7 +109,8 @@ MonoBehaviour:
       _Words:
       - thankyou
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: sure
       _Active: 1
       _Text: "\u0639\u0641\u0648\u0627\u064B"
@@ -112,7 +119,8 @@ MonoBehaviour:
       _Words:
       - sure
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: seeyou
       _Active: 1
       _Text: "\u0625\u0644\u0649 \u0627\u0644\u0644\u0642\u0627\u0621"
@@ -122,7 +130,8 @@ MonoBehaviour:
       - to
       - the_meeting
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodbye
       _Active: 1
       _Text: "\u0648\u062F\u0627\u0639\u0627\u064B"
@@ -131,7 +140,8 @@ MonoBehaviour:
       _Words:
       - goodbye
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: the_year_2016
       _Active: 1
       _Text: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u0633\u062A\u0629
@@ -145,6 +155,7 @@ MonoBehaviour:
       - number_16
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: the_year_2017
       _Active: 1
       _Text: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u0633\u0628\u0639\u0629
@@ -158,6 +169,7 @@ MonoBehaviour:
       - number_17
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: the_year_2018
       _Active: 1
       _Text: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062B\u0645\u0627\u0646\u064A\u0629
@@ -171,6 +183,7 @@ MonoBehaviour:
       - number_18
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: the_year_2015
       _Active: 1
       _Text: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062E\u0645\u0633\u0629
@@ -184,6 +197,7 @@ MonoBehaviour:
       - number_15
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: the_year_2009
       _Active: 1
       _Text: "\u0639\u0627\u0645 \u0627\u0644\u0641\u064A\u0646 \u0648\u062A\u0633\u0639\u0629"
@@ -196,6 +210,7 @@ MonoBehaviour:
       - number_09
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: theboyopenedthewindow
       _Active: 1
       _Text: "\u0641\u062A\u062D \u0627\u0644\u0635\u0628\u064A \u0627\u0644\u0646\u0627\u0641\u0630\u0629"
@@ -207,6 +222,7 @@ MonoBehaviour:
       - the_window
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: theteacherlaughed
       _Active: 1
       _Text: "\u0636\u062D\u0643 \u0627\u0644\u0645\u0639\u0644\u0645"
@@ -216,7 +232,8 @@ MonoBehaviour:
       - the_teacher
       - laughed
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: theworkercarriedthebox
       _Active: 1
       _Text: "\u062D\u0645\u0644 \u0627\u0644\u0639\u0627\u0645\u0644 \u0627\u0644\u0635\u0646\u062F\u0648\u0642"
@@ -228,6 +245,7 @@ MonoBehaviour:
       - the_box
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thegirldrankthejuice
       _Active: 1
       _Text: "\u0634\u0631\u0628\u062A \u0627\u0644\u0628\u0646\u062A \u0627\u0644\u0639\u0635\u064A\u0631"
@@ -239,6 +257,7 @@ MonoBehaviour:
       - the_juice
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: themountainisbig
       _Active: 1
       _Text: "\u0627\u0644\u062C\u0628\u0644 \u0643\u0628\u064A\u0631"
@@ -248,7 +267,8 @@ MonoBehaviour:
       - the_mountain
       - big
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: therestaurantisclean
       _Active: 1
       _Text: "\u0627\u0644\u0645\u0637\u0639\u0645 \u0646\u0638\u064A\u0641"
@@ -258,7 +278,8 @@ MonoBehaviour:
       - the_restaurant
       - clean
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: thetigeratethedeer
       _Active: 1
       _Text: "\u0623\u0643\u0644 \u0627\u0644\u0646\u0645\u0631 \u0627\u0644\u063A\u0632\u0627\u0644"
@@ -270,6 +291,7 @@ MonoBehaviour:
       - the_deer
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: redberry
       _Active: 1
       _Text: "\u062A\u0648\u062A \u0623\u062D\u0645\u0631"
@@ -279,7 +301,8 @@ MonoBehaviour:
       - color_red
       - berry
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: yellowflower
       _Active: 1
       _Text: "\u0648\u0631\u062F \u0623\u0635\u0641\u0631"
@@ -289,7 +312,8 @@ MonoBehaviour:
       - color_yellow
       - flower
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: greencucumber
       _Active: 1
       _Text: "\u062E\u064A\u0627\u0631 \u0623\u062E\u0636\u0631"
@@ -299,7 +323,8 @@ MonoBehaviour:
       - color_green
       - cucumber
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: thecarpenterwenthome
       _Active: 1
       _Text: "\u0630\u0647\u0628 \u0627\u0644\u0646\u062C\u0627\u0631 \u0625\u0644\u0649
@@ -313,6 +338,7 @@ MonoBehaviour:
       - the_house
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thebirdflew
       _Active: 1
       _Text: "\u0637\u0627\u0631 \u0627\u0644\u0639\u0635\u0641\u0648\u0631"
@@ -322,7 +348,8 @@ MonoBehaviour:
       - the_bird
       - flew
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: theshopissmall
       _Active: 1
       _Text: "\u0627\u0644\u062F\u0643\u0627\u0646 \u0635\u063A\u064A\u0631"
@@ -332,7 +359,8 @@ MonoBehaviour:
       - the_shop
       - small
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: thedoctoropenedtheospital
       _Active: 1
       _Text: "\u0641\u062A\u062D \u0627\u0644\u0637\u0628\u064A\u0628 \u0627\u0644\u0645\u0633\u062A\u0634\u0641\u0649"
@@ -344,6 +372,7 @@ MonoBehaviour:
       - the_hospital
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: eightscientists
       _Active: 1
       _Text: "\u062B\u0645\u0627\u0646\u064A\u0629 \u0639\u0644\u0645\u0627\u0621"
@@ -353,7 +382,8 @@ MonoBehaviour:
       - number_08
       - scientist_plural
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: theengineerworethecoat
       _Active: 1
       _Text: "\u0644\u0628\u0633 \u0627\u0644\u0645\u0647\u0646\u062F\u0633 \u0627\u0644\u0645\u0639\u0637\u0641"
@@ -365,6 +395,7 @@ MonoBehaviour:
       - the_coat
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: theplayerwon
       _Active: 1
       _Text: "\u0631\u0628\u062D \u0627\u0644\u0644\u0627\u0639\u0628"
@@ -374,7 +405,8 @@ MonoBehaviour:
       - the_player
       - won
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: theshirtisclean
       _Active: 1
       _Text: "\u0627\u0644\u0642\u0645\u064A\u0635 \u0646\u0638\u064A\u0641"
@@ -384,7 +416,8 @@ MonoBehaviour:
       - the_shirt
       - clean
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: yesterdaywassunday
       _Active: 1
       _Text: "\u0643\u0627\u0646 \u0627\u0644\u0628\u0627\u0631\u062D\u0629 \u0623\u062D\u062F"
@@ -396,6 +429,7 @@ MonoBehaviour:
       - day_sunday
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thewinteriscold
       _Active: 1
       _Text: "\u0627\u0644\u0634\u062A\u0627\u0621 \u0628\u0627\u0631\u062F"
@@ -405,7 +439,8 @@ MonoBehaviour:
       - the_winter
       - cold
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: novemberistheeleventhmonth
       _Active: 1
       _Text: "\u062A\u0634\u0631\u064A\u0646 \u0627\u0644\u062B\u0627\u0646\u064A
@@ -420,6 +455,7 @@ MonoBehaviour:
       - number_o11
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: theparrotisbeautiful
       _Active: 1
       _Text: "\u0627\u0644\u0628\u0628\u063A\u0627\u0621 \u062C\u0645\u064A\u0644"
@@ -429,7 +465,8 @@ MonoBehaviour:
       - the_parrot
       - beautiful
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: mayisthefifthmonth
       _Active: 1
       _Text: "\u0623\u064A\u0627\u0631 \u0647\u0648 \u0627\u0644\u0634\u0647\u0631
@@ -443,6 +480,7 @@ MonoBehaviour:
       - number_o05
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thepolicemanwalked
       _Active: 1
       _Text: "\u0645\u0634\u0649 \u0627\u0644\u0634\u0631\u0637\u064A"
@@ -452,7 +490,8 @@ MonoBehaviour:
       - the_policeman
       - walked
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: theicecreamisdelicious
       _Active: 1
       _Text: "\u0627\u0644\u0628\u0648\u0638\u0629 \u0644\u0630\u064A\u0630\u0629"
@@ -462,7 +501,8 @@ MonoBehaviour:
       - the_icecream
       - delicious
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: fivebooks
       _Active: 1
       _Text: "\u062E\u0645\u0633\u0629 \u0643\u062A\u0628"
@@ -472,7 +512,8 @@ MonoBehaviour:
       - number_05
       - books
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: please
       _Active: 1
       _Text: "\u0631\u062C\u0627\u0621"
@@ -481,7 +522,8 @@ MonoBehaviour:
       _Words:
       - please
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: thankyouverymuch
       _Active: 1
       _Text: "\u0634\u0643\u0631\u0627\u064B \u062C\u0632\u064A\u0644\u0627\u064B"
@@ -491,7 +533,8 @@ MonoBehaviour:
       - thankyou
       - verymuch
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodnight_Q
       _Active: 1
       _Text: "\u062A\u0635\u0628\u062D \u0639\u0644\u0649 \u062E\u064A\u0631"
@@ -502,7 +545,8 @@ MonoBehaviour:
       - on
       - well-being
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: goodnight_R
       _Active: 1
       _Text: "\u0648\u0623\u0646\u062A \u0628\u062E\u064A\u0631"
@@ -513,7 +557,8 @@ MonoBehaviour:
       - you
       - with_well-being
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: congratulations
       _Active: 1
       _Text: "\u0645\u0628\u0631\u0648\u0643"
@@ -522,7 +567,8 @@ MonoBehaviour:
       _Words:
       - congratulations
       _Answers: []
-      _Complexity: 0.3
+      _Complexity: 3
+      _PlaySessionLink: 
     - _Id: letsgo_Q
       _Active: 1
       _Text: "\u0647\u064A\u0627 \u0644\u0646\u0630\u0647\u0628"
@@ -532,7 +578,8 @@ MonoBehaviour:
       - lets
       - go_v2
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: letsgo_R
       _Active: 1
       _Text: "\u0647\u064A\u0627 \u0646\u0630\u0647\u0628"
@@ -542,7 +589,8 @@ MonoBehaviour:
       - lets
       - go
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: areyouready_Q
       _Active: 1
       _Text: "\u0647\u0644 \u0623\u0646\u062A \u062C\u0627\u0647\u0632\u061F"
@@ -554,6 +602,7 @@ MonoBehaviour:
       - ready
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: yesiamready_R
       _Active: 1
       _Text: "\u0646\u0639\u0645 \u0623\u0646\u0627 \u062C\u0627\u0647\u0632"
@@ -565,6 +614,7 @@ MonoBehaviour:
       - ready
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: whatisyourname_Q
       _Active: 1
       _Text: "\u0645\u0627 \u0627\u0633\u0645\u0643\u061F"
@@ -574,7 +624,8 @@ MonoBehaviour:
       - what
       - your_name
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: mynameissamer_R
       _Active: 1
       _Text: "\u0627\u0633\u0645\u064A \u0633\u0627\u0645\u0631"
@@ -584,7 +635,8 @@ MonoBehaviour:
       - my_name
       - samer
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: whatisthetimenow_Q
       _Active: 1
       _Text: "\u0643\u0645 \u0627\u0644\u0633\u0627\u0639\u0629 \u0627\u0644\u0622\u0646\u061F"
@@ -596,6 +648,7 @@ MonoBehaviour:
       - now
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: itis10oclockinthemorning_R
       _Active: 1
       _Text: "\u0625\u0646\u0647\u0627 \u0627\u0644\u0633\u0627\u0639\u0629 \u0627\u0644\u0639\u0627\u0634\u0631\u0629
@@ -608,6 +661,7 @@ MonoBehaviour:
       - in_morning
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: doyouneedhelp_Q
       _Active: 1
       _Text: "\u0647\u0644 \u062A\u062D\u062A\u0627\u062C \u0645\u0633\u0627\u0639\u062F\u0629\u061F"
@@ -619,6 +673,7 @@ MonoBehaviour:
       - help
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: yesplease_R
       _Active: 1
       _Text: "\u0646\u0639\u0645 \u0631\u062C\u0627\u0621"
@@ -628,7 +683,8 @@ MonoBehaviour:
       - yes
       - please
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: myfatherisabraveman
       _Active: 1
       _Text: "\u0628\u0627\u0628\u0627 \u0631\u062C\u0644\u064C \u0634\u062C\u0627\u0639\u064C"
@@ -640,6 +696,7 @@ MonoBehaviour:
       - man
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: avirtuouspoliceman
       _Active: 1
       _Text: "\u0634\u0631\u0637\u064A\u064C \u0646\u0632\u064A\u0647\u064C"
@@ -649,7 +706,8 @@ MonoBehaviour:
       - virtuous
       - policeman
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: thescientistwenttothestation
       _Active: 1
       _Text: "\u0630\u0647\u0628 \u0627\u0644\u0639\u0627\u0644\u0645 \u0625\u0644\u0649
@@ -663,6 +721,7 @@ MonoBehaviour:
       - the_station
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thegirlwonaball
       _Active: 1
       _Text: "\u0631\u0628\u062D\u062A \u0627\u0644\u0628\u0646\u062A \u0643\u0631\u0629\u064B"
@@ -674,6 +733,7 @@ MonoBehaviour:
       - ball
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: abigwhale
       _Active: 1
       _Text: "\u062D\u0648\u062A\u064C \u0643\u0628\u064A\u0631\u064C"
@@ -683,7 +743,8 @@ MonoBehaviour:
       - big
       - whale
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: mybrotheropenedtheoragebox
       _Active: 1
       _Text: "\u0641\u062A\u062D\u064E \u0623\u062E\u064A \u0627\u0644\u0635\u0646\u062F\u0648\u0642
@@ -697,6 +758,7 @@ MonoBehaviour:
       - the_box
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: myauntsatonthechair
       _Active: 1
       _Text: "\u062C\u0644\u0633\u062A \u062E\u0627\u0644\u062A\u064A \u0639\u0644\u0649
@@ -710,6 +772,7 @@ MonoBehaviour:
       - the_chair
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thankyouforthepurpleflower
       _Active: 1
       _Text: "\u0634\u0643\u0631\u0627\u064B \u0639\u0644\u0649 \u0627\u0644\u0648\u0631\u062F
@@ -723,6 +786,7 @@ MonoBehaviour:
       - the_flower
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: congrats_forthebedandthecupboard
       _Active: 1
       _Text: "\u0645\u0628\u0631\u0648\u0643 \u0627\u0644\u0641\u0631\u0627\u0634
@@ -736,6 +800,7 @@ MonoBehaviour:
       - the_cupboard
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: congrats_for_the_fridge_and_the_oven
       _Active: 1
       _Text: "\u0645\u0628\u0631\u0648\u0643 \u0627\u0644\u062B\u0644\u0627\u062C\u0629
@@ -749,6 +814,7 @@ MonoBehaviour:
       - the_oven
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: theparrotishappyandactive
       _Active: 1
       _Text: "\u0627\u0644\u0628\u0628\u063A\u0627\u0621 \u0633\u0639\u064A\u062F\u064C
@@ -761,6 +827,7 @@ MonoBehaviour:
       - active
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thetigerwasintheforest
       _Active: 1
       _Text: "\u0643\u0627\u0646 \u0627\u0644\u0646\u0645\u0631 \u0641\u064A \u0627\u0644\u063A\u0627\u0628\u0629"
@@ -773,6 +840,7 @@ MonoBehaviour:
       - the_forest
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: myauntissad
       _Active: 1
       _Text: "\u0639\u0645\u062A\u064A \u062D\u0632\u064A\u0646\u0629"
@@ -782,7 +850,8 @@ MonoBehaviour:
       - my_aunt_father
       - sad_feminine
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
     - _Id: thegreenappleisdelicious
       _Active: 1
       _Text: "\u0627\u0644\u062A\u0641\u0627\u062D \u0627\u0644\u0623\u062E\u0636\u0631
@@ -795,6 +864,7 @@ MonoBehaviour:
       - delicious
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: myfaceisbluefromthecold
       _Active: 1
       _Text: "\u0648\u062C\u0647\u064A \u0623\u0632\u0631\u0642 \u0645\u0646 \u0627\u0644\u0628\u0631\u062F"
@@ -807,6 +877,7 @@ MonoBehaviour:
       - the_cold
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: mysisterwenttotheclub
       _Active: 1
       _Text: "\u0630\u0647\u0628\u062A \u0623\u062E\u062A\u064A \u0625\u0644\u0649
@@ -820,6 +891,7 @@ MonoBehaviour:
       - the_club
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: mygrandfathercaughtthebird
       _Active: 1
       _Text: "\u0645\u0633\u0643 \u062C\u062F\u064A \u0627\u0644\u0639\u0635\u0641\u0648\u0631"
@@ -831,6 +903,7 @@ MonoBehaviour:
       - the_bird
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: myuncleworethebrownshirt
       _Active: 1
       _Text: "\u0644\u0628\u0633 \u062E\u0627\u0644\u064A \u0627\u0644\u0642\u0645\u064A\u0635
@@ -844,6 +917,7 @@ MonoBehaviour:
       - the_shirt
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: myuncleisabraveman
       _Active: 1
       _Text: "\u0639\u0645\u064A \u0631\u062C\u0644 \u0634\u062C\u0627\u0639"
@@ -855,6 +929,7 @@ MonoBehaviour:
       - man
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: the_river_water_is_cold
       _Active: 1
       _Text: "\u0645\u0627\u0621 \u0627\u0644\u0646\u0647\u0631 \u0628\u0627\u0631\u062F"
@@ -866,6 +941,7 @@ MonoBehaviour:
       - cold_adjective
       _Answers: []
       _Complexity: 1
+      _PlaySessionLink: 
     - _Id: thecarpenterleft
       _Active: 1
       _Text: "\u0630\u0647\u0628 \u0627\u0644\u0646\u062C\u0627\u0631"
@@ -875,4 +951,5 @@ MonoBehaviour:
       - the_carpenter
       - went
       _Answers: []
-      _Complexity: 0.6
+      _Complexity: 6
+      _PlaySessionLink: 
