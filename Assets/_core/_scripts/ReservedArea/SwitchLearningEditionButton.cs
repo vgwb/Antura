@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Antura.Core;
 using Antura.Language;
+using Antura.Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -32,6 +33,7 @@ namespace Antura.UI
 
         private IEnumerator OnClickCO()
         {
+            HomeScene.HasSelectedLearningEdition = true;
             AppManager.I.AppSettingsManager.SetLearningEditionIndex(learningEditionIndex);
             yield return AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();

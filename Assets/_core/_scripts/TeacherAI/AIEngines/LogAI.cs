@@ -84,6 +84,12 @@ namespace Antura.Teacher
                 return;
             }
 
+            if (db == null || !db.HasLoadedPlayerProfile())
+            {
+                Debug.Log("Could not find any DB to save to");
+                return;
+            }
+
             var data = new LogInfoData(appSession, infoEvent, AppManager.I.NavigationManager.GetCurrentScene(), parametersString);
             db.Insert(data);
         }

@@ -1,12 +1,15 @@
 using Antura.Core;
 using System.Collections.Generic;
+using Antura.Scenes;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.Rendering;
 
 namespace Antura.UI
 {
     public class SwitchEditionPanel : MonoBehaviour
     {
+        public GameObject closeButton;
         public CurrentEditionIcon currentIcon;
 
         public SwitchLearningEditionButton prefabButton;
@@ -37,7 +40,6 @@ namespace Antura.UI
                 button.Setup(iLearningEdition, config);
                 buttons.Add(button);
             }
-
             prefabButton.gameObject.SetActive(false);
         }
 
@@ -47,11 +49,13 @@ namespace Antura.UI
         }
 
         public void RefreshSelection()
-        {
+        {;
+            bool mustChooseLearningEdition = HomeScene.MustChooseLearningEdition;
+            closeButton.SetActive(!mustChooseLearningEdition);
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (button.LearningEditionIndex == AppManager.I.AppSettings.LearningEditionIndex) button.SetSelected();
+                if (!mustChooseLearningEdition && button.LearningEditionIndex == AppManager.I.AppSettings.LearningEditionIndex) button.SetSelected();
             }
             currentIcon.OnEnable();
         }
