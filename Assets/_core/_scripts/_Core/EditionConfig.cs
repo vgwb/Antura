@@ -28,7 +28,7 @@ namespace Antura.Core
         public string EditionTitle;
 
         public LearningConfig[] LearningEditions;
-        public bool HasMultipleLearningEditions => LearningEditions != null && LearningEditions.Length > 0;
+        public bool HasMultipleLearningEditions => LearningEditions != null && LearningEditions.Length > 1;
 
         [Header("Settings")]
         [Space(30)]
