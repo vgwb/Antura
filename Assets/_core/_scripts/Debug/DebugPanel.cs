@@ -1,3 +1,4 @@
+using System;
 using Antura.Core;
 using Antura.Minigames;
 using Antura.UI;
@@ -253,32 +254,41 @@ namespace Antura.Debugging
             VerboseTeacherToggle.isOn = VerboseTeacher;
             SafeLaunchToggle.isOn = SafeLaunch;
 
-            var mainMiniGamesList = MiniGamesUtilities.GetMainMiniGameList(false, MiniGamesUtilities.MiniGameSortLogic.Alphanumeric);
-            var difficultiesForTesting = MiniGamesUtilities.GetMiniGameDifficultiesForTesting();
+            try
+            {
+                var mainMiniGamesList = MiniGamesUtilities.GetMainMiniGameList(false, MiniGamesUtilities.MiniGameSortLogic.Alphanumeric);
+                var difficultiesForTesting = MiniGamesUtilities.GetMiniGameDifficultiesForTesting();
 
-            EmptyContainer(Container);
+                EmptyContainer(Container);
 
-            foreach (var mainMiniGame in mainMiniGamesList) {
-                var newRow = Instantiate(PrefabRow);
-                newRow.transform.SetParent(Container.transform, false);
+                foreach (var mainMiniGame in mainMiniGamesList)
+                {
+                    var newRow = Instantiate(PrefabRow);
+                    newRow.transform.SetParent(Container.transform, false);
 
-                newRow.GetComponent<DebugMiniGameRow>().Title.text = mainMiniGame.MainId;
+                    newRow.GetComponent<DebugMiniGameRow>().Title.text = mainMiniGame.MainId;
 
-                foreach (var gameVariation in mainMiniGame.variations) {
-                    Debug.Assert(difficultiesForTesting.ContainsKey(gameVariation.data.Code),
-                        "No difficulty for testing setup for game variation " + gameVariation.data.Code);
-                    var difficulties = difficultiesForTesting[gameVariation.data.Code];
+                    foreach (var gameVariation in mainMiniGame.variations)
+                    {
+                        Debug.Assert(difficultiesForTesting.ContainsKey(gameVariation.data.Code),
+                            "No difficulty for testing setup for game variation " + gameVariation.data.Code);
+                        var difficulties = difficultiesForTesting[gameVariation.data.Code];
 
-                    foreach (var difficulty in difficulties) {
-                        var btnGO = Instantiate(PrefabMiniGameButton);
-                        btnGO.transform.SetParent(newRow.transform, false);
-                        bool gamePlayed;
-                        playedMinigames.TryGetValue(GetDictKey(gameVariation.data.Code, difficulty), out gamePlayed);
-                        btnGO.GetComponent<DebugMiniGameButton>().Init(this, gameVariation, gamePlayed, difficulty);
+                        foreach (var difficulty in difficulties)
+                        {
+                            var btnGO = Instantiate(PrefabMiniGameButton);
+                            btnGO.transform.SetParent(newRow.transform, false);
+                            bool gamePlayed;
+                            playedMinigames.TryGetValue(GetDictKey(gameVariation.data.Code, difficulty), out gamePlayed);
+                            btnGO.GetComponent<DebugMiniGameButton>().Init(this, gameVariation, gamePlayed, difficulty);
+                        }
                     }
                 }
             }
-
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
             // Advanced settings
             SafeLaunchToggle.gameObject.SetActive(advancedSettingsEnabled);
             AutoCorrectJourneyPosToggle.gameObject.SetActive(advancedSettingsEnabled);
