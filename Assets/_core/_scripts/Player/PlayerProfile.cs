@@ -31,6 +31,7 @@ namespace Antura.Profile
         public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
         public AppEditions Edition;
+        public int LearningEditionIndex;
         public string AppVersion;
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
@@ -519,6 +520,7 @@ namespace Antura.Profile
             Age = _data.Age;
             AppVersion = _data.AppVersion;
             Edition = _data.Edition;
+            LearningEditionIndex = _data.LearningEditionIndex;
             Gender = _data.Gender;
             SkinColor = string.IsNullOrEmpty(_data.SkinColor) ? Color.white : _data.SkinColor.HexToColor();
             HairColor = string.IsNullOrEmpty(_data.HairColor) ? Color.white : _data.HairColor.HexToColor();
@@ -555,7 +557,7 @@ namespace Antura.Profile
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
-                    FirstContactState, Edition, AppVersion
+                    FirstContactState, Edition, LearningEditionIndex, AppVersion
             );
             newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
             newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
@@ -564,7 +566,7 @@ namespace Antura.Profile
 
         public PlayerIconData GetPlayerIconData()
         {
-            PlayerIconData returnIconData = new PlayerIconData()
+            PlayerIconData returnIconData = new PlayerIconData
             {
                 Uuid = this.Uuid,
                 AvatarId = this.AvatarId,
@@ -579,6 +581,7 @@ namespace Antura.Profile
                 HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
                 MaxJourneyPosition = this.MaxJourneyPosition,
                 Edition = this.Edition,
+                LearningEditionIndex = this.LearningEditionIndex,
                 AppVersion = this.AppVersion,
             };
             return returnIconData;

@@ -30,6 +30,7 @@ namespace Antura.Core
     {
         public EditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
         public LearningConfig LearningEdition => ApplicationConfig.LearningEdition;
+        public int CurrentLearningEditionIndex => AppEdition.LearningEditions.ToList().IndexOf(LearningEdition);
 
         public ApplicationConfig ApplicationConfig;
         public DebugConfig DebugConfig;

@@ -23,10 +23,11 @@ namespace Antura.Profile
         public bool HasMaxStarsInCurrentPlaySessions;
         public JourneyPosition MaxJourneyPosition;
         public AppEditions Edition;
+        public int LearningEditionIndex;
         public string AppVersion;
 
         public PlayerIconData(string _Uuid, int _AvatarId, PlayerTint _Tint, PlayerGender _Gender, Color _SkinColor, Color _HairColor, Color _BgColor, bool _IsDemoUser,
-            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditions _Edition, string _AppVersion)
+            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditions _Edition, int _LearningEditionIndex, string _AppVersion)
         {
             Uuid = _Uuid;
             AvatarId = _AvatarId;
@@ -41,6 +42,7 @@ namespace Antura.Profile
             HasMaxStarsInCurrentPlaySessions = _HasMaxStarsInCurrentPlaySessions;
             MaxJourneyPosition = _MaxJourneyPosition;
             Edition = _Edition;
+            LearningEditionIndex = _LearningEditionIndex;
             AppVersion = _AppVersion;
             Debug.Log("CREATE PLAYER ICON DATA > " + SkinColor + " > " + HairColor);
         }

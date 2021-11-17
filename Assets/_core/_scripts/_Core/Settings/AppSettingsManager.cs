@@ -47,7 +47,7 @@ namespace Antura.Core
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
                 Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
-                Settings.LearningEditionIndex = AppManager.I.AppEdition.LearningEditions.ToList().IndexOf(AppManager.I.LearningEdition);
+                Settings.LearningEditionIndex = AppManager.I.CurrentLearningEditionIndex;
 
                 // set native Language
                 // first set the default / fallback language

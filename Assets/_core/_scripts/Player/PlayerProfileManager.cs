@@ -171,8 +171,8 @@ namespace Antura.Profile
         public List<PlayerIconData> GetPlayersIconData()
         {
             return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
-                pl.Edition == AppManager.I.AppEdition.Edition
-                    || pl.Edition == AppEditions.All
+                (pl.Edition == AppManager.I.AppEdition.Edition
+                    || pl.Edition == AppEditions.All) && pl.LearningEditionIndex == AppManager.I.CurrentLearningEditionIndex
                 ).ToList();
         }
 
@@ -195,7 +195,7 @@ namespace Antura.Profile
         /// <summary>
         /// Creates the player profile.
         /// </summary>
-        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, AppEditions edition, string appVersion, bool isDemoUser = false)
+        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, AppEditions edition, int learningEditionIndex, string appVersion, bool isDemoUser = false)
         {
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
@@ -211,6 +211,7 @@ namespace Antura.Profile
             returnProfile.Age = age;
             returnProfile.AppVersion = appVersion;
             returnProfile.Edition = edition;
+            returnProfile.LearningEditionIndex = learningEditionIndex;
             returnProfile.ProfileCompletion =
                 isDemoUser ? ProfileCompletionState.GameCompletedAndFinalShown : ProfileCompletionState.New;
             returnProfile.GiftInitialBones();

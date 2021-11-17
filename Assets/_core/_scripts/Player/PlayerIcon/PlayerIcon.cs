@@ -214,6 +214,7 @@ namespace Antura.Profile
                                                        rnd3 <= 0.5f,
                                                        new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1),
                                                        AppEditions.LearnEnglish,
+                                                       0,
                                                        "TEST");
             SetAppearance(rndPlayerIconData,
                 rnd2 < 0.33f ? EndgameState.Unfinished : rnd2 < 0.66f ? EndgameState.Finished : EndgameState.FinishedWAllStars
