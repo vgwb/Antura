@@ -16,7 +16,7 @@ namespace Antura.Tests.Release
         public void CheckAppConstants()
         {
             var failed = false;
-            if (ApplicationConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled) {
                 UnityEngine.Debug.Log("DebugLogEnabled should be FALSE");
                 failed = true;
             }
@@ -26,7 +26,7 @@ namespace Antura.Tests.Release
                 failed = true;
             }
 
-            if (ApplicationConfig.I.DebugPanelEnabledAtStartup) {
+            if (DebugConfig.I.DebugPanelEnabledAtStartup) {
                 UnityEngine.Debug.Log("DebugPanelEnabledAtStartup should be FALSE");
                 failed = true;
             }

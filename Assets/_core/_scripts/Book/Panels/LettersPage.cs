@@ -95,7 +95,7 @@ namespace Antura.Book
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
 
-            if (ApplicationConfig.I.VerboseBook) Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
+            if (DebugConfig.I.VerboseBook) Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             HighlightLetterItem(myLetterInfo.data.Id);
 
@@ -153,7 +153,7 @@ namespace Antura.Book
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
 
-            if (ApplicationConfig.I.VerboseBook) Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
+            if (DebugConfig.I.VerboseBook) Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             string positionsString = "";
             foreach (var p in letterInfo.data.GetAvailableForms()) {

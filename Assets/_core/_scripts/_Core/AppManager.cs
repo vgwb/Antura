@@ -32,6 +32,7 @@ namespace Antura.Core
         public EditionConfig SpecificEdition => ApplicationConfig.SpecificEdition;
 
         public ApplicationConfig ApplicationConfig;
+        public DebugConfig DebugConfig;
         public LanguageSwitcher LanguageSwitcher;
 
         public AppSettingsManager AppSettingsManager;
@@ -180,10 +181,10 @@ namespace Antura.Core
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
-            if (!ApplicationConfig.I.DebugLogEnabled) {
+            if (!DebugConfig.I.DebugLogEnabled) {
                 Debug.LogWarning("LOGS ARE DISABLED - check the App Config");
             }
-            Debug.unityLogger.logEnabled = ApplicationConfig.I.DebugLogEnabled;
+            Debug.unityLogger.logEnabled = DebugConfig.I.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
             Debug.Log("AppManager Init(): UpdateAppVersion");

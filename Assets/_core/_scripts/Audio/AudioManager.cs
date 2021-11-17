@@ -394,7 +394,7 @@ namespace Antura.Audio
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
             if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
+                if (DebugConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf.clips.GetRandom();
@@ -417,7 +417,7 @@ namespace Antura.Audio
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
             if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
+                if (DebugConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf;
@@ -471,12 +471,12 @@ namespace Antura.Audio
                 if (localizedAudioFileName != neutralAudioFileName)
                 {
                     // No female found
-                    if (ApplicationConfig.I.VerboseAudio) Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
+                    if (DebugConfig.I.VerboseAudio) Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
                     yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.use);
                 }
             }
 
-            if (result.item == null && ApplicationConfig.I.VerboseAudio)
+            if (result.item == null && DebugConfig.I.VerboseAudio)
             {
                 var neutralAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id, PlayerGender.M);
                 Debug.LogError($"[Audio] Could not find any audio with name /Audio/Dialogs/{neutralAudioFileName}");
@@ -498,7 +498,7 @@ namespace Antura.Audio
             //Debug.LogError("Loaded: " + result.item + " for id " + id);
 
             if (logIfNotFound && result.item == null) {
-                if (ApplicationConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
+                if (DebugConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
             }
         }
 

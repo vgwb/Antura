@@ -51,8 +51,8 @@ namespace Antura.Debugging
 
         public bool VerboseTeacher
         {
-            get { return ApplicationConfig.I.VerboseTeacher; }
-            set { ApplicationConfig.I.VerboseTeacher = value; }
+            get { return DebugConfig.I.VerboseTeacher; }
+            set { DebugConfig.I.VerboseTeacher = value; }
         }
 
         /// <summary>
@@ -102,7 +102,7 @@ namespace Antura.Debugging
         {
             I = this;
 
-            if (ApplicationConfig.I.DebugPanelEnabledAtStartup) {
+            if (DebugConfig.I.DebugPanelEnabledAtStartup) {
                 EnableDebugPanel();
             }
         }

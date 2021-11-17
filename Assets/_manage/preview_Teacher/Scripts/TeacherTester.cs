@@ -142,7 +142,7 @@ namespace Antura.Teacher.Test
         {
             // Setup for testing
             Application.runInBackground = true;
-            ApplicationConfig.I.VerboseTeacher = true;
+            DebugConfig.I.VerboseTeacher = true;
             ConfigAI.ForceJourneyIgnore = false;
 
             /*
@@ -180,17 +180,17 @@ namespace Antura.Teacher.Test
 
         void SetVerboseAI(bool choice)
         {
-            ApplicationConfig.I.VerboseTeacher = choice;
+            DebugConfig.I.VerboseTeacher = choice;
         }
 
         #region Testing API
 
         void ApplyParameters()
         {
-            ApplicationConfig.I.VerboseQuestionPacks = verboseQuestionPacks;
-            ApplicationConfig.I.VerboseDataFiltering = verboseDataFiltering;
-            ApplicationConfig.I.VerboseDataSelection = verboseDataSelection;
-            ApplicationConfig.I.VerbosePlaySessionInitialisation = verbosePlaySessionInitialisation;
+            DebugConfig.I.VerboseQuestionPacks = verboseQuestionPacks;
+            DebugConfig.I.VerboseDataFiltering = verboseDataFiltering;
+            DebugConfig.I.VerboseDataSelection = verboseDataSelection;
+            DebugConfig.I.VerbosePlaySessionInitialisation = verbosePlaySessionInitialisation;
         }
 
         private bool IsCodeValid(MiniGameCode code)

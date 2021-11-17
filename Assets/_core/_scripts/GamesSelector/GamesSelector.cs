@@ -290,7 +290,7 @@ namespace Antura.GamesSelector
         IEnumerator CO_EndCoroutine()
         {
             yield return new WaitForSeconds(EndDelay);
-            if (ApplicationConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled) {
                 Debug.Log("<b>GamesSelector</b> > Complete");
             }
             DispatchOnComplete();
