@@ -12,6 +12,7 @@
 #region Using Statements
 using System;
 using System.Collections.Generic;
+using ArabicSupport;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -20,9 +21,10 @@ using UnityEngine;
 namespace ArabicSupport
 {
 
-    // TODO: REMOVE DEPENDENCY FROM ARABIC FROM ALL CODE
 	public class ArabicFixer
-	{	
+    {
+        public static bool ConvertFarsiYehToAlefMaqsura;
+
 		/// <summary>
 		/// Fix the specified string.
 		/// </summary>
@@ -33,11 +35,11 @@ namespace ArabicSupport
 		{
 			return Fix(str, false, true);
 		}
-		
+
 		public static string Fix(string str, bool rtl)
 		{
 			if(rtl)
-				
+
 			{
 				return Fix(str);
 			}
@@ -56,16 +58,16 @@ namespace ArabicSupport
 					else
 					{
 						arabicToIgnore += word + " ";
-						
+
 					}
 				}
 				if(arabicToIgnore != "")
 					result += Fix(arabicToIgnore);
-				
+
 				return result;
 			}
 		}
-		
+
 		/// <summary>
 		/// Fix the specified string with customization options.
 		/// </summary>
@@ -87,12 +89,12 @@ namespace ArabicSupport
 
 			if(str.Contains("\n"))
 				str = str.Replace("\n", Environment.NewLine);
-			
+
 			if(str.Contains(Environment.NewLine))
 			{
 				string[] stringSeparators = new string[] {Environment.NewLine};
 				string[] strSplit = str.Split(stringSeparators, StringSplitOptions.None);
-				
+
 				if(strSplit.Length == 0)
 					return ArabicFixerTool.FixLine(str);
 				else if(strSplit.Length == 1)
@@ -108,19 +110,19 @@ namespace ArabicSupport
 							outputString += Environment.NewLine + ArabicFixerTool.FixLine(strSplit[iteration]);
 							iteration++;
 						}
-					}				
+					}
 					return outputString;
-				}	
+				}
 			}
 			else
 			{
 				return ArabicFixerTool.FixLine(str);
 			}
-			
+
 		}
-		
+
 	}
-	
+
 }
 
 /// <summary>
@@ -169,7 +171,7 @@ internal enum IsolatedArabicLetters
 	PersianZe = 0xFB8A,
 	PersianGaf = 0xFB92,
 	PersianGaf2 = 0xFB8E
-	
+
 }
 
 /// <summary>
@@ -218,7 +220,7 @@ internal enum GeneralArabicLetters
 	PersianZe = 0x0698,
 	PersianGaf = 0x06AF,
 	PersianGaf2 = 0x06A9
-	
+
 }
 
 /// <summary>
@@ -236,23 +238,23 @@ internal class ArabicMapping
 }
 
 /// <summary>
-/// Sets up and creates the conversion table 
+/// Sets up and creates the conversion table
 /// </summary>
 internal class ArabicTable
 {
-	
+
 	private static List<ArabicMapping> mapList;
 	private static ArabicTable arabicMapper;
-	
+
 	/// <summary>
 	/// Setting up the conversion table
 	/// </summary>
 	private ArabicTable()
 	{
 		mapList = new List<ArabicMapping>();
-		
-		
-		
+
+
+
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Hamza, (int)IsolatedArabicLetters.Hamza));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Alef, (int)IsolatedArabicLetters.Alef));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefHamza, (int)IsolatedArabicLetters.AlefHamza));
@@ -288,22 +290,22 @@ internal class ArabicTable
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Waw, (int)IsolatedArabicLetters.Waw));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.Ya, (int)IsolatedArabicLetters.Ya));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.AlefMad, (int)IsolatedArabicLetters.AlefMad));
-		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.TaMarboota, (int)IsolatedArabicLetters.TaMarboota));		
+		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.TaMarboota, (int)IsolatedArabicLetters.TaMarboota));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianPe, (int)IsolatedArabicLetters.PersianPe)); 		// Persian Letters;
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianChe, (int)IsolatedArabicLetters.PersianChe));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianZe, (int)IsolatedArabicLetters.PersianZe));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf, (int)IsolatedArabicLetters.PersianGaf));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf2, (int)IsolatedArabicLetters.PersianGaf2));
-		
-		
-		
-		
+
+
+
+
 		//for (int i = 0; i < generalArabic.Length; i++)
 		//    mapList.Add(new ArabicMapping((int)generalArabic.GetValue(i), (int)isolatedArabic.GetValue(i)));    // I
-		
-		
+
+
 	}
-	
+
 	/// <summary>
 	/// Singleton design pattern, Get the mapper. If it was not created before, create it.
 	/// </summary>
@@ -316,10 +318,10 @@ internal class ArabicTable
 			return arabicMapper;
 		}
 	}
-	
+
 	internal int Convert(int toBeConverted)
 	{
-		
+
 		foreach (ArabicMapping arabicMap in mapList)
 			if (arabicMap.from == toBeConverted)
 		{
@@ -327,8 +329,8 @@ internal class ArabicTable
 		}
 		return toBeConverted;
 	}
-	
-	
+
+
 }
 
 
@@ -348,8 +350,8 @@ internal class ArabicFixerTool
 {
 	internal static bool showTashkeel = true;
 	internal static bool useHinduNumbers = false;
-	
-	
+
+
 	internal static string RemoveTashkeel(string str, out List<TashkeelLocation> tashkeelLocation)
 	{
 		tashkeelLocation = new List<TashkeelLocation>();
@@ -374,29 +376,29 @@ internal class ArabicFixerTool
 				tashkeelLocation.Add(new TashkeelLocation((char)0x0652, i));
 			else if(letters[i] == (char)0x0653) // Shaddah
 				tashkeelLocation.Add(new TashkeelLocation((char)0x0653, i));
-			
-			
-			
+
+
+
 		}
-		
+
 		string[] split = str.Split(new char[]{(char)0x064B,(char)0x064C,(char)0x064D,
 			(char)0x064E,(char)0x064F,(char)0x0650,
 			(char)0x0651,(char)0x0652,(char)0x0653,});
-		
+
 		str = "";
-		
+
 		foreach(string s in split)
 		{
 			str += s;
 		}
-		
+
 		return str;
 	}
-	
+
 	internal static char[] ReturnTashkeel(char[] letters, List<TashkeelLocation> tashkeelLocation)
 	{
 		char[] lettersWithTashkeel = new char[letters.Length + tashkeelLocation.Count];
-		
+
 		int letterWithTashkeelTracker = 0;
 		for(int i = 0; i<letters.Length; i++)
 		{
@@ -411,10 +413,10 @@ internal class ArabicFixerTool
 				}
 			}
 		}
-		
+
 		return lettersWithTashkeel;
 	}
-	
+
 	/// <summary>
 	/// Converts a string to a form in which the sting will be displayed correctly for arabic text.
 	/// </summary>
@@ -423,39 +425,44 @@ internal class ArabicFixerTool
 	internal static string FixLine(string str)
 	{
 		string test = "";
-		
+
 		List<TashkeelLocation> tashkeelLocation;
-		
+
 		string originString = RemoveTashkeel(str, out tashkeelLocation);
-		
+
 		char[] lettersOrigin = originString.ToCharArray();
 		char[] lettersFinal = originString.ToCharArray();
-		
 
-		
+
+
 		for (int i = 0; i < lettersOrigin.Length; i++)
 		{
 			lettersOrigin[i] = (char)ArabicTable.ArabicMapper.Convert(lettersOrigin[i]);
 
-            if (lettersOrigin[i] == 0x6CC)
+            if (ArabicFixer.ConvertFarsiYehToAlefMaqsura && lettersOrigin[i] == 0x6CC)
             {
                 Debug.LogError($"We found a FARSI YEH at index {i}, we transform it into an ALEF MAKSURA");
                 lettersOrigin[i] = (char)IsolatedArabicLetters.AlefMaksora;
             }
+            else if (lettersOrigin[i] == (char)IsolatedArabicLetters.AlefMaksora)
+            {
+                Debug.LogError($"We found an ALEF MAKSURA at index {i}, we transform it into a FARSI YEH");
+                lettersOrigin[i] = (char)0x6CC;
+            }
 		}
-		
+
 		for (int i = 0; i < lettersOrigin.Length; i++)
 		{
 			bool skip = false;
 
-			
+
 			//lettersOrigin[i] = (char)ArabicTable.ArabicMapper.Convert(lettersOrigin[i]);
 
 
 			// For special Lam Letter connections.
 			if (lettersOrigin[i] == (char)IsolatedArabicLetters.Lam)
 			{
-				
+
 				if (i < lettersOrigin.Length - 1)
 				{
 					//lettersOrigin[i + 1] = (char)ArabicTable.ArabicMapper.Convert(lettersOrigin[i + 1]);
@@ -484,10 +491,10 @@ internal class ArabicFixerTool
 						skip = true;
 					}
 				}
-				
+
 			}
-			
-			
+
+
 			if (!IsIgnoredCharacter(lettersOrigin[i]))
 			{
 				if (IsMiddleLetter(lettersOrigin, i))
@@ -500,8 +507,8 @@ internal class ArabicFixerTool
 			test += Convert.ToString((int)lettersOrigin[i], 16) + " ";
 			if (skip)
 				i++;
-			
-			
+
+
 			//chaning numbers to hindu
 			if(useHinduNumbers){
 				if(lettersOrigin[i] == (char)0x0030)
@@ -525,24 +532,24 @@ internal class ArabicFixerTool
 				else if(lettersOrigin[i] == (char)0x0039)
 					lettersFinal[i] = (char)0x0669;
 			}
-			
+
 		}
-		
-		
-		
+
+
+
 		//Return the Tashkeel to their places.
 		if(showTashkeel)
 			lettersFinal = ReturnTashkeel(lettersFinal, tashkeelLocation);
-		
-		
+
+
 		List<char> list = new List<char>();
-		
+
 		List<char> numberList = new List<char>();
-		
+
 		for (int i = lettersFinal.Length - 1; i >= 0; i--)
 		{
-			
-			
+
+
 			//				if (lettersFinal[i] == '(')
 			//						numberList.Add(')');
 			//				else if (lettersFinal[i] == ')')
@@ -551,7 +558,7 @@ internal class ArabicFixerTool
 			//					numberList.Add('>');
 			//				else if (lettersFinal[i] == '>')
 			//					numberList.Add('<');
-			//				else 
+			//				else
 			if (char.IsPunctuation(lettersFinal[i]) && i>0 && i < lettersFinal.Length-1 &&
 			    (char.IsPunctuation(lettersFinal[i-1]) || char.IsPunctuation(lettersFinal[i+1])))
 			{
@@ -574,16 +581,16 @@ internal class ArabicFixerTool
 			else if(lettersFinal[i] == ' ' && i > 0 && i < lettersFinal.Length-1 &&
 			        (char.IsLower(lettersFinal[i-1]) || char.IsUpper(lettersFinal[i-1]) || char.IsNumber(lettersFinal[i-1])) &&
 			        (char.IsLower(lettersFinal[i+1]) || char.IsUpper(lettersFinal[i+1]) ||char.IsNumber(lettersFinal[i+1])))
-				
+
 			{
 				numberList.Add(lettersFinal[i]);
 			}
-			
+
 			else if (char.IsNumber(lettersFinal[i]) || char.IsLower(lettersFinal[i]) ||
 			         char.IsUpper(lettersFinal[i]) || char.IsSymbol(lettersFinal[i]) ||
 			         char.IsPunctuation(lettersFinal[i]))// || lettersFinal[i] == '^') //)
 			{
-				
+
 				if (lettersFinal[i] == '(')
 					numberList.Add(')');
 				else if (lettersFinal[i] == ')')
@@ -614,7 +621,7 @@ internal class ArabicFixerTool
 				}
 				if (lettersFinal[i] != 0xFFFF)
 					list.Add(lettersFinal[i]);
-				
+
 			}
 		}
 		if (numberList.Count > 0)
@@ -623,17 +630,17 @@ internal class ArabicFixerTool
 				list.Add(numberList[numberList.Count - 1 - j]);
 			numberList.Clear();
 		}
-		
+
 		// Moving letters from a list to an array.
 		lettersFinal = new char[list.Count];
 		for (int i = 0; i < lettersFinal.Length; i++)
 			lettersFinal[i] = list[i];
-		
-		
+
+
 		str = new string(lettersFinal);
 		return str;
 	}
-	
+
 	/// <summary>
 	/// English letters, numbers and punctuation characters are ignored. This checks if the ch is an ignored character.
 	/// </summary>
@@ -649,8 +656,8 @@ internal class ArabicFixerTool
 		bool isPersianCharacter = ch == (char)0xFB56 || ch == (char)0xFB7A || ch == (char)0xFB8A || ch == (char)0xFB92 || ch == (char)0xFB8E;
 		bool isPresentationFormB = (ch <= (char)0xFEFF && ch >= (char)0xFE70);
 		bool isAcceptableCharacter = isPresentationFormB || isPersianCharacter;
-		
-		
+
+
 		return isPunctuation ||
 			isNumber ||
 				isLower ||
@@ -658,19 +665,19 @@ internal class ArabicFixerTool
 				isSymbol ||
 				!isAcceptableCharacter ||
 				ch == 'a' || ch == '>' || ch == '<' || ch == (char)0x061B;
-		
+
 		//            return char.IsPunctuation(ch) || char.IsNumber(ch) || ch == 'a' || ch == '>' || ch == '<' ||
 		//                    char.IsLower(ch) || char.IsUpper(ch) || ch == (char)0x061B || char.IsSymbol(ch)
 		//					|| !(ch <= (char)0xFEFF && ch >= (char)0xFE70) // Presentation Form B
 		//					|| ch == (char)0xFB56 || ch == (char)0xFB7A || ch == (char)0xFB8A || ch == (char)0xFB92; // Persian Characters
-		
+
 		//					PersianPe = 0xFB56,
 		//		PersianChe = 0xFB7A,
 		//		PersianZe = 0xFB8A,
 		//		PersianGaf = 0xFB92
 		//lettersOrigin[i] <= (char)0xFEFF && lettersOrigin[i] >= (char)0xFE70
 	}
-	
+
 	/// <summary>
 	/// Checks if the letter at index value is a leading character in Arabic or not.
 	/// </summary>
@@ -680,33 +687,33 @@ internal class ArabicFixerTool
 	internal static bool IsLeadingLetter(char[] letters, int index)
 	{
 
-		bool lettersThatCannotBeBeforeALeadingLetter = index == 0 
-			|| letters[index - 1] == ' ' 
+		bool lettersThatCannotBeBeforeALeadingLetter = index == 0
+			|| letters[index - 1] == ' '
 				|| letters[index - 1] == '*' // ??? Remove?
 				|| letters[index - 1] == 'A' // ??? Remove?
 				|| char.IsPunctuation(letters[index - 1])
-				|| letters[index - 1] == '>' 
-				|| letters[index - 1] == '<' 
+				|| letters[index - 1] == '>'
+				|| letters[index - 1] == '<'
 				|| letters[index - 1] == (int)IsolatedArabicLetters.Alef
-				|| letters[index - 1] == (int)IsolatedArabicLetters.Dal 
+				|| letters[index - 1] == (int)IsolatedArabicLetters.Dal
 				|| letters[index - 1] == (int)IsolatedArabicLetters.Thal
-				|| letters[index - 1] == (int)IsolatedArabicLetters.Ra2 
-				|| letters[index - 1] == (int)IsolatedArabicLetters.Zeen 
+				|| letters[index - 1] == (int)IsolatedArabicLetters.Ra2
+				|| letters[index - 1] == (int)IsolatedArabicLetters.Zeen
 				|| letters[index - 1] == (int)IsolatedArabicLetters.PersianZe
-				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksora 
+				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksora
 				|| letters[index - 1] == (int)IsolatedArabicLetters.Waw
-				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMad 
+				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMad
 				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefHamza
-				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksoor 
+				|| letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksoor
 				|| letters[index - 1] == (int)IsolatedArabicLetters.WawHamza;
 
-		bool lettersThatCannotBeALeadingLetter = letters[index] != ' ' 
+		bool lettersThatCannotBeALeadingLetter = letters[index] != ' '
 			&& letters[index] != (int)IsolatedArabicLetters.Dal
 			&& letters[index] != (int)IsolatedArabicLetters.Thal
-				&& letters[index] != (int)IsolatedArabicLetters.Ra2 
-				&& letters[index] != (int)IsolatedArabicLetters.Zeen 
+				&& letters[index] != (int)IsolatedArabicLetters.Ra2
+				&& letters[index] != (int)IsolatedArabicLetters.Zeen
 				&& letters[index] != (int)IsolatedArabicLetters.PersianZe
-				&& letters[index] != (int)IsolatedArabicLetters.Alef 
+				&& letters[index] != (int)IsolatedArabicLetters.Alef
 				&& letters[index] != (int)IsolatedArabicLetters.AlefHamza
 				&& letters[index] != (int)IsolatedArabicLetters.AlefMaksoor
 				&& letters[index] != (int)IsolatedArabicLetters.AlefMad
@@ -715,7 +722,7 @@ internal class ArabicFixerTool
 				&& letters[index] != (int)IsolatedArabicLetters.Hamza
                 && letters[index] != (int)IsolatedArabicLetters.TaMarboota;
 
-		bool lettersThatCannotBeAfterLeadingLetter = index < letters.Length - 1 
+		bool lettersThatCannotBeAfterLeadingLetter = index < letters.Length - 1
 			&& letters[index + 1] != ' '
 				&& !char.IsPunctuation(letters[index + 1] )
 				&& !char.IsNumber(letters[index + 1])
@@ -727,17 +734,17 @@ internal class ArabicFixerTool
 		if(lettersThatCannotBeBeforeALeadingLetter && lettersThatCannotBeALeadingLetter && lettersThatCannotBeAfterLeadingLetter)
 
 //		if ((index == 0 || letters[index - 1] == ' ' || letters[index - 1] == '*' || letters[index - 1] == 'A' || char.IsPunctuation(letters[index - 1])
-//		     || letters[index - 1] == '>' || letters[index - 1] == '<' 
+//		     || letters[index - 1] == '>' || letters[index - 1] == '<'
 //		     || letters[index - 1] == (int)IsolatedArabicLetters.Alef
 //		     || letters[index - 1] == (int)IsolatedArabicLetters.Dal || letters[index - 1] == (int)IsolatedArabicLetters.Thal
-//		     || letters[index - 1] == (int)IsolatedArabicLetters.Ra2 
+//		     || letters[index - 1] == (int)IsolatedArabicLetters.Ra2
 //		     || letters[index - 1] == (int)IsolatedArabicLetters.Zeen || letters[index - 1] == (int)IsolatedArabicLetters.PersianZe
 //		     || letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksora || letters[index - 1] == (int)IsolatedArabicLetters.Waw
 //		     || letters[index - 1] == (int)IsolatedArabicLetters.AlefMad || letters[index - 1] == (int)IsolatedArabicLetters.AlefHamza
-//		     || letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksoor || letters[index - 1] == (int)IsolatedArabicLetters.WawHamza) 
+//		     || letters[index - 1] == (int)IsolatedArabicLetters.AlefMaksoor || letters[index - 1] == (int)IsolatedArabicLetters.WawHamza)
 //		    && letters[index] != ' ' && letters[index] != (int)IsolatedArabicLetters.Dal
 //		    && letters[index] != (int)IsolatedArabicLetters.Thal
-//		    && letters[index] != (int)IsolatedArabicLetters.Ra2 
+//		    && letters[index] != (int)IsolatedArabicLetters.Ra2
 //		    && letters[index] != (int)IsolatedArabicLetters.Zeen && letters[index] != (int)IsolatedArabicLetters.PersianZe
 //		    && letters[index] != (int)IsolatedArabicLetters.Alef && letters[index] != (int)IsolatedArabicLetters.AlefHamza
 //		    && letters[index] != (int)IsolatedArabicLetters.AlefMaksoor
@@ -753,7 +760,7 @@ internal class ArabicFixerTool
 		else
 			return false;
 	}
-	
+
 	/// <summary>
 	/// Checks if the letter at index value is a finishing character in Arabic or not.
 	/// </summary>
@@ -763,7 +770,7 @@ internal class ArabicFixerTool
 	internal static bool IsFinishingLetter(char[] letters, int index)
 	{
 		//bool indexZero = index != 0;
-		bool lettersThatCannotBeBeforeAFinishingLetter = (index == 0) ? false : 
+		bool lettersThatCannotBeBeforeAFinishingLetter = (index == 0) ? false :
 				letters[index - 1] != ' '
 //				&& char.IsDigit(letters[index-1])
 //				&& char.IsLower(letters[index-1])
@@ -773,43 +780,43 @@ internal class ArabicFixerTool
 //				&& char.IsPunctuation(letters[index-1])
 //				&& char.IsSymbol(letters[index-1])
 
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Dal 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Dal
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Thal
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Ra2 
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Zeen 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Ra2
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Zeen
 				&& letters[index - 1] != (int)IsolatedArabicLetters.PersianZe
-				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksora 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksora
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Waw
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Alef 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Alef
 				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMad
-				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza
 				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksoor
-				&& letters[index - 1] != (int)IsolatedArabicLetters.WawHamza 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.WawHamza
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Hamza
 
 
 
-				&& !char.IsPunctuation(letters[index - 1]) 
-				&& letters[index - 1] != '>' 
+				&& !char.IsPunctuation(letters[index - 1])
+				&& letters[index - 1] != '>'
 				&& letters[index - 1] != '<';
-				
+
 
 		bool lettersThatCannotBeFinishingLetters = letters[index] != ' ' && letters[index] != (int)IsolatedArabicLetters.Hamza;
 
-	
+
 
 
 		if(lettersThatCannotBeBeforeAFinishingLetter && lettersThatCannotBeFinishingLetters)
 
 //		if (index != 0 && letters[index - 1] != ' ' && letters[index - 1] != '*' && letters[index - 1] != 'A'
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Dal && letters[index - 1] != (int)IsolatedArabicLetters.Thal
-//		    && letters[index - 1] != (int)IsolatedArabicLetters.Ra2 
+//		    && letters[index - 1] != (int)IsolatedArabicLetters.Ra2
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Zeen && letters[index - 1] != (int)IsolatedArabicLetters.PersianZe
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksora && letters[index - 1] != (int)IsolatedArabicLetters.Waw
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Alef && letters[index - 1] != (int)IsolatedArabicLetters.AlefMad
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza && letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksoor
-//		    && letters[index - 1] != (int)IsolatedArabicLetters.WawHamza && letters[index - 1] != (int)IsolatedArabicLetters.Hamza 
-//		    && !char.IsPunctuation(letters[index - 1]) && letters[index - 1] != '>' && letters[index - 1] != '<' 
+//		    && letters[index - 1] != (int)IsolatedArabicLetters.WawHamza && letters[index - 1] != (int)IsolatedArabicLetters.Hamza
+//		    && !char.IsPunctuation(letters[index - 1]) && letters[index - 1] != '>' && letters[index - 1] != '<'
 //		    && letters[index] != ' ' && index < letters.Length
 //		    && letters[index] != (int)IsolatedArabicLetters.Hamza)
 		{
@@ -824,14 +831,14 @@ internal class ArabicFixerTool
 			//{
 			//    return false;
 			//}
-			
+
 			return true;
 		}
 		//return true;
 		else
 			return false;
 	}
-	
+
 	/// <summary>
 	/// Checks if the letter at index value is a middle character in Arabic or not.
 	/// </summary>
@@ -840,44 +847,44 @@ internal class ArabicFixerTool
 	/// <returns>True if the character at index is a middle character, else, returns false</returns>
 	internal static bool IsMiddleLetter(char[] letters, int index)
 	{
-		bool lettersThatCannotBeMiddleLetters = (index == 0) ? false : 
-			letters[index] != (int)IsolatedArabicLetters.Alef 
+		bool lettersThatCannotBeMiddleLetters = (index == 0) ? false :
+			letters[index] != (int)IsolatedArabicLetters.Alef
 				&& letters[index] != (int)IsolatedArabicLetters.Dal
-				&& letters[index] != (int)IsolatedArabicLetters.Thal 
+				&& letters[index] != (int)IsolatedArabicLetters.Thal
 				&& letters[index] != (int)IsolatedArabicLetters.Ra2
-				&& letters[index] != (int)IsolatedArabicLetters.Zeen 
-				&& letters[index] != (int)IsolatedArabicLetters.PersianZe 
+				&& letters[index] != (int)IsolatedArabicLetters.Zeen
+				&& letters[index] != (int)IsolatedArabicLetters.PersianZe
 				&& letters[index] != (int)IsolatedArabicLetters.AlefMaksora
-				&& letters[index] != (int)IsolatedArabicLetters.Waw 
+				&& letters[index] != (int)IsolatedArabicLetters.Waw
 				&& letters[index] != (int)IsolatedArabicLetters.AlefMad
-				&& letters[index] != (int)IsolatedArabicLetters.AlefHamza 
+				&& letters[index] != (int)IsolatedArabicLetters.AlefHamza
 				&& letters[index] != (int)IsolatedArabicLetters.AlefMaksoor
-				&& letters[index] != (int)IsolatedArabicLetters.WawHamza 
+				&& letters[index] != (int)IsolatedArabicLetters.WawHamza
 				&& letters[index] != (int)IsolatedArabicLetters.Hamza;
 
 		bool lettersThatCannotBeBeforeMiddleCharacters = (index == 0) ? false :
-				letters[index - 1] != (int)IsolatedArabicLetters.Alef 
+				letters[index - 1] != (int)IsolatedArabicLetters.Alef
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Dal
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Thal 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Thal
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Ra2
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Zeen 
-				&& letters[index - 1] != (int)IsolatedArabicLetters.PersianZe 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Zeen
+				&& letters[index - 1] != (int)IsolatedArabicLetters.PersianZe
 				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksora
-				&& letters[index - 1] != (int)IsolatedArabicLetters.Waw 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.Waw
 				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMad
-				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza
 				&& letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksoor
-				&& letters[index - 1] != (int)IsolatedArabicLetters.WawHamza 
+				&& letters[index - 1] != (int)IsolatedArabicLetters.WawHamza
 				&& letters[index - 1] != (int)IsolatedArabicLetters.Hamza
 				&& !char.IsPunctuation(letters[index - 1])
-				&& letters[index - 1] != '>' 
-				&& letters[index - 1] != '<' 
-				&& letters[index - 1] != ' ' 
+				&& letters[index - 1] != '>'
+				&& letters[index - 1] != '<'
+				&& letters[index - 1] != ' '
 				&& letters[index - 1] != '*';
 
 		bool lettersThatCannotBeAfterMiddleCharacters = (index >= letters.Length - 1) ? false :
-			letters[index + 1] != ' ' 
-				&& letters[index + 1] != '\r' 
+			letters[index + 1] != ' '
+				&& letters[index + 1] != '\r'
 				&& letters[index + 1] != (int)IsolatedArabicLetters.Hamza
 				&& !char.IsNumber(letters[index + 1])
 				&& !char.IsSymbol(letters[index + 1])
@@ -887,21 +894,21 @@ internal class ArabicFixerTool
 //		if (index != 0 && letters[index] != ' '
 //		    && letters[index] != (int)IsolatedArabicLetters.Alef && letters[index] != (int)IsolatedArabicLetters.Dal
 //		    && letters[index] != (int)IsolatedArabicLetters.Thal && letters[index] != (int)IsolatedArabicLetters.Ra2
-//		    && letters[index] != (int)IsolatedArabicLetters.Zeen && letters[index] != (int)IsolatedArabicLetters.PersianZe 
+//		    && letters[index] != (int)IsolatedArabicLetters.Zeen && letters[index] != (int)IsolatedArabicLetters.PersianZe
 //		    && letters[index] != (int)IsolatedArabicLetters.AlefMaksora
 //		    && letters[index] != (int)IsolatedArabicLetters.Waw && letters[index] != (int)IsolatedArabicLetters.AlefMad
 //		    && letters[index] != (int)IsolatedArabicLetters.AlefHamza && letters[index] != (int)IsolatedArabicLetters.AlefMaksoor
 //		    && letters[index] != (int)IsolatedArabicLetters.WawHamza && letters[index] != (int)IsolatedArabicLetters.Hamza
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Alef && letters[index - 1] != (int)IsolatedArabicLetters.Dal
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Thal && letters[index - 1] != (int)IsolatedArabicLetters.Ra2
-//		    && letters[index - 1] != (int)IsolatedArabicLetters.Zeen && letters[index - 1] != (int)IsolatedArabicLetters.PersianZe 
+//		    && letters[index - 1] != (int)IsolatedArabicLetters.Zeen && letters[index - 1] != (int)IsolatedArabicLetters.PersianZe
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksora
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.Waw && letters[index - 1] != (int)IsolatedArabicLetters.AlefMad
 //		    && letters[index - 1] != (int)IsolatedArabicLetters.AlefHamza && letters[index - 1] != (int)IsolatedArabicLetters.AlefMaksoor
-//		    && letters[index - 1] != (int)IsolatedArabicLetters.WawHamza && letters[index - 1] != (int)IsolatedArabicLetters.Hamza 
-//		    && letters[index - 1] != '>' && letters[index - 1] != '<' 
+//		    && letters[index - 1] != (int)IsolatedArabicLetters.WawHamza && letters[index - 1] != (int)IsolatedArabicLetters.Hamza
+//		    && letters[index - 1] != '>' && letters[index - 1] != '<'
 //		    && letters[index - 1] != ' ' && letters[index - 1] != '*' && !char.IsPunctuation(letters[index - 1])
-//		    && index < letters.Length - 1 && letters[index + 1] != ' ' && letters[index + 1] != '\r' && letters[index + 1] != 'A' 
+//		    && index < letters.Length - 1 && letters[index + 1] != ' ' && letters[index + 1] != '\r' && letters[index + 1] != 'A'
 //		    && letters[index + 1] != '>' && letters[index + 1] != '>' && letters[index + 1] != (int)IsolatedArabicLetters.Hamza
 //		    )
 		{
@@ -921,6 +928,6 @@ internal class ArabicFixerTool
 		else
 			return false;
 	}
-	
-	
+
+
 }

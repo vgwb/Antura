@@ -14,6 +14,8 @@ namespace Antura.Language
     // TODO refactor: this class needs a large refactoring as it is used for several different purposes
     public class ArabicLanguageHelper : AbstractLanguageHelper
     {
+        public bool ConvertFarsiYehToAlefMaqsura;
+
         struct UnicodeLookUpEntry
         {
             public LetterData data;
@@ -50,6 +52,7 @@ namespace Antura.Language
         /// <returns>The string, ready for display or further processing.</returns>
         public override string ProcessString(string str)
         {
+            ArabicFixer.ConvertFarsiYehToAlefMaqsura = ConvertFarsiYehToAlefMaqsura;
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
 
@@ -218,8 +221,7 @@ namespace Antura.Language
                         result.Add(new StringPart(letterData, stringIndex, stringIndex, letterForm));
                     }
                 } else {
-                    Debug.Log("Cannot parse letter " + character + " (" + unicodeString + ") in " +
-                              processedArabicString);
+                    Debug.LogWarning($"Cannot parse letter {character} ({unicodeString}) in {processedArabicString}");
                 }
 
                 ++stringIndex;
