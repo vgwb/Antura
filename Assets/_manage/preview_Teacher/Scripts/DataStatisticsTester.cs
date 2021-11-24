@@ -50,8 +50,8 @@ namespace Antura.Teacher.Test
             int threshold = 3;
 
             DoStatsList("Frequency of letters in words", _letterDatas,
-                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.WithActualForm).Count < threshold,
-                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.WithActualForm).Count.ToString());
+                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter).Count < threshold,
+                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter).Count.ToString());
         }
 
 
