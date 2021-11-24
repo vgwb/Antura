@@ -7,6 +7,8 @@ using Antura.Audio;
 using Antura.Database;
 using Antura.Core;
 using Antura.Extensions;
+using Antura.Helpers;
+using Antura.Language;
 
 namespace Antura.Teacher.Test
 {
@@ -15,6 +17,8 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class DataStatisticsTester : MonoBehaviour
     {
+        public string Query;
+
         private VocabularyHelper _vocabularyHelper;
         private DatabaseManager _databaseManager;
         private List<PlaySessionData> _playSessionDatas;
@@ -210,7 +214,7 @@ namespace Antura.Teacher.Test
         }
 
         // Print letters and words with these letters
-        [DeMethodButton("Print Letters and words")]
+        [DeMethodButton("Print Letters and words they appear in")]
         public void DoPrintLettersAndWords()
         {
             DoStatsList("Letters & words", _letterDatas,
@@ -226,13 +230,58 @@ namespace Antura.Teacher.Test
         }
 
 
+        // Find all words that only have letters that appear in the Query
+        [DeMethodButton("Words with only letters in the Query")]
+        public void DoCheckWordsWithOnlyLetters()
+        {
+            var desiredLettersParts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, new WordData{Text = Query}, separateVariations: false);
+            var desiredLetters = desiredLettersParts.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld.letter, LetterForm.Isolated));
+
+            var str = "You are requesting letters:\n";
+            foreach (var l in desiredLetters)
+                str += $"{l}\n";
+            Debug.Log(str);
+
+            var correctWords = new List<WordData>();
+            var wrongWords = new List<WordData>();
+            foreach (var wordData in _wordDatas)
+            {
+                var lettersInWord = AppManager.I.VocabularyHelper.GetLettersInWord(wordData);
+                lettersInWord = lettersInWord.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld, LetterForm.Isolated));
+                bool isCorrect = true;
+                foreach (var letterInWord in lettersInWord)
+                {
+                    if (desiredLetters.All(x => !x.IsSameLetterAs(letterInWord, LetterEqualityStrictness.Letter)))
+                    {
+                        //Debug.LogError($"Word {wordData.Id} has letter {letterInWord} we do not want.");
+                        isCorrect = false;
+                    }
+                }
+                if (isCorrect) correctWords.Add(wordData);
+                else wrongWords.Add(wordData);
+            }
+
+            int totCorrectWords = correctWords.Count;
+            Debug.Log("Total words with only the chosen letters: " + totCorrectWords + "/" + _wordDatas.Count);
+            var s = "CORRECT WORDS:\n";
+            foreach (var correctWord in correctWords)
+                s += $"{correctWord.Id} ({correctWord.Text})\n";
+            Debug.Log(s);
+            s = "WRONG WORDS:\n";
+            foreach (var wrongWord in wrongWords)
+                s += $"{wrongWord.Id} ({wrongWord.Text})\n";
+            Debug.Log(s);
+        }
+
+
+
         #region Internals
 
         void DoStatsList<T>(string title, List<T> dataList, Predicate<T> problematicCheck, Func<T, string> valueFunc)
         {
             var problematicEntries = new List<string>();
 
-            string data_s = "\n\n";
+            string data_s = "";
             foreach (var data in dataList) {
                 bool isProblematic = problematicCheck(data);
 
