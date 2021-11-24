@@ -244,6 +244,7 @@ namespace Antura.Teacher.Test
 
             var correctWords = new List<WordData>();
             var wrongWords = new List<WordData>();
+            var letterCount = new Dictionary<LetterData, int>();
             foreach (var wordData in _wordDatas)
             {
                 var lettersInWord = AppManager.I.VocabularyHelper.GetLettersInWord(wordData);
@@ -259,6 +260,20 @@ namespace Antura.Teacher.Test
                 }
                 if (isCorrect) correctWords.Add(wordData);
                 else wrongWords.Add(wordData);
+
+                if (isCorrect)
+                {
+                    // Check letter count
+                    foreach (var desiredLetter in desiredLetters)
+                    {
+                        if (lettersInWord.Any(x => x.IsSameLetterAs(desiredLetter, LetterEqualityStrictness.Letter)))
+                        {
+                            Debug.LogError($"Word {wordData.Id} has letter {desiredLetter} we want.");
+                            if (!letterCount.ContainsKey(desiredLetter)) letterCount[desiredLetter] = 0;
+                            letterCount[desiredLetter]++;
+                        }
+                    }
+                }
             }
 
             int totCorrectWords = correctWords.Count;
@@ -267,6 +282,12 @@ namespace Antura.Teacher.Test
             foreach (var correctWord in correctWords)
                 s += $"{correctWord.Id} ({correctWord.Text})\n";
             Debug.Log(s);
+
+            s = "LETTERS COUNT:\n";
+            foreach (var desiredLetter in desiredLetters)
+                s += $"{desiredLetter.Id} ({(letterCount.ContainsKey(desiredLetter) ? letterCount[desiredLetter].ToString() : "0")})\n";
+            Debug.Log(s);
+
             s = "WRONG WORDS:\n";
             foreach (var wrongWord in wrongWords)
                 s += $"{wrongWord.Id} ({wrongWord.Text})\n";
