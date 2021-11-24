@@ -92,7 +92,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang = AppManager.I.LearningEdition.HelpLanguage;
+                var lang = AppManager.I.ContentEdition.HelpLanguage;
                 return GetLocalized(lang).Text;
             }
         }
@@ -101,7 +101,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang = AppManager.I.LearningEdition.NativeLanguage;
+                var lang = AppManager.I.ContentEdition.NativeLanguage;
                 return GetLocalized(lang).Text;
             }
         }
@@ -110,7 +110,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.LearningEdition.NativeLanguage;
+                var lang =  AppManager.I.ContentEdition.NativeLanguage;
                 return GetLocalized(lang).TextF;
             }
         }
@@ -119,7 +119,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.LearningEdition.LearningLanguage;
+                var lang =  AppManager.I.ContentEdition.LearningLanguage;
                 return GetLocalized(lang).Text;
             }
         }
@@ -128,7 +128,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.LearningEdition.LearningLanguage;
+                var lang =  AppManager.I.ContentEdition.LearningLanguage;
                 return GetLocalized(lang).TextF;
             }
         }

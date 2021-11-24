@@ -11,7 +11,7 @@ namespace Antura.Core
     [Serializable]
     public class AppSettings
     {
-        public int LearningEditionIndex ;
+        public LearningContentID ContentID;
         public LanguageCode NativeLanguage = LanguageCode.spanish;
         public AppLanguages AppLanguage = AppLanguages.English;
 

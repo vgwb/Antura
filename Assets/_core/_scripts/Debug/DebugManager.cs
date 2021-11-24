@@ -158,8 +158,8 @@ namespace Antura.Debugging
         public void CreateTestProfile()
         {
             AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.None, PlayerTint.Orange, Color.yellow, Color.red, Color.magenta, 4,
-                AppManager.I.AppEdition.Edition,
-                AppManager.I.CurrentLearningEditionIndex,
+                AppManager.I.AppEdition.editionID,
+                AppManager.I.ContentEdition.ContentID,
                 AppManager.I.AppEdition.AppVersion);
             AppManager.I.NavigationManager.GoToHome(debugMode: true);
         }
@@ -167,8 +167,8 @@ namespace Antura.Debugging
         public void CreateOldProfile()
         {
             AppManager.I.PlayerProfileManager.CreatePlayerProfile(false, 1, PlayerGender.F, PlayerTint.Green, Color.yellow, Color.red, Color.magenta, 4,
-                AppManager.I.AppEdition.Edition,
-                AppManager.I.CurrentLearningEditionIndex,
+                AppManager.I.AppEdition.editionID,
+                AppManager.I.ContentEdition.ContentID,
                 AppManager.I.AppEdition.AppVersion);
             AppManager.I.NavigationManager.GoToHome(debugMode: true);
         }

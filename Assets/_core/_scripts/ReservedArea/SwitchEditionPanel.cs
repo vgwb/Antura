@@ -29,9 +29,9 @@ namespace Antura.UI
 
         public void Awake()
         {
-            for (var iLearningEdition = 0; iLearningEdition < AppManager.I.AppEdition.LearningEditions.Length; iLearningEdition++)
+            for (var iLearningEdition = 0; iLearningEdition < AppManager.I.AppEdition.ContentEditions.Length; iLearningEdition++)
             {
-                var config = AppManager.I.AppEdition.LearningEditions[iLearningEdition];
+                var config = AppManager.I.AppEdition.ContentEditions[iLearningEdition];
                 var buttonGO = Instantiate(prefabButton.gameObject);
                 buttonGO.transform.SetParent(prefabButton.transform.parent);
                 buttonGO.transform.localScale = Vector3.one;
@@ -55,7 +55,7 @@ namespace Antura.UI
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (!mustChooseLearningEdition && button.LearningEditionIndex == AppManager.I.AppSettings.LearningEditionIndex) button.SetSelected();
+                if (!mustChooseLearningEdition && button.ContentId == AppManager.I.AppSettings.ContentID) button.SetSelected();
             }
             currentIcon.OnEnable();
         }

@@ -34,7 +34,7 @@ namespace Antura.UI
         void Awake()
         {
             defIcon = Icon.sprite;
-            Logo.sprite = AppManager.I.LearningEdition.TransitionLogo;
+            Logo.sprite = AppManager.I.ContentEdition.TransitionLogo;
 
             tween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(MaskCover.DOFillAmount(0, AnimationDuration).From())

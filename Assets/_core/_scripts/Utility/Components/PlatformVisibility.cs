@@ -17,7 +17,7 @@ namespace Antura.Utilities
         public bool AndroidOnly;
         public bool DesktopOnly;
 
-        public AppEditions EditionOnly;
+        public AppEditionID editionIDOnly;
 
         void Start()
         {
@@ -44,10 +44,10 @@ namespace Antura.Utilities
                     visible = true;
                 }
 
-                if (EditionOnly == AppEditions.LearnEnglish_Ceibal && AppManager.I.AppEdition.Edition == AppEditions.LearnEnglish_Ceibal) {
+                if (editionIDOnly == AppEditionID.LearnEnglish_Ceibal && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal) {
                     visible = true;
                 }
-                if (EditionOnly == AppEditions.LearnEnglish && AppManager.I.AppEdition.Edition == AppEditions.LearnEnglish) {
+                if (editionIDOnly == AppEditionID.LearnEnglish && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish) {
                     visible = true;
                 }
 

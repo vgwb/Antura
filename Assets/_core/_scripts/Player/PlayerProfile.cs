@@ -30,8 +30,8 @@ namespace Antura.Profile
         public bool HasMaxStarsInCurrentPlaySessions;
         public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
-        public AppEditions Edition;
-        public int LearningEditionIndex;
+        public AppEditionID editionID;
+        public LearningContentID ContentID;
         public string AppVersion;
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
@@ -519,8 +519,8 @@ namespace Antura.Profile
             Tint = _data.Tint;
             Age = _data.Age;
             AppVersion = _data.AppVersion;
-            Edition = _data.Edition;
-            LearningEditionIndex = _data.LearningEditionIndex;
+            editionID = _data.EditionID;
+            ContentID = _data.ContentID;
             Gender = _data.Gender;
             SkinColor = string.IsNullOrEmpty(_data.SkinColor) ? Color.white : _data.SkinColor.HexToColor();
             HairColor = string.IsNullOrEmpty(_data.HairColor) ? Color.white : _data.HairColor.HexToColor();
@@ -557,7 +557,7 @@ namespace Antura.Profile
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
-                    FirstContactState, Edition, LearningEditionIndex, AppVersion
+                    FirstContactState, editionID, ContentID, AppVersion
             );
             newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
             newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
@@ -580,8 +580,8 @@ namespace Antura.Profile
                 HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
                 HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
                 MaxJourneyPosition = this.MaxJourneyPosition,
-                Edition = this.Edition,
-                LearningEditionIndex = this.LearningEditionIndex,
+                editionID = this.editionID,
+                contentID = this.ContentID,
                 AppVersion = this.AppVersion,
             };
             return returnIconData;

@@ -213,7 +213,7 @@ namespace Antura.Profile
                                                        rnd2 <= 0.5f,
                                                        rnd3 <= 0.5f,
                                                        new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1),
-                                                       AppEditions.LearnEnglish,
+                                                       AppEditionID.LearnEnglish,
                                                        0,
                                                        "TEST");
             SetAppearance(rndPlayerIconData,

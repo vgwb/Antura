@@ -13,17 +13,17 @@ namespace Antura.UI
         public TextRender nameText;
 
         public SwitchEditionPanel switchEditionPanel;
-        private int learningEditionIndex;
+        private LearningContentID contentId;
 
         public Image selectedImage;
-        public int LearningEditionIndex => learningEditionIndex;
+        public LearningContentID ContentId => contentId;
 
-        public void Setup(int index, LearningConfig _editionConfig)
+        public void Setup(int index, ContentEditionConfig editionEditionConfig)
         {
-            this.learningEditionIndex = index;
+            this.contentId = editionEditionConfig.ContentID;
 
-            iconImage.sprite = _editionConfig.Icon;
-            nameText.text = _editionConfig.Title;
+            iconImage.sprite = editionEditionConfig.Icon;
+            nameText.text = editionEditionConfig.Title;
         }
 
         public void OnClick()
@@ -34,7 +34,7 @@ namespace Antura.UI
         private IEnumerator OnClickCO()
         {
             HomeScene.HasSelectedLearningEdition = true;
-            AppManager.I.AppSettingsManager.SetLearningEditionIndex(learningEditionIndex);
+            AppManager.I.AppSettingsManager.SetLearningContentID(contentId);
             yield return AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();
             AppManager.I.NavigationManager.GoToHome(true);

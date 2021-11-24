@@ -26,13 +26,25 @@ namespace Antura.Core
 
         public static ApplicationConfig I => AppManager.I.ApplicationConfig;
 
-        public EditionConfig LoadedAppEdition;
-        public LearningConfig LearningEdition
+        public AppEditionConfig LoadedAppEdition;
+        public ContentEditionConfig ContentEdition
         {
             get
             {
-                var index = Mathf.Min(AppManager.I.AppSettings.LearningEditionIndex, LoadedAppEdition.LearningEditions.Length - 1);
-                var config = LoadedAppEdition.LearningEditions[index];
+                var loadedContentID = AppManager.I.AppSettings.ContentID;
+                if (loadedContentID == LearningContentID.None)
+                {
+                    Debug.Log("No saved content ID. Choosing the first available.");
+                    AppManager.I.AppSettingsManager.SetLearningContentID(LoadedAppEdition.ContentEditions[0].ContentID);
+                    return LoadedAppEdition.ContentEditions[0];
+                }
+                var config = LoadedAppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == loadedContentID);
+                if (config == null)
+                {
+                    Debug.Log($"No content with ID {loadedContentID} could be found. Reverting to the first available.");
+                    AppManager.I.AppSettingsManager.SetLearningContentID(LoadedAppEdition.ContentEditions[0].ContentID);
+                    return LoadedAppEdition.ContentEditions[0];
+                }
                 return config;
             }
         }

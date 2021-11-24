@@ -28,9 +28,8 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public EditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
-        public LearningConfig LearningEdition => ApplicationConfig.LearningEdition;
-        public int CurrentLearningEditionIndex => AppEdition.LearningEditions.ToList().IndexOf(LearningEdition);
+        public AppEditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
+        public ContentEditionConfig ContentEdition => ApplicationConfig.ContentEdition;
 
         public ApplicationConfig ApplicationConfig;
         public DebugConfig DebugConfig;
@@ -206,8 +205,8 @@ namespace Antura.Core
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
-            AppManager.I.LearningEdition.NativeLanguage = langCode;
-            AppManager.I.LearningEdition.HelpLanguage = langCode;
+            AppManager.I.ContentEdition.NativeLanguage = langCode;
+            AppManager.I.ContentEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             yield return LanguageSwitcher.ReloadNativeLanguage();

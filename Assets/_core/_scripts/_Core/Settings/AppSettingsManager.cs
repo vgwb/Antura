@@ -47,13 +47,13 @@ namespace Antura.Core
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
                 Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
-                Settings.LearningEditionIndex = AppManager.I.CurrentLearningEditionIndex;
+                Settings.ContentID = AppManager.I.ContentEdition.ContentID;
 
                 // set native Language
                 // first set the default / fallback language
-                Settings.NativeLanguage = AppManager.I.LearningEdition.NativeLanguage;
-                if (AppManager.I.LearningEdition.DetectSystemLanguage) {
-                    foreach (var lang in AppManager.I.LearningEdition.SupportedNativeLanguages) {
+                Settings.NativeLanguage = AppManager.I.ContentEdition.NativeLanguage;
+                if (AppManager.I.ContentEdition.DetectSystemLanguage) {
+                    foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages) {
                         if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian) {
                             Settings.NativeLanguage = lang;
                         }
@@ -174,9 +174,9 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public void SetLearningEditionIndex(int index)
+        public void SetLearningContentID(LearningContentID contentID)
         {
-            Settings.LearningEditionIndex = index;
+            Settings.ContentID = contentID;
             SaveSettings();
         }
 

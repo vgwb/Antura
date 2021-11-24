@@ -21,14 +21,14 @@ namespace Antura.Core
     }
 
     [CreateAssetMenu]
-    public class EditionConfig : ScriptableObject
+    public class AppEditionConfig : ScriptableObject
     {
         [Header("Edition")]
-        public AppEditions Edition;
+        public AppEditionID editionID;
         public string EditionTitle;
 
-        public LearningConfig[] LearningEditions;
-        public bool HasMultipleLearningEditions => LearningEditions != null && LearningEditions.Length > 1;
+        public ContentEditionConfig[] ContentEditions;
+        public bool HasMultipleContentEditions => ContentEditions != null && ContentEditions.Length > 1;
 
         [Header("Settings")]
         [Space(30)]
@@ -142,8 +142,8 @@ namespace Antura.Core
                 PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
             }
 
-            var learningConfigsToUse = new List<LearningConfig>();
-            foreach (var edition in LearningEditions) {
+            var learningConfigsToUse = new List<ContentEditionConfig>();
+            foreach (var edition in ContentEditions) {
                 learningConfigsToUse.Add(edition);
             }
 

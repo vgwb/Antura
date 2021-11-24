@@ -10,7 +10,7 @@ namespace Antura.Utilities
 
         void Start()
         {
-            bool isVisible = AppManager.I.LearningEdition.SupportedNativeLanguages.Length > 1;
+            bool isVisible = AppManager.I.ContentEdition.SupportedNativeLanguages.Length > 1;
 
             gameObject.SetActive(isVisible);
         }

@@ -33,7 +33,7 @@ namespace Antura.Scenes
         public GameObject HomeLogo;
 
         public static bool HasSelectedLearningEdition;
-        public static bool MustChooseLearningEdition => !HasSelectedLearningEdition && AppManager.I.AppEdition.HasMultipleLearningEditions && AppManager.I.Player == null;
+        public static bool MustChooseLearningEdition => !HasSelectedLearningEdition && AppManager.I.AppEdition.HasMultipleContentEditions && AppManager.I.Player == null;
 
         protected override void Start()
         {
@@ -116,7 +116,7 @@ namespace Antura.Scenes
 
         public void OnBtnSwitchLanguage()
         {
-            ChangeLearningLanguage(AppManager.I.LearningEdition.NativeLanguage == LanguageCode.spanish
+            ChangeLearningLanguage(AppManager.I.ContentEdition.NativeLanguage == LanguageCode.spanish
                 ? LanguageCode.italian
                 : LanguageCode.spanish);
         }

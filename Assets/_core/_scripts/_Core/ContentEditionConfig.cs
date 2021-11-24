@@ -5,8 +5,9 @@ using UnityEngine;
 namespace Antura.Core
 {
     [CreateAssetMenu]
-    public class LearningConfig : ScriptableObject
+    public class ContentEditionConfig : ScriptableObject
     {
+        public LearningContentID ContentID;
         public Sprite Icon;
         public string Title;
 
