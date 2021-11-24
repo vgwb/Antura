@@ -115,6 +115,7 @@ namespace Antura.Core
 
         public string ProductName;
         public string UnityProjectId;
+        public string Desktop_BundleIdentifier;
         public string Android_BundleIdentifier;
         public string iOS_BundleIdentifier;
         public string BundleVersion;
@@ -132,6 +133,7 @@ namespace Antura.Core
 
             config.LoadedAppEdition = this;
             PlayerSettings.productName = ProductName;
+            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
             PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
             PlayerSettings.bundleVersion = BundleVersion;
@@ -171,7 +173,7 @@ namespace Antura.Core
                     if (i < words.Length - 1) pascalcaseName += "_";
                 }
 
-                var assetGroupSchemaPath =  $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
+                var assetGroupSchemaPath = $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
                 var schema = AssetDatabase.LoadAssetAtPath<BundledAssetGroupSchema>(assetGroupSchemaPath);
 
                 if (schema == null)
