@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Antura.Dog;
 using Antura.Profile;
+using Unity.Services.Core;
 using UnityEngine;
 using UnityEngine.Analytics;
 
@@ -40,6 +41,11 @@ namespace Antura.Core.Services.OnlineAnalytics
         /// </summary>
         /// <param name="eventName">Event name.</param>
         ///
+
+        public AnalyticsService()
+        {
+            UnityServices.InitializeAsync();
+        }
 
         private bool AnalyticsEnabled
         {
