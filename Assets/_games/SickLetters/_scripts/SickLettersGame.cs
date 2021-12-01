@@ -305,7 +305,7 @@ namespace Antura.Minigames.SickLetters
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
                 var path = "Assets/_config/Resources/arabic/SideData/Letters/";
-                var asset = CustomAssetUtility.CreateAsset<SideLetterData>(path, $"sideletter_{letterData.Id}");
+                var asset = CustomAssetUtility.CreateAsset<ShapeLetterData>(path, $"sideletter_{letterData.Id}");
 
                 string s = "DROP ZONES FOR " + letterData.Isolated;
                 var zones = new List<Vector2>();

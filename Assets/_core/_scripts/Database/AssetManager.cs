@@ -14,7 +14,7 @@ namespace Antura
         public static bool VERBOSE = false;
 
         private Dictionary<string, Sprite> spriteCache = new Dictionary<string, Sprite>();
-        private Dictionary<string, SideLetterData> sideDataCache = new Dictionary<string, SideLetterData>();
+        private Dictionary<string, ShapeLetterData> sideDataCache = new Dictionary<string, ShapeLetterData>();
         private Dictionary<string, AudioClip> audioCache = new Dictionary<string, AudioClip>();
         private Dictionary<string, TextAsset> textCache = new Dictionary<string, TextAsset>();
 
@@ -131,7 +131,7 @@ namespace Antura
             return GetSprite("BadgeIco", data.Badge);
         }
 
-        public SideLetterData GetSideLetterData(string id)
+        public ShapeLetterData GetSideLetterData(string id)
         {
             return Get(sideDataCache, $"sideletter_{id}");
         }
