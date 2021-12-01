@@ -5,11 +5,13 @@ using UnityEngine.U2D;
 
 public class StrokeLogic : MonoBehaviour
 {
+    public Color startColor = Color.yellow;
+
     private void OnValidate()
     {
         var index = transform.GetSiblingIndex();
         name = $"Stroke_{transform.GetSiblingIndex().ToString("00")}";
-        GetComponent<SpriteShapeRenderer>().color = Color.Lerp(Color.yellow, Color.red, index / 5f);
+        GetComponent<SpriteShapeRenderer>().color = Color.Lerp(startColor, Color.red, index / 5f);
     }
 
     private void OnDrawGizmosSelected()

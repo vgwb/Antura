@@ -26,6 +26,7 @@ namespace Antura.Database
         public Vector2[] EmptyZones;
 
         public Stroke[] Strokes;
+        public Stroke[] Contour;
     }
 
 }

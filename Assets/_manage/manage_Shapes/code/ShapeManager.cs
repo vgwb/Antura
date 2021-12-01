@@ -74,9 +74,15 @@ public class ShapeManager : MonoBehaviour
         if (shapeData == null) return;
 
         // Load the current spline
-        var nStrokes = shapeData.Strokes?.Length ?? 0;
-        if (shapeData.Strokes == null) shapeData.Strokes = Array.Empty<Stroke>();
-        var controllers = el.StrokesPivot.GetComponentsInChildren<SpriteShapeController>().ToList();
+        LoadSplinesOn(el.StrokesPivot, shapeData.Strokes);
+        LoadSplinesOn(el.ContourPivot, shapeData.Contour);
+    }
+
+    public static void LoadSplinesOn(GameObject pivot, Stroke[] strokes)
+    {
+        var nStrokes = strokes?.Length ?? 0;
+        if (strokes == null) return;
+        var controllers = pivot.GetComponentsInChildren<SpriteShapeController>().ToList();
         while (controllers.Count < nStrokes)
         {
             var newController = Instantiate(controllers[0],controllers[0].transform.parent);
@@ -85,18 +91,18 @@ public class ShapeManager : MonoBehaviour
         for (int i = 0; i < nStrokes; i++)
         {
             controllers[i].gameObject.SetActive(true);
-            CopySpline(shapeData.Strokes[i].Spline, controllers[i].spline);
+            CopySpline(strokes[i].Spline, controllers[i].spline);
         }
         for (int i = nStrokes; i < controllers.Count; i++)
         {
             controllers[i].gameObject.SetActive(false);
         }
-
     }
 
     public static void CopySpline(Spline fromSp, Spline toSp)
     {
         toSp.Clear();
+        toSp.isOpenEnded = fromSp.isOpenEnded;
         for (int j = 0; j < fromSp.GetPointCount(); j++)
         {
             toSp.InsertPointAt(j, fromSp.GetPosition(j));
