@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.FSM;
 using Antura.LivingLetters;
 using Antura.Tutorial;
@@ -357,6 +358,8 @@ namespace Antura.Minigames.Maze
         }
         public LL_LetterData currentLL;
 
+        public NewMazeLetter newMazeLetter;
+
         void initCurrentLetter()
         {
             if (gameEnded) {
@@ -381,6 +384,10 @@ namespace Antura.Minigames.Maze
                 Debug.Log("Letter got from Teacher is: " + ld.Id + " - does not match 11 models we have, we will play sound of the returned data");
                 index = Random.Range(0, prefabs.Count);
             }
+
+            // START NEW GAME
+            newMazeLetter.SetupLetter(ld);
+            // END NEW GAME
 
             currentLL = ld;
             currentPrefab = Instantiate(prefabs[index]);
