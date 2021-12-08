@@ -14,7 +14,7 @@ namespace Antura
         public static bool VERBOSE = false;
 
         private Dictionary<string, Sprite> spriteCache = new Dictionary<string, Sprite>();
-        private Dictionary<string, ShapeLetterData> sideDataCache = new Dictionary<string, ShapeLetterData>();
+        private Dictionary<string, ShapeLetterData> shapeDataCache = new Dictionary<string, ShapeLetterData>();
         private Dictionary<string, AudioClip> audioCache = new Dictionary<string, AudioClip>();
         private Dictionary<string, TextAsset> textCache = new Dictionary<string, TextAsset>();
 
@@ -22,7 +22,7 @@ namespace Antura
         {
             // First release preloaded data
             ClearCache(spriteCache);
-            ClearCache(sideDataCache);
+            ClearCache(shapeDataCache);
             ClearCache(audioCache);
             ClearCache(textCache);
 
@@ -56,7 +56,7 @@ namespace Antura
             {
                 sideKeys.Add($"{languageCode}/SideData/Letters/sideletter_{letterData.Id}");
             }
-            yield return LoadAssets(sideKeys, sideDataCache, AppManager.BlockingLoad);
+            yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
 
 
             // Song data
@@ -131,9 +131,9 @@ namespace Antura
             return GetSprite("BadgeIco", data.Badge);
         }
 
-        public ShapeLetterData GetSideLetterData(string id)
+        public ShapeLetterData GetShapeLetterData(string id)
         {
-            return Get(sideDataCache, $"sideletter_{id}");
+            return Get(shapeDataCache, $"sideletter_{id}");
         }
 
         public TextAsset GetSongSrt(string id)

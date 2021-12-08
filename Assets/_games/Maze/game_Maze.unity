@@ -5023,6 +5023,12 @@ MonoBehaviour:
   - {fileID: 1689518561}
   DottedLine: {fileID: 470596889}
   ContourLine: {fileID: 688910903}
+  ArrowPlacementDelta: 1
+  ArrowPrefabGO: {fileID: 4924789834551174000, guid: 7f637c191be0a4243839e127a76203c5,
+    type: 3}
+  TutorialPointPlacementDelta: 1
+  TutorialPointPrefabGO: {fileID: 4924789834551174000, guid: a63c4f273cb7d6a47bc2e4e3eecd4910,
+    type: 3}
 --- !u!4 &140110263
 Transform:
   m_ObjectHideFlags: 0
@@ -5031,7 +5037,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140110261}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -11.51, y: 0, z: -1}
+  m_LocalPosition: {x: -10.89, y: 0, z: -1}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 1689518560}
@@ -5690,7 +5696,7 @@ RectTransform:
   m_GameObject: {fileID: 470596889}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: -0.02}
-  m_LocalScale: {x: 0.12699, y: 0.12699, z: 0.12699}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 1473679526}
   m_Father: {fileID: 140110263}
@@ -6104,7 +6110,7 @@ RectTransform:
   m_GameObject: {fileID: 688910903}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.12699, y: 0.12699, z: 0.12699}
+  m_LocalScale: {x: 0.1, y: 0.1, z: 0.1}
   m_Children:
   - {fileID: 393996214}
   m_Father: {fileID: 140110263}
@@ -8494,7 +8500,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1689518559}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -0.1}
+  m_LocalPosition: {x: 0, y: 0, z: -0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 140110263}

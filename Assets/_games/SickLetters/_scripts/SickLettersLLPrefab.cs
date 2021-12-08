@@ -237,7 +237,7 @@ namespace Antura.Minigames.SickLetters
             Vector2[] emptyZones;
             if (useLetter)
             {
-                var sideData = AppManager.I.AssetManager.GetSideLetterData(letterView.Data.Id);
+                var sideData = AppManager.I.AssetManager.GetShapeLetterData(letterView.Data.Id);
                 emptyZones = sideData.EmptyZones;
             }
             else
