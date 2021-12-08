@@ -83,7 +83,7 @@ namespace Antura.Minigames.Maze
 
         public GameObject drawingTool;
 
-        void setupIndices()
+        void setupIndices() // TODO: REMOVE NOT NEEDED ANYMORE
         {
             allLetters = new Dictionary<string, int>();
             for (int i = 0; i < prefabs.Count; ++i) {
@@ -378,6 +378,10 @@ namespace Antura.Minigames.Maze
             LL_LetterData ld = (LL_LetterData)ldList[0];
             int index = -1;
 
+            var id = "be";
+            var _ld = AppManager.I.DB.GetLetterDataById(id);
+            ld = new LL_LetterData(_ld);
+
             if (allLetters.ContainsKey(ld.Id))
                 index = allLetters[ld.Id];
             if (index == -1) {
@@ -390,8 +394,10 @@ namespace Antura.Minigames.Maze
             // END NEW GAME
 
             currentLL = ld;
-            currentPrefab = Instantiate(prefabs[index]);
-            currentPrefab.GetComponent<MazeLetterBuilder>().build(() => {
+            //currentPrefab = Instantiate(prefabs[index]);
+            currentPrefab = Instantiate(newMazeLetter.gameObject);
+            currentPrefab.GetComponent<NewMazeLetter>().SetupLetter(ld);
+            currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() => {
 
                 if (!isTutorialMode) {
                     MazeConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(
@@ -412,6 +418,8 @@ namespace Antura.Minigames.Maze
 
                 currentMazeLetter = currentPrefab.GetComponentInChildren<MazeLetter>();
             });
+            currentPrefab.GetComponent<NewMazeLetterBuilder>().Build();
+
         }
 
         public void showCharacterMovingIn()

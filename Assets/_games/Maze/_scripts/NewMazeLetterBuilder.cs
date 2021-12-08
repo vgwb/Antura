@@ -8,11 +8,11 @@ namespace Antura.Minigames.Maze
         public int letterDataIndex = 0;
         private System.Action _callback = null;
 
-        void Start()
+        public void Build()
         {
             transform.position = new Vector3(0, 0, -1);
             transform.localScale = new Vector3(15, 15, 15);
-            transform.rotation = Quaternion.Euler(0, 180, 0);
+            transform.rotation = Quaternion.Euler(90, 0, 0);
 
             //set up everything correctly:
             string name = gameObject.name;
@@ -31,7 +31,7 @@ namespace Antura.Minigames.Maze
             mazeCharacter.SpawnOffscreen();
 
             MazeLetter letter = null;
-            GameObject BorderColldider = null;
+            GameObject BorderCollider = null;
             GameObject hd;
             List<GameObject> arrows = new List<GameObject>();
             List<GameObject> lines = new List<GameObject>();
@@ -40,17 +40,21 @@ namespace Antura.Minigames.Maze
             Vector3 characterPosition = new Vector3();
 
             foreach (Transform child in transform) {
-                if (child.name == name) {
+                if (child.name == "Letter")
+                {
                     child.name = "MazeLetter";
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
-                    child.gameObject.AddComponent<BoxCollider>();
-                    child.gameObject.AddComponent<MeshCollider>();
+                    // TODO: handle collisions somehow
+                    //child.gameObject.AddComponent<BoxCollider>();
+                    //child.gameObject.AddComponent<MeshCollider>();
                 }
 
-                if (child.name.IndexOf("_coll") != -1) {
+                // TODO: handle collisions somehow
+                if (child.name.IndexOf("_coll") != -1)
+                {
                     child.name = "BorderCollider";
-                    BorderColldider = child.gameObject;
+                    BorderCollider = child.gameObject;
                     Rigidbody rb = child.gameObject.AddComponent<Rigidbody>();
                     rb.useGravity = false;
                     rb.isKinematic = true;
@@ -59,7 +63,9 @@ namespace Antura.Minigames.Maze
                     child.gameObject.AddComponent<TrackBounds>();
                     child.gameObject.layer = 17;
                 }
-                if (child.name.IndexOf("arrow") == 0) {
+
+                if (child.name.IndexOf("Arrow") == 0)
+                {
                     AddDotAndHideArrow(child);
                     arrows.Add(child.gameObject);
 
@@ -71,17 +77,25 @@ namespace Antura.Minigames.Maze
                     foreach (Transform fruit in child.transform) {
                         fruit.gameObject.AddComponent<BoxCollider>();
                     }
-                    Transform tutorialWaypointsForPath = transform.Find("TutorialWaypoints" + child.name.Substring(5));
-                    tutorialWaypoints.Add(tutorialWaypointsForPath == null ? child.gameObject : tutorialWaypointsForPath.gameObject);
 
+                    //Transform tutorialWaypointsForPath = transform.Find("TutorialWaypoints" + child.name.Substring(5));
+                    //tutorialWaypoints.Add(tutorialWaypointsForPath == null ? child.gameObject : tutorialWaypointsForPath.gameObject);
                 }
-                if (child.name.IndexOf("line") == 0) {
-                    lines.Add(child.gameObject);
+
+                if (child.name.IndexOf("TutorialPoint") == 0)
+                {
+                    tutorialWaypoints.Add(child.gameObject);
+                }
+
+                if (child.name.IndexOf("Lines") == 0)
+                {
+                    foreach (Transform lineTr in child.transform)
+                    {
+                        lines.Add(lineTr.gameObject);
+                    }
                 }
             }
-            //character.transform.position = characterPosition + new Vector3(0,1,0);
 
-            //fix mazecharacter:
             mazeCharacter.SetMazeLetter(letter);
             mazeCharacter.CreateFruits(arrows);
 
@@ -98,7 +112,6 @@ namespace Antura.Minigames.Maze
             handTut.linesToShow = lines;
 
             gameObject.AddComponent<MazeShowPrefab>().letterIndex = letterDataIndex;
-            //gameObject.GetComponent<MazeShowPrefab>().letterId = letterData;
 
             if (_callback != null) { _callback(); }
         }
@@ -121,8 +134,5 @@ namespace Antura.Minigames.Maze
             _callback = callback;
         }
 
-        void Update()
-        {
-        }
     }
 }

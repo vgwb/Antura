@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.LivingLetters;
+using DG.DeExtensions;
 using TMPro;
 using UnityEngine;
 
@@ -31,21 +32,20 @@ public class NewMazeLetter : MonoBehaviour
         }
 
 
-        var arrowGos = ShapeManager.SpawnObjectsOnSplines(ArrowPrefabGO, transform, shapeData.Strokes, ArrowPlacementDelta, DottedLine.transform.localScale.x);
+        var arrowGos = ShapeManager.SpawnObjectsOnSplines(ArrowPrefabGO, transform, shapeData.Strokes, ArrowPlacementDelta, 0.1f, DottedLine.transform.localScale.x);
         for (var i = 0; i < arrowGos.Count; i++)
         {
             var arrowGo = arrowGos[i];
             arrowGo.name = $"Arrow_{i}";
-            arrowGo.transform.localEulerAngles = new Vector3(0f, 180, 270);
+            //arrowGo.transform.localEulerAngles.SetY(-90f); // Force pitch
             arrowGo.transform.position += Vector3.up * 0.2f;  // Offset
         }
 
-        var tutorialPointGos = ShapeManager.SpawnObjectsOnSplines(TutorialPointPrefabGO, transform, shapeData.Strokes, TutorialPointPlacementDelta, DottedLine.transform.localScale.x);
+        var tutorialPointGos = ShapeManager.SpawnObjectsOnSplines(TutorialPointPrefabGO, transform, shapeData.Strokes, TutorialPointPlacementDelta, 0.1f, DottedLine.transform.localScale.x);
         for (var i = 0; i < tutorialPointGos.Count; i++)
         {
             var tutorialPointGo = tutorialPointGos[i];
             tutorialPointGo.name = $"TutorialPoint_{i}";
-            //tutorialPointGo.transform.localEulerAngles = new Vector3(0f, 180, 270);
             tutorialPointGo.transform.position += Vector3.up * 0.2f;  // Offset
         }
 

@@ -5000,6 +5000,7 @@ GameObject:
   m_Component:
   - component: {fileID: 140110263}
   - component: {fileID: 140110262}
+  - component: {fileID: 140110264}
   m_Layer: 0
   m_Name: MazeLetter
   m_TagString: Untagged
@@ -5037,7 +5038,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 140110261}
   m_LocalRotation: {x: 0.7071068, y: -0, z: -0, w: 0.7071068}
-  m_LocalPosition: {x: -10.89, y: 0, z: -1}
+  m_LocalPosition: {x: -14.76, y: 0, z: -1}
   m_LocalScale: {x: 15, y: 15, z: 15}
   m_Children:
   - {fileID: 1689518560}
@@ -5046,6 +5047,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+--- !u!114 &140110264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 140110261}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1959e3c30e8b431993520330f8bee3fc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  letterDataIndex: 0
 --- !u!1 &174049808
 GameObject:
   m_ObjectHideFlags: 0
