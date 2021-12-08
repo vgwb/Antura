@@ -245,8 +245,6 @@ namespace Antura.Minigames.Maze
             SetFruitsList();
 
             var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
-            //firstArrowRotation.x += 90f;
-            //firstArrowRotation.y += 90f;
 
             transform.DORotate(firstArrowRotation, 0.5f).OnComplete(() => {
                 transform.DOMove(transform.position - transform.TransformVector(Vector3.forward), 1).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
