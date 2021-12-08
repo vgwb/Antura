@@ -21,19 +21,13 @@ using UnityEngine.U2D;
 
 public class ShapeManager : MonoBehaviour
 {
-    public CustomSceneManager sceneManager;
     public ShapeDataLogic DataPrefab;
-
-    public void OnValidate()
-    {
-        if (!Application.isPlaying) return;
-    }
 
     IEnumerator Start()
     {
         while (!AppManager.I.Loaded) yield return null;
         GlobalUI.I.gameObject.SetActive(false);
-        var letters =  AppManager.I.DB.GetAllLetterData();
+        var letters = AppManager.I.DB.GetAllLetterData();
         for (var i = 0; i < letters.Count; i++)
         {
             var letter = letters[i];
@@ -51,7 +45,7 @@ public class ShapeManager : MonoBehaviour
 
     private void LoadLetter(string _letter)
     {
-        var letters =  AppManager.I.DB.GetAllLetterData();
+        var letters = AppManager.I.DB.GetAllLetterData();
         var letterData = letters.FirstOrDefault(x => x.Id == _letter);
         LoadLetter(letterData);
     }
@@ -134,57 +128,69 @@ public class ShapeManager : MonoBehaviour
     }
 
 
-    public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float scale = 1f)
+    public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float start, float scale = 1f)
     {
         var gos = new List<GameObject>();
         foreach (var stroke in strokes)
         {
             var n = stroke.Spline.GetPointCount() - 1;
-            var t = 0.0f;
+            var t = start;
             while (t < 1f * n)
             {
-                // t goes from 0 to n. Find the point that we are interested into.
-                int iPoint = Mathf.FloorToInt(t);
-
-                var inSplinePoint = t % 1;
-                var p = BezierUtility.BezierPoint(stroke.Spline.GetPosition(iPoint),
-                    stroke.Spline.GetLeftTangent(iPoint),
-                    stroke.Spline.GetRightTangent(iPoint),
-                    stroke.Spline.GetPosition(iPoint + 1),
-                    inSplinePoint);
-
+                var pos = PositionOnSpline(stroke.Spline, t);
+                var tangent = TangentOnSpline(stroke.Spline, t);
                 var go = Instantiate(prefab, parent);
-                go.transform.localPosition = p * scale;
-
-                //go.transform.localEulerAngles =
-
+                go.transform.localPosition = pos * scale;
+                go.transform.rotation = Quaternion.LookRotation(tangent);
+                gos.Add(go);
                 t += delta;
             }
         }
         return gos;
     }
 
+    public static Vector3 PositionOnSpline(Spline spline, float t)
+    {
+        var n = spline.GetPointCount();
+        int iPoint = Mathf.FloorToInt(t);
+        if (iPoint < 0) return spline.GetPosition(0);
+        if (iPoint >= n - 1) return spline.GetPosition(n-1);
+        var t_in = t % 1;
+        var p0 = spline.GetPosition(iPoint);
+        var p1 = spline.GetPosition(iPoint + 1);
+        var rt = p0 + spline.GetRightTangent(iPoint);
+        var lt = p1 + spline.GetLeftTangent(iPoint + 1);
+        var p = SplinePos(p0, rt, lt, p1, t_in);
+        return p;
+    }
+
+    // @note: Unity's BezierPoint in BezierUtility is wrong! We are doing our own.
+    public static Vector3 SplinePos(Vector3 p0, Vector3 rt, Vector3 lt, Vector3 p1, float t)
+    {
+        float s = 1.0f - t;
+        return s * s * s * p0 + 3.0f * s * s * t * rt + 3.0f * s * t * t * lt + t * t * t * p1;
+    }
+
     public static Vector3 TangentOnSpline(Spline spline, float t)
     {
         var n = spline.GetPointCount();
-        int pointIndex = Mathf.FloorToInt(t);
-        if (pointIndex == n - 1)
-        {
-            // TODO: last extremity
-        }
-        var a = spline.GetPosition(pointIndex);
-        var b = spline.GetLeftTangent(pointIndex);
-        var c = spline.GetRightTangent(pointIndex);
-        var d = spline.GetPosition(pointIndex + 1);
-
-        var C1 = ( d - (3.0f * c) + (3.0f * b) - a );
-        var C2 = ( (3.0f * c) - (6.0f * b) + (3.0f * a) );
-        var C3 = ( (3.0f * b) - (3.0f * a) );
-        //var C4 = ( a );
-
-        var slope = ( ( 3.0f * C1 * t* t ) + ( 2.0f * C2 * t ) + C3 );
+        int iPoint = Mathf.FloorToInt(t);
+        if (iPoint < 0) return spline.GetRightTangent(0);
+        if (iPoint >= n - 1) return spline.GetLeftTangent(iPoint);
+        var t_in = t % 1;
+        var p0 = spline.GetPosition(iPoint);
+        var p1 = spline.GetPosition(iPoint + 1);
+        var rt = p0 + spline.GetRightTangent(iPoint);
+        var lt = p1 + spline.GetLeftTangent(iPoint + 1);
+        var slope = SplineSlope(p0, rt, lt, p1, t_in);
         return slope;
     }
+    public static Vector3 SplineSlope(Vector3 p0, Vector3 rt, Vector3 lt, Vector3 p1, float t)
+    {
+        float s = 1.0f - t;
+        return 3.0f * s * s * (rt- p0) + 6.0f *  s * t * (lt - rt) + 3.0f  * t * t * (p1 - lt);
+    }
+
 
 }
 

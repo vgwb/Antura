@@ -20,18 +20,30 @@ public class StrokeLogic : MonoBehaviour
         var spline = controller.spline;
         for (int i = 0; i < spline.GetPointCount()-1; i++)
         {
-            var t = transform;
             Handles.color = Color.red;
-            var pos0 = spline.GetPosition(i);
-            var pos1 = spline.GetPosition(i + 1);
+            var tang = ShapeManager.TangentOnSpline(spline, i);
 
             Handles.ArrowHandleCap(
                 0,
                 transform.position + spline.GetPosition(i),
-                transform.rotation * Quaternion.LookRotation(pos1-pos0),
+                transform.rotation * Quaternion.LookRotation(tang),
                 1f,
                 EventType.Repaint
             );
         }
+
+        var pos = ShapeManager.PositionOnSpline(spline, testTangent);
+        var tangent = ShapeManager.TangentOnSpline(spline, testTangent);
+
+        Handles.color = Color.blue;
+        Handles.ArrowHandleCap(
+            0,
+            transform.position + pos,
+            transform.rotation * Quaternion.LookRotation(tangent),
+            1f,
+            EventType.Repaint
+        );
     }
+
+    public float testTangent;
 }
