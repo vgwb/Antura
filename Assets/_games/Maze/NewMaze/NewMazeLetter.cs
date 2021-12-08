@@ -36,7 +36,6 @@ public class NewMazeLetter : MonoBehaviour
         for (var i = 0; i < arrowGos.Count; i++)
         {
             var arrowGo = arrowGos[i];
-            arrowGo.name = $"Arrow_{i}";
             //arrowGo.transform.localEulerAngles.SetY(-90f); // Force pitch
             arrowGo.transform.position += Vector3.up * 0.2f;  // Offset
         }
@@ -45,7 +44,6 @@ public class NewMazeLetter : MonoBehaviour
         for (var i = 0; i < tutorialPointGos.Count; i++)
         {
             var tutorialPointGo = tutorialPointGos[i];
-            tutorialPointGo.name = $"TutorialPoint_{i}";
             tutorialPointGo.transform.position += Vector3.up * 0.2f;  // Offset
         }
 

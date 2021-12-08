@@ -131,22 +131,46 @@ public class ShapeManager : MonoBehaviour
     public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float start, float scale = 1f)
     {
         var gos = new List<GameObject>();
-        foreach (var stroke in strokes)
+        for (var iStroke = 0; iStroke < strokes.Length; iStroke++)
         {
+            var stroke = strokes[iStroke];
+            var pivot = new GameObject($"{prefab.name}_stroke_{iStroke}");
+            pivot.transform.SetParent(parent);
+            pivot.transform.localEulerAngles = Vector3.zero;
+            pivot.transform.localScale = Vector3.one;
+            pivot.transform.localPosition = Vector3.zero;
+
             var n = stroke.Spline.GetPointCount() - 1;
             var t = start;
+            int seq = 0;
+            GameObject go;
             while (t < 1f * n)
             {
-                var pos = PositionOnSpline(stroke.Spline, t);
-                var tangent = TangentOnSpline(stroke.Spline, t);
-                var go = Instantiate(prefab, parent);
-                go.transform.localPosition = pos * scale;
-                go.transform.rotation = Quaternion.LookRotation(tangent);
+                go = SpawnAt(prefab, pivot, stroke.Spline, t, scale);
+                go.name = $"{prefab.name}_{iStroke}_{(seq)}";
                 gos.Add(go);
+                seq++;
                 t += delta;
             }
+
+            // Spawn a last one
+            t = 1f * n;
+            go = SpawnAt(prefab, pivot, stroke.Spline, t, scale);
+            go.name = $"{prefab.name}_{iStroke}_{(seq)}";
+            gos.Add(go);
         }
+
         return gos;
+    }
+
+    private static GameObject SpawnAt(GameObject prefab, GameObject pivot, DirectionalSpline spline, float t, float scale = 1f)
+    {
+        var pos = PositionOnSpline(spline, t);
+        var tangent = TangentOnSpline(spline, t);
+        var go = Instantiate(prefab, pivot.transform);
+        go.transform.localPosition = pos * scale;
+        go.transform.rotation = Quaternion.LookRotation(tangent);
+        return go;
     }
 
     public static Vector3 PositionOnSpline(Spline spline, float t)

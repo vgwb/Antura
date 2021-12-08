@@ -389,12 +389,7 @@ namespace Antura.Minigames.Maze
                 index = Random.Range(0, prefabs.Count);
             }
 
-            // START NEW GAME
-            newMazeLetter.SetupLetter(ld);
-            // END NEW GAME
-
             currentLL = ld;
-            //currentPrefab = Instantiate(prefabs[index]);
             currentPrefab = Instantiate(newMazeLetter.gameObject);
             currentPrefab.GetComponent<NewMazeLetter>().SetupLetter(ld);
             currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() => {

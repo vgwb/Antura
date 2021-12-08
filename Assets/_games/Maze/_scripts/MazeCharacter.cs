@@ -245,8 +245,8 @@ namespace Antura.Minigames.Maze
             SetFruitsList();
 
             var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
-            firstArrowRotation.x += 90f;
-            firstArrowRotation.y += 90f;
+            //firstArrowRotation.x += 90f;
+            //firstArrowRotation.y += 90f;
 
             transform.DORotate(firstArrowRotation, 0.5f).OnComplete(() => {
                 transform.DOMove(transform.position - transform.TransformVector(Vector3.forward), 1).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
@@ -267,7 +267,7 @@ namespace Antura.Minigames.Maze
 
                     MazeArrow arrow = child.gameObject.AddComponent<MazeArrow>();
                     child.gameObject.name = "fruit_" + (i);
-                    arrow.arrowOrDotMesh = i != 0 ? child.GetComponent<MeshRenderer>() : child.Find("Dot").GetComponent<MeshRenderer>();
+                    arrow.arrowOrDotMesh = i != 0 ? child.GetComponentInChildren<MeshRenderer>() : child.Find("Dot").GetComponent<MeshRenderer>();
                 }
             }
 

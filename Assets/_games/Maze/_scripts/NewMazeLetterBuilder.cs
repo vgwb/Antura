@@ -46,12 +46,12 @@ namespace Antura.Minigames.Maze
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
                     // TODO: handle collisions somehow
-                    //child.gameObject.AddComponent<BoxCollider>();
-                    //child.gameObject.AddComponent<MeshCollider>();
+                    child.gameObject.AddComponent<BoxCollider>();
+                    child.gameObject.AddComponent<MeshCollider>();
                 }
 
                 // TODO: handle collisions somehow
-                if (child.name.IndexOf("_coll") != -1)
+                if (child.name.IndexOf("Contour") != -1)
                 {
                     child.name = "BorderCollider";
                     BorderCollider = child.gameObject;
@@ -64,25 +64,21 @@ namespace Antura.Minigames.Maze
                     child.gameObject.layer = 17;
                 }
 
-                if (child.name.IndexOf("Arrow") == 0)
+                if (child.name.IndexOf("arrow_stroke") == 0)
                 {
                     AddDotAndHideArrow(child);
                     arrows.Add(child.gameObject);
 
                     if (arrows.Count == 1) {
-                        //find the first child in the transform:
                         characterPosition = child.GetChild(0).position;
                     }
 
                     foreach (Transform fruit in child.transform) {
                         fruit.gameObject.AddComponent<BoxCollider>();
                     }
-
-                    //Transform tutorialWaypointsForPath = transform.Find("TutorialWaypoints" + child.name.Substring(5));
-                    //tutorialWaypoints.Add(tutorialWaypointsForPath == null ? child.gameObject : tutorialWaypointsForPath.gameObject);
                 }
 
-                if (child.name.IndexOf("TutorialPoint") == 0)
+                if (child.name.IndexOf("tutorialPoint_stroke") == 0)
                 {
                     tutorialWaypoints.Add(child.gameObject);
                 }
@@ -126,7 +122,7 @@ namespace Antura.Minigames.Maze
             newDot.transform.Rotate(Vector3.forward, 180, Space.World);
             newDot.transform.localScale = Vector3.one * 0.1f;
 
-            firstArrow.GetComponent<MeshRenderer>().enabled = false;
+            firstArrow.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
 
         public void build(System.Action callback)
