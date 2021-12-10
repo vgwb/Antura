@@ -72,7 +72,6 @@ namespace Antura.Minigames.Maze
         private List<Vector3> fleePositions;
 
         public bool isTutorialMode;
-        public Dictionary<string, int> allLetters;
 
         private MazeLetter currentMazeLetter;
         private IInputManager inputManager;
@@ -83,13 +82,6 @@ namespace Antura.Minigames.Maze
 
         public GameObject drawingTool;
 
-        void setupIndices() // TODO: REMOVE NOT NEEDED ANYMORE
-        {
-            allLetters = new Dictionary<string, int>();
-            for (int i = 0; i < prefabs.Count; ++i) {
-                allLetters.Add(prefabs[i].name, i);
-            }
-        }
 
         private void OnPointerDown()
         {
@@ -134,8 +126,6 @@ namespace Antura.Minigames.Maze
         public void startGame()
         {
             isTutorialMode = GetConfiguration().TutorialEnabled;
-
-            setupIndices();
 
             fleePositions = new List<Vector3>();
             foreach (Transform child in fleePositionObject.transform) {
@@ -378,16 +368,9 @@ namespace Antura.Minigames.Maze
             LL_LetterData ld = (LL_LetterData)ldList[0];
             int index = -1;
 
-            var id = "be";
+            var id = "ayn";
             var _ld = AppManager.I.DB.GetLetterDataById(id);
             ld = new LL_LetterData(_ld);
-
-            if (allLetters.ContainsKey(ld.Id))
-                index = allLetters[ld.Id];
-            if (index == -1) {
-                Debug.Log("Letter got from Teacher is: " + ld.Id + " - does not match 11 models we have, we will play sound of the returned data");
-                index = Random.Range(0, prefabs.Count);
-            }
 
             currentLL = ld;
             currentPrefab = Instantiate(newMazeLetter.gameObject);

@@ -1,5 +1,4 @@
 ﻿#if UNITY_EDITOR
-using System.Linq;
 using Antura.Database;
 using TMPro;
 using UnityEditor;
@@ -15,28 +14,41 @@ public class ShapeDataLogic : MonoBehaviour
     public TextMeshPro LetterTextMesh;
     public GameObject StrokesPivot;
     public GameObject ContourPivot;
+    public GameObject EmptyPointsPivot;
 
     void Update()
     {
         if (data == null) return;
         if (shapeData == null) return;
 
-        // Save current splines
-        var controllers = StrokesPivot.GetComponentsInChildren<SpriteShapeController>().ToList();
-        shapeData.Strokes = new Stroke[controllers.Count];
-        for (int i = 0; i < controllers.Count; i++)
+        // Save current data
+        var controllers = StrokesPivot.GetComponentsInChildren<SpriteShapeController>();
+        shapeData.Strokes = new Stroke[controllers.Length];
+        for (int i = 0; i < controllers.Length; i++)
         {
+            ShapeManager.FlattenSpline(controllers[i].spline);
+
             shapeData.Strokes[i] = new Stroke();
             ShapeManager.CopySpline(controllers[i].spline, shapeData.Strokes[i].Spline);
         }
 
-        controllers = ContourPivot.GetComponentsInChildren<SpriteShapeController>().ToList();
-        shapeData.Contour = new Stroke[controllers.Count];
-        for (int i = 0; i < controllers.Count; i++)
+        controllers = ContourPivot.GetComponentsInChildren<SpriteShapeController>();
+        shapeData.Contour = new Stroke[controllers.Length];
+        for (int i = 0; i < controllers.Length; i++)
         {
+            ShapeManager.FlattenSpline(controllers[i].spline);
+
             shapeData.Contour[i] = new Stroke();
             ShapeManager.CopySpline(controllers[i].spline, shapeData.Contour[i].Spline);
         }
+
+        var emptyPoints = EmptyPointsPivot.GetComponentsInChildren<MeshFilter>();
+        shapeData.EmptyZones = new Vector2[emptyPoints.Length];
+        for (int i = 0; i < emptyPoints.Length; i++)
+        {
+            shapeData.EmptyZones[i] = emptyPoints[i].transform.localPosition;
+        }
+
         EditorUtility.SetDirty(shapeData);
     }
 }

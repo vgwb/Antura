@@ -88,6 +88,28 @@ public class ShapeManager : MonoBehaviour
         // Load the current spline
         LoadSplinesOn(el.StrokesPivot, shapeData.Strokes);
         LoadSplinesOn(el.ContourPivot, shapeData.Contour);
+        LoadPointsOn(el.EmptyPointsPivot, shapeData.EmptyZones);
+    }
+
+    public static void LoadPointsOn(GameObject pivot, Vector2[] points)
+    {
+        var nPoints = points?.Length ?? 0;
+        if (points == null) return;
+        var items = pivot.GetComponentsInChildren<MeshFilter>().ToList();
+        while (items.Count < nPoints)
+        {
+            var newItem = Instantiate(items[0],items[0].transform.parent);
+            items.Add(newItem);
+        }
+        for (int i = 0; i < nPoints; i++)
+        {
+            items[i].gameObject.SetActive(true);
+            items[i].transform.localPosition = points[i];
+        }
+        for (int i = nPoints; i < items.Count; i++)
+        {
+            items[i].gameObject.SetActive(false);
+        }
     }
 
     public static void LoadSplinesOn(GameObject pivot, Stroke[] strokes)
@@ -166,10 +188,13 @@ public class ShapeManager : MonoBehaviour
     private static GameObject SpawnAt(GameObject prefab, GameObject pivot, DirectionalSpline spline, float t, float scale = 1f)
     {
         var pos = PositionOnSpline(spline, t);
-        var tangent = TangentOnSpline(spline, t);
+        var tangent = TangentOnSpline(spline, t).normalized;
         var go = Instantiate(prefab, pivot.transform);
         go.transform.localPosition = pos * scale;
-        go.transform.rotation = Quaternion.LookRotation(tangent);
+
+        // @note: these are set to match Maze's orientations
+        var angle = Vector2.SignedAngle(tangent, Vector2.left);
+        go.transform.localEulerAngles = new Vector3(-angle, -90, 90);
         return go;
     }
 
@@ -200,7 +225,7 @@ public class ShapeManager : MonoBehaviour
         var n = spline.GetPointCount();
         int iPoint = Mathf.FloorToInt(t);
         if (iPoint < 0) return spline.GetRightTangent(0);
-        if (iPoint >= n - 1) return spline.GetLeftTangent(iPoint);
+        if (iPoint >= n - 1) return -spline.GetLeftTangent(iPoint); // Inverted left tangent, as it goes out
         var t_in = t % 1;
         var p0 = spline.GetPosition(iPoint);
         var p1 = spline.GetPosition(iPoint + 1);
@@ -215,7 +240,19 @@ public class ShapeManager : MonoBehaviour
         return 3.0f * s * s * (rt- p0) + 6.0f *  s * t * (lt - rt) + 3.0f  * t * t * (p1 - lt);
     }
 
-
+    public static void FlattenSpline(Spline spline)
+    {
+        var n = spline.GetPointCount();
+        for (int i = 0; i < n; i++)
+        {
+            var pos = spline.GetPosition(i); pos.z = 0;
+            spline.SetPosition(i, pos);
+            pos = spline.GetRightTangent(i); pos.z = 0;
+            spline.SetRightTangent(i, pos);
+            pos = spline.GetLeftTangent(i); pos.z = 0;
+            spline.SetLeftTangent(i, pos);
+        }
+    }
 }
 
 
