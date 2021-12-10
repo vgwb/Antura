@@ -36,6 +36,7 @@ public class NewMazeLetter : MonoBehaviour
         for (var i = 0; i < arrowGos.Count; i++)
         {
             var arrowGo = arrowGos[i];
+            arrowGo.transform.rotation = Quaternion.LookRotation(arrowGo.transform.forward, Vector3.up);
             //arrowGo.transform.localEulerAngles.SetY(-90f); // Force pitch
             arrowGo.transform.position += Vector3.up * 0.2f;  // Offset
         }

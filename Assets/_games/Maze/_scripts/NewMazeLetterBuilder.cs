@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Minigames.Maze
@@ -33,11 +34,11 @@ namespace Antura.Minigames.Maze
             MazeLetter letter = null;
             GameObject BorderCollider = null;
             GameObject hd;
-            List<GameObject> arrows = new List<GameObject>();
+            List<GameObject> arrowLines = new List<GameObject>();
             List<GameObject> lines = new List<GameObject>();
             List<GameObject> tutorialWaypoints = new List<GameObject>();
 
-            Vector3 characterPosition = new Vector3();
+            Vector3 characterStartPosition = new Vector3();
 
             foreach (Transform child in transform) {
                 if (child.name == "Letter")
@@ -46,7 +47,10 @@ namespace Antura.Minigames.Maze
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
                     // TODO: handle collisions somehow
-                    child.gameObject.AddComponent<BoxCollider>();
+                    var box = child.gameObject.AddComponent<BoxCollider>();
+                    var boxSize = box.size;
+                    boxSize.z = 0.05f;
+                    box.size = boxSize;
                     child.gameObject.AddComponent<MeshCollider>();
                 }
 
@@ -67,14 +71,16 @@ namespace Antura.Minigames.Maze
                 if (child.name.IndexOf("arrow_stroke") == 0)
                 {
                     AddDotAndHideArrow(child);
-                    arrows.Add(child.gameObject);
+                    arrowLines.Add(child.gameObject);
 
-                    if (arrows.Count == 1) {
-                        characterPosition = child.GetChild(0).position;
+                    if (arrowLines.Count == 1) {
+                        characterStartPosition = child.GetChild(0).position;
                     }
 
                     foreach (Transform fruit in child.transform) {
-                        fruit.gameObject.AddComponent<BoxCollider>();
+                        var box = fruit.gameObject.AddComponent<BoxCollider>();
+                        box.center = new Vector3(0.00789929274f, 0.000789958867f, -3.05139807e-08f);
+                        box.size = new Vector3(0.0473955721f, 0.0336077549f, 4.46760318e-09f);
                     }
                 }
 
@@ -93,18 +99,18 @@ namespace Antura.Minigames.Maze
             }
 
             mazeCharacter.SetMazeLetter(letter);
-            mazeCharacter.CreateFruits(arrows);
+            mazeCharacter.CreateFruits(arrowLines);
 
             letter.mazeCharacter = mazeCharacter;
 
             hd = new GameObject();
             hd.name = "HandTutorial";
             hd.transform.SetParent(transform, false);
-            hd.transform.position = characterPosition;
+            hd.transform.position = characterStartPosition;
 
             HandTutorial handTut = hd.AddComponent<HandTutorial>();
             handTut.pathsToFollow = tutorialWaypoints;
-            handTut.visibleArrows = arrows;
+            handTut.visibleArrows = arrowLines;
             handTut.linesToShow = lines;
 
             gameObject.AddComponent<MazeShowPrefab>().letterIndex = letterDataIndex;
