@@ -31,8 +31,8 @@ public class ShapeManager : MonoBehaviour
         for (var i = 0; i < letters.Count; i++)
         {
             var letter = letters[i];
-            int x = i % 10 * 10;
-            int y = i / 10 * 10;
+            int x = i % 10 * 15;
+            int y = i / 10 * 15;
             LoadLetter(letter, new Vector2(x,y));
         }
     }
