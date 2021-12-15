@@ -16,7 +16,7 @@ namespace Antura.Tools
         public static void FixAddressables()
         {
             // TODO: Get all assets in the lang paths for the current edition
-            var lang = "arabic_legacy"; // @note: change this manually
+            var lang = "persian_dari"; // @note: change this manually
             var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
             Debug.Log("Fixing addressable for lang: " + lang);
             var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
@@ -25,10 +25,9 @@ namespace Antura.Tools
                 var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
                 var removedPathLength = "Assets/_lang_bundles/".Length;
                 var splits = path.Split('.');
-                if (splits.Length > 1)
-                {
-                    var extension = splits[splits.Length-1];
-                    path = path.Substring(0, path.Length - (extension.Length+1));
+                if (splits.Length > 1) {
+                    var extension = splits[splits.Length - 1];
+                    path = path.Substring(0, path.Length - (extension.Length + 1));
                 }
                 entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
             }
@@ -39,19 +38,16 @@ namespace Antura.Tools
         public static void RenameSideData()
         {
             // Get all assets in ALL lang paths
-            foreach (var lang in (LanguageCode[])System.Enum.GetValues(typeof(LanguageCode)))
-            {
+            foreach (var lang in (LanguageCode[])System.Enum.GetValues(typeof(LanguageCode))) {
                 if (lang == LanguageCode.NONE || lang == LanguageCode.COUNT) continue;
 
                 Debug.Log("Fixing data for lang: " + lang);
                 var guids = AssetDatabase.FindAssets("", new[] { $"Assets/_lang_bundles/{lang}" });
-                foreach (var guid in guids)
-                {
+                foreach (var guid in guids) {
                     var oldpath = AssetDatabase.GUIDToAssetPath(guid);
                     var oldname = oldpath.Split('/').Last();
 
-                    if (oldname.Contains("sideletter"))
-                    {
+                    if (oldname.Contains("sideletter")) {
                         var newname = oldname.Replace("sideletter", "shapedata");
                         Debug.Log("Renaming to " + newname);
                         var result = AssetDatabase.RenameAsset(oldpath, newname);
