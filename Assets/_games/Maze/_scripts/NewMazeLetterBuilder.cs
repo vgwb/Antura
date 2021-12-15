@@ -11,7 +11,7 @@ namespace Antura.Minigames.Maze
 
         public void Build()
         {
-            transform.position = new Vector3(0, 0, -1);
+            //transform.position = new Vector3(0, 0, -1);
             transform.localScale = new Vector3(15, 15, 15);
             transform.rotation = Quaternion.Euler(90, 0, 0);
 
@@ -126,6 +126,7 @@ namespace Antura.Minigames.Maze
             newDot.transform.localPosition = Vector3.zero;
             newDot.transform.rotation = firstArrow.transform.rotation;
             newDot.transform.Rotate(Vector3.forward, 180, Space.World);
+            newDot.transform.Rotate(Vector3.right, 90, Space.World);
             newDot.transform.localScale = Vector3.one * 0.1f;
 
             firstArrow.GetComponentInChildren<MeshRenderer>().enabled = false;

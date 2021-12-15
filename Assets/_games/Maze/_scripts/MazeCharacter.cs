@@ -245,7 +245,6 @@ namespace Antura.Minigames.Maze
             SetFruitsList();
 
             var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
-
             transform.DORotate(firstArrowRotation, 0.5f).OnComplete(() => {
                 transform.DOMove(transform.position - transform.TransformVector(Vector3.forward), 1).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
             });
@@ -409,10 +408,6 @@ namespace Antura.Minigames.Maze
                 toggleVisibility(false);
 
                 var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
-
-                firstArrowRotation.x += 90f;
-                firstArrowRotation.y += 90f;
-
                 transform.DORotate(firstArrowRotation, 0.5f).OnComplete(() => {
                     transform.DOMove(transform.position - transform.TransformVector(Vector3.forward), 1).SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
                 });
@@ -494,10 +489,10 @@ namespace Antura.Minigames.Maze
 
             transform.LookAt(characterWayPoints[1]);
 
-            transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore).OnWaypointChange((int index) => {
-                if (index + 1 < characterWayPoints.Count) {
+            transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore, resolution:2).OnWaypointChange((int index) => {
+                if (index + 1 < characterWayPoints.Count)
+                {
                     transform.LookAt(characterWayPoints[index + 1]);
-
                 }
             }).OnComplete(pathMoveComplete);
         }

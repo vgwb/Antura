@@ -9,16 +9,13 @@ namespace Antura.Minigames.Maze
 
         void Start()
         {
-            transform.position = new Vector3(40, 0, -1);
+            var targetPos = transform.position;
+            transform.position += Vector3.right * 40;
 
-            transform.DOMove(new Vector3(0, 0, -1), 1.0f).OnComplete(() => {
+            transform.DOMove(targetPos, 1.0f).OnComplete(() => {
                 //MazeConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterId);
                 MazeGame.instance.showCharacterMovingIn();
             });
-        }
-
-        void Update()
-        {
         }
 
         public void moveOut(bool win = false)

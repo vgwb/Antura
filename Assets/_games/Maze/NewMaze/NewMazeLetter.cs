@@ -22,7 +22,10 @@ public class NewMazeLetter : MonoBehaviour
     {
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(ld.Id);
         if (shapeData == null) return;
-        Debug.LogError("Found shape data: " + shapeData);
+
+        transform.position = new Vector3(shapeData.Center.x, 0, shapeData.Center.y + 2);
+
+        //Debug.LogError("Found shape data: " + shapeData);
         ShapeManager.LoadSplinesOn(DottedLine, shapeData.Strokes);
         ShapeManager.LoadSplinesOn(ContourLine, shapeData.Contour);
 
@@ -30,7 +33,6 @@ public class NewMazeLetter : MonoBehaviour
         {
             textMeshPro.text = ld.TextForLivingLetter;
         }
-
 
         var arrowGos = ShapeManager.SpawnObjectsOnSplines(ArrowPrefabGO, transform, shapeData.Strokes, ArrowPlacementDelta, 0.1f, DottedLine.transform.localScale.x);
         for (var i = 0; i < arrowGos.Count; i++)
