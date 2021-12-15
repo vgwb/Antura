@@ -39,7 +39,7 @@ public class ShapeManager : MonoBehaviour
 
     private void LoadLetter(ShapeLetterData d)
     {
-        var letter = d.name.Replace("sideletter_", "");
+        var letter = d.name.Replace("shapedata_", "");
         LoadLetter(letter);
     }
 
@@ -66,7 +66,7 @@ public class ShapeManager : MonoBehaviour
         el.LetterTextMesh.text = letterData.GetStringForDisplay();
 
         var lang = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).Code;
-        var assetPath = $"Assets/_lang_bundles/{lang}/SideData/Letters/sideletter_{letterData.Id}.asset";
+        var assetPath = $"Assets/_lang_bundles/{lang}/ShapeData/Letters/shapedata_{letterData.Id}.asset";
 
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData.Id);
         if (shapeData == null)
@@ -80,7 +80,7 @@ public class ShapeManager : MonoBehaviour
             // Add to addressables
             var guid = AssetDatabase.AssetPathToGUID(assetPath);
             var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, AddressableAssetSettingsDefaultObject.Settings.DefaultGroup);
-            entry.address = $"{lang}/SideData/Letters/sideletter_{letterData.Id}";
+            entry.address = $"{lang}/ShapeData/Letters/shapedata_{letterData.Id}";
         }
         el.shapeData = shapeData;
 

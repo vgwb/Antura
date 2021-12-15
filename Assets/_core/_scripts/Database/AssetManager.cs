@@ -11,7 +11,7 @@ namespace Antura
 {
     public class AssetManager
     {
-        public static bool VERBOSE = false;
+        public static bool VERBOSE = true;
 
         private Dictionary<string, Sprite> spriteCache = new Dictionary<string, Sprite>();
         private Dictionary<string, ShapeLetterData> shapeDataCache = new Dictionary<string, ShapeLetterData>();
@@ -54,7 +54,7 @@ namespace Antura
             var sideKeys = new HashSet<string>();
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
-                sideKeys.Add($"{languageCode}/SideData/Letters/sideletter_{letterData.Id}");
+                sideKeys.Add($"{languageCode}/ShapeData/Letters/shapedata_{letterData.Id}");
             }
             yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
 
@@ -89,7 +89,7 @@ namespace Antura
         private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache, bool sync = false) where T : UnityEngine.Object
         {
             int n = 0;
-            if (VERBOSE) Debug.Log($"Loading {keys.Count}");
+            if (VERBOSE) Debug.Log($"Loading {keys.Count} (first is {keys.FirstOrDefault()}");
             var op =
                 Addressables.LoadAssetsAsync<T>(keys, obj => {
                     cache[obj.name] = obj;
@@ -133,7 +133,7 @@ namespace Antura
 
         public ShapeLetterData GetShapeLetterData(string id)
         {
-            return Get(shapeDataCache, $"sideletter_{id}");
+            return Get(shapeDataCache, $"shapedata_{id}");
         }
 
         public TextAsset GetSongSrt(string id)

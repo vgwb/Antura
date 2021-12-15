@@ -304,8 +304,8 @@ namespace Antura.Minigames.SickLetters
             // Recreate shape letter data from the current scene
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
-                var path = "Assets/_config/Resources/arabic/SideData/Letters/";
-                var asset = CustomAssetUtility.CreateAsset<ShapeLetterData>(path, $"sideletter_{letterData.Id}");
+                var path = "Assets/_config/Resources/arabic/ShapeData/Letters/";
+                var asset = CustomAssetUtility.CreateAsset<ShapeLetterData>(path, $"shapedata_{letterData.Id}");
 
                 string s = $"DROP ZONES FOR {letterData.Isolated}";
                 var zones = new List<Vector2>();
