@@ -366,10 +366,12 @@ namespace Antura.Minigames.Maze
             LL_LetterData ld = (LL_LetterData)ldList[0];
             int index = -1;
 
+            /*
             // TEST
             var id = "ayn";
             var _ld = AppManager.I.DB.GetLetterDataById(id);
             ld = new LL_LetterData(_ld);
+            */
 
             currentLL = ld;
             currentPrefab = Instantiate(newMazeLetter.gameObject);
