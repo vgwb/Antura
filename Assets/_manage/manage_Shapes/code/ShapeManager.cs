@@ -58,7 +58,6 @@ public class ShapeManager : MonoBehaviour
         var el = Instantiate(DataPrefab, DataPrefab.transform.parent);
         el.transform.localPosition = pos;
         el.data = letterData;
-        el.id = letterData.Id;
 
         el.name = $"Data_{letterData.Id}";
         Debug.LogError("Working on " + letterData.ToString());
@@ -89,6 +88,12 @@ public class ShapeManager : MonoBehaviour
         LoadSplinesOn(el.StrokesPivot, shapeData.Strokes);
         LoadSplinesOn(el.ContourPivot, shapeData.Contour);
         LoadPointsOn(el.EmptyPointsPivot, shapeData.EmptyZones);
+        LoadPointOn(el.CenterPoint, shapeData.Center);
+    }
+
+    public static void LoadPointOn(GameObject pointGo, Vector2 point)
+    {
+        pointGo.transform.localPosition = point;
     }
 
     public static void LoadPointsOn(GameObject pivot, Vector2[] points)

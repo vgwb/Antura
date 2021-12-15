@@ -7,7 +7,6 @@ using UnityEngine.U2D;
 
 public class ShapeDataLogic : MonoBehaviour
 {
-    public string id;
     public LetterData data;
     public ShapeLetterData shapeData;
 
@@ -15,6 +14,7 @@ public class ShapeDataLogic : MonoBehaviour
     public GameObject StrokesPivot;
     public GameObject ContourPivot;
     public GameObject EmptyPointsPivot;
+    public GameObject CenterPoint;
 
     void Update()
     {
@@ -48,6 +48,8 @@ public class ShapeDataLogic : MonoBehaviour
         {
             shapeData.EmptyZones[i] = emptyPoints[i].transform.localPosition;
         }
+
+        shapeData.Center = CenterPoint.transform.localPosition;
 
         EditorUtility.SetDirty(shapeData);
     }
