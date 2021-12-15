@@ -68,15 +68,21 @@ namespace Antura.Core.Services.OnlineAnalytics
             //parameters["age"] = playerProfile.Age;
             //Analytics.CustomEvent("CompletedRegistration", parameters);
 
+            Dictionary<string, object> avatarObJ = new Dictionary<string, object>()
+            {
+                { "id", playerProfile.AvatarId },
+                { "bg_color", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
+                { "hair_color", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
+                { "skin_color", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
+                { "tint", playerProfile.Tint }
+            };
+            string myAvatar = JsonUtility.ToJson(avatarObJ);
+
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "avatar_id", playerProfile.AvatarId },
-                { "avatar_bg_color", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
-                { "avatar_hair_color", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
-                { "avatar_skin_color", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
-                { "avatar_tint", playerProfile.Tint },
-                { "gender", playerProfile.Gender },
-                { "age", playerProfile.Age }
+                { "myAvatar", myAvatar },
+                { "myGender", playerProfile.Gender.ToString() },
+                { "myAge", playerProfile.Age }
             };
 
             Events.CustomData("myCompletedRegistration", parameters);
@@ -101,10 +107,10 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "jp", jp.Id },
-                { "st", jp.Stage },
-                { "lb", jp.LearningBlock },
-                { "ps", jp.PlaySession }
+                { "JP", jp.Id },
+                { "Stage", jp.Stage },
+                { "LearningBlock", jp.LearningBlock },
+                { "PlaySession", jp.PlaySession }
             };
 
             Events.CustomData("myLevelUp", parameters);
@@ -124,13 +130,13 @@ namespace Antura.Core.Services.OnlineAnalytics
             ////Analytics.CustomEvent("CompletedTutorial", parameters);
             //AnalyticsEvent.TutorialComplete(null, parameters);
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
-            {
-                { "phase", (int)phase },
-                { "phase_name", phase.ToString() }
-            };
+            //Dictionary<string, object> parameters = new Dictionary<string, object>()
+            //{
+            //    { "phase", (int)phase },
+            //    { "phase_name", phase.ToString() }
+            //};
 
-            Events.CustomData("myTutorialComplete", parameters);
+            Events.CustomData("myTutorialComplete", null);
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.CompletedTutorial, parameters: parameters);
 #endif
@@ -149,12 +155,10 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "bonesSpent", (float)nSpent }
+                { "bonesSpent", nSpent }
             };
 
             Events.CustomData("myItemSpent", parameters);
-
-            Debug.Log("Events: myItemSpent");
 
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.SpentCredits, valueToSum: nSpent);
@@ -173,8 +177,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "customization_json", customization.GetJsonListOfIds() },
-                { "antura_space_play_time", anturaSpacePlayTime }
+                { "customization", customization.GetJsonListOfIds() },
+                { "AnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
 
             Events.CustomData("myAnturaCustomize", parameters);
@@ -199,13 +203,13 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             Dictionary<string, object> parameters = new Dictionary<string, object>()
             {
-                { "minigame_code", miniGameCode.ToString() },
+                { "minigame", miniGameCode.ToString() },
                 { "score", score },
-                { "duration",duration },
-                { "journey_position", currentJourneyPosition.Id }
+                { "duration", (int)duration },
+                { "JP", currentJourneyPosition.Id }
             };
 
-            Events.CustomData("myLevelComplete", parameters);
+            Events.CustomData("myMinigameScore", parameters);
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent("custom_minigame_score", score, parameters);
 #endif
