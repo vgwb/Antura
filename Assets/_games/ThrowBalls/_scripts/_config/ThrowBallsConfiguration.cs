@@ -12,7 +12,7 @@ namespace Antura.Minigames.ThrowBalls
         Word = MiniGameCode.ThrowBalls_word,
         BuildWord = MiniGameCode.ThrowBalls_buildword,
         Image = MiniGameCode.ThrowBalls_image,
-        LetterForm = MiniGameCode.ThrowBalls_letterform
+        MultiLetterForm = MiniGameCode.ThrowBalls_multiletterform
     }
 
     public class ThrowBallsConfiguration : AbstractGameConfiguration
@@ -76,7 +76,7 @@ namespace Antura.Minigames.ThrowBalls
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
-                case ThrowBallsVariation.LetterForm:
+                case ThrowBallsVariation.MultiLetterForm:
                 {
                     var letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
@@ -106,7 +106,7 @@ namespace Antura.Minigames.ThrowBalls
                 case ThrowBallsVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;
-                case ThrowBallsVariation.LetterForm:
+                case ThrowBallsVariation.MultiLetterForm:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
                 default:
