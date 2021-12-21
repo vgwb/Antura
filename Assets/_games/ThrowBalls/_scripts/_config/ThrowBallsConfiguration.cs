@@ -77,7 +77,10 @@ namespace Antura.Minigames.ThrowBalls
                     builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.LetterForm:
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, parameters: builderParams);
+                {
+                    var letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
+                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
