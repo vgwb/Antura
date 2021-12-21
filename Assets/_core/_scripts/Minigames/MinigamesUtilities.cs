@@ -20,7 +20,7 @@ namespace Antura.Minigames
             var dictionary = new Dictionary<string, MainMiniGame>();
             var minigameInfoList = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
             foreach (var minigameInfo in minigameInfoList) {
-                if (minigameInfo.data.Active) {
+                if (minigameInfo.data.CanBeSelected) {
                     if (!dictionary.ContainsKey(minigameInfo.data.Main)) {
                         dictionary[minigameInfo.data.Main] = new MainMiniGame
                         {

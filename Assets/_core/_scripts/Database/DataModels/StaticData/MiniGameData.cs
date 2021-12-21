@@ -32,6 +32,8 @@ namespace Antura.Database
         [SerializeField]
         private bool _Active;
 
+        public bool CanBeSelected => AppManager.I.JourneyHelper.CanSelectMiniGame(Code);
+
         /// <summary>
         /// a Minigame can be a normal game or an assessment
         /// </summary>

@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d97afd5d2f1ea234c94ad7f12986e9b7, type: 3}
   m_Name: CommonDB_MiniGame
   m_EditorClassIdentifier: 
-  Google_DocID: 
-  Google_SheetTitle: 
   table:
     innerList:
     - _Code: 103
@@ -1065,4 +1063,16 @@ MonoBehaviour:
       _VariationId: 
       _IntroId: Tobogan_letters_Intro
       _TutorialId: Tobogan_words_Tuto_Article
+      _AffectedPlaySkills: []
+    - _Code: 65
+      _Active: 1
+      _Type: 1
+      _Main: ThrowBalls
+      _Variation: letterform
+      _Badge: phonemes
+      _Scene: game_ThrowBalls
+      _TitleId: ThrowBalls_Title
+      _VariationId: 
+      _IntroId: ThrowBalls_Intro
+      _TutorialId: ThrowBalls_lettername_Tuto
       _AffectedPlaySkills: []
