@@ -2908,6 +2908,56 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 28}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!1 &529383497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 529383498}
+  - component: {fileID: 529383499}
+  m_Layer: 0
+  m_Name: WorldDataTester
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &529383498
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 704354259}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &529383499
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 529383497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adc77d669494eae95fe6359b7994e85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LetterGroups:
+  - " \u0627 \u0622 \u0628 \u062A \u067E \u062B \u0648 "
+  - " \u062C \u0686 \u062D \u062E \u0645 \u0646  "
+  - " \u062F \u0630 \u0631 \u0632 \u0698 "
+  - " \u0633 \u0634 \u0635 \u0636 \u06CC \u0626  "
+  - "\u0637 \u0638 \u0639 \u063A \u0647 \u0621  "
+  - " \u0641 \u0642 \u06A9 \u06AF \u0644 \u0644\u0627   "
 --- !u!1 &538236568
 GameObject:
   m_ObjectHideFlags: 0
@@ -4073,22 +4123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c36a8ef74657c5640b154ab031164e04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Query: "\u0627 \u0622 \u0627\u064F \u0627\u064E \u0627\u0650 \u0639 \u0639\u064F
-    \u0639\u064E \u0639\u0650 \u0628 \u0628\u064F \u0628\u064E \u0628\u0650 \u0686
-    \u0686\u064F \u0686\u064E \u0686\u0650 \u062F \u062F\u064F \u062F\u064E \u062F\u0650
-    \u0641 \u0641\u064F \u0641\u064E \u0641\u0650 \u06AF \u06AF\u064F \u06AF\u064E
-    \u06AF\u0650 \u063A \u063A\u064F \u063A\u064E \u063A\u0650 \u0621 \u062D \u062D\u064F
-    \u062D\u064E \u062D\u0650 \u0647 \u0647\u064F \u0647\u064E \u0647\u0650 \u062C
-    \u062C\u064F \u062C\u064E \u062C\u0650 \u06A9 \u06A9\u064F \u06A9\u064E \u06A9\u0650
-    \u0644 \u0644\u064F \u0644\u064E \u0644\u0650 \u0645 \u0645\u064F \u0645\u064E
-    \u0645\u0650 \u0646 \u0646\u064F \u0646\u064E \u0646\u0650 \u067E \u067E\u064F
-    \u067E\u064E \u067E\u0650 \u064F \u0642 \u0642\u064F \u0642\u064E \u0642\u0650
-    \u0631 \u0631\u064F \u0631\u064E \u0631\u0650 \u0635 \u0635\u064F \u0635\u064E
-    \u0635\u0650 \u062B \u062B\u064F \u062B\u064E \u062B\u0650 \u0634 \u0634\u064F
-    \u0634\u064E \u0634\u0650 \u0633 \u0633\u064F \u0633\u064E \u0633\u0650 \u0637
-    \u0637\u064F \u0637\u064E \u0637\u0650 \u0627\u064B \u0651 \u062A \u062A\u064F
-    \u062A\u064E \u062A\u0650 \u0648 \u0648\u064F \u0648\u064E \u0648\u0650 \u062E
-    \u062E\u064F \u062E\u064E \u062E\u0650"
 --- !u!4 &704354259
 Transform:
   m_ObjectHideFlags: 0
@@ -4099,7 +4133,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 529383498}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -2,13 +2,12 @@ using System;
 using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using System.Linq;
 using Antura.Audio;
 using Antura.Database;
 using Antura.Core;
 using Antura.Extensions;
 using Antura.Helpers;
-using Antura.Language;
+using Antura.UI;
 
 namespace Antura.Teacher.Test
 {
@@ -17,8 +16,6 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class DataStatisticsTester : MonoBehaviour
     {
-        public string Query;
-
         private VocabularyHelper _vocabularyHelper;
         private DatabaseManager _databaseManager;
         private List<PlaySessionData> _playSessionDatas;
@@ -227,71 +224,6 @@ namespace Antura.Teacher.Test
                     }
                     return s;
                 });
-        }
-
-
-        // Find all words that only have letters that appear in the Query
-        [DeMethodButton("Words with only letters in the Query")]
-        public void DoCheckWordsWithOnlyLetters()
-        {
-            var desiredLettersParts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, new WordData{Text = Query}, separateVariations: false);
-            var desiredLetters = desiredLettersParts.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld.letter, LetterForm.Isolated));
-
-            var str = "You are requesting letters:\n";
-            foreach (var l in desiredLetters)
-                str += $"{l}\n";
-            Debug.Log(str);
-
-            var correctWords = new List<WordData>();
-            var wrongWords = new List<WordData>();
-            var letterCount = new Dictionary<LetterData, int>();
-            foreach (var wordData in _wordDatas)
-            {
-                var lettersInWord = AppManager.I.VocabularyHelper.GetLettersInWord(wordData);
-                lettersInWord = lettersInWord.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld, LetterForm.Isolated));
-                bool isCorrect = true;
-                foreach (var letterInWord in lettersInWord)
-                {
-                    if (desiredLetters.All(x => !x.IsSameLetterAs(letterInWord, LetterEqualityStrictness.Letter)))
-                    {
-                        //Debug.LogError($"Word {wordData.Id} has letter {letterInWord} we do not want.");
-                        isCorrect = false;
-                    }
-                }
-                if (isCorrect) correctWords.Add(wordData);
-                else wrongWords.Add(wordData);
-
-                if (isCorrect)
-                {
-                    // Check letter count
-                    foreach (var desiredLetter in desiredLetters)
-                    {
-                        if (lettersInWord.Any(x => x.IsSameLetterAs(desiredLetter, LetterEqualityStrictness.Letter)))
-                        {
-                            Debug.LogError($"Word {wordData.Id} has letter {desiredLetter} we want.");
-                            if (!letterCount.ContainsKey(desiredLetter)) letterCount[desiredLetter] = 0;
-                            letterCount[desiredLetter]++;
-                        }
-                    }
-                }
-            }
-
-            int totCorrectWords = correctWords.Count;
-            Debug.Log("Total words with only the chosen letters: " + totCorrectWords + "/" + _wordDatas.Count);
-            var s = "CORRECT WORDS:\n";
-            foreach (var correctWord in correctWords)
-                s += $"{correctWord.Id} ({correctWord.Text})\n";
-            Debug.Log(s);
-
-            s = "LETTERS COUNT:\n";
-            foreach (var desiredLetter in desiredLetters)
-                s += $"{desiredLetter.Id} ({(letterCount.ContainsKey(desiredLetter) ? letterCount[desiredLetter].ToString() : "0")})\n";
-            Debug.Log(s);
-
-            s = "WRONG WORDS:\n";
-            foreach (var wrongWord in wrongWords)
-                s += $"{wrongWord.Id} ({wrongWord.Text})\n";
-            Debug.Log(s);
         }
 
 
