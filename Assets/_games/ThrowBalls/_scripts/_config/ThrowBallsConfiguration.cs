@@ -59,8 +59,11 @@ namespace Antura.Minigames.ThrowBalls
                     builder = new RandomLettersQuestionBuilder(nPacks, 1, nWrong: nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.LetterAny:
+                {
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.PhonemesOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
+                }
                     break;
                 case ThrowBallsVariation.Word:
                 case ThrowBallsVariation.Image:

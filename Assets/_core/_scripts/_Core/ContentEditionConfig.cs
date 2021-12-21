@@ -19,10 +19,11 @@ namespace Antura.Core
         [Tooltip("try to set the native language to the device language, otherwise use NativeLanguage")]
         public bool DetectSystemLanguage;
 
-        public string GetLearningLangResourcePrefix()
-        {
-            return $"{LearningLanguage}/";
-        }
+        [Header("Teacher Options")]
+        [Tooltip("If set, diacritics will appear only on isolated letters, and not any forms. Affects LetterAny and LetterPhoneme variations.")]
+        public bool DiacriticsOnlyOnIsolated;
+        [Tooltip("If set, LetterForm variations and assessments will use name sounds instead of phoneme sounds.")]
+        public bool PlayNameSoundWithForms;
 
         [Header("Data - Vocabulary")]
         public LetterDatabase LetterDB;

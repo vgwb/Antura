@@ -1,6 +1,7 @@
 using Antura.Database;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 using UnityEngine;
 
 namespace Antura.Minigames.Egg
@@ -77,7 +78,11 @@ namespace Antura.Minigames.Egg
                     builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8, removeAccents:false);
                     break;
                 case EggVariation.LetterPhoneme:
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, avoidWrongLettersWithSameSound: true);
+                {
+                    var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.PhonemesOfMultipleLetters;
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: letterAlterationFilters, avoidWrongLettersWithSameSound: true);
+                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

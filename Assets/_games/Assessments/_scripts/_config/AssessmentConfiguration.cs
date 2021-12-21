@@ -480,11 +480,14 @@ namespace Antura.Assessment
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
             builderParams.sortPacksByDifficulty = false;
 
+            var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+
             return new RandomLetterAlterationsQuestionBuilder(
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers
                 1,                              // CorrectAnswers
                 4,                              // WrongAnswers
-                letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm,
+                letterAlterationFilters: letterAlterationFilters,
                 avoidWrongLettersWithSameSound: true,
                 parameters: builderParams);
         }
