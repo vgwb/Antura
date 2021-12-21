@@ -102,8 +102,12 @@ namespace Antura.Minigames.ThrowBalls
         {
             LetterDataSoundType soundType;
             switch (Variation) {
+
                 case ThrowBallsVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
+                    break;
+                case ThrowBallsVariation.LetterForm:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
                 default:
                     soundType = LetterDataSoundType.Phoneme;

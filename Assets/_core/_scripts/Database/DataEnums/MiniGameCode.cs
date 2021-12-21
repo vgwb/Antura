@@ -71,7 +71,7 @@ namespace Antura
         FastCrowd_orderedimage_months = 63,
         FastCrowd_orderedimage_days_seasons = 64,
 
-        ThrowBalls_letterform = 65,
+        ThrowBalls_multiletterform = 65,
 
         Assessment_LetterName = 100,
         Assessment_LetterAny = 115, // NEW

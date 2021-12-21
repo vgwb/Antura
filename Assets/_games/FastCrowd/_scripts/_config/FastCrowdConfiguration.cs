@@ -3,6 +3,7 @@ using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -174,9 +175,11 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;
+                case FastCrowdVariation.LetterForm:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
                 case FastCrowdVariation.BuildWord:
                 case FastCrowdVariation.Word:
-                case FastCrowdVariation.LetterForm:
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
                 case FastCrowdVariation.Image:

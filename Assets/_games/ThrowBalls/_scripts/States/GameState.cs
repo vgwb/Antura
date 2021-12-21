@@ -188,7 +188,7 @@ namespace Antura.Minigames.ThrowBalls
                     game.StartCoroutine(StartNewRound_Single());
                     break;
                 case ThrowBallsVariation.LetterAny:
-                case ThrowBallsVariation.LetterForm:
+                case ThrowBallsVariation.MultiLetterForm:
                     game.StartCoroutine(StartNewRound_Single());
                     break;
                 case ThrowBallsVariation.Word:
@@ -209,7 +209,7 @@ namespace Antura.Minigames.ThrowBalls
                 {
                     case ThrowBallsVariation.LetterName:
                     case ThrowBallsVariation.LetterAny:
-                    case ThrowBallsVariation.LetterForm:
+                    case ThrowBallsVariation.MultiLetterForm:
                     case ThrowBallsVariation.Word:
                     case ThrowBallsVariation.Image:
                         return (int)LetterAnimationMode.IdleSwerving + 1;
@@ -406,7 +406,7 @@ namespace Antura.Minigames.ThrowBalls
                     case ThrowBallsVariation.BuildWord:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
                         break;
-                    case ThrowBallsVariation.LetterForm:
+                    case ThrowBallsVariation.MultiLetterForm:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
                         break;
                     default:

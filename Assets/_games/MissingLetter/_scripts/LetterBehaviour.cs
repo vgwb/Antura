@@ -204,7 +204,7 @@ namespace Antura.Minigames.MissingLetter
                 if (m_sInPhrase != null) {
                     MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true);
                 } else {
-                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true);
+                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true, MissingLetterConfiguration.Instance.GetVocabularySoundType());
                 }
                 StartCoroutine(Utils.LaunchDelay(0.8f, SetIsSpeaking, false));
             }

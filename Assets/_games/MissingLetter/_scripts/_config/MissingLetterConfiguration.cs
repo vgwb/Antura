@@ -2,6 +2,7 @@ using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 
 namespace Antura.Minigames.MissingLetter
 {
@@ -107,5 +108,19 @@ namespace Antura.Minigames.MissingLetter
             }
         }
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+
+                case MissingLetterVariation.LetterForm:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+            }
+            return soundType;
+        }
     }
 }
