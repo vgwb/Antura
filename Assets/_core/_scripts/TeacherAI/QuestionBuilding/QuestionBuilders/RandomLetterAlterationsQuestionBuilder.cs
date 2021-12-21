@@ -80,12 +80,12 @@ namespace Antura.Teacher
 
             // First, get all letters (only base letters, tho, due to forced letter filters)
             int nBaseLettersRequired = 1;
+            if (letterAlterationFilters.differentBaseLetters) nBaseLettersRequired = nCorrect + nWrong;
             var selectionParams1 = new SelectionParameters(parameters.correctSeverity, nRequired: nBaseLettersRequired,
                 useJourney: parameters.useJourneyForCorrect,
                 packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs);
             selectionParams1.AssignJourney(parameters.insideJourney);
 
-            if (letterAlterationFilters.differentBaseLetters) nBaseLettersRequired = nCorrect + nWrong;
             var chosenLetters = teacher.VocabularyAi.SelectData(
                 () => vocabularyHelper.GetAllLetters(parameters.letterFilters), selectionParams1);
             var baseLetters = chosenLetters;
