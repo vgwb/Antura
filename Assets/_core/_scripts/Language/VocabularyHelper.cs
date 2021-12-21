@@ -174,7 +174,13 @@ namespace Antura.Database
             if (data.Symbol == "") {
                 return null;
             }
-            return dbManager.FindLetterData(x => x.Id == data.Symbol)[0];
+
+            var symbols = dbManager.FindLetterData(x => x.Id == data.Symbol);
+            if (symbols.Count == 0)
+            {
+                throw new Exception("Could not find any symbol named " + data.Symbol);
+            }
+            return symbols[0];
         }
 
         public List<LetterData> GetLettersWithBase(string letterId)
