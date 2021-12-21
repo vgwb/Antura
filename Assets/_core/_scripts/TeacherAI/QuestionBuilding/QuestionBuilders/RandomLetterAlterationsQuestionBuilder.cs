@@ -3,6 +3,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
+using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Teacher
@@ -101,7 +102,7 @@ namespace Antura.Teacher
 
             if (avoidWrongLettersWithSameSound)
             {
-                wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
+                wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.PhonemeSound.IsNullOrEmpty() && correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
             }
 
             wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong,wrongAnswers.Count));
