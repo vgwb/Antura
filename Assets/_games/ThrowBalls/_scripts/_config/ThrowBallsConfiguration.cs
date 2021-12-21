@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.Teacher;
 
@@ -10,7 +11,8 @@ namespace Antura.Minigames.ThrowBalls
         LetterAny = MiniGameCode.ThrowBalls_letterany,
         Word = MiniGameCode.ThrowBalls_word,
         BuildWord = MiniGameCode.ThrowBalls_buildword,
-        Image = MiniGameCode.ThrowBalls_image
+        Image = MiniGameCode.ThrowBalls_image,
+        LetterForm = MiniGameCode.ThrowBalls_letterform
     }
 
     public class ThrowBallsConfiguration : AbstractGameConfiguration
@@ -70,6 +72,9 @@ namespace Antura.Minigames.ThrowBalls
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
+                    break;
+                case ThrowBallsVariation.LetterForm:
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, parameters: builderParams);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

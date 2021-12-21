@@ -483,14 +483,14 @@ namespace Antura.Database
                     if (PhonemeSound != "") {
                         return PhonemeSound;
                     } else {
-                        Debug.LogWarning("LetterData(): Requested Phone Sound is missing " + Id);
+                        Debug.LogWarning($"Letter {Id}: missing Phoneme Sound");
                         return "";
                     }
                 case LetterDataSoundType.Name:
                     if (NameSound != "") {
                         return NameSound; ;
                     } else {
-                        Debug.LogWarning("LetterData(): Requested Name Sound is missing " + Id);
+                        Debug.LogWarning($"Letter {Id}: missing Name Sound");
                         return "";
                     }
                 default:
