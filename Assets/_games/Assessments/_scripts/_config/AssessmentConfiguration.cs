@@ -611,6 +611,9 @@ namespace Antura.Assessment
             switch (Variation) {
                 case AssessmentVariation.CompleteWord_Form:
                 case AssessmentVariation.MatchLettersToWord_Form:
+                case AssessmentVariation.CompleteWord:
+                case AssessmentVariation.WordsWithLetter:
+                case AssessmentVariation.MatchLettersToWord:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
 
