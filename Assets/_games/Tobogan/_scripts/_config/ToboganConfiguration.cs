@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
@@ -79,5 +80,20 @@ namespace Antura.Minigames.Tobogan
 
         public override bool AutoPlayIntro => false;
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case ToboganVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                case ToboganVariation.SunMoon:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

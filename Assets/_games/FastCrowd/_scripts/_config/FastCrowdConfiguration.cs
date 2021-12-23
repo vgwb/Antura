@@ -175,10 +175,10 @@ namespace Antura.Minigames.FastCrowd
                 case FastCrowdVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;
+                case FastCrowdVariation.BuildWord:
                 case FastCrowdVariation.LetterForm:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
-                case FastCrowdVariation.BuildWord:
                 case FastCrowdVariation.Word:
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:

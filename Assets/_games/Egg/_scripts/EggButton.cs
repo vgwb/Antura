@@ -70,7 +70,7 @@ namespace Antura.Minigames.Egg
             startButtonAudioCallback = startCallback;
             playButtonAudioCallback = callback;
 
-            sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
+            sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
             if (sourceWrapper != null)
             {
                 while (!sourceWrapper.IsLoaded) yield return null;
@@ -92,7 +92,7 @@ namespace Antura.Minigames.Egg
                         playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
-                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
+                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
                     startButtonAudioCallback?.Invoke();
                 }).SetDelay(delay);
             } else {
@@ -102,7 +102,7 @@ namespace Antura.Minigames.Egg
                         playButtonAudioCallback?.Invoke();
                     });
                 }).OnStart(delegate () {
-                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false);
+                    sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
                     startButtonAudioCallback?.Invoke();
 
                 }).SetDelay(delay);

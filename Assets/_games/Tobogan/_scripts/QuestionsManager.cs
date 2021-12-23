@@ -214,7 +214,7 @@ namespace Antura.Minigames.Tobogan
             questionLivingLetter.EnableCollider(true);
 
             if (playWhenEnter)
-                game.Context.GetAudioManager().PlayVocabularyData(questionLivingLetter.letter.Data, true);
+                game.Context.GetAudioManager().PlayVocabularyData(questionLivingLetter.letter.Data, true, soundType: ToboganConfiguration.Instance.GetVocabularySoundType());
 
         }
 

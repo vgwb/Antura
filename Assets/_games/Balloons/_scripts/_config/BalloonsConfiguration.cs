@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
@@ -87,5 +88,18 @@ namespace Antura.Minigames.Balloons
             return rules;
         }
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case BalloonsVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+            }
+            return soundType;
+        }
     }
 }

@@ -299,7 +299,7 @@ namespace Antura.Minigames.MixedLetters
         {
             if (MixedLettersConfiguration.Instance.Variation == MixedLettersVariation.BuildWord)
             {
-                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question);
+                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, soundType: MixedLettersConfiguration.Instance.GetVocabularySoundType());
 
                 if (onQuestionOver != null)
                 {
@@ -319,7 +319,7 @@ namespace Antura.Minigames.MixedLetters
 
             foreach (ILivingLetterData letterData in PromptLettersInOrder)
             {
-                audioManager.PlayVocabularyData(letterData);
+                audioManager.PlayVocabularyData(letterData, soundType: MixedLettersConfiguration.Instance.GetVocabularySoundType());
 
                 yield return new WaitForSeconds(0.75f);
             }
@@ -339,7 +339,7 @@ namespace Antura.Minigames.MixedLetters
             for (int i = 0; i < PromptLettersInOrder.Count; i++)
             {
                 DropZoneController dropZone = dropZoneControllers[i];
-                
+
                 if (dropZone.droppedLetter == null
                     || !MixedLettersConfiguration.Instance.IsDataMatching(dropZone.droppedLetter.GetLetter(), PromptLettersInOrder[i])
                       || Mathf.Abs(dropZone.droppedLetter.transform.rotation.z) > 0.1f)
@@ -349,7 +349,7 @@ namespace Antura.Minigames.MixedLetters
                         {
                             SeparateLetterController letter = SeparateLettersSpawnerController.instance.separateLetterControllers[j];
                             letter.SetIsSubjectOfTutorial(
-                                roundNumber == 0 && TutorialEnabled 
+                                roundNumber == 0 && TutorialEnabled
                                 &&  letter == dropZone.correctLetter);
                         }
 
@@ -381,11 +381,11 @@ namespace Antura.Minigames.MixedLetters
             _wasLastRoundWon = true;
 
             CurrentScore++;
-            
+
             HideRotationButtons();
             ShowGreenTicks();
         }
-        
+
         public void EnableRepeatPromptButton()
         {
             repeatPromptButton.gameObject.SetActive(true);

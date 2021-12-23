@@ -471,7 +471,7 @@ namespace Antura.Minigames.MissingLetter
             if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase)
             {
                 var question = m_oGame.m_oRoundManager.CurrentQuestionPack.GetQuestion();
-                MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, keeperMode: KeeperMode.NativeNoSubtitles);
+                MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, keeperMode: KeeperMode.NativeNoSubtitles, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType());
                 yield return new WaitForSeconds(2.0f);
             }
             onAnswered?.Invoke(correct);

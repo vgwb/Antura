@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
@@ -89,5 +90,20 @@ namespace Antura.Minigames.MixedLetters
 
         public override bool AutoPlayIntro => false;
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case MixedLettersVariation.Alphabet:
+                    soundType = LetterDataSoundType.Name;
+                    break;
+                case MixedLettersVariation.BuildWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Antura.Teacher;
 using System;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.Database;
 
 namespace Antura.Minigames.MakeFriends
@@ -76,6 +77,17 @@ namespace Antura.Minigames.MakeFriends
             return rules;
         }
 
-
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case MakeFriendsVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

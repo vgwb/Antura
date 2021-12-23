@@ -129,5 +129,25 @@ namespace Antura.Minigames.Egg
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case EggVariation.LetterName:
+                    soundType = LetterDataSoundType.Name;
+                    break;
+                case EggVariation.LetterPhoneme:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+                case EggVariation.Image:
+                case EggVariation.BuildWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

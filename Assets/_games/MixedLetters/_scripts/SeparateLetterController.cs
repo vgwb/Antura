@@ -56,7 +56,7 @@ namespace Antura.Minigames.MixedLetters
 
             letterObjectView.SetState(LLAnimationStates.LL_still);
             letterObjectView.SetState(LLAnimationStates.LL_limbless);
-            
+
         }
 
         private void SetState(State state)
@@ -96,7 +96,7 @@ namespace Antura.Minigames.MixedLetters
                         droppedZone = null;
                     }
 
-                    MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData, true);
+                    MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData, true, soundType: MixedLettersConfiguration.Instance.GetVocabularySoundType());
                 }
             }
         }
@@ -122,7 +122,7 @@ namespace Antura.Minigames.MixedLetters
                     droppedZone.SetDroppedLetter(this);
                     transform.position = droppedZone.transform.position;
                     DropZoneController.chosenDropZone = null;
-                    
+
                     SetState(State.Dropped);
                 }
 

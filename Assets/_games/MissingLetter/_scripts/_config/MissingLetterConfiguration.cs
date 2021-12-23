@@ -114,6 +114,7 @@ namespace Antura.Minigames.MissingLetter
             switch (Variation) {
 
                 case MissingLetterVariation.LetterForm:
+                case MissingLetterVariation.LetterInWord:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
                 default:

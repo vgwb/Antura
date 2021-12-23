@@ -207,7 +207,7 @@ namespace Antura.Minigames.MissingLetter
         public void SayQuestion()
         {
             var question = m_oRoundManager.CurrentQuestionPack.GetQuestion();
-            MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question);
+            MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType());
         }
 
         #endregion

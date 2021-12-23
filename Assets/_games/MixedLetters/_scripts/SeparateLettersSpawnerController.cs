@@ -107,7 +107,7 @@ namespace Antura.Minigames.MixedLetters
                 throwLetterToTheRight = !throwLetterToTheRight;
 
                 MixedLettersConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.ThrowObj);
-                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterToSpawn);
+                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterToSpawn, soundType: MixedLettersConfiguration.Instance.GetVocabularySoundType());
 
                 yield return new WaitForSeconds(0.75f);
             }
@@ -245,7 +245,7 @@ namespace Antura.Minigames.MixedLetters
 
             if (MixedLettersConfiguration.Instance.Variation == MixedLettersVariation.BuildWord)
             {
-                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(VictimLLController.instance.letterObjectView.Data);
+                MixedLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(VictimLLController.instance.letterObjectView.Data, soundType: MixedLettersConfiguration.Instance.GetVocabularySoundType());
                 VictimLLController.instance.letterObjectView.TransformIntoImage();
             }
 

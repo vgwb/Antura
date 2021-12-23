@@ -164,7 +164,7 @@ namespace Antura.Minigames.Tobogan
                     RaycastHit hitInfo;
                     if (pipe.signCollider.Raycast(screenRay, out hitInfo, game.tubesCamera.farClipPlane))
                     {
-                        game.Context.GetAudioManager().PlayVocabularyData(pipe.Data, true);
+                        game.Context.GetAudioManager().PlayVocabularyData(pipe.Data, true, soundType: ToboganConfiguration.Instance.GetVocabularySoundType());
                     }
                 }
             }
