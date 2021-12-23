@@ -15,7 +15,7 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
-        private const int MAX_NUM_ROUNDS = 6;
+        private const int MAX_NUM_ROUNDS = 6;   // @note: the actual rounds played will be 1 less
 
         public GameObject characterPrefab;
         public GameObject arrowTargetPrefab;
