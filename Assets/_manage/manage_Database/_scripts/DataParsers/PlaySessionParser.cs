@@ -59,7 +59,7 @@ namespace Antura.Database.Management
                     }
                     else if (string.Equals(vocabularyData.PlaySessionLink, array[i], StringComparison.InvariantCultureIgnoreCase))
                     {
-                        Debug.LogError("FOR " + psData.Id + " FOUND " + vocabularyData.GetId() + " WITH PS LINK " + vocabularyData.PlaySessionLink);
+                        //Debug.LogError("FOR " + psData.Id + " FOUND " + vocabularyData.GetId() + " WITH PS LINK " + vocabularyData.PlaySessionLink);
                         foundIDs.Add(vocabularyData.GetId());
                     }
                 }
