@@ -19,6 +19,8 @@ namespace Antura.Audio
         public bool Loaded = false;
 
         AudioClip clip;
+        public AudioClip Clip => clip;
+
         AudioManager manager;
 
         bool paused = false;

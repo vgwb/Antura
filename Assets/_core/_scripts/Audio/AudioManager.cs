@@ -532,7 +532,7 @@ namespace Antura.Audio
                     // could be collected
                     playingAudio.RemoveAt(i--);
 
-                    if (failed)
+                    if (failed && source.Clip == null)
                     {
                         Debug.LogError("Missing audio for " + source.Path.id);
                     }
