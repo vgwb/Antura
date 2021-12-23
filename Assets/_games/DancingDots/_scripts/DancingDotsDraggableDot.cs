@@ -6,6 +6,8 @@ namespace Antura.Minigames.DancingDots
 {
     public class DancingDotsDraggableDot : MonoBehaviour
     {
+        public static bool ALLOW_ANY_DROPZONE_FOR_ANY_LETTER = true;
+
         private Vector3 screenPoint;
         private Vector3 offset;
 
@@ -138,18 +140,20 @@ namespace Antura.Minigames.DancingDots
         {
             if (other.tag == "Player") overPlayermarker = markerStatus;
 
+            if (markerStatus && ALLOW_ANY_DROPZONE_FOR_ANY_LETTER && overPlayermarker) overDestinationMarker = true;
+
             if (isDot) {
                 if (other.tag == DancingDotsGame.DANCING_DOTS) {
                     //Debug.Log(game.removeDiacritics(game.currentLetter));
 
-                    if (other.GetComponent<DancingDotsDropZone>().letters.Contains(game.removeDiacritics(game.currentLetter))
+                    if (ALLOW_ANY_DROPZONE_FOR_ANY_LETTER || other.GetComponent<DancingDotsDropZone>().letters.Contains(game.removeDiacritics(game.currentLetter))
                         && game.dotsCount == dots) {
                         overDestinationMarker = markerStatus;
                     }
                 }
             } else {
                 if (other.tag == DancingDotsGame.DANCING_DIACRITICS) {
-                    if (game.activeDiacritic.diacritic == diacritic) {
+                    if (ALLOW_ANY_DROPZONE_FOR_ANY_LETTER || game.activeDiacritic.diacritic == diacritic) {
                         overDestinationMarker = markerStatus;
                     }
                 }
