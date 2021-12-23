@@ -183,8 +183,8 @@ namespace Antura.Minigames.Maze
         public void addLine()
         {
             pointsList = new List<Vector3>();
-            GameObject go = new GameObject();
-            go.transform.position = new Vector3(0, 0, -0.2f);
+            GameObject go = new GameObject("Line");
+            go.transform.position = new Vector3(0, 0, -0.4f);
             go.transform.Rotate(new Vector3(90, 0, 0));
             LineRenderer line = go.AddComponent<LineRenderer>();
             line.positionCount = 0;
