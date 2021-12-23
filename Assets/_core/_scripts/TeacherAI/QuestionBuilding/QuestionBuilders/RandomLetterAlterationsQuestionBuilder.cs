@@ -102,7 +102,15 @@ namespace Antura.Teacher
 
             if (avoidWrongLettersWithSameSound)
             {
-                wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.PhonemeSound.IsNullOrEmpty() && correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
+                if (AppManager.I.ContentEdition.PlayNameSoundWithForms)
+                {
+                    wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.NameSound.IsNullOrEmpty() && correctLetter.NameSound.Equals(wrongLetter.NameSound)));
+                }
+                else
+                {
+                    wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.PhonemeSound.IsNullOrEmpty() && correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
+                }
+
             }
 
             wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong,wrongAnswers.Count));
