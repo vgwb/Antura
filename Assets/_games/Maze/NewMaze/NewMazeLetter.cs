@@ -23,7 +23,7 @@ public class NewMazeLetter : MonoBehaviour
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(ld.Id);
         if (shapeData == null) return;
 
-        transform.position = new Vector3(shapeData.Center.x, 0, shapeData.Center.y + 2);
+        transform.position = new Vector3(-shapeData.Center.x, 0, -shapeData.Center.y + 1);
 
         //Debug.LogError("Found shape data: " + shapeData);
         ShapeManager.LoadSplinesOn(DottedLine, shapeData.Strokes);

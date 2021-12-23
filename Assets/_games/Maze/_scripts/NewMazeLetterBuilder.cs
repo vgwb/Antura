@@ -123,10 +123,8 @@ namespace Antura.Minigames.Maze
             GameObject firstArrow = arrowParent.GetChild(0).gameObject;
             GameObject newDot = Instantiate(MazeGame.instance.dotPrefab, firstArrow.transform);
             newDot.name = "Dot";
-            newDot.transform.localPosition = Vector3.zero;
-            newDot.transform.rotation = firstArrow.transform.rotation;
-            newDot.transform.Rotate(Vector3.forward, 180, Space.World);
-            newDot.transform.Rotate(Vector3.right, 90, Space.World);
+            newDot.transform.localPosition = new Vector3(0, 0.05f, 0f);
+            newDot.transform.localEulerAngles = new Vector3(90, 0, 0);
             newDot.transform.localScale = Vector3.one * 0.1f;
 
             firstArrow.GetComponentInChildren<MeshRenderer>().enabled = false;
