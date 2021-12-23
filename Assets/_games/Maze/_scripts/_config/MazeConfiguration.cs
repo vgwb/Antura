@@ -45,13 +45,15 @@ namespace Antura.Minigames.Maze
         {
             IQuestionBuilder builder = null;
 
+            int nPacks = 6;
+
             var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case MazeVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.wordFilters.excludeDiacritics = true;
                     builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.AllButAlefHamza;
-                    builder = new RandomLettersQuestionBuilder(7, 1, parameters: builderParams);
+                    builder = new RandomLettersQuestionBuilder(nPacks, 1, parameters: builderParams);
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

@@ -44,7 +44,7 @@ namespace Antura.Minigames.ColorTickle
         {
             IQuestionBuilder builder = null;
 
-            int nPacks = 10;
+            int nPacks = 6;
             int nCorrect = 1;
 
             var builderParams = InitQuestionBuilderParamaters();
