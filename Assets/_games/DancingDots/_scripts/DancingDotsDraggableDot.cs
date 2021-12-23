@@ -37,11 +37,6 @@ namespace Antura.Minigames.DancingDots
             startZ = transform.position.z;
         }
 
-        void Start()
-        {
-            Reset();
-        }
-
         public void Reset()
         {
             transform.position = new Vector3(startX, startY, startZ);

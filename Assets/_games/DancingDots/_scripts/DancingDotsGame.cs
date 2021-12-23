@@ -9,6 +9,9 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using System;
+using System.Linq;
+using Antura.Core;
+using Antura.Language;
 
 namespace Antura.Minigames.DancingDots
 {
@@ -166,6 +169,14 @@ namespace Antura.Minigames.DancingDots
             questionsManager = new DancingDotsQuestionsManager();
 
             splats = new List<DancingDotsSplat>();
+
+            if (AppManager.I.ContentEdition.LearningLanguage == LanguageCode.persian_dari)
+            {
+                dragableDiacritics.First(x =>  x.diacritic == DiacriticEnum.Sokoun).gameObject.SetActive(false);
+                dragableDiacritics = dragableDiacritics.ToList().Where(x => x.diacritic != DiacriticEnum.Sokoun).ToArray();
+                diacritics.First(x =>  x.GetComponent<DancingDotsDiacriticPosition>().diacritic == DiacriticEnum.Sokoun).SetActive(false);
+                diacritics = diacritics.ToList().Where(x => x.GetComponent<DancingDotsDiacriticPosition>().diacritic != DiacriticEnum.Sokoun).ToArray();
+            }
 
             foreach (DancingDotsDraggableDot dDots in dragableDots) dDots.gameObject.SetActive(false);
             foreach (DancingDotsDraggableDot dDiacritic in dragableDiacritics) dDiacritic.gameObject.SetActive(false);
