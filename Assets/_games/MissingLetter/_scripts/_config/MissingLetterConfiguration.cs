@@ -63,9 +63,9 @@ namespace Antura.Minigames.MissingLetter
                 case MissingLetterVariation.LetterInWord:
                     // Find a letter with the given form inside the word (no diacritics)
                     // wrong answers are other letters in different forms & diacritics
-                    builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
-                    builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDipthongs = true;
+                    builderParams.letterFilters.excludeDiphthongs = true;
+                    builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters);
                     break;
 

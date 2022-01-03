@@ -56,6 +56,7 @@ namespace Antura.Minigames.MixedLetters
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(6, maximumWordLength: 8, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 default:

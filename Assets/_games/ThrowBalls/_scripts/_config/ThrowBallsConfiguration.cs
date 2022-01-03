@@ -74,6 +74,7 @@ namespace Antura.Minigames.ThrowBalls
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.MultiLetterForm:

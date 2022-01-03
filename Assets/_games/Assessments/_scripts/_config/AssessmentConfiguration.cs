@@ -218,6 +218,7 @@ namespace Antura.Assessment
                 maxLetters = 10;
             }
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
                 NumberOfRounds,
                 nCorrect: 2,
@@ -238,6 +239,7 @@ namespace Antura.Assessment
             builderParams.wordFilters.requireDrawings = true;
             builderParams.sortPacksByDifficulty = false;
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
 
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers
@@ -442,6 +444,7 @@ namespace Antura.Assessment
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
             builderParams.sortPacksByDifficulty = false;
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
                 NumberOfRounds,
                 SimultaneosQuestions,

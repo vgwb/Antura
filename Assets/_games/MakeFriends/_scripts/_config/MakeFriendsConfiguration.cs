@@ -58,9 +58,10 @@ namespace Antura.Minigames.MakeFriends
             var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case MakeFriendsVariation.LetterInWord:
-                    builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.excludeArticles = true;
+                    builderParams.letterFilters.excludeDiphthongs = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new CommonLetterInWordQuestionBuilder(nPacks, nWrong, nWords, parameters: builderParams, letterEqualityStrictness: letterEqualityStrictness);
                     break;
                 default:

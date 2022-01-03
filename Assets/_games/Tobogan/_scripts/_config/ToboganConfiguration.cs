@@ -59,6 +59,7 @@ namespace Antura.Minigames.Tobogan
                 case ToboganVariation.LetterInWord:
                     builderParams.wordFilters.excludeLetterVariations = true;
                     builderParams.wordFilters.excludeDipthongs = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(nPacks, nCorrect: nCorrect, nWrong: nWrong, parameters: builderParams);
                     break;
                 case ToboganVariation.SunMoon:

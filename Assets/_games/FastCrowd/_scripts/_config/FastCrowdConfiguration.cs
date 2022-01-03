@@ -114,6 +114,7 @@ namespace Antura.Minigames.FastCrowd
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builderParams.letterFilters.includeAccentedLetters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(7, nWrong: nWrong, useAllCorrectLetters: true, removeAccents:false,
                         parameters: builderParams);
                     break;

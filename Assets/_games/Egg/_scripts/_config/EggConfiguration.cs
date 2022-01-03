@@ -75,6 +75,7 @@ namespace Antura.Minigames.Egg
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builderParams.letterFilters.includeAccentedLetters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8, removeAccents:false);
                     break;
                 case EggVariation.LetterPhoneme:
