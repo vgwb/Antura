@@ -265,6 +265,7 @@ namespace Antura.Minigames.SickLetters
                 SickLettersDraggableDD newDragable = game.createNewDragable(game.Draggables[foundWrongDDCount].gameObject);
                 newDragable.transform.parent = game.DropZonesGO.transform;
                 newDragable.transform.position = game.DropZonesGO.transform.position + new Vector3(emptyZones[iZone].x, emptyZones[iZone].y, 0) * scaleMultiplier;
+                newDragable.transform.position += Vector3.forward * -0.9f;  // A bit to the front so they are always visible
                 newDragable.transform.localEulerAngles = new Vector3(0, -90, 0);
                 newDragable.checkDDCollision = true;
                 thisLLWrongDDs.Add(newDragable);
