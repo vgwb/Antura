@@ -6,6 +6,12 @@
 /// It flips the characters and replace them with the appropriate ones to connect the letters in the correct way.
 /// </summary>
 //-----------------------------------------------------------------------------
+
+// NDMichele: to add new letters:
+// - add them to the IsolatedArabicLetters enumerator
+// - add them to the GeneralArabicLetters enumerator
+// - add a new ArabicMapping between the two enumerators
+// - make sure to check IsIgnoredCharacter, IsMiddleLetter, IsFinalLetter, IsInitialLetter for similar letters
 #endregion
 
 
@@ -170,8 +176,10 @@ internal enum IsolatedArabicLetters
 	PersianChe = 0xFB7A,
 	PersianZe = 0xFB8A,
 	PersianGaf = 0xFB92,
-	PersianGaf2 = 0xFB8E
+	PersianGaf2 = 0xFB8E,
 
+    // NDMichele: Add here the 0x0F versions of the letters you want to support. These are the Isolated forms
+    PersianYeh = 0xFBFC
 }
 
 /// <summary>
@@ -219,8 +227,10 @@ internal enum GeneralArabicLetters
 	PersianChe = 0x0686,
 	PersianZe = 0x0698,
 	PersianGaf = 0x06AF,
-	PersianGaf2 = 0x06A9
+	PersianGaf2 = 0x06A9,
 
+    // NDMichele: Add here the 0x06 versions of the letters you want to support. These are the letters themselves, with no form.
+    PersianYeh = 0x06CC
 }
 
 /// <summary>
@@ -296,8 +306,7 @@ internal class ArabicTable
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianZe, (int)IsolatedArabicLetters.PersianZe));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf, (int)IsolatedArabicLetters.PersianGaf));
 		mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianGaf2, (int)IsolatedArabicLetters.PersianGaf2));
-
-
+        mapList.Add(new ArabicMapping((int)GeneralArabicLetters.PersianYeh, (int)IsolatedArabicLetters.PersianYeh));
 
 
 		//for (int i = 0; i < generalArabic.Length; i++)
@@ -418,7 +427,7 @@ internal class ArabicFixerTool
 	}
 
 	/// <summary>
-	/// Converts a string to a form in which the sting will be displayed correctly for arabic text.
+	/// Converts a string to a form in which the string will be displayed correctly for arabic text.
 	/// </summary>
 	/// <param name="str">String to be converted. Example: "Aaa"</param>
 	/// <returns>Converted string. Example: "aa aaa A" without the spaces.</returns>
@@ -653,7 +662,7 @@ internal class ArabicFixerTool
 		bool isLower = char.IsLower(ch);
 		bool isUpper = char.IsUpper(ch);
 		bool isSymbol = char.IsSymbol(ch);
-		bool isPersianCharacter = ch == (char)0xFB56 || ch == (char)0xFB7A || ch == (char)0xFB8A || ch == (char)0xFB92 || ch == (char)0xFB8E;
+		bool isPersianCharacter = ch == (char)0xFB56 || ch == (char)0xFB7A || ch == (char)0xFB8A || ch == (char)0xFB92 || ch == (char)0xFB8E || ch == (char)IsolatedArabicLetters.PersianYeh;
 		bool isPresentationFormB = (ch <= (char)0xFEFF && ch >= (char)0xFE70);
 		bool isAcceptableCharacter = isPresentationFormB || isPersianCharacter;
 
