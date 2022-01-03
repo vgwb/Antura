@@ -184,7 +184,7 @@ namespace Antura.Minigames.Maze
         {
             pointsList = new List<Vector3>();
             GameObject go = new GameObject("Line");
-            go.transform.position = new Vector3(0, 0, -0.4f);
+            go.transform.position = new Vector3(0, 0.5f, -0.4f);
             go.transform.Rotate(new Vector3(90, 0, 0));
             LineRenderer line = go.AddComponent<LineRenderer>();
             line.positionCount = 0;
@@ -469,6 +469,12 @@ namespace Antura.Minigames.Maze
         {
             if (!pointsList.Contains(mousePos)) {
                 //mousePos.z = -0.1071415f;
+                if (pointsList.Count == 0)
+                {
+                    // Init position to avoid z fighting
+                    lines[lines.Count - 1].transform.position = mousePos + new Vector3(0, 1f, 0f);
+                }
+                mousePos.y = 0.65f;
                 pointsList.Add(mousePos);
                 lines[lines.Count - 1].positionCount = pointsList.Count;
                 lines[lines.Count - 1].SetPosition(pointsList.Count - 1, pointsList[pointsList.Count - 1]);
