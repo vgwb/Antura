@@ -2,6 +2,7 @@ using Antura.Language;
 using Antura.Keeper;
 using UnityEngine;
 using System;
+using System.Text;
 using Antura.Database;
 using DG.DeInspektor.Attributes;
 #if UNITY_EDITOR
@@ -196,11 +197,6 @@ namespace Antura.Core
             }
             PlayerSettings.SplashScreen.logos = logos;
 
-            // Write ProjectSettings.asset
-            //var path = Application.dataPath + "../ProjectSettings/ProjectSettings.asset";
-            //var stream = File.Open(path);
-
-
             List<EditionConfig> editionsToUse = new List<EditionConfig>();
             if (IsMultiEdition) {
                 foreach (var edition in ChildEditions) {
@@ -254,6 +250,29 @@ namespace Antura.Core
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
             Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
+
+
+            // Write ProjectSettings.asset
+            var path = $"{Application.dataPath}/../ProjectSettings/ProjectSettings.asset";
+            var readSr = File.OpenText(path);
+            var newFile = new StringBuilder();
+            while (!readSr.EndOfStream)
+            {
+                var line = readSr.ReadLine();
+                if (line.Contains("cloudProjectId:"))
+                {
+                    var newLine = $"  cloudProjectId: {UnityProjectId}";
+                    Debug.LogError("Overriding line: " + line + " with " + newLine);
+                    line = newLine;
+                }
+                newFile.AppendLine(line);
+            }
+            readSr.Close();
+
+            var writeSr = new StreamWriter(path, false);
+            writeSr.Write(newFile);
+            writeSr.Close();
+            AssetDatabase.Refresh();
         }
 
         [DeMethodButton("Configure as Active & Rebuild Addressables")]
