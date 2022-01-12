@@ -1,11 +1,14 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
 using Antura.Database;
+using Antura.Helpers;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Antura
 {
@@ -90,11 +93,22 @@ namespace Antura
         {
             int n = 0;
             if (VERBOSE) Debug.Log($"Loading {keys.Count}");
-            var op =
-                Addressables.LoadAssetsAsync<T>(keys, obj => {
+
+            AsyncOperationHandle<IList<T>> op = default;
+            try
+            {
+                op = Addressables.LoadAssetsAsync<T>(keys, obj =>
+                {
                     cache[obj.name] = obj;
                     n++;
                 }, Addressables.MergeMode.Union);
+            }
+            catch (Exception e)
+            {
+                Debug.LogWarning("Exception while trying to load keys: " + e.Message);
+                Debug.LogWarning("Keys: " + keys.ToJoinedString());
+                yield break;
+            }
 
             while (!op.IsDone)
             {
