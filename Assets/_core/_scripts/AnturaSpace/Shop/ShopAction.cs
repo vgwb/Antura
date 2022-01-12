@@ -1,4 +1,5 @@
 using System;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using UnityEngine;
@@ -72,9 +73,15 @@ namespace Antura.AnturaSpace
             // nothing to do here
         }
 
+
         protected virtual void CommitAction()
         {
-            AppManager.I.Player.RemoveBones(bonesCost);
+            CommitActionCheck(true);
+        }
+        protected void CommitActionCheck(bool success)
+        {
+            if (!success) AudioManager.I.PlaySound(Sfx.KO);
+            if (success) AppManager.I.Player.RemoveBones(bonesCost);
             if (OnActionCommitted != null) OnActionCommitted();
         }
 
