@@ -8,7 +8,7 @@ namespace Antura.AnturaSpace
         {
             var shopActionUI = GetComponent<ShopActionUI>();
             shopActionUI.SetAction(this);
-            ShopPhotoManager.I.OnPurchaseCompleted += CommitAction;
+            ShopPhotoManager.I.OnPurchaseSuccess += CommitActionCheck;
 
             if (!AppManager.I.Services.Gallery.HasWriteAccess)
                 bonesCost = 0;
