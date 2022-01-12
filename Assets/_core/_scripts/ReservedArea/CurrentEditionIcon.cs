@@ -1,4 +1,5 @@
 ﻿using Antura.Core;
+using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -8,7 +9,7 @@ namespace Antura.UI
     {
         public void OnEnable()
         {
-            GetComponent<Image>().sprite = AppManager.I.ContentEdition.Icon;
+            GetComponentInChildren<TextRender>().SetText(AppManager.I.ContentEdition.Title, LanguageUse.Learning);
         }
     }
 }
