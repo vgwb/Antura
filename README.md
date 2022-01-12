@@ -15,11 +15,11 @@ This project is a multi edition evolution of the original [Antura Edu App 4 Syri
 ## Collaborate
 
 Anybody is invited to collaborate to this open source project:
-please check the [collaborator docs](https://vgwb.github.io/Antura/Guidelines/Collaborator.html) and contact us if you want to help or be helped
+please check the [collaborator docs](https://docs.antura.org/HowTo/Collaborator.html) and contact us if you want to help or be helped
 
 ## Requirements
 
-This repository is a Unity 2018.4 (LTS) project ([download it here](https://unity3d.com/get-unity/download/archive)) and works on mobile (iOS and Android) and Desktop computers
+This repository is a Unity 2020 (LTS) project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
 
 ## Licensing
 
