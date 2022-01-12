@@ -185,10 +185,21 @@ namespace Antura.Core
             PlayerSettings.bundleVersion = BundleVersion;
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
-            PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            for (int i = 0; i < SplashLogos.Length; i++) {
-                PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
+            var logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
+            for (int i = 0; i < SplashLogos.Length; i++)
+            {
+                logos[i] = new PlayerSettings.SplashScreenLogo
+                {
+                    duration = 2f,
+                    logo = SplashLogos[i]
+                };
             }
+            PlayerSettings.SplashScreen.logos = logos;
+
+            // Write ProjectSettings.asset
+            //var path = Application.dataPath + "../ProjectSettings/ProjectSettings.asset";
+            //var stream = File.Open(path);
+
 
             List<EditionConfig> editionsToUse = new List<EditionConfig>();
             if (IsMultiEdition) {
@@ -205,7 +216,6 @@ namespace Antura.Core
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
-                languagesToUse.Add(edition.HelpLanguage);
             }
 
             for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
