@@ -41,6 +41,7 @@ namespace Antura.Teacher.Test
             report += ($"Report - Analyzing {LetterGroups.Length} groups");
             List<LetterData> previousLetters = new List<LetterData>();
             List<WordData> previousWords = new List<WordData>();
+            var wordToGroup = new Dictionary<string, string>();
             for (var iGroup = 0; iGroup < LetterGroups.Length; iGroup++)
             {
                 var letterGroup = LetterGroups[iGroup];
@@ -113,9 +114,14 @@ namespace Antura.Teacher.Test
                 int totCorrectWords = correctWords.Count;
                 correctWords = correctWords.Where(x => !previousWords.Contains(x)).ToList();
                 s = $"Words for group {iGroup+1}: <b>{correctWords.Count}</b> (tot {totCorrectWords}/{_wordDatas.Count}):\n";
+                int nWithDrawings = correctWords.Count(x => x.HasDrawing());
+                s += $"(With drawings: {nWithDrawings}/{correctWords.Count}):\n";
                 foreach (var correctWord in correctWords)
                 {
-                    s += $"{correctWord.Id} ({correctWord.Text})\n";
+                    wordToGroup[correctWord.Id] = $"WordsStage{iGroup+1}";
+                    s += $"{correctWord.Id} ({correctWord.Text})";
+                    if (correctWord.HasDrawing()) s += " D";
+                    s += "\n";
                 }
                 report += "\n" + s;
 
@@ -139,6 +145,14 @@ namespace Antura.Teacher.Test
             }
             report += "\n" + s;
             Debug.Log(report);
+
+            // Report word data with their play session link
+            s = "PLAY SESSION LINKS:\n";
+            foreach (var word in AppManager.I.VocabularyHelper.GetAllWords(new WordFilters()))
+            {
+                s += $"{word.Id} ({word.Text}), {wordToGroup[word.Id]}\n";
+            }
+            Debug.Log(s);
         }
 
     }
