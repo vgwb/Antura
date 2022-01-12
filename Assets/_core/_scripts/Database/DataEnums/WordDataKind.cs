@@ -2,6 +2,7 @@ namespace Antura.Database
 {
     public enum WordDataKind
     {
+        None = 0,
         Adjective = 1,
         Verb = 2,
         Article = 3,
