@@ -136,7 +136,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             //    { "phase_name", phase.ToString() }
             //};
 
-            Events.CustomData("myTutorialComplete", null);
+            Events.CustomData("myTutorialComplete", new Dictionary<string, object>());
 #if FB_SDK
             AppManager.I.FacebookManager.LogAppEvent(Facebook.Unity.AppEventName.CompletedTutorial, parameters: parameters);
 #endif
