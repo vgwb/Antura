@@ -17,6 +17,7 @@ namespace Antura.AnturaSpace
 
         public Action OnPhotoConfirmationRequested;
         public Action OnPurchaseCompleted;
+        public Action<bool> OnPurchaseSuccess;
 
         public List<GameObject> gameObjectsToHide = new List<GameObject>();
 
@@ -67,8 +68,10 @@ namespace Antura.AnturaSpace
 
         public void ConfirmPhoto()
         {
-            AppManager.I.Services.Gallery.SaveScreenshot(currentPhotoTexture);
+            bool success = AppManager.I.Services.Gallery.SaveScreenshot(currentPhotoTexture);
+
             currentPhotoTexture = null;
+            if (OnPurchaseSuccess != null) { OnPurchaseSuccess(success); }
             if (OnPurchaseCompleted != null) { OnPurchaseCompleted(); }
 
             ShopDecorationsManager.I.SetContextClosed();
