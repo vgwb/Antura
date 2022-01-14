@@ -1,9 +1,10 @@
-﻿#if UNITY_EDITOR
+﻿using UnityEngine;
+using UnityEngine.U2D;
 using Antura.Database;
 using TMPro;
+#if UNITY_EDITOR
 using UnityEditor;
-using UnityEngine;
-using UnityEngine.U2D;
+#endif
 
 public class ShapeDataLogic : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class ShapeDataLogic : MonoBehaviour
     public GameObject EmptyPointsPivot;
     public GameObject CenterPoint;
 
+#if UNITY_EDITOR
     void Update()
     {
         if (data == null) return;
@@ -24,8 +26,7 @@ public class ShapeDataLogic : MonoBehaviour
         // Save current data
         var controllers = StrokesPivot.GetComponentsInChildren<SpriteShapeController>();
         shapeData.Strokes = new Stroke[controllers.Length];
-        for (int i = 0; i < controllers.Length; i++)
-        {
+        for (int i = 0; i < controllers.Length; i++) {
             ShapeManager.FlattenSpline(controllers[i].spline);
 
             shapeData.Strokes[i] = new Stroke();
@@ -34,8 +35,7 @@ public class ShapeDataLogic : MonoBehaviour
 
         controllers = ContourPivot.GetComponentsInChildren<SpriteShapeController>();
         shapeData.Contour = new Stroke[controllers.Length];
-        for (int i = 0; i < controllers.Length; i++)
-        {
+        for (int i = 0; i < controllers.Length; i++) {
             ShapeManager.FlattenSpline(controllers[i].spline);
 
             shapeData.Contour[i] = new Stroke();
@@ -44,8 +44,7 @@ public class ShapeDataLogic : MonoBehaviour
 
         var emptyPoints = EmptyPointsPivot.GetComponentsInChildren<MeshFilter>();
         shapeData.EmptyZones = new Vector2[emptyPoints.Length];
-        for (int i = 0; i < emptyPoints.Length; i++)
-        {
+        for (int i = 0; i < emptyPoints.Length; i++) {
             shapeData.EmptyZones[i] = emptyPoints[i].transform.localPosition;
         }
 
@@ -53,5 +52,5 @@ public class ShapeDataLogic : MonoBehaviour
 
         EditorUtility.SetDirty(shapeData);
     }
-}
 #endif
+}

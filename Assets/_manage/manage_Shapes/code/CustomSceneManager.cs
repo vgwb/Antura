@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿#if UNITY_EDITOR
+using System.Collections;
 using Antura.Core;
 using Antura.Database;
 using Antura.Database.Management;
@@ -23,15 +24,16 @@ public class CustomSceneManager : MonoBehaviour
     void Start()
     {
         GlobalUI.I.gameObject.SetActive(false);
-/*
-        dbManager = new DatabaseManager(true, langCode);
-        vocabularyHelper = new VocabularyHelper(dbManager);
-        scoreHelper = new ScoreHelper(dbManager);
-        teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
-*/
+        /*
+                dbManager = new DatabaseManager(true, langCode);
+                vocabularyHelper = new VocabularyHelper(dbManager);
+                scoreHelper = new ScoreHelper(dbManager);
+                teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
+        */
         //yield return AppManager.I.ReloadEdition();
         //Debug.LogError("Loaded custom scene");
     }
 
 
 }
+#endif

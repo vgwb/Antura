@@ -1,4 +1,5 @@
-﻿using System;
+﻿#if UNITY_EDITOR
+using System;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.U2D;
@@ -18,8 +19,7 @@ public class StrokeLogic : MonoBehaviour
     {
         var controller = GetComponent<SpriteShapeController>();
         var spline = controller.spline;
-        for (int i = 0; i < spline.GetPointCount()-1; i++)
-        {
+        for (int i = 0; i < spline.GetPointCount() - 1; i++) {
             Handles.color = Color.red;
             var tang = ShapeManager.TangentOnSpline(spline, i);
 
@@ -47,3 +47,4 @@ public class StrokeLogic : MonoBehaviour
 
     public float testTangent;
 }
+#endif
