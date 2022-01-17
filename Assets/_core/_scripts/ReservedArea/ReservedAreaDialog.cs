@@ -43,6 +43,10 @@ namespace Antura.ReservedArea
 
         void OnEnable()
         {
+            if (DebugConfig.I.DebugBypassDialogs) {
+                UnlockReservedArea();
+            }
+
             KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.LearningThenNativeNoSubtitles);
             firstButtonClickCounter = 0;
 
@@ -66,7 +70,7 @@ namespace Antura.ReservedArea
             // Number of clicks at random
             const int min_number = 2;
             const int max_number = 5;
-            firstButtonClicksTarget = Random.Range(min_number, max_number+1);
+            firstButtonClicksTarget = Random.Range(min_number, max_number + 1);
 
             if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 

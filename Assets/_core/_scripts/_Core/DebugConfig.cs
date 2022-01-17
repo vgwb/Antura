@@ -6,10 +6,16 @@ namespace Antura.Core
     public class DebugConfig : ScriptableObject
     {
         /// <summary>
-        /// Enabled the Advanced Debug Panel.
+        /// Enables the Advanced Debug Panel (click bottom right corner of the screen to activate)
         /// Set to FALSE for production.
         /// </summary>
         public bool DebugPanelEnabledAtStartup = false;
+
+        /// <summary>
+        /// Bypass boring and slow dialogs to fast game test
+        /// Set to FALSE for production.
+        /// </summary>
+        public bool DebugBypassDialogs = false;
 
         /// <summary>
         /// Switches on all Debug.Log calls for performance.
