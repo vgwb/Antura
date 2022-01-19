@@ -2,6 +2,7 @@ using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 
 namespace Antura.Minigames.Maze
 {
@@ -52,7 +53,7 @@ namespace Antura.Minigames.Maze
                 case MazeVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.wordFilters.excludeDiacritics = true;
-                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.AllButAlefHamza;
+                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.None;
                     builder = new RandomLettersQuestionBuilder(nPacks, 1, parameters: builderParams);
                     break;
                 default:
