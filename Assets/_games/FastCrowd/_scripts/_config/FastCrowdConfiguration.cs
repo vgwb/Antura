@@ -101,7 +101,7 @@ namespace Antura.Minigames.FastCrowd
                     break;
                 case FastCrowdVariation.LetterForm:
                     // @note: we pass 4 as nCorrect, so we get all the four forms of a single letter, which will be shown one after the other
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter, parameters: builderParams);
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter, parameters: builderParams, getAllSorted:true);
                     break;
                 case FastCrowdVariation.CategoryForm:
                     // @note: we pass 4 as nCorrect, so we get all the four forms from a single category

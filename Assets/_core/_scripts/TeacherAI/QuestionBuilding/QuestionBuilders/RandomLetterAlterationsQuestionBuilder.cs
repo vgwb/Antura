@@ -26,16 +26,15 @@ namespace Antura.Teacher
         private QuestionBuilderParameters parameters;
         private LetterAlterationFilters letterAlterationFilters;
         private bool avoidWrongLettersWithSameSound;
+        private bool getAllSorted;
 
-        public QuestionBuilderParameters Parameters
-        {
-            get { return this.parameters; }
-        }
+        public QuestionBuilderParameters Parameters => this.parameters;
 
         public RandomLetterAlterationsQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0,
             LetterAlterationFilters letterAlterationFilters = null,
             bool avoidWrongLettersWithSameSound = false,
-            QuestionBuilderParameters parameters = null
+            QuestionBuilderParameters parameters = null,
+            bool getAllSorted = false
             )
         {
             if (letterAlterationFilters == null) letterAlterationFilters = new LetterAlterationFilters();
@@ -51,6 +50,7 @@ namespace Antura.Teacher
             this.parameters = parameters;
             this.letterAlterationFilters = letterAlterationFilters;
             this.avoidWrongLettersWithSameSound = avoidWrongLettersWithSameSound;
+            this.getAllSorted = getAllSorted;
 
             // Forced filters
             // We need only base letters as the basis here
@@ -102,7 +102,8 @@ namespace Antura.Teacher
             var letterPool = vocabularyHelper.GetAllLetterAlterations(baseLetters, letterAlterationFilters);
 
             // Choose randomly from that pool
-            var correctAnswers = letterPool.RandomSelect(nCorrect);
+            List<LetterData> correctAnswers;
+            correctAnswers = getAllSorted ? letterPool.GetRange(0,nCorrect) : letterPool.RandomSelect(nCorrect);
             var wrongAnswers = letterPool;
             foreach (LetterData data in correctAnswers)
                 wrongAnswers.Remove(data);
@@ -117,7 +118,6 @@ namespace Antura.Teacher
                 {
                     wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.PhonemeSound.IsNullOrEmpty() && correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
                 }
-
             }
 
             wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong,wrongAnswers.Count));
