@@ -51,7 +51,7 @@ namespace Antura.Minigames.ColorTickle
             switch (Variation) {
                 case ColorTickleVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
-                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.AllButAlefHamza;
+                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.None;
                     builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDiacritics = true;
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, parameters: builderParams);
