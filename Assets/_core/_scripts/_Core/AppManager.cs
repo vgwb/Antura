@@ -151,13 +151,6 @@ namespace Antura.Core
 
             yield return ReloadEdition();
 
-            // TODO refactor: standardize initialisation of managers
-            VocabularyHelper = new VocabularyHelper(DB);
-            JourneyHelper = new JourneyHelper(DB);
-            ScoreHelper = new ScoreHelper(DB);
-            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
-            LogManager = new LogManager();
-            GameLauncher = new MiniGameLauncher(Teacher);
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager();
             FacebookManager = gameObject.AddComponent<FacebookManager>();
@@ -201,6 +194,14 @@ namespace Antura.Core
             yield return LanguageSwitcher.LoadData();
             DB = new DatabaseManager(true);
             yield return LanguageSwitcher.PreloadLocalizedDataCO();
+
+            // TODO refactor: standardize initialisation of managers
+            VocabularyHelper = new VocabularyHelper(DB);
+            JourneyHelper = new JourneyHelper(DB);
+            ScoreHelper = new ScoreHelper(DB);
+            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
+            LogManager = new LogManager();
+            GameLauncher = new MiniGameLauncher(Teacher);
         }
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)

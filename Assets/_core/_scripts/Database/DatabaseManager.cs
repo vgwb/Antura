@@ -11,7 +11,7 @@ namespace Antura.Database
 
     /// <summary>
     /// Entry point for the rest of the application to access database entries.
-    /// This class is responsible for loading all data and provide access to both static (learning) and dynamic (logging) data. 
+    /// This class is responsible for loading all data and provide access to both static (learning) and dynamic (logging) data.
     /// </summary>
     public class DatabaseManager
     {
@@ -89,7 +89,7 @@ namespace Antura.Database
 
         private void SetPlayerProfile(string playerUuid)
         {
-            // SAFE MODE: we need to make sure that the static db has some entires, otherwise there is something wrong
+            // SAFE MODE: we need to make sure that the static db has some entries, otherwise there is something wrong
             if (staticDb.GetPlaySessionTable().GetDataCount() == 0) {
                 throw new System.Exception(
                     "Database is empty, it was probably not setup correctly. Make sure it has been statically loaded by the management scene.");
