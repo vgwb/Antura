@@ -31,8 +31,8 @@ namespace Antura.Teacher
         {
             get { return this.parameters; }
         }
-       
-        public RandomLetterAlterationsQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0, 
+
+        public RandomLetterAlterationsQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0,
             LetterAlterationFilters letterAlterationFilters = null,
             bool avoidWrongLettersWithSameSound = false,
             QuestionBuilderParameters parameters = null
@@ -57,6 +57,13 @@ namespace Antura.Teacher
             this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
             this.parameters.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.All;
             this.parameters.letterFilters.excludeDiphthongs = true;
+
+            // If we want diacritics, get only diacritics also for base letters
+            if (letterAlterationFilters.requireDiacritics)
+            {
+                this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.None;
+                this.parameters.letterFilters.requireDiacritics = true;
+            }
         }
 
         private List<string> previousPacksIDs = new List<string>();

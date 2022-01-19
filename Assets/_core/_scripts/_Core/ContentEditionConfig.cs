@@ -20,6 +20,7 @@ namespace Antura.Core
         public bool DetectSystemLanguage;
 
         [Header("Teacher Options")]
+        // @note: this also makes all LetterPhoneme games use Diacritics ONLY, as only those have phonemes
         [Tooltip("If set, diacritics will appear only on isolated letters, and not any forms. Affects LetterAny and LetterPhoneme variations.")]
         public bool DiacriticsOnlyOnIsolated;
         [Tooltip("If set, LetterForm variations and assessments will use name sounds instead of phoneme sounds.")]

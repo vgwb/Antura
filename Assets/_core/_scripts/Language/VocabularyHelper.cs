@@ -231,7 +231,9 @@ namespace Antura.Database
                 // Check all alterations of this base letter
                 var letterAlterations = GetLettersWithBase(baseLetter.GetId());
                 List<LetterData> availableVariations = new List<LetterData>();
-                foreach (var letterData in letterAlterations) {
+                foreach (var letterData in letterAlterations)
+                {
+                    if (letterAlterationFilters.requireDiacritics && !letterData.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) continue;
                     if (!FilterByDiacritics(letterAlterationFilters.ExcludeDiacritics, letterData)) continue;
                     if (!FilterByLetterVariations(letterAlterationFilters.ExcludeLetterVariations, letterData)) continue;
                     if (!FilterByDipthongs(letterAlterationFilters.excludeDipthongs, letterData)) continue;

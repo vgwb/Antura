@@ -484,7 +484,7 @@ namespace Antura.Assessment
             builderParams.sortPacksByDifficulty = false;
 
             var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
-            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
 
             return new RandomLetterAlterationsQuestionBuilder(
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers

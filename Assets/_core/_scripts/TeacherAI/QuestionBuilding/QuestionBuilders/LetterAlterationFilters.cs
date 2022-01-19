@@ -33,6 +33,14 @@ namespace Antura.Teacher
             ExcludeLetterVariations = LetterFilters.ExcludeLetterVariations.None,
             excludeDipthongs = false
         };
+        public static readonly LetterAlterationFilters DiacriticsOfMultipleLetters = new LetterAlterationFilters()
+        {
+            differentBaseLetters = true,
+            ExcludeDiacritics = LetterFilters.ExcludeDiacritics.None,
+            ExcludeLetterVariations = LetterFilters.ExcludeLetterVariations.None,
+            excludeDipthongs = false,
+            requireDiacritics = true,
+        };
         public static readonly LetterAlterationFilters FormsAndPhonemesOfMultipleLetters = new LetterAlterationFilters()
         {
             differentBaseLetters = true,
@@ -59,6 +67,7 @@ namespace Antura.Teacher
         public LetterFilters.ExcludeDiacritics ExcludeDiacritics;
         public LetterFilters.ExcludeLetterVariations ExcludeLetterVariations;
         public bool excludeDipthongs;
+        public bool requireDiacritics;
 
         // Can add forms?
         public bool includeForms;
@@ -67,7 +76,7 @@ namespace Antura.Teacher
 
         public LetterAlterationFilters() : this(false, LetterFilters.ExcludeDiacritics.All, LetterFilters.ExcludeLetterVariations.All, true, false)
         {
-            
+
         }
 
         public LetterAlterationFilters(bool differentBaseLetters, LetterFilters.ExcludeDiacritics excludeDiacritics, LetterFilters.ExcludeLetterVariations excludeLetterVariations, bool excludeDipthongs, bool includeForms)
