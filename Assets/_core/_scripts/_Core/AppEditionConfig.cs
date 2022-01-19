@@ -61,6 +61,9 @@ namespace Antura.Core
         // Show various text around the application based on the "Help" language? (Book, GamesSelector, PromptPanel)
         public bool ShowHelpText;
 
+        // If true, the reserved area panel will appear with two languages
+        public bool HelpTextInReservedArea;
+
         // Show a translation of the Keeper widget based on the "Help" language?
         public bool ShowKeeperTranslation;
 

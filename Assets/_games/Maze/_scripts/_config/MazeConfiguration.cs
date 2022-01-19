@@ -2,7 +2,6 @@ using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
-using Antura.Core;
 
 namespace Antura.Minigames.Maze
 {

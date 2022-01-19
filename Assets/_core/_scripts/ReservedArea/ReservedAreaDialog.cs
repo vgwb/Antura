@@ -52,8 +52,8 @@ namespace Antura.ReservedArea
 
             UseForcedSequence = AppManager.I.AppEdition.ReservedAreaForcedSeq;
 
-            layoutHelpAndLearning.SetActive(AppManager.I.AppEdition.ShowHelpText);
-            layoutLearningOnly.SetActive(!AppManager.I.AppEdition.ShowHelpText);
+            layoutHelpAndLearning.SetActive(AppManager.I.AppEdition.HelpTextInReservedArea);
+            layoutLearningOnly.SetActive(!AppManager.I.AppEdition.HelpTextInReservedArea);
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
