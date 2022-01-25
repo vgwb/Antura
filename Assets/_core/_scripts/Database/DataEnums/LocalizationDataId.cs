@@ -628,6 +628,9 @@ namespace Antura.Database
       Variation_objects_clothes = 688,
       Variation_phrases = 689,
       Variation_words = 690,
+      Variation_phonemes = 709,
+      Variation_forms = 710,
+      Variation_letterinword = 711,
   }
 }
 
