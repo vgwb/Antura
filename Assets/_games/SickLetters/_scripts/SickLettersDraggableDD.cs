@@ -90,7 +90,7 @@ namespace Antura.Minigames.SickLetters
             }
             else
             {
-                offset = gameObject.transform.position - 
+                offset = gameObject.transform.position -
                          Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z));
             }
         }
@@ -182,11 +182,10 @@ namespace Antura.Minigames.SickLetters
 
         public void resetWrongDD()
         {
-            transform.parent = origParent;
-            transform.localPosition = Vector3.zero;
-            transform.localEulerAngles = origLocalRotation;
+            transform.SetParent(origParent);
+            ApplyEmptyZone();
             collidedWithVase = touchedVase = false;
-            
+
             thisRigidBody.isKinematic = true;
             boxCollider.enabled = true;
             boxCollider.isTrigger = true;
@@ -336,6 +335,22 @@ namespace Antura.Minigames.SickLetters
             boxCollider.enabled = false;
             yield return new WaitForSeconds(.1f);
             boxCollider.enabled = true;
+        }
+
+        private Vector2 emptyZone;
+        public void SetEmptyZone(Vector2 emptyZone)
+        {
+            this.emptyZone = emptyZone;
+            ApplyEmptyZone();
+        }
+
+        public void ApplyEmptyZone()
+        {
+            float scaleMultiplier = 0.2f;
+            var transform1 = transform;
+            transform1.localPosition = new Vector3(-emptyZone.y * scaleMultiplier + 0.2f, 0, emptyZone.x * scaleMultiplier);
+            transform1.position += Vector3.forward * -0.9f;  // A bit to the front so they are always visible
+            transform1.localEulerAngles = new Vector3(0, -90, 0);
         }
     }
 

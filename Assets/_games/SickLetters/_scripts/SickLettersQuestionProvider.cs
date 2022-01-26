@@ -7,8 +7,8 @@ using Antura.Core;
 namespace Antura.Minigames.SickLetters
 {
     /*
-    This is a Dummy Provider, used only when the game is started from the Editor, 
-    will be overridden when the game is called from the debugger/Map. 
+    This is a Dummy Provider, used only when the game is started from the Editor,
+    will be overridden when the game is called from the debugger/Map.
     */
 
     public class SickLettersQuestionProvider :  IQuestionProvider
@@ -29,11 +29,11 @@ namespace Antura.Minigames.SickLetters
             }
             while (newLetterString == "" || dotlessLetters.Contains(newLetterString) || newLetterString == prevLetter);
 
-            Debug.Log(newLetterString);
+            //Debug.Log(newLetterString);
 
             correctAnswers.Add(newLetter);
             return new SampleQuestionPack(newLetter, wrongAnswers, correctAnswers);
-            
+
         }
 
     }

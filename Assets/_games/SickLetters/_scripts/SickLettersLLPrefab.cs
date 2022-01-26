@@ -112,7 +112,7 @@ namespace Antura.Minigames.SickLetters
         {
             ILivingLetterData newLetter = game.questionManager.getNewLetter();
 
-            //newLetter = new LL_LetterData(AppManager.I.DB.GetLetterDataById("be"));
+            //newLetter = new LL_LetterData(AppManager.I.DB.GetLetterDataById("lam"));
 
             letterView.Init(newLetter);
             letterView.LabelRender.SetLetterData(newLetter);
@@ -261,12 +261,9 @@ namespace Antura.Minigames.SickLetters
                     continue;
                 }
 
-                float scaleMultiplier = 1f;
                 SickLettersDraggableDD newDragable = game.createNewDragable(game.Draggables[foundWrongDDCount].gameObject);
-                newDragable.transform.parent = game.DropZonesGO.transform;
-                newDragable.transform.position = game.DropZonesGO.transform.position + new Vector3(emptyZones[iZone].x, emptyZones[iZone].y, 0) * scaleMultiplier;
-                newDragable.transform.position += Vector3.forward * -0.9f;  // A bit to the front so they are always visible
-                newDragable.transform.localEulerAngles = new Vector3(0, -90, 0);
+                newDragable.transform.SetParent(game.DropZonesGO.transform);
+                newDragable.SetEmptyZone(emptyZones[iZone]);
                 newDragable.checkDDCollision = true;
                 thisLLWrongDDs.Add(newDragable);
                 game.allWrongDDs.Add(newDragable);
