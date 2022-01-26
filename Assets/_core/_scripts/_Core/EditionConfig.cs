@@ -187,10 +187,8 @@ namespace Antura.Core
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
             var logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            for (int i = 0; i < SplashLogos.Length; i++)
-            {
-                logos[i] = new PlayerSettings.SplashScreenLogo
-                {
+            for (int i = 0; i < SplashLogos.Length; i++) {
+                logos[i] = new PlayerSettings.SplashScreenLogo {
                     duration = 2f,
                     logo = SplashLogos[i]
                 };
@@ -212,28 +210,26 @@ namespace Antura.Core
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
+                languagesToUse.Add(edition.HelpLanguage);
             }
 
-            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
-            {
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {
                 var langCode = (LanguageCode)iLang;
                 if (langCode == LanguageCode.NONE) continue;
 
                 string pascalcaseName = langCode.ToString();
                 var words = pascalcaseName.Split('_');
                 pascalcaseName = "";
-                for (var i = 0; i < words.Length; i++)
-                {
+                for (var i = 0; i < words.Length; i++) {
                     var word = words[i];
                     pascalcaseName += $"{Char.ToUpperInvariant(word[0])}{word.Substring(1)}";
                     if (i < words.Length - 1) pascalcaseName += "_";
                 }
 
-                var assetGroupSchemaPath =  $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
+                var assetGroupSchemaPath = $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
                 var schema = AssetDatabase.LoadAssetAtPath<BundledAssetGroupSchema>(assetGroupSchemaPath);
 
-                if (schema == null)
-                {
+                if (schema == null) {
                     Debug.LogWarning($"Language {langCode} is not setup with Addressables. No schema found at '{assetGroupSchemaPath}'");
                     continue;
                 }
@@ -256,11 +252,9 @@ namespace Antura.Core
             var path = $"{Application.dataPath}/../ProjectSettings/ProjectSettings.asset";
             var readSr = File.OpenText(path);
             var newFile = new StringBuilder();
-            while (!readSr.EndOfStream)
-            {
+            while (!readSr.EndOfStream) {
                 var line = readSr.ReadLine();
-                if (line.Contains("cloudProjectId:"))
-                {
+                if (line.Contains("cloudProjectId:")) {
                     var newLine = $"  cloudProjectId: {UnityProjectId}";
                     Debug.LogError("Overriding line: " + line + " with " + newLine);
                     line = newLine;
