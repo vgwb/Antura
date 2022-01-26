@@ -22,6 +22,12 @@ namespace Antura.Language
             public string id;
             public int sortNumber;
             public int page;
+
+            public override string ToString()
+            {
+                return $"[{unicode} {id}]";
+            }
+
         }
 
         public Letter letter1;
@@ -29,6 +35,11 @@ namespace Antura.Language
 
         public int offsetX;
         public int offsetY;
+
+        public override string ToString()
+        {
+            return $"{letter1} {letter2}";
+        }
     }
 
     public class DiacriticsComboData : ScriptableObject

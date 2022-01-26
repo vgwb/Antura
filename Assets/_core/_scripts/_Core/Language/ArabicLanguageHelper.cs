@@ -6,6 +6,7 @@ using Antura.Helpers;
 using Antura.Core;
 using ArabicSupport;
 #if UNITY_EDITOR
+using System;
 using UnityEditor;
 #endif
 
@@ -338,9 +339,24 @@ namespace Antura.Language
             }
 
             // @note: use this to refill the table with all letters in the DB, if not already present
+#if UNITY_EDITOR
             if (REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB)
             {
                 var dbLetters = AppManager.I.DB.GetAllLetterData();
+
+                // First, get rid of data that uses diacritics that we do not have
+                var nBefore = diacriticsComboData.Keys.Count;
+                diacriticsComboData.Keys.RemoveAll(k => !dbLetters.Any(l => l.GetUnicode().Equals(k.letter2.unicode)));
+                var nAfter  = diacriticsComboData.Keys.Count;
+
+                Debug.LogError("Get rid of " + (nBefore - nAfter) + " wrong diacritic combos");
+
+                var sortedDiacritics = dbLetters.Where(x => x.Type == LetterDataType.DiacriticSymbol).ToList();
+                sortedDiacritics.Sort((d1, d2) => d1.Number - d2.Number);
+
+                Debug.LogError("SORTED DIACRITICS: " + sortedDiacritics.ToJoinedString());
+
+                // Then, fill with data from the letter DB
                 for (var i = 0; i < dbLetters.Count; i++)
                 {
                     var letter = dbLetters[i];
@@ -348,48 +364,65 @@ namespace Antura.Language
                     bool isSymbol = letter.IsOfKindCategory(LetterKindCategory.Symbol);
                     if (!letter.IsOfKindCategory(LetterKindCategory.BaseAndVariations) && !isSymbol) continue;
 
-                    //Debug.LogError("Got Letter: " + letter.Id);
+                    Debug.LogError("Got Letter: " + letter.Id);
 
                     foreach (var letterForm in letter.GetAvailableForms())
                     {
-                        //Debug.LogError("Has Letter form: " + letterForm);
-
                         var formUnicode = letter.GetUnicode(letterForm);
+                        Debug.LogError($"With Letter form: {letterForm}({formUnicode})");
 
-                        foreach (var diacriticUnicode in diacriticsSortOrder)
+                        foreach (var diacritic in sortedDiacritics)
                         {
+                            var diacriticUnicode = diacritic.GetUnicode();
+                            Debug.LogError($"compare to diacritic: {diacritic}({diacriticUnicode})");
+
+                            bool Comparison(DiacriticEntryKey x)
+                            {
+                                return x.letter1.unicode.Equals(formUnicode, StringComparison.InvariantCultureIgnoreCase) && x.letter2.unicode.Equals(diacriticUnicode, StringComparison.InvariantCultureIgnoreCase);
+                            }
+
                             if ((isSymbol && diacriticUnicode != Shaddah) || formUnicode == Shaddah)
                             {
                                 // Should not appear Remove them if there are
-                                diacriticsComboData.Keys.RemoveAll(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode);
+                                Debug.LogError("Removing keys!");
+                                diacriticsComboData.Keys.RemoveAll(Comparison);
                                 continue;
                             }
-                            DiacriticEntryKey key;
-                            if (diacriticsComboData.Keys.Any(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode))
+
+                            DiacriticEntryKey key = null;
+                            try
                             {
-                                //Debug.Log("We already have key with unicode " + formUnicode + " and diacritic " + diacriticUnicode);
-                                key = diacriticsComboData.Keys.First(x => x.letter1.unicode == formUnicode && x.letter2.unicode == diacriticUnicode);
-                            }
-                            else
-                            {
-                                //Debug.LogError("Generating key with unicode " + formUnicode + " and diacritic " + diacriticUnicode);
-                                key = new DiacriticEntryKey
+                                if (diacriticsComboData.Keys.Any(Comparison))
                                 {
-                                    letter1 = FindLetter(dbLetters, formUnicode),
-                                    letter2 = FindLetter(dbLetters, diacriticUnicode)
-                                };
-                                diacriticsComboData.Keys.Add(key);
-                            }
+                                    Debug.Log($"We already have key with unicode {formUnicode} and diacritic {diacriticUnicode}");
+                                    key = diacriticsComboData.Keys.First(Comparison);
+
+                                    // Refresh the ID with the current DB tho (names of letters may be different)
+                                    key.letter1.id = letter.Id;
+                                    key.letter2.id = diacritic.Id;
+                                }
+                                else
+                                {
+                                    Debug.LogError($"Generating key with unicode {formUnicode} and diacritic {diacriticUnicode}");
+                                    key = new DiacriticEntryKey
+                                    {
+                                        letter1 = FindLetter(dbLetters, formUnicode),
+                                        letter2 = FindLetter(dbLetters, diacriticUnicode)
+                                    };
+                                    diacriticsComboData.Keys.Add(key);
+                                }
+                            } catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
 
                             // Refresh page & sorting
                             //Debug.LogError("Check " + key.letter1.id + " " + key.letter2.id);
-                            try { RefreshEntrySorting(key.letter1, AppManager.I.DB.GetLetterDataById(key.letter1.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
-                            try { RefreshEntrySorting(key.letter2, AppManager.I.DB.GetLetterDataById(key.letter2.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                            try { if (key != null) RefreshEntrySorting(key.letter1, AppManager.I.DB.GetLetterDataById(key.letter1.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                            try { if (key != null) RefreshEntrySorting(key.letter2, AppManager.I.DB.GetLetterDataById(key.letter2.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
                         }
                     }
                 }
 
             }
+#endif
 
             if (REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB || REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS)
             {
