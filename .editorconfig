@@ -5,8 +5,395 @@ root = true
 [*]
 end_of_line = lf
 
+## JSON, PowerShell, Shell scripts, CSProj (XML), and Config (XML) files ##
+[*.{json,ps1,sh,csproj,config}]
+indent_style = space
+indent_size = 2
+
+## CSharp files ##
 [*.cs]
 indent_style = space
 indent_size = 4
-charset = utf-8
+
+# Line Prefs
+insert_final_newline = true
+end_of_line = lf
 trim_trailing_whitespace = true
+
+# C# formatting rules
+# Newline options - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#new-line-options
+# see also https://github.com/dotnet/roslyn/blob/main/.editorconfig
+csharp_new_line_before_open_brace = all
+csharp_new_line_before_else = true
+csharp_new_line_before_catch = true
+csharp_new_line_before_finally = true
+csharp_new_line_before_members_in_object_initializers = false
+csharp_new_line_before_members_in_anonymous_types = false
+csharp_new_line_between_query_expression_clauses = true
+
+# Indentation options - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#indentation-options
+csharp_indent_case_contents = true
+csharp_indent_switch_labels = true
+csharp_indent_labels = one_less_than_current
+csharp_indent_block_contents = true
+csharp_indent_braces = false
+csharp_indent_case_contents_when_block = false
+
+# Spacing options - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#spacing-options
+csharp_space_after_cast = false
+csharp_space_after_keywords_in_control_flow_statements = true
+csharp_space_between_parentheses = false
+csharp_space_before_colon_in_inheritance_clause = true
+csharp_space_after_colon_in_inheritance_clause = true
+csharp_space_around_binary_operators = before_and_after
+csharp_space_between_method_declaration_parameter_list_parentheses = false
+csharp_space_between_method_declaration_empty_parameter_list_parentheses = false
+csharp_space_between_method_declaration_name_and_open_parenthesis = false
+csharp_space_between_method_call_parameter_list_parentheses = false
+csharp_space_between_method_call_empty_parameter_list_parentheses = false
+csharp_space_between_method_call_name_and_opening_parenthesis = false
+csharp_space_after_comma = true
+csharp_space_before_comma = false
+csharp_space_after_dot = false
+csharp_space_before_dot = false
+csharp_space_after_semicolon_in_for_statement = true
+csharp_space_before_semicolon_in_for_statement = false
+csharp_space_around_declaration_statements = false
+csharp_space_before_open_square_brackets = false
+csharp_space_between_empty_square_brackets = false
+csharp_space_between_square_brackets = false
+
+# Wrap options - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#wrap-options
+csharp_preserve_single_line_blocks = true
+csharp_preserve_single_line_statements = false
+
+######################### Naming rules #########################
+# Interfaces should begin with I
+dotnet_naming_rule.interface_should_begin_with_i.symbols = interface
+dotnet_naming_rule.interface_should_begin_with_i.style = begins_with_i
+dotnet_naming_rule.interface_should_begin_with_i.severity = error
+dotnet_naming_symbols.interface.applicable_kinds = interface
+dotnet_naming_symbols.interface.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_style.begins_with_i.required_prefix = I
+dotnet_naming_style.begins_with_i.capitalization = pascal_case
+
+# Types should be PascalCase
+dotnet_naming_rule.types_should_be_pascal_case.symbols = types
+dotnet_naming_rule.types_should_be_pascal_case.style = pascal_case
+dotnet_naming_rule.types_should_be_pascal_case.severity = error
+dotnet_naming_symbols.types.applicable_kinds = namespace, class, struct, interface, enum, property, method, event, delegate, local_function
+dotnet_naming_symbols.types.applicable_accessibilities = public, internal, private, protected, protected_internal
+dotnet_naming_style.pascal_case.capitalization = pascal_case
+
+# Member const fields are PascalCase and no prefix
+dotnet_naming_rule.member_const_fields.symbols = member_const_fields
+dotnet_naming_rule.member_const_fields.style = member_const_fields_style
+dotnet_naming_rule.member_const_fields.severity = error
+dotnet_naming_symbols.member_const_fields.applicable_kinds = field, local
+dotnet_naming_symbols.member_const_fields.applicable_accessibilities = *
+dotnet_naming_symbols.member_const_fields.required_modifiers = const
+dotnet_naming_style.member_const_fields_style.capitalization = pascal_case
+
+# Member fields are camelCase and start with _
+dotnet_naming_rule.member_fields.symbols = member_fields
+dotnet_naming_rule.member_fields.style = member_field_style
+dotnet_naming_rule.member_fields.severity = error
+dotnet_naming_symbols.member_fields.applicable_kinds = field
+dotnet_naming_symbols.member_fields.applicable_accessibilities = *
+dotnet_naming_style.member_field_style.capitalization = camel_case
+dotnet_naming_style.member_field_style.required_prefix = _
+
+# Locals and parameters are camelCase
+dotnet_naming_rule.locals_should_be_camel_case.symbols = locals_and_parameters
+dotnet_naming_rule.locals_should_be_camel_case.style = camel_case_style
+dotnet_naming_rule.locals_should_be_camel_case.severity = error
+dotnet_naming_symbols.locals_and_parameters.applicable_kinds = parameter, local
+dotnet_naming_symbols.locals_and_parameters.applicable_accessibilities = *
+dotnet_naming_style.camel_case_style.capitalization = camel_case
+
+######################### Code style rules #########################
+# Configuration Options for Code Analysis - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/configuration-options
+# Code Style Rules - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/
+# Unity Diagnostic Suppressors - https://github.com/microsoft/Microsoft.Unity.Analyzers/blob/main/doc/index.md
+
+# -> Lists all code style rules by ID and options, if any.
+# IDE0001: Simplify name
+dotnet_diagnostic.IDE0001.severity = suggestion
+# IDE0002: Simplify member access
+dotnet_diagnostic.IDE0002.severity = suggestion
+# IDE0003: Remove `this` or `Me` qualification
+# IDE0009: Add `this` or `Me` qualification
+dotnet_diagnostic.IDE0003.severity = suggestion
+dotnet_style_qualification_for_event = false
+dotnet_style_qualification_for_field = false
+dotnet_style_qualification_for_method = false
+dotnet_style_qualification_for_property = false
+# IDE0004: Remove unnecessary cast
+dotnet_diagnostic.IDE0004.severity = warning
+# IDE0005: Remove Unnecessary import
+dotnet_diagnostic.IDE0005.severity = refactoring
+# IDE0007: Use 'var' instead of explicit type
+# IDE0008: Use explicit type instead of 'var'
+dotnet_diagnostic.IDE0007.severity = suggestion
+csharp_style_var_for_built_in_types = false
+csharp_style_var_when_type_is_apparent = true
+csharp_style_var_elsewhere = false
+# IDE0010: Add missing cases to switch statement
+dotnet_diagnostic.IDE0010.severity = warning
+# IDE0011: Add braces
+dotnet_diagnostic.IDE0011.severity = none
+csharp_prefer_braces = true
+# IDE0016: Use throw expression
+dotnet_diagnostic.IDE0016.severity = suggestion
+csharp_style_throw_expression = true
+# IDE0017: Use object initializers
+dotnet_diagnostic.IDE0017.severity = suggestion
+dotnet_style_object_initializer = true
+# IDE0018: Inline variable declaration
+dotnet_diagnostic.IDE0018.severity = suggestion
+csharp_style_inlined_variable_declaration = true
+# IDE0019: Use pattern matching to avoid 'as' followed by a 'null' check
+dotnet_diagnostic.IDE0019.severity = suggestion
+csharp_style_pattern_matching_over_as_with_null_check = true
+# IDE0020: Use pattern matching to avoid 'is' check followed by a cast (with variable)
+# IDE0038: Use pattern matching to avoid 'is' check followed by a cast (without variable)
+dotnet_diagnostic.IDE0020.severity = suggestion
+dotnet_diagnostic.IDE0038.severity = suggestion
+csharp_style_pattern_matching_over_is_with_cast_check = true
+# IDE0021: Use expression body for constructors
+dotnet_diagnostic.IDE0021.severity = suggestion
+csharp_style_expression_bodied_constructors = when_on_single_line
+# IDE0022: Use expression body for methods
+dotnet_diagnostic.IDE0022.severity = none
+csharp_style_expression_bodied_methods = when_on_single_line
+# IDE0023: Use expression body for conversion operators
+# IDE0024: Use expression body for operators
+dotnet_diagnostic.IDE0023.severity = suggestion
+dotnet_diagnostic.IDE0024.severity = suggestion
+csharp_style_expression_bodied_operators = when_on_single_line
+# IDE0025: Use expression body for properties
+dotnet_diagnostic.IDE0025.severity = suggestion
+csharp_style_expression_bodied_properties = when_on_single_line
+# IDE0026: Use expression body for indexers
+dotnet_diagnostic.IDE0026.severity = suggestion
+csharp_style_expression_bodied_indexers = when_on_single_line
+# IDE0027: Use expression body for accessors
+dotnet_diagnostic.IDE0027.severity = suggestion
+csharp_style_expression_bodied_accessors = when_on_single_line
+# IDE0028: Use collection initializers
+dotnet_diagnostic.IDE0028.severity = suggestion
+dotnet_style_collection_initializer = true
+
+# IDE0029: Use coalesce expression (non-nullable types)
+# USP0001: Suppresses IDE0029 - Unity objects should not use null coalescing
+# dotnet_diagnostic.IDE0029.severity = error
+
+# IDE0030: Use coalesce expression (nullable types)
+# Unity objects don't support null coalescing so best to turn it off
+dotnet_diagnostic.IDE0030.severity = error
+dotnet_style_coalesce_expression = false
+
+# IDE0031: Use null propagation
+# USP0002: Suppresses IDE0031 - Unity objects should not use null propagation
+# dotnet_diagnostic.IDE0031.severity = error
+# dotnet_style_null_propagation = false
+
+# IDE0032: Use auto property
+dotnet_diagnostic.IDE0032.severity = suggestion
+dotnet_style_prefer_auto_properties = none
+
+# IDE0033: Use explicityly provided tuple name
+dotnet_diagnostic.IDE0033.severity = suggestion
+dotnet_style_explicit_tuple_names = true
+
+# IDE0034: Simplify 'default' expression
+dotnet_diagnostic.IDE0034.severity = suggestion
+csharp_prefer_simple_default_expression = true
+
+# IDE0035: Remove unreachable code
+dotnet_diagnostic.IDE0035.severity = suggestion
+
+# IDE0036: Order modifiers
+dotnet_diagnostic.IDE0036.severity = default
+
+# IDE0037: Use inferred member name
+dotnet_diagnostic.IDE0037.severity = suggestion
+dotnet_style_prefer_inferred_anonymous_type_member_names = true
+dotnet_style_prefer_inferred_tuple_names = true
+
+# IDE0039: Use local function instead of lambda
+dotnet_diagnostic.IDE0039.severity = suggestion
+csharp_style_pattern_local_over_anonymous_function = true
+
+# IDE0040: Add accessibility modifiers
+dotnet_diagnostic.IDE0040.severity = none
+dotnet_style_require_accessibility_modifiers = for_non_interface_members
+
+# IDE0041: Use is null check
+# Unity objects don't support null checking so best to use ReferenceEquals(value, null)
+dotnet_diagnostic.IDE0041.severity = error
+dotnet_style_prefer_is_null_check_over_reference_equality_method = false
+
+# IDE0042: Deconstruct variable declaration
+dotnet_diagnostic.IDE0042.severity = suggestion
+csharp_style_deconstructed_variable_declaration = true
+
+# IDE0044: Add readonly modifier
+# USP0004: Suppresses IDE0044 - Don't set fields with SerializeField or SerializeReference attributes to read-only
+# USP0011: Suppresses IDE0044 - Don't make fields with the ContextMenuItem attribute read-only
+# dotnet_diagnostic.IDE0044.severity = none
+# dotnet_style_readonly_field = false
+
+# IDE0045: Use conditional expression for assignment
+dotnet_diagnostic.IDE0045.severity = none
+dotnet_style_prefer_conditional_expression_over_assignment = true
+
+# IDE0046: Use conditional expression for return
+dotnet_diagnostic.IDE0046.severity = suggestion
+dotnet_style_prefer_conditional_expression_over_return = true
+
+# IDE0047: Remove unnecessary parentheses
+# IDE0048: Add parentheses for clarity
+dotnet_diagnostic.IDE0048.severity = default # default causes IDE to not bring it up, set to suggestion to see potential fixes
+dotnet_style_parentheses_in_arithmetic_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_other_binary_operators = always_for_clarity
+dotnet_style_parentheses_in_other_operators = never_if_unnecessary
+dotnet_style_parentheses_in_relational_binary_operators = always_for_clarity
+
+# IDE0049: Use language keywords instead of framework type names for type references
+dotnet_diagnostic.IDE0049.severity = warning
+dotnet_style_predefined_type_for_locals_parameters_members = true
+dotnet_style_predefined_type_for_member_access = true
+
+# IDE0050: Convert anonymous type to tuple
+dotnet_diagnostic.IDE0050.severity = warning
+
+# IDE0051: Remove unused private member
+# USP0003: Suppresses IDE0051 - The Unity runtime invokes Unity messages
+# USP0006: Suppresses IDE0051 - Don't flag private fields with SerializeField or SerializeReference attributes as unused
+# USP0007: Suppresses CS0649 - Don't flag fields with SerializeField or SerializeReference attributes as never assigned
+# USP0008: Suppresses IDE0051 - Don't flag private methods used with Invoke/InvokeRepeating or StartCoroutine/StopCoroutine as unused
+# USP0009: Suppresses IDE0051 - Don't flag methods with MenuItem/ContextMenu attribute or referenced by a field with the ContextMenuItem attribute as unused
+# USP0010: Suppresses IDE0051 - Don't flag fields with ContextMenuItem attribute as unused
+# USP0012: Suppresses IDE0051 - Don't flag private methods with InitializeOnLoadMethod or RuntimeInitializeOnLoadMethod attribute as unused
+# USP0013: Suppresses CA1823 - Don't flag private fields with SerializeField or SerializeReference attributes as unused
+# USP0014: Suppresses CA1822 - The Unity runtime invokes Unity messages
+# USP0015: Suppresses CA1801 - The Unity runtime invokes Unity messages
+# USP0016: Suppresses CS8618 - Initialization detection of types inheriting from UnityEngine.Object
+dotnet_diagnostic.IDE0051.severity = none
+
+# IDE0052: Remove unread private member
+dotnet_diagnostic.IDE0052.severity = suggestion
+
+# IDE0053: Use expression body for lambdas
+dotnet_diagnostic.IDE0053.severity = suggestion
+csharp_style_expression_bodied_lambdas = when_on_single_line
+
+# IDE0054: Use compound assignment
+dotnet_diagnostic.IDE0054.severity = warning
+dotnet_style_prefer_compound_assignment = true
+
+# IDE0055: Fix formatting
+dotnet_diagnostic.IDE0055.severity = suggestion
+
+# IDE0056: Use index operator
+# As of 11 May 2021 index and range operators not supported in Unity
+dotnet_diagnostic.IDE0056.severity = error
+csharp_style_prefer_index_operator = false
+
+# IDE0057: use range operator
+# As of 11 May 2021 index and range operators not supported in Unity
+dotnet_diagnostic.IDE0057.severity = error
+csharp_style_prefer_range_operator = false
+
+# IDE0058: Remove unnecessary expression value
+dotnet_diagnostic.IDE0058.severity = suggestion
+csharp_style_unused_value_expression_statement_preference = discard_variable
+
+# IDE0059: Remove unnecessary value assignment
+dotnet_diagnostic.IDE0059.severity = suggestion
+csharp_style_unused_value_assignment_preference = discard_variable
+
+# IDE0060: Remove unused parameter
+# USP0005: Suppresses IDE0060 - The Unity runtime invokes Unity messages
+# dotnet_diagnostic.IDE0060.severity = suggestion
+# dotnet_code_quality_unused_parameters = all
+
+# IDE0061: Use expression body for local functions
+dotnet_diagnostic.IDE0061.severity = suggestion
+csharp_style_expression_bodied_local_functions = when_on_single_line
+# IDE0062: Make local function static
+dotnet_diagnostic.IDE0062.severity = warning
+csharp_prefer_static_local_function = true
+# IDE0063: Use simple 'using' statement
+# Not sure if Unity supports or not, need to test
+dotnet_diagnostic.IDE0063.severity = suggestion
+csharp_prefer_simple_using_statement = false
+# IDE0064: Make struct fields writable
+dotnet_diagnostic.IDE0064.severity = suggestion
+# IDE0065: 'using' directive placement
+dotnet_diagnostic.IDE0065.severity = suggestion
+csharp_using_directive_placement = outside_namespace
+# IDE0066: Use switch expression
+dotnet_diagnostic.IDE0066.severity = suggestion
+csharp_style_prefer_switch_expression = true
+# IDE0070: Use `System.HashCode.Combine`
+dotnet_diagnostic.IDE0070.severity = warning
+# IDE0071: Simplify interpolation
+dotnet_diagnostic.IDE0071.severity = suggestion
+dotnet_style_prefer_simplified_interpolation = true
+# IDE0072: Add missing cases to switch expression
+dotnet_diagnostic.IDE0072.severity = warning
+# IDE0073: Require file header
+dotnet_diagnostic.IDE0073.severity = none
+file_header_template = unset
+
+# IDE0074: Use coalesce compound assignment
+# USP0017: Suppresses IDE0074 - Unity objects should not use coalescing assignment
+# dotnet_diagnostic.IDE0074.severity = error 
+
+# IDE0075: Simplify conditional expression
+dotnet_diagnostic.IDE0075.severity = suggestion
+dotnet_style_prefer_simplified_boolean_expressions = true
+# IDE0076: Remove invalid global 'SuppressMessageAttribute'
+# use default value
+# IDE0077: Avoid legacy format target in global 'SuppressMessageAttribute'
+# use default value
+# IDE0078: Use pattern matching
+# As of 11 May 2021 Unity does not support C# v9 features
+dotnet_diagnostic.IDE0078.severity = error
+csharp_style_prefer_pattern_matching = false
+# IDE0079: Remove unnecessary suppression
+# use default value
+# IDE0080: Remove unnecessary suppression operator
+# use default value
+# IDE0081: Remove `ByVal` - Visual Basic only
+# IDE0082: Convert `typeof` to `nameof`
+dotnet_diagnostic.IDE0082.severity = suggestion
+# IDE0083: Use pattern matching (`not` operator)
+# As of 11 May 2021 Unity does not support C# v9 features
+dotnet_diagnostic.IDE0082.severity = error
+csharp_style_prefer_not_pattern = false
+# IDE0084: Use pattern matching (`IsNot` operator) - Visual Basic only
+# IDE0090: Simplify `new` expression
+# As of 11 May 2021 Unity does not support C# v9 features
+dotnet_diagnostic.IDE0090.severity = error
+csharp_style_implicit_object_creation_when_type_is_apparent = false
+# IDE0100: Remove unnecessary equality operator
+dotnet_diagnostic.IDE0100.severity = suggestion
+# IDE0110: Remove unnecessary discard
+dotnet_diagnostic.IDE0110.severity = suggestion
+# IDE0140: Simplify object creation - Visual Basic only
+# IDE1005: use conditional delegate call
+dotnet_diagnostic.IDE1005.severity = suggestion
+csharp_style_conditional_delegate_call = true
+# IDE1006: Naming rule violation
+dotnet_diagnostic.IDE1006.severity = none
+
+## Generated Code Folders ##
+# Rules are not applied in the following folders
+[Assets/TextMesh Pro/**.cs]
+generated_code = true
+
+[Assets/ThirdParty/**.cs]
+generated_code = true
