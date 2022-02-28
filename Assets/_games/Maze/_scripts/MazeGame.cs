@@ -364,7 +364,7 @@ namespace Antura.Minigames.Maze
             IQuestionPack newQuestionPack = MazeConfiguration.Instance.Questions.GetNextQuestion();
             List<ILivingLetterData> ldList = (List<ILivingLetterData>)newQuestionPack.GetCorrectAnswers();
             LL_LetterData ld = (LL_LetterData)ldList[0];
-            int index = -1;
+            //int index = -1;
 
             /*
             // TEST
