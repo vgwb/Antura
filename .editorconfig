@@ -23,8 +23,8 @@ trim_trailing_whitespace = true
 # C# formatting rules
 # Newline options - https://docs.microsoft.com/en-us/dotnet/fundamentals/code-analysis/style-rules/formatting-rules#new-line-options
 # see also https://github.com/dotnet/roslyn/blob/main/.editorconfig
-csharp_new_line_before_open_brace = all
-csharp_new_line_before_else = true
+csharp_new_line_before_open_brace = accessors, anonymous_methods, anonymous_types, events, indexers, lambdas, local_functions, methods, object_collection_array_initializers, properties, types
+csharp_new_line_before_else = false
 csharp_new_line_before_catch = true
 csharp_new_line_before_finally = true
 csharp_new_line_before_members_in_object_initializers = false
