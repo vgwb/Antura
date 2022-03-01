@@ -10,7 +10,6 @@ using System.IO;
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
-
 #endif
 
 namespace Antura.Core
@@ -124,6 +123,8 @@ namespace Antura.Core
         public string BundleVersion;
 
         public Texture2D Android_AppIcon;
+        public Texture2D Android_AppIcon_Bg;
+        public Texture2D Android_AppIcon_Fg;
         public Texture2D iOS_AppIcon;
         public Sprite[] SplashLogos;
 
@@ -132,7 +133,8 @@ namespace Antura.Core
         public void ConfigureForBuild()
         {
             var config = ApplicationConfig.FindMainConfig();
-            if (config == null) return;
+            if (config == null)
+                return;
 
             config.LoadedAppEdition = this;
             PlayerSettings.productName = ProductName;
@@ -161,26 +163,26 @@ namespace Antura.Core
                 languagesToUse.Add(edition.HelpLanguage);
             }
 
-            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
-            {
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {
                 var langCode = (LanguageCode)iLang;
-                if (langCode == LanguageCode.NONE) continue;
+                if (langCode == LanguageCode.NONE)
+                    continue;
 
                 string pascalcaseName = langCode.ToString();
                 var words = pascalcaseName.Split('_');
                 pascalcaseName = "";
-                for (var i = 0; i < words.Length; i++)
-                {
+                for (var i = 0; i < words.Length; i++) {
                     var word = words[i];
                     pascalcaseName += $"{Char.ToUpperInvariant(word[0])}{word.Substring(1)}";
-                    if (i < words.Length - 1) pascalcaseName += "_";
+                    if (i < words.Length - 1) {
+                        pascalcaseName += "_";
+                    }
                 }
 
                 var assetGroupSchemaPath = $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
                 var schema = AssetDatabase.LoadAssetAtPath<BundledAssetGroupSchema>(assetGroupSchemaPath);
 
-                if (schema == null)
-                {
+                if (schema == null) {
                     Debug.LogWarning($"Language {langCode} is not setup with Addressables. No schema found at '{assetGroupSchemaPath}'");
                     continue;
                 }
@@ -208,7 +210,6 @@ namespace Antura.Core
             AddressableAssetSettings.BuildPlayerContent();
             Debug.LogWarning($"Rebuilt addressables");
         }
-
 
         /*[DeMethodButton("Test set cloud config")]
         public void TestSetCloudConfig()
