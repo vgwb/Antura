@@ -49,14 +49,16 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         private bool AnalyticsEnabled
         {
-            get {
+            get
+            {
                 return AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
             }
         }
 
         public void TrackCompletedRegistration(PlayerProfile playerProfile)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["avatar_id"] = playerProfile.AvatarId;
@@ -68,7 +70,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             //parameters["age"] = playerProfile.Age;
             //Analytics.CustomEvent("CompletedRegistration", parameters);
 
-            Dictionary<string, object> avatarObJ = new Dictionary<string, object>()
+            var avatarObJ = new Dictionary<string, object>()
             {
                 { "id", playerProfile.AvatarId },
                 { "bg_color", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
@@ -78,7 +80,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
             string myAvatar = JsonUtility.ToJson(avatarObJ);
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>()
             {
                 { "myAvatar", myAvatar },
                 { "myGender", playerProfile.Gender.ToString() },
@@ -94,7 +96,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["jp"] = jp.Id;
@@ -105,7 +108,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             ////Analytics.CustomEvent("AchievedLevel", parameters);
             //AnalyticsEvent.LevelUp(jp.Id, parameters);
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>()
             {
                 { "JP", jp.Id },
                 { "Stage", jp.Stage },
@@ -121,7 +124,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackCompletedFirstContactPhase(FirstContactPhase phase)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["phase"] = (int)phase;
@@ -144,7 +148,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackSpentBones(int nSpent)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["spent"] = (int)nSpent;
@@ -153,7 +158,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             //AnalyticsEvent.ItemSpent(AcquisitionType.Soft, "space", (float)nSpent, "bones");
 
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>()
             {
                 { "bonesSpent", nSpent }
             };
@@ -167,7 +172,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackCustomization(AnturaCustomization customization, float anturaSpacePlayTime)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["customization_json"] = customization.GetJsonListOfIds();
@@ -175,7 +181,7 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             //Analytics.CustomEvent("custom_antura_customization", parameters);
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>()
             {
                 { "customization", customization.GetJsonListOfIds() },
                 { "AnturaSpace_playtime", (int)anturaSpacePlayTime }
@@ -189,7 +195,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackMiniGameScore(MiniGameCode miniGameCode, int score, JourneyPosition currentJourneyPosition, float duration)
         {
-            if (!AnalyticsEnabled) return;
+            if (!AnalyticsEnabled)
+                return;
 
             //var parameters = new Dictionary<string, object>();
             //parameters["minigame_code"] = miniGameCode.ToString();
@@ -201,7 +208,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             ////Analytics.CustomEvent("custom_minigame_score", parameters);
             //AnalyticsEvent.LevelComplete(currentJourneyPosition.Id, parameters);
 
-            Dictionary<string, object> parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>()
             {
                 { "minigame", miniGameCode.ToString() },
                 { "score", score },
