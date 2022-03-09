@@ -1,3 +1,0 @@
-# Arabic Text Rendering
-
-TBD
