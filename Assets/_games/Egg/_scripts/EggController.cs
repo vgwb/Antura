@@ -117,12 +117,15 @@ namespace Antura.Minigames.Egg
 
         public void MoveNext(float duration, Action callback)
         {
-            if (moveEggParentTween != null) { moveEggParentTween.Kill(); }
-            if (rotationEggTween != null) { rotationEggTween.Kill(); }
+            if (moveEggParentTween != null)
+            { moveEggParentTween.Kill(); }
+            if (rotationEggTween != null)
+            { rotationEggTween.Kill(); }
 
             currentPosition++;
 
-            if (currentPosition >= eggPositions.Length) {
+            if (currentPosition >= eggPositions.Length)
+            {
                 currentPosition = 0;
             }
 
@@ -135,7 +138,8 @@ namespace Antura.Minigames.Egg
 
         public bool isNextToExit
         {
-            get {
+            get
+            {
                 if (currentPosition == eggPositions.Length - 2)
                     return true;
 
@@ -145,30 +149,37 @@ namespace Antura.Minigames.Egg
 
         public void InitializeEggPieces()
         {
-            for (int i = 0; i < eggPieces.Length; i++) {
+            for (int i = 0; i < eggPieces.Length; i++)
+            {
                 eggPieces[i].onPoofEnd = OnPiecePoofComplete;
             }
         }
 
         public void ResetCrack()
         {
-            for (int i = 0; i < eggPieces.Length; i++) {
+            for (int i = 0; i < eggPieces.Length; i++)
+            {
                 eggPieces[i].Reset();
             }
         }
 
         public void Cracking(float progress)
         {
-            if (progress == 1f) {
-                for (int i = 0; i < eggPieces.Length; i++) {
+            if (progress == 1f)
+            {
+                for (int i = 0; i < eggPieces.Length; i++)
+                {
                     bool poofDirRight = (i % 2 == 0);
 
                     eggPieces[i].Poof(poofDirRight);
                 }
 
                 ShowEndLetters();
-            } else {
-                for (int i = 0; i < eggPieces.Length; i++) {
+            }
+            else
+            {
+                for (int i = 0; i < eggPieces.Length; i++)
+                {
                     eggPieces[i].Shake();
                 }
             }
@@ -176,14 +187,18 @@ namespace Antura.Minigames.Egg
 
         void MoveTo(Vector3 position, float duration)
         {
-            if (moveEggParentTween != null) {
+            if (moveEggParentTween != null)
+            {
                 moveEggParentTween.Kill();
             }
 
-            moveEggParentTween = transform.DOLocalMove(position, duration).OnComplete(delegate () {
-                if (endTransformToCallback != null) endTransformToCallback();
+            moveEggParentTween = transform.DOLocalMove(position, duration).OnComplete(delegate ()
+            {
+                if (endTransformToCallback != null)
+                    endTransformToCallback();
 
-                if (onEggExitComplete != null && (currentPosition == eggPositions.Length - 1)) {
+                if (onEggExitComplete != null && (currentPosition == eggPositions.Length - 1))
+                {
                     onEggExitComplete();
                 }
 
@@ -192,23 +207,27 @@ namespace Antura.Minigames.Egg
 
         void InOutRotation(Vector3 rotation, float duration)
         {
-            if (rotationEggTween != null) {
+            if (rotationEggTween != null)
+            {
                 rotationEggTween.Kill();
             }
 
             rotationEggTween = DOTween.To(() => egg.transform.eulerAngles.z, z => egg.transform.eulerAngles = new Vector3(egg.transform.eulerAngles.x, egg.transform.eulerAngles.y, z), rotation.z + 720f, duration * 0.95f)
-                .OnComplete(delegate () {
+                .OnComplete(delegate ()
+                {
                     BouncingRotation(0.5f);
                 });
         }
 
         void RoteteTo(Vector3 rotation, float duration)
         {
-            if (rotationEggTween != null) {
+            if (rotationEggTween != null)
+            {
                 rotationEggTween.Kill();
             }
 
-            rotationEggTween = egg.transform.DORotate(rotation, duration * 0.93f).OnComplete(delegate () {
+            rotationEggTween = egg.transform.DORotate(rotation, duration * 0.93f).OnComplete(delegate ()
+            {
                 BouncingRotation();
             });
         }
@@ -223,8 +242,10 @@ namespace Antura.Minigames.Egg
             Vector3 rotationSecondStep = Vector3.zero;
             rotationSecondStep.z += secondStepValue;
 
-            rotationEggTween = transform.DORotate(rotationFirstStep, (duration / 10f) * 5f).OnComplete(delegate () {
-                rotationEggTween = transform.DORotate(rotationSecondStep, (duration / 10f) * 4f).OnComplete(delegate () {
+            rotationEggTween = transform.DORotate(rotationFirstStep, (duration / 10f) * 5f).OnComplete(delegate ()
+            {
+                rotationEggTween = transform.DORotate(rotationSecondStep, (duration / 10f) * 4f).OnComplete(delegate ()
+                {
                     rotationEggTween = transform.DORotate(Vector3.zero, (duration / 10f) * 2f);
                 });
             });
@@ -234,9 +255,12 @@ namespace Antura.Minigames.Egg
         {
             MoveTo(localPosition, duration);
 
-            if (inOutRotation) {
+            if (inOutRotation)
+            {
                 InOutRotation(rotation, duration);
-            } else {
+            }
+            else
+            {
                 RoteteTo(rotation, duration);
             }
 
@@ -245,8 +269,10 @@ namespace Antura.Minigames.Egg
 
         void GoToPosition(int positionNumber, Vector3 rotation)
         {
-            if (moveEggParentTween != null) { moveEggParentTween.Kill(); }
-            if (rotationEggTween != null) { rotationEggTween.Kill(); }
+            if (moveEggParentTween != null)
+            { moveEggParentTween.Kill(); }
+            if (rotationEggTween != null)
+            { rotationEggTween.Kill(); }
 
             currentPosition = positionNumber;
 
@@ -267,47 +293,62 @@ namespace Antura.Minigames.Egg
 
         void Update()
         {
-            if (lLDAudioQuestion.Count > 0) {
-                if (audioSource != null) {
-                    if (!audioSource.IsPlaying) {
+            if (lLDAudioQuestion.Count > 0)
+            {
+                if (audioSource != null)
+                {
+                    if (!audioSource.IsPlaying)
+                    {
                         audioSource = null;
                     }
-                } else {
+                }
+                else
+                {
                     ILivingLetterData letterData = lLDAudioQuestion[0];
 
                     audioSource = audioManager.PlayVocabularyData(letterData, false, EggConfiguration.Instance.GetVocabularySoundType());
 
                     lLDAudioQuestion.RemoveAt(0);
                 }
-            } else {
-                if (audioSource != null) {
-                    if (!audioSource.IsPlaying) {
+            }
+            else
+            {
+                if (audioSource != null)
+                {
+                    if (!audioSource.IsPlaying)
+                    {
                         audioSource = null;
 
-                        if (endAudioQuestion != null) {
+                        if (endAudioQuestion != null)
+                        {
                             endAudioQuestion();
                         }
                     }
                 }
             }
 
-            if (!eggEggCrackCompleteSent) {
-                if (piecePoofCompleteCount >= eggPieces.Length) {
+            if (!eggEggCrackCompleteSent)
+            {
+                if (piecePoofCompleteCount >= eggPieces.Length)
+                {
                     eggEggCrackCompleteSent = true;
 
                     EggShow(false);
 
-                    if (onEggCrackComplete != null) {
+                    if (onEggCrackComplete != null)
+                    {
                         onEggCrackComplete();
                     }
                 }
             }
 
-            if (emoticonsController != null) {
+            if (emoticonsController != null)
+            {
                 emoticonsController.Update(Time.deltaTime);
             }
 
-            for (int i = 0; i < eggLivingLetters.Count; i++) {
+            for (int i = 0; i < eggLivingLetters.Count; i++)
+            {
                 eggLivingLetters[i].Update(Time.deltaTime);
             }
         }
@@ -323,18 +364,27 @@ namespace Antura.Minigames.Egg
 
             float newYPosition = minY;
 
-            if (zRotation <= 180) {
-                if (zRotation < 90f) {
+            if (zRotation <= 180)
+            {
+                if (zRotation < 90f)
+                {
                     zRotation = 0f;
-                } else {
+                }
+                else
+                {
                     zRotation += -90f;
                 }
-            } else {
+            }
+            else
+            {
                 zRotation += -180f;
 
-                if (zRotation <= 90f) {
+                if (zRotation <= 90f)
+                {
                     zRotation = 90f - zRotation;
-                } else {
+                }
+                else
+                {
                     zRotation = 0f;
                 }
             }
@@ -362,7 +412,8 @@ namespace Antura.Minigames.Egg
         public void SetAnswers(IEnumerable<ILivingLetterData> _answersData)
         {
             answersData.Clear();
-            foreach (ILivingLetterData answerData in _answersData) {
+            foreach (ILivingLetterData answerData in _answersData)
+            {
                 answersData.Add(answerData);
             }
         }
@@ -375,21 +426,24 @@ namespace Antura.Minigames.Egg
 
             lLDAudioQuestion.Clear();
 
-            for (int i = 0; i < answersData.Count; i++) {
+            for (int i = 0; i < answersData.Count; i++)
+            {
                 lLDAudioQuestion.Add(answersData[i]);
             }
         }
 
         public void ParticleWinEnabled()
         {
-            foreach (var particles in eggParticleWin.GetComponentsInChildren<ParticleSystem>(true)) {
+            foreach (var particles in eggParticleWin.GetComponentsInChildren<ParticleSystem>(true))
+            {
                 particles.Play();
             }
         }
 
         public void ParticleWinDisabled()
         {
-            foreach (var particles in eggParticleWin.GetComponentsInChildren<ParticleSystem>(true)) {
+            foreach (var particles in eggParticleWin.GetComponentsInChildren<ParticleSystem>(true))
+            {
                 particles.Stop();
             }
         }
@@ -399,14 +453,16 @@ namespace Antura.Minigames.Egg
             if (particleCorrectSequence != null && particleCorrectSequence.IsPlaying())
                 return;
 
-            foreach (var particles in eggParticleCorrect.GetComponentsInChildren<ParticleSystem>(true)) {
+            foreach (var particles in eggParticleCorrect.GetComponentsInChildren<ParticleSystem>(true))
+            {
                 particles.Play();
             }
 
             particleCorrectSequence = DOTween.Sequence();
 
             particleCorrectSequence.AppendInterval(0.5f);
-            particleCorrectSequence.AppendCallback(delegate () { ParticleCorrectDisabled(); });
+            particleCorrectSequence.AppendCallback(delegate ()
+            { ParticleCorrectDisabled(); });
 
             particleCorrectSequence.Play();
         }
@@ -416,14 +472,16 @@ namespace Antura.Minigames.Egg
             if (particleCorrectSequence != null)
                 particleCorrectSequence.Kill();
 
-            foreach (var particles in eggParticleCorrect.GetComponentsInChildren<ParticleSystem>(true)) {
+            foreach (var particles in eggParticleCorrect.GetComponentsInChildren<ParticleSystem>(true))
+            {
                 particles.Stop();
             }
         }
 
         public void StartShake()
         {
-            for (int i = 0; i < eggPieces.Length; i++) {
+            for (int i = 0; i < eggPieces.Length; i++)
+            {
                 eggPieces[i].Shake();
             }
         }
@@ -448,7 +506,8 @@ namespace Antura.Minigames.Egg
             Vector3[] lettersEndPositions = GetLettersEndPositions();
 
             Vector3 lLetterPosition = new Vector3(transform.localPosition.x, egg.transform.localPosition.y, transform.localPosition.z);
-            for (int i = 0; i < answersData.Count; i++) {
+            for (int i = 0; i < answersData.Count; i++)
+            {
                 letter = new EggLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab, answersData[i], lLetterPosition, transform.localPosition, lettersEndPositions[i], (jumpDelay * i) + startDelay, null);
 
                 eggLivingLetters.Add(letter);
@@ -467,7 +526,8 @@ namespace Antura.Minigames.Egg
 
         void DestroyQuestionLetters()
         {
-            for (int i = 0; i < eggLivingLetters.Count; i++) {
+            for (int i = 0; i < eggLivingLetters.Count; i++)
+            {
                 eggLivingLetters[i].DestroyLetter();
             }
 

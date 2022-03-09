@@ -103,7 +103,8 @@ namespace Antura.Core
         {
             var VersionArray = AppVersion.Split('.');
             string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
-            if (EditionTitle != "") {
+            if (EditionTitle != "")
+            {
                 v += " " + EditionTitle;
             }
             return v;
@@ -145,25 +146,29 @@ namespace Antura.Core
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
             PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
             PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            for (int i = 0; i < SplashLogos.Length; i++) {
+            for (int i = 0; i < SplashLogos.Length; i++)
+            {
                 PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
             }
 
             var learningConfigsToUse = new List<ContentEditionConfig>();
-            foreach (var edition in ContentEditions) {
+            foreach (var edition in ContentEditions)
+            {
                 learningConfigsToUse.Add(edition);
             }
 
             // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
-            foreach (var edition in learningConfigsToUse) {
+            foreach (var edition in learningConfigsToUse)
+            {
                 languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
                 languagesToUse.Add(edition.HelpLanguage);
             }
 
-            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++) {
+            for (int iLang = 0; iLang < (int)LanguageCode.COUNT; iLang++)
+            {
                 var langCode = (LanguageCode)iLang;
                 if (langCode == LanguageCode.NONE)
                     continue;
@@ -171,10 +176,12 @@ namespace Antura.Core
                 string pascalcaseName = langCode.ToString();
                 var words = pascalcaseName.Split('_');
                 pascalcaseName = "";
-                for (var i = 0; i < words.Length; i++) {
+                for (var i = 0; i < words.Length; i++)
+                {
                     var word = words[i];
                     pascalcaseName += $"{Char.ToUpperInvariant(word[0])}{word.Substring(1)}";
-                    if (i < words.Length - 1) {
+                    if (i < words.Length - 1)
+                    {
                         pascalcaseName += "_";
                     }
                 }
@@ -182,15 +189,19 @@ namespace Antura.Core
                 var assetGroupSchemaPath = $"Assets/AddressableAssetsData/AssetGroups/Schemas/{pascalcaseName}_BundledAssetGroupSchema.asset";
                 var schema = AssetDatabase.LoadAssetAtPath<BundledAssetGroupSchema>(assetGroupSchemaPath);
 
-                if (schema == null) {
+                if (schema == null)
+                {
                     Debug.LogWarning($"Language {langCode} is not setup with Addressables. No schema found at '{assetGroupSchemaPath}'");
                     continue;
                 }
 
-                if (languagesToUse.Contains(langCode)) {
+                if (languagesToUse.Contains(langCode))
+                {
                     schema.IncludeInBuild = true;
                     Debug.Log($"Enabling language: {langCode}");
-                } else {
+                }
+                else
+                {
                     schema.IncludeInBuild = false;
                     Debug.Log($"Disabling language: {langCode}");
                 }

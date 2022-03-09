@@ -80,7 +80,7 @@ namespace Antura.Minigames.ReadingGame
                         {
                             lastParsedTime = (float)token;
 
-                            if (currentItem != null) // completed 
+                            if (currentItem != null) // completed
                             {
                                 if (string.IsNullOrEmpty(currentItem.text.Trim()))
                                 {

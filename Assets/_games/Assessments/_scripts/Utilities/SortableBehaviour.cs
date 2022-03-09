@@ -23,8 +23,10 @@ namespace Antura.Assessment
 
         void OnMouseDown()
         {
-            if (GlobalUI.PauseMenu.IsMenuOpen) return;
-            if (!dragEnabled) {
+            if (GlobalUI.PauseMenu.IsMenuOpen)
+                return;
+            if (!dragEnabled)
+            {
                 return;
             }
 
@@ -34,7 +36,8 @@ namespace Antura.Assessment
 
         void SetScale(float scale)
         {
-            if (tween != null) {
+            if (tween != null)
+            {
                 tween.Kill(false);
             }
             tween = transform.DOScale(scale, 0.4f).OnComplete(() => tween = null);
@@ -42,7 +45,8 @@ namespace Antura.Assessment
 
         void OnMouseUp()
         {
-            if (!dragEnabled) {
+            if (!dragEnabled)
+            {
                 return;
             }
 
@@ -71,7 +75,8 @@ namespace Antura.Assessment
         void OnDestroy()
         {
             dragEnabled = false;
-            if (OnGoDestroyed != null) {
+            if (OnGoDestroyed != null)
+            {
                 OnGoDestroyed(this);
             }
         }
@@ -87,7 +92,8 @@ namespace Antura.Assessment
         private int index = -1;
         public bool SetSortIndex(int a)
         {
-            if (index != a) {
+            if (index != a)
+            {
                 index = a;
                 return true;
             }
@@ -117,7 +123,8 @@ namespace Antura.Assessment
         private Tween tweenMove = null;
         internal void Move(Vector3 position, float v)
         {
-            if (tweenMove != null && tweenMove.IsComplete() == false) {
+            if (tweenMove != null && tweenMove.IsComplete() == false)
+            {
                 tweenMove.Kill(false);
             }
 

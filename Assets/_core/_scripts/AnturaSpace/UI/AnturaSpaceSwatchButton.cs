@@ -22,8 +22,10 @@ namespace Antura.AnturaSpace.UI
             base.Lock(_doLock);
 
             IcoLock.SetActive(_doLock);
-            if (_doLock) IcoNew.SetActive(false);
-            if (AnturaSpaceUI.I.HideLockedSwatchesColors) {
+            if (_doLock)
+                IcoNew.SetActive(false);
+            if (AnturaSpaceUI.I.HideLockedSwatchesColors)
+            {
                 ColorImgs[0].gameObject.SetActive(!_doLock);
                 ColorImgs[1].gameObject.SetActive(!_doLock);
             }

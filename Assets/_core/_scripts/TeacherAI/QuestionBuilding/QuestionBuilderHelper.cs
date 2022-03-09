@@ -23,7 +23,8 @@ namespace Antura.Teacher
 
             if (pack.questions != null && pack.questions.Count > 0)
             {
-                foreach (var q in pack.questions) qDiff += ((IVocabularyData)q).GetIntrinsicDifficulty();
+                foreach (var q in pack.questions)
+                    qDiff += ((IVocabularyData)q).GetIntrinsicDifficulty();
                 qDiff /= pack.questions.Count;
             }
 

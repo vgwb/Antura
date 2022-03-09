@@ -46,7 +46,8 @@ namespace Antura.Dog
 
         void Start()
         {
-            if (AppManager.I.Player != null) {
+            if (AppManager.I.Player != null)
+            {
                 var c = AppManager.I.Player.CurrentAnturaCustomizations;
                 LoadAnturaCustomization(c);
             }
@@ -106,8 +107,10 @@ namespace Antura.Dog
 
         public GameObject LoadRewardPackOnAntura(RewardPack rewardPack)
         {
-            if (rewardPack == null) { return null; }
-            switch (rewardPack.BaseType) {
+            if (rewardPack == null)
+            { return null; }
+            switch (rewardPack.BaseType)
+            {
                 case RewardBaseType.Prop:
                     return LoadRewardPropOnAntura(rewardPack);
                 case RewardBaseType.Texture:
@@ -118,7 +121,8 @@ namespace Antura.Dog
                     SkinnedMesh.sharedMaterials = mats;
                     LoadedTexturePack = rewardPack;
                     // Sup mesh for texture
-                    foreach (var _renderer in SkinnedMeshsTextureOnly) {
+                    foreach (var _renderer in SkinnedMeshsTextureOnly)
+                    {
                         var materials = _renderer.sharedMaterials;
                         materials[0] = newMaterial;
                         _renderer.sharedMaterials = materials;
@@ -131,7 +135,8 @@ namespace Antura.Dog
                     decalMats[1] = newDecalMaterial;
                     SkinnedMesh.sharedMaterials = decalMats;
                     // Sup mesh for texture
-                    foreach (SkinnedMeshRenderer _renderer in SkinnedMeshsTextureOnly) {
+                    foreach (SkinnedMeshRenderer _renderer in SkinnedMeshsTextureOnly)
+                    {
                         Material[] materials = _renderer.sharedMaterials;
                         materials[1] = newDecalMaterial;
                         _renderer.sharedMaterials = materials;
@@ -147,7 +152,8 @@ namespace Antura.Dog
 
         public void ClearLoadedRewardPacks()
         {
-            foreach (var item in LoadedModels) {
+            foreach (var item in LoadedModels)
+            {
                 Destroy(item.GO);
             }
             LoadedModels.Clear();
@@ -160,7 +166,8 @@ namespace Antura.Dog
         public void ClearLoadedRewardInCategory(string _categoryId)
         {
             LoadedModel lm = LoadedModels.Find(m => m.RewardPack.Category == _categoryId);
-            if (lm != null) {
+            if (lm != null)
+            {
                 Destroy(lm.GO);
                 LoadedModels.Remove(lm);
             }
@@ -187,14 +194,16 @@ namespace Antura.Dog
         private GameObject LoadRewardPropOnAntura(RewardPack rewardPack)
         {
             RewardProp prop = rewardPack.RewardBase as RewardProp;
-            if (prop == null) {
+            if (prop == null)
+            {
                 Debug.LogFormat("Prop {0} not found!", rewardPack.BaseId);
                 return null;
             }
 
             // Check if we already loaded a reward of this category
             LoadedModel loadedModel = LoadedModels.Find(lm => lm.RewardPack.Category == prop.Category);
-            if (loadedModel != null) {
+            if (loadedModel != null)
+            {
                 Destroy(loadedModel.GO);
                 LoadedModels.Remove(loadedModel);
             }
@@ -202,7 +211,8 @@ namespace Antura.Dog
             // Load Model
             string boneParent = prop.BoneAttach;
             GameObject rewardModel = null;
-            switch (boneParent) {
+            switch (boneParent)
+            {
                 case "dog_head":
                     rewardModel = ModelsManager.MountModel(prop.ID, Dog_head);
                     break;
@@ -237,7 +247,8 @@ namespace Antura.Dog
 
         void OnEnable()
         {
-            if (AppManager.I == null || AppManager.I.RewardSystemManager == null) return;
+            if (AppManager.I == null || AppManager.I.RewardSystemManager == null)
+                return;
             AppManager.I.RewardSystemManager.OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
             PlayerProfileManager.OnProfileChanged += PlayerProfileManager_OnProfileChanged;
         }

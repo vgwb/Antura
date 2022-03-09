@@ -17,7 +17,8 @@ namespace Antura.AnturaSpace
             base.EnterState();
 
             var newObjectToCatch = controller.NextObjectToCatch;
-            if (newObjectToCatch == null) {
+            if (newObjectToCatch == null)
+            {
                 controller.CurrentState = controller.Idle;
                 return;
             }

@@ -40,7 +40,8 @@ namespace Antura.UI
 
         public void Gain()
         {
-            if (hasStar) { return; }
+            if (hasStar)
+            { return; }
             AudioManager.I.PlaySound(Sfx.ScoreUp);
             hasStar = true;
             loseTween.Rewind();
@@ -50,7 +51,8 @@ namespace Antura.UI
 
         public void Lose()
         {
-            if (!hasStar) { return; }
+            if (!hasStar)
+            { return; }
 
             hasStar = false;
             gainTween.Complete();

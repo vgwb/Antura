@@ -24,7 +24,8 @@ namespace Antura.Rewards
 
         static void Init()
         {
-            if (I != null) { return; }
+            if (I != null)
+            { return; }
 
             I = Instantiate(Resources.Load<GameResultUI>(GameResultUIResourcesPath));
             I.BonesCounter.Hide();
@@ -37,7 +38,8 @@ namespace Antura.Rewards
 
         void OnDestroy()
         {
-            if (I == this) { I = null; }
+            if (I == this)
+            { I = null; }
         }
 
         #endregion
@@ -92,7 +94,8 @@ namespace Antura.Rewards
         /// </summary>
         public static void HideEndsessionResult(bool _immediate = false)
         {
-            if (I == null) { return; }
+            if (I == null)
+            { return; }
             GlobalUI.ShowPauseMenu(true);
             //I.BonesCounter.Hide();
             I.EndsessionResultPanel.Hide(_immediate);

@@ -19,7 +19,7 @@ namespace Antura.Minigames.ColorTickle
         [SerializeField]
         private Color m_oBaseColor = Color.white; //The base color for the texture to color
         [SerializeField]
-        private bool m_bEnableColor = true; //Flag used to enable the coloring functions 
+        private bool m_bEnableColor = true; //Flag used to enable the coloring functions
 #pragma warning restore 649
         #endregion
 
@@ -60,7 +60,7 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (Input.GetMouseButton(0) && !UI.PauseMenu.I.IsMenuOpen) //On touch 
+            if (Input.GetMouseButton(0) && !UI.PauseMenu.I.IsMenuOpen) //On touch
             {
 
                 Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint
@@ -68,18 +68,26 @@ namespace Antura.Minigames.ColorTickle
                 //Debug.DrawRay(_mouseRay.origin, _mouseRay.direction * 100, Color.yellow, 10);
 
                 //check for ray collision
-                if (m_oBody.Raycast(_mouseRay, out m_oRayHit, Mathf.Infinity)) {
-                    if (OnBodyHit != null) {
+                if (m_oBody.Raycast(_mouseRay, out m_oRayHit, Mathf.Infinity))
+                {
+                    if (OnBodyHit != null)
+                    {
                         OnBodyHit(true);
                     }
                     ColorBodyTexturePoint(m_oRayHit.textureCoord);
-                } else {
-                    if (OnBodyHit != null) {
+                }
+                else
+                {
+                    if (OnBodyHit != null)
+                    {
                         OnBodyHit(false);
                     }
                 }
-            } else {
-                if (OnBodyHit != null) {
+            }
+            else
+            {
+                if (OnBodyHit != null)
+                {
                     OnBodyHit(false);
                 }
             }
@@ -122,11 +130,12 @@ namespace Antura.Minigames.ColorTickle
         private void ColorBodyTexturePoint(Vector2 targetUV)
         {
 
-            if (!m_bEnableColor) {
+            if (!m_bEnableColor)
+            {
                 return;
             }
 
-            //Before color with the brush's texture we need to verify that it fits 
+            //Before color with the brush's texture we need to verify that it fits
             //in the target's bound and eventually split it
 
             //store pixel touched in the texture
@@ -164,7 +173,8 @@ namespace Antura.Minigames.ColorTickle
             float _fAlphaOver = 0f;
             float _fAlphaBack = 0f;
 
-            for (int idx = 0; idx < _aColors_BrushClampedShape.Length; ++idx) {
+            for (int idx = 0; idx < _aColors_BrushClampedShape.Length; ++idx)
+            {
                 //Blend brush color with texture
                 _fAlphaOver = _aColors_BrushClampedShape[idx].a;
                 _fAlphaBack = _aColors_CurrentDynamicTex[idx].a;

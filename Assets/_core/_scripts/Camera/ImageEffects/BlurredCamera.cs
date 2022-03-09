@@ -23,7 +23,8 @@ namespace Antura.CameraEffects
 
             blurMaterial = CheckShaderAndCreateMaterial(blurShader, blurMaterial);
 
-            if (!isSupported) {
+            if (!isSupported)
+            {
                 ReportAutoDisable();
             }
             return isSupported;
@@ -31,18 +32,21 @@ namespace Antura.CameraEffects
 
         void OnDisable()
         {
-            if (blurMaterial) {
+            if (blurMaterial)
+            {
                 DestroyImmediate(blurMaterial);
             }
         }
 
         void OnRenderImage(RenderTexture source, RenderTexture destination)
         {
-            if (normalTextureOutput != null) {
+            if (normalTextureOutput != null)
+            {
                 normalTextureOutput.DiscardContents();
                 Graphics.Blit(source, normalTextureOutput);
             }
-            if (CheckResources() == false) {
+            if (CheckResources() == false)
+            {
                 Graphics.Blit(source, destination);
                 return;
             }
@@ -59,7 +63,8 @@ namespace Antura.CameraEffects
             rt.filterMode = FilterMode.Bilinear;
             Graphics.Blit(source, rt, blurMaterial, 0);
 
-            for (int i = 0; i < blurIterations; i++) {
+            for (int i = 0; i < blurIterations; i++)
+            {
                 float iterationOffs = (i * 1.0f);
                 blurMaterial.SetVector("_Parameter",
                     new Vector4(blurSize + iterationOffs, -blurSize - iterationOffs, 0.0f, 0.0f));

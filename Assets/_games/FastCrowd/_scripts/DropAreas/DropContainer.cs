@@ -14,7 +14,8 @@ namespace Antura.Minigames.FastCrowd
 
         int actualAreaIndex = 0;
 
-        enum DropAreaPositions {
+        enum DropAreaPositions
+        {
             ActivePos,
             NextPos,
             NextsPos,
@@ -32,7 +33,8 @@ namespace Antura.Minigames.FastCrowd
         {
             actualAreaIndex = 0;
 
-            foreach (var item in areas) {
+            foreach (var item in areas)
+            {
                 GameObject.Destroy(item.gameObject);
             }
             areas.Clear();
@@ -42,7 +44,8 @@ namespace Antura.Minigames.FastCrowd
         /// Return actual active DropSingleArea.
         /// </summary>
         /// <returns></returns>
-        public DropSingleArea GetActualDropArea() {
+        public DropSingleArea GetActualDropArea()
+        {
             if (actualAreaIndex >= areas.Count)
                 return null;
             return areas[actualAreaIndex];
@@ -50,7 +53,8 @@ namespace Antura.Minigames.FastCrowd
 
         public void NextArea()
         {
-            if (actualAreaIndex < areas.Count - 1) { 
+            if (actualAreaIndex < areas.Count - 1)
+            {
                 actualAreaIndex++;
                 DOTween.Sequence().InsertCallback(1, delegate ()
                     {
@@ -60,7 +64,9 @@ namespace Antura.Minigames.FastCrowd
                             AudioManager.I.PlaySound(Sfx.Hit);
                         dropAreaSetPosition();
                     });
-            } else {
+            }
+            else
+            {
                 actualAreaIndex++;
                 DOTween.Sequence().InsertCallback(1, delegate ()
                     {
@@ -69,20 +75,21 @@ namespace Antura.Minigames.FastCrowd
                                 float waitAtEnd = 2;
                                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
                                     || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
-                                    || FastCrowdConfiguration.Instance.IsOrderingVariation) { 
+                                    || FastCrowdConfiguration.Instance.IsOrderingVariation)
+                                {
                                     AudioManager.I.PlaySound(Sfx.Hit);
                                     waitAtEnd = 1;
                                 }
-                            
+
                                 DOTween.Sequence().InsertCallback(waitAtEnd, delegate ()
                                     {
                                         if (OnObjectiveBlockCompleted != null)
                                             OnObjectiveBlockCompleted();
                                     });
-                        
+
                             });
                     });
-                
+
             }
         }
 
@@ -91,24 +98,34 @@ namespace Antura.Minigames.FastCrowd
         /// </summary>
         void dropAreaSetPosition(TweenCallback _callback = null)
         {
-            for (int i = 0; i < areas.Count; i++) {
-                if (actualAreaIndex == i) { 
+            for (int i = 0; i < areas.Count; i++)
+            {
+                if (actualAreaIndex == i)
+                {
                     positionigAreaDropElement(areas[i], DropAreaPositions.ActivePos);
                     areas[i].SetEnabled();
-                } else if (actualAreaIndex > i && i == areas.Count - 1) { // for final one
+                }
+                else if (actualAreaIndex > i && i == areas.Count - 1)
+                { // for final one
                     positionigAreaDropElement(areas[i], DropAreaPositions.CompletedPos, delegate ()
                         {
                             if (_callback != null)
                                 _callback();
                         });
                     areas[i].SetDisbled();
-                } else if (actualAreaIndex > i) {
+                }
+                else if (actualAreaIndex > i)
+                {
                     positionigAreaDropElement(areas[i], DropAreaPositions.CompletedPos);
                     areas[i].SetDisbled();
-                } else if (actualAreaIndex + 1 == i) {
+                }
+                else if (actualAreaIndex + 1 == i)
+                {
                     positionigAreaDropElement(areas[i], DropAreaPositions.NextPos);
                     areas[i].SetDisbled();
-                } else {
+                }
+                else
+                {
                     positionigAreaDropElement(areas[i], DropAreaPositions.NextsPos);
                     areas[i].SetDisbled();
                 }
@@ -166,7 +183,8 @@ namespace Antura.Minigames.FastCrowd
             _dropArea.transform.DOLocalRotate(getRotation(_position), durantion);
             _sequence.Append(_dropArea.transform.DOLocalMove(getPosition(_position), durantion)).OnComplete(delegate ()
                 {
-                    if (needFade) {
+                    if (needFade)
+                    {
                         _sequence.Append(_dropArea.GetComponent<MeshRenderer>().materials[0].DOFade(0, durantion));
                         _sequence.Append(_dropArea.NumberLabel.transform.DOLocalMove(new Vector3(getPosition(_position).x, -2, getPosition(_position).z), durantion));
                         // pro only
@@ -193,9 +211,10 @@ namespace Antura.Minigames.FastCrowd
         {
             int arrivalDir = 1; // Always arrive from the left, regardless of RTL
 
-            switch (_position) {
+            switch (_position)
+            {
                 case DropAreaPositions.ActivePos:
-                    return new Vector3(0 , 0.1f, 0);
+                    return new Vector3(0, 0.1f, 0);
                 case DropAreaPositions.NextPos:
                     return new Vector3(-6 * arrivalDir, 0.1f, -1.5f);
                 case DropAreaPositions.NextsPos:
@@ -218,7 +237,8 @@ namespace Antura.Minigames.FastCrowd
         {
             int arrivalDir = 1; // Always arrive from the left, regardless of RTL
 
-            switch (_position) {
+            switch (_position)
+            {
                 case DropAreaPositions.ActivePos:
                     return new Vector3(90, 0, 0);
                 case DropAreaPositions.NextPos:

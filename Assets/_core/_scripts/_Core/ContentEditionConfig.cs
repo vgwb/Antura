@@ -46,13 +46,12 @@ namespace Antura.Core
 
         public GameObject GetResource(EditionResourceID id)
         {
-            switch (id) {
+            switch (id)
+            {
                 case EditionResourceID.Flag:
                     return Flag3D;
             }
             return null;
         }
-
-
     }
 }

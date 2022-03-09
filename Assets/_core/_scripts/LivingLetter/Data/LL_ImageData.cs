@@ -44,7 +44,7 @@ namespace Antura.LivingLetters
         /// </summary>
         public string TextForLivingLetter
         {
-            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); } 
+            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); }
         }
 
         public string DrawingCharForLivingLetter
@@ -55,7 +55,8 @@ namespace Antura.LivingLetters
         public bool Equals(ILivingLetterData data)
         {
             LL_ImageData other = data as LL_ImageData;
-            if (other == null) {
+            if (other == null)
+            {
                 return false;
             }
 

@@ -12,7 +12,7 @@
         }
 
         public VoteLogic voteLogic;
-        public float logicParameter;                // for example, success threshold 
+        public float logicParameter;                // for example, success threshold
         public float minigameVoteSkewOffset;        // takes into account that some minigames are skewed
         public float minigameImportanceWeight;      // takes into account that some minigames are more important on learning in respect to others
 

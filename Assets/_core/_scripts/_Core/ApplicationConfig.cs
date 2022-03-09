@@ -15,7 +15,8 @@ namespace Antura.Core
         {
             var configPath = $"Assets/_config/ApplicationConfig.asset";
             var config = AssetDatabase.LoadAssetAtPath<ApplicationConfig>(configPath);
-            if (config == null) {
+            if (config == null)
+            {
                 Debug.LogError($"Could not find ApplicationConfig at path '{configPath}'");
                 return null;
             }

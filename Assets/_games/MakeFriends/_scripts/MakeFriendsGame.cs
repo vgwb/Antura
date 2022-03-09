@@ -186,9 +186,12 @@ namespace Antura.Minigames.MakeFriends
         public void Play()
         {
             currentRound++;
-            if (currentRound <= numberOfRounds) {
+            if (currentRound <= numberOfRounds)
+            {
                 StartNewRound();
-            } else {
+            }
+            else
+            {
                 EndGame();
             }
         }
@@ -231,11 +234,14 @@ namespace Antura.Minigames.MakeFriends
             livingLetter1.LLPrefab.LabelRender.SetFlashingText(livingLetter1.wordData.Data, commonLetters[0] as LL_LetterData, false);
             livingLetter2.LLPrefab.LabelRender.SetFlashingText(livingLetter2.wordData.Data, commonLetters[0] as LL_LetterData, false);
 
-            while (isTutorialRound) {
-                for (int i = 0; i < letterPicker.CorrectLetterChoices.Count; i++) {
+            while (isTutorialRound)
+            {
+                for (int i = 0; i < letterPicker.CorrectLetterChoices.Count; i++)
+                {
                     var choice = letterPicker.CorrectLetterChoices[i];
 
-                    if (choice.isCorrectChoice && !choice.IsDisabled && !letterPicker.IsBlocked) {
+                    if (choice.isCorrectChoice && !choice.IsDisabled && !letterPicker.IsBlocked)
+                    {
                         var from = choice.transform.position;
                         var to = dropZone.transform.position;
                         TutorialUI.SetCamera(uiCamera);
@@ -280,7 +286,8 @@ namespace Antura.Minigames.MakeFriends
         private void SetLetterChoices()
         {
             choiceLetters.AddRange(commonLetters);
-            if (choiceLetters.Count > letterPicker.letterChoices.Length) {
+            if (choiceLetters.Count > letterPicker.letterChoices.Length)
+            {
                 choiceLetters = choiceLetters.GetRange(0, letterPicker.letterChoices.Length);
             }
             //Debug.Log("Added " + choiceLetters.Count + " common letters to choices");
@@ -288,17 +295,23 @@ namespace Antura.Minigames.MakeFriends
             int vacantChoiceLettersCount = letterPicker.letterChoices.Length - choiceLetters.Count;
 
             // Get other random letters (without repetition)
-            for (int i = 0; i < vacantChoiceLettersCount; i++) {
+            for (int i = 0; i < vacantChoiceLettersCount; i++)
+            {
                 LL_LetterData letter;
-                do {
-                    if (i < uncommonLetters.Count) {
+                do
+                {
+                    if (i < uncommonLetters.Count)
+                    {
                         letter = uncommonLetters[i] as LL_LetterData;
                         //Debug.Log("Considering as choice: " + letter.TextForLivingLetter);
-                        if (choiceLetters.Exists(x => x.Id == letter.Id)) {
+                        if (choiceLetters.Exists(x => x.Id == letter.Id))
+                        {
                             letter = AppManager.I.Teacher.GetAllTestLetterDataLL().GetRandom();
                             //Debug.Log("Using random choice instead: " + letter);
                         }
-                    } else {
+                    }
+                    else
+                    {
                         letter = AppManager.I.Teacher.GetAllTestLetterDataLL().GetRandom();
                         //Debug.Log("No more word letters, using random: " + letter.TextForLivingLetter);
                     }
@@ -329,7 +342,8 @@ namespace Antura.Minigames.MakeFriends
             }
 
             letterPicker.SetCorrectChoices(commonLetters);
-            if (isTutorialRound) {
+            if (isTutorialRound)
+            {
                 letterPicker.SetCorrectChoices(commonLetters);
             }
         }
@@ -390,7 +404,8 @@ namespace Antura.Minigames.MakeFriends
             HideLetterPicker();
             ShowLetterPicker(feedbackDuration + 0.75f);
 
-            if (commonLetters.Exists(x => x.Id == letterChoice.letterData.Id)) {
+            if (commonLetters.Exists(x => x.Id == letterChoice.letterData.Id))
+            {
                 letterChoice.State = LetterChoiceController.ChoiceState.CORRECT;
                 //letterChoice.SpawnBalloon(true);
                 GetConfiguration().Context.GetAudioManager().PlaySound(Sfx.LetterHappy);
@@ -398,17 +413,23 @@ namespace Antura.Minigames.MakeFriends
                 TutorialUI.MarkYes(correctChoiceIndicatorPosition, TutorialUI.MarkSize.Normal);
                 MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.StampOK);
 
-                if (!correctChoices.Exists(x => x.Id == letterChoice.letterData.Id)) {
+                if (!correctChoices.Exists(x => x.Id == letterChoice.letterData.Id))
+                {
                     correctChoices.Add(letterChoice.letterData);
                 }
 
-                if (correctChoices.Count >= commonLetters.Count) {
+                if (correctChoices.Count >= commonLetters.Count)
+                {
                     EndRound(true);
-                } else {
+                }
+                else
+                {
                     dropZone.ResetLetter(feedbackDuration);
                 }
                 antura.ReactPositively();
-            } else {
+            }
+            else
+            {
                 letterChoice.State = LetterChoiceController.ChoiceState.WRONG;
                 //letterChoice.SpawnBalloon(false);
                 GetConfiguration().Context.GetAudioManager().PlaySound(Sfx.LetterSad);
@@ -418,13 +439,17 @@ namespace Antura.Minigames.MakeFriends
                 dropZone.ResetLetter(feedbackDuration);
                 incorrectChoices.Add(letterChoice.letterData);
                 antura.ReactNegatively();
-                if (!isTutorialRound) {
+                if (!isTutorialRound)
+                {
                     leftArea.MoveAwayAngrily();
                     rightArea.MoveAwayAngrily();
-                    if (incorrectChoices.Count >= 3) {
+                    if (incorrectChoices.Count >= 3)
+                    {
                         EndRound(false);
                     }
-                } else {
+                }
+                else
+                {
                     leftArea.livingLetter.LookAngry();
                     rightArea.livingLetter.LookAngry();
                 }
@@ -445,10 +470,12 @@ namespace Antura.Minigames.MakeFriends
 
             HideLetterPicker();
 
-            if (win) {
+            if (win)
+            {
                 Debug.Log("Win");
 
-                if (isTutorialRound) {
+                if (isTutorialRound)
+                {
                     Debug.Log("Cleared tutorial");
                     HideTutorialUI();
                 }
@@ -462,7 +489,8 @@ namespace Antura.Minigames.MakeFriends
                 leftArea.HighFive(leftArea.celebrationDuration);
                 rightArea.HighFive(rightArea.celebrationDuration);
                 roundResultAnimator.ShowWin();
-                if (!isTutorialRound) {
+                if (!isTutorialRound)
+                {
                     CurrentScore++;
                     Context.GetLogManager().OnAnswered(wordData1, true);
                     Context.GetLogManager().OnAnswered(wordData2, true);
@@ -475,7 +503,8 @@ namespace Antura.Minigames.MakeFriends
                 rightArea.MakeFriendlyExit();
 
                 // Go to Friends Zone
-                if (!isTutorialRound) {
+                if (!isTutorialRound)
+                {
                     yield return new WaitForSeconds(friendlyExitDelay);
                     leftArea.GoToFriendsZone(FriendsZonesManager.instance.currentZone);
                     rightArea.GoToFriendsZone(FriendsZonesManager.instance.currentZone);
@@ -486,13 +515,18 @@ namespace Antura.Minigames.MakeFriends
                 yield return new WaitForSeconds(winDelay2);
                 HideDropZone();
 
-                if (isTutorialRound) {
+                if (isTutorialRound)
+                {
                     isTutorialRound = false;
                     IntroductionState.OnFinishedTutorial();
-                } else {
+                }
+                else
+                {
                     NextRound();
                 }
-            } else {
+            }
+            else
+            {
                 Debug.Log("Lose");
 
                 Context.GetLogManager().OnAnswered(wordData1, false);

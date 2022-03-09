@@ -69,7 +69,8 @@ namespace Antura.UI
             sequence.Append(GetComponent<RectTransform>().DOAnchorPos(ShowPosition, 0.3f).SetAs(tParms));
             TitleLable.text = _data.Title;
             // Complete check animation.
-            if (_data.Type == PopupType.Mission_Completed) {
+            if (_data.Type == PopupType.Mission_Completed)
+            {
                 AudioManager.I.PlaySound(Sfx.StampOK);
                 sequence.Insert(0.3f, CompletedCheck.DOFade(1, 0.1f));
                 sequence.Append(CompletedCheck.rectTransform.DOScale(1, 0.3f).SetAs(tParms));
@@ -79,18 +80,26 @@ namespace Antura.UI
                 //                    });
             }
             // Draw
-            if (_data.DrawSprite) {
+            if (_data.DrawSprite)
+            {
                 Draw.gameObject.SetActive(true);
                 Draw.sprite = _data.DrawSprite;
-            } else {
+            }
+            else
+            {
                 Draw.gameObject.SetActive(false);
             }
             // Autoclose
-            if (_data.AutoCloseTime >= 0) {
-                sequence.InsertCallback(_data.AutoCloseTime, delegate { Close(sequence, tParms, _callback); });
-            } else {
+            if (_data.AutoCloseTime >= 0)
+            {
+                sequence.InsertCallback(_data.AutoCloseTime, delegate
+                { Close(sequence, tParms, _callback); });
+            }
+            else
+            {
                 pendingCallback = null; // reset
-                if (_callback != null) {
+                if (_callback != null)
+                {
                     pendingCallback = _callback;
                 }
             }
@@ -111,7 +120,8 @@ namespace Antura.UI
         {
             Time.timeScale = 1;
             _sequence.Append(GetComponent<RectTransform>().DOAnchorPos(HidePosition, 0.15f).SetAs(_tParms));
-            if (_callback != null) {
+            if (_callback != null)
+            {
                 _callback();
             }
         }

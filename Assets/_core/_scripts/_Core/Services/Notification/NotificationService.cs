@@ -18,7 +18,8 @@ namespace Antura.Core.Services.Notification
 
         public void Init()
         {
-            if (!inizialized) {
+            if (!inizialized)
+            {
                 Debug.Log("NotificationService Init");
 #if MODULE_NOTIFICATIONS
                 var channel = new GameNotificationChannel(ChannelId, "Default Game Channel", "Generic notifications");

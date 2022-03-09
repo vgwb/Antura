@@ -23,8 +23,10 @@ namespace Antura.Minigames.ColorTickle
         static ColorTickleConfiguration instance;
         public static ColorTickleConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new ColorTickleConfiguration();
                 }
                 return instance;
@@ -48,7 +50,8 @@ namespace Antura.Minigames.ColorTickle
             int nCorrect = 1;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ColorTickleVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.None;
@@ -79,7 +82,8 @@ namespace Antura.Minigames.ColorTickle
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ColorTickleVariation.LetterName:
                 case ColorTickleVariation.Image:
                     soundType = LetterDataSoundType.Name;

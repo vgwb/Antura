@@ -21,7 +21,8 @@ namespace Antura.Minigames.Egg
         {
             timer -= delta;
 
-            if (timer <= 0f) {
+            if (timer <= 0f)
+            {
                 game.SetCurrentState(game.QuestionState);
                 return;
             }

@@ -23,14 +23,16 @@ namespace Antura.Assessment
 
         public GameObject gameObject
         {
-            get {
+            get
+            {
                 return view.gameObject;
             }
         }
 
         public QuestionBehaviour QuestionBehaviour
         {
-            get {
+            get
+            {
                 return view.GetComponent<QuestionBehaviour>();
             }
         }
@@ -59,7 +61,8 @@ namespace Antura.Assessment
 
         public IEnumerable<GameObject> GetPlaceholders()
         {
-            if (placeholdersSet.Count != 1) {
+            if (placeholdersSet.Count != 1)
+            {
                 throw new InvalidOperationException("Something wrong. Check Question placer");
             }
             return placeholdersSet;

@@ -21,7 +21,8 @@ namespace Antura.Rewards
 
         void Init()
         {
-            if (initialized) return;
+            if (initialized)
+                return;
 
             initialized = true;
             popup.gameObject.SetActive(false);
@@ -43,10 +44,12 @@ namespace Antura.Rewards
         {
             Init();
             List<DailyRewardPopup> res = new List<DailyRewardPopup>();
-            if (tot == 0) return res;
+            if (tot == 0)
+                return res;
 
             res.Add(popup);
-            while (res.Count < tot) {
+            while (res.Count < tot)
+            {
                 DailyRewardPopup p = Instantiate(popup, popup.transform.parent, false);
                 res.Add(p);
             }

@@ -52,14 +52,16 @@ namespace Antura.AnturaSpace
 
         public void Free()
         {
-            if (!assigned) return;
+            if (!assigned)
+                return;
             assigned = false;
             _assignedDecorationObject = null;
         }
 
         public void Assign(ShopDecorationObject assignedDecorationObject)
         {
-            if (assigned) return;
+            if (assigned)
+                return;
             assigned = true;
             _assignedDecorationObject = assignedDecorationObject;
             _assignedDecorationObject.transform.SetParent(transform);
@@ -93,7 +95,7 @@ namespace Antura.AnturaSpace
         public Material slotHighlightCorrectMat;
         public Material slotHighlightWrongMat;
 
-        public void Highlight(bool choice, SlotHighlight slotHighlight =SlotHighlight.Idle)
+        public void Highlight(bool choice, SlotHighlight slotHighlight = SlotHighlight.Idle)
         {
             highlighted = choice;
             highlightMeshGO.SetActive(choice);
@@ -116,8 +118,10 @@ namespace Antura.AnturaSpace
 
         public void OnMouseUpAsButton()
         {
-            if (!highlighted) return;
-            if (OnSelect != null) OnSelect.Invoke(this);
+            if (!highlighted)
+                return;
+            if (OnSelect != null)
+                OnSelect.Invoke(this);
         }
 
         #region Feedback

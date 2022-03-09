@@ -38,7 +38,8 @@ namespace Antura.Teacher
             LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.Letter,
             QuestionBuilderParameters parameters = null)
         {
-            if (parameters == null) parameters = new QuestionBuilderParameters();
+            if (parameters == null)
+                parameters = new QuestionBuilderParameters();
             this.nPacks = nPacks;
             this.nWrong = nWrong;
             this.nWords = nWords;
@@ -72,7 +73,8 @@ namespace Antura.Teacher
             // Add forms too (cannot be found in the SelectData call)
             availableLettersWithForms.UnionWith(vocabularyHelper.ExtractLettersWithForms(availableLetters));
 
-            for (int pack_i = 0; pack_i < nPacks; pack_i++) {
+            for (int pack_i = 0; pack_i < nPacks; pack_i++)
+            {
                 packs.Add(CreateSingleQuestionPackData(availableLettersWithForms));
             }
             return packs;
@@ -84,7 +86,8 @@ namespace Antura.Teacher
             var teacher = AppManager.I.Teacher;
 
             int SAFE_COUNT = 0;
-            while (true) {
+            while (true)
+            {
                 var commonLetter = availableLettersWithForms.ToList().RandomSelectOne();
 
                 var correctLetters = new List<LetterData>();
@@ -97,13 +100,17 @@ namespace Antura.Teacher
                     useJourney: parameters.useJourneyForCorrect,
                     packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_words);
                 List<WordData> wordsWithCommonLetter = null;
-                try {
+                try
+                {
                     wordsWithCommonLetter = teacher.VocabularyAi.SelectData(
                         () => FindWordsWithCommonLetter(commonLetter), selectionParams2);
 
-                } catch (Exception) {
+                }
+                catch (Exception)
+                {
                     SAFE_COUNT++;
-                    if (SAFE_COUNT == 100) {
+                    if (SAFE_COUNT == 100)
+                    {
                         throw new Exception("Could not find enough data for CommonLettersInWord");
                     }
                     continue;
@@ -120,13 +127,16 @@ namespace Antura.Teacher
 
                 pack = QuestionPackData.Create(wordsWithCommonLetter, correctLetters, lettersNotInCommon);
 
-                if (ConfigAI.VerboseQuestionPacks) {
+                if (ConfigAI.VerboseQuestionPacks)
+                {
                     string debugString = "--------- TEACHER: question pack result ---------";
                     debugString += "\nQuestion: " + wordsWithCommonLetter.ToDebugString();
                     debugString += "\nCorrect Answers: " + correctLetters.Count;
-                    foreach (var l in correctLetters) debugString += " " + l;
+                    foreach (var l in correctLetters)
+                        debugString += " " + l;
                     debugString += "\nWrong Answers: " + lettersNotInCommon.Count;
-                    foreach (var l in lettersNotInCommon) debugString += " " + l;
+                    foreach (var l in lettersNotInCommon)
+                        debugString += " " + l;
                     ConfigAI.AppendToTeacherReport(debugString);
                 }
                 return pack;
@@ -142,11 +152,13 @@ namespace Antura.Teacher
             var eligibleLetters = new List<LetterData>();
             var vocabularyHelper = AppManager.I.VocabularyHelper;
 
-            if (lettersToWordCache == null) {
+            if (lettersToWordCache == null)
+            {
                 lettersToWordCache = new Dictionary<LetterData, List<WordData>>(new StrictLetterDataComparer(letterEqualityStrictness));
 
                 var allLetters = vocabularyHelper.GetAllLettersAndForms(parameters.letterFilters);     // we consider different forms as different letters
-                foreach (var letter in allLetters) {
+                foreach (var letter in allLetters)
+                {
                     lettersToWordCache[letter] = new List<WordData>();
                     // Check number of words
                     var wordsWithLetterForm = vocabularyHelper.GetWordsWithLetter(parameters.wordFilters, letter, letterEqualityStrictness);
@@ -158,17 +170,20 @@ namespace Antura.Teacher
                 Debug.Log(lettersToWordCache.Count);
             }
 
-            foreach (var letter in lettersToWordCache.Keys) {
+            foreach (var letter in lettersToWordCache.Keys)
+            {
                 var words = lettersToWordCache[letter];
 
-                if (words.Count == 0) continue;
+                if (words.Count == 0)
+                    continue;
 
                 // Check number of words
                 var wordsWithLetter = AppManager.I.Teacher.VocabularyAi.SelectData(
                     () => words,
                         new SelectionParameters(SelectionSeverity.AsManyAsPossible, getMaxData: true, useJourney: true), canReturnZero: true);
 
-                if (wordsWithLetter.Count < atLeastNWords) {
+                if (wordsWithLetter.Count < atLeastNWords)
+                {
                     continue;
                 }
 
@@ -184,7 +199,8 @@ namespace Antura.Teacher
             var eligibleWords = new List<WordData>();
             var vocabularyHelper = AppManager.I.VocabularyHelper;
             var words = vocabularyHelper.GetWordsWithLetter(parameters.wordFilters, commonLetter, letterEqualityStrictness);
-            foreach (var w in words) {
+            foreach (var w in words)
+            {
                 eligibleWords.Add(w);
             }
             //Debug.Log(eligibleWords.ToDebugStringNewline());

@@ -30,7 +30,8 @@ namespace Antura.Minigames.SickLetters
 
         private void EndIntro()
         {
-            if (game.TutorialEnabled) game.tut.StartIt();
+            if (game.TutorialEnabled)
+                game.tut.StartIt();
             game.SetCurrentState(game.QuestionState);
         }
 

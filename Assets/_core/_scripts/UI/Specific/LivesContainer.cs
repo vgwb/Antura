@@ -12,7 +12,8 @@ namespace Antura.UI
 
         public void SetLives(int howmany)
         {
-            switch (howmany) {
+            switch (howmany)
+            {
                 case 4:
                     Heart1.SetActive(true);
                     Heart2.SetActive(true);

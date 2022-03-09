@@ -1,7 +1,7 @@
 namespace Antura.Minigames.Template
 {
     /// <summary>
-    /// Sample game state used by the TemplateGame. 
+    /// Sample game state used by the TemplateGame.
     /// Implements the play-state of a minigame, where actual gameplay is performed.
     /// </summary>
     public class PlayGameState : FSM.IState
@@ -26,7 +26,8 @@ namespace Antura.Minigames.Template
         {
             timer -= delta;
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 game.SetCurrentState(game.ResultState);
             }
         }

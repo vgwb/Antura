@@ -136,7 +136,8 @@ namespace Antura.Assessment
                 soundType: AssessmentConfiguration.Instance.GetVocabularySoundType()
             );
 
-            while (audioSource.IsPlaying) {
+            while (audioSource.IsPlaying)
+            {
                 yield return null;
             }
         }
@@ -152,25 +153,30 @@ namespace Antura.Assessment
             var audioTicket = ticket.LockHighPriority();
             bool playing = false;
 
-            if (ticket.IsHighPriorityTicketValid(audioTicket)) {
+            if (ticket.IsHighPriorityTicketValid(audioTicket))
+            {
                 // Can Play Audio
                 playing = true;
 
-                if (showSubtitles) {
+                if (showSubtitles)
+                {
                     widget.DisplaySentence(ID, 2.2f, showWalkieTalkie);
                 }
 
-                if (showWalkieTalkie && showSubtitles) { // give time for walkietalkie sound
+                if (showWalkieTalkie && showSubtitles)
+                { // give time for walkietalkie sound
                     yield return Wait.For(0.2f);
                 }
 
                 audioManager.PlayDialogue(ID, () => { playing = false; });
 
-                while (playing) {
+                while (playing)
+                {
                     yield return null;
                 }
 
-                if (showSubtitles) {
+                if (showSubtitles)
+                {
                     widget.Clear();
                 }
 

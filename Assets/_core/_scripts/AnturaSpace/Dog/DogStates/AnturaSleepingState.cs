@@ -30,13 +30,17 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            if (controller.Antura.HasReachedTarget) {
+            if (controller.Antura.HasReachedTarget)
+            {
                 timer -= delta;
 
-                if (timer <= 0) {
+                if (timer <= 0)
+                {
                     controller.Antura.AnimationController.State = AnturaAnimationStates.sleeping;
                 }
-            } else if (controller.Antura.AnimationController.State == AnturaAnimationStates.sleeping) {
+            }
+            else if (controller.Antura.AnimationController.State == AnturaAnimationStates.sleeping)
+            {
                 controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
             }
         }

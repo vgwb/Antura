@@ -33,11 +33,14 @@ namespace Antura.Intro
                 running = true;
 
             letter.gameObject.GetComponent<LivingLetterController>().SetState(LLAnimationStates.LL_walking);
-            if (running) {
+            if (running)
+            {
                 // set letter animation
                 letter.gameObject.GetComponent<LivingLetterController>().SetWalkingSpeed(LivingLetterController.RUN_SPEED);
                 speed = RUN_SPEED;
-            } else {
+            }
+            else
+            {
                 // set letter animation
                 letter.gameObject.GetComponent<LivingLetterController>().SetWalkingSpeed(LivingLetterController.WALKING_SPEED);
                 speed = WALK_SPEED;
@@ -66,19 +69,23 @@ namespace Antura.Intro
 
             timer -= delta;
 
-            if (timer < 0 || distance.sqrMagnitude < 0.05f) {
+            if (timer < 0 || distance.sqrMagnitude < 0.05f)
+            {
                 letter.SetCurrentState(letter.IdleState);
             }
 
             // if stuck for too long, change direction
             float avgSpeed = Vector3.Distance(letter.transform.position, lastPosition) / delta;
 
-            if (avgSpeed < 0.5f * speed) {
+            if (avgSpeed < 0.5f * speed)
+            {
                 stuckTimer -= Time.deltaTime;
-            } else
+            }
+            else
                 stuckTimer = STUCK_THRESHOLD;
 
-            if (stuckTimer <= 0) {
+            if (stuckTimer <= 0)
+            {
                 // change direction
                 target = letter.factory.walkableArea.GetNearestPoint(letter.transform.position - 2 * distance, true);
                 stuckTimer = STUCK_THRESHOLD;

@@ -78,18 +78,26 @@ namespace Antura.Minigames.DancingDots
             if (game.disableInput)
                 return;
 
-            if (overDestinationMarker) {
-                if (isDot) {
+            if (overDestinationMarker)
+            {
+                if (isDot)
+                {
                     game.CorrectDot();
-                } else {
+                }
+                else
+                {
                     game.CorrectDiacritic();
                 }
                 gameObject.SetActive(false);
-            } else {
-                if (overPlayermarker && !isNeeded) {
+            }
+            else
+            {
+                if (overPlayermarker && !isNeeded)
+                {
                     isDragging = false;
 
-                    if (game.isTutRound) {
+                    if (game.isTutRound)
+                    {
                         Reset();
                         return;
                     }
@@ -97,7 +105,9 @@ namespace Antura.Minigames.DancingDots
                     game.WrongMove(transform.position);
 
                     gameObject.SetActive(false);
-                } else {
+                }
+                else
+                {
                     isDragging = false;
 
                     //					StartCoroutine(GoToStartPosition3());
@@ -114,7 +124,8 @@ namespace Antura.Minigames.DancingDots
             Vector3 destinationScale = originalScale;
 
             float currentTime = 0.0f;
-            do {
+            do
+            {
                 transform.localScale = Vector3.Lerp(Vector3.zero, destinationScale, currentTime / time);
                 currentTime += Time.deltaTime;
                 yield return null;
@@ -124,7 +135,8 @@ namespace Antura.Minigames.DancingDots
         void Update()
         {
 
-            if (!isDragging) Dance();
+            if (!isDragging)
+                Dance();
 
         }
 
@@ -138,22 +150,31 @@ namespace Antura.Minigames.DancingDots
 
         void Setmarker(Collider other, bool markerStatus)
         {
-            if (other.tag == "Player") overPlayermarker = markerStatus;
+            if (other.tag == "Player")
+                overPlayermarker = markerStatus;
 
-            if (markerStatus && ALLOW_ANY_DROPZONE_FOR_ANY_LETTER && overPlayermarker) overDestinationMarker = true;
+            if (markerStatus && ALLOW_ANY_DROPZONE_FOR_ANY_LETTER && overPlayermarker)
+                overDestinationMarker = true;
 
-            if (isDot) {
-                if (other.tag == DancingDotsGame.DANCING_DOTS) {
+            if (isDot)
+            {
+                if (other.tag == DancingDotsGame.DANCING_DOTS)
+                {
                     //Debug.Log(game.removeDiacritics(game.currentLetter));
 
                     if (ALLOW_ANY_DROPZONE_FOR_ANY_LETTER || other.GetComponent<DancingDotsDropZone>().letters.Contains(game.removeDiacritics(game.currentLetter))
-                        && game.dotsCount == dots) {
+                        && game.dotsCount == dots)
+                    {
                         overDestinationMarker = markerStatus;
                     }
                 }
-            } else {
-                if (other.tag == DancingDotsGame.DANCING_DIACRITICS) {
-                    if (ALLOW_ANY_DROPZONE_FOR_ANY_LETTER || game.activeDiacritic.diacritic == diacritic) {
+            }
+            else
+            {
+                if (other.tag == DancingDotsGame.DANCING_DIACRITICS)
+                {
+                    if (ALLOW_ANY_DROPZONE_FOR_ANY_LETTER || game.activeDiacritic.diacritic == diacritic)
+                    {
                         overDestinationMarker = markerStatus;
                     }
                 }

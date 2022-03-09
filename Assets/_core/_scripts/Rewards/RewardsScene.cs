@@ -65,9 +65,11 @@ namespace Antura.Rewards
 
         IEnumerator StartReward()
         {
-            if (FirstContactManager.I.IsSequenceFinished()) {
+            if (FirstContactManager.I.IsSequenceFinished())
+            {
                 int rnd = Random.Range(1, 3);
-                switch (rnd) {
+                switch (rnd)
+                {
                     case 1:
                         KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Reward_Big_1);
                         break;
@@ -109,7 +111,8 @@ namespace Antura.Rewards
                 // Get the first prop reward (already unlocked)
                 var firstRewardPack = AppManager.I.RewardSystemManager.GetUnlockedRewardPacksOfBaseType(RewardBaseType.Prop).RandomSelectOne();
                 return firstRewardPack;
-            } else
+            }
+            else
             {
                 // Unlock the rewards for this JP (should be one, since this is an Assessment)
                 var newRewardPacks = AppManager.I.RewardSystemManager.UnlockAllRewardPacksForJourneyPosition(AppManager.I.Player.CurrentJourneyPosition);

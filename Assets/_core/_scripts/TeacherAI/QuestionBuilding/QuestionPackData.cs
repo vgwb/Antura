@@ -10,7 +10,7 @@ namespace Antura.Teacher
     public class QuestionPackData
     {
         public IConvertibleToLivingLetterData question;
-        public List<IConvertibleToLivingLetterData> questions; // to be used instead 
+        public List<IConvertibleToLivingLetterData> questions; // to be used instead
         public List<IConvertibleToLivingLetterData> correctAnswers;
         public List<IConvertibleToLivingLetterData> wrongAnswers;
 

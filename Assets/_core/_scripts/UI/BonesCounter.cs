@@ -22,7 +22,8 @@ namespace Antura.UI
         int totBones
         {
             get { return fooTotBones; }
-            set {
+            set
+            {
                 fooTotBones = value;
                 TfCount.text = value.ToString();
             }
@@ -36,9 +37,12 @@ namespace Antura.UI
 
         void Start()
         {
-            if (AutoSetup) {
+            if (AutoSetup)
+            {
                 Show(true);
-            } else {
+            }
+            else
+            {
                 // this should be called.. left here for rtetrocompatibility
                 Setup();
             }
@@ -46,7 +50,8 @@ namespace Antura.UI
 
         void Setup()
         {
-            if (setupDone) { return; }
+            if (setupDone)
+            { return; }
 
             setupDone = true;
 
@@ -70,7 +75,8 @@ namespace Antura.UI
         public void Show(bool _setValueAuto = true)
         {
             Setup();
-            if (_setValueAuto) { SetValueAuto(); }
+            if (_setValueAuto)
+            { SetValueAuto(); }
             this.gameObject.SetActive(true);
             showTween.PlayForward();
         }
@@ -78,7 +84,8 @@ namespace Antura.UI
         public void Hide()
         {
             Setup();
-            if (increaseTween != null) { increaseTween.Complete(); }
+            if (increaseTween != null)
+            { increaseTween.Complete(); }
             showTween.Rewind();
         }
 

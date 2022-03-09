@@ -49,11 +49,13 @@ namespace Antura.Minigames
 
             var miniGameData = AppManager.I.DB.GetMiniGameDataByCode(gameCode);
 
-            if (launchConfig.DirectGame) {
+            if (launchConfig.DirectGame)
+            {
                 AppManager.I.NavigationManager.InitNewPlaySession(true, miniGameData);
             }
 
-            if (DebugConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled)
+            {
                 Debug.Log("StartGame " + gameCode.ToString());
                 Debug.Log(launchConfig);
             }
@@ -68,7 +70,8 @@ namespace Antura.Minigames
             currentGameConfig.Questions = new SequentialQuestionPackProvider(currentQuestionPacks);
 
             // Communicate to LogManager the start of a new single minigame play session.
-            if (AppConfig.DebugLogDbInserts) { Debug.Log("InitGameplayLogSession " + gameCode.ToString()); }
+            if (AppConfig.DebugLogDbInserts)
+            { Debug.Log("InitGameplayLogSession " + gameCode.ToString()); }
             LogManager.I.LogInfo(InfoEvent.GameStart, "{\"minigame\":\"" + gameCode.ToString() + "\"}");
             LogManager.I.StartMiniGame();
 
@@ -118,25 +121,29 @@ namespace Antura.Minigames
 
             string miniGameSceneKey = miniGameData.Scene.Split('_')[1];
             string configurationClassName = miniGameSceneKey + "." + miniGameSceneKey + configurationKey;
-            if (miniGameSceneKey != assessmentNamespaceKey) {
+            if (miniGameSceneKey != assessmentNamespaceKey)
+            {
                 configurationClassName = minigamesNamespaceKey + "." + configurationClassName;
             }
             configurationClassName = baseNamespaceKey + "." + configurationClassName;
 
             var configurationClassType = Type.GetType(configurationClassName);
-            if (configurationClassType == null) {
+            if (configurationClassType == null)
+            {
                 throw new Exception("Type " + configurationClassName + " not found. Are the minigame scene and Configuration class ready?");
             }
 
             var property = configurationClassType.GetProperty(instanceFieldName, BindingFlags.Public | BindingFlags.Static);
-            if (property == null) {
+            if (property == null)
+            {
                 throw new Exception("Public static property named " + instanceFieldName +
                                     " not found. This should be present in the minigame's Configuration class.");
             }
 
             var currentGameConfig = (IGameConfiguration)property.GetValue(null, null);
 
-            if (currentGameConfig != null) {
+            if (currentGameConfig != null)
+            {
                 currentGameConfig.Context = defaultContext;
                 currentGameConfig.SetMiniGameCode(code);
             }
@@ -150,7 +157,8 @@ namespace Antura.Minigames
 
             // Set also the number of rounds
             // @note: only for assessment, for now
-            if (currentGameConfig is Assessment.IAssessmentConfiguration) {
+            if (currentGameConfig is Assessment.IAssessmentConfiguration)
+            {
                 var assessmentConfig = currentGameConfig as Assessment.IAssessmentConfiguration;
                 assessmentConfig.NumberOfRounds = launchConfig.NumberOfRounds;
             }

@@ -49,13 +49,15 @@ namespace Antura.UI
         }
 
         public void RefreshSelection()
-        {;
+        {
+            ;
             bool mustChooseLearningEdition = HomeScene.MustChooseLearningEdition;
             closeButton.SetActive(!mustChooseLearningEdition);
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (!mustChooseLearningEdition && button.ContentId == AppManager.I.AppSettings.ContentID) button.SetSelected();
+                if (!mustChooseLearningEdition && button.ContentId == AppManager.I.AppSettings.ContentID)
+                    button.SetSelected();
             }
             currentIcon.OnEnable();
         }

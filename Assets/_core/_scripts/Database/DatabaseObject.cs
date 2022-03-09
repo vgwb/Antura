@@ -41,31 +41,40 @@ namespace Antura.Database
 
         public bool HasTables()
         {
-            if (stageDb == null) {
+            if (stageDb == null)
+            {
                 return false;
             }
-            if (playsessionDb == null) {
+            if (playsessionDb == null)
+            {
                 return false;
             }
-            if (learningblockDb == null) {
+            if (learningblockDb == null)
+            {
                 return false;
             }
-            if (minigameDb == null) {
+            if (minigameDb == null)
+            {
                 return false;
             }
-            if (letterDb == null) {
+            if (letterDb == null)
+            {
                 return false;
             }
-            if (wordDb == null) {
+            if (wordDb == null)
+            {
                 return false;
             }
-            if (phraseDb == null) {
+            if (phraseDb == null)
+            {
                 return false;
             }
-            if (localizationDb == null) {
+            if (localizationDb == null)
+            {
                 return false;
             }
-            if (rewardDb == null) {
+            if (rewardDb == null)
+            {
                 return false;
             }
             return true;
@@ -93,47 +102,56 @@ namespace Antura.Database
             //Debug.LogWarning("Loading database at path " + path);
 
             stageDb = Resources.Load<StageDatabase>(path + "Stage");
-            if (!stageDb) {
+            if (!stageDb)
+            {
                 // Debug.LogError("Could not load StageDatabase db");
             }
 
             playsessionDb = Resources.Load<PlaySessionDatabase>(path + "PlaySession");
-            if (!playsessionDb) {
+            if (!playsessionDb)
+            {
                 // Debug.LogError("Could not load PlaySessionDatabase db");
             }
 
             learningblockDb = Resources.Load<LearningBlockDatabase>(path + "LearningBlock");
-            if (!learningblockDb) {
+            if (!learningblockDb)
+            {
                 // Debug.LogError("Could not load LearningBlockDatabase db");
             }
 
             minigameDb = Resources.Load<MiniGameDatabase>(path + "MiniGame");
-            if (!minigameDb) {
+            if (!minigameDb)
+            {
                 // Debug.LogError("Could not load MiniGameDatabase db");
             }
 
             letterDb = Resources.Load<LetterDatabase>(path + "Letter");
-            if (!letterDb) {
+            if (!letterDb)
+            {
                 // Debug.LogError("Could not load LetterDatabase db");
             }
 
             wordDb = Resources.Load<WordDatabase>(path + "Word");
-            if (!wordDb) {
+            if (!wordDb)
+            {
                 // Debug.LogError("Could not load WordDatabase db");
             }
 
             phraseDb = Resources.Load<PhraseDatabase>(path + "Phrase");
-            if (!phraseDb) {
+            if (!phraseDb)
+            {
                 // Debug.LogError("Could not load PhraseDatabase db");
             }
 
             localizationDb = Resources.Load<LocalizationDatabase>(path + "Localization");
-            if (!localizationDb) {
+            if (!localizationDb)
+            {
                 // Debug.LogError("Could not load LocalizationDatabase db");
             }
 
             rewardDb = Resources.Load<RewardDatabase>(path + "Reward");
-            if (!rewardDb) {
+            if (!rewardDb)
+            {
                 // Debug.LogError("Could not load RewardDatabase db");
             }
         }
@@ -164,8 +182,9 @@ namespace Antura.Database
 
         public T GetById<T>(SerializableDataTable<T> table, string id) where T : IData
         {
-            T value = (T)table.GetValue(id);
-            if (value == null) {
+            var value = (T)table.GetValue(id);
+            if (value == null)
+            {
                 Debug.LogWarning("Cannot find id '" + id + "' in table " + table.GetType().Name);
                 return default(T);
             }
@@ -174,8 +193,9 @@ namespace Antura.Database
 
         public bool HasById<T>(SerializableDataTable<T> table, string id) where T : IData
         {
-            T value = (T)table.GetValue(id);
-            if (value == null) {
+            var value = (T)table.GetValue(id);
+            if (value == null)
+            {
                 return false;
             }
             return true;
@@ -183,7 +203,8 @@ namespace Antura.Database
 
         public IEnumerable<List<IData>> GetAllData()
         {
-            foreach (var table in GetAllTables()) {
+            foreach (var table in GetAllTables())
+            {
                 yield return table.GetList();
             }
         }
@@ -255,7 +276,8 @@ namespace Antura.Database
         public IDataTable GetTable(DbTables tables)
         {
             IDataTable table = null;
-            switch (tables) {
+            switch (tables)
+            {
                 case DbTables.Letters:
                     table = GetLetterTable();
                     break;

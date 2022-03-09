@@ -14,9 +14,12 @@ namespace Antura.Kiosk
 
         public void Open(string url)
         {
-            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian) {
+            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian)
+            {
                 WebViewTitle.text = "Caricando ...";
-            } else {
+            }
+            else
+            {
                 WebViewTitle.text = "Loading ...";
             }
 
@@ -33,7 +36,8 @@ namespace Antura.Kiosk
 
         void Update()
         {
-            if (idleTime > 0 && Time.time > idleTime) {
+            if (idleTime > 0 && Time.time > idleTime)
+            {
                 idleTime = -1;
                 WebViewTitle.text = "www.antura.org";
             }

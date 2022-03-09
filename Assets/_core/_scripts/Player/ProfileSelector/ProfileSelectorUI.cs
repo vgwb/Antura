@@ -33,7 +33,8 @@ namespace Antura.UI
         public Sfx SfxCreateNewProfile;
         public Sfx SfxSelectProfile;
 
-        public PlayerProfileManager ProfileManager {
+        public PlayerProfileManager ProfileManager
+        {
             get { return AppManager.I.PlayerProfileManager; }
         }
 
@@ -60,9 +61,11 @@ namespace Antura.UI
 
             btAddTween = BtAdd.transform.DORotate(new Vector3(0, 0, -45), 0.3f).SetAutoKill(false).Pause()
                 .SetEase(Ease.OutBack)
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     if (AppManager.I.PlayerProfileManager.GetPlayersIconData() == null ||
-                        AppManager.I.PlayerProfileManager.GetPlayersIconData().Count == 0) {
+                        AppManager.I.PlayerProfileManager.GetPlayersIconData().Count == 0)
+                    {
                         BtAdd.Pulse();
                     }
                 });
@@ -76,11 +79,13 @@ namespace Antura.UI
 
             // Listeners
             BtAdd.Bt.onClick.AddListener(() => OnClick(BtAdd));
-            BtPlay.Bt.onClick.AddListener(() => {
+            BtPlay.Bt.onClick.AddListener(() =>
+            {
                 AudioManager.I.PlaySound(Sfx.UIButtonClick);
                 HomeScene.Play();
             });
-            foreach (PlayerIcon pIcon in playerIcons) {
+            foreach (PlayerIcon pIcon in playerIcons)
+            {
                 PlayerIcon p = pIcon;
                 p.UIButton.Bt.onClick.AddListener(() => OnSelectProfile(p));
             }
@@ -91,7 +96,8 @@ namespace Antura.UI
             btAddTween.Kill();
             btPlayTween.Kill();
             BtAdd.Bt.onClick.RemoveAllListeners();
-            foreach (PlayerIcon pIcon in playerIcons) {
+            foreach (PlayerIcon pIcon in playerIcons)
+            {
                 pIcon.UIButton.Bt.onClick.RemoveAllListeners();
             }
         }
@@ -119,37 +125,47 @@ namespace Antura.UI
         void Setup()
         {
             ActivatePlayerIcons(true);
-            if (playerIconDatas == null) {
+            if (playerIconDatas == null)
+            {
                 playerIconDatas = ProfileManager.GetPlayersIconData();
             }
             int totProfiles = playerIconDatas == null ? 0 : playerIconDatas.Count;
             int len = playerIcons.Length;
-            for (int i = 0; i < len; ++i) {
+            for (int i = 0; i < len; ++i)
+            {
                 PlayerIcon playerIcon = playerIcons[i];
-                if (i >= totProfiles) {
+                if (i >= totProfiles)
+                {
                     playerIcon.gameObject.SetActive(false);
-                } else {
+                }
+                else
+                {
                     PlayerIconData iconData = playerIconDatas[i];
                     playerIcon.gameObject.SetActive(true);
                     playerIcon.Init(iconData);
 
                     // Use the first available, if the player is null
-                    if (AppManager.I.Player == null) AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(playerIcon.Uuid);
+                    if (AppManager.I.Player == null)
+                        AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(playerIcon.Uuid);
 
                     playerIcon.Select(AppManager.I.Player.Uuid);
                     playerIcon.transform.localScale = Vector3.one * (AppManager.I.Player.Uuid == playerIcon.Uuid ? 1.14f : 1);
                 }
             }
 
-            if (totProfiles == 0) {
+            if (totProfiles == 0)
+            {
                 BtAdd.Pulse();
                 BtPlay.StopPulsing();
                 btPlayTween.PlayBackwards();
-            } else {
+            }
+            else
+            {
                 // Set play button position
                 this.StartCoroutine(CO_SetupPlayButton());
             }
-            if (totProfiles >= maxProfiles) {
+            if (totProfiles >= maxProfiles)
+            {
                 btAddTween.Rewind();
                 BtAdd.gameObject.SetActive(false);
             }
@@ -163,7 +179,8 @@ namespace Antura.UI
             BtPlay.gameObject.SetActive(true);
             // PLAYER REFACTORING WITH UUID
             PlayerIcon activePlayerIcon = GetPlayerIconByUUID(AppManager.I.Player.Uuid);
-            if (activePlayerIcon != null) {
+            if (activePlayerIcon != null)
+            {
                 BtPlay.RectT.SetAnchoredPosX(activePlayerIcon.UIButton.RectT.anchoredPosition.x);
             }
             btPlayTween.PlayForward();
@@ -171,15 +188,18 @@ namespace Antura.UI
 
         void ActivatePlayerIcons(bool _activate)
         {
-            foreach (PlayerIcon pIcon in playerIcons) {
+            foreach (PlayerIcon pIcon in playerIcons)
+            {
                 pIcon.UIButton.Bt.interactable = _activate;
             }
         }
 
         PlayerIcon GetPlayerIconByUUID(string uuid)
         {
-            foreach (PlayerIcon pIcon in playerIcons) {
-                if (pIcon.Uuid == uuid) {
+            foreach (PlayerIcon pIcon in playerIcons)
+            {
+                if (pIcon.Uuid == uuid)
+                {
                     return pIcon;
                 }
             }
@@ -192,7 +212,8 @@ namespace Antura.UI
 
         void OnClick(UIButton _bt)
         {
-            if (_bt == BtAdd) {
+            if (_bt == BtAdd)
+            {
                 // Bt Add
                 _bt.StopPulsing();
                 AppManager.I.NavigationManager.GoToPlayerCreation();

@@ -43,7 +43,8 @@ namespace Antura.ReservedArea
 
         void OnEnable()
         {
-            if (DebugConfig.I.DebugBypassDialogs) {
+            if (DebugConfig.I.DebugBypassDialogs)
+            {
                 UnlockReservedArea();
             }
 
@@ -57,22 +58,26 @@ namespace Antura.ReservedArea
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
-            for (var i = 0; i < nButtons; i++) {
+            for (var i = 0; i < nButtons; i++)
+            {
                 availableIndices.Add(i);
             }
             var selectedIndices = availableIndices.RandomSelect(2);
             firstButtonIndex = selectedIndices[0];
             secondButtonIndex = selectedIndices[1];
 
-            if (UseForcedSequence) firstButtonIndex = ForceSequenceFirstColorIndex;
-            if (UseForcedSequence) secondButtonIndex = ForceSequenceSecondColorIndex;
+            if (UseForcedSequence)
+                firstButtonIndex = ForceSequenceFirstColorIndex;
+            if (UseForcedSequence)
+                secondButtonIndex = ForceSequenceSecondColorIndex;
 
             // Number of clicks at random
             const int min_number = 2;
             const int max_number = 5;
             firstButtonClicksTarget = Random.Range(min_number, max_number + 1);
 
-            if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
+            if (UseForcedSequence)
+                firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 
             var numberWord = LocalizationManager.GetLocalizationData((LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_Number_{firstButtonClicksTarget}"));
             var colorWords = new LocalizationData[4];
@@ -121,12 +126,18 @@ namespace Antura.ReservedArea
         public void OnButtonClick(int buttonIndex)
         {
             AudioManager.I.PlaySound(Sfx.Blip);
-            if (buttonIndex == firstButtonIndex) {
+            if (buttonIndex == firstButtonIndex)
+            {
                 firstButtonClickCounter++;
-            } else if (buttonIndex == secondButtonIndex) {
-                if (firstButtonClickCounter == firstButtonClicksTarget) {
+            }
+            else if (buttonIndex == secondButtonIndex)
+            {
+                if (firstButtonClickCounter == firstButtonClicksTarget)
+                {
                     UnlockReservedArea();
-                } else {
+                }
+                else
+                {
                     firstButtonClickCounter = firstButtonClicksTarget + 1; // disabling
                 }
             }

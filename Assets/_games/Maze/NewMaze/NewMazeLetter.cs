@@ -21,7 +21,8 @@ public class NewMazeLetter : MonoBehaviour
     public void SetupLetter(LL_LetterData ld)
     {
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(ld.Id);
-        if (shapeData == null) return;
+        if (shapeData == null)
+            return;
 
         transform.position = new Vector3(-shapeData.Center.x, 0, -shapeData.Center.y + 1);
 

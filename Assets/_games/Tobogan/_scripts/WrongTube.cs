@@ -43,7 +43,8 @@ namespace Antura.Minigames.Tobogan
 
                 spittingTimer = 0.5f;
                 ragdoll.SetRagdoll(true, spawnTransform.forward * 75);
-                ragdoll.onPoofed += () => {
+                ragdoll.onPoofed += () =>
+                {
                     if (toCall != null)
                         toCall();
 

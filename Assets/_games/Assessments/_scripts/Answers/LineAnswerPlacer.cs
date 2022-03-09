@@ -36,11 +36,13 @@ namespace Antura.Assessment
             Answer[] original = new Answer[answer.Length];
             placeholders = new List<StillLetterBox>();
 
-            for (int i = 0; i < answer.Length; i++) {
+            for (int i = 0; i < answer.Length; i++)
+            {
                 original[i] = answer[i];
             }
 
-            for (int i = 0; i < answer.Length; i++) {
+            for (int i = 0; i < answer.Length; i++)
+            {
                 answer[i].AddTicket(i);
             }
 
@@ -59,17 +61,21 @@ namespace Antura.Assessment
 
         public void ForceRandom(Answer[] answer, Answer[] original)
         {
-            for (int i = 0; i < answer.Length; i++) {
+            for (int i = 0; i < answer.Length; i++)
+            {
                 // if there is one element out of place.. GOOD!
-                if (answer[i].Equals(original[i]) == false) {
+                if (answer[i].Equals(original[i]) == false)
+                {
                     return;
                 }
             }
 
             // Otherwise we swap the first 2 elements that are different
             // (we force at least 1 out of place to prevent automatic victory!)
-            for (int i = 0; i < answer.Length; i++) {
-                if (answer[i].Equals(answer[0]) == false) {
+            for (int i = 0; i < answer.Length; i++)
+            {
+                if (answer[i].Equals(answer[0]) == false)
+                {
                     Answer first = answer[0];
                     answer[0] = answer[i];
                     answer[i] = first;
@@ -91,10 +97,13 @@ namespace Antura.Assessment
             currentPos.y = -1;
             currentPos.z = 5;
 
-            if (flow == TextDirection.RightToLeft) {
+            if (flow == TextDirection.RightToLeft)
+            {
                 currentPos.x = occupiedSpace / 2f;
                 sign = -1;
-            } else {
+            }
+            else
+            {
                 currentPos.x = -occupiedSpace / 2f;
                 sign = 1;
             }
@@ -102,7 +111,8 @@ namespace Antura.Assessment
             currentPos.y -= 1.5f;
 
             // Move answer so we can wrap them in bg.
-            foreach (var a in allAnswers) {
+            foreach (var a in allAnswers)
+            {
                 MoveAnswer(a, currentPos);
                 currentPos.x += spaceIncrement * sign;
             }
@@ -112,7 +122,8 @@ namespace Antura.Assessment
 
             // Spawn Answers.
             playbackAnswers = new List<Answer>();
-            foreach (var a in allAnswers) {
+            foreach (var a in allAnswers)
+            {
                 yield return Koroutine.Nested(PlaceAnswer(a));
             }
 
@@ -132,7 +143,8 @@ namespace Antura.Assessment
         private IEnumerator PlayBackCorrectAnswers()
         {
             playbackAnswers.Shuffle();
-            foreach (var a in playbackAnswers) {
+            foreach (var a in playbackAnswers)
+            {
                 yield return Koroutine.Nested(a.PlayLetter());
                 yield return Wait.For(0.3f);
             }
@@ -145,10 +157,14 @@ namespace Antura.Assessment
             go.GetComponent<StillLetterBox>().Poof();
             go.GetComponent<StillLetterBox>().Magnify();
             audioManager.PlayPoofSound();
-            if (a.IsCorrect()) {
-                if (playbackAnswers.Count == 0 && AssessmentOptions.Instance.PlayCorrectAnswer) {
+            if (a.IsCorrect())
+            {
+                if (playbackAnswers.Count == 0 && AssessmentOptions.Instance.PlayCorrectAnswer)
+                {
                     playbackAnswers.Add(a);
-                } else if (AssessmentOptions.Instance.PlayAllCorrectAnswers) {
+                }
+                else if (AssessmentOptions.Instance.PlayAllCorrectAnswers)
+                {
                     playbackAnswers.Add(a);
                 }
             }
@@ -173,7 +189,8 @@ namespace Antura.Assessment
             bgBox = ItemFactory.Instance.SpawnQuestionBox(placeholders);
             bgBox.Show();
 
-            foreach (var p in placeholders) {
+            foreach (var p in placeholders)
+            {
                 p.Magnify();
             }
         }
@@ -193,7 +210,8 @@ namespace Antura.Assessment
 
             bgBox.Hide();
 
-            foreach (var p in placeholders) {
+            foreach (var p in placeholders)
+            {
                 RemovePlaceholder(p);
             }
 

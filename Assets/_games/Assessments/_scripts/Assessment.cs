@@ -31,9 +31,11 @@ namespace Antura.Assessment
         {
             int anturaGagRound = Random.Range(1, Configuration.NumberOfRounds);
 
-            for (int round = 0; round < Configuration.NumberOfRounds; round++) {
+            for (int round = 0; round < Configuration.NumberOfRounds; round++)
+            {
                 // Show antura only on the elected round.
-                if (anturaGagRound == round) {
+                if (anturaGagRound == round)
+                {
                     yield return Koroutine.Nested(AnturaGag());
                 }
                 InitRound();
@@ -43,7 +45,8 @@ namespace Antura.Assessment
 
                 LogicInjector.EnableDragOnly();
 
-                if (round == 0) {
+                if (round == 0)
+                {
                     executingRound0 = true;
                     Koroutine.Run(DescriptionAudio());
                 }
@@ -62,7 +65,8 @@ namespace Antura.Assessment
         {
             yield return Dialogues.PlayGameDescription();
 
-            if (executingRound0 && AssessmentOptions.Instance.PlayQuestionAlsoAfterTutorial) {
+            if (executingRound0 && AssessmentOptions.Instance.PlayQuestionAlsoAfterTutorial)
+            {
                 yield return QuestionPlacer.PlayQuestionSound();
             }
         }
@@ -81,7 +85,8 @@ namespace Antura.Assessment
         private IEnumerator PlaceQuestions(bool playAudio = false)
         {
             QuestionPlacer.Place(QuestionGenerator.GetAllQuestions(), playAudio);
-            while (QuestionPlacer.IsAnimating()) {
+            while (QuestionPlacer.IsAnimating())
+            {
                 yield return null;
             }
         }
@@ -89,7 +94,8 @@ namespace Antura.Assessment
         private IEnumerator PlaceAnswers()
         {
             AnswerPlacer.Place(QuestionGenerator.GetAllAnswers());
-            while (AnswerPlacer.IsAnimating()) {
+            while (AnswerPlacer.IsAnimating())
+            {
                 yield return null;
             }
 
@@ -100,7 +106,8 @@ namespace Antura.Assessment
         {
             LogicInjector.EnableGamePlay();
 
-            while (LogicInjector.AllAnswersCorrect() == false) {
+            while (LogicInjector.AllAnswersCorrect() == false)
+            {
                 yield return null;
             }
         }
@@ -114,7 +121,8 @@ namespace Antura.Assessment
             QuestionPlacer.RemoveQuestions();
             AnswerPlacer.RemoveAnswers();
 
-            while (QuestionPlacer.IsAnimating() || AnswerPlacer.IsAnimating()) {
+            while (QuestionPlacer.IsAnimating() || AnswerPlacer.IsAnimating())
+            {
                 yield return null;
             }
 
@@ -125,7 +133,8 @@ namespace Antura.Assessment
         {
             QuestionGenerator.InitRound();
 
-            for (int question = 0; question < Configuration.SimultaneosQuestions; question++) {
+            for (int question = 0; question < Configuration.SimultaneosQuestions; question++)
+            {
                 WireLogicInjector(LogicInjector, QuestionGenerator);
             }
 

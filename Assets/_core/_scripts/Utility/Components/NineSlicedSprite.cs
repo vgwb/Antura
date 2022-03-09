@@ -40,7 +40,8 @@ namespace Antura.Utilities
             get { return width; }
             set
             {
-                if (width == value) {
+                if (width == value)
+                {
                     return;
                 }
 
@@ -57,7 +58,8 @@ namespace Antura.Utilities
             get { return height; }
             set
             {
-                if (height == value) {
+                if (height == value)
+                {
                     return;
                 }
 
@@ -74,7 +76,8 @@ namespace Antura.Utilities
             get { return borderScale; }
             set
             {
-                if (borderScale == value) {
+                if (borderScale == value)
+                {
                     return;
                 }
 
@@ -91,7 +94,8 @@ namespace Antura.Utilities
             get { return sprite; }
             set
             {
-                if (sprite == value) {
+                if (sprite == value)
+                {
                     return;
                 }
 
@@ -108,7 +112,8 @@ namespace Antura.Utilities
         {
             get
             {
-                if (material == null) {
+                if (material == null)
+                {
                     meshRenderer.sharedMaterial = material = new Material(initialMaterial);
                 }
 
@@ -116,13 +121,15 @@ namespace Antura.Utilities
             }
             set
             {
-                if (originalMaterial == value) {
+                if (originalMaterial == value)
+                {
                     return;
                 }
 
                 originalMaterial = value;
                 meshRenderer.sharedMaterial = material = value == null ? null : new Material(value);
-                if (material != null) {
+                if (material != null)
+                {
                     material.SetTexture("_MainTex", sprite.texture);
                 }
             }
@@ -130,14 +137,16 @@ namespace Antura.Utilities
 
         void OnEnable()
         {
-            if (meshRenderer != null) {
+            if (meshRenderer != null)
+            {
                 meshRenderer.enabled = true;
             }
         }
 
         void OnDisable()
         {
-            if (meshRenderer != null) {
+            if (meshRenderer != null)
+            {
                 meshRenderer.enabled = false;
             }
         }
@@ -147,10 +156,12 @@ namespace Antura.Utilities
             meshFilter = GetComponent<MeshFilter>();
             meshRenderer = GetComponent<MeshRenderer>();
 
-            if (meshFilter == null) {
+            if (meshFilter == null)
+            {
                 meshFilter = gameObject.AddComponent<MeshFilter>();
             }
-            if (meshRenderer == null) {
+            if (meshRenderer == null)
+            {
                 meshRenderer = gameObject.AddComponent<MeshRenderer>();
             }
             meshFilter.hideFlags = HideFlags.HideAndDontSave;
@@ -167,7 +178,8 @@ namespace Antura.Utilities
 
         void Update()
         {
-            if (!Application.isPlaying) {
+            if (!Application.isPlaying)
+            {
                 Sprite = initialSprite;
                 Width = initialWidth;
                 Height = initialHeight;
@@ -175,7 +187,8 @@ namespace Antura.Utilities
                 Material = initialMaterial;
             }
 
-            if (dirty) {
+            if (dirty)
+            {
                 CreateSlicedMesh();
             }
         }
@@ -183,16 +196,21 @@ namespace Antura.Utilities
         void CreateSlicedMesh()
         {
             dirty = false;
-            if (mesh != null) {
-                if (Application.isPlaying) {
+            if (mesh != null)
+            {
+                if (Application.isPlaying)
+                {
                     GameObject.Destroy(mesh);
-                } else {
+                }
+                else
+                {
                     GameObject.DestroyImmediate(mesh);
                 }
                 mesh = null;
             }
 
-            if (sprite == null) {
+            if (sprite == null)
+            {
                 return;
             }
 
@@ -248,7 +266,8 @@ namespace Antura.Utilities
 
             GetComponent<MeshFilter>().mesh = mesh;
 
-            if (material != null) {
+            if (material != null)
+            {
                 material.SetTexture("_MainTex", sprite.texture);
             }
         }

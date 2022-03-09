@@ -15,10 +15,11 @@ namespace Antura.AnturaSpace
         {
             get { return UnlockableDecorationObject.gameObject; }
         }
-        
+
         public override void PerformDrag()
         {
-            if (!AnturaSpaceScene.I.TutorialMode) KeeperManager.I.PlayDialogue("UI_Antura_Shop_" + LocID, keeperMode:KeeperMode.LearningAndSubtitles);
+            if (!AnturaSpaceScene.I.TutorialMode)
+                KeeperManager.I.PlayDialogue("UI_Antura_Shop_" + LocID, keeperMode: KeeperMode.LearningAndSubtitles);
 
             ShopDecorationsManager.I.CreateAndStartDragPlacement(UnlockableDecorationObject, bonesCost);
             ShopDecorationsManager.I.OnPurchaseComplete += CommitAction;
@@ -43,7 +44,8 @@ namespace Antura.AnturaSpace
         {
             get
             {
-                if (base.IsLocked) return base.IsLocked;
+                if (base.IsLocked)
+                    return base.IsLocked;
                 return !ShopDecorationsManager.I.HasSlotsForDecoration(UnlockableDecorationObject);
             }
         }

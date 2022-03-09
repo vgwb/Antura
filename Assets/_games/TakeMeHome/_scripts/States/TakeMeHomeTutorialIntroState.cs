@@ -6,17 +6,17 @@ namespace Antura.Minigames.TakeMeHome
     {
 
         TakeMeHomeGame game;
-        
+
         public TakeMeHomeTutorialIntroState(TakeMeHomeGame game)
         {
             this.game = game;
         }
-       
+
         public void EnterState()
         {
             TakeMeHomeConfiguration.Instance.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.TakeMeHome_Title, playedTitleSFX);
-            
-            
+
+
         }
 
         private void playedTitleSFX()
@@ -24,7 +24,7 @@ namespace Antura.Minigames.TakeMeHome
             UnityEngine.Debug.Log("Played Title");
             TakeMeHomeConfiguration.Instance.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.TakeMeHome_Intro, playedIntroSFX);
         }
-       
+
 
         private void playedIntroSFX()
         {
@@ -37,7 +37,7 @@ namespace Antura.Minigames.TakeMeHome
             UnityEngine.Debug.Log("Played Intro");
             game.spawnLetteAtTube();
         }
-        
+
         public void ExitState()
         {
         }

@@ -139,17 +139,21 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (m_bMovingToDestination) {
+            if (m_bMovingToDestination)
+            {
                 MoveTo(m_v3Destination);
             }
 
-            if (m_bRotatingToTarget) {
+            if (m_bRotatingToTarget)
+            {
                 RotateTowards(m_oTargetToLook);
             }
 
-            if (m_eAnturaState == AnturaContollerState.BARKING) {
+            if (m_eAnturaState == AnturaContollerState.BARKING)
+            {
                 m_fBarkTimeProgress += Time.deltaTime;
-                if (m_fBarkTimeProgress >= m_fBarkTime) {
+                if (m_fBarkTimeProgress >= m_fBarkTime)
+                {
                     AnturaNextTransition();
                 }
             }
@@ -160,7 +164,7 @@ namespace Antura.Minigames.ColorTickle
         #region PUBLIC FUNCTIONS
 
         /// <summary>
-        /// Set a new destination and start moving towards it from the current position. 
+        /// Set a new destination and start moving towards it from the current position.
         /// </summary>
         /// <param name="v3Destination">The final world position</param>
         public void MoveToNewDestination(Vector3 v3Destination)
@@ -170,7 +174,7 @@ namespace Antura.Minigames.ColorTickle
         }
 
         /// <summary>
-        /// Set a new destination and start position and begin to travel it. 
+        /// Set a new destination and start position and begin to travel it.
         /// </summary>
         /// <param name="v3Start">The start world position</param>
         /// <param name="v3Destination">The final world position</param>
@@ -182,7 +186,7 @@ namespace Antura.Minigames.ColorTickle
         }
 
         /// <summary>
-        /// Using the given probability to launch antura action in the scene. 
+        /// Using the given probability to launch antura action in the scene.
         /// </summary>
         /// <returns>True when the action has succeed, false otherwise</returns>
         public bool LaunchAnturaDisruption()
@@ -205,11 +209,13 @@ namespace Antura.Minigames.ColorTickle
             //We do not care about states of Sleeping, RotatingOnStart and ComingBack
             if (m_eAnturaState == AnturaContollerState.SLEEPING ||
                 m_eAnturaState == AnturaContollerState.ROTATION ||
-                m_eAnturaState == AnturaContollerState.COMINGBACK) {
+                m_eAnturaState == AnturaContollerState.COMINGBACK)
+            {
                 return;
             }
             // handled cases
-            else if (m_eAnturaState == AnturaContollerState.REACHINGLETTER) {
+            else if (m_eAnturaState == AnturaContollerState.REACHINGLETTER)
+            {
                 //swap dest and start
                 Vector3 _v3Temp = m_v3StartPosition;
                 m_v3StartPosition = m_v3Destination;
@@ -220,7 +226,9 @@ namespace Antura.Minigames.ColorTickle
                 //set new state
                 m_eAnturaState = AnturaContollerState.COMINGBACK;
 
-            } else if (m_eAnturaState == AnturaContollerState.TURN_TO_BARK) {
+            }
+            else if (m_eAnturaState == AnturaContollerState.TURN_TO_BARK)
+            {
                 m_bMovingToDestination = true;
 
                 //m_oAntura.SetAnimation(m_eAnimationOnMoving);
@@ -228,7 +236,9 @@ namespace Antura.Minigames.ColorTickle
 
                 //set new state
                 m_eAnturaState = AnturaContollerState.COMINGBACK;
-            } else if (m_eAnturaState == AnturaContollerState.BARKING) {
+            }
+            else if (m_eAnturaState == AnturaContollerState.BARKING)
+            {
                 //m_oAntura.IsBarking = false;
                 //m_oAntura.SetAnimation(m_eAnimationOnMoving);
                 m_oAntura.State = m_eAnimationOnMoving;
@@ -240,7 +250,8 @@ namespace Antura.Minigames.ColorTickle
             }
 
             //launch event
-            if (OnStateChanged != null) {
+            if (OnStateChanged != null)
+            {
                 OnStateChanged(m_eAnturaState);
             }
 
@@ -266,8 +277,9 @@ namespace Antura.Minigames.ColorTickle
 
                 AnturaNextTransition();
 
-            } else //make the progress for this frame
-              {
+            }
+            else //make the progress for this frame
+            {
 
                 //m_oAntura.SetAnimation(m_eAnimationOnMoving);
 
@@ -301,8 +313,9 @@ namespace Antura.Minigames.ColorTickle
 
                 AnturaNextTransition();
 
-            } else //make the progress for this frame
-              {
+            }
+            else //make the progress for this frame
+            {
                 //rotate
                 gameObject.transform.rotation = _qPartialRot;
             }
@@ -320,8 +333,9 @@ namespace Antura.Minigames.ColorTickle
                 m_oAntura.State = m_eAnimationOnMoving;
 
                 m_eAnturaState = AnturaContollerState.REACHINGLETTER;
-            } else if (m_eAnturaState == AnturaContollerState.REACHINGLETTER)//letter reached, rotate
-              {
+            }
+            else if (m_eAnturaState == AnturaContollerState.REACHINGLETTER)//letter reached, rotate
+            {
                 //swap dest and start
                 Vector3 _v3Temp = m_v3StartPosition;
                 m_v3StartPosition = m_v3Destination;
@@ -333,8 +347,9 @@ namespace Antura.Minigames.ColorTickle
                 //set new state
                 m_eAnturaState = AnturaContollerState.TURN_TO_BARK;
 
-            } else if (m_eAnturaState == AnturaContollerState.TURN_TO_BARK)//now bark
-              {
+            }
+            else if (m_eAnturaState == AnturaContollerState.TURN_TO_BARK)//now bark
+            {
                 //change animation and play sound
                 //m_oAntura.SetAnimation(m_eAnimationOnLLReached);
                 //m_oAntura.IsBarking = true;
@@ -347,16 +362,18 @@ namespace Antura.Minigames.ColorTickle
                 //set new state
                 m_eAnturaState = AnturaContollerState.BARKING;
 
-            } else if (m_eAnturaState == AnturaContollerState.BARKING) //return back
-              {
+            }
+            else if (m_eAnturaState == AnturaContollerState.BARKING) //return back
+            {
                 m_bMovingToDestination = true;
                 //m_oAntura.SetAnimation(m_eAnimationOnMoving);
                 //m_oAntura.IsBarking = false;
                 m_oAntura.State = m_eAnimationOnMoving;
 
                 m_eAnturaState = AnturaContollerState.COMINGBACK;
-            } else if (m_eAnturaState == AnturaContollerState.COMINGBACK) //rotate towards letter again
-              {
+            }
+            else if (m_eAnturaState == AnturaContollerState.COMINGBACK) //rotate towards letter again
+            {
                 //swap dest and start
                 Vector3 _v3Temp = m_v3StartPosition;
                 m_v3StartPosition = m_v3Destination;
@@ -368,8 +385,9 @@ namespace Antura.Minigames.ColorTickle
                 //set new state
                 m_eAnturaState = AnturaContollerState.ROTATION;
 
-            } else if (m_eAnturaState == AnturaContollerState.ROTATION) //gone back to start
-              {
+            }
+            else if (m_eAnturaState == AnturaContollerState.ROTATION) //gone back to start
+            {
                 //change animation
                 //m_oAntura.SetAnimation(m_eAnimationOnStandby);
                 m_oAntura.State = m_eAnimationOnStandby;
@@ -380,7 +398,8 @@ namespace Antura.Minigames.ColorTickle
             }
 
             //launch event
-            if (OnStateChanged != null) {
+            if (OnStateChanged != null)
+            {
                 OnStateChanged(m_eAnturaState);
             }
         }

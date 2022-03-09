@@ -26,7 +26,7 @@ namespace Antura.Minigames.Tobogan
         public void Update(float deltaTime)
         {
             var volume = enable ? baseVolume : 0;
-            var pitch = enable ? basePitch*1.5f : basePitch*1;
+            var pitch = enable ? basePitch * 1.5f : basePitch * 1;
 
             float volumeSpeed = enable ? turnOnSpeed : turnOffSpeed;
             float pitchSpeed = enable ? turnOnSpeed : turnOffSpeed;
@@ -38,7 +38,7 @@ namespace Antura.Minigames.Tobogan
             {
                 source.Stop();
             }
-            else if(source.Volume > 0.075f && !source.IsPlaying)
+            else if (source.Volume > 0.075f && !source.IsPlaying)
             {
                 source.Play();
             }

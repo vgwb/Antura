@@ -56,7 +56,8 @@ namespace Antura.Minigames.ReadingGame
             // Difficulty for game type ReadAndListen
             int maxWrongs = Mathf.RoundToInt(2 + 3 * game.Difficulty);
             choices.AddRange(wrongs);
-            for (int i = maxWrongs, count = choices.Count; i < count; ++i) {
+            for (int i = maxWrongs, count = choices.Count; i < count; ++i)
+            {
                 choices.RemoveAt(choices.Count - 1);
             }
 
@@ -70,7 +71,8 @@ namespace Antura.Minigames.ReadingGame
                 var button = box.AddButton(imageData, OnAnswered, delay);
                 delay += 0.2f;
 
-                if (c == correctLLData) {
+                if (c == correctLLData)
+                {
                     correctButton = button;
                 }
             }
@@ -101,7 +103,8 @@ namespace Antura.Minigames.ReadingGame
             {
                 yield return new WaitForSeconds(game.CurrentSongBPM.periodRatio);
                 game.Context.GetAudioManager().PlaySound(Sfx.WheelTick);
-                if (Finished) break;
+                if (Finished)
+                    break;
             }
         }
 
@@ -120,7 +123,8 @@ namespace Antura.Minigames.ReadingGame
         {
             rightButtonTimer -= delta;
 
-            if (correctButton != null && TutorialMode && rightButtonTimer < 0 && box.IsReady() && !Finished) {
+            if (correctButton != null && TutorialMode && rightButtonTimer < 0 && box.IsReady() && !Finished)
+            {
                 rightButtonTimer = 3;
                 var uicamera = game.uiCamera;
                 TutorialUI.SetCamera(uicamera);
@@ -131,7 +135,8 @@ namespace Antura.Minigames.ReadingGame
             {
                 game.radialWidget.percentage = gameTime.Time / gameTime.Duration;
             }
-            if (!TutorialMode && ReadingGameConfiguration.Instance.ShowTimer && !Finished) game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
+            if (!TutorialMode && ReadingGameConfiguration.Instance.ShowTimer && !Finished)
+                game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
             gameTime.Update(delta);
         }
 
@@ -142,11 +147,13 @@ namespace Antura.Minigames.ReadingGame
 
         void OnAnswered(CircleButton clickedButton)
         {
-            if (Finished) return;
+            if (Finished)
+                return;
             Finished = true;
             game.DisableRepeatPromptButton();
 
-            if (ReadingGameConfiguration.Instance.ShowTimer && !TutorialMode)  UI.MinigamesUI.Timer.Pause();
+            if (ReadingGameConfiguration.Instance.ShowTimer && !TutorialMode)
+                UI.MinigamesUI.Timer.Pause();
 
             bool isCorrect = clickedButton != null && DataMatchingHelper.IsDataMatching(clickedButton.Answer, correctLLData, LetterEqualityStrictness.Letter);
 
@@ -158,7 +165,8 @@ namespace Antura.Minigames.ReadingGame
             }
             else
             {
-                if (clickedButton != null) TutorialUI.MarkNo(clickedButton.transform.position);
+                if (clickedButton != null)
+                    TutorialUI.MarkNo(clickedButton.transform.position);
             }
 
             if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.ReadAndListen)
@@ -166,7 +174,7 @@ namespace Antura.Minigames.ReadingGame
                 if (isCorrect)
                 {
                     correctLLData = new LL_ImageData(correctLLData.Id);
-                    var runLetter = game.runLettersBox.AddRunLetter(correctLLData, Vector3.one*4);
+                    var runLetter = game.runLettersBox.AddRunLetter(correctLLData, Vector3.one * 4);
                     runLetter.Stop();
                     runLetter.PlayAnimation(LLAnimationStates.LL_dancing);
                 }
@@ -178,42 +186,42 @@ namespace Antura.Minigames.ReadingGame
                 // First read the answer you clicked
                 if (clickedButton != null)
                 {
-                    game.Context.GetAudioManager().PlayVocabularyData(clickedButton.Answer, autoClose:false, callback: () =>
-                    {
-                        // Then read the one that is correct, if not already correct, and highlight it
-                        if (!isCorrect)
-                        {
-                            if (TutorialMode)
-                            {
-                                Finished = false;
-                            }
-                            else
-                            {
-                                correctButton.SetColor(Color.green);
-                                game.Context.GetAudioManager().PlayVocabularyData(correctButton.Answer,
-                                    callback: () =>
-                                    {
-                                        // Then translate the sentence
-                                        game.Context.GetAudioManager().PlayVocabularyData(
-                                            game.CurrentQuestion.GetQuestion(),
-                                            autoClose: false,
-                                            keeperMode: KeeperMode.NativeNoSubtitles,
-                                            callback: () => { Next(isCorrect, clickedButton); });
-                                    });
-                            }
-                        }
-                        else
-                        {
-                            // Just translate the sentence
-                            game.Context.GetAudioManager().PlayVocabularyData(game.CurrentQuestion.GetQuestion(),
-                                autoClose: false,
-                                keeperMode: KeeperMode.NativeNoSubtitles, callback: () =>
-                                {
-                                    Next(isCorrect, clickedButton);
-                                });
-                        }
+                    game.Context.GetAudioManager().PlayVocabularyData(clickedButton.Answer, autoClose: false, callback: () =>
+                     {
+                         // Then read the one that is correct, if not already correct, and highlight it
+                         if (!isCorrect)
+                         {
+                             if (TutorialMode)
+                             {
+                                 Finished = false;
+                             }
+                             else
+                             {
+                                 correctButton.SetColor(Color.green);
+                                 game.Context.GetAudioManager().PlayVocabularyData(correctButton.Answer,
+                                     callback: () =>
+                                     {
+                                         // Then translate the sentence
+                                         game.Context.GetAudioManager().PlayVocabularyData(
+                                              game.CurrentQuestion.GetQuestion(),
+                                              autoClose: false,
+                                              keeperMode: KeeperMode.NativeNoSubtitles,
+                                              callback: () => { Next(isCorrect, clickedButton); });
+                                     });
+                             }
+                         }
+                         else
+                         {
+                             // Just translate the sentence
+                             game.Context.GetAudioManager().PlayVocabularyData(game.CurrentQuestion.GetQuestion(),
+                                  autoClose: false,
+                                  keeperMode: KeeperMode.NativeNoSubtitles, callback: () =>
+                                  {
+                                      Next(isCorrect, clickedButton);
+                                  });
+                         }
 
-                    });
+                     });
                 }
                 else
                 {
@@ -249,13 +257,15 @@ namespace Antura.Minigames.ReadingGame
             if (ReadingGameConfiguration.Instance.CurrentGameType != ReadingGameConfiguration.GameType.SimonSong)
                 KeeperManager.I.CloseSubtitles();
 
-            if (!TutorialMode) {
+            if (!TutorialMode)
+            {
                 game.Context.GetLogManager().OnAnswered(correctLLData, correct);
             }
             if (correct)
             {
                 // Assign score
-                if (!TutorialMode && showOldTimer) {
+                if (!TutorialMode && showOldTimer)
+                {
                     game.AddScore((int)(ReadTime) + 1);
                     game.radialWidget.percentage = 0;
                     game.radialWidget.pulsing = false;
@@ -264,12 +274,17 @@ namespace Antura.Minigames.ReadingGame
                 game.StartCoroutine(DoEndAnimation(true, correctButton, clickedButton));
 
                 game.antura.Mood = ReadingGameAntura.AnturaMood.HAPPY;
-            } else
+            }
+            else
             {
-                if (TutorialMode) {
+                if (TutorialMode)
+                {
                     Finished = false;
-                } else {
-                    if (!TutorialMode && showOldTimer) {
+                }
+                else
+                {
+                    if (!TutorialMode && showOldTimer)
+                    {
                         game.radialWidget.PoofAndHide();
                     }
                     game.StartCoroutine(DoEndAnimation(false, correctButton, clickedButton));
@@ -282,16 +297,18 @@ namespace Antura.Minigames.ReadingGame
 
         private void OnTimesUp()
         {
-            if (Finished) return;
+            if (Finished)
+                return;
 
             // Time's up!
             game.isTimesUp = true;
-            if (ReadingGameConfiguration.Instance.ShowTimer) game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
+            if (ReadingGameConfiguration.Instance.ShowTimer)
+                game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
 
             if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading)
             {
                 // show time's up and back
-                game.Context.GetPopupWidget().ShowTimeUp(() => {});
+                game.Context.GetPopupWidget().ShowTimeUp(() => { });
             }
             OnAnswered(null);
         }
@@ -303,7 +320,8 @@ namespace Antura.Minigames.ReadingGame
             Finished = true;
             box.Active = false;
             game.StartCoroutine(game.gameLettersHandler.CleanupCO(correct));
-            if (countdownCo != null) game.StopCoroutine(countdownCo);
+            if (countdownCo != null)
+                game.StopCoroutine(countdownCo);
 
             if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.ReadAndListen)
             {
@@ -362,7 +380,8 @@ namespace Antura.Minigames.ReadingGame
             else if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.SimonSong)
             {
                 game.circleBox.GetComponent<CircleButtonBox>().ClearButtonsApartFrom(correctButton);
-                game.circleBox.GetComponent<CircleButtonBox>().Clear(() => {
+                game.circleBox.GetComponent<CircleButtonBox>().Clear(() =>
+                {
                     game.SetCurrentState(game.QuestionState);
                 }, 0.5f);
             }
@@ -370,7 +389,8 @@ namespace Antura.Minigames.ReadingGame
             {
                 //if (!correct) clickedButton?.SetColor(Color.red);
                 correctButton.SetColor(Color.green);
-                game.circleBox.GetComponent<CircleButtonBox>().Clear(() => {
+                game.circleBox.GetComponent<CircleButtonBox>().Clear(() =>
+                {
                     game.SetCurrentState(game.QuestionState);
                 }, 0.5f);
             }

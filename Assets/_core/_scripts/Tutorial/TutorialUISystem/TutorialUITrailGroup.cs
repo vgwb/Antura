@@ -22,7 +22,8 @@ namespace Antura.Tutorial
 
         void Init()
         {
-            if (initialized) { return; }
+            if (initialized)
+            { return; }
 
             initialized = true;
 
@@ -34,12 +35,15 @@ namespace Antura.Tutorial
             for (int i = 0; i < count; ++i)
             {
                 TrailRenderer tr = Trails[i];
-                if (Time < tr.time) { Time = tr.time; }
+                if (Time < tr.time)
+                { Time = tr.time; }
                 defStartWidths[i] = tr.startWidth;
                 defEndWidths[i] = tr.endWidth;
                 SortingOrder3D sort = tr.GetComponent<SortingOrder3D>();
-                if (sort != null) { defSortingOrder[i] = sort.SortingOrder; }
-                else { defSortingOrder[i] = tr.GetComponent<Renderer>().sortingOrder; }
+                if (sort != null)
+                { defSortingOrder[i] = sort.SortingOrder; }
+                else
+                { defSortingOrder[i] = tr.GetComponent<Renderer>().sortingOrder; }
             }
         }
 
@@ -55,7 +59,8 @@ namespace Antura.Tutorial
 
         void LateUpdate()
         {
-            if (isWaitingToDespawn) { return; }
+            if (isWaitingToDespawn)
+            { return; }
 
             if (lastPos - this.transform.position == Vector3.zero)
             {
@@ -93,7 +98,8 @@ namespace Antura.Tutorial
         {
             isWaitingToDespawn = false;
             waitingTween.Kill();
-            foreach (TrailRenderer tr in Trails) { tr.Clear(); }
+            foreach (TrailRenderer tr in Trails)
+            { tr.Clear(); }
             this.gameObject.SetActive(false);
         }
 

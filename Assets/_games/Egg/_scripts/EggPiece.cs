@@ -55,17 +55,21 @@ namespace Antura.Minigames.Egg
 
         public void Shake()
         {
-            if (shakeTween != null) {
+            if (shakeTween != null)
+            {
                 shakeTween.Kill();
             }
 
-            shakeTween = transform.DOShakePosition(0.2f, 0.02f, 20, 180f).OnComplete(delegate () { transform.localPosition = Vector3.zero; });
+            shakeTween = transform.DOShakePosition(0.2f, 0.02f, 20, 180f).OnComplete(delegate ()
+            { transform.localPosition = Vector3.zero; });
         }
 
         public void Poof(bool poofDirRight)
         {
-            if (!poofed) {
-                if (shakeTween != null) {
+            if (!poofed)
+            {
+                if (shakeTween != null)
+                {
                     shakeTween.Kill();
                 }
 
@@ -91,10 +95,12 @@ namespace Antura.Minigames.Egg
 
         void Update()
         {
-            if (!landed) {
+            if (!landed)
+            {
                 landedTimer -= Time.deltaTime;
 
-                if (landedTimer <= 0f) {
+                if (landedTimer <= 0f)
+                {
                     landed = true;
 
                     eggRigidbody.isKinematic = true;
@@ -105,10 +111,12 @@ namespace Antura.Minigames.Egg
                 }
             }
 
-            if (smoke) {
+            if (smoke)
+            {
                 smokeTimer -= Time.deltaTime;
 
-                if (smokeTimer <= 0f) {
+                if (smokeTimer <= 0f)
+                {
                     smoke = false;
                     OnSmokeEnd();
                 }
@@ -138,8 +146,10 @@ namespace Antura.Minigames.Egg
 
             int childCount = go.transform.childCount;
 
-            if (childCount > 0) {
-                for (int i = 0; i < childCount; i++) {
+            if (childCount > 0)
+            {
+                for (int i = 0; i < childCount; i++)
+                {
                     ChengeGameObjectLayer(go.transform.GetChild(i).gameObject);
                 }
             }
@@ -147,7 +157,8 @@ namespace Antura.Minigames.Egg
 
         void OnSmokeEnd()
         {
-            if (onPoofEnd != null) {
+            if (onPoofEnd != null)
+            {
                 onPoofEnd();
             }
         }

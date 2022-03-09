@@ -19,7 +19,8 @@ public class StrokeLogic : MonoBehaviour
     {
         var controller = GetComponent<SpriteShapeController>();
         var spline = controller.spline;
-        for (int i = 0; i < spline.GetPointCount() - 1; i++) {
+        for (int i = 0; i < spline.GetPointCount() - 1; i++)
+        {
             Handles.color = Color.red;
             var tang = ShapeManager.TangentOnSpline(spline, i);
 

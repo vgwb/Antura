@@ -18,25 +18,30 @@ namespace Antura.Assessment
             float xmin = 1000;
             float xmax = -1000;
 
-            foreach (var letter in letters) {
+            foreach (var letter in letters)
+            {
                 float xmin_local = letter.transform.localPosition.x - letter.GetHalfWidth();
                 float xmax_local = letter.transform.localPosition.x + letter.GetHalfWidth();
                 float ymin_local = letter.transform.localPosition.y - letter.GetHalfHeight();
                 float ymax_local = letter.transform.localPosition.y + letter.GetHalfHeight();
 
-                if (xmin_local < xmin) {
+                if (xmin_local < xmin)
+                {
                     xmin = xmin_local;
                 }
 
-                if (xmax_local > xmax) {
+                if (xmax_local > xmax)
+                {
                     xmax = xmax_local;
                 }
 
-                if (ymin_local < ymin) {
+                if (ymin_local < ymin)
+                {
                     ymin = ymin_local;
                 }
 
-                if (ymax_local > ymax) {
+                if (ymax_local > ymax)
+                {
                     ymax = ymax_local;
                 }
             }
@@ -71,7 +76,8 @@ namespace Antura.Assessment
 
         private void KillTween()
         {
-            if (tween != null) {
+            if (tween != null)
+            {
                 tween.Kill(true);
             }
             tween = null;

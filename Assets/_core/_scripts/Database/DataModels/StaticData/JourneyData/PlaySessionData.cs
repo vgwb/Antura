@@ -10,7 +10,7 @@ namespace Antura.Database
 {
 
     /// <summary>
-    /// Data defining a Play Session. 
+    /// Data defining a Play Session.
     /// Used to define the learning journey progression.
     /// Learning Blocks contain one or more play sessions and end with an assessment.
     /// A Play Session contains one or more minigames that can be selected to play when reaching that play session.
@@ -187,8 +187,10 @@ namespace Antura.Database
             string output = "";
             output += string.Format("[PlaySession: LB={0}, PS={1}]", Stage, LearningBlock, PlaySession);
             output += "\n MiniGames:";
-            foreach (var minigame in Minigames) {
-                if (minigame.Weight == 0) continue;
+            foreach (var minigame in Minigames)
+            {
+                if (minigame.Weight == 0)
+                    continue;
                 output += "\n      " + minigame.MiniGameCode + ": \t" + minigame.Weight;
             }
             return output;

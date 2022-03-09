@@ -22,7 +22,8 @@ namespace Antura.Tutorial
 
         void Init()
         {
-            if (initialized) { return; }
+            if (initialized)
+            { return; }
 
             initialized = true;
 
@@ -32,8 +33,10 @@ namespace Antura.Tutorial
             {
                 LineRenderer lr = Lines[i];
                 SortingOrder3D sort = lr.GetComponent<SortingOrder3D>();
-                if (sort != null) { defSortingOrder[i] = sort.SortingOrder; }
-                else { defSortingOrder[i] = lr.GetComponent<Renderer>().sortingOrder; }
+                if (sort != null)
+                { defSortingOrder[i] = sort.SortingOrder; }
+                else
+                { defSortingOrder[i] = lr.GetComponent<Renderer>().sortingOrder; }
             }
         }
 
@@ -75,7 +78,8 @@ namespace Antura.Tutorial
 
         public void AddPosition(Vector3 _position)
         {
-            if (wps.Count > 0 && Vector3.Distance(_position, wps[wps.Count - 1]) < MinPointsDistance) { return; }
+            if (wps.Count > 0 && Vector3.Distance(_position, wps[wps.Count - 1]) < MinPointsDistance)
+            { return; }
 
             wps.Add(_position);
             wpsArray = wps.ToArray();

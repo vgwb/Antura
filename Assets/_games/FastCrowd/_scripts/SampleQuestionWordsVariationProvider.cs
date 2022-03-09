@@ -23,7 +23,7 @@ namespace Antura.Minigames.FastCrowd
                 List<ILivingLetterData> correctAnswers = new List<ILivingLetterData>();
                 List<ILivingLetterData> wrongAnswers = new List<ILivingLetterData>();
 
-                for (int j=0; j<3; ++j)
+                for (int j = 0; j < 3; ++j)
                 {
                     LL_WordData newWordData = AppManager.I.Teacher.GetRandomTestWordDataLL();
 

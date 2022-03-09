@@ -28,8 +28,8 @@ namespace Antura.Minigames.FastCrowd
             /*
             List<ILivingLetterData> wrongAnswers = new List<ILivingLetterData>();
 
-            for (int i = 0; 
-                i < FastCrowdConfiguration.Instance.MaxNumbOfWrongLettersNoise && 
+            for (int i = 0;
+                i < FastCrowdConfiguration.Instance.MaxNumbOfWrongLettersNoise &&
                 i < game.QuestionNumber &&
                 i < game.NoiseData.Count; i++)
             {
@@ -42,7 +42,8 @@ namespace Antura.Minigames.FastCrowd
             {
                 game.QuestionManager.StartQuestion(game.CurrentChallenge, game.NoiseData);
 
-                if (gameTime != null) gameTime.onTimesUp -= OnTimesUp;
+                if (gameTime != null)
+                    gameTime.onTimesUp -= OnTimesUp;
                 if (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Alphabet)
                 {
                     gameTime = new CountdownTimer(game.CurrentChallenge.Count * 4f);

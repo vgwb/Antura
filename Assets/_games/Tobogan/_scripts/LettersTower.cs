@@ -142,7 +142,7 @@ namespace Antura.Minigames.Tobogan
             if (stackedLetters.Count > 0)
                 targetAlpha = maxShadowAlpha;
             else if (fallingLetter != null)
-                targetAlpha = Mathf.Lerp(maxShadowAlpha, 0, Vector3.Distance(fallingLetter.transform.position, transform.position)/20);
+                targetAlpha = Mathf.Lerp(maxShadowAlpha, 0, Vector3.Distance(fallingLetter.transform.position, transform.position) / 20);
             else
                 targetAlpha = 0;
 
@@ -361,7 +361,7 @@ namespace Antura.Minigames.Tobogan
             fallingLetter.GetComponentInChildren<LivingLetterController>().Falling = false;
             fallingLetter.GetComponentInChildren<LivingLetterController>().SetState(LLAnimationStates.LL_idle);
 
-            for (int i=0; i< stackedLetters.Count; ++i)
+            for (int i = 0; i < stackedLetters.Count; ++i)
                 stackedLetters[i].GetComponentInChildren<LivingLetterController>().SetState(LLAnimationStates.LL_still);
 
             currentHeight += LETTER_HEIGHT;
@@ -425,7 +425,7 @@ namespace Antura.Minigames.Tobogan
 
                 // Some maths: {....please, do not say that "engineering skills are not needed to make games" no more}
 
-                // The following is true: 
+                // The following is true:
                 // tFall + spawnTimer = tSwingToCenter + K*swingPeriod*0.5, K in N, K >= 0
                 // ---> spawnTimer = tSwingToCenter - tFall + K*swingPeriod*0.5
                 // ---> we'll select, in the end, the minimum K in order that spawnTimer >= 0
@@ -448,7 +448,7 @@ namespace Antura.Minigames.Tobogan
                 {
                     float swingFrequency = swingSpeed;
 
-                    // it 
+                    // it
                     float tSwingToCenter;
                     if (swingFrequency == 0)
                         tSwingToCenter = 0;

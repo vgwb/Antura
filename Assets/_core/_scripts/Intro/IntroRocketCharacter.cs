@@ -43,10 +43,14 @@ namespace Antura.Intro
 
         void Update()
         {
-            if (m_Move) {
-                if (transform.position.x > Destination.x) {
+            if (m_Move)
+            {
+                if (transform.position.x > Destination.x)
+                {
                     transform.position -= Path * Time.deltaTime * m_Velocity;
-                } else {
+                }
+                else
+                {
                     m_Move = false;
                     gameObject.SetActive(false);
                 }

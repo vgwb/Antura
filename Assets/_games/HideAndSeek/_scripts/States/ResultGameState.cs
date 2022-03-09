@@ -16,7 +16,8 @@ namespace Antura.Minigames.HideAndSeek
         {
             goToEndGame = false;
 
-            if (game.isTimesUp) {
+            if (game.isTimesUp)
+            {
                 game.Context.GetPopupWidget().Hide();
                 timer = 0;
                 goToEndGame = true;
@@ -29,11 +30,13 @@ namespace Antura.Minigames.HideAndSeek
 
         public void Update(float delta)
         {
-            if (!game.isTimesUp || goToEndGame) {
+            if (!game.isTimesUp || goToEndGame)
+            {
                 timer -= delta;
             }
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 game.EndGame(game.CurrentStars, game.CurrentScore);
             }
         }

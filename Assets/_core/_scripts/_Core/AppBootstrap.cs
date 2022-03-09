@@ -16,11 +16,13 @@ namespace Antura.Core
 
         public void InitManagers()
         {
-            if (FindObjectOfType(typeof(AudioManager)) == null) {
+            if (FindObjectOfType(typeof(AudioManager)) == null)
+            {
                 Instantiate(AudioManager);
             }
 
-            if (FindObjectOfType(typeof(EventSystem)) == null) {
+            if (FindObjectOfType(typeof(EventSystem)) == null)
+            {
                 Instantiate(EventsManager);
             }
         }

@@ -148,7 +148,7 @@ namespace Antura.Minigames.MakeFriends
             IAudioSource s = null;
             if (wordData != null && wordData.Id != null)
             {
-               s = MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(wordData, true, soundType: MakeFriendsConfiguration.Instance.GetVocabularySoundType());
+                s = MakeFriendsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(wordData, true, soundType: MakeFriendsConfiguration.Instance.GetVocabularySoundType());
             }
             LookAngry();
             return s;

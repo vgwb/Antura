@@ -53,7 +53,8 @@ namespace Antura.Book
 
         void OpenArea(VocabularyChapter newArea)
         {
-            if (newArea != currentChapter) {
+            if (newArea != currentChapter)
+            {
                 currentChapter = newArea;
                 activatePanel(currentChapter, true);
                 ResetMenuButtons();
@@ -62,7 +63,8 @@ namespace Antura.Book
 
         void activatePanel(VocabularyChapter panel, bool status)
         {
-            switch (panel) {
+            switch (panel)
+            {
                 case VocabularyChapter.Letters:
                     KeeperManager.I.PlayDialogue(LocalizationDataId.UI_Letters, KeeperMode.LearningNoSubtitles);
                     LettersPage.SetActive(true);

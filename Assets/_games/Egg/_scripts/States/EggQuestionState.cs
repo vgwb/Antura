@@ -94,7 +94,7 @@ namespace Antura.Minigames.Egg
             {
                 game.eggController.SetQuestion(game.CurrentQuestion.Question);
                 game.eggController.SetAnswers(game.CurrentQuestion.Answers);
-                yield return game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f, OnQuestionAudioComplete, yieldDuration:true);
+                yield return game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, false, 0f, OnQuestionAudioComplete, yieldDuration: true);
             }
             else
             {
@@ -122,7 +122,8 @@ namespace Antura.Minigames.Egg
         private bool passed = false;
         void OnQuestionAudioComplete()
         {
-            if (passed) return;
+            if (passed)
+                return;
             passed = true;
 
             DisableEggButtonsInput();

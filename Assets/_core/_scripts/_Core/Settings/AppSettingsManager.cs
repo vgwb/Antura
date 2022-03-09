@@ -13,12 +13,16 @@ namespace Antura.Core
         public AppSettings Settings
         {
             get { return _settings; }
-            set {
-                if (value != _settings) {
+            set
+            {
+                if (value != _settings)
+                {
                     _settings = value;
                     // Auto save at any change
                     SaveSettings();
-                } else {
+                }
+                else
+                {
                     _settings = value;
                 }
             }
@@ -37,11 +41,14 @@ namespace Antura.Core
         /// </summary>
         public AppSettings LoadSettings()
         {
-            if (PlayerPrefs.HasKey(SETTINGS_PREFS_KEY)) {
+            if (PlayerPrefs.HasKey(SETTINGS_PREFS_KEY))
+            {
                 var serializedObjs = PlayerPrefs.GetString(SETTINGS_PREFS_KEY);
                 Settings = JsonUtility.FromJson<AppSettings>(serializedObjs);
                 //Debug.Log("LoadSettings() " + serializedObjs);
-            } else {
+            }
+            else
+            {
                 // FIRST INSTALLATION
                 isFirstIstall = true;
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
@@ -52,18 +59,24 @@ namespace Antura.Core
                 // set native Language
                 // first set the default / fallback language
                 Settings.NativeLanguage = AppManager.I.ContentEdition.NativeLanguage;
-                if (AppManager.I.ContentEdition.DetectSystemLanguage) {
-                    foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages) {
-                        if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian) {
+                if (AppManager.I.ContentEdition.DetectSystemLanguage)
+                {
+                    foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)
+                    {
+                        if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian)
+                        {
                             Settings.NativeLanguage = lang;
                         }
-                        if (lang == Language.LanguageCode.spanish && Application.systemLanguage == SystemLanguage.Spanish) {
+                        if (lang == Language.LanguageCode.spanish && Application.systemLanguage == SystemLanguage.Spanish)
+                        {
                             Settings.NativeLanguage = lang;
                         }
-                        if (lang == Language.LanguageCode.arabic && Application.systemLanguage == SystemLanguage.Arabic) {
+                        if (lang == Language.LanguageCode.arabic && Application.systemLanguage == SystemLanguage.Arabic)
+                        {
                             Settings.NativeLanguage = lang;
                         }
-                        if (lang == Language.LanguageCode.english && Application.systemLanguage == SystemLanguage.English) {
+                        if (lang == Language.LanguageCode.english && Application.systemLanguage == SystemLanguage.English)
+                        {
                             Settings.NativeLanguage = lang;
                         }
                     }
@@ -110,18 +123,24 @@ namespace Antura.Core
 
         public bool IsAppJustUpdatedFromOldVersion()
         {
-            if (!isFirstIstall && AppVersionPrevious != null && AppVersionPrevious <= new Version(1, 0, 0, 0)) {
+            if (!isFirstIstall && AppVersionPrevious != null && AppVersionPrevious <= new Version(1, 0, 0, 0))
+            {
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
 
         public void UpdateAppVersion()
         {
-            if (Settings.AppVersion != null && Settings.AppVersion == "") {
+            if (Settings.AppVersion != null && Settings.AppVersion == "")
+            {
                 AppVersionPrevious = new Version(0, 0, 0, 0);
-            } else {
+            }
+            else
+            {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
             Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
@@ -135,7 +154,8 @@ namespace Antura.Core
         {
             Settings.ShareAnalyticsEnabled = status;
             SaveSettings();
-            if (onEnableShareAnalytics != null) onEnableShareAnalytics(status);
+            if (onEnableShareAnalytics != null)
+                onEnableShareAnalytics(status);
         }
 
         public void ToggleShareAnalytics()

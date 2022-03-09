@@ -13,7 +13,7 @@ namespace Antura.Minigames.FastCrowd
         float scaredTimer;
 
         LetterCharacterController movement;
-            
+
         public StrollingLetterScaredState(StrollingLivingLetter letter) : base(letter)
         {
             movement = letter.GetComponent<LetterCharacterController>();
@@ -55,7 +55,7 @@ namespace Antura.Minigames.FastCrowd
             bool nearDropContainer = dropDistance.magnitude < 10;
 
             bool isOutsideWalkingPath = Vector3.Distance(
-                letter.transform.position, 
+                letter.transform.position,
                 letter.walkableArea.GetNearestPoint(letter.transform.position, true)
                 ) > 6.0f;
 

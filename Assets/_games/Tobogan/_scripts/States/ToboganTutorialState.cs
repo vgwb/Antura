@@ -82,18 +82,18 @@ namespace Antura.Minigames.Tobogan
                 }
             }
 
-            if(toPlayState)
+            if (toPlayState)
             {
                 toPlayStateTimer -= delta;
 
-                if(toPlayStateTimer <= 0f)
+                if (toPlayStateTimer <= 0f)
                 {
                     toPlayState = false;
                     game.SetCurrentState(game.PlayState);
                 }
             }
 
-            if(pointerUp && tutorialStarted)
+            if (pointerUp && tutorialStarted)
             {
                 tutorialStarted = false;
                 delayStartTutorial = 3f;
@@ -115,7 +115,7 @@ namespace Antura.Minigames.Tobogan
 
         void OnAnswered(IQuestionPack pack, bool result)
         {
-            if(result)
+            if (result)
             {
                 questionCount++;
 

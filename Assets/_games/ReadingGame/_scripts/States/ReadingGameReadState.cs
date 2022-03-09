@@ -41,12 +41,16 @@ namespace Antura.Minigames.ReadingGame
             // Reset game timer
             gameTime.Reset(game.TimeToAnswer);
 
-            switch (ReadingGameConfiguration.Instance.CurrentGameType) {
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
                 case ReadingGameConfiguration.GameType.FollowReading:
 
-                    if (!TutorialMode) {
+                    if (!TutorialMode)
+                    {
                         gameTime.Start();
-                    } else {
+                    }
+                    else
+                    {
                         game.PlayTutorial();
                         drawTutorialLineTimer = 0;
                     }
@@ -72,7 +76,8 @@ namespace Antura.Minigames.ReadingGame
 
             game.blurredText.SetActive(true);
 
-            switch (ReadingGameConfiguration.Instance.CurrentGameType) {
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
                 case ReadingGameConfiguration.GameType.FollowReading:
 
                     break;
@@ -84,7 +89,8 @@ namespace Antura.Minigames.ReadingGame
                         () =>
                             game.Context.GetAudioManager().PlayVocabularyData(game.CurrentQuestion.GetQuestion(),
                         keeperMode: KeeperMode.LearningAndSubtitles, autoClose: false, callback:
-                        () => {
+                        () =>
+                        {
                             // Setup timer for the new state
                             game.AnswerState.ReadTime = gameTime.Time;
                             game.AnswerState.MaxTime = gameTime.Duration;
@@ -98,7 +104,8 @@ namespace Antura.Minigames.ReadingGame
 
                 case ReadingGameConfiguration.GameType.FollowSong:
                     AudioClip songAudio = null;
-                    switch (ReadingGameConfiguration.Instance.Variation) {
+                    switch (ReadingGameConfiguration.Instance.Variation)
+                    {
                         case ReadingGameVariation.SongAlphabet:
                             songAudio = game.alphabetSongAudio;
                             break;
@@ -120,11 +127,13 @@ namespace Antura.Minigames.ReadingGame
 
             completedDragging = false;
 
-            if (firstRealRun) {
+            if (firstRealRun)
+            {
                 bool showClock = ReadingGameConfiguration.Instance.ShowTimer;
                 bool showLives = ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading;
 
-                if (!TutorialMode) {
+                if (!TutorialMode)
+                {
                     // Configure overlay
                     var overlay = game.Context.GetOverlayWidget();
                     overlay.Initialize(true, showClock, showLives);
@@ -137,7 +146,8 @@ namespace Antura.Minigames.ReadingGame
                 }
             }
 
-            switch (ReadingGameConfiguration.Instance.CurrentGameType) {
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
                 case ReadingGameConfiguration.GameType.FollowReading:
                     game.barSet.SwitchToNextBar();
                     game.barSet.active = true;
@@ -164,8 +174,11 @@ namespace Antura.Minigames.ReadingGame
             if (!game.IsLoopingSong) // first intro loop
             {
                 SimonSongStartQuestion(songBPM);
-            } else {
-                game.onSongLoop += () => {
+            }
+            else
+            {
+                game.onSongLoop += () =>
+                {
                     Debug.Log("END INTRO LOOP");
                     SimonSongStartQuestion(songBPM);
                 };
@@ -174,14 +187,15 @@ namespace Antura.Minigames.ReadingGame
 
         private void SimonSongStartQuestion(ReadingGameGame.SimonSongBPM songBPM)
         {
-            game.Context.GetAudioManager().PlayDialogue(LocalizationDataId.Song_Word_Question, keeperMode: KeeperMode.SubtitlesOnly, isKeeper:false);
+            game.Context.GetAudioManager().PlayDialogue(LocalizationDataId.Song_Word_Question, keeperMode: KeeperMode.SubtitlesOnly, isKeeper: false);
 
             game.ChangeLoopingSong(songBPM.song);
             game.StartCoroutine(ShowAnimationLetters(songBPM));
             game.StartCoroutine(SimonSongShowButtons(songBPM));
 
             // Question song
-            game.onSongLoop += () => {
+            game.onSongLoop += () =>
+            {
                 Debug.Log("END QUESTION LOOP");
                 game.StopLoopingSong();
             };
@@ -233,14 +247,19 @@ namespace Antura.Minigames.ReadingGame
 
         public void Update(float delta)
         {
-            if (!TutorialMode) {
+            if (!TutorialMode)
+            {
                 game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
-            } else if (dragging == null) {
+            }
+            else if (dragging == null)
+            {
                 drawTutorialLineTimer -= delta;
 
-                if (drawTutorialLineTimer < 0) {
+                if (drawTutorialLineTimer < 0)
+                {
                     var activeBar = game.barSet.GetActiveBar();
-                    if (activeBar != null) {
+                    if (activeBar != null)
+                    {
                         drawTutorialLineTimer = 5;
 
                         var handleOffset = activeBar.glass.handleOffset.position - activeBar.glass.transform.position;
@@ -252,16 +271,22 @@ namespace Antura.Minigames.ReadingGame
             gameTime.Update(delta);
 
             // Drag & Read
-            if (dragging != null) {
+            if (dragging != null)
+            {
                 var inputManager = game.Context.GetInputManager();
                 bool applyMagnet = ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading;
                 completedDragging = dragging.SetGlassScreenPosition(inputManager.LastPointerPosition + draggingOffset, applyMagnet);
-            } else {
-                if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading) {
-                    if (completedDragging) {
+            }
+            else
+            {
+                if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowReading)
+                {
+                    if (completedDragging)
+                    {
                         var completedAllBars = game.barSet.SwitchToNextBar();
 
-                        if (completedAllBars) {
+                        if (completedAllBars)
+                        {
                             // go to Buttons State
                             game.AnswerState.ReadTime = gameTime.Time;
                             game.AnswerState.MaxTime = gameTime.Duration;
@@ -276,16 +301,22 @@ namespace Antura.Minigames.ReadingGame
             }
 
             // Antura reactions
-            switch (ReadingGameConfiguration.Instance.CurrentGameType) {
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
                 case ReadingGameConfiguration.GameType.FollowReading:
 
                     float perc = gameTime.Time / gameTime.Duration;
 
-                    if (perc < 0.05f) {
+                    if (perc < 0.05f)
+                    {
                         game.antura.Mood = ReadingGameAntura.AnturaMood.SAD;
-                    } else if (perc < 0.5f) {
+                    }
+                    else if (perc < 0.5f)
+                    {
                         game.antura.Mood = ReadingGameAntura.AnturaMood.ANGRY;
-                    } else {
+                    }
+                    else
+                    {
                         game.antura.Mood = ReadingGameAntura.AnturaMood.HAPPY;
                     }
                     break;
@@ -293,28 +324,36 @@ namespace Antura.Minigames.ReadingGame
                 case ReadingGameConfiguration.GameType.FollowSong:
 
                     float distance;
-                    if (game.barSet.GetFollowingDistance(out distance)) {
+                    if (game.barSet.GetFollowingDistance(out distance))
+                    {
                         distance = Math.Abs(distance);
 
-                        if (distance > 100) {
+                        if (distance > 100)
+                        {
                             timeFarFromTarget += delta;
-                        } else {
+                        }
+                        else
+                        {
                             timeFarFromTarget = 0;
                             //if (distance < 50) {
                             scoreAccumulator += 1.2f * delta;
                             //} else {
                             //    scoreAccumulator += 1 * delta;
                             // }
-                            if (scoreAccumulator >= 1) {
+                            if (scoreAccumulator >= 1)
+                            {
                                 game.AddScore((int)scoreAccumulator);
                                 scoreAccumulator = scoreAccumulator - (int)scoreAccumulator;
                                 game.UpdateFollowDifficulty();
                             }
                         }
 
-                        if (timeFarFromTarget > 1.0f) {
+                        if (timeFarFromTarget > 1.0f)
+                        {
                             game.antura.Mood = ReadingGameAntura.AnturaMood.ANGRY;
-                        } else {
+                        }
+                        else
+                        {
                             game.antura.Mood = ReadingGameAntura.AnturaMood.HAPPY;
                         }
                     }
@@ -340,13 +379,15 @@ namespace Antura.Minigames.ReadingGame
             game.isTimesUp = true;
             game.Context.GetOverlayWidget().OnClockCompleted();
 
-            if (game.RemoveLife()) {
+            if (game.RemoveLife())
+            {
                 return;
             }
 
             // show time's up and back
             game.Context.GetPopupWidget().ShowTimeUp(
-                () => {
+                () =>
+                {
                     game.SetCurrentState(game.QuestionState);
                     game.Context.GetPopupWidget().Hide();
                 });
@@ -354,14 +395,16 @@ namespace Antura.Minigames.ReadingGame
 
         void OnPointerDown()
         {
-            if (dragging) {
+            if (dragging)
+            {
                 return;
             }
 
             var inputManager = game.Context.GetInputManager();
             dragging = game.barSet.PickGlass(Camera.main, inputManager.LastPointerPosition);
 
-            if (dragging != null) {
+            if (dragging != null)
+            {
                 draggingOffset = dragging.GetGlassScreenPosition() - inputManager.LastPointerPosition;
             }
         }
@@ -373,7 +416,8 @@ namespace Antura.Minigames.ReadingGame
 
         void OnSongEnded()
         {
-            switch (ReadingGameConfiguration.Instance.CurrentGameType) {
+            switch (ReadingGameConfiguration.Instance.CurrentGameType)
+            {
                 case ReadingGameConfiguration.GameType.FollowReading:
                 case ReadingGameConfiguration.GameType.ReadAndListen:
                 case ReadingGameConfiguration.GameType.SimonSong:

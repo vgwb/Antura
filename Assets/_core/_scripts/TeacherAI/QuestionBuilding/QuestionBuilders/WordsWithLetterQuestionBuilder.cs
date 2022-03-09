@@ -36,7 +36,8 @@ namespace Antura.Teacher
             int nRounds, int nPacksPerRound = 1, int nCorrect = 1, int nWrong = 0,
               QuestionBuilderParameters parameters = null)
         {
-            if (parameters == null) parameters = new QuestionBuilderParameters();
+            if (parameters == null)
+                parameters = new QuestionBuilderParameters();
             this.nRounds = nRounds;
             this.nPacksPerRound = nPacksPerRound;
             //this.packsUsedTogether = nPacksPerRound > 1;
@@ -74,12 +75,14 @@ namespace Antura.Teacher
             // Add forms too (cannot be found in the SelectData call)
             availableLettersWithForms.UnionWith(vocabularyHelper.ExtractLettersWithForms(availableLetters));
 
-            for (int round_i = 0; round_i < nRounds; round_i++) {
+            for (int round_i = 0; round_i < nRounds; round_i++)
+            {
                 // At each round, we must make sure to not repeat some words / letters
                 currentRound_letters.Clear();
                 currentRound_words.Clear();
 
-                for (int pack_i = 0; pack_i < nPacksPerRound; pack_i++) {
+                for (int pack_i = 0; pack_i < nPacksPerRound; pack_i++)
+                {
                     packs.Add(CreateSingleQuestionPackData(pack_i, availableLettersWithForms));
                 }
             }
@@ -100,7 +103,8 @@ namespace Antura.Teacher
             }*/
 
             int SAFE_COUNT = 0;
-            while (true) {
+            while (true)
+            {
                 var commonLetter = availableLettersWithForms.ToList().RandomSelectOne();
 
                 var correctLetters = new List<LetterData>();
@@ -117,14 +121,18 @@ namespace Antura.Teacher
                         packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs_words);
                 selectionParams2.AssignJourney(parameters.insideJourney);
                 List<WordData> wordsWithCommonLetter = null;
-                try {
+                try
+                {
 
                     wordsWithCommonLetter = teacher.VocabularyAi.SelectData(
                         () => FindWordsWithCommonLetter(commonLetter), selectionParams2);
-                } catch (Exception) {
+                }
+                catch (Exception)
+                {
                     //Debug.LogWarning(e);
                     SAFE_COUNT++;
-                    if (SAFE_COUNT == 100) {
+                    if (SAFE_COUNT == 100)
+                    {
                         throw new Exception("Could not find enough data for WordsWithLetter");
                     }
                     continue;
@@ -159,7 +167,7 @@ namespace Antura.Teacher
             currentRound_letters.Add(commonLetter);
             */
                 /*
-                    // Get words with the letter 
+                    // Get words with the letter
                     // (but without the previous letters)
                     var correctWords = teacher.VocabularyAi.SelectData(
                         () => FindWordsWithCommonLetter(commonLetter),
@@ -183,13 +191,16 @@ namespace Antura.Teacher
                     */
                 var pack = QuestionPackData.Create(commonLetter, correctWords, wrongWords);
 
-                if (ConfigAI.VerboseQuestionPacks) {
+                if (ConfigAI.VerboseQuestionPacks)
+                {
                     string debugString = "--------- TEACHER: question pack result ---------";
                     debugString += "\nQuestion: " + commonLetter;
                     debugString += "\nCorrect Answers: " + correctWords.Count;
-                    foreach (var l in correctWords) debugString += " " + l;
+                    foreach (var l in correctWords)
+                        debugString += " " + l;
                     debugString += "\nWrong Answers: " + wrongWords.Count;
-                    foreach (var l in wrongWords) debugString += " " + l;
+                    foreach (var l in wrongWords)
+                        debugString += " " + l;
                     ConfigAI.AppendToTeacherReport(debugString);
                 }
 
@@ -253,12 +264,14 @@ namespace Antura.Teacher
             var vocabularyHelper = AppManager.I.VocabularyHelper;
 
             // Cache words
-            if (lettersToWordCache == null) {
+            if (lettersToWordCache == null)
+            {
                 lettersToWordCache =
                     new Dictionary<LetterData, List<WordData>>(new StrictLetterDataComparer(LetterEqualityStrictness.WithVisualForm));
 
             }
-            if (!lettersToWordCache.ContainsKey(commonLetter)) {
+            if (!lettersToWordCache.ContainsKey(commonLetter))
+            {
                 //Debug.Log("Creating cache for " + commonLetter);
                 lettersToWordCache[commonLetter] = vocabularyHelper.GetWordsWithLetter(parameters.wordFilters, commonLetter, parameters.letterEqualityStrictness);
             }
@@ -274,14 +287,17 @@ namespace Antura.Teacher
             badWordsCache.AddRange(currentRound_words);
 
             eligibleWordsCache.Clear();
-            foreach (var w in allWordsCache) {
+            foreach (var w in allWordsCache)
+            {
                 // Not words that appeared already this round
-                if (badWordsCache.Contains(w)) {
+                if (badWordsCache.Contains(w))
+                {
                     continue;
                 }
 
                 // Not words that have one of the previous letters (but the current one)
-                if (vocabularyHelper.WordContainsAnyLetter(w, badLettersCache)) {
+                if (vocabularyHelper.WordContainsAnyLetter(w, badLettersCache))
+                {
                     continue;
                 }
 
@@ -308,9 +324,11 @@ namespace Antura.Teacher
 
             eligibleWordsCache.Clear();
 
-            foreach (var w in allWordsCache) {
+            foreach (var w in allWordsCache)
+            {
                 // Not words that have one of the previous letters
-                if (vocabularyHelper.WordContainsAnyLetter(w, badLetters)) {
+                if (vocabularyHelper.WordContainsAnyLetter(w, badLetters))
+                {
                     continue;
                 }
 

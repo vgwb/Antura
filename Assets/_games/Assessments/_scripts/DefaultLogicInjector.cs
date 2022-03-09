@@ -60,11 +60,13 @@ namespace Antura.Assessment
 
         protected virtual void WireAnswers(Answer[] answers)
         {
-            if (answers == null || answers.Length == 0) {
+            if (answers == null || answers.Length == 0)
+            {
                 return;
             }
 
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 var behaviour = a.gameObject.GetComponent<Answer>();
                 answersList.Add(behaviour); // TODO: INVESTIGATE WITHIN DRAG MAANGER
             }
@@ -72,7 +74,8 @@ namespace Antura.Assessment
 
         protected virtual void WirePlaceHolders(IQuestion question)
         {
-            foreach (var p in question.GetPlaceholders()) {
+            foreach (var p in question.GetPlaceholders())
+            {
                 var behaviour = p.GetComponent<PlaceholderBehaviour>();
                 behaviour.Placeholder = new DragNDropPlaceholder();
                 behaviour.Placeholder.SetQuestion(question);
@@ -103,11 +106,13 @@ namespace Antura.Assessment
 
         public IEnumerator AllAnsweredEvent()
         {
-            if (events.OnAllQuestionsAnsweredPlacer != null) {
+            if (events.OnAllQuestionsAnsweredPlacer != null)
+            {
                 Koroutine.Run(events.OnAllQuestionsAnsweredPlacer());
             }
 
-            if (events.OnAllQuestionsAnswered != null) {
+            if (events.OnAllQuestionsAnswered != null)
+            {
                 return events.OnAllQuestionsAnswered();
             }
             return events.NoEvent();

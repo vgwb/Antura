@@ -24,7 +24,7 @@ namespace Antura.LivingLetters
         public FindRightDataQuestionPack(ILivingLetterData questionSentence, IEnumerable<ILivingLetterData> wrongAnswersSentence,
             IEnumerable<ILivingLetterData> correctAnswersSentence)
         {
-            this.questionsSentences = new List<ILivingLetterData>() {questionSentence};
+            this.questionsSentences = new List<ILivingLetterData>() { questionSentence };
             this.wrongAnswersSentence = wrongAnswersSentence;
             this.correctAnswersSentence = correctAnswersSentence;
         }

@@ -14,7 +14,7 @@ namespace Antura.Minigames.Balloons
         public void EnterState()
         {
             game.InitializeMinigameUI();
-            
+
             game.Play(true);
         }
 

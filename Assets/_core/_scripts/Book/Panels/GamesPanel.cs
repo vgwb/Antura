@@ -48,7 +48,8 @@ namespace Antura.Book
 
         void activatePanel(BookArea panel, bool status)
         {
-            switch (panel) {
+            switch (panel)
+            {
                 case BookArea.MiniGames:
                     //AudioManager.I.PlayDialog("Book_Games");
                     MiniGamesPanel();
@@ -61,7 +62,8 @@ namespace Antura.Book
             emptyContainer(ElementsContainer);
 
             var mainMiniGamesList = MiniGamesUtilities.GetMainMiniGameList();
-            foreach (var game in mainMiniGamesList) {
+            foreach (var game in mainMiniGamesList)
+            {
                 btnGO = Instantiate(MainMiniGameItemPrefab);
                 btnGO.transform.SetParent(ElementsContainer.transform, false);
                 //btnGO.transform.SetAsFirstSibling();
@@ -75,12 +77,14 @@ namespace Antura.Book
         {
             emptyContainer(VariationsContainer);
 
-            if (selectedMainMiniGame == null) {
+            if (selectedMainMiniGame == null)
+            {
                 return;
             }
 
             //Debug.Log("DetailMainMiniGame(): " + selectedMainMiniGame.MainId);
-            foreach (var gameVariation in selectedMainMiniGame.variations) {
+            foreach (var gameVariation in selectedMainMiniGame.variations)
+            {
                 btnGO = Instantiate(MiniGameItemPrefab);
                 btnGO.transform.SetParent(VariationsContainer.transform, false);
                 btnGO.GetComponent<ItemMiniGame>().Init(this, gameVariation);
@@ -92,7 +96,8 @@ namespace Antura.Book
 
         public void DetailMiniGame(MiniGameInfo selectedGameInfo)
         {
-            if (selectedGameInfo == null) {
+            if (selectedGameInfo == null)
+            {
                 currentMiniGame = null;
                 GameTitle.text = "";
                 MiniGameLogoImage.enabled = false;
@@ -104,7 +109,8 @@ namespace Antura.Book
 
             DetailPanel.SetActive(true);
 
-            if (currentMiniGame?.Main != selectedGameInfo.data.Main) {
+            if (currentMiniGame?.Main != selectedGameInfo.data.Main)
+            {
                 // only first time we see a new main minigame
                 KeeperManager.I.PlayDialogue(selectedGameInfo.data.GetTitleSoundFilename(), false, true, null, KeeperMode.LearningNoSubtitles);
             }
@@ -120,10 +126,13 @@ namespace Antura.Book
 
             // Launch button
             if (!AppManager.I.NavigationManager.PrevSceneIsReservedArea() &&
-                (selectedGameInfo.unlocked || AppManager.I.Player.IsDemoUser)) {
+                (selectedGameInfo.unlocked || AppManager.I.Player.IsDemoUser))
+            {
                 LaunchGameButton.gameObject.SetActive(true);
                 LaunchGameButton.interactable = true;
-            } else {
+            }
+            else
+            {
                 LaunchGameButton.gameObject.SetActive(false);
                 LaunchGameButton.interactable = false;
             }
@@ -135,10 +144,13 @@ namespace Antura.Book
             MiniGameLogoImage.sprite = icon;
             MiniGameLogoImage.enabled = true;
 
-            if (badge != null) {
+            if (badge != null)
+            {
                 MiniGameBadgeImage.enabled = true;
                 MiniGameBadgeImage.sprite = badge;
-            } else {
+            }
+            else
+            {
                 MiniGameBadgeImage.enabled = false;
             }
 
@@ -155,7 +167,8 @@ namespace Antura.Book
 
         void emptyContainer(GameObject container)
         {
-            foreach (Transform t in container.transform) {
+            foreach (Transform t in container.transform)
+            {
                 Destroy(t.gameObject);
             }
         }

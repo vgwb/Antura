@@ -10,7 +10,8 @@ namespace Antura.UI
         void Start()
         {
             var resource = AppManager.I.ContentEdition.GetResource(ResourceId);
-            if (resource == null) return;
+            if (resource == null)
+                return;
             var go = Instantiate(resource, transform);
             go.transform.localScale = Vector3.one;
             go.transform.localPosition = Vector3.zero;

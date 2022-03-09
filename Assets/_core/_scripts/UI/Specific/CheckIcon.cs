@@ -11,9 +11,12 @@ namespace Antura.UI
 
         public void Set(bool status)
         {
-            if (status) {
+            if (status)
+            {
                 Icon.sprite = CheckOn;
-            } else {
+            }
+            else
+            {
                 Icon.sprite = CheckOff;
             }
         }

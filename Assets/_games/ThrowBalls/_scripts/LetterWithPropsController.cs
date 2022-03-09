@@ -10,7 +10,8 @@ namespace Antura.Minigames.ThrowBalls
         {
             Vector3 position = transform.position;
 
-            switch (prop) {
+            switch (prop)
+            {
                 case LetterController.PropVariation.Nothing:
                     break;
                 case LetterController.PropVariation.Bush:

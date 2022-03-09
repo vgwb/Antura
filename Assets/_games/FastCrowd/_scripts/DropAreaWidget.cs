@@ -62,7 +62,7 @@ namespace Antura.Minigames.FastCrowd
             }
 
             return true;
-        } 
+        }
 
         void OnDestroy()
         {

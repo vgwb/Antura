@@ -20,15 +20,18 @@ namespace Antura.Minigames.HideAndSeek
                 a.GetComponent<HideAndSeekLetterController>().onLetterReturned += OnLetterReturned;
             }
 
-            foreach (var a in ArrayTrees) {
+            foreach (var a in ArrayTrees)
+            {
                 a.GetComponent<HideAndSeekTreeController>().onTreeTouched += MoveObject;
             }
         }
 
         void OnDisable()
         {
-            foreach (var a in ArrayLetters) {
-                if (a == null) {
+            foreach (var a in ArrayLetters)
+            {
+                if (a == null)
+                {
                     continue;
                 }
 
@@ -36,8 +39,10 @@ namespace Antura.Minigames.HideAndSeek
                 a.GetComponent<HideAndSeekLetterController>().onLetterReturned -= OnLetterReturned;
             }
 
-            foreach (var a in ArrayTrees) {
-                if (a != null) {
+            foreach (var a in ArrayTrees)
+            {
+                if (a != null)
+                {
                     a.GetComponent<HideAndSeekTreeController>().onTreeTouched -= MoveObject;
                 }
             }
@@ -45,7 +50,8 @@ namespace Antura.Minigames.HideAndSeek
 
         void Start()
         {
-            for (int i = 0; i < MAX_OBJECT; ++i) {
+            for (int i = 0; i < MAX_OBJECT; ++i)
+            {
                 UsedPlaceholder[i] = false;
             }
             AnturaEnterScene();
@@ -54,14 +60,17 @@ namespace Antura.Minigames.HideAndSeek
         float anturaEnterTimer = 5;
         void Update()
         {
-            if (StartNewRound && game.inGame && Time.time > time + timeToWait) {
+            if (StartNewRound && game.inGame && Time.time > time + timeToWait)
+            {
                 NewRound();
             }
 
-            if (game.inGame && !Antura.IsFollowing) {
+            if (game.inGame && !Antura.IsFollowing)
+            {
                 anturaEnterTimer -= Time.deltaTime;
 
-                if (anturaEnterTimer < 0) {
+                if (anturaEnterTimer < 0)
+                {
                     anturaEnterTimer = Random.Range(5, 10);
                     AnturaEnterScene();
                 }
@@ -70,10 +79,12 @@ namespace Antura.Minigames.HideAndSeek
 
         void MoveObject(int id)
         {
-            if (ArrayLetters.Length > 0) {
+            if (ArrayLetters.Length > 0)
+            {
                 HideAndSeekConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.BushRustlingOut);
                 script = ArrayLetters[GetIdFromPosition(id)].GetComponent<HideAndSeekLetterController>();
-                if (script.Move()) {
+                if (script.Move())
+                {
                     LockTree(id, true);
                 }
             }
@@ -81,7 +92,8 @@ namespace Antura.Minigames.HideAndSeek
 
         int GetIdFromPosition(int index)
         {
-            for (int i = 0; i < ArrayLetters.Length; ++i) {
+            for (int i = 0; i < ArrayLetters.Length; ++i)
+            {
                 if (ArrayLetters[i].GetComponent<HideAndSeekLetterController>().id == index)
                     return i;
             }
@@ -107,7 +119,8 @@ namespace Antura.Minigames.HideAndSeek
             var initialDelay = 3f;
             yield return new WaitForSeconds(initialDelay);
 
-            foreach (GameObject x in ArrayLetters) {
+            foreach (GameObject x in ArrayLetters)
+            {
                 x.GetComponent<LivingLetterController>().Poof();
                 AudioManager.I.PlaySound(Sfx.Poof);
                 x.SetActive(false);
@@ -133,7 +146,8 @@ namespace Antura.Minigames.HideAndSeek
 
             letterInAnimation = GetIdFromPosition(id);
             HideAndSeekLetterController script = ArrayLetters[letterInAnimation].GetComponent<HideAndSeekLetterController>();
-            if (script.view.Data.Id == GetCorrectAnswer().Id) {
+            if (script.view.Data.Id == GetCorrectAnswer().Id)
+            {
                 isRoundRunning = false;
                 LockTrees();
                 LockLetters(true);
@@ -144,13 +158,16 @@ namespace Antura.Minigames.HideAndSeek
                 buttonRepeater.SetActive(false);
                 AudioManager.I.PlaySound(Sfx.Win);
                 AudioManager.I.PlaySound(Sfx.OK);
-            } else {
+            }
+            else
+            {
                 AudioManager.I.PlaySound(Sfx.KO);
                 game.OnResult(GetCorrectAnswer(), false);
                 RemoveLife();
                 script.PlayResultAnimation(false);
                 script.GetComponent<EmoticonsAnimator>().DoWrong();
-                if (lifes == 0) {
+                if (lifes == 0)
+                {
                     isRoundRunning = false;
                     LockTrees();
                     LockLetters(true);
@@ -163,7 +180,8 @@ namespace Antura.Minigames.HideAndSeek
 
         void RemoveLife()
         {
-            switch (--lifes) {
+            switch (--lifes)
+            {
                 case 2:
                     game.Context.GetOverlayWidget().SetLives(2);
                     break;
@@ -189,7 +207,8 @@ namespace Antura.Minigames.HideAndSeek
 
         public void LockTrees()
         {
-            for (int i = 0; i < MAX_OBJECT; ++i) {
+            for (int i = 0; i < MAX_OBJECT; ++i)
+            {
                 ArrayTrees[i].GetComponent<SphereCollider>().enabled = false;
             }
         }
@@ -201,14 +220,16 @@ namespace Antura.Minigames.HideAndSeek
 
         void LockLetters(bool toLock)
         {
-            for (int i = 0; i < MAX_OBJECT; ++i) {
+            for (int i = 0; i < MAX_OBJECT; ++i)
+            {
                 ArrayLetters[i].GetComponent<CapsuleCollider>().enabled = !toLock;
             }
         }
 
         public void ClearRound()
         {
-            for (int i = 0; i < MAX_OBJECT; ++i) {
+            for (int i = 0; i < MAX_OBJECT; ++i)
+            {
                 ArrayLetters[i].SetActive(true);
                 ArrayLetters[i].transform.position = originLettersPlaceholder.position;
                 ArrayLetters[i].GetComponent<HideAndSeekLetterController>().ResetLetter();
@@ -240,7 +261,8 @@ namespace Antura.Minigames.HideAndSeek
 
             int numWrong = Mathf.RoundToInt(2 + game.Difficulty * 4);
 
-            foreach (var letter in currentQuestion.GetWrongAnswers()) {
+            foreach (var letter in currentQuestion.GetWrongAnswers())
+            {
                 if (numWrong-- == 0)
                     break;
 
@@ -253,9 +275,11 @@ namespace Antura.Minigames.HideAndSeek
 
             ActiveLetters = letterList.Count;
 
-            for (int i = 0; i < ActiveLetters; ++i) {
+            for (int i = 0; i < ActiveLetters; ++i)
+            {
                 int index = getRandomPlaceholder();
-                if (index != -1) {
+                if (index != -1)
+                {
 
                     ActiveTrees.Add(ArrayTrees[index]);
                     Vector3 hiddenPosition = new Vector3(ArrayPlaceholder[index].transform.position.x, ArrayPlaceholder[index].transform.position.y - 3f, ArrayPlaceholder[index].transform.position.z + 3f);
@@ -288,7 +312,8 @@ namespace Antura.Minigames.HideAndSeek
 
         private IEnumerator DisplayRound_Coroutine()
         {
-            foreach (GameObject tree in ActiveTrees) {
+            foreach (GameObject tree in ActiveTrees)
+            {
                 tree.GetComponent<SphereCollider>().enabled = true;
             }
 
@@ -306,10 +331,12 @@ namespace Antura.Minigames.HideAndSeek
             int result = 0;
             int position = Random.Range(0, FreePlaceholder--);
 
-            for (int i = 0; i < UsedPlaceholder.Length; ++i) {
+            for (int i = 0; i < UsedPlaceholder.Length; ++i)
+            {
                 if (UsedPlaceholder[i] == true)
                     continue;
-                if (result == position) {
+                if (result == position)
+                {
                     UsedPlaceholder[i] = true;
                     return i;
                 }

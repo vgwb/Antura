@@ -4,7 +4,8 @@ using TMPro;
 
 namespace Antura.Minigames.SickLetters
 {
-	public class SickLettersDraggableDD : MonoBehaviour {
+    public class SickLettersDraggableDD : MonoBehaviour
+    {
 
         [Header("Parameters")]
 
@@ -12,22 +13,22 @@ namespace Antura.Minigames.SickLetters
         public bool IsDiacritic => !IsDot;
 
         private Vector3 screenPoint;
-		private Vector3 offset;
+        private Vector3 offset;
 
         [Header("State")]
         public SickLettersGame game;
-		public bool deattached;
+        public bool deattached;
 
 
         public Vector3 fingerOffset;
-		public TextMeshPro draggableText;
+        public TextMeshPro draggableText;
 
         public bool isCorrect;
         public bool isInVase, touchedVase, collidedWithVase;
 
         public bool isDragging;
 
-		bool overPlayermarker;
+        bool overPlayermarker;
         bool shake;
         bool release;
 
@@ -51,7 +52,7 @@ namespace Antura.Minigames.SickLetters
             {
                 return _checkDDCollision;
             }
-               
+
         }
 
 
@@ -68,7 +69,7 @@ namespace Antura.Minigames.SickLetters
         }
 
         void OnMouseDown()
-		{
+        {
             origParent = transform.parent;
             origLocalRotation = transform.localEulerAngles;
             screenPoint = Camera.main.WorldToScreenPoint(gameObject.transform.position);
@@ -83,7 +84,7 @@ namespace Antura.Minigames.SickLetters
 
             if (isCorrect)
             {
-                if(game.roundsCount > 0)
+                if (game.roundsCount > 0)
                     game.wrongDraggCount++;
                 shake = true;
                 draggableText.transform.SetParent(transform, true);
@@ -95,8 +96,8 @@ namespace Antura.Minigames.SickLetters
             }
         }
 
-		void OnMouseDrag()
-		{
+        void OnMouseDrag()
+        {
 
             if (isDragging && game.disableInput)
                 releaseDD();
@@ -109,14 +110,14 @@ namespace Antura.Minigames.SickLetters
             game.tut.repeatConter = game.tut.repeatMax;
 
             //transform.eulerAngles = origRotation;
-			Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
+            Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
 
-			Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
-			transform.position = new Vector3 (curPosition.x + fingerOffset.x, curPosition.y + fingerOffset.y, curPosition.z+ fingerOffset.z);
+            Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
+            transform.position = new Vector3(curPosition.x + fingerOffset.x, curPosition.y + fingerOffset.y, curPosition.z + fingerOffset.z);
 
-		}
+        }
 
-		void OnMouseUp()
+        void OnMouseUp()
         {
             if (game.disableInput)
                 return;
@@ -168,8 +169,9 @@ namespace Antura.Minigames.SickLetters
                 poofDD();
             }
         }
-		void Update() {
-  
+        void Update()
+        {
+
             if (shake && game.wrongDraggCount <= 1)
                 shakeTransform(game.scale.transform, game.scale.vaseStartPose);
         }
@@ -178,7 +180,7 @@ namespace Antura.Minigames.SickLetters
         {
             if (other.tag == "Player")
                 overPlayermarker = markerStatus;
-		}
+        }
 
         public void resetWrongDD()
         {
@@ -203,7 +205,7 @@ namespace Antura.Minigames.SickLetters
             boxCollider.enabled = true;
 
             draggableText.transform.SetParent(origParent, true);
-            draggableText.transform.localPosition = new Vector3(-0.5f, 0.5f,0);
+            draggableText.transform.localPosition = new Vector3(-0.5f, 0.5f, 0);
             draggableText.transform.localEulerAngles = new Vector3(90, 0.0f, 90);
             draggableText.transform.localScale = Vector3.one;
 
@@ -218,25 +220,25 @@ namespace Antura.Minigames.SickLetters
         }
 
         void OnTriggerEnter(Collider other)
-		{
-			Setmarker(other, true);
+        {
+            Setmarker(other, true);
             if (isCorrect && !isDragging)
                 checkDDsOverlapping(other);
         }
 
-		void OnTriggerStay(Collider other)
-		{
-			Setmarker(other, true);
+        void OnTriggerStay(Collider other)
+        {
+            Setmarker(other, true);
             if (isCorrect && !isDragging)
             {
                 checkDDsOverlapping(other);
             }
         }
 
-		void OnTriggerExit(Collider other)
-		{
-			Setmarker(other, false);
-		}
+        void OnTriggerExit(Collider other)
+        {
+            Setmarker(other, false);
+        }
 
         void OnCollisionEnter(Collision coll)
         {
@@ -252,7 +254,7 @@ namespace Antura.Minigames.SickLetters
 
         void OnCollisionStay(Collision coll)
         {
-            if(deattached)
+            if (deattached)
                 poofOnCollision(coll);
         }
 

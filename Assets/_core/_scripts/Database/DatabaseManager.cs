@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Antura.Database
 {
-
     /// <summary>
     /// Entry point for the rest of the application to access database entries.
     /// This class is responsible for loading all data and provide access to both static (learning) and dynamic (logging) data.
@@ -90,7 +89,8 @@ namespace Antura.Database
         private void SetPlayerProfile(string playerUuid)
         {
             // SAFE MODE: we need to make sure that the static db has some entries, otherwise there is something wrong
-            if (staticDb.GetPlaySessionTable().GetDataCount() == 0) {
+            if (staticDb.GetPlaySessionTable().GetDataCount() == 0)
+            {
                 throw new System.Exception(
                     "Database is empty, it was probably not setup correctly. Make sure it has been statically loaded by the management scene.");
             }
@@ -348,10 +348,11 @@ namespace Antura.Database
         public LocalizationData GetLocalizationDataById(string id)
         {
             var locData = staticDb.GetById(staticDb.GetLocalizationTable(), id);
-            if (locData != null) {
+            if (locData != null)
+            {
                 return locData;
             }
-            return new LocalizationData { Id = id};
+            return new LocalizationData { Id = id };
         }
 
         public List<LocalizationData> GetAllLocalizationData()
@@ -491,7 +492,7 @@ namespace Antura.Database
             foreach (var rewardPackUnlockData in GetAllDynamicData<RewardPackUnlockData>())
                 Debug.Log("LOAD PACK: " + rewardPackUnlockData.ToString());
                 */
-            
+
             return GetAllDynamicData<RewardPackUnlockData>();
         }
 
@@ -539,13 +540,17 @@ namespace Antura.Database
             // Load all the databases we can find and get the player UUIDs
             var allUUIDs = new List<string>();
             var filePaths = GetImportFilePaths();
-            if (filePaths != null) {
-                foreach (var filePath in filePaths) {
+            if (filePaths != null)
+            {
+                foreach (var filePath in filePaths)
+                {
                     // Check whether that is a DB and load it
-                    if (IsValidDatabasePath(filePath)) {
+                    if (IsValidDatabasePath(filePath))
+                    {
                         var importDbService = DBService.OpenFromFilePath(false, filePath);
                         var playerProfileData = importDbService.GetPlayerProfileData();
-                        if (playerProfileData == null) {
+                        if (playerProfileData == null)
+                        {
                             // skip no-player DBs, they are wrong
                             continue;
                         }
@@ -553,7 +558,9 @@ namespace Antura.Database
                         importDbService.CloseConnection();
                     }
                 }
-            } else {
+            }
+            else
+            {
                 errorString = "Could not find the import folder: " + AppConfig.DbImportFolder;
                 Debug.LogError(errorString);
                 return false;
@@ -565,7 +572,8 @@ namespace Antura.Database
             InjectEnums(joinedDbService);
 
             // Export and inject all the DBs
-            foreach (var uuid in allUUIDs) {
+            foreach (var uuid in allUUIDs)
+            {
                 // Export
                 var exportDbService = DBService.ExportFromPlayerUUIDAndReopen(uuid, dirName: AppConfig.DbImportFolder);
                 InjectUUID(uuid, exportDbService);
@@ -584,7 +592,8 @@ namespace Antura.Database
         public string[] GetImportFilePaths()
         {
             var importDirectory = DBService.GetDatabaseDirectoryPath(AppConfig.DbImportFolder);
-            if (Directory.Exists(importDirectory)) {
+            if (Directory.Exists(importDirectory))
+            {
                 string[] filePaths = Directory.GetFiles(importDirectory);
                 return filePaths;
             }
@@ -599,7 +608,8 @@ namespace Antura.Database
 
         public PlayerProfileData ImportDynamicDatabase(string importFilePath)
         {
-            if (!File.Exists(importFilePath)) {
+            if (!File.Exists(importFilePath))
+            {
                 Debug.LogError("Cannot find database file for import: " + importFilePath);
                 return null;
             }
@@ -624,13 +634,16 @@ namespace Antura.Database
 
         private void InjectExportedDB(string uuid, DBService exportDbService, DBService joinedDbService)
         {
-            foreach (Type dynamicDataType in dynamicDataTypes) {
+            foreach (Type dynamicDataType in dynamicDataTypes)
+            {
                 string query = "SELECT * FROM " + dynamicDataType.Name;
                 var objectList = exportDbService.Query(dynamicDataType, query);
                 var iDataList = objectList.ConvertAll(x => (IData)x);
 
-                foreach (var element in iDataList) {
-                    if (element is IDataEditable) {
+                foreach (var element in iDataList)
+                {
+                    if (element is IDataEditable)
+                    {
                         (element as IDataEditable).SetId(element.GetId() + "_" + uuid);
                     }
                 }
@@ -665,7 +678,8 @@ namespace Antura.Database
 
         private void InjectStaticData(DBService dbService)
         {
-            try {
+            try
+            {
                 dbService.GenerateStaticExportTables();
                 dbService.InsertAll(StaticDatabase.GetStageTable().GetValuesTyped());
                 dbService.InsertAll(StaticDatabase.GetPlaySessionTable().GetValuesTyped());
@@ -676,14 +690,17 @@ namespace Antura.Database
                 dbService.InsertAll(StaticDatabase.GetPhraseTable().GetValuesTyped());
                 dbService.InsertAll(StaticDatabase.GetLocalizationTable().GetValuesTyped());
                 dbService.InsertAll(StaticDatabase.GetRewardTable().GetValuesTyped());
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Debug.LogError(e);
             }
         }
 
         private void InjectUUID(string playerUuid, DBService exportDbService)
         {
-            foreach (var type in dynamicDataTypes) {
+            foreach (var type in dynamicDataTypes)
+            {
                 PopulateUUID(type, playerUuid, exportDbService);
             }
         }

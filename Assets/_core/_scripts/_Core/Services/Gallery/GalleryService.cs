@@ -16,7 +16,8 @@ namespace Antura.Core.Services.Gallery
         {
             var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
             HasWriteAccess = (permission == NativeGallery.Permission.ShouldAsk || permission == NativeGallery.Permission.Granted);
-            if (!HasWriteAccess) Debug.LogWarning("Has no write access to the gallery!");
+            if (!HasWriteAccess)
+                Debug.LogWarning("Has no write access to the gallery!");
         }
 
         public bool SaveScreenshot(Texture2D texture)

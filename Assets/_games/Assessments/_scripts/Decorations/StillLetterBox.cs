@@ -128,7 +128,8 @@ namespace Antura.Assessment
 
         private void KillTween()
         {
-            if (tween != null) {
+            if (tween != null)
+            {
                 tween.Kill(true);
             }
             tween = null;
@@ -146,19 +147,24 @@ namespace Antura.Assessment
         bool nullOnDemand = false;
         public ILivingLetterData Data
         {
-            get {
-                if (data == null && !nullOnDemand) {
+            get
+            {
+                if (data == null && !nullOnDemand)
+                {
                     throw new ArgumentNullException("Null on demand: " + nullOnDemand);
                 }
                 return data;
             }
-            private set {
+            private set
+            {
                 data = value;
 
                 OnModelChanged();
 
-                if (data != null) {
-                    if (data.Id == "with_article" || data.Id == "without_article") {
+                if (data != null)
+                {
+                    if (data.Id == "with_article" || data.Id == "without_article")
+                    {
                         Wideness = 2.3f;
                     }
                 }
@@ -169,13 +175,16 @@ namespace Antura.Assessment
 
         private float Scale
         {
-            get {
+            get
+            {
                 return textTransform.sizeDelta.x / (startTextScale.x * Wideness);
             }
-            set {
+            set
+            {
                 float widthScale = value * Wideness;
 
-                foreach (NineSlicedSprite sprite in backgroundTransform.GetComponentsInChildren<NineSlicedSprite>(true)) {
+                foreach (NineSlicedSprite sprite in backgroundTransform.GetComponentsInChildren<NineSlicedSprite>(true))
+                {
                     sprite.Width = sprite.initialWidth * widthScale;
                     sprite.Height = sprite.initialHeight * value;
                 }
@@ -191,7 +200,8 @@ namespace Antura.Assessment
                 MegaphoneIcon.transform.localScale =
                     new Vector3(megaphoneScale * value, megaphoneScale * value, 1);
 
-                if (extendedBoxCollider == false) {
+                if (extendedBoxCollider == false)
+                {
                     GetComponent<BoxCollider>().size = textTransform.sizeDelta;
                 }
             }
@@ -203,11 +213,14 @@ namespace Antura.Assessment
         private void OnModelChanged()
         {
             DisableSlots();
-            if (data == null) {
+            if (data == null)
+            {
                 Wideness = 1.0f;
                 Drawing.enabled = false;
                 Label.enabled = false;
-            } else {
+            }
+            else
+            {
                 Drawing.enabled = false;
                 Label.enabled = true;
                 LabelRender.SetLetterData(Data);
@@ -220,7 +233,8 @@ namespace Antura.Assessment
 
         public void NearbySlot()
         {
-            if (stoppedColor) {
+            if (stoppedColor)
+            {
                 StopColorTween();
                 colorTween = slotSprite.Material.DOColor(new Color32(180, 180, 180, 255), 0.3f);
                 stoppedColor = false;
@@ -229,7 +243,8 @@ namespace Antura.Assessment
 
         private void StopColorTween()
         {
-            if (colorTween != null) {
+            if (colorTween != null)
+            {
                 colorTween.Kill(false);
                 colorTween = null;
             }
@@ -237,7 +252,8 @@ namespace Antura.Assessment
 
         public void FarSlot()
         {
-            if (stoppedColor == false) {
+            if (stoppedColor == false)
+            {
                 StopColorTween();
                 colorTween = slotSprite.Material.DOColor(new Color32(255, 255, 255, 255), 0.3f);
                 stoppedColor = true;
@@ -280,7 +296,8 @@ namespace Antura.Assessment
         /// <param name="_data">The data.</param>
         public void Init(ILivingLetterData _data, bool answer)
         {
-            if (_data == null) {
+            if (_data == null)
+            {
                 throw new ArgumentNullException("Cannot init with null data");
             }
             nullOnDemand = false;

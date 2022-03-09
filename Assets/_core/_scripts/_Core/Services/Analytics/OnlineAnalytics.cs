@@ -226,7 +226,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackKioskEvent(string eventName)
         {
-            if (AnalyticsEnabled) {
+            if (AnalyticsEnabled)
+            {
                 /*var eventData = new Dictionary<string, object>{
                     { "app", "kiosk" },
                     {"lang", (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian ? "it" : "en")}
@@ -237,7 +238,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackGameEvent(LogGamePlayData _data)
         {
-            if (AnalyticsEnabled) {
+            if (AnalyticsEnabled)
+            {
                 /*var eventName = "GamePlay";
                 var evetData = new Dictionary<string, object>{
                     { "uuid", _data.Uuid },
@@ -250,14 +252,16 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TrackScene(string sceneName)
         {
-            if (AnalyticsEnabled) {
+            if (AnalyticsEnabled)
+            {
                 //Analytics.CustomEvent("changeScene", new Dictionary<string, object> { { "scene", sceneName } });
             }
         }
 
         public void TrackPlayerSession(int age, Profile.PlayerGender gender)
         {
-            if (AnalyticsEnabled) {
+            if (AnalyticsEnabled)
+            {
                 //Gender playerGender = (gender == Profile.PlayerGender.F ? Gender.Female : Gender.Male);
                 //Analytics.SetUserGender(playerGender);
                 //int birthYear = DateTime.Now.Year - age;

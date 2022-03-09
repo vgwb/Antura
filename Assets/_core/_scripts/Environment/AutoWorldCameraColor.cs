@@ -21,14 +21,16 @@ namespace Antura.Environment
 
             camera.backgroundColor = color;
 
-            if (cameraFog != null) {
+            if (cameraFog != null)
+            {
                 cameraFog.color = color;
             }
         }
 
         public void Start()
         {
-            if (backgroundColorSet != null) {
+            if (backgroundColorSet != null)
+            {
                 var color = WorldManager.I.GetColor(backgroundColorSet);
 
                 UpdateCamera(color);
@@ -39,8 +41,10 @@ namespace Antura.Environment
 #if UNITY_EDITOR
         void Update()
         {
-            if (!Application.isPlaying && backgroundColorSet != null) {
-                if (testWorld != lastTestWorld || backgroundColorSet != lastColorSet) {
+            if (!Application.isPlaying && backgroundColorSet != null)
+            {
+                if (testWorld != lastTestWorld || backgroundColorSet != lastColorSet)
+                {
                     lastTestWorld = testWorld;
                     lastColorSet = backgroundColorSet;
 

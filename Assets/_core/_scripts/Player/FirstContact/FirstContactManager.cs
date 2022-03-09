@@ -58,9 +58,12 @@ namespace Antura.Profile
 
         public IEnumerable<FirstContactPhase> EnumeratePhases()
         {
-            foreach (FirstContactPhase phase in Enum.GetValues(typeof(FirstContactPhase))) {
-                if (phase == FirstContactPhase.MAX) continue;
-                if (phase == FirstContactPhase.NONE) continue;
+            foreach (FirstContactPhase phase in Enum.GetValues(typeof(FirstContactPhase)))
+            {
+                if (phase == FirstContactPhase.MAX)
+                    continue;
+                if (phase == FirstContactPhase.NONE)
+                    continue;
                 yield return phase;
             }
         }
@@ -68,7 +71,8 @@ namespace Antura.Profile
         public override string ToString()
         {
             string s = "";
-            foreach (FirstContactPhase phase in EnumeratePhases()) {
+            foreach (FirstContactPhase phase in EnumeratePhases())
+            {
                 s += phase + ": " + phaseStates[(int)phase] + "\n";
             }
             return s;
@@ -100,7 +104,8 @@ namespace Antura.Profile
 
         public FirstContactManager()
         {
-            if (!Application.isEditor) {
+            if (!Application.isEditor)
+            {
                 // Force debug options to FALSE if we're not in the editor
                 FORCE_FIRST_CONTACT_START = false;
             }
@@ -132,13 +137,15 @@ namespace Antura.Profile
             this.state = _state;
 
             // Default state
-            if (state == null || state.phaseStates.Length == 0) {
+            if (state == null || state.phaseStates.Length == 0)
+            {
                 state = new FirstContactState();
                 ResetSequence();
                 AppManager.I.Player.FirstContactState = state;
             }
 
-            if (FORCE_FIRST_CONTACT_START) {
+            if (FORCE_FIRST_CONTACT_START)
+            {
                 ForceToPhaseInSequence(FORCED_FIRST_CONTACT_START_PHASE);
             }
         }
@@ -155,12 +162,16 @@ namespace Antura.Profile
 
         public FirstContactPhase CurrentPhaseInSequence
         {
-            get {
-                if (SIMULATE_FIRST_CONTACT) {
+            get
+            {
+                if (SIMULATE_FIRST_CONTACT)
+                {
                     return SIMULATE_FIRST_CONTACT_PHASE;
                 }
-                foreach (var phase in phasesSequence) {
-                    if (!HasCompletedPhase(phase)) return phase;
+                foreach (var phase in phasesSequence)
+                {
+                    if (!HasCompletedPhase(phase))
+                        return phase;
                 }
                 return FirstContactPhase.Finished;
             }
@@ -168,8 +179,10 @@ namespace Antura.Profile
 
         public bool IsSequenceFinished()
         {
-            if (AppConfig.DisableFirstContact) return true;
-            if (SIMULATE_FIRST_CONTACT) return false;
+            if (AppConfig.DisableFirstContact)
+                return true;
+            if (SIMULATE_FIRST_CONTACT)
+                return false;
             return phasesSequence.All(HasCompletedPhase);
         }
 
@@ -188,7 +201,8 @@ namespace Antura.Profile
             UnlockPhase(nextPhase);
 
             // If we are at the END of the phases, force all of them to be finished to make sure Mood can now appear
-            if (nextPhase == FirstContactPhase.Finished) {
+            if (nextPhase == FirstContactPhase.Finished)
+            {
                 ForceToFinishedSequence();
                 ForceAllCompletedInSequence();
             }
@@ -198,10 +212,14 @@ namespace Antura.Profile
         {
             ResetSequence();
 
-            foreach (var phase in phasesSequence) {
-                if (phase != forcedPhase) {
+            foreach (var phase in phasesSequence)
+            {
+                if (phase != forcedPhase)
+                {
                     CompletePhase(phase);
-                } else {
+                }
+                else
+                {
                     UnlockPhase(forcedPhase);
                     break;
                 }
@@ -209,7 +227,8 @@ namespace Antura.Profile
 
             AppManager.I.Player.Save();
 
-            if (VERBOSE) Debug.Log("FirstContact - FORCING phase " + forcedPhase);
+            if (VERBOSE)
+                Debug.Log("FirstContact - FORCING phase " + forcedPhase);
         }
 
         public void ForceToFinishedSequence()
@@ -225,7 +244,8 @@ namespace Antura.Profile
 
         public void ForceAllCompletedInSequence()
         {
-            foreach (FirstContactPhase phase in phasesSequence) {
+            foreach (FirstContactPhase phase in phasesSequence)
+            {
                 SetPhaseState(phase, FirstContactPhaseState.Completed);
             }
             AppManager.I.Player.Save();
@@ -239,16 +259,21 @@ namespace Antura.Profile
             SetPhaseState(_phase, FirstContactPhaseState.Unlocked);
             AppManager.I.Player.Save(); // TODO: save only when needed
 
-            if (VERBOSE) Debug.Log("FirstContact - phase " + _phase + " unlocked!");
+            if (VERBOSE)
+                Debug.Log("FirstContact - phase " + _phase + " unlocked!");
         }
 
         public void CompletePhaseCheckSequence(FirstContactPhase phase)
         {
-            if (phase == FirstContactPhase.NONE) throw new Exception("Phase for completion not correctly set!");
+            if (phase == FirstContactPhase.NONE)
+                throw new Exception("Phase for completion not correctly set!");
 
-            if (phasesSequence.Contains(phase)) {
+            if (phasesSequence.Contains(phase))
+            {
                 CompleteCurrentPhaseInSequence();
-            } else {
+            }
+            else
+            {
                 CompletePhase(phase);
             }
         }
@@ -259,7 +284,8 @@ namespace Antura.Profile
             AppManager.I.Player.Save(); // TODO: save only when needed
             AppManager.I.Services.Analytics.TrackCompletedFirstContactPhase(_phase);
 
-            if (VERBOSE) Debug.Log("FirstContact - phase " + _phase + " completed!");
+            if (VERBOSE)
+                Debug.Log("FirstContact - phase " + _phase + " completed!");
         }
 
         public bool HasUnlockedPhase(FirstContactPhase _phase)
@@ -275,13 +301,15 @@ namespace Antura.Profile
 
         public bool IsPhaseUnlockedAndNotCompleted(FirstContactPhase _phase)
         {
-            if (SIMULATE_FIRST_CONTACT && SIMULATE_FIRST_CONTACT_PHASE == _phase) return true;
+            if (SIMULATE_FIRST_CONTACT && SIMULATE_FIRST_CONTACT_PHASE == _phase)
+                return true;
             return HasUnlockedPhase(_phase) && !HasCompletedPhase(_phase);
         }
 
         public void ForceAllCompleted()
         {
-            foreach (FirstContactPhase phase in state.EnumeratePhases()) {
+            foreach (FirstContactPhase phase in state.EnumeratePhases())
+            {
                 SetPhaseState(phase, FirstContactPhaseState.Completed);
             }
             AppManager.I.Player.Save();
@@ -294,14 +322,17 @@ namespace Antura.Profile
             string s = "Next in sequence: " + CurrentPhaseInSequence;
 
             s += "\n\n-- Unlock state for sequence --\n";
-            foreach (var phase in phasesSequence) {
+            foreach (var phase in phasesSequence)
+            {
                 s += phase + ": " + GetPhaseState(phase) + "\n";
             }
 
             s += "\n-- Unlock state for other features --\n";
-            for (int phase_i = 0; phase_i < state.phaseStates.Length; phase_i++) {
+            for (int phase_i = 0; phase_i < state.phaseStates.Length; phase_i++)
+            {
                 var phase = (FirstContactPhase)phase_i;
-                if (!phasesSequence.Contains(phase)) {
+                if (!phasesSequence.Contains(phase))
+                {
                     s += phase + ": " + GetPhaseState(phase) + "\n";
                 }
             }
@@ -336,7 +367,8 @@ namespace Antura.Profile
         public List<FirstContactPhase> GetPhasesForScene(AppScene scene)
         {
             List<FirstContactPhase> correctPhases = new List<FirstContactPhase>();
-            foreach (FirstContactPhase phase in state.EnumeratePhases()) {
+            foreach (FirstContactPhase phase in state.EnumeratePhases())
+            {
                 if (GetSceneForTutorialOfPhase(phase) == scene)
                     correctPhases.Add(phase);
             }
@@ -346,7 +378,8 @@ namespace Antura.Profile
         // TODO: scene and phase could be part of some FirstContactData struct
         public JourneyPosition GetUnlockingJourneyPosition(FirstContactPhase phase)
         {
-            switch (phase) {
+            switch (phase)
+            {
                 case FirstContactPhase.AnturaSpace_Photo:
                     return new JourneyPosition(1, 2, 1);
 
@@ -361,7 +394,8 @@ namespace Antura.Profile
 
         private AppScene GetSceneForTutorialOfPhase(FirstContactPhase phase)
         {
-            switch (phase) {
+            switch (phase)
+            {
                 case FirstContactPhase.AnturaSpace_Customization:
                 case FirstContactPhase.AnturaSpace_Exit:
                 case FirstContactPhase.AnturaSpace_Photo:
@@ -396,8 +430,10 @@ namespace Antura.Profile
         public AppScene FilterNavigation(AppScene fromScene, AppScene toScene, out bool keepPrevAsBackable)
         {
             keepPrevAsBackable = false;
-            if (IsSequenceFinished()) return toScene;
-            if (toScene == AppScene.PlayerCreation || toScene == AppScene.ReservedArea) return toScene;    // These scenes cannot be skipped
+            if (IsSequenceFinished())
+                return toScene;
+            if (toScene == AppScene.PlayerCreation || toScene == AppScene.ReservedArea)
+                return toScene;    // These scenes cannot be skipped
 
             // Check whether this transition is completing a phase
             TransitionCompletePhaseOn(FirstContactPhase.Intro, fromScene == AppScene.Intro);
@@ -415,7 +451,8 @@ namespace Antura.Profile
 
             // Force the game to re-start from the scene of the current tutorial phase if needed
             // @note: we always filter if we are coming from home, to handle the fact that the player can shut down the game during a tutorial
-            foreach (FirstContactPhase phase in state.EnumeratePhases()) {
+            foreach (FirstContactPhase phase in state.EnumeratePhases())
+            {
                 FilterTransitionOn(phase, fromScene == AppScene.Home, ref toScene, GetSceneForTutorialOfPhase(phase));
             }
 
@@ -424,15 +461,18 @@ namespace Antura.Profile
 
         private void FilterTransitionOn(FirstContactPhase phase, bool condition, ref AppScene toScene, AppScene newScene)
         {
-            if (newScene == AppScene.NONE) return;
-            if (IsPhaseUnlockedAndNotCompleted(phase) && condition) {
+            if (newScene == AppScene.NONE)
+                return;
+            if (IsPhaseUnlockedAndNotCompleted(phase) && condition)
+            {
                 toScene = newScene;
             }
         }
 
         private void TransitionCompletePhaseOn(FirstContactPhase phase, bool condition)
         {
-            if (IsPhaseUnlockedAndNotCompleted(phase) && condition) {
+            if (IsPhaseUnlockedAndNotCompleted(phase) && condition)
+            {
                 CompletePhaseCheckSequence(phase);
             }
         }

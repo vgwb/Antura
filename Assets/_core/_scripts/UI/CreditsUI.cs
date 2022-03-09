@@ -58,9 +58,12 @@ namespace Antura.UI
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0)) {
+            if (Input.GetMouseButtonDown(0))
+            {
                 StopScrollLoop();
-            } else if (Input.GetMouseButtonUp(0) && showTween.IsComplete()) {
+            }
+            else if (Input.GetMouseButtonUp(0) && showTween.IsComplete())
+            {
                 StartScrollLoop();
             }
         }
@@ -81,12 +84,15 @@ namespace Antura.UI
         {
             scrollTween.Kill();
             this.StopAllCoroutines();
-            if (_doShow) {
+            if (_doShow)
+            {
                 this.gameObject.SetActive(true);
                 CreditsContainer.anchoredPosition = defCreditsContainerPos;
                 showTween.PlayForward();
                 StartScrollLoop();
-            } else {
+            }
+            else
+            {
                 showTween.PlayBackwards();
             }
         }

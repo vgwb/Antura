@@ -12,7 +12,7 @@ namespace Antura.Animation
             BounceLoop
         }
 
-    [DeToggleButton]
+        [DeToggleButton]
         public bool AutoStart = true;
         public AnimationType AnimType;
         public float To;
@@ -28,13 +28,16 @@ namespace Antura.Animation
 
         void OnEnable()
         {
-            if (animTween != null) animTween.Restart();
-            else if (AutoStart) CreateAnimation();
+            if (animTween != null)
+                animTween.Restart();
+            else if (AutoStart)
+                CreateAnimation();
         }
 
         void OnDisable()
         {
-            if (animTween != null) animTween.Pause();
+            if (animTween != null)
+                animTween.Pause();
         }
 
         void OnDestroy()
@@ -48,13 +51,16 @@ namespace Antura.Animation
 
         public void Play()
         {
-            if (animTween != null) animTween.Play();
-            else CreateAnimation();
+            if (animTween != null)
+                animTween.Play();
+            else
+                CreateAnimation();
         }
 
         public void Rewind()
         {
-            if (animTween == null) return;
+            if (animTween == null)
+                return;
             animTween.Rewind();
             transform.rotation = orRotation;
             transform.localScale = orScale;
@@ -69,12 +75,14 @@ namespace Antura.Animation
             orScale = transform.localScale;
             orRotation = transform.rotation;
             animTween = DOTween.Sequence().SetAutoKill(false);
-            if (ScaleInOnEnable) {
+            if (ScaleInOnEnable)
+            {
                 animTween.Append(
                     transform.DOScale(0.0001f, ScaleInDuration).From().SetEase(Ease.OutSine)
                 );
             }
-            switch (AnimType) {
+            switch (AnimType)
+            {
                 case AnimationType.RotateZ:
                     animTween = animTween.Join(
                         transform.DORotate(new Vector3(0, 0, To), Duration, RotateMode.FastBeyond360).SetLoops(int.MaxValue).SetEase(Ease.Linear)

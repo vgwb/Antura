@@ -96,7 +96,8 @@ namespace Antura.Minigames.Egg
 
         public void InitializeOverlayWidget()
         {
-            if (!overlayWidgetInitialized) {
+            if (!overlayWidgetInitialized)
+            {
                 overlayWidgetInitialized = true;
                 Context.GetOverlayWidget().Initialize(true, false, false);
                 Context.GetOverlayWidget().SetStarsThresholds(1, 2, 4);

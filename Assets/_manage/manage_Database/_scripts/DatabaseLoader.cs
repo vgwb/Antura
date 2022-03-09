@@ -38,7 +38,8 @@ namespace Antura.Database.Management
             this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
             var test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
-            if (!test_db.HasTables()) {
+            if (!test_db.HasTables())
+            {
                 CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME_TEST + "/", DatabaseManager.STATIC_DATABASE_NAME_TEST);
                 test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             }
@@ -112,7 +113,8 @@ namespace Antura.Database.Management
 
         private void RegenerateEnumsFrom(DatabaseInputData DBInputData)
         {
-            if (ImportLetters) {
+            if (ImportLetters)
+            {
                 {
                     Debug.Log("Generating Letters enums...");
                     var parser = new LetterParser();
@@ -120,7 +122,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportWords) {
+            if (ImportWords)
+            {
                 {
                     Debug.Log("Generating Words enums...");
                     var parser = new WordParser();
@@ -128,7 +131,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportPhrases) {
+            if (ImportPhrases)
+            {
                 {
                     Debug.Log("Generating Phrases enums...");
                     var parser = new PhraseParser();
@@ -136,7 +140,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportMiniGames) {
+            if (ImportMiniGames)
+            {
                 {
                     Debug.Log("Generating MiniGames enums...");
                     var parser = new MiniGameParser();
@@ -144,7 +149,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportPlaySessions) {
+            if (ImportPlaySessions)
+            {
                 {
                     Debug.Log("Generating PlaySessions enums...");
                     var parser = new PlaySessionParser();
@@ -152,7 +158,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportLearningBlocks) {
+            if (ImportLearningBlocks)
+            {
                 {
                     Debug.Log("Generating LearningBlocks enums...");
                     var parser = new LearningBlockParser();
@@ -160,7 +167,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportLocalizations) {
+            if (ImportLocalizations)
+            {
                 {
                     Debug.Log("Generating Localization enums...");
                     var parser = new LocalizationParser();
@@ -168,7 +176,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportStages) {
+            if (ImportStages)
+            {
                 {
                     Debug.Log("Generating Stages enums...");
                     var parser = new StageParser();
@@ -176,7 +185,8 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportRewards) {
+            if (ImportRewards)
+            {
                 {
                     Debug.Log("Generating Rewards enums...");
                     var parser = new RewardParser();
@@ -206,7 +216,8 @@ namespace Antura.Database.Management
         /// <param name="DBInputData"></param>
         private void LoadDataFrom(DatabaseInputData DBInputData)
         {
-            if (ImportLetters) {
+            if (ImportLetters)
+            {
                 {
                     Debug.Log("Loading Letters...");
                     var parser = new LetterParser();
@@ -215,7 +226,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.letterDb);
             }
 
-            if (ImportWords) {
+            if (ImportWords)
+            {
                 {
                     // @note: depends on Letter
                     Debug.Log("Loading Words...");
@@ -225,7 +237,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.wordDb);
             }
 
-            if (ImportPhrases) {
+            if (ImportPhrases)
+            {
                 {
                     // @note: depends on Word
                     Debug.Log("Loading Phrases...");
@@ -235,7 +248,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.phraseDb);
             }
 
-            if (ImportLocalizations) {
+            if (ImportLocalizations)
+            {
                 {
                     Debug.Log("Loading Localization...");
                     var parser = new LocalizationParser();
@@ -245,7 +259,8 @@ namespace Antura.Database.Management
             }
 
 
-            if (ImportMiniGames) {
+            if (ImportMiniGames)
+            {
                 {
                     Debug.Log("Loading MiniGames...");
                     var parser = new MiniGameParser();
@@ -254,7 +269,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.minigameDb);
             }
 
-            if (ImportPlaySessions) {
+            if (ImportPlaySessions)
+            {
                 {
                     // @note: depends on Minigame
                     Debug.Log("Loading PlaySessions...");
@@ -264,7 +280,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.playsessionDb);
             }
 
-            if (ImportLearningBlocks) {
+            if (ImportLearningBlocks)
+            {
                 {
                     // @note: depends on Letter, Word, Phrase, PlaySession
                     Debug.Log("Loading LearningBlocks...");
@@ -274,7 +291,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.learningblockDb);
             }
 
-            if (ImportStages) {
+            if (ImportStages)
+            {
                 {
                     Debug.Log("Loading Stages...");
                     var parser = new StageParser();
@@ -283,7 +301,8 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.stageDb);
             }
 
-            if (ImportRewards) {
+            if (ImportRewards)
+            {
                 {
                     Debug.Log("Loading Rewards...");
                     var parser = new RewardParser();

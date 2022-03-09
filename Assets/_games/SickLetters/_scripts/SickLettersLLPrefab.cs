@@ -12,7 +12,7 @@ using TMPro;
 namespace Antura.Minigames.SickLetters
 {
 
-    public enum letterStatus { idle, angry, horry}
+    public enum letterStatus { idle, angry, horry }
 
     public class SickLettersLLPrefab : MonoBehaviour
     {
@@ -48,7 +48,8 @@ namespace Antura.Minigames.SickLetters
         }
 
 
-        public void jumpOut(float delay = 0, bool endGame = false) {
+        public void jumpOut(float delay = 0, bool endGame = false)
+        {
             StartCoroutine(coJumpOut(delay, endGame));
         }
 
@@ -76,7 +77,7 @@ namespace Antura.Minigames.SickLetters
 
             if (game.roundsCount == 0)
             {
-                game.tut.doTutorial(thisLLWrongDDs[Random.Range(0, thisLLWrongDDs.Count-1)].transform);
+                game.tut.doTutorial(thisLLWrongDDs[Random.Range(0, thisLLWrongDDs.Count - 1)].transform);
             }
             else
                 SickLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterView.Data, true, soundType: SickLettersConfiguration.Instance.GetVocabularySoundType());
@@ -87,7 +88,7 @@ namespace Antura.Minigames.SickLetters
         {
 
             letterAnimator.SetBool("dancing", false);
-            yield return new WaitForSeconds(delay );
+            yield return new WaitForSeconds(delay);
             letterAnimator.Play("LL_idle_1", -1);
             game.manager.holeON();
             yield return new WaitForSeconds(0.25f);
@@ -212,7 +213,8 @@ namespace Antura.Minigames.SickLetters
             }
         }
 
-        IEnumerator processCorrectDiacPose() {
+        IEnumerator processCorrectDiacPose()
+        {
             while (true)
             {
                 if (letterView.LabelRender.mesh.vertexCount > 0)
@@ -247,13 +249,14 @@ namespace Antura.Minigames.SickLetters
             else
             {
                 // Fallback
-                emptyZones = new[]{new Vector2(-0.055f, 1.054f) };
+                emptyZones = new[] { new Vector2(-0.055f, 1.054f) };
             }
 
             for (int iZone = 0; iZone < emptyZones.Length; iZone++)
             {
 
-                if (foundWrongDDCount >= game.Draggables.Length) continue;
+                if (foundWrongDDCount >= game.Draggables.Length)
+                    continue;
 
                 if (game.Draggables[foundWrongDDCount].IsDiacritic && foundWrongDDCount >= game.numberOfWrongDDs)
                 {
@@ -289,9 +292,9 @@ namespace Antura.Minigames.SickLetters
 
         IEnumerator fadeShadow()
         {
-            while(shadow.localScale.x < shadowStartSize.x - 0.01f)
+            while (shadow.localScale.x < shadowStartSize.x - 0.01f)
             {
-                shadow.localScale = Vector3.Lerp(shadow.localScale, shadowStartSize, Time.deltaTime*3.5f);
+                shadow.localScale = Vector3.Lerp(shadow.localScale, shadowStartSize, Time.deltaTime * 3.5f);
                 yield return null;
             }
         }

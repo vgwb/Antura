@@ -19,7 +19,8 @@ namespace Antura.UI
         {
             base.Awake();
 
-            if (cGroup == null) {
+            if (cGroup == null)
+            {
                 cGroup = this.gameObject.AddComponent<CanvasGroup>();
             }
         }
@@ -35,7 +36,8 @@ namespace Antura.UI
 
         public void SetInteractivity(bool _interactive)
         {
-            if (cGroup == null) {
+            if (cGroup == null)
+            {
                 cGroup = this.gameObject.AddComponent<CanvasGroup>();
             }
             cGroup.alpha = _interactive ? 1 : 0.3f;

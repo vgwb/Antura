@@ -32,19 +32,25 @@ namespace Antura.GamesSelector
             TitleCode.text = journeyPos.GetShortTitle();
             TitleLearningLang.SetText(learningBlock.Title_LearningLang, LanguageUse.Learning);
 
-            if (AppManager.I.AppEdition.ShowHelpText) {
+            if (AppManager.I.AppEdition.ShowHelpText)
+            {
                 TitleNativeLang.SetText(learningBlock.Title_NativeLang, LanguageUse.Help);
-            } else {
+            }
+            else
+            {
                 TitleNativeLang.text = "";
             }
 
             // play the tutorial only if in LB 1.1
             PlayTutorialAudio();
 
-            if (!journeyPos.IsMinor(AppManager.I.Player.MaxJourneyPosition)) {
+            if (!journeyPos.IsMinor(AppManager.I.Player.MaxJourneyPosition))
+            {
                 // First time playing this session: 0 stars
                 SetStars(0);
-            } else {
+            }
+            else
+            {
                 int score = (int)AppManager.I.ScoreHelper.GetCurrentScoreForJourneyPosition(AppManager.I.Player.CurrentJourneyPosition);
                 SetStars(score);
             }
@@ -65,10 +71,12 @@ namespace Antura.GamesSelector
 
         void SetStars(int _tot)
         {
-            if (_tot > 3) {
+            if (_tot > 3)
+            {
                 _tot = 3;
             }
-            for (int i = 0; i < Stars.Length; ++i) {
+            for (int i = 0; i < Stars.Length; ++i)
+            {
                 GameObject star = Stars[i];
                 star.SetActive(i < _tot);
                 star.transform.parent.GetComponent<Image>().SetAlpha(i < _tot ? 1f : 0.3f);

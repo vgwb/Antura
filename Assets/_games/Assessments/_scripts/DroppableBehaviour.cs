@@ -24,14 +24,17 @@ namespace Antura.Assessment
         Vector3 origin; // Memorize starting position for going back
         void OnMouseDown()
         {
-            if (GlobalUI.PauseMenu.IsMenuOpen) return;
-            if (!dragEnabled) {
+            if (GlobalUI.PauseMenu.IsMenuOpen)
+                return;
+            if (!dragEnabled)
+            {
                 return;
             }
 
             // If I place an LL above another one, then the other one should fall down
             // So when I click a LL that is linked I keep its original position
-            if (GetLinkedPlaceholder() == null) {
+            if (GetLinkedPlaceholder() == null)
+            {
                 origin = transform.localPosition;
             }
 
@@ -41,7 +44,8 @@ namespace Antura.Assessment
 
         void OnMouseUp()
         {
-            if (!dragEnabled) {
+            if (!dragEnabled)
+            {
                 return;
             }
 
@@ -62,7 +66,8 @@ namespace Antura.Assessment
         bool canUpdate = false;
         private void Update()
         {
-            if (canUpdate) {
+            if (canUpdate)
+            {
                 var pos = transform.localPosition;
                 pos.z = Z;
                 transform.localPosition = pos;
@@ -80,7 +85,8 @@ namespace Antura.Assessment
         void OnDestroy()
         {
             dragEnabled = false;
-            if (OnGoDestroyed != null) {
+            if (OnGoDestroyed != null)
+            {
                 OnGoDestroyed(this);
             }
         }
@@ -108,7 +114,8 @@ namespace Antura.Assessment
         public void LinkToPlaceholder(PlaceholderBehaviour behaviour)
         {
             linkedBehaviour = behaviour;
-            if (behaviour.LinkedDroppable != null) {
+            if (behaviour.LinkedDroppable != null)
+            {
                 behaviour.LinkedDroppable.Detach();
             }
 
@@ -120,11 +127,13 @@ namespace Antura.Assessment
 
         public void Detach(bool jumpBack = true)
         {
-            if (jumpBack) {
+            if (jumpBack)
+            {
                 transform.DOLocalMove(origin, 0.5f).SetEase(Ease.OutBounce);
             }
 
-            if (linkedBehaviour != null) {
+            if (linkedBehaviour != null)
+            {
                 var quest = linkedBehaviour.Placeholder.GetQuestion();
                 quest.GetAnswerSet().OnRemovedAnswer(GetAnswer());
                 linkedBehaviour.LinkedDroppable = null;

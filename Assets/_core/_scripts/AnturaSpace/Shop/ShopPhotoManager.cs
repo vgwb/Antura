@@ -27,7 +27,8 @@ namespace Antura.AnturaSpace
         void Start()
         {
             var debugPanel = FindObjectOfType<DebugPanel>();
-            if (debugPanel != null) {
+            if (debugPanel != null)
+            {
                 gameObjectsToHide.Add(debugPanel.gameObject);
             }
 
@@ -45,7 +46,8 @@ namespace Antura.AnturaSpace
             AudioManager.I.PlaySound(Sfx.Photo);
 
             // Hide objects first
-            foreach (var go in gameObjectsToHide) {
+            foreach (var go in gameObjectsToHide)
+            {
                 go.SetActive(false);
             }
 
@@ -55,7 +57,8 @@ namespace Antura.AnturaSpace
             currentPhotoTexture.ReadPixels(new Rect(0, 0, Screen.width, Screen.height), 0, 0);
             currentPhotoTexture.Apply();
 
-            foreach (var go in gameObjectsToHide) {
+            foreach (var go in gameObjectsToHide)
+            {
                 go.SetActive(true);
             }
 
@@ -63,7 +66,8 @@ namespace Antura.AnturaSpace
 
             // Ask for confirmation
             ShopDecorationsManager.I.SetContextSpecialAction();
-            if (OnPhotoConfirmationRequested != null) OnPhotoConfirmationRequested();
+            if (OnPhotoConfirmationRequested != null)
+                OnPhotoConfirmationRequested();
         }
 
         public void ConfirmPhoto()
@@ -71,8 +75,10 @@ namespace Antura.AnturaSpace
             bool success = AppManager.I.Services.Gallery.SaveScreenshot(currentPhotoTexture);
 
             currentPhotoTexture = null;
-            if (OnPurchaseSuccess != null) { OnPurchaseSuccess(success); }
-            if (OnPurchaseCompleted != null) { OnPurchaseCompleted(); }
+            if (OnPurchaseSuccess != null)
+            { OnPurchaseSuccess(success); }
+            if (OnPurchaseCompleted != null)
+            { OnPurchaseCompleted(); }
 
             ShopDecorationsManager.I.SetContextClosed();
 
@@ -83,7 +89,8 @@ namespace Antura.AnturaSpace
 
         public void CancelPhoto()
         {
-            if (AnturaSpaceScene.I.TutorialMode) { return; }
+            if (AnturaSpaceScene.I.TutorialMode)
+            { return; }
 
             ShopDecorationsManager.I.SetPreviousContext();
 

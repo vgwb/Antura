@@ -20,10 +20,13 @@ namespace Antura.Book
             myLetterData = _letterData;
             //            uIButton = GetComponent<UIButton>();
 
-            if (myLetterData == null) {
+            if (myLetterData == null)
+            {
                 LetterText.SetTextUnfiltered("");
                 SubtitleText.SetText("");
-            } else {
+            }
+            else
+            {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
                 LetterText.SetTextUnfiltered(isolatedChar);
                 if (AppManager.I.AppEdition.ShowHelpText)

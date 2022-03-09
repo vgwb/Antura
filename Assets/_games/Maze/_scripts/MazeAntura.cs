@@ -27,25 +27,33 @@ namespace Antura.Minigames.Maze
             var distance = target - transform.position;
             distance.y = 0;
 
-            if (IsAnturaTime) {
-                if (nextAnturaBarkTimer <= 0) {
+            if (IsAnturaTime)
+            {
+                if (nextAnturaBarkTimer <= 0)
+                {
                     PrepareNextAnturaBark();
-                } else {
+                }
+                else
+                {
                     nextAnturaBarkTimer -= Time.deltaTime;
                 }
             }
 
-            if (distance.sqrMagnitude < 0.1f) {
+            if (distance.sqrMagnitude < 0.1f)
+            {
                 transform.position = target;
                 // reached
                 //if (IsAnturaTime)
                 //	SetRandomTarget();
-                if (IsAnturaTime) {
+                if (IsAnturaTime)
+                {
                     //SetAnturaTime (false, initialPosition);
                     GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.sitting;
                     StartCoroutine(waitAndReturn(2.5f));
                 }
-            } else {
+            }
+            else
+            {
                 distance.Normalize();
                 transform.position += distance * Vector3.Dot(distance, transform.forward) * ANTURA_SPEED * Time.deltaTime;
                 GameplayHelper.LerpLookAtPlanar(transform, target, Time.deltaTime * 3);
@@ -65,7 +73,8 @@ namespace Antura.Minigames.Maze
 
         public void SetAnturaTime(bool _isAnturaTime, Vector3 position)
         {
-            if (_isAnturaTime == IsAnturaTime) {
+            if (_isAnturaTime == IsAnturaTime)
+            {
                 return;
             }
 
@@ -74,10 +83,13 @@ namespace Antura.Minigames.Maze
             GetComponent<AnturaAnimationController>().SetWalkingSpeed(ANTURA_SPEED);
             GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.walking;
 
-            if (IsAnturaTime) {
+            if (IsAnturaTime)
+            {
                 target = position;
                 PrepareNextAnturaBark();
-            } else {
+            }
+            else
+            {
                 target = initialPosition;
             }
 

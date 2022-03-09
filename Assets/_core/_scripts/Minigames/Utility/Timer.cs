@@ -2,7 +2,7 @@ namespace Antura.Minigames
 {
     /// <summary>
     /// Concrete implementation of ITimer.
-    /// Used by minigames.  
+    /// Used by minigames.
     /// </summary>
     public class Timer : ITimer
     {
@@ -33,7 +33,8 @@ namespace Antura.Minigames
 
         public void Update(float delta)
         {
-            if (IsRunning) {
+            if (IsRunning)
+            {
                 time += delta;
             }
         }

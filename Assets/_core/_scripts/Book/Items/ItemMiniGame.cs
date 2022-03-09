@@ -29,9 +29,12 @@ namespace Antura.Book
             miniGameInfo = _MiniGameInfo;
             myManager = _manager;
 
-            if (miniGameInfo.unlocked || AppManager.I.Player.IsDemoUser) {
+            if (miniGameInfo.unlocked || AppManager.I.Player.IsDemoUser)
+            {
                 isLocked = false;
-            } else {
+            }
+            else
+            {
                 isLocked = true;
             }
             LockIcon.enabled = isLocked;
@@ -46,7 +49,8 @@ namespace Antura.Book
             var score = miniGameInfo.score;
             //var score = GenericHelper.GetAverage(TeacherAI.I.ScoreHelper.GetLatestScoresForMiniGame(miniGameInfo.data.Code, -1));
 
-            if (score < 0.1f) {
+            if (score < 0.1f)
+            {
                 // disabled
                 // GetComponent<Button>().interactable = false;
                 //GetComponent<Image>().color = Color.grey;
@@ -61,16 +65,20 @@ namespace Antura.Book
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            if (!isLocked) {
+            if (!isLocked)
+            {
                 myManager.DetailMiniGame(miniGameInfo);
             }
         }
 
         public void Select(MiniGameInfo gameInfo = null)
         {
-            if (gameInfo != null && miniGameInfo != null) {
+            if (gameInfo != null && miniGameInfo != null)
+            {
                 isSelected = (gameInfo.data.GetId() == miniGameInfo.data.GetId());
-            } else {
+            }
+            else
+            {
                 isSelected = false;
             }
             hightlight(isSelected);
@@ -78,10 +86,13 @@ namespace Antura.Book
 
         void hightlight(bool _status)
         {
-            if (_status) {
+            if (_status)
+            {
                 BackgroundImage.sprite = ImageOn;
                 // BackgroundImage.color = new Color(0.9490197f, 0.7215686f, 0.1882353f, 1f);
-            } else {
+            }
+            else
+            {
                 BackgroundImage.sprite = ImageOff;
                 // BackgroundImage.color = new Color(0.8862746f, 0.8862746f, 0.8862746f, 1f);
             }

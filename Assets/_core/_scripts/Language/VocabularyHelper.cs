@@ -27,15 +27,22 @@ namespace Antura.Database
 
         public bool CheckFilters(LetterFilters filters, LetterData data)
         {
-            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) { return false; }
-            if (!FilterByDiacritics(filters.excludeDiacritics, data)) { return false; }
-            if (!FilterByLetterVariations(filters.excludeLetterVariations, data)) { return false; }
-            if (!FilterByDipthongs(filters.excludeDiphthongs, data)) { return false; }
-            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter)) { return false; }
-            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar)) { return false; }
+            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
+            { return false; }
+            if (!FilterByDiacritics(filters.excludeDiacritics, data))
+            { return false; }
+            if (!FilterByLetterVariations(filters.excludeLetterVariations, data))
+            { return false; }
+            if (!FilterByDipthongs(filters.excludeDiphthongs, data))
+            { return false; }
+            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter))
+            { return false; }
+            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar))
+            { return false; }
 
             // always skip symbols
-            if (data.IsOfKindCategory(LetterKindCategory.Symbol)) {
+            if (data.IsOfKindCategory(LetterKindCategory.Symbol))
+            {
                 return false;
             }
             return true;
@@ -44,16 +51,19 @@ namespace Antura.Database
 
         public bool FilterByDiacritics(LetterFilters.ExcludeDiacritics excludeDiacritics, LetterData data)
         {
-            switch (excludeDiacritics) {
+            switch (excludeDiacritics)
+            {
                 case LetterFilters.ExcludeDiacritics.All:
-                    if (data.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) {
+                    if (data.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
+                    {
                         return false;
                     }
                     break;
                 case LetterFilters.ExcludeDiacritics.AllButMain:
                     var symbol = GetSymbolOf(data.Id);
                     if (symbol != null && data.IsOfKindCategory(LetterKindCategory.DiacriticCombo) &&
-                        symbol.Tag != "MainDiacritic") {
+                        symbol.Tag != "MainDiacritic")
+                    {
                         return false;
                     }
                     break;
@@ -65,14 +75,17 @@ namespace Antura.Database
 
         public bool FilterByLetterVariations(LetterFilters.ExcludeLetterVariations excludeLetterVariations, LetterData data)
         {
-            switch (excludeLetterVariations) {
+            switch (excludeLetterVariations)
+            {
                 case LetterFilters.ExcludeLetterVariations.All:
-                    if (data.IsOfKindCategory(LetterKindCategory.LetterVariation)) {
+                    if (data.IsOfKindCategory(LetterKindCategory.LetterVariation))
+                    {
                         return false;
                     }
                     break;
                 case LetterFilters.ExcludeLetterVariations.AllButAlefHamza:
-                    if (data.IsOfKindCategory(LetterKindCategory.LetterVariation) && data.Tag != "AlefHamzaVariation") {
+                    if (data.IsOfKindCategory(LetterKindCategory.LetterVariation) && data.Tag != "AlefHamzaVariation")
+                    {
                         return false;
                     }
                     break;
@@ -84,7 +97,8 @@ namespace Antura.Database
 
         public bool FilterByDipthongs(bool excludeDiphthongs, LetterData data)
         {
-            if (excludeDiphthongs && data.Kind == LetterDataKind.Diphthong) {
+            if (excludeDiphthongs && data.Kind == LetterDataKind.Diphthong)
+            {
                 return false;
             }
             return true;
@@ -171,7 +185,8 @@ namespace Antura.Database
         public LetterData GetSymbolOf(string letterId)
         {
             var data = dbManager.GetLetterDataById(letterId);
-            if (data.Symbol == "") {
+            if (data.Symbol == "")
+            {
                 return null;
             }
 
@@ -193,7 +208,8 @@ namespace Antura.Database
         public List<LetterData> ExtractLettersWithForms(IEnumerable<LetterData> letters)
         {
             List<LetterData> lettersWithForms = new List<LetterData>();
-            foreach (var letter in letters) {
+            foreach (var letter in letters)
+            {
                 lettersWithForms.AddRange(ExtractLettersWithForms(letter));
             }
             return lettersWithForms;
@@ -201,7 +217,8 @@ namespace Antura.Database
 
         public List<LetterData> ExtractLettersWithForms(LetterData baseForVariation)
         {
-            return new List<LetterForm>(baseForVariation.GetAvailableForms()).ConvertAll(f => {
+            return new List<LetterForm>(baseForVariation.GetAvailableForms()).ConvertAll(f =>
+            {
                 var l = baseForVariation.Clone();
                 l.ForcedLetterForm = f;
                 return l;
@@ -220,23 +237,29 @@ namespace Antura.Database
             List<LetterData> letterPool = new List<LetterData>();
 
             // Filter: only 1 base or multiple bases?
-            if (!letterAlterationFilters.differentBaseLetters) {
+            if (!letterAlterationFilters.differentBaseLetters)
+            {
                 var chosenLetter = baseLetters.RandomSelectOne();
                 baseLetters.Clear();
                 baseLetters.Add(chosenLetter);
             }
 
             // Get all alterations for the given bases
-            foreach (var baseLetter in baseLetters) {
+            foreach (var baseLetter in baseLetters)
+            {
                 // Check all alterations of this base letter
                 var letterAlterations = GetLettersWithBase(baseLetter.GetId());
                 List<LetterData> availableVariations = new List<LetterData>();
                 foreach (var letterData in letterAlterations)
                 {
-                    if (letterAlterationFilters.requireDiacritics && !letterData.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) continue;
-                    if (!FilterByDiacritics(letterAlterationFilters.ExcludeDiacritics, letterData)) continue;
-                    if (!FilterByLetterVariations(letterAlterationFilters.ExcludeLetterVariations, letterData)) continue;
-                    if (!FilterByDipthongs(letterAlterationFilters.excludeDipthongs, letterData)) continue;
+                    if (letterAlterationFilters.requireDiacritics && !letterData.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
+                        continue;
+                    if (!FilterByDiacritics(letterAlterationFilters.ExcludeDiacritics, letterData))
+                        continue;
+                    if (!FilterByLetterVariations(letterAlterationFilters.ExcludeLetterVariations, letterData))
+                        continue;
+                    if (!FilterByDipthongs(letterAlterationFilters.excludeDipthongs, letterData))
+                        continue;
                     availableVariations.Add(letterData);
                 }
                 //Debug.Log("N availableVariations  " + availableVariations.Count + "  for " + baseLetter.GetId());
@@ -244,26 +267,35 @@ namespace Antura.Database
                 List<LetterData> basesForForms = new List<LetterData>(availableVariations);
                 basesForForms.Add(baseLetter);
                 //Debug.Log("N bases for forms: " +  basesForForms.Count);
-                if (letterAlterationFilters.includeForms) {
+                if (letterAlterationFilters.includeForms)
+                {
                     // Place forms only inside the pool, if needed
-                    foreach (var baseForForm in basesForForms) {
+                    foreach (var baseForForm in basesForForms)
+                    {
                         var availableForms = ExtractLettersWithForms(baseForForm);
 
-                        if (letterAlterationFilters.oneFormPerLetter) {
+                        if (letterAlterationFilters.oneFormPerLetter)
+                        {
                             // If we are using forms and only one form per letter must appear, add just one at random
                             letterPool.Add(availableForms.RandomSelectOne());
-                        } else {
+                        }
+                        else
+                        {
                             // Add all the (different) forms
                             var visualFormComparer = new StrictLetterDataComparer(LetterEqualityStrictness.WithVisualForm);
-                            foreach (var availableForm in availableForms) {
-                                if (letterAlterationFilters.visuallyDifferentForms && letterPool.Contains(availableForm, visualFormComparer)) {
+                            foreach (var availableForm in availableForms)
+                            {
+                                if (letterAlterationFilters.visuallyDifferentForms && letterPool.Contains(availableForm, visualFormComparer))
+                                {
                                     continue;
                                 }
                                 letterPool.Add(availableForm);
                             }
                         }
                     }
-                } else {
+                }
+                else
+                {
                     // Place just the isolated versions
                     letterPool.AddRange(basesForForms);
                 }
@@ -309,7 +341,8 @@ namespace Antura.Database
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             var lettersInWords = new HashSet<LetterData>(comparer);
-            foreach (var tabooWordData in tabooArray) {
+            foreach (var tabooWordData in tabooArray)
+            {
                 var tabooWordDataLetters = GetLettersInWord(tabooWordData);
                 lettersInWords.UnionWith(tabooWordDataLetters);
             }
@@ -329,24 +362,30 @@ namespace Antura.Database
         {
             var comparer = new StrictLetterDataComparer(letterEqualityStrictness);
             Dictionary<LetterData, int> countDict = new Dictionary<LetterData, int>(comparer);
-            foreach (var word in words) {
+            foreach (var word in words)
+            {
                 var nonRepeatingLettersOfWord = new HashSet<LetterData>(comparer);
 
                 var letters = GetLettersInWord(word);
-                foreach (var letter in letters) {
+                foreach (var letter in letters)
+                {
                     nonRepeatingLettersOfWord.Add(letter);
                 }
 
-                foreach (var letter in nonRepeatingLettersOfWord) {
-                    if (!countDict.ContainsKey(letter)) countDict[letter] = 0;
+                foreach (var letter in nonRepeatingLettersOfWord)
+                {
+                    if (!countDict.ContainsKey(letter))
+                        countDict[letter] = 0;
                     countDict[letter] += 1;
                 }
             }
 
             // Get only these letters that are in all words
             var commonLettersList = new List<LetterData>();
-            foreach (var letter in countDict.Keys) {
-                if (countDict[letter] == words.Length) {
+            foreach (var letter in countDict.Keys)
+            {
+                if (countDict[letter] == words.Length)
+                {
                     commonLettersList.Add(letter);
                 }
             }
@@ -360,7 +399,8 @@ namespace Antura.Database
             var nonCommonLetters = GetAllLettersAndForms(letterFilters);
             var nonCommonLettersWithComparer = new HashSet<LetterData>(new StrictLetterDataComparer(letterEqualityStrictness));
             nonCommonLettersWithComparer.UnionWith(nonCommonLetters);
-            foreach (var commonLetter in commonLetters) {
+            foreach (var commonLetter in commonLetters)
+            {
                 nonCommonLettersWithComparer.Remove(commonLetter);
             }
             return nonCommonLettersWithComparer.ToList();
@@ -375,34 +415,44 @@ namespace Antura.Database
             if (filters.allowedCategories != null && !filters.allowedCategories.Contains(data.Category))
                 return false;
 
-            if (filters.excludeArticles && data.Article != WordDataArticle.None) {
+            if (filters.excludeArticles && data.Article != WordDataArticle.None)
+            {
                 return false;
             }
-            if (filters.requireDrawings && !data.HasDrawing()) {
+            if (filters.requireDrawings && !data.HasDrawing())
+            {
                 return false;
             }
-            if (filters.excludeColorWords && data.Category == WordDataCategory.Colors) {
+            if (filters.excludeColorWords && data.Category == WordDataCategory.Colors)
+            {
                 return false;
             }
-            if (filters.excludePluralDual && data.Form != WordDataForm.Singular) {
+            if (filters.excludePluralDual && data.Form != WordDataForm.Singular)
+            {
                 return false;
             }
-            if (filters.excludeDiacritics && WordHasDiacriticCombo(data)) {
+            if (filters.excludeDiacritics && WordHasDiacriticCombo(data))
+            {
                 return false;
             }
-            if (filters.excludeLetterVariations && WordHasLetterVariations(data)) {
+            if (filters.excludeLetterVariations && WordHasLetterVariations(data))
+            {
                 return false;
             }
-            if (filters.requireDiacritics && !WordHasDiacriticCombo(data)) {
+            if (filters.requireDiacritics && !WordHasDiacriticCombo(data))
+            {
                 return false;
             }
-            if (filters.excludeDipthongs && WordHasDipthongs(data)) {
+            if (filters.excludeDipthongs && WordHasDipthongs(data))
+            {
                 return false;
             }
-            if (filters.excludeDuplicateLetters && WordContainsDuplicateLetters(data)) {
+            if (filters.excludeDuplicateLetters && WordContainsDuplicateLetters(data))
+            {
                 return false;
             }
-            if (filters.excludeSpaces && WordContainsLetter(data, AppManager.I.DB.GetLetterDataById(" "))) {
+            if (filters.excludeSpaces && WordContainsLetter(data, AppManager.I.DB.GetLetterDataById(" ")))
+            {
                 return false;
             }
             return true;
@@ -410,8 +460,10 @@ namespace Antura.Database
 
         private bool WordHasDiacriticCombo(WordData data)
         {
-            foreach (var letter in GetLettersInWord(data)) {
-                if (letter.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) {
+            foreach (var letter in GetLettersInWord(data))
+            {
+                if (letter.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
+                {
                     return true;
                 }
             }
@@ -420,8 +472,10 @@ namespace Antura.Database
 
         private bool WordHasDipthongs(WordData word)
         {
-            foreach (var letter in GetLettersInWord(word)) {
-                if (letter.Kind == LetterDataKind.Diphthong) {
+            foreach (var letter in GetLettersInWord(word))
+            {
+                if (letter.Kind == LetterDataKind.Diphthong)
+                {
                     return true;
                 }
             }
@@ -430,8 +484,10 @@ namespace Antura.Database
 
         private bool WordHasLetterVariations(WordData data)
         {
-            foreach (var letter in GetLettersInWord(data)) {
-                if (letter.IsOfKindCategory(LetterKindCategory.LetterVariation)) {
+            foreach (var letter in GetLettersInWord(data))
+            {
+                if (letter.IsOfKindCategory(LetterKindCategory.LetterVariation))
+                {
                     return true;
                 }
             }
@@ -477,13 +533,16 @@ namespace Antura.Database
         public string GetWordDrawing(WordData word)
         {
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
-            if (word.Drawing != "") {
+            if (word.Drawing != "")
+            {
                 string drawingHexCode = word.Drawing;
-                if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
+                if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal && word.DrawingCeibal != "")
+                {
                     drawingHexCode = word.DrawingCeibal;
                 }
 
-                if (int.TryParse(drawingHexCode, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out int result)) {
+                if (int.TryParse(drawingHexCode, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out int result))
+                {
                     return ((char)result).ToString();
                 }
                 return "";
@@ -557,43 +616,56 @@ namespace Antura.Database
 
         private List<WordData> GetWordsByLetters(WordFilters filters, LetterData[] okLettersArray, LetterData[] tabooLettersArray, LetterEqualityStrictness letterEqualityStrictness = LetterEqualityStrictness.LetterBase)
         {
-            if (okLettersArray == null) okLettersArray = new LetterData[] { };
-            if (tabooLettersArray == null) tabooLettersArray = new LetterData[] { };
+            if (okLettersArray == null)
+                okLettersArray = new LetterData[] { };
+            if (tabooLettersArray == null)
+                tabooLettersArray = new LetterData[] { };
 
             var okLetters = new HashSet<LetterData>(okLettersArray);
             var tabooLetters = new HashSet<LetterData>(tabooLettersArray);
 
             var comparer = new StrictLetterDataComparer(letterEqualityStrictness);
 
-            List<WordData> wordsByLetters = dbManager.FindWordData(word => {
-                if (!CheckFilters(filters, word)) { return false; }
+            List<WordData> wordsByLetters = dbManager.FindWordData(word =>
+            {
+                if (!CheckFilters(filters, word))
+                { return false; }
 
                 var lettersInWord = GetLettersInWord(word);
 
-                if (tabooLetters.Count > 0) {
-                    foreach (var letter in lettersInWord) {
-                        if (tabooLetters.Contains(letter, comparer)) {
+                if (tabooLetters.Count > 0)
+                {
+                    foreach (var letter in lettersInWord)
+                    {
+                        if (tabooLetters.Contains(letter, comparer))
+                        {
                             return false;
                         }
                     }
                 }
 
-                if (okLetters.Count > 0) {
+                if (okLetters.Count > 0)
+                {
                     bool hasAllOkLetters = true;
-                    foreach (var okLetter in okLetters) {
+                    foreach (var okLetter in okLetters)
+                    {
                         bool hasThisLetter = false;
-                        foreach (var letter in lettersInWord) {
-                            if (letter.IsSameLetterAs(okLetter, letterEqualityStrictness)) {
+                        foreach (var letter in lettersInWord)
+                        {
+                            if (letter.IsSameLetterAs(okLetter, letterEqualityStrictness))
+                            {
                                 hasThisLetter = true;
                                 break;
                             }
                         }
-                        if (!hasThisLetter) {
+                        if (!hasThisLetter)
+                        {
                             hasAllOkLetters = false;
                             break;
                         }
                     }
-                    if (!hasAllOkLetters) return false;
+                    if (!hasAllOkLetters)
+                        return false;
                 }
                 return true;
             }
@@ -605,8 +677,10 @@ namespace Antura.Database
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
             var containedLetters = GetLettersInWord(word);
-            foreach (var letter in letters) {
-                if (containedLetters.Contains(letter, comparer)) {
+            foreach (var letter in letters)
+            {
+                if (containedLetters.Contains(letter, comparer))
+                {
                     return true;
                 }
             }
@@ -616,8 +690,10 @@ namespace Antura.Database
         public bool WordHasAllLettersInCommonWith(WordData word, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var lettersInWord = GetLettersInWord(word);
-            foreach (var letter in lettersInWord) {
-                if (!IsLetterContainedInAnyWord(letter, words, equalityStrictness)) {
+            foreach (var letter in lettersInWord)
+            {
+                if (!IsLetterContainedInAnyWord(letter, words, equalityStrictness))
+                {
                     return false;
                 }
             }
@@ -627,9 +703,11 @@ namespace Antura.Database
         public bool IsLetterContainedInAnyWord(LetterData letter, List<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
-            foreach (var word in words) {
+            foreach (var word in words)
+            {
                 var containedLetters = GetLettersInWord(word);
-                if (containedLetters.Contains(letter, comparer)) {
+                if (containedLetters.Contains(letter, comparer))
+                {
                     return true;
                 }
             }
@@ -639,8 +717,10 @@ namespace Antura.Database
         public bool AnyWordContainsLetter(LetterData letter, IEnumerable<WordData> words, LetterEqualityStrictness equalityStrictness = LetterEqualityStrictness.LetterBase)
         {
             var comparer = new StrictLetterDataComparer(equalityStrictness);
-            foreach (var word in words) {
-                if (GetLettersInWord(word).Contains(letter, comparer)) {
+            foreach (var word in words)
+            {
+                if (GetLettersInWord(word).Contains(letter, comparer))
+                {
                     return true;
                 }
             }
@@ -659,7 +739,8 @@ namespace Antura.Database
         /// <param name="wordFilters">Word filters.</param>
         public List<WordData> GetWordsInPhrase(string phraseId, WordFilters wordFilters = null)
         {
-            if (wordFilters == null) { wordFilters = new WordFilters(); }
+            if (wordFilters == null)
+            { wordFilters = new WordFilters(); }
             var phraseData = dbManager.GetPhraseDataById(phraseId);
             return GetWordsInPhrase(phraseData, wordFilters);
         }
@@ -667,13 +748,16 @@ namespace Antura.Database
         // Words contained in the 'Words' column of the Phrase Data, for playing purposes
         public List<WordData> GetWordsInPhrase(PhraseData phraseData, WordFilters wordFilters = null)
         {
-            if (wordFilters == null) { wordFilters = new WordFilters(); }
+            if (wordFilters == null)
+            { wordFilters = new WordFilters(); }
             var words_ids_list = new List<string>(phraseData.Words);
             var inputList = dbManager.FindWordData(x => words_ids_list.Contains(x.Id) && CheckFilters(wordFilters, x));
             var orderedOutputList = new List<WordData>();
-            words_ids_list.ForEach(id => {
+            words_ids_list.ForEach(id =>
+            {
                 var word = inputList.Find(x => x.Id.Equals(id));
-                if (word != null) {
+                if (word != null)
+                {
                     orderedOutputList.Add(word);
                 }
             });
@@ -692,13 +776,16 @@ namespace Antura.Database
             {
                 // We ignore apostrophes when deciding if a word is found or not
                 var splits = wordText.Split('\'');
-                var strippedWordText = splits[splits.Length-1];
+                var strippedWordText = splits[splits.Length - 1];
 
                 var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
 
-                if (wd != null) {
+                if (wd != null)
+                {
                     outputDatas.Add(new WordData { Id = wd.Id, Text = wordText.ToUpper() });
-                } else {
+                }
+                else
+                {
                     outputDatas.Add(new WordData { Id = $"RUNTIME-{wordText}", Text = wordText.ToUpper() });
                 }
             }
@@ -707,7 +794,8 @@ namespace Antura.Database
 
         public List<WordData> GetAnswersToPhrase(PhraseData phraseData, WordFilters wordFilters = null)
         {
-            if (wordFilters == null) { wordFilters = new WordFilters(); }
+            if (wordFilters == null)
+            { wordFilters = new WordFilters(); }
             var words_ids_list = new List<string>(phraseData.Answers);
             var list = dbManager.FindWordData(x => words_ids_list.Contains(x.Id) && CheckFilters(wordFilters, x));
             return list;
@@ -734,13 +822,16 @@ namespace Antura.Database
             if (phraseFilters.maxWords != 0 && wordsInPhraseText.Count > phraseFilters.maxWords)
                 return false;
 
-            if (phraseFilters.requireWords && nOkWords == 0) {
+            if (phraseFilters.requireWords && nOkWords == 0)
+            {
                 return false;
             }
-            if (phraseFilters.requireAtLeastTwoWords && nOkWords <= 1) {
+            if (phraseFilters.requireAtLeastTwoWords && nOkWords <= 1)
+            {
                 return false;
             }
-            if (phraseFilters.requireAnswersOrWords && nOkAnswers == 0 && nOkWords == 0) {
+            if (phraseFilters.requireAnswersOrWords && nOkAnswers == 0 && nOkWords == 0)
+            {
                 return false;
             }
 
@@ -775,7 +866,8 @@ namespace Antura.Database
 
         public PhraseData GetLinkedPhraseOf(PhraseData data)
         {
-            if (data.Linked == "") { return null; }
+            if (data.Linked == "")
+            { return null; }
             return dbManager.FindPhraseData(x => x.Id == data.Linked)[0];
         }
 
@@ -785,27 +877,35 @@ namespace Antura.Database
 
         public List<PhraseData> GetPhrasesWithWords(params string[] okWordsArray)
         {
-            if (okWordsArray == null) { okWordsArray = new string[] { }; }
+            if (okWordsArray == null)
+            { okWordsArray = new string[] { }; }
 
             var okWords = new HashSet<string>(okWordsArray);
 
-            var phrasesList = dbManager.FindPhraseData(x => {
-                if (okWords.Count > 0) {
+            var phrasesList = dbManager.FindPhraseData(x =>
+            {
+                if (okWords.Count > 0)
+                {
                     bool hasAllOkWords = true;
-                    foreach (var okWord in okWords) {
+                    foreach (var okWord in okWords)
+                    {
                         bool hasThisWord = false;
-                        foreach (var word_id in x.Words) {
-                            if (word_id == okWord) {
+                        foreach (var word_id in x.Words)
+                        {
+                            if (word_id == okWord)
+                            {
                                 hasThisWord = true;
                                 break;
                             }
                         }
-                        if (!hasThisWord) {
+                        if (!hasThisWord)
+                        {
                             hasAllOkWords = false;
                             break;
                         }
                     }
-                    if (!hasAllOkWords) { return false; }
+                    if (!hasAllOkWords)
+                    { return false; }
                 }
                 return true;
             }

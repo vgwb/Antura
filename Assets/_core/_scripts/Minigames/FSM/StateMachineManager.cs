@@ -11,11 +11,14 @@
 
         private IState currentState;
 
-        public IState CurrentState {
+        public IState CurrentState
+        {
             get { return currentState; }
 
-            set {
-                if (!isInExitTransition && currentState != null) {
+            set
+            {
+                if (!isInExitTransition && currentState != null)
+                {
                     isInExitTransition = true;
                     currentState.ExitState();
                     isInExitTransition = false;
@@ -23,7 +26,8 @@
 
                 currentState = value;
 
-                if (currentState != null) {
+                if (currentState != null)
+                {
                     currentState.EnterState();
                 }
             }
@@ -31,14 +35,16 @@
 
         public void Update(float delta)
         {
-            if (currentState != null) {
+            if (currentState != null)
+            {
                 currentState.Update(delta);
             }
         }
 
         public void UpdatePhysics(float delta)
         {
-            if (currentState != null) {
+            if (currentState != null)
+            {
                 currentState.UpdatePhysics(delta);
             }
         }

@@ -21,7 +21,8 @@ namespace Antura.Helpers
                 {
                     bounds = r.bounds;
                 }
-                else {
+                else
+                {
                     bounds.Encapsulate(r.bounds);
                 }
             }
@@ -39,18 +40,24 @@ namespace Antura.Helpers
         public static void FitRewardToUICamera(Transform _trans, Camera _cam, bool _flip = false)
         {
             _trans.localPosition = Vector3.zero;
-            if (_flip) {
+            if (_flip)
+            {
                 _trans.eulerAngles = new Vector3(-45, 60, 150);
             }
             Bounds bounds = new Bounds(Vector3.zero, new Vector3(-1, -1, -1));
             Renderer[] rs = _trans.GetComponentsInChildren<Renderer>(true);
-            foreach (Renderer r in rs) {
-                if (!r.gameObject.activeSelf) {
+            foreach (Renderer r in rs)
+            {
+                if (!r.gameObject.activeSelf)
+                {
                     continue;
                 }
-                if (bounds.size.x < 0) {
+                if (bounds.size.x < 0)
+                {
                     bounds = r.bounds;
-                } else {
+                }
+                else
+                {
                     bounds.Encapsulate(r.bounds);
                 }
             }

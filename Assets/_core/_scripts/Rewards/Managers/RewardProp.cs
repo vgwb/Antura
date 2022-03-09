@@ -28,7 +28,7 @@ namespace Antura.Rewards
     }
 
     [Serializable]
-    public class RewardTexture : RewardBase 
+    public class RewardTexture : RewardBase
     {
     }
 }

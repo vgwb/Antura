@@ -23,7 +23,7 @@ namespace Antura.Dog
         public string TexturePackId = null;
 
         [NonSerialized]
-        public RewardPack DecalPack =  null;
+        public RewardPack DecalPack = null;
         public string DecalPackId = null;
 
         /// <summary>
@@ -32,13 +32,15 @@ namespace Antura.Dog
         /// <param name="_listOfIdsAsJsonString">The list of ids as json string.</param>
         public void LoadFromListOfIds(string _listOfIdsAsJsonString)
         {
-            if (AppManager.I.Player == null) {
+            if (AppManager.I.Player == null)
+            {
                 Debug.Log("No default reward already created. Unable to load customization now");
                 return;
             }
 
             AnturaCustomization tmp = JsonUtility.FromJson<AnturaCustomization>(_listOfIdsAsJsonString);
-            if (tmp != null) {
+            if (tmp != null)
+            {
                 PropPacksIds = tmp.PropPacksIds;
                 TexturePackId = tmp.TexturePackId;
                 DecalPackId = tmp.DecalPackId;
@@ -82,17 +84,23 @@ namespace Antura.Dog
 
         public bool HasBaseEquipped(string baseId)
         {
-            if (PropPacks.Exists(f => f.BaseId == baseId)) return true;
-            if (DecalPack.BaseId == baseId) return true;
-            if (TexturePack.BaseId == baseId) return true;
+            if (PropPacks.Exists(f => f.BaseId == baseId))
+                return true;
+            if (DecalPack.BaseId == baseId)
+                return true;
+            if (TexturePack.BaseId == baseId)
+                return true;
             return false;
         }
 
         public RewardPack GetEquippedPack(string baseId)
         {
-            if (PropPacks.Exists(f => f.BaseId == baseId)) return PropPacks.FirstOrDefault(f => f.BaseId == baseId);
-            if (DecalPack.BaseId == baseId) return DecalPack;
-            if (TexturePack.BaseId == baseId) return TexturePack;
+            if (PropPacks.Exists(f => f.BaseId == baseId))
+                return PropPacks.FirstOrDefault(f => f.BaseId == baseId);
+            if (DecalPack.BaseId == baseId)
+                return DecalPack;
+            if (TexturePack.BaseId == baseId)
+                return TexturePack;
             return null;
         }
 

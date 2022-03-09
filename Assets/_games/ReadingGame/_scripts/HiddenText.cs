@@ -31,12 +31,12 @@ namespace Antura.Minigames.ReadingGame
 
         private Material magnifyingGlassMaterial
         {
-            get { return ((ReadingGameGame) ReadingGameGame.I).magnifyingGlassMaterial; }
+            get { return ((ReadingGameGame)ReadingGameGame.I).magnifyingGlassMaterial; }
         }
 
         private Material blurredTextMaterial
         {
-            get { return ((ReadingGameGame) ReadingGameGame.I).blurredTextMaterial; }
+            get { return ((ReadingGameGame)ReadingGameGame.I).blurredTextMaterial; }
         }
 
         public void Clear()

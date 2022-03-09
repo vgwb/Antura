@@ -4,7 +4,7 @@ namespace Antura.AnturaSpace
 {
     /// <summary>
     /// Controls the shadows of bones thrown to Antura in AnturaSpace.
-    /// Keeps the shadow at the same y value 
+    /// Keeps the shadow at the same y value
     /// </summary>
     public class BoneShadowController : MonoBehaviour
     {

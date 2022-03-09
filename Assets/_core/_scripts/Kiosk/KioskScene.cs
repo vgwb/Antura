@@ -67,9 +67,12 @@ namespace Antura.Scenes
 
         public void OnBtnDonate()
         {
-            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian) {
+            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian)
+            {
                 WebPanel.Open(UrlKioskIta);
-            } else {
+            }
+            else
+            {
                 WebPanel.Open(UrlKioskEng);
             }
             AppManager.I.Services.Analytics.TrackKioskEvent("kiosk_donate");
@@ -90,7 +93,8 @@ namespace Antura.Scenes
 
         private void updateUI()
         {
-            switch (AppManager.I.AppSettings.AppLanguage) {
+            switch (AppManager.I.AppSettings.AppLanguage)
+            {
                 case AppLanguages.English:
                     ButtonTextDonate.text = "Help us!\nDonate";
                     ButtonTextPlay.text = "Play Demo";

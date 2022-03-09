@@ -18,7 +18,7 @@ namespace Antura.Minigames
             System.Action callback = null, KeeperMode keeperMode = KeeperMode.LearningNoSubtitles,
             bool autoClose = true, bool isKeeper = false)
         {
-            return KeeperManager.I.PlayVocabularyData(data, exclusive, isKeeper: isKeeper, _callback:callback, autoClose: autoClose, keeperMode:keeperMode, soundType:soundType);
+            return KeeperManager.I.PlayVocabularyData(data, exclusive, isKeeper: isKeeper, _callback: callback, autoClose: autoClose, keeperMode: keeperMode, soundType: soundType);
         }
 
         public void PlayDialogue(LocalizationDataId text, System.Action callback = null, KeeperMode keeperMode = KeeperMode.Default, bool isKeeper = true)

@@ -90,11 +90,11 @@ namespace Antura.Language
             var stringParts = new List<StringPart>();
 
             bool findSameForm = strictness == LetterEqualityStrictness.WithActualForm || strictness == LetterEqualityStrictness.WithVisualForm;
-            var parts = SplitWord(database, wordData, separateDiacritics:false, separateVariations: letterToFind.Kind != LetterDataKind.LetterVariation, keepFormInsideLetter:findSameForm);
+            var parts = SplitWord(database, wordData, separateDiacritics: false, separateVariations: letterToFind.Kind != LetterDataKind.LetterVariation, keepFormInsideLetter: findSameForm);
 
             for (int i = 0, count = parts.Count; i < count; ++i)
             {
-                if (parts[i].letter.IsSameLetterAs( letterToFind, strictness))
+                if (parts[i].letter.IsSameLetterAs(letterToFind, strictness))
                 {
                     stringParts.Add(parts[i]);
                 }

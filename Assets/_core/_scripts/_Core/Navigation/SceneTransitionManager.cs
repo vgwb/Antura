@@ -81,11 +81,13 @@ namespace Antura.Core
         public void LoadSceneWithTransition(string _sceneToLoad, SceneTransitionSettings _transitionSettings)
         {
             _isTransitioning = true;
-            if (OnSceneStartTransition != null) {
+            if (OnSceneStartTransition != null)
+            {
                 OnSceneStartTransition();
             }
 
-            SceneTransitioner.Show(true, delegate { OnSceneTransitionComplete(_sceneToLoad); });
+            SceneTransitioner.Show(true, delegate
+            { OnSceneTransitionComplete(_sceneToLoad); });
         }
 
         void OnSceneTransitionComplete(string _sceneToLoad)
@@ -100,7 +102,8 @@ namespace Antura.Core
 
         private void OnSceneLoaded(Scene arg0, LoadSceneMode arg1)
         {
-            if (SceneTransitioner.IsShown) {
+            if (SceneTransitioner.IsShown)
+            {
                 AppManager.I.StartCoroutine(CloseSceneTransitionerCO(transitionCloseTime));
             }
 
@@ -113,7 +116,8 @@ namespace Antura.Core
             SceneTransitioner.Show(false);
 
             _isTransitioning = false;
-            if (OnSceneEndTransition != null) {
+            if (OnSceneEndTransition != null)
+            {
                 OnSceneEndTransition();
             }
         }

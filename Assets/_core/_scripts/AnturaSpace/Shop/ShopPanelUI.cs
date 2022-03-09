@@ -66,12 +66,13 @@ namespace Antura.AnturaSpace
 
         public void Initialise()
         {
-            if (!scene) scene = FindObjectOfType<AnturaSpaceScene>();
+            if (!scene)
+                scene = FindObjectOfType<AnturaSpaceScene>();
 
             const float duration = 0.3f;
             showShopPanelTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Append(purchasePanelBottom.DOAnchorPosY(-150, duration).From().SetEase(Ease.OutQuad));
-//                    .Join(purchasePanelSide.DOAnchorPosX(1250, duration).From().SetEase(Ease.OutBack));
+            //                    .Join(purchasePanelSide.DOAnchorPosX(1250, duration).From().SetEase(Ease.OutBack));
             showDragPanelTween = DOTween.Sequence().SetAutoKill(false).Pause()
                     .Append(dragPanel.DOAnchorPosY(-350, duration).From().SetEase(Ease.OutQuad));
             showConfirmationPanelTween =
@@ -94,7 +95,8 @@ namespace Antura.AnturaSpace
 
         private void OnEnable()
         {
-            if (!scene) scene = FindObjectOfType<AnturaSpaceScene>();
+            if (!scene)
+                scene = FindObjectOfType<AnturaSpaceScene>();
             HandleContextChange(ShopContext.Purchase);
             scrollShowTween.Restart();
         }
@@ -127,7 +129,8 @@ namespace Antura.AnturaSpace
                     scene.HideBackButton();
                     showPurchasePanelAlwaysAvailableTween.PlayBackwards();
                     showShopPanelTween.PlayBackwards();
-                    if (!AnturaSpaceScene.I.TutorialMode) showDragPanelTween.PlayForward();
+                    if (!AnturaSpaceScene.I.TutorialMode)
+                        showDragPanelTween.PlayForward();
                     showConfirmationPanelTween.PlayBackwards();
                     break;
                 case ShopContext.SpecialAction:
@@ -137,7 +140,8 @@ namespace Antura.AnturaSpace
                     showConfirmationPanelTween.PlayBackwards();
                     break;
                 case ShopContext.Closed:
-                    if (!scene.TutorialMode) scene.ShowBackButton();
+                    if (!scene.TutorialMode)
+                        scene.ShowBackButton();
                     showPurchasePanelAlwaysAvailableTween.PlayForward();
                     showConfirmationPanelTween.PlayBackwards();
                     break;
@@ -147,7 +151,8 @@ namespace Antura.AnturaSpace
                     showConfirmationPanelTween.PlayBackwards();
                     break;
                 case ShopContext.Hidden:
-                    if (!scene.TutorialMode) scene.ShowBackButton();
+                    if (!scene.TutorialMode)
+                        scene.ShowBackButton();
                     showPurchasePanelAlwaysAvailableTween.PlayBackwards();
                     showConfirmationPanelTween.PlayBackwards();
                     break;

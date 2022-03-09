@@ -30,7 +30,8 @@ namespace Antura.Minigames.Scanner
 
         bool isScannerReady
         {
-            get {
+            get
+            {
                 if (scannerDevice.transform.position.z < scannerStartZPos + 0.1f)
                     return true;
                 else
@@ -40,11 +41,15 @@ namespace Antura.Minigames.Scanner
 
         public bool isTutRound
         {
-            get {
+            get
+            {
                 if (game.roundsManager.numberOfRoundsPlayed <= 0 &&
-                    game.TutorialEnabled) {
+                    game.TutorialEnabled)
+                {
                     return true;
-                } else {
+                }
+                else
+                {
                     game.beltSpeed = originalLLOnBeltSpeed;
                     return false;
                 }
@@ -78,7 +83,8 @@ namespace Antura.Minigames.Scanner
 
             scannerStartZPos = scannerDevice.transform.position.z;
 
-            foreach (ScannerSuitcase sc in game.suitcases) {
+            foreach (ScannerSuitcase sc in game.suitcases)
+            {
                 sc.onCorrectDrop += resetTut;
             }
 
@@ -91,24 +97,31 @@ namespace Antura.Minigames.Scanner
         public void setupTutorial(int step = 0, ScannerLivingLetter targetLL = null)
         {
 
-            if (!isTutRound) {
+            if (!isTutRound)
+            {
                 return;
             }
 
             Debug.Log("Tutorial started");
 
-            if (targetLL) {
+            if (targetLL)
+            {
                 currentLL = targetLL;
-            } else {
+            }
+            else
+            {
                 currentLL = game.scannerLL[0];
                 target = currentLL.transform;
             }
 
             tutStep = step;
-            if (step <= 1) {
+            if (step <= 1)
+            {
                 source = scannerDevice;
 
-            } else if (step == 2) {
+            }
+            else if (step == 2)
+            {
                 matchLLToSS(targetLL);
             }
         }
@@ -127,10 +140,13 @@ namespace Antura.Minigames.Scanner
             TutorialUI.Clear(true);
 
             game.beltSpeed = originalLLOnBeltSpeed;
-            if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord) {
+            if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord)
+            {
                 game.Context.GetOverlayWidget().Initialize(true, false, true);
                 game.Context.GetOverlayWidget().SetMaxLives(game.allowedFailedMoves);
-            } else {
+            }
+            else
+            {
                 game.Context.GetOverlayWidget().Initialize(true, false, false);
             }
             game.Context.GetOverlayWidget().SetStarsThresholds(game.STARS_1_THRESHOLD, game.STARS_2_THRESHOLD, game.STARS_3_THRESHOLD);
@@ -145,33 +161,46 @@ namespace Antura.Minigames.Scanner
             resetTut(null, null);
             onTutorialStart();
 
-            while (isTutRound && playTut) {
-                if (pauseTut()) {
+            while (isTutRound && playTut)
+            {
+                if (pauseTut())
+                {
                     yield return null;
                     continue;
                 }
 
-                if (tutStep == 0) {
+                if (tutStep == 0)
+                {
                     //Debug.Log(llCounter+"<<<");
                     target = game.antura.transform;
-                    if (target) {
+                    if (target)
+                    {
                         TutorialUI.DrawLine(source.position - Vector3.forward * 2, target.position +
                             new Vector3(0, scannerDevice.position.y - target.position.y, -2),
                             TutorialUI.DrawLineMode.FingerAndArrow);
-                    } else {
+                    }
+                    else
+                    {
                         TutorialUI.Clear(true);
                     }
-                } else if (tutStep == 1) {
+                }
+                else if (tutStep == 1)
+                {
                     //Debug.Log(llCounter+"<<<");
                     target = getNewTarget();
-                    if (target) {
+                    if (target)
+                    {
                         TutorialUI.DrawLine(source.position - Vector3.forward * 2, target.position +
                             new Vector3(0, scannerDevice.position.y - target.position.y, -2),
                             TutorialUI.DrawLineMode.FingerAndArrow);
-                    } else {
+                    }
+                    else
+                    {
                         TutorialUI.Clear(true);
                     }
-                } else {
+                }
+                else
+                {
                     //Debug.Log(Time.deltaTime + " b");
                     TutorialUI.DrawLine(source.position - Vector3.forward * 2, target.transform.position +
                         new Vector3(5f, 3, -2), TutorialUI.DrawLineMode.FingerAndArrow);
@@ -189,7 +218,8 @@ namespace Antura.Minigames.Scanner
             currentLL = targetLL;
 
             foreach (ScannerSuitcase sc in game.suitcases)
-                if (targetLL.LLController.Data.Id == sc.wordId) {
+                if (targetLL.LLController.Data.Id == sc.wordId)
+                {
                     currentSuitcases = sc;
                     source = sc.transform;
                     target = targetLL.transform;
@@ -207,7 +237,8 @@ namespace Antura.Minigames.Scanner
         {
             int i = 0;
             foreach (ScannerLivingLetter ll in game.scannerLL)
-                if (ll.gotSuitcase == false) {
+                if (ll.gotSuitcase == false)
+                {
                     i++;
                     //Debug.LogWarning(ll.transform.position +" "+ll.transform+""+ ll.gotSuitcase);
                     currentLL = ll;
@@ -215,7 +246,8 @@ namespace Antura.Minigames.Scanner
                     return target;
                 }
 
-            if (i == 0) {
+            if (i == 0)
+            {
                 Debug.Log("xxxx");
                 target = null;
                 return null;
@@ -228,7 +260,8 @@ namespace Antura.Minigames.Scanner
         {
             ///TODO FIX
             // AudioManager.I.PlayDialogue(Database.LocalizationDataId.Scanner_Tuto_Antura);
-            while (tutStep == 0 || pauseTut()) {
+            while (tutStep == 0 || pauseTut())
+            {
                 yield return null;
             }
 
@@ -244,10 +277,13 @@ namespace Antura.Minigames.Scanner
                 !target ||
                 (currentSuitcases && (currentSuitcases.isDragging || !currentSuitcases.isReady) && tutStep == 2) ||
                 !isTutRound ||
-                !isScannerReady) {
+                !isScannerReady)
+            {
 
                 return true;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }

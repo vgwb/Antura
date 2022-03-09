@@ -28,19 +28,23 @@ namespace Antura.Editor
             var margin = (EditorStyles.miniButton.padding.left) / 2f;
             width = width - margin * 2;
 
-            if (GUILayout.Button("Developer docs")) {
+            if (GUILayout.Button("Developer docs"))
+            {
                 Application.OpenURL(AppConfig.UrlDeveloperDocs);
             }
 
-            if (GUILayout.Button("Source Code (GitHub project)")) {
+            if (GUILayout.Button("Source Code (GitHub project)"))
+            {
                 Application.OpenURL(AppConfig.UrlGithubRepository);
             }
 
-            if (GUILayout.Button("GitHub issues")) {
+            if (GUILayout.Button("GitHub issues"))
+            {
                 Application.OpenURL(AppConfig.UrlGithubRepository + "/issues");
             }
 
-            if (GUILayout.Button("antura.org")) {
+            if (GUILayout.Button("antura.org"))
+            {
                 Application.OpenURL(AppConfig.UrlWebsite);
             }
 

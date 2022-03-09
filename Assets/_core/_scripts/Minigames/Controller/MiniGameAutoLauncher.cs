@@ -21,9 +21,11 @@ namespace Antura.Minigames
 #if UNITY_EDITOR
         IEnumerator Start()
         {
-            while (!AppManager.I.Loaded) yield return null;
+            while (!AppManager.I.Loaded)
+                yield return null;
 
-            if (!AppManager.I.NavigationManager.IsInFirstLoadedScene) {
+            if (!AppManager.I.NavigationManager.IsInFirstLoadedScene)
+            {
                 yield break;
             }
 

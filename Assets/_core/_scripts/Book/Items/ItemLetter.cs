@@ -31,9 +31,12 @@ namespace Antura.Book
             myManager = _manager;
             //uIButton = GetComponent<UIButton>();
 
-            if (myLetterInfo.unlocked || AppManager.I.Player.IsDemoUser) {
+            if (myLetterInfo.unlocked || AppManager.I.Player.IsDemoUser)
+            {
                 OkIcon.enabled = true;
-            } else {
+            }
+            else
+            {
                 OkIcon.enabled = false;
             }
 
@@ -56,9 +59,12 @@ namespace Antura.Book
 
         private void highlight(bool _status)
         {
-            if (_status) {
+            if (_status)
+            {
                 BackgroundImage.color = new Color(1f, 1f, 1f, 0f);
-            } else {
+            }
+            else
+            {
                 ColorBackground();
             }
             //uIButton.Toggle(_status);
@@ -66,13 +72,20 @@ namespace Antura.Book
 
         private void ColorBackground()
         {
-            if (myLetterInfo.data.Kind == LetterDataKind.Letter) {
+            if (myLetterInfo.data.Kind == LetterDataKind.Letter)
+            {
                 BackgroundImage.color = Color.white;
-            } else if (myLetterInfo.data.Kind == LetterDataKind.Symbol) {
+            }
+            else if (myLetterInfo.data.Kind == LetterDataKind.Symbol)
+            {
                 BackgroundImage.color = ColorSymbol;
-            } else if (myLetterInfo.data.Kind == LetterDataKind.LetterVariation) {
+            }
+            else if (myLetterInfo.data.Kind == LetterDataKind.LetterVariation)
+            {
                 BackgroundImage.color = ColorVariation;
-            } else {
+            }
+            else
+            {
                 BackgroundImage.color = new Color(1f, 0.56f, 0.5f);
             }
         }

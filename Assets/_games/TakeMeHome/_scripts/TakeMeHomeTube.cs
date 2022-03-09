@@ -3,17 +3,18 @@ using DG.Tweening;
 
 namespace Antura.Minigames.TakeMeHome
 {
-	
+
     public enum tubeColor
     {
         green, blue, pink, purple
     }
 
-    public class TakeMeHomeTube : MonoBehaviour {
+    public class TakeMeHomeTube : MonoBehaviour
+    {
 
-		Tweener moveTweener;
+        Tweener moveTweener;
 
-		Vector3 originalPosition;
+        Vector3 originalPosition;
         public tubeColor color;
         public bool upperTube;
         public Transform enterance;
@@ -23,8 +24,9 @@ namespace Antura.Minigames.TakeMeHome
         TakeMeHomeTremblingTube trembling;
 
         // Use this for initialization
-        void Start () {
-			originalPosition = transform.position;
+        void Start()
+        {
+            originalPosition = transform.position;
 
             aspiration.SetActive(false);
             winParticles.SetActive(false);
@@ -46,7 +48,7 @@ namespace Antura.Minigames.TakeMeHome
             //shake();
             trembling.Trembling = true;
             ll.lastCollidedTube = this;
-            //coll.size += Vector3.one * 0.9f; 
+            //coll.size += Vector3.one * 0.9f;
         }
 
         public void deactivate(TakeMeHomeLL ll)
@@ -57,27 +59,28 @@ namespace Antura.Minigames.TakeMeHome
             ll.lastCollidedTube = null;
             //coll.size = collStartSize;
         }
-		
-		// Update is called once per frame
-		void Update () {
-		
-		}
+
+        // Update is called once per frame
+        void Update()
+        {
+
+        }
 
 
-		public void shake()
-		{
-			if (moveTweener != null)
-			{
-				moveTweener.Kill();
-			}
+        public void shake()
+        {
+            if (moveTweener != null)
+            {
+                moveTweener.Kill();
+            }
 
             TakeMeHomeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Hit);
-            if(upperTube)
+            if (upperTube)
                 moveTweener = transform.DOLocalMoveY(originalPosition.y - 0.25f, 0.35f);//transform.DOShakePosition(0.5f, 0.2f, 1).OnComplete(delegate () { transform.position = originalPosition; });
             else
                 moveTweener = transform.DOLocalMoveY(originalPosition.y + 0.25f, 0.35f);
         }
 
-      
-	}
+
+    }
 }

@@ -37,9 +37,11 @@ namespace Antura.AnturaSpace
 
         public ThrowableObject NextObjectToCatch
         {
-            get {
+            get
+            {
                 var nextObject = spawnedObjects.FirstOrDefault(x => x.Catchable);
-                if (nextObject == null) { return null; }
+                if (nextObject == null)
+                { return null; }
                 return nextObject;
             }
         }
@@ -62,7 +64,8 @@ namespace Antura.AnturaSpace
 
         public bool HasPlayerBones
         {
-            get {
+            get
+            {
                 return AppManager.I.Player.GetTotalNumberOfBones() > 0;
             }
         }
@@ -81,8 +84,10 @@ namespace Antura.AnturaSpace
             UI.onEnterCustomization += OnEnterCustomization;
             UI.onExitCustomization += OnExitCustomization;
 
-            Antura.onTouched += () => {
-                if (CurrentState != null) {
+            Antura.onTouched += () =>
+            {
+                if (CurrentState != null)
+                {
                     CurrentState.OnTouched();
                 }
             };
@@ -133,7 +138,8 @@ namespace Antura.AnturaSpace
         public void Update()
         {
             AnturaHappiness -= Time.deltaTime / 40.0f;
-            if (AnturaHappiness < 0) {
+            if (AnturaHappiness < 0)
+            {
                 AnturaHappiness = 0;
             }
 
@@ -143,7 +149,8 @@ namespace Antura.AnturaSpace
 
             UI.BonesCount = AppManager.I.Player.GetTotalNumberOfBones();
 
-            if (DraggedTransform != null && !Input.GetMouseButton(0)) {
+            if (DraggedTransform != null && !Input.GetMouseButton(0))
+            {
                 AudioManager.I.PlaySound(Sfx.ThrowObj);
                 DraggedTransform.GetComponent<ThrowableObject>().LetGo();
                 DraggedTransform = null;
@@ -204,9 +211,11 @@ namespace Antura.AnturaSpace
 
         public ThrowableObject ThrowObject(ThrowableObject ObjectPrefab)
         {
-            if (DraggedTransform != null) { return null; }
+            if (DraggedTransform != null)
+            { return null; }
 
-            if (CanSpawnMoreObjects) {
+            if (CanSpawnMoreObjects)
+            {
                 AudioManager.I.PlaySound(Sfx.ThrowObj);
 
                 var throwableObject = SpawnNewObject(ObjectPrefab);
@@ -218,9 +227,11 @@ namespace Antura.AnturaSpace
 
         public ThrowableObject DragObject(ThrowableObject ObjectPrefab)
         {
-            if (DraggedTransform != null) { return null; }
+            if (DraggedTransform != null)
+            { return null; }
 
-            if (CanSpawnMoreObjects) {
+            if (CanSpawnMoreObjects)
+            {
                 ShopDecorationsManager.I.SetContextNewPlacement();
                 var throwableObject = SpawnNewObject(ObjectPrefab);
                 DraggedTransform = throwableObject.transform;
@@ -245,12 +256,14 @@ namespace Antura.AnturaSpace
 
         public void EatObject(ThrowableObject throwableObject)
         {
-            if (spawnedObjects.Remove(throwableObject)) {
+            if (spawnedObjects.Remove(throwableObject))
+            {
                 AudioManager.I.PlaySound(Sfx.EggMove);
                 var poof = Instantiate(PoofPrefab).transform;
                 poof.position = throwableObject.transform.position;
 
-                foreach (var ps in poof.GetComponentsInChildren<ParticleSystem>()) {
+                foreach (var ps in poof.GetComponentsInChildren<ParticleSystem>())
+                {
                     var main = ps.main;
                     main.scalingMode = ParticleSystemScalingMode.Hierarchy;
                 }
@@ -259,11 +272,13 @@ namespace Antura.AnturaSpace
                 poof.gameObject.AddComponent<AutoDestroy>().duration = 2;
                 AudioManager.I.PlaySound(Sfx.Poof);
                 AnturaHappiness += 0.2f;
-                if (AnturaHappiness > 1) {
+                if (AnturaHappiness > 1)
+                {
                     AnturaHappiness = 1;
                 }
 
-                if (onEatObject != null) onEatObject();
+                if (onEatObject != null)
+                    onEatObject();
 
                 Destroy(throwableObject.gameObject);
             }
@@ -271,16 +286,19 @@ namespace Antura.AnturaSpace
 
         public void HitObject(ThrowableObject throwableObject)
         {
-            if (spawnedObjects.Remove(throwableObject)) {
+            if (spawnedObjects.Remove(throwableObject))
+            {
                 AudioManager.I.PlaySound(Sfx.EggMove);
 
                 AnturaHappiness += 0.2f;
-                if (AnturaHappiness > 1) {
+                if (AnturaHappiness > 1)
+                {
                     AnturaHappiness = 1;
                 }
 
 
-                if (onHitObject  != null) onHitObject();
+                if (onHitObject != null)
+                    onHitObject();
 
                 throwableObject.GetComponent<Rigidbody>().AddForce(Vector3.up * 20, ForceMode.Impulse);
             }

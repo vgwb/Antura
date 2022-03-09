@@ -6,7 +6,7 @@ namespace Antura.Minigames.FastCrowd
     public class StrollingLetterWalkingState : StrollingLetterState
     {
         LetterCharacterController movement;
-        
+
         public StrollingLetterWalkingState(StrollingLivingLetter letter) : base(letter)
         {
             movement = letter.GetComponent<LetterCharacterController>();
@@ -76,7 +76,7 @@ namespace Antura.Minigames.FastCrowd
             }
 
             // if stuck for too long, change direction
-            float avgSpeed = Vector3.Distance(letter.transform.position, lastPosition)/delta;
+            float avgSpeed = Vector3.Distance(letter.transform.position, lastPosition) / delta;
 
             if (avgSpeed < 0.5f * speed)
             {
@@ -88,7 +88,7 @@ namespace Antura.Minigames.FastCrowd
             if (stuckTimer <= 0)
             {
                 // change direction
-                target = letter.crowd.walkableArea.GetNearestPoint(letter.transform.position - 2*distance, true);
+                target = letter.crowd.walkableArea.GetNearestPoint(letter.transform.position - 2 * distance, true);
                 stuckTimer = STUCK_THRESHOLD;
             }
 

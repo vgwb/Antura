@@ -71,7 +71,7 @@ namespace Antura.Teacher
                 packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs);
             selectionParams1.AssignJourney(parameters.insideJourney);
             var correctWords = teacher.VocabularyAi.SelectData(() => words_cache, selectionParams1);
-            
+
             wrongWords_cache.Clear();
             wrongWords_cache.AddRange(vocabularyHelper.GetWordsNotInOptimized(parameters.wordFilters, correctWords));
 
@@ -85,9 +85,11 @@ namespace Antura.Teacher
             {
                 string debugString = "--------- TEACHER: question pack result ---------";
                 debugString += "\nCorrect Words: " + correctWords.Count;
-                foreach (var l in correctWords) debugString += " " + l;
+                foreach (var l in correctWords)
+                    debugString += " " + l;
                 debugString += "\nWrong Words: " + wrongWords.Count;
-                foreach (var l in wrongWords) debugString += " " + l;
+                foreach (var l in wrongWords)
+                    debugString += " " + l;
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 

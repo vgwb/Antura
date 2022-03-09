@@ -106,7 +106,8 @@ namespace Antura.Core
         /// </summary>
         protected override void Init()
         {
-            if (alreadySetup) {
+            if (alreadySetup)
+            {
                 return;
             }
             alreadySetup = true;
@@ -126,7 +127,7 @@ namespace Antura.Core
         {
             Stack<IEnumerator> stack = new Stack<IEnumerator>();
             stack.Push(c);
-            while(stack.Count > 0)
+            while (stack.Count > 0)
             {
                 var peek = stack.Peek();
                 bool result = peek.MoveNext();
@@ -174,7 +175,8 @@ namespace Antura.Core
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
-            if (!DebugConfig.I.DebugLogEnabled) {
+            if (!DebugConfig.I.DebugLogEnabled)
+            {
                 Debug.LogWarning("LOGS ARE DISABLED - check the App Config");
             }
             Debug.unityLogger.logEnabled = DebugConfig.I.DebugLogEnabled;
@@ -215,7 +217,8 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (AppManager.I.AppEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications)
+            {
                 Services.Notifications.Init();
             }
         }
@@ -238,10 +241,12 @@ namespace Antura.Core
 
         public void QuitApplication()
         {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, () => {
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, () =>
+            {
                 Debug.Log("Application Quit");
                 Application.Quit();
-            }, () => {
+            }, () =>
+            {
             }, KeeperMode.LearningNoSubtitles);
         }
 
@@ -249,7 +254,8 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (AppManager.I.AppEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications)
+            {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
@@ -272,22 +278,29 @@ namespace Antura.Core
 
         private void PauseApplication(bool pause)
         {
-            if (pause == IsPaused) return; // Ignore if paused already
+            if (pause == IsPaused)
+                return; // Ignore if paused already
             IsPaused = pause;
-            if (IsPaused) {
+            if (IsPaused)
+            {
                 // app is pausing
-                if (LogManager.I != null) LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.AppEdition.EnableNotifications) {
+                if (LogManager.I != null)
+                    LogManager.I.LogInfo(InfoEvent.AppSuspend);
+                if (AppManager.I.AppEdition.EnableNotifications)
+                {
                     Services.Notifications.AppSuspended();
                 }
-            } else {
+            }
+            else
+            {
                 // app is resuming
                 if (LogManager.I != null)
                 {
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.AppEdition.EnableNotifications) {
+                if (AppManager.I.AppEdition.EnableNotifications)
+                {
                     Services.Notifications.AppResumed();
                 }
             }
@@ -322,7 +335,8 @@ namespace Antura.Core
         void On_TMPro_Text_Changed(Object obj)
         {
             var tmpText = obj as TMPro.TMP_Text;
-            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo)) {
+            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo))
+            {
                 tmpText.UpdateVertexData();
             }
         }

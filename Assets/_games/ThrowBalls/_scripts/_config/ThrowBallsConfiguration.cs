@@ -28,8 +28,10 @@ namespace Antura.Minigames.ThrowBalls
         static ThrowBallsConfiguration instance;
         public static ThrowBallsConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new ThrowBallsConfiguration();
                 }
                 return instance;
@@ -53,7 +55,8 @@ namespace Antura.Minigames.ThrowBalls
             int nWrong = 4;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ThrowBallsVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builder = new RandomLettersQuestionBuilder(nPacks, 1, nWrong: nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
@@ -61,10 +64,11 @@ namespace Antura.Minigames.ThrowBalls
                 case ThrowBallsVariation.LetterAny:
                 {
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters;
-                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated)
+                        letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
                 }
-                    break;
+                break;
                 case ThrowBallsVariation.Word:
                 case ThrowBallsVariation.Image:
                     builderParams.wordFilters.requireDrawings = true;
@@ -82,7 +86,7 @@ namespace Antura.Minigames.ThrowBalls
                     var letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
                 }
-                    break;
+                break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -102,7 +106,8 @@ namespace Antura.Minigames.ThrowBalls
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
 
                 case ThrowBallsVariation.LetterName:
                     soundType = LetterDataSoundType.Name;

@@ -31,7 +31,8 @@ namespace Antura.LivingLetters
         {
             currentQuestion++;
 
-            if (currentQuestion >= questions.Count) {
+            if (currentQuestion >= questions.Count)
+            {
                 currentQuestion = 0;
             }
 

@@ -4,7 +4,7 @@ namespace Antura.Minigames.Maze
 {
     public class MazeLLId : MonoBehaviour
     {
-         
+
         public string getLLId()
         {
             string name = gameObject.name;

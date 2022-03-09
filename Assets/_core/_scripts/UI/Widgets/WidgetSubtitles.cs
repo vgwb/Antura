@@ -43,7 +43,8 @@ namespace Antura.UI
             showTween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(this.GetComponent<RectTransform>().DOAnchorPosY(170, 0.3f).From().SetEase(Ease.OutBack))
                 .OnPlay(() => this.gameObject.SetActive(true))
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     TextUI.text = "";
                     TextUItranslation.text = "";
                     this.gameObject.SetActive(false);
@@ -56,7 +57,8 @@ namespace Antura.UI
 
         void OnDestroy()
         {
-            if (I == this) { I = null; }
+            if (I == this)
+            { I = null; }
             this.StopAllCoroutines();
             showTween.Kill();
             bgColorTween.Kill();
@@ -97,7 +99,8 @@ namespace Antura.UI
         private void DisplayText(string learningText, string helpText, float fillPeriod = 2, bool _isKeeper = false,
                 Action _callback = null)
         {
-            if (!AppManager.I.AppSettings.KeeperSubtitlesEnabled) {
+            if (!AppManager.I.AppSettings.KeeperSubtitlesEnabled)
+            {
                 return;
             }
 
@@ -105,9 +108,12 @@ namespace Antura.UI
             StopAllCoroutines();
             currentCallback = _callback;
             showTween.PlayForward();
-            if (_isKeeper) {
+            if (_isKeeper)
+            {
                 bgColorTween.PlayBackwards();
-            } else {
+            }
+            else
+            {
                 bgColorTween.PlayForward();
             }
             WalkieTalkie.Show(_isKeeper);
@@ -128,7 +134,8 @@ namespace Antura.UI
             }
 
             this.gameObject.SetActive(true);
-            if (WalkieTalkie.IsShown) { WalkieTalkie.Pulse(); }
+            if (WalkieTalkie.IsShown)
+            { WalkieTalkie.Pulse(); }
 
             TextUI.SetText(learningText, LanguageUse.Learning);
 
@@ -148,9 +155,12 @@ namespace Antura.UI
         public void Close(bool _immediate = false)
         {
             this.StopAllCoroutines();
-            if (_immediate) {
+            if (_immediate)
+            {
                 showTween.Rewind();
-            } else {
+            }
+            else
+            {
                 showTween.PlayBackwards();
             }
             WalkieTalkie.Show(false, _immediate);
@@ -173,9 +183,11 @@ namespace Antura.UI
             tmpro.maxVisibleCharacters = tmpro.textInfo.characterCount;
             textTween = DOTween.To(() => tmpro.maxVisibleCharacters, x => tmpro.maxVisibleCharacters = x, 0, fillPeriod)
                                .From().SetUpdate(true).SetEase(Ease.Linear)
-                               .OnComplete(() => {
+                               .OnComplete(() =>
+                               {
                                    WalkieTalkie.StopPulse();
-                                   if (currentCallback != null) {
+                                   if (currentCallback != null)
+                                   {
                                        currentCallback();
                                    }
                                });
@@ -185,7 +197,8 @@ namespace Antura.UI
         {
             char[] cArray = _text.ToCharArray();
             string reverse = String.Empty;
-            for (int i = cArray.Length - 1; i > -1; i--) {
+            for (int i = cArray.Length - 1; i > -1; i--)
+            {
                 reverse += cArray[i];
             }
             return reverse;

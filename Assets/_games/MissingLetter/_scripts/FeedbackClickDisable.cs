@@ -8,7 +8,7 @@ namespace Antura.Minigames.MissingLetter
 
         void OnMouseDown()
         {
-            if(!m_bIsPlaying)
+            if (!m_bIsPlaying)
             {
                 m_bIsPlaying = true;
                 AudioManager.I.PlaySound(Sfx.Splat);

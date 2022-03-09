@@ -64,10 +64,11 @@ namespace Antura.Teacher
 
         public int DaysSinceLastMoodLog()
         {
-            string query = string.Format("SELECT * FROM " + typeof(LogMoodData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(LogMoodData));
             var logMoodData = db.Query<LogMoodData>(query).LastOrDefault();
             //if (logMoodData != null) Debug.Log(GenericHelper.GetTimeSpanBetween(logMoodData.Timestamp, GenericHelper.GetTimestampForNow()));
-            if (logMoodData != null) {
+            if (logMoodData != null)
+            {
                 return (int)GenericHelper.GetTimeSpanBetween(logMoodData.Timestamp, GenericHelper.GetTimestampForNow()).TotalDays;
             }
             return int.MaxValue;
@@ -79,7 +80,8 @@ namespace Antura.Teacher
 
         public void LogInfo(int appSession, InfoEvent infoEvent, string parametersString = "")
         {
-            if (!AppManager.I.DB.HasLoadedPlayerProfile()) {
+            if (!AppManager.I.DB.HasLoadedPlayerProfile())
+            {
                 Debug.Log("No player profile DB to log to. Player profile is probably not set");
                 return;
             }
@@ -96,9 +98,10 @@ namespace Antura.Teacher
 
         public int DaysSinceLastDailyReward()
         {
-            string query = string.Format("SELECT * FROM " + typeof(LogInfoData).Name + " WHERE Event=" + ((int)InfoEvent.DailyRewardReceived));
+            string query = string.Format("SELECT * FROM " + nameof(LogInfoData) + " WHERE Event=" + ((int)InfoEvent.DailyRewardReceived));
             var lastDailyRewardInfoEvent = db.Query<LogInfoData>(query).LastOrDefault();
-            if (lastDailyRewardInfoEvent != null) {
+            if (lastDailyRewardInfoEvent != null)
+            {
                 var timespan = GenericHelper.GetTimeSpanBetween(lastDailyRewardInfoEvent.Timestamp, GenericHelper.GetTimestampForNow());
                 //Debug.Log(timespan);
                 return (int)timespan.TotalDays;
@@ -130,8 +133,9 @@ namespace Antura.Teacher
         public void LogPlay(int appSession, JourneyPosition pos, MiniGameCode miniGameCode, List<PlayResultParameters> resultsList)
         {
             // The teacher receives a score for each play skill the minigame deems worthy of analysis
-            List<LogPlayData> logDataList = new List<LogPlayData>();
-            foreach (var result in resultsList) {
+            var logDataList = new List<LogPlayData>();
+            foreach (var result in resultsList)
+            {
                 var data = new LogPlayData(appSession, pos, miniGameCode, result.playEvent, result.skill, result.score);
                 logDataList.Add(data);
             }
@@ -160,36 +164,43 @@ namespace Antura.Teacher
 
         public void UnlockVocabularyDataForJourneyPosition(JourneyPosition pos)
         {
-            if (!UNLOCK_AT_PLAYSESSION_END) { return; }
+            if (!UNLOCK_AT_PLAYSESSION_END)
+            { return; }
 
-            string query = string.Format("SELECT * FROM " + typeof(VocabularyScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(VocabularyScoreData));
             var scoreDataList = db.Query<VocabularyScoreData>(query);
             var currentPSContents = AppManager.I.Teacher.VocabularyAi.GetContentsAtJourneyPosition(pos);
             var letters = currentPSContents.GetHashSet<LetterData>();
             var words = currentPSContents.GetHashSet<WordData>();
             var phrases = currentPSContents.GetHashSet<PhraseData>();
 
-            foreach (var letter in letters) {
+            foreach (var letter in letters)
+            {
                 var scoreData = scoreDataList.Find(x => x.ElementId == letter.Id && x.VocabularyDataType == VocabularyDataType.Letter);
-                if (scoreData == null) {
+                if (scoreData == null)
+                {
                     scoreData = new VocabularyScoreData(letter.Id, VocabularyDataType.Letter, 0, false);
                     scoreDataList.Add(scoreData);
                 }
                 scoreData.Unlocked = true;
             }
 
-            foreach (var word in words) {
+            foreach (var word in words)
+            {
                 var scoreData = scoreDataList.Find(x => x.ElementId == word.Id && x.VocabularyDataType == VocabularyDataType.Word);
-                if (scoreData == null) {
+                if (scoreData == null)
+                {
                     scoreData = new VocabularyScoreData(word.Id, VocabularyDataType.Word, 0, false);
                     scoreDataList.Add(scoreData);
                 }
                 scoreData.Unlocked = true;
             }
 
-            foreach (var phrase in phrases) {
+            foreach (var phrase in phrases)
+            {
                 var scoreData = scoreDataList.Find(x => x.ElementId == phrase.Id && x.VocabularyDataType == VocabularyDataType.Phrase);
-                if (scoreData == null) {
+                if (scoreData == null)
+                {
                     scoreData = new VocabularyScoreData(phrase.Id, VocabularyDataType.Phrase, 0, false);
                     scoreDataList.Add(scoreData);
                 }
@@ -203,30 +214,35 @@ namespace Antura.Teacher
         {
             var currentJourneyContents = AppManager.I.Teacher.VocabularyAi.CurrentJourneyContents;
             // No logging if we do not have contents (for example through a direct Play)
-            if (currentJourneyContents == null) { return; }
+            if (currentJourneyContents == null)
+            { return; }
 
             var learnRules = GetLearnRules(miniGameCode);
 
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + typeof(VocabularyScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(VocabularyScoreData));
             var previousScoreDataList = db.Query<VocabularyScoreData>(query);
 
             // Prepare log data
             var logDataList = new List<LogVocabularyScoreData>();
             var scoreDataList = new List<VocabularyScoreData>();
-            foreach (var result in resultsList) {
-                if (result.elementId == null) {
+            foreach (var result in resultsList)
+            {
+                if (result.elementId == null)
+                {
                     Debug.LogError("LogAI: Logging a result with a NULL elementId. Skipped.");
                     continue;
                 }
-                if (result.nCorrect == 0 && result.nWrong == 0) {
+                if (result.nCorrect == 0 && result.nWrong == 0)
+                {
                     Debug.LogError("LogAI: Logging a result with no correct nor wrong hits. Skipped.");
                     continue;
                 }
 
                 float score = 0f;
                 float successRatio = result.nCorrect * 1f / (result.nCorrect + result.nWrong);
-                switch (learnRules.voteLogic) {
+                switch (learnRules.voteLogic)
+                {
                     case MiniGameLearnRules.VoteLogic.Threshold:
                         // Uses a binary threshold
                         float threshold = learnRules.logicParameter;
@@ -248,11 +264,14 @@ namespace Antura.Teacher
                 scoreDataList.Add(scoreData);
 
                 // Check whether the vocabulary data was in the journey (and can thus be unlocked)
-                if (!UNLOCK_AT_PLAYSESSION_END) {
-                    if (!scoreData.Unlocked) {
+                if (!UNLOCK_AT_PLAYSESSION_END)
+                {
+                    if (!scoreData.Unlocked)
+                    {
                         IVocabularyData data = null;
                         bool containedInJourney = false;
-                        switch (result.dataType) {
+                        switch (result.dataType)
+                        {
                             case VocabularyDataType.Letter:
                                 data = AppManager.I.DB.GetLetterDataById(result.elementId);
                                 containedInJourney = currentJourneyContents.Contains(data as LetterData);
@@ -267,7 +286,8 @@ namespace Antura.Teacher
                                 break;
                         }
 
-                        if (containedInJourney) {
+                        if (containedInJourney)
+                        {
                             scoreData.Unlocked = true;
                         }
                     }
@@ -281,8 +301,9 @@ namespace Antura.Teacher
         // TODO refactor: these rules should be moved out of the LogAI and be instead placed in the games' configuration, as they belong to the games
         private MiniGameLearnRules GetLearnRules(MiniGameCode code)
         {
-            MiniGameLearnRules rules = new MiniGameLearnRules();
-            switch (code) {
+            var rules = new MiniGameLearnRules();
+            switch (code)
+            {
                 //case MiniGameCode.Balloons_letter:  // @todo: set correct ones per each minigame
                 //    rules.voteLogic = MiniGameLearnRules.VoteLogic.Threshold;
                 //    rules.logicParameter = 0.5f;
@@ -301,14 +322,15 @@ namespace Antura.Teacher
 
         public void LogMiniGameScore(int appSession, JourneyPosition pos, MiniGameCode miniGameCode, int score, float playTime)
         {
-            if (DebugConfig.I.DebugLogEnabled) { Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score); }
+            if (DebugConfig.I.DebugLogEnabled)
+            { Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score); }
 
             // Log for history
             var data = new LogMiniGameScoreData(appSession, pos, miniGameCode, score, playTime);
             db.Insert(data);
 
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + typeof(MiniGameScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(MiniGameScoreData));
             var previousScoreDataList = db.Query<MiniGameScoreData>(query);
 
             // Score update
@@ -319,7 +341,8 @@ namespace Antura.Teacher
             var minigameData = db.GetMiniGameDataByCode(miniGameCode);
             var results = new List<PlayResultParameters>();
             float normalizedScore = Mathf.InverseLerp(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore, score);
-            foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills) {
+            foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills)
+            {
                 results.Add(new PlayResultParameters(PlayEvent.Skill, weightedPlaySkill.Skill, normalizedScore));
             }
             LogPlay(appSession, pos, miniGameCode, results);
@@ -330,12 +353,13 @@ namespace Antura.Teacher
             //if (AppConstants.VerboseLogging) Debug.Log("LogMiniGameScore " + logMiniGameScoreParams.MiniGameCode + " / " + logMiniGameScoreParams.Score);
 
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + typeof(MiniGameScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(MiniGameScoreData));
             var previousScoreDataList = db.Query<MiniGameScoreData>(query);
 
             var logDataList = new List<LogMiniGameScoreData>();
             var scoreDataList = new List<MiniGameScoreData>();
-            foreach (var parameters in logMiniGameScoreParams) {
+            foreach (var parameters in logMiniGameScoreParams)
+            {
                 // Log for history
                 var logData = new LogMiniGameScoreData(appSession, parameters.Pos, parameters.MiniGameCode, parameters.Score, parameters.PlayTime);
                 logDataList.Add(logData);
@@ -347,7 +371,8 @@ namespace Antura.Teacher
                 // We also log play skills related to that minigame, as read from MiniGameData
                 var minigameData = db.GetMiniGameDataByCode(parameters.MiniGameCode);
                 var results = new List<PlayResultParameters>();
-                foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills) {
+                foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills)
+                {
                     results.Add(new PlayResultParameters(PlayEvent.Skill, weightedPlaySkill.Skill, parameters.Score));
                 }
                 LogPlay(appSession, parameters.Pos, parameters.MiniGameCode, results);
@@ -359,14 +384,15 @@ namespace Antura.Teacher
 
         public void LogPlaySessionScore(int appSession, JourneyPosition pos, int score, float playTime)
         {
-            if (DebugConfig.I.DebugLogEnabled) { Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score); }
+            if (DebugConfig.I.DebugLogEnabled)
+            { Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score); }
 
             // Log for history
             var data = new LogPlaySessionScoreData(appSession, pos, score, playTime);
             db.Insert(data);
 
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + typeof(JourneyScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(JourneyScoreData));
             var previousScoreDataList = db.Query<JourneyScoreData>(query);
 
             // Score update
@@ -377,12 +403,13 @@ namespace Antura.Teacher
         public void LogPlaySessionScores(int appSession, List<LogPlaySessionScoreParams> logPlaySessionScoreParamsList)
         {
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + typeof(JourneyScoreData).Name);
+            string query = string.Format("SELECT * FROM " + nameof(JourneyScoreData));
             var previousScoreDataList = db.Query<JourneyScoreData>(query);
 
             var logDataList = new List<LogPlaySessionScoreData>();
             var scoreDataList = new List<JourneyScoreData>();
-            foreach (var parameters in logPlaySessionScoreParamsList) {
+            foreach (var parameters in logPlaySessionScoreParamsList)
+            {
                 // Log for history
                 var logData = new LogPlaySessionScoreData(appSession, parameters.Pos, parameters.Score, parameters.PlayTime);
                 logDataList.Add(logData);
@@ -404,7 +431,8 @@ namespace Antura.Teacher
             int previousMaxStars = 0;
             float previousTotalPlayTime = 0;
             var scoreData = scoreDataList.Find(x => x.MiniGameCode == miniGameCode);
-            if (scoreData != null) {
+            if (scoreData != null)
+            {
                 previousMaxStars = scoreData.Stars;
                 previousTotalPlayTime = scoreData.TotalPlayTime;
             }
@@ -418,7 +446,8 @@ namespace Antura.Teacher
         {
             int previousMaxStars = 0;
             var scoreData = scoreDataList.Find(x => x.ElementId == elementId && x.JourneyDataType == dataType);
-            if (scoreData != null) {
+            if (scoreData != null)
+            {
                 previousMaxStars = scoreData.Stars;
             }
 
@@ -431,7 +460,8 @@ namespace Antura.Teacher
             float previousAverageScore = 0;
             bool previousUnlocked = false;
             var scoreData = scoreDataList.Find(x => x.ElementId == elementId && x.VocabularyDataType == dataType);
-            if (scoreData != null) {
+            if (scoreData != null)
+            {
                 previousAverageScore = scoreData.Score;
                 previousUnlocked = scoreData.Unlocked;
             }

@@ -18,16 +18,19 @@ public class WorldPrefabsEditorWindow : EditorWindow
     {
         world = (WorldID)EditorGUILayout.EnumPopup(world);
 
-        if (world != lastWorld) {
+        if (world != lastWorld)
+        {
             var prefabs = FindObjectsOfType<AutoWorldPrefab>();
             var cameras = FindObjectsOfType<AutoWorldCameraColor>();
 
-            foreach (var p in prefabs) {
+            foreach (var p in prefabs)
+            {
                 p.testWorld = world;
                 p.SendMessage("Update");
             }
 
-            foreach (var c in cameras) {
+            foreach (var c in cameras)
+            {
                 c.testWorld = world;
                 c.SendMessage("Update");
             }

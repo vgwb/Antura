@@ -29,16 +29,20 @@ namespace Antura.Minigames.DancingDots
 
         public void Update(float delta)
         {
-            if (!game.isTutRound) {
+            if (!game.isTutRound)
+            {
                 timer -= delta;
                 game.Context.GetOverlayWidget().SetClockTime(timer);
             }
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 game.Context.GetOverlayWidget().OnClockCompleted();
                 game.SetCurrentState(game.ResultState);
                 game.Context.GetAudioManager().PlayDialogue(Database.LocalizationDataId.Keeper_TimeUp);
-            } else if (!alarmIsTriggered && timer < 20) {
+            }
+            else if (!alarmIsTriggered && timer < 20)
+            {
                 alarmIsTriggered = true;
                 KeeperManager.I.PlayDialogue("Keeper_Time_" + UnityEngine.Random.Range(1, 4));
             }

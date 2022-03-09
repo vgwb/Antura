@@ -51,7 +51,8 @@ namespace Antura.Minigames.ReadingGame
             {
                 startLeftArrowPositions[i] = leftArrows[i].transform.localPosition;
                 startLeftArrowPositions[i].x *= rtlDir;
-                if (rtlDir == -1) leftArrows[i].transform.Rotate(0, 0, 180);
+                if (rtlDir == -1)
+                    leftArrows[i].transform.Rotate(0, 0, 180);
                 leftArrowsAlpha[i] = 0;
             }
 
@@ -59,7 +60,8 @@ namespace Antura.Minigames.ReadingGame
             {
                 startRightArrowPositions[i] = rightArrows[i].transform.localPosition;
                 startRightArrowPositions[i].x *= rtlDir;
-                if (rtlDir == -1) rightArrows[i].transform.Rotate(0,0,180);
+                if (rtlDir == -1)
+                    rightArrows[i].transform.Rotate(0, 0, 180);
                 rightArrowsAlpha[i] = 0;
             }
         }

@@ -56,11 +56,14 @@ namespace Antura.ReservedArea
 
         public void OnOpenInstallInstructions()
         {
-            if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal) {
+            if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal)
+            {
                 var pdfViewerPrefab = Resources.Load("Pdf/CeibalPDFViewer") as GameObject;
                 var pdfViewer = Instantiate(pdfViewerPrefab);
                 pdfViewer.transform.SetParent(GameObject.Find("[GlobalUI]").transform, false);
-            } else {
+            }
+            else
+            {
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_AndroidInstallPDF);
                 OpenPDF(AppConfig.PdfAndroidInstall);
             }
@@ -71,8 +74,10 @@ namespace Antura.ReservedArea
         public void OnClickEnableDebugPanel()
         {
             clickCounter++;
-            if (clickCounter >= 3) {
-                if (!DebugManager.I.DebugPanelEnabled) {
+            if (clickCounter >= 3)
+            {
+                if (!DebugManager.I.DebugPanelEnabled)
+                {
                     DebugManager.I.EnableDebugPanel();
                 }
             }
@@ -85,7 +90,8 @@ namespace Antura.ReservedArea
             AppManager.I.AppSettingsManager.ToggleShareAnalytics();
             AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
 
-            if (AppManager.I.AppSettings.ShareAnalyticsEnabled) {
+            if (AppManager.I.AppSettings.ShareAnalyticsEnabled)
+            {
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_ShareData);
             }
 
@@ -106,10 +112,13 @@ namespace Antura.ReservedArea
         void DoOpenRateApp()
         {
             Debug.Log("On DEVICE it will open the app page on the proper store");
-            if (Application.platform == RuntimePlatform.IPhonePlayer) {
+            if (Application.platform == RuntimePlatform.IPhonePlayer)
+            {
                 Application.OpenURL(AppConfig.UrlStoreiOSApple);
                 // IOSNativeUtility.RedirectToAppStoreRatingPage();
-            } else if (Application.platform == RuntimePlatform.Android) {
+            }
+            else if (Application.platform == RuntimePlatform.Android)
+            {
                 Application.OpenURL(AppConfig.UrlStoreAndroidGoogle);
                 // AndroidNativeUtility.OpenAppRatingPage("");
             }
@@ -158,10 +167,13 @@ namespace Antura.ReservedArea
         public void OnExportDatabasesJoined()
         {
             string errorString = "";
-            if (AppManager.I.DB.ExportPlayersJoinedDb(out errorString)) {
+            if (AppManager.I.DB.ExportPlayersJoinedDb(out errorString))
+            {
                 string dbPath = DBService.GetDatabaseFilePath(AppConfig.GetJoinedDatabaseFilename(), AppConfig.DbJoinedFolder);
                 GlobalUI.ShowPrompt("", "The joined DB is here:\n" + dbPath);
-            } else {
+            }
+            else
+            {
                 GlobalUI.ShowPrompt("", "Could not export the joined database.\n");
             }
         }

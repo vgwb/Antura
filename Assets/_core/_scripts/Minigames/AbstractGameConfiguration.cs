@@ -65,7 +65,7 @@ namespace Antura.Minigames
 
         protected QuestionBuilderParameters InitQuestionBuilderParamaters()
         {
-            var builderParams = new QuestionBuilderParameters {insideJourney = InsideJourney};
+            var builderParams = new QuestionBuilderParameters { insideJourney = InsideJourney };
             builderParams.useJourneyForCorrect = !IgnoreJourney;
             builderParams.useJourneyForWrong = !IgnoreJourney;
 

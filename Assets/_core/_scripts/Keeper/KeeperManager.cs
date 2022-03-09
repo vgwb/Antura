@@ -55,30 +55,38 @@ namespace Antura.Keeper
 
         private void PlayDialogue(LocalizationData data, bool isKeeper = true, bool autoClose = true, Action _callback = null, KeeperMode keeperMode = KeeperMode.Default)
         {
-            if (DebugConfig.I.VerboseAudio) Debug.Log("Keeper trying to play audio for PlayDialogue: " + data.Id);
+            if (DebugConfig.I.VerboseAudio)
+                Debug.Log("Keeper trying to play audio for PlayDialogue: " + data.Id);
 
-            if (keeperMode == KeeperMode.Default) {
+            if (keeperMode == KeeperMode.Default)
+            {
                 keeperMode = AppManager.I.AppEdition.DefaultKeeperMode;
             }
 
             if (AppManager.I.ContentEdition.LearningLanguage == AppManager.I.ContentEdition.NativeLanguage)
             {
-                if (keeperMode == KeeperMode.LearningThenNativeAndSubtitles) keeperMode = KeeperMode.LearningAndSubtitles;
-                else if (keeperMode == KeeperMode.LearningThenNativeNoSubtitles) keeperMode = KeeperMode.LearningNoSubtitles;
+                if (keeperMode == KeeperMode.LearningThenNativeAndSubtitles)
+                    keeperMode = KeeperMode.LearningAndSubtitles;
+                else if (keeperMode == KeeperMode.LearningThenNativeNoSubtitles)
+                    keeperMode = KeeperMode.LearningNoSubtitles;
             }
 
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||
                                  keeperMode == KeeperMode.NativeAndSubtitles || keeperMode == KeeperMode.SubtitlesOnly;
 
-            if (withSubtitles) {
+            if (withSubtitles)
+            {
                 WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper);
-            } else {
+            }
+            else
+            {
                 WidgetSubtitles.I.Close();
                 autoClose = false;
             }
 
-            switch (keeperMode) {
+            switch (keeperMode)
+            {
                 case KeeperMode.LearningAndSubtitles:
                 case KeeperMode.LearningNoSubtitles:
                     AudioManager.I.PlayDialogue(data, LanguageUse.Learning, () => OnEndSpeaking(_callback, autoClose), true);
@@ -90,7 +98,8 @@ namespace Antura.Keeper
                 case KeeperMode.LearningThenNativeAndSubtitles:
                 case KeeperMode.LearningThenNativeNoSubtitles:
                     AudioManager.I.PlayDialogue(data, LanguageUse.Learning,
-                        () => {
+                        () =>
+                        {
                             AudioManager.I.PlayDialogue(data, LanguageUse.Native, () => OnEndSpeaking(_callback, autoClose), true);
                         }, true);
                     break;
@@ -121,10 +130,12 @@ namespace Antura.Keeper
                 WidgetSubtitles.I.DisplayVocabularyData(data, 2, isKeeper);
             }
 
-            if (!withSubtitles) autoClose = false;
+            if (!withSubtitles)
+                autoClose = false;
 
             IAudioSource playingSource = null;
-            switch (keeperMode) {
+            switch (keeperMode)
+            {
                 case KeeperMode.LearningAndSubtitles:
                 case KeeperMode.LearningNoSubtitles:
                     playingSource = AudioManager.I.PlayVocabularyDataAudio(data, exclusive, soundType, LanguageUse.Learning, () => OnEndSpeaking(_callback, autoClose), true);
@@ -136,7 +147,8 @@ namespace Antura.Keeper
                 case KeeperMode.LearningThenNativeAndSubtitles:
                 case KeeperMode.LearningThenNativeNoSubtitles:
                     playingSource = AudioManager.I.PlayVocabularyDataAudio(data, exclusive, soundType, LanguageUse.Learning,
-                    () => {
+                    () =>
+                    {
                         AudioManager.I.PlayVocabularyDataAudio(data, exclusive, soundType, LanguageUse.Native, () => OnEndSpeaking(_callback, autoClose), true);
                     }
                         , true);
@@ -153,8 +165,10 @@ namespace Antura.Keeper
         private void OnEndSpeaking(Action callback, bool closeSubtitles)
         {
             //Debug.Log("OnEndSpeaking");
-            if (closeSubtitles) { CloseSubtitles(); }
-            if (callback != null) {
+            if (closeSubtitles)
+            { CloseSubtitles(); }
+            if (callback != null)
+            {
                 //Debug.Log("OnEndSpeaking - callback");
                 callback.Invoke();
             }

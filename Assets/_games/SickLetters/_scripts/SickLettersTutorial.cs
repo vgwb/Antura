@@ -6,12 +6,13 @@ using Antura.Tutorial;
 
 namespace Antura.Minigames.SickLetters
 {
-    public class SickLettersTutorial : MonoBehaviour {
+    public class SickLettersTutorial : MonoBehaviour
+    {
 
         public Vector3[] path;
         public bool draw = false;
         public float tutorialStartDelay;
-        public int  repeatMax = 3, repeatConter = 0;
+        public int repeatMax = 3, repeatConter = 0;
         float repeatDely = 3;
         // Use this for initialization
         SickLettersGame game;

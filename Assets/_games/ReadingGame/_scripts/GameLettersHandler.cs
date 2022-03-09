@@ -53,7 +53,7 @@ namespace Antura.Minigames.ReadingGame
                 var llData = new LL_ImageData(animData.dataID);
                 var gameLL = new GameLivingLetter(transform.parent, letterObjectViewPrefab, shadowPrefab,
                     llData,
-                    animData.startPosTr.position - Vector3.up*animData.jumpHeight, transform.localPosition,
+                    animData.startPosTr.position - Vector3.up * animData.jumpHeight, transform.localPosition,
                     animData.startPosTr.position, animData.timing * periodRatio, null, animData.scale,
                     danceSpeedMultiplier);
                 gameLetters.Add(gameLL);
@@ -76,7 +76,7 @@ namespace Antura.Minigames.ReadingGame
 
         private IEnumerator WaitThenAnimateCO(LetterAnimData animData, GameLivingLetter gameLL, float periodRatio)
         {
-            yield return new WaitForSeconds((animData.timing + 0.5f)* periodRatio);
+            yield return new WaitForSeconds((animData.timing + 0.5f) * periodRatio);
             gameLL.livingLetter.DancingSpeed = danceSpeedMultiplier;
             gameLL.livingLetter.SetState(LLAnimationStates.LL_dancing);
             yield return new WaitForSeconds(animData.timing2 * periodRatio);
@@ -88,8 +88,10 @@ namespace Antura.Minigames.ReadingGame
         private IEnumerator WaitThenDropCO(LetterAnimData animData, GameLivingLetter gameLL, float periodRatio)
         {
             yield return new WaitForSeconds((waitBeforeCrouching + animData.timing3) * periodRatio);
-            if (!mayDrop) yield break;
-            if (gameLL == null || gameLL.livingLetter == null) yield break;
+            if (!mayDrop)
+                yield break;
+            if (gameLL == null || gameLL.livingLetter == null)
+                yield break;
             gameLL.livingLetter.SetState(LLAnimationStates.LL_dancing);
             gameLL.livingLetter.DoDancingLose();
             gameLL.dropped = true;
@@ -101,10 +103,13 @@ namespace Antura.Minigames.ReadingGame
             mayDrop = false;
             foreach (var g in gameLetters)
             {
-                if (g.dropped) continue;
+                if (g.dropped)
+                    continue;
                 g.livingLetter.SetState(LLAnimationStates.LL_dancing);
-                if (correct) g.livingLetter.DoDancingWin();
-                else g.livingLetter.DoDancingLose();
+                if (correct)
+                    g.livingLetter.DoDancingWin();
+                else
+                    g.livingLetter.DoDancingLose();
             }
 
             yield return new WaitForSeconds(cleanupDestroyDelay);

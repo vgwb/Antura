@@ -29,7 +29,8 @@ namespace Antura.Audio
         {
             get
             {
-                if (CurrentSource == null || CurrentSource.audioSource == null) {
+                if (CurrentSource == null || CurrentSource.audioSource == null)
+                {
                     return false;
                 }
 
@@ -49,7 +50,8 @@ namespace Antura.Audio
             {
                 loop = value;
 
-                if (CurrentSource != null) {
+                if (CurrentSource != null)
+                {
                     CurrentSource.loop = value;
                 }
             }
@@ -65,7 +67,8 @@ namespace Antura.Audio
             {
                 pitch = value;
 
-                if (CurrentSource != null) {
+                if (CurrentSource != null)
+                {
                     CurrentSource.pitch = value;
                 }
             }
@@ -81,7 +84,8 @@ namespace Antura.Audio
             {
                 volume = value;
 
-                if (CurrentSource != null) {
+                if (CurrentSource != null)
+                {
                     CurrentSource.volume = value;
                 }
             }
@@ -98,7 +102,8 @@ namespace Antura.Audio
         {
             get
             {
-                if (CurrentSource == null || CurrentSource.audioSource == null) {
+                if (CurrentSource == null || CurrentSource.audioSource == null)
+                {
                     return 0;
                 }
 
@@ -106,7 +111,8 @@ namespace Antura.Audio
             }
             set
             {
-                if (CurrentSource != null) {
+                if (CurrentSource != null)
+                {
                     CurrentSource.time = value;
                 }
             }
@@ -114,7 +120,8 @@ namespace Antura.Audio
 
         public void Stop()
         {
-            if (CurrentSource != null && CurrentSource.audioSource != null) {
+            if (CurrentSource != null && CurrentSource.audioSource != null)
+            {
                 CurrentSource.loop = false;
                 CurrentSource.Stop();
             }
@@ -125,12 +132,16 @@ namespace Antura.Audio
 
         public void Play()
         {
-            if (paused && CurrentSource != null) {
+            if (paused && CurrentSource != null)
+            {
                 CurrentSource.Resume();
-            } else {
+            }
+            else
+            {
                 paused = false;
 
-                if (CurrentSource != null) {
+                if (CurrentSource != null)
+                {
                     CurrentSource.Stop();
                 }
 
@@ -146,15 +157,18 @@ namespace Antura.Audio
 
         public void Pause()
         {
-            if (CurrentSource != null && CurrentSource.Pause()) {
+            if (CurrentSource != null && CurrentSource.Pause())
+            {
                 paused = true;
             }
         }
 
         public bool Update()
         {
-            if (CurrentSource != null) {
-                if (!CurrentSource.isPlaying && !CurrentSource.isPaused && CurrentSource.time == 0 && !manager.IsAppPaused) {
+            if (CurrentSource != null)
+            {
+                if (!CurrentSource.isPlaying && !CurrentSource.isPaused && CurrentSource.time == 0 && !manager.IsAppPaused)
+                {
                     CurrentSource.Stop();
                     CurrentSource.locked = false;
                     CurrentSource = null;

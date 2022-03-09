@@ -37,7 +37,7 @@ namespace Antura.Minigames.Tobogan
 
             game.Context.GetOverlayWidget().SetClockDuration(gameTime.Duration);
             game.Context.GetOverlayWidget().SetClockTime(gameTime.Time);
-            
+
             game.questionsManager.Enabled = true;
 
             nextQuestionTimer = 0f;

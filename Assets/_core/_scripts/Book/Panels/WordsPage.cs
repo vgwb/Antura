@@ -55,8 +55,10 @@ namespace Antura.Book
             };
             WordsPanel(cat);
 
-            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL()) {
-                for (int i = 0; i < SubPanels.Length; i++) {
+            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL())
+            {
+                for (int i = 0; i < SubPanels.Length; i++)
+                {
                     SubPanels[i].SetSiblingIndex(0);
                 }
             }
@@ -64,9 +66,12 @@ namespace Antura.Book
 
         private List<WordData> GetWordsByCategory(WordDataCategory _category)
         {
-            if (_category != WordDataCategory.None) {
+            if (_category != WordDataCategory.None)
+            {
                 return AppManager.I.DB.FindWordData((x) => x.Category == _category);
-            } else {
+            }
+            else
+            {
                 return new List<WordData>();
             }
         }
@@ -80,18 +85,24 @@ namespace Antura.Book
             //Debug.Log("current word cat: " + _category);
 
             List<WordData> wordsList;
-            if (currentCategory.Stage > 0) {
+            if (currentCategory.Stage > 0)
+            {
                 var contents = TeacherAI.I.VocabularyAi.GetContentsOfStage(currentCategory.Stage);
                 var hashList = contents.GetHashSet<WordData>();
                 wordsList = new List<WordData>();
 
-                if (debugSingleWord != "") {
+                if (debugSingleWord != "")
+                {
                     var customWord = AppManager.I.DB.GetWordDataById(debugSingleWord);
                     wordsList.Add(customWord);
-                } else {
+                }
+                else
+                {
                     wordsList.AddRange(hashList);
                 }
-            } else {
+            }
+            else
+            {
                 wordsList = GetWordsByCategory(currentCategory.wordCategory);
             }
 
@@ -100,10 +111,13 @@ namespace Antura.Book
             emptyListContainers();
 
             List<WordInfo> info_list = AppManager.I.ScoreHelper.GetAllWordInfo();
-            foreach (var wordData in wordsList) {
+            foreach (var wordData in wordsList)
+            {
                 var findMyInfo = info_list.FirstOrDefault((x) => x.data == wordData);
-                if (findMyInfo != null) {
-                    if (findMyInfo.data.Active) {
+                if (findMyInfo != null)
+                {
+                    if (findMyInfo.data.Active)
+                    {
                         btnGO = Instantiate(WordItemPrefab);
                         btnGO.transform.SetParent(ListContainer.transform, false);
                         btnGO.GetComponent<ItemWord>().Init(this, findMyInfo, false);
@@ -134,20 +148,24 @@ namespace Antura.Book
 
             List<GenericCategoryData> categoriesList = new List<GenericCategoryData>();
             GenericCategoryData categoryData;
-            foreach (WordDataCategory wordCat in GenericHelper.SortEnums<WordDataCategory>()) {
-                if (wordCat == WordDataCategory.None) continue;
+            foreach (WordDataCategory wordCat in GenericHelper.SortEnums<WordDataCategory>())
+            {
+                if (wordCat == WordDataCategory.None)
+                    continue;
                 // TODO hack disable these word categories
                 //if (wordCat == WordDataCategory.Expressions
                 //    || wordCat == WordDataCategory.NumbersOrdinal
                 //    || wordCat == WordDataCategory.StateOfBeing
                 //    || wordCat == WordDataCategory.Jobs) continue;
 
-                if (GetWordsByCategory(wordCat).Count < 1) {
+                if (GetWordsByCategory(wordCat).Count < 1)
+                {
                     continue;
                 }
 
                 var catLocData = LocalizationManager.GetWordCategoryData(wordCat);
-                if (catLocData == null) continue;
+                if (catLocData == null)
+                    continue;
                 categoryData = new GenericCategoryData
                 {
                     area = VocabularyChapter.Words,
@@ -163,7 +181,8 @@ namespace Antura.Book
             }
             categoriesList.Sort((x, y) => string.Compare(x.TitleLearning, y.TitleLearning));
 
-            foreach (var category in categoriesList) {
+            foreach (var category in categoriesList)
+            {
                 btnGO = Instantiate(CategoryItemPrefab);
                 btnGO.transform.SetParent(SubmenuContainer.transform, false);
                 btnGO.GetComponent<MenuItemCategory>().Init(
@@ -177,9 +196,12 @@ namespace Antura.Book
         private int WordComparison(WordData x, WordData y)
         {
             bool compareUsingValues = !string.IsNullOrEmpty(x.SortValue) && !string.IsNullOrEmpty(y.SortValue);
-            if (compareUsingValues) {
+            if (compareUsingValues)
+            {
                 return int.Parse(x.SortValue) - int.Parse(y.SortValue);
-            } else {
+            }
+            else
+            {
                 return string.Compare(x.Text, y.Text);
             }
         }
@@ -192,14 +214,17 @@ namespace Antura.Book
             PlayWord();
 
             // empty spelling container
-            foreach (Transform t in SpellingContainer.transform) {
+            foreach (Transform t in SpellingContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
             var splittedLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false, false);
-            foreach (var letter in splittedLetters) {
+            foreach (var letter in splittedLetters)
+            {
                 btnGO = Instantiate(SpellingLetterItemPrefab);
                 btnGO.transform.SetParent(SpellingContainer.transform, false);
-                if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                if (LanguageSwitcher.I.IsLearningLanguageRTL())
+                {
                     btnGO.transform.SetAsFirstSibling();
                 }
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
@@ -207,13 +232,17 @@ namespace Antura.Book
 
             WordArabicText.text = currentWordInfo.data.Text;
 
-            if (currentWordInfo.data.Drawing != "") {
+            if (currentWordInfo.data.Drawing != "")
+            {
                 WordDrawingText.SetLetterData(new LL_ImageData(currentWordInfo.data));
-            } else {
+            }
+            else
+            {
                 WordDrawingText.text = "";
             }
 
-            if (DebugConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled)
+            {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
                 Debug.Log("drawing code: " + currentWordInfo.data.Drawing);
                 Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
@@ -234,7 +263,8 @@ namespace Antura.Book
 
         public void SelectSubCategory(GenericCategoryData _category)
         {
-            switch (_category.area) {
+            switch (_category.area)
+            {
                 case VocabularyChapter.Words:
                     KeeperManager.I.PlayDialogue(LocalizationManager.GetWordCategoryData(_category.wordCategory).Id, KeeperMode.LearningNoSubtitles);
                     //AudioManager.I.PlayDialogue(LocalizationManager.GetWordCategoryData(_category.wordCategory));
@@ -255,27 +285,31 @@ namespace Antura.Book
 
         void HighlightWordItem(string id)
         {
-            foreach (Transform t in ListContainer.transform) {
+            foreach (Transform t in ListContainer.transform)
+            {
                 t.GetComponent<ItemWord>().Select(id);
             }
         }
 
         void HighlightMenutCategory(string id)
         {
-            foreach (Transform t in SubmenuContainer.transform) {
+            foreach (Transform t in SubmenuContainer.transform)
+            {
                 t.GetComponent<MenuItemCategory>().Select(id);
             }
         }
 
         void emptyListContainers()
         {
-            foreach (Transform t in ListContainer.transform) {
+            foreach (Transform t in ListContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
             // reset vertical position
             ListPanel.GetComponent<UnityEngine.UI.ScrollRect>().verticalNormalizedPosition = 1.0f;
 
-            foreach (Transform t in SubmenuContainer.transform) {
+            foreach (Transform t in SubmenuContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
         }

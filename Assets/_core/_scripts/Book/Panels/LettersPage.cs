@@ -44,12 +44,15 @@ namespace Antura.Book
 
         private void LettersPanel()
         {
-            if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+            if (LanguageSwitcher.I.IsLearningLanguageRTL())
+            {
                 ListPanel = ListPanelRTL;
                 ListContainer = ListContainerRTL;
                 ListPanelLTR.SetActive(false);
                 ListPanelRTL.SetActive(true);
-            } else {
+            }
+            else
+            {
                 ListPanel = ListPanelLTR;
                 ListContainer = ListContainerLTR;
                 ListPanelLTR.SetActive(true);
@@ -74,12 +77,14 @@ namespace Antura.Book
             letters.AddRange(symbols);
 
             List<LetterInfo> allLetterInfos = AppManager.I.ScoreHelper.GetAllLetterInfo();
-            foreach (var letter in letters) {
+            foreach (var letter in letters)
+            {
                 LetterInfo myLetterinfo = allLetterInfos.Find(value => value.data == letter);
 
                 btnGO = Instantiate(LetterItemPrefab);
                 btnGO.transform.SetParent(ListContainer.transform, false);
-                if (LanguageSwitcher.I.IsLearningLanguageRTL()) {
+                if (LanguageSwitcher.I.IsLearningLanguageRTL())
+                {
                     btnGO.transform.SetAsFirstSibling();
                 }
                 btnGO.GetComponent<ItemLetter>().Init(this, myLetterinfo, false);
@@ -95,16 +100,19 @@ namespace Antura.Book
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
 
-            if (DebugConfig.I.VerboseBook) Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
+            if (DebugConfig.I.VerboseBook)
+                Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             HighlightLetterItem(myLetterInfo.data.Id);
 
-            if (AppManager.I.AppEdition.BookShowRelatedWords) {
+            if (AppManager.I.AppEdition.BookShowRelatedWords)
+            {
                 // show related words
                 RelatedWordsContainer.SetActive(true);
                 DiacriticsContainer.SetActive(false);
                 emptyContainer(RelatedWordsContainer);
-                foreach (var word in letterInfo.data.LinkedWords) {
+                foreach (var word in letterInfo.data.LinkedWords)
+                {
                     WordData wdata = AppManager.I.DB.GetWordDataById(word);
                     WordInfo winfo = new WordInfo();
                     winfo.data = wdata;
@@ -113,7 +121,9 @@ namespace Antura.Book
                     btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
                     btnGO.GetComponent<ItemWord>().Init(this, winfo, false);
                 }
-            } else {
+            }
+            else
+            {
                 // show related diacritics
                 RelatedWordsContainer.SetActive(false);
                 DiacriticsContainer.SetActive(true);
@@ -131,9 +141,12 @@ namespace Antura.Book
 
                 List<LetterInfo> info_list = AppManager.I.ScoreHelper.GetAllLetterInfo();
                 info_list.Sort((x, y) => x.data.Number - y.data.Number);
-                foreach (var info_item in info_list) {
-                    if (variationsletters.Contains(info_item.data)) {
-                        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah") {
+                foreach (var info_item in info_list)
+                {
+                    if (variationsletters.Contains(info_item.data))
+                    {
+                        if (AppConfig.DisableShaddah && info_item.data.Symbol == "shaddah")
+                        {
                             continue;
                         }
                         btnGO = Instantiate(DiacriticSymbolItemPrefab);
@@ -153,10 +166,12 @@ namespace Antura.Book
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
 
-            if (DebugConfig.I.VerboseBook) Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
+            if (DebugConfig.I.VerboseBook)
+                Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             string positionsString = "";
-            foreach (var p in letterInfo.data.GetAvailableForms()) {
+            foreach (var p in letterInfo.data.GetAvailableForms())
+            {
                 positionsString = positionsString + " " + p;
             }
             MainLetterDisplay.Init(myLetterData);
@@ -190,21 +205,24 @@ namespace Antura.Book
 
         private void HighlightLetterItem(string id)
         {
-            foreach (Transform t in ListContainer.transform) {
+            foreach (Transform t in ListContainer.transform)
+            {
                 t.GetComponent<ItemLetter>().Select(id);
             }
         }
 
         private void HighlightDiacriticItem(string id)
         {
-            foreach (Transform t in DiacriticsContainer.transform) {
+            foreach (Transform t in DiacriticsContainer.transform)
+            {
                 t.GetComponent<ItemDiacriticSymbol>().Select(id);
             }
         }
 
         private void emptyContainer(GameObject container)
         {
-            foreach (Transform t in container.transform) {
+            foreach (Transform t in container.transform)
+            {
                 Destroy(t.gameObject);
             }
             // reset vertical position

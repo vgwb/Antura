@@ -36,7 +36,7 @@ namespace Antura.Minigames.ReadingGame
                     wrongAnswers.Add(randomData.ConvertToLivingLetterData());
                 }
             }
-            
+
             return new SampleQuestionPack(fakeData, wrongAnswers, new ILivingLetterData[] { randomWord });
         }
     }

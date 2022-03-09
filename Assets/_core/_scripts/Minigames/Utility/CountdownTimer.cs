@@ -2,7 +2,7 @@ namespace Antura.Minigames
 {
     /// <summary>
     /// Concrete implementation of ITimer that counts down and triggers an event when the time is up.
-    /// Used by minigames.  
+    /// Used by minigames.
     /// </summary>
     public class CountdownTimer : ITimer
     {
@@ -54,14 +54,17 @@ namespace Antura.Minigames
 
         public void Update(float delta)
         {
-            if (IsRunning) {
+            if (IsRunning)
+            {
                 time -= delta;
 
-                if (time <= 0) {
+                if (time <= 0)
+                {
                     time = 0;
                     Stop();
 
-                    if (onTimesUp != null) {
+                    if (onTimesUp != null)
+                    {
                         onTimesUp();
                     }
                 }

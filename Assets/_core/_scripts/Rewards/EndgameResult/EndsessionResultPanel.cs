@@ -47,7 +47,8 @@ namespace Antura.Rewards
 
         void Setup()
         {
-            if (setupDone) { return; }
+            if (setupDone)
+            { return; }
 
             setupDone = true;
             I = this;
@@ -55,7 +56,8 @@ namespace Antura.Rewards
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Append(this.GetComponent<Image>().DOFade(0, 0.35f).From().SetEase(Ease.Linear))
                 .Join(GodraysCanvas.DOFade(0, 0.35f).From().SetEase(Ease.Linear))
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     this.gameObject.SetActive(false);
                     godraysTween.Pause();
                 });
@@ -75,7 +77,8 @@ namespace Antura.Rewards
 
         void OnDestroy()
         {
-            if (I == this) { I = null; }
+            if (I == this)
+            { I = null; }
             this.StopAllCoroutines();
             showTween.Kill();
             godraysTween.Kill();
@@ -93,9 +96,12 @@ namespace Antura.Rewards
             Setup();
 
             this.StopAllCoroutines();
-            if (_immediate) {
+            if (_immediate)
+            {
                 showTween.Complete();
-            } else {
+            }
+            else
+            {
                 showTween.Restart();
             }
             godraysTween.Restart();
@@ -105,20 +111,26 @@ namespace Antura.Rewards
 
         public void Hide(bool _immediate)
         {
-            if (!setupDone) return;
+            if (!setupDone)
+                return;
 
             ContinueScreen.Close(true);
             this.StopAllCoroutines();
-            if (_immediate) {
+            if (_immediate)
+            {
                 showTween.Rewind();
-            } else {
+            }
+            else
+            {
                 showTween.PlayBackwards();
             }
             Bar.Hide();
             Minigames.Hide();
             minigamesStarsToBarTween.Kill();
-            if (releasedMinigamesStars != null) {
-                foreach (RectTransform rt in releasedMinigamesStars) {
+            if (releasedMinigamesStars != null)
+            {
+                foreach (RectTransform rt in releasedMinigamesStars)
+                {
                     Destroy(rt.gameObject);
                 }
                 releasedMinigamesStars = null;
@@ -141,25 +153,30 @@ namespace Antura.Rewards
             yield return new WaitForSeconds(1);
 
             // Show bar
-            if (_alreadyUnlockedRewards > 2) {
+            if (_alreadyUnlockedRewards > 2)
+            {
                 _alreadyUnlockedRewards = 2;
             }
-            while (_alreadyUnlockedRewards > -1) {
+            while (_alreadyUnlockedRewards > -1)
+            {
                 Bar.Achievements[_alreadyUnlockedRewards].AchieveReward(true, true);
                 _alreadyUnlockedRewards--;
             }
             Bar.Show(_sessionData.Count * 3);
             //GameResultUI.I.BonesCounter.Show();
-            while (!Bar.ShowTween.IsComplete()) {
+            while (!Bar.ShowTween.IsComplete())
+            {
                 yield return null;
             }
 
             // Start filling bar and/or show Continue button
             releasedMinigamesStars = Minigames.CloneStarsToMainPanel();
-            if (releasedMinigamesStars.Count > 0) {
+            if (releasedMinigamesStars.Count > 0)
+            {
                 minigamesStarsToBarTween = DOTween.Sequence();
                 Vector2 to = Bar.GetComponent<RectTransform>().anchoredPosition;
-                for (int i = 0; i < releasedMinigamesStars.Count; ++i) {
+                for (int i = 0; i < releasedMinigamesStars.Count; ++i)
+                {
                     RectTransform mgStar = releasedMinigamesStars[i];
                     minigamesStarsToBarTween.Insert(i * 0.2f, mgStar.DOAnchorPos(to, 0.3f).OnComplete(() => Bar.IncreaseBy(1)))
                         .Join(mgStar.GetComponent<Image>().DOFade(0, 0.2f).SetDelay(0.1f).SetEase(Ease.InQuad))
@@ -178,9 +195,11 @@ namespace Antura.Rewards
 
         void SetRewardsGos()
         {
-            for (int i = 0; i < RewardsGos.Length; ++i) {
+            for (int i = 0; i < RewardsGos.Length; ++i)
+            {
                 GameObject go = RewardsGos[i];
-                if (go.transform.childCount == 0) { continue; }
+                if (go.transform.childCount == 0)
+                { continue; }
                 go.SetLayerRecursive(GenericHelper.LayerMaskToIndex(RewardsGosLayer));
                 CameraHelper.FitRewardToUICamera(go.transform.GetChild(0), RewardsCams[i], true);
             }

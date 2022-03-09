@@ -26,7 +26,8 @@ namespace Antura.Minigames.MixedLetters
         static MixedLettersConfiguration instance;
         public static MixedLettersConfiguration Instance
         {
-            get {
+            get
+            {
                 if (instance == null)
                     instance = new MixedLettersConfiguration();
                 return instance;
@@ -47,7 +48,8 @@ namespace Antura.Minigames.MixedLetters
             IQuestionBuilder builder = null;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MixedLettersVariation.Alphabet:
                     builderParams.useJourneyForCorrect = false; // Force no journey, or the minigame will block
                     builder = new AlphabetQuestionBuilder(parameters: builderParams);
@@ -76,7 +78,8 @@ namespace Antura.Minigames.MixedLetters
         public override bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
         {
             LetterEqualityStrictness strictness;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MixedLettersVariation.Alphabet:
                     strictness = LetterEqualityStrictness.WithVisualForm;
                     break;
@@ -94,7 +97,8 @@ namespace Antura.Minigames.MixedLetters
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MixedLettersVariation.Alphabet:
                     soundType = LetterDataSoundType.Name;
                     break;

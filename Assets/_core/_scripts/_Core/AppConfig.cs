@@ -130,7 +130,8 @@ namespace Antura.Core
 
         public static bool IsMobileTablet()
         {
-            if (IsMobilePlatform()) {
+            if (IsMobilePlatform())
+            {
                 return (DeviceDiagonalSizeInInches() > 6.5f);
             }
             return false;
@@ -138,7 +139,8 @@ namespace Antura.Core
 
         public static bool IsMobileSMartphone()
         {
-            if (IsMobilePlatform()) {
+            if (IsMobilePlatform())
+            {
                 return (DeviceDiagonalSizeInInches() <= 6.5f);
             }
             return false;

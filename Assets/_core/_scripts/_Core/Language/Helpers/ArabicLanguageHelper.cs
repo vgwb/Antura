@@ -79,26 +79,34 @@ namespace Antura.Language
         List<StringPart> AnalyzeArabicString(DatabaseObject staticDatabase, string processedArabicString,
             bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
-            if (allLetterData == null) {
+            if (allLetterData == null)
+            {
                 allLetterData = new List<LetterData>(staticDatabase.GetLetterTable().GetValuesTyped());
 
-                for (int l = 0; l < allLetterData.Count; ++l) {
+                for (int l = 0; l < allLetterData.Count; ++l)
+                {
                     var data = allLetterData[l];
 
-                    foreach (var form in data.GetAvailableForms()) {
-                        if (data.Kind == LetterDataKind.Letter) {
+                    foreach (var form in data.GetAvailableForms())
+                    {
+                        if (data.Kind == LetterDataKind.Letter)
+                        {
                             // Overwrite
                             unicodeLookUpCache[data.GetUnicode(form)] = new UnicodeLookUpEntry(data, form);
-                        } else {
+                        }
+                        else
+                        {
                             var unicode = data.GetUnicode(form);
 
-                            if (!unicodeLookUpCache.ContainsKey(unicode)) {
+                            if (!unicodeLookUpCache.ContainsKey(unicode))
+                            {
                                 unicodeLookUpCache.Add(unicode, new UnicodeLookUpEntry(data, form));
                             }
                         }
                     }
 
-                    if (data.Kind == LetterDataKind.DiacriticCombo) {
+                    if (data.Kind == LetterDataKind.DiacriticCombo)
+                    {
                         diacriticComboLookUpCache.Add(new DiacriticComboLookUpEntry(data.Symbol, data.BaseLetter), data);
                     }
                 }
@@ -110,27 +118,34 @@ namespace Antura.Language
             char[] chars = processedArabicString.ToCharArray();
 
             int stringIndex = 0;
-            for (int i = 0; i < chars.Length; i++) {
+            for (int i = 0; i < chars.Length; i++)
+            {
                 char character = chars[i];
 
                 // Skip spaces and arabic "?"
-                if (character == ' ' || character == '؟') {
+                if (character == ' ' || character == '؟')
+                {
                     ++stringIndex;
                     continue;
                 }
 
                 string unicodeString = GetHexUnicodeFromChar(character);
 
-                if (unicodeString == "0640") {
+                if (unicodeString == "0640")
+                {
                     // it's an arabic tatweel
                     // just extends previous character
-                    for (int t = result.Count - 1; t >= 0; --t) {
+                    for (int t = result.Count - 1; t >= 0; --t)
+                    {
                         var previous = result[t];
 
-                        if (previous.toCharacterIndex == stringIndex - 1) {
+                        if (previous.toCharacterIndex == stringIndex - 1)
+                        {
                             ++previous.toCharacterIndex;
                             result[t] = previous;
-                        } else {
+                        }
+                        else
+                        {
                             break;
                         }
                     }
@@ -144,14 +159,18 @@ namespace Antura.Language
                 LetterData letterData = null;
 
                 UnicodeLookUpEntry entry;
-                if (unicodeLookUpCache.TryGetValue(unicodeString, out entry)) {
+                if (unicodeLookUpCache.TryGetValue(unicodeString, out entry))
+                {
                     letterForm = entry.form;
                     letterData = entry.data;
-                    if (keepFormInsideLetter) letterData = letterData.Clone();  // We need to clone the data, as it may be overriden later, if we want to keep forms inside it
+                    if (keepFormInsideLetter)
+                        letterData = letterData.Clone();  // We need to clone the data, as it may be overriden later, if we want to keep forms inside it
                 }
 
-                if (letterData != null) {
-                    if (letterData.Kind == LetterDataKind.DiacriticCombo && separateDiacritics) {
+                if (letterData != null)
+                {
+                    if (letterData.Kind == LetterDataKind.DiacriticCombo && separateDiacritics)
+                    {
                         // It's a diacritic combo
                         // Separate Letter and Diacritic
                         result.Add(
@@ -162,8 +181,10 @@ namespace Antura.Language
                             new StringPart(
                                 staticDatabase.GetById(staticDatabase.GetLetterTable(), letterData.Symbol),
                                 stringIndex, stringIndex, letterForm));
-                    } else if (letterData.Kind == LetterDataKind.Symbol &&
-                               letterData.Type == LetterDataType.DiacriticSymbol && !separateDiacritics) {
+                    }
+                    else if (letterData.Kind == LetterDataKind.Symbol &&
+                             letterData.Type == LetterDataType.DiacriticSymbol && !separateDiacritics)
+                    {
                         // It's a diacritic
                         // Merge Letter and Diacritic
 
@@ -172,29 +193,40 @@ namespace Antura.Language
                         var baseLetterId = lastLetterData.letter.Id;
 
                         LetterData diacriticLetterData = null;
-                        if (AppConfig.DisableShaddah) {
-                            if (symbolId == "shaddah") {
+                        if (AppConfig.DisableShaddah)
+                        {
+                            if (symbolId == "shaddah")
+                            {
                                 diacriticLetterData = lastLetterData.letter;
-                            } else {
+                            }
+                            else
+                            {
                                 diacriticComboLookUpCache.TryGetValue(
                                     new DiacriticComboLookUpEntry(symbolId, baseLetterId), out diacriticLetterData);
                             }
-                        } else {
+                        }
+                        else
+                        {
                             diacriticComboLookUpCache.TryGetValue(
                                 new DiacriticComboLookUpEntry(symbolId, baseLetterId), out diacriticLetterData);
                         }
 
-                        if (diacriticLetterData == null) {
+                        if (diacriticLetterData == null)
+                        {
                             Debug.LogError("Cannot find a single character for " + baseLetterId + " + " + symbolId +
                                            ". Diacritic removed in (" + processedArabicString + ").");
-                        } else {
+                        }
+                        else
+                        {
                             var previous = result[result.Count - 1];
                             previous.letter = diacriticLetterData;
                             ++previous.toCharacterIndex;
                             result[result.Count - 1] = previous;
                         }
-                    } else if (letterData.Kind == LetterDataKind.LetterVariation && separateVariations &&
-                               letterData.BaseLetter == "lam") {
+                    }
+                    else if (letterData.Kind == LetterDataKind.LetterVariation && separateVariations &&
+                             letterData.BaseLetter == "lam")
+                    {
                         // it's a lam-alef combo
                         // Separate Lam and Alef
                         result.Add(
@@ -204,7 +236,8 @@ namespace Antura.Language
 
                         var secondPart = staticDatabase.GetById(staticDatabase.GetLetterTable(), letterData.Symbol);
 
-                        if (secondPart.Kind == LetterDataKind.DiacriticCombo && separateDiacritics) {
+                        if (secondPart.Kind == LetterDataKind.DiacriticCombo && separateDiacritics)
+                        {
                             // It's a diacritic combo
                             // Separate Letter and Diacritic
                             result.Add(
@@ -215,21 +248,29 @@ namespace Antura.Language
                                 new StringPart(
                                     staticDatabase.GetById(staticDatabase.GetLetterTable(), secondPart.Symbol),
                                     stringIndex, stringIndex, letterForm));
-                        } else {
+                        }
+                        else
+                        {
                             result.Add(new StringPart(secondPart, stringIndex, stringIndex, letterForm));
                         }
-                    } else {
+                    }
+                    else
+                    {
                         result.Add(new StringPart(letterData, stringIndex, stringIndex, letterForm));
                     }
-                } else {
+                }
+                else
+                {
                     Debug.LogWarning($"Cannot parse letter {character} ({unicodeString}) in {processedArabicString}");
                 }
 
                 ++stringIndex;
             }
 
-            if (keepFormInsideLetter) {
-                foreach (var stringPart in result) {
+            if (keepFormInsideLetter)
+            {
+                foreach (var stringPart in result)
+                {
                     stringPart.letter.ForcedLetterForm = stringPart.letterForm;
                 }
             }
@@ -277,13 +318,20 @@ namespace Antura.Language
                 entryLetter.sortNumber = letterData.Number;
                 entryLetter.id = letterData.Id;
                 entryLetter.page = letterData.Base.Number;
-                if (entryLetter.id.StartsWith("alef_hamza")) entryLetter.page = 29;
-                if (entryLetter.id.StartsWith("lam_alef")) entryLetter.page = 30;
-                if (entryLetter.id.StartsWith("alef_maqsura")) entryLetter.page = 31;
-                if (entryLetter.id.StartsWith("hamza")) entryLetter.page = 32;
-                if (entryLetter.id.StartsWith("teh_marbuta")) entryLetter.page = 33;
-                if (entryLetter.id.StartsWith("yeh_hamza")) entryLetter.page = 34;
-                if (letterData.IsOfKindCategory(LetterKindCategory.Symbol)) entryLetter.page = 35;
+                if (entryLetter.id.StartsWith("alef_hamza"))
+                    entryLetter.page = 29;
+                if (entryLetter.id.StartsWith("lam_alef"))
+                    entryLetter.page = 30;
+                if (entryLetter.id.StartsWith("alef_maqsura"))
+                    entryLetter.page = 31;
+                if (entryLetter.id.StartsWith("hamza"))
+                    entryLetter.page = 32;
+                if (entryLetter.id.StartsWith("teh_marbuta"))
+                    entryLetter.page = 33;
+                if (entryLetter.id.StartsWith("yeh_hamza"))
+                    entryLetter.page = 34;
+                if (letterData.IsOfKindCategory(LetterKindCategory.Symbol))
+                    entryLetter.page = 35;
             }
 
             DiacriticEntryKey.Letter FindLetter(List<LetterData> dbLetters, string unicode)
@@ -347,7 +395,7 @@ namespace Antura.Language
                 // First, get rid of data that uses diacritics that we do not have
                 var nBefore = diacriticsComboData.Keys.Count;
                 diacriticsComboData.Keys.RemoveAll(k => !dbLetters.Any(l => l.GetUnicode().Equals(k.letter2.unicode)));
-                var nAfter  = diacriticsComboData.Keys.Count;
+                var nAfter = diacriticsComboData.Keys.Count;
 
                 Debug.LogError("Get rid of " + (nBefore - nAfter) + " wrong diacritic combos");
 
@@ -360,9 +408,11 @@ namespace Antura.Language
                 for (var i = 0; i < dbLetters.Count; i++)
                 {
                     var letter = dbLetters[i];
-                    if (!letter.Active) continue;
+                    if (!letter.Active)
+                        continue;
                     bool isSymbol = letter.IsOfKindCategory(LetterKindCategory.Symbol);
-                    if (!letter.IsOfKindCategory(LetterKindCategory.BaseAndVariations) && !isSymbol) continue;
+                    if (!letter.IsOfKindCategory(LetterKindCategory.BaseAndVariations) && !isSymbol)
+                        continue;
 
                     Debug.LogError("Got Letter: " + letter.Id);
 
@@ -411,12 +461,17 @@ namespace Antura.Language
                                     };
                                     diacriticsComboData.Keys.Add(key);
                                 }
-                            } catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                            }
+                            catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}"); }
 
                             // Refresh page & sorting
                             //Debug.LogError("Check " + key.letter1.id + " " + key.letter2.id);
-                            try { if (key != null) RefreshEntrySorting(key.letter1, AppManager.I.DB.GetLetterDataById(key.letter1.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
-                            try { if (key != null) RefreshEntrySorting(key.letter2, AppManager.I.DB.GetLetterDataById(key.letter2.id)); }catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}");}
+                            try
+                            { if (key != null) RefreshEntrySorting(key.letter1, AppManager.I.DB.GetLetterDataById(key.letter1.id)); }
+                            catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}"); }
+                            try
+                            { if (key != null) RefreshEntrySorting(key.letter2, AppManager.I.DB.GetLetterDataById(key.letter2.id)); }
+                            catch (System.Exception e) { Debug.LogWarning($"Ignoring exception: {e.Message}"); }
                         }
                     }
                 }
@@ -430,16 +485,18 @@ namespace Antura.Language
                 diacriticsComboData.Keys = diacriticsComboData.Keys.OrderBy(key =>
                 {
                     var letter = AppManager.I.DB.GetLetterDataById(key.letter1.id);
-                    if (letter == null) return 0;
+                    if (letter == null)
+                        return 0;
                     var symbolOrder = diacriticsSortOrder.IndexOf(key.letter2.unicode);
                     switch (letter.Kind)
                     {
                         case LetterDataKind.LetterVariation:
                             return 10000 + symbolOrder;
                         case LetterDataKind.Symbol:
-                            return 20000 + diacriticsSortOrder.IndexOf(key.letter1.unicode)*100 + symbolOrder;;
+                            return 20000 + diacriticsSortOrder.IndexOf(key.letter1.unicode) * 100 + symbolOrder;
+                            ;
                         default:
-                            return key.letter1.sortNumber*100 + symbolOrder;
+                            return key.letter1.sortNumber * 100 + symbolOrder;
                     }
                 }).ToList();
 
@@ -462,7 +519,8 @@ namespace Antura.Language
 
         private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
         {
-            if (DiacriticCombos2Fix == null) {
+            if (DiacriticCombos2Fix == null)
+            {
                 BuildDiacriticCombos2Fix();
             }
 
@@ -486,7 +544,8 @@ namespace Antura.Language
         public override bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
         {
             int characterCount = textInfo.characterCount;
-            if (characterCount <= 1) return false;
+            if (characterCount <= 1)
+                return false;
 
             bool changed = false;
             for (int charPosition = 0; charPosition < characterCount - 1; charPosition++)
@@ -536,7 +595,7 @@ namespace Antura.Language
                         }
                         else if (char2IsShaddah && char3IsDiacritic)
                         {
-                            Debug.LogError(textInfo.textComponent.text + " " + " has weird diacritic" );
+                            Debug.LogError(textInfo.textComponent.text + " " + " has weird diacritic");
 
                             ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
                         }
@@ -1332,7 +1391,7 @@ namespace Antura.Language
 
             ///lam alef final
             DiacriticCombos2Fix.Add(new DiacriticComboEntry("FEFC", "0651"), new Vector2(20, 130));
-#endregion
+            #endregion
         }
     }
 }

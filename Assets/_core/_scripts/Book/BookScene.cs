@@ -17,11 +17,13 @@ namespace Antura.Book
         void Start()
         {
             GlobalUI.ShowPauseMenu(false);
-            foreach (var go in HideAtStartup) {
+            foreach (var go in HideAtStartup)
+            {
                 go.SetActive(false);
             }
 
-            if (OpeningArea != BookArea.None) {
+            if (OpeningArea != BookArea.None)
+            {
                 BookManager.I.OpenBook(OpeningArea);
             }
 

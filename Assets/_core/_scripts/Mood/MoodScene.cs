@@ -23,7 +23,8 @@ namespace Antura.Scenes
         void PlayFeedback()
         {
             int rnd = Random.Range(1, 3);
-            switch (rnd) {
+            switch (rnd)
+            {
                 case 1:
                     KeeperManager.I.PlayDialogue(LocalizationDataId.Mood_Question_1);
                     break;
@@ -38,13 +39,14 @@ namespace Antura.Scenes
 
         private bool selectedAlready = false;
 
-        /// <summary> 
+        /// <summary>
         /// Mood selected. [1,5]
         /// </summary>
         /// <param name="_mood"></param>
         public void MoodSelected(int _mood)
         {
-            if (selectedAlready) return;
+            if (selectedAlready)
+                return;
             selectedAlready = true;
 
             LogManager.I.LogMood(_mood);
@@ -53,11 +55,21 @@ namespace Antura.Scenes
             LocalizationDataId locID = LocalizationDataId.Mood_Answer_SoSo;
             switch (_mood)
             {
-                case 1: locID = LocalizationDataId.Mood_Answer_VerySad; break;
-                case 2: locID = LocalizationDataId.Mood_Answer_Sad; break;
-                case 3: locID = LocalizationDataId.Mood_Answer_SoSo; break;
-                case 4: locID = LocalizationDataId.Mood_Answer_Happy; break;
-                case 5: locID = LocalizationDataId.Mood_Answer_VeryHappy; break;
+                case 1:
+                    locID = LocalizationDataId.Mood_Answer_VerySad;
+                    break;
+                case 2:
+                    locID = LocalizationDataId.Mood_Answer_Sad;
+                    break;
+                case 3:
+                    locID = LocalizationDataId.Mood_Answer_SoSo;
+                    break;
+                case 4:
+                    locID = LocalizationDataId.Mood_Answer_Happy;
+                    break;
+                case 5:
+                    locID = LocalizationDataId.Mood_Answer_VeryHappy;
+                    break;
             }
             KeeperManager.I.PlayDialogue(locID, _callback: exitScene);
         }

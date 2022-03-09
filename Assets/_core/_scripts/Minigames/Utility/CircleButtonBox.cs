@@ -17,7 +17,8 @@ namespace Antura.Minigames
         public bool Active
         {
             get { return active; }
-            set {
+            set
+            {
                 active = value;
                 for (int i = 0; i < buttons.Count; ++i)
                     buttons[i].Active = value;
@@ -38,7 +39,8 @@ namespace Antura.Minigames
 
         public void Clear(Action onClearAnimationCompleted = null, float startDelay = 0)
         {
-            for (int i = 0; i < buttons.Count; i++) {
+            for (int i = 0; i < buttons.Count; i++)
+            {
                 CircleButton button = buttons[i];
                 button.Destroy(startDelay + i * 0.1f, i == buttons.Count - 1 ? onClearAnimationCompleted : null);
             }
@@ -51,7 +53,8 @@ namespace Antura.Minigames
             for (int i = 0; i < buttons.Count; i++)
             {
                 CircleButton button = buttons[i];
-                if (button == ignoredButton) continue;
+                if (button == ignoredButton)
+                    continue;
                 button.Destroy();
             }
         }
@@ -79,7 +82,8 @@ namespace Antura.Minigames
 
         public bool IsReady()
         {
-            for (int i = 0; i < buttons.Count; i++) {
+            for (int i = 0; i < buttons.Count; i++)
+            {
                 if (!buttons[i].IsReady())
                     return false;
             }
@@ -88,14 +92,16 @@ namespace Antura.Minigames
 
         public void ShowButtons()
         {
-            for (int i = 0; i < buttons.Count; i++) {
+            for (int i = 0; i < buttons.Count; i++)
+            {
                 buttons[i].gameObject.SetActive(true);
             }
         }
 
         public void HideButtons()
         {
-            for (int i = 0; i < buttons.Count; i++) {
+            for (int i = 0; i < buttons.Count; i++)
+            {
                 buttons[i].gameObject.SetActive(false);
             }
         }
@@ -110,20 +116,23 @@ namespace Antura.Minigames
             int width = Mathf.Min(buttons.Count, buttonPerLine);
             int height = (buttons.Count + buttonPerLine - 1) / buttonPerLine;
 
-            for (int i = 0; i < buttons.Count; i++) {
+            for (int i = 0; i < buttons.Count; i++)
+            {
                 int idX = i % width;
                 int idY = i / width;
 
                 float rowWidth = width;
 
-                if (idY == height - 1) {
+                if (idY == height - 1)
+                {
                     rowWidth = buttons.Count % buttonPerLine;
                     if (rowWidth == 0)
                         rowWidth = width;
                 }
 
-                if (buttons[i] != null) buttons[i].transform.localPosition = Vector3.right * (-0.5f * (rowWidth - 1) + idX) * buttonDistance +
-                                                     Vector3.down * (-0.5f * (height - 1) + idY) * buttonDistance;
+                if (buttons[i] != null)
+                    buttons[i].transform.localPosition = Vector3.right * (-0.5f * (rowWidth - 1) + idX) * buttonDistance +
+                                 Vector3.down * (-0.5f * (height - 1) + idY) * buttonDistance;
             }
         }
 

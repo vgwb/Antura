@@ -23,17 +23,21 @@ namespace Antura.Minigames.ReadingGame
 
 
         AnturaMood mood;
-        public AnturaMood Mood {
-            get {
+        public AnturaMood Mood
+        {
+            get
+            {
                 return mood;
             }
 
-            set {
+            set
+            {
                 if (this.mood == value)
                     return;
 
                 mood = value;
-                if (value == ReadingGameAntura.AnturaMood.ANGRY) {
+                if (value == ReadingGameAntura.AnturaMood.ANGRY)
+                {
                     if (animator.State == AnturaAnimationStates.sitting)
                         animator.State = AnturaAnimationStates.idle;
 

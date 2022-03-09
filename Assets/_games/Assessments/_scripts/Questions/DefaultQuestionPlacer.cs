@@ -68,7 +68,8 @@ namespace Antura.Assessment
             int questionsNumber = 0;
             int placeHoldersNumber = 0;
 
-            foreach (var q in allQuestions) {
+            foreach (var q in allQuestions)
+            {
                 questionsNumber++;
                 placeHoldersNumber += q.PlaceholdersCount();
             }
@@ -78,7 +79,8 @@ namespace Antura.Assessment
                     placeHoldersNumber * options.SlotSize
                 + questionsNumber * options.QuestionSize;
 
-            if (options.SpawnImageWithQuestion) {
+            if (options.SpawnImageWithQuestion)
+            {
                 occupiedSpace += options.ImageSize;
             }
 
@@ -89,28 +91,34 @@ namespace Antura.Assessment
             float sign;
             Vector3 currentPos = new Vector3(0, options.QuestionY, options.DefaultZ);
 
-            if (flow == TextDirection.RightToLeft) {
+            if (flow == TextDirection.RightToLeft)
+            {
                 currentPos.x = options.RightX;
                 sign = -1;
-            } else {
+            }
+            else
+            {
                 currentPos.x = options.LeftX;
                 sign = 1;
             }
 
             int questionIndex = 0;
 
-            for (int i = 0; i < questionsNumber; i++) {
+            for (int i = 0; i < questionsNumber; i++)
+            {
                 currentPos.x += (spaceIncrement + questionSize / 2) * sign;
                 PlaceQuestion(allQuestions[questionIndex], currentPos, playAudio);
                 currentPos.x += (questionSize * sign) / 2;
 
-                if (options.SpawnImageWithQuestion) {
+                if (options.SpawnImageWithQuestion)
+                {
                     currentPos.x += (sign * options.ImageSize) / 1.8f;
                     PlaceImage(allQuestions[questionIndex], currentPos);
                     currentPos.x += (sign * options.ImageSize) / 1.8f;
                 }
 
-                foreach (var p in allQuestions[questionIndex].GetPlaceholders()) {
+                foreach (var p in allQuestions[questionIndex].GetPlaceholders())
+                {
                     currentPos.x += sign * options.SlotSize / 2;
                     PlacePlaceholder(p, currentPos);
                     currentPos.x += sign * options.SlotSize / 2;
@@ -141,14 +149,16 @@ namespace Antura.Assessment
             var ll = q.gameObject.GetComponent<StillLetterBox>();
             int placeholdersCount = 0;
 
-            foreach (var p in q.GetPlaceholders()) {
+            foreach (var p in q.GetPlaceholders())
+            {
                 placeholdersCount++;
             }
 
             StillLetterBox[] boxes = new StillLetterBox[placeholdersCount + 1];
 
             placeholdersCount = 0;
-            foreach (var p in q.GetPlaceholders()) {
+            foreach (var p in q.GetPlaceholders())
+            {
                 boxes[placeholdersCount++] = p.GetComponent<StillLetterBox>();
             }
             boxes[boxes.Length - 1] = ll;
@@ -202,7 +212,8 @@ namespace Antura.Assessment
             audioManager.PlayPoofSound();
             letter.transform.GetComponent<StillLetterBox>().Magnify();
 
-            if (playAudio) {
+            if (playAudio)
+            {
                 q.QuestionBehaviour.ReadMeSound();
             }
             yield return Wait.For(1.6f);
@@ -233,17 +244,21 @@ namespace Antura.Assessment
 
         IEnumerator RemoveCoroutine()
         {
-            foreach (var q in allQuestions) {
-                foreach (var p in q.GetPlaceholders()) {
+            foreach (var q in allQuestions)
+            {
+                foreach (var p in q.GetPlaceholders())
+                {
                     yield return Koroutine.Nested(FadeOutPlaceholder(p));
                 }
-                foreach (var img in images) {
+                foreach (var img in images)
+                {
                     yield return Koroutine.Nested(FadeOutImage(img));
                 }
                 yield return Koroutine.Nested(FadeOutQuestion(q));
             }
 
-            foreach (var box in boxesList) {
+            foreach (var box in boxesList)
+            {
                 box.Hide();
             }
 
@@ -281,7 +296,7 @@ namespace Antura.Assessment
         ///  Should highlight 1 QUESTION and play their audio. This is called
         ///  only if we have to pronunce question, and only if we should pronunce it
         ///  after the tutorial brief. Actually this is always called in the first round
-        ///  (I find it more natural) but requisites may change later so, it is still 
+        ///  (I find it more natural) but requisites may change later so, it is still
         ///  possible that we have to play this Before the tutorial brief.
         ///  (that is the reason I still have a
         ///  AssessmentOptions.Instance.PlayQuestionAudioAfterTutorial

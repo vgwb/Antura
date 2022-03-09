@@ -15,8 +15,8 @@ namespace Antura.Minigames.ColorTickle
         /// <returns>Resulting pixels</returns>
         static public Color[] ScaleTexture(Texture2D source, int iTargetWidth, int iTargetHeight)
         {
-            float _fXSampleUnit =  1f / iTargetWidth ;
-            float _fYSampleUnit =  1f / iTargetHeight ;
+            float _fXSampleUnit = 1f / iTargetWidth;
+            float _fYSampleUnit = 1f / iTargetHeight;
 
             Color[] resultMatrix = new Color[iTargetWidth * iTargetHeight];
 
@@ -52,7 +52,7 @@ namespace Antura.Minigames.ColorTickle
         }
 
         /// <summary>
-        /// Given the uvs coordinates of a point relative to a rectangle, calculates the resulting 
+        /// Given the uvs coordinates of a point relative to a rectangle, calculates the resulting
         /// uvs for a container of that rectangle.
         /// </summary>
         /// <param name="v2CoordinatesOfInnerPoint">Inner point uvs</param>

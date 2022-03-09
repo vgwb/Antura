@@ -8,7 +8,8 @@ namespace Antura.Core
         // TODO refactor: scene names should match AppScene so that this can be removed
         public static string GetSceneName(AppScene scene, MiniGameData minigameData = null)
         {
-            switch (scene) {
+            switch (scene)
+            {
                 case AppScene.Bootstrap:
                     return "app_Bootstrap";
                 case AppScene.Home:
@@ -49,7 +50,8 @@ namespace Antura.Core
         public static AppScene GetCurrentAppScene()
         {
             var currentScene = SceneManager.GetActiveScene().name;
-            switch (currentScene) {
+            switch (currentScene)
+            {
                 case "app_Bootstrap":
                     return AppScene.Bootstrap;
                 case "app_Home":

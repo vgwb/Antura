@@ -132,10 +132,12 @@ namespace Antura.Core
         /// </summary>
         public void GoToNextScene()
         {
-            if (DebugConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled)
+            {
                 Debug.LogFormat(" ---- NAV MANAGER ({1}) scene {0} ---- ", NavData.CurrentScene, "GoToNextScene");
             }
-            switch (NavData.CurrentScene) {
+            switch (NavData.CurrentScene)
+            {
                 case AppScene.Home:
                     GoToScene(AppScene.Map);
                     break;
@@ -160,9 +162,12 @@ namespace Antura.Core
                     GoToFirstGameOfPlaySession();
                     break;
                 case AppScene.MiniGame:
-                    if (AppManager.I.AppSettings.KioskMode) {
+                    if (AppManager.I.AppSettings.KioskMode)
+                    {
                         GoToKiosk();
-                    } else {
+                    }
+                    else
+                    {
                         GoToNextGameOfPlaySession();
                     }
                     break;
@@ -186,13 +191,18 @@ namespace Antura.Core
             bool mustShowDailyScenes = false;
             int numberOfDaysSinceLastReward = AppManager.I.Teacher.logAI.DaysSinceLastDailyReward();
 
-            if (numberOfDaysSinceLastReward <= 0) {
+            if (numberOfDaysSinceLastReward <= 0)
+            {
                 mustShowDailyScenes = false;
-            } else if (numberOfDaysSinceLastReward > 1) {
+            }
+            else if (numberOfDaysSinceLastReward > 1)
+            {
                 // Number of days since last reward is more than 1. Show daily, but zero combo.
                 mustShowDailyScenes = true;
                 NavData.CurrentPlayer.ConsecutivePlayDays = 1;
-            } else {
+            }
+            else
+            {
                 // Number of days since last reward is exactly 1. Good for combo!
                 mustShowDailyScenes = true;
                 NavData.CurrentPlayer.ConsecutivePlayDays += 1;
@@ -215,9 +225,11 @@ namespace Antura.Core
             }
             */
 
-            if (NavData.PrevSceneStack.Count > 0) {
+            if (NavData.PrevSceneStack.Count > 0)
+            {
                 var prevScene = NavData.PrevSceneStack.Pop();
-                if (DebugConfig.I.DebugLogEnabled) {
+                if (DebugConfig.I.DebugLogEnabled)
+                {
                     Debug.LogFormat(" ---- NAV MANAGER ({0}) from scene {1} to {2} ---- ", "GoBack", NavData.CurrentScene, prevScene);
                 }
                 GoToScene(prevScene);
@@ -236,19 +248,24 @@ namespace Antura.Core
         private void GoToScene(AppScene wantedNewScene, MiniGameData minigameData = null, bool debugMode = false)
         {
             AppScene filteredNewScene = wantedNewScene;
-            if (!debugMode) {
+            if (!debugMode)
+            {
                 bool keepPrevAsBackable = false;
                 filteredNewScene = FirstContactManager.I.FilterNavigation(GetCurrentScene(), wantedNewScene, out keepPrevAsBackable);
-                if (keepPrevAsBackable) {
+                if (keepPrevAsBackable)
+                {
                     UpdatePrevSceneStack(wantedNewScene);
                 }
 
-                if (FirstContactManager.I.IsSequenceFinished()) {
+                if (FirstContactManager.I.IsSequenceFinished())
+                {
                     // Additional general checks when entering specific scenes
-                    switch (filteredNewScene) {
+                    switch (filteredNewScene)
+                    {
                         case AppScene.Map:
                             // When coming back to the map, we need to check whether a new daily reward is needed
-                            if (CheckDailySceneTrigger()) {
+                            if (CheckDailySceneTrigger())
+                            {
                                 GoToScene(AppScene.Mood);
                                 return;
                             }
@@ -271,7 +288,8 @@ namespace Antura.Core
         {
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
-            if (DebugConfig.I.DebugLogEnabled) { Debug.LogFormat(" ==== Loading scene {0} ====", sceneName); }
+            if (DebugConfig.I.DebugLogEnabled)
+            { Debug.LogFormat(" ==== Loading scene {0} ====", sceneName); }
             SceneTransitionManager.LoadSceneWithTransition(sceneName);
 
             AppManager.I.Services.Analytics.TrackScene(sceneName);
@@ -281,9 +299,12 @@ namespace Antura.Core
         private void UpdatePrevSceneStack(AppScene newScene)
         {
             // The stack is updated only for some transitions
-            if (backableTransitions.Contains(new KeyValuePair<AppScene, AppScene>(NavData.CurrentScene, newScene))) {
-                if (NavData.PrevSceneStack.Count == 0 || NavData.PrevSceneStack.Peek() != NavData.CurrentScene) {
-                    if (DebugConfig.I.DebugLogEnabled) {
+            if (backableTransitions.Contains(new KeyValuePair<AppScene, AppScene>(NavData.CurrentScene, newScene)))
+            {
+                if (NavData.PrevSceneStack.Count == 0 || NavData.PrevSceneStack.Peek() != NavData.CurrentScene)
+                {
+                    if (DebugConfig.I.DebugLogEnabled)
+                    {
                         Debug.Log("Added BACKABLE transition " + NavData.CurrentScene + " to " + newScene);
                     }
                     NavData.PrevSceneStack.Push(NavData.CurrentScene);
@@ -300,9 +321,12 @@ namespace Antura.Core
             WorldManager.I.CurrentWorld = (WorldID)(NavData.CurrentPlayer.CurrentJourneyPosition.Stage - 1);
 
             // Ask the teacher for a config, if needed
-            if (useLastConfig) {
+            if (useLastConfig)
+            {
                 _launchConfig = AppManager.I.GameLauncher.LastLaunchConfig;
-            } else if (_launchConfig == null) {
+            }
+            else if (_launchConfig == null)
+            {
                 var teacher = AppManager.I.Teacher;
                 var difficulty = teacher.GetCurrentDifficulty(_miniGame.Code);
                 var numberOfRounds = teacher.GetCurrentNumberOfRounds(_miniGame.Code);
@@ -318,7 +342,8 @@ namespace Antura.Core
 
         public void GoToHome(bool debugMode = false)
         {
-            if (AppManager.I.AppSettings.KioskMode) {
+            if (AppManager.I.AppSettings.KioskMode)
+            {
                 AppManager.I.AppSettingsManager.SetKioskMode(false);
             }
             CustomGoTo(AppScene.Home, debugMode);
@@ -362,7 +387,8 @@ namespace Antura.Core
         public void ExitToMainMenu()
         {
             Debug.LogFormat(" ---- NAV MANAGER ({1}) scene {0} ---- ", NavData.CurrentScene, "ExitDuringPause");
-            switch (NavData.CurrentScene) {
+            switch (NavData.CurrentScene)
+            {
                 case AppScene.Map:
                     UIDirector.DeactivateAllUI();
                     KeeperManager.I.PlayDialogue(new[]
@@ -371,7 +397,8 @@ namespace Antura.Core
                             LocalizationDataId.Map_Exit_2,
                             LocalizationDataId.Map_Exit_3,
                         }.GetRandom(),
-                        _callback: () => {
+                        _callback: () =>
+                        {
                             // We also clear the navigation data
                             NavData.PrevSceneStack.Clear();
                             GoToScene(AppScene.Home);
@@ -383,9 +410,12 @@ namespace Antura.Core
                     GoToScene(AppScene.Home);
                     break;
                 default:
-                    if (AppManager.I.AppSettings.KioskMode) {
+                    if (AppManager.I.AppSettings.KioskMode)
+                    {
                         GoToKiosk();
-                    } else {
+                    }
+                    else
+                    {
                         GoToScene(AppScene.Map);
                     }
                     break;
@@ -397,10 +427,13 @@ namespace Antura.Core
         /// </summary>
         private void CustomGoTo(AppScene targetScene, bool debugMode = false)
         {
-            if (debugMode || HasCustomTransitionTo(targetScene)) {
+            if (debugMode || HasCustomTransitionTo(targetScene))
+            {
                 Debug.LogFormat(" ---- NAV MANAGER ({0}) scene {1} to {2} ---- ", "CustomGoTo", NavData.CurrentScene, targetScene);
                 GoToScene(targetScene, debugMode: debugMode);
-            } else {
+            }
+            else
+            {
                 throw new Exception("Cannot go to " + targetScene + " from " + NavData.CurrentScene);
             }
         }
@@ -417,7 +450,8 @@ namespace Antura.Core
         {
             bool canTravel;
 
-            switch (NavData.CurrentScene) {
+            switch (NavData.CurrentScene)
+            {
                 // Normal flow
                 case AppScene.MiniGame:
                 case AppScene.GameSelector:
@@ -431,18 +465,24 @@ namespace Antura.Core
                     break;
             }
 
-            if (canTravel) {
+            if (canTravel)
+            {
                 GoToScene(AppScene.MiniGame, NavData.CurrentMiniGameData);
-            } else {
+            }
+            else
+            {
                 throw new Exception("Cannot go to a minigame from the current scene!");
             }
         }
 
         public bool PrevSceneIsReservedArea()
         {
-            if (NavData.PrevSceneStack != null && NavData.PrevSceneStack.Count > 0) {
+            if (NavData.PrevSceneStack != null && NavData.PrevSceneStack.Count > 0)
+            {
                 return NavData.PrevSceneStack.Peek() == AppScene.ReservedArea;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
@@ -461,7 +501,8 @@ namespace Antura.Core
         /// <param name="_stars">The stars.</param>
         public void EndMinigame(int _stars)
         {
-            if (NavData.CurrentMiniGameData == null) {
+            if (NavData.CurrentMiniGameData == null)
+            {
                 return;
             }
             var res = new EndsessionResultData(_stars, NavData.CurrentMiniGameData);
@@ -504,11 +545,13 @@ namespace Antura.Core
         public int CalculateEarnedStarsCount()
         {
             int totalEarnedStars = 0;
-            for (int i = 0; i < EndSessionResults.Count; i++) {
+            for (int i = 0; i < EndSessionResults.Count; i++)
+            {
                 totalEarnedStars += EndSessionResults[i].Stars;
             }
             int earnedStarsCount = 0;
-            if (EndSessionResults.Count > 0) {
+            if (EndSessionResults.Count > 0)
+            {
                 float starRatio = totalEarnedStars / EndSessionResults.Count;
                 // Prevent aproximation errors (0.99f must be == 1 but 0.7f must be == 0)
                 earnedStarsCount = starRatio - Mathf.CeilToInt(starRatio) < 0.0001f
@@ -542,9 +585,12 @@ namespace Antura.Core
             AppManager.I.Teacher.InitNewPlaySession();
             NavData.SetFirstMinigame();
 
-            if (NavData.IsJourneyPlaySession) {
+            if (NavData.IsJourneyPlaySession)
+            {
                 NavData.CurrentPlaySessionMiniGames = AppManager.I.Teacher.SelectMiniGames();
-            } else {
+            }
+            else
+            {
                 NavData.CurrentPlaySessionMiniGames = new List<MiniGameData>();
                 NavData.CurrentPlaySessionMiniGames.Add(dataToUse);
             }
@@ -558,13 +604,18 @@ namespace Antura.Core
 
             // From the map
             var jp = NavData.CurrentPlayer.CurrentJourneyPosition;
-            if (jp.IsEndGame()) {
+            if (jp.IsEndGame())
+            {
                 // Go to the end scene directly
                 GoToScene(AppScene.Ending);
-            } else if (jp.IsAssessment()) {
+            }
+            else if (jp.IsAssessment())
+            {
                 // Direct to the current minigame (which is an assessment)
                 InternalLaunchGameScene(NavData.CurrentMiniGameData);
-            } else {
+            }
+            else
+            {
                 // Show the games selector
                 GoToScene(AppScene.GameSelector);
             }
@@ -572,7 +623,8 @@ namespace Antura.Core
 
         private void GoToFirstGameOfPlaySession()
         {
-            if (TEST_SKIP_GAMES) {
+            if (TEST_SKIP_GAMES)
+            {
                 LogManager.I.EndMiniGame();
                 GoToScene(AppScene.PlaySessionResult);
                 return;
@@ -585,7 +637,8 @@ namespace Antura.Core
 
         private void GoToNextGameOfPlaySession()
         {
-            if (!NavData.IsJourneyPlaySession) {
+            if (!NavData.IsJourneyPlaySession)
+            {
                 //Debug.Log("Finished non-journey MiniGame");
                 GoBack();
                 return;
@@ -593,33 +646,45 @@ namespace Antura.Core
 
             // From one game to the next
             var jp = NavData.CurrentPlayer.CurrentJourneyPosition;
-            if (jp.IsAssessment()) {
-                if (AppManager.I.JourneyHelper.PlayerIsAtFinalJourneyPosition()) {
+            if (jp.IsAssessment())
+            {
+                if (AppManager.I.JourneyHelper.PlayerIsAtFinalJourneyPosition())
+                {
                     // We finished the whole game: unlock the end scene
-                    if (!AppManager.I.Player.HasFinalBeenShown()) {
+                    if (!AppManager.I.Player.HasFinalBeenShown())
+                    {
                         AppManager.I.Player.SetGameCompleted();
                     }
                 }
 
                 // We finished an assessment.
-                if (AppManager.I.RewardSystemManager.AreAllJourneyPositionRewardsAlreadyUnlocked(NavData.CurrentPlayer.CurrentJourneyPosition)) {
+                if (AppManager.I.RewardSystemManager.AreAllJourneyPositionRewardsAlreadyUnlocked(NavData.CurrentPlayer.CurrentJourneyPosition))
+                {
                     // Security Check (issue #475): if the reward for the current PS has already been unlocked
                     // we must be sure that the player is not on the most advanced PS, otherwise he/she would be stuck
                     // so we Increment MaxJourneyPosition to let him/her progress
-                    if (NavData.CurrentPlayer.CurrentJourneyPosition.Equals(NavData.CurrentPlayer.MaxJourneyPosition)) {
+                    if (NavData.CurrentPlayer.CurrentJourneyPosition.Equals(NavData.CurrentPlayer.MaxJourneyPosition))
+                    {
                         // wrong MaxJourneyPosition...
                         AppManager.I.Player.AdvanceMaxJourneyPosition();
                     }
                     GoToScene(AppScene.Map);
-                } else {
+                }
+                else
+                {
                     GoToScene(AppScene.Rewards);
                 }
-            } else {
+            }
+            else
+            {
                 // Not an assessment. Do we have any more?
-                if (NavData.SetNextMinigame()) {
+                if (NavData.SetNextMinigame())
+                {
                     // Go to the next minigame.
                     InternalLaunchGameScene(NavData.CurrentMiniGameData);
-                } else {
+                }
+                else
+                {
                     // Go to the reward scene.
                     GoToScene(AppScene.PlaySessionResult);
                 }
@@ -628,7 +693,8 @@ namespace Antura.Core
 
         public void RepeatCurrentGameOfPlaySession()
         {
-            if (GetCurrentScene() != AppScene.MiniGame) return;
+            if (GetCurrentScene() != AppScene.MiniGame)
+                return;
 
             // Just repeat the minigame as if nothing happened.
             InternalLaunchGameScene(NavData.CurrentMiniGameData, useLastConfig: true);

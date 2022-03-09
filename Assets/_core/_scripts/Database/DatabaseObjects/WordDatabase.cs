@@ -3,7 +3,7 @@ using UnityEngine;
 namespace Antura.Database
 {
     /// <summary>
-    /// Custom asset container for WordData. 
+    /// Custom asset container for WordData.
     /// </summary>
     public class WordDatabase : AbstractDatabase
     {

@@ -12,7 +12,7 @@ namespace Antura.Minigames.FastCrowd
         public DropAreaWidget dropContainer;
         public FastCrowdLetterCrowd crowd;
         public WordComposer wordComposer;
-        
+
         void Start()
         {
             dropContainer.OnComplete += OnContainerComplete;
@@ -44,7 +44,7 @@ namespace Antura.Minigames.FastCrowd
         public void StartQuestion(List<ILivingLetterData> nextChallenge, List<ILivingLetterData> wrongAnswers)
         {
             Clean();
-            
+
             for (int i = 0; i < nextChallenge.Count; ++i)
             {
                 var correctAnswer = nextChallenge[i];

@@ -15,7 +15,7 @@ namespace Antura.Minigames.FastCrowd
         Vector3 rayOffset;
         bool isDragging = false;
         float currentY = 0;
-    
+
         float overrideDirectionY;
         bool hasValidY = false;
 

@@ -53,7 +53,7 @@ namespace Antura.Teacher
                 // - start from performance = 0
                 // - get last N scores for the minigame
                 // - a score of 0 diminishes the performance
-                // - a score of 1 does not change it 
+                // - a score of 1 does not change it
                 // - a score of 2 or 3 increases it
 
                 // Query on last X minigame logged scores

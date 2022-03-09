@@ -24,7 +24,8 @@ namespace Antura.Assessment
         public void EnableDragOnly()
         {
             dragOnly = true;
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 a.Enable();
             }
         }
@@ -52,11 +53,13 @@ namespace Antura.Assessment
 
             this.positions = new Vector3[positions.Length];
 
-            for (int i = 0; i < positions.Length; i++) {
+            for (int i = 0; i < positions.Length; i++)
+            {
                 this.positions[i] = positions[i].transform.localPosition;
             }
             sortables = new SortableBehaviour[positions.Length];
-            for (int i = 0; i < sortables.Length; i++) {
+            for (int i = 0; i < sortables.Length; i++)
+            {
                 sortables[i] = null;
             }
 
@@ -67,7 +70,8 @@ namespace Antura.Assessment
         {
             var list = new List<SortableBehaviour>();
 
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 var droppable = a.gameObject.AddComponent<SortableBehaviour>();
                 droppable.SetDragManager(this);
                 list.Add(droppable);
@@ -82,7 +86,8 @@ namespace Antura.Assessment
 
             // NDMichele: playing question as we finish dragging
             var question = GameObject.FindObjectOfType<QuestionBehaviour>();
-            if (question != null) question.ReadMeSound();
+            if (question != null)
+                question.ReadMeSound();
 
             yield return Wait.For(0.4f);
             widget.Show(true);
@@ -91,10 +96,12 @@ namespace Antura.Assessment
 
         public bool AllAnswered()
         {
-            if (dragOnly || objectFlying || returnedAllAnswered) {
+            if (dragOnly || objectFlying || returnedAllAnswered)
+            {
                 return false; // When antura is animating we should not complete the assessment
             }
-            if (sortables == null) {
+            if (sortables == null)
+            {
                 return false;
             }
 
@@ -107,7 +114,8 @@ namespace Antura.Assessment
                 sorted = sorted.Reverse().ToArray();
 
             int index = 0;
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 answerSorted[index] = sorted[index].gameObject.GetComponent<Answer>();
                 index++;
             }
@@ -115,9 +123,11 @@ namespace Antura.Assessment
             // Answers sorted by ticket
             answer = answerSorted.OrderBy(a => a.GetTicket()).ToArray();
 
-            for (int i = 0; i < answer.Length; i++) {
+            for (int i = 0; i < answer.Length; i++)
+            {
                 //If sorted version has letter forms in wrong positions we know we didn't find solution
-                if (answer[i].Equals(answerSorted[i]) == false) {
+                if (answer[i].Equals(answerSorted[i]) == false)
+                {
                     return false;
                 }
             }
@@ -144,7 +154,8 @@ namespace Antura.Assessment
         // ALL NEEDED EVENTS ARE HERE
         public void StartDragging(IDroppable droppable)
         {
-            if (this.droppable != null) {
+            if (this.droppable != null)
+            {
                 return;
             }
 
@@ -164,7 +175,8 @@ namespace Antura.Assessment
         public void StopDragging(IDroppable droppable)
         {
             objectFlying = false;
-            if (this.droppable == droppable && droppable != null) {
+            if (this.droppable == droppable && droppable != null)
+            {
                 audioManager.PlayUIPopup();
 
                 RemoveFromUpdate();
@@ -177,11 +189,13 @@ namespace Antura.Assessment
 
         public void Update(float deltaTime)
         {
-            if (searchForBuckets) {
+            if (searchForBuckets)
+            {
                 FindBuckets();
             }
 
-            if (droppable != null) {
+            if (droppable != null)
+            {
                 var pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
                 pos.z = 5;
                 droppable.GetTransform().localPosition = pos;
@@ -192,19 +206,23 @@ namespace Antura.Assessment
 
         private void MoveStuffToPosition()
         {
-            if (sortables == null) {
+            if (sortables == null)
+            {
                 return;
             }
 
-            if (returnedAllAnswered) {
+            if (returnedAllAnswered)
+            {
                 return;
             }
 
             sortables = answers.OrderByDescending(x => x.transform.position.x).ToArray();
-            for (int i = 0; i < sortables.Length; i++) {
+            for (int i = 0; i < sortables.Length; i++)
+            {
                 var s = sortables[i];
                 //DO NOT TWEEN THE OBJECT WE ARE DRAGGIN
-                if ((s as IDroppable) != droppable) {
+                if ((s as IDroppable) != droppable)
+                {
                     s.SetSortIndex(i);
                     s.Move(positions[i], 0.3f);
                 }
@@ -213,14 +231,16 @@ namespace Antura.Assessment
 
         public void DisableInput()
         {
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 a.Disable();
             }
         }
 
         public void EnableInput()
         {
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 a.Enable();
             }
         }
@@ -228,7 +248,8 @@ namespace Antura.Assessment
         public void RemoveDraggables()
         {
             dragOnly = true;
-            if (droppable != null) {
+            if (droppable != null)
+            {
                 droppable.StopDrag();
                 droppable = null;
             }

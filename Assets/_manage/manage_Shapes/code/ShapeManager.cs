@@ -23,10 +23,12 @@ public class ShapeManager : MonoBehaviour
 
     IEnumerator Start()
     {
-        while (!AppManager.I.Loaded) yield return null;
+        while (!AppManager.I.Loaded)
+            yield return null;
         GlobalUI.I.gameObject.SetActive(false);
         var letters = AppManager.I.DB.GetAllLetterData();
-        for (var i = 0; i < letters.Count; i++) {
+        for (var i = 0; i < letters.Count; i++)
+        {
             var letter = letters[i];
             int x = i % 10 * 15;
             int y = i / 10 * 15;
@@ -50,7 +52,8 @@ public class ShapeManager : MonoBehaviour
     private void LoadLetter(LetterData _letter, Vector2 pos = default)
     {
         var letterData = _letter;
-        if (letterData == null) return;
+        if (letterData == null)
+            return;
 
         var el = Instantiate(DataPrefab, DataPrefab.transform.parent);
         el.transform.localPosition = pos;
@@ -66,7 +69,8 @@ public class ShapeManager : MonoBehaviour
         var assetPath = $"Assets/_lang_bundles/{lang}/ShapeData/Letters/shapedata_{letterData.Id}.asset";
 
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData.Id);
-        if (shapeData == null) {
+        if (shapeData == null)
+        {
 #if UNITY_EDITOR
             // Generate it
             shapeData = ScriptableObject.CreateInstance<ShapeLetterData>();
@@ -97,17 +101,21 @@ public class ShapeManager : MonoBehaviour
     public static void LoadPointsOn(GameObject pivot, Vector2[] points)
     {
         var nPoints = points?.Length ?? 0;
-        if (points == null) return;
+        if (points == null)
+            return;
         var items = pivot.GetComponentsInChildren<MeshFilter>().ToList();
-        while (items.Count < nPoints) {
+        while (items.Count < nPoints)
+        {
             var newItem = Instantiate(items[0], items[0].transform.parent);
             items.Add(newItem);
         }
-        for (int i = 0; i < nPoints; i++) {
+        for (int i = 0; i < nPoints; i++)
+        {
             items[i].gameObject.SetActive(true);
             items[i].transform.localPosition = points[i];
         }
-        for (int i = nPoints; i < items.Count; i++) {
+        for (int i = nPoints; i < items.Count; i++)
+        {
             items[i].gameObject.SetActive(false);
         }
     }
@@ -115,17 +123,21 @@ public class ShapeManager : MonoBehaviour
     public static void LoadSplinesOn(GameObject pivot, Stroke[] strokes)
     {
         var nStrokes = strokes?.Length ?? 0;
-        if (strokes == null) return;
+        if (strokes == null)
+            return;
         var controllers = pivot.GetComponentsInChildren<SpriteShapeController>().ToList();
-        while (controllers.Count < nStrokes) {
+        while (controllers.Count < nStrokes)
+        {
             var newController = Instantiate(controllers[0], controllers[0].transform.parent);
             controllers.Add(newController);
         }
-        for (int i = 0; i < nStrokes; i++) {
+        for (int i = 0; i < nStrokes; i++)
+        {
             controllers[i].gameObject.SetActive(true);
             CopySpline(strokes[i].Spline, controllers[i].spline);
         }
-        for (int i = nStrokes; i < controllers.Count; i++) {
+        for (int i = nStrokes; i < controllers.Count; i++)
+        {
             controllers[i].gameObject.SetActive(false);
         }
     }
@@ -134,7 +146,8 @@ public class ShapeManager : MonoBehaviour
     {
         toSp.Clear();
         toSp.isOpenEnded = fromSp.isOpenEnded;
-        for (int j = 0; j < fromSp.GetPointCount(); j++) {
+        for (int j = 0; j < fromSp.GetPointCount(); j++)
+        {
             toSp.InsertPointAt(j, fromSp.GetPosition(j));
             toSp.SetTangentMode(j, fromSp.GetTangentMode(j));
             toSp.SetLeftTangent(j, fromSp.GetLeftTangent(j));
@@ -149,7 +162,8 @@ public class ShapeManager : MonoBehaviour
     public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float start, float scale = 1f)
     {
         var gos = new List<GameObject>();
-        for (var iStroke = 0; iStroke < strokes.Length; iStroke++) {
+        for (var iStroke = 0; iStroke < strokes.Length; iStroke++)
+        {
             var stroke = strokes[iStroke];
             var pivot = new GameObject($"{prefab.name}_stroke_{iStroke}");
             pivot.transform.SetParent(parent);
@@ -161,7 +175,8 @@ public class ShapeManager : MonoBehaviour
             var t = start;
             int seq = 0;
             GameObject go;
-            while (t < 1f * n) {
+            while (t < 1f * n)
+            {
                 go = SpawnAt(prefab, pivot, stroke.Spline, t, scale);
                 go.name = $"{prefab.name}_{iStroke}_{(seq)}";
                 gos.Add(go);
@@ -196,8 +211,10 @@ public class ShapeManager : MonoBehaviour
     {
         var n = spline.GetPointCount();
         int iPoint = Mathf.FloorToInt(t);
-        if (iPoint < 0) return spline.GetPosition(0);
-        if (iPoint >= n - 1) return spline.GetPosition(n - 1);
+        if (iPoint < 0)
+            return spline.GetPosition(0);
+        if (iPoint >= n - 1)
+            return spline.GetPosition(n - 1);
         var t_in = t % 1;
         var p0 = spline.GetPosition(iPoint);
         var p1 = spline.GetPosition(iPoint + 1);
@@ -218,8 +235,10 @@ public class ShapeManager : MonoBehaviour
     {
         var n = spline.GetPointCount();
         int iPoint = Mathf.FloorToInt(t);
-        if (iPoint < 0) return spline.GetRightTangent(0);
-        if (iPoint >= n - 1) return -spline.GetLeftTangent(iPoint); // Inverted left tangent, as it goes out
+        if (iPoint < 0)
+            return spline.GetRightTangent(0);
+        if (iPoint >= n - 1)
+            return -spline.GetLeftTangent(iPoint); // Inverted left tangent, as it goes out
         var t_in = t % 1;
         var p0 = spline.GetPosition(iPoint);
         var p1 = spline.GetPosition(iPoint + 1);
@@ -237,12 +256,16 @@ public class ShapeManager : MonoBehaviour
     public static void FlattenSpline(Spline spline)
     {
         var n = spline.GetPointCount();
-        for (int i = 0; i < n; i++) {
-            var pos = spline.GetPosition(i); pos.z = 0;
+        for (int i = 0; i < n; i++)
+        {
+            var pos = spline.GetPosition(i);
+            pos.z = 0;
             spline.SetPosition(i, pos);
-            pos = spline.GetRightTangent(i); pos.z = 0;
+            pos = spline.GetRightTangent(i);
+            pos.z = 0;
             spline.SetRightTangent(i, pos);
-            pos = spline.GetLeftTangent(i); pos.z = 0;
+            pos = spline.GetLeftTangent(i);
+            pos.z = 0;
             spline.SetLeftTangent(i, pos);
         }
     }

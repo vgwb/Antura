@@ -64,11 +64,12 @@ namespace Antura.Database
             if (_LocalizedDatas == null)
             {
                 Debug.LogWarning($"No LocalizedData found for ID {Id}");
-                return new LocalizedData($"ERROR {Id}",$"ERROR {Id}");
+                return new LocalizedData($"ERROR {Id}", $"ERROR {Id}");
             }
 
             // We force Text data to use the shared arabic text
-            if (lang == LanguageCode.arabic_legacy) lang = LanguageCode.arabic;
+            if (lang == LanguageCode.arabic_legacy)
+                lang = LanguageCode.arabic;
 
             return _LocalizedDatas[(int)lang - 1];
         }
@@ -110,7 +111,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.ContentEdition.NativeLanguage;
+                var lang = AppManager.I.ContentEdition.NativeLanguage;
                 return GetLocalized(lang).TextF;
             }
         }
@@ -119,7 +120,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.ContentEdition.LearningLanguage;
+                var lang = AppManager.I.ContentEdition.LearningLanguage;
                 return GetLocalized(lang).Text;
             }
         }
@@ -128,7 +129,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang =  AppManager.I.ContentEdition.LearningLanguage;
+                var lang = AppManager.I.ContentEdition.LearningLanguage;
                 return GetLocalized(lang).TextF;
             }
         }
@@ -147,7 +148,8 @@ namespace Antura.Database
 
         public string GetLocalizedAudioFileName(PlayerGender playerGender)
         {
-            if (playerGender == PlayerGender.F && AudioKey != string.Empty) {
+            if (playerGender == PlayerGender.F && AudioKey != string.Empty)
+            {
                 return AudioKey + "_F";
             }
             return AudioKey;
@@ -155,7 +157,8 @@ namespace Antura.Database
 
         public string GetLearningText(PlayerGender playerGender)
         {
-            if (playerGender == PlayerGender.F && LearningText_F != string.Empty) {
+            if (playerGender == PlayerGender.F && LearningText_F != string.Empty)
+            {
                 return LearningText_F;
             }
             return LearningText;

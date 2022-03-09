@@ -28,9 +28,12 @@ namespace Antura.Helpers
 
         public static string ReverseText(string _source)
         {
-            if (_source.Contains('\n')) {
+            if (_source.Contains('\n'))
+            {
                 return ReverseMultiParagraphText(_source);
-            } else {
+            }
+            else
+            {
                 return ReverseSingleParagraphText(_source);
             }
         }
@@ -44,7 +47,8 @@ namespace Antura.Helpers
         {
             var cArray = _source.ToCharArray();
             var reverse = String.Empty;
-            for (var i = cArray.Length - 1; i > -1; i--) {
+            for (var i = cArray.Length - 1; i > -1; i--)
+            {
                 reverse += cArray[i];
             }
             return reverse;
@@ -60,7 +64,8 @@ namespace Antura.Helpers
             char[] split = { '\n' };
             string[] paragraphs = _source.Split(split);
             string result = "";
-            foreach (string paragraph in paragraphs) {
+            foreach (string paragraph in paragraphs)
+            {
                 result += ReverseSingleParagraphText(paragraph);
                 result += "\n";
             }
@@ -116,7 +121,8 @@ namespace Antura.Helpers
         {
             int layerIndex = 0;
             int layer = _mask.value;
-            while (layer > 1) {
+            while (layer > 1)
+            {
                 layer = layer >> 1;
                 layerIndex++;
             }
@@ -137,7 +143,8 @@ namespace Antura.Helpers
             byte g = Byte.Parse(_hex.Substring(2, 2), NumberStyles.HexNumber);
             byte b = Byte.Parse(_hex.Substring(4, 2), NumberStyles.HexNumber);
             // Only use alpha if the string has enough characters
-            if (_hex.Length == 8) a = Byte.Parse(_hex.Substring(4, 2), NumberStyles.HexNumber);
+            if (_hex.Length == 8)
+                a = Byte.Parse(_hex.Substring(4, 2), NumberStyles.HexNumber);
             return new Color32(r, g, b, a);
         }
 
@@ -151,7 +158,8 @@ namespace Antura.Helpers
         public static Color GetColorFromString(string color)
         {
             Color drawingColor;
-            switch (color) {
+            switch (color)
+            {
                 case "blue":
                     drawingColor = Color.blue;
                     break;

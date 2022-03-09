@@ -19,7 +19,7 @@ namespace Antura.AnturaSpace
 
         private ShopAction shopAction;
 
-        public ShopAction ShopAction {  get { return shopAction; } }
+        public ShopAction ShopAction { get { return shopAction; } }
 
         public void SetAction(ShopAction shopAction)
         {
@@ -53,11 +53,11 @@ namespace Antura.AnturaSpace
 
         public void OnClick()
         {
-            if (AnturaSpaceScene.I.TutorialMode 
+            if (AnturaSpaceScene.I.TutorialMode
                 && AnturaSpaceScene.I.tutorialManager.CurrentTutorialFocus != this)
                 return;
 
-            if (( ShopDecorationsManager.I.ShopContext == ShopContext.Purchase || shopAction.CanPurchaseAnywhere)
+            if ((ShopDecorationsManager.I.ShopContext == ShopContext.Purchase || shopAction.CanPurchaseAnywhere)
                 && shopAction.IsClickButton)
             {
                 if (!shopAction.IsLocked)
@@ -100,7 +100,8 @@ namespace Antura.AnturaSpace
         public void OnDrag(PointerEventData eventData)
         {
             // Push the drag action to the scroll rect too
-            if (scrollRect != null) scrollRect.OnDrag(eventData);
+            if (scrollRect != null)
+                scrollRect.OnDrag(eventData);
 
             if (AnturaSpaceScene.I.TutorialMode
                 && AnturaSpaceScene.I.tutorialManager.CurrentTutorialFocus != this)
@@ -129,7 +130,8 @@ namespace Antura.AnturaSpace
 
         void ErrorFeedback()
         {
-            if (errorAlreadyPlayed) return;
+            if (errorAlreadyPlayed)
+                return;
             errorAlreadyPlayed = true;
 
             AudioManager.I.PlaySound(Sfx.KO);

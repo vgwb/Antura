@@ -32,7 +32,8 @@ namespace Antura.LivingLetters
             if (playSound)
             {
                 var soundType = LetterDataSoundType.Phoneme;
-                if (AppManager.I.ContentEdition.PlayNameSoundWithForms) soundType = LetterDataSoundType.Name;
+                if (AppManager.I.ContentEdition.PlayNameSoundWithForms)
+                    soundType = LetterDataSoundType.Name;
                 AudioManager.I.PlayLetter(letter.Data, true, soundType);
             }
         }

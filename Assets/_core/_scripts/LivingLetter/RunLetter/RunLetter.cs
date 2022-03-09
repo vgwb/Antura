@@ -60,9 +60,11 @@ namespace Antura.Minigames
 
             float delay = UnityEngine.Random.Range(4f, 8f);
 
-            Rotate(nextRotation, 0.2f, delay, delegate () {
+            Rotate(nextRotation, 0.2f, delay, delegate ()
+            {
                 PlayRunAnimation();
-                Move(nextPosition, moveTime, 0.2f, delegate () {
+                Move(nextPosition, moveTime, 0.2f, delegate ()
+                {
                     PlayIdleAnimation();
 
                     Rotate(lookCamera, 0.2f, 0f, Run);
@@ -92,18 +94,22 @@ namespace Antura.Minigames
         {
             moveCallback = callback;
 
-            if (moveTweener != null) { moveTweener.Kill(); }
+            if (moveTweener != null)
+            { moveTweener.Kill(); }
 
-            moveTweener = letterObject.transform.DOMove(position, duration).OnComplete(delegate () { if (moveCallback != null) { moveCallback(); } }).SetDelay(delay);
+            moveTweener = letterObject.transform.DOMove(position, duration).OnComplete(delegate ()
+            { if (moveCallback != null) { moveCallback(); } }).SetDelay(delay);
         }
 
         void Rotate(Vector3 eulerAngle, float duration, float delay, Action callback)
         {
             rotationCallback = callback;
 
-            if (rotationTweener != null) { rotationTweener.Kill(); }
+            if (rotationTweener != null)
+            { rotationTweener.Kill(); }
 
-            rotationTweener = letterObject.transform.DORotate(eulerAngle, duration).OnComplete(delegate () { if (rotationCallback != null) { rotationCallback(); } }).SetDelay(delay);
+            rotationTweener = letterObject.transform.DORotate(eulerAngle, duration).OnComplete(delegate ()
+            { if (rotationCallback != null) { rotationCallback(); } }).SetDelay(delay);
         }
 
         void PlayIdleAnimation()

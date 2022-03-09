@@ -237,7 +237,8 @@ namespace Antura.Minigames.Balloons
 
         public void Play(bool advanceRound)
         {
-            if (advanceRound) currentRound++;
+            if (advanceRound)
+                currentRound++;
             if (currentRound <= numberOfRounds)
             {
                 StartNewRound();
@@ -1243,7 +1244,8 @@ namespace Antura.Minigames.Balloons
         private bool alreadyClicked = false;
         private void ProcessRoundResult(Result result)
         {
-            if (alreadyClicked) return;
+            if (alreadyClicked)
+                return;
             alreadyClicked = true;
             bool win = false;
 
@@ -1309,7 +1311,7 @@ namespace Antura.Minigames.Balloons
                 //yield return new WaitForSeconds(winSpeakWordDelay);
                 if (question != null)
                 {
-                    AudioManager.PlayVocabularyData(question, soundType:BalloonsConfiguration.Instance.GetVocabularySoundType());
+                    AudioManager.PlayVocabularyData(question, soundType: BalloonsConfiguration.Instance.GetVocabularySoundType());
                 }
 
                 var resumePlayingDelay = 1.5f;
@@ -1381,11 +1383,11 @@ namespace Antura.Minigames.Balloons
         {
             if (BalloonsConfiguration.Instance.Variation == BalloonsVariation.Counting)
             {
-                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(correctAnswers[countingIndex], soundType:BalloonsConfiguration.Instance.GetVocabularySoundType());
+                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(correctAnswers[countingIndex], soundType: BalloonsConfiguration.Instance.GetVocabularySoundType());
             }
             else
             {
-                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, soundType:BalloonsConfiguration.Instance.GetVocabularySoundType());
+                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question, soundType: BalloonsConfiguration.Instance.GetVocabularySoundType());
             }
         }
 

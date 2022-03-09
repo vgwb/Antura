@@ -26,8 +26,10 @@ namespace Antura.AnturaSpace
 
         public override bool IsLocked
         {
-            get {
-                if (base.IsLocked) {
+            get
+            {
+                if (base.IsLocked)
+                {
                     return true;
                 }
                 return false;

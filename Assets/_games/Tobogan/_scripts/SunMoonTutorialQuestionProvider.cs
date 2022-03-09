@@ -45,7 +45,7 @@ namespace Antura.Minigames.Tobogan
                 var correctImages = correct.ToArray();
                 var wrongImages = wrong.ToArray();
 
-                for (int i=0; i< correctImages.Length; ++i)
+                for (int i = 0; i < correctImages.Length; ++i)
                     correctImages[i] = new LL_ImageData(correctImages[i].Id);
 
                 for (int i = 0; i < wrongImages.Length; ++i)

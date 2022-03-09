@@ -8,8 +8,10 @@ namespace Antura.UI
 
         public RectTransform RectTransform
         {
-            get {
-                if (rt == null) { rt = this.GetComponent<RectTransform>(); }
+            get
+            {
+                if (rt == null)
+                { rt = this.GetComponent<RectTransform>(); }
                 return rt;
             }
         }
@@ -21,7 +23,8 @@ namespace Antura.UI
         // Returns TRUE if the setup was correctly called, otherwise returns FALSE and dispatches a log warning
         protected bool Validate(string _caller)
         {
-            if (IsSetup) return true;
+            if (IsSetup)
+                return true;
             Debug.LogWarning(_caller + " ► you didn't Setup this (call the Setup method first)");
             return false;
         }

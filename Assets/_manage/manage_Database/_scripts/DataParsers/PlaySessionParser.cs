@@ -43,11 +43,13 @@ namespace Antura.Database.Management
             List<string> foundIDs = new List<string>();
 
             var array = array_string.Split(',');
-            if (array_string == string.Empty) return Array.Empty<string>();
+            if (array_string == string.Empty)
+                return Array.Empty<string>();
             for (int i = 0; i < array.Length; i++)
             {
                 array[i] = array[i].Trim(); // remove spaces
-                if (array[i] == "▲") array[i] = " ";
+                if (array[i] == "▲")
+                    array[i] = " ";
 
                 var dataValues = table.GetValues();
                 foreach (var value in dataValues)
@@ -73,11 +75,14 @@ namespace Antura.Database.Management
             // Make sure to also add all combos, if a symbol is found
             HashSet<string> newLetters = new HashSet<string>();
             newLetters.UnionWith(psData.Letters);
-            foreach (var _letterId in psData.Letters) {
+            foreach (var _letterId in psData.Letters)
+            {
                 var letterId = _letterId;
-                if (letterId == "▲") letterId = " ";
+                if (letterId == "▲")
+                    letterId = " ";
                 var letterData = db.GetById(db.GetLetterTable(), letterId);
-                if (letterData.Kind == LetterDataKind.Symbol && letterData.Type == LetterDataType.DiacriticSymbol) {
+                if (letterData.Kind == LetterDataKind.Symbol && letterData.Type == LetterDataType.DiacriticSymbol)
+                {
                     // this is a symbol
                     var symbolId = letterId;
                     var allDiacriticCombos = db.FindAll(db.GetLetterTable(), x => x.Symbol == symbolId);
@@ -93,11 +98,13 @@ namespace Antura.Database.Management
         {
             var list = new List<MiniGameInPlaySession>();
 
-            if (PSdata.Type == "Assessment") {
+            if (PSdata.Type == "Assessment")
+            {
                 // Assessments have AssessmentType as their minigame
                 var minigameStruct = new MiniGameInPlaySession();
                 var assessmentType = ToString(dict["AssessmentType"]);
-                if (assessmentType == "") {
+                if (assessmentType == "")
+                {
                     Debug.LogWarning(PSdata.GetType() + " could not find AssessmentType for assessment " + PSdata.Id);
                     return list.ToArray(); // this means that no assessment type has been selected
                 }
@@ -105,28 +112,36 @@ namespace Antura.Database.Management
                 minigameStruct.Weight = 1;  // weight is forced to be 1
 
                 list.Add(minigameStruct);
-            } else {
+            }
+            else
+            {
                 // Non-Assessments (i.e. Minigames) must be checked through columns
-                for (int enum_i = 0; enum_i < System.Enum.GetValues(typeof(MiniGameCode)).Length; enum_i++) {
-                    if ((MiniGameCode)enum_i == MiniGameCode.Invalid) {
+                for (int enum_i = 0; enum_i < System.Enum.GetValues(typeof(MiniGameCode)).Length; enum_i++)
+                {
+                    if ((MiniGameCode)enum_i == MiniGameCode.Invalid)
+                    {
                         continue;
                     }
 
                     var enum_string = ((MiniGameCode)enum_i).ToString();
                     int result = 0;
 
-                    if (enum_string == "") {
+                    if (enum_string == "")
+                    {
                         // this means that the enum does not exist
                         continue;
                     }
-                    if (int.TryParse(enum_string, out result)) {
+                    if (int.TryParse(enum_string, out result))
+                    {
                         // this means that the enum does not exist among the ones we want
                         continue;
                     }
 
                     // this checks if a minigame isn't used in the PlaySession table
-                    if (!dict.ContainsKey(enum_string)) {
-                        if (!notFoundCodes.Contains((MiniGameCode)enum_i)) {
+                    if (!dict.ContainsKey(enum_string))
+                    {
+                        if (!notFoundCodes.Contains((MiniGameCode)enum_i))
+                        {
                             //                           Debug.LogWarning(PSdata.GetType() + " could not find minigame column for " + enum_string);
                             notFoundCodes.Add((MiniGameCode)enum_i);
                         }
@@ -137,7 +152,8 @@ namespace Antura.Database.Management
                     minigameStruct.MiniGameCode = (MiniGameCode)enum_i;
                     // Debug.Log("mingame: " + enum_string);
                     minigameStruct.Weight = ToInt(dict[enum_string]);
-                    if (minigameStruct.Weight == 0) {
+                    if (minigameStruct.Weight == 0)
+                    {
                         // Skip adding if the weight is zero
                         continue;
                     }

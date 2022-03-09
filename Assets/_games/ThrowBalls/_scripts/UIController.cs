@@ -52,7 +52,8 @@ namespace Antura.Minigames.ThrowBalls
 
         public void OnLetterHintClicked()
         {
-            if (livingLetterData != null && ThrowBallsGame.instance.GameState.isRoundOngoing) { 
+            if (livingLetterData != null && ThrowBallsGame.instance.GameState.isRoundOngoing)
+            {
                 ThrowBallsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(
                     livingLetterData, true, soundType: ThrowBallsConfiguration.Instance.GetVocabularySoundType()
                 );
@@ -98,7 +99,8 @@ namespace Antura.Minigames.ThrowBalls
             float crackFadeStartTime = Time.time;
             float sinFactor = 2 * Mathf.PI * Mathf.Pow(CRACK_FADE_DURATION, -1);
 
-            while (crackImageColor.a > 0) {
+            while (crackImageColor.a > 0)
+            {
                 crackImageColor.a = Mathf.Cos(sinFactor * (Time.time - crackFadeStartTime));
                 crackImage.color = crackImageColor;
 

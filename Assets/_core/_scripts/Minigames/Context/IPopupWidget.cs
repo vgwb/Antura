@@ -19,7 +19,7 @@ namespace Antura.Minigames
         void SetMessage(Database.LocalizationDataId text);
         void SetMessage(string text);
         void SetImage(Sprite image);
-        void SetLetterData(ILivingLetterData data); // Modifies Text + Image      
+        void SetLetterData(ILivingLetterData data); // Modifies Text + Image
         void SetMark(bool visible, bool correct);
 
         void Hide();

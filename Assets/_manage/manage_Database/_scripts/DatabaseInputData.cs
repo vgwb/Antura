@@ -19,14 +19,22 @@ namespace Antura.Database.Management
 
         public bool AllDataIsSet()
         {
-            if (minigameDataAsset == null) return false;
-            if (letterDataAsset == null) return false;
-            if (wordDataAsset == null) return false;
-            if (playSessionDataAsset == null) return false;
-            if (localizationDataAsset == null) return false;
-            if (phraseDataAsset == null) return false;
-            if (stageDataAsset == null) return false;
-            if (rewardDataAsset == null) return false;
+            if (minigameDataAsset == null)
+                return false;
+            if (letterDataAsset == null)
+                return false;
+            if (wordDataAsset == null)
+                return false;
+            if (playSessionDataAsset == null)
+                return false;
+            if (localizationDataAsset == null)
+                return false;
+            if (phraseDataAsset == null)
+                return false;
+            if (stageDataAsset == null)
+                return false;
+            if (rewardDataAsset == null)
+                return false;
             return true;
         }
     }

@@ -19,10 +19,13 @@ namespace Antura.EditorUtilities
         Renderer rend;
         void Update()
         {
-            if (Application.isPlaying) { return; }
+            if (Application.isPlaying)
+            { return; }
 
-            if (rend == null) { rend = this.GetComponent<Renderer>(); }
-            if (rend.sortingOrder != SortingOrder) { rend.sortingOrder = SortingOrder; }
+            if (rend == null)
+            { rend = this.GetComponent<Renderer>(); }
+            if (rend.sortingOrder != SortingOrder)
+            { rend.sortingOrder = SortingOrder; }
         }
 #endif
     }

@@ -48,7 +48,7 @@ namespace Antura.Language
         public List<DiacriticEntryKey> Keys = new List<DiacriticEntryKey>();
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
 
 
     [CustomEditor(typeof(DiacriticsComboData))]
@@ -88,25 +88,29 @@ namespace Antura.Language
             {
                 data.page -= 10;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
-                if (data.page < 0) data.page += maxPage;
+                if (data.page < 0)
+                    data.page += maxPage;
             };
             if (GUILayout.Button("<"))
             {
                 data.page -= 1;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
-                if (data.page < 0) data.page = maxPage;
+                if (data.page < 0)
+                    data.page = maxPage;
             };
             if (GUILayout.Button(">"))
             {
                 data.page += 1;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
-                if (data.page > maxPage) data.page = 0;
+                if (data.page > maxPage)
+                    data.page = 0;
             };
             if (GUILayout.Button("> 10"))
             {
                 data.page += 10;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
-                if (data.page > maxPage) data.page -= maxPage;
+                if (data.page > maxPage)
+                    data.page -= maxPage;
             };
 
             GUILayout.EndHorizontal();
@@ -175,8 +179,10 @@ namespace Antura.Language
                 {
                     var intValue = (int)new System.ComponentModel.Int32Converter().ConvertFromString($"0x{unicode}");
                     var isDiacritic = intValue >= 0x064E && intValue <= 0x0655;
-                    if (isDiacritic) unicode = $@" \u{unicode}";
-                    else unicode = $@"\u{unicode}";
+                    if (isDiacritic)
+                        unicode = $@" \u{unicode}";
+                    else
+                        unicode = $@"\u{unicode}";
                     letter = System.Text.RegularExpressions.Regex.Unescape(unicode);
                 }
                 catch (Exception)
@@ -197,16 +203,16 @@ namespace Antura.Language
             // - about the object itself, if the object is not inside the array or list;
 
             // We need to handle both situations.
-            if (((IList) @object.GetType().GetInterfaces()).Contains(typeof(IList<T>)))
+            if (((IList)@object.GetType().GetInterfaces()).Contains(typeof(IList<T>)))
             {
                 var start = property.propertyPath.LastIndexOf('[');
                 var end = property.propertyPath.LastIndexOf(']');
                 int propertyIndex = int.Parse(property.propertyPath.Substring(start + 1, end - start - 1));
-                return ((IList<T>) @object)[propertyIndex];
+                return ((IList<T>)@object)[propertyIndex];
             }
             else
             {
-                return (T) @object;
+                return (T)@object;
             }
         }
     }
@@ -236,9 +242,10 @@ namespace Antura.Language
                 var end = property.propertyPath.LastIndexOf(']');
                 int propertyIndex = int.Parse(property.propertyPath.Substring(start + 1, end - start - 1));
 
-                return ((IList<T>) @object)[propertyIndex];
+                return ((IList<T>)@object)[propertyIndex];
             }
-            else return (T) @object;
+            else
+                return (T)@object;
         }
     }
 #endif

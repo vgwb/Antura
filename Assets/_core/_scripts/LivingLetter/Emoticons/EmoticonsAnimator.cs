@@ -33,7 +33,8 @@ namespace Antura.LivingLetters
 
         void Initialize()
         {
-            if (initialized) {
+            if (initialized)
+            {
                 return;
             }
 
@@ -54,14 +55,17 @@ namespace Antura.LivingLetters
 
         void Update()
         {
-            if (!initialized) {
+            if (!initialized)
+            {
                 return;
             }
 
-            if (!emoticonsClosed && autoClose) {
+            if (!emoticonsClosed && autoClose)
+            {
                 emoticonsCloseTimer -= Time.deltaTime;
 
-                if (emoticonsCloseTimer <= 0f) {
+                if (emoticonsCloseTimer <= 0f)
+                {
                     CloseEmoticons();
                 }
             }
@@ -125,7 +129,8 @@ namespace Antura.LivingLetters
 
         void ShowEmoticons(Emoticons icon)
         {
-            if (!currentEmoticon.HasValue || (currentEmoticon.HasValue && currentEmoticon.Value != icon)) {
+            if (!currentEmoticon.HasValue || (currentEmoticon.HasValue && currentEmoticon.Value != icon))
+            {
                 currentEmoticon = icon;
                 emoticonsController.SetEmoticon(icon, true);
                 UpdateEmoticonsColor();
@@ -157,7 +162,8 @@ namespace Antura.LivingLetters
         {
             MeshRenderer[] meshRenderer = new MeshRenderer[emoticonsController.EmoticonParentBone.childCount];
 
-            for (var i = 0; i < meshRenderer.Length; i++) {
+            for (var i = 0; i < meshRenderer.Length; i++)
+            {
                 meshRenderer[i] = emoticonsController.EmoticonParentBone.GetChild(i).GetComponent<MeshRenderer>();
             }
 
@@ -166,7 +172,8 @@ namespace Antura.LivingLetters
 
         void ChangeMaterials(Material _material, MeshRenderer[] _meshRenderer)
         {
-            foreach (var item in _meshRenderer) {
+            foreach (var item in _meshRenderer)
+            {
                 var m = item.gameObject.GetComponent<MeshRenderer>();
                 m.materials = new Material[] { _material };
             }
@@ -174,7 +181,8 @@ namespace Antura.LivingLetters
 
         void ChangeMaterials(Material _material, SkinnedMeshRenderer[] _meshRenderer)
         {
-            foreach (var item in _meshRenderer) {
+            foreach (var item in _meshRenderer)
+            {
                 var m = item.gameObject.GetComponent<SkinnedMeshRenderer>();
                 m.materials = new Material[] { _material };
             }

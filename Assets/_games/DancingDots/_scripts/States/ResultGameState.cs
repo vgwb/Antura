@@ -24,7 +24,8 @@ namespace Antura.Minigames.DancingDots
         {
             timer -= delta;
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 //game.EndGame(game.currStarsNum, game.numberOfRoundsWon);
 
                 /*if (game.currStarsNum == 0)

@@ -19,7 +19,8 @@ namespace Antura.UI
         void Start()
         {
             menuBts = this.GetComponentsInChildren<MenuButton>(true);
-            foreach (MenuButton bt in menuBts) {
+            foreach (MenuButton bt in menuBts)
+            {
                 MenuButton b = bt;
                 b.Bt.onClick.AddListener(() => OnClick(b));
             }
@@ -30,14 +31,16 @@ namespace Antura.UI
 
         void OnDestroy()
         {
-            foreach (MenuButton bt in menuBts) {
+            foreach (MenuButton bt in menuBts)
+            {
                 bt.Bt.onClick.RemoveAllListeners();
             }
         }
 
         void OnClick(MenuButton bt)
         {
-            switch (bt.Type) {
+            switch (bt.Type)
+            {
                 case MenuButtonType.MusicToggle: // Music on/off
                     AudioManager.I.ToggleMusic();
                     BtMusic.Toggle(AudioManager.I.MusicEnabled);

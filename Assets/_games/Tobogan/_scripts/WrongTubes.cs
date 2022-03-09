@@ -6,12 +6,12 @@ namespace Antura.Minigames.Tobogan
     {
         public WrongTube[] tubes;
 
-        void Start ()
+        void Start()
         {
-	
+
         }
-	
-        public void DropLetter (System.Action callback)
+
+        public void DropLetter(System.Action callback)
         {
             tubes[Random.Range(0, tubes.Length)].DropLetter(callback);
         }

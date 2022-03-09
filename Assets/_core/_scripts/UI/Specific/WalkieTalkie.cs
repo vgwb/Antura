@@ -20,8 +20,10 @@ namespace Antura.UI
                 .Append(this.transform.DOPunchRotation(new Vector3(0, 0, 20), pulseShakeDuration))
                 .Append(this.transform.DOScale(this.transform.localScale * 1.1f, 0.3f).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo)
                     .SetAutoKill(false).Pause()
-                    .OnComplete(() => {
-                        if (shouldPulse) pulseTween.Goto(pulseShakeDuration, true);
+                    .OnComplete(() =>
+                    {
+                        if (shouldPulse)
+                            pulseTween.Goto(pulseShakeDuration, true);
                     })
                 );
             pulseTween.ForceInit();
@@ -42,20 +44,29 @@ namespace Antura.UI
         public void Show(bool _doShow, bool _immediate = false)
         {
             IsShown = _doShow;
-            if (_doShow) {
+            if (_doShow)
+            {
                 this.gameObject.SetActive(true);
                 AudioManager.I.PlaySound(Sfx.WalkieTalkie);
                 StopPulse(true);
-                if (_immediate) {
+                if (_immediate)
+                {
                     showTween.Complete();
-                } else {
+                }
+                else
+                {
                     showTween.PlayForward();
                 }
-            } else {
+            }
+            else
+            {
                 StopPulse(true);
-                if (_immediate) {
+                if (_immediate)
+                {
                     showTween.Rewind();
-                } else {
+                }
+                else
+                {
                     showTween.PlayBackwards();
                 }
             }
@@ -70,7 +81,8 @@ namespace Antura.UI
         public void StopPulse(bool _immediate = false)
         {
             shouldPulse = false;
-            if (_immediate) { pulseTween.Rewind(); }
+            if (_immediate)
+            { pulseTween.Rewind(); }
         }
     }
 }

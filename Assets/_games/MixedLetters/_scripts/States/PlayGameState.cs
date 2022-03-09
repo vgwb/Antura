@@ -24,7 +24,8 @@ namespace Antura.Minigames.MixedLetters
 
         public void Update(float delta)
         {
-            if (MinigamesUI.Timer.Elapsed >= MinigamesUI.Timer.Duration || game.WasLastRoundWon) {
+            if (MinigamesUI.Timer.Elapsed >= MinigamesUI.Timer.Duration || game.WasLastRoundWon)
+            {
                 game.SetCurrentState(game.ResultState);
             }
         }

@@ -28,10 +28,12 @@ namespace Antura.Assessment
         private IQuestionProvider questionProvider;
         public IQuestionProvider Questions
         {
-            get {
+            get
+            {
                 return GetQuestionProvider();
             }
-            set {
+            set
+            {
                 questionProvider = value;
             }
         }
@@ -88,8 +90,10 @@ namespace Antura.Assessment
         static AssessmentConfiguration instance;
         public static AssessmentConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new AssessmentConfiguration();
                 }
                 return instance;
@@ -114,7 +118,8 @@ namespace Antura.Assessment
         /// <returns>Custom question data for the assessment</returns>
         public IQuestionBuilder SetupBuilder()
         {
-            switch (Variation) {
+            switch (Variation)
+            {
                 case AssessmentVariation.LetterName:
                     return Setup_LetterName_Builder();
 
@@ -210,11 +215,13 @@ namespace Antura.Assessment
             float screenRatio = Screen.width / Screen.height;
             int maxLetters = 8;
 
-            if (screenRatio > 1.4999f) {
+            if (screenRatio > 1.4999f)
+            {
                 maxLetters = 9;
             }
 
-            if (screenRatio > 1.7777f) {
+            if (screenRatio > 1.7777f)
+            {
                 maxLetters = 10;
             }
 
@@ -372,7 +379,8 @@ namespace Antura.Assessment
         {
             // This assessment changes behaviour based on the current stage
             var jp = AppManager.I.Player.CurrentJourneyPosition;
-            switch (jp.Stage) {
+            switch (jp.Stage)
+            {
                 case 1:
                     SimultaneosQuestions = 1;
                     break;
@@ -421,7 +429,8 @@ namespace Antura.Assessment
         {
             // This assessment changes behaviour based on the current stage
             var jp = AppManager.I.Player.CurrentJourneyPosition;
-            switch (jp.Stage) {
+            switch (jp.Stage)
+            {
                 case 1:
                     SimultaneosQuestions = 1;
                     break;
@@ -484,7 +493,8 @@ namespace Antura.Assessment
             builderParams.sortPacksByDifficulty = false;
 
             var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
-            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated)
+                letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
 
             return new RandomLetterAlterationsQuestionBuilder(
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers
@@ -497,7 +507,8 @@ namespace Antura.Assessment
 
         public MiniGameLearnRules SetupLearnRules()
         {
-            switch (Variation) {
+            switch (Variation)
+            {
                 case AssessmentVariation.LetterName:
                 case AssessmentVariation.LetterAny:
                     return Setup_LetterAny_LearnRules();
@@ -611,7 +622,8 @@ namespace Antura.Assessment
         public LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case AssessmentVariation.CompleteWord_Form:
                 case AssessmentVariation.MatchLettersToWord_Form:
                 case AssessmentVariation.CompleteWord:
@@ -633,7 +645,8 @@ namespace Antura.Assessment
         public bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
         {
             LetterEqualityStrictness strictness;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case AssessmentVariation.LetterName:
                     strictness = LetterEqualityStrictness.LetterBase;
                     break;

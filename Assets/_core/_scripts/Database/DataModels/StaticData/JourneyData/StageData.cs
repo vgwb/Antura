@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Antura.Database
 {
     /// <summary>
-    /// Data defining a Stage. 
+    /// Data defining a Stage.
     /// Defines the learning journey progression.
     /// A Stage contains multiple Learning Blocks.
     /// Each Stage is shown as a specific sub-map in the Map scene.

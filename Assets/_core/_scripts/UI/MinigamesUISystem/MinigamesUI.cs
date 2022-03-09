@@ -35,7 +35,8 @@ namespace Antura.UI
         {
             I = this;
 
-            if (HasElement(MinigamesUIElement.Unset)) {
+            if (HasElement(MinigamesUIElement.Unset))
+            {
                 Debug.LogWarning("MinigamesUI ► Elements are Unset");
                 return;
             }
@@ -46,7 +47,8 @@ namespace Antura.UI
             Starbar.gameObject.SetActive(HasElement(MinigamesUIElement.Starbar));
             Timer.gameObject.SetActive(HasElement(MinigamesUIElement.Timer));
             Lives.gameObject.SetActive(HasElement(MinigamesUIElement.Lives));
-            if (HasElement(MinigamesUIElement.Timer) && HasElement(MinigamesUIElement.Lives)) {
+            if (HasElement(MinigamesUIElement.Timer) && HasElement(MinigamesUIElement.Lives))
+            {
                 // Shift lives under timer
                 Lives.RectTransform.SetAnchoredPosY(Timer.RectTransform.anchoredPosition.y - Timer.RectTransform.sizeDelta.y * 0.5f);
             }
@@ -55,20 +57,24 @@ namespace Antura.UI
             const float duration = 0.5f;
             showTween = DOTween.Sequence();
             TweenParams tp = TweenParams.Params.SetEase(Ease.OutBack);
-            if (HasElement(MinigamesUIElement.Starbar)) {
+            if (HasElement(MinigamesUIElement.Starbar))
+            {
                 showTween.Insert(0, Starbar.RectTransform.DOAnchorPosX(0, duration).From().SetAs(tp));
             }
-            if (HasElement(MinigamesUIElement.Timer)) {
+            if (HasElement(MinigamesUIElement.Timer))
+            {
                 showTween.Insert(0, Timer.RectTransform.DOAnchorPosX(Timer.RectTransform.sizeDelta.x * 0.5f, duration).From().SetAs(tp));
             }
-            if (HasElement(MinigamesUIElement.Lives)) {
+            if (HasElement(MinigamesUIElement.Lives))
+            {
                 showTween.Insert(0, Lives.RectTransform.DOAnchorPosX(0, duration).From().SetAs(tp));
             }
         }
 
         void OnDestroy()
         {
-            if (I == this) {
+            if (I == this)
+            {
                 I = null;
                 elements = MinigamesUIElement.Unset;
             }
@@ -82,7 +88,7 @@ namespace Antura.UI
         /// <summary>
         /// Instantiates the Minigames UI in a scene, with the given parameters.
         /// The minigames UI is destroyed when a new scene is loaded.
-        /// <para> 
+        /// <para>
         /// NOTE: calling this method when a MinigamesUI is already in the scene will destroy the current one and create a new one.
         /// </para>
         /// NOTE: after calling this method, you will have to call the <code>Setup</code> method on each separate element
@@ -95,7 +101,8 @@ namespace Antura.UI
         /// </param>
         public static void Init(MinigamesUIElement _elements)
         {
-            if (I != null) Destroy(I.gameObject);
+            if (I != null)
+                Destroy(I.gameObject);
 
             elements = _elements;
             GameObject go = Instantiate(Resources.Load<GameObject>(ResourcePath));

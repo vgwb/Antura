@@ -28,11 +28,16 @@ namespace Antura.Rewards
 
         public static MaterialPair SwitchMaterial(GameObject _gameObject, MaterialPair _materialPair)
         {
-            if (_materialPair.Material1 == null || _materialPair.Material2 == null) { return _materialPair; }
-            foreach (var color in _gameObject.GetComponentsInChildren<MeshRenderer>()) {
-                if (color.name == "color_1") {
+            if (_materialPair.Material1 == null || _materialPair.Material2 == null)
+            { return _materialPair; }
+            foreach (var color in _gameObject.GetComponentsInChildren<MeshRenderer>())
+            {
+                if (color.name == "color_1")
+                {
                     color.materials = new Material[] { _materialPair.Material1 };
-                } else if (color.name == "color_2") {
+                }
+                else if (color.name == "color_2")
+                {
                     color.materials = new Material[] { _materialPair.Material2 };
                 }
             }
@@ -41,7 +46,8 @@ namespace Antura.Rewards
 
         public static void CleanTranformChildren(Transform _parent)
         {
-            for (int i = _parent.childCount - 1; i >= 0; --i) {
+            for (int i = _parent.childCount - 1; i >= 0; --i)
+            {
                 var child = _parent.GetChild(i).gameObject;
                 GameObject.Destroy(child);
             }
@@ -49,12 +55,13 @@ namespace Antura.Rewards
 
         #endregion
 
-        #region internal functionalities 
+        #region internal functionalities
 
         static GameObject GetObject(ModelType _type, string _id)
         {
             string resourceToLoadPath;
-            switch (_type) {
+            switch (_type)
+            {
                 case ModelType.AnturaForniture:
                     resourceToLoadPath = ANTURA_REWARDS_PREFABS_PATH;
                     break;

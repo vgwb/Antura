@@ -15,7 +15,7 @@ namespace Antura.Minigames.Balloons
 
         void OnMouseDown()
         {
-            Explode();    
+            Explode();
         }
 
         void Explode()

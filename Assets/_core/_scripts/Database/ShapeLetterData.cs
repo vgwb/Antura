@@ -6,7 +6,6 @@ using UnityEngine.U2D;
 
 namespace Antura.Database
 {
-
     [Serializable]
     public class DirectionalSpline : Spline
     {

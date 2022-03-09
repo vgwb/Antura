@@ -84,9 +84,11 @@ namespace Antura.Teacher
                 string debugString = "--------- TEACHER: question pack result ---------";
                 debugString += "\nQuestion: " + question;
                 debugString += "\nCorrect Answers: " + correctAnswers.Count;
-                foreach (var l in correctAnswers) debugString += " " + l;
+                foreach (var l in correctAnswers)
+                    debugString += " " + l;
                 debugString += "\nWrong Answers: " + wrongPhrases.Count;
-                foreach (var l in wrongPhrases) debugString += " " + l;
+                foreach (var l in wrongPhrases)
+                    debugString += " " + l;
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 

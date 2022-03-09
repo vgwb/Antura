@@ -49,7 +49,7 @@ namespace Antura.Profile
         RectTransform levelLabelRT;
         Vector2 orLevelLabelPosition;
 
-        #region Unity
+#region Unity
 
         void Start()
         {
@@ -60,9 +60,9 @@ namespace Antura.Profile
             }
         }
 
-        #endregion
+#endregion
 
-        #region Public
+#region Public
 
         public void Init(PlayerIconData playerIconData)
         {
@@ -92,7 +92,7 @@ namespace Antura.Profile
             UIButton.Toggle(false);
         }
 
-        #endregion
+#endregion
 
         void SetAppearance(PlayerIconData playerIconData, EndgameState endgameState)
         {

@@ -275,9 +275,12 @@ namespace Antura.Database
         public PlayerProfileAdditionalData GetAdditionalData()
         {
             var additionalData = JsonUtility.FromJson<PlayerProfileAdditionalData>(AdditionalData);
-            if (additionalData != null) {
+            if (additionalData != null)
+            {
                 return additionalData;
-            } else {
+            }
+            else
+            {
                 return new PlayerProfileAdditionalData(false, 0, "");
             }
         }

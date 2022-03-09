@@ -12,7 +12,7 @@ namespace Antura.Minigames.MakeFriends
 
         public MakeFriendsQuestionPack(ILivingLetterData questionWord1, ILivingLetterData questionWord2, IEnumerable<ILivingLetterData> wrongAnswers, IEnumerable<ILivingLetterData> correctAnswers)
         {
-            this.questions = new List<ILivingLetterData>{ questionWord1, questionWord2 };
+            this.questions = new List<ILivingLetterData> { questionWord1, questionWord2 };
             this.wrongAnswers = wrongAnswers;
             this.correctAnswers = correctAnswers;
         }

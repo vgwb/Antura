@@ -19,18 +19,24 @@ namespace Antura.Minigames.MissingLetter
 
         void OnQuestionCompleted()
         {
-            if (M_oGgame.TutorialEnabled) {
+            if (M_oGgame.TutorialEnabled)
+            {
                 M_oGgame.SetCurrentState(M_oGgame.TutorialState);
-            } else {
+            }
+            else
+            {
                 M_oGgame.SetCurrentState(M_oGgame.PlayState);
             }
         }
 
         public void Update(float delta)
         {
-            if (M_oGgame.TutorialEnabled) {
+            if (M_oGgame.TutorialEnabled)
+            {
                 M_oGgame.SetCurrentState(M_oGgame.TutorialState);
-            } else {
+            }
+            else
+            {
                 M_oGgame.SetCurrentState(M_oGgame.PlayState);
             }
         }

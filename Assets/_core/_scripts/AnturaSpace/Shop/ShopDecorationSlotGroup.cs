@@ -13,7 +13,7 @@ namespace Antura.AnturaSpace
     {
         public ShopDecorationSlotType slotType;
 
-        // @note: these are set and serialized by EditorSetup's calls in ShopDecorationManager    
+        // @note: these are set and serialized by EditorSetup's calls in ShopDecorationManager
         [HideInInspector]
         public ShopDecorationSlot[] slots;
 
@@ -22,7 +22,8 @@ namespace Antura.AnturaSpace
         {
             slots = GetComponentsInChildren<ShopDecorationSlot>();
             int sequentialIndex = 0;
-            foreach (var slot in slots) {
+            foreach (var slot in slots)
+            {
                 slot.slotType = slotType;
                 slot.slotIndex = sequentialIndex++;
                 EditorUtility.SetDirty(slot);

@@ -80,7 +80,8 @@ namespace Antura.Minigames.MixedLetters
 
                     // @note: there is a bug here when starting the game with no content, sometimes the picking order will be larger then entireAlphabet.Count
                     // this is because the sample pack provides a pack for the Spelling version but we need to work with the Alphabet. Ignore errors.
-                    if (ALPHABET_PICKING_ORDER[roundNumber] > entireAlphabet.Count) Debug.LogError("Error with the Alphabet pack. This appears only when testing the game directly, so retry. See the code for further information.", this);
+                    if (ALPHABET_PICKING_ORDER[roundNumber] > entireAlphabet.Count)
+                        Debug.LogError("Error with the Alphabet pack. This appears only when testing the game directly, so retry. See the code for further information.", this);
                     _promptLettersInOrder = entireAlphabet.GetRange(startIndex, ALPHABET_PICKING_ORDER[roundNumber]);
                 }
 
@@ -135,7 +136,8 @@ namespace Antura.Minigames.MixedLetters
             }
         }
 
-        public bool TutorialEnabled {
+        public bool TutorialEnabled
+        {
             get { return GetConfiguration().TutorialEnabled; }
         }
 
@@ -350,7 +352,7 @@ namespace Antura.Minigames.MixedLetters
                             SeparateLetterController letter = SeparateLettersSpawnerController.instance.separateLetterControllers[j];
                             letter.SetIsSubjectOfTutorial(
                                 roundNumber == 0 && TutorialEnabled
-                                &&  letter == dropZone.correctLetter);
+                                && letter == dropZone.correctLetter);
                         }
 
                     isValid = false;

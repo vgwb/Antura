@@ -129,7 +129,7 @@ namespace Antura.Database
         }
         [SerializeField]
         private string[] _Letters;
-      
+
         public string Letters_list
         {
             get { return _Letters.ToJoinedString(); }
@@ -208,7 +208,8 @@ namespace Antura.Database
         public bool IsSameAs(WordData other, WordEqualityStrictness strictness)
         {
             bool isEqual = false;
-            switch (strictness) {
+            switch (strictness)
+            {
                 case WordEqualityStrictness.Word:
                     isEqual = string.Equals(Id, other.Id);
                     break;
@@ -223,14 +224,16 @@ namespace Antura.Database
         public override bool Equals(object obj)
         {
             var other = obj as WordData;
-            if (other == null) { return false; }
+            if (other == null)
+            { return false; }
             return Equals(other);
         }
 
         private static WordEqualityStrictness DefaultStrictness = WordEqualityStrictness.Spelling;
         public override int GetHashCode()
         {
-            switch (DefaultStrictness) {
+            switch (DefaultStrictness)
+            {
                 case WordEqualityStrictness.Word:
                     return (_Id != null ? _Id.GetHashCode() : 0);
                 case WordEqualityStrictness.Spelling:

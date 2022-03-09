@@ -36,8 +36,10 @@ namespace Antura.Profile
 
         public UIButton UIButton
         {
-            get {
-                if (fooUIButton == null) {
+            get
+            {
+                if (fooUIButton == null)
+                {
                     fooUIButton = this.GetComponent<UIButton>();
                 }
                 return fooUIButton;
@@ -54,9 +56,11 @@ namespace Antura.Profile
 
         void Start()
         {
-            if (!AutoInit) { return; }
+            if (!AutoInit)
+            { return; }
 
-            if (AppManager.I.PlayerProfileManager.CurrentPlayer != null) {
+            if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
+            {
                 Init(AppManager.I.PlayerProfileManager.CurrentPlayer.GetPlayerIconData());
             }
         }
@@ -67,7 +71,8 @@ namespace Antura.Profile
 
         public void Init(PlayerIconData playerIconData)
         {
-            if (levelLabelRT == null) {
+            if (levelLabelRT == null)
+            {
                 levelLabelRT = LevelLabel.GetComponent<RectTransform>();
                 orLevelLabelPosition = levelLabelRT.anchoredPosition;
             }
@@ -86,15 +91,24 @@ namespace Antura.Profile
         {
             bool isOn = Uuid == _uuid;
             UIButton.Toggle(Uuid == _uuid);
-            if (isOn) {
-                if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
-                if (HairImg != null) HairImg.color = defHairColor;
-                if (HatImage != null) HatImage.color = HatImage.color.SetAlpha(1f);
+            if (isOn)
+            {
+                if (FaceImg != null)
+                    FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
+                if (HairImg != null)
+                    HairImg.color = defHairColor;
+                if (HatImage != null)
+                    HatImage.color = HatImage.color.SetAlpha(1f);
 
-            } else {
-                if (FaceImg != null) FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
-                if (HairImg != null) HairImg.color = HairImg.color.ChangeSaturation(0.35f);
-                if (HatImage != null) HatImage.color = HatImage.color.SetAlpha(0.5f);
+            }
+            else
+            {
+                if (FaceImg != null)
+                    FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
+                if (HairImg != null)
+                    HairImg.color = HairImg.color.ChangeSaturation(0.35f);
+                if (HatImage != null)
+                    HatImage.color = HatImage.color.SetAlpha(0.5f);
             }
         }
 
@@ -108,13 +122,13 @@ namespace Antura.Profile
 
         void SetAppearance(PlayerIconData playerIconData, EndgameState endgameState)
         {
-//            if (playerIconData.Gender == PlayerGender.None) {
-//                Debug.LogWarning("Player gender set to NONE");
-//            }
+            //            if (playerIconData.Gender == PlayerGender.None) {
+            //                Debug.LogWarning("Player gender set to NONE");
+            //            }
             isDemoUser = playerIconData.IsDemoUser;
             Color color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : playerIconData.BgColor;
-//            UIButton.Ico = FaceImg;   // forced icon
-//            UIButton.ChangeDefaultColors(color, color.SetAlpha(0.5f));
+            //            UIButton.Ico = FaceImg;   // forced icon
+            //            UIButton.ChangeDefaultColors(color, color.SetAlpha(0.5f));
 
             if (isDemoUser)
             {
@@ -138,24 +152,29 @@ namespace Antura.Profile
             UIButton.ChangeDefaultColors(color, color.ChangeSaturation(0.35f));
 
             defFaceColor = FaceImg.color = (isDemoUser || playerIconData.IsOldAvatar) ? Color.white : playerIconData.SkinColor;
-            if (HairImg.sprite != null) defHairColor = HairImg.color = playerIconData.HairColor;
-            HairImg.gameObject.SetActive(!isDemoUser && ! playerIconData.IsOldAvatar);
+            if (HairImg.sprite != null)
+                defHairColor = HairImg.color = playerIconData.HairColor;
+            HairImg.gameObject.SetActive(!isDemoUser && !playerIconData.IsOldAvatar);
             bool hasHat = endgameState != EndgameState.Unfinished;
             HatImage.gameObject.SetActive(hasHat);
             HatImage.color = HatImage.color.SetAlpha(1);
             levelLabelRT.anchoredPosition = hasHat ? orLevelLabelPosition + new Vector2(0, LevelLabelHatShift) : orLevelLabelPosition;
 
-            switch (endgameState) {
-            case EndgameState.Finished:
-                HatImage.sprite = EndgameHat;
-                break;
-            case EndgameState.FinishedWAllStars:
-                HatImage.sprite = EndgameHatWStars;
-                break;
+            switch (endgameState)
+            {
+                case EndgameState.Finished:
+                    HatImage.sprite = EndgameHat;
+                    break;
+                case EndgameState.FinishedWAllStars:
+                    HatImage.sprite = EndgameHatWStars;
+                    break;
             }
-            if (HideLevel || hasHat) {
+            if (HideLevel || hasHat)
+            {
                 LevelLabel.text = "";
-            } else {
+            }
+            else
+            {
                 LevelLabel.text = $"{playerIconData.MaxJourneyPosition.Stage}-{playerIconData.MaxJourneyPosition.LearningBlock}";
             }
 

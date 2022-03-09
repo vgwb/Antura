@@ -38,11 +38,13 @@ public class DancingDotsQuadManager : MonoBehaviour
 
     IEnumerator CR_AnimateQuads()
     {
-        do {
+        do
+        {
             yield return new WaitForSeconds(UnityEngine.Random.Range(minTime, maxTime));
             int Q1 = UnityEngine.Random.Range(0, quads.Length);
             int Q2 = -1;
-            do {
+            do
+            {
                 Q2 = UnityEngine.Random.Range(0, quads.Length);
             } while (Q1 == Q2);
             SwapQuads(quads[Q1], quads[Q2]);
@@ -55,7 +57,8 @@ public class DancingDotsQuadManager : MonoBehaviour
     {
         int Q1 = UnityEngine.Random.Range(0, quads.Length);
         int Q2 = -1;
-        do {
+        do
+        {
             Q2 = UnityEngine.Random.Range(0, quads.Length);
         } while (Q1 == Q2);
 
@@ -68,7 +71,8 @@ public class DancingDotsQuadManager : MonoBehaviour
 
         Q1 = UnityEngine.Random.Range(0, sprts.Length);
 
-        do {
+        do
+        {
             Q2 = UnityEngine.Random.Range(0, sprts.Length);
         } while (Q1 == Q2 || sprts[Q1].color.Equals(sprts[Q2].color));
 

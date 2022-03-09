@@ -44,14 +44,18 @@ namespace Antura.Database.Management
             Type fieldType = fieldInfo.FieldType;
 
             var fieldTypeName = fieldType.Name;
-            if (fieldType == typeof(String)) fieldTypeName = "string";
-            if (fieldType == typeof(String[])) fieldTypeName = "string[]";
-            if (fieldType == typeof(Boolean)) fieldTypeName = "bool";
-            if (fieldType == typeof(Int32)) fieldTypeName = "int";
+            if (fieldType == typeof(String))
+                fieldTypeName = "string";
+            if (fieldType == typeof(String[]))
+                fieldTypeName = "string[]";
+            if (fieldType == typeof(Boolean))
+                fieldTypeName = "bool";
+            if (fieldType == typeof(Int32))
+                fieldTypeName = "int";
 
             string inString = "public " + fieldTypeName + " " + fieldName + ";";
             string outString = "public " + fieldTypeName + " " + fieldName + "{ get { return _" + fieldName + "; } set { _" + fieldName + " = value; }}\n"
-                    + "[SerializeField] private " + fieldTypeName + " _" + fieldName  + ";";
+                    + "[SerializeField] private " + fieldTypeName + " _" + fieldName + ";";
 
             fileText = fileText.Replace(inString, outString);
 

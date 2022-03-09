@@ -76,8 +76,8 @@ namespace Antura.Minigames.Tobogan
                 }
                 else // STOP
                 {
-                    if (source.IsPlaying && 
-                        source.Position < 0.75f * (endPerc * length) && 
+                    if (source.IsPlaying &&
+                        source.Position < 0.75f * (endPerc * length) &&
                         source.Position >= startPerc * length)
                     {
                         source.Position = endPerc * length;

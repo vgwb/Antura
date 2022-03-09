@@ -36,12 +36,15 @@ namespace Antura.UI
                 FinalChar = ReplaceWithShaddah(FinalChar);
             }
 
-            if (AppManager.I.AppEdition.BookShowRelatedWords) {
+            if (AppManager.I.AppEdition.BookShowRelatedWords)
+            {
                 LetterTextIsolated.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, 0);
                 LetterTextInitial.gameObject.SetActive(false);
                 LetterTextMedial.gameObject.SetActive(false);
                 LetterTextFinal.gameObject.SetActive(false);
-            } else {
+            }
+            else
+            {
                 LetterTextIsolated.gameObject.GetComponent<RectTransform>().offsetMin = new Vector2(0, 130);
                 LetterTextInitial.gameObject.SetActive(true);
                 LetterTextMedial.gameObject.SetActive(true);
@@ -67,9 +70,11 @@ namespace Antura.UI
         {
             var shaddah = "\u0651";
             bool hasSign = str.EndsWith("\u0640");
-            if (hasSign) str = str.Remove(str.Length-1, 1);
+            if (hasSign)
+                str = str.Remove(str.Length - 1, 1);
             str = $"{str}{shaddah}";
-            if (hasSign) str += "\u0640";
+            if (hasSign)
+                str += "\u0640";
             return str;
         }
 

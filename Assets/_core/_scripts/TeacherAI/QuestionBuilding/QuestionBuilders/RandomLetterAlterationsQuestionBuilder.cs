@@ -37,7 +37,8 @@ namespace Antura.Teacher
             bool getAllSorted = false
             )
         {
-            if (letterAlterationFilters == null) letterAlterationFilters = new LetterAlterationFilters();
+            if (letterAlterationFilters == null)
+                letterAlterationFilters = new LetterAlterationFilters();
 
             if (parameters == null)
             {
@@ -88,7 +89,8 @@ namespace Antura.Teacher
 
             // First, get all letters (only base letters, tho, due to forced letter filters)
             int nBaseLettersRequired = 1;
-            if (letterAlterationFilters.differentBaseLetters) nBaseLettersRequired = nCorrect + nWrong;
+            if (letterAlterationFilters.differentBaseLetters)
+                nBaseLettersRequired = nCorrect + nWrong;
             var selectionParams1 = new SelectionParameters(parameters.correctSeverity, nRequired: nBaseLettersRequired,
                 useJourney: parameters.useJourneyForCorrect,
                 packListHistory: parameters.correctChoicesHistory, filteringIds: previousPacksIDs);
@@ -103,7 +105,7 @@ namespace Antura.Teacher
 
             // Choose randomly from that pool
             List<LetterData> correctAnswers;
-            correctAnswers = getAllSorted ? letterPool.GetRange(0,nCorrect) : letterPool.RandomSelect(nCorrect);
+            correctAnswers = getAllSorted ? letterPool.GetRange(0, nCorrect) : letterPool.RandomSelect(nCorrect);
             var wrongAnswers = letterPool;
             foreach (LetterData data in correctAnswers)
                 wrongAnswers.Remove(data);
@@ -120,7 +122,7 @@ namespace Antura.Teacher
                 }
             }
 
-            wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong,wrongAnswers.Count));
+            wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong, wrongAnswers.Count));
 
             var question = correctAnswers[0];
 
@@ -129,9 +131,11 @@ namespace Antura.Teacher
                 string debugString = "--------- TEACHER: question pack result ---------";
                 debugString += "\nQuestion: " + question;
                 debugString += "\nCorrect Answers: " + correctAnswers.Count;
-                foreach (var l in correctAnswers) debugString += " " + l;
+                foreach (var l in correctAnswers)
+                    debugString += " " + l;
                 debugString += "\nWrong Answers: " + wrongAnswers.Count;
-                foreach (var l in wrongAnswers) debugString += " " + l;
+                foreach (var l in wrongAnswers)
+                    debugString += " " + l;
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 

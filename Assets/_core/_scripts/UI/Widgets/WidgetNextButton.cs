@@ -37,7 +37,8 @@ namespace Antura.UI
         public void OnPressButton()
         {
             Close();
-            if (currentCallback != null) {
+            if (currentCallback != null)
+            {
                 currentCallback();
             }
         }

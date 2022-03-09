@@ -32,7 +32,7 @@ namespace Antura.Database.Management
 
         protected override void RegenerateEnums(List<Dictionary<string, object>> rowdicts_list)
         {
-            // TODO: should we generate also the MiniGameCode? Could be useful, but it could mess with the current inspector values. 
+            // TODO: should we generate also the MiniGameCode? Could be useful, but it could mess with the current inspector values.
             // ExtractEnum(rowdicts_list, "Id", customEnumName: "MiniGameCode");
             ExtractEnum(rowdicts_list, "Type");
         }
@@ -42,14 +42,20 @@ namespace Antura.Database.Management
         {
             var list = new List<WeightedPlaySkill>();
 
-            foreach (var playSkill in GenericHelper.SortEnums<PlaySkill>()) {
-                if (playSkill == PlaySkill.None) continue;
+            foreach (var playSkill in GenericHelper.SortEnums<PlaySkill>())
+            {
+                if (playSkill == PlaySkill.None)
+                    continue;
 
                 var key = "Skill" + playSkill;
-                if (!dict.ContainsKey(key)) {
+                if (!dict.ContainsKey(key))
+                {
                     UnityEngine.Debug.LogError("Could not find key " + key + " as a play skill for minigame " + data.Code);
-                } else {
-                    if (ToString(dict[key]) != "") {
+                }
+                else
+                {
+                    if (ToString(dict[key]) != "")
+                    {
                         list.Add(new WeightedPlaySkill(playSkill, ToFloat(dict[key])));
                     }
                 }

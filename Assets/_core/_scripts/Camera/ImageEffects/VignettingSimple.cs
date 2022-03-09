@@ -28,7 +28,8 @@ namespace Antura.CameraEffects
 
         void OnPostRender()
         {
-            if (vignetteMaterial == null) { return; }
+            if (vignetteMaterial == null)
+            { return; }
 
             fadeOut = Mathf.Clamp01(fadeOut);
 

@@ -60,8 +60,10 @@ namespace Antura.AnturaSpace
 
         public void FocusHighlight(bool choice)
         {
-            if (choice) SetAsPreview();
-            else SetAsReal();
+            if (choice)
+                SetAsPreview();
+            else
+                SetAsReal();
 
             feedback.FocusHighlight(choice);
         }

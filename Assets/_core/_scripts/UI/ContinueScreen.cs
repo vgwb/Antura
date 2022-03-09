@@ -51,7 +51,7 @@ namespace Antura.UI
     }
 
     /// <summary>
-    /// Shows a Continue screen, used to navigate forward in the application flow. 
+    /// Shows a Continue screen, used to navigate forward in the application flow.
     /// </summary>
     public class ContinueScreen : MonoBehaviour
     {
@@ -100,7 +100,8 @@ namespace Antura.UI
             Bg.gameObject.SetActive(_mode != ContinueScreenMode.Button);
             BtContinue.gameObject.SetActive(_mode != ContinueScreenMode.FullscreenBg);
 
-            if (btIdleTween != null) { btIdleTween.Rewind(); }
+            if (btIdleTween != null)
+            { btIdleTween.Rewind(); }
 
             btIdleTween = btRT.DOAnchorPosX(10, 0.5f)
                               .SetRelative()
@@ -118,14 +119,18 @@ namespace Antura.UI
                                .SetLoops(-1, LoopType.Yoyo)
                                .SetEase(Ease.InOutQuad);
 
-            if (_mode == ContinueScreenMode.ButtonFullscreen) {
+            if (_mode == ContinueScreenMode.ButtonFullscreen)
+            {
                 SideSnapshot.Apply(btRT, IcoContinue);
-            } else {
+            }
+            else
+            {
                 CenterSnapshot.Apply(btRT, IcoContinue);
             }
             showBgTween.Rewind();
             showTween.Restart();
-            if (_mode != ContinueScreenMode.Button && _mode != ContinueScreenMode.ButtonFullscreen) {
+            if (_mode != ContinueScreenMode.Button && _mode != ContinueScreenMode.ButtonFullscreen)
+            {
                 showBgTween.PlayForward();
             }
             this.gameObject.SetActive(true);
@@ -145,18 +150,22 @@ namespace Antura.UI
 
         void DoClose(bool _immediate)
         {
-            if (!IsShown && !_immediate) {
+            if (!IsShown && !_immediate)
+            {
                 return;
             }
 
             IsShown = false;
             clicked = false;
             onContinueCallback = null;
-            if (_immediate) {
+            if (_immediate)
+            {
                 showTween.Rewind();
                 showBgTween.Rewind();
                 this.gameObject.SetActive(false);
-            } else {
+            }
+            else
+            {
                 showTween.PlayBackwards();
             }
             showBgTween.PlayBackwards();
@@ -174,14 +183,19 @@ namespace Antura.UI
             showTween = btRT.DOScale(0.1f, duration).From().SetEase(Ease.OutBack)
                 .SetUpdate(true).SetAutoKill(false).Pause()
                 .OnPlay(() => this.gameObject.SetActive(true))
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     this.gameObject.SetActive(false);
                     btIdleTween.Rewind();
-                    if (btPulseTween.IsPlaying()) { btPulseTween.Rewind(); }
+                    if (btPulseTween.IsPlaying())
+                    { btPulseTween.Rewind(); }
                 })
-                .OnComplete(() => {
-                    if (currMode == ContinueScreenMode.ButtonFullscreen) { btIdleTween.Restart(); }
-                    if (pulseLoop) { btPulseTween.Restart(); }
+                .OnComplete(() =>
+                {
+                    if (currMode == ContinueScreenMode.ButtonFullscreen)
+                    { btIdleTween.Restart(); }
+                    if (pulseLoop)
+                    { btPulseTween.Restart(); }
                 });
 
             showBgTween = Bg.image.DOFade(0, duration)
@@ -221,7 +235,8 @@ namespace Antura.UI
 
         void Continue()
         {
-            if (onContinueCallback != null) {
+            if (onContinueCallback != null)
+            {
                 onContinueCallback();
             }
             showTween.PlayBackwards();
@@ -230,18 +245,23 @@ namespace Antura.UI
 
         void OnClick(bool _isButton)
         {
-            if (clicked) {
+            if (clicked)
+            {
                 return;
             }
 
-            if (_isButton || currMode == ContinueScreenMode.ButtonWithBgFullscreen || currMode == ContinueScreenMode.ButtonFullscreen) {
+            if (_isButton || currMode == ContinueScreenMode.ButtonWithBgFullscreen || currMode == ContinueScreenMode.ButtonFullscreen)
+            {
                 clicked = true;
                 btClickTween.Restart();
-            } else if (currMode == ContinueScreenMode.FullscreenBg) {
+            }
+            else if (currMode == ContinueScreenMode.FullscreenBg)
+            {
                 clicked = true;
                 Continue();
             }
-            if (clicked) {
+            if (clicked)
+            {
                 btIdleTween.Pause();
                 AudioManager.I.PlaySound(Sfx.UIButtonClick);
             }
@@ -260,9 +280,12 @@ namespace Antura.UI
                 GlobalUI.ContinueScreen.retryAnimator.enabled = false;
                 a();
             });
-            if (GlobalUI.ContinueScreen.retryAnimator == null) GlobalUI.ContinueScreen.retryAnimator = GlobalUI.ContinueScreen.BtRetry.GetComponent<AutoAnimator>();
-            if (pulseButton) GlobalUI.ContinueScreen.retryAnimator.Play();
-            else GlobalUI.ContinueScreen.retryAnimator.Rewind();
+            if (GlobalUI.ContinueScreen.retryAnimator == null)
+                GlobalUI.ContinueScreen.retryAnimator = GlobalUI.ContinueScreen.BtRetry.GetComponent<AutoAnimator>();
+            if (pulseButton)
+                GlobalUI.ContinueScreen.retryAnimator.Play();
+            else
+                GlobalUI.ContinueScreen.retryAnimator.Rewind();
         }
 
         #endregion

@@ -29,10 +29,12 @@ namespace Antura.Minigames.MakeFriends
             var commonLetters = new List<ILivingLetterData>();
             var uncommonLetters = new List<ILivingLetterData>();
 
-            for (int iteration = 0; iteration < quizzesCount; iteration++) {
+            for (int iteration = 0; iteration < quizzesCount; iteration++)
+            {
                 // Get 2 words with at least 1 common letter
                 int outerLoopAttempts = 50;
-                do {
+                do
+                {
                     newWordData1 = null;
                     newWordData2 = null;
                     wordLetters1.Clear();
@@ -41,55 +43,68 @@ namespace Antura.Minigames.MakeFriends
                     uncommonLetters.Clear();
 
                     newWordData1 = AppManager.I.Teacher.GetRandomTestWordDataLL();
-                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData1.Data)) {
+                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData1.Data))
+                    {
                         wordLetters1.Add(new LL_LetterData(letterData.letter));
                     }
 
                     int innerLoopAttempts = 50;
-                    do {
+                    do
+                    {
                         newWordData2 = AppManager.I.Teacher.GetRandomTestWordDataLL();
                         innerLoopAttempts--;
                     } while (newWordData2.Id == newWordData1.Id && innerLoopAttempts > 0);
 
-                    if (innerLoopAttempts <= 0) {
+                    if (innerLoopAttempts <= 0)
+                    {
                         UnityEngine.Debug.LogError("MakeFriends QuestionProvider Could not find 2 different words!");
                     }
 
-                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData2.Data)) {
+                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData2.Data))
+                    {
                         wordLetters2.Add(new LL_LetterData(letterData.letter));
                     }
 
                     // Find common letter(s) (without repetition)
-                    for (int i = 0; i < wordLetters1.Count; i++) {
+                    for (int i = 0; i < wordLetters1.Count; i++)
+                    {
                         var letter = wordLetters1[i];
 
                         //if (wordLetters2.Contains(letter))
-                        if (wordLetters2.Exists(x => x.Id == letter.Id)) {
+                        if (wordLetters2.Exists(x => x.Id == letter.Id))
+                        {
                             //if (!commonLetters.Contains(letter))
-                            if (!commonLetters.Exists(x => x.Id == letter.Id)) {
+                            if (!commonLetters.Exists(x => x.Id == letter.Id))
+                            {
                                 commonLetters.Add(letter);
                             }
                         }
                     }
 
                     // Find uncommon letters (without repetition)
-                    for (int i = 0; i < wordLetters1.Count; i++) {
+                    for (int i = 0; i < wordLetters1.Count; i++)
+                    {
                         var letter = wordLetters1[i];
 
                         //if (!wordLetters2.Contains(letter))
-                        if (!wordLetters2.Exists(x => x.Id == letter.Id)) {
+                        if (!wordLetters2.Exists(x => x.Id == letter.Id))
+                        {
                             //if (!uncommonLetters.Contains(letter))
-                            if (!uncommonLetters.Exists(x => x.Id == letter.Id)) {
+                            if (!uncommonLetters.Exists(x => x.Id == letter.Id))
+                            {
                                 uncommonLetters.Add(letter);
                             }
                         }
                     }
 
-                    for (int i = 0; i < wordLetters2.Count; i++) {
+                    for (int i = 0; i < wordLetters2.Count; i++)
+                    {
                         var letter = wordLetters2[i];
 
-                        if (!wordLetters1.Contains(letter)) {
-                            if (!uncommonLetters.Contains(letter)) {
+                        if (!wordLetters1.Contains(letter))
+                        {
+                            if (!uncommonLetters.Contains(letter))
+                            {
                                 uncommonLetters.Add(letter);
                             }
                         }
@@ -97,7 +112,8 @@ namespace Antura.Minigames.MakeFriends
                     outerLoopAttempts--;
                 } while (commonLetters.Count == 0 && outerLoopAttempts > 0);
 
-                if (outerLoopAttempts <= 0) {
+                if (outerLoopAttempts <= 0)
+                {
                     UnityEngine.Debug.LogError("MakeFriends QuestionProvider Could not find enough data for QuestionPack #" + iteration
                         + "\nInfo: Word1: " + ArabicFixer.Fix(newWordData1.TextForLivingLetter) + " Word2: " + ArabicFixer.Fix(newWordData2.TextForLivingLetter)
                     + "\nWordLetters1: " + wordLetters1.Count + " WordLetters2: " + wordLetters2.Count
@@ -119,7 +135,8 @@ namespace Antura.Minigames.MakeFriends
         {
             currentQuestion++;
 
-            if (currentQuestion >= questions.Count) {
+            if (currentQuestion >= questions.Count)
+            {
                 currentQuestion = 0;
             }
 

@@ -10,7 +10,7 @@ namespace Antura.Minigames.ThrowBalls
 
         #region Score
 
-       public override int MaxScore => 6;
+        public override int MaxScore => 6;
 
         #endregion
 
@@ -38,5 +38,5 @@ namespace Antura.Minigames.ThrowBalls
         {
             return GameState;
         }
-}
     }
+}

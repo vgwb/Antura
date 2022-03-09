@@ -18,7 +18,8 @@ namespace Antura.Minigames.MixedLetters
 
         public void EnterState()
         {
-            if (game.TutorialEnabled) {
+            if (game.TutorialEnabled)
+            {
                 game.DisableRepeatPromptButton();
                 game.GenerateNewWord();
 
@@ -31,7 +32,8 @@ namespace Antura.Minigames.MixedLetters
                 VictimLLController.instance.SetPosition(victimLLPosition);
             }
 
-            if (!game.TutorialEnabled) {
+            if (!game.TutorialEnabled)
+            {
                 game.SetCurrentState(game.IntroductionState);
                 return;
             }
@@ -101,7 +103,8 @@ namespace Antura.Minigames.MixedLetters
 
         public void Update(float delta)
         {
-            if (game.WasLastRoundWon) {
+            if (game.WasLastRoundWon)
+            {
                 game.SetCurrentState(game.ResultState);
             }
         }

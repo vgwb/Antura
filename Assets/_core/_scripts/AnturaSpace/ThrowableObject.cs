@@ -125,12 +125,14 @@ namespace Antura.AnturaSpace
                 m_fThrowMaxMagnitude < m_fThrowMinMagnitude ||
                 m_v3DirectionMinValues.x > m_v3DirectionMaxValues.x ||
                 m_v3DirectionMinValues.y > m_v3DirectionMaxValues.y ||
-                m_v3DirectionMinValues.z > m_v3DirectionMaxValues.z) {
+                m_v3DirectionMinValues.z > m_v3DirectionMaxValues.z)
+            {
                 Debug.Log("Warning, unvalid min/max values");
             }
 
             //build root for cookies particles
-            if (s_oParticleRootContainer == null) {
+            if (s_oParticleRootContainer == null)
+            {
                 var _oTempBase = new GameObject();
                 s_oParticleRootContainer = Instantiate(_oTempBase);
                 s_oParticleRootContainer.name = "[CookieParticles]";
@@ -149,10 +151,12 @@ namespace Antura.AnturaSpace
         void Update()
         {
             //if this object is being dragged
-            if (m_bIsDragged) {
+            if (m_bIsDragged)
+            {
                 m_fTimeProgression += Time.deltaTime;
 
-                if (m_fTimeProgression >= m_fTimeSampling) {
+                if (m_fTimeProgression >= m_fTimeSampling)
+                {
                     //Store dragging data to prepare for the releasing throw
                     m_v3LastPosition = transform.position;
                     m_fTimeProgression = 0;
@@ -164,17 +168,22 @@ namespace Antura.AnturaSpace
                 var _fCameraDistance = 6 + 4 * (Input.mousePosition.y / Screen.height);
                 var newPos = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, _fCameraDistance));
 
-                if (newPos.y < 1) {
+                if (newPos.y < 1)
+                {
                     newPos.y = 1;
                 }
 
                 transform.position = newPos;
-            } else {
+            }
+            else
+            {
                 // Limit inside view frustum
                 var newPos = m_oRigidbody.position;
-                for (int i = 0, count = planes.Count; i < count; ++i) {
+                for (int i = 0, count = planes.Count; i < count; ++i)
+                {
                     var distance = planes[i].GetDistanceToPoint(newPos);
-                    if (distance < 0) {
+                    if (distance < 0)
+                    {
                         var planeNormal = planes[i].normal;
 
                         m_oRigidbody.velocity -= 1.2f * Vector3.Dot(m_oRigidbody.velocity, planeNormal) * planeNormal;
@@ -186,9 +195,11 @@ namespace Antura.AnturaSpace
             }
 
 
-            if (!Edible) {
+            if (!Edible)
+            {
                 lifetime += Time.deltaTime;
-                if (lifetime > MaxLifetime) {
+                if (lifetime > MaxLifetime)
+                {
                     Destroy(gameObject);
                 }
             }
@@ -201,12 +212,14 @@ namespace Antura.AnturaSpace
 
         void OnDestroy()
         {
-            if (poofSound != null) {
+            if (poofSound != null)
+            {
                 poofSound.Stop();
                 poofSound = null;
             }
 
-            if (OnDeath != null) { OnDeath(); }
+            if (OnDeath != null)
+            { OnDeath(); }
             CancelInvoke();
         }
 
@@ -226,7 +239,8 @@ namespace Antura.AnturaSpace
             //disable collision and enabled after 0.5 sec for avoid that Antura collision shot bone away
             m_oRigidbody.GetComponentInChildren<Collider>().enabled = false;
             StartCoroutine(Minigames.MissingLetter.Utils.LaunchDelay(0.5f,
-                delegate { m_oRigidbody.GetComponentInChildren<Collider>().enabled = true; }));
+                delegate
+                { m_oRigidbody.GetComponentInChildren<Collider>().enabled = true; }));
 
             ApplyDefaultForces();
         }
@@ -261,7 +275,8 @@ namespace Antura.AnturaSpace
             //apply stored forces
             ApplyDragForces();
 
-            if (OnRelease != null) { OnRelease(); }
+            if (OnRelease != null)
+            { OnRelease(); }
         }
 
         /// <summary>
@@ -270,11 +285,13 @@ namespace Antura.AnturaSpace
         /// <param name="fDuration"></param>
         public void Poof()
         {
-            if (m_oParticleInstance == null) {
+            if (m_oParticleInstance == null)
+            {
                 m_oParticleInstance = Instantiate(m_oParticle);
 
                 //put cookie in the root
-                if (s_oParticleRootContainer != null) {
+                if (s_oParticleRootContainer != null)
+                {
                     m_oParticleInstance.transform.SetParent(s_oParticleRootContainer.transform);
                 }
             }
@@ -283,7 +300,8 @@ namespace Antura.AnturaSpace
             m_oParticleInstance.transform.position = transform.position;
 
             m_oParticleInstance.SetActive(true);
-            foreach (var particles in m_oParticleInstance.GetComponentsInChildren<ParticleSystem>(true)) {
+            foreach (var particles in m_oParticleInstance.GetComponentsInChildren<ParticleSystem>(true))
+            {
                 particles.Play();
             }
 
@@ -301,8 +319,10 @@ namespace Antura.AnturaSpace
         /// </summary>
         private void StopPoof()
         {
-            if (m_oParticleInstance) {
-                foreach (var particles in m_oParticleInstance.GetComponentsInChildren<ParticleSystem>(true)) {
+            if (m_oParticleInstance)
+            {
+                foreach (var particles in m_oParticleInstance.GetComponentsInChildren<ParticleSystem>(true))
+                {
                     particles.Stop();
                 }
 

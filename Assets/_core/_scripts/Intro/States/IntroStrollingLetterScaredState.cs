@@ -39,16 +39,20 @@ namespace Antura.Intro
         public override void Update(float delta)
         {
             // Stay scared if danger is near
-            if (Vector3.Distance(letter.transform.position, letter.antura.transform.position) < 20.0f) {
+            if (Vector3.Distance(letter.transform.position, letter.antura.transform.position) < 20.0f)
+            {
                 ScaredDuration = 3;
                 ScareSource = letter.antura.transform.position;
-            } else if (Vector3.Distance(letter.transform.position, ScareSource) > 10.0f) {
+            }
+            else if (Vector3.Distance(letter.transform.position, ScareSource) > 10.0f)
+            {
                 scaredTimer = Mathf.Min(0.5f, scaredTimer);
             }
 
             scaredTimer -= delta;
 
-            if (scaredTimer <= 0) {
+            if (scaredTimer <= 0)
+            {
                 letter.SetCurrentState(letter.WalkingState);
                 return;
             }

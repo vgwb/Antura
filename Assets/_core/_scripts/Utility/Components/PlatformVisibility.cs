@@ -21,8 +21,10 @@ namespace Antura.Utilities
 
         void Start()
         {
-            if (ConditionSetting != ConditionSettingEnum.none) {
-                switch (ConditionSetting) {
+            if (ConditionSetting != ConditionSettingEnum.none)
+            {
+                switch (ConditionSetting)
+                {
                     case ConditionSettingEnum.ShowDonate:
                         gameObject.SetActive(AppManager.I.AppEdition.ShowDonate);
                         break;
@@ -31,23 +33,30 @@ namespace Antura.Utilities
                         break;
                 }
 
-            } else if (!Application.isEditor) {
+            }
+            else if (!Application.isEditor)
+            {
                 bool visible = false;
 
-                if (MobileOnly && AppConfig.IsMobilePlatform()) {
+                if (MobileOnly && AppConfig.IsMobilePlatform())
+                {
                     visible = true;
                 }
-                if (AndroidOnly && Application.platform == RuntimePlatform.Android) {
+                if (AndroidOnly && Application.platform == RuntimePlatform.Android)
+                {
                     visible = true;
                 }
-                if (DesktopOnly && AppConfig.IsDesktopPlatform()) {
+                if (DesktopOnly && AppConfig.IsDesktopPlatform())
+                {
                     visible = true;
                 }
 
-                if (editionIDOnly == AppEditionID.LearnEnglish_Ceibal && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal) {
+                if (editionIDOnly == AppEditionID.LearnEnglish_Ceibal && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal)
+                {
                     visible = true;
                 }
-                if (editionIDOnly == AppEditionID.LearnEnglish && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish) {
+                if (editionIDOnly == AppEditionID.LearnEnglish && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish)
+                {
                     visible = true;
                 }
 

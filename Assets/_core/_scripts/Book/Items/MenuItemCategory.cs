@@ -30,9 +30,12 @@ namespace Antura.Book
             Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
             SubTitle.text = AppManager.I.AppEdition.ShowHelpText ? categoryData.TitleHelp : "";
 
-            if (categoryData.Stage > 0) {
+            if (categoryData.Stage > 0)
+            {
                 Code.text = categoryData.Stage.ToString();
-            } else {
+            }
+            else
+            {
                 Code.text = "";
             }
 

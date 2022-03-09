@@ -27,7 +27,8 @@ namespace Antura.GamesSelector
 
             showTween = Finger.DOFade(0, 0.25f).From().SetEase(Ease.Linear).SetAutoKill(false).Pause();
             trailTimeTween = DOTween.Sequence().SetAutoKill(false).Pause();
-            foreach (TrailRenderer trenderer in trails) {
+            foreach (TrailRenderer trenderer in trails)
+            {
                 TrailRenderer tr = trenderer; // Fixes Unity foreach bug
                 trailTimeTween.Insert(0, DOTween.To(() => tr.time, x => tr.time = x, 0.0001f, 0.1f).SetEase(Ease.InQuad));
             }
@@ -51,18 +52,18 @@ namespace Antura.GamesSelector
             Finger.gameObject.SetActive(true);
 
             Vector3[] path = new Vector3[_bubbles.Count + 1];
-//            transform.localPosition = _bubbles[0].transform.localPosition - new Vector3(2, 0, 0);
-//            path[path.Length - 1] = _bubbles[_bubbles.Count - 1].transform.localPosition + new Vector3(2, 0, 0);
+            //            transform.localPosition = _bubbles[0].transform.localPosition - new Vector3(2, 0, 0);
+            //            path[path.Length - 1] = _bubbles[_bubbles.Count - 1].transform.localPosition + new Vector3(2, 0, 0);
             int rtlDirection = LanguageSwitcher.LearningRTL ? 1 : -1;
 
-            transform.localPosition = _bubbles[LanguageSwitcher.LearningRTL ?  _bubbles.Count - 1 : 0].transform.localPosition + new Vector3(rtlDirection*2, 0, 0);
+            transform.localPosition = _bubbles[LanguageSwitcher.LearningRTL ? _bubbles.Count - 1 : 0].transform.localPosition + new Vector3(rtlDirection * 2, 0, 0);
 
             for (int i = 0; i < _bubbles.Count; ++i)
             {
                 int iRTL = LanguageSwitcher.LearningRTL ? _bubbles.Count - i - 1 : i;
                 path[i] = _bubbles[iRTL].transform.localPosition;
             }
-            path[path.Length - 1] = _bubbles[LanguageSwitcher.LearningRTL ? 0 : _bubbles.Count-1].transform.localPosition - new Vector3(rtlDirection*2, 0, 0);
+            path[path.Length - 1] = _bubbles[LanguageSwitcher.LearningRTL ? 0 : _bubbles.Count - 1].transform.localPosition - new Vector3(rtlDirection * 2, 0, 0);
 
             showTween.Restart();
             moveTween = DOTween.Sequence().SetAutoKill(false)
@@ -83,7 +84,8 @@ namespace Antura.GamesSelector
             this.StopAllCoroutines();
             moveTween.Kill();
             showTween.PlayBackwards();
-            foreach (TrailRenderer tr in trails) {
+            foreach (TrailRenderer tr in trails)
+            {
                 tr.Clear();
             }
         }
@@ -94,12 +96,14 @@ namespace Antura.GamesSelector
 
         IEnumerator CO_Play()
         {
-            while (true) {
+            while (true)
+            {
                 yield return moveTween.WaitForCompletion();
                 yield return new WaitForSeconds(2);
                 moveTween.Restart();
                 trailTimeTween.Rewind();
-                foreach (TrailRenderer tr in trails) {
+                foreach (TrailRenderer tr in trails)
+                {
                     tr.Clear();
                 }
             }

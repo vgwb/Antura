@@ -59,7 +59,7 @@ namespace Antura.Teacher
             var selectionParams1 = new SelectionParameters(parameters.correctSeverity, getMaxData: true,
                 useJourney: parameters.useJourneyForCorrect);
             selectionParams1.AssignJourney(parameters.insideJourney);
-            parameters.wordFilters.allowedCategories = new[] { dataCategory};
+            parameters.wordFilters.allowedCategories = new[] { dataCategory };
             var words = teacher.VocabularyAi.SelectData(
                  () => vocabularyHelper.GetAllWords(parameters.wordFilters),
                  selectionParams1
@@ -82,7 +82,8 @@ namespace Antura.Teacher
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 
-            if (maxAnswers > 0) words = words.GetRange(0, Mathf.Min(words.Count, maxAnswers));
+            if (maxAnswers > 0)
+                words = words.GetRange(0, Mathf.Min(words.Count, maxAnswers));
 
             return QuestionPackData.CreateFromCorrect(null, words);
         }

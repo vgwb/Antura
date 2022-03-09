@@ -13,8 +13,10 @@ namespace Antura.Utilities
             TypeName = typeof(T).FullName;
 
             // checks if there is already another instance of this type.
-            if (I != null) {
-                if (I != this) {
+            if (I != null)
+            {
+                if (I != this)
+                {
                     Destroy(gameObject);
                 }
                 return;
@@ -28,7 +30,8 @@ namespace Antura.Utilities
 
         void OnDestroy()
         {
-            if (I == this) {
+            if (I == this)
+            {
                 Finalise();
             }
         }

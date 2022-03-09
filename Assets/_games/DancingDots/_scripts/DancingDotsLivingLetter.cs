@@ -54,7 +54,8 @@ namespace Antura.Minigames.DancingDots
 
         void OnMouseUp()
         {
-            if (letterData != null) {
+            if (letterData != null)
+            {
                 DancingDotsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData);
             }
         }
@@ -69,15 +70,24 @@ namespace Antura.Minigames.DancingDots
             char SOUKON = (char)1618;
 
             if (game.currentLetter.Contains(FATHA1.ToString()) ||
-                game.currentLetter.Contains(FATHA2.ToString())) {
+                game.currentLetter.Contains(FATHA2.ToString()))
+            {
                 game.letterDiacritic = DiacriticEnum.Fatha;
-            } else if (game.currentLetter.Contains(DAMAH.ToString())) {
+            }
+            else if (game.currentLetter.Contains(DAMAH.ToString()))
+            {
                 game.letterDiacritic = DiacriticEnum.Dameh;
-            } else if (game.currentLetter.Contains(KASRAH.ToString())) {
+            }
+            else if (game.currentLetter.Contains(KASRAH.ToString()))
+            {
                 game.letterDiacritic = DiacriticEnum.Kasrah;
-            } else if (game.currentLetter.Contains(SOUKON.ToString())) {
+            }
+            else if (game.currentLetter.Contains(SOUKON.ToString()))
+            {
                 game.letterDiacritic = DiacriticEnum.Sokoun;
-            } else {
+            }
+            else
+            {
                 game.letterDiacritic = DiacriticEnum.None;
             }
             //Debug.Log("DD found diacritic: " + game.letterDiacritic);
@@ -85,8 +95,10 @@ namespace Antura.Minigames.DancingDots
             StartCoroutine(game.SetupDiacritic());
 
             string output = "";
-            foreach (char c in game.currentLetter) {
-                if (c != FATHA1 && c != FATHA2 && c != DAMAH && c != KASRAH && c != SOUKON) {
+            foreach (char c in game.currentLetter)
+            {
+                if (c != FATHA1 && c != FATHA2 && c != DAMAH && c != KASRAH && c != SOUKON)
+                {
                     output += c;
                 }
             }
@@ -156,7 +168,8 @@ namespace Antura.Minigames.DancingDots
 
         private void SpeakLetter()
         {
-            if (letterData != null && !game.isTutRound) {
+            if (letterData != null && !game.isTutRound)
+            {
                 DancingDotsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData);
             }
         }

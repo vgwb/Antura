@@ -27,8 +27,10 @@ namespace Antura.Minigames.MissingLetter
         static MissingLetterConfiguration instance;
         public static MissingLetterConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new MissingLetterConfiguration();
                 }
                 return instance;
@@ -59,21 +61,23 @@ namespace Antura.Minigames.MissingLetter
 
             var builderParams = InitQuestionBuilderParamaters();
 
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MissingLetterVariation.LetterInWord:
                     // Find a letter with the given form inside the word (no diacritics inside the form)
                     // wrong answers are other letters in different forms & diacritics
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.excludeDiphthongs = true;
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters;
-                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
-                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: letterAlterationFilters);
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated)
+                        letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
+                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly: false, letterAlterationFilters: letterAlterationFilters);
                     break;
 
                 case MissingLetterVariation.LetterForm:
                     // Find the correct form of the letter in the given word
                     // wrong answers are the other forms of the same letter (not the same visually, tho)
-                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: LetterAlterationFilters.VisualFormsOfSingleLetter);
+                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly: false, letterAlterationFilters: LetterAlterationFilters.VisualFormsOfSingleLetter);
                     break;
 
                 case MissingLetterVariation.Phrase:
@@ -103,7 +107,8 @@ namespace Antura.Minigames.MissingLetter
 
         public bool VariationIsMissingLetter
         {
-            get {
+            get
+            {
                 return Variation == MissingLetterVariation.LetterForm ||
                        Variation == MissingLetterVariation.LetterInWord;
             }
@@ -112,7 +117,8 @@ namespace Antura.Minigames.MissingLetter
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
 
                 case MissingLetterVariation.LetterForm:
                 case MissingLetterVariation.LetterInWord:

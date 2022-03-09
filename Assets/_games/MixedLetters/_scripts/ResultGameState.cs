@@ -43,7 +43,7 @@ namespace Antura.Minigames.MixedLetters
             {
                 MixedLettersConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Win);
                 SeparateLettersSpawnerController.instance.ShowWinAnimation(OnVictimLLIsShowingBack, OnResultAnimationEnded);
-                
+
             }
 
             twirlAnimationDelayTimer = TWIRL_ANIMATION_BACK_SHOWN_DELAY;
@@ -63,7 +63,7 @@ namespace Antura.Minigames.MixedLetters
                 game.GenerateNewWord();
                 VictimLLController.instance.HideVictoryRays();
             }
-            
+
             wasBackShownDuringTwirlAnimation = true;
         }
 
