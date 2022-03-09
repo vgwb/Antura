@@ -1,4 +1,3 @@
-using Antura.Plugins.NativeGallery;
 using System;
 using UnityEngine;
 
@@ -15,24 +14,23 @@ namespace Antura.Core.Services.Gallery
 
         public void DetectWriteAccess()
         {
-            HasWriteAccess = NativeGallery.CheckWriteAccess("Antura");
+            var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
+            HasWriteAccess = (permission == NativeGallery.Permission.ShouldAsk || permission == NativeGallery.Permission.Granted);
             if (!HasWriteAccess) Debug.LogWarning("Has no write access to the gallery!");
         }
 
         public bool SaveScreenshot(Texture2D texture)
         {
-            if (!HasWriteAccess) return true;
-            try
-            {
-                // TODO need better way to generate incremental / unique images filenames
-                NativeGallery.SaveToGallery(texture, "Antura", "AnturaSpace" + (Time.time / 1000) + ".png");
-                return true;
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError("Exception during gallery saving: " + ex.Message);
-                return false;
-            }
+            bool saveSuccess = false;
+            NativeGallery.Permission permission = NativeGallery.SaveImageToGallery(texture, "Antura", "AnturaSpace" + (Time.time / 1000) + ".png", (success, path) => saveSuccess = success);
+            Debug.Log("SaveScreenshot Permission result: " + permission);
+            return saveSuccess;
+
+            //if (HasWriteAccess) {
+            //    // TODO need better way to generate incremental / unique images filenames
+
+            //    NativeGallery.SaveImageToGallery(texture, "Antura", "AnturaSpace" + (Time.time / 1000) + ".png");
+            //}
         }
 
     }
