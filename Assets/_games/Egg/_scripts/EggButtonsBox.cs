@@ -405,7 +405,7 @@ namespace Antura.Minigames.Egg
 
             if (playBefore != null)
             {
-                var sourceWrapper = audioManager.PlayVocabularyData(playBefore);
+                var sourceWrapper = audioManager.PlayVocabularyData(playBefore, soundType:EggConfiguration.Instance.GetVocabularySoundType());
                 while (!sourceWrapper.IsLoaded) yield return null;
                 delay += 0.5f + sourceWrapper.Duration;
             }
@@ -421,7 +421,7 @@ namespace Antura.Minigames.Egg
                     eCallback = () =>
                     {
                         if (playAfter != null)
-                            audioManager.PlayVocabularyData(playAfter);
+                            audioManager.PlayVocabularyData(playAfter, soundType:EggConfiguration.Instance.GetVocabularySoundType());
 
                         if (endCallback != null)
                             endCallback();

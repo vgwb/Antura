@@ -17,17 +17,17 @@ namespace Antura.Utilities
         public bool AndroidOnly;
         public bool DesktopOnly;
 
-        public AppEditions EditionOnly;
+        public AppEditionID editionIDOnly;
 
         void Start()
         {
             if (ConditionSetting != ConditionSettingEnum.none) {
                 switch (ConditionSetting) {
                     case ConditionSettingEnum.ShowDonate:
-                        gameObject.SetActive(AppManager.I.SpecificEdition.ShowDonate);
+                        gameObject.SetActive(AppManager.I.AppEdition.ShowDonate);
                         break;
                     case ConditionSettingEnum.ShowTeacherGuide:
-                        gameObject.SetActive(AppManager.I.SpecificEdition.ShowTeacherGuide);
+                        gameObject.SetActive(AppManager.I.AppEdition.ShowTeacherGuide);
                         break;
                 }
 
@@ -44,10 +44,10 @@ namespace Antura.Utilities
                     visible = true;
                 }
 
-                if (EditionOnly == AppEditions.LearnEnglish_Ceibal && AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal) {
+                if (editionIDOnly == AppEditionID.LearnEnglish_Ceibal && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal) {
                     visible = true;
                 }
-                if (EditionOnly == AppEditions.LearnEnglish && AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish) {
+                if (editionIDOnly == AppEditionID.LearnEnglish && AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish) {
                     visible = true;
                 }
 

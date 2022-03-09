@@ -4,21 +4,6 @@ using UnityEngine;
 
 namespace Antura.Core
 {
-
-    public enum AppEditions
-    {
-        All = 0,
-        LearnEnglish = 1,
-        LearnEnglish_Ceibal = 11,
-        Arabic = 20,
-        Arabic_Darija = 21,
-        Arabic_ProFuturo = 22,
-        Afgha_Dari = 23,
-        Afgha_Pashto = 24,
-        LearnFrench = 30,
-        LearnItalian = 40,
-    }
-
     public enum AppLanguages
     {
         English = 1,
@@ -40,9 +25,10 @@ namespace Antura.Core
         /// <summary>
         /// Version of the MySQL Database Scheme.
         /// @note: Change with EXTREME CAUTION, as the MySQL databases are regenerated (and thus the data is removed) when a change is detected.
+        /// 1.0.2.0 (20211117): added language edition index to player profile
         /// 1.0.1.0 (20190701): added colors to player profile
         /// </summary>
-        public const string DynamicDbSchemeVersion = "1.0.1.0";
+        public const string DynamicDbSchemeVersion = "1.0.2.0";
 
         #region Debug Options
 

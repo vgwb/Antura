@@ -3,6 +3,7 @@ using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -100,7 +101,7 @@ namespace Antura.Minigames.FastCrowd
                     break;
                 case FastCrowdVariation.LetterForm:
                     // @note: we pass 4 as nCorrect, so we get all the four forms of a single letter, which will be shown one after the other
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter, parameters: builderParams);
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 4, nWrong, letterAlterationFilters: LetterAlterationFilters.FormsOfSingleLetter, parameters: builderParams, getAllSorted:true);
                     break;
                 case FastCrowdVariation.CategoryForm:
                     // @note: we pass 4 as nCorrect, so we get all the four forms from a single category
@@ -113,6 +114,7 @@ namespace Antura.Minigames.FastCrowd
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builderParams.letterFilters.includeAccentedLetters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(7, nWrong: nWrong, useAllCorrectLetters: true, removeAccents:false,
                         parameters: builderParams);
                     break;
@@ -175,8 +177,10 @@ namespace Antura.Minigames.FastCrowd
                     soundType = LetterDataSoundType.Name;
                     break;
                 case FastCrowdVariation.BuildWord:
-                case FastCrowdVariation.Word:
                 case FastCrowdVariation.LetterForm:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                case FastCrowdVariation.Word:
                 case FastCrowdVariation.Counting:
                 case FastCrowdVariation.Alphabet:
                 case FastCrowdVariation.Image:

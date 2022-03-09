@@ -2,11 +2,12 @@ using System;
 using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using System.Linq;
 using Antura.Audio;
 using Antura.Database;
 using Antura.Core;
 using Antura.Extensions;
+using Antura.Helpers;
+using Antura.UI;
 
 namespace Antura.Teacher.Test
 {
@@ -46,8 +47,8 @@ namespace Antura.Teacher.Test
             int threshold = 3;
 
             DoStatsList("Frequency of letters in words", _letterDatas,
-                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.WithActualForm).Count < threshold,
-                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.WithActualForm).Count.ToString());
+                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter).Count < threshold,
+                data => _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter).Count.ToString());
         }
 
 
@@ -210,7 +211,7 @@ namespace Antura.Teacher.Test
         }
 
         // Print letters and words with these letters
-        [DeMethodButton("Print Letters and words")]
+        [DeMethodButton("Print Letters and words they appear in")]
         public void DoPrintLettersAndWords()
         {
             DoStatsList("Letters & words", _letterDatas,
@@ -226,13 +227,14 @@ namespace Antura.Teacher.Test
         }
 
 
+
         #region Internals
 
         void DoStatsList<T>(string title, List<T> dataList, Predicate<T> problematicCheck, Func<T, string> valueFunc)
         {
             var problematicEntries = new List<string>();
 
-            string data_s = "\n\n";
+            string data_s = "";
             foreach (var data in dataList) {
                 bool isProblematic = problematicCheck(data);
 

@@ -174,7 +174,13 @@ namespace Antura.Database
             if (data.Symbol == "") {
                 return null;
             }
-            return dbManager.FindLetterData(x => x.Id == data.Symbol)[0];
+
+            var symbols = dbManager.FindLetterData(x => x.Id == data.Symbol);
+            if (symbols.Count == 0)
+            {
+                throw new Exception("Could not find any symbol named " + data.Symbol);
+            }
+            return symbols[0];
         }
 
         public List<LetterData> GetLettersWithBase(string letterId)
@@ -225,7 +231,9 @@ namespace Antura.Database
                 // Check all alterations of this base letter
                 var letterAlterations = GetLettersWithBase(baseLetter.GetId());
                 List<LetterData> availableVariations = new List<LetterData>();
-                foreach (var letterData in letterAlterations) {
+                foreach (var letterData in letterAlterations)
+                {
+                    if (letterAlterationFilters.requireDiacritics && !letterData.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) continue;
                     if (!FilterByDiacritics(letterAlterationFilters.ExcludeDiacritics, letterData)) continue;
                     if (!FilterByLetterVariations(letterAlterationFilters.ExcludeLetterVariations, letterData)) continue;
                     if (!FilterByDipthongs(letterAlterationFilters.excludeDipthongs, letterData)) continue;
@@ -471,7 +479,7 @@ namespace Antura.Database
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
             if (word.Drawing != "") {
                 string drawingHexCode = word.Drawing;
-                if (AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
+                if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal && word.DrawingCeibal != "") {
                     drawingHexCode = word.DrawingCeibal;
                 }
 

@@ -8,12 +8,12 @@ namespace Antura.Database.Management
     [System.Serializable]
     public struct DatabaseInputData
     {
-        public TextAsset minigameDataAsset;
+        public TextAsset localizationDataAsset;
         public TextAsset letterDataAsset;
         public TextAsset wordDataAsset;
-        public TextAsset playSessionDataAsset;
-        public TextAsset localizationDataAsset;
         public TextAsset phraseDataAsset;
+        public TextAsset playSessionDataAsset;
+        public TextAsset minigameDataAsset;
         public TextAsset stageDataAsset;
         public TextAsset rewardDataAsset;
 

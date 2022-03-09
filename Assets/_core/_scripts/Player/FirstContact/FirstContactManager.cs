@@ -92,8 +92,8 @@ namespace Antura.Profile
         // Debug
         public static bool VERBOSE = true;
 
-        public static bool SIMULATE_FIRST_CONTACT => ApplicationConfig.I.SimulateFirstContact;
-        public FirstContactPhase SIMULATE_FIRST_CONTACT_PHASE => ApplicationConfig.I.SimulateFirstContactPhase;
+        public static bool SIMULATE_FIRST_CONTACT => DebugConfig.I.SimulateFirstContact;
+        public FirstContactPhase SIMULATE_FIRST_CONTACT_PHASE => DebugConfig.I.SimulateFirstContactPhase;
 
         private static bool FORCE_FIRST_CONTACT_START = false;
         private FirstContactPhase FORCED_FIRST_CONTACT_START_PHASE = FirstContactPhase.AnturaSpace_Customization;

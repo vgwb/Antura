@@ -147,7 +147,7 @@ namespace Antura.Minigames.MissingLetter
         }
 
         /// <summary>
-        /// change the position in the current scene 
+        /// change the position in the current scene
         /// </summary>
         /// <param name="_idxPos"> my new position </param>
         /// <param name="_length"> number of LL </param>
@@ -202,9 +202,9 @@ namespace Antura.Minigames.MissingLetter
             if (mLetterData != null && !mbIsSpeaking) {
                 mbIsSpeaking = true;
                 if (m_sInPhrase != null) {
-                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true);
+                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType());
                 } else {
-                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true);
+                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true, MissingLetterConfiguration.Instance.GetVocabularySoundType());
                 }
                 StartCoroutine(Utils.LaunchDelay(0.8f, SetIsSpeaking, false));
             }

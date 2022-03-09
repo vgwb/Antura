@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Antura
 {
@@ -27,8 +28,16 @@ namespace Antura
 
         public static IEnumerator Load<T>(string path, Action<T> callback, bool sync = false)
         {
-           // Debug.LogError("Start loading " + path);
-           var async = Addressables.LoadAssetAsync<T>(path);
+           AsyncOperationHandle<T> async = default;
+           try
+           {
+               async = Addressables.LoadAssetAsync<T>(path);
+           }
+           catch (Exception)
+           {
+               Debug.LogWarning("Exception while trying to load " + path);
+           }
+
            while (!async.IsDone)
            {
                if (sync) async.WaitForCompletion();

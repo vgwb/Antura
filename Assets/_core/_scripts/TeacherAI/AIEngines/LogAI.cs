@@ -84,6 +84,12 @@ namespace Antura.Teacher
                 return;
             }
 
+            if (db == null || !db.HasLoadedPlayerProfile())
+            {
+                Debug.Log("Could not find any DB to save to");
+                return;
+            }
+
             var data = new LogInfoData(appSession, infoEvent, AppManager.I.NavigationManager.GetCurrentScene(), parametersString);
             db.Insert(data);
         }
@@ -272,7 +278,7 @@ namespace Antura.Teacher
             db.InsertOrReplaceAll(scoreDataList);
         }
 
-        // TODO refactor: these rules should be moved out of the LogAI and be instead placed in the games' configuration, as they belong to the games 
+        // TODO refactor: these rules should be moved out of the LogAI and be instead placed in the games' configuration, as they belong to the games
         private MiniGameLearnRules GetLearnRules(MiniGameCode code)
         {
             MiniGameLearnRules rules = new MiniGameLearnRules();
@@ -295,7 +301,7 @@ namespace Antura.Teacher
 
         public void LogMiniGameScore(int appSession, JourneyPosition pos, MiniGameCode miniGameCode, int score, float playTime)
         {
-            if (ApplicationConfig.I.DebugLogEnabled) { Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score); }
+            if (DebugConfig.I.DebugLogEnabled) { Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score); }
 
             // Log for history
             var data = new LogMiniGameScoreData(appSession, pos, miniGameCode, score, playTime);
@@ -353,7 +359,7 @@ namespace Antura.Teacher
 
         public void LogPlaySessionScore(int appSession, JourneyPosition pos, int score, float playTime)
         {
-            if (ApplicationConfig.I.DebugLogEnabled) { Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score); }
+            if (DebugConfig.I.DebugLogEnabled) { Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score); }
 
             // Log for history
             var data = new LogPlaySessionScoreData(appSession, pos, score, playTime);

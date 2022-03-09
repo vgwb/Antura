@@ -43,13 +43,17 @@ namespace Antura.ReservedArea
 
         void OnEnable()
         {
+            if (DebugConfig.I.DebugBypassDialogs) {
+                UnlockReservedArea();
+            }
+
             KeeperManager.I.PlayDialogue("Parental_Gate", keeperMode: KeeperMode.LearningThenNativeNoSubtitles);
             firstButtonClickCounter = 0;
 
-            UseForcedSequence = AppManager.I.ParentEdition.ReservedAreaForcedSeq;
+            UseForcedSequence = AppManager.I.AppEdition.ReservedAreaForcedSeq;
 
-            layoutHelpAndLearning.SetActive(AppManager.I.ParentEdition.ShowHelpText);
-            layoutLearningOnly.SetActive(!AppManager.I.ParentEdition.ShowHelpText);
+            layoutHelpAndLearning.SetActive(AppManager.I.AppEdition.HelpTextInReservedArea);
+            layoutLearningOnly.SetActive(!AppManager.I.AppEdition.HelpTextInReservedArea);
 
             // Selecting two buttons at random
             var availableIndices = new List<int>();
@@ -66,7 +70,7 @@ namespace Antura.ReservedArea
             // Number of clicks at random
             const int min_number = 2;
             const int max_number = 5;
-            firstButtonClicksTarget = Random.Range(min_number, max_number+1);
+            firstButtonClicksTarget = Random.Range(min_number, max_number + 1);
 
             if (UseForcedSequence) firstButtonClicksTarget = ForceSequenceFirstColorPresses;
 

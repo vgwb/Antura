@@ -30,19 +30,35 @@ namespace Antura.Scenes
 
         public GameObject PanelAppUpdate;
 
+        public GameObject HomeLogo;
+
+        public static bool HasSelectedLearningEdition;
+        public static bool MustChooseLearningEdition => !HasSelectedLearningEdition && AppManager.I.AppEdition.HasMultipleContentEditions && AppManager.I.Player == null;
+
         protected override void Start()
         {
             base.Start();
-            GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
-            KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, TutorCreateProfile, KeeperMode.LearningThenNativeNoSubtitles);
 
-            AnturaAnimController.State = AnturaAnimation;
-            LLAnimController.State = LLAnimation;
+            if (MustChooseLearningEdition)
+            {
+                // First choose a learning edition
+                AnturaAnimController.gameObject.SetActive(false);
+                LLAnimController.gameObject.SetActive(false);
+                HomeLogo.SetActive(false);
+                GlobalUI.ShowPauseMenu(false, PauseMenuType.StartScreen);
+            }
+            else
+            {
+                GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
+                KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, TutorCreateProfile, KeeperMode.LearningThenNativeNoSubtitles);
+                AnturaAnimController.State = AnturaAnimation;
+                LLAnimController.State = LLAnimation;
+            }
         }
 
         void TutorCreateProfile()
         {
-            if (AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1) {
+            if (!MustChooseLearningEdition && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1) {
                 KeeperManager.I.PlayDialogue(LocalizationDataId.Action_Createprofile);
             }
         }
@@ -100,7 +116,7 @@ namespace Antura.Scenes
 
         public void OnBtnSwitchLanguage()
         {
-            ChangeLearningLanguage(AppManager.I.SpecificEdition.NativeLanguage == LanguageCode.spanish
+            ChangeLearningLanguage(AppManager.I.ContentEdition.NativeLanguage == LanguageCode.spanish
                 ? LanguageCode.italian
                 : LanguageCode.spanish);
         }

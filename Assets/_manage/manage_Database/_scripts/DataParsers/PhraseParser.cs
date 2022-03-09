@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections.Generic;
 using Antura.Language;
 
@@ -18,6 +19,7 @@ namespace Antura.Database.Management
             if (!data.Active) return null;  // Skip this data if inactive
 
             string langKey = language.ToString().ToUpper()[0] + language.ToString().Substring(1);
+            //            Debug.Log("langKey: " + langKey);
             data.Text = ToString(dict[langKey]);
             data.Category = ParseEnum<PhraseDataCategory>(data, dict["Category"]);
             data.Linked = ToString(dict["Linked"]);

@@ -16,7 +16,7 @@ namespace Antura.Tools
         public static void FixAddressables()
         {
             // TODO: Get all assets in the lang paths for the current edition
-            var lang = LanguageCode.french.ToString(); // @note: change this manually
+            var lang = "persian_dari"; // @note: change this manually
             var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
             Debug.Log("Fixing addressable for lang: " + lang);
             var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));

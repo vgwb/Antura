@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
@@ -52,6 +53,7 @@ namespace Antura.Minigames.HideAndSeek
             switch (Variation) {
                 case HideAndSeekVariation.LetterPhoneme:
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams,
                             avoidWrongLettersWithSameSound: true);
                     break;
@@ -62,7 +64,7 @@ namespace Antura.Minigames.HideAndSeek
                     builderParams.wordFilters.requireDrawings = true;
                     builder = new RandomWordsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, parameters: builderParams);
                     break;
-                default: 
+                default:
                     throw new ArgumentOutOfRangeException();
             }
 

@@ -1,6 +1,7 @@
 using Antura.Teacher;
 using System;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.Database;
 
 namespace Antura.Minigames.MakeFriends
@@ -57,9 +58,10 @@ namespace Antura.Minigames.MakeFriends
             var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case MakeFriendsVariation.LetterInWord:
-                    builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.excludeArticles = true;
+                    builderParams.letterFilters.excludeDiphthongs = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new CommonLetterInWordQuestionBuilder(nPacks, nWrong, nWords, parameters: builderParams, letterEqualityStrictness: letterEqualityStrictness);
                     break;
                 default:
@@ -76,6 +78,17 @@ namespace Antura.Minigames.MakeFriends
             return rules;
         }
 
-
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case MakeFriendsVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

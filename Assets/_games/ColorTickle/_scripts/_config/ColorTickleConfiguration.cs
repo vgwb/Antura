@@ -44,14 +44,14 @@ namespace Antura.Minigames.ColorTickle
         {
             IQuestionBuilder builder = null;
 
-            int nPacks = 10;
+            int nPacks = 6;
             int nCorrect = 1;
 
             var builderParams = InitQuestionBuilderParamaters();
             switch (Variation) {
                 case ColorTickleVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
-                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.AllButAlefHamza;
+                    builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.None;
                     builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDiacritics = true;
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, parameters: builderParams);

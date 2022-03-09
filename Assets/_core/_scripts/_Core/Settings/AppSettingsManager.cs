@@ -1,5 +1,6 @@
 using Antura.Audio;
 using System;
+using System.Linq;
 using UnityEngine;
 
 namespace Antura.Core
@@ -45,15 +46,14 @@ namespace Antura.Core
                 isFirstIstall = true;
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
-                Settings.SetAppVersion(AppManager.I.ParentEdition.AppVersion);
-
-                Settings.SpecificEdition = AppManager.I.SpecificEdition.Edition;
+                Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
+                Settings.ContentID = AppManager.I.ContentEdition.ContentID;
 
                 // set native Language
                 // first set the default / fallback language
-                Settings.NativeLanguage = AppManager.I.SpecificEdition.NativeLanguage;
-                if (AppManager.I.SpecificEdition.DetectSystemLanguage) {
-                    foreach (var lang in AppManager.I.SpecificEdition.SupportedNativeLanguages) {
+                Settings.NativeLanguage = AppManager.I.ContentEdition.NativeLanguage;
+                if (AppManager.I.ContentEdition.DetectSystemLanguage) {
+                    foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages) {
                         if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian) {
                             Settings.NativeLanguage = lang;
                         }
@@ -124,8 +124,8 @@ namespace Antura.Core
             } else {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
-            Debug.Log("AppVersion is: " + AppManager.I.ParentEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
-            Settings.SetAppVersion(AppManager.I.ParentEdition.AppVersion);
+            Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
+            Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
             SaveSettings();
         }
 
@@ -174,9 +174,9 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public void SetSpecificEdition(AppEditions edition)
+        public void SetLearningContentID(LearningContentID contentID)
         {
-            Settings.SpecificEdition = edition;
+            Settings.ContentID = contentID;
             SaveSettings();
         }
 

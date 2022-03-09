@@ -216,7 +216,7 @@ namespace Antura.Minigames.Egg
 
             if (!enteredRepeatMode)
             {
-                game.Context.GetAudioManager().PlayVocabularyData(letterData, false);
+                game.Context.GetAudioManager().PlayVocabularyData(letterData, false, EggConfiguration.Instance.GetVocabularySoundType());
             }
             else
             {

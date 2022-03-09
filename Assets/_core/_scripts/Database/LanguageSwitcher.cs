@@ -35,14 +35,14 @@ namespace Antura.Language
 
         public IEnumerator LoadData()
         {
-            yield return LoadLanguage(LanguageUse.Learning, AppManager.I.SpecificEdition.LearningLanguage);
+            yield return LoadLanguage(LanguageUse.Learning, AppManager.I.ContentEdition.LearningLanguage);
             yield return ReloadNativeLanguage();
-            yield return LoadLanguage(LanguageUse.Help, AppManager.I.SpecificEdition.HelpLanguage);
+            yield return LoadLanguage(LanguageUse.Help, AppManager.I.ContentEdition.HelpLanguage);
         }
 
         public IEnumerator ReloadNativeLanguage()
         {
-            yield return LoadLanguage(LanguageUse.Native, AppManager.I.SpecificEdition.NativeLanguage);
+            yield return LoadLanguage(LanguageUse.Native, AppManager.I.ContentEdition.NativeLanguage);
         }
 
         private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)

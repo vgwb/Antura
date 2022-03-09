@@ -132,7 +132,7 @@ namespace Antura.Core
         /// </summary>
         public void GoToNextScene()
         {
-            if (ApplicationConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled) {
                 Debug.LogFormat(" ---- NAV MANAGER ({1}) scene {0} ---- ", NavData.CurrentScene, "GoToNextScene");
             }
             switch (NavData.CurrentScene) {
@@ -217,7 +217,7 @@ namespace Antura.Core
 
             if (NavData.PrevSceneStack.Count > 0) {
                 var prevScene = NavData.PrevSceneStack.Pop();
-                if (ApplicationConfig.I.DebugLogEnabled) {
+                if (DebugConfig.I.DebugLogEnabled) {
                     Debug.LogFormat(" ---- NAV MANAGER ({0}) from scene {1} to {2} ---- ", "GoBack", NavData.CurrentScene, prevScene);
                 }
                 GoToScene(prevScene);
@@ -271,7 +271,7 @@ namespace Antura.Core
         {
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
-            if (ApplicationConfig.I.DebugLogEnabled) { Debug.LogFormat(" ==== Loading scene {0} ====", sceneName); }
+            if (DebugConfig.I.DebugLogEnabled) { Debug.LogFormat(" ==== Loading scene {0} ====", sceneName); }
             SceneTransitionManager.LoadSceneWithTransition(sceneName);
 
             AppManager.I.Services.Analytics.TrackScene(sceneName);
@@ -283,7 +283,7 @@ namespace Antura.Core
             // The stack is updated only for some transitions
             if (backableTransitions.Contains(new KeyValuePair<AppScene, AppScene>(NavData.CurrentScene, newScene))) {
                 if (NavData.PrevSceneStack.Count == 0 || NavData.PrevSceneStack.Peek() != NavData.CurrentScene) {
-                    if (ApplicationConfig.I.DebugLogEnabled) {
+                    if (DebugConfig.I.DebugLogEnabled) {
                         Debug.Log("Added BACKABLE transition " + NavData.CurrentScene + " to " + newScene);
                     }
                     NavData.PrevSceneStack.Push(NavData.CurrentScene);

@@ -213,7 +213,7 @@ namespace Antura.Book
                 WordDrawingText.text = "";
             }
 
-            if (ApplicationConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled) {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
                 Debug.Log("drawing code: " + currentWordInfo.data.Drawing);
                 Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));

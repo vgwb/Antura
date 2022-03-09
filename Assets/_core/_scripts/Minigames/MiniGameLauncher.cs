@@ -53,7 +53,7 @@ namespace Antura.Minigames
                 AppManager.I.NavigationManager.InitNewPlaySession(true, miniGameData);
             }
 
-            if (ApplicationConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled) {
                 Debug.Log("StartGame " + gameCode.ToString());
                 Debug.Log(launchConfig);
             }

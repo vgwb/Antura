@@ -46,7 +46,7 @@ namespace Antura.UI
 
         public void Awake()
         {
-            foreach (var lang in AppManager.I.SpecificEdition.SupportedNativeLanguages)
+            foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)
             {
                 var buttonGO = Instantiate(prefabButton.gameObject);
                 buttonGO.transform.SetParent(prefabButton.transform.parent);
@@ -69,7 +69,7 @@ namespace Antura.UI
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (button.Language == AppManager.I.SpecificEdition.NativeLanguage) button.SetSelected();
+                if (button.Language == AppManager.I.ContentEdition.NativeLanguage) button.SetSelected();
             }
             currentLanguageIcon.OnEnable();
         }

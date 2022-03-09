@@ -21,11 +21,6 @@ namespace Antura.Minigames.DancingDots
             diacriticText = GetComponent<TextMeshPro>();
         }
 
-        // Use this for initialization
-        void Start()
-        {
-        }
-
         public void Hide()
         {
             diacriticText.color = game.SetAlpha(diacriticText.color, 0);

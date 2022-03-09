@@ -58,7 +58,7 @@ namespace Antura.Teacher
             var minigame_data_list = new List<MiniGameData>();
             foreach (var orderedPair in ordered_minigamecodes) {
                 var data = dbManager.GetMiniGameDataByCode(orderedPair.Value);
-                if (data.Active) {
+                if (data.CanBeSelected) {
                     minigame_data_list.Add(data);
                 }
             }
@@ -90,7 +90,7 @@ namespace Antura.Teacher
             }
 
             // Get all minigame data, filter by availability (from the static DB)
-            var minigame_data_list = dbManager.FindMiniGameData(x => x.Active && minigame_id_list.Contains(x.GetId()));
+            var minigame_data_list = dbManager.FindMiniGameData(x => x.CanBeSelected && minigame_id_list.Contains(x.GetId()));
 
             // Create the weights list too
             var weights_list = new List<float>(minigame_data_list.Count);

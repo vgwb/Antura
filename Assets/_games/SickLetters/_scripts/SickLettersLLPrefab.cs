@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Database;
+using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
@@ -110,6 +111,9 @@ namespace Antura.Minigames.SickLetters
         public void getNewLetterData()
         {
             ILivingLetterData newLetter = game.questionManager.getNewLetter();
+
+            //newLetter = new LL_LetterData(AppManager.I.DB.GetLetterDataById("lam"));
+
             letterView.Init(newLetter);
             letterView.LabelRender.SetLetterData(newLetter);
 
@@ -237,8 +241,8 @@ namespace Antura.Minigames.SickLetters
             Vector2[] emptyZones;
             if (useLetter)
             {
-                var sideData = AppManager.I.AssetManager.GetSideLetterData(letterView.Data.Id);
-                emptyZones = sideData.EmptyZones;
+                var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterView.Data.Id);
+                emptyZones = shapeData.EmptyZones;
             }
             else
             {
@@ -248,6 +252,7 @@ namespace Antura.Minigames.SickLetters
 
             for (int iZone = 0; iZone < emptyZones.Length; iZone++)
             {
+
                 if (foundWrongDDCount >= game.Draggables.Length) continue;
 
                 if (game.Draggables[foundWrongDDCount].IsDiacritic && foundWrongDDCount >= game.numberOfWrongDDs)
@@ -257,9 +262,8 @@ namespace Antura.Minigames.SickLetters
                 }
 
                 SickLettersDraggableDD newDragable = game.createNewDragable(game.Draggables[foundWrongDDCount].gameObject);
-                newDragable.transform.parent = game.DropZonesGO.transform;
-                newDragable.transform.localPosition = new Vector3(emptyZones[iZone].x, 0, emptyZones[iZone].y);
-                newDragable.transform.localEulerAngles = new Vector3(0, -90, 0);
+                newDragable.transform.SetParent(game.DropZonesGO.transform);
+                newDragable.SetEmptyZone(emptyZones[iZone]);
                 newDragable.checkDDCollision = true;
                 thisLLWrongDDs.Add(newDragable);
                 game.allWrongDDs.Add(newDragable);

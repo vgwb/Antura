@@ -2,6 +2,7 @@ using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 
 namespace Antura.Minigames.MissingLetter
 {
@@ -60,12 +61,13 @@ namespace Antura.Minigames.MissingLetter
 
             switch (Variation) {
                 case MissingLetterVariation.LetterInWord:
-                    // Find a letter with the given form inside the word (no diacritics)
+                    // Find a letter with the given form inside the word (no diacritics inside the form)
                     // wrong answers are other letters in different forms & diacritics
-                    builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
-                    builderParams.letterFilters.excludeDiphthongs = true;
                     builderParams.wordFilters.excludeDipthongs = true;
-                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters);
+                    builderParams.letterFilters.excludeDiphthongs = true;
+                    var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
+                    builder = new LetterAlterationsInWordsQuestionBuilder(nPacks, 1, parameters: builderParams, keepBasesOnly:false, letterAlterationFilters: letterAlterationFilters);
                     break;
 
                 case MissingLetterVariation.LetterForm:
@@ -107,5 +109,20 @@ namespace Antura.Minigames.MissingLetter
             }
         }
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+
+                case MissingLetterVariation.LetterForm:
+                case MissingLetterVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+            }
+            return soundType;
+        }
     }
 }

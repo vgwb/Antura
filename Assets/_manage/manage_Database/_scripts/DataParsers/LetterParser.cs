@@ -26,6 +26,7 @@ namespace Antura.Database.Management
             data.Symbol = ToString(dict["Symbol"]);
             data.Type = ParseEnum<LetterDataType>(data, dict["Type"]);
             data.Tag = ToString(dict["Tag"]);
+            data.PlaySessionLink = dict.ContainsKey("PlaySessionLink") ? ToString(dict["PlaySessionLink"]) : string.Empty;
             data.Notes = ToString(dict["Notes"]);
             data.SunMoon = ParseEnum<LetterDataSunMoon>(data, dict["SunMoon"]);
 

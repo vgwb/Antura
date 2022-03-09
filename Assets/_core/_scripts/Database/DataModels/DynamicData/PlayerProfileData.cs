@@ -58,7 +58,9 @@ namespace Antura.Database
 
         public string AppVersion { get; set; }
 
-        public AppEditions Edition { get; set; }
+        public AppEditionID EditionID { get; set; }
+
+        public LearningContentID ContentID { get; set; }
 
         #region PlayerIconData
 
@@ -217,13 +219,15 @@ namespace Antura.Database
                 int comboPlayDays,
                 AnturaSpace.ShopState currentShopState,
                 FirstContactState currentFirstContactState,
-                AppEditions edition,
+                AppEditionID editionID,
+                LearningContentID contentID,
                 string appVersion
                 )
         {
             Id = UNIQUE_ID;  // Only one record
             AppVersion = appVersion;
-            Edition = edition;
+            EditionID = editionID;
+            ContentID = contentID;
             Uuid = _Uuid;
             AvatarId = _AvatarId;
             Gender = _Gender;

@@ -96,7 +96,7 @@ namespace Antura.Minigames
         {
             get
             {
-                if (AppManager.I.ParentEdition.AutomaticDifficulty)
+                if (AppManager.I.AppEdition.AutomaticDifficulty)
                 {
                     return DifficultyForScore(CurrentScore);
                 }
@@ -192,7 +192,7 @@ namespace Antura.Minigames
 
         private void PlayTitle(Action onComplete)
         {
-            if (AppManager.I.ParentEdition.PlayTitleAtMiniGameStart)
+            if (AppManager.I.AppEdition.PlayTitleAtMiniGameStart)
             {
                 Context.GetAudioManager().PlayDialogue(GetConfiguration().TitleLocalizationId, onComplete);
             }
@@ -204,7 +204,7 @@ namespace Antura.Minigames
 
         public void PlayIntro(Action onComplete)
         {
-            if (AppManager.I.ParentEdition.PlayIntroAtMiniGameStart)
+            if (AppManager.I.AppEdition.PlayIntroAtMiniGameStart)
             {
                 var id = GetConfiguration().IntroLocalizationId;
                 if (id != LocalizationDataId.None) Context.GetAudioManager().PlayDialogue(id, onComplete);

@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.Teacher;
 
@@ -10,7 +11,8 @@ namespace Antura.Minigames.ThrowBalls
         LetterAny = MiniGameCode.ThrowBalls_letterany,
         Word = MiniGameCode.ThrowBalls_word,
         BuildWord = MiniGameCode.ThrowBalls_buildword,
-        Image = MiniGameCode.ThrowBalls_image
+        Image = MiniGameCode.ThrowBalls_image,
+        MultiLetterForm = MiniGameCode.ThrowBalls_multiletterform
     }
 
     public class ThrowBallsConfiguration : AbstractGameConfiguration
@@ -57,8 +59,11 @@ namespace Antura.Minigames.ThrowBalls
                     builder = new RandomLettersQuestionBuilder(nPacks, 1, nWrong: nWrong, firstCorrectIsQuestion: true, parameters: builderParams);
                     break;
                 case ThrowBallsVariation.LetterAny:
+                {
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
+                }
                     break;
                 case ThrowBallsVariation.Word:
                 case ThrowBallsVariation.Image:
@@ -69,7 +74,14 @@ namespace Antura.Minigames.ThrowBalls
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(7, maximumWordLength: 7, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams);
+                    break;
+                case ThrowBallsVariation.MultiLetterForm:
+                {
+                    var letterAlterationFilters = LetterAlterationFilters.FormsOfMultipleLetters;
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams);
+                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -91,8 +103,13 @@ namespace Antura.Minigames.ThrowBalls
         {
             LetterDataSoundType soundType;
             switch (Variation) {
+
                 case ThrowBallsVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
+                    break;
+                case ThrowBallsVariation.MultiLetterForm:
+                case ThrowBallsVariation.BuildWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;
                 default:
                     soundType = LetterDataSoundType.Phoneme;

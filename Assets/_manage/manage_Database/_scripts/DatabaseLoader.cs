@@ -13,15 +13,14 @@ namespace Antura.Database.Management
     {
         public DatabaseInputData inputData;
         private DatabaseObject _databaseObject;
-        public bool verbose;
 
+        public bool ImportLocalizations;
         public bool ImportLetters;
         public bool ImportWords;
         public bool ImportPhrases;
-        public bool ImportLocalizations;
-        public bool ImportMiniGames;
         public bool ImportPlaySessions;
         public bool ImportLearningBlocks;
+        public bool ImportMiniGames;
         public bool ImportStages;
         public bool ImportRewards;
 
@@ -104,11 +103,11 @@ namespace Antura.Database.Management
 
         public void RegenerateEnums()
         {
-            if (verbose) Debug.Log("Regenerating enums from JSON files...");
+            Debug.Log("Regenerating enums from JSON files...");
 
             RegenerateEnumsFrom(inputData);
 
-            if (verbose) Debug.Log("Finished regenerating enums!");
+            Debug.Log("Finished regenerating enums!");
         }
 
         private void RegenerateEnumsFrom(DatabaseInputData DBInputData)
@@ -193,12 +192,12 @@ namespace Antura.Database.Management
         /// </summary>
         public void LoadDatabase()
         {
-            if (verbose) Debug.Log("Loading data from JSON files...");
+            Debug.Log("Loading data from JSON files...");
 
             this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
             LoadDataFrom(inputData);
 
-            if (verbose) Debug.Log("Finished loading!");
+            Debug.Log("Finished loading!");
         }
 
         /// <summary>

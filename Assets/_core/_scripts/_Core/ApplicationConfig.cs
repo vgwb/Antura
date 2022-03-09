@@ -26,53 +26,27 @@ namespace Antura.Core
 
         public static ApplicationConfig I => AppManager.I.ApplicationConfig;
 
-        public EditionConfig LoadedEdition;
-        public EditionConfig SpecificEdition
+        public AppEditionConfig LoadedAppEdition;
+        public ContentEditionConfig ContentEdition
         {
-            get {
-                if (LoadedEdition.IsMultiEdition) {
-                    var wantedEdition = AppManager.I.AppSettings.SpecificEdition;
-                    var editionConfig = LoadedEdition.ChildEditions.FirstOrDefault(ed => ed.Edition == wantedEdition);
-                    if (editionConfig == null) {
-                        AppManager.I.AppSettingsManager.SetSpecificEdition(LoadedEdition.ChildEditions[0].Edition);
-                        editionConfig = LoadedEdition.ChildEditions[0];
-                    }
-                    return editionConfig;
+            get
+            {
+                var loadedContentID = AppManager.I.AppSettings.ContentID;
+                if (loadedContentID == LearningContentID.None)
+                {
+                    Debug.Log("No saved content ID. Choosing the first available.");
+                    AppManager.I.AppSettingsManager.SetLearningContentID(LoadedAppEdition.ContentEditions[0].ContentID);
+                    return LoadedAppEdition.ContentEditions[0];
                 }
-                return LoadedEdition;
+                var config = LoadedAppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == loadedContentID);
+                if (config == null)
+                {
+                    Debug.Log($"No content with ID {loadedContentID} could be found. Reverting to the first available.");
+                    AppManager.I.AppSettingsManager.SetLearningContentID(LoadedAppEdition.ContentEditions[0].ContentID);
+                    return LoadedAppEdition.ContentEditions[0];
+                }
+                return config;
             }
         }
-
-        [Header("Debug")]
-        /// <summary>
-        /// Enabled the Advanced Debug Panel.
-        /// Set to FALSE for production.
-        /// </summary>
-        public bool DebugPanelEnabledAtStartup = false;
-
-        /// <summary>
-        /// Switches on all Debug.Log calls for performance.
-        /// Set to FALSE for production.
-        /// </summary>
-        public bool DebugLogEnabled = false;
-
-        [Header("Debug - Verbose")]
-        public bool VerboseBook;
-        public bool VerboseAudio;
-
-        [Header("Debug - Tutorial")]
-        public bool SimulateFirstContact;
-        public FirstContactPhase SimulateFirstContactPhase;
-
-        [Header("Debug - AI")]
-        public bool VerboseTeacher;
-        public bool VerboseMinigameSelection;
-        public bool VerboseDifficultySelection;
-        public bool VerboseQuestionPacks;
-        public bool VerboseDataFiltering;
-        public bool VerboseDataSelection;
-        public bool VerbosePlaySessionInitialisation;
-        public bool TeacherSafetyFallbackEnabled = true;
-
     }
 }

@@ -181,6 +181,18 @@ namespace Antura.Teacher
             return null;
         }
 
+
+        /// <summary>
+        /// A MiniGame can be selected for play only if it is found inside any PlaySession of the current edition.
+        /// Also, the MiniGame must be Active in the MiniGame DB
+        /// </summary>
+        public bool CanSelectMiniGame(MiniGameCode minigameCode)
+        {
+            if (!AppManager.I.DB.GetMiniGameDataByCode(minigameCode).Active) return false;
+            var minJp = GetMinimumJourneyPositionForMiniGame(minigameCode);
+            return minJp != null;
+        }
+
         #endregion
 
         #region Info getters

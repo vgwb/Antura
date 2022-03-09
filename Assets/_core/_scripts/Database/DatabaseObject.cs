@@ -11,7 +11,7 @@ namespace Antura.Database
     /// Main entry point for learning data access.
     /// Holds all static input data on learning.
     /// </summary>
-    public class DatabaseObject : UnityEngine.Object
+    public class DatabaseObject
     {
         public StageDatabase stageDb;
         public PlaySessionDatabase playsessionDb;
@@ -73,7 +73,7 @@ namespace Antura.Database
 
         public void LoadTablesFromEdition()
         {
-            var edition = AppManager.I.SpecificEdition;
+            var edition = AppManager.I.ContentEdition;
             stageDb = edition.StageDB;
             learningblockDb = edition.LearningBlockDB;
             playsessionDb = edition.PlaySessionDB;

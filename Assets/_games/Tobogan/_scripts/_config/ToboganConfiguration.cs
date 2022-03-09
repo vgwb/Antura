@@ -1,4 +1,5 @@
 using System;
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
@@ -58,6 +59,7 @@ namespace Antura.Minigames.Tobogan
                 case ToboganVariation.LetterInWord:
                     builderParams.wordFilters.excludeLetterVariations = true;
                     builderParams.wordFilters.excludeDipthongs = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(nPacks, nCorrect: nCorrect, nWrong: nWrong, parameters: builderParams);
                     break;
                 case ToboganVariation.SunMoon:
@@ -79,5 +81,20 @@ namespace Antura.Minigames.Tobogan
 
         public override bool AutoPlayIntro => false;
 
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case ToboganVariation.LetterInWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                case ToboganVariation.SunMoon:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using Antura.Database;
 using Antura.Teacher;
 using System;
+using Antura.Core;
 using UnityEngine;
 
 namespace Antura.Minigames.Egg
@@ -74,10 +75,15 @@ namespace Antura.Minigames.Egg
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builderParams.letterFilters.includeAccentedLetters = true;
+                    builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
                     builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8, removeAccents:false);
                     break;
                 case EggVariation.LetterPhoneme:
-                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm, avoidWrongLettersWithSameSound: true);
+                {
+                    var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+                    builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: letterAlterationFilters, avoidWrongLettersWithSameSound: true);
+                }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
@@ -123,6 +129,26 @@ namespace Antura.Minigames.Egg
                 default:
                     throw new ArgumentOutOfRangeException();
             }
+        }
+
+        public override LetterDataSoundType GetVocabularySoundType()
+        {
+            LetterDataSoundType soundType;
+            switch (Variation) {
+                case EggVariation.LetterName:
+                    soundType = LetterDataSoundType.Name;
+                    break;
+                case EggVariation.LetterPhoneme:
+                    soundType = LetterDataSoundType.Phoneme;
+                    break;
+                case EggVariation.Image:
+                case EggVariation.BuildWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return soundType;
         }
     }
 }

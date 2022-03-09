@@ -28,10 +28,11 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public EditionConfig ParentEdition => ApplicationConfig.LoadedEdition;
-        public EditionConfig SpecificEdition => ApplicationConfig.SpecificEdition;
+        public AppEditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
+        public ContentEditionConfig ContentEdition => ApplicationConfig.ContentEdition;
 
         public ApplicationConfig ApplicationConfig;
+        public DebugConfig DebugConfig;
         public LanguageSwitcher LanguageSwitcher;
 
         public AppSettingsManager AppSettingsManager;
@@ -150,13 +151,6 @@ namespace Antura.Core
 
             yield return ReloadEdition();
 
-            // TODO refactor: standardize initialisation of managers
-            VocabularyHelper = new VocabularyHelper(DB);
-            JourneyHelper = new JourneyHelper(DB);
-            ScoreHelper = new ScoreHelper(DB);
-            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
-            LogManager = new LogManager();
-            GameLauncher = new MiniGameLauncher(Teacher);
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager();
             FacebookManager = gameObject.AddComponent<FacebookManager>();
@@ -180,10 +174,10 @@ namespace Antura.Core
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
-            if (!ApplicationConfig.I.DebugLogEnabled) {
+            if (!DebugConfig.I.DebugLogEnabled) {
                 Debug.LogWarning("LOGS ARE DISABLED - check the App Config");
             }
-            Debug.unityLogger.logEnabled = ApplicationConfig.I.DebugLogEnabled;
+            Debug.unityLogger.logEnabled = DebugConfig.I.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
             Debug.Log("AppManager Init(): UpdateAppVersion");
@@ -200,12 +194,20 @@ namespace Antura.Core
             yield return LanguageSwitcher.LoadData();
             DB = new DatabaseManager(true);
             yield return LanguageSwitcher.PreloadLocalizedDataCO();
+
+            // TODO refactor: standardize initialisation of managers
+            VocabularyHelper = new VocabularyHelper(DB);
+            JourneyHelper = new JourneyHelper(DB);
+            ScoreHelper = new ScoreHelper(DB);
+            Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
+            LogManager = new LogManager();
+            GameLauncher = new MiniGameLauncher(Teacher);
         }
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
-            AppManager.I.SpecificEdition.NativeLanguage = langCode;
-            AppManager.I.SpecificEdition.HelpLanguage = langCode;
+            AppManager.I.ContentEdition.NativeLanguage = langCode;
+            AppManager.I.ContentEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             yield return LanguageSwitcher.ReloadNativeLanguage();
@@ -213,7 +215,7 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (AppManager.I.ParentEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications) {
                 Services.Notifications.Init();
             }
         }
@@ -247,7 +249,7 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (AppManager.I.ParentEdition.EnableNotifications) {
+            if (AppManager.I.AppEdition.EnableNotifications) {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
             Services.Analytics.TrackPlayerSession(Player.Age, Player.Gender);
@@ -275,7 +277,7 @@ namespace Antura.Core
             if (IsPaused) {
                 // app is pausing
                 if (LogManager.I != null) LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.ParentEdition.EnableNotifications) {
+                if (AppManager.I.AppEdition.EnableNotifications) {
                     Services.Notifications.AppSuspended();
                 }
             } else {
@@ -285,7 +287,7 @@ namespace Antura.Core
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.ParentEdition.EnableNotifications) {
+                if (AppManager.I.AppEdition.EnableNotifications) {
                     Services.Notifications.AppResumed();
                 }
             }

@@ -54,7 +54,7 @@ namespace Antura.UI
         void Start()
         {
             // By default, the letter shows a truly random letter
-            LLInStage.Init(AppManager.I.Teacher.GetRandomTestLetterLL(useMaxJourneyData: true));
+            LLInStage.GetComponent<HomeSceneLetter>().ChangeLetter();
 
             Setup();
 
@@ -107,7 +107,7 @@ namespace Antura.UI
         {
             ProfileManager.SetPlayerAsCurrentByUUID(playerIconData.Uuid);
             AudioManager.I.PlaySound(SfxSelectProfile);
-            LLInStage.Init(AppManager.I.Teacher.GetRandomTestLetterLL(useMaxJourneyData: true));
+            LLInStage.GetComponent<HomeSceneLetter>().ChangeLetter();
             Setup();
         }
 

@@ -3,6 +3,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
+using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Teacher
@@ -25,16 +26,15 @@ namespace Antura.Teacher
         private QuestionBuilderParameters parameters;
         private LetterAlterationFilters letterAlterationFilters;
         private bool avoidWrongLettersWithSameSound;
+        private bool getAllSorted;
 
-        public QuestionBuilderParameters Parameters
-        {
-            get { return this.parameters; }
-        }
-       
-        public RandomLetterAlterationsQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0, 
+        public QuestionBuilderParameters Parameters => this.parameters;
+
+        public RandomLetterAlterationsQuestionBuilder(int nPacks, int nCorrect = 1, int nWrong = 0,
             LetterAlterationFilters letterAlterationFilters = null,
             bool avoidWrongLettersWithSameSound = false,
-            QuestionBuilderParameters parameters = null
+            QuestionBuilderParameters parameters = null,
+            bool getAllSorted = false
             )
         {
             if (letterAlterationFilters == null) letterAlterationFilters = new LetterAlterationFilters();
@@ -50,12 +50,20 @@ namespace Antura.Teacher
             this.parameters = parameters;
             this.letterAlterationFilters = letterAlterationFilters;
             this.avoidWrongLettersWithSameSound = avoidWrongLettersWithSameSound;
+            this.getAllSorted = getAllSorted;
 
             // Forced filters
             // We need only base letters as the basis here
             this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
             this.parameters.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.All;
             this.parameters.letterFilters.excludeDiphthongs = true;
+
+            // If we want diacritics, get only diacritics also for base letters
+            if (letterAlterationFilters.requireDiacritics)
+            {
+                this.parameters.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.None;
+                this.parameters.letterFilters.requireDiacritics = true;
+            }
         }
 
         private List<string> previousPacksIDs = new List<string>();
@@ -94,14 +102,22 @@ namespace Antura.Teacher
             var letterPool = vocabularyHelper.GetAllLetterAlterations(baseLetters, letterAlterationFilters);
 
             // Choose randomly from that pool
-            var correctAnswers = letterPool.RandomSelect(nCorrect);
+            List<LetterData> correctAnswers;
+            correctAnswers = getAllSorted ? letterPool.GetRange(0,nCorrect) : letterPool.RandomSelect(nCorrect);
             var wrongAnswers = letterPool;
             foreach (LetterData data in correctAnswers)
                 wrongAnswers.Remove(data);
 
             if (avoidWrongLettersWithSameSound)
             {
-                wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
+                if (AppManager.I.ContentEdition.PlayNameSoundWithForms)
+                {
+                    wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.NameSound.IsNullOrEmpty() && correctLetter.NameSound.Equals(wrongLetter.NameSound)));
+                }
+                else
+                {
+                    wrongAnswers.RemoveAll(wrongLetter => correctAnswers.Any(correctLetter => !wrongLetter.PhonemeSound.IsNullOrEmpty() && correctLetter.PhonemeSound.Equals(wrongLetter.PhonemeSound)));
+                }
             }
 
             wrongAnswers = wrongAnswers.RandomSelect(Mathf.Min(nWrong,wrongAnswers.Count));

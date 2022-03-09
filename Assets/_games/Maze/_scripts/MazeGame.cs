@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.FSM;
 using Antura.LivingLetters;
 using Antura.Tutorial;
@@ -14,7 +15,7 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
-        private const int MAX_NUM_ROUNDS = 6;
+        private const int MAX_NUM_ROUNDS = 6;   // @note: the actual rounds played will be 1 less
 
         public GameObject characterPrefab;
         public GameObject arrowTargetPrefab;
@@ -22,8 +23,6 @@ namespace Antura.Minigames.Maze
 
         public MazeCharacter currentCharacter;
         public HandTutorial currentTutorial;
-
-        public List<GameObject> prefabs;
 
         #region Score
 
@@ -71,7 +70,6 @@ namespace Antura.Minigames.Maze
         private List<Vector3> fleePositions;
 
         public bool isTutorialMode;
-        public Dictionary<string, int> allLetters;
 
         private MazeLetter currentMazeLetter;
         private IInputManager inputManager;
@@ -82,13 +80,6 @@ namespace Antura.Minigames.Maze
 
         public GameObject drawingTool;
 
-        void setupIndices()
-        {
-            allLetters = new Dictionary<string, int>();
-            for (int i = 0; i < prefabs.Count; ++i) {
-                allLetters.Add(prefabs[i].name, i);
-            }
-        }
 
         private void OnPointerDown()
         {
@@ -133,8 +124,6 @@ namespace Antura.Minigames.Maze
         public void startGame()
         {
             isTutorialMode = GetConfiguration().TutorialEnabled;
-
-            setupIndices();
 
             fleePositions = new List<Vector3>();
             foreach (Transform child in fleePositionObject.transform) {
@@ -194,8 +183,8 @@ namespace Antura.Minigames.Maze
         public void addLine()
         {
             pointsList = new List<Vector3>();
-            GameObject go = new GameObject();
-            go.transform.position = new Vector3(0, 0, -0.2f);
+            GameObject go = new GameObject("Line");
+            go.transform.position = new Vector3(0, 0.5f, -0.4f);
             go.transform.Rotate(new Vector3(90, 0, 0));
             LineRenderer line = go.AddComponent<LineRenderer>();
             line.positionCount = 0;
@@ -357,6 +346,8 @@ namespace Antura.Minigames.Maze
         }
         public LL_LetterData currentLL;
 
+        public NewMazeLetter newMazeLetter;
+
         void initCurrentLetter()
         {
             if (gameEnded) {
@@ -373,18 +364,19 @@ namespace Antura.Minigames.Maze
             IQuestionPack newQuestionPack = MazeConfiguration.Instance.Questions.GetNextQuestion();
             List<ILivingLetterData> ldList = (List<ILivingLetterData>)newQuestionPack.GetCorrectAnswers();
             LL_LetterData ld = (LL_LetterData)ldList[0];
-            int index = -1;
+            //int index = -1;
 
-            if (allLetters.ContainsKey(ld.Id))
-                index = allLetters[ld.Id];
-            if (index == -1) {
-                Debug.Log("Letter got from Teacher is: " + ld.Id + " - does not match 11 models we have, we will play sound of the returned data");
-                index = Random.Range(0, prefabs.Count);
-            }
+            /*
+            // TEST
+            var id = "ayn";
+            var _ld = AppManager.I.DB.GetLetterDataById(id);
+            ld = new LL_LetterData(_ld);
+            */
 
             currentLL = ld;
-            currentPrefab = Instantiate(prefabs[index]);
-            currentPrefab.GetComponent<MazeLetterBuilder>().build(() => {
+            currentPrefab = Instantiate(newMazeLetter.gameObject);
+            currentPrefab.GetComponent<NewMazeLetter>().SetupLetter(ld);
+            currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() => {
 
                 if (!isTutorialMode) {
                     MazeConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(
@@ -405,6 +397,8 @@ namespace Antura.Minigames.Maze
 
                 currentMazeLetter = currentPrefab.GetComponentInChildren<MazeLetter>();
             });
+            currentPrefab.GetComponent<NewMazeLetterBuilder>().Build();
+
         }
 
         public void showCharacterMovingIn()
@@ -475,6 +469,12 @@ namespace Antura.Minigames.Maze
         {
             if (!pointsList.Contains(mousePos)) {
                 //mousePos.z = -0.1071415f;
+                if (pointsList.Count == 0)
+                {
+                    // Init position to avoid z fighting
+                    lines[lines.Count - 1].transform.position = mousePos + new Vector3(0, 1f, 0f);
+                }
+                mousePos.y = 0.65f;
                 pointsList.Add(mousePos);
                 lines[lines.Count - 1].positionCount = pointsList.Count;
                 lines[lines.Count - 1].SetPosition(pointsList.Count - 1, pointsList[pointsList.Count - 1]);

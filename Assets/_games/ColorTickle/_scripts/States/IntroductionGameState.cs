@@ -86,20 +86,8 @@ namespace Antura.Minigames.ColorTickle
 
         void BuildTutorialLetter()
         {
-            var alphabetCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Alphabet;
-
-            LetterData data;
-            switch (alphabetCode)
-            {
-                case AlphabetCode.latin:
-                    data = AppManager.I.DB.GetLetterDataById("A");
-                    break;
-                case AlphabetCode.arabic:
-                    data = AppManager.I.DB.GetLetterDataById("beh");
-                    break;
-                default:
-                    throw new ArgumentOutOfRangeException();
-            }
+            var tutorialLetterId = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).TutorialLetterId;
+            var data = AppManager.I.DB.GetLetterDataById(tutorialLetterId);
 
             LL_LetterData LLdata = new LL_LetterData(data);
             game.tutorialLetter = GameObject.Instantiate(game.letterPrefab);

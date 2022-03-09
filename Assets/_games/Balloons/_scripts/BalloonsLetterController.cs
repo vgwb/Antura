@@ -169,7 +169,7 @@ namespace Antura.Minigames.Balloons
         private void SpeakLetter()
         {
             if (letterData != null && letterData.Id != null) {
-                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData);
+                BalloonsConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterData, soundType:BalloonsConfiguration.Instance.GetVocabularySoundType());
             }
         }
 

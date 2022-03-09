@@ -134,6 +134,14 @@ namespace Antura.Database
         [SerializeField]
         private string _Tag;
 
+        public string PlaySessionLink
+        {
+            get { return _PlaySessionLink; }
+            set { _PlaySessionLink = value; }
+        }
+        [SerializeField]
+        private string _PlaySessionLink;
+
         public string Notes
         {
             get { return _Notes; }
@@ -475,14 +483,14 @@ namespace Antura.Database
                     if (PhonemeSound != "") {
                         return PhonemeSound;
                     } else {
-                        Debug.LogWarning("LetterData(): Requested Phone Sound is missing " + Id);
+                        Debug.LogWarning($"Letter {Id}: missing Phoneme Sound");
                         return "";
                     }
                 case LetterDataSoundType.Name:
                     if (NameSound != "") {
                         return NameSound; ;
                     } else {
-                        Debug.LogWarning("LetterData(): Requested Name Sound is missing " + Id);
+                        Debug.LogWarning($"Letter {Id}: missing Name Sound");
                         return "";
                     }
                 default:
@@ -492,7 +500,7 @@ namespace Antura.Database
         public string GetStringForDisplay(LetterForm form = LetterForm.Isolated, bool forceShowAccent = false)
         {
             // Accented letters are always shown as non-accented
-            if (!forceShowAccent && !AppManager.I.ParentEdition.ShowAccents && HasAccent)
+            if (!forceShowAccent && !AppManager.I.AppEdition.ShowAccents && HasAccent)
             {
                 return Base.GetStringForDisplay(form);
             }

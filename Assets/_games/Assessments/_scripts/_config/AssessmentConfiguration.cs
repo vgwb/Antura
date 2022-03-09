@@ -218,6 +218,7 @@ namespace Antura.Assessment
                 maxLetters = 10;
             }
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
                 NumberOfRounds,
                 nCorrect: 2,
@@ -238,6 +239,7 @@ namespace Antura.Assessment
             builderParams.wordFilters.requireDrawings = true;
             builderParams.sortPacksByDifficulty = false;
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
 
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers
@@ -442,6 +444,7 @@ namespace Antura.Assessment
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
             builderParams.sortPacksByDifficulty = false;
 
+            builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
             return new LettersInWordQuestionBuilder(
                 NumberOfRounds,
                 SimultaneosQuestions,
@@ -480,11 +483,14 @@ namespace Antura.Assessment
             builderParams.wrongSeverity = SelectionSeverity.MayRepeatIfNotEnough;
             builderParams.sortPacksByDifficulty = false;
 
+            var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
+            if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+
             return new RandomLetterAlterationsQuestionBuilder(
                 SimultaneosQuestions * NumberOfRounds,  // Total Answers
                 1,                              // CorrectAnswers
                 4,                              // WrongAnswers
-                letterAlterationFilters: LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm,
+                letterAlterationFilters: letterAlterationFilters,
                 avoidWrongLettersWithSameSound: true,
                 parameters: builderParams);
         }
@@ -606,6 +612,14 @@ namespace Antura.Assessment
         {
             LetterDataSoundType soundType;
             switch (Variation) {
+                case AssessmentVariation.CompleteWord_Form:
+                case AssessmentVariation.MatchLettersToWord_Form:
+                case AssessmentVariation.CompleteWord:
+                case AssessmentVariation.WordsWithLetter:
+                case AssessmentVariation.MatchLettersToWord:
+                    soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+                    break;
+
                 case AssessmentVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;

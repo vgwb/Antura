@@ -90,7 +90,7 @@ namespace Antura.Minigames.SickLetters
 
             hole.gameObject.SetActive(false);
 
-            manager = GetComponent<SickLettersGameManager>();            
+            manager = GetComponent<SickLettersGameManager>();
             DropZones = DropZonesGO.GetComponentsInChildren<SickLettersDropZone>();
             tut = GetComponent<SickLettersTutorial>();
 
@@ -186,7 +186,7 @@ namespace Antura.Minigames.SickLetters
                 return false;
             }
 
-            
+
         }
 
         public bool checkSucess()
@@ -252,7 +252,7 @@ namespace Antura.Minigames.SickLetters
                 TutorialUI.MarkNo(scale.transform.position - Vector3.forward * 2 + Vector3.up, TutorialUI.MarkSize.Big);
                 Context.GetAudioManager().PlaySound(Sfx.KO);
             }
-            
+
         }
 
 
@@ -269,7 +269,7 @@ namespace Antura.Minigames.SickLetters
             goodCommentCounter++;
             lastMoveIsCorrect = true;
             dd.deattached = true;
-            
+
 
             if (!dd.touchedVase)
                 dd.boxCollider.isTrigger = false;
@@ -298,16 +298,16 @@ namespace Antura.Minigames.SickLetters
 
 
 #if UNITY_EDITOR
-        [ContextMenu("Recreate Side Letters Data")]
-        public void RecreateSideLettersData()
+        [ContextMenu("Recreate Shape Letters Data")]
+        public void RecreateShapeLettersData()
         {
-            // RECREATE SIDE LETTERS DATA
+            // Recreate shape letter data from the current scene
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
-                var path = "Assets/_config/Resources/arabic/SideData/Letters/";
-                var asset = CustomAssetUtility.CreateAsset<SideLetterData>(path, $"sideletter_{letterData.Id}");
+                var path = "Assets/_config/Resources/arabic/ShapeData/Letters/";
+                var asset = CustomAssetUtility.CreateAsset<ShapeLetterData>(path, $"shapedata_{letterData.Id}");
 
-                string s = "DROP ZONES FOR " + letterData.Isolated;
+                string s = $"DROP ZONES FOR {letterData.Isolated}";
                 var zones = new List<Vector2>();
                 foreach (SickLettersDropZone dz in DropZones)
                 {
@@ -332,5 +332,5 @@ namespace Antura.Minigames.SickLetters
         }
 #endif
     }
-    
+
 }

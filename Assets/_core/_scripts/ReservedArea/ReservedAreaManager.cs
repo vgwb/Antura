@@ -18,7 +18,7 @@ namespace Antura.ReservedArea
 
         void Start()
         {
-            SupportText.text = AppManager.I.ParentEdition.GetAppVersionString();
+            SupportText.text = AppManager.I.AppEdition.GetAppVersionString();
             AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
         }
 
@@ -56,7 +56,7 @@ namespace Antura.ReservedArea
 
         public void OnOpenInstallInstructions()
         {
-            if (AppManager.I.SpecificEdition.Edition == AppEditions.LearnEnglish_Ceibal) {
+            if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal) {
                 var pdfViewerPrefab = Resources.Load("Pdf/CeibalPDFViewer") as GameObject;
                 var pdfViewer = Instantiate(pdfViewerPrefab);
                 pdfViewer.transform.SetParent(GameObject.Find("[GlobalUI]").transform, false);

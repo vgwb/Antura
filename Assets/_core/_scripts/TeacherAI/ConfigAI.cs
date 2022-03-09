@@ -11,19 +11,19 @@ namespace Antura.Teacher
     public static class ConfigAI
     {
         // Reporting
-        public static bool VerboseTeacher => ApplicationConfig.I.VerboseTeacher;
+        public static bool VerboseTeacher => DebugConfig.I.VerboseTeacher;
 
         // these depends on main VerboseTeacher bool
-        public static bool VerboseMinigameSelection => ApplicationConfig.I.VerboseMinigameSelection;
-        public static bool VerboseDifficultySelection => ApplicationConfig.I.VerboseDifficultySelection;
-        public static bool VerboseQuestionPacks => ApplicationConfig.I.VerboseQuestionPacks;
-        public static bool VerboseDataFiltering => ApplicationConfig.I.VerboseDataFiltering;
-        public static bool VerboseDataSelection => ApplicationConfig.I.VerboseDataSelection;
-        public static bool VerbosePlaySessionInitialisation => ApplicationConfig.I.VerbosePlaySessionInitialisation;
+        public static bool VerboseMinigameSelection => DebugConfig.I.VerboseMinigameSelection;
+        public static bool VerboseDifficultySelection => DebugConfig.I.VerboseDifficultySelection;
+        public static bool VerboseQuestionPacks => DebugConfig.I.VerboseQuestionPacks;
+        public static bool VerboseDataFiltering => DebugConfig.I.VerboseDataFiltering;
+        public static bool VerboseDataSelection => DebugConfig.I.VerboseDataSelection;
+        public static bool VerbosePlaySessionInitialisation => DebugConfig.I.VerbosePlaySessionInitialisation;
 
         // If true, the Teacher will keep retrying if it encounters a selection error, to avoid blocking the game
         // @note: this may HANG the game if an error keeps appearing, so use it only for extreme cases!
-        public static bool TeacherSafetyFallbackEnabled => ApplicationConfig.I.TeacherSafetyFallbackEnabled;
+        public static bool TeacherSafetyFallbackEnabled => DebugConfig.I.TeacherSafetyFallbackEnabled;
 
         // If true, the journey progression logic is turned off, so that all data is usable
         public static bool ForceJourneyIgnore = false;
