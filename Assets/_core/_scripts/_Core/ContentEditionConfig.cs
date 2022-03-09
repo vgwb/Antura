@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Antura.Core
 {
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Antura/Config Content Edition")]
     public class ContentEditionConfig : ScriptableObject
     {
         public LearningContentID ContentID;
@@ -47,7 +47,8 @@ namespace Antura.Core
         public GameObject GetResource(EditionResourceID id)
         {
             switch (id) {
-                case EditionResourceID.Flag: return Flag3D;
+                case EditionResourceID.Flag:
+                    return Flag3D;
             }
             return null;
         }

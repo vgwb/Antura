@@ -19,7 +19,7 @@ namespace Antura.Database
         public DirectionalSpline Spline = new DirectionalSpline();
     }
 
-    [CreateAssetMenu]
+    [CreateAssetMenu(menuName = "Antura/Shape LetterData")]
     // Additional data partaining to a LetterData and not saved in the Static Database
     public class ShapeLetterData : ScriptableObject
     {
@@ -28,5 +28,4 @@ namespace Antura.Database
         public Stroke[] Strokes;
         public Stroke[] Contour;
     }
-
 }
