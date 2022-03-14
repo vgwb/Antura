@@ -8,4 +8,12 @@
 6. create language folder in `/_lang_bundles` and configure
 
 7. create in `json_data` a Google Sheet ref for every data to sync (for example `Polish_Vocabulary`) and set its google sheed uid and filename
+8. open Manage Database scene and import the google data...
 
+## Git
+Create and edition_name branch
+
+## Unity Cloud
+- create new project
+- setup Cloud Build
+- setup Analytics
