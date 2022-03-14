@@ -34,7 +34,8 @@ namespace Antura.Minigames
         public ILivingLetterData Answer
         {
             get { return answer; }
-            set {
+            set
+            {
                 if (isDestroying)
                     return;
 
@@ -72,7 +73,8 @@ namespace Antura.Minigames
 
         public void DoEnterAnimation(float delay)
         {
-            if (enterScaleTweener != null) {
+            if (enterScaleTweener != null)
+            {
                 enterScaleTweener.Kill();
             }
 
@@ -94,11 +96,12 @@ namespace Antura.Minigames
         {
             var endScaleCallback = endCallback;
 
-            if (exitScaleTweener != null) {
+            if (exitScaleTweener != null)
+            {
                 exitScaleTweener.Kill();
             }
 
-            exitScaleTweener = transform.DOScale(scale, duration).OnComplete(delegate()
+            exitScaleTweener = transform.DOScale(scale, duration).OnComplete(delegate ()
             {
                 if (endScaleCallback != null)
                     endScaleCallback();
@@ -119,11 +122,14 @@ namespace Antura.Minigames
 
         void Update()
         {
-            if (isDestroying) {
-                if (destroyTimer >= 0) {
+            if (isDestroying)
+            {
+                if (destroyTimer >= 0)
+                {
                     destroyTimer -= Time.deltaTime;
 
-                    if (destroyTimer < 0) {
+                    if (destroyTimer < 0)
+                    {
                         Disappear();
                     }
                 }

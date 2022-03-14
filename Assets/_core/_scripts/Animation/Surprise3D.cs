@@ -15,8 +15,10 @@ namespace Antura.Animation
 
             transform.localScale = Vector3.one * 0.2f;
 
-            if (rotateTweener != null) rotateTweener.Kill();
-            if (scaleTweener != null) scaleTweener.Kill();
+            if (rotateTweener != null)
+                rotateTweener.Kill();
+            if (scaleTweener != null)
+                scaleTweener.Kill();
 
             if (_pulsing)
             {

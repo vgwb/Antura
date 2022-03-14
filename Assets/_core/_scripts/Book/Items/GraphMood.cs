@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Antura.Book
 {
     /// <summary>
-    /// Shows a graph with the history of moods of the player. 
+    /// Shows a graph with the history of moods of the player.
     /// </summary>
     public class GraphMood : MonoBehaviour
     {

@@ -65,14 +65,18 @@ namespace Antura.Debugging
 
         void Awake()
         {
-            if (I != null) {
+            if (I != null)
+            {
                 Destroy(gameObject);
-            } else {
+            }
+            else
+            {
                 I = this;
                 DontDestroyOnLoad(gameObject);
             }
 
-            if (Panel.activeSelf) {
+            if (Panel.activeSelf)
+            {
                 Panel.SetActive(false);
             }
         }
@@ -84,7 +88,8 @@ namespace Antura.Debugging
         public void OnClickOpen()
         {
             clickCounter++;
-            if (clickCounter >= 3) {
+            if (clickCounter >= 3)
+            {
                 Open();
             }
         }
@@ -241,7 +246,8 @@ namespace Antura.Debugging
 
         private void BuildUI()
         {
-            if (AppManager.I.Player != null) {
+            if (AppManager.I.Player != null)
+            {
                 InputStage.text = AppManager.I.Player.CurrentJourneyPosition.Stage.ToString();
                 InputLearningBlock.text = AppManager.I.Player.CurrentJourneyPosition.LearningBlock.ToString();
                 InputPlaySession.text = AppManager.I.Player.CurrentJourneyPosition.PlaySession.ToString();
@@ -302,10 +308,12 @@ namespace Antura.Debugging
         {
             InfoText.text = "";
 
-            if (AppManager.I.Player != null) {
+            if (AppManager.I.Player != null)
+            {
                 InfoText.text += "Current JP: " + AppManager.I.Player.CurrentJourneyPosition + "\n";
             }
-            if (AppManager.I.NavigationManager.CurrentMiniGameData != null) {
+            if (AppManager.I.NavigationManager.CurrentMiniGameData != null)
+            {
                 InfoText.text += "Current MiniGame: " + AppManager.I.NavigationManager.CurrentMiniGameData.Code + "\n";
                 InfoText.text += AppManager.I.GameLauncher.GetCurrentMiniGameConfigSummary();
             }
@@ -333,19 +341,27 @@ namespace Antura.Debugging
 
             var debugJP = GetCurrentJourneyPositionInUI();
 
-            if (!DebugManager.I.SafeLaunch || AppManager.I.Teacher.CanMiniGameBePlayedAfterMinPlaySession(debugJP, minigameCode)) {
+            if (!DebugManager.I.SafeLaunch || AppManager.I.Teacher.CanMiniGameBePlayedAfterMinPlaySession(debugJP, minigameCode))
+            {
                 LaunchMiniGameAtJourneyPosition(minigameCode, difficulty, debugJP);
-            } else {
-                if (DebugManager.I.SafeLaunch) {
+            }
+            else
+            {
+                if (DebugManager.I.SafeLaunch)
+                {
                     JourneyPosition minJP = AppManager.I.JourneyHelper.GetMinimumJourneyPositionForMiniGame(minigameCode);
-                    if (minJP == null) {
+                    if (minJP == null)
+                    {
                         Debug.LogWarningFormat(
                             "Minigame {0} could not be selected for any PlaySession. Please check the PlaySession data table.",
                             minigameCode);
-                    } else {
+                    }
+                    else
+                    {
                         Debug.LogErrorFormat("Minigame {0} cannot be selected PS {1}. Minimum PS is: {2}", minigameCode, debugJP, minJP);
 
-                        if (AutoCorrectJourneyPos) {
+                        if (AutoCorrectJourneyPos)
+                        {
                             LaunchMiniGameAtJourneyPosition(minigameCode, difficulty, minJP);
                         }
                     }
@@ -384,7 +400,8 @@ namespace Antura.Debugging
 
         private void EmptyContainer(GameObject container)
         {
-            foreach (Transform t in container.transform) {
+            foreach (Transform t in container.transform)
+            {
                 Destroy(t.gameObject);
             }
         }

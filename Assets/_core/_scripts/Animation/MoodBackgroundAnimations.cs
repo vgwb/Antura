@@ -19,7 +19,8 @@ namespace Antura.Animation
         void Start()
         {
             fernTweens = new Tween[Ferns.Length];
-            for (int i = 0; i < Ferns.Length; ++i) {
+            for (int i = 0; i < Ferns.Length; ++i)
+            {
                 RectTransform rt = Ferns[i];
                 float rotDiff = UnityEngine.Random.Range(MinRotationOffset, MaxRotationOffset);
                 Vector3 rot = rt.eulerAngles;
@@ -35,7 +36,8 @@ namespace Antura.Animation
 
         void OnDestroy()
         {
-            foreach (Tween t in fernTweens) {
+            foreach (Tween t in fernTweens)
+            {
                 t.Kill();
             }
         }

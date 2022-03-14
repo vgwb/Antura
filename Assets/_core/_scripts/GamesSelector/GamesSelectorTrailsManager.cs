@@ -36,15 +36,18 @@ namespace Antura.GamesSelector
         {
             _position.z = defZ;
             TrailRenderer spawnTarget = null;
-            foreach (TrailRenderer trail in pool) {
-                if (trail.gameObject.activeSelf) {
+            foreach (TrailRenderer trail in pool)
+            {
+                if (trail.gameObject.activeSelf)
+                {
                     continue;
                 }
                 trail.transform.position = _position;
                 spawnTarget = trail;
             }
-            if (spawnTarget == null) {
-                spawnTarget = (TrailRenderer) Instantiate(TrailPrefab, _position, Quaternion.identity, this.transform);
+            if (spawnTarget == null)
+            {
+                spawnTarget = (TrailRenderer)Instantiate(TrailPrefab, _position, Quaternion.identity, this.transform);
                 pool.Add(spawnTarget);
             }
             spawnTarget.gameObject.SetActive(true);
@@ -53,9 +56,12 @@ namespace Antura.GamesSelector
 
         public void Despawn(TrailRenderer _trail, bool _waitForTrailToComplete = true)
         {
-            if (_waitForTrailToComplete) {
+            if (_waitForTrailToComplete)
+            {
                 this.StartCoroutine(CO_TrailDespawnCoroutine(_trail));
-            } else {
+            }
+            else
+            {
                 DoDespawn(_trail);
             }
         }

@@ -28,9 +28,11 @@ namespace Antura.Environment
         public WorldID CurrentWorld
         {
             get { return currentWorld; }
-            set {
+            set
+            {
                 currentWorld = value;
-                if (currentWorld > WorldID.World5) {
+                if (currentWorld > WorldID.World5)
+                {
                     currentWorld = WorldID.World5;
                 }
             }
@@ -40,8 +42,10 @@ namespace Antura.Environment
         // Singleton Pattern
         public static WorldManager I
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     GameObject go = Instantiate(Resources.Load<GameObject>(ResourceId));
                     go.name = "[WorldManager]";
                     go.hideFlags = HideFlags.HideAndDontSave;
@@ -61,13 +65,17 @@ namespace Antura.Environment
 
         public GameObject GetPrefab(WorldPrefabSet prefabSet, WorldID world)
         {
-            if (world == WorldID.Default) {
-                if (prefabSet.defaultPrefab != null) {
+            if (world == WorldID.Default)
+            {
+                if (prefabSet.defaultPrefab != null)
+                {
                     return prefabSet.defaultPrefab;
                 }
 
                 return prefabSet.worldPrefabs[0];
-            } else {
+            }
+            else
+            {
                 return prefabSet.worldPrefabs[(int)world];
             }
         }
@@ -82,9 +90,12 @@ namespace Antura.Environment
 
         public Color GetColor(WorldColorSet set, WorldID world)
         {
-            if (world == WorldID.Default) {
+            if (world == WorldID.Default)
+            {
                 return set.defaultColor;
-            } else {
+            }
+            else
+            {
                 return set.colors[(int)world];
             }
         }

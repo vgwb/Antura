@@ -7,7 +7,7 @@ using UnityEngine;
 namespace Antura.Database.Management
 {
     /// <summary>
-    /// Allows the parsing of a set of data contained in a JSON string and converts it 
+    /// Allows the parsing of a set of data contained in a JSON string and converts it
     /// Provides support for custom validation and automatic generation of enumerators.
     /// </summary>
     /// <typeparam name="D">Data type to parse for each row of the JSON content</typeparam>
@@ -19,18 +19,23 @@ namespace Antura.Database.Management
             table.Clear();  // we re-generate the whole table
 
             var rootDict = Json.Deserialize(json) as Dictionary<string, object>;
-            foreach (var rootPair in rootDict) {
+            foreach (var rootPair in rootDict)
+            {
                 var list = rootPair.Value as List<object>;
-                foreach (var row in list) {
+                foreach (var row in list)
+                {
                     var dict = row as Dictionary<string, object>;
                     var data = CreateData(dict, db, language);
-                    if (data == null) {
+                    if (data == null)
+                    {
                         continue;
                     }
 
                     var value = table.GetValue(data.GetId());
-                    if (value != null) {
-                        if (!CanHaveSameKeyMultipleTimes) {
+                    if (value != null)
+                    {
+                        if (!CanHaveSameKeyMultipleTimes)
+                        {
                             LogValidation(data, "found multiple ID.");
                         }
                         continue;
@@ -46,7 +51,8 @@ namespace Antura.Database.Management
 
         protected virtual bool CanHaveSameKeyMultipleTimes
         {
-            get {
+            get
+            {
                 return false;
             }
         }
@@ -57,11 +63,15 @@ namespace Antura.Database.Management
         protected T ParseEnum<T>(D data, object enum_object)
         {
             string enum_string = ToString(enum_object);
-            if (enum_string == "") enum_string = "None";
+            if (enum_string == "")
+                enum_string = "None";
             T parsed_enum = default(T);
-            try {
+            try
+            {
                 parsed_enum = (T)System.Enum.Parse(typeof(T), enum_string);
-            } catch {
+            }
+            catch
+            {
                 LogValidation(data, "field valued '" + enum_string + "', not available as an enum value for type " + typeof(T).ToString() + ".");
             }
             return parsed_enum;
@@ -70,10 +80,12 @@ namespace Antura.Database.Management
         protected string ParseID<OtherD, OtherDTable>(D data, string id_string, OtherDTable table) where OtherDTable : SerializableDataTable<OtherD> where OtherD : IData
         {
             id_string = id_string.Trim(); // remove spaces
-            if (id_string == "") return ""; // skip empties
+            if (id_string == "")
+                return ""; // skip empties
 
             var value = table.GetValue(id_string);
-            if (value == null) {
+            if (value == null)
+            {
                 LogValidation(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + id_string);
             }
             return id_string;
@@ -81,17 +93,22 @@ namespace Antura.Database.Management
 
         protected string[] ParseIDArray<OtherD, OtherDTable>(D data, string array_string, OtherDTable table) where OtherDTable : SerializableDataTable<OtherD> where OtherD : IData
         {
-            if (table == null) {
+            if (table == null)
+            {
                 LogValidation(data, "Table of type " + typeof(OtherDTable).Name + " was null!");
             }
 
             var array = array_string.Split(',');
-            if (array_string == "") return new string[0];  // skip if empty (could happen if the string was empty)    
-            for (int i = 0; i < array.Length; i++) {
+            if (array_string == "")
+                return new string[0];  // skip if empty (could happen if the string was empty)
+            for (int i = 0; i < array.Length; i++)
+            {
                 array[i] = array[i].Trim(); // remove spaces
-                if (array[i] == "▲") array[i] = " ";
+                if (array[i] == "▲")
+                    array[i] = " ";
                 var value = table.GetValue(array[i]);
-                if (value == null) {
+                if (value == null)
+                {
                     LogValidation(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + array[i]);
                 }
             }
@@ -106,7 +123,8 @@ namespace Antura.Database.Management
         #region Conversions
         protected string ToString(object _input)
         {
-            if (_input == null) return "";
+            if (_input == null)
+                return "";
             return ((string)_input).Trim();
         }
 
@@ -117,7 +135,8 @@ namespace Antura.Database.Management
                 return 0;
 
             int target_int = 0;
-            if (!int.TryParse((string)_input, out target_int)) {
+            if (!int.TryParse((string)_input, out target_int))
+            {
                 Debug.LogError("Object " + (string)_input + " should be an int.");
             }
             return target_int;
@@ -126,12 +145,14 @@ namespace Antura.Database.Management
         protected float ToFloat(object _input)
         {
             // Force empty to 0
-            if ((string)_input == "") {
+            if ((string)_input == "")
+            {
                 return 0f;
             }
 
             float target_float = 0f;
-            if (!float.TryParse((string)_input, out target_float)) {
+            if (!float.TryParse((string)_input, out target_float))
+            {
                 Debug.LogError("Object " + (string)_input + " should be a float.");
             }
             return target_float;
@@ -142,10 +163,11 @@ namespace Antura.Database.Management
 
         public void RegenerateEnums(string json)
         {
-            var rootObj = Json.Deserialize(json) as Dictionary<string,object>;
+            var rootObj = Json.Deserialize(json) as Dictionary<string, object>;
             var list = rootObj.First().Value as List<object>;
             var rowdicts_list = new List<Dictionary<string, object>>();
-            foreach (var row in list) {
+            foreach (var row in list)
+            {
                 var dict = row as Dictionary<string, object>;
                 rowdicts_list.Add(dict);
             }

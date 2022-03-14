@@ -15,7 +15,8 @@ namespace Antura.Minigames.Maze
         {
             letters = new List<LL_LetterData>();
 
-            for (int i = 0; i < 7; ++i) {
+            for (int i = 0; i < 7; ++i)
+            {
                 letters.Add(AppManager.I.Teacher.GetRandomTestLetterLL());
             }
         }

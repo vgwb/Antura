@@ -26,7 +26,8 @@ namespace Antura.Rewards
 
         public void Setup()
         {
-            if (setupDone) return;
+            if (setupDone)
+                return;
 
             setupDone = true;
             RectT = this.GetComponent<RectTransform>();
@@ -58,7 +59,8 @@ namespace Antura.Rewards
 
         public void Reset()
         {
-            if (!setupDone) return;
+            if (!setupDone)
+                return;
 
             gainTween.Rewind();
         }

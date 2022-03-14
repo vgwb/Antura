@@ -48,8 +48,10 @@ namespace Antura.UI
         {
             I = this;
 
-            if (ActivateTheseOnAwake != null) {
-                foreach (GameObject go in ActivateTheseOnAwake) go.SetActive(true);
+            if (ActivateTheseOnAwake != null)
+            {
+                foreach (GameObject go in ActivateTheseOnAwake)
+                    go.SetActive(true);
             }
 
             showTween = this.GetComponent<RectTransform>().DOAnchorPosY(-800, 0.5f).From().SetUpdate(timeIndependent)
@@ -74,7 +76,8 @@ namespace Antura.UI
 
         public void Close(bool _immediate = false)
         {
-            if (IsShown || _immediate) {
+            if (IsShown || _immediate)
+            {
                 Show(false, _immediate);
             }
         }
@@ -84,17 +87,26 @@ namespace Antura.UI
             GlobalUI.Init();
 
             IsShown = _doShow;
-            if (_doShow) {
+            if (_doShow)
+            {
                 clicked = false;
-                if (_immediate) {
+                if (_immediate)
+                {
                     I.showTween.Complete();
-                } else {
+                }
+                else
+                {
                     I.showTween.PlayForward();
                 }
-            } else {
-                if (_immediate) {
+            }
+            else
+            {
+                if (_immediate)
+                {
                     I.showTween.Rewind();
-                } else {
+                }
+                else
+                {
                     I.showTween.PlayBackwards();
                 }
             }
@@ -140,7 +152,8 @@ namespace Antura.UI
             currentCallback = callback;
             ButtonGO.gameObject.SetActive(callback != null);
 
-            if (image2show != null) {
+            if (image2show != null)
+            {
                 TutorialImageGO.GetComponent<Image>().sprite = image2show;
                 TutorialImageGO.SetActive(true);
             }
@@ -161,7 +174,8 @@ namespace Antura.UI
             MarkOK.SetActive(result);
             MarkKO.SetActive(!result);
 
-            if (image2show != null) {
+            if (image2show != null)
+            {
                 TutorialImageGO.GetComponent<Image>().sprite = image2show;
                 TutorialImageGO.SetActive(true);
             }
@@ -181,10 +195,12 @@ namespace Antura.UI
 
         public void SetImage(Sprite image2show)
         {
-            if (image2show != null) {
+            if (image2show != null)
+            {
                 TutorialImageGO.GetComponent<Image>().sprite = image2show;
                 TutorialImageGO.SetActive(true);
-            } else
+            }
+            else
                 TutorialImageGO.SetActive(false);
         }
 
@@ -266,9 +282,12 @@ namespace Antura.UI
 
         public void SetWord(string imageId, LL_WordData wordData)
         {
-            if (wordData == null) {
+            if (wordData == null)
+            {
                 WordTextGO.SetActive(false);
-            } else {
+            }
+            else
+            {
                 WordTextGO.SetActive(true);
                 WordTextGO.GetComponent<TextRender>().SetLetterData(wordData);
             }
@@ -278,7 +297,9 @@ namespace Antura.UI
                 var imageData = new LL_ImageData(wordData.Id);
                 DrawingImageGO.SetActive(true);
                 DrawingImageGO.GetComponent<TextRender>().SetLetterData(imageData);
-            } else {
+            }
+            else
+            {
                 DrawingImageGO.SetActive(false);
             }
         }
@@ -292,14 +313,16 @@ namespace Antura.UI
         public void OnPressButton()
         {
             //Debug.Log("OnPressButton() " + clicked);
-            if (clicked) {
+            if (clicked)
+            {
                 return;
             }
 
             clicked = true;
             AudioManager.I.PlaySound(Sfx.UIButtonClick);
 
-            if (currentCallback != null) {
+            if (currentCallback != null)
+            {
                 currentCallback();
             }
         }

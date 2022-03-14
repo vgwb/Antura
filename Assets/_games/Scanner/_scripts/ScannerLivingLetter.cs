@@ -62,7 +62,8 @@ namespace Antura.Minigames.Scanner
                 StopAllCoroutines();
             rainbowJet.SetActive(false);
 
-            if (game.gameActive) {
+            if (game.gameActive)
+            {
                 status = LLStatus.None;
                 LLController.Falling = false;
                 LLController.SetState(LLAnimationStates.LL_still);
@@ -95,33 +96,47 @@ namespace Antura.Minigames.Scanner
         // Update is called once per frame
         void Update()
         {
-            if (Input.GetKey(KeyCode.E) && LLController.Data != null) {
-                if (wordSound == null) {
+            if (Input.GetKey(KeyCode.E) && LLController.Data != null)
+            {
+                if (wordSound == null)
+                {
                     wordSound = game.Context.GetAudioManager().PlayVocabularyData(LLController.Data, true);
                 }
-                if (!wordSound.IsPlaying) {
+                if (!wordSound.IsPlaying)
+                {
                     wordSound = game.Context.GetAudioManager().PlayVocabularyData(LLController.Data, true);
                 }
 
                 wordSound.Position = 0;
             }
-            if (wordSound != null) {
+            if (wordSound != null)
+            {
                 wordSound.Position = Mathf.Clamp(wordSound.Position + Time.deltaTime / 10, 0, 0.5f);
             }
 
-            if (status == LLStatus.Sliding) {
+            if (status == LLStatus.Sliding)
+            {
                 transform.Translate(slideSpeed * Time.deltaTime, -slideSpeed * Time.deltaTime / 2, 0);
-            } else if (status == LLStatus.StandingOnBelt) {
+            }
+            else if (status == LLStatus.StandingOnBelt)
+            {
                 transform.Translate(game.beltSpeed * Time.deltaTime, 0, 0);
-            } else if (status == LLStatus.Flying) {
+            }
+            else if (status == LLStatus.Flying)
+            {
                 transform.Translate(Vector2.up * flightSpeed * Time.deltaTime);
-            } else if (status == LLStatus.Falling) {
+            }
+            else if (status == LLStatus.Falling)
+            {
                 transform.Translate(Vector2.down * flightSpeed * Time.deltaTime);
             }
 
-            if (livingLetter.transform.position.x > fallOffX && status == LLStatus.StandingOnBelt) {
+            if (livingLetter.transform.position.x > fallOffX && status == LLStatus.StandingOnBelt)
+            {
                 StartCoroutine(co_FallOff());
-            } else if (livingLetter.transform.position.x > midPointX && !passedMidPoint) {
+            }
+            else if (livingLetter.transform.position.x > midPointX && !passedMidPoint)
+            {
                 passedMidPoint = true;
                 onPassedMidPoint(this);
             }
@@ -136,7 +151,7 @@ namespace Antura.Minigames.Scanner
 
             LLController.State = LLAnimationStates.LL_dancing;
             LLController.DoDancingWin();
-            //letterObjectView.DoSmallJump();            
+            //letterObjectView.DoSmallJump();
             // Rotate in case not facing the camera
             StartCoroutine(RotateGO(livingLetter, new Vector3(0, 180, 0), 1f));
             yield return new WaitForSeconds(2f);
@@ -160,16 +175,20 @@ namespace Antura.Minigames.Scanner
 
         IEnumerator co_Lost()
         {
-            if (status == LLStatus.StandingOnBelt) {
+            if (status == LLStatus.StandingOnBelt)
+            {
                 status = LLStatus.Sad;
                 LLController.DoAngry();
                 yield return new WaitForSeconds(1.5f);
             }
             Debug.Log(status);
-            if (status != LLStatus.Flying || status != LLStatus.Falling || status != LLStatus.None) {
+            if (status != LLStatus.Flying || status != LLStatus.Falling || status != LLStatus.None)
+            {
                 LLController.Poof();
                 yield return new WaitForSeconds(0.2f);
-            } else {
+            }
+            else
+            {
                 yield return new WaitForSeconds(2f);
             }
             transform.position = new Vector3(-100, -100, -100); // Move offscreen
@@ -239,7 +258,8 @@ namespace Antura.Minigames.Scanner
         {
             var fromAngle = go.transform.rotation;
             var destAngle = Quaternion.Euler(toAngle);
-            for (var t = 0f; t < 1; t += Time.deltaTime / inTime) {
+            for (var t = 0f; t < 1; t += Time.deltaTime / inTime)
+            {
                 go.transform.rotation = Quaternion.Lerp(fromAngle, destAngle, t);
                 yield return null;
             }
@@ -257,9 +277,11 @@ namespace Antura.Minigames.Scanner
                 LLAnimationStates.LL_dancing
             };
 
-            do {
+            do
+            {
                 int oldIndex = index;
-                do {
+                do
+                {
                     index = UnityEngine.Random.Range(0, animations.Length);
                 } while (index == oldIndex);
                 LLController.SetState(animations[index]);
@@ -269,8 +291,10 @@ namespace Antura.Minigames.Scanner
 
         void OnTriggerEnter(Collider other)
         {
-            if (status == LLStatus.Sliding) {
-                if (other.tag == ScannerGame.TAG_BELT) {
+            if (status == LLStatus.Sliding)
+            {
+                if (other.tag == ScannerGame.TAG_BELT)
+                {
                     //                    transform.parent = other.transform;
                     status = LLStatus.StandingOnBelt;
                     gameObject.GetComponent<SphereCollider>().enabled = false; // disable feet collider
@@ -285,7 +309,8 @@ namespace Antura.Minigames.Scanner
         public void showLLMesh(bool show)
         {
             SkinnedMeshRenderer[] LLMesh = GetComponentsInChildren<SkinnedMeshRenderer>();
-            foreach (SkinnedMeshRenderer sm in LLMesh) {
+            foreach (SkinnedMeshRenderer sm in LLMesh)
+            {
                 sm.enabled = show;
             }
             LLController.contentTransform.gameObject.SetActive(show);
@@ -293,7 +318,8 @@ namespace Antura.Minigames.Scanner
 
         public void setColor(Color col)
         {
-            if (!mat) {
+            if (!mat)
+            {
                 mat = sm.material;
             }
             mat.SetColor("_Color", col);

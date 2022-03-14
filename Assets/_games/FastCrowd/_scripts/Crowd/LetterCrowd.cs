@@ -45,7 +45,7 @@ namespace Antura.Minigames.FastCrowd
             for (int i = 0; i < letters.Count; i++)
             {
                 LivingLetterController lov = letters[i].gameObject.GetComponent<LivingLetterController>();
-                if(DataMatchingHelper.IsDataMatching(lov.Data, data, LetterEqualityStrictness.Letter))
+                if (DataMatchingHelper.IsDataMatching(lov.Data, data, LetterEqualityStrictness.Letter))
                 {
                     return letters[i];
                 }

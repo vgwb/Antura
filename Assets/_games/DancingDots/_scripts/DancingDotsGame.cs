@@ -69,8 +69,10 @@ namespace Antura.Minigames.DancingDots
 
         DancingDotsTutorial tutorial;
 
-        public bool isTutRound {
-            get {
+        public bool isTutRound
+        {
+            get
+            {
                 if (numberOfRoundsPlayed == 0 && GetConfiguration().TutorialEnabled)
                     return true;
                 else
@@ -80,13 +82,17 @@ namespace Antura.Minigames.DancingDots
 
         public string currentLetter = "";
         private int _dotsCount;
-        public int dotsCount {
-            get {
+        public int dotsCount
+        {
+            get
+            {
                 return _dotsCount;
             }
-            set {
+            set
+            {
                 _dotsCount = value;
-                foreach (DancingDotsDraggableDot dd in dragableDots) {
+                foreach (DancingDotsDraggableDot dd in dragableDots)
+                {
                     dd.isNeeded = dd.dots == _dotsCount;
                 }
             }
@@ -172,14 +178,16 @@ namespace Antura.Minigames.DancingDots
 
             if (AppManager.I.ContentEdition.LearningLanguage == LanguageCode.persian_dari)
             {
-                dragableDiacritics.First(x =>  x.diacritic == DiacriticEnum.Sokoun).gameObject.SetActive(false);
+                dragableDiacritics.First(x => x.diacritic == DiacriticEnum.Sokoun).gameObject.SetActive(false);
                 dragableDiacritics = dragableDiacritics.ToList().Where(x => x.diacritic != DiacriticEnum.Sokoun).ToArray();
-                diacritics.First(x =>  x.GetComponent<DancingDotsDiacriticPosition>().diacritic == DiacriticEnum.Sokoun).SetActive(false);
+                diacritics.First(x => x.GetComponent<DancingDotsDiacriticPosition>().diacritic == DiacriticEnum.Sokoun).SetActive(false);
                 diacritics = diacritics.ToList().Where(x => x.GetComponent<DancingDotsDiacriticPosition>().diacritic != DiacriticEnum.Sokoun).ToArray();
             }
 
-            foreach (DancingDotsDraggableDot dDots in dragableDots) dDots.gameObject.SetActive(false);
-            foreach (DancingDotsDraggableDot dDiacritic in dragableDiacritics) dDiacritic.gameObject.SetActive(false);
+            foreach (DancingDotsDraggableDot dDots in dragableDots)
+                dDots.gameObject.SetActive(false);
+            foreach (DancingDotsDraggableDot dDiacritic in dragableDiacritics)
+                dDiacritic.gameObject.SetActive(false);
 
             //StartRound();
 
@@ -193,9 +201,12 @@ namespace Antura.Minigames.DancingDots
 
         public Color32 SetAlpha(Color32 color, byte alpha)
         {
-            if (alpha >= 0 && alpha <= 255) {
+            if (alpha >= 0 && alpha <= 255)
+            {
                 return new Color32(color.r, color.g, color.b, alpha);
-            } else {
+            }
+            else
+            {
                 return color;
             }
         }
@@ -205,7 +216,8 @@ namespace Antura.Minigames.DancingDots
             Vector3 pos = antura.transform.position;
             // Move antura off screen because SetActive is reseting the animation to running
             antura.transform.position = new Vector3(-50, pos.y, pos.z);
-            do {
+            do
+            {
                 yield return new WaitForSeconds(UnityEngine.Random.Range(anturaMinDelay, anturaMaxDelay));
                 CreatePoof(pos, 2f, false);
                 yield return new WaitForSeconds(0.4f);
@@ -222,9 +234,12 @@ namespace Antura.Minigames.DancingDots
         private void SetLevel(Level level)
         {
             // Hide all dots
-            foreach (DancingDotsDraggableDot dDots in dragableDots) dDots.gameObject.SetActive(false);
-            foreach (DancingDotsDraggableDot dDiacritic in dragableDiacritics) dDiacritic.gameObject.SetActive(false);
-            foreach (GameObject go in diacritics) go.SetActive(false);
+            foreach (DancingDotsDraggableDot dDots in dragableDots)
+                dDots.gameObject.SetActive(false);
+            foreach (DancingDotsDraggableDot dDiacritic in dragableDiacritics)
+                dDiacritic.gameObject.SetActive(false);
+            foreach (GameObject go in diacritics)
+                go.SetActive(false);
             isCorrectDiacritic = true;
             isCorrectDot = true;
 
@@ -232,7 +247,8 @@ namespace Antura.Minigames.DancingDots
             //foreach (DancingDotsDraggableDot dDots in dragableDots) dDots.Reset();
             //isCorrectDot = false;
 
-            switch (level) {
+            switch (level)
+            {
                 case Level.Level1: // Dots alone with visual aid
                     gameDuration = 120;
                     StartCoroutine(RemoveHintDot());
@@ -288,7 +304,8 @@ namespace Antura.Minigames.DancingDots
 
             if (pedagogicalLevel == 0f) // TODO for testing only each round increment Level. Remove later!
             {
-                switch (numberOfRoundsPlayed) {
+                switch (numberOfRoundsPlayed)
+                {
                     case 1:
                     case 2:
                         currentLevel = Level.Level1;
@@ -307,7 +324,9 @@ namespace Antura.Minigames.DancingDots
                         currentLevel = Level.Level3;
                         break;
                 }
-            } else {
+            }
+            else
+            {
                 // TODO Move later to Start method
                 var numberOfLevels = Enum.GetNames(typeof(Level)).Length;
                 pedagogicalLevel = 0;
@@ -332,7 +351,8 @@ namespace Antura.Minigames.DancingDots
 
         private void CreatePoof(Vector3 position, float duration, bool withSound)
         {
-            if (withSound) Context.GetAudioManager().PlaySound(Sfx.BalloonPop);
+            if (withSound)
+                Context.GetAudioManager().PlaySound(Sfx.BalloonPop);
             GameObject poof = Instantiate(poofPrefab, position, Quaternion.identity) as GameObject;
             Destroy(poof, duration);
         }
@@ -344,11 +364,14 @@ namespace Antura.Minigames.DancingDots
         IEnumerator RemoveHintDot()
         {
             yield return new WaitForSeconds(hintDotDuration);
-            if (!isCorrectDot) {
+            if (!isCorrectDot)
+            {
                 // find dot postions
                 Vector3 poofPosition = Vector3.zero;
-                foreach (DancingDotsDropZone dz in dropZones) {
-                    if (dz.letters.Contains(currentLetter)) {
+                foreach (DancingDotsDropZone dz in dropZones)
+                {
+                    if (dz.letters.Contains(currentLetter))
+                    {
                         poofPosition = new Vector3(dz.transform.position.x, dz.transform.position.y, -8);
                         break;
                     }
@@ -363,9 +386,11 @@ namespace Antura.Minigames.DancingDots
         /// </summary>
         IEnumerator RemoveHintDiacritic()
         {
-            if (letterDiacritic != DiacriticEnum.None) {
+            if (letterDiacritic != DiacriticEnum.None)
+            {
                 yield return new WaitForSeconds(hintDiacriticDuration);
-                if (!isCorrectDiacritic) {
+                if (!isCorrectDiacritic)
+                {
                     CreatePoof(activeDiacritic.transform.position, 2f, true);
                     activeDiacritic.Hide();
                 }
@@ -374,15 +399,19 @@ namespace Antura.Minigames.DancingDots
 
         public IEnumerator SetupDiacritic()
         {
-            if (letterDiacritic != DiacriticEnum.None) {
-                foreach (DancingDotsDraggableDot dDots in dragableDiacritics) {
+            if (letterDiacritic != DiacriticEnum.None)
+            {
+                foreach (DancingDotsDraggableDot dDots in dragableDiacritics)
+                {
                     dDots.Reset();
                 }
                 isCorrectDiacritic = false;
 
-                foreach (GameObject go in diacritics) {
+                foreach (GameObject go in diacritics)
+                {
                     go.SetActive(true);
-                    if (go.GetComponent<DancingDotsDiacriticPosition>().diacritic == letterDiacritic) {
+                    if (go.GetComponent<DancingDotsDiacriticPosition>().diacritic == letterDiacritic)
+                    {
                         activeDiacritic = go.GetComponent<DancingDotsDiacriticPosition>();
                     }
                     go.SetActive(false);
@@ -394,7 +423,8 @@ namespace Antura.Minigames.DancingDots
 
                 activeDiacritic.gameObject.SetActive(true);
 
-                foreach (DancingDotsDraggableDot dd in dragableDiacritics) {
+                foreach (DancingDotsDraggableDot dd in dragableDiacritics)
+                {
                     dd.isNeeded = activeDiacritic.diacritic == dd.diacritic;
                 }
 
@@ -426,9 +456,12 @@ namespace Antura.Minigames.DancingDots
             dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
 
 
-            if (roundWon) {
+            if (roundWon)
+            {
                 StartCoroutine(RoundWon());
-            } else {
+            }
+            else
+            {
                 dancingDotsLL.letterObjectView.DoHorray(); // ("Jump");
                 yield return new WaitForSeconds(1f);
                 dancingDotsLL.HideRainbow();
@@ -442,8 +475,10 @@ namespace Antura.Minigames.DancingDots
 
         IEnumerator PoofOthers(DancingDotsDraggableDot[] draggables)
         {
-            foreach (DancingDotsDraggableDot dd in draggables) {
-                if (dd.gameObject.activeSelf) {
+            foreach (DancingDotsDraggableDot dd in draggables)
+            {
+                if (dd.gameObject.activeSelf)
+                {
                     yield return new WaitForSeconds(0.25f);
                     dd.gameObject.SetActive(false);
                     CreatePoof(dd.transform.position, 2f, true);
@@ -488,7 +523,8 @@ namespace Antura.Minigames.DancingDots
 
             splats.Add(splat.GetComponent<DancingDotsSplat>());
 
-            if (numberOfFailedMoves >= allowedFailedMoves) {
+            if (numberOfFailedMoves >= allowedFailedMoves)
+            {
                 StartCoroutine(RoundLost());
             }
 
@@ -498,12 +534,16 @@ namespace Antura.Minigames.DancingDots
         {
             dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
 
-            if (numberOfRoundsPlayed >= numberOfRounds) {
+            if (numberOfRoundsPlayed >= numberOfRounds)
+            {
                 DancingDotsEndGame();
-            } else {
+            }
+            else
+            {
 
                 dancingDotsLL.letterObjectView.DoTwirl(null);
-                foreach (DancingDotsSplat splat in splats) splat.CleanSplat();
+                foreach (DancingDotsSplat splat in splats)
+                    splat.CleanSplat();
                 yield return new WaitForSeconds(1f);
                 StartRound();
                 dancingDotsLL.letterObjectView.ToggleDance();
@@ -572,7 +612,8 @@ namespace Antura.Minigames.DancingDots
 
         void startUI()
         {
-            if (numberOfRoundsPlayed != 1) {
+            if (numberOfRoundsPlayed != 1)
+            {
                 return;
             }
             Debug.Log("UI Started");
@@ -585,38 +626,48 @@ namespace Antura.Minigames.DancingDots
         public string removeDiacritics(string letter)
         {
             //nasb
-            if (letter.Contains("ً")) {
+            if (letter.Contains("ً"))
+            {
                 return letter.Replace("ً", string.Empty);
             }
             //jarr
-            else if (letter.Contains("ٍ")) {
+            else if (letter.Contains("ٍ"))
+            {
                 return letter.Replace("ٍ", string.Empty);
             }
             //damm
-            else if (letter.Contains("ٌ")) {
+            else if (letter.Contains("ٌ"))
+            {
                 return letter.Replace("ٌ", string.Empty);
             }
             //kasra
-            else if (letter.Contains("ِ")) {
+            else if (letter.Contains("ِ"))
+            {
                 return letter.Replace("ِ", string.Empty);
             }
             //fatha
-            else if (letter.Contains("َ")) {
+            else if (letter.Contains("َ"))
+            {
                 return letter.Replace("َ", string.Empty);
             }
             //damma
-            else if (letter.Contains("ُ")) {
+            else if (letter.Contains("ُ"))
+            {
                 return letter.Replace("ُ", string.Empty);
             }
             //shadda
-            else if (letter.Contains("ّ")) {
+            else if (letter.Contains("ّ"))
+            {
                 return letter.Replace("ّ", string.Empty);
 
             }
             //sukon
-            else if (letter.Contains("ْ")) {
+            else if (letter.Contains("ْ"))
+            {
                 return letter.Replace("ْ", string.Empty);
-            } else {
+            }
+            else
+            {
                 return letter;
             }
         }

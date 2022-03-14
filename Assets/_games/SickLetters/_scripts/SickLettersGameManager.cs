@@ -8,9 +8,9 @@ namespace Antura.Minigames.SickLetters
     {
 
         public SickLettersGame game;
-        
 
-        
+
+
 
         // Use this for initialization
         void Start()
@@ -61,7 +61,7 @@ namespace Antura.Minigames.SickLetters
             yield return new WaitForSeconds((game.hole["Take 001"].length / game.hole["Take 001"].speed) - 0.2f);
             //game.hole["Take 001"]
             game.hole.Stop("Take 001");
-            
+
             game.hole.gameObject.SetActive(false);
         }
     }

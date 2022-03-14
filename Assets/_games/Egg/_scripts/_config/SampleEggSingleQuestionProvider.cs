@@ -20,10 +20,12 @@ namespace Antura.Minigames.Egg
 
             correctAnswers.Add(AppManager.I.Teacher.GetRandomTestLetterLL());
 
-            while (wrongAnswers.Count < 8) {
+            while (wrongAnswers.Count < 8)
+            {
                 var letter = AppManager.I.Teacher.GetRandomTestLetterLL();
 
-                if (!CheckIfContains(correctAnswers, letter) && !CheckIfContains(wrongAnswers, letter)) {
+                if (!CheckIfContains(correctAnswers, letter) && !CheckIfContains(wrongAnswers, letter))
+                {
                     wrongAnswers.Add(letter);
                 }
             }
@@ -33,8 +35,10 @@ namespace Antura.Minigames.Egg
 
         static bool CheckIfContains(List<ILivingLetterData> list, ILivingLetterData letter)
         {
-            for (int i = 0, count = list.Count; i < count; ++i) {
-                if (list[i].Id == letter.Id) {
+            for (int i = 0, count = list.Count; i < count; ++i)
+            {
+                if (list[i].Id == letter.Id)
+                {
                     return true;
                 }
             }

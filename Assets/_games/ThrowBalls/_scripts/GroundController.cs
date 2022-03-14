@@ -2,7 +2,8 @@
 
 namespace Antura.Minigames.ThrowBalls
 {
-    public class GroundController : MonoBehaviour {
+    public class GroundController : MonoBehaviour
+    {
 
         public static GroundController instance;
 

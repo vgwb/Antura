@@ -43,7 +43,8 @@ namespace Antura.Minigames.Scanner
             Vector3 destinationScale = new Vector3(7.6f, 14.167f, 14.167f);//new Vector3(1.0f, 1.0f, 1.0f);
 
             float currentTime = 0.0f;
-            do {
+            do
+            {
                 shadow.transform.localScale = Vector3.Lerp(originalScale, destinationScale, currentTime / time);
                 currentTime += Time.deltaTime;
                 yield return null;
@@ -76,7 +77,8 @@ namespace Antura.Minigames.Scanner
 
         IEnumerator resetSuitCasePos()
         {
-            while (transform.position.y > startY + 0.01f) {
+            while (transform.position.y > startY + 0.01f)
+            {
                 transform.position = Vector3.Lerp(transform.position, new Vector3(startX, startY, startZ), 0.25f);
                 shadow.transform.position = new Vector3(transform.position.x, shadow.transform.position.y, transform.position.z);
                 yield return null;
@@ -126,9 +128,12 @@ namespace Antura.Minigames.Scanner
             shadow.SetActive(true);
             //shadow.transform.position = shadowStartPos;
 
-            if (newRound) {
+            if (newRound)
+            {
                 StartCoroutine(dropSuitcase());
-            } else {
+            }
+            else
+            {
                 StartCoroutine(resetSuitCasePos());
             }
 
@@ -154,7 +159,8 @@ namespace Antura.Minigames.Scanner
 
         void OnMouseDrag()
         {
-            if (isDragging) {
+            if (isDragging)
+            {
                 Vector3 curScreenPoint = new Vector3(Input.mousePosition.x, Input.mousePosition.y, screenPoint.z);
                 Vector3 curPosition = Camera.main.ScreenToWorldPoint(curScreenPoint) + offset;
                 transform.position =
@@ -170,8 +176,10 @@ namespace Antura.Minigames.Scanner
 
         void OnCollisionEnter(Collision other)
         {
-            if (game.roundsManager.playSuitcaseSound) {
-                if (!groundHit && other.gameObject.tag == "Obstacle") {
+            if (game.roundsManager.playSuitcaseSound)
+            {
+                if (!groundHit && other.gameObject.tag == "Obstacle")
+                {
                     game.roundsManager.playSuitcaseSound = false;
                     groundHit = true;
                     //ScannerConfiguration.Instance.Context.GetAudioManager().StopSounds();
@@ -182,7 +190,8 @@ namespace Antura.Minigames.Scanner
 
         void OnTriggerEnter(Collider other)
         {
-            if (other.tag == "Player") {
+            if (other.tag == "Player")
+            {
                 lastDetectedLL = other.transform.root.GetComponent<ScannerLivingLetter>();
                 overPlayermarker = true;
                 player = other;
@@ -193,7 +202,8 @@ namespace Antura.Minigames.Scanner
 
         void OnTriggerStay(Collider other)
         {
-            if (other.tag == "Player") {
+            if (other.tag == "Player")
+            {
                 lastDetectedLL = other.transform.root.GetComponent<ScannerLivingLetter>();
                 overPlayermarker = true;
                 player = other;
@@ -202,7 +212,8 @@ namespace Antura.Minigames.Scanner
 
         void OnTriggerExit(Collider other)
         {
-            if (other.tag == "Player") {
+            if (other.tag == "Player")
+            {
                 overPlayermarker = false;
             }
         }
@@ -212,10 +223,12 @@ namespace Antura.Minigames.Scanner
             if (game.disableInput || !isReady)
                 return;
 
-            if (overPlayermarker && lastDetectedLL && lastDetectedLL.status == ScannerLivingLetter.LLStatus.StandingOnBelt) {
+            if (overPlayermarker && lastDetectedLL && lastDetectedLL.status == ScannerLivingLetter.LLStatus.StandingOnBelt)
+            {
                 shadow.transform.localScale = Vector3.zero;
                 ScannerLivingLetter LL = player.transform.parent.GetComponent<ScannerLivingLetter>();
-                if (isCorrectAnswer && LL.LLController.Data.Id == wordId) {
+                if (isCorrectAnswer && LL.LLController.Data.Id == wordId)
+                {
                     LL.gotSuitcase = true;
                     transform.parent = player.transform;
                     transform.localPosition = new Vector3(5.5f, 1, -2);
@@ -223,10 +236,14 @@ namespace Antura.Minigames.Scanner
                     transform.localScale = new Vector3(scale, scale, scale);
                     game.GetComponent<ScannerTutorial>().tutStep = 1;
 
-                } else {
+                }
+                else
+                {
                     onWrongDrop(gameObject, LL);
                 }
-            } else {
+            }
+            else
+            {
                 Reset(false);
             }
             lastDetectedLL = null;

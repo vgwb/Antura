@@ -41,7 +41,8 @@ namespace Antura.Core
         public bool SetNextMinigame()
         {
             var NextIndex = CurrentMiniGameIndexInPlaySession + 1;
-            if (NextIndex < CurrentPlaySessionMiniGames.Count) {
+            if (NextIndex < CurrentPlaySessionMiniGames.Count)
+            {
                 CurrentMiniGameIndexInPlaySession = NextIndex;
                 return true;
             }
@@ -50,9 +51,12 @@ namespace Antura.Core
 
         public MiniGameData CurrentMiniGameData
         {
-            get {
-                if (CurrentPlaySessionMiniGames == null) { return null; }
-                if (CurrentPlaySessionMiniGames.Count == 0) { return null; }
+            get
+            {
+                if (CurrentPlaySessionMiniGames == null)
+                { return null; }
+                if (CurrentPlaySessionMiniGames.Count == 0)
+                { return null; }
                 return CurrentPlaySessionMiniGames[CurrentMiniGameIndexInPlaySession];
             }
         }

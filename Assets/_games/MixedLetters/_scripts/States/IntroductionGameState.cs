@@ -17,7 +17,8 @@ namespace Antura.Minigames.MixedLetters
 
         private bool isAnturaEnterTimerActivated = false;
 
-        private float timePerRound {
+        private float timePerRound
+        {
             get
             {
                 float difficulty = game.Difficulty;
@@ -42,7 +43,7 @@ namespace Antura.Minigames.MixedLetters
 
                 return t;
             }
-         }
+        }
 
         public IntroductionGameState(MixedLettersGame game)
         {

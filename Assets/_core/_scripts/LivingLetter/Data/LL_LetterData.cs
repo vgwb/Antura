@@ -25,7 +25,8 @@ namespace Antura.LivingLetters
         public LL_LetterData(LetterData _data)
         {
             Data = _data;
-            if (_data.ForcedLetterForm != LetterForm.None) Form = _data.ForcedLetterForm;
+            if (_data.ForcedLetterForm != LetterForm.None)
+                Form = _data.ForcedLetterForm;
         }
 
         #region API
@@ -37,7 +38,8 @@ namespace Antura.LivingLetters
         public bool Equals(ILivingLetterData data)
         {
             LL_LetterData other = data as LL_LetterData;
-            if (other == null) {
+            if (other == null)
+            {
                 return false;
             }
 
@@ -50,6 +52,6 @@ namespace Antura.LivingLetters
         }
 
         #endregion
-        
+
     }
 }

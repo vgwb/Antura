@@ -22,7 +22,8 @@ namespace Antura.Minigames.SickLetters
         static SickLettersConfiguration instance;
         public static SickLettersConfiguration Instance
         {
-            get {
+            get
+            {
                 if (instance == null)
                     instance = new SickLettersConfiguration();
                 return instance;
@@ -46,7 +47,8 @@ namespace Antura.Minigames.SickLetters
             int nWrong = 0;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case SickLettersVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.All;

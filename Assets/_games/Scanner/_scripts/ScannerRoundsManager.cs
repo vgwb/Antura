@@ -40,7 +40,8 @@ namespace Antura.Minigames.Scanner
 
         public void Initialize()
         {
-            if (!initialized) {
+            if (!initialized)
+            {
                 /*if (ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords)
 				{
 					numberOfRoundsPlayed = 0;
@@ -48,7 +49,8 @@ namespace Antura.Minigames.Scanner
 
                 initialized = true;
 
-                foreach (ScannerSuitcase ss in game.suitcases) {
+                foreach (ScannerSuitcase ss in game.suitcases)
+                {
                     ss.onCorrectDrop += CorrectMove;
                     ss.onWrongDrop += WrongMove;
                 }
@@ -65,18 +67,24 @@ namespace Antura.Minigames.Scanner
             int LLs = 0;
             game.scannerLL.Clear();
 
-            if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord) {
+            if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord)
+            {
                 LLs = 1;
-            } else if (ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords) {
+            }
+            else if (ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords)
+            {
                 LLs = game.LLCount;
-            } else {
+            }
+            else
+            {
                 throw new ArgumentOutOfRangeException();
             }
 
             Debug.Log("[Scanner] LLs: " + LLs);
 
 
-            for (int i = 0; i < LLs; i++) {
+            for (int i = 0; i < LLs; i++)
+            {
                 ScannerLivingLetter LL = GameObject.Instantiate(game.LLPrefab).GetComponent<ScannerLivingLetter>();
                 LL.facingCamera = game.facingCamera;
                 LL.gameObject.SetActive(true);
@@ -93,7 +101,8 @@ namespace Antura.Minigames.Scanner
 
             // Reset letters first so that they are set for this round
             // If not set first fall off will make unset letters fall with next round
-            for (int i = 0; i < game.scannerLL.Count; i++) {
+            for (int i = 0; i < game.scannerLL.Count; i++)
+            {
                 game.scannerLL[i].Reset();
                 game.scannerLL[i].LLController.Init(correctAnswers[i]);
 
@@ -104,16 +113,20 @@ namespace Antura.Minigames.Scanner
             }
 
             // Then start sliding gardually
-            for (int i = 0; i < game.scannerLL.Count; i++) {
+            for (int i = 0; i < game.scannerLL.Count; i++)
+            {
 
                 game.scannerLL[i].StartSliding();
 
                 if (game.tut.isTutRound)// slide only one LL during the tutorial
                     break;
 
-                if (game.scannerLL.Count == 3) {
+                if (game.scannerLL.Count == 3)
+                {
                     yield return new WaitForSeconds(8f);
-                } else {
+                }
+                else
+                {
                     yield return new WaitForSeconds(5f);
                 }
 
@@ -123,7 +136,8 @@ namespace Antura.Minigames.Scanner
 
         private void OnLetterPassedMidPoint(ScannerLivingLetter sender)
         {
-            if (!game.trapDoor.GetBool("TrapDown") && !game.antura.GetComponent<ScannerAntura>().isInScene) {
+            if (!game.trapDoor.GetBool("TrapDown") && !game.antura.GetComponent<ScannerAntura>().isInScene)
+            {
                 game.trapDoor.SetBool("TrapUp", false);
                 game.trapDoor.SetBool("TrapDown", true);
             }
@@ -150,23 +164,32 @@ namespace Antura.Minigames.Scanner
             playSuitcaseSound = true;
             List<ILivingLetterData> tempCorrect = correctAnswers.ToList();
 
-            for (int i = 0; i < game.suitcases.Count; i++) {
+            for (int i = 0; i < game.suitcases.Count; i++)
+            {
 
                 ScannerSuitcase ss = game.suitcases[i];
                 ss.Reset(true);
 
-                if (tempCorrect.Count > 0 && wrongAnswers.Count > 0) {
+                if (tempCorrect.Count > 0 && wrongAnswers.Count > 0)
+                {
                     int coinFlip = UnityEngine.Random.Range(1, 5);
-                    if (coinFlip == 1) {
+                    if (coinFlip == 1)
+                    {
                         AddDataToSuitcase(ss, tempCorrect, true);
-                    } else {
+                    }
+                    else
+                    {
                         AddDataToSuitcase(ss, wrongAnswers, false);
                     }
 
-                } else if (tempCorrect.Count > 0) {
+                }
+                else if (tempCorrect.Count > 0)
+                {
                     AddDataToSuitcase(ss, tempCorrect, true);
                     ss.isCorrectAnswer = true;
-                } else if (wrongAnswers.Count > 0) {
+                }
+                else if (wrongAnswers.Count > 0)
+                {
                     AddDataToSuitcase(ss, wrongAnswers, false);
                 }
 
@@ -196,14 +219,14 @@ namespace Antura.Minigames.Scanner
             //			{
             //				switch (numberOfRoundsPlayed)
             //				{
-            //				case 1: 
+            //				case 1:
             //				case 2: currentLevel = Level.Level1;
             //					break;
             //				case 3: currentLevel = Level.Level4;
             //					break;
             //				case 4: currentLevel = Level.Level2;
             //					break;
-            //				case 5: 
+            //				case 5:
             //				case 6: currentLevel = Level.Level3;
             //					break;
             //				default: currentLevel = Level.Level3;
@@ -216,10 +239,11 @@ namespace Antura.Minigames.Scanner
             //				var numberOfLevels = Enum.GetNames(typeof(Level)).Length;
             //				currentLevel = (Level) Mathf.Clamp((int) Mathf.Floor(game.pedagogicalLevel * numberOfLevels),0, numberOfLevels - 1);
             //			}
-            //				
+            //
             //			SetLevel(currentLevel);
 
-            if (!game.trapDoor.GetBool("TrapUp")) {
+            if (!game.trapDoor.GetBool("TrapUp"))
+            {
                 game.trapDoor.SetBool("TrapDown", false);
                 game.trapDoor.SetBool("TrapUp", true);
             }
@@ -240,12 +264,15 @@ namespace Antura.Minigames.Scanner
             game.tut.playTut = false;
 
             livingLetter.RoundWon();
-            if (game.scannerLL.All(ll => ll.gotSuitcase) || game.tut.isTutRound) {
-                if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord || game.tut.isTutRound) {
+            if (game.scannerLL.All(ll => ll.gotSuitcase) || game.tut.isTutRound)
+            {
+                if (ScannerConfiguration.Instance.Variation == ScannerVariation.OneWord || game.tut.isTutRound)
+                {
                     game.StartCoroutine(PoofOthers(game.suitcases));
                 }
 
-                foreach (ScannerLivingLetter LL in game.scannerLL) {
+                foreach (ScannerLivingLetter LL in game.scannerLL)
+                {
                     LL.gotSuitcase = false;
                 }
                 game.StartCoroutine(RoundWon());
@@ -263,7 +290,8 @@ namespace Antura.Minigames.Scanner
             game.CreatePoof(GO.transform.position, 2f, true);
             game.Context.GetOverlayWidget().SetLives(game.allowedFailedMoves - numberOfFailedMoves);
 
-            if (game.tut.isTutRound) {
+            if (game.tut.isTutRound)
+            {
                 GO.GetComponent<ScannerSuitcase>().Reset();
                 return;
             }
@@ -271,7 +299,8 @@ namespace Antura.Minigames.Scanner
             GO.SetActive(false);
 
             if (numberOfFailedMoves >= game.allowedFailedMoves ||
-                ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords) {
+                ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords)
+            {
                 game.StopAllCoroutines();
 
                 game.StartCoroutine(RoundLost());
@@ -284,9 +313,12 @@ namespace Antura.Minigames.Scanner
 
             yield return new WaitForSeconds(2f);
 
-            if (numberOfRoundsPlayed >= game.numberOfRounds) {
+            if (numberOfRoundsPlayed >= game.numberOfRounds)
+            {
                 onRoundsFinished(numberOfRoundsWon);
-            } else {
+            }
+            else
+            {
                 yield return new WaitForSeconds(2f);
                 StartRound();
             }
@@ -312,7 +344,8 @@ namespace Antura.Minigames.Scanner
             game.disableInput = true;
             yield return new WaitForSeconds(0.5f);
             AudioManager.I.PlaySound(Sfx.Lose);
-            foreach (ScannerLivingLetter LL in game.scannerLL) {
+            foreach (ScannerLivingLetter LL in game.scannerLL)
+            {
                 LL.RoundLost();
             }
             game.StartCoroutine(PoofOthers(game.suitcases));
@@ -343,9 +376,11 @@ namespace Antura.Minigames.Scanner
 
         IEnumerator PoofOthers(List<ScannerSuitcase> draggables)
         {
-            foreach (ScannerSuitcase ss in draggables) {
+            foreach (ScannerSuitcase ss in draggables)
+            {
                 if (ss.gameObject.activeSelf &&
-                    (!ss.isCorrectAnswer || ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords)) {
+                    (!ss.isCorrectAnswer || ScannerConfiguration.Instance.Variation == ScannerVariation.MultipleWords))
+                {
                     yield return new WaitForSeconds(0.25f);
                     ss.gameObject.SetActive(false);
                     ss.shadow.SetActive(false);
@@ -357,9 +392,12 @@ namespace Antura.Minigames.Scanner
 
         public Color32 SetAlpha(Color32 color, byte alpha)
         {
-            if (alpha >= 0 && alpha <= 255) {
+            if (alpha >= 0 && alpha <= 255)
+            {
                 return new Color32(color.r, color.g, color.b, alpha);
-            } else {
+            }
+            else
+            {
                 return color;
             }
         }
@@ -367,7 +405,8 @@ namespace Antura.Minigames.Scanner
         private void SetLevel(Level level)
         {
             //TODO Different levels
-            switch (level) {
+            switch (level)
+            {
                 case Level.Level1:
                     break;
 

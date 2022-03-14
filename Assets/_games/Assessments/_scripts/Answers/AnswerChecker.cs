@@ -38,8 +38,10 @@ namespace Antura.Assessment
         {
             var count = AnswerSet.GetCorrectCount();
             int linkedDroppables = 0;
-            foreach (var p in placeholders) {
-                if (p.LinkedDroppable != null) {
+            foreach (var p in placeholders)
+            {
+                if (p.LinkedDroppable != null)
+                {
                     linkedDroppables++;
                 }
             }
@@ -59,8 +61,10 @@ namespace Antura.Assessment
 
         private bool AreQuestionsCorrect(List<IQuestion> questions)
         {
-            foreach (var q in questions) {
-                if (q.GetAnswerSet().AllCorrect() == false) {
+            foreach (var q in questions)
+            {
+                if (q.GetAnswerSet().AllCorrect() == false)
+                {
                     return false;
                 }
             }
@@ -73,7 +77,8 @@ namespace Antura.Assessment
 
         private void PlayCorrectSound()
         {
-            if (CorrectSoundPlayed == false) {
+            if (CorrectSoundPlayed == false)
+            {
                 audioManager.PlayStampSound();
                 CorrectSoundPlayed = true;
             }
@@ -96,7 +101,8 @@ namespace Antura.Assessment
 
         private void PlayWrongSound()
         {
-            if (WrongSoundPlayed == false) {
+            if (WrongSoundPlayed == false)
+            {
                 ItemFactory.Instance.GetAntura().WrongAssessment(audioManager);
                 audioManager.PlayKOSound();
                 WrongSoundPlayed = true;
@@ -113,14 +119,17 @@ namespace Antura.Assessment
             dragManager.DisableInput();
 
             bool areAllCorrect = AreQuestionsCorrect(questions);
-            if (areAllCorrect) {
+            if (areAllCorrect)
+            {
 
                 // Log learning progress
                 foreach (var p in placeholders)
-                    if (p.LinkedDroppable != null) {
+                    if (p.LinkedDroppable != null)
+                    {
                         var set = p.Placeholder.GetQuestion().GetAnswerSet();
                         var answ = p.LinkedDroppable.GetAnswer();
-                        if (set.IsCorrect(answ)) {
+                        if (set.IsCorrect(answ))
+                        {
                             AssessmentConfiguration.Instance.Context.GetLogManager().OnAnswered(answ.Data(), true);
                         }
                         var pos = p.gameObject.transform.localPosition;
@@ -131,25 +140,33 @@ namespace Antura.Assessment
                 ItemFactory.Instance.GetAntura().CorrectAssessment(audioManager);
 
                 // Just trigger OnQuestionAnswered events if all are correct
-                foreach (var q in questions) {
+                foreach (var q in questions)
+                {
                     yield return Wait.For(q.QuestionBehaviour.TimeToWait());
                     q.QuestionBehaviour.OnQuestionAnswered();
                     yield return Wait.For(q.QuestionBehaviour.TimeToWait());
                 }
 
-            } else {
-                foreach (var p in placeholders) {
-                    if (p.LinkedDroppable != null) {
+            }
+            else
+            {
+                foreach (var p in placeholders)
+                {
+                    if (p.LinkedDroppable != null)
+                    {
                         var set = p.Placeholder.GetQuestion().GetAnswerSet();
                         var answ = p.LinkedDroppable.GetAnswer();
-                        if (set.IsCorrect(answ) == false) {
+                        if (set.IsCorrect(answ) == false)
+                        {
                             AssessmentConfiguration.Instance.Context.GetLogManager().OnAnswered(answ.Data(), false);
                             PlayWrongSound();
                             p.LinkedDroppable.Detach(true);
                             var pos = p.gameObject.transform.localPosition;
                             pos.y -= 3.5f;
                             TutorialUI.MarkNo(pos, TutorialUI.MarkSize.Normal);
-                        } else {
+                        }
+                        else
+                        {
                             var pos = p.gameObject.transform.localPosition;
                             pos.y -= 3.5f;
                             MarkYes(pos);
@@ -159,16 +176,21 @@ namespace Antura.Assessment
             }
 
             allCorrect = areAllCorrect;
-            while (wrongAnswerAnimationPlaying) {
+            while (wrongAnswerAnimationPlaying)
+            {
                 yield return null;
             }
 
-            if (allCorrect) {
-                if (events != null && events.OnPreQuestionsAnswered != null) {
+            if (allCorrect)
+            {
+                if (events != null && events.OnPreQuestionsAnswered != null)
+                {
                     yield return new WaitCoroutine(events.OnPreQuestionsAnswered());
                 }
                 yield return Wait.For(1.0f);
-            } else {
+            }
+            else
+            {
                 wrongAnswerAnimationPlaying = true;
                 Koroutine.Run(WrongAnswerCoroutine());
             }

@@ -15,7 +15,7 @@ namespace Antura.AnturaSpace
 
         public AnturaSpaceScene AnturaSpaceScene
         {
-            get { return ((AnturaSpaceScene) AnturaSpaceScene.I); }
+            get { return ((AnturaSpaceScene)AnturaSpaceScene.I); }
         }
 
         public override void PerformAction()
@@ -42,7 +42,8 @@ namespace Antura.AnturaSpace
         {
             get
             {
-                if (base.IsLocked) return base.IsLocked;
+                if (base.IsLocked)
+                    return base.IsLocked;
                 return !AnturaSpaceScene.CanSpawnMoreObjects;
             }
         }

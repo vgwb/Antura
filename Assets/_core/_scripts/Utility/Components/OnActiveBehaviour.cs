@@ -7,14 +7,16 @@ namespace Antura.Utilities
     {
         void OnEnable()
         {
-            if (OnEnableAction != null) {
+            if (OnEnableAction != null)
+            {
                 OnEnableAction();
             }
         }
 
         void OnDisable()
         {
-            if (OnDisableAction != null) {
+            if (OnDisableAction != null)
+            {
                 OnDisableAction();
             }
         }

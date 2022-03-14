@@ -37,7 +37,7 @@ namespace Antura.Profile
             public const int Color = 2;
         }
 
-        #region Serialized
+#region Serialized
 
         [Tooltip("Startup offset of categories")]
         public int StartupOffsetY = -160;
@@ -47,7 +47,7 @@ namespace Antura.Profile
         public PlayerCreationUICategory[] Categories; // 0: gender // 1: avatar // 2: color
         public PlayerCreationUICategory AgeCategory;
 
-        #endregion
+#endregion
 
         bool allAvatarCategoriesSelected
         {
@@ -66,7 +66,7 @@ namespace Antura.Profile
         float selectionStepOffsetY;
         Tween stepTween;
 
-        #region Unity
+#region Unity
 
         void Awake()
         {
@@ -107,9 +107,9 @@ namespace Antura.Profile
             stepTween.Kill();
         }
 
-        #endregion
+#endregion
 
-        #region Methods
+#region Methods
 
         void SwitchState(UIState toState)
         {
@@ -212,9 +212,9 @@ namespace Antura.Profile
             );
         }
 
-        #endregion
+#endregion
 
-        #region Callbacks
+#region Callbacks
 
         void OnSelectCategory(PlayerCreationUICategory category, UIButton uiButton)
         {
@@ -284,7 +284,7 @@ namespace Antura.Profile
             }
         }
 
-        #endregion
+#endregion
     }
 }
 #endif

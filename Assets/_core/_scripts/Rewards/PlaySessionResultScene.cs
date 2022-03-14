@@ -20,7 +20,8 @@ namespace Antura.Rewards
 
             var jp = AppManager.I.Player.CurrentJourneyPosition;
             var nEarnedStars = AppManager.I.NavigationManager.CalculateEarnedStarsCount();
-            if (NavigationManager.TEST_SKIP_GAMES) { nEarnedStars = 3; }
+            if (NavigationManager.TEST_SKIP_GAMES)
+            { nEarnedStars = 3; }
 
             // Log various data
             LogManager.I.LogPlaySessionScore(AppManager.I.JourneyHelper.GetCurrentPlaySessionData().Id, nEarnedStars);

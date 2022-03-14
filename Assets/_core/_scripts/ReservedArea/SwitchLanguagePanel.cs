@@ -69,7 +69,8 @@ namespace Antura.UI
             foreach (var button in buttons)
             {
                 button.SetUnselected();
-                if (button.Language == AppManager.I.ContentEdition.NativeLanguage) button.SetSelected();
+                if (button.Language == AppManager.I.ContentEdition.NativeLanguage)
+                    button.SetSelected();
             }
             currentLanguageIcon.OnEnable();
         }

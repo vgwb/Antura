@@ -39,7 +39,8 @@ namespace Antura.UI
         {
             loseTween.Rewind();
             Heart.gameObject.SetActive(true);
-            if (!hasHeart && !gainTween.IsPlaying()) {
+            if (!hasHeart && !gainTween.IsPlaying())
+            {
                 gainTween.Restart();
             }
             hasHeart = true;
@@ -48,7 +49,8 @@ namespace Antura.UI
         public void Lose()
         {
             gainTween.Complete();
-            if (hasHeart && !loseTween.IsPlaying()) {
+            if (hasHeart && !loseTween.IsPlaying())
+            {
                 AudioManager.I.PlaySound(Sfx.ScoreDown);
                 Heart.gameObject.SetActive(true);
                 loseTween.Restart();

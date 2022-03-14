@@ -19,7 +19,8 @@ namespace Antura.Minigames.Maze
             string name = gameObject.name;
             int cloneIndex = name.IndexOf("(Clone");
 
-            if (cloneIndex != -1) {
+            if (cloneIndex != -1)
+            {
                 name = name.Substring(0, cloneIndex);
             }
 
@@ -40,7 +41,8 @@ namespace Antura.Minigames.Maze
 
             Vector3 characterStartPosition = new Vector3();
 
-            foreach (Transform child in transform) {
+            foreach (Transform child in transform)
+            {
                 if (child.name == "Letter")
                 {
                     child.name = "MazeLetter";
@@ -73,11 +75,13 @@ namespace Antura.Minigames.Maze
                     AddDotAndHideArrow(child);
                     arrowLines.Add(child.gameObject);
 
-                    if (arrowLines.Count == 1) {
+                    if (arrowLines.Count == 1)
+                    {
                         characterStartPosition = child.GetChild(0).position;
                     }
 
-                    foreach (Transform fruit in child.transform) {
+                    foreach (Transform fruit in child.transform)
+                    {
                         var box = fruit.gameObject.AddComponent<BoxCollider>();
                         box.center = new Vector3(0.00789929274f, 0.000789958867f, -3.05139807e-08f);
                         box.size = new Vector3(0.0473955721f, 0.0336077549f, 4.46760318e-09f);
@@ -115,7 +119,8 @@ namespace Antura.Minigames.Maze
 
             gameObject.AddComponent<MazeShowPrefab>().letterIndex = letterDataIndex;
 
-            if (_callback != null) { _callback(); }
+            if (_callback != null)
+            { _callback(); }
         }
 
         private void AddDotAndHideArrow(Transform arrowParent)

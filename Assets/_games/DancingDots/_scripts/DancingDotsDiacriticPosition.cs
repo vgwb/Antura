@@ -33,15 +33,19 @@ namespace Antura.Minigames.DancingDots
 
         public void CheckPosition()
         {
-            if (letterMesh && diacriticMesh) {
+            if (letterMesh && diacriticMesh)
+            {
                 float newY = Mathf.Clamp(diacriticMesh.bounds.extents.y, 0.5f, 5f) + offSetY;
 
-                if (diacritic == DiacriticEnum.Kasrah) {
+                if (diacritic == DiacriticEnum.Kasrah)
+                {
                     float letterBottom = letterMesh.bounds.center.y - letterMesh.bounds.extents.y;
                     float dotBottom = dotmesh.bounds.center.y - dotmesh.bounds.extents.y;
                     newY = -newY;
                     newY += letterBottom < dotBottom ? letterBottom : dotBottom;
-                } else {
+                }
+                else
+                {
                     float letterTop = letterMesh.bounds.center.y + letterMesh.bounds.extents.y;
                     float dotTop = dotmesh.bounds.center.y + dotmesh.bounds.extents.y;
                     newY += letterTop > dotTop ? letterTop : dotTop;

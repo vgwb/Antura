@@ -73,7 +73,8 @@ namespace Antura.Minigames.ReadingGame
         {
             float duration = 0.4f;
 
-            livingLetter.transform.DOLocalMove(startPosition, delay).OnComplete(delegate () {
+            livingLetter.transform.DOLocalMove(startPosition, delay).OnComplete(delegate ()
+            {
                 shadowTransform.gameObject.SetActive(true);
                 livingLetter.gameObject.SetActive(true);
 
@@ -87,9 +88,11 @@ namespace Antura.Minigames.ReadingGame
 
                 Sequence animationSequence = DOTween.Sequence();
                 animationSequence.AppendInterval(timeToJumpStart);
-                animationSequence.AppendCallback(delegate () { livingLetter.transform.DOLocalJump(endPosition, 7f, 1, duration).OnComplete(delegate () { if (endCallback != null) endCallback(); }).SetEase(Ease.Linear); });
+                animationSequence.AppendCallback(delegate ()
+                { livingLetter.transform.DOLocalJump(endPosition, 7f, 1, duration).OnComplete(delegate () { if (endCallback != null) endCallback(); }).SetEase(Ease.Linear); });
                 animationSequence.AppendInterval(duration - timeToJumpEnd);
-                animationSequence.AppendCallback(delegate () { livingLetter.OnJumpEnded(); });
+                animationSequence.AppendCallback(delegate ()
+                { livingLetter.OnJumpEnded(); });
                 animationSequence.Play();
             });
         }

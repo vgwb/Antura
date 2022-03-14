@@ -38,7 +38,8 @@ namespace Antura.Database.Management
 
         protected override bool CanHaveSameKeyMultipleTimes
         {
-            get {
+            get
+            {
                 return true;
             }
         }
@@ -52,7 +53,8 @@ namespace Antura.Database.Management
         {
             // Field 'NumberOfPlaySessions' can be computed only at the end
             var playSessionsList = new List<PlaySessionData>(db.GetPlaySessionTable().GetValuesTyped());
-            foreach (var data in table.GetValuesTyped()) {
+            foreach (var data in table.GetValuesTyped())
+            {
                 int nPlaySessions = playSessionsList.FindAll(x => x.Stage == data.Stage && x.LearningBlock == data.LearningBlock).Count;
                 data.NumberOfPlaySessions = nPlaySessions;
             }

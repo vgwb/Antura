@@ -58,23 +58,28 @@ namespace Antura.Minigames.DancingDots
 
                 movingToDestination = false;
 
-                if (leftHome.position == dest) {
+                if (leftHome.position == dest)
+                {
                     status = AnturaContollerState.LEFTHOME;
-                } else {
+                }
+                else
+                {
                     status = AnturaContollerState.RIGHTHOME;
                 }
 
                 StartCoroutine(co_AnturaNextDesicion());
 
-            } else //make the progress for this frame
-              {
+            }
+            else //make the progress for this frame
+            {
                 gameObject.transform.Translate(partialMovement, Space.World);
             }
         }
 
         IEnumerator co_AnturaNextDesicion()
         {
-            switch (status) {
+            switch (status)
+            {
                 case AnturaContollerState.LEFTHOME:
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1, 5));
                     MoveToNewDestination(rightHome);
@@ -95,7 +100,8 @@ namespace Antura.Minigames.DancingDots
         void OnTriggerEnter(Collider other)
         {
             //Debug.Log("DD Antura ontrigger");
-            if (other.tag == "Marker") {
+            if (other.tag == "Marker")
+            {
                 danceDuration = 3.5f * UnityEngine.Random.Range(1, 3);
                 status = AnturaContollerState.DANCING;
                 antura.State = AnturaAnimationStates.dancing;
@@ -108,18 +114,25 @@ namespace Antura.Minigames.DancingDots
         void Update()
         {
 
-            if (movingToDestination) {
+            if (movingToDestination)
+            {
                 MoveTo(destination);
-            } else if (status == AnturaContollerState.DANCING) {
+            }
+            else if (status == AnturaContollerState.DANCING)
+            {
                 danceDuration -= Time.deltaTime;
-                if (danceDuration < 0) {
+                if (danceDuration < 0)
+                {
                     status = AnturaContollerState.FINISHINGDANICING;
                     antura.State = AnturaAnimationStates.walking;
                     finishDance = 1f;
                 }
-            } else if (status == AnturaContollerState.FINISHINGDANICING) {
+            }
+            else if (status == AnturaContollerState.FINISHINGDANICING)
+            {
                 finishDance -= Time.deltaTime;
-                if (finishDance < 0) {
+                if (finishDance < 0)
+                {
                     status = AnturaContollerState.WALKING;
                     movingToDestination = true;
                 }

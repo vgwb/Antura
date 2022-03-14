@@ -75,7 +75,8 @@ namespace Antura.Profile
 
         public void MakeSureHasEnoughBones(int wantedBones)
         {
-            if (TotalNumberOfBones < wantedBones) {
+            if (TotalNumberOfBones < wantedBones)
+            {
                 TotalNumberOfBones = wantedBones;
                 Save();
             }
@@ -130,7 +131,8 @@ namespace Antura.Profile
         public void SetCurrentJourneyPosition(int _stage, int _lb, int _ps, bool _save = true)
         {
             SetCurrentJourneyPosition(new JourneyPosition(_stage, _lb, _ps));
-            if (_save) {
+            if (_save)
+            {
                 Save();
             }
         }
@@ -144,10 +146,12 @@ namespace Antura.Profile
         public void SetCurrentJourneyPosition(JourneyPosition _journeyPosition, bool _save = true, bool _updatePrevToo = true)
         {
             CurrentJourneyPosition = _journeyPosition;
-            if (_updatePrevToo) {
+            if (_updatePrevToo)
+            {
                 UpdatePreviousJourneyPosition();
             }
-            if (_save) {
+            if (_save)
+            {
                 Save();
             }
         }
@@ -172,7 +176,8 @@ namespace Antura.Profile
         /// <param name="_save">if set to <c>true</c> [save] profile at the end.</param>
         public void SetMaxJourneyPosition(JourneyPosition newJourneyPosition, bool _save = true, bool _forced = false)
         {
-            if (MaxJourneyPosition.IsMinor(newJourneyPosition) || _forced) {
+            if (MaxJourneyPosition.IsMinor(newJourneyPosition) || _forced)
+            {
                 MaxJourneyPosition = new JourneyPosition(newJourneyPosition.Stage, newJourneyPosition.LearningBlock,
                     newJourneyPosition.PlaySession);
                 CurrentJourneyPosition = new JourneyPosition(newJourneyPosition.Stage, newJourneyPosition.LearningBlock,
@@ -183,7 +188,8 @@ namespace Antura.Profile
                     AppManager.I.Services.Analytics.TrackReachedJourneyPosition(MaxJourneyPosition);
                 }
 
-                if (_save) {
+                if (_save)
+                {
                     Save();
                 }
             }
@@ -196,9 +202,11 @@ namespace Antura.Profile
         /// </summary>
         public void CheckGameFinished()
         {
-            if (!HasFinishedTheGame) {
+            if (!HasFinishedTheGame)
+            {
                 HasFinishedTheGame = AppManager.I.JourneyHelper.HasFinishedTheGame();
-                if (HasFinishedTheGame) {
+                if (HasFinishedTheGame)
+                {
                     Save();
                 }
             }
@@ -211,9 +219,11 @@ namespace Antura.Profile
         /// </summary>
         public void CheckStarsState()
         {
-            if (HasFinishedTheGame && !HasFinishedTheGameWithAllStars) {
+            if (HasFinishedTheGame && !HasFinishedTheGameWithAllStars)
+            {
                 HasFinishedTheGameWithAllStars = AppManager.I.ScoreHelper.HasFinishedTheGameWithAllStars();
-                if (HasFinishedTheGameWithAllStars) {
+                if (HasFinishedTheGameWithAllStars)
+                {
                     Save();
                 }
             }
@@ -230,7 +240,8 @@ namespace Antura.Profile
             MaxJourneyPosition = new JourneyPosition(JourneyPosition.InitialJourneyPosition);
             CurrentJourneyPosition = new JourneyPosition(JourneyPosition.InitialJourneyPosition);
             UpdatePreviousJourneyPosition();
-            if (_save) {
+            if (_save)
+            {
                 Save();
             }
         }
@@ -284,14 +295,17 @@ namespace Antura.Profile
         /// </summary>
         public AnturaCustomization CurrentAnturaCustomizations
         {
-            get {
-                if (_currentAnturaCustomizations == null) {
+            get
+            {
+                if (_currentAnturaCustomizations == null)
+                {
                     _currentAnturaCustomizations = new AnturaCustomization();
                     _currentAnturaCustomizations.LoadFromListOfIds(jsonAnturaCustomizationData);
                 }
                 return _currentAnturaCustomizations;
             }
-            private set {
+            private set
+            {
                 _currentAnturaCustomizations = value;
                 SaveAnturaCustomization();
             }
@@ -453,7 +467,8 @@ namespace Antura.Profile
         /// <param name="_anturaCustomization">The antura customization. If null save only on db.</param>
         public void SaveAnturaCustomization(AnturaCustomization _anturaCustomization = null)
         {
-            if (_anturaCustomization != null) {
+            if (_anturaCustomization != null)
+            {
                 CurrentAnturaCustomizations = _anturaCustomization;
             }
             jsonAnturaCustomizationData = CurrentAnturaCustomizations.GetJsonListOfIds();
@@ -498,7 +513,8 @@ namespace Antura.Profile
 
         public void SetFinalShown(bool isInitialising = false)
         {
-            if (!isInitialising) AppManager.I.RewardSystemManager.UnlockAllMissingExtraPacks();
+            if (!isInitialising)
+                AppManager.I.RewardSystemManager.UnlockAllMissingExtraPacks();
             ProfileCompletion = ProfileCompletionState.GameCompletedAndFinalShown;
         }
 

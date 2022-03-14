@@ -61,7 +61,8 @@ namespace Antura.Minigames.Egg
 
                 if (eggButton.livingLetterData == letterData)
                 {
-                    eggButton.ScaleTo(0f, 0.3f, 0f, delegate () { Destroy(eggButton.gameObject); });
+                    eggButton.ScaleTo(0f, 0.3f, 0f, delegate ()
+                    { Destroy(eggButton.gameObject); });
 
                     eggButtons.RemoveAt(i--);
                     removed = true;
@@ -92,7 +93,8 @@ namespace Antura.Minigames.Egg
             {
                 EggButton eggButton = eggButtons[i];
 
-                eggButton.ScaleTo(0f, 0.3f, 0f, delegate () { Destroy(eggButton.gameObject); });
+                eggButton.ScaleTo(0f, 0.3f, 0f, delegate ()
+                { Destroy(eggButton.gameObject); });
             }
 
             eggButtons.Clear();
@@ -405,8 +407,9 @@ namespace Antura.Minigames.Egg
 
             if (playBefore != null)
             {
-                var sourceWrapper = audioManager.PlayVocabularyData(playBefore, soundType:EggConfiguration.Instance.GetVocabularySoundType());
-                while (!sourceWrapper.IsLoaded) yield return null;
+                var sourceWrapper = audioManager.PlayVocabularyData(playBefore, soundType: EggConfiguration.Instance.GetVocabularySoundType());
+                while (!sourceWrapper.IsLoaded)
+                    yield return null;
                 delay += 0.5f + sourceWrapper.Duration;
             }
 
@@ -421,7 +424,7 @@ namespace Antura.Minigames.Egg
                     eCallback = () =>
                     {
                         if (playAfter != null)
-                            audioManager.PlayVocabularyData(playAfter, soundType:EggConfiguration.Instance.GetVocabularySoundType());
+                            audioManager.PlayVocabularyData(playAfter, soundType: EggConfiguration.Instance.GetVocabularySoundType());
 
                         if (endCallback != null)
                             endCallback();

@@ -6,7 +6,7 @@ namespace Antura.Minigames.ReadingGame
     public class WalkAnturaState : AnturaState
     {
         float circlePercentage = 0;
-        
+
         const float radius = 20.0f;
         Vector3 right;
         Vector3 forward;
@@ -17,7 +17,7 @@ namespace Antura.Minigames.ReadingGame
         {
             this.antura = antura;
             var startPosition = antura.transform.position;
-            center = startPosition + radius*(new Vector3(1, 0, 1)).normalized;
+            center = startPosition + radius * (new Vector3(1, 0, 1)).normalized;
 
             right = (startPosition - center).normalized;
             forward = Vector3.Cross(right, Vector3.up);

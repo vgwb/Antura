@@ -22,7 +22,8 @@ namespace Antura.Assessment
 
         public void EnterState()
         {
-            if (audioManager != null) audioManager.PlayAssessmentMusic();
+            if (audioManager != null)
+                audioManager.PlayAssessmentMusic();
         }
 
         public void ExitState()
@@ -39,7 +40,8 @@ namespace Antura.Assessment
         public void Update(float delta)
         {
             timer -= delta;
-            if (timer <= 0) {
+            if (timer <= 0)
+            {
                 SetNextState();
             }
         }

@@ -13,7 +13,8 @@ namespace Antura.Minigames
         {
             duration -= Time.deltaTime;
 
-            if (duration <= 0) {
+            if (duration <= 0)
+            {
                 Destroy(gameObject);
             }
         }

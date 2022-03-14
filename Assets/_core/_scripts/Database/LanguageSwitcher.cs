@@ -10,8 +10,10 @@ namespace Antura.Language
     {
         public static LanguageSwitcher I
         {
-            get {
-                if (AppManager.I == null) return null;
+            get
+            {
+                if (AppManager.I == null)
+                    return null;
                 return AppManager.I.LanguageSwitcher;
             }
         }
@@ -54,7 +56,8 @@ namespace Antura.Language
 
         IEnumerator LoadLanguageData(LanguageCode language)
         {
-            if (loadedLanguageData.ContainsKey(language)) yield break;
+            if (loadedLanguageData.ContainsKey(language))
+                yield break;
             var languageData = new LanguageData();
 
             yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, AppManager.BlockingLoad);

@@ -27,7 +27,7 @@ namespace Antura.Minigames.Tobogan
         Rigidbody[] rigidBodies;
 
         public event System.Action onPoofed;
-    
+
         void Awake()
         {
             if (rigidBodies == null)

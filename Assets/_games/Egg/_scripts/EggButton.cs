@@ -73,7 +73,8 @@ namespace Antura.Minigames.Egg
             sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
             if (sourceWrapper != null)
             {
-                while (!sourceWrapper.IsLoaded) yield return null;
+                while (!sourceWrapper.IsLoaded)
+                    yield return null;
                 sourceWrapper.Stop();
             }
 
@@ -85,37 +86,46 @@ namespace Antura.Minigames.Egg
             Color newColor = lightUp ? colorLightUp : colorStandard;
             float newSize = lightUp ? sizeLightUp : sizeStandard;
 
-            if (useEnlargeAnimation) {
-                animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * newSize, duration / 2f).OnComplete(delegate () {
+            if (useEnlargeAnimation)
+            {
+                animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * newSize, duration / 2f).OnComplete(delegate ()
+                {
                     animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * sizeStandard, duration / 2f).OnComplete(delegate ()
                     {
                         playButtonAudioCallback?.Invoke();
                     });
-                }).OnStart(delegate () {
+                }).OnStart(delegate ()
+                {
                     sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
                     startButtonAudioCallback?.Invoke();
                 }).SetDelay(delay);
-            } else {
-                animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, newColor, duration / 2f).OnComplete(delegate () {
+            }
+            else
+            {
+                animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, newColor, duration / 2f).OnComplete(delegate ()
+                {
                     animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, colorStandard, duration / 2f).OnComplete(delegate ()
                     {
                         playButtonAudioCallback?.Invoke();
                     });
-                }).OnStart(delegate () {
+                }).OnStart(delegate ()
+                {
                     sourceWrapper = audioManager.PlayVocabularyData(livingLetterData, false, EggConfiguration.Instance.GetVocabularySoundType());
                     startButtonAudioCallback?.Invoke();
 
                 }).SetDelay(delay);
             }
 
-            if (outDelay != null) outDelay.v = duration;
+            if (outDelay != null)
+                outDelay.v = duration;
         }
 
         public void StopButtonAudio()
         {
             SetNormal();
 
-            if (sourceWrapper != null) {
+            if (sourceWrapper != null)
+            {
                 sourceWrapper.Stop();
             }
 
@@ -129,7 +139,8 @@ namespace Antura.Minigames.Egg
 
         void OnButtonPressed()
         {
-            if (inputEnabled) {
+            if (inputEnabled)
+            {
                 if (!holdPressed)
                     ChangeColorOnButtonPressed();
 
@@ -142,14 +153,17 @@ namespace Antura.Minigames.Egg
             if (animationTweener != null)
                 animationTweener.Kill();
 
-            if (useEnlargeAnimation) {
+            if (useEnlargeAnimation)
+            {
                 var currentEnlargeValue = buttonImage.rectTransform.localScale.x;
 
                 float enlargeTarget = Mathf.Min(sizeLightUp * 1.25f, currentEnlargeValue * 1.2f);
 
                 buttonImage.rectTransform.localScale = Vector3.one * enlargeTarget;
                 animationTweener = buttonImage.rectTransform.DOScale(Vector3.one * sizeStandard, 0.75f);
-            } else {
+            }
+            else
+            {
                 buttonImage.color = colorLightUp;
                 animationTweener = DOTween.To(() => buttonImage.color, x => buttonImage.color = x, colorStandard, 1f);
             }
@@ -164,13 +178,17 @@ namespace Antura.Minigames.Egg
         {
             holdPressed = true;
 
-            if (animationTweener != null) {
+            if (animationTweener != null)
+            {
                 animationTweener.Kill();
             }
 
-            if (useEnlargeAnimation) {
+            if (useEnlargeAnimation)
+            {
                 buttonImage.rectTransform.localScale = sizeLightUp * Vector3.one;
-            } else {
+            }
+            else
+            {
                 buttonImage.color = colorLightUp;
             }
         }
@@ -179,13 +197,17 @@ namespace Antura.Minigames.Egg
         {
             holdPressed = false;
 
-            if (animationTweener != null && killTween) {
+            if (animationTweener != null && killTween)
+            {
                 animationTweener.Kill();
             }
 
-            if (useEnlargeAnimation) {
+            if (useEnlargeAnimation)
+            {
                 buttonImage.rectTransform.localScale = sizeStandard * Vector3.one;
-            } else {
+            }
+            else
+            {
                 buttonImage.color = colorStandard;
             }
         }
@@ -204,22 +226,26 @@ namespace Antura.Minigames.Egg
         {
             endScaleCallback = endCallback;
 
-            if (scaleTweener != null) {
+            if (scaleTweener != null)
+            {
                 scaleTweener.Kill();
             }
 
-            scaleTweener = transform.DOScale(scale, duration).SetDelay(delay).OnComplete(delegate () { if (endScaleCallback != null) endScaleCallback(); });
+            scaleTweener = transform.DOScale(scale, duration).SetDelay(delay).OnComplete(delegate ()
+            { if (endScaleCallback != null) endScaleCallback(); });
         }
 
         public void ShakePosition(float duration, float delay = 0f, Action endCallback = null)
         {
             endShakeCallback = endCallback;
 
-            if (shakeTwenner != null) {
+            if (shakeTwenner != null)
+            {
                 shakeTwenner.Kill();
             }
 
-            shakeTwenner = transform.DOShakePosition(duration, 4f, 20, 90f, false, false).SetDelay(delay).OnComplete(delegate () { if (endShakeCallback != null) endShakeCallback(); });
+            shakeTwenner = transform.DOShakePosition(duration, 4f, 20, 90f, false, false).SetDelay(delay).OnComplete(delegate ()
+            { if (endShakeCallback != null) endShakeCallback(); });
         }
 
         public void MoveTo(Vector3 position, float duration, AnimationCurve animationCurve, float delay = 0f, bool doJump = false, float delayFromStart = 0f, Action startCallback = null, Action endCallback = null)
@@ -227,7 +253,8 @@ namespace Antura.Minigames.Egg
             endMoveCallback = endCallback;
             startMoveCallback = startCallback;
 
-            if (moveSequence != null) {
+            if (moveSequence != null)
+            {
                 moveSequence.Kill();
             }
 
@@ -235,16 +262,21 @@ namespace Antura.Minigames.Egg
 
             moveSequence.AppendInterval(delay);
 
-            moveSequence.AppendCallback(delegate () { if (startMoveCallback != null) startMoveCallback(); });
+            moveSequence.AppendCallback(delegate ()
+            { if (startMoveCallback != null) startMoveCallback(); });
             moveSequence.AppendInterval(delayFromStart);
 
-            if (doJump) {
+            if (doJump)
+            {
                 moveSequence.Append(transform.DOLocalJump(position, 100f, 1, duration));
-            } else {
+            }
+            else
+            {
                 moveSequence.Append(transform.DOLocalMove(position, duration).SetEase(animationCurve));
             }
 
-            moveSequence.OnComplete(delegate () { if (endMoveCallback != null) endMoveCallback(); });
+            moveSequence.OnComplete(delegate ()
+            { if (endMoveCallback != null) endMoveCallback(); });
 
             moveSequence.Play();
         }

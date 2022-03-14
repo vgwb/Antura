@@ -84,7 +84,8 @@ namespace Antura.Teacher
             var currentPlaySessionId = playerProfile.CurrentJourneyPosition.Id;
             var playSessionData = dbManager.GetPlaySessionDataById(currentPlaySessionId);
             int nMinigamesToSelect = playSessionData.NumberOfMinigames;
-            if (nMinigamesToSelect == 0) {
+            if (nMinigamesToSelect == 0)
+            {
                 // Force at least one minigame (needed for assessment, since we always need one)
                 nMinigamesToSelect = 1;
             }
@@ -101,10 +102,12 @@ namespace Antura.Teacher
         {
             List<MiniGameData> newPlaySessionMiniGames = selectMiniGamesForCurrentPlaySession(nMinigamesToSelect);
 
-            if (ConfigAI.VerboseTeacher) {
+            if (ConfigAI.VerboseTeacher)
+            {
                 var debugString = "";
                 debugString += ConfigAI.FormatTeacherReportHeader("Minigames Selected");
-                foreach (var minigame in newPlaySessionMiniGames) {
+                foreach (var minigame in newPlaySessionMiniGames)
+                {
                     debugString += "\n" + minigame.Code;
                 }
                 Debug.Log(debugString);
@@ -126,10 +129,13 @@ namespace Antura.Teacher
         private void buildMinimumMiniGameJourneyPositions()
         {
             var allPsData = dbManager.GetAllPlaySessionData();
-            foreach (var mgcode in GenericHelper.SortEnums<MiniGameCode>()) {
+            foreach (var mgcode in GenericHelper.SortEnums<MiniGameCode>())
+            {
                 minMiniGameJourneyPositions[mgcode] = null;
-                foreach (var psData in allPsData) {
-                    if (CanMiniGameBePlayedAtPlaySession(psData, mgcode)) {
+                foreach (var psData in allPsData)
+                {
+                    if (CanMiniGameBePlayedAtPlaySession(psData, mgcode))
+                    {
                         minMiniGameJourneyPositions[mgcode] = psData.GetJourneyPosition();
                         //Debug.Log(mgcode + " min at " + psData.GetJourneyPosition());
                         break;
@@ -150,9 +156,11 @@ namespace Antura.Teacher
 
         public bool CanMiniGameBePlayedAtPlaySession(PlaySessionData psData, MiniGameCode code)
         {
-            if (psData != null) {
+            if (psData != null)
+            {
                 var mgIndex = psData.Minigames.ToList().FindIndex(x => x.MiniGameCode == code);
-                if (mgIndex >= 0) {
+                if (mgIndex >= 0)
+                {
                     return true;
                 }
             }
@@ -165,7 +173,8 @@ namespace Antura.Teacher
         /// </summary>
         public bool CanMiniGameBePlayedAfterMinPlaySession(JourneyPosition jp, MiniGameCode code)
         {
-            if (minMiniGameJourneyPositions[code] == null) {
+            if (minMiniGameJourneyPositions[code] == null)
+            {
                 return false;
             }
             return minMiniGameJourneyPositions[code].IsMinor(jp)
@@ -208,7 +217,7 @@ namespace Antura.Teacher
 
         #region Learning Blocks
 
-        // TODO refactor: Not used. 
+        // TODO refactor: Not used.
         public float GetLearningBlockScore(LearningBlockData lb)
         {
             var allScores = scoreHelper.GetCurrentScoreForPlaySessionsOfLearningBlock(lb.Stage, lb.LearningBlock);
@@ -225,7 +234,7 @@ namespace Antura.Teacher
             // @note: this code shows how to work on the dynamic and static db together
             string query =
                 string.Format(
-                    "SELECT * FROM " + typeof(LogVocabularyScoreData).Name + " WHERE TableName = 'LetterData' AND Score < 0 and MiniGame = {0}",
+                    "SELECT * FROM " + nameof(LogVocabularyScoreData) + " WHERE TableName = 'LetterData' AND Score < 0 and MiniGame = {0}",
                     (int)assessmentCode);
             List<LogVocabularyScoreData> logLearnData_list = dbManager.FindLogVocabularyScoreDataByQuery(query);
             List<string> letter_ids_list = logLearnData_list.ConvertAll(x => x.ElementId);
@@ -238,7 +247,7 @@ namespace Antura.Teacher
         {
             string query =
                 string.Format(
-                    "SELECT * FROM " + typeof(LogVocabularyScoreData).Name + " WHERE TableName = 'WordData' AND Score < 0 and MiniGame = {0}",
+                    "SELECT * FROM " + nameof(LogVocabularyScoreData) + " WHERE TableName = 'WordData' AND Score < 0 and MiniGame = {0}",
                     (int)assessmentCode);
             List<LogVocabularyScoreData> logLearnData_list = dbManager.FindLogVocabularyScoreDataByQuery(query);
             List<string> words_ids_list = logLearnData_list.ConvertAll(x => x.ElementId);
@@ -255,7 +264,7 @@ namespace Antura.Teacher
         {
             // @note: shows how to work with playerprofile as well as the database
             JourneyPosition currentJourneyPosition = playerProfile.CurrentJourneyPosition;
-            string query = string.Format("SELECT * FROM " + typeof(LogPlayData).Name + " WHERE PlayEvent = {0} AND PlaySession = '{1}'",
+            string query = string.Format("SELECT * FROM " + nameof(LogPlayData) + " WHERE PlayEvent = {0} AND PlaySession = '{1}'",
                 (int)PlayEvent.Skill, currentJourneyPosition.ToString());
             List<LogPlayData> list = dbManager.FindLogPlayDataByQuery(query);
             return list;
@@ -268,7 +277,7 @@ namespace Antura.Teacher
         // TODO refactor: Refactor access to the data through an AnalyticsManager, instead of passing through the TeacherAI.
         public List<LogMoodData> GetLastMoodData(int number)
         {
-            string query = string.Format("SELECT * FROM " + typeof(LogMoodData).Name + " ORDER BY Timestamp LIMIT {0}", number);
+            string query = string.Format("SELECT * FROM " + nameof(LogMoodData) + " ORDER BY Timestamp LIMIT {0}", number);
             var list = dbManager.FindLogMoodDataByQuery(query);
             return list;
         }
@@ -283,9 +292,11 @@ namespace Antura.Teacher
 
         public List<LL_LetterData> GetAllTestLetterDataLL(LetterFilters filters = null, bool useMaxJourneyData = false)
         {
-            if (filters == null) { filters = new LetterFilters(); }
+            if (filters == null)
+            { filters = new LetterFilters(); }
 
-            if (useMaxJourneyData) {
+            if (useMaxJourneyData)
+            {
                 VocabularyAi.LoadCurrentPlaySessionData(AppManager.I.Player.MaxJourneyPosition.ToString());
             }
 
@@ -296,7 +307,8 @@ namespace Antura.Teacher
             );
 
             var output_list = new List<LL_LetterData>();
-            foreach (var letterData in availableLetters) {
+            foreach (var letterData in availableLetters)
+            {
                 output_list.Add(BuildLetterData_LL(letterData));
             }
             /*if (ConfigAI.verboseTeacher)
@@ -309,14 +321,19 @@ namespace Antura.Teacher
 
         public LL_LetterData GetRandomTestLetterLL(LetterFilters filters = null, bool useMaxJourneyData = false)
         {
-            if (filters == null) { filters = new LetterFilters(); }
+            if (filters == null)
+            { filters = new LetterFilters(); }
 
             List<LetterData> availableLetters = null;
 
-            if (AppManager.I.Player == null) {
+            if (AppManager.I.Player == null)
+            {
                 availableLetters = vocabularyHelper.GetAllLetters(filters);
-            } else {
-                if (useMaxJourneyData) {
+            }
+            else
+            {
+                if (useMaxJourneyData)
+                {
                     VocabularyAi.LoadCurrentPlaySessionData(AppManager.I.Player.MaxJourneyPosition.ToString());
                 }
 
@@ -327,7 +344,8 @@ namespace Antura.Teacher
                 );
             }
 
-            if (giveWarningOnFake) {
+            if (giveWarningOnFake)
+            {
                 Debug.LogWarning("You are using fake data for testing. Make sure to test with real data too.");
                 giveWarningOnFake = false;
             }
@@ -344,13 +362,16 @@ namespace Antura.Teacher
 
         public LL_WordData GetRandomTestWordDataLL(WordFilters filters = null, bool useMaxJourneyData = false)
         {
-            if (filters == null) { filters = new WordFilters(); }
+            if (filters == null)
+            { filters = new WordFilters(); }
 
-            if (useMaxJourneyData) {
+            if (useMaxJourneyData)
+            {
                 VocabularyAi.LoadCurrentPlaySessionData(AppManager.I.Player.MaxJourneyPosition.ToString());
             }
 
-            if (giveWarningOnFake) {
+            if (giveWarningOnFake)
+            {
                 Debug.LogWarning("You are using fake data for testing. Make sure to test with real data too.");
                 giveWarningOnFake = false;
             }

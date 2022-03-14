@@ -16,7 +16,8 @@ namespace Antura.Database.Management
 
             data.Id = ToString(dict["Id"]);
             data.Active = (ToInt(dict["Active"]) == 1);
-            if (!data.Active) return null;  // Skip this data if inactive
+            if (!data.Active)
+                return null;  // Skip this data if inactive
 
             data.Kind = ParseEnum<WordDataKind>(data, dict["Kind"]);
             data.Category = ParseEnum<WordDataCategory>(data, dict["Category"]);
@@ -28,7 +29,8 @@ namespace Antura.Database.Management
             data.Value = ToString(dict["Value"]);
             data.SortValue = ToString(dict["SortValue"]);
             data.Drawing = ToString(dict["Drawing"]);
-            if (dict.ContainsKey("DrawingCeibal")) {
+            if (dict.ContainsKey("DrawingCeibal"))
+            {
                 data.DrawingCeibal = ToString(dict["DrawingCeibal"]);
             }
             data.Complexity = ToFloat(dict["Complexity"]);
@@ -39,18 +41,24 @@ namespace Antura.Database.Management
 
         private WordDataForm CustomParseForm(WordData data, object enum_object)
         {
-            if (ToString(enum_object) == "") {
+            if (ToString(enum_object) == "")
+            {
                 return WordDataForm.Singular;
-            } else {
+            }
+            else
+            {
                 return ParseEnum<WordDataForm>(data, enum_object);
             }
         }
 
         private VocabularyDataGender CustomParseGender(WordData data, object enum_object)
         {
-            if (ToString(enum_object) == "") {
+            if (ToString(enum_object) == "")
+            {
                 return VocabularyDataGender.None;
-            } else {
+            }
+            else
+            {
                 return ParseEnum<VocabularyDataGender>(data, enum_object);
             }
         }
@@ -66,8 +74,10 @@ namespace Antura.Database.Management
         protected override void FinalValidation(WordTable table, DatabaseObject db)
         {
             // Field 'LinkedWord' is validated with a final validation step, since it is based on this same table
-            foreach (var data in table.GetValuesTyped()) {
-                if (data.LinkedWord != "" && table.GetValue(data.LinkedWord) == null) {
+            foreach (var data in table.GetValuesTyped())
+            {
+                if (data.LinkedWord != "" && table.GetValue(data.LinkedWord) == null)
+                {
                     LogValidation(data, "Cannot find id of WordData for Linked value " + data.LinkedWord + " (found in word " + data.Id + ")");
                 }
             }

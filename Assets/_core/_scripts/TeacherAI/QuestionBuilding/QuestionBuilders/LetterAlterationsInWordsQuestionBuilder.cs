@@ -38,7 +38,8 @@ namespace Antura.Teacher
             LetterAlterationFilters letterAlterationFilters = null,
             QuestionBuilderParameters parameters = null)
         {
-            if (parameters == null) parameters = new QuestionBuilderParameters();
+            if (parameters == null)
+                parameters = new QuestionBuilderParameters();
             this.nPacksPerRound = nPacksPerRound;
             this.nRounds = nRounds;
             this.nWrongs = nWrongs;
@@ -61,7 +62,7 @@ namespace Antura.Teacher
             previousPacksIDs_letters.Clear();
             var packs = new List<QuestionPackData>();
 
-            for (int round_i = 0; round_i < nRounds*nPacksPerRound; round_i++)
+            for (int round_i = 0; round_i < nRounds * nPacksPerRound; round_i++)
             {
                 packs.Add(CreateSingleQuestionPackData());
             }
@@ -108,15 +109,17 @@ namespace Antura.Teacher
             var correctAnswers = new List<LetterData>();
             correctAnswers.Add(chosenLetterWithForm);
 
-            // Place some alterations in the wrong list 
+            // Place some alterations in the wrong list
             List<LetterData> baseLetters;
-            if (letterAlterationFilters.differentBaseLetters) baseLetters = AppManager.I.VocabularyHelper.GetAllLetters(parameters.letterFilters);
-            else baseLetters = eligibleLetters;
+            if (letterAlterationFilters.differentBaseLetters)
+                baseLetters = AppManager.I.VocabularyHelper.GetAllLetters(parameters.letterFilters);
+            else
+                baseLetters = eligibleLetters;
 
             // Filter out unknown letters
             var filteredBaseLetters = teacher.VocabularyAi.SelectData(
                 () => baseLetters,
-                    new SelectionParameters(parameters.wrongSeverity, getMaxData:true, useJourney: true,
+                    new SelectionParameters(parameters.wrongSeverity, getMaxData: true, useJourney: true,
                         packListHistory: PackListHistory.NoFilter)
             );
             //Debug.LogWarning("Filtered bases: " + filteredBaseLetters.ToDebugStringNewline());
@@ -142,9 +145,11 @@ namespace Antura.Teacher
                 string debugString = "--------- TEACHER: question pack result ---------";
                 debugString += "\nQuestion: " + question;
                 debugString += "\nCorrect Answers: " + correctAnswers.Count;
-                foreach (var l in correctAnswers) { debugString += " " + l;}
+                foreach (var l in correctAnswers)
+                { debugString += " " + l; }
                 debugString += "\nWrong Answers: " + wrongAnswers.Count;
-                foreach (var l in wrongAnswers) debugString += " " + l;
+                foreach (var l in wrongAnswers)
+                    debugString += " " + l;
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 
@@ -210,7 +215,8 @@ namespace Antura.Teacher
             {
                 foreach (var word in vocabularyHelper.GetAllWords(parameters.wordFilters))
                 {
-                    if (!WordContainsLetter(word, containedLetter, maxWordLength, LetterEqualityStrictness.LetterBase)) continue;
+                    if (!WordContainsLetter(word, containedLetter, maxWordLength, LetterEqualityStrictness.LetterBase))
+                        continue;
                     eligibleWords.Add(word);
                     //Debug.Log("Letter: " + containedLetter + " in Word: " + word);
                 }

@@ -38,17 +38,22 @@ namespace Antura.Scenes
 
         private IEnumerator StartCO()
         {
-            while (!AppManager.I.Loaded) yield return null;
-            if (AutoLauncher.enabled) yield break;
+            while (!AppManager.I.Loaded)
+                yield return null;
+            if (AutoLauncher.enabled)
+                yield break;
 
             GoToHomeScene();
         }
 
         private void GoToHomeScene()
         {
-            if (AppManager.I.AppSettings.KioskMode) {
+            if (AppManager.I.AppSettings.KioskMode)
+            {
                 AppManager.I.NavigationManager.GoToKiosk(true);
-            } else {
+            }
+            else
+            {
                 AppManager.I.NavigationManager.GoToHome();
             }
         }

@@ -16,10 +16,12 @@ namespace Antura.Assessment
 
         protected override void WireAnswers(Answer[] answers)
         {
-            if (answers == null || answers.Length == 0) {
+            if (answers == null || answers.Length == 0)
+            {
                 throw new ArgumentException("What am I supposed to sort without any correct answer?");
             }
-            foreach (var a in answers) {
+            foreach (var a in answers)
+            {
                 var behaviour = a.gameObject.GetComponent<Answer>();
                 answersList.Add(behaviour); // TODO: INVESTIGATE WITHIN DRAG MAANGER
             }

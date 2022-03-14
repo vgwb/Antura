@@ -89,7 +89,7 @@ namespace Antura.Minigames.MixedLetters
             {
                 transform.rotation = Quaternion.Euler(0, 90, 0);
             }
-            
+
             NotifyFightBeganCallback = notifyFightBeganCallback;
             NotifyAnturaExitedScene = notifyAnturaExitedScene;
         }

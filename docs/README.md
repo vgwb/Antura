@@ -1,2 +1,3 @@
 # Antura Docs
-the Antura Project documentation
+the documentation of Antura project: https://github.com/vgwb/Antura/
+

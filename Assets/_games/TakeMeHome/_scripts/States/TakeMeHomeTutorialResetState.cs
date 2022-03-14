@@ -26,7 +26,7 @@ namespace Antura.Minigames.TakeMeHome
                 return;
             }
 
-            int tubeIndex = int.Parse(game.currentLetter.collidedTubes[game.currentLetter.collidedTubes.Count-1].name.Substring(5));
+            int tubeIndex = int.Parse(game.currentLetter.collidedTubes[game.currentLetter.collidedTubes.Count - 1].name.Substring(5));
             UnityEngine.Vector3 markPosition = game.currentLetter.collidedTubes[game.currentLetter.collidedTubes.Count - 1].cubeInfo.transform.position + new UnityEngine.Vector3(0, 0, -3);
             win = false;
             if (tubeIndex == game.currentTube)
@@ -35,7 +35,8 @@ namespace Antura.Minigames.TakeMeHome
                 win = true;
                 TutorialUI.MarkYes(markPosition, TutorialUI.MarkSize.Big);
             }
-            else {
+            else
+            {
                 TakeMeHomeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.KO);
                 TutorialUI.MarkNo(markPosition, TutorialUI.MarkSize.Big);
                 game.spawnTube.show(game.currentLetter.lastCollidedTube.color);
@@ -59,7 +60,7 @@ namespace Antura.Minigames.TakeMeHome
                 {
                     game.SetCurrentState(game.IntroductionState);
                 }
-                    
+
             }
         }
 

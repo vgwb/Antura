@@ -27,7 +27,8 @@ namespace Antura.Intro
         {
             timer -= delta;
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 letter.SetCurrentState(letter.WalkingState);
             }
         }

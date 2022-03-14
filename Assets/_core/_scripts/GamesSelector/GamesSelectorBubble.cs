@@ -41,7 +41,8 @@ namespace Antura.GamesSelector
             if (hasBadge)
             {
                 BadgeIco.sprite = badge;
-                if (BadgeIco.sprite == null) {
+                if (BadgeIco.sprite == null)
+                {
                     hasBadge = false;
                 }
             }
@@ -58,17 +59,21 @@ namespace Antura.GamesSelector
             Main.SetActive(_doOpen);
             Badge.SetActive(_doOpen && hasBadge);
 
-            if (_doOpen) {
+            if (_doOpen)
+            {
                 PouffParticleSys.gameObject.SetActive(true);
                 PouffParticleSys.time = 0;
                 PouffParticleSys.Play();
                 shakeTween.Kill(true);
                 openTween = Main.transform.DOPunchRotation(new Vector3(0, 0, 45), 0.75f);
-                if (hasBadge) {
+                if (hasBadge)
+                {
                     showBadgeTween = Badge.transform.DOLocalMoveY(0, 0.45f).From().SetDelay(0.35f).SetEase(Ease.OutBack);
                 }
                 AudioManager.I.PlaySound(Sfx.Poof);
-            } else {
+            }
+            else
+            {
                 PouffParticleSys.Stop();
                 PouffParticleSys.Clear();
                 PouffParticleSys.gameObject.SetActive(false);

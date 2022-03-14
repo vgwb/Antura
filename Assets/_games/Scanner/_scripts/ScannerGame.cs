@@ -71,7 +71,8 @@ namespace Antura.Minigames.Scanner
 
         public int CurrentStars
         {
-            get {
+            get
+            {
                 return (int)Mathf.Ceil(roundsManager.numberOfRoundsWon / 2f);
             }
         }
@@ -101,27 +102,45 @@ namespace Antura.Minigames.Scanner
             beltSpeed = 1f;
             facingCamera = true;
 
-            if (Difficulty <= 0.4f) {
+            if (Difficulty <= 0.4f)
+            {
                 beltSpeed = 1f;
-            } else if (Difficulty > 0.4f && Difficulty <= 0.6f) {
+            }
+            else if (Difficulty > 0.4f && Difficulty <= 0.6f)
+            {
                 beltSpeed = 2f;
-            } else if (Difficulty > 0.6f && Difficulty <= 0.8f) {
+            }
+            else if (Difficulty > 0.6f && Difficulty <= 0.8f)
+            {
                 beltSpeed = 3f;
-            } else if (Difficulty > 0.8f && Difficulty < 1f) {
+            }
+            else if (Difficulty > 0.8f && Difficulty < 1f)
+            {
                 beltSpeed = 3.5f;
-            } else if (Difficulty == 1f) {
+            }
+            else if (Difficulty == 1f)
+            {
                 beltSpeed = 4.5f;
             }
 
-            if (Difficulty <= 0.25f) {
+            if (Difficulty <= 0.25f)
+            {
                 facingCamera = true;
-            } else if (Difficulty > 0.25f && Difficulty <= 0.5f) {
+            }
+            else if (Difficulty > 0.25f && Difficulty <= 0.5f)
+            {
                 facingCamera = true;
-            } else if (Difficulty > 0.5f && Difficulty <= 0.75f) {
+            }
+            else if (Difficulty > 0.5f && Difficulty <= 0.75f)
+            {
                 facingCamera = true;
-            } else if (Difficulty > 0.75f && Difficulty < 1f) {
+            }
+            else if (Difficulty > 0.75f && Difficulty < 1f)
+            {
                 facingCamera = false;
-            } else if (Difficulty == 1f) {
+            }
+            else if (Difficulty == 1f)
+            {
                 facingCamera = false;
             }
         }
@@ -136,7 +155,8 @@ namespace Antura.Minigames.Scanner
 
             LLCount = ScannerConfiguration.Instance.nCorrect;
 
-            if (LLCount == 3) {
+            if (LLCount == 3)
+            {
                 suitcases.First().gameObject.SetActive(false);
                 suitcases.Last().gameObject.SetActive(false);
 
@@ -173,7 +193,8 @@ namespace Antura.Minigames.Scanner
 
         public void CreatePoof(Vector3 position, float duration, bool withSound)
         {
-            if (withSound) AudioManager.I.PlaySound(Sfx.BalloonPop);
+            if (withSound)
+                AudioManager.I.PlaySound(Sfx.BalloonPop);
             GameObject poof = Instantiate(poofPrefab, position, Quaternion.identity) as GameObject;
             poof.transform.localScale = new Vector3(0.1f, 0.1f, 0.1f);
             Destroy(poof, duration);

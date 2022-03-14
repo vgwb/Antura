@@ -23,16 +23,22 @@ namespace Antura.Book
             uIButton = GetComponent<UIButton>();
             myManager = _manager;
 
-            if (myLetterInfo.unlocked || AppManager.I.Player.IsDemoUser) {
+            if (myLetterInfo.unlocked || AppManager.I.Player.IsDemoUser)
+            {
                 OkIcon.enabled = true;
-            } else {
+            }
+            else
+            {
                 OkIcon.enabled = false;
             }
 
-            if (myLetterInfo == null) {
+            if (myLetterInfo == null)
+            {
                 LetterText.SetTextUnfiltered("");
                 EnglishLetterText.SetText("");
-            } else {
+            }
+            else
+            {
                 var isolatedChar = myLetterInfo.data.GetStringForDisplay(LetterForm.Isolated);
 
                 LetterText.SetTextUnfiltered(isolatedChar);
@@ -49,7 +55,8 @@ namespace Antura.Book
 
         public void Select(string code)
         {
-            if (myLetterInfo != null) {
+            if (myLetterInfo != null)
+            {
                 hightlight(code == myLetterInfo.data.Id);
             }
         }

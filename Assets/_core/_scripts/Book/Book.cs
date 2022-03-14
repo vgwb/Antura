@@ -42,10 +42,14 @@ namespace Antura.Book
 
         public void OpenArea(BookArea newPanel, bool navigationHistory = false)
         {
-            if (newPanel != currentPanel) {
-                if (navigationHistory) {
+            if (newPanel != currentPanel)
+            {
+                if (navigationHistory)
+                {
                     previousPanel = currentPanel;
-                } else {
+                }
+                else
+                {
                     previousPanel = BookArea.None;
                 }
 
@@ -57,7 +61,8 @@ namespace Antura.Book
 
         private void activatePanel(BookArea panel, bool status)
         {
-            switch (panel) {
+            switch (panel)
+            {
                 case BookArea.Vocabulary:
                     VocabularyPanel.SetActive(status);
                     break;
@@ -83,9 +88,12 @@ namespace Antura.Book
 
         public void OnBtnClose()
         {
-            if (previousPanel == BookArea.None) {
+            if (previousPanel == BookArea.None)
+            {
                 BookManager.I.CloseBook();
-            } else {
+            }
+            else
+            {
                 OpenArea(previousPanel);
             }
         }

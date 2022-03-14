@@ -25,7 +25,8 @@ namespace Antura.AnturaSpace
             if (choice)
             {
                 var ps = focusGo.GetComponentInChildren<ParticleSystem>();
-                if (ps != null) ps.Play();
+                if (ps != null)
+                    ps.Play();
             }
         }
 

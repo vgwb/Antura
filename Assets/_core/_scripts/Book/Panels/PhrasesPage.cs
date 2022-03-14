@@ -41,7 +41,8 @@ namespace Antura.Book
             currentPhraseCategory = _category;
 
             List<PhraseData> list;
-            switch (currentPhraseCategory) {
+            switch (currentPhraseCategory)
+            {
                 case PhraseDataCategory.None:
                     list = new List<PhraseData>();
                     break;
@@ -52,16 +53,20 @@ namespace Antura.Book
             emptyListContainers();
 
             List<PhraseInfo> info_list = AppManager.I.ScoreHelper.GetAllPhraseInfo();
-            foreach (var info_item in info_list) {
-                if (list.Contains(info_item.data)) {
+            foreach (var info_item in info_list)
+            {
+                if (list.Contains(info_item.data))
+                {
                     btnGO = Instantiate(PhraseItemPrefab);
                     btnGO.transform.SetParent(ListContainer.transform, false);
                     btnGO.GetComponent<ItemPhrase>().Init(this, info_item);
                 }
             }
 
-            foreach (PhraseDataCategory cat in GenericHelper.SortEnums<PhraseDataCategory>()) {
-                if (cat == PhraseDataCategory.None) { continue; }
+            foreach (PhraseDataCategory cat in GenericHelper.SortEnums<PhraseDataCategory>())
+            {
+                if (cat == PhraseDataCategory.None)
+                { continue; }
                 btnGO = Instantiate(CategoryItemPrefab);
                 btnGO.transform.SetParent(SubmenuContainer.transform, false);
                 CategoryData = LocalizationManager.GetPhraseCategoryData(cat);
@@ -94,7 +99,8 @@ namespace Antura.Book
 
         public void SelectSubCategory(GenericCategoryData _category)
         {
-            switch (_category.area) {
+            switch (_category.area)
+            {
                 case VocabularyChapter.Words:
                     PhrasesPanel(_category.phraseCategory);
                     break;
@@ -103,20 +109,23 @@ namespace Antura.Book
 
         void HighlightMenutCategory(string id)
         {
-            foreach (Transform t in SubmenuContainer.transform) {
+            foreach (Transform t in SubmenuContainer.transform)
+            {
                 t.GetComponent<MenuItemCategory>().Select(id);
             }
         }
 
         void emptyListContainers()
         {
-            foreach (Transform t in ListContainer.transform) {
+            foreach (Transform t in ListContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
             // reset vertical position
             ListPanel.GetComponent<UnityEngine.UI.ScrollRect>().verticalNormalizedPosition = 1.0f;
 
-            foreach (Transform t in SubmenuContainer.transform) {
+            foreach (Transform t in SubmenuContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
         }

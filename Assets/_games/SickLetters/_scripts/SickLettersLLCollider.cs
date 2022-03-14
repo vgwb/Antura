@@ -22,7 +22,7 @@ namespace Antura.Minigames.SickLetters
         void Update()
         {
             thisTransform.position = origParent.TransformPoint(origLocalPos);
-            thisTransform.eulerAngles = new Vector3(0,105,-90);//origParent.TransformPoint(Vector3.zero);
+            thisTransform.eulerAngles = new Vector3(0, 105, -90);//origParent.TransformPoint(Vector3.zero);
             //thisTransform.localScale = origParent.TransformVector(Vector3.zero);
         }
 

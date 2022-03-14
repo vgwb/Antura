@@ -20,7 +20,8 @@ namespace Antura.Assessment
         {
             var ticket = ticketPool.Acquire();
 
-            if (lowPriorityTicket == null && highPriorityTicket == null) {
+            if (lowPriorityTicket == null && highPriorityTicket == null)
+            {
                 lowPriorityTicket = ticket;
             }
 
@@ -34,7 +35,8 @@ namespace Antura.Assessment
 
         public void UnlockLowPriorityTicket(Ticket ticket)
         {
-            if (lowPriorityTicket == ticket) {
+            if (lowPriorityTicket == ticket)
+            {
                 lowPriorityTicket = null;
             }
 
@@ -45,7 +47,8 @@ namespace Antura.Assessment
         {
             var ticket = ticketPool.Acquire();
 
-            if (highPriorityTicket == null) {
+            if (highPriorityTicket == null)
+            {
                 highPriorityTicket = ticket;
             }
             return ticket;
@@ -58,7 +61,8 @@ namespace Antura.Assessment
 
         public void UnlockHighPriorityTicket(Ticket ticket)
         {
-            if (highPriorityTicket == ticket) {
+            if (highPriorityTicket == ticket)
+            {
                 highPriorityTicket = null;
             }
 

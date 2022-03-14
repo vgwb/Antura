@@ -39,7 +39,8 @@ namespace Antura.AnturaSpace
         public static ShopState CreateFromJson(string jsonData)
         {
             var shopState = JsonUtility.FromJson<ShopState>(jsonData);
-            if (shopState == null) shopState = new ShopState();
+            if (shopState == null)
+                shopState = new ShopState();
             return shopState;
         }
 

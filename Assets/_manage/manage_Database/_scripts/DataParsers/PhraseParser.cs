@@ -16,7 +16,8 @@ namespace Antura.Database.Management
 
             data.Id = ToString(dict["Id"]);
             data.Active = (ToInt(dict["Active"]) == 1);
-            if (!data.Active) return null;  // Skip this data if inactive
+            if (!data.Active)
+                return null;  // Skip this data if inactive
 
             string langKey = language.ToString().ToUpper()[0] + language.ToString().Substring(1);
             //            Debug.Log("langKey: " + langKey);
@@ -38,8 +39,10 @@ namespace Antura.Database.Management
         protected override void FinalValidation(PhraseTable table, DatabaseObject db)
         {
             // Field 'Linked' is validated with a final validation step, since it is based on this same table
-            foreach (var data in table.GetValuesTyped()) {
-                if (data.Linked != "" && table.GetValue(data.Linked) == null) {
+            foreach (var data in table.GetValuesTyped())
+            {
+                if (data.Linked != "" && table.GetValue(data.Linked) == null)
+                {
                     LogValidation(data, "Cannot find id of PhraseData for Linked value " + data.Linked + " (found in phrase " + data.Id + ")");
                 }
             }

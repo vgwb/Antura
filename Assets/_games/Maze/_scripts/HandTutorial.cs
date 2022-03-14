@@ -27,11 +27,13 @@ namespace Antura.Minigames.Maze
             startingPosition = new Vector3(-1, -1, -1);
 
             //hide the path
-            foreach (GameObject visibleArrow in visibleArrows) {
+            foreach (GameObject visibleArrow in visibleArrows)
+            {
                 visibleArrow.SetActive(false);
             }
 
-            foreach (GameObject lineToShow in linesToShow) {
+            foreach (GameObject lineToShow in linesToShow)
+            {
                 lineToShow.SetActive(false);
             }
 
@@ -45,7 +47,8 @@ namespace Antura.Minigames.Maze
 
         public void showCurrentTutorial()
         {
-            if (startingPosition.x != -1 && startingPosition.y != -1 && startingPosition.z != -1) {
+            if (startingPosition.x != -1 && startingPosition.y != -1 && startingPosition.z != -1)
+            {
                 gameObject.transform.position = startingPosition;
             }
             gameObject.SetActive(true);
@@ -73,7 +76,8 @@ namespace Antura.Minigames.Maze
             //numbersToShow [currentPath].SetActive (true);
             linesToShow[currentPath].SetActive(true);
 
-            foreach (Transform child in pathsToFollow[currentPath].transform) {
+            foreach (Transform child in pathsToFollow[currentPath].transform)
+            {
                 wayPoints.Add(child.transform.position);
             }
 
@@ -82,9 +86,12 @@ namespace Antura.Minigames.Maze
             //currentWayPoint = 0;
             isShownOnce = true;
             MazeGame.instance.timer.StartTimer();
-            if (wayPoints.Count == 1) {
+            if (wayPoints.Count == 1)
+            {
                 TutorialUI.ClickRepeat(wayPoints[0]);
-            } else {
+            }
+            else
+            {
                 TutorialUI.DrawLine(wayPoints.ToArray(), TutorialUI.DrawLineMode.FingerAndArrow, false, true);
             }
 
@@ -97,7 +104,8 @@ namespace Antura.Minigames.Maze
 
         public void moveToNextPath()
         {
-            if (currentPath < pathsToFollow.Count - 1) {
+            if (currentPath < pathsToFollow.Count - 1)
+            {
                 isStopped = false;
 
                 HideCheckpointsAndLineOfCurrentPath();
@@ -116,15 +124,18 @@ namespace Antura.Minigames.Maze
 
         public void HideAllCheckpointsAndLines()
         {
-            foreach (var path in pathsToFollow) {
+            foreach (var path in pathsToFollow)
+            {
                 path.SetActive(false);
             }
 
-            foreach (var arrow in visibleArrows) {
+            foreach (var arrow in visibleArrows)
+            {
                 arrow.SetActive(false);
             }
 
-            foreach (var line in linesToShow) {
+            foreach (var line in linesToShow)
+            {
                 line.SetActive(false);
             }
         }

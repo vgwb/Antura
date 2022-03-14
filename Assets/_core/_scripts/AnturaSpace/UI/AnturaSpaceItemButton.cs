@@ -38,7 +38,8 @@ namespace Antura.AnturaSpace.UI
         {
             base.OnDestroy();
 
-            if (renderTexture != null) {
+            if (renderTexture != null)
+            {
                 renderTexture.Release();
                 renderTexture.DiscardContents();
             }
@@ -65,7 +66,8 @@ namespace Antura.AnturaSpace.UI
 
             IcoLock.SetActive(_doLock);
             RewardImage.gameObject.SetActive(!_doLock);
-            if (_doLock) {
+            if (_doLock)
+            {
                 IcoNew.SetActive(false);
             }
         }
@@ -73,7 +75,8 @@ namespace Antura.AnturaSpace.UI
         public void SetAsNew(bool _isNew)
         {
             isNew = _isNew;
-            if (!isNewForceHidden) {
+            if (!isNewForceHidden)
+            {
                 IcoNew.SetActive(_isNew);
             }
         }

@@ -66,7 +66,8 @@ namespace Antura.Scenes
             autoMoveObjects = environment.GetComponentsInChildren<AutoMove>();
 
             var lettersData = AppManager.I.Teacher.GetAllTestLetterDataLL();
-            foreach (var l in Letters) {
+            foreach (var l in Letters)
+            {
                 l.Init(lettersData.GetRandom());
                 l.State = LLAnimationStates.LL_dancing;
             }
@@ -100,9 +101,12 @@ namespace Antura.Scenes
             time += Time.deltaTime * m_CameraVelocity;
             float t = cameraAnimationCurve.Evaluate(time);
 
-            if (fadeIn) {
+            if (fadeIn)
+            {
                 vignetting.fadeOut = Mathf.Pow((1 - t), 2);
-            } else {
+            }
+            else
+            {
                 fadeOutTime += Time.deltaTime;
                 vignetting.fadeOut = Mathf.Lerp(0, 1, fadeOutTime / FadeTime);
             }
@@ -110,13 +114,17 @@ namespace Antura.Scenes
             for (int i = 0; i < autoMoveObjects.Length; ++i)
                 autoMoveObjects[i].SetTime(t);
 
-            if (m_Start) {
+            if (m_Start)
+            {
                 m_Start = false;
                 Debug.Log("Start Ending");
 
                 StartCoroutine(DoEnding());
-            } else {
-                if (m_End) {
+            }
+            else
+            {
+                if (m_End)
+                {
                     AppManager.I.NavigationManager.GoToNextScene();
                     m_End = false;
                     return;
@@ -138,8 +146,10 @@ namespace Antura.Scenes
         IEnumerator DoEnding()
         {
             bool completed = false;
-            System.Func<bool> CheckIfCompleted = () => {
-                if (completed) {
+            System.Func<bool> CheckIfCompleted = () =>
+            {
+                if (completed)
+                {
                     // Reset it
                     completed = false;
                     return true;

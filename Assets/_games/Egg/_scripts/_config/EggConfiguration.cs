@@ -27,8 +27,10 @@ namespace Antura.Minigames.Egg
         static EggConfiguration instance;
         public static EggConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new EggConfiguration();
                 }
                 return instance;
@@ -41,9 +43,12 @@ namespace Antura.Minigames.Egg
             Context = new MinigamesGameContext(MiniGameCode.Egg_letterphoneme, System.DateTime.Now.Ticks.ToString());
             Variation = EggVariation.LetterPhoneme;
 
-            if (Variation == EggVariation.BuildWord) {
+            if (Variation == EggVariation.BuildWord)
+            {
                 Questions = new SampleEggSequenceQuestionProvider();
-            } else {
+            }
+            else
+            {
                 Questions = new SampleEggSingleQuestionProvider();
             }
             TutorialEnabled = true;
@@ -62,7 +67,8 @@ namespace Antura.Minigames.Egg
             var builderParams = InitQuestionBuilderParamaters();
             builderParams.correctSeverity = SelectionSeverity.AsManyAsPossible;
 
-            switch (Variation) {
+            switch (Variation)
+            {
                 case EggVariation.LetterName:
                     builder = new RandomLettersQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams);
                     break;
@@ -76,15 +82,16 @@ namespace Antura.Minigames.Egg
                     builderParams.letterFilters.includeSpecialCharacters = true;
                     builderParams.letterFilters.includeAccentedLetters = true;
                     builderParams.letterFilters.excludeDiacritics = AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None;
-                    builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength:8, removeAccents:false);
+                    builder = new LettersInWordQuestionBuilder(5, nWrong: nWrong, useAllCorrectLetters: true, parameters: builderParams, maximumWordLength: 8, removeAccents: false);
                     break;
                 case EggVariation.LetterPhoneme:
                 {
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
-                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated)
+                        letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, 1, nWrong, parameters: builderParams, letterAlterationFilters: letterAlterationFilters, avoidWrongLettersWithSameSound: true);
                 }
-                    break;
+                break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
@@ -105,7 +112,8 @@ namespace Antura.Minigames.Egg
 
         public bool IsSingleVariation()
         {
-            switch (Variation) {
+            switch (Variation)
+            {
                 case EggVariation.LetterName:
                 case EggVariation.LetterPhoneme:
                 case EggVariation.Image:
@@ -119,7 +127,8 @@ namespace Antura.Minigames.Egg
 
         public bool IsSequence()
         {
-            switch (Variation) {
+            switch (Variation)
+            {
                 case EggVariation.LetterName:
                 case EggVariation.LetterPhoneme:
                 case EggVariation.Image:
@@ -134,7 +143,8 @@ namespace Antura.Minigames.Egg
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case EggVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;

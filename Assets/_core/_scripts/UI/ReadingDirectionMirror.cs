@@ -16,7 +16,8 @@ namespace Antura.UI
         {
             foreach (Transform childTr in GetComponentsInChildren<Transform>(true))
             {
-                if (childTr.parent != transform) continue;
+                if (childTr.parent != transform)
+                    continue;
                 switch (LanguageSwitcher.I.GetLangConfig(LanguageUse).TextDirection)
                 {
                     case TextDirection.RightToLeft:

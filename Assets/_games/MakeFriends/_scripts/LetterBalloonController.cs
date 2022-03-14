@@ -58,7 +58,7 @@ namespace Antura.Minigames.MakeFriends
 
         public IEnumerator EnterScene_Coroutine(bool correctChoice)
         {
-            var from =  transform.position;
+            var from = transform.position;
             var center = Vector3.up * 7.5f;
             var duration = 1f;
             Move(from, center, duration);

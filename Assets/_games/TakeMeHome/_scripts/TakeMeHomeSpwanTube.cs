@@ -31,7 +31,8 @@ namespace Antura.Minigames.TakeMeHome
 
             yield return new WaitForSeconds(1);
 
-            transform.DOMoveY(9.64f, 0.5f).OnComplete(() => {
+            transform.DOMoveY(9.64f, 0.5f).OnComplete(() =>
+            {
                 t.SetActive(false);
             });
         }

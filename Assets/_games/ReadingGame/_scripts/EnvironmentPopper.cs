@@ -9,7 +9,7 @@ namespace Antura.Minigames.ReadingGame
         public GameObject poofPrefab;
         public List<GameObject> toPop;
         public ReadingGameGame game;
-    
+
         int popCount = 0;
         int popped = 0;
 
@@ -20,7 +20,7 @@ namespace Antura.Minigames.ReadingGame
 
             popCount = toPop.Count;
         }
-    
+
         void Update()
         {
             float t = (game.CurrentScore / (float)game.GetStarsThreshold(3));

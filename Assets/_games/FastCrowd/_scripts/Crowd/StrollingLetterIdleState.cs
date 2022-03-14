@@ -16,7 +16,7 @@ namespace Antura.Minigames.FastCrowd
             letter.gameObject.GetComponent<LivingLetterController>().SetState(LLAnimationStates.LL_idle);
 
             // Wait a random time in idle
-            timer = 1.0f + 3.0f*UnityEngine.Random.value;
+            timer = 1.0f + 3.0f * UnityEngine.Random.value;
         }
 
         public override void ExitState()

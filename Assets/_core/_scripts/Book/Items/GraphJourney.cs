@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace Antura.Book
 {
     /// <summary>
-    /// Shows a graph detailing the journey of the player. 
+    /// Shows a graph detailing the journey of the player.
     /// </summary>
     public class GraphJourney : MonoBehaviour
     {

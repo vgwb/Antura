@@ -57,7 +57,7 @@ namespace Antura.Minigames.ColorTickle
             //when the hit is inside
             if (shapeHitted)
             {
-                // Call this function before we set m_HitState = HIT_LETTERINSIDE 
+                // Call this function before we set m_HitState = HIT_LETTERINSIDE
                 m_HitState = eHitState.HIT_LETTERINSIDE;
                 if (OnTouchedShape != null)
                 {

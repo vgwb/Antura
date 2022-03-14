@@ -53,7 +53,8 @@ namespace Antura.Tutorial
                 StopTutorialRunning();
             }
 
-            if (VERBOSE) { Debug.Log("TutorialManager - starting - phase " + FirstContactManager.I.CurrentPhaseInSequence + ""); }
+            if (VERBOSE)
+            { Debug.Log("TutorialManager - starting - phase " + FirstContactManager.I.CurrentPhaseInSequence + ""); }
             InternalHandleStart();
         }
 
@@ -65,7 +66,8 @@ namespace Antura.Tutorial
         protected void CompleteTutorialPhase()
         {
             StopTutorialRunning();
-            if (FirstContactManager.SIMULATE_FIRST_CONTACT) return;
+            if (FirstContactManager.SIMULATE_FIRST_CONTACT)
+                return;
             FirstContactManager.I.CompletePhaseCheckSequence(CurrentRunningPhase);
 
             // Check if we have more
@@ -110,16 +112,20 @@ namespace Antura.Tutorial
         protected void UnlockPhaseIf(FirstContactPhase phase, bool unlockingCondition)
         {
             bool shouldBeUnlocked = !FirstContactManager.I.HasUnlockedPhase(phase) && unlockingCondition;
-            if (shouldBeUnlocked) FirstContactManager.I.UnlockPhase(phase);
+            if (shouldBeUnlocked)
+                FirstContactManager.I.UnlockPhase(phase);
         }
 
         protected void UnlockPhaseIfReachedJourneyPosition(FirstContactPhase phase)
         {
             var journeyPosition = FirstContactManager.I.GetUnlockingJourneyPosition(phase);
-            if (journeyPosition == null) return;
-            if (journeyPosition.Equals(JourneyPosition.InitialJourneyPosition)) AutoUnlockAndComplete(phase);
+            if (journeyPosition == null)
+                return;
+            if (journeyPosition.Equals(JourneyPosition.InitialJourneyPosition))
+                AutoUnlockAndComplete(phase);
             bool shouldBeUnlocked = !FirstContactManager.I.HasUnlockedPhase(phase) && HasReachedJourneyPosition(journeyPosition);
-            if (shouldBeUnlocked) FirstContactManager.I.UnlockPhase(phase);
+            if (shouldBeUnlocked)
+                FirstContactManager.I.UnlockPhase(phase);
         }
 
         // Checks for unlock
@@ -134,7 +140,7 @@ namespace Antura.Tutorial
 
         protected void Dialogue(LocalizationDataId id)
         {
-            KeeperManager.I.PlayDialogue(id, _callback:null);
+            KeeperManager.I.PlayDialogue(id, _callback: null);
         }
 
         protected void DialogueThen(LocalizationDataId id, Action action)
@@ -155,8 +161,8 @@ namespace Antura.Tutorial
             prevIds.RemoveAt(prevIds.Count - 1);
 
             if (prevIds.Count == 0)
-                KeeperManager.I.PlayDialogue(lastId, _callback:action);
-            else 
+                KeeperManager.I.PlayDialogue(lastId, _callback: action);
+            else
                 DialoguesThen(() => KeeperManager.I.PlayDialogue(lastId, _callback: action), prevIds.ToArray());
         }
 

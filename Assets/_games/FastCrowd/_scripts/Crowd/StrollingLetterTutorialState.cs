@@ -24,7 +24,7 @@ namespace Antura.Minigames.FastCrowd
         {
             target = letter.walkableArea.tutorialPosition.position;
 
-            // Set letter animation            
+            // Set letter animation
             Vector3 distance = target - letter.transform.position;
             distance.y = 0;
 

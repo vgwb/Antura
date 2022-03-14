@@ -39,7 +39,8 @@ namespace Antura.Rewards
             Star.gameObject.SetActive(false);
 
             achieveStarTween = Star.DOPunchScale(Vector3.one * 1.25f, 0.4f).SetAutoKill(false).Pause();
-            if (hasReward) {
+            if (hasReward)
+            {
                 achieveRewardTween = DOTween.Sequence().SetAutoKill(false).Pause()
                     .InsertCallback(0.2f, () => Lock.sprite = UnlockedSprite)
                     .Join(Lock.transform.DOPunchScale(Vector3.one * 1.3f, 0.2f))
@@ -62,29 +63,40 @@ namespace Antura.Rewards
 
         internal void AchieveReward(bool _doAchieve, bool _immediate = false)
         {
-            if (IsRewardAchieved == _doAchieve) return;
+            if (IsRewardAchieved == _doAchieve)
+                return;
 
             IsRewardAchieved = _doAchieve;
-            if (hasReward) {
+            if (hasReward)
+            {
                 Lock.sprite = lockedSprite;
                 Lock.gameObject.SetActive(true);
             }
-            if (_doAchieve) {
-                if (_immediate) achieveRewardTween.Complete();
-                else achieveRewardTween.Restart();
-            } else achieveRewardTween.Rewind();
+            if (_doAchieve)
+            {
+                if (_immediate)
+                    achieveRewardTween.Complete();
+                else
+                    achieveRewardTween.Restart();
+            }
+            else
+                achieveRewardTween.Rewind();
         }
 
         internal void AchieveStar(bool _doAchieve)
         {
-            if (IsStarAchieved == _doAchieve) return;
+            if (IsStarAchieved == _doAchieve)
+                return;
 
             IsStarAchieved = _doAchieve;
-            if (_doAchieve) {
+            if (_doAchieve)
+            {
                 Star.gameObject.SetActive(true);
                 achieveStarTween.Restart();
                 AudioManager.I.PlaySound(EndsessionResultPanel.I.SfxGainStar);
-            } else {
+            }
+            else
+            {
                 Star.gameObject.SetActive(false);
                 achieveStarTween.Rewind();
             }

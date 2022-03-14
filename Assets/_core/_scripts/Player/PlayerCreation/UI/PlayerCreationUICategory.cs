@@ -26,12 +26,14 @@ namespace Antura.Profile
 
         void DispatchOnSelect(PlayerCreationUICategory category, UIButton uiButton)
         {
-            if (OnSelect != null) { OnSelect(category, uiButton); }
+            if (OnSelect != null)
+            { OnSelect(category, uiButton); }
         }
 
         void DispatchOnDeselectAll(PlayerCreationUICategory category)
         {
-            if (OnDeselectAll != null) { OnDeselectAll(category); }
+            if (OnDeselectAll != null)
+            { OnDeselectAll(category); }
         }
 
         #endregion
@@ -42,15 +44,18 @@ namespace Antura.Profile
         {
             SelectedIndex = -1;
             UIButtons = GetComponentsInChildren<UIButton>(true);
-            foreach (UIButton uiButton in UIButtons) {
+            foreach (UIButton uiButton in UIButtons)
+            {
                 UIButton bt = uiButton;
                 bt.Bt.onClick.AddListener(() => OnClick(bt));
             }
 
-            switch (CategoryType) {
+            switch (CategoryType)
+            {
                 case PlayerCreationUI.CategoryType.BgColor:
                     _bgColorsAppearanceTween = DOTween.Sequence().SetAutoKill(false).Pause();
-                    for (int i = 0; i < UIButtons.Length; ++i) {
+                    for (int i = 0; i < UIButtons.Length; ++i)
+                    {
                         _bgColorsAppearanceTween.Insert(i * 0.1f, UIButtons[i].CGroup.DOFade(0, 0.4f).From());
                     }
                     break;
@@ -59,14 +64,16 @@ namespace Antura.Profile
 
         void OnEnable()
         {
-            if (CategoryType == PlayerCreationUI.CategoryType.BgColor) {
+            if (CategoryType == PlayerCreationUI.CategoryType.BgColor)
+            {
                 _bgColorsAppearanceTween.Restart();
             }
         }
 
         void OnDisable()
         {
-            if (CategoryType == PlayerCreationUI.CategoryType.BgColor) {
+            if (CategoryType == PlayerCreationUI.CategoryType.BgColor)
+            {
                 _bgColorsAppearanceTween.Rewind();
             }
         }
@@ -74,7 +81,8 @@ namespace Antura.Profile
         void OnDestroy()
         {
             _bgColorsAppearanceTween.Kill();
-            foreach (UIButton uiButton in UIButtons) {
+            foreach (UIButton uiButton in UIButtons)
+            {
                 uiButton.Bt.onClick.RemoveAllListeners();
             }
         }
@@ -86,16 +94,20 @@ namespace Antura.Profile
         // If index is less than 0 toggles all
         public void Select(int index)
         {
-            if (index > UIButtons.Length - 1) {
+            if (index > UIButtons.Length - 1)
+            {
                 Debug.LogWarning("PlayerCreationUICategory.Select > Index out of range (captured)");
                 return;
             }
 
-            if (index < 0) {
+            if (index < 0)
+            {
                 // Deselect all
-                if (SelectedIndex >= 0) {
+                if (SelectedIndex >= 0)
+                {
                     SelectedIndex = -1;
-                    for (int i = 0; i < UIButtons.Length; i++) {
+                    for (int i = 0; i < UIButtons.Length; i++)
+                    {
                         var bt = UIButtons[i];
                         bt.Toggle(true);
                         //                        if (CategoryType == PlayerCreationUI.CategoryType.BgColor || CategoryType == PlayerCreationUI.CategoryType.SkinColor) {
@@ -105,10 +117,13 @@ namespace Antura.Profile
                     }
                     DispatchOnDeselectAll(this);
                 }
-            } else {
+            }
+            else
+            {
                 // Select index
                 SelectedIndex = index;
-                for (var i = 0; i < UIButtons.Length; ++i) {
+                for (var i = 0; i < UIButtons.Length; ++i)
+                {
                     var bt = UIButtons[i];
                     bt.Toggle(i == index);
                     //                    if (CategoryType == PlayerCreationUI.CategoryType.BgColor || CategoryType == PlayerCreationUI.CategoryType.SkinColor)
@@ -123,14 +138,16 @@ namespace Antura.Profile
 
         public void SetColor(Color color)
         {
-            foreach (var uiButton in UIButtons) {
+            foreach (var uiButton in UIButtons)
+            {
                 uiButton.ChangeDefaultColors(color);
             }
         }
 
         public void ResetColor()
         {
-            foreach (UIButton uiButton in UIButtons) {
+            foreach (UIButton uiButton in UIButtons)
+            {
                 uiButton.ChangeDefaultColors(Color.white);
             }
         }
@@ -139,7 +156,8 @@ namespace Antura.Profile
         public void AvatarSetIcon(bool isFemale)
         {
             // TODO use different avatars
-            for (var i = 0; i < UIButtons.Length; ++i) {
+            for (var i = 0; i < UIButtons.Length; ++i)
+            {
                 var sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (isFemale ? "F" : "M") + (i + 1));
                 UIButtons[i].Ico.sprite = sprite;
             }
@@ -151,16 +169,20 @@ namespace Antura.Profile
 
         void OnClick(UIButton bt)
         {
-            if (_bgColorsAppearanceTween != null && _bgColorsAppearanceTween.IsPlaying()) {
+            if (_bgColorsAppearanceTween != null && _bgColorsAppearanceTween.IsPlaying())
+            {
                 return;
             }
 
             var deselect = bt.IsToggled && SelectedIndex >= 0
                            && (CategoryType != PlayerCreationUI.CategoryType.Avatar ||
                                PlayerCreationUI.State == PlayerCreationUI.UIState.AvatarCreation);
-            if (deselect) {
+            if (deselect)
+            {
                 Select(-1);
-            } else {
+            }
+            else
+            {
                 var index = Array.IndexOf(UIButtons, bt);
                 Select(index);
                 DispatchOnSelect(this, UIButtons[index]);

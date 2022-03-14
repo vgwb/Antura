@@ -83,7 +83,8 @@ namespace Antura.Core
         public string ToDisplayedString(bool withPlaySession = false)
         {
             var psCode = "";
-            switch (PlaySession) {
+            switch (PlaySession)
+            {
                 case 1:
                     psCode = "1";
                     break;
@@ -101,9 +102,12 @@ namespace Antura.Core
                     break;
             }
 
-            if (withPlaySession) {
+            if (withPlaySession)
+            {
                 return Stage + "-" + LearningBlock + "-" + psCode;
-            } else {
+            }
+            else
+            {
                 return Stage + "-" + LearningBlock;
             }
         }
@@ -116,13 +120,16 @@ namespace Antura.Core
 
         public bool IsMinor(JourneyPosition other)
         {
-            if (Stage < other.Stage) {
+            if (Stage < other.Stage)
+            {
                 return true;
             }
-            if (Stage <= other.Stage && LearningBlock < other.LearningBlock) {
+            if (Stage <= other.Stage && LearningBlock < other.LearningBlock)
+            {
                 return true;
             }
-            if (Stage <= other.Stage && LearningBlock <= other.LearningBlock && PlaySession < other.PlaySession) {
+            if (Stage <= other.Stage && LearningBlock <= other.LearningBlock && PlaySession < other.PlaySession)
+            {
                 return true;
             }
             return false;

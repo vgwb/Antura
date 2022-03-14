@@ -12,8 +12,10 @@ namespace Antura.Minigames
 
         void Awake()
         {
-            foreach (var g in toAwake) {
-                if (g != null) {
+            foreach (var g in toAwake)
+            {
+                if (g != null)
+                {
                     g.SetActive(true);
                 }
             }

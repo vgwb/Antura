@@ -5,7 +5,8 @@ using UnityEngine.Assertions;
 
 namespace Antura.Minigames.MissingLetter
 {
-    public class AnturaBehaviour : MonoBehaviour {
+    public class AnturaBehaviour : MonoBehaviour
+    {
 
         void Start()
         {
@@ -16,7 +17,7 @@ namespace Antura.Minigames.MissingLetter
         }
 
         /// <summary>
-        /// make Antura cross scene, DoShout 
+        /// make Antura cross scene, DoShout
         /// </summary>
         /// <param name="_duration"> duration of enter/cross scene action </param>
         public void EnterScene(float _duration)
@@ -25,7 +26,8 @@ namespace Antura.Minigames.MissingLetter
             m_oAnturaCtrl.IsAngry = true;
             m_oAnturaCtrl.DoShout();
             transform.LookAt(transform.position + Vector3.left * (m_oNextPos.position.x - transform.position.x));
-            transform.DOMove(m_oNextPos.position, _duration).OnComplete(delegate { m_oAnturaCtrl.State = AnturaAnimationStates.idle; }) ;
+            transform.DOMove(m_oNextPos.position, _duration).OnComplete(delegate
+            { m_oAnturaCtrl.State = AnturaAnimationStates.idle; });
 
             m_oNextPos = m_oNextPos == m_oStart ? m_oEnd : m_oStart;
         }

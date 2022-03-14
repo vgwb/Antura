@@ -29,19 +29,24 @@ namespace Antura.Core
         public void OnBtnContinue()
         {
             gameObject.SetActive(false);
-            if (!AppManager.I.AppSettings.ShareAnalyticsEnabled) {
+            if (!AppManager.I.AppSettings.ShareAnalyticsEnabled)
+            {
                 OnlineAnalyticsRequest();
-            } else {
+            }
+            else
+            {
                 Close();
             }
         }
 
         public void OnlineAnalyticsRequest()
         {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics, () => {
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics, () =>
+            {
                 AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
                 Close();
-            }, () => {
+            }, () =>
+            {
                 AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
                 Close();
             });

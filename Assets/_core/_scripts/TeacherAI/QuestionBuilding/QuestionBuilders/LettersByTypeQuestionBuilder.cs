@@ -26,7 +26,8 @@ namespace Antura.Teacher
 
         public LettersByTypeQuestionBuilder(int nPacks, QuestionBuilderParameters parameters = null)
         {
-            if (parameters == null) { parameters = new QuestionBuilderParameters(); }
+            if (parameters == null)
+            { parameters = new QuestionBuilderParameters(); }
 
             this.nPacks = nPacks;
             this.parameters = parameters;
@@ -90,9 +91,11 @@ namespace Antura.Teacher
                     string debugString = "--------- TEACHER: question pack result ---------";
                     debugString += "\nQuestion: " + pack.question;
                     debugString += "\nCorrect Word: " + pack.correctAnswers.Count;
-                    foreach (var l in pack.correctAnswers) debugString += " " + l;
+                    foreach (var l in pack.correctAnswers)
+                        debugString += " " + l;
                     debugString += "\nWrong Word: " + pack.wrongAnswers.Count;
-                    foreach (var l in pack.wrongAnswers) debugString += " " + l;
+                    foreach (var l in pack.wrongAnswers)
+                        debugString += " " + l;
                     ConfigAI.AppendToTeacherReport(debugString);
                 }
             }

@@ -48,8 +48,10 @@ namespace Antura.UI
         public string text
         {
             get => m_text;
-            set {
-                if (m_text == value) return;
+            set
+            {
+                if (m_text == value)
+                    return;
                 //m_text = SAppConfig.I.ForceALLCAPSTextRendering ? value.ToUpper() : value;
                 m_text = value;
                 UpdateText();
@@ -67,11 +69,13 @@ namespace Antura.UI
 
         void Awake()
         {
-            if (isSubtitle) {
+            if (isSubtitle)
+            {
                 gameObject.SetActive(AppManager.I.AppEdition.ShowHelpText);
             }
 
-            if (LocalizationId != Database.LocalizationDataId.None) {
+            if (LocalizationId != Database.LocalizationDataId.None)
+            {
                 SetSentence(LocalizationId);
             }
             UpdateText();
@@ -103,24 +107,32 @@ namespace Antura.UI
 
         private void UpdateText()
         {
-            if (LanguageSwitcher.I == null || !AppManager.I.Loaded) return;
+            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
+                return;
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
-            if (!isLetter && !isNumber && config.OverrideTextFonts) {
+            if (!isLetter && !isNumber && config.OverrideTextFonts)
+            {
                 TMPText.font = config.TextFont;
             }
 
-            if (!isNumber && !isLetter) {
+            if (!isNumber && !isLetter)
+            {
                 TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
-            } else if (isLetter) {
+            }
+            else if (isLetter)
+            {
                 // Processed already
                 TMPText.text = m_text;
-            } else {
+            }
+            else
+            {
                 // Raw
                 TMPText.text = m_text;
             }
 
-            if (RenderedText == "") text = " "; // Avoid no text not getting update correctly
+            if (RenderedText == "")
+                text = " "; // Avoid no text not getting update correctly
             CheckRTL();
         }
 
@@ -136,9 +148,12 @@ namespace Antura.UI
 
         public void SetTextAlign(bool alignRight)
         {
-            if (alignRight) {
+            if (alignRight)
+            {
                 TMPText.horizontalAlignment = HorizontalAlignmentOptions.Right;
-            } else {
+            }
+            else
+            {
                 TMPText.horizontalAlignment = HorizontalAlignmentOptions.Left;
             }
         }
@@ -148,7 +163,8 @@ namespace Antura.UI
         public void SetLetterData(ILivingLetterData livingLetterData, bool outlined = false)
         {
             isLetter = true;
-            if (livingLetterData.DataType == LivingLetterDataType.Image) {
+            if (livingLetterData.DataType == LivingLetterDataType.Image)
+            {
                 TMPText.enableAutoSizing = false;
                 TMPText.fontSize = drawingFontSize;
                 text = livingLetterData.DrawingCharForLivingLetter;
@@ -157,8 +173,11 @@ namespace Antura.UI
                 color = imageData.Data.Category == Database.WordDataCategory.Colors ? GenericHelper.GetColorFromString(imageData.Data.Value) : Color.black;
 
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
-                if (outlined) TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
-            } else {
+                if (outlined)
+                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
+            }
+            else
+            {
                 TMPText.enableAutoSizing = true;
                 languageUse = LanguageUse.Learning;
                 CheckRTL();
@@ -167,7 +186,8 @@ namespace Antura.UI
                 text = livingLetterData.TextForLivingLetter;
 
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LetterFont;
-                if (outlined) TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLetterFontMaterial;
+                if (outlined)
+                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLetterFontMaterial;
             }
         }
 
@@ -194,7 +214,8 @@ namespace Antura.UI
                 }
             }
 
-            if (flashingTextCoroutine != null) StopCoroutine(flashingTextCoroutine);
+            if (flashingTextCoroutine != null)
+                StopCoroutine(flashingTextCoroutine);
             flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                 s => { text = s; }, markPrecedingLetters);
             StartCoroutine(flashingTextCoroutine);
@@ -202,7 +223,8 @@ namespace Antura.UI
 
         public void StopFlashing()
         {
-            if (flashingTextCoroutine != null) StopCoroutine(flashingTextCoroutine);
+            if (flashingTextCoroutine != null)
+                StopCoroutine(flashingTextCoroutine);
             flashingTextCoroutine = null;
         }
 

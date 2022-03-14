@@ -3,7 +3,7 @@ namespace Antura.Rewards
     /// <summary>
     /// Structure focused to communicate about colors from and to UI.
     /// </summary>
-    public class RewardColorItem 
+    public class RewardColorItem
     {
         // Data
         public RewardColor data;

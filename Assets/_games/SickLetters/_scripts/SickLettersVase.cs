@@ -20,7 +20,7 @@ namespace Antura.Minigames.SickLetters
                 _counter.text = value.ToString();
                 //game.Context.GetOverlayWidget().SetStarsScore(value / (game.targetScale / 3));
             }
-            get { return int.Parse(_counter.text);  }
+            get { return int.Parse(_counter.text); }
         }
 
         [HideInInspector]
@@ -76,7 +76,7 @@ namespace Antura.Minigames.SickLetters
                 if (dd.isDragging)
                     dd.touchedVase = false;
             }
-         }
+        }
         /*void OnTriggerStay(Collider coll)
         {
             checkEntry(coll);
@@ -84,7 +84,7 @@ namespace Antura.Minigames.SickLetters
 
         private void checkEntry(Collider coll)
         {
-            
+
             if (coll.tag == "Player")
             {
                 dd = coll.gameObject.GetComponent<SickLettersDraggableDD>();
@@ -109,7 +109,7 @@ namespace Antura.Minigames.SickLetters
                 dd.resetCorrectDD();
                 game.onWrongMove(dd.isCorrect);
                 StartCoroutine(onDroppingCorrectDD());
-                
+
             }
             else if (!dd.isInVase)
             {
@@ -131,8 +131,10 @@ namespace Antura.Minigames.SickLetters
 
             transform.parent = libra;
 
-            libra.DOMoveY(libra.position.y - maxDown, 0.2f).OnComplete(() => {
-                libra.DOJump(endPos, 0.1f, 1, 0.25f).OnComplete(() => {
+            libra.DOMoveY(libra.position.y - maxDown, 0.2f).OnComplete(() =>
+            {
+                libra.DOJump(endPos, 0.1f, 1, 0.25f).OnComplete(() =>
+                {
                     libra.DOJump(endPos, 0.05f, 1, 0.3f);
                 });
             });
@@ -142,7 +144,8 @@ namespace Antura.Minigames.SickLetters
             transform.parent = null;
         }
 
-        public IEnumerator onDroppingCorrectDD() {
+        public IEnumerator onDroppingCorrectDD()
+        {
 
             if (game.roundsCount == 0)
                 yield break;
@@ -157,7 +160,7 @@ namespace Antura.Minigames.SickLetters
             game.LLPrefab.letterView.DoAngry();
             SickLettersConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(game.LLPrefab.letterView.Data, true, soundType: SickLettersConfiguration.Instance.GetVocabularySoundType());
 
-            
+
 
             yield return new WaitForSeconds(1.5f);
             game.LLPrefab.LLStatus = letterStatus.idle;
@@ -165,11 +168,11 @@ namespace Antura.Minigames.SickLetters
             vaseRB.constraints = RigidbodyConstraints.None;
             vaseRB.isKinematic = false;
 
-            
+
 
             StartCoroutine(dropVase());
 
-            if(game.scale.counter > game.maxReachedCounter)
+            if (game.scale.counter > game.maxReachedCounter)
                 game.maxReachedCounter = game.scale.counter;
 
             game.scale.counter = 0;
@@ -180,12 +183,12 @@ namespace Antura.Minigames.SickLetters
             vaseRB.isKinematic = true;
             transform.position = vaseStartPose + Vector3.up * 20;
             transform.eulerAngles = vaseStartRot;
-           
+
 
             yield return new WaitForSeconds(1.5f);
             game.antura.sleep();
-            
-            StartCoroutine( summonVase());
+
+            StartCoroutine(summonVase());
 
             yield return new WaitForSeconds(1f);
 
@@ -196,14 +199,15 @@ namespace Antura.Minigames.SickLetters
         public IEnumerator dropVase(float delay = 0, bool moveCam = false)
         {
             //if (game.roundsCount == 0)
-              //  yield break;
+            //  yield break;
 
             yield return new WaitForSeconds(delay);
 
             vaseRB.constraints = RigidbodyConstraints.None;
             vaseRB.isKinematic = false;
 
-            libra.DOMove(libraStartPos, 0.5f).OnComplete(()=> {
+            libra.DOMove(libraStartPos, 0.5f).OnComplete(() =>
+            {
                 libra.DOPunchPosition(Vector3.up, 1, 7);
             });
 
@@ -214,7 +218,7 @@ namespace Antura.Minigames.SickLetters
                     dd.boxCollider.isTrigger = false;
                     dd.thisRigidBody.isKinematic = false;
                     dd.thisRigidBody.useGravity = true;
-                    dd.poofDD(Mathf.Clamp( Random.value * 10f, 1.5f, 3));
+                    dd.poofDD(Mathf.Clamp(Random.value * 10f, 1.5f, 3));
                 }
             }
 
@@ -230,7 +234,7 @@ namespace Antura.Minigames.SickLetters
                 libra.position = Vector3.Lerp(libra.position, libraStartPos, Time.deltaTime * 5);
                 yield return null;
             }
-        } 
+        }
 
         public IEnumerator summonVase()
         {
@@ -268,14 +272,15 @@ namespace Antura.Minigames.SickLetters
 
             vaseRB.isKinematic = true;
 
-            libra.DOMove(libraStartPos, 0.2f).OnComplete(() => {
+            libra.DOMove(libraStartPos, 0.2f).OnComplete(() =>
+            {
                 libra.DOPunchPosition(Vector3.up, 1, 7);
             });
 
             while (true)
             {
-                vaseRB.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, 30, 10*Time.deltaTime), transform.position.z);
-                game.slCamera.transform.eulerAngles = new Vector3(Mathf.LerpAngle(game.slCamera.transform.eulerAngles.x, -10, 4*Time.deltaTime), game.slCamera.transform.eulerAngles.y, game.slCamera.transform.eulerAngles.z);
+                vaseRB.position = new Vector3(transform.position.x, Mathf.Lerp(transform.position.y, 30, 10 * Time.deltaTime), transform.position.z);
+                game.slCamera.transform.eulerAngles = new Vector3(Mathf.LerpAngle(game.slCamera.transform.eulerAngles.x, -10, 4 * Time.deltaTime), game.slCamera.transform.eulerAngles.y, game.slCamera.transform.eulerAngles.z);
                 yield return null;
             }
         }

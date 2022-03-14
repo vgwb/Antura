@@ -19,9 +19,12 @@ namespace Antura.Minigames
         {
             var dictionary = new Dictionary<string, MainMiniGame>();
             var minigameInfoList = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
-            foreach (var minigameInfo in minigameInfoList) {
-                if (minigameInfo.data.CanBeSelected) {
-                    if (!dictionary.ContainsKey(minigameInfo.data.Main)) {
+            foreach (var minigameInfo in minigameInfoList)
+            {
+                if (minigameInfo.data.CanBeSelected)
+                {
+                    if (!dictionary.ContainsKey(minigameInfo.data.Main))
+                    {
                         dictionary[minigameInfo.data.Main] = new MainMiniGame
                         {
                             MainId = minigameInfo.data.Main,
@@ -33,8 +36,10 @@ namespace Antura.Minigames
             }
 
             var outputMainMiniGamesList = new List<MainMiniGame>();
-            foreach (var k in dictionary.Keys) {
-                if (dictionary[k].MainId == "Assessment" && skipAssessments) {
+            foreach (var k in dictionary.Keys)
+            {
+                if (dictionary[k].MainId == "Assessment" && skipAssessments)
+                {
                     continue;
                 }
                 outputMainMiniGamesList.Add(dictionary[k]);
@@ -42,13 +47,16 @@ namespace Antura.Minigames
 
             // Sort minigames and variations based on their minimum journey position
             var minimumJourneyPositions = new Dictionary<MiniGameCode, JourneyPosition>();
-            foreach (var mainMiniGame in outputMainMiniGamesList) {
-                foreach (var miniGameInfo in mainMiniGame.variations) {
+            foreach (var mainMiniGame in outputMainMiniGamesList)
+            {
+                foreach (var miniGameInfo in mainMiniGame.variations)
+                {
                     var miniGameCode = miniGameInfo.data.Code;
 
                     // Minimum journey position. Set to the max if not found.
                     var minJP = AppManager.I.JourneyHelper.GetMinimumJourneyPositionForMiniGame(miniGameCode);
-                    if (minJP == null) {
+                    if (minJP == null)
+                    {
                         //UnityEngine.Debug.LogWarning("MiniGameCode " + miniGameCode + " has no minimum play session. Forcing to the final one.");
                         minJP = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
                     }
@@ -58,7 +66,8 @@ namespace Antura.Minigames
             }
 
             // First sort variations (so the first variation is in front)
-            foreach (var mainMiniGame in outputMainMiniGamesList) {
+            foreach (var mainMiniGame in outputMainMiniGamesList)
+            {
                 mainMiniGame.variations.Sort((g1, g2) => minimumJourneyPositions[g1.data.Code].IsMinor(
                     minimumJourneyPositions[g2.data.Code])
                     ? -1
@@ -66,7 +75,8 @@ namespace Antura.Minigames
             }
 
 
-            switch (sortLogic) {
+            switch (sortLogic)
+            {
                 case MiniGameSortLogic.Alphanumeric:
                     outputMainMiniGamesList.Sort((g1, g2) => string.Compare(g1.MainId, g2.MainId, StringComparison.Ordinal));
                     break;
@@ -87,17 +97,20 @@ namespace Antura.Minigames
             var minPos1 = minimumJourneyPositions[g1.GetFirstVariationMiniGameCode()];
             var minPos2 = minimumJourneyPositions[g2.GetFirstVariationMiniGameCode()];
 
-            if (minPos1.IsMinor(minPos2)) {
+            if (minPos1.IsMinor(minPos2))
+            {
                 return -1;
             }
-            if (minPos2.IsMinor(minPos1)) {
+            if (minPos2.IsMinor(minPos1))
+            {
                 return 1;
             }
 
             // Check play session order
             var sharedPlaySessionData = AppManager.I.DB.GetPlaySessionDataById(minPos1.Id);
             int ret = 0;
-            switch (sharedPlaySessionData.Order) {
+            switch (sharedPlaySessionData.Order)
+            {
                 case PlaySessionDataOrder.Random:
                     // No specific sorting
                     ret = 0;
@@ -119,7 +132,8 @@ namespace Antura.Minigames
         public static Dictionary<MiniGameCode, float[]> GetMiniGameDifficultiesForTesting()
         {
             var difficultiesForTest = new Dictionary<MiniGameCode, float[]>();
-            foreach (MiniGameCode gamecode in Enum.GetValues(typeof(MiniGameCode))) {
+            foreach (MiniGameCode gamecode in Enum.GetValues(typeof(MiniGameCode)))
+            {
                 difficultiesForTest.Add(gamecode, new[] { 0.0f });
             }
             return difficultiesForTest;

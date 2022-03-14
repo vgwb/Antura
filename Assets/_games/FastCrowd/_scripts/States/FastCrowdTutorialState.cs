@@ -18,7 +18,8 @@ namespace Antura.Minigames.FastCrowd
 
         bool MustTrunk
         {
-            get {
+            get
+            {
                 return FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Alphabet ||
                         FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting ||
                         FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word ||
@@ -38,12 +39,16 @@ namespace Antura.Minigames.FastCrowd
             game.QuestionManager.OnCompleted += OnQuestionCompleted;
             game.QuestionManager.OnDropped += OnAnswerDropped;
 
-            if (game.CurrentChallenge != null) {
-                if (MustTrunk) {
+            if (game.CurrentChallenge != null)
+            {
+                if (MustTrunk)
+                {
                     game.CurrentChallenge.RemoveRange(2, game.CurrentChallenge.Count - 2);
                 }
                 game.QuestionManager.StartQuestion(game.CurrentChallenge, game.NoiseData);
-            } else {
+            }
+            else
+            {
                 game.QuestionManager.Clean();
             }
             tutorialStarted = false;
@@ -85,7 +90,8 @@ namespace Antura.Minigames.FastCrowd
 
             if (result && (FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Counting || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Word
                                                                                                     || FastCrowdConfiguration.Instance.Variation == FastCrowdVariation.Image
-                                                                                                    || FastCrowdConfiguration.Instance.IsOrderingVariation)) {
+                                                                                                    || FastCrowdConfiguration.Instance.IsOrderingVariation))
+            {
                 game.Context.GetAudioManager().PlayVocabularyData(data);
             }
 
@@ -93,10 +99,12 @@ namespace Antura.Minigames.FastCrowd
 
         public void Update(float delta)
         {
-            if (tutorialStarted) {
+            if (tutorialStarted)
+            {
                 tutorialStartTimer += -delta;
 
-                if (tutorialStartTimer <= 0f) {
+                if (tutorialStartTimer <= 0f)
+                {
                     tutorialStartTimer = 3f;
 
                     DrawTutorial();
@@ -106,7 +114,8 @@ namespace Antura.Minigames.FastCrowd
 
         void DrawTutorial()
         {
-            if (game.QuestionManager.crowd.GetLetter(game.QuestionManager.dropContainer.GetActiveData()) == null) {
+            if (game.QuestionManager.crowd.GetLetter(game.QuestionManager.dropContainer.GetActiveData()) == null)
+            {
                 return;
             }
 
@@ -119,8 +128,10 @@ namespace Antura.Minigames.FastCrowd
 
             game.QuestionManager.crowd.GetNearLetters(nearLetters, startLine, 10f);
 
-            for (int i = 0; i < nearLetters.Count; i++) {
-                if (nearLetters[i] != tutorialLetter) {
+            for (int i = 0; i < nearLetters.Count; i++)
+            {
+                if (nearLetters[i] != tutorialLetter)
+                {
                     nearLetters[i].Scare(startLine, 3f);
                 }
             }

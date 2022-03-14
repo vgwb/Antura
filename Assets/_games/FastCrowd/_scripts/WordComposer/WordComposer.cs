@@ -89,7 +89,7 @@ namespace Antura.Minigames.FastCrowd
         public void Clean()
         {
             CompletedLetters = new List<LL_LetterData>();
-            UpdateWord(onlyIfActive:false);
+            UpdateWord(onlyIfActive: false);
 
             StopAllCoroutines();
 

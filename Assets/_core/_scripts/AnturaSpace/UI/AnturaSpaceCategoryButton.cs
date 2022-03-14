@@ -27,7 +27,8 @@ namespace Antura.AnturaSpace.UI
 
         public AnturaSpaceCategory Category;
 
-        public bool IsNew {
+        public bool IsNew
+        {
             get { return isNew && !isNewForceHidden; }
         }
 
@@ -39,10 +40,12 @@ namespace Antura.AnturaSpace.UI
         public void SetAsNew(bool _isNew)
         {
             isNew = _isNew;
-            if (icoNew == null) {
+            if (icoNew == null)
+            {
                 icoNew = GetComponentInChildren<AnturaSpaceNewIcon>().gameObject;
             }
-            if (!isNewForceHidden) {
+            if (!isNewForceHidden)
+            {
                 icoNew.SetActive(_isNew);
             }
         }
@@ -56,7 +59,8 @@ namespace Antura.AnturaSpace.UI
         void ForceHideNewIcon(bool _forceHide)
         {
             isNewForceHidden = _forceHide;
-            if (icoNew == null) {
+            if (icoNew == null)
+            {
                 icoNew = GetComponentInChildren<AnturaSpaceNewIcon>().gameObject;
             }
             icoNew.SetActive(!_forceHide && isNew);

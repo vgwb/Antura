@@ -25,8 +25,10 @@ namespace Antura.Minigames.Tobogan
         static ToboganConfiguration instance;
         public static ToboganConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new ToboganConfiguration();
                 }
                 return instance;
@@ -55,7 +57,8 @@ namespace Antura.Minigames.Tobogan
             int nWrong = 5;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ToboganVariation.LetterInWord:
                     builderParams.wordFilters.excludeLetterVariations = true;
                     builderParams.wordFilters.excludeDipthongs = true;
@@ -84,7 +87,8 @@ namespace Antura.Minigames.Tobogan
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ToboganVariation.LetterInWord:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;

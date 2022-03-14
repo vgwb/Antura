@@ -37,10 +37,14 @@ namespace Antura.Tutorial
 
         public void DespawnAll()
         {
-            foreach (TutorialUITrailGroup tr in trailsPool) { tr.Despawn(); }
-            foreach (TutorialUILineGroup lr in linesPool) { lr.Despawn(); }
-            foreach (TutorialUIProp arrow in arrowsPool) { arrow.Hide(true); }
-            foreach (TutorialUIProp clicker in clickersPool) { clicker.Hide(true); }
+            foreach (TutorialUITrailGroup tr in trailsPool)
+            { tr.Despawn(); }
+            foreach (TutorialUILineGroup lr in linesPool)
+            { lr.Despawn(); }
+            foreach (TutorialUIProp arrow in arrowsPool)
+            { arrow.Hide(true); }
+            foreach (TutorialUIProp clicker in clickersPool)
+            { clicker.Hide(true); }
         }
 
         public TutorialUITrailGroup SpawnTrailGroup(Transform _parent, Vector3 _position, bool _overlayed)
@@ -48,7 +52,8 @@ namespace Antura.Tutorial
             TutorialUITrailGroup trailG = null;
             foreach (TutorialUITrailGroup tr in trailsPool)
             {
-                if (tr.gameObject.activeSelf) { continue; }
+                if (tr.gameObject.activeSelf)
+                { continue; }
                 trailG = tr;
                 break;
             }
@@ -66,7 +71,8 @@ namespace Antura.Tutorial
             TutorialUILineGroup lineG = null;
             foreach (TutorialUILineGroup lr in linesPool)
             {
-                if (lr.gameObject.activeSelf) { continue; }
+                if (lr.gameObject.activeSelf)
+                { continue; }
                 lineG = lr;
                 break;
             }
@@ -113,7 +119,8 @@ namespace Antura.Tutorial
             TutorialUIProp prop = null;
             foreach (TutorialUIProp p in _propList)
             {
-                if (p.gameObject.activeSelf) { continue; }
+                if (p.gameObject.activeSelf)
+                { continue; }
                 prop = p;
                 break;
             }

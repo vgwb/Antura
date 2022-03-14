@@ -19,12 +19,13 @@ namespace Antura.Assessment
         public AssessmentResultState ResultState { get; private set; }
 
         private Assessment assessment;
-    
+
         private Assessment CreateConfiguredAssessment(AssessmentContext context)
         {
             AssessmentOptions.Reset();
 
-            switch (AssessmentConfiguration.Instance.Variation) {
+            switch (AssessmentConfiguration.Instance.Variation)
+            {
                 case AssessmentVariation.MatchLettersToWord:
                     return ArabicAssessmentsFactory.CreateMatchLettersWordAssessment(context);
 

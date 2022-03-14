@@ -27,9 +27,12 @@ namespace Antura.Minigames.HideAndSeek
 
         void OnQuestionCompleted()
         {
-            if (game.TutorialEnabled) {
+            if (game.TutorialEnabled)
+            {
                 game.SetCurrentState(game.TutorialState);
-            } else {
+            }
+            else
+            {
                 game.SetCurrentState(game.PlayState);
             }
         }

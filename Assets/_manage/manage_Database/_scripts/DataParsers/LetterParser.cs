@@ -14,9 +14,11 @@ namespace Antura.Database.Management
             var data = new LetterData();
 
             data.Id = ToString(dict["Id"]);
-            if (data.Id == "▲") data.Id = " ";
+            if (data.Id == "▲")
+                data.Id = " ";
             data.Active = (ToInt(dict["Active"]) == 1);
-            if (!data.Active) return null;  // Skip this data if inactive
+            if (!data.Active)
+                return null;  // Skip this data if inactive
 
             data.InBook = (ToInt(dict["InBook"]) == 1);
             data.Number = ToInt(dict["Number"]);
@@ -55,7 +57,8 @@ namespace Antura.Database.Management
             data.HasDiacritic = (ToInt(dict["HasDiacritic"]) == 1);
             data.Orientations = ToInt(dict["Orientations"]);
 
-            if (dict.ContainsKey("LinkedWords")) {
+            if (dict.ContainsKey("LinkedWords"))
+            {
                 data.LinkedWords = ParseIDArray<WordData, WordTable>(data, (string)dict["LinkedWords"], db.GetWordTable());
             }
 
@@ -73,27 +76,34 @@ namespace Antura.Database.Management
         {
             // Fields 'BaseLetter' and 'Symbol' are validated with a final validation step, since they are based on this same table
             // Also, Combination letters are validated with their BaseLetter and Symbol.
-            foreach (var data in table.GetValuesTyped()) {
-                if (data.Kind == LetterDataKind.DiacriticCombo) {
-                    if (data.BaseLetter == "") {
+            foreach (var data in table.GetValuesTyped())
+            {
+                if (data.Kind == LetterDataKind.DiacriticCombo)
+                {
+                    if (data.BaseLetter == "")
+                    {
                         LogValidation(data, "LetterData with id  " + data.Id + " is a Combination but does not have a BaseLetter.");
                     }
 
-                    if (data.Symbol == "") {
+                    if (data.Symbol == "")
+                    {
                         LogValidation(data, "LetterData with id  " + data.Id + " is a Combination but does not have a Symbol.");
                     }
 
-                    if ((data.Id != data.BaseLetter + "_" + data.Symbol) && (data.Id != "alef_hamza_hi" && data.Id != "alef_hamza_low")) {
+                    if ((data.Id != data.BaseLetter + "_" + data.Symbol) && (data.Id != "alef_hamza_hi" && data.Id != "alef_hamza_low"))
+                    {
                         // alef_hamza_hi and alef_hamza_low are the only exceptions in the name format on Combinations
                         LogValidation(data, "LetterData with id  " + data.Id + " is a Combination, but the BaseLetter and Symbol do not match the Id.");
                     }
                 }
 
-                if (data.BaseLetter != "" && table.GetValue(data.BaseLetter) == null) {
+                if (data.BaseLetter != "" && table.GetValue(data.BaseLetter) == null)
+                {
                     LogValidation(data, "Cannot find id of LetterData for BaseLetter value " + data.BaseLetter + " (found in letter " + data.Id + ")");
                 }
 
-                if (data.Symbol != "" && table.GetValue(data.Symbol) == null) {
+                if (data.Symbol != "" && table.GetValue(data.Symbol) == null)
+                {
                     LogValidation(data, "Cannot find id of LetterData for Symbol value " + data.Symbol + " (found in letter " + data.Id + ")");
                 }
             }

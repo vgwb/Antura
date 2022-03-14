@@ -22,9 +22,12 @@ namespace Antura.Minigames.DancingDots
 
         // Singleton Pattern
         static DancingDotsConfiguration instance;
-        public static DancingDotsConfiguration Instance {
-            get {
-                if (instance == null) {
+        public static DancingDotsConfiguration Instance
+        {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new DancingDotsConfiguration();
                 }
                 return instance;
@@ -50,7 +53,8 @@ namespace Antura.Minigames.DancingDots
 
             var builderParams = InitQuestionBuilderParamaters();
 
-            switch (Variation) {
+            switch (Variation)
+            {
                 case DancingDotsVariation.LetterName:
                     throw new NotImplementedException("This variation has been removed!");
                 case DancingDotsVariation.LetterAny:

@@ -39,8 +39,10 @@ namespace Antura.Minigames
         public void SetPercentage(float _percentage, bool _pulse = true)
         {
             Radial.fillAmount = _percentage;
-            if (_pulse) PulseOn();
-            else PulseOff();
+            if (_pulse)
+                PulseOn();
+            else
+                PulseOff();
         }
 
         /// <summary>

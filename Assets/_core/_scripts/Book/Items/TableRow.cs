@@ -13,7 +13,8 @@ namespace Antura.Book
 
         public void Init(string _titleEn, string _title, string _value)
         {
-            if (TxTitle != null) { TxTitle.text = _title; }
+            if (TxTitle != null)
+            { TxTitle.text = _title; }
 
             if (TxTitleEn != null)
             {
@@ -26,7 +27,8 @@ namespace Antura.Book
 
         public void InitSlider(string _titleEn, string _title, float _value, float _valueMax)
         {
-            if (TxTitle != null) { TxTitle.text = _title; }
+            if (TxTitle != null)
+            { TxTitle.text = _title; }
 
             if (TxTitleEn != null)
             {

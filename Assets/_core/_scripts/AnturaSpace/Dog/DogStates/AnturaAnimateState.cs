@@ -17,18 +17,28 @@ namespace Antura.AnturaSpace
             base.EnterState();
             timer = 4.0f;
 
-            if (controller.AnturaHappiness > 0.95f) {
+            if (controller.AnturaHappiness > 0.95f)
+            {
                 state = AnturaAnimationStates.dancing;
-            } else {
+            }
+            else
+            {
                 float p = UnityEngine.Random.value * controller.AnturaHappiness;
 
-                if (p < 0.25f) {
+                if (p < 0.25f)
+                {
                     state = AnturaAnimationStates.digging;
-                } else if (p < 0.45f) {
+                }
+                else if (p < 0.45f)
+                {
                     state = AnturaAnimationStates.sheeping;
-                } else if (p < 0.7f) {
+                }
+                else if (p < 0.7f)
+                {
                     state = AnturaAnimationStates.bellyUp;
-                } else {
+                }
+                else
+                {
                     state = AnturaAnimationStates.dancing;
                 }
             }
@@ -42,7 +52,8 @@ namespace Antura.AnturaSpace
 
             timer -= delta;
 
-            if (timer <= 0) {
+            if (timer <= 0)
+            {
                 controller.CurrentState = controller.Idle;
             }
         }

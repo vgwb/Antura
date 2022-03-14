@@ -158,7 +158,7 @@ namespace Antura.Minigames.ReadingGame
         public void SetShowTargets(bool show)
         {
             showTargets = show;
-            for(int i = 0; i < bars.Count; ++i)
+            for (int i = 0; i < bars.Count; ++i)
             {
                 bars[i].showTarget = show;
             }
@@ -400,7 +400,8 @@ namespace Antura.Minigames.ReadingGame
                                 float tInWord = (currentTime - timeStart) / (timeEnd - timeStart);
 
                                 float t = Mathf.Lerp(currentBarWord.start, currentBarWord.end, tInWord);
-                                if (activeBar != null) activeBar.currentTarget = t;
+                                if (activeBar != null)
+                                    activeBar.currentTarget = t;
                                 songInsideAWord = true;
 
                                 break;

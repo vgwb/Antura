@@ -23,10 +23,12 @@ namespace Antura.Minigames.MissingLetter
 
         public ILivingLetterData LetterData
         {
-            get {
+            get
+            {
                 return mLetterData;
             }
-            set {
+            set
+            {
                 mLetterData = value;
                 mLetter.Init(value);
             }
@@ -118,11 +120,13 @@ namespace Antura.Minigames.MissingLetter
         {
             Vector3 dir = (mv3CenterPosition - mv3StartPosition).normalized;
             Vector3 _GoalPos = CalculatePos(_idxPos, _length);
-            onEnterScene += delegate { mCollider.enabled = true; };
+            onEnterScene += delegate
+            { mCollider.enabled = true; };
 
             //move and rotate letter
             gameObject.transform.forward = dir;
-            onEnterScene += delegate { RotateTo(Vector3.up * 180, 0.5f); };
+            onEnterScene += delegate
+            { RotateTo(Vector3.up * 180, 0.5f); };
 
             MoveTo(_GoalPos, 1, true);
         }
@@ -165,7 +169,8 @@ namespace Antura.Minigames.MissingLetter
             float radius = dist.x + 0.1f;
 
             float accuracy = 4f;
-            for (int i = 1; i <= accuracy; ++i) {
+            for (int i = 1; i <= accuracy; ++i)
+            {
                 Vector3 p = Vector3.zero;
                 p += pivot;
                 p.x += Mathf.Cos(3.14f * (i / accuracy)) * radius;
@@ -182,11 +187,13 @@ namespace Antura.Minigames.MissingLetter
             transform.DOLookAt(positions[0], 1f);
 
             TweenerCore<Vector3, Path, PathOptions> value = transform.DOPath(positions.ToArray(), _duration, PathType.CatmullRom);
-            value.OnWaypointChange(delegate (int wayPoint) {
+            value.OnWaypointChange(delegate (int wayPoint)
+            {
                 if (wayPoint < positions.Count)
                     transform.DOLookAt(positions[wayPoint], 1f);
             });
-            value.OnComplete(delegate {
+            value.OnComplete(delegate
+            {
                 transform.DOLookAt(transform.position + Vector3.back, 1f);
                 positions.Clear();
                 PlayAnimation(m_oDefaultIdleAnimation);
@@ -199,11 +206,15 @@ namespace Antura.Minigames.MissingLetter
         /// </summary>
         public void Speak()
         {
-            if (mLetterData != null && !mbIsSpeaking) {
+            if (mLetterData != null && !mbIsSpeaking)
+            {
                 mbIsSpeaking = true;
-                if (m_sInPhrase != null) {
+                if (m_sInPhrase != null)
+                {
                     MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType());
-                } else {
+                }
+                else
+                {
                     MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true, MissingLetterConfiguration.Instance.GetVocabularySoundType());
                 }
                 StartCoroutine(Utils.LaunchDelay(0.8f, SetIsSpeaking, false));
@@ -232,7 +243,8 @@ namespace Antura.Minigames.MissingLetter
 
         public void LightOn()
         {
-            if (m_oLetterLightInstance == null) {
+            if (m_oLetterLightInstance == null)
+            {
                 m_oLetterLightInstance = Instantiate(m_oLetterLightRef);
             }
             m_oLetterLightInstance.transform.parent = transform;
@@ -242,7 +254,8 @@ namespace Antura.Minigames.MissingLetter
 
         public void LightOff()
         {
-            if (m_oLetterLightInstance != null) {
+            if (m_oLetterLightInstance != null)
+            {
                 m_oLetterLightInstance.SetActive(false);
             }
         }
@@ -271,17 +284,22 @@ namespace Antura.Minigames.MissingLetter
             PlayAnimation(LLAnimationStates.LL_walking);
             mLetter.SetWalkingSpeed(1);
 
-            if (moveTweener != null) {
+            if (moveTweener != null)
+            {
                 moveTweener.Kill();
             }
 
             moveTweener = transform.DOLocalMove(_position, _duration).OnComplete(
-                delegate () {
+                delegate ()
+                {
                     PlayAnimation(m_oDefaultIdleAnimation);
-                    if (entering) {
+                    if (entering)
+                    {
                         if (onEnterScene != null)
                             onEnterScene();
-                    } else {
+                    }
+                    else
+                    {
                         if (onExitScene != null)
                             onExitScene();
                     }
@@ -295,7 +313,8 @@ namespace Antura.Minigames.MissingLetter
         /// <param name="_duration"> duration of rotation </param>
         void RotateTo(Vector3 _rotation, float _duration)
         {
-            if (rotationTweener != null) {
+            if (rotationTweener != null)
+            {
                 rotationTweener.Kill();
             }
             rotationTweener = transform.DORotate(_rotation, _duration);
@@ -305,7 +324,8 @@ namespace Antura.Minigames.MissingLetter
         {
             Reset();
 
-            if (onLetterBecameInvisible != null) {
+            if (onLetterBecameInvisible != null)
+            {
                 onLetterBecameInvisible(gameObject);
             }
         }
@@ -314,7 +334,8 @@ namespace Antura.Minigames.MissingLetter
         {
             Speak();
 
-            if (onLetterClick != null) {
+            if (onLetterClick != null)
+            {
                 StartCoroutine(Utils.LaunchDelay(0.2f, onLetterClick, this));
                 mCollider.enabled = false;
             }

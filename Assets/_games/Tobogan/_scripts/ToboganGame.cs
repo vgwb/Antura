@@ -19,7 +19,7 @@ namespace Antura.Minigames.Tobogan
         public GameObject questionLivingLetterPrefab;
         public FixedHeightShadow shadowPrefab;
         public QuestionLivingLettersBox questionLivingLetterBox;
-		public Camera tubesCamera;
+        public Camera tubesCamera;
         public ToboganFeedbackGraphics feedbackGraphics;
 
         public QuestionsManager questionsManager;
@@ -58,7 +58,7 @@ namespace Antura.Minigames.Tobogan
         public ToboganPlayState PlayState { get; private set; }
         public ToboganResultGameState ResultState { get; private set; }
         public ToboganTutorialState TutorialState { get; private set; }
-        
+
         public void ResetScore()
         {
             CurrentScoreRecord = 0;

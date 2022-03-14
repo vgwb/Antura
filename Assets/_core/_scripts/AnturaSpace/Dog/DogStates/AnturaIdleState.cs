@@ -28,23 +28,31 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            if (controller.DraggedTransform != null) {
+            if (controller.DraggedTransform != null)
+            {
                 controller.CurrentState = controller.WaitingThrow;
-            } else if (controller.NextObjectToCatch != null) {
+            }
+            else if (controller.NextObjectToCatch != null)
+            {
                 controller.CurrentState = controller.Catching;
                 return;
-            } else if (controller.InCustomizationMode) {
+            }
+            else if (controller.InCustomizationMode)
+            {
                 controller.CurrentState = controller.Customization;
                 return;
             }
 
-            if (controller.Antura.HasReachedTarget) {
+            if (controller.Antura.HasReachedTarget)
+            {
                 timeToStayInThisState -= delta;
 
                 sitTimer -= delta;
 
-                if (sitTimer <= 0) {
-                    if (Time.realtimeSinceStartup - controller.LastTimeCatching > 30.0f) {
+                if (sitTimer <= 0)
+                {
+                    if (Time.realtimeSinceStartup - controller.LastTimeCatching > 30.0f)
+                    {
                         controller.CurrentState = controller.Sleeping;
                         return;
                     }
@@ -53,12 +61,16 @@ namespace Antura.AnturaSpace
                 }
             }
 
-            if (timeToStayInThisState <= 0 && controller.HasPlayerBones && controller.AnturaHappiness < 0.1f) {
+            if (timeToStayInThisState <= 0 && controller.HasPlayerBones && controller.AnturaHappiness < 0.1f)
+            {
                 controller.CurrentState = controller.DrawingAttention;
-            } else if (controller.AnturaHappiness > 0.2f) {
+            }
+            else if (controller.AnturaHappiness > 0.2f)
+            {
                 animateTimer -= delta;
 
-                if (animateTimer <= 0 && Vector3.Distance(controller.Antura.transform.position, controller.SceneCenter.position) < 6) {
+                if (animateTimer <= 0 && Vector3.Distance(controller.Antura.transform.position, controller.SceneCenter.position) < 6)
+                {
                     controller.CurrentState = controller.Animate;
                 }
             }
@@ -74,7 +86,8 @@ namespace Antura.AnturaSpace
         {
             base.OnTouched();
 
-            if (controller.Antura.HasReachedTarget) {
+            if (controller.Antura.HasReachedTarget)
+            {
                 controller.Antura.AnimationController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
             }
         }

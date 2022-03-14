@@ -11,9 +11,9 @@ namespace Antura.Minigames.SickLetters
     will be overridden when the game is called from the debugger/Map.
     */
 
-    public class SickLettersQuestionProvider :  IQuestionProvider
+    public class SickLettersQuestionProvider : IQuestionProvider
     {
-        string dotlessLetters = "ﻻ لأ ﺉ آ ٶ ى ر س ل ص ع ه ح د م ك ط ئ ء ؤ و �ة - ", prevLetter="", newLetterString="X";
+        string dotlessLetters = "ﻻ لأ ﺉ آ ٶ ى ر س ل ص ع ه ح د م ك ط ئ ء ؤ و �ة - ", prevLetter = "", newLetterString = "X";
 
         public IQuestionPack GetNextQuestion()
         {

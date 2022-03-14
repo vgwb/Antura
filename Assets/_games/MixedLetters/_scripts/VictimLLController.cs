@@ -50,7 +50,7 @@ namespace Antura.Minigames.MixedLetters
             float timeElapsed = 0;
             float sinFactor = 2 * Mathf.PI * Mathf.Pow(LOOK_TOWARDS_ANTURA_TIME * 4, -1);
 
-            while(timeElapsed < LOOK_TOWARDS_ANTURA_TIME)
+            while (timeElapsed < LOOK_TOWARDS_ANTURA_TIME)
             {
                 transform.rotation = Quaternion.Euler(0, Mathf.Lerp(180, targetAngle, Mathf.Sin(sinFactor * timeElapsed)), 0);
                 timeElapsed += Time.fixedDeltaTime;

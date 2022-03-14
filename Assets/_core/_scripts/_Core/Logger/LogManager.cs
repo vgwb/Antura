@@ -100,7 +100,7 @@ namespace Antura.Core
 
         #endregion
 
-        #region public API        
+        #region public API
 
         /// <summary>
         /// Logs the play session score.

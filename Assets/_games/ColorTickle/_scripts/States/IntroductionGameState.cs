@@ -44,15 +44,18 @@ namespace Antura.Minigames.ColorTickle
 
             if (timer < 0)
             {
-				for (int i = 0; i < game.rounds; ++i) {
-					game.myLetters[i].gameObject.SetActive (false);
-				}
-				game.tutorialLetter.gameObject.SetActive(false);
+                for (int i = 0; i < game.rounds; ++i)
+                {
+                    game.myLetters[i].gameObject.SetActive(false);
+                }
+                game.tutorialLetter.gameObject.SetActive(false);
 
                 if (PerformTutorial)
                 {
                     game.SetCurrentState(game.TutorialState);
-                } else {
+                }
+                else
+                {
                     game.SetCurrentState(game.PlayState);
                 }
             }
@@ -92,7 +95,7 @@ namespace Antura.Minigames.ColorTickle
             LL_LetterData LLdata = new LL_LetterData(data);
             game.tutorialLetter = GameObject.Instantiate(game.letterPrefab);
             game.tutorialLetter.SetActive(true);
-            game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata, _outline:true);
+            game.tutorialLetter.GetComponent<LivingLetterController>().Init(LLdata, _outline: true);
             game.tutorialLetter.GetComponent<LivingLetterController>().LabelRender.color = Color.white;
             game.tutorialLetter.GetComponent<ColorTickle_LLController>().movingToDestination = false;
         }

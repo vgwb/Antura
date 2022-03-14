@@ -44,36 +44,49 @@ namespace Antura.Audio
         {
             get => musicEnabled;
 
-            set {
-                if (musicEnabled == value) {
+            set
+            {
+                if (musicEnabled == value)
+                {
                     return;
                 }
 
-                try {
+                try
+                {
                     musicEnabled = value;
-                    if (musicEnabled && currentMusic != Music.Silence) {
-                        if (musicGroup != null) {
+                    if (musicEnabled && currentMusic != Music.Silence)
+                    {
+                        if (musicGroup != null)
+                        {
                             musicGroup.Resume();
 
                             bool hasToReset = true;
-                            if (musicGroup.sources != null) {
-                                foreach (var s in musicGroup.sources) {
-                                    if (s.isPlaying) {
+                            if (musicGroup.sources != null)
+                            {
+                                foreach (var s in musicGroup.sources)
+                                {
+                                    if (s.isPlaying)
+                                    {
                                         hasToReset = false;
                                         break;
                                     }
                                 }
                             }
 
-                            if (hasToReset) {
+                            if (hasToReset)
+                            {
                                 musicGroup.Play(currentMusic == Music.Custom ? customMusic : GetMusicAudioClip(currentMusic),
                                     1, 1, true);
                             }
                         }
-                    } else {
+                    }
+                    else
+                    {
                         musicGroup?.Pause();
                     }
-                } catch (Exception e) {
+                }
+                catch (Exception e)
+                {
                     Debug.LogError("Exception ignored: " + e.Message);
                 }
 
@@ -111,7 +124,8 @@ namespace Antura.Audio
         {
             var id = sfxConfs.FindIndex((a) => { return a.sfx == conf.sfx; });
 
-            if (id >= 0) {
+            if (id >= 0)
+            {
                 sfxConfs.RemoveAt(id);
             }
 
@@ -123,7 +137,8 @@ namespace Antura.Audio
         {
             var id = musicConfs.FindIndex((a) => { return a.music == conf.music; });
 
-            if (id >= 0) {
+            if (id >= 0)
+            {
                 musicConfs.RemoveAt(id);
             }
 
@@ -134,7 +149,8 @@ namespace Antura.Audio
         public MusicConfiguration GetMusicConfiguration(Music music)
         {
             MusicConfiguration v;
-            if (musicConfigurationMap.TryGetValue(music, out v)) {
+            if (musicConfigurationMap.TryGetValue(music, out v))
+            {
                 return v;
             }
             return null;
@@ -143,7 +159,8 @@ namespace Antura.Audio
         public SfxConfiguration GetSfxConfiguration(Sfx sfx)
         {
             SfxConfiguration v;
-            if (sfxConfigurationMap.TryGetValue(sfx, out v)) {
+            if (sfxConfigurationMap.TryGetValue(sfx, out v))
+            {
                 return v;
             }
             return null;
@@ -205,19 +222,26 @@ namespace Antura.Audio
         public IAudioSource PlayMusic(Music newMusic)
         {
             // Debug.Log("PlayMusic " + newMusic);
-            if (currentMusic != newMusic) {
+            if (currentMusic != newMusic)
+            {
                 currentMusic = newMusic;
                 musicGroup.Stop();
                 customMusic = null;
                 var musicClip = GetMusicAudioClip(currentMusic);
 
-                if (currentMusic == Music.Silence || musicClip == null) {
+                if (currentMusic == Music.Silence || musicClip == null)
+                {
                     StopMusic();
-                } else {
-                    if (musicEnabled) {
+                }
+                else
+                {
+                    if (musicEnabled)
+                    {
                         var source = musicGroup.Play(musicClip, 1, 1, true);
                         return new AudioSourceWrapper(source, musicGroup, this);
-                    } else {
+                    }
+                    else
+                    {
                         musicGroup.Stop();
                     }
                 }
@@ -246,7 +270,8 @@ namespace Antura.Audio
             var source = new AudioSourceWrapper(sfxGroup.Play(clip), sfxGroup, this);
             var conf = GetConfiguration(sfx);
 
-            if (conf != null) {
+            if (conf != null)
+            {
                 source.Pitch = 1 + ((UnityEngine.Random.value - 0.5f) * conf.randomPitchOffset) * 2;
                 source.Volume = conf.volume;
             }
@@ -266,7 +291,7 @@ namespace Antura.Audio
         public IAudioSource PlayLearningBlock(string Id, bool clearPreviousCallback = false, LanguageUse use = LanguageUse.Learning)
         {
             var sourcePath = new SourcePath(Id, "/Audio/LearningBlocks", use);
-            return PlayClip(sourcePath, dialogueEndedCallbacks, dialogueGroup, clearPreviousCallback:clearPreviousCallback);
+            return PlayClip(sourcePath, dialogueEndedCallbacks, dialogueGroup, clearPreviousCallback: clearPreviousCallback);
         }
 
         #endregion
@@ -276,7 +301,8 @@ namespace Antura.Audio
         public IAudioSource PlayVocabularyDataAudio(ILivingLetterData data, bool exclusive = true, LetterDataSoundType soundType = LetterDataSoundType.Phoneme,
             LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            switch (data.DataType) {
+            switch (data.DataType)
+            {
                 case LivingLetterDataType.Letter:
                     return PlayLetter((data as LL_LetterData).Data, exclusive, soundType, use, callback, clearPreviousCallback);
                 case LivingLetterDataType.Word:
@@ -318,11 +344,14 @@ namespace Antura.Audio
         private IAudioSource PlayClip(SourcePath path, Dictionary<IAudioSource, System.Action> callbacksDict, DeAudioGroup audioGroup,
             bool exclusive = true, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            if (exclusive) audioGroup?.Stop();
-            if (clearPreviousCallback) callbacksDict.Clear();
+            if (exclusive)
+                audioGroup?.Stop();
+            if (clearPreviousCallback)
+                callbacksDict.Clear();
 
             var wrapper = new AudioSourceWrapper(path, audioGroup, this);
-            if (callback != null) callbacksDict[wrapper] = callback;
+            if (callback != null)
+                callbacksDict[wrapper] = callback;
             return wrapper;
         }
 
@@ -343,19 +372,23 @@ namespace Antura.Audio
         }
         public IAudioSource PlayDialogue(LocalizationData data, LanguageUse use = LanguageUse.Learning, Action callback = null, bool clearPreviousCallback = false)
         {
-            if (clearPreviousCallback) {
+            if (clearPreviousCallback)
+            {
                 dialogueEndedCallbacks.Clear();
             }
 
-            if (!string.IsNullOrEmpty(LocalizationManager.GetLocalizedAudioFileName(data.Id))) {
-                var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", use, gendered:true);
+            if (!string.IsNullOrEmpty(LocalizationManager.GetLocalizedAudioFileName(data.Id)))
+            {
+                var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", use, gendered: true);
                 var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
-                if (callback != null) {
+                if (callback != null)
+                {
                     dialogueEndedCallbacks[wrapper] = callback;
                 }
                 return wrapper;
             }
-            if (callback != null) {
+            if (callback != null)
+            {
                 callback.Invoke();
             }
 
@@ -365,7 +398,8 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogueNoClear();
-            if (!AppManager.I.AppEdition.SkipSingleLanguage) {
+            if (!AppManager.I.AppEdition.SkipSingleLanguage)
+            {
                 Invoke("StopDialogueNoClear", 0.01f);
             }
         }
@@ -377,7 +411,8 @@ namespace Antura.Audio
 
         public void StopDialogue(bool clearPreviousCallback)
         {
-            if (clearPreviousCallback) {
+            if (clearPreviousCallback)
+            {
                 dialogueEndedCallbacks.Clear();
             }
 
@@ -393,8 +428,10 @@ namespace Antura.Audio
         public AudioClip GetSfxAudioClip(Sfx sfx)
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
-            if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                if (DebugConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
+            if (conf == null || conf.clips == null || conf.clips.Count == 0)
+            {
+                if (DebugConfig.I.VerboseAudio)
+                    Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf.clips.GetRandom();
@@ -404,7 +441,8 @@ namespace Antura.Audio
         {
             MusicConfiguration conf = GetMusicConfiguration(music);
 
-            if (conf == null) {
+            if (conf == null)
+            {
                 return null;
             }
 
@@ -416,8 +454,10 @@ namespace Antura.Audio
         public SfxConfiguration GetConfiguration(Sfx sfx)
         {
             SfxConfiguration conf = GetSfxConfiguration(sfx);
-            if (conf == null || conf.clips == null || conf.clips.Count == 0) {
-                if (DebugConfig.I.VerboseAudio) Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
+            if (conf == null || conf.clips == null || conf.clips.Count == 0)
+            {
+                if (DebugConfig.I.VerboseAudio)
+                    Debug.LogWarning("[Audio] No Audio clips configured for: " + sfx);
                 return null;
             }
             return conf;
@@ -426,7 +466,8 @@ namespace Antura.Audio
         AudioClip GetCachedResource(string resource)
         {
             AudioClip clip;
-            if (audioCache.TryGetValue(resource, out clip)) {
+            if (audioCache.TryGetValue(resource, out clip))
+            {
                 return clip;
             }
             return null;
@@ -434,7 +475,8 @@ namespace Antura.Audio
 
         public void ClearCache()
         {
-            foreach (var r in audioCache) {
+            foreach (var r in audioCache)
+            {
                 Resources.UnloadAsset(r.Value);
             }
             audioCache.Clear();
@@ -449,7 +491,8 @@ namespace Antura.Audio
             Ref<AudioClip> clip = new Ref<AudioClip>();
             yield return LoadAudioClip(source.Path, clip);
             source.Loaded = true;
-            if (clip.item != null) source.ApplyClip(clip.item);
+            if (clip.item != null)
+                source.ApplyClip(clip.item);
         }
 
         public IEnumerator LoadAudioClip(SourcePath path, Ref<AudioClip> result)
@@ -462,7 +505,7 @@ namespace Antura.Audio
 
             // For dialogs, we localize them
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id);
-            yield return LoadAudioClip(path.folder, localizedAudioFileName, result, path.use, logIfNotFound:false);
+            yield return LoadAudioClip(path.folder, localizedAudioFileName, result, path.use, logIfNotFound: false);
 
             // Fallback to neutral version if not found
             if (result.item == null)
@@ -471,7 +514,8 @@ namespace Antura.Audio
                 if (localizedAudioFileName != neutralAudioFileName)
                 {
                     // No female found
-                    if (DebugConfig.I.VerboseAudio) Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
+                    if (DebugConfig.I.VerboseAudio)
+                        Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
                     yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.use);
                 }
             }
@@ -494,11 +538,13 @@ namespace Antura.Audio
                 yield break;
             }
 
-            yield return AssetLoader.ValidateAndLoad<AudioClip>(completePath, audioClip =>  result.item  = audioClip);
+            yield return AssetLoader.ValidateAndLoad<AudioClip>(completePath, audioClip => result.item = audioClip);
             //Debug.LogError("Loaded: " + result.item + " for id " + id);
 
-            if (logIfNotFound && result.item == null) {
-                if (DebugConfig.I.VerboseAudio) Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
+            if (logIfNotFound && result.item == null)
+            {
+                if (DebugConfig.I.VerboseAudio)
+                    Debug.LogWarning($"[Audio] Cannot find audio clip at {completePath}");
             }
         }
 
@@ -528,7 +574,8 @@ namespace Antura.Audio
                 bool failed = source.Loaded && source.CurrentSource == null;
 
 
-                if (source.Update() || failed) {
+                if (source.Update() || failed)
+                {
                     // could be collected
                     playingAudio.RemoveAt(i--);
 
@@ -543,17 +590,20 @@ namespace Antura.Audio
 
                     System.Action callback;
 
-                    if (source.Group == dialogueGroup && dialogueEndedCallbacks.TryGetValue(source, out callback)) {
+                    if (source.Group == dialogueGroup && dialogueEndedCallbacks.TryGetValue(source, out callback))
+                    {
                         pendingCallbacks.Add(new KeyValuePair<AudioSourceWrapper, System.Action>(source, callback));
                     }
 
-                    if (source.Group == vocabularyGroup && vocabularyEndedCallbacks.TryGetValue(source, out callback)) {
+                    if (source.Group == vocabularyGroup && vocabularyEndedCallbacks.TryGetValue(source, out callback))
+                    {
                         pendingCallbacks.Add(new KeyValuePair<AudioSourceWrapper, System.Action>(source, callback));
                     }
                 }
             }
 
-            for (int i = 0; i < pendingCallbacks.Count; ++i) {
+            for (int i = 0; i < pendingCallbacks.Count; ++i)
+            {
                 pendingCallbacks[i].Value();
                 dialogueEndedCallbacks.Remove(pendingCallbacks[i].Key);
                 vocabularyEndedCallbacks.Remove(pendingCallbacks[i].Key);
@@ -566,12 +616,14 @@ namespace Antura.Audio
         {
             // Update map from serialized data
             sfxConfigurationMap.Clear();
-            for (int i = 0, count = sfxConfs.Count; i < count; ++i) {
+            for (int i = 0, count = sfxConfs.Count; i < count; ++i)
+            {
                 sfxConfigurationMap[sfxConfs[i].sfx] = sfxConfs[i];
             }
 
             musicConfigurationMap.Clear();
-            for (int i = 0, count = musicConfs.Count; i < count; ++i) {
+            for (int i = 0, count = musicConfs.Count; i < count; ++i)
+            {
                 musicConfigurationMap[musicConfs[i].music] = musicConfs[i];
             }
         }
@@ -603,9 +655,11 @@ namespace Antura.Audio
         /// <param name="source"></param>
         public void OnAudioStarted(AudioSourceWrapper source)
         {
-            if (!playingAudio.Contains(source)) {
+            if (!playingAudio.Contains(source))
+            {
                 playingAudio.Add(source);
-                if (source.Asynch) StartCoroutine(LoadAudio(source));
+                if (source.Asynch)
+                    StartCoroutine(LoadAudio(source));
             }
         }
 
@@ -620,9 +674,12 @@ namespace Antura.Audio
 
         bool IsGroupPlaying(DeAudioGroup group)
         {
-            if (group == null) return false;
-            if (group.sources == null) return false;
-            if (group.sources.Any(s => s.isPlaying)) return true;
+            if (group == null)
+                return false;
+            if (group.sources == null)
+                return false;
+            if (group.sources.Any(s => s.isPlaying))
+                return true;
             return false;
         }
     }

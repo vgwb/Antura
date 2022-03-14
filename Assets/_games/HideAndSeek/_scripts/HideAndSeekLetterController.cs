@@ -138,7 +138,7 @@ namespace Antura.Minigames.HideAndSeek
 
                 isMoving = true;
                 isClickable = true;
-                
+
                 MoveTo(positionUncovered, walkDuration);
                 return true;
             }

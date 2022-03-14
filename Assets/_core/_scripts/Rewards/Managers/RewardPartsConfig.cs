@@ -6,12 +6,12 @@ using Antura.Database;
 namespace Antura.Rewards
 {
     /// <summary>
-    /// Defines the relationship between unlocks and 
+    /// Defines the relationship between unlocks and
     /// </summary>
     [Serializable]
     public class RewardsUnlocksConfig
     {
-        public List<JourneyPositionRewardUnlock> JourneyPositionsUnlocks; 
+        public List<JourneyPositionRewardUnlock> JourneyPositionsUnlocks;
     }
 
 
@@ -25,30 +25,33 @@ namespace Antura.Rewards
         // the combinations of 2 of these is a Reward Pack
 
         // These are all the different models
-        public List<RewardProp> PropBases;              
-        public List<RewardColor> PropColors;          
+        public List<RewardProp> PropBases;
+        public List<RewardColor> PropColors;
 
         // decals are just a different type of Reward
         public List<RewardDecal> DecalBases;          // decal
         public List<RewardColor> DecalColors;     // decal color
 
         // textures are just a different type of Reward
-        public List<RewardTexture> TextureBases;       
-        public List<RewardColor> TextureColors;     
+        public List<RewardTexture> TextureBases;
+        public List<RewardColor> TextureColors;
 
 
-        public IEnumerable<RewardBase> GetBasesForType(RewardBaseType type) 
+        public IEnumerable<RewardBase> GetBasesForType(RewardBaseType type)
         {
             switch (type)
             {
                 case RewardBaseType.Prop:
-                    foreach (var b in PropBases) yield return b;
+                    foreach (var b in PropBases)
+                        yield return b;
                     break;
                 case RewardBaseType.Decal:
-                    foreach (var b in DecalBases) yield return b;
+                    foreach (var b in DecalBases)
+                        yield return b;
                     break;
                 case RewardBaseType.Texture:
-                    foreach (var b in TextureBases) yield return b;
+                    foreach (var b in TextureBases)
+                        yield return b;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
@@ -60,13 +63,16 @@ namespace Antura.Rewards
             switch (type)
             {
                 case RewardBaseType.Prop:
-                    foreach (var col in PropColors) yield return col;
+                    foreach (var col in PropColors)
+                        yield return col;
                     break;
                 case RewardBaseType.Decal:
-                    foreach (var col in DecalColors) yield return col;
+                    foreach (var col in DecalColors)
+                        yield return col;
                     break;
                 case RewardBaseType.Texture:
-                    foreach (var col in TextureColors) yield return col;
+                    foreach (var col in TextureColors)
+                        yield return col;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
@@ -90,11 +96,11 @@ namespace Antura.Rewards
         public RewardBaseType BaseType;
 
         public RewardBase RewardBase;
-        public string BaseId {  get { return RewardBase.ID; } }
+        public string BaseId { get { return RewardBase.ID; } }
 
         public RewardColor RewardColor;
-        public string ColorId{  get { return RewardColor.ID; } }
-        
+        public string ColorId { get { return RewardColor.ID; } }
+
         public RewardPack(RewardBaseType baseType, RewardBase rewardBase, RewardColor rewardColor)
         {
             this.BaseType = baseType;
@@ -108,9 +114,10 @@ namespace Antura.Rewards
             get
             {
                 var prop = RewardBase as RewardProp;
-                if (prop != null) return prop.Category;
+                if (prop != null)
+                    return prop.Category;
                 return "";
-            } 
+            }
         }
 
         public string UniqueId
@@ -131,8 +138,10 @@ namespace Antura.Rewards
         {
             get
             {
-                if (FORCE_ALL_UNLOCKED) return false;
-                if (unlockData == null) return true;
+                if (FORCE_ALL_UNLOCKED)
+                    return false;
+                if (unlockData == null)
+                    return true;
                 return unlockData.IsLocked;
             }
         }
@@ -148,21 +157,24 @@ namespace Antura.Rewards
         {
             get
             {
-                if (FORCE_ALL_UNLOCKED) return false;
-                return unlockData.IsNew; 
+                if (FORCE_ALL_UNLOCKED)
+                    return false;
+                return unlockData.IsNew;
             }
         }
 
         public bool IsFoundAtJourneyPosition(JourneyPosition jp)
         {
-            if (unlockData == null) return false;
+            if (unlockData == null)
+                return false;
             //if (IsLocked) return false;
             return jp.Equals(unlockData.GetJourneyPosition());
         }
 
         public void SetNew(bool b)
         {
-            if (FORCE_ALL_UNLOCKED) return;
+            if (FORCE_ALL_UNLOCKED)
+                return;
             unlockData.IsNew = b;
         }
 

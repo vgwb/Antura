@@ -26,12 +26,14 @@ namespace Antura.Tutorial
             Img.SetAlpha(0);
             ShowTween = Img.DOFade(1, 0.2f).SetAutoKill(false).Pause()
                 .SetEase(Ease.Linear)
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     this.gameObject.SetActive(false);
                     this.transform.parent = DefParent;
                 });
 
-            if (!IsPooled) this.gameObject.SetActive(false);
+            if (!IsPooled)
+                this.gameObject.SetActive(false);
         }
 
         protected virtual void OnDestroy()
@@ -64,9 +66,12 @@ namespace Antura.Tutorial
 
         public void Hide(bool _immediate = false)
         {
-            if (_immediate) {
+            if (_immediate)
+            {
                 ShowTween.Rewind();
-            } else {
+            }
+            else
+            {
                 ShowTween.PlayBackwards();
             }
         }

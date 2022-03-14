@@ -46,7 +46,7 @@ namespace Antura.Editor
 
             Initialize();
 
-            AudioManager myTarget = (AudioManager) target;
+            AudioManager myTarget = (AudioManager)target;
 
             /*
             if (GUILayout.Button("Grab from Fabric"))
@@ -149,17 +149,19 @@ namespace Antura.Editor
                     }
                 }
             }
-            
+
                 */
 
             EditorGUILayout.LabelField("-- Sound effects --", titlesStyle);
             EditorGUILayout.Separator();
-            foreach (var sfx in Enum.GetValues(typeof(Sfx))) {
-                SfxConfiguration conf = myTarget.GetSfxConfiguration((Sfx) sfx);
+            foreach (var sfx in Enum.GetValues(typeof(Sfx)))
+            {
+                SfxConfiguration conf = myTarget.GetSfxConfiguration((Sfx)sfx);
 
-                if (conf == null) {
+                if (conf == null)
+                {
                     conf = new SfxConfiguration();
-                    conf.sfx = (Sfx) sfx;
+                    conf.sfx = (Sfx)sfx;
                     conf.volume = 1;
                     myTarget.UpdateSfxConfiguration(conf);
                 }
@@ -170,16 +172,19 @@ namespace Antura.Editor
                 int count = clips != null ? clips.Count : 0;
 
                 int nonNullCount = -1;
-                for (int i = 0; i < count; ++i) {
+                for (int i = 0; i < count; ++i)
+                {
                     var clip = clips[i];
                     if (clip != null)
                         ++nonNullCount;
                 }
 
                 // Shrink
-                if (count != nonNullCount) {
+                if (count != nonNullCount)
+                {
                     var newClips = new List<AudioClip>();
-                    for (int i = 0; i < count; ++i) {
+                    for (int i = 0; i < count; ++i)
+                    {
                         var clip = clips[i];
                         if (clip != null)
                             newClips.Add(clips[i]);
@@ -190,20 +195,24 @@ namespace Antura.Editor
                 bool hasClips = clips.Count > 0;
                 EditorGUILayout.LabelField("Sfx." + sfx.ToString(), hasClips ? subtitleStyle : subtitleBadStyle);
 
-                for (int i = 0; i < clips.Count; ++i) {
+                for (int i = 0; i < clips.Count; ++i)
+                {
                     EditorGUILayout.BeginHorizontal();
-                    clips[i] = (AudioClip) EditorGUILayout.ObjectField(clips[i], typeof(AudioClip), false);
+                    clips[i] = (AudioClip)EditorGUILayout.ObjectField(clips[i], typeof(AudioClip), false);
 
-                    if (GUILayout.Button("Play", GUILayout.Width(40))) {
+                    if (GUILayout.Button("Play", GUILayout.Width(40)))
+                    {
                         AudioUtils.PlayClip(clips[i]);
                     }
-                    if (GUILayout.Button("Stop", GUILayout.Width(40))) {
+                    if (GUILayout.Button("Stop", GUILayout.Width(40)))
+                    {
                         AudioUtils.StopAllClips();
                     }
 
                     var prevColor = GUI.color;
                     GUI.color = Color.red;
-                    if (GUILayout.Button("Remove", GUILayout.Width(60))) {
+                    if (GUILayout.Button("Remove", GUILayout.Width(60)))
+                    {
                         clips[i] = null;
                     }
                     GUI.color = prevColor;
@@ -216,11 +225,12 @@ namespace Antura.Editor
                 if (clips.Count > 0)
                     EditorGUILayout.LabelField("Add Random Choice:", hasClips ? goodStyle : badStyle);
 
-                var newClip = (AudioClip) EditorGUILayout.ObjectField(null, typeof(AudioClip), false);
+                var newClip = (AudioClip)EditorGUILayout.ObjectField(null, typeof(AudioClip), false);
 
                 EditorGUILayout.EndHorizontal();
 
-                if (newClip != null) {
+                if (newClip != null)
+                {
                     clips.Add(newClip);
                 }
 
@@ -242,21 +252,23 @@ namespace Antura.Editor
             EditorGUILayout.LabelField("-- Music --", titlesStyle);
             EditorGUILayout.Separator();
 
-            foreach (var music in Enum.GetValues(typeof(Music))) {
-                if ((Music) music == Music.DontChange || (Music) music == Music.Silence || (Music) music == Music.Custom)
+            foreach (var music in Enum.GetValues(typeof(Music)))
+            {
+                if ((Music)music == Music.DontChange || (Music)music == Music.Silence || (Music)music == Music.Custom)
                     continue;
 
-                MusicConfiguration conf = myTarget.GetMusicConfiguration((Music) music);
+                MusicConfiguration conf = myTarget.GetMusicConfiguration((Music)music);
 
-                if (conf == null) {
+                if (conf == null)
+                {
                     conf = new MusicConfiguration();
 
-                    conf.music = (Music) music;
+                    conf.music = (Music)music;
                 }
 
                 EditorGUILayout.BeginHorizontal();
                 EditorGUILayout.LabelField("Music." + music.ToString(), conf.clip ? goodStyle : badStyle);
-                conf.clip = (AudioClip) EditorGUILayout.ObjectField(conf.clip, typeof(AudioClip), false);
+                conf.clip = (AudioClip)EditorGUILayout.ObjectField(conf.clip, typeof(AudioClip), false);
                 EditorGUILayout.EndHorizontal();
                 myTarget.UpdateMusicConfiguration(conf);
             }

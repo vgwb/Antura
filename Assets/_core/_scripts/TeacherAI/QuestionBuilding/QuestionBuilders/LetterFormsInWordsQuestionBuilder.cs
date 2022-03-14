@@ -34,7 +34,8 @@ namespace Antura.Teacher
             int maximumWordLength = 20,
             QuestionBuilderParameters parameters = null)
         {
-            if (parameters == null) parameters = new QuestionBuilderParameters();
+            if (parameters == null)
+                parameters = new QuestionBuilderParameters();
             this.nPacksPerRound = nPacksPerRound;
             this.nRounds = nRounds;
             this.maximumWordLength = maximumWordLength;
@@ -101,7 +102,8 @@ namespace Antura.Teacher
             var wrongAnswers = new List<LetterData>();
             foreach (var wrongForm in letter.GetAvailableForms())
             {
-                if (wrongForm == correctForm) continue;
+                if (wrongForm == correctForm)
+                    continue;
                 letterWithForm = AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(letter, wrongForm);
                 wrongAnswers.Add(letterWithForm);
             }
@@ -111,7 +113,8 @@ namespace Antura.Teacher
                 string debugString = "--------- TEACHER: question pack result ---------";
                 debugString += "\nQuestion: " + question;
                 debugString += "\nCorrect Answers: " + correctAnswers.Count;
-                foreach (var l in correctAnswers) { debugString += " " + l; }
+                foreach (var l in correctAnswers)
+                { debugString += " " + l; }
                 ConfigAI.AppendToTeacherReport(debugString);
             }
 
@@ -178,7 +181,8 @@ namespace Antura.Teacher
             {
                 foreach (var word in vocabularyHelper.GetAllWords(parameters.wordFilters))
                 {
-                    if (!WordIsEligible(word, containedLetter, form, maxWordLength)) continue;
+                    if (!WordIsEligible(word, containedLetter, form, maxWordLength))
+                        continue;
                     eligibleWords.Add(word);
                     //Debug.Log("Letter: " + containedLetter + " form: " + form + " Word: " + word);
                 }

@@ -49,8 +49,10 @@ namespace Antura.Book
             Icon.sprite = icon;
 
             isLocked = true;
-            foreach (var gameVariation in mainGameInfo.variations) {
-                if (gameVariation.unlocked) {
+            foreach (var gameVariation in mainGameInfo.variations)
+            {
+                if (gameVariation.unlocked)
+                {
                     isLocked = false;
                 }
                 //Debug.Log("gameVariation() main game " + mainGameInfo.MainId + " / " + gameVariation.data.Code + "(" + isLocked + ")");
@@ -61,7 +63,8 @@ namespace Antura.Book
         public void OnClicked()
         {
             //Debug.Log("OnClicked() main game " + mainGameInfo.MainId);
-            if (!isLocked) {
+            if (!isLocked)
+            {
                 DetailMiniGame(mainGameInfo);
             }
         }
@@ -73,9 +76,12 @@ namespace Antura.Book
 
         public void Select(MainMiniGame gameInfo = null)
         {
-            if (gameInfo != null && mainGameInfo != null) {
+            if (gameInfo != null && mainGameInfo != null)
+            {
                 isSelected = (gameInfo.MainId == mainGameInfo.MainId);
-            } else {
+            }
+            else
+            {
                 isSelected = false;
             }
             hightlight(isSelected);
@@ -83,10 +89,13 @@ namespace Antura.Book
 
         void hightlight(bool _status)
         {
-            if (_status) {
+            if (_status)
+            {
                 //BackgroundImage.color = new Color(0.9490197f, 0.7215686f, 0.1882353f, 1f);
                 BackgroundImage.sprite = ImageOn;
-            } else {
+            }
+            else
+            {
                 //BackgroundImage.color = Color.white;
                 BackgroundImage.sprite = ImageOff;
             }

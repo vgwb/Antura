@@ -26,7 +26,8 @@ namespace Antura.Minigames.HideAndSeek
         static HideAndSeekConfiguration instance;
         public static HideAndSeekConfiguration Instance
         {
-            get {
+            get
+            {
                 if (instance == null)
                     instance = new HideAndSeekConfiguration();
                 return instance;
@@ -50,10 +51,12 @@ namespace Antura.Minigames.HideAndSeek
             int nWrong = 6;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case HideAndSeekVariation.LetterPhoneme:
                     var letterAlterationFilters = LetterAlterationFilters.FormsAndPhonemesOfMultipleLetters_OneForm;
-                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated) letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
+                    if (AppManager.I.ContentEdition.DiacriticsOnlyOnIsolated)
+                        letterAlterationFilters = LetterAlterationFilters.DiacriticsOfMultipleLetters;
                     builder = new RandomLetterAlterationsQuestionBuilder(nPacks, nCorrect, nWrong: nWrong, letterAlterationFilters: letterAlterationFilters, parameters: builderParams,
                             avoidWrongLettersWithSameSound: true);
                     break;

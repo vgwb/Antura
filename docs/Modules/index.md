@@ -15,3 +15,4 @@
 - [Player Profile](PlayerProfile.md) how the Player Profile Manager works, a subsystem that allows the use of several profiles on the same device.
 - [Shaders](Shaders.md) the list of shaders used in this project.
 - [Teacher AI](Teacher.md) how the Teacher System works. This subsystem is responsible for providing learning content data to the minigames.
+- [Analytics](Analytics.md) the implementation and use of the Logging System.

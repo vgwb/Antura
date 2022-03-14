@@ -31,7 +31,8 @@ namespace Antura.Minigames.MakeFriends
         static MakeFriendsConfiguration instance;
         public static MakeFriendsConfiguration Instance
         {
-            get {
+            get
+            {
                 if (instance == null)
                     instance = new MakeFriendsConfiguration();
                 return instance;
@@ -56,7 +57,8 @@ namespace Antura.Minigames.MakeFriends
             var letterEqualityStrictness = LetterEqualityStrictness.WithVisualForm;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MakeFriendsVariation.LetterInWord:
                     builderParams.wordFilters.excludeDipthongs = true;
                     builderParams.wordFilters.excludeArticles = true;
@@ -81,7 +83,8 @@ namespace Antura.Minigames.MakeFriends
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MakeFriendsVariation.LetterInWord:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;

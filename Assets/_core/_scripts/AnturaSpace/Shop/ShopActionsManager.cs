@@ -19,7 +19,8 @@ namespace Antura.AnturaSpace
 
             // Setup actions
             shopActions = GetComponentsInChildren<ShopAction>();
-            foreach (var shopAction in shopActions) {
+            foreach (var shopAction in shopActions)
+            {
                 shopAction.OnActionCommitted += HandleActionPerformed;
                 shopAction.OnActionRefreshed += HandleActionRefreshed;
             }

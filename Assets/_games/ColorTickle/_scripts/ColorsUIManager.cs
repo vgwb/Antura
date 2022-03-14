@@ -54,7 +54,8 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (selectedButton >= 0 && selectedButton < m_NumberOfButtons) {
+            if (selectedButton >= 0 && selectedButton < m_NumberOfButtons)
+            {
                 m_OutlineButton.transform.position = m_Buttons[selectedButton].transform.position;
                 if (m_OutlineTransform == null)
                     m_OutlineTransform = m_OutlineButton.GetComponent<RectTransform>();
@@ -76,7 +77,8 @@ namespace Antura.Minigames.ColorTickle
 
         void BuildButtons()
         {
-            for (int i = 0; i < m_NumberOfButtons; ++i) {
+            for (int i = 0; i < m_NumberOfButtons; ++i)
+            {
                 m_Buttons[i] = Instantiate(m_SampleButton);
                 m_Buttons[i].transform.SetParent(gameObject.transform);
 
@@ -85,7 +87,8 @@ namespace Antura.Minigames.ColorTickle
                 m_SelectColorNames[i] = m_ColorNames[i];
 
                 int buttonNumber = i;
-                m_Buttons[i].onClick.AddListener(delegate {
+                m_Buttons[i].onClick.AddListener(delegate
+                {
                     ColorTickleConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Blip);
                     SelectButton(buttonNumber);
                 });
@@ -109,16 +112,19 @@ namespace Antura.Minigames.ColorTickle
                 }
             }
 
-            if (SetBrushColor != null) {
+            if (SetBrushColor != null)
+            {
                 SetBrushColor(m_Buttons[buttonNumber].image.color);
             }
         }
 
         public void ChangeButtonsColor()
         {
-            for (int i = 0; i < m_NumberOfButtons; ++i) {
+            for (int i = 0; i < m_NumberOfButtons; ++i)
+            {
                 m_ColorNumber++;
-                if (m_ColorNumber >= m_Colors.Length) {
+                if (m_ColorNumber >= m_Colors.Length)
+                {
                     m_ColorNumber = 0;
                 }
                 m_Colors[m_ColorNumber].a = 255.0f;

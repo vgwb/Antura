@@ -30,15 +30,19 @@ namespace Antura.Minigames.MissingLetter
 
             Context.GetAudioManager().PlaySound(Sfx.Blip);
 
-            if (_result) {
+            if (_result)
+            {
                 Context.GetAudioManager().PlaySound(Sfx.StampOK);
-            } else {
+            }
+            else
+            {
                 Context.GetAudioManager().PlaySound(Sfx.KO);
             }
 
             Context.GetCheckmarkWidget().Show(_result);
 
-            if (_result) {
+            if (_result)
+            {
                 ++CurrentScore;
             }
         }
@@ -95,7 +99,8 @@ namespace Antura.Minigames.MissingLetter
             if (MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.Phrase)
             {
                 m_fGameTime = 120;// Mathf.Lerp(120, 80, _diff);
-            } else
+            }
+            else
             {
                 m_fGameTime = 90; // m_fGameTime = Mathf.Lerp(90, 60, _diff);
             }

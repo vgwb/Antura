@@ -25,7 +25,8 @@ namespace Antura.UI
         public void Open()
         {
             gameObject.SetActive(true);
-            if (showTween != null) { showTween.PlayForward(); }
+            if (showTween != null)
+            { showTween.PlayForward(); }
         }
 
         public void Close()

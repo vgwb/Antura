@@ -33,7 +33,8 @@ namespace Antura.Book
 
         void emptyListContainers()
         {
-            foreach (Transform t in transform) {
+            foreach (Transform t in transform)
+            {
                 Destroy(t.gameObject);
             }
         }

@@ -8,7 +8,8 @@ namespace Antura.Extensions
         {
             me.layer = layer;
 
-            foreach (Transform t in me.transform) {
+            foreach (Transform t in me.transform)
+            {
                 t.gameObject.SetLayerRecursive(layer);
             }
         }

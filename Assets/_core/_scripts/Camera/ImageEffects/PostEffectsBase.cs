@@ -12,26 +12,34 @@ namespace Antura.CameraEffects
 
         protected Material CheckShaderAndCreateMaterial(Shader s, Material m2Create)
         {
-            if (!s) {
+            if (!s)
+            {
                 Debug.Log("Missing shader in " + this.ToString());
                 enabled = false;
                 return null;
             }
 
-            if (s.isSupported && m2Create && m2Create.shader == s) {
+            if (s.isSupported && m2Create && m2Create.shader == s)
+            {
                 return m2Create;
             }
 
-            if (!s.isSupported) {
+            if (!s.isSupported)
+            {
                 NotSupported();
                 Debug.Log("The shader " + s.ToString() + " on effect " + this.ToString() + " is not supported on this platform!");
                 return null;
-            } else {
+            }
+            else
+            {
                 m2Create = new Material(s);
                 m2Create.hideFlags = HideFlags.DontSave;
-                if (m2Create) {
+                if (m2Create)
+                {
                     return m2Create;
-                } else {
+                }
+                else
+                {
                     return null;
                 }
             }
@@ -39,23 +47,31 @@ namespace Antura.CameraEffects
 
         protected Material CreateMaterial(Shader s, Material m2Create)
         {
-            if (!s) {
+            if (!s)
+            {
                 Debug.Log("Missing shader in " + this.ToString());
                 return null;
             }
 
-            if (m2Create && (m2Create.shader == s) && (s.isSupported)) {
+            if (m2Create && (m2Create.shader == s) && (s.isSupported))
+            {
                 return m2Create;
             }
 
-            if (!s.isSupported) {
+            if (!s.isSupported)
+            {
                 return null;
-            } else {
+            }
+            else
+            {
                 m2Create = new Material(s);
                 m2Create.hideFlags = HideFlags.DontSave;
-                if (m2Create) {
+                if (m2Create)
+                {
                     return m2Create;
-                } else {
+                }
+                else
+                {
                     return null;
                 }
             }
@@ -89,12 +105,14 @@ namespace Antura.CameraEffects
             supportDX11 = SystemInfo.graphicsShaderLevel >= 50 && SystemInfo.supportsComputeShaders;
 
 
-            if (needDepth && !SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.Depth)) {
+            if (needDepth && !SystemInfo.SupportsRenderTextureFormat(RenderTextureFormat.Depth))
+            {
                 NotSupported();
                 return false;
             }
 
-            if (needDepth) {
+            if (needDepth)
+            {
                 GetComponent<Camera>().depthTextureMode |= DepthTextureMode.Depth;
             }
 
@@ -103,11 +121,13 @@ namespace Antura.CameraEffects
 
         protected bool CheckSupport(bool needDepth, bool needHdr)
         {
-            if (!CheckSupport(needDepth)) {
+            if (!CheckSupport(needDepth))
+            {
                 return false;
             }
 
-            if (needHdr && !supportHDRTextures) {
+            if (needHdr && !supportHDRTextures)
+            {
                 NotSupported();
                 return false;
             }
@@ -130,10 +150,13 @@ namespace Antura.CameraEffects
         {
             Debug.Log("The shader " + s.ToString() + " on effect " + this.ToString() +
                       " is not part of the Unity 3.2+ effects suite anymore. For best performance and quality, please ensure you are using the latest Standard Assets Image Effects (Pro only) package.");
-            if (!s.isSupported) {
+            if (!s.isSupported)
+            {
                 NotSupported();
                 return false;
-            } else {
+            }
+            else
+            {
                 return false;
             }
         }
@@ -158,20 +181,24 @@ namespace Antura.CameraEffects
             GL.PushMatrix();
             GL.LoadOrtho();
 
-            for (int i = 0; i < material.passCount; i++) {
+            for (int i = 0; i < material.passCount; i++)
+            {
                 material.SetPass(i);
 
                 float y1_;
                 float y2_;
-                if (invertY) {
+                if (invertY)
+                {
                     y1_ = 1f;
                     y2_ = 0f;
-                } else {
+                }
+                else
+                {
                     y1_ = 0f;
                     y2_ = 1f;
                 }
 
-                // left	        
+                // left
                 x1 = 0f;
                 x2 = 0f + 1f / (dest.width * 1f);
                 y1 = 0f;

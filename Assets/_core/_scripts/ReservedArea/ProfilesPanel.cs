@@ -35,13 +35,15 @@ namespace Antura.ReservedArea
 
         void RefreshPlayerIcons()
         {
-            foreach (Transform t in PlayerIconContainer.transform) {
+            foreach (Transform t in PlayerIconContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
 
             List<PlayerIconData> players = AppManager.I.PlayerProfileManager.GetPlayersIconData();
 
-            foreach (var player in players) {
+            foreach (var player in players)
+            {
                 var newIcon = Instantiate(PlayerIconPrefab);
                 newIcon.transform.SetParent(PlayerIconContainer.transform, false);
                 newIcon.GetComponent<PlayerIcon>().Init(player);
@@ -54,7 +56,8 @@ namespace Antura.ReservedArea
             // highlight selected profile
             ProfileCommandsContainer.SetActive(SelectedPlayerId != "");
             SetPlayerInfoText();
-            foreach (Transform t in PlayerIconContainer.transform) {
+            foreach (Transform t in PlayerIconContainer.transform)
+            {
                 t.GetComponent<PlayerIcon>().Select(SelectedPlayerId);
             }
         }
@@ -68,9 +71,12 @@ namespace Antura.ReservedArea
 
         void SetPlayerInfoText()
         {
-            if (SelectedPlayerId != "") {
+            if (SelectedPlayerId != "")
+            {
                 PlayerInfoText.text = "player id: " + SelectedPlayerId;
-            } else {
+            }
+            else
+            {
                 PlayerInfoText.text = "";
             }
         }
@@ -100,28 +106,37 @@ namespace Antura.ReservedArea
 
         public void OnExportSelectPlayerProfile()
         {
-            if (AppManager.I.DB.ExportPlayerDb(SelectedPlayerId)) {
+            if (AppManager.I.DB.ExportPlayerDb(SelectedPlayerId))
+            {
                 string dbPath;
-                if (Application.platform == RuntimePlatform.IPhonePlayer) {
+                if (Application.platform == RuntimePlatform.IPhonePlayer)
+                {
                     dbPath = string.Format(@"{0}/{1}", AppConfig.DbExportFolder,
                         AppConfig.GetPlayerDatabaseFilename(SelectedPlayerId));
                     GlobalUI.ShowPrompt("", "Get the DB from iTunes app:\n" + dbPath);
-                } else {
+                }
+                else
+                {
                     // Android or Desktop
                     dbPath = string.Format(@"{0}/{1}/{2}", Application.persistentDataPath, AppConfig.DbExportFolder,
                         AppConfig.GetPlayerDatabaseFilename(SelectedPlayerId));
                     GlobalUI.ShowPrompt("", "The DB is here:\n" + dbPath);
                 }
-            } else {
+            }
+            else
+            {
                 GlobalUI.ShowPrompt("", "Could not export the database.\n");
             }
         }
 
         public void OnCreateDemoPlayer()
         {
-            if (AppManager.I.PlayerProfileManager.IsDemoUserExisting()) {
+            if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
+            {
                 GlobalUI.ShowPrompt(Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
-            } else {
+            }
+            else
+            {
                 //GlobalUI.ShowPrompt(Database.LocalizationDataId.UI_AreYouSure, DoCreateDemoPlayer, DoNothing, Keeper.KeeperMode.NativeNoSubtitles);
                 DoCreateDemoPlayer();
             }
@@ -182,7 +197,8 @@ namespace Antura.ReservedArea
             Debug.Log("Start adding mood scores");
             yield return null;
             int nMoodData = 15;
-            for (int i = 0; i < nMoodData; i++) {
+            for (int i = 0; i < nMoodData; i++)
+            {
                 logAi.LogMood(0, Random.Range(AppConfig.MinMoodValue, AppConfig.MaxMoodValue + 1));
             }
             yield return null;
@@ -192,8 +208,10 @@ namespace Antura.ReservedArea
             yield return null;
             var logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
             var allPlaySessionInfos = AppManager.I.ScoreHelper.GetAllPlaySessionInfo();
-            for (int i = 0; i < allPlaySessionInfos.Count; i++) {
-                if (allPlaySessionInfos[i].data.Stage <= targetPosition.Stage) {
+            for (int i = 0; i < allPlaySessionInfos.Count; i++)
+            {
+                if (allPlaySessionInfos[i].data.Stage <= targetPosition.Stage)
+                {
                     int score = useBestScores
                         ? AppConfig.MaxMiniGameScore
                         : Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
@@ -210,7 +228,8 @@ namespace Antura.ReservedArea
             yield return null;
             var logMiniGameScoreParamses = new List<LogMiniGameScoreParams>();
             var allMiniGameInfo = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
-            for (int i = 0; i < allMiniGameInfo.Count; i++) {
+            for (int i = 0; i < allMiniGameInfo.Count; i++)
+            {
                 int score = useBestScores
                     ? AppConfig.MaxMiniGameScore
                     : Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);

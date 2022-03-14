@@ -20,14 +20,17 @@ namespace Antura.Minigames.Egg
             nextStateTimer = 5f;
             toNextState = false;
 
-            if (game.stagePositiveResult) {
+            if (game.stagePositiveResult)
+            {
                 game.Context.GetAudioManager().PlaySound(Sfx.Win);
                 if (!game.CurrentQuestion.IsSequence())
                 {
-                    game.Context.GetCheckmarkWidget().Show(true, new Vector2(0,250));
+                    game.Context.GetCheckmarkWidget().Show(true, new Vector2(0, 250));
                 }
                 toNextState = true;
-            } else {
+            }
+            else
+            {
                 game.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 game.Context.GetCheckmarkWidget().Show(false);
                 toNextState = true;
@@ -38,19 +41,24 @@ namespace Antura.Minigames.Egg
 
         public void Update(float delta)
         {
-            if (toNextState) {
+            if (toNextState)
+            {
                 nextStateTimer -= delta;
 
-                if (nextStateTimer <= 0f) {
+                if (nextStateTimer <= 0f)
+                {
                     toNextState = false;
 
-                    if (game.currentStage >= EggGame.numberOfStage) {
+                    if (game.currentStage >= EggGame.numberOfStage)
+                    {
                         game.eggController.Reset();
                         game.runLettersBox.RemoveAllRunLetters();
                         game.eggButtonBox.RemoveButtons();
                         game.Context.GetAudioManager().PlayMusic(Music.Relax);
                         game.EndGame(game.CurrentStars, game.CurrentScore);
-                    } else {
+                    }
+                    else
+                    {
                         game.SetCurrentState(game.QuestionState);
                     }
                 }

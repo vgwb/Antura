@@ -344,8 +344,10 @@ namespace Antura.Database
         public LetterForm ForcedLetterForm = LetterForm.None;
         public LetterForm Form
         {
-            get {
-                if (ForcedLetterForm != LetterForm.None) { return ForcedLetterForm; }
+            get
+            {
+                if (ForcedLetterForm != LetterForm.None)
+                { return ForcedLetterForm; }
                 return LetterForm.Isolated;
             }
         }
@@ -357,7 +359,8 @@ namespace Antura.Database
         public override string ToString()
         {
             string s = "(" + Isolated + ")";
-            if (ForcedLetterForm != LetterForm.None) { s += " F-" + ForcedLetterForm; }
+            if (ForcedLetterForm != LetterForm.None)
+            { s += " F-" + ForcedLetterForm; }
             s += " " + Id;
             return s;
         }
@@ -376,7 +379,8 @@ namespace Antura.Database
         public bool IsOfKindCategory(LetterKindCategory category)
         {
             var isIt = false;
-            switch (category) {
+            switch (category)
+            {
                 case LetterKindCategory.Base:
                     isIt = IsBaseLetter();
                     break;
@@ -450,11 +454,13 @@ namespace Antura.Database
 
         public string GetUnicode(LetterForm form = LetterForm.Isolated, bool fallback = true)
         {
-            switch (Kind) {
+            switch (Kind)
+            {
                 case LetterDataKind.Symbol:
                     return Isolated_Unicode;
                 default:
-                    switch (form) {
+                    switch (form)
+                    {
                         case LetterForm.Initial:
                             return Initial_Unicode != "" ? Initial_Unicode : (fallback ? Isolated_Unicode : "");
                         case LetterForm.Medial:
@@ -472,24 +478,36 @@ namespace Antura.Database
             // Debug.Log("GetAudioFilename " + Id + " " + Kind + " " + Type);
             if (IsAccentedLetter())
             {
-                if (string.IsNullOrEmpty(PhonemeSound)) PhonemeSound = AppManager.I.DB.GetLetterDataById(BaseLetter).PhonemeSound;
-                if (string.IsNullOrEmpty(NameSound)) NameSound = AppManager.I.DB.GetLetterDataById(BaseLetter).NameSound;
-                if (string.IsNullOrEmpty(Sound)) Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).Sound;
-                if (string.IsNullOrEmpty(SoundZone)) Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).SoundZone;
+                if (string.IsNullOrEmpty(PhonemeSound))
+                    PhonemeSound = AppManager.I.DB.GetLetterDataById(BaseLetter).PhonemeSound;
+                if (string.IsNullOrEmpty(NameSound))
+                    NameSound = AppManager.I.DB.GetLetterDataById(BaseLetter).NameSound;
+                if (string.IsNullOrEmpty(Sound))
+                    Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).Sound;
+                if (string.IsNullOrEmpty(SoundZone))
+                    Sound = AppManager.I.DB.GetLetterDataById(BaseLetter).SoundZone;
             }
 
-            switch (soundType) {
+            switch (soundType)
+            {
                 case LetterDataSoundType.Phoneme:
-                    if (PhonemeSound != "") {
+                    if (PhonemeSound != "")
+                    {
                         return PhonemeSound;
-                    } else {
+                    }
+                    else
+                    {
                         Debug.LogWarning($"Letter {Id}: missing Phoneme Sound");
                         return "";
                     }
                 case LetterDataSoundType.Name:
-                    if (NameSound != "") {
-                        return NameSound; ;
-                    } else {
+                    if (NameSound != "")
+                    {
+                        return NameSound;
+                        ;
+                    }
+                    else
+                    {
                         Debug.LogWarning($"Letter {Id}: missing Name Sound");
                         return "";
                     }
@@ -507,31 +525,36 @@ namespace Antura.Database
 
             // Get the string for the specific form, without fallback
             var hexunicode = GetUnicode(form, fallback: false);
-            if (hexunicode == "") {
+            if (hexunicode == "")
+            {
                 return "";
             }
 
             var output = "";
 
             // add the "-" to diacritic symbols to indentify better if it's over or below hte mid line
-            if (Type == LetterDataType.DiacriticSymbol) {
+            if (Type == LetterDataType.DiacriticSymbol)
+            {
                 output = "\u0640";
             }
 
             var unicode = int.Parse(hexunicode, NumberStyles.HexNumber);
             output += ((char)unicode).ToString();
 
-            if (Symbol_Unicode != "") {
+            if (Symbol_Unicode != "")
+            {
                 var unicode_added = int.Parse(Symbol_Unicode, NumberStyles.HexNumber);
                 output += ((char)unicode_added).ToString();
             }
 
             // add a "-" before medial and final single letters where needed
-            if (form == LetterForm.Final && FinalFix != "" || form == LetterForm.Medial && MedialFix != "") {
+            if (form == LetterForm.Final && FinalFix != "" || form == LetterForm.Medial && MedialFix != "")
+            {
                 output = "\u0640" + output;
             }
 
-            if (form == LetterForm.Initial && InitialFix != "" || form == LetterForm.Medial && InitialFix != "") {
+            if (form == LetterForm.Initial && InitialFix != "" || form == LetterForm.Medial && InitialFix != "")
+            {
                 output = output + "\u0640";
             }
 
@@ -540,19 +563,23 @@ namespace Antura.Database
 
         public IEnumerable<LetterForm> GetAvailableForms()
         {
-            if (Isolated_Unicode != "") {
+            if (Isolated_Unicode != "")
+            {
                 yield return LetterForm.Isolated;
             }
 
-            if (Initial_Unicode != "") {
+            if (Initial_Unicode != "")
+            {
                 yield return LetterForm.Initial;
             }
 
-            if (Medial_Unicode != "") {
+            if (Medial_Unicode != "")
+            {
                 yield return LetterForm.Medial;
             }
 
-            if (Final_Unicode != "") {
+            if (Final_Unicode != "")
+            {
                 yield return LetterForm.Final;
             }
         }
@@ -594,7 +621,8 @@ namespace Antura.Database
         public override bool Equals(object obj)
         {
             var other = obj as LetterData;
-            if (other == null) { return false; }
+            if (other == null)
+            { return false; }
             return Equals(other);
         }
 
@@ -614,16 +642,20 @@ namespace Antura.Database
         public string GetDebugDiacriticFix()
         {
             string output = "";
-            if (Symbol_Unicode != "") {
+            if (Symbol_Unicode != "")
+            {
                 output = "// " + Id + "\n";
                 output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Isolated_Unicode, Symbol_Unicode) + "\n";
-                if (Initial_Unicode != Isolated_Unicode) {
+                if (Initial_Unicode != Isolated_Unicode)
+                {
                     output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Initial_Unicode, Symbol_Unicode) + "\n";
                 }
-                if (Medial_Unicode != Isolated_Unicode && Medial_Unicode != Initial_Unicode) {
+                if (Medial_Unicode != Isolated_Unicode && Medial_Unicode != Initial_Unicode)
+                {
                     output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Medial_Unicode, Symbol_Unicode) + "\n";
                 }
-                if (Final_Unicode != Medial_Unicode && Final_Unicode != Initial_Unicode && Final_Unicode != Isolated_Unicode) {
+                if (Final_Unicode != Medial_Unicode && Final_Unicode != Initial_Unicode && Final_Unicode != Isolated_Unicode)
+                {
                     output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Final_Unicode, Symbol_Unicode) + "\n";
                 }
                 //Debug.Log(output);

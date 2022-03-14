@@ -33,10 +33,13 @@ namespace Antura.Minigames.MissingLetter
 
         void OnRoundResult(bool _result)
         {
-            if (_result) {
+            if (_result)
+            {
                 //TODO: tutorial finito ... mostrare qualcosa a livello di UI ?
                 m_oGame.SetCurrentState(m_oGame.PlayState);
-            } else {
+            }
+            else
+            {
                 var _LL = m_oGame.m_oRoundManager.GetCorrectLLObject();
                 _LL.GetComponent<LetterBehaviour>().PlayAnimation(LLAnimationStates.LL_dancing);
             }

@@ -12,9 +12,12 @@ namespace Antura.EditorUtilities
         {
             var asset = CreateInstance<ScriptableObject>();
             string path = AssetDatabase.GetAssetPath(Selection.activeObject);
-            if (path == "") {
+            if (path == "")
+            {
                 path = "Assets";
-            } else if (Path.GetExtension(path) != "") {
+            }
+            else if (Path.GetExtension(path) != "")
+            {
                 path = path.Replace(Path.GetFileName(AssetDatabase.GetAssetPath(Selection.activeObject)), "");
             }
             AssetDatabase.CreateAsset(asset, AssetDatabase.GenerateUniqueAssetPath(path + "/Empty asset.asset"));

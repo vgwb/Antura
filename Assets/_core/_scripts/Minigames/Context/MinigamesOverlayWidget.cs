@@ -54,18 +54,18 @@ namespace Antura.Minigames
             // thresholds could have different "distances" between them
 
             if (score < firstStarsScoreThreshold)
-                MinigamesUI.Starbar.Goto((score / (float) firstStarsScoreThreshold) * 0.333f);
+                MinigamesUI.Starbar.Goto((score / (float)firstStarsScoreThreshold) * 0.333f);
             else if (score == firstStarsScoreThreshold)
                 MinigamesUI.Starbar.GotoStar(0);
             else if (score < secondStarsScoreThreshold)
                 MinigamesUI.Starbar.Goto(
-                    ((score - firstStarsScoreThreshold) / (float) (secondStarsScoreThreshold - firstStarsScoreThreshold)) * 0.333f +
+                    ((score - firstStarsScoreThreshold) / (float)(secondStarsScoreThreshold - firstStarsScoreThreshold)) * 0.333f +
                     0.333f);
             else if (score == secondStarsScoreThreshold)
                 MinigamesUI.Starbar.GotoStar(1);
             else if (score < thirdStarsScoreThreshold)
                 MinigamesUI.Starbar.Goto(
-                    ((score - secondStarsScoreThreshold) / (float) (thirdStarsScoreThreshold - secondStarsScoreThreshold)) * 0.333f +
+                    ((score - secondStarsScoreThreshold) / (float)(thirdStarsScoreThreshold - secondStarsScoreThreshold)) * 0.333f +
                     0.666f);
             else
                 MinigamesUI.Starbar.GotoStar(2);

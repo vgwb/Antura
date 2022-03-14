@@ -83,14 +83,16 @@ namespace Antura.Minigames.Maze
 
         private void OnPointerDown()
         {
-            if (currentMazeLetter != null && !gameEnded) {
+            if (currentMazeLetter != null && !gameEnded)
+            {
                 currentMazeLetter.OnPointerDown();
             }
         }
 
         private void OnPointerUp()
         {
-            if (currentMazeLetter != null && !gameEnded) {
+            if (currentMazeLetter != null && !gameEnded)
+            {
                 currentMazeLetter.OnPointerUp();
             }
         }
@@ -126,7 +128,8 @@ namespace Antura.Minigames.Maze
             isTutorialMode = GetConfiguration().TutorialEnabled;
 
             fleePositions = new List<Vector3>();
-            foreach (Transform child in fleePositionObject.transform) {
+            foreach (Transform child in fleePositionObject.transform)
+            {
                 fleePositions.Add(child.position);
             }
 
@@ -134,7 +137,8 @@ namespace Antura.Minigames.Maze
             //cracks to display:
             _cracks = new List<GameObject>();
             cracks.SetActive(true);
-            foreach (Transform child in cracks.transform) {
+            foreach (Transform child in cracks.transform)
+            {
                 child.gameObject.SetActive(false);
                 _cracks.Add(child.gameObject);
             }
@@ -148,7 +152,8 @@ namespace Antura.Minigames.Maze
 
             //init first letter
             initCurrentLetter();
-            if (!isTutorialMode) initUI();
+            if (!isTutorialMode)
+                initUI();
 
             Context.GetAudioManager().PlayMusic(Music.Theme8);
         }
@@ -171,7 +176,8 @@ namespace Antura.Minigames.Maze
         private bool uiInitialized;
         private void initUI()
         {
-            if (uiInitialized) return;
+            if (uiInitialized)
+                return;
             uiInitialized = true;
 
             Context.GetOverlayWidget().Initialize(true, true, false);
@@ -208,7 +214,8 @@ namespace Antura.Minigames.Maze
 
         public void showAllCracks()
         {
-            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf) return;
+            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf)
+                return;
             if (health == 0)
                 return;
 
@@ -221,7 +228,8 @@ namespace Antura.Minigames.Maze
 
         public void wasHit()
         {
-            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf) return;
+            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf)
+                return;
             _cracks[_cracks.Count - health].SetActive(true);
             health--;
         }
@@ -237,11 +245,13 @@ namespace Antura.Minigames.Maze
 
         public void moveToNext(bool won = false)
         {
-            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf) return;
+            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf)
+                return;
 
             isShowingAntura = false;
             //check if current letter is complete:
-            if (currentCharacter.isComplete()) {
+            if (currentCharacter.isComplete())
+            {
                 if (!isTutorialMode)
                 {
                     CurrentScore++;
@@ -255,11 +265,16 @@ namespace Antura.Minigames.Maze
                 // Hide checkpoints of last path:
                 currentTutorial.HideCheckpointsAndLineOfCurrentPath();
 
-                currentCharacter.Celebrate(() => {
-                    if (roundNumber == MAX_NUM_ROUNDS || CurrentStars == 3) {
+                currentCharacter.Celebrate(() =>
+                {
+                    if (roundNumber == MAX_NUM_ROUNDS || CurrentStars == 3)
+                    {
                         endGame();
-                    } else {
-                        if (isTutorialMode) {
+                    }
+                    else
+                    {
+                        if (isTutorialMode)
+                        {
                             isTutorialMode = false;
                             initUI();
                         }
@@ -269,7 +284,9 @@ namespace Antura.Minigames.Maze
                     }
                 },
                 OnAnswerValidated);
-            } else {
+            }
+            else
+            {
                 addLine();
                 currentCharacter.nextPath();
                 currentTutorial.moveToNextPath();
@@ -278,13 +295,16 @@ namespace Antura.Minigames.Maze
 
         public void lostCurrentLetter()
         {
-            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf) return;
+            if (!currentCharacter || currentCharacter.isAppearing || !currentCharacter.gameObject.activeSelf)
+                return;
 
-            if (isTutorialMode) {
+            if (isTutorialMode)
+            {
                 hideCracks();
 
                 //remove last line
-                if (lines.Count > 0) {
+                if (lines.Count > 0)
+                {
                     lines[lines.Count - 1].positionCount = 0;
                     lines.RemoveAt(lines.Count - 1);
                 }
@@ -305,9 +325,12 @@ namespace Antura.Minigames.Maze
 
             MazeConfiguration.Instance.Context.GetLogManager().OnAnswered(currentLL, false);
 
-            if (roundNumber == MAX_NUM_ROUNDS || CurrentStars == 3) {
+            if (roundNumber == MAX_NUM_ROUNDS || CurrentStars == 3)
+            {
                 endGame();
-            } else {
+            }
+            else
+            {
                 roundNumberText.text = "#" + (roundNumber + 1);
                 restartCurrentLetter();
             }
@@ -340,7 +363,8 @@ namespace Antura.Minigames.Maze
         {
             health = 4;
             //hide cracks:
-            foreach (Transform child in cracks.transform) {
+            foreach (Transform child in cracks.transform)
+            {
                 child.gameObject.SetActive(false);
             }
         }
@@ -350,7 +374,8 @@ namespace Antura.Minigames.Maze
 
         void initCurrentLetter()
         {
-            if (gameEnded) {
+            if (gameEnded)
+            {
                 return;
             }
 
@@ -376,19 +401,25 @@ namespace Antura.Minigames.Maze
             currentLL = ld;
             currentPrefab = Instantiate(newMazeLetter.gameObject);
             currentPrefab.GetComponent<NewMazeLetter>().SetupLetter(ld);
-            currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() => {
+            currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() =>
+            {
 
-                if (!isTutorialMode) {
+                if (!isTutorialMode)
+                {
                     MazeConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(
                         ld,
                         soundType: MazeConfiguration.Instance.GetVocabularySoundType()
                     );
                 }
 
-                foreach (Transform child in currentPrefab.transform) {
-                    if (child.name == "Mazecharacter") {
+                foreach (Transform child in currentPrefab.transform)
+                {
+                    if (child.name == "Mazecharacter")
+                    {
                         currentCharacter = child.GetComponent<MazeCharacter>();
-                    } else if (child.name == "HandTutorial") {
+                    }
+                    else if (child.name == "HandTutorial")
+                    {
                         currentTutorial = child.GetComponent<HandTutorial>();
                     }
                 }
@@ -429,11 +460,13 @@ namespace Antura.Minigames.Maze
         {
             isShowingAntura = false;
 
-            if (currentTutorial != null) {
+            if (currentTutorial != null)
+            {
                 currentTutorial.showCurrentTutorial();
             }
 
-            if (currentCharacter != null) {
+            if (currentCharacter != null)
+            {
                 currentCharacter.initialize();
             }
         }
@@ -444,7 +477,8 @@ namespace Antura.Minigames.Maze
             float elapsed = 0.0f;
             Vector3 originalCamPos = Camera.main.transform.position;
 
-            while (elapsed < duration) {
+            while (elapsed < duration)
+            {
 
                 elapsed += Time.deltaTime;
 
@@ -467,7 +501,8 @@ namespace Antura.Minigames.Maze
 
         public void appendToLine(Vector3 mousePos)
         {
-            if (!pointsList.Contains(mousePos)) {
+            if (!pointsList.Contains(mousePos))
+            {
                 //mousePos.z = -0.1071415f;
                 if (pointsList.Count == 0)
                 {
@@ -489,7 +524,8 @@ namespace Antura.Minigames.Maze
         public bool gameEnded;
         private void endGame()
         {
-            if (gameEnded) {
+            if (gameEnded)
+            {
                 return;
             }
 
@@ -508,15 +544,18 @@ namespace Antura.Minigames.Maze
         {
             endGame();
 
-            if (currentTutorial != null) {
+            if (currentTutorial != null)
+            {
                 currentTutorial.HideAllCheckpointsAndLines();
             }
 
-            if (currentCharacter != null) {
+            if (currentCharacter != null)
+            {
                 currentCharacter.gameObject.SetActive(false);
             }
 
-            foreach (var line in lines) {
+            foreach (var line in lines)
+            {
                 line.enabled = false;
             }
         }
@@ -524,7 +563,8 @@ namespace Antura.Minigames.Maze
         public bool isShowingAntura;
         public void onIdleTime()
         {
-            if (isShowingAntura || gameEnded) { return; }
+            if (isShowingAntura || gameEnded)
+            { return; }
             isShowingAntura = true;
 
             timer.StopTimer();

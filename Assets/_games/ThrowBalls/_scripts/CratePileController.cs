@@ -22,14 +22,16 @@ namespace Antura.Minigames.ThrowBalls
 
         public void OnSwerveUpdate(CrateController crate, float rotateByAngle, Vector3 rotationPivot, Vector3 zVector)
         {
-            if (crate == topCrate) {
+            if (crate == topCrate)
+            {
                 letter.transform.RotateAround(rotationPivot, zVector, rotateByAngle);
             }
         }
 
         public void OnCrateHit(CrateController crate)
         {
-            if (!hit) {
+            if (!hit)
+            {
                 ThrowBallsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.CrateLandOnground);
 
                 crate.Launch(new Vector3(0, 0, 1), 30);
@@ -37,25 +39,29 @@ namespace Antura.Minigames.ThrowBalls
                 middleCrate.ApplyCustomGravity();
                 middleCrate.SetIsKinematic(false);
                 middleCrate.VanishAfterDelay(0.7f);
-                if (middleCrate.IsSwerving()) {
+                if (middleCrate.IsSwerving())
+                {
                     middleCrate.StopSwerving();
                 }
 
                 topCrate.ApplyCustomGravity();
                 topCrate.SetIsKinematic(false);
                 topCrate.VanishAfterDelay(0.9f);
-                if (topCrate.IsSwerving()) {
+                if (topCrate.IsSwerving())
+                {
                     topCrate.StopSwerving();
                 }
 
                 bottomCrate.ApplyCustomGravity();
                 bottomCrate.SetIsKinematic(false);
                 bottomCrate.VanishAfterDelay(1.1f);
-                if (bottomCrate.IsSwerving()) {
+                if (bottomCrate.IsSwerving())
+                {
                     bottomCrate.StopSwerving();
                 }
 
-                if (letter.IsJumping()) {
+                if (letter.IsJumping())
+                {
                     letter.StopJumping();
                 }
 

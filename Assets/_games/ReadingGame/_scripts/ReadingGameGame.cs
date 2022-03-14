@@ -77,7 +77,7 @@ namespace Antura.Minigames.ReadingGame
         {
             if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.SimonSong)
             {
-                return Mathf.RoundToInt((1+MAX_QUESTIONS_SIMON_SONG)/3f * stars);
+                return Mathf.RoundToInt((1 + MAX_QUESTIONS_SIMON_SONG) / 3f * stars);
             }
 
             if (ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.ReadingGame_Words)
@@ -275,9 +275,12 @@ namespace Antura.Minigames.ReadingGame
             float t = 0.0f;
             while (t < waitTime)
             {
-                if (!songPaused) t += Time.deltaTime;
-                if (t >= waitTime) break;
-                if (checkPause) CheckSongPause();
+                if (!songPaused)
+                    t += Time.deltaTime;
+                if (t >= waitTime)
+                    break;
+                if (checkPause)
+                    CheckSongPause();
                 yield return null;
             }
         }
@@ -325,7 +328,8 @@ namespace Antura.Minigames.ReadingGame
 
         public void SayQuestion()
         {
-            if (AnswerState.Finished) return;
+            if (AnswerState.Finished)
+                return;
             var question = CurrentQuestion.GetQuestion();
             ReadingGameConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(question);
         }

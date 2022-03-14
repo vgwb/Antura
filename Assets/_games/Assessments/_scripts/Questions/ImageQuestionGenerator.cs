@@ -33,11 +33,13 @@ namespace Antura.Assessment
             this.missingLetter = missingLetter;
             this.audioManager = audioManager;
 
-            if (AssessmentOptions.Instance.CompleteWordOnAnswered) {
+            if (AssessmentOptions.Instance.CompleteWordOnAnswered)
+            {
                 events.OnAllQuestionsAnswered = CompleteWordCoroutine;
             }
 
-            if (AssessmentOptions.Instance.ShowFullWordOnAnswered) {
+            if (AssessmentOptions.Instance.ShowFullWordOnAnswered)
+            {
                 events.OnAllQuestionsAnswered = ShowFullWordCoroutine;
             }
 
@@ -87,7 +89,8 @@ namespace Antura.Assessment
 
         public void InitRound()
         {
-            if (state != QuestionGeneratorState.Uninitialized && state != QuestionGeneratorState.Completed) {
+            if (state != QuestionGeneratorState.Uninitialized && state != QuestionGeneratorState.Completed)
+            {
                 throw new InvalidOperationException("Cannot initialized");
             }
 
@@ -156,9 +159,11 @@ namespace Antura.Assessment
             //Prepare answers for next method call
             //____________________________________
 
-            if (missingLetter) {
+            if (missingLetter)
+            {
                 // ### MISSING LETTER ###
-                foreach (var wrong in currentPack.GetWrongAnswers()) {
+                foreach (var wrong in currentPack.GetWrongAnswers())
+                {
                     cacheLivingLetterType = wrong.DataType;
                     var wrongAnsw = GenerateWrongAnswer(wrong);
 
@@ -181,9 +186,12 @@ namespace Antura.Assessment
                 totalQuestions.Add(question);
                 GeneratePlaceHolder(question, cacheLivingLetterType);
                 return question;
-            } else {
+            }
+            else
+            {
                 // ### ORDER LETTERS ###
-                foreach (var correct in currentPack.GetCorrectAnswers()) {
+                foreach (var correct in currentPack.GetCorrectAnswers())
+                {
                     var correctAnsw = GenerateCorrectAnswer(correct);
                     answers.Add(correctAnsw);
                     totalAnswers.Add(correctAnsw);
@@ -206,7 +214,8 @@ namespace Antura.Assessment
         {
             cacheFullWordData = new LL_WordData(data.Id);
 
-            if (AssessmentOptions.Instance.ShowQuestionAsImage) {
+            if (AssessmentOptions.Instance.ShowQuestionAsImage)
+            {
                 data = new LL_ImageData(data.Id);
             }
 

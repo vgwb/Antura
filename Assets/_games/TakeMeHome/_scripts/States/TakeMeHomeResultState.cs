@@ -4,32 +4,33 @@ using UnityEngine;
 namespace Antura.Minigames.TakeMeHome
 {
 
-    public class TakeMeHomeResultState : FSM.IState {
+    public class TakeMeHomeResultState : FSM.IState
+    {
 
         //TakeMeHomeGame game;
 
         public TakeMeHomeResultState(TakeMeHomeGame game)
-		{
-        //    this.game = game;
-		}
-
-		public void EnterState()
-		{
-            
+        {
+            //    this.game = game;
         }
 
-		public void ExitState()
-		{
+        public void EnterState()
+        {
+
+        }
+
+        public void ExitState()
+        {
             //game.SetCurrentState(game.EndState);
         }
 
-		public void Update(float delta)
-		{
-			
-		}
+        public void Update(float delta)
+        {
 
-		public void UpdatePhysics(float delta)
-		{
-		}
-	}
+        }
+
+        public void UpdatePhysics(float delta)
+        {
+        }
+    }
 }

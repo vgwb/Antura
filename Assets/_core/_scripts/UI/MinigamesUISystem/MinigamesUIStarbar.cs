@@ -40,15 +40,21 @@ namespace Antura.UI
         /// <param name="_percentage">Percentage to reach (<code>0 to 1)</code></param>
         public void Goto(float _percentage)
         {
-            if (gotoTween != null) gotoTween.Kill();
+            if (gotoTween != null)
+                gotoTween.Kill();
             gotoTween = ProgressBar.DOSizeDelta(new Vector2(progressBarFullSize.x, progressBarFullSize.y * _percentage), 0.2f)
-                .OnUpdate(() => {
-                    for (int i = 0; i < stars.Length; ++i) {
+                .OnUpdate(() =>
+                {
+                    for (int i = 0; i < stars.Length; ++i)
+                    {
                         float starPercent = starPercentages[i];
                         float progressPercent = ProgressBar.sizeDelta.y / progressBarFullSize.y;
-                        if (progressPercent >= starPercent || Mathf.Approximately(progressPercent, starPercent)) {
+                        if (progressPercent >= starPercent || Mathf.Approximately(progressPercent, starPercent))
+                        {
                             stars[i].Gain();
-                        } else {
+                        }
+                        else
+                        {
                             stars[i].Lose();
                         }
                     }

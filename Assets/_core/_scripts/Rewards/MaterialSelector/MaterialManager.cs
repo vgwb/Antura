@@ -16,7 +16,8 @@ namespace Antura.Rewards
         {
             Material mat = Resources.Load<Material>(string.Format("{0}{1}",
                 string.Format("{0}{1}/", MATERIALS_REOURCES_PATH, _type.ToString()), _materialID));
-            if (mat == null) {
+            if (mat == null)
+            {
                 mat = Resources.Load<Material>(string.Format("{0}{1}_{2}", MATERIALS_REOURCES_PATH, "white", "pure"));
                 //Debug.LogFormat("Material not found {0}_{1} in path {2}", _color, _tone, MATERIALS_REOURCES_PATH);
             }

@@ -26,14 +26,18 @@ namespace Antura.Profile
         public PlayerProfile CurrentPlayer
         {
             get { return _currentPlayer; }
-            set {
-                if (_currentPlayer != value) {
+            set
+            {
+                if (_currentPlayer != value)
+                {
                     AppManager.I.Player = _currentPlayer = value;
 
-                    if (_currentPlayer != null) {
+                    if (_currentPlayer != null)
+                    {
                         AppManager.I.Teacher.SetPlayerProfile(value);
                         // TODO refactor: make this part more clear, better create a SetCurrentPlayer() method for this!
-                        if (AppManager.I.DB.HasLoadedPlayerProfile()) {
+                        if (AppManager.I.DB.HasLoadedPlayerProfile())
+                        {
                             LogManager.I.LogInfo(InfoEvent.AppSessionEnd, "{\"AppSession\":\"" + LogManager.I.AppSession + "\"}");
                         }
                         AppManager.I.AppSettings.LastActivePlayerUUID = value.Uuid;
@@ -45,7 +49,8 @@ namespace Antura.Profile
 
                         _currentPlayer.LoadRewardPackUnlockDataList(); // refresh list of unlocked rewards
                         _currentPlayer.SetCurrentJourneyPosition(_currentPlayer.MaxJourneyPosition);
-                        if (OnProfileChanged != null) {
+                        if (OnProfileChanged != null)
+                        {
                             OnProfileChanged();
                         }
                     }
@@ -79,7 +84,7 @@ namespace Antura.Profile
             if (!AppManager.I.JourneyHelper.SupportsJourneyPosition(currentPlayer.MaxJourneyPosition))
             {
                 var newMax = AppManager.I.JourneyHelper.FindExistingJourneyPositionBackwards(currentPlayer.MaxJourneyPosition);
-                currentPlayer.SetMaxJourneyPosition(newMax, _forced:true);
+                currentPlayer.SetMaxJourneyPosition(newMax, _forced: true);
             }
 
             // Check whether we should unlock the next max position
@@ -89,7 +94,7 @@ namespace Antura.Profile
             if (scoreAtMaxJP > 0 && nextJP != null)
             {
                 Debug.Log($"Updating max journey position to {nextJP} as we completed the previous one.");
-                currentPlayer.SetMaxJourneyPosition(nextJP, _forced:true);
+                currentPlayer.SetMaxJourneyPosition(nextJP, _forced: true);
             }
 
             // Check current position
@@ -111,7 +116,8 @@ namespace Antura.Profile
 
             // If null, the player does not exist.
             // The DB got desynced. Remove this player!
-            if (playerProfileDataFromDB == null) {
+            if (playerProfileDataFromDB == null)
+            {
                 Debug.LogError("ERROR: no profile data for player UUID " + playerUUID);
             }
 
@@ -130,17 +136,24 @@ namespace Antura.Profile
         {
             AppManager.I.AppSettingsManager.LoadSettings();
 
-            if (alsoLoadCurrentPlayerProfile) {
+            if (alsoLoadCurrentPlayerProfile)
+            {
                 // No last active? Get the first one.
-                if (AppManager.I.AppSettings.LastActivePlayerUUID == string.Empty) {
-                    if (AppManager.I.AppSettings.SavedPlayers.Count > 0) {
+                if (AppManager.I.AppSettings.LastActivePlayerUUID == string.Empty)
+                {
+                    if (AppManager.I.AppSettings.SavedPlayers.Count > 0)
+                    {
                         //UnityEngine.Debug.Log("No last! Get the first.");
                         AppManager.I.AppSettings.LastActivePlayerUUID = AppManager.I.AppSettings.SavedPlayers[0].Uuid;
-                    } else {
+                    }
+                    else
+                    {
                         AppManager.I.Player = null;
                         Debug.Log("Actual Player == null!!");
                     }
-                } else {
+                }
+                else
+                {
                     string playerUUID = AppManager.I.AppSettings.LastActivePlayerUUID;
 
                     // Check whether the SQL DB is in-sync first
@@ -148,10 +161,13 @@ namespace Antura.Profile
 
                     // If null, the player does not actually exist.
                     // The DB got desyinced. Do not load it!
-                    if (profileFromDB != null) {
+                    if (profileFromDB != null)
+                    {
                         //UnityEngine.Debug.Log("DB in sync! OK!");
                         SetPlayerAsCurrentByUUID(playerUUID);
-                    } else {
+                    }
+                    else
+                    {
                         //UnityEngine.Debug.Log("DB OUT OF SYNC. RESET");
                         ResetEverything();
                         LoadPlayerSettings();
@@ -181,8 +197,10 @@ namespace Antura.Profile
         /// </summary>
         public void UpdateCurrentPlayerIconDataInSettings()
         {
-            for (int i = 0; i < AppManager.I.AppSettings.SavedPlayers.Count; i++) {
-                if (AppManager.I.AppSettings.SavedPlayers[i].Uuid == _currentPlayer.Uuid) {
+            for (int i = 0; i < AppManager.I.AppSettings.SavedPlayers.Count; i++)
+            {
+                if (AppManager.I.AppSettings.SavedPlayers[i].Uuid == _currentPlayer.Uuid)
+                {
                     AppManager.I.AppSettings.SavedPlayers[i] = CurrentPlayer.GetPlayerIconData();
                 }
             }
@@ -200,7 +218,8 @@ namespace Antura.Profile
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
             returnProfile.Uuid = System.Guid.NewGuid().ToString();
-            if (isNewAvatar) avatarID += NEW_AVATAR_ID_START;
+            if (isNewAvatar)
+                avatarID += NEW_AVATAR_ID_START;
             returnProfile.AvatarId = avatarID;
             returnProfile.Gender = gender;
             returnProfile.Tint = tint;
@@ -226,7 +245,8 @@ namespace Antura.Profile
             AppManager.I.RewardSystemManager.UnlockFirstSetOfRewards();
 
             // Call Event Profile creation
-            if (OnNewProfileCreated != null) {
+            if (OnNewProfileCreated != null)
+            {
                 OnNewProfileCreated();
             }
 
@@ -245,9 +265,12 @@ namespace Antura.Profile
         /// <param name="_playerProfile">The player profile.</param>
         public void SavePlayerProfile(PlayerProfile _playerProfile)
         {
-            try {
+            try
+            {
                 AppManager.I.DB.UpdatePlayerProfileData(_playerProfile.ToData());
-            } catch (Exception e) {
+            }
+            catch (Exception e)
+            {
                 Debug.LogError(e);
             }
         }
@@ -268,16 +291,21 @@ namespace Antura.Profile
             AppManager.I.StopAllCoroutines();
             // TODO: check if is necessary to hard delete DB
             PlayerIconData playerIconData = GetPlayersIconData().Find(p => p.Uuid == playerUUID);
-            if (playerIconData.Uuid == string.Empty) {
+            if (playerIconData.Uuid == string.Empty)
+            {
                 return null;
             }
             // if setted as active player in gamesettings remove from it
-            if (playerIconData.Uuid == AppManager.I.AppSettings.LastActivePlayerUUID) {
+            if (playerIconData.Uuid == AppManager.I.AppSettings.LastActivePlayerUUID)
+            {
                 // if possible set the first available player...
                 PlayerIconData newActivePlayerIcon = GetPlayersIconData().Find(p => p.Uuid != playerUUID);
-                if (newActivePlayerIcon.Uuid != null) {
+                if (newActivePlayerIcon.Uuid != null)
+                {
                     AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(newActivePlayerIcon.Uuid);
-                } else {
+                }
+                else
+                {
                     // ...else set to null
                     AppManager.I.PlayerProfileManager._currentPlayer = null;
                 }
@@ -294,8 +322,10 @@ namespace Antura.Profile
         public void ResetEverything()
         {
             // Reset all the Databases
-            if (AppManager.I.AppSettings.SavedPlayers != null) {
-                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers) {
+            if (AppManager.I.AppSettings.SavedPlayers != null)
+            {
+                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers)
+                {
                     AppManager.I.DB.LoadDatabaseForPlayer(pp.Uuid);
                     AppManager.I.DB.DropProfile();
                 }
@@ -314,8 +344,10 @@ namespace Antura.Profile
         public void DeleteAllPlayers()
         {
             // Reset all the Databases
-            if (AppManager.I.AppSettings.SavedPlayers != null) {
-                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers) {
+            if (AppManager.I.AppSettings.SavedPlayers != null)
+            {
+                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers)
+                {
                     AppManager.I.DB.LoadDatabaseForPlayer(pp.Uuid);
                     AppManager.I.DB.DropProfile();
                 }
@@ -332,9 +364,11 @@ namespace Antura.Profile
         {
             ResetEverything();
             string[] importFilePaths = AppManager.I.DB.GetImportFilePaths();
-            foreach (var filePath in importFilePaths) {
+            foreach (var filePath in importFilePaths)
+            {
                 // Check whether that is a DB and load it
-                if (AppManager.I.DB.IsValidDatabasePath(filePath)) {
+                if (AppManager.I.DB.IsValidDatabasePath(filePath))
+                {
                     ImportPlayerProfile(filePath);
                 }
             }
@@ -348,7 +382,8 @@ namespace Antura.Profile
         public void ImportPlayerProfile(string filePath)
         {
             PlayerProfileData importedPlayerProfileData = AppManager.I.DB.ImportDynamicDatabase(filePath);
-            if (importedPlayerProfileData != null) {
+            if (importedPlayerProfileData != null)
+            {
                 PlayerProfile importedPlayerProfile = new PlayerProfile().FromData(importedPlayerProfileData);
                 AppManager.I.AppSettings.SavedPlayers.Add(importedPlayerProfile.GetPlayerIconData());
             }
@@ -375,8 +410,10 @@ namespace Antura.Profile
         {
             bool demoUserExists = false;
             var playerList = GetPlayersIconData();
-            foreach (var player in playerList) {
-                if (player.IsDemoUser) {
+            foreach (var player in playerList)
+            {
+                if (player.IsDemoUser)
+                {
                     demoUserExists = true;
                 }
             }

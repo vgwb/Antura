@@ -23,8 +23,10 @@ namespace Antura.Minigames.Maze
         static MazeConfiguration instance;
         public static MazeConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new MazeConfiguration();
                 }
                 return instance;
@@ -48,7 +50,8 @@ namespace Antura.Minigames.Maze
             int nPacks = 5;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MazeVariation.LetterName:
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.wordFilters.excludeDiacritics = true;
@@ -72,7 +75,8 @@ namespace Antura.Minigames.Maze
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case MazeVariation.LetterName:
                     soundType = LetterDataSoundType.Name;
                     break;

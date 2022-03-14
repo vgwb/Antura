@@ -30,7 +30,8 @@ namespace Antura
             var languageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
 
             // Icons
-            if (VERBOSE) Debug.Log("[Assets] Preloading Icons");
+            if (VERBOSE)
+                Debug.Log("[Assets] Preloading Icons");
             var iconKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
@@ -40,7 +41,8 @@ namespace Antura
             yield return LoadAssets(iconKeys, spriteCache, AppManager.BlockingLoad);
 
             // Badges
-            if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
+            if (VERBOSE)
+                Debug.Log("[Assets] Preloading Badges");
             var badgeKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
@@ -50,7 +52,8 @@ namespace Antura
             yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
 
             // Side data
-            if (VERBOSE) Debug.Log("[Assets] Preloading Side Data");
+            if (VERBOSE)
+                Debug.Log("[Assets] Preloading Side Data");
             var sideKeys = new HashSet<string>();
             foreach (var letterData in AppManager.I.DB.GetAllLetterData())
             {
@@ -60,7 +63,8 @@ namespace Antura
 
 
             // Song data
-            if (VERBOSE) Debug.Log("[Assets] Preloading Song Data");
+            if (VERBOSE)
+                Debug.Log("[Assets] Preloading Song Data");
             var songAudioKeys = new HashSet<string>();
             var prefix = $"{languageCode}/Audio/Songs/";
             songAudioKeys.Add($"{prefix}AlphabetSong");
@@ -82,31 +86,37 @@ namespace Antura
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
         {
-            foreach (var keyValuePair in cache) Addressables.Release(keyValuePair.Value);
+            foreach (var keyValuePair in cache)
+                Addressables.Release(keyValuePair.Value);
             cache.Clear();
         }
 
-        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string,T> cache, bool sync = false) where T : UnityEngine.Object
+        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string, T> cache, bool sync = false) where T : UnityEngine.Object
         {
             int n = 0;
-            if (VERBOSE) Debug.Log($"Loading {keys.Count} (first is {keys.FirstOrDefault()}");
+            if (VERBOSE)
+                Debug.Log($"Loading {keys.Count} (first is {keys.FirstOrDefault()}");
             var op =
-                Addressables.LoadAssetsAsync<T>(keys, obj => {
+                Addressables.LoadAssetsAsync<T>(keys, obj =>
+                {
                     cache[obj.name] = obj;
                     n++;
                 }, Addressables.MergeMode.Union);
 
             while (!op.IsDone)
             {
-                if (sync) op.WaitForCompletion();
-                else yield return null;
+                if (sync)
+                    op.WaitForCompletion();
+                else
+                    yield return null;
             }
 
             //yield return op;
-            if (VERBOSE) Debug.Log($"Found {n} items");
+            if (VERBOSE)
+                Debug.Log($"Found {n} items");
         }
 
-        public T Get<T>(Dictionary<string,T> cache, string key)
+        public T Get<T>(Dictionary<string, T> cache, string key)
         {
             if (!cache.ContainsKey(key))
             {

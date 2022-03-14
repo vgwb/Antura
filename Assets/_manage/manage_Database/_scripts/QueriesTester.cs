@@ -20,11 +20,13 @@ namespace Antura.Database.Management
             dbManager = dbTester.dbManager;
         }
 
-        private List<T> DoSelect<T>(string orderBy = "", int limit = 0) where T: IData, new()
+        private List<T> DoSelect<T>(string orderBy = "", int limit = 0) where T : IData, new()
         {
             string query = "SELECT * FROM " + typeof(T).Name;
-            if (orderBy != "") query += " ORDER BY " + orderBy;
-            if (limit > 0) query += " LIMIT " + limit;
+            if (orderBy != "")
+                query += " ORDER BY " + orderBy;
+            if (limit > 0)
+                query += " LIMIT " + limit;
             return dbManager.Query<T>(query);
         }
 
@@ -35,8 +37,9 @@ namespace Antura.Database.Management
             int nEntries = 20;
             List<LogMoodData> list = DoSelect<LogMoodData>("Timestamp", 20);
 
-            string output = "Latest " + nEntries +" moods:\n";
-            foreach (var data in list) output += GenericHelper.FromTimestamp(data.Timestamp) + ": " + data.ToString() + "\n";
+            string output = "Latest " + nEntries + " moods:\n";
+            foreach (var data in list)
+                output += GenericHelper.FromTimestamp(data.Timestamp) + ": " + data.ToString() + "\n";
             dbTester.PrintOutput(output);
         }
 

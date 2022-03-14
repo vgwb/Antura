@@ -23,9 +23,12 @@ namespace Antura.Minigames.SickLetters
             timer = game.gameDuration;
 
             SickLettersConfiguration.Instance.Context.GetAudioManager().MusicEnabled = true;
-            if (game.roundsCount == 0) {
+            if (game.roundsCount == 0)
+            {
                 SickLettersConfiguration.Instance.Context.GetAudioManager().PlayMusic(Music.Relax);
-            } else {
+            }
+            else
+            {
                 SickLettersConfiguration.Instance.Context.GetAudioManager().PlayMusic(Music.Theme10);
                 game.Context.GetOverlayWidget().Initialize(true, true, false);
                 game.Context.GetOverlayWidget().SetClockDuration(game.gameDuration);
@@ -44,11 +47,13 @@ namespace Antura.Minigames.SickLetters
         {
             game.ProcessDifficulty(game.Difficulty);
 
-            if (game.roundsCount > 0) {
+            if (game.roundsCount > 0)
+            {
                 timer -= delta;
                 game.Context.GetOverlayWidget().SetClockTime(timer);
             }
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 /*
                 if (clockSound != null)
                 {
@@ -62,11 +67,13 @@ namespace Antura.Minigames.SickLetters
                 KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Keeper_TimeUp);
             }
 
-            if (alarmIsTriggered == 0 && timer < 2) {
+            if (alarmIsTriggered == 0 && timer < 2)
+            {
                 alarmIsTriggered = 1;
                 KeeperManager.I.PlayDialogue("Keeper_Time_" + Random.Range(1, 4));
             }
-            if (alarmIsTriggered == 1 && timer < 4) {
+            if (alarmIsTriggered == 1 && timer < 4)
+            {
                 alarmIsTriggered = 2;
                 //clockSound = SickLettersConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.DangerClockLong);
             }

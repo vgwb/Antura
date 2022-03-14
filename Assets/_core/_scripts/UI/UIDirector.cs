@@ -15,7 +15,8 @@ namespace Antura.UI
 
         public static void Init()
         {
-            if (initialized) { return; }
+            if (initialized)
+            { return; }
 
             initialized = true;
             AppManager.I.NavigationManager.OnSceneStartTransition += OnSceneStartTransition;
@@ -25,7 +26,8 @@ namespace Antura.UI
 
         public static void Add(UIButton button)
         {
-            if (!allActiveUIButtons.Contains(button)) { allActiveUIButtons.Add(button); }
+            if (!allActiveUIButtons.Contains(button))
+            { allActiveUIButtons.Add(button); }
         }
 
         public static void Remove(UIButton button)
@@ -39,7 +41,8 @@ namespace Antura.UI
 
         public static void DeactivateAllUI()
         {
-            foreach (UIButton bt in allActiveUIButtons) {
+            foreach (UIButton bt in allActiveUIButtons)
+            {
                 bt.Bt.interactable = false;
             }
             // NOTE: would be nicer and faster to just set EventSystem.current.enabled to FALSE, but there's non-UI elements that rely on it apparently,

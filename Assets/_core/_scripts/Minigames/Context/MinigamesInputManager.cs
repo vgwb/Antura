@@ -61,37 +61,49 @@ namespace Antura.Minigames
         {
             LastDeltaTime = delta;
 
-            if (!Enabled) {
+            if (!Enabled)
+            {
                 return;
             }
 
-            if (Input.GetMouseButton(0)) {
-                if (wasPointerDown) {
+            if (Input.GetMouseButton(0))
+            {
+                if (wasPointerDown)
+                {
                     var newPosition = Input.mousePosition;
-                    deltaPosition = (Vector2) newPosition - lastPointerPosition;
+                    deltaPosition = (Vector2)newPosition - lastPointerPosition;
 
                     lastPointerPosition = newPosition;
 
-                    if (deltaPosition.x != 0 || deltaPosition.y != 0) {
-                        if (onPointerDrag != null) {
+                    if (deltaPosition.x != 0 || deltaPosition.y != 0)
+                    {
+                        if (onPointerDrag != null)
+                        {
                             onPointerDrag();
                         }
                     }
-                } else {
+                }
+                else
+                {
                     deltaPosition = Vector2.zero;
                     lastPointerPosition = Input.mousePosition;
                     wasPointerDown = true;
 
-                    if (onPointerDown != null) {
+                    if (onPointerDown != null)
+                    {
                         onPointerDown();
                     }
                 }
-            } else {
+            }
+            else
+            {
                 deltaPosition = Vector2.zero;
-                if (wasPointerDown) {
+                if (wasPointerDown)
+                {
                     wasPointerDown = false;
 
-                    if (onPointerUp != null) {
+                    if (onPointerUp != null)
+                    {
                         onPointerUp();
                     }
                 }

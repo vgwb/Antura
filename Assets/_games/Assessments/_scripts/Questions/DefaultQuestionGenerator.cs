@@ -52,13 +52,16 @@ namespace Antura.Assessment
             this.dialogues = dialogues;
             this.config = config;
 
-            if (config == DefaultQuestionType.MissingForm) {
+            if (config == DefaultQuestionType.MissingForm)
+            {
                 events.OnAllQuestionsAnswered = CompleteWordsWithForm;
             }
-            if (config == DefaultQuestionType.WordsWithLetter) {
+            if (config == DefaultQuestionType.WordsWithLetter)
+            {
                 events.OnPreQuestionsAnswered = ShowGreenLetterInWord;
             }
-            if (AssessmentOptions.Instance.ReadQuestionAndAnswer) {
+            if (AssessmentOptions.Instance.ReadQuestionAndAnswer)
+            {
                 events.OnAllQuestionsAnswered = ReadQuestionAndReplyEvent;
             }
             state = QuestionGeneratorState.Uninitialized;
@@ -74,7 +77,8 @@ namespace Antura.Assessment
 
         public void InitRound()
         {
-            if (state != QuestionGeneratorState.Uninitialized && state != QuestionGeneratorState.Completed) {
+            if (state != QuestionGeneratorState.Uninitialized && state != QuestionGeneratorState.Completed)
+            {
                 throw new InvalidOperationException("Cannot initialized");
             }
 
@@ -114,7 +118,8 @@ namespace Antura.Assessment
 
             Debug.Assert(boxes.Length == words.Length);
 
-            for (int i = 0; i < boxes.Length; i++) {
+            for (int i = 0; i < boxes.Length; i++)
+            {
                 dialogues.PlayPoofSound();
                 boxes[i].Poof();
                 boxes[i].Label.text = words[i];
@@ -129,7 +134,8 @@ namespace Antura.Assessment
 
         private IEnumerator ShowGreenLetterInWord()
         {
-            foreach (var tuple in greenHighlightList) {
+            foreach (var tuple in greenHighlightList)
+            {
                 var q = tuple.Item1;
                 var a = tuple.Item2;
                 a.GetComponent<StillLetterBox>().SetGreenLetter(a.Data(), q.LetterData());
@@ -202,7 +208,8 @@ namespace Antura.Assessment
 
             currentPack = provider.GetNextQuestion();
 
-            if (config == DefaultQuestionType.MissingForm || config == DefaultQuestionType.VisibleForm) {
+            if (config == DefaultQuestionType.MissingForm || config == DefaultQuestionType.VisibleForm)
+            {
                 return CustomQuestion();
             }
 
@@ -214,7 +221,8 @@ namespace Antura.Assessment
             //____________________________________
 
 
-            foreach (var wrong in currentPack.GetWrongAnswers()) {
+            foreach (var wrong in currentPack.GetWrongAnswers())
+            {
                 var wrongAnsw = GenerateWrongAnswer(wrong);
 
                 answers.Add(wrongAnsw);
@@ -223,9 +231,11 @@ namespace Antura.Assessment
 
             int correctCount = 0;
             Answer greenAnswerLetter = null;
-            foreach (var correct in currentPack.GetCorrectAnswers()) {
+            foreach (var correct in currentPack.GetCorrectAnswers())
+            {
                 var correctAnsw = GenerateCorrectAnswer(correct);
-                if (correctCount == 0) {
+                if (correctCount == 0)
+                {
                     greenAnswerLetter = correctAnsw;
                 }
                 correctCount++;
@@ -241,7 +251,8 @@ namespace Antura.Assessment
             greenHighlightList.Add(new Tuple<IQuestion, Answer>(question, greenAnswerLetter));
 
             // Generate placeholders
-            foreach (var correct in currentPack.GetCorrectAnswers()) {
+            foreach (var correct in currentPack.GetCorrectAnswers())
+            {
                 GeneratePlaceHolder(question, AssessmentOptions.Instance.AnswerType);
             }
             return question;
@@ -272,10 +283,12 @@ namespace Antura.Assessment
 
         private IQuestion GenerateCustomQuestion(ILivingLetterData question, LL_LetterData correctLetter)
         {
-            if (question == null) {
+            if (question == null)
+            {
                 throw new ArgumentNullException("Question Null");
             }
-            if (correctLetter == null) {
+            if (correctLetter == null)
+            {
                 throw new ArgumentNullException("correct Letter");
             }
             LL_WordData word = question as LL_WordData;
@@ -287,7 +300,8 @@ namespace Antura.Assessment
             string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
                 word.Data, partsToRemove[0], removedLetterColor: "#000000");
 
-            if (config == DefaultQuestionType.MissingForm) {
+            if (config == DefaultQuestionType.MissingForm)
+            {
                 wordGO.Label.text = text;
                 AddCompleteWordEvent(word.TextForLivingLetter, wordGO);
             }
@@ -301,12 +315,14 @@ namespace Antura.Assessment
         private IQuestion GenerateQuestion(ILivingLetterData data, int correctCount)
         {
             cacheQuestionToRead = data;
-            if (AssessmentOptions.Instance.ShowQuestionAsImage) {
+            if (AssessmentOptions.Instance.ShowQuestionAsImage)
+            {
                 data = new LL_ImageData(data.Id);
             }
             var q = ItemFactory.Instance.SpawnQuestion(data);
 
-            if (AssessmentOptions.Instance.QuestionAnsweredFlip) {
+            if (AssessmentOptions.Instance.QuestionAnsweredFlip)
+            {
                 q.GetComponent<StillLetterBox>().HideHiddenQuestion();
             }
             return new DefaultQuestion(q, correctCount, dialogues);

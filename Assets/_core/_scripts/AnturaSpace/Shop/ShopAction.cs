@@ -18,7 +18,7 @@ namespace Antura.AnturaSpace
             get { return null; }
         }
 
-        public Sprite iconSprite; 
+        public Sprite iconSprite;
         public int bonesCost;
 
         public virtual bool IsOnTheSide
@@ -80,14 +80,18 @@ namespace Antura.AnturaSpace
         }
         protected void CommitActionCheck(bool success)
         {
-            if (!success) AudioManager.I.PlaySound(Sfx.KO);
-            if (success) AppManager.I.Player.RemoveBones(bonesCost);
-            if (OnActionCommitted != null) OnActionCommitted();
+            if (!success)
+                AudioManager.I.PlaySound(Sfx.KO);
+            if (success)
+                AppManager.I.Player.RemoveBones(bonesCost);
+            if (OnActionCommitted != null)
+                OnActionCommitted();
         }
 
         protected void RefreshAction()
         {
-            if (OnActionRefreshed != null) OnActionRefreshed();
+            if (OnActionRefreshed != null)
+                OnActionRefreshed();
         }
 
         #endregion

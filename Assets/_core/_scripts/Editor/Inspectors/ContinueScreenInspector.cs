@@ -28,21 +28,27 @@ namespace Antura.Editor.Inspectors
 
             GUILayout.Label("Settings", DeGUI.styles.label.bold);
             DeGUILayout.Toolbar("Center Position", new DeSkinColor(0.5f, 0.1f));
-            using (new DeGUILayout.ToolbarScope(new DeSkinColor(0.5f, 0.1f), DeGUI.styles.toolbar.def)) {
-                if (GUILayout.Button("Save", DeGUI.styles.button.tool)) {
+            using (new DeGUILayout.ToolbarScope(new DeSkinColor(0.5f, 0.1f), DeGUI.styles.toolbar.def))
+            {
+                if (GUILayout.Button("Save", DeGUI.styles.button.tool))
+                {
                     src.CenterSnapshot = GetSnapshot();
                     EditorUtility.SetDirty(src);
                 }
-                if (GUILayout.Button("Apply", DeGUI.styles.button.tool)) SetSnapshot(src.CenterSnapshot);
+                if (GUILayout.Button("Apply", DeGUI.styles.button.tool))
+                    SetSnapshot(src.CenterSnapshot);
             }
             GUILayout.Space(4);
             DeGUILayout.Toolbar("Side Position", new DeSkinColor(0.5f, 0.1f));
-            using (new DeGUILayout.ToolbarScope(new DeSkinColor(0.5f, 0.1f), DeGUI.styles.toolbar.def)) {
-                if (GUILayout.Button("Save", DeGUI.styles.button.tool)) {
+            using (new DeGUILayout.ToolbarScope(new DeSkinColor(0.5f, 0.1f), DeGUI.styles.toolbar.def))
+            {
+                if (GUILayout.Button("Save", DeGUI.styles.button.tool))
+                {
                     src.SideSnapshot = GetSnapshot();
                     EditorUtility.SetDirty(src);
                 }
-                if (GUILayout.Button("Apply", DeGUI.styles.button.tool)) SetSnapshot(src.SideSnapshot);
+                if (GUILayout.Button("Apply", DeGUI.styles.button.tool))
+                    SetSnapshot(src.SideSnapshot);
             }
 
             GUILayout.Label("References", DeGUI.styles.label.bold);
@@ -54,7 +60,8 @@ namespace Antura.Editor.Inspectors
 
         ButtonSnapshot GetSnapshot()
         {
-            if (src.BtContinue == null) {
+            if (src.BtContinue == null)
+            {
                 EditorUtility.DisplayDialog("Apply", "BT Continue is not set", "Ok");
                 return new ButtonSnapshot();
             }
@@ -71,7 +78,8 @@ namespace Antura.Editor.Inspectors
 
         void SetSnapshot(ButtonSnapshot snapshot)
         {
-            if (src.BtContinue == null || src.IcoContinue == null) return;
+            if (src.BtContinue == null || src.IcoContinue == null)
+                return;
 
             snapshot.Apply(src.BtContinue.GetComponent<RectTransform>(), src.IcoContinue);
         }

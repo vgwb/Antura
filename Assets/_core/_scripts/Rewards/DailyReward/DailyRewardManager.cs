@@ -21,11 +21,15 @@ namespace Antura.Rewards
 
         public IEnumerable<DailyReward> GetRewards(int startIndex, int stopIndex)
         {
-            for (var index = startIndex; index < stopIndex; index++) {
-                if (index >= rewards.Count) {
+            for (var index = startIndex; index < stopIndex; index++)
+            {
+                if (index >= rewards.Count)
+                {
                     // Fallback to the last one
                     yield return rewards.Last();
-                } else {
+                }
+                else
+                {
                     yield return rewards[index];
                 }
             }

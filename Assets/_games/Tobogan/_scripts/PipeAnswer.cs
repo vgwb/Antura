@@ -24,7 +24,7 @@ namespace Antura.Minigames.Tobogan
 
         public bool IsCorrectAnswer { get; private set; }
         public ILivingLetterData Data { get; private set; }
-        
+
         List<Material> tubeMaterials = new List<Material>();
 
         public bool active;
@@ -79,8 +79,8 @@ namespace Antura.Minigames.Tobogan
                 targetPosition = Vector3.up * disappearHeight;
 
             graphics.transform.localPosition = Vector3.Lerp(graphics.transform.localPosition, targetPosition, disappearSpeed * Time.deltaTime);
-            
-          
+
+
             if (showSign)
             {
                 answerText.alpha = Mathf.Lerp(answerText.alpha, 1, Time.deltaTime * 5.0f);
@@ -103,7 +103,7 @@ namespace Antura.Minigames.Tobogan
         {
             Data = livingLetterData;
 
-            if(livingLetterData.DataType == LivingLetterDataType.Image)
+            if (livingLetterData.DataType == LivingLetterDataType.Image)
             {
                 answerText.gameObject.SetActive(false);
                 answerWordDrawings.gameObject.SetActive(true);
@@ -118,7 +118,7 @@ namespace Antura.Minigames.Tobogan
                 answerText.color = color;
                 answerRender.gameObject.SetActive(true);
                 answerWordDrawings.gameObject.SetActive(false);
-                
+
                 answerRender.SetLetterData(livingLetterData);
             }
 

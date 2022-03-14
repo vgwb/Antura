@@ -37,12 +37,12 @@ namespace Antura.Minigames.MakeFriends
                         return startingPosition + (offscreenPosition - startingPosition).normalized * 4f;
                     case 2:
                         return startingPosition + (offscreenPosition - startingPosition).normalized * 8f;
-                    case 3: 
+                    case 3:
                         return offscreenPosition;
                     default:
                         return startingPosition;
                 }
-            }    
+            }
         }
 
 

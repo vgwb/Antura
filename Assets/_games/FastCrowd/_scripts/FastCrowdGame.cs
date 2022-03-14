@@ -40,7 +40,7 @@ namespace Antura.Minigames.FastCrowd
         {
             get
             {
-                return (int) (stars3Threshold * 0.5f);
+                return (int)(stars3Threshold * 0.5f);
             }
         }
 

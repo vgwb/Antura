@@ -36,7 +36,8 @@ namespace Antura.Minigames
         /// <summary>
         /// Access the GameStateManager that controls the minigame's FSM.
         /// </summary>
-        public StateMachineManager StateManager {
+        public StateMachineManager StateManager
+        {
             get { return stateManager; }
         }
 
@@ -177,8 +178,10 @@ namespace Antura.Minigames
 
         void StepOne()
         {
-            if (GetConfiguration().AutoPlayIntro) PlayIntro(StepTwo);
-            else StepTwo();
+            if (GetConfiguration().AutoPlayIntro)
+                PlayIntro(StepTwo);
+            else
+                StepTwo();
         }
 
         void StepTwo()
@@ -207,8 +210,10 @@ namespace Antura.Minigames
             if (AppManager.I.AppEdition.PlayIntroAtMiniGameStart)
             {
                 var id = GetConfiguration().IntroLocalizationId;
-                if (id != LocalizationDataId.None) Context.GetAudioManager().PlayDialogue(id, onComplete);
-                else onComplete();
+                if (id != LocalizationDataId.None)
+                    Context.GetAudioManager().PlayDialogue(id, onComplete);
+                else
+                    onComplete();
             }
             else
             {
@@ -222,8 +227,10 @@ namespace Antura.Minigames
         }
         public void PlayTutorialConditional(bool condition, Action onComplete = null)
         {
-            if (condition) PlayTutorial(onComplete);
-            else onComplete?.Invoke();
+            if (condition)
+                PlayTutorial(onComplete);
+            else
+                onComplete?.Invoke();
         }
 
         /// <summary>
@@ -243,7 +250,8 @@ namespace Antura.Minigames
         {
             StarsScore = stars;
 
-            if (OnGameEnded != null) {
+            if (OnGameEnded != null)
+            {
                 OnGameEnded(stars, score);
             }
 
@@ -279,7 +287,8 @@ namespace Antura.Minigames
         /// </summary>
         void Update()
         {
-            if (Context == null) return;
+            if (Context == null)
+                return;
 
             stateManager.Update(Time.deltaTime);
 
@@ -312,7 +321,8 @@ namespace Antura.Minigames
 
         void OnApplicationPause(bool pause)
         {
-            if (pause) {
+            if (pause)
+            {
                 hasToPause = true;
             }
         }
@@ -332,11 +342,13 @@ namespace Antura.Minigames
 
         void OnDestroy()
         {
-            if (initialized) {
+            if (initialized)
+            {
                 Physics.gravity = oldGravity;
             }
 
-            if (Context != null) {
+            if (Context != null)
+            {
                 Context.Reset();
             }
         }

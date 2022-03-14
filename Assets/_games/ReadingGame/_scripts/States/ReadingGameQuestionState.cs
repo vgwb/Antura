@@ -57,7 +57,7 @@ namespace Antura.Minigames.ReadingGame
                 }
 
                 case ReadingGameConfiguration.GameType.ReadAndListen:
-                { 
+                {
                     // Pick a question pack
                     var pack = ReadingGameConfiguration.Instance.Questions.GetNextQuestion();
                     game.CurrentQuestion = pack;
@@ -101,7 +101,8 @@ namespace Antura.Minigames.ReadingGame
 
                     case ReadingGameConfiguration.GameType.FollowSong:
 
-                        game.PlayIntro(() => {
+                        game.PlayIntro(() =>
+                        {
                             var firstBar = game.barSet.GetNextBar();
                             var handleOffset = firstBar.glass.handleOffset.position - firstBar.glass.transform.position;
 
@@ -115,7 +116,8 @@ namespace Antura.Minigames.ReadingGame
                             {
                                 UnityEngine.Debug.LogError("TUTORIAL ON");
                                 game.Context.GetAudioManager()
-                                    .PlayDialogue(ReadingGameConfiguration.Instance.TutorialLocalizationId, () => {
+                                    .PlayDialogue(ReadingGameConfiguration.Instance.TutorialLocalizationId, () =>
+                                    {
                                         completed = true;
                                     });
                             }

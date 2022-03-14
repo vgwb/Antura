@@ -39,7 +39,7 @@ namespace Antura.Assessment
         /// <param name="other"> other answer content</param>
         public bool Equals(Answer other)
         {
-            return AssessmentConfiguration.Instance.IsDataMatching(Data(),other.Data());
+            return AssessmentConfiguration.Instance.IsDataMatching(Data(), other.Data());
         }
 
         /// <summary>
@@ -47,7 +47,8 @@ namespace Antura.Assessment
         /// </summary>
         public override bool Equals(object obj)
         {
-            if (obj is Answer) {
+            if (obj is Answer)
+            {
                 return this.Equals(obj as Answer);
             }
             return false;
@@ -74,8 +75,10 @@ namespace Antura.Assessment
         /// </summary>
         void OnMouseDown()
         {
-            if (GlobalUI.PauseMenu.IsMenuOpen) return;  
-            if (AssessmentOptions.Instance.PronunceAnswerWhenClicked) {
+            if (GlobalUI.PauseMenu.IsMenuOpen)
+                return;
+            if (AssessmentOptions.Instance.PronunceAnswerWhenClicked)
+            {
                 dialogues.PlayLetterData(Data());
             }
         }

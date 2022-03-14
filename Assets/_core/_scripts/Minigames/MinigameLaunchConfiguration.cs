@@ -1,7 +1,7 @@
 namespace Antura.Minigames
 {
     /// <summary>
-    /// Data passed to a minigame to configure it. 
+    /// Data passed to a minigame to configure it.
     /// </summary>
     [System.Serializable]
     public class MinigameLaunchConfiguration

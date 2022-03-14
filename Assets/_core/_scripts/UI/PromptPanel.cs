@@ -36,7 +36,8 @@ namespace Antura.UI
             showTween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(this.GetComponent<Image>().DOFade(0, 0.35f).From())
                 .Join(Content.DOScale(0.0001f, 0.35f).From().SetEase(Ease.OutBack))
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     this.gameObject.SetActive(false);
                     OnClose();
                 });
@@ -63,9 +64,12 @@ namespace Antura.UI
             var localizationData = LocalizationManager.GetLocalizationData(id);
             KeeperManager.I.PlayDialogue(id, keeperMode: keeperMode);
 
-            if (keeperMode == KeeperMode.NativeNoSubtitles || keeperMode == KeeperMode.NativeAndSubtitles) {
+            if (keeperMode == KeeperMode.NativeNoSubtitles || keeperMode == KeeperMode.NativeAndSubtitles)
+            {
                 Show(localizationData.NativeText, localizationData.GetNativeText(), _onYes, _onNo);
-            } else {
+            }
+            else
+            {
                 Show(LocalizationManager.GetLearning(id), localizationData.GetNativeText(), _onYes, _onNo);
             }
         }
@@ -78,9 +82,12 @@ namespace Antura.UI
         public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageNative.IsNullOrEmpty() || !AppManager.I.AppEdition.ShowHelpText) {
+            if (_messageNative.IsNullOrEmpty() || !AppManager.I.AppEdition.ShowHelpText)
+            {
                 TfMessageLearningFull.text = _messageLearning;
-            } else {
+            }
+            else
+            {
                 TfMessageNative.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;
                 TfMessageLearning.text = _messageLearning.IsNullOrEmpty() ? "" : _messageLearning;
                 TfMessageLearningFull.text = "";
@@ -104,13 +111,17 @@ namespace Antura.UI
 
         void OnClick(UIButton _bt)
         {
-            if (showTween.IsBackwards()) {
+            if (showTween.IsBackwards())
+            {
                 return;
             }
 
-            if (_bt == BtYes && onYes != null) {
+            if (_bt == BtYes && onYes != null)
+            {
                 onCloseAction = onYes;
-            } else if (_bt == BtNo && onNo != null) {
+            }
+            else if (_bt == BtNo && onNo != null)
+            {
                 onCloseAction = onNo;
             }
             Close();
@@ -118,7 +129,8 @@ namespace Antura.UI
 
         void OnClose()
         {
-            if (onCloseAction != null) {
+            if (onCloseAction != null)
+            {
                 onCloseAction();
             }
             onCloseAction = null;

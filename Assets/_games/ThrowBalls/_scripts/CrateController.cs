@@ -141,7 +141,7 @@ namespace Antura.Minigames.ThrowBalls
             GameObject poof = Instantiate(ThrowBallsGame.instance.cratePoofPrefab, transform.position, Quaternion.identity);
             Destroy(poof, 10);
             gameObject.SetActive(false);
-            
+
             ThrowBallsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Poof);
         }
 

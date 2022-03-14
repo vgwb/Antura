@@ -12,7 +12,8 @@ namespace Antura.UI
         void Start()
         {
             var label = "";
-            if (AppManager.I.AppSettings.KioskMode) {
+            if (AppManager.I.AppSettings.KioskMode)
+            {
                 label = "CROWFUNDING DEMO ";
             }
             label += AppManager.I.AppEdition.GetAppVersionString();

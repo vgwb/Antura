@@ -1,9 +1,9 @@
 namespace Antura
 {
     /// <summary>
-    /// Enumerator specifying a minigame (or minigame variation) that is supported by the core application. 
+    /// Enumerator specifying a minigame (or minigame variation) that is supported by the core application.
     /// </summary>
-    // TODO refactor: this enum depends on the specific implemented minigames and should be grouped with them 
+    // TODO refactor: this enum depends on the specific implemented minigames and should be grouped with them
     // last is 39 and 115
     public enum MiniGameCode
     {
@@ -58,7 +58,7 @@ namespace Antura
         Song_word_nature = 47,
         HideSeek_lettername = 48,
         MissingLetter_image = 49,
-        Song_word_home  = 50,
+        Song_word_home = 50,
         Song_word_objectsclothes = 51,
         Song_word_city = 52,
         Song_word_family = 53,

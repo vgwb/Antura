@@ -28,8 +28,10 @@ namespace Antura.Minigames.Balloons
         static BalloonsConfiguration instance;
         public static BalloonsConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new BalloonsConfiguration();
                 }
                 return instance;
@@ -55,7 +57,8 @@ namespace Antura.Minigames.Balloons
 
             var builderParams = InitQuestionBuilderParamaters();
 
-            switch (Variation) {
+            switch (Variation)
+            {
                 case BalloonsVariation.Spelling:
                     builderParams.wordFilters.requireDrawings = true;
                     builderParams.letterFilters.includeSpecialCharacters = true;
@@ -92,7 +95,8 @@ namespace Antura.Minigames.Balloons
         public override LetterDataSoundType GetVocabularySoundType()
         {
             LetterDataSoundType soundType;
-            switch (Variation) {
+            switch (Variation)
+            {
                 case BalloonsVariation.LetterInWord:
                     soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
                     break;

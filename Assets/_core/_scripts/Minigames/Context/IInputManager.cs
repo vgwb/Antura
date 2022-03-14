@@ -40,7 +40,7 @@ namespace Antura.Minigames
 
         /// <summary>
         /// Physical distance between current and previous values of pointer position. It equals to LastPointerDelta / ScreenDPI.
-        /// Result is in inches. 
+        /// Result is in inches.
         /// Warning: on Android it is not a very precise measure on all devices.
         /// </summary>
         Vector2 LastPointerDeltaPhysical { get; }

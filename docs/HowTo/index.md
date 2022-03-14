@@ -7,6 +7,7 @@
 
 - [Install](INSTALL.md) how to install and configure the Unity project
 - [Build](Build.md) how to build the app for mobile devices
+- [Create Edition](CreateEdition.md)
 - [Collaborator](Collaborator.md) how to collaborate
 - [Developer Guidelines and Tips](DeveloperGuidelines.md) general guidelines for developers that want to contribute to the project
 - [Refactoring Guidelines](RefactoringGuidelines.md)

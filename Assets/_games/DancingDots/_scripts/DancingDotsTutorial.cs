@@ -49,7 +49,8 @@ namespace Antura.Minigames.DancingDots
             doTutOnDots = false;
 
             foreach (DancingDotsDraggableDot dd in gameManager.dragableDots)
-                if (dd.isNeeded && dd.gameObject.activeSelf) {
+                if (dd.isNeeded && dd.gameObject.activeSelf)
+                {
                     currentDD = dd;
                     doTutOnDots = true;
                     source = currentDD.transform;
@@ -57,17 +58,20 @@ namespace Antura.Minigames.DancingDots
                 }
 
 
-            if (!doTutOnDots) {
+            if (!doTutOnDots)
+            {
 
                 foreach (DancingDotsDraggableDot dd in gameManager.dragableDiacritics)
-                    if (dd.isNeeded) {
+                    if (dd.isNeeded)
+                    {
                         currentDD = dd;
                         source = currentDD.transform;
                         break;
                     }
 
                 foreach (DancingDotsDiacriticPosition dd in targetDDs)
-                    if (dd.gameObject.activeInHierarchy) {
+                    if (dd.gameObject.activeInHierarchy)
+                    {
                         target = dd.transform;
                         break;
                     }
@@ -80,13 +84,16 @@ namespace Antura.Minigames.DancingDots
             yield return new WaitForSeconds(startDelay);
             StartCoroutine(sayTut(repeatDelay));
 
-            while (gameManager.isTutRound) {
-                if (currentDD) {
+            while (gameManager.isTutRound)
+            {
+                if (currentDD)
+                {
 
                     yield return new WaitForSeconds(repeatDelay);
 
 
-                    if (currentDD.isDragging || !gameManager.isTutRound) {
+                    if (currentDD.isDragging || !gameManager.isTutRound)
+                    {
                         yield return null;
                         continue;
                     }

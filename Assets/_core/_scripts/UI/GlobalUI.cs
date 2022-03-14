@@ -33,7 +33,8 @@ namespace Antura.UI
 
         public static void Init()
         {
-            if (I != null) { return; }
+            if (I != null)
+            { return; }
 
             I = Instantiate(Resources.Load<GlobalUI>(ResourceId));
             I.gameObject.name = "[GlobalUI]";
@@ -44,7 +45,8 @@ namespace Antura.UI
             I = this;
 
             // Awake or instantiate all global UI elements
-            if (SceneTransitioner == null) {
+            if (SceneTransitioner == null)
+            {
                 SceneTransitioner = Instantiate(Resources.Load<SceneTransitioner>(SceneTransitionerResourceId));
                 SceneTransitioner.name = "[SceneTransitionerUI]";
                 DontDestroyOnLoad(SceneTransitioner.gameObject);
@@ -56,7 +58,8 @@ namespace Antura.UI
             ActionFeedback = StoreAndAwake<ActionFeedbackComponent>();
             Prompt = StoreAndAwake<PromptPanel>();
 
-            if (onGoBack == null) {
+            if (onGoBack == null)
+            {
                 BackButton.gameObject.SetActive(false);
             }
 
@@ -66,7 +69,8 @@ namespace Antura.UI
 
         void OnDestroy()
         {
-            if (I == this) { I = null; }
+            if (I == this)
+            { I = null; }
             BackButton.Bt.onClick.RemoveAllListeners();
         }
 
@@ -76,16 +80,20 @@ namespace Antura.UI
         /// <param name="includeSceneTransitioner">If TRUE (default) also clears the sceneTransitioner, otherwise not</param>
         public static void Clear(bool includeSceneTransitioner = true)
         {
-            if (includeSceneTransitioner && SceneTransitioner != null) {
+            if (includeSceneTransitioner && SceneTransitioner != null)
+            {
                 SceneTransitioner.CloseImmediate();
             }
-            if (ContinueScreen != null) {
+            if (ContinueScreen != null)
+            {
                 ContinueScreen.Close(true);
             }
-            if (WidgetPopupWindow != null) {
+            if (WidgetPopupWindow != null)
+            {
                 WidgetPopupWindow.Close(true);
             }
-            if (WidgetSubtitles != null) {
+            if (WidgetSubtitles != null)
+            {
                 WidgetSubtitles.Close(true);
             }
         }
@@ -107,7 +115,8 @@ namespace Antura.UI
         public static void ShowBackButton(bool _doShow, Action _callback = null, bool _disableOnClick = true)
         {
             I.BackButton.gameObject.SetActive(_doShow);
-            if (_doShow) {
+            if (_doShow)
+            {
                 I.disableBackButtonOnClick = _disableOnClick;
                 I.BackButton.Bt.interactable = true;
                 I.onGoBack = _callback == null ? AppManager.I.NavigationManager.GoBack : _callback;
@@ -141,10 +150,12 @@ namespace Antura.UI
 
         void OnBack()
         {
-            if (disableBackButtonOnClick) {
+            if (disableBackButtonOnClick)
+            {
                 I.BackButton.Bt.interactable = false;
             }
-            if (onGoBack != null) {
+            if (onGoBack != null)
+            {
                 onGoBack();
             }
         }
@@ -167,8 +178,10 @@ namespace Antura.UI
                 }
 
                 Vector2 pos;
-                if (fingerIndex == -1) pos = Input.mousePosition;
-                else pos = Input.GetTouch(touchIndex).position;
+                if (fingerIndex == -1)
+                    pos = Input.mousePosition;
+                else
+                    pos = Input.GetTouch(touchIndex).position;
 
                 bool isTouching = IsPointerOverUIObject(pos);
                 if (isTouching)

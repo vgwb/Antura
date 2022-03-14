@@ -63,8 +63,10 @@ namespace Antura.Book
             List<LearningBlockData> list = AppManager.I.DB.FindLearningBlockData((x) => (x.Stage == currentStage));
 
             List<LearningBlockInfo> info_list = AppManager.I.ScoreHelper.GetAllLearningBlockInfo();
-            foreach (var info_item in info_list) {
-                if (list.Contains(info_item.data)) {
+            foreach (var info_item in info_list)
+            {
+                if (list.Contains(info_item.data))
+                {
                     btnGO = Instantiate(LearningBlockItemPrefab);
                     btnGO.transform.SetParent(ElementsContainer.transform, false);
                     btnGO.GetComponent<ItemLearningBlock>().Init(this, info_item);
@@ -73,7 +75,8 @@ namespace Antura.Book
 
             var listStages = AppManager.I.DB.GetAllStageData();
             listStages.Reverse();
-            foreach (var stage in listStages) {
+            foreach (var stage in listStages)
+            {
                 btnGO = Instantiate(CategoryItemPrefab);
                 btnGO.transform.SetParent(SubmenuContainer.transform, false);
                 btnGO.GetComponent<MenuItemCategory>().Init(
@@ -112,20 +115,23 @@ namespace Antura.Book
 
         void emptyListContainers()
         {
-            foreach (Transform t in ElementsContainer.transform) {
+            foreach (Transform t in ElementsContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
             // reset vertical position
             ListPanel.GetComponent<UnityEngine.UI.ScrollRect>().verticalNormalizedPosition = 1.0f;
 
-            foreach (Transform t in SubmenuContainer.transform) {
+            foreach (Transform t in SubmenuContainer.transform)
+            {
                 Destroy(t.gameObject);
             }
         }
 
         void HighlightItem(string id)
         {
-            foreach (Transform t in ElementsContainer.transform) {
+            foreach (Transform t in ElementsContainer.transform)
+            {
                 t.GetComponent<ItemLearningBlock>().Select(id);
             }
         }

@@ -13,9 +13,12 @@ namespace Antura.AnturaSpace
 
         void Update()
         {
-            if (Activated) {
+            if (Activated)
+            {
                 targetAngle = Mathf.LerpAngle(targetAngle, Angle, Time.deltaTime * 8.0f);
-            } else {
+            }
+            else
+            {
                 targetAngle = Mathf.LerpAngle(targetAngle, 0, Time.deltaTime * 8.0f);
             }
             transform.rotation = Quaternion.AngleAxis(targetAngle, Vector3.up);

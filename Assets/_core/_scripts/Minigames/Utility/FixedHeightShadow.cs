@@ -14,7 +14,8 @@ namespace Antura.Minigames
 
         void Update()
         {
-            if (toFollow == null) {
+            if (toFollow == null)
+            {
                 return;
             }
 

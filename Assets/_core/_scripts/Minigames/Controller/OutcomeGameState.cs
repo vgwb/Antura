@@ -33,14 +33,16 @@ namespace Antura.Minigames
 
         void Complete()
         {
-            if (outcomeStarted) {
+            if (outcomeStarted)
+            {
                 return;
             }
 
             outcomeStarted = true;
 
             int starsScore = game.StarsScore;
-            if (starsScore > 3) {
+            if (starsScore > 3)
+            {
                 starsScore = 3;
             }
 
@@ -85,10 +87,12 @@ namespace Antura.Minigames
 
         public void Update(float delta)
         {
-            if (timer > 0) {
+            if (timer > 0)
+            {
                 timer -= delta;
 
-                if (timer <= 0) {
+                if (timer <= 0)
+                {
                     Complete();
                 }
             }

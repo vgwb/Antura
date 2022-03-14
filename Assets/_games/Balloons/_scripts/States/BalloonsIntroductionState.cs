@@ -31,14 +31,18 @@ namespace Antura.Minigames.Balloons
 
         public void Update(float delta)
         {
-            if (takenAction) {
+            if (takenAction)
+            {
                 return;
             }
             takenAction = true;
 
-            if (playTutorial) {
+            if (playTutorial)
+            {
                 game.PlayTutorial();
-            } else {
+            }
+            else
+            {
                 game.SetCurrentState(game.QuestionState);
             }
         }

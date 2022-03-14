@@ -11,5 +11,6 @@
         Afgha = 23,
         LearnFrench = 30,
         LearnItalian = 40,
+        LearnPolish = 50,
     }
 }

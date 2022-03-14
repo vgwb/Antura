@@ -16,12 +16,14 @@ namespace Antura.Minigames.SickLetters
         {
             game.LLPrefab.jumpOut(0, true);
 
-            if (game.scale.counter < game.targetScale) {
+            if (game.scale.counter < game.targetScale)
+            {
                 game.manager.failure();
                 timer = 6;
             }
 
-            if (game.scale.counter >= game.targetScale) {
+            if (game.scale.counter >= game.targetScale)
+            {
                 timer = 4;
             }
         }
@@ -34,7 +36,8 @@ namespace Antura.Minigames.SickLetters
         {
             timer -= delta;
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 game.EndGame(game.CurrentStars, game.maxReachedCounter);
                 game.buttonRepeater.SetActive(false);
 

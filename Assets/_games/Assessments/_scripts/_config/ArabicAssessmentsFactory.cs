@@ -7,8 +7,8 @@ namespace Antura.Assessment
     /// <summary>
     /// Create components for running a Assessment, components are specific
     /// according to Assessment type and some value tweak is also done here.
-    /// 
-    /// Here Arabic assessments are configured, there is no point in 
+    ///
+    /// Here Arabic assessments are configured, there is no point in
     /// over-abstracting this one. The easiest way is to create another
     /// class LanguageXAssessmentsFactory using this file as template.
     /// </summary>
@@ -424,7 +424,7 @@ namespace Antura.Assessment
             // TODO new MiniGame variation (these are copied from LetterForm)
             context.GameDescription = LocalizationDataId.Assessment_Select_Letter_Listen;
             AssessmentOptions.Instance.PronunceQuestionWhenClicked = true;
-            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true; 
+            AssessmentOptions.Instance.PronunceAnswerWhenClicked = true;
             AssessmentOptions.Instance.QuestionSpawnedPlaySound = true; // pronunce the word to sort
             AssessmentOptions.Instance.QuestionAnsweredPlaySound = true;
             AssessmentOptions.Instance.QuestionAnsweredFlip = true;
@@ -592,21 +592,30 @@ namespace Antura.Assessment
                 LogicInjectorType logicInjector,
                 AnswerPlacerType answerPlacer)
         {
-            if (dragManager == DragManagerType.Default) {
+            if (dragManager == DragManagerType.Default)
+            {
                 context.DragManager = new DefaultDragManager(context.AudioManager, context.AnswerChecker);
-            } else {
+            }
+            else
+            {
                 context.DragManager = new SortingDragManager(context.AudioManager, context.CheckMarkWidget);
             }
 
-            if (logicInjector == LogicInjectorType.Default) {
+            if (logicInjector == LogicInjectorType.Default)
+            {
                 context.LogicInjector = new DefaultLogicInjector(context.DragManager, context.Events);
-            } else {
+            }
+            else
+            {
                 context.LogicInjector = new SortingLogicInjector(context.DragManager, context.Events);
             }
 
-            if (answerPlacer == AnswerPlacerType.Line) {
+            if (answerPlacer == AnswerPlacerType.Line)
+            {
                 context.AnswerPlacer = new LineAnswerPlacer(context.AudioManager, 3);
-            } else {
+            }
+            else
+            {
                 context.AnswerPlacer = new OrderedAnswerPlacer(context.AudioManager, placerOptions);
             }
         }

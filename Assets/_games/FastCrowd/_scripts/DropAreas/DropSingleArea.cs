@@ -43,7 +43,7 @@ namespace Antura.Minigames.FastCrowd
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void SetDisbled()
         {
@@ -51,7 +51,7 @@ namespace Antura.Minigames.FastCrowd
         }
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public void SetEnabled()
         {
@@ -80,9 +80,12 @@ namespace Antura.Minigames.FastCrowd
         public void DeactivateMatching()
         {
 
-            if (GetComponent<Collider>().enabled) {
+            if (GetComponent<Collider>().enabled)
+            {
                 AreaState = State.enabled;
-            } else {
+            }
+            else
+            {
                 AreaState = State.disabled;
             }
         }
@@ -94,11 +97,15 @@ namespace Antura.Minigames.FastCrowd
         public State AreaState
         {
             get { return areaState; }
-            protected set {
-                if (areaState != value) {
+            protected set
+            {
+                if (areaState != value)
+                {
                     areaState = value;
                     areaStateChanged();
-                } else {
+                }
+                else
+                {
                     areaState = value;
                 }
 
@@ -112,7 +119,8 @@ namespace Antura.Minigames.FastCrowd
         /// </summary>
         void areaStateChanged()
         {
-            switch (AreaState) {
+            switch (AreaState)
+            {
                 case State.enabled:
                     GetComponent<Collider>().enabled = true;
                     GetComponent<MeshRenderer>().materials[0].color = Color.yellow;

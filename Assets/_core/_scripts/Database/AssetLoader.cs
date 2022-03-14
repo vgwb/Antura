@@ -28,26 +28,28 @@ namespace Antura
 
         public static IEnumerator Load<T>(string path, Action<T> callback, bool sync = false)
         {
-           AsyncOperationHandle<T> async = default;
-           try
-           {
-               async = Addressables.LoadAssetAsync<T>(path);
-           }
-           catch (Exception)
-           {
-               Debug.LogWarning("Exception while trying to load " + path);
-           }
+            AsyncOperationHandle<T> async = default;
+            try
+            {
+                async = Addressables.LoadAssetAsync<T>(path);
+            }
+            catch (Exception)
+            {
+                Debug.LogWarning("Exception while trying to load " + path);
+            }
 
-           while (!async.IsDone)
-           {
-               if (sync) async.WaitForCompletion();
-               else yield return null;
-           }
-           if (async.OperationException != null)
-           {
-               Debug.LogError($"Error loading {path}: {async.OperationException}");
-           }
-           callback(async.Result);
+            while (!async.IsDone)
+            {
+                if (sync)
+                    async.WaitForCompletion();
+                else
+                    yield return null;
+            }
+            if (async.OperationException != null)
+            {
+                Debug.LogError($"Error loading {path}: {async.OperationException}");
+            }
+            callback(async.Result);
         }
 
     }

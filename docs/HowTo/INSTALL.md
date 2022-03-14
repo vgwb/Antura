@@ -2,11 +2,11 @@
 
 ## Requirements
 
-- Unity latest 2018.4.x, Mac or Windows computer
+- Unity latest 2020, Mac or Windows computer
 
 ## Fetch the Project
 
-1. Get Unity latest 2018.4.x stable (Win or Mac) from <https://unity3d.com/get-unity/download/archive>
+1. Get Unity latest 2020 stable (Win or Mac) from <https://unity3d.com/get-unity/download/archive>
 2. Download the project. There are two ways:
     A) the **simple** is to download the zipped package (from Clone or Download green button)
     B) the **advanced** is to use a Git client to track the changes and update the project as it gets developed:

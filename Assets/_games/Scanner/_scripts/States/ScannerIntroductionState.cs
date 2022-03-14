@@ -26,7 +26,8 @@ namespace Antura.Minigames.Scanner
         {
             timer -= delta;
 
-            if (timer < 0) {
+            if (timer < 0)
+            {
                 game.SetCurrentState(game.PlayState);
                 return;
             }

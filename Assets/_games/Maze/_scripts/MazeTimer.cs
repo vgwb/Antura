@@ -22,7 +22,8 @@ namespace Antura.Minigames.Maze
 			DisplayTime ();*/
 
             // this.StopAllCoroutines();
-            if (!MazeGame.instance.isTutorialMode) {
+            if (!MazeGame.instance.isTutorialMode)
+            {
                 MinigamesUI.Timer.Setup(MazeGame.instance.gameTime);
             }
         }
@@ -31,7 +32,8 @@ namespace Antura.Minigames.Maze
         {
             if (!MazeGame.instance.isTutorialMode &&
                 MinigamesUI.Timer != null &&
-                MinigamesUI.Timer.Duration == MinigamesUI.Timer.Elapsed) {
+                MinigamesUI.Timer.Duration == MinigamesUI.Timer.Elapsed)
+            {
                 StopTimer();
                 MazeGame.instance.onTimeUp();
             }
@@ -41,14 +43,16 @@ namespace Antura.Minigames.Maze
         {
             //isRunning = true;
             //   this.StopAllCoroutines();
-            if (!MazeGame.instance.isTutorialMode) { MinigamesUI.Timer.Play(); }
+            if (!MazeGame.instance.isTutorialMode)
+            { MinigamesUI.Timer.Play(); }
 
         }
 
         public void StopTimer()
         {
             // this.StopAllCoroutines();
-            if (!MazeGame.instance.isTutorialMode) { MinigamesUI.Timer.Pause(); }
+            if (!MazeGame.instance.isTutorialMode)
+            { MinigamesUI.Timer.Pause(); }
         }
 
         public void DisplayTime()

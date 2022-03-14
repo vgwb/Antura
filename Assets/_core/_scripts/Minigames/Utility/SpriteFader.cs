@@ -73,7 +73,7 @@ namespace Antura.Minigames
 
                 startAlpha = sprite.color.a;
             }
-            
+
             var old = sprite.color;
             old.a = currentAlpha;
             sprite.color = old;

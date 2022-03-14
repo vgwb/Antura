@@ -19,9 +19,12 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         private void HandleEnableShareAnalytics(bool choice)
         {
-            if (choice) {
+            if (choice)
+            {
                 CheckActivation();
-            } else {
+            }
+            else
+            {
                 StopEvents();
             }
         }
@@ -39,14 +42,16 @@ namespace Antura.Core.Services.OnlineAnalytics
         void OnApplicationPause(bool pauseStatus)
         {
             // Check the pauseStatus to see if we are in the foreground or background
-            if (!pauseStatus) {
+            if (!pauseStatus)
+            {
                 CheckActivation();
             }
         }
 
         private void CheckActivation()
         {
-            if (!AppManager.I.AppSettings.ShareAnalyticsEnabled) return;
+            if (!AppManager.I.AppSettings.ShareAnalyticsEnabled)
+                return;
 
 #if FB_SDK
             if (FB.IsInitialized) {
@@ -88,7 +93,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         private void OnHideUnity(bool isGameShown)
         {
-            if (verbose) {
+            if (verbose)
+            {
                 string logMessage = string.Format("Success Response: OnHideUnity {0}\n", isGameShown);
                 Debug.Log(logMessage);
             }

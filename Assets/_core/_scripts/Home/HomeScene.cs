@@ -58,7 +58,8 @@ namespace Antura.Scenes
 
         void TutorCreateProfile()
         {
-            if (!MustChooseLearningEdition && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1) {
+            if (!MustChooseLearningEdition && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1)
+            {
                 KeeperManager.I.PlayDialogue(LocalizationDataId.Action_Createprofile);
             }
         }
@@ -81,9 +82,12 @@ namespace Antura.Scenes
 
         public void OnBtnReservedArea()
         {
-            if (reservedAreaIsOpen) {
+            if (reservedAreaIsOpen)
+            {
                 CloseReservedAreaPanel();
-            } else {
+            }
+            else
+            {
                 OpenReservedAreaPanel();
             }
         }

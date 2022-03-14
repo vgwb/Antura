@@ -24,7 +24,8 @@ namespace Antura.Assessment
             int questionsNumber = 0;
             int placeHoldersNumber = 0;
 
-            foreach (var q in allQuestions) {
+            foreach (var q in allQuestions)
+            {
                 questionsNumber++;
                 placeHoldersNumber += q.PlaceholdersCount();
             }
@@ -37,27 +38,34 @@ namespace Antura.Assessment
             float sign;
             Vector3 currentPos = new Vector3(0, options.QuestionY - 3.5f, options.DefaultZ);
 
-            if (flow == TextDirection.RightToLeft) {
+            if (flow == TextDirection.RightToLeft)
+            {
                 currentPos.x = options.RightX;
                 sign = -1;
-            } else {
+            }
+            else
+            {
                 currentPos.x = options.LeftX;
                 sign = 1;
             }
 
             int questionIndex = 0;
-            for (int i = 0; i < questionsNumber; i++) {
+            for (int i = 0; i < questionsNumber; i++)
+            {
                 currentPos.x += spaceIncrement * sign;
                 float min = 1000, max = -1000;
 
-                foreach (var p in allQuestions[questionIndex].GetPlaceholders()) {
+                foreach (var p in allQuestions[questionIndex].GetPlaceholders())
+                {
                     currentPos.x += (options.SlotSize / 2) * sign;
 
-                    if (currentPos.x > max) {
+                    if (currentPos.x > max)
+                    {
                         max = currentPos.x;
                     }
 
-                    if (currentPos.x < min) {
+                    if (currentPos.x < min)
+                    {
                         min = currentPos.x;
                     }
 
@@ -73,7 +81,8 @@ namespace Antura.Assessment
                 PlaceQuestion(allQuestions[questionIndex], questionPos, false);
 
                 WrapQuestionInABox(allQuestions[questionIndex]);
-                foreach (var anim in AnimationsQueue) {
+                foreach (var anim in AnimationsQueue)
+                {
                     yield return Koroutine.Nested(anim);
                 }
 

@@ -19,10 +19,11 @@ namespace Antura.Minigames
             this.letterObjectPrefab = letterObjectPrefab;
             this.shadowPrefab = shadowPrefab;
         }
-        
+
         public RunLetter AddRunLetter(ILivingLetterData letterData, Vector3 scale = default)
         {
-            if (scale == default) scale = Vector3.one;
+            if (scale == default)
+                scale = Vector3.one;
             Vector3 leftOutPosition = leftOutPositions[runLetters.Count].position;
             Vector3 rightOutPosition = rightOutPositions[runLetters.Count].position;
 
@@ -35,7 +36,8 @@ namespace Antura.Minigames
 
         public void RemoveAllRunLetters()
         {
-            for (int i = 0; i < runLetters.Count; i++) {
+            for (int i = 0; i < runLetters.Count; i++)
+            {
                 runLetters[i].DestroyRunLetter();
             }
 

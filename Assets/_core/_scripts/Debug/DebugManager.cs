@@ -70,7 +70,8 @@ namespace Antura.Debugging
         public bool IgnoreJourneyData
         {
             get { return _ignoreJourneyData; }
-            set {
+            set
+            {
                 _ignoreJourneyData = value;
                 Teacher.ConfigAI.ForceJourneyIgnore = _ignoreJourneyData;
             }
@@ -87,10 +88,14 @@ namespace Antura.Debugging
         public bool FirstContactCompleted
         {
             get { return FirstContactManager.I.IsSequenceFinished(); }
-            set {
-                if (value) {
+            set
+            {
+                if (value)
+                {
                     FirstContactManager.I.ForceToFinishedSequence();
-                } else {
+                }
+                else
+                {
                     FirstContactManager.I.ForceToStartOfSequence();
                 }
             }
@@ -102,49 +107,60 @@ namespace Antura.Debugging
         {
             I = this;
 
-            if (DebugConfig.I.DebugPanelEnabledAtStartup) {
+            if (DebugConfig.I.DebugPanelEnabledAtStartup)
+            {
                 EnableDebugPanel();
             }
         }
 
         void Update()
         {
-            if (!DebugPanelOpened) {
+            if (!DebugPanelOpened)
+            {
                 // RESERVED AREA
-                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R)) {
+                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
+                {
                     AppManager.I.NavigationManager.GoToReservedArea();
                 }
 
                 // ADD BONES
-                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B)) {
+                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
+                {
                     AddBones();
                 }
 
                 // SKIPS
-                if (Input.GetKeyDown(KeyCode.Space)) {
+                if (Input.GetKeyDown(KeyCode.Space))
+                {
                     Debug.Log("DEBUG - SPACE : skip");
-                    if (OnSkipCurrentScene != null) OnSkipCurrentScene();
+                    if (OnSkipCurrentScene != null)
+                        OnSkipCurrentScene();
                 }
 
                 // END MINIGAMES
-                if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0)) {
+                if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0))
+                {
                     ForceCurrentMinigameEnd(0);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1)) {
+                if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+                {
                     ForceCurrentMinigameEnd(1);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2)) {
+                if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
+                {
                     ForceCurrentMinigameEnd(2);
                 }
 
-                if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3)) {
+                if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
+                {
                     ForceCurrentMinigameEnd(3);
                 }
 
                 /// VARIOUS TESTS
-                if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T)) {
+                if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T))
+                {
                     AppManager.I.Services.Notifications.TestLocalNotification();
                 }
 
@@ -180,7 +196,8 @@ namespace Antura.Debugging
 
         public void ForceCurrentMinigameEnd(int stars)
         {
-            if (OnForceCurrentMinigameEnd != null) {
+            if (OnForceCurrentMinigameEnd != null)
+            {
                 Debug.Log("DEBUG - Force Current Minigame End with stars: " + stars);
                 OnForceCurrentMinigameEnd(stars);
             }
@@ -189,7 +206,8 @@ namespace Antura.Debugging
         public void EnableDebugPanel()
         {
             DebugPanelEnabled = true;
-            if (debugPanelGO == null) {
+            if (debugPanelGO == null)
+            {
                 debugPanelGO = Instantiate(Resources.Load(AppConfig.RESOURCES_PATH_DEBUG_PANEL) as GameObject);
             }
         }
@@ -252,7 +270,8 @@ namespace Antura.Debugging
         public void ForwardMaxJourneyPos()
         {
             JourneyPosition newPos = AppManager.I.JourneyHelper.FindNextJourneyPosition(AppManager.I.Player.MaxJourneyPosition);
-            if (newPos != null) {
+            if (newPos != null)
+            {
                 AppManager.I.Player.SetMaxJourneyPosition(newPos, true);
             }
             GoToMap();
@@ -264,7 +283,8 @@ namespace Antura.Debugging
             AppManager.I.Player.UpdatePreviousJourneyPosition();    // Antura is considered as having been there the whole time
 
             // Unlock everything up to there
-            foreach (var jp in AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(new JourneyPosition(Stage, LearningBlock, PlaySession))) {
+            foreach (var jp in AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(new JourneyPosition(Stage, LearningBlock, PlaySession)))
+            {
                 AppManager.I.RewardSystemManager.UnlockAllRewardPacksForJourneyPosition(jp);
             }
 
@@ -275,7 +295,8 @@ namespace Antura.Debugging
         {
             JourneyPosition newPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
             newPos.PlaySession = 1;
-            if (newPos != null) {
+            if (newPos != null)
+            {
                 AppManager.I.Player.SetMaxJourneyPosition(newPos, true);
                 AppManager.I.Player.UpdatePreviousJourneyPosition();     // Antura is considered as having been there the whole time
                 FirstContactCompleted = true;
@@ -306,7 +327,8 @@ namespace Antura.Debugging
         public void UnlockCurrentPlaySessionRewards()
         {
             var unlockedPacks = AppManager.I.RewardSystemManager.UnlockAllRewardPacksForJourneyPosition(AppManager.I.Player.CurrentJourneyPosition);
-            foreach (RewardPack unlockedPack in unlockedPacks) {
+            foreach (RewardPack unlockedPack in unlockedPacks)
+            {
                 Debug.LogFormat("Pack unlocked: {0}", unlockedPack.ToString());
             }
         }

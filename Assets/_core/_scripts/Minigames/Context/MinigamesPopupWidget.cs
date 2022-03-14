@@ -13,18 +13,24 @@ namespace Antura.Minigames
     {
         public void Show(System.Action callback, Database.LocalizationDataId text, bool markResult, LL_WordData word = null)
         {
-            if (word != null) {
+            if (word != null)
+            {
                 WidgetPopupWindow.I.ShowSentenceAndWordWithMark(callback, text, word, markResult);
-            } else {
+            }
+            else
+            {
                 WidgetPopupWindow.I.ShowSentenceWithMark(callback, text, markResult, null);
             }
         }
 
         public void Show(System.Action callback, Database.LocalizationDataId text, LL_WordData word = null)
         {
-            if (word != null) {
+            if (word != null)
+            {
                 WidgetPopupWindow.I.ShowSentenceAndWord(callback, text, word);
-            } else {
+            }
+            else
+            {
                 WidgetPopupWindow.I.ShowSentence(callback, text);
             }
         }
@@ -46,7 +52,8 @@ namespace Antura.Minigames
 
         public void Show(bool reset = true)
         {
-            if (reset) {
+            if (reset)
+            {
                 WidgetPopupWindow.I.ResetContents();
             }
 
@@ -90,11 +97,12 @@ namespace Antura.Minigames
 
         public void SetLetterData(ILivingLetterData data)
         {
-            if (!(data is LL_WordData)) {
+            if (!(data is LL_WordData))
+            {
                 return;
             }
 
-            WidgetPopupWindow.I.SetWord(data.DrawingCharForLivingLetter, (LL_WordData) data);
+            WidgetPopupWindow.I.SetWord(data.DrawingCharForLivingLetter, (LL_WordData)data);
         }
     }
 }

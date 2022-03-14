@@ -11,7 +11,7 @@ namespace Antura.Minigames.HideAndSeek
         public TutorialGameState TutorialState { get; private set; }
         public PlayGameState PlayState { get; private set; }
         public ResultGameState ResultState { get; private set; }
-        
+
         public HideAndSeekGameManager GameManager;
 
         public HideAndSeekTutorialManager TutorialManager;
@@ -45,7 +45,7 @@ namespace Antura.Minigames.HideAndSeek
 
         #endregion
 
-        public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled;  } }
+        public bool TutorialEnabled { get { return GetConfiguration().TutorialEnabled; } }
 
         protected override void OnInitialize(IGameContext context)
         {
@@ -68,7 +68,7 @@ namespace Antura.Minigames.HideAndSeek
 
         protected override IGameConfiguration GetConfiguration()
         {
-			return HideAndSeekConfiguration.Instance;
+            return HideAndSeekConfiguration.Instance;
         }
 
         public void OnResult(ILivingLetterData data, bool result)

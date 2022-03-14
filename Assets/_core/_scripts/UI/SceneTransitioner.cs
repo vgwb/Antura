@@ -74,7 +74,8 @@ namespace Antura.UI
         void DoShow(bool _doShow, Action _onComplete = null)
         {
             IsShown = _doShow;
-            if (_doShow) {
+            if (_doShow)
+            {
                 MaskCover.fillClockwise = true;
                 onRewindCallback = null;
                 onCompleteCallback = _onComplete;
@@ -82,14 +83,19 @@ namespace Antura.UI
                 this.gameObject.SetActive(true);
                 AudioManager.I.PlaySound(Sfx.Transition);
                 IsPlaying = true;
-            } else {
+            }
+            else
+            {
                 MaskCover.fillClockwise = false;
                 onCompleteCallback = null;
                 onRewindCallback = _onComplete;
-                if (tween.Elapsed() <= 0) {
+                if (tween.Elapsed() <= 0)
+                {
                     tween.Pause();
                     OnRewind();
-                } else {
+                }
+                else
+                {
                     tween.PlayBackwards();
                 }
             }
@@ -110,17 +116,23 @@ namespace Antura.UI
             //if (AppConstants.VerboseLogging) Debug.Log(AppManager.I.NavigationManager.IsLoadingMinigame + " > " + AppManager.I.NavigationManager.CurrentMiniGameData);
             bool isLoadingMinigame = AppManager.I.NavigationManager.IsLoadingMinigame;
             Logo.gameObject.SetActive(!isLoadingMinigame);
-            if (isLoadingMinigame) {
+            if (isLoadingMinigame)
+            {
                 MiniGameData mgData = AppManager.I.NavigationManager.CurrentMiniGameData;
                 Icon.sprite = AppManager.I.AssetManager.GetMainIcon(mgData);
                 Sprite badgeSprite = AppManager.I.AssetManager.GetBadgeIcon(mgData);
-                if (badgeSprite == null) {
+                if (badgeSprite == null)
+                {
                     Badge.gameObject.SetActive(false);
-                } else {
+                }
+                else
+                {
                     Badge.gameObject.SetActive(true);
                     BadgeIcon.sprite = badgeSprite;
                 }
-            } else {
+            }
+            else
+            {
                 Badge.gameObject.SetActive(isLoadingMinigame);
                 Icon.sprite = defIcon;
             }
@@ -130,7 +142,8 @@ namespace Antura.UI
         {
             IsPlaying = false;
             this.gameObject.SetActive(false);
-            if (onRewindCallback != null) {
+            if (onRewindCallback != null)
+            {
                 onRewindCallback();
             }
         }
@@ -139,7 +152,8 @@ namespace Antura.UI
         {
             Time.timeScale = 1;
             GlobalUI.Clear(false);
-            if (onCompleteCallback != null) {
+            if (onCompleteCallback != null)
+            {
                 onCompleteCallback();
             }
         }

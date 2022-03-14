@@ -12,7 +12,7 @@ namespace Antura.Minigames.ColorTickle
     public class ColorTickleLetterProvider : IQuestionProvider
     {
         List<IQuestionPack> m_oPacks;
-        int m_iCurrentQuestion=0;
+        int m_iCurrentQuestion = 0;
         public ColorTickleLetterProvider()
         {
             m_oPacks = new List<IQuestionPack>();
@@ -22,7 +22,7 @@ namespace Antura.Minigames.ColorTickle
                 List<ILivingLetterData> correctAnswers = new List<ILivingLetterData>();
                 List<ILivingLetterData> wrongAnswers = new List<ILivingLetterData>();
 
-                LL_LetterData _NewLetterData = AppManager.I.Teacher.GetRandomTestLetterLL(new LetterFilters(excludeDiacritics:LetterFilters.ExcludeDiacritics.All));
+                LL_LetterData _NewLetterData = AppManager.I.Teacher.GetRandomTestLetterLL(new LetterFilters(excludeDiacritics: LetterFilters.ExcludeDiacritics.All));
 
                 if (_NewLetterData == null)
                     return;

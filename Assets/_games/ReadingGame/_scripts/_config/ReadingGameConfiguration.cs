@@ -41,8 +41,10 @@ namespace Antura.Minigames.ReadingGame
 
         public static ReadingGameConfiguration Instance
         {
-            get {
-                if (instance == null) {
+            get
+            {
+                if (instance == null)
+                {
                     instance = new ReadingGameConfiguration();
                 }
 
@@ -66,7 +68,8 @@ namespace Antura.Minigames.ReadingGame
             IQuestionBuilder builder = null;
 
             var builderParams = InitQuestionBuilderParamaters();
-            switch (Variation) {
+            switch (Variation)
+            {
                 case ReadingGameVariation.SongAlphabet:
                 case ReadingGameVariation.SongDiacritics:
                     builder = new EmptyQuestionBuilder();
@@ -128,8 +131,10 @@ namespace Antura.Minigames.ReadingGame
 
         public GameType CurrentGameType
         {
-            get {
-                switch (Variation) {
+            get
+            {
+                switch (Variation)
+                {
                     case ReadingGameVariation.ReadingGame_Words:
                         return GameType.ReadAndListen;
                     case ReadingGameVariation.SongAlphabet:

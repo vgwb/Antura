@@ -28,7 +28,8 @@ namespace Antura.UI
 
         void Awake()
         {
-            if (!IsSetup) {
+            if (!IsSetup)
+            {
                 Radial.fillAmount = 0;
                 TfTimer.text = "";
             }
@@ -36,7 +37,8 @@ namespace Antura.UI
 
         void OnDestroy()
         {
-            if (alarmSfxSource != null) alarmSfxSource.Stop();
+            if (alarmSfxSource != null)
+                alarmSfxSource.Stop();
             timerTween.Kill();
             shakeTween.Kill();
             endTween.Kill();
@@ -44,17 +46,24 @@ namespace Antura.UI
 
         void Update()
         {
-            if (currPauseMenuIsOpenState == PauseMenu.I.IsMenuOpen) return;
+            if (currPauseMenuIsOpenState == PauseMenu.I.IsMenuOpen)
+                return;
 
             currPauseMenuIsOpenState = PauseMenu.I.IsMenuOpen;
-            if (currPauseMenuIsOpenState) {
+            if (currPauseMenuIsOpenState)
+            {
                 wasPlayingBeforePauseMenuWasOpened = timerTween.IsPlaying();
                 Pause();
-            } else {
-                if (wasPlayingBeforePauseMenuWasOpened) Play();
-                else {
+            }
+            else
+            {
+                if (wasPlayingBeforePauseMenuWasOpened)
+                    Play();
+                else
+                {
                     // Just continue playing the audio
-                    if (alarmSfxSource != null) alarmSfxSource.Play();
+                    if (alarmSfxSource != null)
+                        alarmSfxSource.Play();
                 }
             }
         }
@@ -73,12 +82,14 @@ namespace Antura.UI
             Duration = _timerDuration;
             Elapsed = 0;
 
-            if (IsSetup) {
+            if (IsSetup)
+            {
                 timerTween.Rewind();
                 timerTween.Kill();
                 shakeTween.Kill(true);
                 endTween.Kill(true);
-                if (alarmSfxSource != null) {
+                if (alarmSfxSource != null)
+                {
                     alarmSfxSource.Stop();
                     alarmSfxSource = null;
                 }
@@ -108,30 +119,38 @@ namespace Antura.UI
                     TfTimer.text = Mathf.CeilToInt(Duration - Elapsed).ToString();
                     float elapsed = timerTween.Elapsed();
                     float shakeElapsedTarget = elapsed - (timerTween.Duration() - shakeTween.Duration());
-                    if (shakeElapsedTarget > 0) {
-                        if (shakeTween.fullPosition <= 0) {
+                    if (shakeElapsedTarget > 0)
+                    {
+                        if (shakeTween.fullPosition <= 0)
+                        {
                             // Start alarm sound
-                            if (alarmSfxSource != null) alarmSfxSource.Stop();
+                            if (alarmSfxSource != null)
+                                alarmSfxSource.Stop();
                             alarmSfxSource = AudioManager.I.PlaySound(alarmSfx);
                             alarmSfxSource.Loop = true;
                         }
                         shakeTween.Goto(shakeTween.Duration() - shakeElapsedTarget);
-                    } else if (shakeTween.fullPosition > 0) {
+                    }
+                    else if (shakeTween.fullPosition > 0)
+                    {
                         shakeTween.Rewind();
-                        if (alarmSfxSource != null) alarmSfxSource.Stop();
+                        if (alarmSfxSource != null)
+                            alarmSfxSource.Stop();
                     }
                 })
                 .OnComplete(() =>
                 {
                     shakeTween.Rewind();
                     endTween.Restart();
-                    if (alarmSfxSource != null) {
+                    if (alarmSfxSource != null)
+                    {
                         alarmSfxSource.Stop();
                         alarmSfxSource = null;
                     }
                     AudioManager.I.PlaySound(Sfx.AlarmClock);
                 });
-            if (!_playImmediately) timerTween.Pause();
+            if (!_playImmediately)
+                timerTween.Pause();
 
             timerTween.ForceInit();
             shakeTween.Rewind();
@@ -141,27 +160,33 @@ namespace Antura.UI
         /// <summary>Plays the timer</summary>
         public void Play()
         {
-            if (!Validate("MinigamesUITimer")) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
 
-            if (alarmSfxSource != null) alarmSfxSource.Play();
+            if (alarmSfxSource != null)
+                alarmSfxSource.Play();
             timerTween.Play();
         }
 
         /// <summary>Pauses the timer</summary>
         public void Pause()
         {
-            if (!Validate("MinigamesUITimer")) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
 
-            if (alarmSfxSource != null) alarmSfxSource.Pause();
+            if (alarmSfxSource != null)
+                alarmSfxSource.Pause();
             timerTween.Pause();
         }
 
         /// <summary>Rewinds then restarts the timer</summary>
         public void Restart()
         {
-            if (!Validate("MinigamesUITimer")) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
 
-            if (alarmSfxSource != null) alarmSfxSource.Stop();
+            if (alarmSfxSource != null)
+                alarmSfxSource.Stop();
             endTween.Rewind();
             timerTween.Restart();
         }
@@ -169,9 +194,11 @@ namespace Antura.UI
         /// <summary>Rewinds the timer and pauses it</summary>
         public void Rewind()
         {
-            if (!Validate("MinigamesUITimer")) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
 
-            if (alarmSfxSource != null) {
+            if (alarmSfxSource != null)
+            {
                 alarmSfxSource.Stop();
                 alarmSfxSource = null;
             }
@@ -183,10 +210,13 @@ namespace Antura.UI
         /// <summary>Completes the timer</summary>
         public void Complete()
         {
-            if (!Validate("MinigamesUITimer")) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
 
-            if (!shakeTween.IsComplete() && alarmSfxSource != null) alarmSfxSource.Stop();
-            if (!timerTween.IsComplete()) alarmSfxSource = AudioManager.I.PlaySound(Sfx.AlarmClock);
+            if (!shakeTween.IsComplete() && alarmSfxSource != null)
+                alarmSfxSource.Stop();
+            if (!timerTween.IsComplete())
+                alarmSfxSource = AudioManager.I.PlaySound(Sfx.AlarmClock);
             timerTween.Complete();
         }
 
@@ -195,9 +225,12 @@ namespace Antura.UI
         /// <param name="_andPlay">If TRUE also plays the timer after going to the given position, otherwise pauses it</param>
         public void Goto(float _time, bool _andPlay = false)
         {
-            if (!Validate("MinigamesUITimer")) return;
-            if (_time > timerTween.Duration()) _time = timerTween.Duration();
-            if (Mathf.Approximately(_time, timerTween.Elapsed())) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
+            if (_time > timerTween.Duration())
+                _time = timerTween.Duration();
+            if (Mathf.Approximately(_time, timerTween.Elapsed()))
+                return;
 
             endTween.Rewind();
             timerTween.Goto(_time, _andPlay);
@@ -208,9 +241,12 @@ namespace Antura.UI
         /// <param name="_andPlay">If TRUE also plays the timer after going to the given position, otherwise pauses it</param>
         public void GotoPercentage(float _percentage, bool _andPlay = false)
         {
-            if (!Validate("MinigamesUITimer")) return;
-            if (_percentage > 1) _percentage = 1;
-            if (Mathf.Approximately(_percentage, timerTween.ElapsedPercentage())) return;
+            if (!Validate("MinigamesUITimer"))
+                return;
+            if (_percentage > 1)
+                _percentage = 1;
+            if (Mathf.Approximately(_percentage, timerTween.ElapsedPercentage()))
+                return;
 
             endTween.Rewind();
             timerTween.Goto(timerTween.Duration() * _percentage, _andPlay);

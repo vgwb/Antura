@@ -20,13 +20,16 @@ public class ShapeDataLogic : MonoBehaviour
 #if UNITY_EDITOR
     void Update()
     {
-        if (data == null) return;
-        if (shapeData == null) return;
+        if (data == null)
+            return;
+        if (shapeData == null)
+            return;
 
         // Save current data
         var controllers = StrokesPivot.GetComponentsInChildren<SpriteShapeController>();
         shapeData.Strokes = new Stroke[controllers.Length];
-        for (int i = 0; i < controllers.Length; i++) {
+        for (int i = 0; i < controllers.Length; i++)
+        {
             ShapeManager.FlattenSpline(controllers[i].spline);
 
             shapeData.Strokes[i] = new Stroke();
@@ -35,7 +38,8 @@ public class ShapeDataLogic : MonoBehaviour
 
         controllers = ContourPivot.GetComponentsInChildren<SpriteShapeController>();
         shapeData.Contour = new Stroke[controllers.Length];
-        for (int i = 0; i < controllers.Length; i++) {
+        for (int i = 0; i < controllers.Length; i++)
+        {
             ShapeManager.FlattenSpline(controllers[i].spline);
 
             shapeData.Contour[i] = new Stroke();
@@ -44,7 +48,8 @@ public class ShapeDataLogic : MonoBehaviour
 
         var emptyPoints = EmptyPointsPivot.GetComponentsInChildren<MeshFilter>();
         shapeData.EmptyZones = new Vector2[emptyPoints.Length];
-        for (int i = 0; i < emptyPoints.Length; i++) {
+        for (int i = 0; i < emptyPoints.Length; i++)
+        {
             shapeData.EmptyZones[i] = emptyPoints[i].transform.localPosition;
         }
 

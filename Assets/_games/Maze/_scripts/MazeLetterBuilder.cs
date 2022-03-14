@@ -18,7 +18,8 @@ namespace Antura.Minigames.Maze
             string name = gameObject.name;
             int cloneIndex = name.IndexOf("(Clone");
 
-            if (cloneIndex != -1) {
+            if (cloneIndex != -1)
+            {
                 name = name.Substring(0, cloneIndex);
             }
 
@@ -39,8 +40,10 @@ namespace Antura.Minigames.Maze
 
             Vector3 characterPosition = new Vector3();
 
-            foreach (Transform child in transform) {
-                if (child.name == name) {
+            foreach (Transform child in transform)
+            {
+                if (child.name == name)
+                {
                     child.name = "MazeLetter";
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
@@ -48,7 +51,8 @@ namespace Antura.Minigames.Maze
                     child.gameObject.AddComponent<MeshCollider>();
                 }
 
-                if (child.name.IndexOf("_coll") != -1) {
+                if (child.name.IndexOf("_coll") != -1)
+                {
                     child.name = "BorderCollider";
                     BorderColldider = child.gameObject;
                     Rigidbody rb = child.gameObject.AddComponent<Rigidbody>();
@@ -59,23 +63,27 @@ namespace Antura.Minigames.Maze
                     child.gameObject.AddComponent<TrackBounds>();
                     child.gameObject.layer = 17;
                 }
-                if (child.name.IndexOf("arrow") == 0) {
+                if (child.name.IndexOf("arrow") == 0)
+                {
                     AddDotAndHideArrow(child);
                     arrows.Add(child.gameObject);
 
-                    if (arrows.Count == 1) {
+                    if (arrows.Count == 1)
+                    {
                         //find the first child in the transform:
                         characterPosition = child.GetChild(0).position;
                     }
 
-                    foreach (Transform fruit in child.transform) {
+                    foreach (Transform fruit in child.transform)
+                    {
                         fruit.gameObject.AddComponent<BoxCollider>();
                     }
                     Transform tutorialWaypointsForPath = transform.Find("TutorialWaypoints" + child.name.Substring(5));
                     tutorialWaypoints.Add(tutorialWaypointsForPath == null ? child.gameObject : tutorialWaypointsForPath.gameObject);
 
                 }
-                if (child.name.IndexOf("line") == 0) {
+                if (child.name.IndexOf("line") == 0)
+                {
                     lines.Add(child.gameObject);
                 }
             }
@@ -100,7 +108,8 @@ namespace Antura.Minigames.Maze
             gameObject.AddComponent<MazeShowPrefab>().letterIndex = letterDataIndex;
             //gameObject.GetComponent<MazeShowPrefab>().letterId = letterData;
 
-            if (_callback != null) { _callback(); }
+            if (_callback != null)
+            { _callback(); }
         }
 
         private void AddDotAndHideArrow(Transform arrowParent)

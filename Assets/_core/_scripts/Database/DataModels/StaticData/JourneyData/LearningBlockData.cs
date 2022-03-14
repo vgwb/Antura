@@ -4,7 +4,7 @@ using UnityEngine;
 namespace Antura.Database
 {
     /// <summary>
-    /// Data defining a Learning Block. 
+    /// Data defining a Learning Block.
     /// Used to define the learning journey progression.
     /// A Stage contains multiple Learning Blocks.
     /// Learning Blocks contain one or more play sessions and end with an assessment.

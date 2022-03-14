@@ -45,13 +45,17 @@ namespace Antura.Rewards
         internal void SetStars(int _numStars)
         {
             GainedStars = _numStars;
-            for (int i = 0; i < Stars.Length; ++i) {
+            for (int i = 0; i < Stars.Length; ++i)
+            {
                 Image star = Stars[i];
                 star.gameObject.SetActive(true);
-                if (i < _numStars) {
+                if (i < _numStars)
+                {
                     star.color = starDefColor;
                     star.transform.localScale = Vector3.one;
-                } else {
+                }
+                else
+                {
                     star.color = StarOffColor;
                     star.transform.localScale = Vector3.one * 0.6f;
                 }

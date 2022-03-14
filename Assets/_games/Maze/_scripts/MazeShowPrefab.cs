@@ -12,7 +12,8 @@ namespace Antura.Minigames.Maze
             var targetPos = transform.position;
             transform.position += Vector3.right * 40;
 
-            transform.DOMove(targetPos, 1.0f).OnComplete(() => {
+            transform.DOMove(targetPos, 1.0f).OnComplete(() =>
+            {
                 //MazeConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(letterId);
                 MazeGame.instance.showCharacterMovingIn();
             });
@@ -20,7 +21,8 @@ namespace Antura.Minigames.Maze
 
         public void moveOut(bool win = false)
         {
-            transform.DOMove(new Vector3(-50, 0, -1), 2).OnComplete(() => {
+            transform.DOMove(new Vector3(-50, 0, -1), 2).OnComplete(() =>
+            {
                 Destroy(gameObject);
             });
         }

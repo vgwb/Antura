@@ -19,7 +19,7 @@ namespace Antura.Minigames.ColorTickle
         [SerializeField]
         private Color m_oBaseColor = Color.white; //The base color for the texture to color
         [SerializeField]
-        private bool m_bEnableColor = true; //Flag used to enable the coloring functions 
+        private bool m_bEnableColor = true; //Flag used to enable the coloring functions
         [SerializeField]
         [Range(0, 100)]
         private int m_iPercentageRequiredToWin = 95; //The target percentage used to determinate if the letter is finished
@@ -96,7 +96,7 @@ namespace Antura.Minigames.ColorTickle
         void Start()
         {
 
-            if (s_tBaseLetterFullTexture==null && m_oTextMeshObject.fontMaterial.mainTexture is Texture2D) //if there isn't a copy already
+            if (s_tBaseLetterFullTexture == null && m_oTextMeshObject.fontMaterial.mainTexture is Texture2D) //if there isn't a copy already
             {
 
                 //assuming the atlas isn't readable, make a copy of the source
@@ -107,29 +107,29 @@ namespace Antura.Minigames.ColorTickle
                                     RenderTextureFormat.ARGB32,  //alpha 8 is not an acceptable format, DO NOT use default (it changes with platform)
                                     RenderTextureReadWrite.Linear);
 
-                
+
                 Graphics.Blit(m_oTextMeshObject.fontMaterial.mainTexture, _tRenderTmp); // Blit the pixels on texture to the RenderTexture
-                
+
                 RenderTexture _tPreviousActive = RenderTexture.active; // Backup the currently set RenderTexture
-                
+
                 RenderTexture.active = _tRenderTmp; // Set the current RenderTexture to the temporary one we created
 
                 s_tBaseLetterFullTexture = new Texture2D(m_oTextMeshObject.fontMaterial.mainTexture.width, m_oTextMeshObject.fontMaterial.mainTexture.height); // Create a new readable Texture2D to copy the pixels to it
-                
+
                 s_tBaseLetterFullTexture.ReadPixels(new Rect(0, 0, _tRenderTmp.width, _tRenderTmp.height), 0, 0); // Copy the pixels from the RenderTexture to the new Texture
                 s_tBaseLetterFullTexture.Apply();
-               
+
                 RenderTexture.active = _tPreviousActive;  // Reset the active RenderTexture
-                
+
                 RenderTexture.ReleaseTemporary(_tRenderTmp); // Release the temporary RenderTexture
 
 
                 /*
                  * VERSION 2, broke on Android Build (GetRawTextureData() from unreadable texture set all alpha to 0.803... losing original data)
-                
+
                 Texture2D _tTempAtlas = m_oTextMeshObject.fontMaterial.mainTexture as Texture2D;
                 s_tBaseLetterFullTexture = new Texture2D(_tTempAtlas.width, _tTempAtlas.height, TextureFormat.Alpha8,false);
-                s_tBaseLetterFullTexture.LoadRawTextureData(_tTempAtlas.GetRawTextureData());                
+                s_tBaseLetterFullTexture.LoadRawTextureData(_tTempAtlas.GetRawTextureData());
                 */
 
                 //VERSION 1
@@ -150,7 +150,7 @@ namespace Antura.Minigames.ColorTickle
             IsTouching = false;
 
             if (Input.GetMouseButton(0) &&
-                !PauseMenu.I.IsMenuOpen) //On touch 
+                !PauseMenu.I.IsMenuOpen) //On touch
             {
 
                 Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint
@@ -212,7 +212,7 @@ namespace Antura.Minigames.ColorTickle
         public void Reset()
         {
             m_iTotalShapePixels = 0;
-            m_iCurrentShapePixelsColored = 0; 
+            m_iCurrentShapePixelsColored = 0;
 
             if (m_oTextMeshObject.fontMaterial.mainTexture is Texture2D)
             {
@@ -277,7 +277,7 @@ namespace Antura.Minigames.ColorTickle
         private void SetupLetterColorTexture()
         {
             //Generate the texture to color using the letter actual size
-            //- Format can be very low, we only need some base color not a full 32 bit but setPixel/Pixels works 
+            //- Format can be very low, we only need some base color not a full 32 bit but setPixel/Pixels works
             //  only on ARGB32, RGB24 and Alpha8 texture formats
             Vector3[] _meshVertices = m_oLetterMeshCollider.sharedMesh.vertices;
             m_tLetterDynamicTexture = new Texture2D(
@@ -288,21 +288,21 @@ namespace Antura.Minigames.ColorTickle
             m_tLetterDynamicTexture.SetPixels(TextureUtilities.FillTextureWithColor(m_tLetterDynamicTexture, m_oBaseColor)); //initialiaze it to white
             m_tLetterDynamicTexture.Apply();
 
-            //link the dynamic texture to the TextMeshPro Text as the material's face texture 
+            //link the dynamic texture to the TextMeshPro Text as the material's face texture
             m_oTextMeshObject.fontMaterial.SetTexture("_FaceTex", m_tLetterDynamicTexture);
         }
 
         /// <summary>
         /// The texture to color and the actual portion of the letter texture are most likely different;
-        /// use this to precalculate a scaled texture of the letter to match the sizes 1:1 and avoid 
+        /// use this to precalculate a scaled texture of the letter to match the sizes 1:1 and avoid
         /// frequent use of GetPixelBilinear() at each frame when accessing letter texture data.
         /// </summary>
         private void SetupLetterShapeTexture()
-        { 
+        {
 
             //here we setup two textures:
             //(1) - m_tSingleLetterRenderedTextureScaledToDynamic: scale the letter alpha texture to match the size of the dynamic one and having a 1:1 matching on the color coverage
-            //(2) - m_tSingleLetterAlphaTextureScaledToDynamic: scale the letter alpha texture with greater dilatation to match the size of the dynamic one and having a 1:1 matching on the check for the hit 
+            //(2) - m_tSingleLetterAlphaTextureScaledToDynamic: scale the letter alpha texture with greater dilatation to match the size of the dynamic one and having a 1:1 matching on the check for the hit
 
             //retrive the letter size and width in pixels on the original texture
             int _iSingleLetterWidthUnscaled = Mathf.FloorToInt(Mathf.Abs(m_aUVLetterInMainTexture[0].x - m_aUVLetterInMainTexture[3].x) * s_tBaseLetterFullTexture.width);
@@ -310,25 +310,25 @@ namespace Antura.Minigames.ColorTickle
 
             //retrive the colors(shape) of the letter
             Color[] _aColorSingleLetterUnscaled = s_tBaseLetterFullTexture.GetPixels(Mathf.FloorToInt(m_aUVLetterInMainTexture[0].x * s_tBaseLetterFullTexture.width), Mathf.FloorToInt(m_aUVLetterInMainTexture[0].y * s_tBaseLetterFullTexture.height), _iSingleLetterWidthUnscaled, _iSingleLetterHeightUnscaled);
-            
+
             //generate a texture with the founded size and colors
             Texture2D _tSingleLetterTextureUnscaled = new Texture2D(_iSingleLetterWidthUnscaled, _iSingleLetterHeightUnscaled, TextureFormat.Alpha8, false);
             _tSingleLetterTextureUnscaled.SetPixels(_aColorSingleLetterUnscaled);
             _tSingleLetterTextureUnscaled.Apply();
 
-            //finally scale the texture 
+            //finally scale the texture
             Color[] _aColorSingleLetterScaled = TextureUtilities.ScaleTexture(_tSingleLetterTextureUnscaled, m_tLetterDynamicTexture.width, m_tLetterDynamicTexture.height);
 
             m_tSingleLetterRenderedTextureScaledToDynamic = new Texture2D(m_tLetterDynamicTexture.width, m_tLetterDynamicTexture.height, TextureFormat.Alpha8, false);
 
-            //Depending on the face dilate property(but also others can influence the letter thickness like bold, softness,...) 
+            //Depending on the face dilate property(but also others can influence the letter thickness like bold, softness,...)
             // of the letter material, the final letter rendered can be more thin than the original
             //To estimate the final outcome we set to 0 all the alpha values under such property's value;
             //it ranges from [-1,1], where 1 keeps all alpha values and -1 none
-            float _fDilateFactorMapped = (m_oTextMeshObject.fontMaterial.GetFloat("_FaceDilate")+1.0f )/2.0f; //map in [0,1]
+            float _fDilateFactorMapped = (m_oTextMeshObject.fontMaterial.GetFloat("_FaceDilate") + 1.0f) / 2.0f; //map in [0,1]
             m_iTotalShapePixels = 0;
 
-            if (m_fErrorOffsetFactor==0) //if the error relax is actually 0, use the same texture for both (1) and (2) (to save memory)
+            if (m_fErrorOffsetFactor == 0) //if the error relax is actually 0, use the same texture for both (1) and (2) (to save memory)
             {
                 for (int idx = 0; idx < _aColorSingleLetterScaled.Length; ++idx)
                 {
@@ -345,7 +345,7 @@ namespace Antura.Minigames.ColorTickle
             }
 
             else //they must be different
- 
+
             {
                 m_tSingleLetterAlphaTextureScaledToDynamic = new Texture2D(m_tLetterDynamicTexture.width, m_tLetterDynamicTexture.height, TextureFormat.Alpha8, false);
 
@@ -355,7 +355,7 @@ namespace Antura.Minigames.ColorTickle
 
                 for (int idx = 0; idx < _aColorSingleLetterScaled.Length; ++idx)
                 {
-                    _aColorSingleLetterScaled_RenderedShape[idx].a = Mathf.CeilToInt(_aColorSingleLetterScaled[idx].a - _fDilateFactorMapped ); //clamp for (1)
+                    _aColorSingleLetterScaled_RenderedShape[idx].a = Mathf.CeilToInt(_aColorSingleLetterScaled[idx].a - _fDilateFactorMapped); //clamp for (1)
 
                     _aColorSingleLetterScaled_ErrorCheckShape[idx].a = Mathf.CeilToInt(_aColorSingleLetterScaled[idx].a - _fDilateFactorMapped + m_fErrorOffsetFactor);//clamp for (2)
 
@@ -388,7 +388,7 @@ namespace Antura.Minigames.ColorTickle
                 return;
             }
 
-            //Before coloring with the brush's texture we need to verify that it fits 
+            //Before coloring with the brush's texture we need to verify that it fits
             //in the target's bound and eventually split it
 
             //store pixel touched in the texture

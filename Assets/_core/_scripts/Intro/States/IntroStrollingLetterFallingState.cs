@@ -34,7 +34,8 @@ namespace Antura.Intro
 
             currentPos.y += fallSpeed * delta;
 
-            if (currentPos.y <= 0) {
+            if (currentPos.y <= 0)
+            {
                 currentPos.y = 0;
                 letter.SetCurrentState(letter.IdleState);
             }

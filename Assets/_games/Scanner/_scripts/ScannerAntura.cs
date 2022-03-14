@@ -45,7 +45,8 @@ namespace Antura.Minigames.Scanner
 
         void Update()
         {
-            if (thisRound != game.roundsManager.numberOfRoundsPlayed) {
+            if (thisRound != game.roundsManager.numberOfRoundsPlayed)
+            {
                 thisRound = game.roundsManager.numberOfRoundsPlayed;
                 fallenLL.Clear();
             }
@@ -55,8 +56,10 @@ namespace Antura.Minigames.Scanner
         {
             yield return new WaitForSeconds(2);
 
-            while (timesCanAppear > 0) {
-                if (!game.tut.isTutRound) {
+            while (timesCanAppear > 0)
+            {
+                if (!game.tut.isTutRound)
+                {
                     int d = Random.Range(25, 50);
                     print(d);
                     yield return new WaitForSeconds(d);
@@ -86,7 +89,8 @@ namespace Antura.Minigames.Scanner
             antura.State = AnturaAnimationStates.walking;
             antura.SetWalkingSpeed(1);
 
-            while (transform.position.x > stopPose.position.x + 0.01f) {
+            while (transform.position.x > stopPose.position.x + 0.01f)
+            {
                 transform.position -= Vector3.right * movingSpeed * Time.deltaTime;
                 yield return null;
             }
@@ -106,13 +110,15 @@ namespace Antura.Minigames.Scanner
             yield return new WaitForSeconds(0.75f);
             antura.IsExcited = false;
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             anturaAnimator.SetTrigger("doShout");
             AudioManager.I.PlaySound(Sfx.DogBarking);
             yield return new WaitForSeconds(1f);
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             yield return new WaitForSeconds(1f);
             //antura.OnJumpStart();
@@ -120,22 +126,26 @@ namespace Antura.Minigames.Scanner
             //antura.OnJumpEnded();
             yield return new WaitForSeconds(1.0f);
 
-            if (scaredCounter != 0) {  /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            {  /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             yield return new WaitForSeconds(1.0f);
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             yield return new WaitForSeconds(1.0f);
             anturaAnimator.SetTrigger("doShout");
             AudioManager.I.PlaySound(Sfx.DogBarking);
             yield return new WaitForSeconds(1f);
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             yield return new WaitForSeconds(1f);
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             antura.DoBurp();
             AudioManager.I.PlaySound(Sfx.DogBarking);
@@ -143,7 +153,8 @@ namespace Antura.Minigames.Scanner
             antura.IsAngry = true;
             yield return new WaitForSeconds(1f);
 
-            if (scaredCounter != 0) { /*StartCoroutine(leaveScene(true));*/ yield break; }
+            if (scaredCounter != 0)
+            { /*StartCoroutine(leaveScene(true));*/ yield break; }
 
             yield return new WaitForSeconds(1f);
             if (game.tut.isTutRound && game.tut.tutStep == 0)
@@ -179,7 +190,8 @@ namespace Antura.Minigames.Scanner
             AudioManager.I.PlaySound(Sfx.DogBarking);
             sceneCamera.DOShakePosition(2.5f, camShakeSpeed);
 
-            while (transform.position.x > chargeEndPose.position.x + 0.01f) {
+            while (transform.position.x > chargeEndPose.position.x + 0.01f)
+            {
                 transform.position -= Vector3.right * chargeSpeed * 1.75f * Time.deltaTime;
 
                 yield return null;
@@ -196,7 +208,8 @@ namespace Antura.Minigames.Scanner
         }
         IEnumerator co_beScared()
         {
-            if (scaredCounter == 0 && canBeScared) {
+            if (scaredCounter == 0 && canBeScared)
+            {
                 if (game.tut.tutStep == 0)
                     game.tut.tutStep = -1;
 
@@ -226,22 +239,26 @@ namespace Antura.Minigames.Scanner
             if (game.tut.isTutRound && game.tut.tutStep == -1)
                 game.tut.setupTutorial(1);
 
-            if (wasScared) {
+            if (wasScared)
+            {
                 AudioManager.I.PlaySound(Sfx.DogBarking);
                 scaredCounter = 0;
             }
             yield return new WaitForSeconds(delay);
             //anturaAnimator.Play("dog_turn180", 1);
-            if (wasScared) {
+            if (wasScared)
+            {
                 antura.State = AnturaAnimationStates.bitingTail;
                 //anturaAnimator.SetBool("bitingTail", true);
                 yield return new WaitForSeconds(.6f);
-            } else
+            }
+            else
                 antura.transform.eulerAngles = Vector3.up * 270;
 
             antura.SetWalkingSpeed(1);
             antura.State = AnturaAnimationStates.walking;
-            while (transform.position.x < stopPose.position.x + 20) {
+            while (transform.position.x < stopPose.position.x + 20)
+            {
                 transform.position += Vector3.right * chargeSpeed * Time.deltaTime;
                 yield return null;
             }
@@ -282,8 +299,10 @@ namespace Antura.Minigames.Scanner
         {
             ScannerLivingLetter ll = coll.transform.root.GetComponent<ScannerLivingLetter>();
 
-            if (ll && !ll.gotSuitcase && ll.status == ScannerLivingLetter.LLStatus.StandingOnBelt) {
-                if (!fallenLL.Contains(ll)) {
+            if (ll && !ll.gotSuitcase && ll.status == ScannerLivingLetter.LLStatus.StandingOnBelt)
+            {
+                if (!fallenLL.Contains(ll))
+                {
                     ll.status = ScannerLivingLetter.LLStatus.None;
                     fallenLL.Add(ll);
                     AudioManager.I.PlaySound(Sfx.LetterSad);
@@ -296,7 +315,8 @@ namespace Antura.Minigames.Scanner
         float calculateDelay()
         {
             float slideTime = 0;
-            for (int i = 0; i < game.scannerLL.Count; i++) {
+            for (int i = 0; i < game.scannerLL.Count; i++)
+            {
                 if (game.scannerLL[i].slidingTime > slideTime)
                     slideTime = game.scannerLL[i].slidingTime;
             }
@@ -314,7 +334,8 @@ namespace Antura.Minigames.Scanner
             while (Time.time < slideTime)
                 yield return null;
 
-            if (fallenLL.IndexOf(ll) >= 0 && ll.status == ScannerLivingLetter.LLStatus.None) {
+            if (fallenLL.IndexOf(ll) >= 0 && ll.status == ScannerLivingLetter.LLStatus.None)
+            {
                 ll.Reset();
                 ll.StartSliding();
                 fallenLL[fallenLL.IndexOf(ll)] = null;
@@ -341,7 +362,8 @@ namespace Antura.Minigames.Scanner
                 newMats.Add(redMat);
 
 
-            for (int i = 0; i < 2; i++) {
+            for (int i = 0; i < 2; i++)
+            {
                 r.materials = newMats.ToArray();
                 yield return new WaitForSeconds(0.15f);
                 r.materials = startMats;

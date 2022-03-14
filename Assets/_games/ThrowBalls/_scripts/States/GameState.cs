@@ -84,8 +84,10 @@ namespace Antura.Minigames.ThrowBalls
 
         private int NumLettersInCurrentRound
         {
-            get {
-                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
+            get
+            {
+                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord)
+                {
                     return currentLettersForLettersInWord.Count;
                 }
                 else
@@ -125,14 +127,16 @@ namespace Antura.Minigames.ThrowBalls
 
             letterSpawner = new LetterSpawner();
 
-            foreach (Collider collider in ThrowBallsGame.instance.environment.GetComponentsInChildren<Collider>()) {
+            foreach (Collider collider in ThrowBallsGame.instance.environment.GetComponentsInChildren<Collider>())
+            {
                 collider.enabled = false;
             }
 
             letterPool = new GameObject[NUM_LETTERS_IN_POOL];
             letterControllers = new LetterController[NUM_LETTERS_IN_POOL];
 
-            for (int i = 0; i < letterPool.Length; i++) {
+            for (int i = 0; i < letterPool.Length; i++)
+            {
                 GameObject letter = ThrowBallsGame.Instantiate(game.letterWithPropsPrefab).GetComponent<LetterWithPropsController>().letter;
                 LetterController letterController = letter.GetComponent<LetterController>();
 
@@ -183,7 +187,8 @@ namespace Antura.Minigames.ThrowBalls
 
             yield return new WaitForSeconds(SHOW_BALL_END_DELAY);
 
-            switch (ThrowBallsConfiguration.Instance.Variation) {
+            switch (ThrowBallsConfiguration.Instance.Variation)
+            {
                 case ThrowBallsVariation.LetterName:
                     game.StartCoroutine(StartNewRound_Single());
                     break;
@@ -229,7 +234,8 @@ namespace Antura.Minigames.ThrowBalls
         {
             ResetScene();
 
-            if (!uiInitialised && !IsTutorialRound()) {
+            if (!uiInitialised && !IsTutorialRound())
+            {
                 uiInitialised = true;
 
                 game.Context.GetOverlayWidget().Initialize(true, false, true);
@@ -248,7 +254,8 @@ namespace Antura.Minigames.ThrowBalls
             {
                 correctDatum = new LL_ImageData(correctDatum.Id);
 
-                for (int i = 0; i < wrongData.Count; i++) {
+                for (int i = 0; i < wrongData.Count; i++)
+                {
                     wrongData[i] = new LL_ImageData(wrongData[i].Id);
                 }
 
@@ -265,14 +272,17 @@ namespace Antura.Minigames.ThrowBalls
 
             int indexOfCorrectLetter = 0;
 
-            if (game.Difficulty <= MiniGameController.EASY || IsTutorialRound()) {
-                for (int i = 0; i < NumLettersInCurrentRound; i++) {
+            if (game.Difficulty <= MiniGameController.EASY || IsTutorialRound())
+            {
+                for (int i = 0; i < NumLettersInCurrentRound; i++)
+                {
                     letterPool[i].SetActive(true);
                 }
 
                 int indexOfUnobstructedLetter = 0;
 
-                while (letterControllers[indexOfUnobstructedLetter].IsObstructedByOtherLetter()) {
+                while (letterControllers[indexOfUnobstructedLetter].IsObstructedByOtherLetter())
+                {
                     indexOfUnobstructedLetter++;
                 }
 
@@ -289,11 +299,14 @@ namespace Antura.Minigames.ThrowBalls
 
                 ConfigureLetterPropAndMotionVariation(letterControllers[i], prevIndices.Contains(i) ? prevMode : nextMode);
 
-                if (i == indexOfCorrectLetter) {
+                if (i == indexOfCorrectLetter)
+                {
                     letterObj.tag = Constants.CORRECT_LETTER_TAG;
                     letterControllers[i].SetData(correctDatum);
                     tutorialTarget = letterObj;
-                } else {
+                }
+                else
+                {
                     letterObj.tag = Constants.WRONG_LETTER_TAG;
                     letterControllers[i].SetData(wrongData[0]);
                     wrongData.RemoveAt(0);
@@ -348,7 +361,8 @@ namespace Antura.Minigames.ThrowBalls
 
             List<int> sortedIndices = SortLettersByZIndex(currentLettersForLettersInWord.Count);
 
-            if (!uiInitialised && !IsTutorialRound()) {
+            if (!uiInitialised && !IsTutorialRound())
+            {
                 uiInitialised = true;
                 game.Context.GetOverlayWidget().Initialize(true, false, true);
                 game.Context.GetOverlayWidget().SetStarsThresholds(1, 3, 5);
@@ -369,7 +383,8 @@ namespace Antura.Minigames.ThrowBalls
 
             var prevIndices = ExtractPrevIndices();
 
-            for (int i = 0; i < currentLettersForLettersInWord.Count; i++) {
+            for (int i = 0; i < currentLettersForLettersInWord.Count; i++)
+            {
                 int letterObjectIndex = game.Difficulty <= MiniGameController.EASY ? sortedIndices[i] : i;
                 GameObject letterObj = letterPool[letterObjectIndex];
 
@@ -380,7 +395,8 @@ namespace Antura.Minigames.ThrowBalls
                 letterControllers[letterObjectIndex].SetData(currentLettersForLettersInWord[i]);
                 letterObj.tag = currentLettersForLettersInWord[i].Id == currentLettersForLettersInWord[0].Id ? Constants.CORRECT_LETTER_TAG : Constants.WRONG_LETTER_TAG;
 
-                if (i == 0) {
+                if (i == 0)
+                {
                     tutorialTarget = letterObj;
                 }
             }
@@ -389,8 +405,10 @@ namespace Antura.Minigames.ThrowBalls
 
             BallController.instance.Enable();
 
-            if (IsTutorialRound()) {
-                switch (ThrowBallsConfiguration.Instance.Variation) {
+            if (IsTutorialRound())
+            {
+                switch (ThrowBallsConfiguration.Instance.Variation)
+                {
                     case ThrowBallsVariation.LetterName:
                         audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
                         break;
@@ -432,16 +450,20 @@ namespace Antura.Minigames.ThrowBalls
             var zIndices = new List<float>();
             var sortedIndices = new List<int>();
 
-            for (int i = 0; i < numLetters; i++) {
+            for (int i = 0; i < numLetters; i++)
+            {
                 sortedIndices.Add(i);
                 zIndices.Add(letterPool[i].transform.position.z);
             }
 
-            for (int i = 0; i < numLetters - 1; i++) {
+            for (int i = 0; i < numLetters - 1; i++)
+            {
                 int j = i + 1;
 
-                while (j > 0) {
-                    if (zIndices[j - 1] > zIndices[j]) {
+                while (j > 0)
+                {
+                    if (zIndices[j - 1] > zIndices[j])
+                    {
                         float temp = zIndices[j - 1];
                         zIndices[j - 1] = zIndices[j];
                         zIndices[j] = temp;
@@ -480,11 +502,15 @@ namespace Antura.Minigames.ThrowBalls
 
             ILivingLetterData newCorrectLetter = currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
 
-            for (int i = currentLettersForLettersInWord.Count - 1; i >= 0; i--) {
-                if (letterControllers[i].GetLetter().Id == newCorrectLetter.Id && letterPool[i].activeSelf) {
+            for (int i = currentLettersForLettersInWord.Count - 1; i >= 0; i--)
+            {
+                if (letterControllers[i].GetLetter().Id == newCorrectLetter.Id && letterPool[i].activeSelf)
+                {
                     letterPool[i].tag = Constants.CORRECT_LETTER_TAG;
                     tutorialTarget = letterPool[i];
-                } else {
+                }
+                else
+                {
                     letterPool[i].tag = Constants.WRONG_LETTER_TAG;
                 }
             }
@@ -496,11 +522,14 @@ namespace Antura.Minigames.ThrowBalls
             {
                 numBalls--;
                 game.Context.GetOverlayWidget().SetLives(numBalls);
-                if (numBalls == 0) {
+                if (numBalls == 0)
+                {
                     BallController.instance.Disable();
                     OnRoundLost();
                 }
-            } else if (IsTutorialRound()) {
+            }
+            else if (IsTutorialRound())
+            {
                 ShowTutorialUI();
             }
             hitCorrect = false;
@@ -512,12 +541,18 @@ namespace Antura.Minigames.ThrowBalls
 
             roundNumber++;
 
-            if (roundNumber > MAX_NUM_ROUNDS) {
+            if (roundNumber > MAX_NUM_ROUNDS)
+            {
                 EndGame();
-            } else {
-                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
+            }
+            else
+            {
+                if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord)
+                {
                     game.StartCoroutine(StartNewRound_LettersInWord());
-                } else {
+                }
+                else
+                {
                     game.StartCoroutine(StartNewRound_Single());
                 }
             }
@@ -525,9 +560,11 @@ namespace Antura.Minigames.ThrowBalls
 
         private void DisableLetters(bool disablePropsToo)
         {
-            foreach (LetterController letterController in letterControllers) {
+            foreach (LetterController letterController in letterControllers)
+            {
                 letterController.Disable();
-                if (disablePropsToo) {
+                if (disablePropsToo)
+                {
                     letterController.DisableProps();
                 }
             }
@@ -541,16 +578,20 @@ namespace Antura.Minigames.ThrowBalls
         public void OnCorrectLetterHit(LetterController correctLetterCntrl)
         {
             hitCorrect = true;
-            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord) {
+            if (ThrowBallsConfiguration.Instance.Variation == ThrowBallsVariation.BuildWord)
+            {
                 numLettersRemaining--;
                 var word = ((LL_WordData)question).Data;
 
                 UIController.instance.LabelRender.StopFlashing();
 
-                if (numLettersRemaining == 0) {
+                if (numLettersRemaining == 0)
+                {
                     string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
                     UIController.instance.SetText(markedText);
-                } else {
+                }
+                else
+                {
 
                     var letterToFlash = (LL_LetterData)currentLettersForLettersInWord[currentLettersForLettersInWord.Count - numLettersRemaining];
 
@@ -559,24 +600,33 @@ namespace Antura.Minigames.ThrowBalls
 
                 UIController.instance.WobbleLetterHint();
 
-                if (numLettersRemaining != 0) {
+                if (numLettersRemaining != 0)
+                {
                     UpdateLettersForLettersInWord(correctLetterCntrl);
                     BallController.instance.DampenVelocity();
-                } else {
+                }
+                else
+                {
                     OnRoundWon(correctLetterCntrl);
                 }
-            } else {
+            }
+            else
+            {
                 OnRoundWon(correctLetterCntrl);
             }
         }
 
         private void OnRoundWon(LetterController correctLetterCntrl)
         {
-            if (isRoundOngoing) {
+            if (isRoundOngoing)
+            {
 
-                if (!IsTutorialRound()) {
+                if (!IsTutorialRound())
+                {
                     game.CurrentScore++;
-                } else {
+                }
+                else
+                {
                     TutorialUI.Clear(true);
                 }
 
@@ -591,7 +641,8 @@ namespace Antura.Minigames.ThrowBalls
 
         public void OnRoundLost()
         {
-            if (isRoundOngoing) {
+            if (isRoundOngoing)
+            {
                 BallController.instance.Disable();
                 UIController.instance.DisableLetterHint();
                 UIController.instance.LabelRender.StopFlashing();
@@ -669,13 +720,20 @@ namespace Antura.Minigames.ThrowBalls
 
             int numberOfStars = 2;
 
-            if (game.CurrentScore == 0) {
+            if (game.CurrentScore == 0)
+            {
                 numberOfStars = 0;
-            } else if (game.CurrentScore == 1 || game.CurrentScore == 2) {
+            }
+            else if (game.CurrentScore == 1 || game.CurrentScore == 2)
+            {
                 numberOfStars = 1;
-            } else if (game.CurrentScore == 3 || game.CurrentScore == 4) {
+            }
+            else if (game.CurrentScore == 3 || game.CurrentScore == 4)
+            {
                 numberOfStars = 2;
-            } else {
+            }
+            else
+            {
                 numberOfStars = 3;
             }
 
@@ -695,7 +753,8 @@ namespace Antura.Minigames.ThrowBalls
 
         private void ConfigureLetterPropAndMotionVariation(LetterController letterController, LetterAnimationMode mode)
         {
-            if (IsTutorialRound()) {
+            if (IsTutorialRound())
+            {
                 letterController.SetMotionVariation(LetterController.MotionVariation.Idle);
                 letterController.SetPropVariation(LetterController.PropVariation.Nothing);
                 return;
@@ -825,12 +884,14 @@ namespace Antura.Minigames.ThrowBalls
             UIController.instance.Reset();
             UIController.instance.Disable();
 
-            foreach (LetterController letterController in letterControllers) {
+            foreach (LetterController letterController in letterControllers)
+            {
                 letterController.Reset();
                 letterController.DisableProps();
             }
 
-            for (int i = 0; i < letterPool.Length; i++) {
+            for (int i = 0; i < letterPool.Length; i++)
+            {
                 GameObject letter = letterPool[i];
                 letter.tag = Constants.WRONG_LETTER_TAG;
                 letter.SetActive(false);
@@ -838,7 +899,8 @@ namespace Antura.Minigames.ThrowBalls
 
             Vector3[] randomPositions = letterSpawner.GenerateRandomPositions(NumLettersInCurrentRound, IsTutorialRound());
 
-            for (int i = 0; i < NumLettersInCurrentRound; i++) {
+            for (int i = 0; i < NumLettersInCurrentRound; i++)
+            {
                 GameObject letter = letterPool[i];
                 letter.transform.position = randomPositions[i];
             }
@@ -846,7 +908,8 @@ namespace Antura.Minigames.ThrowBalls
             BallController.instance.Reset();
 
             numBalls = MAX_NUM_BALLS;
-            if (roundNumber > 1 || !game.TutorialEnabled && roundNumber > 0) {
+            if (roundNumber > 1 || !game.TutorialEnabled && roundNumber > 0)
+            {
                 game.Context.GetOverlayWidget().SetLives(MAX_NUM_BALLS);
             }
 
@@ -861,11 +924,14 @@ namespace Antura.Minigames.ThrowBalls
 
         public void Update(float delta)
         {
-            if (IsTutorialRound()) {
-                if (Input.touchCount > 0) {
+            if (IsTutorialRound())
+            {
+                if (Input.touchCount > 0)
+                {
                     Touch touch = Input.GetTouch(0);
 
-                    switch (touch.phase) {
+                    switch (touch.phase)
+                    {
                         case TouchPhase.Began:
                             Touched();
                             break;
@@ -873,9 +939,13 @@ namespace Antura.Minigames.ThrowBalls
                             OnMouseUp();
                             break;
                     }
-                } else if (Input.GetMouseButtonDown(0)) {
+                }
+                else if (Input.GetMouseButtonDown(0))
+                {
                     Touched();
-                } else if (Input.GetMouseButtonUp(0)) {
+                }
+                else if (Input.GetMouseButtonUp(0))
+                {
                     OnMouseUp();
                 }
             }
@@ -883,10 +953,12 @@ namespace Antura.Minigames.ThrowBalls
 
         public void UpdatePhysics(float delta)
         {
-            if (isVoiceOverDone && IsTutorialRound() && isIdle && !BallController.instance.IsLaunched()) {
+            if (isVoiceOverDone && IsTutorialRound() && isIdle && !BallController.instance.IsLaunched())
+            {
                 timeLeftToShowTutorialUI -= Time.fixedDeltaTime;
 
-                if (timeLeftToShowTutorialUI <= 0) {
+                if (timeLeftToShowTutorialUI <= 0)
+                {
                     ShowTutorialUI();
                 }
             }

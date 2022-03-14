@@ -58,7 +58,8 @@ namespace Antura.Rewards
             barTween.Kill();
             shakeTween.Rewind();
             ShowTween.Rewind();
-            foreach (EndsessionAchievement ach in Achievements) {
+            foreach (EndsessionAchievement ach in Achievements)
+            {
                 ach.AchieveReward(false);
                 ach.AchieveStar(false);
             }
@@ -72,10 +73,12 @@ namespace Antura.Rewards
             Vector2 to = new Vector2(barSizeDelta.x, barSizeDelta.y * toPerc);
             barTween = Bar.DOSizeDelta(to, 0.2f);
             shakeTween.Restart();
-            for (int i = 0; i < Achievements.Length; ++i) {
+            for (int i = 0; i < Achievements.Length; ++i)
+            {
                 EndsessionAchievement ach = Achievements[i];
                 bool shouldAchieve = i == 3 && Mathf.Approximately(toPerc, 1) || toPerc >= achievementsPercent[i];
-                if (!ach.IsRewardAchieved && shouldAchieve) ach.AchieveReward(true);
+                if (!ach.IsRewardAchieved && shouldAchieve)
+                    ach.AchieveReward(true);
                 ach.AchieveStar(shouldAchieve);
             }
             AudioManager.I.PlaySound(EndsessionResultPanel.I.SfxIncreaseBar);

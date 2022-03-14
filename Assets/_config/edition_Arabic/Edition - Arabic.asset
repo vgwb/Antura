@@ -12,10 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f66358b108ad0d641b804d9a6cf07c8d, type: 3}
   m_Name: Edition - Arabic
   m_EditorClassIdentifier: 
-  editionID: 0
+  Edition: 20
   EditionTitle: Arabic
-  ContentEditions:
-  - {fileID: 11400000, guid: f8727a68bdbd3e0429bb71dfa711ef9a, type: 2}
+  ChildEditions: []
+  LearningLanguage: 9
+  NativeLanguage: 9
+  HelpLanguage: 1
+  SupportedNativeLanguages: 09000000
+  DetectSystemLanguage: 0
+  LetterDB: {fileID: 11400000, guid: 88bc7ecfde4917142926cf88489a782b, type: 2}
+  WordDB: {fileID: 11400000, guid: 76372b550c5ab5b499d7b1c762a9dd43, type: 2}
+  PhraseDB: {fileID: 11400000, guid: d95eb222bb100a94fa9cde2f4c87c326, type: 2}
+  LocalizationDB: {fileID: 11400000, guid: 1f5f4ad8224bd104db51395895c43b00, type: 2}
+  StageDB: {fileID: 11400000, guid: 2c81f9e51dd5978468640cdd4c641f25, type: 2}
+  LearningBlockDB: {fileID: 11400000, guid: 52ab90f8bceb94697b271f3161947fa9, type: 2}
+  PlaySessionDB: {fileID: 11400000, guid: 3ba0a63c5ce704092ad2f71effddcbe4, type: 2}
+  MiniGameDB: {fileID: 11400000, guid: f1d6109242c564e60af549609797a9e3, type: 2}
+  RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
   ShowAccents: 0
   CreditsText: {fileID: 4900000, guid: 03893a2f508a149fe8c4b1d1abe19e41, type: 3}
   BookShowRelatedWords: 0
@@ -34,13 +47,17 @@ MonoBehaviour:
   PlayTitleAtMiniGameStart: 0
   PlayIntroAtMiniGameStart: 1
   AutomaticDifficulty: 1
-  AppVersion: 2.0.0.0
+  EditionIcon: {fileID: 0}
+  HomeLogo: {fileID: 21300000, guid: f2da8e370592d444a9cb6e55972f525b, type: 3}
+  TransitionLogo: {fileID: 21300000, guid: 6ec048aa7bf421149af2d14ce677cf74, type: 3}
+  Flag3D: {fileID: 0}
+  AppVersion: 2.0.1.1
   CloudManifest: 
   ProductName: Antura Arabic
   UnityProjectId: ca7a3389-ec6c-44b1-a44d-aa0da4930165
   Android_BundleIdentifier: org.eduapp4syria.antura
   iOS_BundleIdentifier: org.eduapp4syria.antura
-  BundleVersion: 1
+  BundleVersion: 2.0.1.1
   Android_AppIcon: {fileID: 2800000, guid: 27d68ad4edb6c48a2831ca67fb82db32, type: 3}
   iOS_AppIcon: {fileID: 2800000, guid: 27d68ad4edb6c48a2831ca67fb82db32, type: 3}
   SplashLogos:

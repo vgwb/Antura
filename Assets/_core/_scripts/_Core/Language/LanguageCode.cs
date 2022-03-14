@@ -12,6 +12,9 @@ namespace Antura.Language
         persian_dari = 7,
         pashto = 8,
         arabic_legacy = 9,
+        polish = 10,
+        ukrainian = 11,
+        russian = 12,
         COUNT
     }
 }

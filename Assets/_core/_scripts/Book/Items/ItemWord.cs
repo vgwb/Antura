@@ -30,9 +30,12 @@ namespace Antura.Book
             myManager = _manager;
             uIButton = GetComponent<UIButton>();
 
-            if (myWordInfo.unlocked || AppManager.I.Player.IsDemoUser) {
+            if (myWordInfo.unlocked || AppManager.I.Player.IsDemoUser)
+            {
                 OkIcon.enabled = true;
-            } else {
+            }
+            else
+            {
                 OkIcon.enabled = false;
             }
 
@@ -40,9 +43,12 @@ namespace Antura.Book
             Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
             SubTitle.text = AppManager.I.AppEdition.ShowHelpText ? myWordInfo.data.Id : "";
 
-            if (myWordInfo.data.Drawing != "") {
+            if (myWordInfo.data.Drawing != "")
+            {
                 Drawing.SetLetterData(new LL_ImageData(myWordInfo.data));
-            } else {
+            }
+            else
+            {
                 Drawing.text = "";
             }
 
@@ -56,7 +62,8 @@ namespace Antura.Book
 
         public void Select(string code)
         {
-            if (myWordInfo != null) {
+            if (myWordInfo != null)
+            {
                 highlight(code == myWordInfo.data.Id);
             }
         }

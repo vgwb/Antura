@@ -85,9 +85,12 @@ namespace Antura.Minigames.ColorTickle
         void Start()
         {
             m_oLetter = gameObject.GetComponent<LivingLetterController>();
-            if (!m_bSetStartPosition) {
+            if (!m_bSetStartPosition)
+            {
                 m_v3StartPosition = m_oLetter.gameObject.transform.position;
-            } else {
+            }
+            else
+            {
                 m_oLetter.gameObject.transform.position = m_v3StartPosition;
             }
             m_v3Destination = m_Destination.position;
@@ -95,7 +98,8 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (m_bMovingToDestination) {
+            if (m_bMovingToDestination)
+            {
                 MoveTo(m_v3Destination);
             }
 
@@ -104,7 +108,7 @@ namespace Antura.Minigames.ColorTickle
 
         #region PUBLIC FUNCTIONS
         /// <summary>
-        /// Set a new destination and start moving towards it from the current position. 
+        /// Set a new destination and start moving towards it from the current position.
         /// </summary>
         /// <param name="v3Destination">The final world position</param>
         public void MoveToNewDestination(Vector3 v3Destination)
@@ -114,7 +118,7 @@ namespace Antura.Minigames.ColorTickle
         }
 
         /// <summary>
-        /// Set a new destination and start position and begin to travel it. 
+        /// Set a new destination and start position and begin to travel it.
         /// </summary>
         /// <param name="v3Start">The start world position</param>
         /// <param name="v3Destination">The final world position</param>
@@ -152,8 +156,9 @@ namespace Antura.Minigames.ColorTickle
                 {
                     OnDestinationReached();
                 }
-            } else //make the progress for this frame
-              {
+            }
+            else //make the progress for this frame
+            {
                 m_oLetter.SetWalkingSpeed(1);
 
                 m_oLetter.SetState(m_eAnimationOnMoving);

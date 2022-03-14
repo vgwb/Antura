@@ -20,26 +20,31 @@ namespace Antura.UI
 
             int characterCount = textInfo.characterCount;
 
-            if (characterCount > 1) {
+            if (characterCount > 1)
+            {
                 int newYOffset = 0;
                 int charPosition = 1;
 
                 if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0627"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B") {
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B")
+                {
                     newYOffset = 10;
                 }
 
                 if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0623"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E") {
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E")
+                {
                     newYOffset = 16;
                 }
 
                 if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0639"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650") {
+                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650")
+                {
                     newYOffset = -25;
                 }
 
-                if (newYOffset != 0) {
+                if (newYOffset != 0)
+                {
                     // Cache the vertex data of the text object as the Jitter FX is applied to the original position of the characters.
                     TMP_MeshInfo[] cachedMeshInfo = textInfo.CopyMeshInfoVertexData();
 
@@ -65,7 +70,8 @@ namespace Antura.UI
                     destinationVertices[vertexIndex + 2] = sourceVertices[vertexIndex + 2] + offset;
                     destinationVertices[vertexIndex + 3] = sourceVertices[vertexIndex + 3] + offset;
 
-                    for (int i = 0; i < textInfo.meshInfo.Length; i++) {
+                    for (int i = 0; i < textInfo.meshInfo.Length; i++)
+                    {
                         textInfo.meshInfo[i].mesh.vertices = textInfo.meshInfo[i].vertices;
                         m_TextComponent.UpdateGeometry(textInfo.meshInfo[i].mesh, i);
                     }
@@ -92,8 +98,10 @@ namespace Antura.UI
 
             int characterCount = textInfo.characterCount;
 
-            if (characterCount > 1) {
-                for (int i = 0; i < characterCount; i++) {
+            if (characterCount > 1)
+            {
+                for (int i = 0; i < characterCount; i++)
+                {
                     //Debug.Log("CAHR " + characterCount + ": " + TMPro.TMP_TextUtilities.StringToInt(textInfo.characterInfo[characterCount].character.ToString()));
                     Debug.Log("CHAR: " + i
                               + "index: " + textInfo.characterInfo[i].index

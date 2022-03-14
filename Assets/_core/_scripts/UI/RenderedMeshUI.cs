@@ -16,7 +16,7 @@ namespace Antura.UI
 
         private RenderTexture renderTexture;
 
-        public Vector3 eulOffset = new Vector3(0,0,0);
+        public Vector3 eulOffset = new Vector3(0, 0, 0);
         public float scaleMultiplier = 2f;
 
         private RawImage rawImage;
