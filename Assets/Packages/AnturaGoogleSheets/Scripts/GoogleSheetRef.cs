@@ -18,7 +18,8 @@ namespace Antura.GoogleSheets
     public class GoogleSheetRef : ScriptableObject
     {
         public string GoogleDocID;
-        public string SheetTitle;
+        [Tooltip("comma separated sheets to import. leave empty for *")]
+        public string Sheets2Import;
         public string FileName;
 
 #if UNITY_EDITOR
@@ -54,7 +55,7 @@ namespace Antura.GoogleSheets
                 }
                 else
                 {
-                    Debug.Log("Received: " + webRequest.downloadHandler.text);
+                    //                    Debug.Log("Received: " + webRequest.downloadHandler.text);
                     manageReceivedData(sheet, webRequest.downloadHandler.text);
                 }
             }
@@ -77,57 +78,61 @@ namespace Antura.GoogleSheets
 
             foreach (var sheet in obj.sheets)
             {
-                var entryList = new List<JObject>();
-                foreach (var gridData in sheet.data)
+                if (Sheets2Import == "" || (Sheets2Import != "" && Sheets2Import.Contains(sheet.properties.title)))
                 {
-                    Debug.Log("sheet: " + sheet.properties.title);
-                    row = gridData.rowData[0];
-                    var valueTitles = new List<string>();
-                    var sum = "";
-                    foreach (var cell in row.values)
+                    //                    Debug.Log("current sheet: " + sheet.properties.title);
+                    var entryList = new List<JObject>();
+                    foreach (var gridData in sheet.data)
                     {
-                        //Debug.Log(cell.formattedValue);
-                        valueTitles.Add(cell.formattedValue);
-                        sum += cell.formattedValue + ",";
-                    }
-                    var columnCount = valueTitles.Count;
-                    //                    Debug.Log("valueTitles lenght: " + valueTitles.Count + " : " + sum);
-
-                    for (int i = 1; i < gridData.rowData.Length; i++)
-                    {
-                        row = gridData.rowData[i];
-                        var synth = "";
-                        var rowLength = row.values.Length;
-                        if (rowLength > 0)
+                        Debug.Log("Sheet: " + sheet.properties.title);
+                        row = gridData.rowData[0];
+                        var valueTitles = new List<string>();
+                        var sum = "";
+                        foreach (var cell in row.values)
                         {
-                            var jsonObject = new JObject();
-                            var cellString = "";
-                            for (var c = 0; c < columnCount; c++)
-                            {
-                                // Debug.Log("cell : " + i + "." + c);
-                                if (c < rowLength)
-                                {
-                                    cellString = row.values[c].formattedValue ?? "";
-                                }
-                                else
-                                {
-                                    cellString = "";
-                                }
-                                row = gridData.rowData[i];
-                                jsonObject.Add(valueTitles[c], cellString);
-                                synth += cellString + ",";
-                            }
-                            entryList.Add(jsonObject);
-                            // Debug.Log("gridData lenght: " + rowLength + " : " + synth);
+                            //Debug.Log(cell.formattedValue);
+                            valueTitles.Add(cell.formattedValue);
+                            sum += cell.formattedValue + ",";
                         }
-                    }
-                    var myJsonSheet = new JObject(
-                        new JProperty(sheet.properties.title, entryList)
-                        );
+                        var columnCount = valueTitles.Count;
+                        //                    Debug.Log("valueTitles lenght: " + valueTitles.Count + " : " + sum);
 
-                    string jsonData = JsonConvert.SerializeObject(myJsonSheet);
-                    //Debug.Log(jj);
-                    writeJson(jsonData, fileName + " - " + sheet.properties.title);
+                        for (int i = 1; i < gridData.rowData.Length; i++)
+                        {
+                            row = gridData.rowData[i];
+                            var synth = "";
+                            var rowLength = row.values.Length;
+                            if (rowLength > 0)
+                            {
+                                var jsonObject = new JObject();
+                                var cellString = "";
+                                for (var c = 0; c < columnCount; c++)
+                                {
+                                    // Debug.Log("cell : " + i + "." + c);
+                                    if (c < rowLength)
+                                    {
+                                        cellString = row.values[c].formattedValue ?? "";
+                                    }
+                                    else
+                                    {
+                                        cellString = "";
+                                    }
+                                    row = gridData.rowData[i];
+                                    jsonObject.Add(valueTitles[c], cellString);
+                                    synth += cellString + ",";
+                                }
+                                entryList.Add(jsonObject);
+                                // Debug.Log("gridData lenght: " + rowLength + " : " + synth);
+                            }
+                        }
+                        var myJsonSheet = new JObject(
+                            new JProperty(sheet.properties.title, entryList)
+                            );
+
+                        string jsonData = JsonConvert.SerializeObject(myJsonSheet);
+                        //Debug.Log(jj);
+                        writeJson(jsonData, fileName + " - " + sheet.properties.title);
+                    }
                 }
             }
         }
@@ -135,7 +140,7 @@ namespace Antura.GoogleSheets
         private void writeJson(string value, string filename)
         {
             //var varGroup = JsonUtility.FromJson<LiveDataJSONCollection>(value);
-            Debug.Log("writeJson " + filename);
+            Debug.Log("JSON write file: " + filename);
 
             var jsonText = value;
             var outputDirectory = Path.Combine(Application.streamingAssetsPath, PathToJson);
@@ -151,5 +156,4 @@ namespace Antura.GoogleSheets
         }
 #endif
     }
-
 }
