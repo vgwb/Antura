@@ -11,9 +11,18 @@
 8. open Manage Database scene and import the google data...
 
 ## Git
-Create and edition_name branch
+there are tre ways to manage a custom edition:
+1. clone the project and keep it separated, like a custom product
+2. fork the project, work on a branch and then submit the changes to the main repository wtih Pull Requests
+3. ask for write access to the main repository if we can manage to collaborate.
+
+In anyway you should create an `edition_name` branch
 
 ## Unity Cloud
-- create new project
+- create new project (every app has a different project_id)
 - setup Cloud Build
 - setup Analytics
+
+## Publish
+We don't cover here how to publish on Google Play and Apple App Store.  
+It would be bettere if we do it together and if the app is an official Antura Edition, we can publish it for you.
