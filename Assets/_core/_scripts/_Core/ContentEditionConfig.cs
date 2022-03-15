@@ -1,5 +1,6 @@
 ﻿using Antura.Database;
 using Antura.Language;
+using Antura.Database.Management;
 using UnityEngine;
 
 namespace Antura.Core
@@ -43,6 +44,9 @@ namespace Antura.Core
         public Sprite HomeLogo;
         public Sprite TransitionLogo;
         public GameObject Flag3D;
+
+        [Header("Database Data Files to Import")]
+        public DatabaseInputData DBImportDataFiles;
 
         public GameObject GetResource(EditionResourceID id)
         {

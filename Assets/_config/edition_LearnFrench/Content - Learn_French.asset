@@ -9,17 +9,19 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f66358b108ad0d641b804d9a6cf07c8d, type: 3}
-  m_Name: Edition - LearnFrench
+  m_Script: {fileID: 11500000, guid: e2ccf69b7988417193c5f51bfc00f11b, type: 3}
+  m_Name: Content - Learn_French
   m_EditorClassIdentifier: 
-  Edition: 30
-  EditionTitle: Learn French
-  ChildEditions: []
+  ContentID: 40
+  Icon: {fileID: 0}
+  Title: 
   LearningLanguage: 5
   NativeLanguage: 2
   HelpLanguage: 2
   SupportedNativeLanguages: 02000000
   DetectSystemLanguage: 1
+  DiacriticsOnlyOnIsolated: 0
+  PlayNameSoundWithForms: 0
   LetterDB: {fileID: 11400000, guid: 17ca8d67d6024f44ab41f484dab28427, type: 2}
   WordDB: {fileID: 11400000, guid: cb82d536b8f21744ba4538fe4668bdb3, type: 2}
   PhraseDB: {fileID: 11400000, guid: a858c402c8beca04081f680e03f48b8f, type: 2}
@@ -29,37 +31,16 @@ MonoBehaviour:
   PlaySessionDB: {fileID: 11400000, guid: 33fba8994e1f7324c8bf3df678d6a601, type: 2}
   MiniGameDB: {fileID: 11400000, guid: e5435968d408599469dea5ecb4d7df55, type: 2}
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
-  ShowAccents: 0
-  CreditsText: {fileID: 4900000, guid: 5b0694565a59c45d29797229f3ee352e, type: 3}
-  BookShowRelatedWords: 0
-  ReservedAreaForcedSeq: 0
-  ShowDonate: 0
-  ShowTeacherGuide: 0
-  DefaultKeeperMode: 5
-  AllowSubtitleSkip: 1
-  EnableSubtitlesToggle: 0
-  ShowHelpText: 0
-  ShowKeeperTranslation: 0
-  RequireGender: 1
-  RequireAge: 0
-  EnableNotifications: 0
-  OnlineAnalyticsEnabled: 1
-  PlayTitleAtMiniGameStart: 0
-  PlayIntroAtMiniGameStart: 1
-  AutomaticDifficulty: 1
-  EditionIcon: {fileID: 0}
   HomeLogo: {fileID: 21300000, guid: 8cac6647a17e2314e84ead3703772aa3, type: 3}
   TransitionLogo: {fileID: 21300000, guid: d9ff2c3e61d61e046b4f17854574508b, type: 3}
   Flag3D: {fileID: 0}
-  AppVersion: 2.0.0.0
-  CloudManifest: NONE
-  ProductName: "Fran\xE7ais avec Antura"
-  UnityProjectId: c4f44d0b-5566-4811-9d96-dd59686d708b
-  Android_BundleIdentifier: org.antura.learn.french
-  iOS_BundleIdentifier: org.antura.learn.french
-  BundleVersion: 2.0.0.0
-  Android_AppIcon: {fileID: 2800000, guid: d7c4cfb4703706c42a4da07e0b4e87e5, type: 3}
-  iOS_AppIcon: {fileID: 2800000, guid: d7c4cfb4703706c42a4da07e0b4e87e5, type: 3}
-  SplashLogos:
-  - {fileID: 21300000, guid: 669b3bbda8d722c4ba95203e7bdd1924, type: 3}
-  - {fileID: 21300000, guid: d8f1058f284d0ff45bbc8d712848f28b, type: 3}
+  DBImportDataFiles:
+    localizationDataAsset: {fileID: 4900000, guid: 03c285001072a44be9a47d2bf102c971,
+      type: 3}
+    letterDataAsset: {fileID: 0}
+    wordDataAsset: {fileID: 0}
+    phraseDataAsset: {fileID: 0}
+    playSessionDataAsset: {fileID: 0}
+    minigameDataAsset: {fileID: 0}
+    stageDataAsset: {fileID: 4900000, guid: 6e66f219faa61485fa14707a7408b0b0, type: 3}
+    rewardDataAsset: {fileID: 4900000, guid: 9a8f84a0ca7174b87996c4bd292301cf, type: 3}
