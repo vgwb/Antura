@@ -17,7 +17,7 @@ namespace Antura.GoogleSheets
     [CreateAssetMenu(menuName = "Antura/Google Sheet Ref", order = 1)]
     public class GoogleSheetRef : ScriptableObject
     {
-        public string DocID;
+        public string GoogleDocID;
         public string SheetTitle;
         public string FileName;
 
@@ -25,7 +25,7 @@ namespace Antura.GoogleSheets
         [DeMethodButton("Open Sheet in Web Browser")]
         public void OpenSheetInBrowser()
         {
-            Application.OpenURL("https://docs.google.com/spreadsheets/d/" + DocID + "/edit");
+            Application.OpenURL("https://docs.google.com/spreadsheets/d/" + GoogleDocID + "/edit");
         }
 
         private readonly string GoogleApiUrl = "https://sheets.googleapis.com/v4/spreadsheets/";
@@ -41,7 +41,7 @@ namespace Antura.GoogleSheets
 
         private IEnumerator fetchData(GoogleSheetRef sheet)
         {
-            var uri = GoogleApiUrl + sheet.DocID + GoogleApiUrlPostfix + GoogleSecretApi;
+            var uri = GoogleApiUrl + sheet.GoogleDocID + GoogleApiUrlPostfix + GoogleSecretApi;
             using (var webRequest = UnityWebRequest.Get(uri))
             {
                 webRequest.SetRequestHeader("accept", "application/json");
