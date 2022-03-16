@@ -13,7 +13,7 @@ PlayerSettings:
   useOnDemandResources: 0
   accelerometerFrequency: 0
   companyName: VGWB
-  productName: Antura Learn Polish
+  productName: Antura
   defaultCursor: {fileID: 0}
   cursorHotspot: {x: 0, y: 0}
   m_SplashScreenBackgroundColor: {r: 0, g: 0, b: 0, a: 1}
@@ -138,7 +138,7 @@ PlayerSettings:
     16:10: 0
     16:9: 1
     Others: 0
-  bundleVersion: 2.0.0.0
+  bundleVersion: 2.0.1.2
   preloadedAssets: []
   metroInputSource: 0
   wsaTransparentSwapchain: 0
@@ -157,10 +157,10 @@ PlayerSettings:
   androidSupportedAspectRatio: 1
   androidMaxAspectRatio: 2.1
   applicationIdentifier:
-    Android: org.antura.learn.polish
+    Android: org.eduapp4syria.antura
     Standalone: 
     Tizen: org.eduapp4syria.antura
-    iPhone: org.antura.learn.polish
+    iPhone: org.eduapp4syria.antura
     tvOS: org.eduapp4syria.antura
   buildNumber:
     Standalone: 0
@@ -281,7 +281,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - serializedVersion: 2
-      m_Icon: {fileID: 2800000, guid: 6abe535a26c294ac5a9d72e29837df4e, type: 3}
+      m_Icon: {fileID: 2800000, guid: 5a71076b1c3d54ddfb10fafde3b01a30, type: 3}
       m_Width: 128
       m_Height: 128
       m_Kind: 0
@@ -421,33 +421,6 @@ PlayerSettings:
       m_SubKind: 
   - m_BuildTarget: iPhone
     m_Icons:
-    - m_Textures:
-      - {fileID: 0}
-      m_Width: 180
-      m_Height: 180
-      m_Kind: 0
-      m_SubKind: iPhone
-    - m_Textures: []
-      m_Width: 120
-      m_Height: 120
-      m_Kind: 0
-      m_SubKind: iPhone
-    - m_Textures:
-      - {fileID: 2800000, guid: 6abe535a26c294ac5a9d72e29837df4e, type: 3}
-      m_Width: 167
-      m_Height: 167
-      m_Kind: 0
-      m_SubKind: iPad
-    - m_Textures: []
-      m_Width: 152
-      m_Height: 152
-      m_Kind: 0
-      m_SubKind: iPad
-    - m_Textures: []
-      m_Width: 76
-      m_Height: 76
-      m_Kind: 0
-      m_SubKind: iPad
     - m_Textures: []
       m_Width: 120
       m_Height: 120
@@ -519,6 +492,34 @@ PlayerSettings:
       m_Height: 1024
       m_Kind: 4
       m_SubKind: App Store
+    - m_Textures:
+      - {fileID: 2800000, guid: 27d68ad4edb6c48a2831ca67fb82db32, type: 3}
+      m_Width: 180
+      m_Height: 180
+      m_Kind: 0
+      m_SubKind: iPhone
+    - m_Textures:
+      - {fileID: 0}
+      m_Width: 120
+      m_Height: 120
+      m_Kind: 0
+      m_SubKind: iPhone
+    - m_Textures:
+      - {fileID: 2800000, guid: 6abe535a26c294ac5a9d72e29837df4e, type: 3}
+      m_Width: 167
+      m_Height: 167
+      m_Kind: 0
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 152
+      m_Height: 152
+      m_Kind: 0
+      m_SubKind: iPad
+    - m_Textures: []
+      m_Width: 76
+      m_Height: 76
+      m_Kind: 0
+      m_SubKind: iPad
   m_BuildTargetBatching: []
   m_BuildTargetGraphicsJobs:
   - m_BuildTarget: GameCoreScarlettSupport
@@ -984,13 +985,13 @@ PlayerSettings:
   vrEditorSettings: {}
   cloudServicesEnabled:
     Analytics: 1
-    Build: 0
+    Build: 1
     Collab: 0
     ErrorHub: 0
-    Game Performance: 0
+    Game Performance: 1
     Game_Performance: 0
     Hub: 0
-    Legacy Analytics: 0
+    Legacy Analytics: 1
     Purchasing: 0
     UDP: 0
     UNet: 1
@@ -1009,10 +1010,10 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 58d39ba0-fa5e-44cc-9937-8ef54ccd029b
+  cloudProjectId: ca7a3389-ec6c-44b1-a44d-aa0da4930165
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: Antura_LrnPolish
+  projectName: Antura_arabic
   organizationId: video-games-without-borders
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
