@@ -70,7 +70,6 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public void TestEvent()
         {
-            Debug.Log("Analytics TestEvent 1");
             if (!AnalyticsEnabled)
                 return;
 
@@ -81,7 +80,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
 
             Events.CustomData("myTestEvent", parameters);
-            Debug.Log("Analytics TestEvent 2");
+            Events.Flush();
+            Debug.Log("Analytics TestEvent");
         }
 
         public void TrackCompletedRegistration(PlayerProfile playerProfile)
