@@ -49,23 +49,16 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         async void Awake()
         {
-            //           Debug.Log("Awake AnalyticsService");
             var options = new InitializationOptions();
             options.SetEnvironmentName("dev");
-            await UnityServices.InitializeAsync(options);
+            await UnityServices.InitializeAsync();
         }
 
-        private bool AnalyticsEnabled
-        {
-            get
-            {
-                return AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
-            }
-        }
+        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
 
         public void Init()
         {
-            //           Debug.Log("init AnalyticsService");
+            //  Debug.Log("init AnalyticsService");
         }
 
         public void TestEvent()
