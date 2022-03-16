@@ -4,8 +4,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Antura.Dog;
 using Antura.Profile;
-using Unity.Services.Core;
 using UnityEngine;
+using Unity.Services.Core;
+using Unity.Services.Core.Environments;
 using Unity.Services.Analytics;
 
 namespace Antura.Core.Services.OnlineAnalytics
@@ -44,7 +45,13 @@ namespace Antura.Core.Services.OnlineAnalytics
 
         public AnalyticsService()
         {
-            UnityServices.InitializeAsync();
+        }
+
+        async void Awake()
+        {
+            var options = new InitializationOptions();
+            options.SetEnvironmentName("dev");
+            UnityServices.InitializeAsync(options);
         }
 
         private bool AnalyticsEnabled
