@@ -129,6 +129,9 @@ namespace Antura.Core
         public Texture2D iOS_AppIcon;
         public Sprite[] SplashLogos;
 
+        [Header("Player Settings")]
+        public bool ChangePlayerSettings;
+
 #if UNITY_EDITOR
         [DeMethodButton("Configure as Active Edition")]
         public void ConfigureForBuild()
@@ -138,19 +141,21 @@ namespace Antura.Core
                 return;
 
             config.LoadedAppEdition = this;
-            PlayerSettings.productName = ProductName;
-            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
-            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
-            PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
-            PlayerSettings.bundleVersion = BundleVersion;
-            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
-            PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
-            PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-            for (int i = 0; i < SplashLogos.Length; i++)
+            if (ChangePlayerSettings)
             {
-                PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
+                PlayerSettings.productName = ProductName;
+                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
+                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
+                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
+                PlayerSettings.bundleVersion = BundleVersion;
+                PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
+                PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
+                PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
+                for (int i = 0; i < SplashLogos.Length; i++)
+                {
+                    PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
+                }
             }
-
             var learningConfigsToUse = new List<ContentEditionConfig>();
             foreach (var edition in ContentEditions)
             {
@@ -221,15 +226,6 @@ namespace Antura.Core
             AddressableAssetSettings.BuildPlayerContent();
             Debug.LogWarning($"Rebuilt addressables");
         }
-
-        /*[DeMethodButton("Test set cloud config")]
-        public void TestSetCloudConfig()
-        {
-            var config = ApplicationConfig.FindMainConfig();
-            if (config == null) return;
-            config.LoadedEdition.CloudManifest = "TEST CLOUD MANIFEST";
-            AssetDatabase.SaveAssets();
-        }*/
 
 #endif
     }
