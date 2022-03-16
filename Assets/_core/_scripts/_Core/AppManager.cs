@@ -47,7 +47,6 @@ namespace Antura.Core
         public FirstContactManager FirstContactManager;
         public PlayerProfileManager PlayerProfileManager;
         public RewardSystemManager RewardSystemManager;
-        public FacebookManager FacebookManager;
         public AssetManager AssetManager;
 
         [HideInInspector]
@@ -154,9 +153,8 @@ namespace Antura.Core
 
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager();
-            FacebookManager = gameObject.AddComponent<FacebookManager>();
-            FacebookManager.verbose = true;
-
+            Services.Analytics = gameObject.AddComponent<AnalyticsService>();
+            Services.Analytics.Init();
             // MonoBehaviors
             NavigationManager = gameObject.AddComponent<NavigationManager>();
             NavigationManager.Init();
@@ -169,7 +167,7 @@ namespace Antura.Core
             PlayerProfileManager = new PlayerProfileManager();
             PlayerProfileManager.LoadPlayerSettings();
 
-            Services = new ServicesManager();
+            //            Services = new ServicesManager();
 
             Debug.Log("AppManager Init(): UIDirector.Init()");
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
@@ -182,7 +180,7 @@ namespace Antura.Core
             Debug.unityLogger.logEnabled = DebugConfig.I.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
-            Debug.Log("AppManager Init(): UpdateAppVersion");
+            // Debug.Log("AppManager Init(): UpdateAppVersion");
             // Update settings
             AppSettingsManager.UpdateAppVersion();
 
@@ -232,6 +230,11 @@ namespace Antura.Core
             //        QuitApplication();
             //    }
             //}
+
+            if (Input.GetKeyDown(KeyCode.T))
+            {
+                Services.Analytics.TestEvent();
+            }
         }
 
         public void OnSceneChanged()

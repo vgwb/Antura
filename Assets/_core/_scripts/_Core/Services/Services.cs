@@ -16,7 +16,7 @@ namespace Antura.Core.Services
         {
             Notifications = new NotificationService();
             Gallery = new GalleryService();
-            Analytics = new AnalyticsService();
+            //Analytics = new AnalyticsService();
             WebView = new WebViewService();
         }
     }
