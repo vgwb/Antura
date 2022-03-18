@@ -168,6 +168,8 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             var parameters = new Dictionary<string, object>()
             {
+                { "myEdition", AppManager.I.AppSettings.ContentID.ToString() },
+                { "myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString() },
                 { "myMinigame", miniGameCode.ToString() },
                 { "myScore", score },
                 { "myDuration", (int)duration },
