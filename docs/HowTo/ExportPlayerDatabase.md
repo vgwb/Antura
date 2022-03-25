@@ -1,3 +1,9 @@
+---
+layout: default
+title: Retrieve Player DB
+parent: HowTo
+nav_order: 0
+---
 # How to retrieve the player database
  
 The player Profile Database is saved as a SQLite database and can be easily retrieved and shared.
@@ -19,7 +25,8 @@ The simplest way to copy the files is by connecting the Android phone to a PC, b
 ## iOS
 
 Attach the iOS device to a computer via USB and open iTunes. Go to your device -> Apps -> File Sharing panel and select Antura. Drag the `players` folder onto your Desktop and the files are all there.
-![](../images/iTunes-Antura_files_sharing.png)
+
+![](../assets/img/iTunes-Antura_files_sharing.png)
 
 ## Windows
 

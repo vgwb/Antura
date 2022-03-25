@@ -1,3 +1,9 @@
+---
+layout: default
+title: Install and Configure
+parent: HowTo
+nav_order: 0
+---
 # Install and Configure
 
 ## Requirements

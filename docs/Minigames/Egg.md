@@ -1,3 +1,9 @@
+---
+layout: default
+title: Egg
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Egg
 
 

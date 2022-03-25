@@ -1,3 +1,9 @@
+---
+layout: default
+title: Learning Goals
+parent: Game Design
+nav_order: 1
+---
 # Learning Goals
 
 ## One letter: Name of the letter

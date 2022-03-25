@@ -1,3 +1,9 @@
+---
+layout: default
+title: Collaborator Guide
+parent: HowTo
+nav_order: 0
+---
 # Collaborator Guidelines
 
 We are developing a public project released Open Source.

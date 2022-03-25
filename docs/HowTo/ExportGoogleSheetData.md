@@ -1,4 +1,12 @@
+---
+layout: default
+title: Export from Sheets
+parent: HowTo
+nav_order: 0
+---
 # How to export data from Google Sheets
+> Note: from 2020 the Sheets are imported direclty from the Unity Editor.
+> These docs are good to export the JSON manually.
 
 We store all static data as JSON files.
 These can be exported from Google Sheets by an open source addon: "Export Sheet Data".

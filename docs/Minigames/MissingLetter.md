@@ -1,3 +1,9 @@
+---
+layout: default
+title: Missing Letter
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Missing Letter
 
 ## Testing procedure

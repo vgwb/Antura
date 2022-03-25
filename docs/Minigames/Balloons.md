@@ -1,3 +1,9 @@
+---
+layout: default
+title: Balloons
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Balloons
 
 ## Testing procedure

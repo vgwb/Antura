@@ -1,3 +1,9 @@
+---
+layout: default
+title: Logging System
+parent: Modules
+nav_order: 0
+---
 # Logging System
 
 * TOC

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Scanner
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Scanner
 
 ![](images/Scanner.jpg)

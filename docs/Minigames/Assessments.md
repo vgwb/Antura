@@ -1,3 +1,9 @@
+---
+layout: default
+title: Assessment
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Assessment
 
 Assessments take place at the end of a learning block, when the player’s token reach a pin on the journey map.

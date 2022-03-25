@@ -1,3 +1,9 @@
+---
+layout: default
+title: Arabic Language
+parent: Game Design
+nav_order: 3
+---
 # Data Analysis
 
 the app logs several types of data during the gameplay to allow analysis of behaviours and results of the learning experience.

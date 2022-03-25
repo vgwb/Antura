@@ -1,3 +1,9 @@
+---
+layout: default
+title: HowTo
+nav_order: 1
+has_children: true
+---
 # User and Tester guides
 
 - [Debug Shortcuts](DebugShortcuts.md) cheats and keyboard shortcuts

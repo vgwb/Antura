@@ -1,3 +1,9 @@
+---
+layout: default
+title: Arabic Language
+parent: Game Design
+nav_order: 2
+---
 # Arabic Language
 
 ## Hamza (ء)

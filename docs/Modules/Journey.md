@@ -1,3 +1,9 @@
+---
+layout: default
+title: Journey
+parent: Modules
+nav_order: 0
+---
 # Journey
 
 Represents the didactical journey.

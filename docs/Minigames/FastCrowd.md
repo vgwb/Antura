@@ -1,3 +1,9 @@
+---
+layout: default
+title: Fast Crowd
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Fast Crowd
 
 ## Testing procedure

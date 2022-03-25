@@ -1,4 +1,9 @@
-# MiniGame: Tobogan
+---
+layout: default
+title: Tobogan
+parent: Minigames
+nav_order: 0
+---
 
 ![](images/Tobogan.jpg)
 

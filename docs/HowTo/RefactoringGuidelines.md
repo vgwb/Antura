@@ -1,7 +1,10 @@
+---
+layout: default
+title: Refactoring Guidelines
+parent: HowTo
+nav_order: 0
+---
 # Refactoring Guidelines
-
-* TOC
-{:toc}
 
 These notes represent guidelines for refactoring the Antura code.
 

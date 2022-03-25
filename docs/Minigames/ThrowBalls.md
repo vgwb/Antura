@@ -1,4 +1,9 @@
-# MiniGame: Throw Balls
+---
+layout: default
+title: Throw Balls
+parent: Minigames
+nav_order: 0
+---
 
 ## Testing procedure
 Total tests: 3

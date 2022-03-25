@@ -1,3 +1,9 @@
+---
+layout: default
+title: Build
+parent: HowTo
+nav_order: 0
+---
 # Build Antura
 
 ## Desktop

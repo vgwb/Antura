@@ -1,3 +1,9 @@
+---
+layout: default
+title: Drawings Font
+parent: HowTo
+nav_order: 0
+---
 # How to create the Drawings font
 
 ## How to Draw a word

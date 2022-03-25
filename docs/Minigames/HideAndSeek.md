@@ -1,3 +1,9 @@
+---
+layout: default
+title: Hide And Seek
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Hide And Seek
 
 ## Testing procedure

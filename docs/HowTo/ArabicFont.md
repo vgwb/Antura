@@ -1,3 +1,9 @@
+---
+layout: default
+title: Fonts Atlas
+parent: HowTo
+nav_order: 0
+---
 # How to create the Arabic font Atlas
 
 Open TextMesh Pro Font Asset Creator using these parameters:

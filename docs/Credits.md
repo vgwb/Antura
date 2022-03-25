@@ -1,3 +1,9 @@
+---
+layout: default
+title: Credits
+nav_order: 90
+has_children: false
+---
 # Produced by
 
 # [TH Köln / Cologne Game Lab](http://www.colognegamelab.de), [Video Games Without Borders](http://vgwb.org) & [Wixel Studios](www.wixelstudios.com)

@@ -1,3 +1,9 @@
+---
+layout: default
+title: Make Friends
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Make Friends
 
 ![](images/MakeFriends.jpg)

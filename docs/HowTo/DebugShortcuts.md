@@ -1,3 +1,9 @@
+---
+layout: default
+title: Debug and Shortcuts
+parent: HowTo
+nav_order: 0
+---
 # Debug and Shortcuts
 
 ## Debug Panel

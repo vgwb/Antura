@@ -1,3 +1,9 @@
+---
+layout: default
+title: Modules
+nav_order: 3
+has_children: true
+---
 # Project Modules / Architecture
 
 - [Project Structure](ProjectStructure.md) the structure of the Unity project.

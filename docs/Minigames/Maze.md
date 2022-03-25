@@ -1,3 +1,9 @@
+---
+layout: default
+title: Maze
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Maze
 
 ![](images/Maze.jpg)

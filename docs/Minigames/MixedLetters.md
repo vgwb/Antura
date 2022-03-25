@@ -1,3 +1,9 @@
+---
+layout: default
+title: Mixed Letters
+parent: Minigames
+nav_order: 0
+---
 # MiniGame: Mixed Letters
 
 ![](images/MixedLetters.jpg)

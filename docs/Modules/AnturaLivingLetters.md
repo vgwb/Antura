@@ -1,3 +1,9 @@
+---
+layout: default
+title: Antura and Living Letters
+parent: Modules
+nav_order: 0
+---
 # Antura and Living Letters
 
 _work in progress_

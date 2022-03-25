@@ -1,7 +1,10 @@
+---
+layout: default
+title: Dev guide
+parent: HowTo
+nav_order: 0
+---
 # Developer Guidelines and Tips
-
-* TOC
-{:toc}
 
 Developers should follow these guidelines for contributing to the project.
 
@@ -58,22 +61,22 @@ Local.meta
 
 if you create a Assets/Local directory, you can put inside whatever personal you want, and won't be versioned.
 
-Coding Guidelines
-We can use any external plugin, obviously the fewer the better
-All code and app architecture must be self speaking (in English) to be easily read by new/external contributors
-Flexibility: no hardcoded vars. Anything should be parameterized (for app variations in other languages or modular evolution)
-Git commit rule: One feature is One commit rule
-Commit a feature with all its dependencies when it’s working and tested at least once
-The commit message should be a simple description of what has been done (the Git log will be used to generate the app changelog so pay attention), with a prefix like:
+## Coding Guidelines
+- We can use any external plugin, obviously the fewer the better
+- All code and app architecture must be self speaking (in English) to be easily read by new/external contributors
+- Flexibility: no hardcoded vars. Anything should be parameterized (for app variations in other languages or modular evolution)
+- Git commit rule: One feature is One commit rule
+- Commit a feature with all its dependencies when it’s working and tested at least once
+- The commit message should be a simple description of what has been done (the Git log will be used to generate the app changelog so pay attention), with a prefix like:
 [plugin] lorem ipsum v 1.x.x
 [bug] fixed xxx
 [feature] added this in that
 [changed] behaviour x now does y
 [cgl] cleaned minigame x code     
-C# only + Unix line endings
-Use EA4S namespace for the app, and EA4S.minigame for specific minigames classes.
-No compilation errors (red) allowed in the dev branch. Always buildable.
-No compilation warnings (yellow) allowed in master branch (if possible)
-All the code must be released under the MIT License 
-Everyone should commit just to dev branch (eventually their own) when a feature / debug is done and tested. Do no push to origin without some local testing. Team leads will merge into master to trigger testing builds.
+- C# only + Unix line endings
+- Use `Antura` namespace for the app, and `Antura.minigame` for specific minigames classes.
+- No compilation errors (red) allowed in the dev branch. Always buildable.
+- No compilation warnings (yellow) allowed in master branch (if possible)
+- All the code must be released under the MIT License 
+- Everyone should commit just to dev branch (eventually their own) when a feature / debug is done and tested. Do no push to origin without some local testing. Team leads will merge into master to trigger testing builds.
 

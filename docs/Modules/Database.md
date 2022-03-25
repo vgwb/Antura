@@ -1,3 +1,9 @@
+---
+layout: default
+title: DB Management
+parent: Modules
+nav_order: 0
+---
 # Database Management
 
 * TOC

@@ -1,3 +1,9 @@
+---
+layout: default
+title: DB Info
+parent: Modules
+nav_order: 0
+---
 # Database Info and Management
 
 Here is a description of the Antura Database and proposal for the web application to deal with the upload of the db files from the Antura app to the servers and their management.
