@@ -1,5 +1,11 @@
+---
+layout: default
+title: Antura Docs
+nav_order: 1
+has_children: false
+---
 # Antura Docs
-this documentation website is dedicated to Teachers, Designers and Developers, maintained by the Antura Core Team directly inside the project repository as an handbook for whatever can't be put inside the Source Code itself.
+this documentation website is dedicated to Teachers, Designers and Developers who wants to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.
 
 - **Antura Docs:** [docs.antura.org](http://docs.antura.org)
 - **GitHub project:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)

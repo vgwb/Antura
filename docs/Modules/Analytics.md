@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Antura Analytics
 
-Antura Docs:
-All current updated docs are here: <https://docs.antura.org>
-
 We have a page on what we would like to track from data: <https://docs.antura.org/GameDesign/DataAnalysis.html> and here everything we log in the app: <https://docs.antura.org/Modules/Logging.html>
 
 ## Unity Analytics
@@ -40,7 +37,6 @@ Unity Analytics (the new beta version we are enabled to use) has also an SQL Dat
 ## Terminology
 **JP** = Journey Position ([see](../Modules/Journey.md))
 is identified by a the sequence **X.Y.Z** where X is the Stage, Y the Learning Block, and Z the Play Session.
-
 
 ## Custom Events
 

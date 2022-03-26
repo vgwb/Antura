@@ -10,16 +10,16 @@ Developers should follow these guidelines for contributing to the project.
 
 ## Coding conventions
 
-* Indent using four spaces (no tabs)
-* Use Unix newline
-* Use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, but for `if` and `for`
-* Use **camelCase** for internal and private fields
-* Use **CamelCase** for public fields
-* Use **CamelCase** for all methods, public and private, for classes, enum types and enum values.
-* Use **THIS_STYLE** for constants.
-* Regions can be used to group code logically. No nested regiones. Use **CamelCase** for region names.
-* No copyright notice nor author metadata should be present at the start of the file, unless it is of a third party
-* **Never** commit if you encounter compilation errors or warnings.
+- Indent using four spaces (no tabs)
+- Use Unix newline
+- Use [Allman style](http://en.wikipedia.org/wiki/Indent_style#Allman_style) braces, but for `if` and `for`
+- Use **camelCase** for internal and private fields
+- Use **CamelCase** for public fields
+- Use **CamelCase** for all methods, public and private, for classes, enum types and enum values.
+- Use **THIS_STYLE** for constants.
+- Regions can be used to group code logically. No nested regiones. Use **CamelCase** for region names.
+- No copyright notice nor author metadata should be present at the start of the file, unless it is of a third party
+- **Never** commit if you encounter compilation errors or warnings.
 
 ## Naming conventions
 
@@ -39,14 +39,14 @@ Most core code will be in a subsystem.
 Specific subsystem code is inside a **Antura.SUBSYSTEM** namespace, where SUBSYSTEM is the subsystem's name.
 What follows is a list of subsystems with their namespaces:
 
-* **Antura.Core** for the core managers and data of the appllication.
-* **Antura.AnturaSpace** for code related to the Antura Space scene.
-* **Antura.PlayerBook** for code related to the Player Book scene.
-* **Antura.GamesSelector** handles the Games Selector scene.
-* **Antura.Animations** for general animation utilities.
-* **Antura.Database** for database access and organization.
-* **Antura.LivingLetters** for scripts related to the Living Letter characters.
-* et cetera...
+- **Antura.Core** for the core managers and data of the appllication.
+- **Antura.AnturaSpace** for code related to the Antura Space scene.
+- **Antura.PlayerBook** for code related to the Player Book scene.
+- **Antura.GamesSelector** handles the Games Selector scene.
+- **Antura.Animations** for general animation utilities.
+- **Antura.Database** for database access and organization.
+- **Antura.LivingLetters** for scripts related to the Living Letter characters.
+- et cetera...
 
 **Never commit anything without a namespace, nor anything under the root Antura namespace**
 
