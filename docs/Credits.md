@@ -5,74 +5,71 @@ nav_order: 90
 has_children: false
 ---
 # Produced by
+- [TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
+- [Video Games Without Borders](http://vgwb.org)
+- [Wixel Studios](www.wixelstudios.com)
 
-# [TH Köln / Cologne Game Lab](http://www.colognegamelab.de), [Video Games Without Borders](http://vgwb.org) & [Wixel Studios](www.wixelstudios.com)
-
-## CORE TEAM
+## Core Team
 
 ### PROJECT LEAD AND CREATIVE DIRECTOR
-Prof. Dr. Emmanuel Guardiola
-(TH Köln / Cologne Game Lab)
-
-### ART DIRECTOR AND LEAD ARTIST
-Gaetano Leonardi
-
-### GAME DESIGNER AND UX/UI MASTER
-Daniele Giardini
-
-### LEAD PROGRAMMERS
-Paolo Bragonzi
-Davide Barbieri
-Michele Pirovano
-
-### MUSIC AND SOUND DESIGNER
-Hamza Chioua
-
-### R&D AND PRODUCTION
-Stefano Cecere
-
-### ASSOCIATE PRODUCER AND ADDITIONAL GAME DESIGN
-Ziad Feghali
+- Prof. Dr. Emmanuel Guardiola (CGL)
 
 ### PRODUCER AND ADDITIONAL GAME DESIGN
-Francesco Cavallari
+- Francesco Cavallari (VGWB)
+
+### R&D AND PRODUCTION
+- Stefano Cecere (VGWB)
+
+### ART DIRECTOR AND LEAD ARTIST
+- Gaetano Leonardi (VGWB)
+
+### MINIGAMES DESIGNER AND UX/UI MASTER
+- Daniele Giardini (VGWB)
+
+### PROGRAMMERS
+- Michele Pirovano (VGWB)
+- Paolo Bragonzi (VGWB)
+- Davide Barbieri (VGWB)
+
+### MUSIC AND SOUND DESIGNER
+- Hamza Chioua (VGWB)
+
+### ASSOCIATE PRODUCER AND ADDITIONAL GAME DESIGN
+- Ziad Feghali (Wixel)
 
 ## TH Köln / Cologne Game Lab
 
-### PROJECT LEAD AND CREATIVE DIRECTOR
-Prof. Dr. Emmanuel Guardiola
-
 ### PSYCHOLOGY ADVISOR
-Dr. Marc Wittman
+- Dr. Marc Wittman
 
 ### MAIN PEDAGOGICAL ADVISOR
-Safâa El Ouafi
+- Safâa El Ouafi
 
 ### PEDAGOGICAL EXPERTS
-Mouna Barmada
-Bahjat Moura
+- Mouna Barmada
+- Bahjat Moura
 
 ### PLAYTESTS AND FIELD TESTS COORDINATORS
-Lubna Odeh (CNAM Paris)
-Dr Yavuz Samur (Bahcesehir University Istanbul)
-Fatimaezzahra Benmarrakchi (Université Chouaib Doukkali)
-Dr Antoun Yaacoub (Université Libanaise Beirut)
+- Lubna Odeh (CNAM Paris)  
+- Dr Yavuz Samur (Bahcesehir University Istanbul)  
+- Fatimaezzahra Benmarrakchi (Université Chouaib Doukkali)  
+- Dr Antoun Yaacoub (Université Libanaise Beirut)
 
 ### DATA ANALYST
-Thiago Gatti
+- Thiago Gatti
 
 ### ADMINISTRATION COORDINATION
-Sebastian Felzmann
-Katharina Tillmanns
+- Sebastian Felzmann  
+- Katharina Tillmanns
 
 ### LEAD MARKETING STRATEGIST
-Odile Limpach
+- Odile Limpach
 
 ### COMMUNICATION COORDINATOR
-Imaad Manzar
+- Imaad Manzar
 
 ### PR COORDINATOR
-Judith Neumann
+- Judith Neumann
 
 ### DIGITAL MARKETING COORDINATOR AND 2D ILLUSTRATOR
 Pierre Schlömp
@@ -82,30 +79,10 @@ Karen Barbosa
 
 ## Video Games Without Borders
 
-### PRODUCER AND ADDITIONAL GAME DESIGN
-Francesco Cavallari
-
-### ART DIRECTOR AND LEAD ARTIST
-Gaetano Leonardi
-
-### GAME DESIGNER AND UX/UI MASTER
-Daniele Giardini
-
-### LEAD PROGRAMMERS
-Paolo Bragonzi
-Davide Barbieri
-Michele Pirovano
-
-### MUSIC AND SOUND DESIGNER
-Hamza Chioua
-
-### R&D AND PRODUCTION
-Stefano Cecere
-
-### PROGRAMMERS
-Armando Teora
-Elena Blanes
-Dario Oliveri
+### ADDITIONAL PROGRAMMERS
+Armando Teora  
+Elena Blanes  
+Dario Oliveri  
 
 ### 3D ART PRODUCER
 Andrey Sazonov
@@ -141,10 +118,10 @@ Modar Dergham
 Sary Al-Assad
 
 ### TESTERS
-Sleiman Hammoud
-Ali Mzahem
-Remi Abdel Rassoul
-Pamela Al Alam
+Sleiman Hammoud  
+Ali Mzahem  
+Remi Abdel Rassoul  
+Pamela Al Alam  
 Rami Bordokani
 
 ## University of Verona
@@ -154,17 +131,17 @@ MASTER IN COMPUTER GAMES DEVELOPMENT
 Diego Zamprogno
 
 ### MASTER STUDENTS
-Marco Comencini
-Federico Gobbato
-Enrico Pernigo
-Simone Pessotto
-Simone Sommaggio
-Edoardo Tosatti
+- Marco Comencini  
+- Federico Gobbato  
+- Enrico Pernigo  
+- Simone Pessotto  
+- Simone Sommaggio  
+- Edoardo Tosatti
 
 ### MASTER COORDINATOR
 Umberto Castellani
 
-## VOICES
+## Voices
 
 ### THE KEEPER
 Fares Al-Helou

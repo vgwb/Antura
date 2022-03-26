@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Arabic Language
+title: Data Analysis
 parent: Game Design
 nav_order: 3
 ---
