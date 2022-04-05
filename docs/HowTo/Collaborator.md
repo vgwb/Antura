@@ -54,6 +54,6 @@ The target players of the app are kids from 5-10 who basically can’t read
 
 ## Sound Guidelines
 
-- mp3 mono is the preferred format (stereo if really really necessary)
+- ogg, wav or mp3 mono files are the preferred formats (stereo if really really necessary)
 - Music should have a declared BPM and be perfectly loopable
 - All media will be licensed under Creative Commons.
