@@ -32,7 +32,6 @@ namespace Antura.Core
         [Header("Settings")]
         [Space(30)]
         public bool ShowAccents = false;
-        public TextAsset CreditsText;
 
         [Header("Settings - Book")]
         public bool BookShowRelatedWords = false;
@@ -75,62 +74,35 @@ namespace Antura.Core
         public bool RequireGender;
         public bool RequireAge;
 
-        [Header("Modules")]
-        [Tooltip("add compilation symbol: MODULE_NOTIFICATIONS")]
-        public bool EnableNotifications;
-
-        /// <summary>
-        /// Tracks common events using Unity Analytics.
-        /// Set to TRUE for production.
-        /// </summary>
-        public bool OnlineAnalyticsEnabled = false;
-
         [Header("MiniGames")]
         public bool PlayTitleAtMiniGameStart;
         public bool PlayIntroAtMiniGameStart;
         public bool AutomaticDifficulty;
 
-        [Header("Build Settings")]
+        /*
+                [Header("Build Settings")]
 
-        /// <summary>
-        /// Version of the application. Displayed in the Home scene.
-        /// Major.Minor.Patch.Build
-        /// </summary>
-        [Tooltip("Major.Minor.Patch.Build")]
-        public string AppVersion = "0.0.0.0";
+                /// <summary>
+                /// Auto-generated at each new Cloud build
+                /// </summary>
+                [ReadOnly]
+                public string CloudManifest = "NONE";
 
-        public string GetAppVersionString()
-        {
-            var VersionArray = AppVersion.Split('.');
-            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
-            if (EditionTitle != "")
-            {
-                v += " " + EditionTitle;
-            }
-            return v;
-        }
+                public string ProductName;
+                public string UnityProjectId;
+                public string Desktop_BundleIdentifier;
+                public string Android_BundleIdentifier;
+                public string iOS_BundleIdentifier;
+                public string BundleVersion;
 
-        /// <summary>
-        /// Auto-generated at each new Cloud build
-        /// </summary>
-        [ReadOnly]
-        public string CloudManifest = "NONE";
-
-        public string ProductName;
-        public string UnityProjectId;
-        public string Desktop_BundleIdentifier;
-        public string Android_BundleIdentifier;
-        public string iOS_BundleIdentifier;
-        public string BundleVersion;
-
-        public Texture2D Android_AppIcon;
-        public Texture2D Android_AppIcon_Bg;
-        public Texture2D Android_AppIcon_Fg;
-        public Texture2D iOS_AppIcon;
-        public Sprite[] SplashLogos;
-
+                public Texture2D Android_AppIcon;
+                public Texture2D Android_AppIcon_Bg;
+                public Texture2D Android_AppIcon_Fg;
+                public Texture2D iOS_AppIcon;
+                public Sprite[] SplashLogos;
+        */
         [Header("Player Settings")]
-        public bool ChangePlayerSettings;
+        public bool ChangePlayerSettings = false;
 
 #if UNITY_EDITOR
         [DeMethodButton("Configure as Active Edition")]
@@ -141,21 +113,21 @@ namespace Antura.Core
                 return;
 
             config.LoadedAppEdition = this;
-            if (ChangePlayerSettings)
-            {
-                PlayerSettings.productName = ProductName;
-                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
-                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
-                PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
-                PlayerSettings.bundleVersion = BundleVersion;
-                PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
-                PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
-                PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
-                for (int i = 0; i < SplashLogos.Length; i++)
-                {
-                    PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
-                }
-            }
+            // if (ChangePlayerSettings)
+            // {
+            //     PlayerSettings.productName = ProductName;
+            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Standalone, Desktop_BundleIdentifier);
+            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.Android, Android_BundleIdentifier);
+            //     PlayerSettings.SetApplicationIdentifier(BuildTargetGroup.iOS, iOS_BundleIdentifier);
+            //     PlayerSettings.bundleVersion = BundleVersion;
+            //     PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.Android, new[] { Android_AppIcon });
+            //     PlayerSettings.SetIconsForTargetGroup(BuildTargetGroup.iOS, new[] { iOS_AppIcon });
+            //     PlayerSettings.SplashScreen.logos = new PlayerSettings.SplashScreenLogo[SplashLogos.Length];
+            //     for (int i = 0; i < SplashLogos.Length; i++)
+            //     {
+            //         PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
+            //     }
+            // }
             var learningConfigsToUse = new List<ContentEditionConfig>();
             foreach (var edition in ContentEditions)
             {

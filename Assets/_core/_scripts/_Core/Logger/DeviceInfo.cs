@@ -43,7 +43,7 @@ namespace Antura.Core
 
         public DeviceInfo()
         {
-            AppVersion = AppManager.I.AppEdition.AppVersion.ToString();
+            AppVersion = AppManager.I.ApplicationConfig.AppVersion.ToString();
             platform = Application.platform.ToString();
             systemLanguage = Application.systemLanguage.ToString();
             internetReachability = Application.internetReachability.ToString();

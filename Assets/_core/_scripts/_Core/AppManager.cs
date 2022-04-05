@@ -215,7 +215,7 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (AppManager.I.AppEdition.EnableNotifications)
+            if (AppManager.I.ApplicationConfig.EnableNotifications)
             {
                 Services.Notifications.Init();
             }
@@ -257,7 +257,7 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (AppManager.I.AppEdition.EnableNotifications)
+            if (AppManager.I.ApplicationConfig.EnableNotifications)
             {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
@@ -289,7 +289,7 @@ namespace Antura.Core
                 // app is pausing
                 if (LogManager.I != null)
                     LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.AppEdition.EnableNotifications)
+                if (AppManager.I.ApplicationConfig.EnableNotifications)
                 {
                     Services.Notifications.AppSuspended();
                 }
@@ -302,7 +302,7 @@ namespace Antura.Core
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.AppEdition.EnableNotifications)
+                if (AppManager.I.ApplicationConfig.EnableNotifications)
                 {
                     Services.Notifications.AppResumed();
                 }

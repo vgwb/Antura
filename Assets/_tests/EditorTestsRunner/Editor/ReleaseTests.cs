@@ -16,37 +16,44 @@ namespace Antura.Tests.Release
         public void CheckAppConstants()
         {
             var failed = false;
-            if (DebugConfig.I.DebugLogEnabled) {
+            if (DebugConfig.I.DebugLogEnabled)
+            {
                 UnityEngine.Debug.Log("DebugLogEnabled should be FALSE");
                 failed = true;
             }
 
-            if (AppManager.I.AppEdition.OnlineAnalyticsEnabled == false) {
+            if (AppManager.I.ApplicationConfig.OnlineAnalyticsEnabled == false)
+            {
                 UnityEngine.Debug.Log("UnityAnalyticsEnabled should be TRUE");
                 failed = true;
             }
 
-            if (DebugConfig.I.DebugPanelEnabledAtStartup) {
+            if (DebugConfig.I.DebugPanelEnabledAtStartup)
+            {
                 UnityEngine.Debug.Log("DebugPanelEnabledAtStartup should be FALSE");
                 failed = true;
             }
 
-            if (AppConfig.DebugLogDbInserts) {
+            if (AppConfig.DebugLogDbInserts)
+            {
                 UnityEngine.Debug.Log("DebugLogDbInserts should be FALSE");
                 failed = true;
             }
 
-            if (AppConfig.DisableFirstContact) {
+            if (AppConfig.DisableFirstContact)
+            {
                 UnityEngine.Debug.Log("DisableFirstContact should be FALSE");
                 failed = true;
             }
 
-            if (!AppConfig.MinigameTutorialsEnabled) {
+            if (!AppConfig.MinigameTutorialsEnabled)
+            {
                 UnityEngine.Debug.Log("MinigameTutorialsEnabled should be TRUE");
                 failed = true;
             }
 
-            if (failed) {
+            if (failed)
+            {
                 Assert.Fail();
             }
         }

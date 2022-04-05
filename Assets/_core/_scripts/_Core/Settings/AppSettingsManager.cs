@@ -53,7 +53,7 @@ namespace Antura.Core
                 isFirstIstall = true;
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
-                Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
+                Settings.SetAppVersion(AppManager.I.ApplicationConfig.AppVersion);
                 Settings.ContentID = AppManager.I.ContentEdition.ContentID;
 
                 // set native Language
@@ -143,8 +143,8 @@ namespace Antura.Core
             {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
-            Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
-            Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
+            Debug.Log("AppVersion is: " + AppManager.I.ApplicationConfig.AppVersion + " (previous:" + AppVersionPrevious + ")");
+            Settings.SetAppVersion(AppManager.I.ApplicationConfig.AppVersion);
             SaveSettings();
         }
 

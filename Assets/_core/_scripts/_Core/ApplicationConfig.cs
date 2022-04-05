@@ -49,5 +49,29 @@ namespace Antura.Core
                 return config;
             }
         }
+
+        [Header("Settings")]
+
+        /// <summary>
+        /// Version of the application. Displayed in the Home scene.
+        /// Major.Minor.Patch.Build
+        /// </summary>
+        [Tooltip("Major.Minor.Patch.Build")]
+        public string AppVersion = "0.0.0.0";
+
+        [Tooltip("add compilation symbol: MODULE_NOTIFICATIONS")]
+        public bool EnableNotifications;
+
+        public bool OnlineAnalyticsEnabled = false;
+
+        public TextAsset CreditsText;
+
+
+        public string GetAppVersionString()
+        {
+            var VersionArray = AppVersion.Split('.');
+            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
+            return v;
+        }
     }
 }
