@@ -21,28 +21,32 @@ namespace Antura.Database.Management
     /// </summary>
     public class DatabaseTester : MonoBehaviour
     {
+        [Header("Edition")]
+        public ContentEditionConfig InputContent;
+
+        [Header("Config")]
+        public Text OutputText;
+        public TextRender OutputTextArabic;
+
         private DatabaseLoader dbLoader;
         [HideInInspector]
         public DatabaseManager dbManager;
         private TeacherAI teacherAI;
         private PlayerProfile playerProfile;
-
-        public Text OutputText;
-        public TextRender OutputTextArabic;
-
         private VocabularyHelper vocabularyHelper;
         private ScoreHelper scoreHelper;
-
         public static string DEBUG_PLAYER_UUID = "TEST";
-        public LanguageCode langCode;
 
-        [Header("Test Custom Profile")]
+        [Header("Test")]
         public string TestCustomProfile;
 
         void Awake()
         {
-            this.dbLoader = GetComponentInChildren<DatabaseLoader>();
+            var langCode = InputContent.LearningLanguage;
+
+            dbLoader = GetComponent<DatabaseLoader>();
             dbLoader.langCode = langCode;
+            dbLoader.InputContent = InputContent;
 
             dbManager = new DatabaseManager(true, langCode);
             vocabularyHelper = new VocabularyHelper(dbManager);

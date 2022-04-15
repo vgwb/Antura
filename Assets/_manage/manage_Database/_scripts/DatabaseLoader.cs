@@ -11,7 +11,6 @@ namespace Antura.Database.Management
     /// </summary>
     public class DatabaseLoader : MonoBehaviour
     {
-        public DatabaseInputData inputData;
         private DatabaseObject _databaseObject;
 
         public bool ImportLocalizations;
@@ -26,6 +25,8 @@ namespace Antura.Database.Management
 
         [HideInInspector]
         public LanguageCode langCode;
+        [HideInInspector]
+        public ContentEditionConfig InputContent;
 
         public void RecreateDatabase()
         {
@@ -106,7 +107,7 @@ namespace Antura.Database.Management
         {
             Debug.Log("Regenerating enums from JSON files...");
 
-            RegenerateEnumsFrom(inputData);
+            RegenerateEnumsFrom(InputContent.DBImportDataFiles);
 
             Debug.Log("Finished regenerating enums!");
         }
@@ -205,7 +206,7 @@ namespace Antura.Database.Management
             Debug.Log("Loading data from JSON files...");
 
             this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
-            LoadDataFrom(inputData);
+            LoadDataFrom(InputContent.DBImportDataFiles);
 
             Debug.Log("Finished loading!");
         }
