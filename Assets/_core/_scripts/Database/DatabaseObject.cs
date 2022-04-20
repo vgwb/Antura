@@ -25,12 +25,12 @@ namespace Antura.Database
 
         #region Creation
 
-        public static DatabaseObject LoadDB(bool fromEdition, LanguageCode language, string staticDbNameToLoad)
+        public static DatabaseObject LoadDB(ContentEditionConfig fromEdition, LanguageCode language, string staticDbNameToLoad)
         {
             var db = new DatabaseObject();
-            if (fromEdition)
+            if (fromEdition != null)
             {
-                db.LoadTablesFromEdition();
+                db.LoadTablesFromEdition(fromEdition);
             }
             else
             {
@@ -80,9 +80,8 @@ namespace Antura.Database
             return true;
         }
 
-        public void LoadTablesFromEdition()
+        public void LoadTablesFromEdition(ContentEditionConfig edition)
         {
-            var edition = AppManager.I.ContentEdition;
             Debug.Log("LoadTablesFromEdition " + edition.ContentID.ToString());
             stageDb = edition.StageDB;
             learningblockDb = edition.LearningBlockDB;
@@ -100,7 +99,7 @@ namespace Antura.Database
         {
             var path = language + "/" + dbName + "/" + dbName + "_";
 
-            //Debug.LogWarning("Loading database at path " + path);
+            Debug.LogWarning("Loading database at path " + path);
 
             stageDb = Resources.Load<StageDatabase>(path + "Stage");
             if (!stageDb)

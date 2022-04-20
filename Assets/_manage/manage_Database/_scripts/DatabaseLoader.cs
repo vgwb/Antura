@@ -31,18 +31,18 @@ namespace Antura.Database.Management
         public void RecreateDatabase()
         {
             CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME + "/", DatabaseManager.STATIC_DATABASE_NAME);
-            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(AppManager.I.ContentEdition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
         }
 
         public void CopyCurrentDatabaseForTesting()
         {
-            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(AppManager.I.ContentEdition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
-            var test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
+            var test_db = DatabaseObject.LoadDB(AppManager.I.ContentEdition, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             if (!test_db.HasTables())
             {
                 CreateDatabaseAsset.CreateAssets("Assets/Resources/" + DatabaseManager.STATIC_DATABASE_NAME_TEST + "/", DatabaseManager.STATIC_DATABASE_NAME_TEST);
-                test_db = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
+                test_db = DatabaseObject.LoadDB(AppManager.I.ContentEdition, langCode, DatabaseManager.STATIC_DATABASE_NAME_TEST);
             }
 
             {
@@ -201,11 +201,11 @@ namespace Antura.Database.Management
         /// <summary>
         /// Load all database values from scriptable objects
         /// </summary>
-        public void LoadDatabase()
+        public void LoadDatabase(ContentEditionConfig edition)
         {
             Debug.Log("Loading data from JSON files...");
 
-            this._databaseObject = DatabaseObject.LoadDB(true, langCode, DatabaseManager.STATIC_DATABASE_NAME);
+            this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
             LoadDataFrom(InputContent.DBImportDataFiles);
 
             Debug.Log("Finished loading!");

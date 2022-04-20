@@ -192,7 +192,7 @@ namespace Antura.Core
         {
             LanguageSwitcher = new LanguageSwitcher();
             yield return LanguageSwitcher.LoadData();
-            DB = new DatabaseManager(true);
+            DB = new DatabaseManager(ContentEdition);
             yield return LanguageSwitcher.PreloadLocalizedDataCO();
 
             // TODO refactor: standardize initialisation of managers

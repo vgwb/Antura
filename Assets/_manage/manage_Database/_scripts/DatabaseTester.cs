@@ -48,7 +48,7 @@ namespace Antura.Database.Management
             dbLoader.langCode = langCode;
             dbLoader.InputContent = InputContent;
 
-            dbManager = new DatabaseManager(true, langCode);
+            dbManager = new DatabaseManager(InputContent, langCode);
             vocabularyHelper = new VocabularyHelper(dbManager);
             scoreHelper = new ScoreHelper(dbManager);
             teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
@@ -91,7 +91,7 @@ namespace Antura.Database.Management
 
         public void ImportAll()
         {
-            dbLoader.LoadDatabase();
+            dbLoader.LoadDatabase(InputContent);
             DumpAllDataCounts();
         }
 

@@ -77,7 +77,7 @@ namespace Antura.Database
 
         #endregion
 
-        public DatabaseManager(bool fromEdition, LanguageCode langCode = LanguageCode.english)
+        public DatabaseManager(ContentEditionConfig fromEdition, LanguageCode langCode = LanguageCode.english)
         {
             this.langCode = langCode;
             // Only the static DB is available until the player profile is also assigned
@@ -98,7 +98,7 @@ namespace Antura.Database
         }
 
 
-        void LoadStaticDB(bool fromEdition)
+        void LoadStaticDB(ContentEditionConfig fromEdition)
         {
             var dbName = STATIC_DATABASE_NAME;
             this.staticDb = DatabaseObject.LoadDB(fromEdition, langCode, dbName);
