@@ -43,7 +43,7 @@ namespace Antura.ReservedArea
 
         void OnEnable()
         {
-            if (DebugConfig.I.DebugBypassDialogs)
+            if (DebugConfig.I.BypassDialogs)
             {
                 UnlockReservedArea();
             }
