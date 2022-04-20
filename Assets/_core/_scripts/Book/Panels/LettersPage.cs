@@ -105,7 +105,7 @@ namespace Antura.Book
 
             HighlightLetterItem(myLetterInfo.data.Id);
 
-            if (AppManager.I.AppEdition.BookShowRelatedWords)
+            if (AppManager.I.ContentEdition.LearnMethod.ShowLinkedWordsInBook)
             {
                 // show related words
                 RelatedWordsContainer.SetActive(true);

@@ -29,7 +29,7 @@ namespace Antura.Book
             {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
                 LetterText.SetTextUnfiltered(isolatedChar);
-                if (AppManager.I.AppEdition.ShowHelpText)
+                if (AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
                     SubtitleText.SetText(myLetterData.Id);
                 else
                     SubtitleText.SetText("");

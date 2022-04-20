@@ -9,16 +9,14 @@ namespace Antura.Core
     public class ContentEditionConfig : ScriptableObject
     {
         public LearningContentID ContentID;
-        public Sprite Icon;
         public string Title;
+        public LearnMethodConfig LearnMethod;
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
         public LanguageCode NativeLanguage;
         public LanguageCode HelpLanguage;
         public LanguageCode[] SupportedNativeLanguages;
-        [Tooltip("try to set the native language to the device language, otherwise use NativeLanguage")]
-        public bool DetectSystemLanguage;
 
         [Header("Teacher Options")]
         // @note: this also makes all LetterPhoneme games use Diacritics ONLY, as only those have phonemes
@@ -26,6 +24,8 @@ namespace Antura.Core
         public bool DiacriticsOnlyOnIsolated;
         [Tooltip("If set, LetterForm variations and assessments will use name sounds instead of phoneme sounds.")]
         public bool PlayNameSoundWithForms;
+        [Tooltip("Will accented letters show their accent when placed on living letters? If not, they will ignore accents.")]
+        public bool ShowAccentsOnSeparatedLivingLetters;
 
         [Header("Data - Vocabulary")]
         public LetterDatabase LetterDB;

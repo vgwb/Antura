@@ -140,7 +140,7 @@ namespace Antura.UI
             TextUI.SetText(learningText, LanguageUse.Learning);
 
             //string.IsNullOrEmpty(localizedText) ? data.Id : ReverseText(ArabicFixer.Fix(localizedText));
-            if (AppManager.I.AppEdition.ShowKeeperTranslation)
+            if (AppManager.I.ContentEdition.LearnMethod.ShowKeeperTranslation)
             {
                 TextUItranslation.SetText(helpText, LanguageUse.Help);
             }
@@ -210,7 +210,7 @@ namespace Antura.UI
 
         public void OnHintClicked()
         {
-            if (AppManager.I.AppEdition.AllowSubtitleSkip)
+            if (AppManager.I.ContentEdition.LearnMethod.AllowSubtitleSkip)
             {
                 AudioManager.I.SkipCurrentDialogue();
             }

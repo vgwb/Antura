@@ -188,7 +188,7 @@ namespace Antura.Profile
         {
             return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
                 (pl.editionID == AppManager.I.AppEdition.editionID
-                    || pl.editionID == AppEditionID.All) && pl.contentID == AppManager.I.ContentEdition.ContentID
+                    || pl.editionID == AppEditionID.Multi) && pl.contentID == AppManager.I.ContentEdition.ContentID
                 ).ToList();
         }
 

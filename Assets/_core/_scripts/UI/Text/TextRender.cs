@@ -71,7 +71,7 @@ namespace Antura.UI
         {
             if (isSubtitle)
             {
-                gameObject.SetActive(AppManager.I.AppEdition.ShowHelpText);
+                gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.ShowHelpText);
             }
 
             if (LocalizationId != Database.LocalizationDataId.None)

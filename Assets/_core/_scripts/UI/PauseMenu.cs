@@ -134,7 +134,7 @@ namespace Antura.UI
             BtMusic.Toggle(AudioManager.I.MusicEnabled);
             BtFx.Toggle(AppManager.I.AppSettings.HighQualityGfx);
             BtSubtitles.Toggle(AppManager.I.AppSettings.KeeperSubtitlesEnabled);
-            BtSubtitles.gameObject.SetActive(AppManager.I.AppEdition.CanUseSubtitles && AppManager.I.AppEdition.EnableSubtitlesToggle);
+            BtSubtitles.gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.CanUseSubtitles && AppManager.I.ContentEdition.LearnMethod.EnableSubtitlesToggle);
 
             if (_open)
             {

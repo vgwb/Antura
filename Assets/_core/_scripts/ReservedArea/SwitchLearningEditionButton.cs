@@ -22,7 +22,7 @@ namespace Antura.UI
         {
             this.contentId = editionEditionConfig.ContentID;
 
-            iconImage.sprite = editionEditionConfig.Icon;
+            iconImage.sprite = editionEditionConfig.TransitionLogo;
             nameText.SetText(editionEditionConfig.Title);
         }
 

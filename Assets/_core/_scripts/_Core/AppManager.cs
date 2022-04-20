@@ -28,10 +28,10 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public AppEditionConfig AppEdition => ApplicationConfig.LoadedAppEdition;
-        public ContentEditionConfig ContentEdition => ApplicationConfig.ContentEdition;
+        public AppEditionConfig AppEdition => RootConfig.LoadedAppEdition;
+        public ContentEditionConfig ContentEdition => RootConfig.ContentEdition;
 
-        public ApplicationConfig ApplicationConfig;
+        public RootConfig RootConfig;
         public DebugConfig DebugConfig;
         public LanguageSwitcher LanguageSwitcher;
 
@@ -215,7 +215,7 @@ namespace Antura.Core
 
         private void Start()
         {
-            if (AppManager.I.ApplicationConfig.EnableNotifications)
+            if (AppManager.I.AppEdition.EnableNotifications)
             {
                 Services.Notifications.Init();
             }
@@ -257,7 +257,7 @@ namespace Antura.Core
         {
             LogManager.I.InitNewSession();
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            if (AppManager.I.ApplicationConfig.EnableNotifications)
+            if (AppManager.I.AppEdition.EnableNotifications)
             {
                 Services.Notifications.DeleteAllLocalNotifications();
             }
@@ -289,7 +289,7 @@ namespace Antura.Core
                 // app is pausing
                 if (LogManager.I != null)
                     LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.ApplicationConfig.EnableNotifications)
+                if (AppManager.I.AppEdition.EnableNotifications)
                 {
                     Services.Notifications.AppSuspended();
                 }
@@ -302,7 +302,7 @@ namespace Antura.Core
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.ApplicationConfig.EnableNotifications)
+                if (AppManager.I.AppEdition.EnableNotifications)
                 {
                     Services.Notifications.AppResumed();
                 }

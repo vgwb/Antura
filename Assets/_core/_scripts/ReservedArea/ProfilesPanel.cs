@@ -158,7 +158,7 @@ namespace Antura.ReservedArea
             var demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
                         AppManager.I.AppEdition.editionID,
                         AppManager.I.ContentEdition.ContentID,
-                        AppManager.I.ApplicationConfig.AppVersion,
+                        AppManager.I.AppEdition.AppVersion,
                         true);
             SelectedPlayerId = demoUserUiid;
 

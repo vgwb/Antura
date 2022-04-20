@@ -41,7 +41,7 @@ namespace Antura.Book
             }
 
             Title.text = myLetterInfo.data.GetStringForDisplay();
-            SubTitle.text = AppManager.I.AppEdition.ShowHelpText ? myLetterInfo.data.Id : ""; //  + (myLetterInfo.data.Number > 0 ? " (" + myLetterInfo.data.Number + ")" : "");
+            SubTitle.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? myLetterInfo.data.Id : ""; //  + (myLetterInfo.data.Number > 0 ? " (" + myLetterInfo.data.Number + ")" : "");
             // + " " + myLetterInfo.data.Kind.ToString();
             highlight(_selected);
         }

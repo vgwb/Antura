@@ -24,54 +24,57 @@ namespace Antura.Core
     {
         [Header("Edition")]
         public AppEditionID editionID;
-        public string EditionTitle;
 
         public ContentEditionConfig[] ContentEditions;
         public bool HasMultipleContentEditions => ContentEditions != null && ContentEditions.Length > 1;
 
-        [Header("Settings")]
-        [Space(30)]
-        public bool ShowAccents = false;
+        [Header("Settings - Application")]
+        /// <summary>
+        /// Version of the application. Displayed in the Home scene.
+        /// Major.Minor.Patch.Build
+        /// </summary>
+        [Tooltip("The version of the application. (Major.Minor.Patch.Build)")]
+        public string AppVersion = "0.0.0.0";
 
-        [Header("Settings - Book")]
-        public bool BookShowRelatedWords = false;
+        public string GetAppVersionString()
+        {
+            var VersionArray = AppVersion.Split('.');
+            string v = string.Format("{0}.{1}.{2} ({3})", VersionArray[0], VersionArray[1], VersionArray[2], VersionArray[3]);
+            return v;
+        }
+
+        [Tooltip("Are local notifications enabled? (add compilation symbol: MODULE_NOTIFICATIONS)")]
+        public bool EnableNotifications;
+
+        [Tooltip("Are Online Analytics enabled?")]
+        public bool OnlineAnalyticsEnabled = false;
+
+        [Tooltip("The text asset that holds all credits for this version")]
+        public TextAsset CreditsText;
+
+        [Tooltip("Try to set the native language to the device language, otherwise use the default NativeLanguage")]
+        public bool DetectSystemLanguage;
 
         [Header("Settings - Reserved Area")]
-        public bool ReservedAreaForcedSeq = false;
-        public bool ShowDonate = false;
-        public bool ShowTeacherGuide = false;
 
-        [Header("Settings - Subtitles")]
-        public KeeperMode DefaultKeeperMode;
+        [Tooltip("Use a forced sequence to access the reserved area, instead of a randomized one?")]
+        public bool ReservedAreaForcedSeq;
 
-        public bool CanUseSubtitles =>
-            DefaultKeeperMode == KeeperMode.LearningAndSubtitles
-                                       || DefaultKeeperMode == KeeperMode.SubtitlesOnly
-                                       || DefaultKeeperMode == KeeperMode.NativeAndSubtitles
-                                       || DefaultKeeperMode == KeeperMode.LearningThenNativeAndSubtitles;
+        [Tooltip("Show the Donate button in the reserved area?")]
+        public bool ShowDonate;
 
-        // If true, subtitles can be skipped by clicking on them
-        public bool AllowSubtitleSkip;
+        [Tooltip("Show the Teacher Guide button in the reserved area?")]
+        public bool ShowTeacherGuide;
 
-        // Allows the user to toggle subtitles on/off in the Options panel
-        public bool EnableSubtitlesToggle;
-
-        // Show various text around the application based on the "Help" language? (Book, GamesSelector, PromptPanel)
-        public bool ShowHelpText;
-
-        // If true, the reserved area panel will appear with two languages
+        [Tooltip("If true, the reserved area panel will appear with two languages")]
         public bool HelpTextInReservedArea;
 
-        // Show a translation of the Keeper widget based on the "Help" language?
-        public bool ShowKeeperTranslation;
 
-        // If we can skip subtitles and this is
-        //  - true: clicking once skips only one of the two dialogues that are read for the two languages
-        //  - false: clicking once skips all languages at once
-        public bool SkipSingleLanguage => false;
-
-        [Header("Player Data")]
+        [Header("Player Profile")]
+        [Tooltip("Require the Gender of the user when a profile is created")]
         public bool RequireGender;
+
+        [Tooltip("Require the Age of the user when a profile is created")]
         public bool RequireAge;
 
         [Header("MiniGames")]
@@ -101,14 +104,14 @@ namespace Antura.Core
                 public Texture2D iOS_AppIcon;
                 public Sprite[] SplashLogos;
         */
-        [Header("Player Settings")]
-        public bool ChangePlayerSettings = false;
+        //[Header("Player Settings")]
+        //public bool ChangePlayerSettings = false;
 
 #if UNITY_EDITOR
-        [DeMethodButton("Configure as Active Edition")]
+        //[DeMethodButton("Configure as Active Edition")]
         public void ConfigureForBuild()
         {
-            var config = ApplicationConfig.FindMainConfig();
+            var config = RootConfig.FindMainConfig();
             if (config == null)
                 return;
 
@@ -186,7 +189,7 @@ namespace Antura.Core
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh();
-            Debug.LogWarning($"Set '{EditionTitle}' as active Edition");
+            Debug.LogWarning($"Set '{editionID}' as active Edition");
         }
 
         [DeMethodButton("Configure as Active & Rebuild Addressables")]

@@ -60,7 +60,7 @@ namespace Antura.Keeper
 
             if (keeperMode == KeeperMode.Default)
             {
-                keeperMode = AppManager.I.AppEdition.DefaultKeeperMode;
+                keeperMode = AppManager.I.ContentEdition.LearnMethod.DefaultKeeperMode;
             }
 
             if (AppManager.I.ContentEdition.LearningLanguage == AppManager.I.ContentEdition.NativeLanguage)
@@ -120,7 +120,7 @@ namespace Antura.Keeper
             //Debug.LogWarning("Keeper playing Vocabulary " + data.Id);
 
             if (keeperMode == KeeperMode.Default)
-                keeperMode = AppManager.I.AppEdition.DefaultKeeperMode;
+                keeperMode = AppManager.I.ContentEdition.LearnMethod.DefaultKeeperMode;
 
             bool withSubtitles = keeperMode == KeeperMode.LearningThenNativeAndSubtitles ||
                                  keeperMode == KeeperMode.LearningAndSubtitles ||

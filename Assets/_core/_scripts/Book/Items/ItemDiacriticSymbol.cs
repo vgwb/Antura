@@ -42,7 +42,7 @@ namespace Antura.Book
                 var isolatedChar = myLetterInfo.data.GetStringForDisplay(LetterForm.Isolated);
 
                 LetterText.SetTextUnfiltered(isolatedChar);
-                EnglishLetterText.text = AppManager.I.AppEdition.ShowHelpText ? myLetterInfo.data.Id : "";
+                EnglishLetterText.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? myLetterInfo.data.Id : "";
             }
 
             hightlight(_selected);

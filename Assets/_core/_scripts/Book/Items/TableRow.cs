@@ -18,7 +18,7 @@ namespace Antura.Book
 
             if (TxTitleEn != null)
             {
-                TxTitleEn.gameObject.SetActive(AppManager.I.AppEdition.ShowHelpText);
+                TxTitleEn.gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.ShowHelpText);
                 TxTitleEn.text = _titleEn;
             }
 
@@ -32,7 +32,7 @@ namespace Antura.Book
 
             if (TxTitleEn != null)
             {
-                TxTitleEn.gameObject.SetActive(AppManager.I.AppEdition.ShowHelpText);
+                TxTitleEn.gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.ShowHelpText);
                 TxTitleEn.text = _titleEn;
             }
             slider.SetValue(_value, _valueMax);

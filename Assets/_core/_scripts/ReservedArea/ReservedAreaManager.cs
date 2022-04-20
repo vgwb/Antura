@@ -18,7 +18,7 @@ namespace Antura.ReservedArea
 
         void Start()
         {
-            SupportText.text = AppManager.I.ApplicationConfig.GetAppVersionString();
+            SupportText.text = AppManager.I.AppEdition.GetAppVersionString();
             AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
         }
 

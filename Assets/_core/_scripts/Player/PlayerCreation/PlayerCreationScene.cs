@@ -31,7 +31,7 @@ namespace Antura.Scenes
             AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, avatarID, gender, PlayerTint.None, skinColor, hairColor, bgColor, age,
                                 AppManager.I.AppEdition.editionID,
                                 AppManager.I.ContentEdition.ContentID,
-                                AppManager.I.ApplicationConfig.AppVersion);
+                                AppManager.I.AppEdition.AppVersion);
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
             AppManager.I.NavigationManager.GoToNextScene();
         }

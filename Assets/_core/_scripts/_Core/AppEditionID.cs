@@ -2,7 +2,7 @@
 {
     public enum AppEditionID
     {
-        All = 0,
+        Multi = 0,
         LearnEnglish = 1,
         LearnEnglish_Ceibal = 11,
         Arabic = 20,

@@ -21,7 +21,7 @@ namespace Antura.Core
             var panelText = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_AlertFinalRelease);
 
             LearningText.text = $"<b>{titleText.LearningText}</b>\n\n{panelText.LearningText}";
-            HelpText.text = AppManager.I.AppEdition.ShowHelpText ? $"<b>{titleText.HelpText}</b>\n\n{panelText.HelpText}" : "";
+            HelpText.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? $"<b>{titleText.HelpText}</b>\n\n{panelText.HelpText}" : "";
 
             gameObject.SetActive(true);
         }

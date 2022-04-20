@@ -707,7 +707,7 @@ namespace Antura.Database.Management
         {
             dbManager.UpdatePlayerProfileData(
                 new PlayerProfileData(DEBUG_PLAYER_UUID, 1, PlayerGender.M, PlayerTint.Blue, Color.yellow, Color.red, Color.magenta, 4, false, false, false, false,
-                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState(), AppManager.I.AppEdition.editionID, AppManager.I.AppSettings.ContentID, AppManager.I.ApplicationConfig.AppVersion)
+                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState(), AppManager.I.AppEdition.editionID, AppManager.I.AppSettings.ContentID, AppManager.I.AppEdition.AppVersion)
             );
             var playerProfileData = dbManager.GetPlayerProfileData();
             PrintOutput(playerProfileData.ToString());

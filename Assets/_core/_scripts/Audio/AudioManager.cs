@@ -398,7 +398,7 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogueNoClear();
-            if (!AppManager.I.AppEdition.SkipSingleLanguage)
+            if (!AppManager.I.ContentEdition.LearnMethod.SkipSingleLanguage)
             {
                 Invoke("StopDialogueNoClear", 0.01f);
             }

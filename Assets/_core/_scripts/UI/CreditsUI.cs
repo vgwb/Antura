@@ -53,7 +53,7 @@ namespace Antura.UI
 
         void Start()
         {
-            TfCredits.text = FormatCredits(AppManager.I.ApplicationConfig.CreditsText.text);
+            TfCredits.text = FormatCredits(AppManager.I.AppEdition.CreditsText.text);
         }
 
         void Update()

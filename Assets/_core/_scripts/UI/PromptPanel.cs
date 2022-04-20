@@ -82,7 +82,7 @@ namespace Antura.UI
         public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageNative.IsNullOrEmpty() || !AppManager.I.AppEdition.ShowHelpText)
+            if (_messageNative.IsNullOrEmpty() || !AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
             {
                 TfMessageLearningFull.text = _messageLearning;
             }
