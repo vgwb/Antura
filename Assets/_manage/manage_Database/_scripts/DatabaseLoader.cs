@@ -203,7 +203,7 @@ namespace Antura.Database.Management
         /// </summary>
         public void LoadDatabase(ContentEditionConfig edition)
         {
-            Debug.Log("Loading data from JSON files...");
+            // Debug.Log("Loading data from JSON files...");
 
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
             LoadDataFrom(InputContent.DBImportDataFiles);
@@ -220,7 +220,7 @@ namespace Antura.Database.Management
             if (ImportLetters)
             {
                 {
-                    Debug.Log("Loading Letters...");
+                    Debug.Log("Loading Letters from JSON: " + DBInputData.letterDataAsset.name + " for lang: " + langCode);
                     var parser = new LetterParser();
                     parser.Parse(DBInputData.letterDataAsset.text, _databaseObject, _databaseObject.GetLetterTable(), langCode);
                 }
