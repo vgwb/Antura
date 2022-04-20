@@ -19,15 +19,14 @@ namespace Antura.Language
         public AlphabetCode Alphabet;
         public string TutorialLetterId;
 
-        [Space(20)]
-        [Header("Fonts")]
-        public bool OverrideTextFonts;
-        [FormerlySerializedAs("Fonts")]
-        public TMP_FontAsset LetterFont;
-        public TMP_FontAsset DrawingsFont;
-        public TMP_FontAsset TextFont;
-        [FormerlySerializedAs("OutlineFontMaterial")]
+        [Header("Language Font")]
+        public TMP_FontAsset LanguageFont;
         public Material OutlineLetterFontMaterial;
+        [Header("UI Font")]
+        public bool OverrideUIFont;
+        public TMP_FontAsset UIFont;
+        [Header("Drawings Font")]
+        public TMP_FontAsset DrawingsFont;
         public Material OutlineDrawingFontMaterial;
 
         public bool IsRightToLeft()

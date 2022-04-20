@@ -115,9 +115,9 @@ namespace Antura.UI
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (OverridenLanguageCode != LanguageCode.NONE) config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
-            if (!isLetter && !isNumber && config.OverrideTextFonts)
+            if (!isLetter && !isNumber)
             {
-                TMPText.font = config.TextFont;
+                TMPText.font = config.UIFont;
             }
 
             if (!isNumber && !isLetter)
@@ -154,7 +154,9 @@ namespace Antura.UI
 
         void CheckRTL()
         {
-            TMPText.isRightToLeftText = !isNumber && LanguageSwitcher.I.GetLangConfig(languageUse).IsRightToLeft();
+            var config = LanguageSwitcher.I.GetLangConfig(languageUse);
+            if (OverridenLanguageCode != LanguageCode.NONE) config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
+            TMPText.isRightToLeftText = !isNumber && config.IsRightToLeft();
         }
 
         public void SetTextAlign(bool alignRight)
@@ -196,7 +198,7 @@ namespace Antura.UI
 
                 text = livingLetterData.TextForLivingLetter;
 
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LetterFont;
+                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LanguageFont;
                 if (outlined)
                     TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLetterFontMaterial;
             }
