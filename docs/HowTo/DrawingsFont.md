@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Drawings Font
+title: Drawings Glyphs (Words Images)
 parent: HowTo
 nav_order: 0
 ---

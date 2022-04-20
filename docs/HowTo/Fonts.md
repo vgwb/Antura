@@ -4,7 +4,37 @@ title: Fonts Atlas
 parent: HowTo
 nav_order: 0
 ---
-# How to create the Arabic font Atlas
+We have several fonts used:
+
+## Amatic
+version number
+edition panels
+book UI
+book: minigames titles
+player: age btn
+map: levels
+
+## Arabic
+for alla arabic texts (both letters and UI)
+
+## Futura (handwritten)
+book buttons
+letters / words main
+map: signs levels
+
+## Drawings
+for words images
+
+## LiberationSans
+reserved area intro
+words dev hints
+
+## WonderComic
+home buttons
+
+
+
+## How to create the Arabic font Atlas
 
 Open TextMesh Pro Font Asset Creator using these parameters:
 
