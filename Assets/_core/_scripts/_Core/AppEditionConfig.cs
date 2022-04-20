@@ -198,7 +198,6 @@ namespace Antura.Core
             AddressableAssetSettings.BuildPlayerContent();
             Debug.LogWarning($"Rebuilt addressables");
         }
-
 #endif
     }
 }

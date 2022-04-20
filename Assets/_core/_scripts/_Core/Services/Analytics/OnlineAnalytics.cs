@@ -1,9 +1,10 @@
 using Antura.Database;
+using Antura.Dog;
+using Antura.Language;
+using Antura.Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Dog;
-using Antura.Profile;
 using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Core.Environments;
@@ -50,7 +51,10 @@ namespace Antura.Core.Services.OnlineAnalytics
         async void Awake()
         {
             var options = new InitializationOptions();
-            options.SetEnvironmentName("dev");
+            if (DebugConfig.I.DeveloperMode)
+            {
+                options.SetEnvironmentName("dev");
+            }
             await UnityServices.InitializeAsync();
         }
 
@@ -61,13 +65,20 @@ namespace Antura.Core.Services.OnlineAnalytics
             //  Debug.Log("init AnalyticsService");
         }
 
+        private void AddSharedParameters(Dictionary<string, object> dict)
+        {
+            dict.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
+            dict.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
+            dict.Add("myNativeLang", LanguageUtilities.GetISO3Code(AppManager.I.AppSettings.NativeLanguage));
+        }
+
         public void TestEvent()
         {
             if (!AnalyticsEnabled)
                 return;
 
             var parameters = new Dictionary<string, object>();
-            EnrichWithSharedParameters(parameters);
+            AddSharedParameters(parameters);
 
             Events.CustomData("myTestEvent", parameters);
             Events.Flush();
@@ -95,17 +106,9 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myGender", playerProfile.Gender.ToString() },
                 { "myAge", playerProfile.Age }
             };
-            EnrichWithSharedParameters(parameters);
-
+            AddSharedParameters(parameters);
 
             Events.CustomData("myCompletedRegistration", parameters);
-        }
-
-        private void EnrichWithSharedParameters(Dictionary<string, object> dict)
-        {
-            dict.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
-            dict.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
-            dict.Add("myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString());
         }
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
@@ -177,7 +180,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myDuration", (int)duration },
                 { "myJP", currentJourneyPosition.Id }
             };
-            EnrichWithSharedParameters(parameters);
+            AddSharedParameters(parameters);
 
             Events.CustomData("myMinigameEnd", parameters);
         }
