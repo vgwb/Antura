@@ -19,9 +19,7 @@ namespace Antura.Database
 
         // DB references
         private DatabaseObject staticDb;
-
         private DBService dynamicDb;
-
         private LanguageCode langCode;
 
         public List<Type> staticDataTypes = new List<Type>()

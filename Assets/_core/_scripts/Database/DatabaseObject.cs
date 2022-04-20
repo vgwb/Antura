@@ -83,6 +83,7 @@ namespace Antura.Database
         public void LoadTablesFromEdition()
         {
             var edition = AppManager.I.ContentEdition;
+            Debug.Log("LoadTablesFromEdition " + edition.ContentID.ToString());
             stageDb = edition.StageDB;
             learningblockDb = edition.LearningBlockDB;
             playsessionDb = edition.PlaySessionDB;
