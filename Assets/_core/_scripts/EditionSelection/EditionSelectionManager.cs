@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using Antura.Core;
+using Antura.Database;
 using Antura.UI;
 using UnityEngine;
 
@@ -28,6 +29,8 @@ namespace Antura.Scenes
             while (!selectNativeLanguagePanel.HasPerformedSelection) yield return null;
             selectNativeLanguagePanel.Close();
 
+            var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
+            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Game_Title_2);
             selectedNativeButton.gameObject.SetActive(true);
 
             selectLearningContentPanel.Open();

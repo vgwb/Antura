@@ -81,6 +81,12 @@ namespace Antura.UI
             UpdateText();
         }
 
+        public void SetOverridenLanguageText(LanguageCode code, LocalizationDataId locId)
+        {
+            var loc = LocalizationManager.GetLocalizationData(locId);
+            SetText(loc.GetLocalized(code).Text);
+        }
+
         /// <summary>
         /// the main method to set the text of this field. doesn't change any setting
         /// </summary>

@@ -370,7 +370,13 @@ namespace Antura.Audio
         {
             return PlayDialogue(LocalizationManager.GetLocalizationData(localizationData_id), use, callback);
         }
+
         public IAudioSource PlayDialogue(LocalizationData data, LanguageUse use = LanguageUse.Learning, Action callback = null, bool clearPreviousCallback = false)
+        {
+            return PlayDialogue(data, AppManager.I.LanguageSwitcher.GetLangConfig(use).Code, callback, clearPreviousCallback);
+        }
+
+        public IAudioSource PlayDialogue(LocalizationData data, LanguageCode code, Action callback = null, bool clearPreviousCallback = false)
         {
             if (clearPreviousCallback)
             {
@@ -379,7 +385,7 @@ namespace Antura.Audio
 
             if (!string.IsNullOrEmpty(LocalizationManager.GetLocalizedAudioFileName(data.Id)))
             {
-                var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", use, gendered: true);
+                var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", code, gendered: true);
                 var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
                 if (callback != null)
                 {
@@ -499,13 +505,13 @@ namespace Antura.Audio
         {
             if (!path.gendered)
             {
-                yield return LoadAudioClip(path.folder, path.id, result, path.use);
+                yield return LoadAudioClip(path.folder, path.id, result, path.code);
                 yield break;
             }
 
             // For dialogs, we localize them
             var localizedAudioFileName = LocalizationManager.GetLocalizedAudioFileName(path.id);
-            yield return LoadAudioClip(path.folder, localizedAudioFileName, result, path.use, logIfNotFound: false);
+            yield return LoadAudioClip(path.folder, localizedAudioFileName, result, path.code, logIfNotFound: false);
 
             // Fallback to neutral version if not found
             if (result.item == null)
@@ -516,7 +522,7 @@ namespace Antura.Audio
                     // No female found
                     if (DebugConfig.I.VerboseAudio)
                         Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
-                    yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.use);
+                    yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.code);
                 }
             }
 
@@ -527,9 +533,9 @@ namespace Antura.Audio
             }
         }
 
-        private IEnumerator LoadAudioClip(string folder, string id, Ref<AudioClip> result, LanguageUse use = LanguageUse.Learning, bool logIfNotFound = true)
+        private IEnumerator LoadAudioClip(string folder, string id, Ref<AudioClip> result, LanguageCode code = LanguageCode.NONE, bool logIfNotFound = true)
         {
-            var langDir = LanguageSwitcher.I.GetLangConfig(use).Code.ToString();
+            var langDir = code.ToString();
             string completePath = $"{langDir}{folder}/{id}";
             var cachedResource = GetCachedResource(completePath);
             if (cachedResource != null)
@@ -688,14 +694,22 @@ namespace Antura.Audio
     {
         public string id;
         public string folder;
-        public LanguageUse use;
+        public LanguageCode code;
         public bool gendered;
 
         public SourcePath(string id, string folder, LanguageUse use, bool gendered = false)
         {
             this.id = id;
             this.folder = folder;
-            this.use = use;
+            this.code = AppManager.I.LanguageSwitcher.GetLangConfig(use).Code;
+            this.gendered = gendered;
+        }
+
+        public SourcePath(string id, string folder, LanguageCode code, bool gendered = false)
+        {
+            this.id = id;
+            this.folder = folder;
+            this.code = code;
             this.gendered = gendered;
         }
     }

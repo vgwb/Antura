@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
@@ -17,13 +18,14 @@ namespace Antura.UI
             int nativeCodeIndex = 0;
             while (true)
             {
-                var loc = LocalizationManager.GetLocalizationData(LocalizationDataId.Game_Title_2);
-                QuestionText.OverridenLanguageCode = AvailableNativeCodes[nativeCodeIndex];
-                QuestionText.SetText(loc.GetLocalized(AvailableNativeCodes[nativeCodeIndex]).Text);
+                var key = LocalizationDataId.Game_Title_2;
+                yield return AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AvailableNativeCodes[nativeCodeIndex]);
+
+                QuestionText.SetOverridenLanguageText(AvailableNativeCodes[nativeCodeIndex], key);
 
                 nativeCodeIndex++;
                 if (nativeCodeIndex >= AvailableNativeCodes.Count) nativeCodeIndex = 0;
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(3f);
             }
         }
 
