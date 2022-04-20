@@ -13,11 +13,19 @@ using DG.Tweening;
 
 namespace Antura.Scenes
 {
+    public enum KioskLanguages
+    {
+        English = 1,
+        Italian = 2
+    }
+
     /// <summary>
     /// Controls the _Start scene, providing an entry point for all users prior to having selected a player profile.
     /// </summary>
     public class KioskScene : SceneBase
     {
+        public KioskLanguages KioskLanguage = KioskLanguages.English;
+
         public const string UrlKioskEng = "http://www.antura.org/triennale/";
         public const string UrlKioskIta = "http://www.antura.org/it/triennale_it/";
 
@@ -67,7 +75,7 @@ namespace Antura.Scenes
 
         public void OnBtnDonate()
         {
-            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian)
+            if (KioskLanguage == KioskLanguages.Italian)
             {
                 WebPanel.Open(UrlKioskIta);
             }
@@ -81,27 +89,27 @@ namespace Antura.Scenes
 
         public void OnBtnLanguageIta()
         {
-            AppManager.I.AppSettings.AppLanguage = AppLanguages.Italian;
+            KioskLanguage = KioskLanguages.Italian;
             updateUI();
         }
 
         public void OnBtnLanguageEng()
         {
-            AppManager.I.AppSettings.AppLanguage = AppLanguages.English;
+            KioskLanguage = KioskLanguages.English;
             updateUI();
         }
 
         private void updateUI()
         {
-            switch (AppManager.I.AppSettings.AppLanguage)
+            switch (KioskLanguage)
             {
-                case AppLanguages.English:
+                case KioskLanguages.English:
                     ButtonTextDonate.text = "Help us!\nDonate";
                     ButtonTextPlay.text = "Play Demo";
                     ButtonItalian.transform.DOScale(1.0f, 0.3f);
                     ButtonEnglish.transform.DOScale(1.2f, 0.3f);
                     break;
-                case AppLanguages.Italian:
+                case KioskLanguages.Italian:
                     ButtonTextDonate.text = "Aiutaci!\nDonazione";
                     ButtonTextPlay.text = "Gioca Demo";
                     ButtonItalian.transform.DOScale(1.2f, 0.3f);

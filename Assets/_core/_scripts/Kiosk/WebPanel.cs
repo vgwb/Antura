@@ -5,7 +5,6 @@ using TMPro;
 
 namespace Antura.Kiosk
 {
-
     public class WebPanel : MonoBehaviour
     {
         public TextMeshProUGUI WebViewTitle;
@@ -14,15 +13,8 @@ namespace Antura.Kiosk
 
         public void Open(string url)
         {
-            if (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian)
-            {
-                WebViewTitle.text = "Caricando ...";
-            }
-            else
-            {
-                WebViewTitle.text = "Loading ...";
-            }
 
+            WebViewTitle.text = "Loading ...";
             gameObject.SetActive(true);
             WebViewComponent.I.OpenBrowser(url, 0, 130, 0, 0);
             idleTime = Time.time + idleTimeDuration;

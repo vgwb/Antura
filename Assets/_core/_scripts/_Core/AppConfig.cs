@@ -4,11 +4,6 @@ using UnityEngine;
 
 namespace Antura.Core
 {
-    public enum AppLanguages
-    {
-        English = 1,
-        Italian = 2
-    }
 
     /// <summary>
     /// Container for application-wide static constants.

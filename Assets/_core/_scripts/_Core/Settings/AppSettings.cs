@@ -13,7 +13,6 @@ namespace Antura.Core
     {
         public LearningContentID ContentID;
         public LanguageCode NativeLanguage = LanguageCode.spanish;
-        public AppLanguages AppLanguage = AppLanguages.English;
 
         // not used anymore.. but could be useful in the future
         public bool HighQualityGfx = false;
