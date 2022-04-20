@@ -1,12 +1,12 @@
 ﻿using System.Collections;
 using Antura.Core;
-using Antura.Language;
 using Antura.Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace Antura.UI
 {
+    /* DEPRECATED
     public class SwitchLearningEditionButton : MonoBehaviour
     {
         public Image iconImage;
@@ -33,7 +33,7 @@ namespace Antura.UI
 
         private IEnumerator OnClickCO()
         {
-            HomeScene.HasSelectedLearningEdition = true;
+            HomeScene.HasSelectedEdition = true;
             AppManager.I.AppSettingsManager.SetLearningContentID(contentId);
             yield return AppManager.I.ReloadEdition();
             switchEditionPanel.RefreshSelection();
@@ -49,4 +49,5 @@ namespace Antura.UI
             selectedImage.enabled = true;
         }
     }
+    */
 }

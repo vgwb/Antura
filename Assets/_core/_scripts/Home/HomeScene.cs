@@ -32,14 +32,11 @@ namespace Antura.Scenes
 
         public GameObject HomeLogo;
 
-        public static bool HasSelectedLearningEdition;
-        public static bool MustChooseLearningEdition => !HasSelectedLearningEdition && AppManager.I.AppEdition.HasMultipleContentEditions && AppManager.I.Player == null;
-
         protected override void Start()
         {
             base.Start();
 
-            if (MustChooseLearningEdition)
+            if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // First choose a learning edition
                 AnturaAnimController.gameObject.SetActive(false);
@@ -58,7 +55,7 @@ namespace Antura.Scenes
 
         void TutorCreateProfile()
         {
-            if (!MustChooseLearningEdition && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1)
+            if (!EditionSelectionManager.MustChooseContentEditions && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1)
             {
                 KeeperManager.I.PlayDialogue(LocalizationDataId.Action_Createprofile);
             }

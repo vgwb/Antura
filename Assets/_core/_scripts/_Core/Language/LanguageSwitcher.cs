@@ -39,6 +39,17 @@ namespace Antura.Language
             yield return LoadLanguage(LanguageUse.Learning, AppManager.I.ContentEdition.LearningLanguage);
             yield return ReloadNativeLanguage();
             yield return LoadLanguage(LanguageUse.Help, AppManager.I.ContentEdition.HelpLanguage);
+
+            // We also need to load data for all languages, as they are needed for the selection menu
+            foreach (var contentEdition in AppManager.I.AppEdition.ContentEditions)
+            {
+                yield return LoadLanguageData(contentEdition.LearningLanguage);
+                yield return LoadLanguageData(contentEdition.HelpLanguage);
+                foreach (LanguageCode nativeLanguage in contentEdition.SupportedNativeLanguages)
+                {
+                    yield return LoadLanguageData(nativeLanguage);
+                }
+            }
         }
 
         public IEnumerator ReloadNativeLanguage()
@@ -89,6 +100,10 @@ namespace Antura.Language
             return loadedLanguageData[useMapping[use]].helper;
         }
 
+        public ILanguageHelper GetHelper(LanguageCode code)
+        {
+            return loadedLanguageData[code].helper;
+        }
         /*public DatabaseManager GetDBManager(LanguageUse use)
         {
             return loadedLanguageData[useMapping[use]].dbManager;

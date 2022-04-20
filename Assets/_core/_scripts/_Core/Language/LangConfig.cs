@@ -23,7 +23,6 @@ namespace Antura.Language
         public TMP_FontAsset LanguageFont;
         public Material OutlineLetterFontMaterial;
         [Header("UI Font")]
-        public bool OverrideUIFont;
         public TMP_FontAsset UIFont;
         [Header("Drawings Font")]
         public TMP_FontAsset DrawingsFont;

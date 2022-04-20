@@ -10,18 +10,17 @@ namespace Antura.Utilities
 {
     public class EditionSelectorBtn : MonoBehaviour
     {
-        public SwitchEditionPanel Panel;
+        public EditionSelectionManager SelectionManager;
 
         void Start()
         {
             bool isVisible = AppManager.I.AppEdition.HasMultipleContentEditions;
-
             gameObject.SetActive(isVisible);
 
-            if (HomeScene.MustChooseLearningEdition)
+            if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // Auto-open switching panel if no player is detected
-                Panel.Open();
+                SelectionManager.StartSelection();
             }
         }
 
