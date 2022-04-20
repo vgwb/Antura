@@ -62,7 +62,7 @@ public class ShapeManager : MonoBehaviour
         el.name = $"Data_{letterData.Id}";
         Debug.LogError("Working on " + letterData.ToString());
 
-        el.LetterTextMesh.font = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LetterFont;
+        el.LetterTextMesh.font = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
         el.LetterTextMesh.text = letterData.GetStringForDisplay();
 
         var lang = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).Code;

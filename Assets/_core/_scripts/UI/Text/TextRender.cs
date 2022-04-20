@@ -111,9 +111,9 @@ namespace Antura.UI
                 return;
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
-            if (!isLetter && !isNumber && config.OverrideTextFonts)
+            if (!isLetter && !isNumber && config.OverrideUIFont)
             {
-                TMPText.font = config.TextFont;
+                TMPText.font = config.UIFont;
             }
 
             if (!isNumber && !isLetter)
@@ -185,7 +185,7 @@ namespace Antura.UI
 
                 text = livingLetterData.TextForLivingLetter;
 
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LetterFont;
+                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LanguageFont;
                 if (outlined)
                     TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLetterFontMaterial;
             }
