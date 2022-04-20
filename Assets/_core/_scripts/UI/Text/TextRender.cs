@@ -105,12 +105,16 @@ namespace Antura.UI
             CheckRTL();
         }
 
+        [HideInInspector]
+        public LanguageCode OverridenLanguageCode = LanguageCode.NONE;
+
         private void UpdateText()
         {
             if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
                 return;
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
+            if (OverridenLanguageCode != LanguageCode.NONE) config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
             if (!isLetter && !isNumber && config.OverrideTextFonts)
             {
                 TMPText.font = config.TextFont;
@@ -118,7 +122,14 @@ namespace Antura.UI
 
             if (!isNumber && !isLetter)
             {
-                TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
+                if (OverridenLanguageCode != LanguageCode.NONE)
+                {
+                    TMPText.text = LanguageSwitcher.I.GetHelper(OverridenLanguageCode).ProcessString(m_text);
+                }
+                else
+                {
+                    TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
+                }
             }
             else if (isLetter)
             {
