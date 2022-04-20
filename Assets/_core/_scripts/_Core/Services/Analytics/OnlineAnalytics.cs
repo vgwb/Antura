@@ -66,11 +66,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
-            {
-                { "myEdition", AppManager.I.AppSettings.ContentID.ToString() },
-                { "myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString() },
-            };
+            var parameters = new Dictionary<string, object>();
+            EnrichWithSharedParameters(parameters);
 
             Events.CustomData("myTestEvent", parameters);
             Events.Flush();
@@ -94,14 +91,21 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             var parameters = new Dictionary<string, object>()
             {
-                { "myEdition", AppManager.I.AppSettings.ContentID.ToString() },
-                { "myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString() },
                 { "myAvatar", myAvatar },
                 { "myGender", playerProfile.Gender.ToString() },
                 { "myAge", playerProfile.Age }
             };
+            EnrichWithSharedParameters(parameters);
+
 
             Events.CustomData("myCompletedRegistration", parameters);
+        }
+
+        private void EnrichWithSharedParameters(Dictionary<string, object> dict)
+        {
+            dict.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
+            dict.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
+            dict.Add("myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString());
         }
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
@@ -168,13 +172,12 @@ namespace Antura.Core.Services.OnlineAnalytics
 
             var parameters = new Dictionary<string, object>()
             {
-                { "myEdition", AppManager.I.AppSettings.ContentID.ToString() },
-                { "myNativeLang", AppManager.I.AppSettings.NativeLanguage.ToString() },
                 { "myMinigame", miniGameCode.ToString() },
                 { "myScore", score },
                 { "myDuration", (int)duration },
                 { "myJP", currentJourneyPosition.Id }
             };
+            EnrichWithSharedParameters(parameters);
 
             Events.CustomData("myMinigameEnd", parameters);
         }
