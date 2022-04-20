@@ -21,7 +21,6 @@ namespace Antura.Language
         public class LanguageData
         {
             public LangConfig config;
-            //public DatabaseManager dbManager;
             public ILanguageHelper helper;
             public DiacriticsComboData diacriticsComboData;
         }
@@ -52,7 +51,6 @@ namespace Antura.Language
             useMapping[use] = language;
             yield return LoadLanguageData(language);
         }
-
 
         IEnumerator LoadLanguageData(LanguageCode language)
         {

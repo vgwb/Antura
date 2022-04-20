@@ -12,7 +12,7 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
-        public string Iso2;
+        public string Iso3;
         public TextDirection TextDirection;
         public Sprite FlagIcon;
         public string LocalizedName;
