@@ -1,5 +1,5 @@
 using Antura.Core;
-using DG.DeInspektor.Attributes;
+using DG.DemiLib.Attributes;
 using System;
 using System.Collections.Generic;
 using Antura.Keeper;
