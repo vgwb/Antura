@@ -6,7 +6,8 @@ nav_order: 0
 ---
 We have several fonts used:
 
-## Amatic
+## UI
+### Amatic UI
 version number
 edition panels
 book UI
@@ -14,23 +15,27 @@ book: minigames titles
 player: age btn
 map: levels
 
-## Arabic
-for alla arabic texts (both letters and UI)
+### WonderComic XXXXX
+home buttons
 
-## Futura (handwritten)
-book buttons
+### LiberationSans
+reserved area intro
+words dev hints
+
+## Learning Font
+### Futura (handwritten):
 letters / words main
+book buttons
 map: signs levels
+
+### Arabic
+letters / words main
+for alla arabic texts (both letters and UI)
 
 ## Drawings
 for words images
 
-## LiberationSans
-reserved area intro
-words dev hints
 
-## WonderComic
-home buttons
 
 
 
