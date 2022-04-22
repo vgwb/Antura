@@ -26,15 +26,17 @@ namespace Antura.Scenes
             selectedNativeButton.gameObject.SetActive(false);
 
             selectNativeLanguagePanel.Open();
-            while (!selectNativeLanguagePanel.HasPerformedSelection) yield return null;
+            while (!selectNativeLanguagePanel.HasPerformedSelection)
+                yield return null;
             selectNativeLanguagePanel.Close();
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
-            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Game_Title_2);
+            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
             selectedNativeButton.gameObject.SetActive(true);
 
             selectLearningContentPanel.Open();
-            while (!selectLearningContentPanel.HasPerformedSelection) yield return null;
+            while (!selectLearningContentPanel.HasPerformedSelection)
+                yield return null;
 
             HasSelectedEdition = true;
             yield return AppManager.I.ReloadEdition();

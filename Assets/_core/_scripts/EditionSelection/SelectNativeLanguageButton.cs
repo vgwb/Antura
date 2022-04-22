@@ -19,7 +19,7 @@ namespace Antura.UI
         public void Setup(LanguageCode languageCode)
         {
             this.languageCode = languageCode;
-            nameText.SetOverridenLanguageText(languageCode, LocalizationDataId.Game_Title_2);
+            nameText.SetOverridenLanguageText(languageCode, LocalizationDataId.Language_Name);
         }
 
         public void OnClick()
