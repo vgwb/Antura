@@ -36,7 +36,7 @@ namespace Antura.Database.Management
                     {
                         if (!CanHaveSameKeyMultipleTimes)
                         {
-                            LogValidation(data, "found multiple ID.");
+                            LogValidation(data, "found multiple ID " + value);
                         }
                         continue;
                     }

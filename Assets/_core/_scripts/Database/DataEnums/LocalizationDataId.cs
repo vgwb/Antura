@@ -631,6 +631,23 @@ namespace Antura.Database
         Variation_phonemes = 709,
         Variation_forms = 710,
         Variation_letterinword = 711,
+        Language_Name = 712,
+        Language_MotherLanguage = 713,
+        Learn_What = 714,
+        Learn_Read = 715,
+        Learn_Polish = 716,
+        Learn_Ukrainian = 717,
+        Learn_Russian = 718,
+        Learn_Hungarian = 719,
+        Learn_Romanian = 720,
+        Learn_English = 721,
+        Learn_French = 722,
+        Learn_Spanish = 723,
+        Learn_Italian = 724,
+        Learn_German = 725,
+        Learn_Arabic = 726,
+        Learn_Dari = 727,
+        Learn_Pashto = 728
     }
 }
 
