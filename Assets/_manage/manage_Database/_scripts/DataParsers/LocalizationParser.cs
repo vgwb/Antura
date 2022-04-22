@@ -14,7 +14,11 @@ namespace Antura.Database.Management
             LanguageCode language) // TODO: Deprecate "language"
         {
             var data = new LocalizationData();
-
+            //Debug.Log("Parse " + dict["Id"] + " - used: " + dict["Used"]);
+            if (ToInt(dict["Used"]) == 0)
+            {
+                return null;
+            }
             data.Id = ToString(dict["Id"]);
             data.AudioKey = ToString(dict["audio_key"]);
 
@@ -25,7 +29,6 @@ namespace Antura.Database.Management
                 if (lang == LanguageCode.COUNT || lang == LanguageCode.NONE || lang == LanguageCode.arabic_legacy)
                 { continue; }
                 var langData = new LocalizedData();
-                Debug.Log(lang);
                 langData.Text = ToString(dict[lang.ToString().ToLower()]);
                 if (dict.ContainsKey(lang.ToString().ToLower() + "_F"))
                 {
@@ -33,21 +36,6 @@ namespace Antura.Database.Management
                 }
                 data._LocalizedDatas[(int)lang - 1] = langData;
             }
-
-            //var engData = new LocalizedData();
-            //engData.Text = ToString(dict["english"]);
-
-            //var spanishData = new LocalizedData();
-            //spanishData.Text = ToString(dict["spanish"]);
-
-            //var arabicData = new LocalizedData();
-            //arabicData.Text = ToString(dict["arabic"]);
-            //arabicData.TextF = ToString(dict["arabic_F"]);
-
-            //var itaData = new LocalizedData();
-            //itaData.Text = ToString(dict["italian"]);
-
-            //data._LocalizedDatas = new[] { engData, arabicData, spanishData, itaData };
             return data;
         }
 
