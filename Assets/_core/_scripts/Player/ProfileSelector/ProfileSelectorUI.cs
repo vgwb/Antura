@@ -179,6 +179,11 @@ namespace Antura.UI
             BtPlay.gameObject.SetActive(true);
             // PLAYER REFACTORING WITH UUID
             PlayerIcon activePlayerIcon = GetPlayerIconByUUID(AppManager.I.Player.Uuid);
+            if (activePlayerIcon == null && playerIcons.Length > 0)
+            {
+                activePlayerIcon = playerIcons[0];
+            }
+
             if (activePlayerIcon != null)
             {
                 BtPlay.RectT.SetAnchoredPosX(activePlayerIcon.UIButton.RectT.anchoredPosition.x);
