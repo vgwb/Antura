@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Resources;
@@ -76,9 +77,11 @@ namespace Antura
                 || x.Code == MiniGameCode.SickLetters_lettername))
             {
                 var sideKeys = new HashSet<string>();
+                var learningFont = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
+                var fontName = learningFont.name.Split(" ")[0];
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
-                    sideKeys.Add($"{languageCode}/ShapeData/Letters/shapedata_{letterData.Id}");
+                    sideKeys.Add($"{fontName}/shapedata_{letterData.GetUnicode()}");
                 }
                 yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
             }
@@ -180,9 +183,9 @@ namespace Antura
             return GetSprite("BadgeIco", data.Badge);
         }
 
-        public ShapeLetterData GetShapeLetterData(string id)
+        public ShapeLetterData GetShapeLetterData(string unicode)
         {
-            return Get(shapeDataCache, $"shapedata_{id}");
+            return Get(shapeDataCache, $"shapedata_{unicode}");
         }
 
         public TextAsset GetSongSrt(string id)
