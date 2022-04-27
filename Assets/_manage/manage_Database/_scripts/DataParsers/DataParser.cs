@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Antura.Language;
+using DG.DeExtensions;
 using MiniJSON;
 using UnityEngine;
 
@@ -121,6 +122,21 @@ namespace Antura.Database.Management
         }
 
         #region Conversions
+
+        protected string[] ParseStringsArray(object array_obj)
+        {
+            var array_string = ToString(array_obj);
+            if (array_string.IsNullOrEmpty())
+                return new string[0];
+            var array = array_string.Split(',');
+            for (int i = 0; i < array.Length; i++)
+            {
+                array[i] = array[i].Trim(); // remove spaces
+            }
+            return array;
+        }
+
+
         protected string ToString(object _input)
         {
             if (_input == null)

@@ -169,13 +169,13 @@ namespace Antura.Database
         [SerializeField]
         private float _Complexity;
 
-        public string PlaySessionLink
+        public string[] PlaySessionLinks
         {
-            get { return _PlaySessionLink; }
-            set { _PlaySessionLink = value; }
+            get { return _PlaySessionLinks; }
+            set { _PlaySessionLinks = value; }
         }
         [SerializeField]
-        private string _PlaySessionLink;
+        private string[] _PlaySessionLinks;
 
         //public LetterSymbol[] Symbols; //TODO
 

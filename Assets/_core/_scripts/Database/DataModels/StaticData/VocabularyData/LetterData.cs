@@ -134,13 +134,13 @@ namespace Antura.Database
         [SerializeField]
         private string _Tag;
 
-        public string PlaySessionLink
+        public string[] PlaySessionLinks
         {
             get { return _PlaySessionLink; }
             set { _PlaySessionLink = value; }
         }
         [SerializeField]
-        private string _PlaySessionLink;
+        private string[] _PlaySessionLink;
 
         public string Notes
         {

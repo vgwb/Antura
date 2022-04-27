@@ -6,7 +6,7 @@
     public interface IVocabularyData : IData
     {
         float GetIntrinsicDifficulty();
-        string PlaySessionLink { get; }
+        string[] PlaySessionLinks { get; }
     }
 
 }

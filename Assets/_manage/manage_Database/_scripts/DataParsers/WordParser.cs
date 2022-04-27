@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using Antura.Helpers;
 using Antura.Language;
+using UnityEngine;
 
 namespace Antura.Database.Management
 {
@@ -33,8 +34,10 @@ namespace Antura.Database.Management
             {
                 data.DrawingCeibal = ToString(dict["DrawingCeibal"]);
             }
+
+            Debug.Log(data.Id);
             data.Complexity = ToFloat(dict["Complexity"]);
-            data.PlaySessionLink = dict.ContainsKey("PlaySessionLink") ? ToString(dict["PlaySessionLink"]) : string.Empty;
+            data.PlaySessionLinks = ParseStringsArray(dict["PlaySessionLink"]);
 
             return data;
         }
