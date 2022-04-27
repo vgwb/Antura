@@ -39,6 +39,7 @@ namespace Antura.Core
         [Header("Verbose")]
         public bool VerboseBook;
         public bool VerboseAudio;
+        public bool VerboseAssetsManager;
 
         [Header("AI")]
         public bool VerboseTeacher;

@@ -1,17 +1,19 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Resources;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
+using UnityEngine.ResourceManagement.AsyncOperations;
 
 namespace Antura
 {
     public class AssetManager
     {
-        public static bool VERBOSE = true;
+        public bool VERBOSE => DebugConfig.I.VerboseAssetsManager;
 
         private Dictionary<string, Sprite> spriteCache = new Dictionary<string, Sprite>();
         private Dictionary<string, ShapeLetterData> shapeDataCache = new Dictionary<string, ShapeLetterData>();
@@ -20,6 +22,21 @@ namespace Antura
 
         public IEnumerator PreloadDataCO()
         {
+            // We ovverride the exception handler, or addressables will use theirs and we do not want that.
+            UnityEngine.ResourceManagement.ResourceManager.ExceptionHandler = ((op, exception) =>
+            {
+                if (VERBOSE)
+                {
+                    var msg = exception.ToString();
+                    if (msg.Contains("InvalidKeyException"))
+                    {
+                        var index = msg.IndexOf("Key=");
+                        msg = "Could not find subset of keys: " +  msg.Substring(index, msg.Length - index);
+                    }
+                    Debug.LogError(msg);
+                }
+            });
+
             // First release preloaded data
             ClearCache(spriteCache);
             ClearCache(shapeDataCache);
@@ -51,37 +68,59 @@ namespace Antura
             }
             yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
 
-            // Side data
+            // Shape data
             if (VERBOSE)
-                Debug.Log("[Assets] Preloading Side Data");
-            var sideKeys = new HashSet<string>();
-            foreach (var letterData in AppManager.I.DB.GetAllLetterData())
+                Debug.Log("[Assets] Preloading Shape Data");
+            if (AppManager.I.DB.GetActiveMinigames().Any(x =>
+                    x.Code == MiniGameCode.Maze_lettername
+                || x.Code == MiniGameCode.SickLetters_lettername))
             {
-                sideKeys.Add($"{languageCode}/ShapeData/Letters/shapedata_{letterData.Id}");
+                var sideKeys = new HashSet<string>();
+                foreach (var letterData in AppManager.I.DB.GetAllLetterData())
+                {
+                    sideKeys.Add($"{languageCode}/ShapeData/Letters/shapedata_{letterData.Id}");
+                }
+                yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
             }
-            yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
-
 
             // Song data
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Song Data");
+
             var songAudioKeys = new HashSet<string>();
             var prefix = $"{languageCode}/Audio/Songs/";
-            songAudioKeys.Add($"{prefix}AlphabetSong");
+            if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Song_alphabet))
+            {
+                songAudioKeys.Add($"{prefix}AlphabetSong");
+            }
             //songAudioKeys.Add($"{prefix}DiacriticSong");
-            songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
-            songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
-            songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_120");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_140");
-            songAudioKeys.Add($"{prefix}SimonSong_Main_160");
-            yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
+            if (AppManager.I.DB.GetActiveMinigames().Any(x =>
+                    x.Code == MiniGameCode.Song_word_animals
+                    || x.Code == MiniGameCode.Song_word_body
+                    || x.Code == MiniGameCode.Song_word_city
+                    || x.Code == MiniGameCode.Song_word_family
+                    || x.Code == MiniGameCode.Song_word_food
+                    || x.Code == MiniGameCode.Song_word_home
+                    || x.Code == MiniGameCode.Song_word_nature
+                    || x.Code == MiniGameCode.Song_word_objectsclothes))
+            {
+                songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
+                songAudioKeys.Add($"{prefix}SimonSong_Main_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Main_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Main_160");
+            }
+            if (songAudioKeys.Count > 0) yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
 
             var songTextKeys = new HashSet<string>();
             prefix = $"{languageCode}/Audio/Songs/";
-            songTextKeys.Add($"{prefix}AlphabetSong.akr");
+            if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Song_alphabet))
+            {
+                songTextKeys.Add($"{prefix}AlphabetSong.akr");
+            }
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
-            yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
+            if (songTextKeys.Count > 0) yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
         }
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
