@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 
 using System.Collections;
 using System.Collections.Generic;
@@ -17,6 +18,7 @@ namespace Antura.Test
     /// </summary>
     public class NormalizedAudioFiles : MonoBehaviour
     {
+        public LanguageCode LanguageToCheck;
         List<string> folders;
         public List<ContentEditionConfig> langFolders;
         public DatabaseManager dbManager;
@@ -39,7 +41,7 @@ namespace Antura.Test
             foreach (string lang in folders)
             {
                 //uncomment for quick debug: only test english
-                if (lang != "english")
+                if (lang != LanguageToCheck.ToString())
                     continue;
 
                 //ASK: really necessary this? or we can use always the english version?
@@ -96,7 +98,7 @@ namespace Antura.Test
             foreach (string lang in folders)
             {
                 //uncomment for quick debug: only test english
-                if (lang != "english")
+                if (lang != LanguageToCheck.ToString())
                     continue;
 
                 dbManager = new DatabaseManager(learnEng, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
