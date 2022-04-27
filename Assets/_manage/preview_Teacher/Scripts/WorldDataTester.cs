@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
 using Antura.Database;
@@ -13,16 +14,23 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class WorldDataTester : MonoBehaviour
     {
+        public ContentEditionConfig Edition;
         public string[] LetterGroups;
 
         private DatabaseManager _databaseManager;
+        private VocabularyHelper _vocabularyHelper;
         private List<PlaySessionData> _playSessionDatas;
         private List<LetterData> _letterDatas;
         private List<WordData> _wordDatas;
 
-        void Awake()
+
+        IEnumerator Start()
         {
-            _databaseManager = AppManager.I.DB;
+            AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+            yield return AppManager.I.ReloadEdition();
+
+            _databaseManager = new DatabaseManager(Edition, Edition.LearningLanguage);
+            _vocabularyHelper = new VocabularyHelper(_databaseManager);
 
             _playSessionDatas = _databaseManager.GetAllPlaySessionData();
             _letterDatas = _databaseManager.GetAllLetterData();
@@ -47,8 +55,8 @@ namespace Antura.Teacher.Test
                 var letterGroup = LetterGroups[iGroup];
 
                 query += $" {letterGroup}";
-                var desiredLettersParts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, new WordData { Text = query }, separateVariations: false);
-                var desiredLetters = desiredLettersParts.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld.letter, LetterForm.Isolated));
+                var desiredLettersParts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(_databaseManager, new WordData { Text = query }, separateVariations: false);
+                var desiredLetters = desiredLettersParts.ConvertAll(ld => _vocabularyHelper.ConvertToLetterWithForcedForm(ld.letter, LetterForm.Isolated));
 
                 /*
                 var str = $"Group {(iGroup+1)} letters:\n";
@@ -64,8 +72,8 @@ namespace Antura.Teacher.Test
                 var letterCount = new Dictionary<LetterData, int>();
                 foreach (var wordData in _wordDatas)
                 {
-                    var lettersInWord = AppManager.I.VocabularyHelper.GetLettersInWord(wordData);
-                    lettersInWord = lettersInWord.ConvertAll(ld => AppManager.I.VocabularyHelper.ConvertToLetterWithForcedForm(ld, LetterForm.Isolated));
+                    var lettersInWord = _vocabularyHelper.GetLettersInWord(wordData);
+                    lettersInWord = lettersInWord.ConvertAll(ld => _vocabularyHelper.ConvertToLetterWithForcedForm(ld, LetterForm.Isolated));
                     bool isCorrect = true;
                     foreach (var letterInWord in lettersInWord)
                     {
@@ -118,7 +126,7 @@ namespace Antura.Teacher.Test
                 s += $"(With drawings: {nWithDrawings}/{correctWords.Count}):\n";
                 foreach (var correctWord in correctWords)
                 {
-                    wordToGroup[correctWord.Id] = $"WordsStage{iGroup+1}";
+                    wordToGroup[correctWord.Id] = $"WordGroup{iGroup+1}";
                     s += $"{correctWord.Id} ({correctWord.Text})";
                     if (correctWord.HasDrawing()) s += " D";
                     s += "\n";
@@ -130,7 +138,7 @@ namespace Antura.Teacher.Test
             }
 
             s = "\nUNUSED WORDS:\n";
-            foreach (var word in AppManager.I.VocabularyHelper.GetAllWords(new WordFilters()))
+            foreach (var word in _vocabularyHelper.GetAllWords(new WordFilters()))
             {
                 if (previousWords.Contains(word)) continue;
                 s += $"{word.Id} ({word.Text})\n";
@@ -138,7 +146,7 @@ namespace Antura.Teacher.Test
             report += "\n" + s;
 
             s = "\nUNUSED LETTERS:\n";
-            foreach (var letter in AppManager.I.VocabularyHelper.GetAllLetters(new LetterFilters()))
+            foreach (var letter in _vocabularyHelper.GetAllLetters(new LetterFilters()))
             {
                 if (previousLetters.Contains(letter)) continue;
                 s += $"{letter.Id} ({letter.Isolated})\n";
@@ -148,7 +156,7 @@ namespace Antura.Teacher.Test
 
             // Report word data with their play session link
             s = "PLAY SESSION LINKS:\n";
-            foreach (var word in AppManager.I.VocabularyHelper.GetAllWords(new WordFilters()))
+            foreach (var word in _vocabularyHelper.GetAllWords(new WordFilters()))
             {
                 s += $"{word.Id} ({word.Text}), {wordToGroup[word.Id]}\n";
             }

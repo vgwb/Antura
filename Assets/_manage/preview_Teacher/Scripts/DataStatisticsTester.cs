@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
@@ -16,6 +17,8 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class DataStatisticsTester : MonoBehaviour
     {
+        public ContentEditionConfig Edition;
+
         private VocabularyHelper _vocabularyHelper;
         private DatabaseManager _databaseManager;
         private List<PlaySessionData> _playSessionDatas;
@@ -26,8 +29,11 @@ namespace Antura.Teacher.Test
         //private LetterFilters _letterFilters;
         private WordFilters _wordFilters;
 
-        void Awake()
+        IEnumerator Start()
         {
+            AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+            yield return AppManager.I.ReloadEdition();
+
             _databaseManager = AppManager.I.DB;
             _vocabularyHelper = AppManager.I.VocabularyHelper;
 
