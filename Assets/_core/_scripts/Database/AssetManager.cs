@@ -129,7 +129,16 @@ namespace Antura
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
         {
             foreach (var keyValuePair in cache)
-                Addressables.Release(keyValuePair.Value);
+            {
+                try
+                {
+                    Addressables.Release(keyValuePair.Value);
+                }
+                catch (Exception e)
+                {
+                    if (VERBOSE) Debug.LogWarning(e.ToString());
+                }
+            }
             cache.Clear();
         }
 
