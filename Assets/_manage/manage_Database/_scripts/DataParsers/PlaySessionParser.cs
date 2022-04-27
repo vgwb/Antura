@@ -54,8 +54,9 @@ namespace Antura.Database.Management
                 var dataValues = table.GetValues();
                 foreach (var value in dataValues)
                 {
+                    if (value == null) continue;
                     var vocabularyData = value as IVocabularyData;
-                    if (value != null && array[i] == value.GetId() && !foundIDs.Contains(value.GetId()))
+                    if (array[i] == value.GetId() && !foundIDs.Contains(value.GetId()))
                     {
                         foundIDs.Add(value.GetId());
                     }
