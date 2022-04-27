@@ -1,3 +1,4 @@
+//#define GENERATE_IF_NOT_FOUND
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ public class ShapeManager : MonoBehaviour
     private void LoadLetter(string _unicode)
     {
         var letters = AppManager.I.DB.GetAllLetterData();
-        var letterData = letters.FirstOrDefault(x => string.Equals(x.GetUnicode(), _unicode, StringComparison.Ordinal));
+        var letterData = letters.FirstOrDefault(x => string.Equals(x.GetCompleteUnicodes(), _unicode, StringComparison.Ordinal));
         LoadLetter(letterData);
     }
 
@@ -63,38 +64,49 @@ public class ShapeManager : MonoBehaviour
         el.transform.localPosition = pos;
         el.data = letterData;
 
-        el.name = $"Data_{letterData.GetUnicode()}_{letterData.Id}";
+        el.name = $"Data_{letterData.GetCompleteUnicodes()}_{letterData.Id}";
         Debug.Log($"Loading shape for {letterData}");
 
         el.LetterTextMesh.font = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
         el.LetterTextMesh.text = letterData.GetStringForDisplay(forceShowAccent:true);
 
-        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData.GetUnicode());
+        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData);
+#if UNITY_EDITOR && GENERATE_IF_NOT_FOUND
         if (shapeData == null)
         {
-            var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First();
-            var assetPath = $"Assets/_core/Fonts/Font {fontName}/ShapeData/shapedata_{letterData.GetUnicode()}.asset";
+            var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First().Split('_').Last();
+            var assetPath = $"Assets/_core/Fonts/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
 
-#if UNITY_EDITOR
-            // Generate it
-            shapeData = ScriptableObject.CreateInstance<ShapeLetterData>();
-            AssetDatabase.CreateAsset(shapeData, assetPath);
-            AssetDatabase.SaveAssets();
-            Debug.LogWarning($"Generating shapeData for {letterData.Id}");
+            shapeData = AssetDatabase.LoadAssetAtPath<ShapeLetterData>(assetPath);
+            if (shapeData != null)
+            {
+                Debug.LogWarning("We already have an asset with that path!");
+            }
+            else
+            {
+                // Generate it
+                shapeData = ScriptableObject.CreateInstance<ShapeLetterData>();
+                AssetDatabase.CreateAsset(shapeData, assetPath);
+                AssetDatabase.SaveAssets();
+                Debug.LogWarning($"Generating shapeData for {letterData.Id}");
 
-            // Add to addressables
-            var guid = AssetDatabase.AssetPathToGUID(assetPath);
-            var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, AddressableAssetSettingsDefaultObject.Settings.DefaultGroup);
-            entry.address = $"{fontName}/shapedata_{letterData.GetUnicode()}";
-#endif
+                // Add to addressables
+                var guid = AssetDatabase.AssetPathToGUID(assetPath);
+                var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, AddressableAssetSettingsDefaultObject.Settings.DefaultGroup);
+                entry.address = $"{fontName}/shapedata_{letterData.GetCompleteUnicodes()}";
+            }
         }
-        el.shapeData = shapeData;
+#endif
+        if (shapeData != null)
+        {
+            el.shapeData = shapeData;
 
-        // Load the current spline
-        LoadSplinesOn(el.StrokesPivot, shapeData.Strokes);
-        LoadSplinesOn(el.ContourPivot, shapeData.Contour);
-        LoadPointsOn(el.EmptyPointsPivot, shapeData.EmptyZones);
-        LoadPointOn(el.CenterPoint, shapeData.Center);
+            // Load the current spline
+            LoadSplinesOn(el.StrokesPivot, shapeData.Strokes);
+            LoadSplinesOn(el.ContourPivot, shapeData.Contour);
+            LoadPointsOn(el.EmptyPointsPivot, shapeData.EmptyZones);
+            LoadPointOn(el.CenterPoint, shapeData.Center);
+        }
     }
 
     public static void LoadPointOn(GameObject pointGo, Vector2 point)

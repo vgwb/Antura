@@ -243,7 +243,7 @@ namespace Antura.Minigames.SickLetters
             Vector2[] emptyZones;
             if (useLetter)
             {
-                var shapeData = AppManager.I.AssetManager.GetShapeLetterData((letterView.Data as LL_LetterData).Data.GetUnicode());
+                var shapeData = AppManager.I.AssetManager.GetShapeLetterData((letterView.Data as LL_LetterData).Data);
                 emptyZones = shapeData.EmptyZones;
             }
             else

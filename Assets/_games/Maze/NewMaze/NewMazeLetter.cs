@@ -20,7 +20,7 @@ public class NewMazeLetter : MonoBehaviour
 
     public void SetupLetter(LL_LetterData ld)
     {
-        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(ld.Data.GetUnicode());
+        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(ld.Data);
         if (shapeData == null)
             return;
 

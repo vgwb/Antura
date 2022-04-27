@@ -452,6 +452,13 @@ namespace Antura.Database
             return new LL_LetterData(this);
         }
 
+        public string GetCompleteUnicodes()
+        {
+            var unicode = GetUnicode();
+            if (Kind == LetterDataKind.DiacriticCombo) unicode += $"_{Symbol_Unicode}";
+            return unicode;
+        }
+
         public string GetUnicode(LetterForm form = LetterForm.Isolated, bool fallback = true)
         {
             switch (Kind)

@@ -72,16 +72,15 @@ namespace Antura
             // Shape data
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Shape Data");
-            if (AppManager.I.DB.GetActiveMinigames().Any(x =>
                     x.Code == MiniGameCode.Maze_lettername
                 || x.Code == MiniGameCode.SickLetters_lettername))
             {
                 var sideKeys = new HashSet<string>();
                 var learningFont = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
-                var fontName = learningFont.name.Split(" ")[0];
+                var fontName = learningFont.name.Split(" ").First().Split('_').Last();
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
-                    sideKeys.Add($"{fontName}/shapedata_{letterData.GetUnicode()}");
+                    sideKeys.Add($"{fontName}/shapedata_{letterData.GetCompleteUnicodes()}");
                 }
                 yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
             }
@@ -192,8 +191,10 @@ namespace Antura
             return GetSprite("BadgeIco", data.Badge);
         }
 
-        public ShapeLetterData GetShapeLetterData(string unicode)
+        public ShapeLetterData GetShapeLetterData(LetterData letterData)
         {
+            var unicode = letterData.GetUnicode();
+            if (letterData.Kind == LetterDataKind.DiacriticCombo) unicode += $"_{letterData.Symbol_Unicode}";
             return Get(shapeDataCache, $"shapedata_{unicode}");
         }
 
