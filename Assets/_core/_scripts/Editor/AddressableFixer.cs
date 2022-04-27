@@ -48,34 +48,5 @@ namespace Antura.Tools
             Debug.Log("FINISHED Fixing addressable for shape data");
         }
 
-        [MenuItem("Antura/Tools/Rename Side Data")]
-        public static void RenameSideData()
-        {
-            // Get all assets in ALL lang paths
-            foreach (var lang in (LanguageCode[])System.Enum.GetValues(typeof(LanguageCode)))
-            {
-                if (lang == LanguageCode.NONE || lang == LanguageCode.COUNT)
-                    continue;
-
-                Debug.Log("Fixing data for lang: " + lang);
-                var guids = AssetDatabase.FindAssets("", new[] { $"Assets/_lang_bundles/{lang}" });
-                foreach (var guid in guids)
-                {
-                    var oldpath = AssetDatabase.GUIDToAssetPath(guid);
-                    var oldname = oldpath.Split('/').Last();
-
-                    if (oldname.Contains("sideletter"))
-                    {
-                        var newname = oldname.Replace("sideletter", "shapedata");
-                        Debug.Log("Renaming to " + newname);
-                        var result = AssetDatabase.RenameAsset(oldpath, newname);
-                        if (!result.IsNullOrEmpty())
-                            Debug.Log("Error: " + result);
-                    }
-                }
-            }
-            AssetDatabase.SaveAssets();
-            Debug.Log("FINISHED Fixing side data");
-        }
     }
 }
