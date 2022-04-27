@@ -20,7 +20,7 @@ namespace Antura.Test
     {
         public LanguageCode LanguageToCheck;
         List<string> folders;
-        public List<ContentEditionConfig> langFolders;
+        public ContentEditionConfig ContentTarget;
         public DatabaseManager dbManager;
 
         void Awake()
@@ -34,22 +34,15 @@ namespace Antura.Test
 
         public void CheckProjectAgainstDb()
         {
-            var learnEng = GetDefaultLearn(); //we'll use the 'Content - Learn_English' as a default ContentEditionConfig
-            if (learnEng == null) //if its not present in the script (attachable in the inspector), we shut down the call
+            if (!PreValidateAssets())
                 return;
 
             foreach (string lang in folders)
             {
-                //uncomment for quick debug: only test english
-                if (lang != LanguageToCheck.ToString())
+                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
                     continue;
 
-                //ASK: really necessary this? or we can use always the english version?
-                dbManager = new DatabaseManager(learnEng, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
-                foreach (ContentEditionConfig ceg in langFolders) //we'll try to find the 'Content - Learn_...' of any specific language
-                    if (ceg.name.ToLower().Contains(lang.ToLower()))
-                        dbManager = new DatabaseManager(ceg, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
-                //END-ASK
+                dbManager = new DatabaseManager(ContentTarget, LanguageToCheck);
 
                 List<LocalizationData> localization = dbManager.GetAllLocalizationData();
 
@@ -91,20 +84,15 @@ namespace Antura.Test
 
         public void CheckDbAgaistProject()
         {
-            var learnEng = GetDefaultLearn();
-            if (learnEng == null)
+            if (!PreValidateAssets())
                 return;
 
             foreach (string lang in folders)
             {
-                //uncomment for quick debug: only test english
-                if (lang != LanguageToCheck.ToString())
+                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
                     continue;
 
-                dbManager = new DatabaseManager(learnEng, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
-                foreach (ContentEditionConfig ceg in langFolders)
-                    if (ceg.name.ToLower().Contains(lang.ToLower())) //check if we have the ContentEditionConfig asset of the current lang folder
-                        dbManager = new DatabaseManager(ceg, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
+                dbManager = new DatabaseManager(ContentTarget, LanguageToCheck);
 
                 int missing_count = 0;
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
@@ -134,15 +122,19 @@ namespace Antura.Test
             }
         }
 
-        ContentEditionConfig GetDefaultLearn()
+        public bool PreValidateAssets()
         {
-            var learnEng = langFolders.FirstOrDefault(lf => lf.name == "Content - Learn_English");
-            if (learnEng == null)
+            if (ContentTarget == null) //if its not present in the script (attachable in the inspector), we shut down the call
             {
-                Debug.Log("ERROR: \"Content - Learn_English\" missing in NormalizedAudioFiles script");
-                return null;
+                Debug.LogWarning("WARNING: There's no Content - Learn... asset attached to run the task");
+                return false;
             }
-            return learnEng;
+            if (LanguageToCheck == LanguageCode.NONE || LanguageToCheck == LanguageCode.COUNT)
+            {
+                Debug.LogWarning("WARNING: There's none language selected to run the task");
+                return false;
+            }
+            return true;
         }
     }
 }
