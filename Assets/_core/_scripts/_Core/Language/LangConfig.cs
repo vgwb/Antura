@@ -12,16 +12,16 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
+        public string LocalizedName;
         public string Iso3;
         public TextDirection TextDirection;
         public Sprite FlagIcon;
-        public string LocalizedName;
         public AlphabetCode Alphabet;
         public string TutorialLetterId;
 
         [Header("Language Font")]
         public TMP_FontAsset LanguageFont;
-        public Material OutlineLetterFontMaterial;
+        public Material OutlineLanguageFontMaterial;
         [Header("UI Font")]
         public TMP_FontAsset UIFont;
         [Header("Drawings Font")]
