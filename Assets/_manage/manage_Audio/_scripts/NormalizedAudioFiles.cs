@@ -1,14 +1,14 @@
 #if UNITY_EDITOR
+using Antura.Core;
+using Antura.Database;
 
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
-using Antura.Database;
+using System;
 using System.Linq;
 using System.IO;
+using UnityEngine;
 using UnityEditor;
-using Antura.Core;
-using System;
 
 namespace Antura.Test
 {
@@ -39,8 +39,8 @@ namespace Antura.Test
             foreach (string lang in folders)
             {
                 //uncomment for quick debug: only test english
-                //if (lang != "english")
-                //    continue;
+                if (lang != "english")
+                    continue;
 
                 //ASK: really necessary this? or we can use always the english version?
                 dbManager = new DatabaseManager(learnEng, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
@@ -67,22 +67,22 @@ namespace Antura.Test
                             var fileAux = localization.FirstOrDefault(af => file.Name.Contains(af.AudioKey));
                             if (fileAux == null)
                             {
-                                Debug.Log("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
+                                Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
                                 missing_count++;
                             }
                         }
                         if (missing_count > 0)
-                            Debug.Log("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString());
+                            Debug.LogWarning("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString());
                         else
                             Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the localization table");
 
                         missing_count = 0;
                     }
                     else
-                        Debug.Log("WARNING: The localization table doesn't exist for the " + lang + " version");
+                        Debug.LogWarning("WARNING: The localization table doesn't exist for the " + lang + " version");
                 }
                 else
-                    Debug.Log("ATTENTION: 'Dialogs' folder not found for " + lang + " version");
+                    Debug.LogError("ATTENTION: 'Dialogs' folder not found for " + lang + " version");
 
             }
         }
@@ -96,8 +96,8 @@ namespace Antura.Test
             foreach (string lang in folders)
             {
                 //uncomment for quick debug: only test english
-                //if (lang != "english")
-                //    continue;
+                if (lang != "english")
+                    continue;
 
                 dbManager = new DatabaseManager(learnEng, (Language.LanguageCode)Enum.Parse(typeof(Language.LanguageCode), lang));
                 foreach (ContentEditionConfig ceg in langFolders)
@@ -116,19 +116,19 @@ namespace Antura.Test
                     {
                         if (!File.Exists(langPath + "/" + data.AudioKey + ".mp3") && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
                         {
-                            Debug.Log("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
+                            Debug.LogError("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
                             missing_count++;
                         }
                     }
                     if (missing_count > 0)
-                        Debug.Log("WARNING: total missing audio files in the folder of " + lang + " version: " + missing_count.ToString());
+                        Debug.LogWarning("WARNING: total missing audio files in the folder of " + lang + " version: " + missing_count.ToString());
                     else
                         Debug.Log("SUCCESS: all audio files of the localization table exist in the folder of " + lang + " version");
 
                     missing_count = 0;
                 }
                 else
-                    Debug.Log("ATTENTION: The 'Dialogs' folder doesn't exist for the " + lang + " version");
+                    Debug.LogError("ATTENTION: The 'Dialogs' folder doesn't exist for the " + lang + " version");
             }
         }
 
