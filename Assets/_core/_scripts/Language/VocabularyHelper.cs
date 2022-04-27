@@ -548,7 +548,7 @@ namespace Antura.Database
                 }
                 else
                 {
-                    Debug.LogError("Drawing not found");
+                    Debug.LogError("Drawing not found - " + word.Id);
                     return "";
                 }
             }
