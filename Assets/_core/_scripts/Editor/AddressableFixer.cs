@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,20 +21,31 @@ namespace Antura.Tools
             var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
             Debug.Log("Fixing addressable for lang: " + lang);
             var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
+            // Fixing common addressables
+            Debug.Log("Fixing addressable for shape data.");
+            group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
+            guids = AssetDatabase.FindAssets("", new[] { "Assets/_core/Fonts/"});
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
+                if (!path.Contains("ShapeData/shapedata")) continue;
+
                 var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
-                var removedPathLength = "Assets/_lang_bundles/".Length;
-                var splits = path.Split('.');
-                if (splits.Length > 1)
+                var splits = path.Split('.')[0].Split('/');
+                var fontName = splits[splits.Length - 3].Split(' ')[1];
+                var assetName = splits[splits.Length - 1];
+                var ch = assetName.Last();
+                if (!char.IsDigit(ch))
                 {
-                    var extension = splits[splits.Length - 1];
-                    path = path.Substring(0, path.Length - (extension.Length + 1));
+                    var hexCode = string.Format("{0:X4}", Convert.ToUInt16(ch));
+                    assetName = assetName.Substring(0, assetName.Length - 1) + hexCode;
                 }
-                entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
+                AssetDatabase.RenameAsset(path, assetName);
+                entry.address =  fontName + "/" + assetName;
             }
-            Debug.Log("FINISHED Fixing addressable for lang: " + lang);
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+            Debug.Log("FINISHED Fixing addressable for shape data");
         }
 
         [MenuItem("Antura/Tools/Rename Side Data")]
