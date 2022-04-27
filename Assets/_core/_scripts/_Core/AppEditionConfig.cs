@@ -82,6 +82,8 @@ namespace Antura.Core
         public bool PlayIntroAtMiniGameStart;
         public bool AutomaticDifficulty;
 
+        [Header("Data")]
+        public DrawingsData DrawingsData;
         /*
                 [Header("Build Settings")]
 

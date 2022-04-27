@@ -191,7 +191,7 @@ namespace Antura.UI
                 text = livingLetterData.DrawingCharForLivingLetter;
 
                 LL_ImageData imageData = (LL_ImageData)livingLetterData;
-                color = imageData.Data.Category == Database.WordDataCategory.Colors ? GenericHelper.GetColorFromString(imageData.Data.Value) : Color.black;
+                color = imageData.Data.Category == Database.WordDataCategory.Colors ? GenericHelper.GetColorFromString(imageData.Data.GetDrawingColor()) : Color.black;
 
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
                 if (outlined)

@@ -9,7 +9,7 @@ nav_order: 0
 ## How to Draw a word
 NOTE for the artists:
 the vectorial drawings are Black and White and must be saved in SVG format with all paths closed, exploded and with no hidden layer.
-In this repo you can find current used drawings: [Antura_assets](https://github.com/vgwb/Antura_assets/tree/master/Drawings/Words/used)
+In this repo you can find current used drawings: [Antura_assets](https://github.com/vgwb/Antura_assets/tree/master/Drawings/used)
 
 ## Create the Font
 
@@ -47,3 +47,9 @@ Font Render Mode: Distance Field 32
 ```
 
 save as Antura_WordDrawings SDF.asset
+
+
+---
+Common:
+
+22,26,2A,2F-31,33-36,39-3A,3C-3F,42-47,49-4B,4D-4E,50-54,56,58-5B,5D,61-65,68,6B-6C,6E-71,73,75,77,79-7B,7E,98,A1-A3,A5,A7,AB-AC,B1,BF-C0,C2,C4-D9,DB,DD-DF,E2,E4-E5,E7-EB,ED-F1,F3-F5,F7-F8,FB,FD-FE,100,103-104,10D-10F,112-113,116,118-11A,11E-123,126-127,12A-12B,12E-131,136-137,139-13E,141-148,14A,14C-14D,150-15B,15E-167,16A-16B,16E-17E,218-21B,391,403,1E80-1E85,1EA4-1EA7,1EAA,1EF2-1EF3,2019,2022,2026,2030,2044,2191-2192,2196-2198,2202,2205,220F,2211-2212,221A,221E,222B,2248,2260,2264,2669-266F,040C,040E,040F,409,407,040A,404,040B,402,4E2,04E8,453,454,457,452,473,04CF,04E3,04E9

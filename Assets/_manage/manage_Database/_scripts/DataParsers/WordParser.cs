@@ -29,13 +29,7 @@ namespace Antura.Database.Management
             data.Text = ToString(dict["Text"]);
             data.Value = ToString(dict["Value"]);
             data.SortValue = ToString(dict["SortValue"]);
-            data.Drawing = ToString(dict["Drawing"]);
-            if (dict.ContainsKey("DrawingCeibal"))
-            {
-                data.DrawingCeibal = ToString(dict["DrawingCeibal"]);
-            }
-
-            Debug.Log(data.Id);
+            data.Drawing = ToString(dict["DrawingId"]);
             data.Complexity = ToFloat(dict["Complexity"]);
             data.PlaySessionLinks = ParseStringsArray(dict["PlaySessionLink"]);
 

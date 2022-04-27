@@ -535,17 +535,22 @@ namespace Antura.Database
             //Debug.Log("the int of hex:" + word.Drawing + " is " + int.Parse(word.Drawing, NumberStyles.HexNumber));
             if (word.Drawing != "")
             {
-                string drawingHexCode = word.Drawing;
-                if (AppManager.I.AppEdition.editionID == AppEditionID.LearnEnglish_Ceibal && word.DrawingCeibal != "")
+                var data = word.GetDrawingData();
+                if (data != null)
                 {
-                    drawingHexCode = word.DrawingCeibal;
-                }
+                    string drawingHexCode = data.Unicode;
 
-                if (int.TryParse(drawingHexCode, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out int result))
-                {
-                    return ((char)result).ToString();
+                    if (int.TryParse(drawingHexCode, NumberStyles.HexNumber, CultureInfo.CurrentCulture, out int result))
+                    {
+                        return ((char)result).ToString();
+                    }
+                    return "";
                 }
-                return "";
+                else
+                {
+                    Debug.LogError("Drawing not found");
+                    return "";
+                }
             }
             return "";
         }

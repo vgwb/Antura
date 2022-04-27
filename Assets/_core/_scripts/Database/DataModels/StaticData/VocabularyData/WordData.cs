@@ -1,5 +1,6 @@
 using System;
 using System.Linq;
+using Antura.Core;
 using Antura.LivingLetters;
 using Antura.Helpers;
 using SQLite;
@@ -153,14 +154,6 @@ namespace Antura.Database
         //[SerializeField]
         //private string _DrawingLabel;
 
-        public string DrawingCeibal
-        {
-            get { return _DrawingCeibal; }
-            set { _DrawingCeibal = value; }
-        }
-        [SerializeField]
-        private string _DrawingCeibal;
-
         public float Complexity
         {
             get { return _Complexity; }
@@ -247,5 +240,16 @@ namespace Antura.Database
         {
             return IsSameAs(other, DefaultStrictness);
         }
+
+        public DrawingData GetDrawingData()
+        {
+            return AppManager.I.AppEdition.DrawingsData.Drawings.Find(x => x.Id == Id);
+        }
+
+        public string GetDrawingColor()
+        {
+            return GetDrawingData().Value;
+        }
+
     }
 }
