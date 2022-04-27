@@ -19,12 +19,16 @@ using UnityEngine.AddressableAssets;
 
 public class ShapeManager : MonoBehaviour
 {
+    public ContentEditionConfig Edition;
     public ShapeDataLogic DataPrefab;
 
     IEnumerator Start()
     {
         while (!AppManager.I.Loaded)
             yield return null;
+        AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+        yield return AppManager.I.ReloadEdition();
+
         GlobalUI.I.gameObject.SetActive(false);
         var letters = AppManager.I.DB.GetAllLetterData();
         for (var i = 0; i < letters.Count; i++)
@@ -38,14 +42,14 @@ public class ShapeManager : MonoBehaviour
 
     private void LoadLetter(ShapeLetterData d)
     {
-        var letter = d.name.Replace("shapedata_", "");
-        LoadLetter(letter);
+        var unicode = d.name.Replace("shapedata_", "");
+        LoadLetter(unicode);
     }
 
-    private void LoadLetter(string _letter)
+    private void LoadLetter(string _unicode)
     {
         var letters = AppManager.I.DB.GetAllLetterData();
-        var letterData = letters.FirstOrDefault(x => x.Id == _letter);
+        var letterData = letters.FirstOrDefault(x => string.Equals(x.GetUnicode(), _unicode, StringComparison.Ordinal));
         LoadLetter(letterData);
     }
 
@@ -59,29 +63,29 @@ public class ShapeManager : MonoBehaviour
         el.transform.localPosition = pos;
         el.data = letterData;
 
-        el.name = $"Data_{letterData.Id}";
-        Debug.LogError("Working on " + letterData.ToString());
+        el.name = $"Data_{letterData.GetUnicode()}_{letterData.Id}";
+        Debug.Log($"Loading shape for {letterData}");
 
         el.LetterTextMesh.font = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
-        el.LetterTextMesh.text = letterData.GetStringForDisplay();
+        el.LetterTextMesh.text = letterData.GetStringForDisplay(forceShowAccent:true);
 
-        var lang = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).Code;
-        var assetPath = $"Assets/_lang_bundles/{lang}/ShapeData/Letters/shapedata_{letterData.Id}.asset";
-
-        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData.Id);
+        var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData.GetUnicode());
         if (shapeData == null)
         {
+            var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First();
+            var assetPath = $"Assets/_core/Fonts/Font {fontName}/ShapeData/shapedata_{letterData.GetUnicode()}.asset";
+
 #if UNITY_EDITOR
             // Generate it
             shapeData = ScriptableObject.CreateInstance<ShapeLetterData>();
             AssetDatabase.CreateAsset(shapeData, assetPath);
             AssetDatabase.SaveAssets();
-            Debug.LogWarning("Generating shapeData for " + letterData.Id);
+            Debug.LogWarning($"Generating shapeData for {letterData.Id}");
 
             // Add to addressables
             var guid = AssetDatabase.AssetPathToGUID(assetPath);
             var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, AddressableAssetSettingsDefaultObject.Settings.DefaultGroup);
-            entry.address = $"{lang}/ShapeData/Letters/shapedata_{letterData.Id}";
+            entry.address = $"{fontName}/shapedata_{letterData.GetUnicode()}";
 #endif
         }
         el.shapeData = shapeData;
