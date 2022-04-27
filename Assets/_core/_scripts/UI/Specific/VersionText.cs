@@ -17,6 +17,7 @@ namespace Antura.UI
                 label = "CROWFUNDING DEMO ";
             }
             label += AppManager.I.AppEdition.GetAppVersionString();
+            label += " - " + AppManager.I.ContentEdition.ContentID.ToString();
             gameObject.GetComponent<TextMeshProUGUI>().text = label;
         }
     }
