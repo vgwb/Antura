@@ -72,8 +72,8 @@ namespace Antura
             // Shape data
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Shape Data");
-                    x.Code == MiniGameCode.Maze_lettername
-                || x.Code == MiniGameCode.SickLetters_lettername))
+            if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Maze_lettername
+                                                                    || x.Code == MiniGameCode.SickLetters_lettername))
             {
                 var sideKeys = new HashSet<string>();
                 var learningFont = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
