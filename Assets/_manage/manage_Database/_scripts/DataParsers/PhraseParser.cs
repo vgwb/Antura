@@ -27,6 +27,7 @@ namespace Antura.Database.Management
             data.Words = ParseIDArray<WordData, WordTable>(data, (string)dict["Words"], db.GetWordTable());
             data.Answers = ParseIDArray<WordData, WordTable>(data, (string)dict["Answers"], db.GetWordTable());
             data.Complexity = ToFloat(dict["Complexity"]);
+            data.PlaySessionLinks = ParseStringsArray(dict["PlaySessionLink"]);
 
             return data;
         }
