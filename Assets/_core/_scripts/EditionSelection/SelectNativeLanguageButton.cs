@@ -9,6 +9,7 @@ namespace Antura.UI
     public class SelectNativeLanguageButton : MonoBehaviour
     {
         public TextRender nameText;
+        public TextRender Label;
         public UIButton button;
 
         public SelectNativeLanguagePanel parentPanel;
@@ -20,6 +21,7 @@ namespace Antura.UI
         {
             this.languageCode = languageCode;
             nameText.SetOverridenLanguageText(languageCode, LocalizationDataId.Language_Name);
+            Label.SetText(languageCode.ToString());
         }
 
         public void OnClick()
