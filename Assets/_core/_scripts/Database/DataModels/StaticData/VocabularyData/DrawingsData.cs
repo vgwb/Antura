@@ -11,6 +11,7 @@ namespace Antura.Database
         public String Id;
         public String Unicode;
         public String Value;
+        public String Atlas;
     }
 
     [CreateAssetMenu(menuName = "Antura/Drawing Data")]

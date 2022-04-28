@@ -232,7 +232,7 @@ namespace Antura.Book
 
             WordArabicText.text = currentWordInfo.data.Text;
 
-            if (currentWordInfo.data.Drawing != "")
+            if (currentWordInfo.data.DrawingId != "")
             {
                 WordDrawingText.SetLetterData(new LL_ImageData(currentWordInfo.data));
             }
@@ -244,7 +244,7 @@ namespace Antura.Book
             if (DebugConfig.I.DebugLogEnabled)
             {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
-                Debug.Log("drawing code: " + currentWordInfo.data.Drawing);
+                Debug.Log("drawing code: " + currentWordInfo.data.DrawingId);
                 Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
                 Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordArabicText.RenderedText));
             }

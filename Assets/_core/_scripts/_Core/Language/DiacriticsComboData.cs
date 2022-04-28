@@ -27,7 +27,6 @@ namespace Antura.Language
             {
                 return $"[{unicode} {id}]";
             }
-
         }
 
         public Letter letter1;
@@ -127,7 +126,6 @@ namespace Antura.Language
             //if (GUILayout.Button("+")) { data.Keys.Add(new DiacriticEntryKey());};
 
             serializedObject.ApplyModifiedProperties();
-
         }
     }
 

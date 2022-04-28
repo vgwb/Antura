@@ -18,7 +18,6 @@ namespace Antura.Database
         Spelling,             // words are the same if they are spelled the same
     }
 
-
     /// <summary>
     /// Data defining a Word.
     /// This is one of the fundamental dictionary (i.e. learning content) elements.
@@ -138,13 +137,13 @@ namespace Antura.Database
         }
           */
 
-        public string Drawing
+        public string DrawingId
         {
-            get { return _Drawing; }
-            set { _Drawing = value; }
+            get { return _DrawingId; }
+            set { _DrawingId = value; }
         }
         [SerializeField]
-        private string _Drawing;
+        private string _DrawingId;
 
         //public string DrawingLabel
         //{
@@ -195,7 +194,7 @@ namespace Antura.Database
 
         public bool HasDrawing()
         {
-            return Drawing != "";
+            return DrawingId != "";
         }
 
         public bool IsSameAs(WordData other, WordEqualityStrictness strictness)
@@ -243,7 +242,7 @@ namespace Antura.Database
 
         public DrawingData GetDrawingData()
         {
-            return AppManager.I.AppEdition.DrawingsData.Drawings.Find(x => x.Id == Id);
+            return AppManager.I.AppEdition.DrawingsData.Drawings.Find(x => x.Id == DrawingId);
         }
 
         public string GetDrawingColor()
