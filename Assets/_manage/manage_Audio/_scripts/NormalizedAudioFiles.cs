@@ -47,6 +47,7 @@ namespace Antura.Test
                 List<LocalizationData> localization = dbManager.GetAllLocalizationData();
 
                 int missing_count = 0;
+                string missing_keys = "";
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
                 if (Directory.Exists(langPath))
                 {
@@ -63,11 +64,12 @@ namespace Antura.Test
                             if (fileAux == null)
                             {
                                 Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
+                                missing_keys += file.Name + "\n";
                                 missing_count++;
                             }
                         }
                         if (missing_count > 0)
-                            Debug.LogWarning("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString());
+                            Debug.LogWarning("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Localization Table:\n" + missing_keys);
                         else
                             Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the localization table");
 
@@ -95,6 +97,7 @@ namespace Antura.Test
                 dbManager = new DatabaseManager(ContentTarget, LanguageToCheck);
 
                 int missing_count = 0;
+                string missing_keys = "";
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
                 if (Directory.Exists(langPath))
                 {
@@ -107,11 +110,12 @@ namespace Antura.Test
                         if (!File.Exists(langPath + "/" + data.AudioKey + ".mp3") && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
                         {
                             Debug.LogError("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
+                            missing_keys += data.AudioKey + "\n";
                             missing_count++;
                         }
                     }
                     if (missing_count > 0)
-                        Debug.LogWarning("WARNING: total missing audio files in the folder of " + lang + " version: " + missing_count.ToString());
+                        Debug.LogWarning("WARNING: total missing audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n"+ missing_keys);
                     else
                         Debug.Log("SUCCESS: all audio files of the localization table exist in the folder of " + lang + " version");
 
