@@ -24,7 +24,8 @@ namespace Antura.UI
                 QuestionText.SetOverridenLanguageText(AvailableNativeCodes[nativeCodeIndex], key);
 
                 nativeCodeIndex++;
-                if (nativeCodeIndex >= AvailableNativeCodes.Count) nativeCodeIndex = 0;
+                if (nativeCodeIndex >= AvailableNativeCodes.Count)
+                    nativeCodeIndex = 0;
                 yield return new WaitForSeconds(3f);
             }
         }
@@ -37,21 +38,38 @@ namespace Antura.UI
         public void Awake()
         {
             // Find all supported native languages, and create a button for each
+            var usedLang = new List<string>();
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
                 foreach (var supportedNativeLanguage in contentEditionConfig.SupportedNativeLanguages)
                 {
-                    var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
-                    buttonGO.transform.localScale = Vector3.one;
-                    buttonGO.SetActive(true);
-                    var button = buttonGO.GetComponent<SelectNativeLanguageButton>();
-                    button.Setup(supportedNativeLanguage);
-                    buttons.Add(button);
-                    AvailableNativeCodes.Add(supportedNativeLanguage);
+                    if (!IsValueInListOrAdd(supportedNativeLanguage.ToString(), ref usedLang))
+                    {
+                        var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
+                        buttonGO.transform.localScale = Vector3.one;
+                        buttonGO.SetActive(true);
+                        var button = buttonGO.GetComponent<SelectNativeLanguageButton>();
+                        button.Setup(supportedNativeLanguage);
+                        buttons.Add(button);
+                        AvailableNativeCodes.Add(supportedNativeLanguage);
+                    }
                 }
             }
             prefabButton.gameObject.SetActive(false);
+        }
+
+        private bool IsValueInListOrAdd(string value, ref List<string> list)
+        {
+            if (list.Contains(value))
+            {
+                return true;
+            }
+            else
+            {
+                list.Add(value);
+                return false;
+            }
         }
 
         public void OnEnable()
