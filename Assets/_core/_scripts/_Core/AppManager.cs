@@ -153,7 +153,7 @@ namespace Antura.Core
 
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager();
-            Services.Analytics = gameObject.AddComponent<AnalyticsService>();
+            Services.Analytics = gameObject.AddComponent<Analytics>();
             Services.Analytics.Init();
             // MonoBehaviors
             NavigationManager = gameObject.AddComponent<NavigationManager>();

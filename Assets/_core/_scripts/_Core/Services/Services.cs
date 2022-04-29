@@ -9,7 +9,7 @@ namespace Antura.Core.Services
     {
         public NotificationService Notifications;
         public GalleryService Gallery;
-        public AnalyticsService Analytics;
+        public Analytics Analytics;
         public WebViewService WebView;
 
         public ServicesManager()

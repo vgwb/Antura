@@ -12,7 +12,7 @@ using Unity.Services.Analytics;
 
 namespace Antura.Core.Services.OnlineAnalytics
 {
-    public class AnalyticsService : MonoBehaviour
+    public class Analytics : MonoBehaviour
     {
 
         /// <summary>
@@ -44,7 +44,7 @@ namespace Antura.Core.Services.OnlineAnalytics
         /// <param name="eventName">Event name.</param>
         ///
 
-        public AnalyticsService()
+        public Analytics()
         {
         }
 
@@ -80,8 +80,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             var parameters = new Dictionary<string, object>();
             AddSharedParameters(parameters);
 
-            Events.CustomData("myTestEvent", parameters);
-            Events.Flush();
+            AnalyticsService.Instance.CustomData("myTestEvent", parameters);
+            AnalyticsService.Instance.Flush();
             Debug.Log("Analytics TestEvent");
         }
 
@@ -108,7 +108,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
             AddSharedParameters(parameters);
 
-            Events.CustomData("myCompletedRegistration", parameters);
+            AnalyticsService.Instance.CustomData("myCompletedRegistration", parameters);
         }
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
@@ -124,7 +124,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myPlaySession", jp.PlaySession }
             };
 
-            Events.CustomData("myLevelUp", parameters);
+            AnalyticsService.Instance.CustomData("myLevelUp", parameters);
         }
 
         public void TrackCompletedFirstContactPhase(FirstContactPhase phase)
@@ -138,7 +138,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             //    { "phase_name", phase.ToString() }
             //};
 
-            Events.CustomData("myTutorialComplete", new Dictionary<string, object>());
+            AnalyticsService.Instance.CustomData("myTutorialComplete", new Dictionary<string, object>());
         }
 
         public void TrackSpentBones(int nSpent)
@@ -151,7 +151,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myBonesSpent", nSpent }
             };
 
-            Events.CustomData("myItemSpent", parameters);
+            AnalyticsService.Instance.CustomData("myItemSpent", parameters);
         }
 
         public void TrackCustomization(AnturaCustomization customization, float anturaSpacePlayTime)
@@ -165,7 +165,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
 
-            Events.CustomData("myAnturaCustomize", parameters);
+            AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
         }
 
         public void TrackMiniGameScore(MiniGameCode miniGameCode, int score, JourneyPosition currentJourneyPosition, float duration)
@@ -182,7 +182,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
             AddSharedParameters(parameters);
 
-            Events.CustomData("myMinigameEnd", parameters);
+            AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
         }
 
         #region Older Events
