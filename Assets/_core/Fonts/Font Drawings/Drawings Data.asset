@@ -377,6 +377,62 @@ MonoBehaviour:
     Unicode: 4BC
     Value: 7
     Atlas: arabic
+  - Id: day_monday_fr
+    Unicode: 398
+    Value: 1
+    Atlas: french
+  - Id: day_tuesday_fr
+    Unicode: 392
+    Value: 2
+    Atlas: french
+  - Id: day_wednesday_fr
+    Unicode: 393
+    Value: 3
+    Atlas: french
+  - Id: day_thursday_fr
+    Unicode: 394
+    Value: 4
+    Atlas: french
+  - Id: day_friday_fr
+    Unicode: 395
+    Value: 5
+    Atlas: french
+  - Id: day_saturday_fr
+    Unicode: 396
+    Value: 6
+    Atlas: french
+  - Id: day_sunday_fr
+    Unicode: 397
+    Value: 7
+    Atlas: french
+  - Id: day_monday_es
+    Unicode: 414
+    Value: 1
+    Atlas: spanish
+  - Id: day_tuesday_es
+    Unicode: 419
+    Value: 2
+    Atlas: spanish
+  - Id: day_wednesday_es
+    Unicode: 41A
+    Value: 3
+    Atlas: spanish
+  - Id: day_thursday_es
+    Unicode: 418
+    Value: 4
+    Atlas: spanish
+  - Id: day_friday_es
+    Unicode: 413
+    Value: 5
+    Atlas: spanish
+  - Id: day_saturday_es
+    Unicode: 416
+    Value: 6
+    Atlas: spanish
+  - Id: day_sunday_es
+    Unicode: 417
+    Value: 7
+    Atlas: spanish
   - Id: desert
     Unicode: 015A
     Value: 
@@ -693,41 +749,41 @@ MonoBehaviour:
     Unicode: 2265
     Value: 
     Atlas: common
-  - Id: month_april
-    Unicode: 2264
-    Value: 4
-    Atlas: common
-  - Id: month_august
-    Unicode: B1
-    Value: 8
-    Atlas: common
-  - Id: month_december
-    Unicode: 2248
-    Value: 12
+  - Id: month_january
+    Unicode: AC
+    Value: 1
     Atlas: common
   - Id: month_february
     Unicode: 7E
     Value: 2
     Atlas: common
-  - Id: month_january
-    Unicode: AC
-    Value: 1
+  - Id: month_march
+    Unicode: 222B
+    Value: 3
     Atlas: common
-  - Id: month_july
-    Unicode: 2205
-    Value: 7
+  - Id: month_april
+    Unicode: 2264
+    Value: 4
+    Atlas: common
+  - Id: month_may
+    Unicode: 220F
+    Value: 5
     Atlas: common
   - Id: month_june
     Unicode: 221E
     Value: 6
     Atlas: common
-  - Id: month_march
-    Unicode: 222B
-    Value: 3
+  - Id: month_july
+    Unicode: 2205
+    Value: 7
     Atlas: common
-  - Id: month_may
-    Unicode: 220F
-    Value: 5
+  - Id: month_august
+    Unicode: B1
+    Value: 8
+    Atlas: common
+  - Id: month_september
+    Unicode: 2202
+    Value: 9
     Atlas: common
   - Id: month_november
     Unicode: 2211
@@ -737,58 +793,154 @@ MonoBehaviour:
     Unicode: 221A
     Value: 10
     Atlas: common
-  - Id: month_september
-    Unicode: 2202
-    Value: 9
-    Atlas: common
-  - Id: month_april_ar
-    Unicode: 04D2
-    Value: 4
-    Atlas: arabic
-  - Id: month_august_ar
-    Unicode: 04A9
-    Value: 8
-    Atlas: arabic
-  - Id: month_december_ar
-    Unicode: 04BD
+  - Id: month_december
+    Unicode: 2248
     Value: 12
+    Atlas: common
+  - Id: month_january_ar
+    Unicode: 4BE
+    Value: 1
     Atlas: arabic
   - Id: month_february_ar
     Unicode: 4CB
     Value: 2
     Atlas: arabic
-  - Id: month_january_ar
-    Unicode: 4BE
-    Value: 1
-    Atlas: arabic
-  - Id: month_july_ar
-    Unicode: 495
-    Value: 7
-    Atlas: arabic
-  - Id: month_june_ar
-    Unicode: 04F6
-    Value: 6
-    Atlas: arabic
   - Id: month_march_ar
     Unicode: 04D0
     Value: 3
+    Atlas: arabic
+  - Id: month_april_ar
+    Unicode: 04D2
+    Value: 4
     Atlas: arabic
   - Id: month_may_ar
     Unicode: 04F4
     Value: 5
     Atlas: arabic
-  - Id: month_november_ar
-    Unicode: 04B7
-    Value: 11
+  - Id: month_june_ar
+    Unicode: 04F6
+    Value: 6
     Atlas: arabic
-  - Id: month_october_ar
-    Unicode: 04B3
-    Value: 10
+  - Id: month_july_ar
+    Unicode: 495
+    Value: 7
+    Atlas: arabic
+  - Id: month_august_ar
+    Unicode: 04A9
+    Value: 8
     Atlas: arabic
   - Id: month_september_ar
     Unicode: 04AB
     Value: 9
     Atlas: arabic
+  - Id: month_october_ar
+    Unicode: 04B3
+    Value: 10
+    Atlas: arabic
+  - Id: month_november_ar
+    Unicode: 04B7
+    Value: 11
+    Atlas: arabic
+  - Id: month_december_ar
+    Unicode: 04BD
+    Value: 12
+    Atlas: arabic
+  - Id: month_january_fr
+    Unicode: 399
+    Value: 1
+    Atlas: french
+  - Id: month_february_fr
+    Unicode: 39A
+    Value: 2
+    Atlas: french
+  - Id: month_march_fr
+    Unicode: 39B
+    Value: 3
+    Atlas: french
+  - Id: month_april_fr
+    Unicode: 39C
+    Value: 4
+    Atlas: french
+  - Id: month_may_fr
+    Unicode: 39D
+    Value: 5
+    Atlas: french
+  - Id: month_june_fr
+    Unicode: 39E
+    Value: 6
+    Atlas: french
+  - Id: month_july_fr
+    Unicode: 39F
+    Value: 7
+    Atlas: french
+  - Id: month_august_fr
+    Unicode: 3A0
+    Value: 8
+    Atlas: french
+  - Id: month_september_fr
+    Unicode: 3A1
+    Value: 9
+    Atlas: french
+  - Id: month_october_fr
+    Unicode: 3A3
+    Value: 10
+    Atlas: french
+  - Id: month_november_fr
+    Unicode: 3A4
+    Value: 11
+    Atlas: french
+  - Id: month_december_fr
+    Unicode: 3A5
+    Value: 12
+    Atlas: french
+  - Id: month_january_es
+    Unicode: 427
+    Value: 1
+    Atlas: spanish
+  - Id: month_february_es
+    Unicode: 424
+    Value: 2
+    Atlas: spanish
+  - Id: month_march_es
+    Unicode: 429
+    Value: 3
+    Atlas: spanish
+  - Id: month_april_es
+    Unicode: 41B
+    Value: 4
+    Atlas: spanish
+  - Id: month_may_fr
+    Unicode: 4es
+    Value: 5
+    Atlas: spanish
+  - Id: month_june_es
+    Unicode: 428
+    Value: 6
+    Atlas: spanish
+  - Id: month_july_es
+    Unicode: 426
+    Value: 7
+    Atlas: spanish
+  - Id: month_august_es
+    Unicode: 41F
+    Value: 8
+    Atlas: spanish
+  - Id: month_september_es
+    Unicode: 437
+    Value: 9
+    Atlas: spanish
+  - Id: month_october_es
+    Unicode: 431
+    Value: 10
+    Atlas: spanish
+  - Id: month_november_es
+    Unicode: 42F
+    Value: 11
+    Atlas: spanish
+  - Id: month_december_es
+    Unicode: 423
+    Value: 12
+    Atlas: spanish
   - Id: moon
     Unicode: D4
     Value: 
