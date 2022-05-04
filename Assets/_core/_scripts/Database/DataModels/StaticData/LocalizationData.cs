@@ -71,7 +71,14 @@ namespace Antura.Database
             if (lang == LanguageCode.arabic_legacy)
                 lang = LanguageCode.arabic;
 
-            return _LocalizedDatas[(int)lang - 1];
+            var index = (int)lang - 1;
+            if (index >= _LocalizedDatas.Length)
+            {
+                Debug.LogWarning($"No LocalizedData found for ID {Id} and language {lang}");
+                return new LocalizedData($"ERROR {Id} {lang}", $"ERROR {Id} {lang}");
+            }
+
+            return _LocalizedDatas[index];
         }
 
         public string GetText(LanguageUse use)
