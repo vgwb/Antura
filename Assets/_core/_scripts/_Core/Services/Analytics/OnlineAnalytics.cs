@@ -54,6 +54,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (DebugConfig.I.DeveloperMode)
             {
                 options.SetEnvironmentName("dev");
+                Debug.LogWarning("Analytics in DEV environment");
             }
             await UnityServices.InitializeAsync();
         }
@@ -123,7 +124,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myLearningBlock", jp.LearningBlock },
                 { "myPlaySession", jp.PlaySession }
             };
-
+            AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myLevelUp", parameters);
         }
 
@@ -137,6 +138,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             //    { "phase", (int)phase },
             //    { "phase_name", phase.ToString() }
             //};
+            var parameters = new Dictionary<string, object>();
+            AddSharedParameters(parameters);
 
             AnalyticsService.Instance.CustomData("myTutorialComplete", new Dictionary<string, object>());
         }
@@ -150,7 +153,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             {
                 { "myBonesSpent", nSpent }
             };
-
+            AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myItemSpent", parameters);
         }
 
@@ -164,7 +167,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAnturaCutomization", customization.GetJsonListOfIds() },
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
-
+            AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
         }
 
@@ -181,7 +184,6 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myJP", currentJourneyPosition.Id }
             };
             AddSharedParameters(parameters);
-
             AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
         }
 

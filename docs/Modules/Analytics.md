@@ -34,11 +34,26 @@ Which offer many default / standard game tracking data, like:
 And we added some custom event to track our players progression in the game and the gameplay.    
 Unity Analytics (the new beta version we are enabled to use) has also an SQL Data Export to create custom queries (<https://docs.unity.com/analytics/SQLDataExplorer.html>)
 
+## Environments
+we have two environments:
+- production (published apps)
+- dev (from editor and dev builds)
+
 ## Terminology
 **JP** = Journey Position ([see](../Modules/Journey.md))
 is identified by a the sequence **X.Y.Z** where X is the Stage, Y the Learning Block, and Z the Play Session.
 
 ## Custom Events
+
+### Shared Parameters
+every custom events sends also these params:
+```
+{
+    { "myPlayerUuid", AppSettings.LastActivePlayerUUID },
+    { "myEdition", AppSettings.ContentID },
+    { "myNativeLang", GetISO3Code(AppSettings.NativeLanguage)}
+}
+```
 
 ### TrackMiniGameScore
 When player finishes a minigame
