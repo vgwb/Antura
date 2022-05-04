@@ -646,7 +646,7 @@ namespace Antura.Database
         Learn_Italian = 724,
         Learn_German = 725,
         Learn_Arabic = 726,
-        Learn_Dari = 727,
+        Learn_Persian_Dari = 727,
         Learn_Pashto = 728
     }
 }
