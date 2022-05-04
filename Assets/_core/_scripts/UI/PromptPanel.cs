@@ -79,10 +79,13 @@ namespace Antura.UI
             Show(_messageLearning, "", _onYes, _onNo);
         }
 
+        private static bool never_show_help = true;
         public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
-            if (_messageNative.IsNullOrEmpty() || !AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
+
+            if (never_show_help || // @note: we never want to show the message learning anymore
+                  _messageNative.IsNullOrEmpty() || !AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
             {
                 TfMessageLearningFull.text = _messageLearning;
             }
