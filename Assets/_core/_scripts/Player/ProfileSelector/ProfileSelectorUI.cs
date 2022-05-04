@@ -182,6 +182,7 @@ namespace Antura.UI
             if (activePlayerIcon == null && playerIcons.Length > 0)
             {
                 activePlayerIcon = playerIcons[0];
+                OnSelectProfile(activePlayerIcon);
             }
 
             if (activePlayerIcon != null)
