@@ -20,7 +20,7 @@ namespace Antura.UI
             int nativeCodeIndex = 0;
             while (true)
             {
-                var key = LocalizationDataId.Game_Title_2;
+                var key = LocalizationDataId.Language_MotherLanguage;
                 yield return AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AvailableNativeCodes[nativeCodeIndex]);
 
                 QuestionText.SetOverridenLanguageText(AvailableNativeCodes[nativeCodeIndex], key);
@@ -92,12 +92,17 @@ namespace Antura.UI
         }
 
         public RectTransform scrollRectTr;
+        private Color BGColor;
+        public Image BG;
 
         private bool isOpen;
         public void Open()
         {
             scrollRectTr.anchoredPosition = new Vector2(1200, 0);
             scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
+            if (BGColor == default) BGColor = BG.color;
+            BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
+            BG.DOColor(BGColor, 0.35f);
             gameObject.SetActive(true);
             isOpen = true;
         }
