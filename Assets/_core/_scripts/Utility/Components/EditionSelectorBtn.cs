@@ -3,6 +3,7 @@ using Antura.Core;
 using System.Collections;
 using System.Collections.Generic;
 using Antura.Database;
+using Antura.Language;
 using Antura.Scenes;
 using Antura.UI;
 using UnityEngine;
@@ -17,7 +18,9 @@ namespace Antura.Utilities
 
         void Start()
         {
-            var locKeyText = $"Learn_{AppManager.I.ContentEdition.LearningLanguage}";
+            var code = AppManager.I.ContentEdition.LearningLanguage;
+            if (code == LanguageCode.arabic_legacy) code = LanguageCode.arabic;
+            var locKeyText = $"Learn_{code}";
             var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
             TextRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
 
