@@ -109,7 +109,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang = AppManager.I.ContentEdition.NativeLanguage;
+                var lang = AppManager.I.AppSettings.NativeLanguage;
                 return GetLocalized(lang).Text;
             }
         }
@@ -118,7 +118,7 @@ namespace Antura.Database
         {
             get
             {
-                var lang = AppManager.I.ContentEdition.NativeLanguage;
+                var lang = AppManager.I.AppSettings.NativeLanguage;
                 return GetLocalized(lang).TextF;
             }
         }

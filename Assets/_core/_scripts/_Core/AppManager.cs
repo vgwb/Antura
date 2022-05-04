@@ -207,8 +207,6 @@ namespace Antura.Core
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
-            AppManager.I.ContentEdition.NativeLanguage = langCode;
-            AppManager.I.ContentEdition.HelpLanguage = langCode;
             AppSettingsManager.SetNativeLanguage(langCode);
 
             yield return LanguageSwitcher.ReloadNativeLanguage();

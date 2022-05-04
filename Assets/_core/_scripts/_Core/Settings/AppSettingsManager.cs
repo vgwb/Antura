@@ -58,7 +58,7 @@ namespace Antura.Core
 
                 // set native Language
                 // first set the default / fallback language
-                Settings.NativeLanguage = AppManager.I.ContentEdition.NativeLanguage;
+                Settings.NativeLanguage = AppManager.I.AppSettings.NativeLanguage;
                 if (AppManager.I.AppEdition.DetectSystemLanguage)
                 {
                     foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)

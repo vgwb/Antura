@@ -14,9 +14,8 @@ namespace Antura.Core
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
-        public LanguageCode NativeLanguage;
-        public LanguageCode HelpLanguage;
         public LanguageCode[] SupportedNativeLanguages;
+        public LanguageCode HelpLanguage;
 
         [Header("Teacher Options")]
         // @note: this also makes all LetterPhoneme games use Diacritics ONLY, as only those have phonemes

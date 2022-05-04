@@ -58,7 +58,7 @@ namespace Antura.Language
 
         public IEnumerator ReloadNativeLanguage()
         {
-            yield return LoadLanguage(LanguageUse.Native, AppManager.I.ContentEdition.NativeLanguage);
+            yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
         }
 
         private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)

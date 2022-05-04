@@ -113,25 +113,5 @@ namespace Antura.Scenes
         }
         #endregion
 
-        #region Language
-
-        public void OnBtnSwitchLanguage()
-        {
-            ChangeLearningLanguage(AppManager.I.ContentEdition.NativeLanguage == LanguageCode.spanish
-                ? LanguageCode.italian
-                : LanguageCode.spanish);
-        }
-
-        public void ChangeLearningLanguage(LanguageCode langCode)
-        {
-            StartCoroutine(ChangeLearningLanguageCO(langCode));
-        }
-        private IEnumerator ChangeLearningLanguageCO(LanguageCode langCode)
-        {
-            yield return AppManager.I.ResetLanguageSetup(langCode);
-            AppManager.I.NavigationManager.GoToHome(true);
-        }
-
-        #endregion
     }
 }

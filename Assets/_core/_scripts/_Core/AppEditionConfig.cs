@@ -143,7 +143,6 @@ namespace Antura.Core
             var languagesToUse = new HashSet<LanguageCode>();
             foreach (var edition in learningConfigsToUse)
             {
-                languagesToUse.Add(edition.NativeLanguage);
                 languagesToUse.UnionWith(edition.SupportedNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
                 languagesToUse.Add(edition.HelpLanguage);
