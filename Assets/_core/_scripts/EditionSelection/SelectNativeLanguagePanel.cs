@@ -89,7 +89,7 @@ namespace Antura.UI
 
                     btnRT = ReselectNativeButton.GetComponent<RectTransform>();
                     btnRT.sizeDelta = new Vector2(btnRT.sizeDelta.x, 200);
-                    btnRT.DOAnchorPos(new Vector2(145, 70), 0.5f);
+                    btnRT.DOAnchorPos(new Vector2(165, 70), 0.5f);
                     btnRT.DOSizeDelta(new Vector2(btnRT.sizeDelta.x, 100), 0.5f);
                 }
                 else
