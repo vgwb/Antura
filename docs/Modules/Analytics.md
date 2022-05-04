@@ -33,7 +33,7 @@ In Antura we use Unity Analytics <https://docs.unity.com/analytics/>, which offe
 And we added some custom event to track our players progression in the game and the gameplay.    
 Unity Analytics (the new beta version we are enabled to use) has also an SQL Data Export to create custom queries (<https://docs.unity.com/analytics/SQLDataExplorer.html>)
 
-## Environments
+## Environments
 we have two environments:
 - production (published apps)
 - dev (from editor and dev builds)
