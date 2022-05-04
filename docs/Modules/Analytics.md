@@ -13,7 +13,7 @@ To access the online analytics: [Antura Unity Analytics Dashboard](https://dashb
 ## Unity Analytics
 In Antura we use Unity Analytics <https://docs.unity.com/analytics/>, which offer many default / standard game tracking data, like:
 
-|  |  |
+| Metric | Description |
 |---|---|
 | DAU | Number of unique players per day |
 |DAU (new vs. returning)|Percent of DAU who were new on that day |
