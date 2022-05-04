@@ -1,4 +1,6 @@
+using System.Collections.Generic;
 using System.Linq;
+using Antura.Language;
 using Antura.Profile;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -49,5 +51,8 @@ namespace Antura.Core
                 return config;
             }
         }
+
+
+        public List<LanguageCode> LanguageSorting;
     }
 }

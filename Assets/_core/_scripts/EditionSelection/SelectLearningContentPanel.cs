@@ -1,12 +1,15 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Antura.UI
 {
     public class SelectLearningContentPanel : MonoBehaviour
     {
+        public SelectNativeLanguageButton SelectNativeLanguageButton;
+
         public SelectLearningContentButton prefabButton;
         private List<SelectLearningContentButton> buttons = new List<SelectLearningContentButton>();
 
@@ -14,7 +17,7 @@ namespace Antura.UI
         {
             HasPerformedSelection = false;
 
-            foreach (SelectLearningContentButton button in buttons)
+            foreach (var button in buttons)
                 Destroy(button.gameObject);
             buttons.Clear();
 
@@ -55,9 +58,17 @@ namespace Antura.UI
             }
         }
 
+        public RectTransform scrollRectTr;
+
         private bool isOpen;
         public void Open()
         {
+            scrollRectTr.anchoredPosition = new Vector2(0, 500);
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
+
+            SelectNativeLanguageButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(180, -100);
+            SelectNativeLanguageButton.GetComponent<RectTransform>().DOAnchorPos(new Vector2(180, 70), 0.35f);
+
             gameObject.SetActive(true);
             isOpen = true;
         }

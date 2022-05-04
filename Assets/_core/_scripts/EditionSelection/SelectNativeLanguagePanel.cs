@@ -5,7 +5,9 @@ using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
+using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.UI
 {
@@ -35,45 +37,37 @@ namespace Antura.UI
 
         private List<LanguageCode> AvailableNativeCodes = new List<LanguageCode>();
 
-        public void Awake()
+        public void OnEnable()
         {
+            foreach (var button in buttons)
+                Destroy(button.gameObject);
+            buttons.Clear();
+
             // Find all supported native languages, and create a button for each
-            var usedLang = new List<string>();
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
                 foreach (var supportedNativeLanguage in contentEditionConfig.SupportedNativeLanguages)
                 {
-                    if (!IsValueInListOrAdd(supportedNativeLanguage.ToString(), ref usedLang))
-                    {
-                        var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
-                        buttonGO.transform.localScale = Vector3.one;
-                        buttonGO.SetActive(true);
-                        var button = buttonGO.GetComponent<SelectNativeLanguageButton>();
-                        button.Setup(supportedNativeLanguage);
-                        buttons.Add(button);
-                        AvailableNativeCodes.Add(supportedNativeLanguage);
-                    }
+                    if (AvailableNativeCodes.Contains(supportedNativeLanguage)) continue;
+                    AvailableNativeCodes.Add(supportedNativeLanguage);
                 }
             }
+
+            AvailableNativeCodes.Sort((code1, code2) => AppManager.I.RootConfig.LanguageSorting.IndexOf(code1) - AppManager.I.RootConfig.LanguageSorting.IndexOf(code2));
+
+            foreach (var langCode in AvailableNativeCodes)
+            {
+                var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
+                buttonGO.transform.localScale = Vector3.one;
+                buttonGO.SetActive(true);
+                var button = buttonGO.GetComponent<SelectNativeLanguageButton>();
+                button.Setup(langCode);
+                buttons.Add(button);
+            }
+
             prefabButton.gameObject.SetActive(false);
-        }
 
-        private bool IsValueInListOrAdd(string value, ref List<string> list)
-        {
-            if (list.Contains(value))
-            {
-                return true;
-            }
-            else
-            {
-                list.Add(value);
-                return false;
-            }
-        }
-
-        public void OnEnable()
-        {
             HasPerformedSelection = false;
             StartCoroutine(SwitchQuestionTextCO());
         }
@@ -97,9 +91,13 @@ namespace Antura.UI
             }
         }
 
+        public RectTransform scrollRectTr;
+
         private bool isOpen;
         public void Open()
         {
+            scrollRectTr.anchoredPosition = new Vector2(1200, 0);
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
             gameObject.SetActive(true);
             isOpen = true;
         }
