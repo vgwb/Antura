@@ -1,7 +1,7 @@
 ﻿using Antura.Core;
-using System.Collections;
 using Antura.Minigames;
 using Antura.UI;
+using System.Collections;
 using UnityEngine;
 
 namespace Antura.Scenes

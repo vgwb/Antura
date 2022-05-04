@@ -1,10 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using DG.DeExtensions;
 using UnityEngine;
-using System;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
