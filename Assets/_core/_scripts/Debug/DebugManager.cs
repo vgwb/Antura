@@ -4,6 +4,9 @@ using Antura.Minigames;
 using Antura.Profile;
 using Antura.Rewards;
 using Antura.Teacher;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 
 namespace Antura.Debugging
@@ -232,6 +235,16 @@ namespace Antura.Debugging
             AppManager.I.NavigationManager.GoToHome(debugMode: true);
             Debug.Log("Reset ALL players and DB.");
         }
+
+        #if UNITY_EDITOR
+
+        [MenuItem("Antura/Delete Profiles")]
+        public static void ResetAllCommand()
+        {
+            DebugManager.I.ResetAll();
+        }
+
+        #endif
 
         #endregion
 
