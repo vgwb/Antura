@@ -84,8 +84,6 @@ namespace Antura.Core
             }
 
             AudioManager.I.MusicEnabled = Settings.MusicEnabled;
-            // force Subtitles ON
-            Settings.KeeperSubtitlesEnabled = true;
 
             // TODO: redo this without affecting SAppConfig.I
             //SAppConfig.I.NativeLanguage = SAppConfig.I.SubtitlesLanguage = Settings.NativeLanguage;
