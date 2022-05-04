@@ -68,6 +68,7 @@ namespace Antura.UI
             }
         }
 
+        public RectTransform questionRectTr;
         public RectTransform scrollRectTr;
         private Color BGColor;
         public Image BG;
@@ -76,24 +77,27 @@ namespace Antura.UI
         private bool isOpen;
         public void Open()
         {
+            gameObject.SetActive(true);
+            isOpen = true;
+
             Overlay.color = new Color(1,1,1, 0);
             Overlay.enabled = false;
 
-            scrollRectTr.anchoredPosition = new Vector2(0, 500);
-            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
+            questionRectTr.gameObject.SetActive(true);
+            questionRectTr.anchoredPosition = new Vector2(0, 500);
+            questionRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
+
+            scrollRectTr.anchoredPosition = new Vector2(0, 1000);
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f);
             if (BGColor == default) BGColor = BG.color;
             BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
             BG.DOColor(BGColor, 0.35f);
-
-            SelectNativeLanguageButton.GetComponent<RectTransform>().anchoredPosition = new Vector2(180, -100);
-            SelectNativeLanguageButton.GetComponent<RectTransform>().DOAnchorPos(new Vector2(180, 70), 0.35f);
-
-            gameObject.SetActive(true);
-            isOpen = true;
         }
 
         public void Close()
         {
+            questionRectTr.DOAnchorPos(new Vector2(0, 500), 0.35f);
+
             gameObject.SetActive(false);
             isOpen = false;
         }

@@ -17,7 +17,8 @@ namespace Antura.Scenes
         public UIButton selectedNativeButton;
 
         private Coroutine currentCoroutine;
-        public void CompleteSelection()
+
+        public void CompleteSelection(bool firstTime)
         {
             selectNativeLanguagePanel.Close();
             selectLearningContentPanel.Close();
@@ -27,7 +28,7 @@ namespace Antura.Scenes
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
-            currentCoroutine = StartCoroutine(CompleteSelectionCO());
+            currentCoroutine = StartCoroutine(CompleteSelectionCO(firstTime));
         }
 
         public void ContentEditionSelection()
@@ -43,21 +44,20 @@ namespace Antura.Scenes
             currentCoroutine = StartCoroutine(ContentEditionSelectionCO());
         }
 
-        private IEnumerator CompleteSelectionCO()
+        private IEnumerator CompleteSelectionCO(bool firstTime)
         {
-            yield return NativeLanguageSelectionCO();
+            yield return NativeLanguageSelectionCO(firstTime);
             yield return ContentEditionSelectionCO();
         }
 
-        private IEnumerator NativeLanguageSelectionCO()
+        private IEnumerator NativeLanguageSelectionCO(bool firstTime)
         {
             GlobalUI.ShowPauseMenu(false);
             selectedNativeButton.gameObject.SetActive(false);
 
-            selectNativeLanguagePanel.Open();
+            yield return selectNativeLanguagePanel.Open(firstTime);
             while (!selectNativeLanguagePanel.HasPerformedSelection)
                 yield return null;
-            selectNativeLanguagePanel.Close();
 
             GlobalUI.ShowPauseMenu(true);
         }

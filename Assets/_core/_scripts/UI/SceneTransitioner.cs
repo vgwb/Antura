@@ -3,6 +3,7 @@ using Antura.Audio;
 using Antura.Database;
 using DG.Tweening;
 using Antura.Core;
+using Antura.Scenes;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -33,7 +34,15 @@ namespace Antura.UI
 
         private void OnEnable()
         {
-            Logo.sprite = AppManager.I.ContentEdition.TransitionLogo;
+            if (EditionSelectionManager.MustChooseContentEditions)
+            {
+                Logo.enabled = false;
+            }
+            else
+            {
+                Logo.enabled = true;
+                Logo.sprite = AppManager.I.ContentEdition.TransitionLogo;
+            }
         }
 
         void Awake()
