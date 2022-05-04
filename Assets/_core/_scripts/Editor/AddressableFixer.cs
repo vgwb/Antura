@@ -18,22 +18,22 @@ namespace Antura.Tools
         public static void FixAddressables()
         {
             // TODO: Get all assets in the lang paths for the current edition
-            var lang = "persian_dari"; // @note: change this manually
+            var lang = "polish"; // @note: change this manually
             var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
             Debug.Log("Fixing addressable for lang: " + lang);
             var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
             foreach (var guid in guids)
             {
-               var path = AssetDatabase.GUIDToAssetPath(guid);
-               var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
-               var removedPathLength = "Assets/_lang_bundles/".Length;
-               var splits = path.Split('.');
-               if (splits.Length > 1)
-               {
-                   var extension = splits[splits.Length - 1];
-                   path = path.Substring(0, path.Length - (extension.Length + 1));
-               }
-               entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
+                var removedPathLength = "Assets/_lang_bundles/".Length;
+                var splits = path.Split('.');
+                if (splits.Length > 1)
+                {
+                    var extension = splits[splits.Length - 1];
+                    path = path.Substring(0, path.Length - (extension.Length + 1));
+                }
+                entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
             }
             Debug.Log("FINISHED Fixing addressable for lang: " + lang);
         }
@@ -50,7 +50,8 @@ namespace Antura.Tools
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
-                if (!path.Contains("ShapeData/shapedata")) continue;
+                if (!path.Contains("ShapeData/shapedata"))
+                    continue;
 
                 var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
                 var splits = path.Split('.')[0].Split('/');
