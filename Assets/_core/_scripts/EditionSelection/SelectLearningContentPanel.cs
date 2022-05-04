@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using Antura.Audio;
 using Antura.Core;
+using Antura.Database;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +11,7 @@ namespace Antura.UI
 {
     public class SelectLearningContentPanel : MonoBehaviour
     {
+        public TextRender QuestionText;
         public SelectNativeLanguageButton SelectNativeLanguageButton;
 
         public SelectLearningContentButton prefabButton;
@@ -36,8 +39,11 @@ namespace Antura.UI
                 button.Setup(contentEditionConfig);
                 buttons.Add(button);
             }
-            //ContinueButton.Bt.onClick.AddListener(ConfirmCurrentSelection);
             prefabButton.gameObject.SetActive(false);
+
+            var key = LocalizationDataId.Learn_What;
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AppManager.I.AppSettings.NativeLanguage);
+            QuestionText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, key);
         }
 
         public bool HasPerformedSelection;

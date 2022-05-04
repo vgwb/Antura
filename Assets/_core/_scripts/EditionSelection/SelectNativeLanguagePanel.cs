@@ -21,7 +21,7 @@ namespace Antura.UI
             while (true)
             {
                 var key = LocalizationDataId.Language_MotherLanguage;
-                yield return AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AvailableNativeCodes[nativeCodeIndex]);
+                AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AvailableNativeCodes[nativeCodeIndex]);
 
                 QuestionText.SetOverridenLanguageText(AvailableNativeCodes[nativeCodeIndex], key);
 

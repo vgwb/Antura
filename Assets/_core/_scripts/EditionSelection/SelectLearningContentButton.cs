@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using Antura.Core;
+using Antura.Database;
 using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,8 +24,9 @@ namespace Antura.UI
             this.contentId = editionConfig.ContentID;
 
             iconImage.sprite = editionConfig.TransitionLogo;
-            nameText.OverridenLanguageCode = editionConfig.LearningLanguage;
-            nameText.SetText(editionConfig.Title);
+            var locKeyText = $"Learn_{editionConfig.LearningLanguage}";
+            var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
+            nameText.SetText(LocalizationManager.GetLocalizationData(locKey).GetNativeText());
         }
 
         public void OnClick()
