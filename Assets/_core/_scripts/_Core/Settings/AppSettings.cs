@@ -21,7 +21,7 @@ namespace Antura.Core
         public string LastActivePlayerUUID;
 
         // to enable subtitles in the Keeper Widget that shows what he's saying
-        public bool KeeperSubtitlesEnabled = false;
+        public bool KeeperSubtitlesEnabled = true;
 
         public bool MusicEnabled = true;
 
