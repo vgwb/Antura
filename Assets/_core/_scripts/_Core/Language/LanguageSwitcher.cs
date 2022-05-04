@@ -35,12 +35,15 @@ namespace Antura.Language
             loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
         }
 
-        public IEnumerator LoadData()
+        public IEnumerator LoadEditionData()
         {
             yield return LoadLanguage(LanguageUse.Learning, AppManager.I.ContentEdition.LearningLanguage);
             yield return ReloadNativeLanguage();
             yield return LoadLanguage(LanguageUse.Help, AppManager.I.ContentEdition.HelpLanguage);
+        }
 
+        public IEnumerator LoadAllLanguageData()
+        {
             // We also need to load data for all languages, as they are needed for the selection menu
             foreach (var contentEdition in AppManager.I.AppEdition.ContentEditions)
             {

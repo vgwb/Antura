@@ -20,7 +20,7 @@ namespace Antura.Utilities
             if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // Auto-open switching panel if no player is detected
-                SelectionManager.StartSelection();
+                SelectionManager.CompleteSelection();
             }
         }
 

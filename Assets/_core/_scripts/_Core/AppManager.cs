@@ -191,7 +191,8 @@ namespace Antura.Core
         public IEnumerator ReloadEdition()
         {
             LanguageSwitcher = new LanguageSwitcher();
-            yield return LanguageSwitcher.LoadData();
+            yield return LanguageSwitcher.LoadAllLanguageData();
+            yield return LanguageSwitcher.LoadEditionData();
             DB = new DatabaseManager(ContentEdition);
             yield return LanguageSwitcher.PreloadLocalizedDataCO();
 

@@ -83,6 +83,7 @@ namespace Antura.UI
 
         public void SetOverridenLanguageText(LanguageCode code, LocalizationDataId locId)
         {
+            OverridenLanguageCode = code;
             var loc = LocalizationManager.GetLocalizationData(locId);
             SetText(loc.GetLocalized(code).Text);
         }
