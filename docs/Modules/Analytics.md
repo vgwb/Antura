@@ -6,13 +6,12 @@ nav_order: 0
 ---
 # Antura Analytics
 
-We have a page on what we would like to track from data: <https://docs.antura.org/GameDesign/DataAnalysis.html> and here everything we log in the app: <https://docs.antura.org/Modules/Logging.html>
+We have a page on what we would like to track from data: <https://docs.antura.org/GameDesign/DataAnalysis.html> and here everything we log locally in the app: <https://docs.antura.org/Modules/Logging.html>
+
+To access the online analytics: [Antura Unity Analytics Dashboard](https://dashboard.unity3d.com/organizations/567035/projects/ca7a3389-ec6c-44b1-a44d-aa0da4930165/overview?viewMode=project)
 
 ## Unity Analytics
-In Antura we use Unity Analytics <https://docs.unity.com/analytics/>
-
-To access Unity Analytics: <https://dashboard.unity3d.com/organizations/567035/projects/ca7a3389-ec6c-44b1-a44d-aa0da4930165/overview?viewMode=project>
-Which offer many default / standard game tracking data, like:
+In Antura we use Unity Analytics <https://docs.unity.com/analytics/>, which offer many default / standard game tracking data, like:
 
 |  |  |
 |---|---|
