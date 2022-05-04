@@ -81,8 +81,6 @@ namespace Antura.Minigames.MixedLetters
             switch (Variation)
             {
                 case MixedLettersVariation.Alphabet:
-                    strictness = LetterEqualityStrictness.WithVisualForm;
-                    break;
                 case MixedLettersVariation.BuildWord:
                     strictness = LetterEqualityStrictness.WithVisualForm;
                     break;

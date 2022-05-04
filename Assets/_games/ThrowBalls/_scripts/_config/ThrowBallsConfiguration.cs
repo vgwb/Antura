@@ -1,6 +1,7 @@
 using System;
 using Antura.Core;
 using Antura.Database;
+using Antura.LivingLetters;
 using Antura.Teacher;
 
 namespace Antura.Minigames.ThrowBalls
@@ -122,5 +123,27 @@ namespace Antura.Minigames.ThrowBalls
             }
             return soundType;
         }
+
+        public override bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
+        {
+            LetterEqualityStrictness strictness;
+            switch (Variation)
+            {
+                case ThrowBallsVariation.LetterName:
+                case ThrowBallsVariation.LetterAny:
+                case ThrowBallsVariation.Word:
+                case ThrowBallsVariation.Image:
+                    strictness = LetterEqualityStrictness.Letter;
+                    break;
+                case ThrowBallsVariation.BuildWord:
+                case ThrowBallsVariation.MultiLetterForm:
+                    strictness = LetterEqualityStrictness.WithVisualForm;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return DataMatchingHelper.IsDataMatching(data1, data2, strictness);
+        }
+
     }
 }

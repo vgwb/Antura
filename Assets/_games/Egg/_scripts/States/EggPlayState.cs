@@ -262,7 +262,7 @@ namespace Antura.Minigames.Egg
                 tutorialCorrectActive = false;
             }
 
-            if (DataMatchingHelper.IsDataMatching(letterData, game.CurrentQuestion.Answers[letterOnSequence], LetterEqualityStrictness.Letter))
+            if (EggConfiguration.Instance.IsDataMatching(letterData, game.CurrentQuestion.Answers[letterOnSequence]))
             {
                 if (isSequence)
                 {

@@ -2,6 +2,7 @@ using Antura.Database;
 using Antura.Teacher;
 using System;
 using Antura.Core;
+using Antura.LivingLetters;
 using UnityEngine;
 
 namespace Antura.Minigames.Egg
@@ -109,6 +110,25 @@ namespace Antura.Minigames.Egg
         #region Localization IDs
         public override bool AutoPlayIntro => false;
         #endregion
+
+        public override bool IsDataMatching(ILivingLetterData data1, ILivingLetterData data2)
+        {
+            LetterEqualityStrictness strictness;
+            switch (Variation)
+            {
+                case EggVariation.LetterName:
+                case EggVariation.LetterPhoneme:
+                    strictness = LetterEqualityStrictness.Letter;
+                    break;
+                case EggVariation.BuildWord:
+                case EggVariation.Image:
+                    strictness = LetterEqualityStrictness.WithVisualForm;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            return DataMatchingHelper.IsDataMatching(data1, data2, strictness);
+        }
 
         public bool IsSingleVariation()
         {

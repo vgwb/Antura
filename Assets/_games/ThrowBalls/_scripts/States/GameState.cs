@@ -393,7 +393,7 @@ namespace Antura.Minigames.ThrowBalls
                 ConfigureLetterPropAndMotionVariation(letterControllers[letterObjectIndex], prevIndices.Contains(i) ? prevMode : nextMode);
 
                 letterControllers[letterObjectIndex].SetData(currentLettersForLettersInWord[i]);
-                letterObj.tag = currentLettersForLettersInWord[i].Id == currentLettersForLettersInWord[0].Id ? Constants.CORRECT_LETTER_TAG : Constants.WRONG_LETTER_TAG;
+                letterObj.tag = ThrowBallsConfiguration.Instance.IsDataMatching(currentLettersForLettersInWord[i], currentLettersForLettersInWord[0]) ? Constants.CORRECT_LETTER_TAG : Constants.WRONG_LETTER_TAG;
 
                 if (i == 0)
                 {

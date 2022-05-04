@@ -152,9 +152,9 @@ namespace Antura.Minigames.FastCrowd
             switch (Variation)
             {
                 case FastCrowdVariation.LetterForm:
+                case FastCrowdVariation.BuildWord:
                     strictness = LetterEqualityStrictness.WithVisualForm;
                     break;
-                case FastCrowdVariation.BuildWord:
                 case FastCrowdVariation.Word:
                 case FastCrowdVariation.LetterName:
                 case FastCrowdVariation.Counting:
