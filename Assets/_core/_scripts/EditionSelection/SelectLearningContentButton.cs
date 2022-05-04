@@ -1,5 +1,6 @@
 using System.Collections;
 using Antura.Core;
+using Antura.Language;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,12 +17,13 @@ namespace Antura.UI
         private LearningContentID contentId;
         public LearningContentID ContentId => contentId;
 
-        public void Setup(ContentEditionConfig editionEditionConfig)
+        public void Setup(ContentEditionConfig editionConfig)
         {
-            this.contentId = editionEditionConfig.ContentID;
+            this.contentId = editionConfig.ContentID;
 
-            iconImage.sprite = editionEditionConfig.TransitionLogo;
-            nameText.SetText(editionEditionConfig.Title);
+            iconImage.sprite = editionConfig.TransitionLogo;
+            nameText.OverridenLanguageCode = editionConfig.LearningLanguage;
+            nameText.SetText(editionConfig.Title);
         }
 
         public void OnClick()

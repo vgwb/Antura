@@ -16,19 +16,55 @@ namespace Antura.Scenes
         public SelectLearningContentPanel selectLearningContentPanel;
         public UIButton selectedNativeButton;
 
-        public void StartSelection()
+        private Coroutine currentCoroutine;
+        public void CompleteSelection()
         {
-            StartCoroutine(SelectionCO());
+            selectNativeLanguagePanel.Close();
+            selectLearningContentPanel.Close();
+
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+            currentCoroutine = StartCoroutine(CompleteSelectionCO());
         }
 
-        private IEnumerator SelectionCO()
+        public void ContentEditionSelection()
         {
+            selectNativeLanguagePanel.Close();
+            selectLearningContentPanel.Close();
+
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+            currentCoroutine = StartCoroutine(ContentEditionSelectionCO());
+        }
+
+        private IEnumerator CompleteSelectionCO()
+        {
+            yield return NativeLanguageSelectionCO();
+            yield return ContentEditionSelectionCO();
+        }
+
+        private IEnumerator NativeLanguageSelectionCO()
+        {
+            GlobalUI.ShowPauseMenu(false);
             selectedNativeButton.gameObject.SetActive(false);
 
             selectNativeLanguagePanel.Open();
             while (!selectNativeLanguagePanel.HasPerformedSelection)
                 yield return null;
             selectNativeLanguagePanel.Close();
+
+            GlobalUI.ShowPauseMenu(true);
+        }
+
+        private IEnumerator ContentEditionSelectionCO()
+        {
+            GlobalUI.ShowPauseMenu(false);
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
             textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
@@ -42,5 +78,6 @@ namespace Antura.Scenes
             yield return AppManager.I.ReloadEdition();
             AppManager.I.NavigationManager.GoToHome(true);
         }
+
     }
 }
