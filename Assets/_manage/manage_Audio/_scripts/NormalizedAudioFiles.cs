@@ -25,10 +25,12 @@ namespace Antura.Test
         public DatabaseManager dbManager;
         public bool CheckDialogs;
         public bool CheckLetters;
-        public bool CheckWords;
+        public bool CheckPhrases;
+        public bool CheckWords;        
 
         List<LocalizationData> localization;
         List<WordData> words;
+        List<PhraseData> phrases;
         List<LetterData> letters;
 
         void Awake()
@@ -39,6 +41,7 @@ namespace Antura.Test
 
                 localization = dbManager.GetAllLocalizationData();
                 letters = dbManager.GetAllLetterData();
+                phrases = dbManager.GetAllPhraseData();
                 words = dbManager.GetAllWordData();
             }
 
@@ -134,7 +137,46 @@ namespace Antura.Test
                     }
                     else
                         Debug.LogError("ATTENTION: 'Letters' folder not found for " + lang + " version");
-                }   
+                }
+
+                if (CheckPhrases)
+                {
+                    //re utilize the count vars for phrases checking
+                    missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Phrases/";
+                    if (Directory.Exists(langPath))
+                    {
+                        if (phrases != null)
+                        {
+                            Debug.Log("Starting to check audio files from 'Phrases' folder of " + lang + " version to phrases table...");
+
+                            List<string> audioFiles = new List<string>();
+                            var info = new DirectoryInfo(langPath);
+                            var filesInfo = info.GetFiles();
+                            foreach (FileInfo file in filesInfo)
+                            {
+                                var fileAux = phrases.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                if (fileAux == null)
+                                {
+                                    Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in phrases table of " + lang + " version");
+                                    missing_keys += file.Name + "\n";
+                                    missing_count++;
+                                }
+                            }
+                            if (missing_count > 0)
+                                Debug.LogWarning("WARNING: total missing audio files in the phrases table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Phrases Table:\n" + missing_keys);
+                            else
+                                Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the phrases table");
+
+                            missing_count = 0;
+                        }
+                        else
+                            Debug.LogWarning("WARNING: The phrases table doesn't exist for the " + lang + " version");
+                    }
+                    else
+                        Debug.LogError("ATTENTION: 'Phrases' folder not found for " + lang + " version");
+                }
 
                 if (CheckWords)
                 {
@@ -244,6 +286,36 @@ namespace Antura.Test
                     }
                     else
                         Debug.LogError("ATTENTION: The 'Letters' folder doesn't exist for the " + lang + " version");
+                }
+
+                if (CheckPhrases)
+                {
+                    //re utilize the count vars for phrases checking
+                    missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Phrases/";
+                    if (Directory.Exists(langPath))
+                    {
+                        Debug.Log("Starting to check audio files from phrases table to the " + lang + " version folder...");
+
+                        foreach (PhraseData data in phrases)
+                        {
+                            if (!File.Exists(langPath + "/" + data.Id + ".mp3") && data.Id != "") //checking that the audio file of the phrases table exist in the version audio folder
+                            {
+                                Debug.LogError("The audio file \"" + data.Id + "\" doesn't exist for " + lang + " version");
+                                missing_keys += data.Id + "\n";
+                                missing_count++;
+                            }
+                        }
+                        if (missing_count > 0)
+                            Debug.LogWarning("WARNING: total missing phrase audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
+                        else
+                            Debug.Log("SUCCESS: all audio files of the phrases table exist in the folder of " + lang + " version");
+
+                        missing_count = 0;
+                    }
+                    else
+                        Debug.LogError("ATTENTION: The 'Phrases' folder doesn't exist for the " + lang + " version");
                 }
 
                 if (CheckWords)
