@@ -8364,10 +8364,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ImportLocalizations: 0
   ImportLetters: 1
-  ImportWords: 1
-  ImportPhrases: 1
-  ImportPlaySessions: 1
-  ImportLearningBlocks: 1
+  ImportWords: 0
+  ImportPhrases: 0
+  ImportPlaySessions: 0
+  ImportLearningBlocks: 0
   ImportMiniGames: 0
   ImportStages: 0
   ImportRewards: 0
@@ -8385,8 +8385,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8578742a68a773a49b9e294dd3661d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanguageToCheck: 5
-  ContentTarget: {fileID: 11400000, guid: 33f98ccff199a334abbfe30d7bf3f204, type: 2}
+  LanguageToCheck: 10
+  ContentTarget: {fileID: 11400000, guid: 75dd18b826bf742288124ca2b84045d5, type: 2}
+  CheckDialogs: 1
+  CheckLetters: 1
+  CheckWords: 1
 --- !u!1 &1326432633
 GameObject:
   m_ObjectHideFlags: 0

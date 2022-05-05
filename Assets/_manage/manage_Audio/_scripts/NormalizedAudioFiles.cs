@@ -20,8 +20,13 @@ namespace Antura.Test
     {
         public LanguageCode LanguageToCheck;
         List<string> folders;
+
         public ContentEditionConfig ContentTarget;
         public DatabaseManager dbManager;
+        public bool CheckDialogs;
+        public bool CheckLetters;
+        public bool CheckWords;
+
         List<LocalizationData> localization;
         List<WordData> words;
         List<LetterData> letters;
@@ -57,74 +62,118 @@ namespace Antura.Test
                 int missing_count = 0;
                 string missing_keys = "";
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
-                if (Directory.Exists(langPath))
+                if(CheckDialogs)
                 {
-                    if (localization != null)
+                    if (Directory.Exists(langPath))
                     {
-                        Debug.Log("Starting to check audio files from 'Dialogs' folder of " + lang + " version to localization table...");
-
-                        List<string> audioFiles = new List<string>();
-                        var info = new DirectoryInfo(langPath);
-                        var filesInfo = info.GetFiles();
-                        foreach (FileInfo file in filesInfo)
+                        if (localization != null)
                         {
-                            var fileAux = localization.FirstOrDefault(af => file.Name.Contains(af.AudioKey));
-                            if (fileAux == null)
-                            {
-                                Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
-                                missing_keys += file.Name + "\n";
-                                missing_count++;
-                            }
-                        }
-                        if (missing_count > 0)
-                            Debug.LogWarning("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Localization Table:\n" + missing_keys);
-                        else
-                            Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the localization table");
+                            Debug.Log("Starting to check audio files from 'Dialogs' folder of " + lang + " version to localization table...");
 
-                        missing_count = 0;
+                            List<string> audioFiles = new List<string>();
+                            var info = new DirectoryInfo(langPath);
+                            var filesInfo = info.GetFiles();
+                            foreach (FileInfo file in filesInfo)
+                            {
+                                var fileAux = localization.FirstOrDefault(af => file.Name.Contains(af.AudioKey));
+                                if (fileAux == null)
+                                {
+                                    Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
+                                    missing_keys += file.Name + "\n";
+                                    missing_count++;
+                                }
+                            }
+                            if (missing_count > 0)
+                                Debug.LogWarning("WARNING: total missing audio files in the localization table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Localization Table:\n" + missing_keys);
+                            else
+                                Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the localization table");
+
+                            missing_count = 0;
+                        }
+                        else
+                            Debug.LogWarning("WARNING: The localization table doesn't exist for the " + lang + " version");
                     }
                     else
-                        Debug.LogWarning("WARNING: The localization table doesn't exist for the " + lang + " version");
+                        Debug.LogError("ATTENTION: 'Dialogs' folder not found for " + lang + " version");
                 }
-                else
-                    Debug.LogError("ATTENTION: 'Dialogs' folder not found for " + lang + " version");
 
-                //re utilize the count vars for letters checking
-                missing_count = 0;
-                missing_keys = "";
-                langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Letters/";
-                if (Directory.Exists(langPath))
+                if (CheckLetters)
                 {
-                    if (letters != null)
+                    //re utilize the count vars for letters checking
+                    missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Letters/";
+                    if (Directory.Exists(langPath))
                     {
-                        Debug.Log("Starting to check audio files from 'Letters' folder of " + lang + " version to letters table...");
-
-                        List<string> audioFiles = new List<string>();
-                        var info = new DirectoryInfo(langPath);
-                        var filesInfo = info.GetFiles();
-                        foreach (FileInfo file in filesInfo)
+                        if (letters != null)
                         {
-                            var fileAux = letters.FirstOrDefault(lt => file.Name.Contains(lt.GetAudioFilename()));
-                            if (fileAux == null)
-                            {
-                                Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in letters table of " + lang + " version");
-                                missing_keys += file.Name + "\n";
-                                missing_count++;
-                            }
-                        }
-                        if (missing_count > 0)
-                            Debug.LogWarning("WARNING: total missing audio files in the letters table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Letters Table:\n" + missing_keys);
-                        else
-                            Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the letters table");
+                            Debug.Log("Starting to check audio files from 'Letters' folder of " + lang + " version to letters table...");
 
-                        missing_count = 0;
+                            List<string> audioFiles = new List<string>();
+                            var info = new DirectoryInfo(langPath);
+                            var filesInfo = info.GetFiles();
+                            foreach (FileInfo file in filesInfo)
+                            {
+                                var fileAux = letters.FirstOrDefault(lt => file.Name.Contains(lt.GetAudioFilename()));
+                                if (fileAux == null)
+                                {
+                                    Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in letters table of " + lang + " version");
+                                    missing_keys += file.Name + "\n";
+                                    missing_count++;
+                                }
+                            }
+                            if (missing_count > 0)
+                                Debug.LogWarning("WARNING: total missing audio files in the letters table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Letters Table:\n" + missing_keys);
+                            else
+                                Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the letters table");
+
+                            missing_count = 0;
+                        }
+                        else
+                            Debug.LogWarning("WARNING: The letters table doesn't exist for the " + lang + " version");
                     }
                     else
-                        Debug.LogWarning("WARNING: The letters table doesn't exist for the " + lang + " version");
-                }
-                else
-                    Debug.LogError("ATTENTION: 'Letters' folder not found for " + lang + " version");
+                        Debug.LogError("ATTENTION: 'Letters' folder not found for " + lang + " version");
+                }   
 
+                if (CheckWords)
+                {
+                    //re utilize the count vars for words checking
+                    missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Words/";
+                    if (Directory.Exists(langPath))
+                    {
+                        if (words != null)
+                        {
+                            Debug.Log("Starting to check audio files from 'Words' folder of " + lang + " version to words table...");
+
+                            List<string> audioFiles = new List<string>();
+                            var info = new DirectoryInfo(langPath);
+                            var filesInfo = info.GetFiles();
+                            foreach (FileInfo file in filesInfo)
+                            {
+                                var fileAux = words.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                if (fileAux == null)
+                                {
+                                    Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in words table of " + lang + " version");
+                                    missing_keys += file.Name + "\n";
+                                    missing_count++;
+                                }
+                            }
+                            if (missing_count > 0)
+                                Debug.LogWarning("WARNING: total missing audio files in the words table of " + lang + " version: " + missing_count.ToString() + "\nList of missing AudioKeys in the Words Table:\n" + missing_keys);
+                            else
+                                Debug.Log("SUCCESS: all audio files of " + lang + " version folder are present in the words table");
+
+                            missing_count = 0;
+                        }
+                        else
+                            Debug.LogWarning("WARNING: The words table doesn't exist for the " + lang + " version");
+                    }
+                    else
+                        Debug.LogError("ATTENTION: 'Words' folder not found for " + lang + " version");
+                }
             }
         }
 
@@ -141,55 +190,91 @@ namespace Antura.Test
                 int missing_count = 0;
                 string missing_keys = "";
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
-                if (Directory.Exists(langPath))
+                if (CheckDialogs)
                 {
-                    Debug.Log("Starting to check audio files from localization table to the " + lang + " version folder...");
-
-                    foreach (LocalizationData data in localization)
+                    if (Directory.Exists(langPath))
                     {
-                        if (!File.Exists(langPath + "/" + data.AudioKey + ".mp3") && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
+                        Debug.Log("Starting to check audio files from localization table to the " + lang + " version folder...");
+
+                        foreach (LocalizationData data in localization)
                         {
-                            Debug.LogError("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
-                            missing_keys += data.AudioKey + "\n";
-                            missing_count++;
+                            if (!File.Exists(langPath + "/" + data.AudioKey + ".mp3") && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
+                            {
+                                Debug.LogError("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
+                                missing_keys += data.AudioKey + "\n";
+                                missing_count++;
+                            }
                         }
+                        if (missing_count > 0)
+                            Debug.LogWarning("WARNING: total missing dialog audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
+                        else
+                            Debug.Log("SUCCESS: all audio files of the localization table exist in the folder of " + lang + " version");
+
+                        missing_count = 0;
                     }
-                    if (missing_count > 0)
-                        Debug.LogWarning("WARNING: total missing dialog audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n"+ missing_keys);
                     else
-                        Debug.Log("SUCCESS: all audio files of the localization table exist in the folder of " + lang + " version");
-
-                    missing_count = 0;
+                        Debug.LogError("ATTENTION: The 'Dialogs' folder doesn't exist for the " + lang + " version");
                 }
-                else
-                    Debug.LogError("ATTENTION: The 'Dialogs' folder doesn't exist for the " + lang + " version");
 
-                //re utilize the count vars for letters checking
-                missing_count = 0;
-                missing_keys = "";
-                langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Letters/";
-                if (Directory.Exists(langPath))
+                if (CheckLetters)
                 {
-                    Debug.Log("Starting to check audio files from letters table to the " + lang + " version folder...");
-
-                    foreach (LetterData data in letters)
-                    {
-                        if (!File.Exists(langPath + "/" + data.GetAudioFilename() + ".mp3") && data.GetAudioFilename() != "") //checking that the audio file of the letters table exist in the version audio folder
-                        {
-                            Debug.LogError("The audio file \"" + data.GetAudioFilename() + "\" doesn't exist for " + lang + " version");
-                            missing_keys += data.GetAudioFilename() + "\n";
-                            missing_count++;
-                        }
-                    }
-                    if (missing_count > 0)
-                        Debug.LogWarning("WARNING: total missing letter audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
-                    else
-                        Debug.Log("SUCCESS: all audio files of the letters table exist in the folder of " + lang + " version");
-
+                    //re utilize the count vars for letters checking
                     missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Letters/";
+                    if (Directory.Exists(langPath))
+                    {
+                        Debug.Log("Starting to check audio files from letters table to the " + lang + " version folder...");
+
+                        foreach (LetterData data in letters)
+                        {
+                            if (!File.Exists(langPath + "/" + data.GetAudioFilename() + ".mp3") && data.GetAudioFilename() != "") //checking that the audio file of the letters table exist in the version audio folder
+                            {
+                                Debug.LogError("The audio file \"" + data.GetAudioFilename() + "\" doesn't exist for " + lang + " version");
+                                missing_keys += data.GetAudioFilename() + "\n";
+                                missing_count++;
+                            }
+                        }
+                        if (missing_count > 0)
+                            Debug.LogWarning("WARNING: total missing letter audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
+                        else
+                            Debug.Log("SUCCESS: all audio files of the letters table exist in the folder of " + lang + " version");
+
+                        missing_count = 0;
+                    }
+                    else
+                        Debug.LogError("ATTENTION: The 'Letters' folder doesn't exist for the " + lang + " version");
                 }
-                else
-                    Debug.LogError("ATTENTION: The 'Letters' folder doesn't exist for the " + lang + " version");
+
+                if (CheckWords)
+                {
+                    //re utilize the count vars for words checking
+                    missing_count = 0;
+                    missing_keys = "";
+                    langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Words/";
+                    if (Directory.Exists(langPath))
+                    {
+                        Debug.Log("Starting to check audio files from words table to the " + lang + " version folder...");
+
+                        foreach (WordData data in words)
+                        {
+                            if (!File.Exists(langPath + "/" + data.Id + ".mp3") && data.Id != "") //checking that the audio file of the words table exist in the version audio folder
+                            {
+                                Debug.LogError("The audio file \"" + data.Id + "\" doesn't exist for " + lang + " version");
+                                missing_keys += data.Id + "\n";
+                                missing_count++;
+                            }
+                        }
+                        if (missing_count > 0)
+                            Debug.LogWarning("WARNING: total missing word audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
+                        else
+                            Debug.Log("SUCCESS: all audio files of the words table exist in the folder of " + lang + " version");
+
+                        missing_count = 0;
+                    }
+                    else
+                        Debug.LogError("ATTENTION: The 'Words' folder doesn't exist for the " + lang + " version");
+                }
             }
         }
 
