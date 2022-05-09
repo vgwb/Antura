@@ -32,7 +32,7 @@ namespace Antura
                     if (msg.Contains("InvalidKeyException"))
                     {
                         var index = msg.IndexOf("Key=");
-                        msg = "Could not find subset of keys: " +  msg.Substring(index, msg.Length - index);
+                        msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
                     }
                     Debug.LogError(msg);
                 }
@@ -113,7 +113,8 @@ namespace Antura
                 songAudioKeys.Add($"{prefix}SimonSong_Main_140");
                 songAudioKeys.Add($"{prefix}SimonSong_Main_160");
             }
-            if (songAudioKeys.Count > 0) yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
+            if (songAudioKeys.Count > 0)
+                yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
 
             var songTextKeys = new HashSet<string>();
             prefix = $"{languageCode}/Audio/Songs/";
@@ -122,7 +123,8 @@ namespace Antura
                 songTextKeys.Add($"{prefix}AlphabetSong.akr");
             }
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
-            if (songTextKeys.Count > 0) yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
+            if (songTextKeys.Count > 0)
+                yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
         }
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
@@ -135,7 +137,8 @@ namespace Antura
                 }
                 catch (Exception e)
                 {
-                    if (VERBOSE) Debug.LogWarning(e.ToString());
+                    if (VERBOSE)
+                        Debug.LogWarning(e.ToString());
                 }
             }
             cache.Clear();
@@ -146,8 +149,7 @@ namespace Antura
             int n = 0;
             if (VERBOSE)
                 Debug.Log($"Loading {keys.Count} (first is {keys.FirstOrDefault()}");
-            var op =
-                Addressables.LoadAssetsAsync<T>(keys, obj =>
+            var op = Addressables.LoadAssetsAsync<T>(keys, obj =>
                 {
                     cache[obj.name] = obj;
                     n++;
@@ -194,7 +196,8 @@ namespace Antura
         public ShapeLetterData GetShapeLetterData(LetterData letterData)
         {
             var unicode = letterData.GetUnicode();
-            if (letterData.Kind == LetterDataKind.DiacriticCombo) unicode += $"_{letterData.Symbol_Unicode}";
+            if (letterData.Kind == LetterDataKind.DiacriticCombo)
+                unicode += $"_{letterData.Symbol_Unicode}";
             return Get(shapeDataCache, $"shapedata_{unicode}");
         }
 
