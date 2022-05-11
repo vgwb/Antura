@@ -31,7 +31,7 @@ namespace Antura
                     var msg = exception.ToString();
                     if (msg.Contains("InvalidKeyException"))
                     {
-                        var index = msg.IndexOf("Key=");
+                        var index = msg.IndexOf("Keys=");
                         if (index >= 0) msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
                     }
                     Debug.LogError(msg);

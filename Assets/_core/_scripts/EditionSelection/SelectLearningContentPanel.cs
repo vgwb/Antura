@@ -3,6 +3,7 @@ using System.Linq;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +20,10 @@ namespace Antura.UI
 
         public void OnEnable()
         {
+            // HACK: arabic legacy should instead be arabic when entering here
+            if (AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic_legacy)
+                AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic);
+
             HasPerformedSelection = false;
 
             foreach (var button in buttons)
@@ -29,7 +34,14 @@ namespace Antura.UI
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
+
                 bool isSupported = contentEditionConfig.SupportedNativeLanguages.Contains(AppManager.I.AppSettings.NativeLanguage);
+
+                // HACK: For Arabic, we also show the Arabic_Legacy contents
+                if (!isSupported && AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic)
+                {
+                    isSupported = contentEditionConfig.SupportedNativeLanguages.Contains(LanguageCode.arabic_legacy);
+                }
                 if (!isSupported) continue;
 
                 var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
@@ -49,6 +61,13 @@ namespace Antura.UI
         public bool HasPerformedSelection;
         public void ConfirmSelection(LearningContentID contentId)
         {
+            // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
+            var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
+            if (AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic && content.SupportedNativeLanguages.Contains(LanguageCode.arabic_legacy))
+            {
+                AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
+            }
+
             AppManager.I.AppSettingsManager.SetLearningContentID(contentId);
             RefreshSelection();
             HasPerformedSelection = true;

@@ -50,8 +50,13 @@ namespace Antura.UI
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
-                foreach (var supportedNativeLanguage in contentEditionConfig.SupportedNativeLanguages)
+                for (var index = 0; index < contentEditionConfig.SupportedNativeLanguages.Length; index++)
                 {
+                    var supportedNativeLanguage = contentEditionConfig.SupportedNativeLanguages[index];
+
+                    // HACK: Legacy is treated as arabic when selected as a language
+                    if (supportedNativeLanguage == LanguageCode.arabic_legacy) supportedNativeLanguage = LanguageCode.arabic;
+
                     if (AvailableNativeCodes.Contains(supportedNativeLanguage)) continue;
                     AvailableNativeCodes.Add(supportedNativeLanguage);
                 }
