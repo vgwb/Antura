@@ -1,0 +1,1528 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8dc816d8d6e54d8325fbac00e0782, type: 3}
+  m_Name: DB LearnPolish_Phrase
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Id: Phrase_apple
+      _Active: 1
+      _Text: "JAB\u0141KO ro\u015Bnie na drzewie"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - apple
+      - tree
+      _Answers:
+      - apple
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_arm
+      _Active: 1
+      _Text: "R\u0118KA jest bardzo d\u0142uga"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - arm
+      _Answers:
+      - arm
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_aunt
+      _Active: 1
+      _Text: "Moja CIOCIA mieszka w du\u017Cym mie\u015Bcie"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - aunt
+      - city
+      _Answers:
+      - aunt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_ball
+      _Active: 1
+      _Text: "Na pla\u017Cy le\u017Cy PI\u0141KA"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - ball
+      - beach
+      _Answers:
+      - ball
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_banana
+      _Active: 1
+      _Text: "BANAN jest \u017C\xF3\u0142ty"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - banana
+      - color_yellow
+      _Answers:
+      - banana
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_bed
+      _Active: 1
+      _Text: "\u0141\xD3\u017BKO jest czerwone"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - bed
+      - color_red
+      _Answers:
+      - bed
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_bedroom
+      _Active: 1
+      _Text: "Kot bawi si\u0119 w SYPIALNI"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - bedroom
+      - cat
+      _Answers:
+      - bedroom
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_belly
+      _Active: 1
+      _Text: BRZUCH mnie boli
+      _Category: 15
+      _Linked: 
+      _Words:
+      - belly
+      _Answers:
+      - belly
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_bicycle
+      _Active: 1
+      _Text: "Ten ROWER jest ju\u017C stary"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - bicycle
+      _Answers:
+      - bicycle
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_bird
+      _Active: 1
+      _Text: "PTAK \u015Bpiewa w lesie"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - bird
+      - forest
+      _Answers:
+      - bird
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_book
+      _Active: 1
+      _Text: "Na stole le\u017Cy KSI\u0104\u017BKA"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - book
+      - table
+      _Answers:
+      - book
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_box
+      _Active: 1
+      _Text: "To jest du\u017Ce PUDE\u0141KO"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - box
+      _Answers:
+      - box
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_boy
+      _Active: 1
+      _Text: "CH\u0141OPIEC \u015Bpiewa w samochodzie"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - boy
+      - car
+      _Answers:
+      - boy
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_brain
+      _Active: 1
+      _Text: "M\xD3ZG znajduje si\u0119 w g\u0142owie"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - brain
+      - head
+      _Answers:
+      - brain
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_brother
+      _Active: 1
+      _Text: "Tw\xF3j BRAT jest m\u0142ody"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - brother
+      _Answers:
+      - brother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_bus
+      _Active: 1
+      _Text: AUTOBUS jest zielony
+      _Category: 12
+      _Linked: 
+      _Words:
+      - bus
+      - color_green
+      _Answers:
+      - bus
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_cake
+      _Active: 1
+      _Text: "W lod\xF3wce le\u017Cy CIASTO"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - cake
+      - fridge
+      _Answers:
+      - cake
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_camel
+      _Active: 1
+      _Text: "WIELB\u0141\u0104D \u017Cyje na pustyni"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - camel
+      - desert
+      _Answers:
+      - camel
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_carrot
+      _Active: 1
+      _Text: MARCHEWKA jest zdrowa
+      _Category: 14
+      _Linked: 
+      _Words:
+      - carrot
+      _Answers:
+      - carrot
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_castle
+      _Active: 1
+      _Text: "Ten ZAMEK jest pi\u0119kny"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - castle
+      _Answers:
+      - castle
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_cat
+      _Active: 1
+      _Text: "Ten KOT jest ma\u0142y"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - cat
+      _Answers:
+      - cat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_chair
+      _Active: 1
+      _Text: "To jest ma\u0142e KRZES\u0141O"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - chair
+      _Answers:
+      - chair
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cheese
+      _Active: 1
+      _Text: "Lubi\u0119 SER"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - cheese
+      _Answers:
+      - cheese
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_chickpea
+      _Active: 1
+      _Text: "CIECIERZYCA jest ma\u0142a"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - chickpea
+      _Answers:
+      - chickpea
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_classroom
+      _Active: 1
+      _Text: "W KLASIE stoi krzes\u0142o"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - classroom
+      - chair
+      _Answers:
+      - classroom
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_closet
+      _Active: 1
+      _Text: "W SZAFIE wisi sp\xF3dnica"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - skirt
+      - closet
+      _Answers:
+      - closet
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cloud
+      _Active: 1
+      _Text: "To jest bia\u0142a CHMURA"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - cloud
+      - color_white
+      _Answers:
+      - cloud
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_coat
+      _Active: 1
+      _Text: "Ten P\u0141ASZCZ jest bardzo stary"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - coat
+      _Answers:
+      - coat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_coffee
+      _Active: 1
+      _Text: "Moja mama pije KAW\u0118"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - coffee
+      - mother
+      _Answers:
+      - coffee
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_computer
+      _Active: 1
+      _Text: "KOMPUTER jest w\u0142\u0105czony"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - computer
+      _Answers:
+      - computer
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_couch
+      _Active: 1
+      _Text: To jest zielona SOFA
+      _Category: 9
+      _Linked: 
+      _Words:
+      - couch
+      - color_green
+      _Answers:
+      - couch
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cow
+      _Active: 1
+      _Text: KROWA daje mleko
+      _Category: 8
+      _Linked: 
+      _Words:
+      - cow
+      _Answers:
+      - cow
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_cup
+      _Active: 1
+      _Text: "FILI\u017BANKA jest pe\u0142na"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - cup
+      _Answers:
+      - cup
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_daughter
+      _Active: 1
+      _Text: "Moja C\xD3RKA ogl\u0105da co\u015B na telewizorze"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - daughter
+      - television
+      _Answers:
+      - daughter
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_dog
+      _Active: 1
+      _Text: "To jest br\u0105zowy PIES"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - dog
+      - color_brown
+      _Answers:
+      - dog
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_door
+      _Active: 1
+      _Text: "DRZWI s\u0105 zamkni\u0119te"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - door
+      _Answers:
+      - door
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_elephant
+      _Active: 1
+      _Text: "S\u0141O\u0143 jest du\u017Cy"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - elephant
+      _Answers:
+      - elephant
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_eye
+      _Active: 1
+      _Text: To jest niebieskie OKO
+      _Category: 15
+      _Linked: 
+      _Words:
+      - eye
+      - color_blue
+      _Answers:
+      - eye
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_face
+      _Active: 1
+      _Text: Mam zadowolony wyraz TWARZY
+      _Category: 15
+      _Linked: 
+      _Words:
+      - face
+      _Answers:
+      - face
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_father
+      _Active: 1
+      _Text: "Tw\xF3j TATA pracuje w szpitalu"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - father
+      - hospital
+      _Answers:
+      - father
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_finger
+      _Active: 1
+      _Text: "Masz bardzo kr\xF3tki PALEC"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - finger
+      _Answers:
+      - finger
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_flower
+      _Active: 1
+      _Text: "To jest pi\u0119kny KWIATEK"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - flower
+      _Answers:
+      - flower
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_food
+      _Active: 1
+      _Text: "\u017BYWNO\u015A\u0106 jest wa\u017Cna"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - food
+      _Answers:
+      - food
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_forest
+      _Active: 1
+      _Text: LAS jest ciemny
+      _Category: 7
+      _Linked: 
+      _Words:
+      - forest
+      _Answers:
+      - forest
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_fork
+      _Active: 1
+      _Text: To jest plastikowy WIDELEC
+      _Category: 9
+      _Linked: 
+      _Words:
+      - fork
+      _Answers:
+      - fork
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_frog
+      _Active: 1
+      _Text: "W rzece jest \u017BABA"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - frog
+      - river
+      _Answers:
+      - frog
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_garden
+      _Active: 1
+      _Text: "W OGRODZIE ro\u015Bnie drzewo"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - garden
+      - tree
+      _Answers:
+      - garden
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_girl
+      _Active: 1
+      _Text: DZIEWCZYNKA jedzie na rowerze
+      _Category: 13
+      _Linked: 
+      _Words:
+      - girl
+      - bicycle
+      _Answers:
+      - girl
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_gloves
+      _Active: 1
+      _Text: "Ch\u0142opiec nosi R\u0118KAWICZKI"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - boy
+      - gloves
+      _Answers:
+      - gloves
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_goat
+      _Active: 1
+      _Text: "KOZA je ro\u015Blin\u0119"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - goat
+      - plant
+      _Answers:
+      - goat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_grandfather
+      _Active: 1
+      _Text: "Tw\xF3j DZIADEK jest bardzo stary"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - grandfather
+      _Answers:
+      - grandfather
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_grandmother
+      _Active: 1
+      _Text: "Moja BABCIA je\u017Adzi autobusem"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - grandmother
+      - bus
+      _Answers:
+      - grandmother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_hair
+      _Active: 1
+      _Text: "Mam czarne W\u0141OSY"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - hair
+      - color_black
+      _Answers:
+      - hair
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_hand
+      _Active: 1
+      _Text: "Mam ma\u0142\u0105 D\u0141O\u0143"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - hand
+      _Answers:
+      - hand
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_hat
+      _Active: 1
+      _Text: "To jest ma\u0142y KAPELUSZ"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - hat
+      _Answers:
+      - hat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_head
+      _Active: 1
+      _Text: "Kurczak rusza G\u0141OW\u0104"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - head
+      - chicken
+      _Answers:
+      - head
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_horse
+      _Active: 1
+      _Text: "To jest czarny KO\u0143"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - horse
+      - color_black
+      _Answers:
+      - horse
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_house
+      _Active: 1
+      _Text: DOM stoi na wyspie
+      _Category: 12
+      _Linked: 
+      _Words:
+      - house
+      - island
+      _Answers:
+      - house
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_island
+      _Active: 1
+      _Text: "WYSPA znajduje si\u0119 na morzu"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - island
+      - sea
+      _Answers:
+      - island
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_jacket
+      _Active: 1
+      _Text: "Ta KURTKA jest \u017C\xF3\u0142ta"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - jacket
+      - color_yellow
+      _Answers:
+      - jacket
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_kitchen
+      _Active: 1
+      _Text: W KUCHNI jest pies
+      _Category: 9
+      _Linked: 
+      _Words:
+      - kitchen
+      - dog
+      _Answers:
+      - kitchen
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_lamp
+      _Active: 1
+      _Text: "LAMPA jest wy\u0142\u0105czona"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - lamp
+      _Answers:
+      - lamp
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_lips
+      _Active: 1
+      _Text: "USTA s\u0105 czerwone"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - lips
+      - color_red
+      _Answers:
+      - lips
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_man
+      _Active: 1
+      _Text: "M\u0118\u017BCZYZNA spaceruje po parku"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - man
+      - park
+      _Answers:
+      - man
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_meat
+      _Active: 1
+      _Text: "Lew je MI\u0118SO"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - lion
+      - meat
+      _Answers:
+      - meat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_monkey
+      _Active: 1
+      _Text: "MA\u0141PA jest zabawna"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - monkey
+      _Answers:
+      - monkey
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_moon
+      _Active: 1
+      _Text: "M\u0119\u017Cczyzna patrzy na KSI\u0118\u017BYC"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - moon
+      - man
+      _Answers:
+      - moon
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_mother
+      _Active: 1
+      _Text: Moja MAMA mnie kocha
+      _Category: 13
+      _Linked: 
+      _Words:
+      - mother
+      _Answers:
+      - mother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_motorbike
+      _Active: 1
+      _Text: To jest nowy MOTOCYKL
+      _Category: 12
+      _Linked: 
+      _Words:
+      - motorbike
+      _Answers:
+      - motorbike
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_mountain
+      _Active: 1
+      _Text: "G\xD3RA jest wysoka"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - mountain
+      _Answers:
+      - mountain
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_mouth
+      _Active: 1
+      _Text: W BUZI jest jedzenie
+      _Category: 15
+      _Linked: 
+      _Words:
+      - mouth
+      - food
+      _Answers:
+      - mouth
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_museum
+      _Active: 1
+      _Text: MUZEUM ma wielkie okno
+      _Category: 12
+      _Linked: 
+      _Words:
+      - museum
+      - window
+      _Answers:
+      - museum
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_nail
+      _Active: 1
+      _Text: "Mam z\u0142amany PAZNOKIE\u0106"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - nail
+      _Answers:
+      - nail
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_needle
+      _Active: 1
+      _Text: "IG\u0141A jest bardzo ma\u0142a"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - needle
+      _Answers:
+      - needle
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_nose
+      _Active: 1
+      _Text: "Ten m\u0119\u017Cczyzna ma du\u017Cy NOS"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - nose
+      - man
+      _Answers:
+      - nose
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_oil
+      _Active: 1
+      _Text: "Na pod\u0142odze jest rozlany OLEJ"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - oil
+      - floor
+      _Answers:
+      - oil
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_oven
+      _Active: 1
+      _Text: "PIEKARNIK jest gor\u0105cy"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - oven
+      _Answers:
+      - oven
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_paper
+      _Active: 1
+      _Text: Dziewczynka pisze po PAPIERZE
+      _Category: 10
+      _Linked: 
+      _Words:
+      - paper
+      - girl
+      _Answers:
+      - paper
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_parrot
+      _Active: 1
+      _Text: Na drzewie siedzi PAPUGA
+      _Category: 8
+      _Linked: 
+      _Words:
+      - parrot
+      - tree
+      _Answers:
+      - parrot
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_pencil
+      _Active: 1
+      _Text: "Ten O\u0141\xD3WEK jest nowy"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - pencil
+      _Answers:
+      - pencil
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_penguin
+      _Active: 1
+      _Text: "PINGWIN p\u0142ywa w morzu"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - penguin
+      - sea
+      _Answers:
+      - penguin
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_pepper
+      _Active: 1
+      _Text: Ta PAPRYKA jest zielona
+      _Category: 14
+      _Linked: 
+      _Words:
+      - pepper
+      - color_green
+      _Answers:
+      - pepper
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_pet
+      _Active: 1
+      _Text: "Kocham moje ZWIERZ\u0118 DOMOWE"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - pet
+      _Answers:
+      - pet
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_plane
+      _Active: 1
+      _Text: SAMOLOT lata po niebie
+      _Category: 12
+      _Linked: 
+      _Words:
+      - plane
+      - sky
+      _Answers:
+      - plane
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_plant
+      _Active: 1
+      _Text: "RO\u015ALINA jest zielona"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - plant
+      - color_green
+      _Answers:
+      - plant
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_port
+      _Active: 1
+      _Text: "PORT znajduje si\u0119 nad morzem"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - port
+      - sea
+      _Answers:
+      - port
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_potato
+      _Active: 1
+      _Text: "To jest du\u017Cy ZIEMNIAK"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - potato
+      _Answers:
+      - potato
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_restaurant
+      _Active: 1
+      _Text: "Podoba mi si\u0119 ta RESTAURACJA"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - restaurant
+      _Answers:
+      - restaurant
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_river
+      _Active: 1
+      _Text: "Ch\u0142opiec \u0142owi ryby w RZECE"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - river
+      _Answers:
+      - river
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_scarf
+      _Active: 1
+      _Text: "Ten SZALIK jest r\xF3\u017Cowy"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - scarf
+      - color_pink
+      _Answers:
+      - scarf
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_school
+      _Active: 1
+      _Text: "Ch\u0142opiec idzie do SZKO\u0141Y"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - school
+      - boy
+      _Answers:
+      - school
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_shirt
+      _Active: 1
+      _Text: W szafie wisi KOSZULA
+      _Category: 11
+      _Linked: 
+      _Words:
+      - shirt
+      - closet
+      _Answers:
+      - shirt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_shoes
+      _Active: 1
+      _Text: "Te BUTY s\u0105 szare"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - shoes
+      - color_grey
+      _Answers:
+      - shoes
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_sister
+      _Active: 1
+      _Text: Moja SIOSTRA gra w futbol
+      _Category: 13
+      _Linked: 
+      _Words:
+      - sister
+      _Answers:
+      - sister
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_skirt
+      _Active: 1
+      _Text: "Podoba mi si\u0119 ta SP\xD3DNICA"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - skirt
+      _Answers:
+      - skirt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_sky
+      _Active: 1
+      _Text: NIEBO jest niebieskie
+      _Category: 7
+      _Linked: 
+      _Words:
+      - sky
+      _Answers:
+      - sky
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_snake
+      _Active: 1
+      _Text: "W\u0104\u017B zjada szczura"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - snake
+      - rat
+      _Answers:
+      - snake
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_snow
+      _Active: 1
+      _Text: "Na g\xF3rze le\u017Cy \u015ANIEG"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - snow
+      - mountain
+      _Answers:
+      - snow
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_son
+      _Active: 1
+      _Text: "M\xF3j SYN lubi jogurt"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - son
+      - yogurt
+      _Answers:
+      - son
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_squirrel
+      _Active: 1
+      _Text: "WIEWI\xD3RKA wspina si\u0119 po drzewie"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - squirrel
+      - tree
+      _Answers:
+      - squirrel
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_star
+      _Active: 1
+      _Text: "GWIAZDA znajduje si\u0119 na niebie"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - star
+      - sky
+      _Answers:
+      - star
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_stone
+      _Active: 1
+      _Text: "To jest ma\u0142y KAMIE\u0143"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - stone
+      _Answers:
+      - stone
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_stove
+      _Active: 1
+      _Text: "W PIECU pali si\u0119 ogie\u0144"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - stove
+      - fire
+      _Answers:
+      - stove
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_sun
+      _Active: 1
+      _Text: "Na niebie znajduje si\u0119 S\u0141O\u0143CE"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - sun
+      - sky
+      _Answers:
+      - sun
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_television
+      _Active: 1
+      _Text: "Dziewczynka ogl\u0105da co\u015B na TELEWIZORZE"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - girl
+      - television
+      _Answers:
+      - television
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_tiger
+      _Active: 1
+      _Text: "TYGRYS \u017Cyje w d\u017Cungli"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - tiger
+      _Answers:
+      - tiger
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_tomato
+      _Active: 1
+      _Text: To jest czerwony POMIDOR
+      _Category: 14
+      _Linked: 
+      _Words:
+      - tomato
+      - color_red
+      _Answers:
+      - tomato
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_tongue
+      _Active: 1
+      _Text: "J\u0118ZYK znajduje si\u0119 w buzi"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - tongue
+      - mouth
+      _Answers:
+      - tongue
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_tooth
+      _Active: 1
+      _Text: "Z\u0104B jest u\u0142amany"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - tooth
+      _Answers:
+      - tooth
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_toy
+      _Active: 1
+      _Text: "Na \u0142\xF3\u017Cku le\u017Cy ZABAWKA"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - toy
+      - bed
+      _Answers:
+      - toy
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_train
+      _Active: 1
+      _Text: "POCI\u0104G zatrzymuje si\u0119 na stacji"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - train
+      - station
+      _Answers:
+      - train
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_tree
+      _Active: 1
+      _Text: "To jest du\u017Ce DRZEWO"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - tree
+      _Answers:
+      - tree
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_truck
+      _Active: 1
+      _Text: "To jest pomara\u0144czowa CI\u0118\u017BAR\xD3WKA"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - truck
+      - color_orange
+      _Answers:
+      - truck
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_uncle
+      _Active: 1
+      _Text: "M\xF3j WUJEK mieszka w mie\u015Bcie"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - uncle
+      - city
+      _Answers:
+      - uncle
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_volcano
+      _Active: 1
+      _Text: WULKAN jest niebezpieczny
+      _Category: 7
+      _Linked: 
+      _Words:
+      - volcano
+      _Answers:
+      - volcano
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_water
+      _Active: 1
+      _Text: "W rzece znajduje si\u0119 WODA"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - water
+      - river
+      _Answers:
+      - water
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_watermelon
+      _Active: 1
+      _Text: Dziewczynka lubi ARBUZ
+      _Category: 14
+      _Linked: 
+      _Words:
+      - watermelon
+      - girl
+      _Answers:
+      - watermelon
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_window
+      _Active: 1
+      _Text: OKNO jest otwarte
+      _Category: 9
+      _Linked: 
+      _Words:
+      - window
+      _Answers:
+      - window
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_woman
+      _Active: 1
+      _Text: "KOBIETA nosi p\u0142aszcz"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - woman
+      - coat
+      _Answers:
+      - woman
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_zoo
+      _Active: 1
+      _Text: "Tygrys \u017Cyje w ZOO"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - zoo
+      - tiger
+      _Answers:
+      - zoo
+      _Complexity: 0
+      _PlaySessionLink:
+      - City

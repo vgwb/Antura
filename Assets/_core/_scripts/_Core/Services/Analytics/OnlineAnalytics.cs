@@ -56,7 +56,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 options.SetEnvironmentName("dev");
                 Debug.LogWarning("Analytics in DEV environment");
             }
-            await UnityServices.InitializeAsync();
+            await UnityServices.InitializeAsync(options);
         }
 
         private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;

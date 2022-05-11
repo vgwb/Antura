@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
@@ -15,9 +12,11 @@ using Antura.Rewards;
 using Antura.Teacher;
 using Antura.UI;
 using Antura.Utilities;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
-using UnityEngine.Serialization;
 
 namespace Antura.Core
 {

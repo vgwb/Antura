@@ -1,9 +1,7 @@
+using Antura.Core;
 using System;
-using Antura.Language;
 using UnityEngine;
 using TMPro;
-using Antura.Core;
-using UnityEngine.Serialization;
 
 namespace Antura.Language
 {
