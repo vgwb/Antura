@@ -1,10 +1,4 @@
 //#define PRELOAD_DATA
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DG.DeAudio;
-using UnityEngine;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -12,6 +6,13 @@ using Antura.Minigames;
 using Antura.Profile;
 using Antura.Language;
 using Antura.LivingLetters;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DG.DeAudio;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Antura.Audio
 {
@@ -41,7 +42,6 @@ namespace Antura.Audio
         public bool MusicEnabled
         {
             get => musicEnabled;
-
             set
             {
                 if (musicEnabled == value)
@@ -185,14 +185,15 @@ namespace Antura.Audio
             var opDialog =
                 Addressables.LoadAssetsAsync<AudioClip>("audio_dialog", obj =>
                 {
-                   // Debug.Log(obj.name);
+                    // Debug.Log(obj.name);
                     //audioCache[obj.name] = obj;
                 });
             yield return opDialog;
 
             var opData =
-                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj => {
-                   // Debug.Log(obj.name);
+                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj =>
+                {
+                    // Debug.Log(obj.name);
                     // audioCache[obj.name] = obj;
                 });
             yield return opData;
@@ -323,6 +324,7 @@ namespace Antura.Audio
         /// <param name="soundType">Phoneme or Name?</param>
         public IAudioSource PlayLetter(LetterData data, bool exclusive = true, LetterDataSoundType soundType = LetterDataSoundType.Phoneme, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
+            //        Debug.Log("PlayLetter " + data.GetAudioFilename(soundType) + " use " + use);
             var sourcePath = new SourcePath(data.GetAudioFilename(soundType), "/Audio/Letters", use);
             return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
@@ -352,8 +354,6 @@ namespace Antura.Audio
                 callbacksDict[wrapper] = callback;
             return wrapper;
         }
-
-
 
         public void StopVocabularyGroup()
         {
@@ -444,12 +444,10 @@ namespace Antura.Audio
         public AudioClip GetMusicAudioClip(Music music)
         {
             MusicConfiguration conf = GetMusicConfiguration(music);
-
             if (conf == null)
             {
                 return null;
             }
-
             return conf.clip;
         }
 
@@ -486,13 +484,12 @@ namespace Antura.Audio
             audioCache.Clear();
         }
 
-
         #region Addressable Loading
 
         private IEnumerator LoadAudio(AudioSourceWrapper source)
         {
             //Debug.Log($"Start loading {source.Path.id}");
-            Ref<AudioClip> clip = new Ref<AudioClip>();
+            var clip = new Ref<AudioClip>();
             yield return LoadAudioClip(source.Path, clip);
             source.Loaded = true;
             if (clip.item != null)
@@ -574,9 +571,7 @@ namespace Antura.Audio
                     //Debug.Log("Waiting for source to load... " + source.Path.id);
                     continue;
                 }
-
                 bool failed = source.Loaded && source.CurrentSource == null;
-
 
                 if (source.Update() || failed)
                 {

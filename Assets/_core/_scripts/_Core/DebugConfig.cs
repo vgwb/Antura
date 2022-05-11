@@ -32,6 +32,11 @@ namespace Antura.Core
         /// </summary>
         public bool DebugLogEnabled = true;
 
+        /// <summary>
+        /// If true, the initial load will be blocking. Used for editor use when not loading from bootstrap
+        /// </summary>
+        public bool AddressablesBlockingLoad = true;
+
         [Header("Tutorial")]
         public bool SimulateFirstContact;
         public FirstContactPhase SimulateFirstContactPhase;

@@ -1815,15 +1815,19 @@ MonoBehaviour:
       _Words_previous: []
       _Phrases: []
       _Phrases_previous: []
-    - _Id: 2.17.1
+    - _Id: 2.17.200
       _Stage: 2
       _LearningBlock: 17
-      _PlaySession: 1
+      _PlaySession: 200
       _Type: MiniGame
-      _Order: 2
-      _NumberOfMinigames: 1
+      _Order: 1
+      _NumberOfMinigames: 3
       _Minigames:
       - MiniGameCode: 20
+        Weight: 3
+      - MiniGameCode: 24
+        Weight: 2
+      - MiniGameCode: 46
         Weight: 1
       _NumberOfRoundsPerMinigame: 0
       _Letters: []

@@ -73,20 +73,20 @@ namespace Antura.Language
                 yield break;
             var languageData = new LanguageData();
 
-            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, AppManager.BlockingLoad);
+            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad);
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
-            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, AppManager.BlockingLoad);
+            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, DebugConfig.I.AddressablesBlockingLoad);
             if (languageData.helper == null)
             {
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
 
-            yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, AppManager.BlockingLoad);
+            yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, DebugConfig.I.AddressablesBlockingLoad);
             /*if (languageData.diacriticsComboData == null)
             {
                 throw new FileNotFoundException($"Could not find the DiacriticsComboData file for {language} in the language resources! Did you setup it correctly?");

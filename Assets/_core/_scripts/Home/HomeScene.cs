@@ -1,4 +1,3 @@
-using System.Collections;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
@@ -18,18 +17,14 @@ namespace Antura.Scenes
     {
         [Header("Setup")]
         public AnturaAnimationStates AnturaAnimation = AnturaAnimationStates.sitting;
-
         public LLAnimationStates LLAnimation = LLAnimationStates.LL_dancing;
 
         [Header("References")]
         public AnturaAnimationController AnturaAnimController;
-
         public LivingLetterController LLAnimController;
         public GameObject DialogReservedArea;
         public GameObject ProfileSelectorUI;
-
         public GameObject PanelAppUpdate;
-
         public GameObject HomeLogo;
 
         protected override void Start()
@@ -47,7 +42,7 @@ namespace Antura.Scenes
             else
             {
                 GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
-                KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, TutorCreateProfile, KeeperMode.LearningThenNativeNoSubtitles);
+                KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, TutorCreateProfile, KeeperMode.LearningNoSubtitles);
                 AnturaAnimController.State = AnturaAnimation;
                 LLAnimController.State = LLAnimation;
             }

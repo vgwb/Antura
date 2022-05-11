@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using Antura.Audio;
+﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Teacher;
@@ -10,24 +8,25 @@ namespace Antura.LivingLetters
 {
     public class HomeSceneLetter : MonoBehaviour
     {
+        private LivingLetterController LivingLetter;
+
         public void OnMouseDown()
         {
-            var view = GetComponent<LivingLetterController>();
-            view.ToggleDance();
-
+            LivingLetter = GetComponent<LivingLetterController>();
+            LivingLetter.ToggleDance();
             ChangeLetter(true);
         }
 
         public void ChangeLetter(bool playSound = false)
         {
-            var view = GetComponent<LivingLetterController>();
+            LivingLetter = GetComponent<LivingLetterController>();
             var letterFilters = new LetterFilters
             {
                 excludeDiphthongs = true,
                 excludeDiacritics = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None
             };
             var letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
-            view.Init(letter);
+            LivingLetter.Init(letter);
 
             if (playSound)
             {
