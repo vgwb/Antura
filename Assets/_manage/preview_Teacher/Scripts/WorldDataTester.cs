@@ -14,7 +14,6 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class WorldDataTester : MonoBehaviour
     {
-        public ContentEditionConfig Edition;
         public string[] LetterGroups;
 
         private DatabaseManager _databaseManager;
@@ -26,6 +25,7 @@ namespace Antura.Teacher.Test
 
         IEnumerator Start()
         {
+            var Edition = FindObjectOfType<DataStatisticsTester>().Edition;
             AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
             yield return AppManager.I.ReloadEdition();
 
