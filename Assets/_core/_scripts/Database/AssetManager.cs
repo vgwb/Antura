@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using System.Resources;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
@@ -20,6 +19,7 @@ namespace Antura
         private Dictionary<string, ShapeLetterData> shapeDataCache = new Dictionary<string, ShapeLetterData>();
         private Dictionary<string, AudioClip> audioCache = new Dictionary<string, AudioClip>();
         private Dictionary<string, TextAsset> textCache = new Dictionary<string, TextAsset>();
+        private Dictionary<string, AudioClip> nativeAudioCache = new Dictionary<string, AudioClip>();
 
         public IEnumerator PreloadDataCO()
         {
@@ -42,10 +42,12 @@ namespace Antura
             ClearCache(spriteCache);
             ClearCache(shapeDataCache);
             ClearCache(audioCache);
+            ClearCache(nativeAudioCache);
             ClearCache(textCache);
 
             // Pre-load images and icons for the wanted language
-            var languageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
+            var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
+            var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
 
             // Icons
             if (VERBOSE)
@@ -54,7 +56,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
-                iconKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(iconKeys, spriteCache, AppManager.BlockingLoad);
 
@@ -65,7 +67,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
-                badgeKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                badgeKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
 
@@ -89,36 +91,58 @@ namespace Antura
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Song Data");
 
+
+            bool hasSimonSong = AppManager.I.DB.GetActiveMinigames().Any(x =>
+                x.Code == MiniGameCode.Song_word_animals
+                || x.Code == MiniGameCode.Song_word_body
+                || x.Code == MiniGameCode.Song_word_city
+                || x.Code == MiniGameCode.Song_word_family
+                || x.Code == MiniGameCode.Song_word_food
+                || x.Code == MiniGameCode.Song_word_home
+                || x.Code == MiniGameCode.Song_word_nature
+                || x.Code == MiniGameCode.Song_word_objectsclothes);
+
+            bool hasAlphabetSong = AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Song_alphabet);
+
             var songAudioKeys = new HashSet<string>();
-            var prefix = $"{languageCode}/Audio/Songs/";
+            var prefix = $"{nativeLanguageCode}/Audio/Songs/";
+
+            if (hasSimonSong)
+            {
+                songAudioKeys.Add($"{prefix}SimonSong_Part_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Part_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Part_160");
+            }
+
+            if (songAudioKeys.Count > 0)
+                yield return LoadAssets(songAudioKeys, nativeAudioCache, AppManager.BlockingLoad);
+
+            prefix = $"{learningLanguageCode}/Audio/Songs/";
+            songAudioKeys = new HashSet<string>();
             if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Song_alphabet))
             {
                 songAudioKeys.Add($"{prefix}AlphabetSong");
             }
             //songAudioKeys.Add($"{prefix}DiacriticSong");
-            if (AppManager.I.DB.GetActiveMinigames().Any(x =>
-                    x.Code == MiniGameCode.Song_word_animals
-                    || x.Code == MiniGameCode.Song_word_body
-                    || x.Code == MiniGameCode.Song_word_city
-                    || x.Code == MiniGameCode.Song_word_family
-                    || x.Code == MiniGameCode.Song_word_food
-                    || x.Code == MiniGameCode.Song_word_home
-                    || x.Code == MiniGameCode.Song_word_nature
-                    || x.Code == MiniGameCode.Song_word_objectsclothes))
+
+            if (hasSimonSong)
             {
+                // TODO: the intro should be loaded regardless of language (it's always the same)
                 songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
                 songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
                 songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
-                songAudioKeys.Add($"{prefix}SimonSong_Main_120");
-                songAudioKeys.Add($"{prefix}SimonSong_Main_140");
-                songAudioKeys.Add($"{prefix}SimonSong_Main_160");
+
+                songAudioKeys.Add($"{prefix}SimonSong_Part_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Part_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Part_160");
             }
+
             if (songAudioKeys.Count > 0)
                 yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
 
             var songTextKeys = new HashSet<string>();
-            prefix = $"{languageCode}/Audio/Songs/";
-            if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Song_alphabet))
+            prefix = $"{learningLanguageCode}/Audio/Songs/";
+            if (hasAlphabetSong)
             {
                 songTextKeys.Add($"{prefix}AlphabetSong.akr");
             }
@@ -163,7 +187,6 @@ namespace Antura
                     yield return null;
             }
 
-            //yield return op;
             if (VERBOSE)
                 Debug.Log($"Found {n} items");
         }
@@ -209,6 +232,11 @@ namespace Antura
         public AudioClip GetSongClip(string id)
         {
             return Get(audioCache, id);
+        }
+
+        public AudioClip GetNativeSongClip(string id)
+        {
+            return Get(nativeAudioCache, id);
         }
 
     }
