@@ -1,10 +1,4 @@
 //#define PRELOAD_DATA
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
-using DG.DeAudio;
-using UnityEngine;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -12,6 +6,13 @@ using Antura.Minigames;
 using Antura.Profile;
 using Antura.Language;
 using Antura.LivingLetters;
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using DG.DeAudio;
+using UnityEngine;
+using UnityEngine.AddressableAssets;
 
 namespace Antura.Audio
 {
@@ -185,14 +186,15 @@ namespace Antura.Audio
             var opDialog =
                 Addressables.LoadAssetsAsync<AudioClip>("audio_dialog", obj =>
                 {
-                   // Debug.Log(obj.name);
+                    // Debug.Log(obj.name);
                     //audioCache[obj.name] = obj;
                 });
             yield return opDialog;
 
             var opData =
-                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj => {
-                   // Debug.Log(obj.name);
+                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj =>
+                {
+                    // Debug.Log(obj.name);
                     // audioCache[obj.name] = obj;
                 });
             yield return opData;
@@ -353,8 +355,6 @@ namespace Antura.Audio
             return wrapper;
         }
 
-
-
         public void StopVocabularyGroup()
         {
             vocabularyGroup?.Stop();
@@ -444,12 +444,10 @@ namespace Antura.Audio
         public AudioClip GetMusicAudioClip(Music music)
         {
             MusicConfiguration conf = GetMusicConfiguration(music);
-
             if (conf == null)
             {
                 return null;
             }
-
             return conf.clip;
         }
 
@@ -485,7 +483,6 @@ namespace Antura.Audio
             }
             audioCache.Clear();
         }
-
 
         #region Addressable Loading
 
@@ -574,9 +571,7 @@ namespace Antura.Audio
                     //Debug.Log("Waiting for source to load... " + source.Path.id);
                     continue;
                 }
-
                 bool failed = source.Loaded && source.CurrentSource == null;
-
 
                 if (source.Update() || failed)
                 {
