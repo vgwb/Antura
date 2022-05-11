@@ -42,7 +42,6 @@ namespace Antura.Audio
         public bool MusicEnabled
         {
             get => musicEnabled;
-
             set
             {
                 if (musicEnabled == value)
@@ -325,6 +324,7 @@ namespace Antura.Audio
         /// <param name="soundType">Phoneme or Name?</param>
         public IAudioSource PlayLetter(LetterData data, bool exclusive = true, LetterDataSoundType soundType = LetterDataSoundType.Phoneme, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
+            //        Debug.Log("PlayLetter " + data.GetAudioFilename(soundType) + " use " + use);
             var sourcePath = new SourcePath(data.GetAudioFilename(soundType), "/Audio/Letters", use);
             return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
@@ -489,7 +489,7 @@ namespace Antura.Audio
         private IEnumerator LoadAudio(AudioSourceWrapper source)
         {
             //Debug.Log($"Start loading {source.Path.id}");
-            Ref<AudioClip> clip = new Ref<AudioClip>();
+            var clip = new Ref<AudioClip>();
             yield return LoadAudioClip(source.Path, clip);
             source.Loaded = true;
             if (clip.item != null)
