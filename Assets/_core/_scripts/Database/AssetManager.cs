@@ -32,7 +32,7 @@ namespace Antura
                     if (msg.Contains("InvalidKeyException"))
                     {
                         var index = msg.IndexOf("Key=");
-                        msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
+                        if (index >= 0) msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
                     }
                     Debug.LogError(msg);
                 }
@@ -115,7 +115,7 @@ namespace Antura
             }
 
             if (songAudioKeys.Count > 0)
-                yield return LoadAssets(songAudioKeys, nativeAudioCache, AppManager.BlockingLoad);
+                yield return LoadAssets(songAudioKeys, nativeAudioCache, DebugConfig.I.AddressablesBlockingLoad);
 
             prefix = $"{learningLanguageCode}/Audio/Songs/";
             songAudioKeys = new HashSet<string>();
