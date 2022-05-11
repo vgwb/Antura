@@ -125,8 +125,11 @@ namespace Antura.Minigames.ReadingGame
             public float questionTime;
             public int bpm;
 
-            public AudioClip songPartNative => AppManager.I.AssetManager.GetNativeSongClip($"SimonSong_Part_{bpm}");
-            public AudioClip songPartLearning => AppManager.I.AssetManager.GetSongClip($"SimonSong_Part_{bpm}");
+            public AudioClip voicePartNative => AppManager.I.AssetManager.GetNativeSongClip($"SimonSong_Voice_{bpm}");
+            public AudioClip voicePartLearning => AppManager.I.AssetManager.GetSongClip($"SimonSong_Voice_{bpm}");
+            public AudioClip songFirstHalf => AppManager.I.AssetManager.GetSongClip($"SimonSong_MusicFirstHalf_{bpm}");
+            public AudioClip songSecondHalf => AppManager.I.AssetManager.GetSongClip($"SimonSong_MusicSecondHalf_{bpm}");
+
             public AudioClip intro => AppManager.I.AssetManager.GetSongClip($"SimonSong_Intro_{bpm}");
 
             public float periodRatio
@@ -237,9 +240,9 @@ namespace Antura.Minigames.ReadingGame
         #region Looping Song
 
         private Coroutine loopSongCO;
-        public void StartLoopingSong(AudioClip song)
+        public void StartLoopingSong(AudioClip song, AudioClip voice = null)
         {
-            loopSongCO = StartCoroutine(SongLoopCO(song));
+            loopSongCO = StartCoroutine(SongLoopCO(song, voice));
         }
         public bool IsLoopingSong => loopSongCO != null;
 
@@ -253,18 +256,20 @@ namespace Antura.Minigames.ReadingGame
             }
         }
 
-        public void ChangeLoopingSong(AudioClip song)
+        public void ChangeLoopingSong(AudioClip song, AudioClip voice = null)
         {
             StopLoopingSong();
-            StartLoopingSong(song);
+            StartLoopingSong(song, voice);
         }
 
         public Action onSongLoop;
-        private IEnumerator SongLoopCO(AudioClip song)
+        private IEnumerator SongLoopCO(AudioClip song, AudioClip voice = null)
         {
             while (true)
             {
-                loopingSource = Context.GetAudioManager().PlaySound(song);
+                if (voice != null) loopingVoiceSource = Context.GetAudioManager().PlaySound(voice);
+                else loopingVoiceSource = null;
+                loopingSongSource = Context.GetAudioManager().PlaySound(song);
                 yield return WaitForPauseCO(song.length, true);
                 onSongLoop?.Invoke();
                 yield return null;
@@ -286,25 +291,33 @@ namespace Antura.Minigames.ReadingGame
             }
         }
 
-        private IAudioSource loopingSource;
+        private IAudioSource loopingSongSource;
+        private IAudioSource loopingVoiceSource;
         private float lastSongTime;
         private bool songPaused;
         private void CheckSongPause()
         {
             bool isMenuOpen = UI.PauseMenu.I.IsMenuOpen;
-            if (loopingSource != null && loopingSource.IsPlaying && isMenuOpen)
+            if (loopingSongSource != null && loopingSongSource.IsPlaying && isMenuOpen)
             {
-                float currentTime = loopingSource.Position;
+                float currentTime = loopingSongSource.Position;
                 lastSongTime = currentTime;
-                loopingSource.Pause();
+                loopingSongSource.Pause();
+                if (loopingVoiceSource != null) loopingVoiceSource.Pause();
                 songPaused = true;
                 Debug.Log("SONG PAUSING");
             }
-            else if (loopingSource != null && !loopingSource.IsPlaying && !isMenuOpen && songPaused)
+            else if (loopingSongSource != null && !loopingSongSource.IsPlaying && !isMenuOpen && songPaused)
             {
-                loopingSource.Stop();
-                loopingSource.Play();
-                loopingSource.Position = lastSongTime;
+                loopingSongSource.Stop();
+                loopingSongSource.Play();
+                loopingSongSource.Position = lastSongTime;
+                if (loopingVoiceSource != null)
+                {
+                    loopingVoiceSource.Stop();
+                    loopingVoiceSource.Play();
+                    loopingVoiceSource.Position = lastSongTime;
+                }
                 songPaused = false;
                 Debug.Log("SONG RESUMING");
             }

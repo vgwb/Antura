@@ -368,11 +368,11 @@ namespace Antura.Minigames.ReadingGame
 
                 game.Context.GetAudioManager().PlayVocabularyData(correctButton.Answer);
                 game.ChangeLoopingSong(game.CurrentSongBPM.intro);
-                Debug.Log("POST ANSWER INTRO LOOP");
+                //Debug.Log("POST ANSWER INTRO LOOP");
                 game.onSongLoop += () =>
                 {
                     KeeperManager.I.CloseSubtitles();
-                    Debug.Log("END - POST ANSWER INTRO LOOP");
+                    //Debug.Log("END - POST ANSWER INTRO LOOP");
                     game.StopLoopingSong();
                     game.SetCurrentState(game.QuestionState);
                 };

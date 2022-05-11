@@ -109,9 +109,9 @@ namespace Antura
 
             if (hasSimonSong)
             {
-                songAudioKeys.Add($"{prefix}SimonSong_Part_120");
-                songAudioKeys.Add($"{prefix}SimonSong_Part_140");
-                songAudioKeys.Add($"{prefix}SimonSong_Part_160");
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_160");
             }
 
             if (songAudioKeys.Count > 0)
@@ -127,14 +127,22 @@ namespace Antura
 
             if (hasSimonSong)
             {
-                // TODO: the intro should be loaded regardless of language (it's always the same)
-                songAudioKeys.Add($"{prefix}SimonSong_Intro_120");
-                songAudioKeys.Add($"{prefix}SimonSong_Intro_140");
-                songAudioKeys.Add($"{prefix}SimonSong_Intro_160");
+                // @note: the intro is always the same regardless of the language, so it is saved in Common
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_120");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_140");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_160");
 
-                songAudioKeys.Add($"{prefix}SimonSong_Part_120");
-                songAudioKeys.Add($"{prefix}SimonSong_Part_140");
-                songAudioKeys.Add($"{prefix}SimonSong_Part_160");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_120");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_140");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_160");
+
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_120");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_140");
+                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_160");
+
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_120");
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_140");
+                songAudioKeys.Add($"{prefix}SimonSong_Voice_160");
             }
 
             if (songAudioKeys.Count > 0)
