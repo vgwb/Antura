@@ -1,7 +1,9 @@
 ﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Scenes;
 using Antura.Teacher;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.LivingLetters
@@ -9,9 +11,19 @@ namespace Antura.LivingLetters
     public class HomeSceneLetter : MonoBehaviour
     {
         private LivingLetterController LivingLetter;
+        private EditionSelectionManager EditionSelectionManager;
+
+        void Awake()
+        {
+            EditionSelectionManager = FindObjectOfType<EditionSelectionManager>();
+        }
 
         public void OnMouseDown()
         {
+            if (GlobalUI.PauseMenu.IsMenuOpen) return;
+            if (EditionSelectionManager.selectNativeLanguagePanel.isActiveAndEnabled) return;
+            if (EditionSelectionManager.selectLearningContentPanel.isActiveAndEnabled) return;
+
             LivingLetter = GetComponent<LivingLetterController>();
             LivingLetter.ToggleDance();
             ChangeLetter(true);
