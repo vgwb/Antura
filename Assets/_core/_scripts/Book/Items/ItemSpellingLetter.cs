@@ -1,6 +1,7 @@
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -13,12 +14,10 @@ namespace Antura.Book
         public TextRender SubtitleText;
 
         private LetterData myLetterData;
-        //        private UIButton uIButton;
 
         public void Init(LetterData _letterData)
         {
             myLetterData = _letterData;
-            //            uIButton = GetComponent<UIButton>();
 
             if (myLetterData == null)
             {
@@ -28,7 +27,9 @@ namespace Antura.Book
             else
             {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
-                LetterText.SetTextUnfiltered(isolatedChar);
+                LetterText.SetTextUnfiltered(isolatedChar, Font2Use.Learning);
+                Debug.Log("SPelling " + isolatedChar);
+
                 if (AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
                     SubtitleText.SetText(myLetterData.Id);
                 else

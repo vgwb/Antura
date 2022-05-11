@@ -1,5 +1,7 @@
 ﻿using Antura.Core;
 using Antura.Database;
+using Antura.Language;
+
 using TMPro;
 using UnityEngine;
 
@@ -51,10 +53,10 @@ namespace Antura.UI
                 LetterTextFinal.gameObject.SetActive(true);
             }
 
-            LetterTextIsolated.SetTextUnfiltered(isolatedChar);
-            LetterTextInitial.SetTextUnfiltered(InitialChar);
-            LetterTextMedial.SetTextUnfiltered(MedialChar);
-            LetterTextFinal.SetTextUnfiltered(FinalChar);
+            LetterTextIsolated.SetTextUnfiltered(isolatedChar, Font2Use.Learning);
+            LetterTextInitial.SetTextUnfiltered(InitialChar, Font2Use.Learning);
+            LetterTextMedial.SetTextUnfiltered(MedialChar, Font2Use.Learning);
+            LetterTextFinal.SetTextUnfiltered(FinalChar, Font2Use.Learning);
 
             if (Book.Book.I.EditDiacritics)
             {

@@ -40,7 +40,7 @@ namespace Antura.Book
                 OkIcon.enabled = false;
             }
 
-            Title.text = myLetterInfo.data.GetStringForDisplay();
+            Title.SetText(myLetterInfo.data.GetStringForDisplay(), Font2Use.Learning);
             SubTitle.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? myLetterInfo.data.Id : ""; //  + (myLetterInfo.data.Number > 0 ? " (" + myLetterInfo.data.Number + ")" : "");
             // + " " + myLetterInfo.data.Kind.ToString();
             highlight(_selected);

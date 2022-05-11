@@ -1,8 +1,8 @@
+using Antura.Core;
 using Antura.Language;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.UI;
-using Antura.Core;
 using Antura.LivingLetters;
 using UnityEngine;
 using UnityEngine.UI;
@@ -39,7 +39,7 @@ namespace Antura.Book
                 OkIcon.enabled = false;
             }
 
-            Title.SetText(myWordInfo.data.Text);
+            Title.SetText(myWordInfo.data.Text, Font2Use.Learning);
             Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
             SubTitle.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? myWordInfo.data.Id : "";
 
