@@ -56,7 +56,7 @@ namespace Antura
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
                 iconKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(iconKeys, spriteCache, AppManager.BlockingLoad);
+            yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
 
             // Badges
             if (VERBOSE)
@@ -67,7 +67,7 @@ namespace Antura
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
                 badgeKeys.Add($"{languageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(badgeKeys, spriteCache, AppManager.BlockingLoad);
+            yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
 
             // Shape data
             if (VERBOSE)
@@ -82,7 +82,7 @@ namespace Antura
                 {
                     sideKeys.Add($"{fontName}/shapedata_{letterData.GetCompleteUnicodes()}");
                 }
-                yield return LoadAssets(sideKeys, shapeDataCache, AppManager.BlockingLoad);
+                yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad);
             }
 
             // Song data
@@ -114,7 +114,7 @@ namespace Antura
                 songAudioKeys.Add($"{prefix}SimonSong_Main_160");
             }
             if (songAudioKeys.Count > 0)
-                yield return LoadAssets(songAudioKeys, audioCache, AppManager.BlockingLoad);
+                yield return LoadAssets(songAudioKeys, audioCache, DebugConfig.I.AddressablesBlockingLoad);
 
             var songTextKeys = new HashSet<string>();
             prefix = $"{languageCode}/Audio/Songs/";
@@ -124,7 +124,7 @@ namespace Antura
             }
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
             if (songTextKeys.Count > 0)
-                yield return LoadAssets(songTextKeys, textCache, AppManager.BlockingLoad);
+                yield return LoadAssets(songTextKeys, textCache, DebugConfig.I.AddressablesBlockingLoad);
         }
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object

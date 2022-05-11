@@ -79,16 +79,6 @@ namespace Antura.Core
         /// </summary>
         public bool Loaded;
 
-
-        /// <summary>
-        /// If true, the initial load will be blocking. Used for editor use when not loading from bootstrap
-        /// </summary>
-#if UNITY_EDITOR
-        public static bool BlockingLoad = true;
-#else
-        public static bool BlockingLoad = false;
-#endif
-
         protected override void Awake()
         {
             GetComponent<AppBootstrap>().InitManagers();
@@ -110,7 +100,7 @@ namespace Antura.Core
             }
             alreadySetup = true;
 
-            if (BlockingLoad)
+            if (DebugConfig.I.AddressablesBlockingLoad)
             {
                 BlockingCoroutine(InitCO());
             }
