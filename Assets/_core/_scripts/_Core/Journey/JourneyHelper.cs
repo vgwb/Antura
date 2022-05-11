@@ -158,35 +158,12 @@ namespace Antura.Teacher
 
         public JourneyPosition GetMinimumJourneyPositionForMiniGame(MiniGameCode minigameCode)
         {
-            var finalPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
-            int NBasePlaySession = 2;
-
-            for (int s = 1; s <= finalPos.Stage; s++)
+            var journeyPositions = AppManager.I.JourneyHelper.GetAllJourneyPositions();
+            foreach (var jp in journeyPositions)
             {
-                for (int lb = 1; lb <= finalPos.LearningBlock; lb++)
+                if (AppManager.I.Teacher.CanMiniGameBePlayedAtPlaySession(jp, minigameCode))
                 {
-                    for (int ps = 1; ps <= NBasePlaySession; ps++)
-                    {
-                        var jp = new JourneyPosition(s, lb, ps);
-                        if (AppManager.I.DB.HasPlaySessionDataById(jp.Id))
-                        {
-                            if (AppManager.I.Teacher.CanMiniGameBePlayedAtPlaySession(jp, minigameCode))
-                            {
-                                return new JourneyPosition(s, lb, ps);
-                            }
-                        }
-                    }
-
-                    int assessmentIndex = JourneyPosition.ASSESSMENT_PLAY_SESSION_INDEX;
-                    var jp_assessment = new JourneyPosition(s, lb, assessmentIndex);
-
-                    if (AppManager.I.DB.HasPlaySessionDataById(jp_assessment.Id))
-                    {
-                        if (AppManager.I.Teacher.CanMiniGameBePlayedAtPlaySession(jp_assessment, minigameCode))
-                        {
-                            return new JourneyPosition(s, lb, assessmentIndex);
-                        }
-                    }
+                    return new JourneyPosition(jp);
                 }
             }
             return null;
