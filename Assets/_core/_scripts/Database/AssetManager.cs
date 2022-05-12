@@ -32,7 +32,8 @@ namespace Antura
                     if (msg.Contains("InvalidKeyException"))
                     {
                         var index = msg.IndexOf("Keys=");
-                        if (index >= 0) msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
+                        if (index >= 0)
+                            msg = "Could not find subset of keys: " + msg.Substring(index, msg.Length - index);
                     }
                     Debug.LogError(msg);
                 }
@@ -56,7 +57,8 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
-                iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                // iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                iconKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
 
@@ -67,7 +69,8 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
-                badgeKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                // badgeKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                badgeKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
 
@@ -90,7 +93,6 @@ namespace Antura
             // Song data
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Song Data");
-
 
             bool hasSimonSong = AppManager.I.DB.GetActiveMinigames().Any(x =>
                 x.Code == MiniGameCode.Song_word_animals
