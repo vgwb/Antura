@@ -59,7 +59,7 @@ namespace Antura.Test
 
             foreach (string lang in folders)
             {
-                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
+                if (!lang.ToLower().Equals(LanguageToCheck.ToString().ToLower()))
                     continue;
 
                 int missing_count = 0;
@@ -226,7 +226,7 @@ namespace Antura.Test
 
             foreach (string lang in folders)
             {
-                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
+                if (!lang.ToLower().Equals(LanguageToCheck.ToString().ToLower()))
                     continue;
 
                 int missing_count = 0;
