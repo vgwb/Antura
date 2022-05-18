@@ -7,7 +7,7 @@ namespace Antura.AnturaSpace
     {
         public GameObject objectToRender;
         public ThrowableObject throwingObjectPrefabGO;
-
+        protected override string ActionKey => "bone";
         public override GameObject ObjectToRender
         {
             get { return objectToRender; }

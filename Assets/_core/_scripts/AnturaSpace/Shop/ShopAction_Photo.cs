@@ -4,6 +4,8 @@ namespace Antura.AnturaSpace
 {
     public class ShopAction_Photo : ShopAction
     {
+        protected override string ActionKey => "photo";
+
         void Start()
         {
             var shopActionUI = GetComponent<ShopActionUI>();

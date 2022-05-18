@@ -9,7 +9,7 @@ namespace Antura.AnturaSpace
     public class ShopAction_UnlockDecoration : ShopAction
     {
         public ShopDecorationObject UnlockableDecorationObject;
-
+        protected override string ActionKey => LocID;
         public override GameObject ObjectToRender
         {
             get { return UnlockableDecorationObject.gameObject; }

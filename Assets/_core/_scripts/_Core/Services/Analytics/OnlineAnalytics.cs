@@ -144,17 +144,18 @@ namespace Antura.Core.Services.OnlineAnalytics
             AnalyticsService.Instance.CustomData("myTutorialComplete", new Dictionary<string, object>());
         }
 
-        public void TrackSpentBones(int nSpent)
+        public void TrackSpentBones(int nSpent, string boughtItemKey)
         {
             if (!AnalyticsEnabled)
                 return;
 
             var parameters = new Dictionary<string, object>()
             {
-                { "myBonesSpent", nSpent }
+                { "myBonesSpent", nSpent },
+                { "myBoughtItem", boughtItemKey}
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myItemSpent", parameters);
+            AnalyticsService.Instance.CustomData("myItemBought", parameters);
         }
 
         public void TrackCustomization(AnturaCustomization customization, float anturaSpacePlayTime)
@@ -162,11 +163,18 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var parameters = new Dictionary<string, object>
             {
-                { "myAnturaCutomization", customization.GetJsonListOfIds() },
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
+
+            foreach (var pack in customization.PropPacks)
+            {
+                parameters.Add($"prop_{pack.Category}", pack.BaseId);
+            }
+            parameters.Add($"texture", customization.TexturePackId);
+            parameters.Add($"decal", customization.DecalPackId);
+
             AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
         }

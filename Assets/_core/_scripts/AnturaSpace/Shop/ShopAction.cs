@@ -71,6 +71,7 @@ namespace Antura.AnturaSpace
             // nothing to do here
         }
 
+        protected virtual string ActionKey => "";
 
         protected virtual void CommitAction()
         {
@@ -81,6 +82,7 @@ namespace Antura.AnturaSpace
         {
             if (success)
             {
+                AppManager.I.Services.Analytics.TrackSpentBones(bonesCost, ActionKey);
                 AppManager.I.Player.RemoveBones(bonesCost);
             }
             else

@@ -94,8 +94,6 @@ namespace Antura.Profile
 
         public int RemoveBones(int _bonesToRemove)
         {
-            AppManager.I.Services.Analytics.TrackSpentBones(_bonesToRemove);
-
             TotalNumberOfBones -= _bonesToRemove;
             Save();
             return TotalNumberOfBones;
