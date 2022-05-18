@@ -41,6 +41,7 @@ namespace Antura.UI
             {
                 if (UIIcon != null) UIIcon.enabled = false;
                 if (Icon != null) Icon.enabled = false;
+                Text.enabled = false;
             }
         }
     }
