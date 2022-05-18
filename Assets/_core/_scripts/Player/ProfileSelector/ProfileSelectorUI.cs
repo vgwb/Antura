@@ -146,7 +146,11 @@ namespace Antura.UI
 
                     // Use the first available, if the player is null
                     if (AppManager.I.Player == null)
+                    {
                         AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(playerIcon.Uuid);
+                    }
+                    // Make sure to load the DB for that player (or it causes issues if we switch languages)
+                    AppManager.I.DB.LoadDatabaseForPlayer(AppManager.I.Player.Uuid);
 
                     playerIcon.Select(AppManager.I.Player.Uuid);
                     playerIcon.transform.localScale = Vector3.one * (AppManager.I.Player.Uuid == playerIcon.Uuid ? 1.14f : 1);
