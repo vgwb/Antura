@@ -60,8 +60,8 @@ CustomEvent: `myMinigameScore`
 Parameters:
 ```
 minigame: string code
-score: int
-duration: int
+score: int (0,1,2,3 stars)
+duration: int seconds
 JP: Journey Position
 ```
 
@@ -76,7 +76,7 @@ JP: Journey Position
 Stage: int
 LearningBlock: int
 PlaySession: int
-TotalPlayTime: int seconds
+TotalPlayTime: int seconds played in minigames
 TotalStars: int
 TotalBones: int
 ```
@@ -88,9 +88,9 @@ CustomEvent: `myCompletedRegistration`
 
 Parameters:
 ```
-myGender: string ()
+myGender: string ("nd", "M", "F")
 myAge: int
-myProfileNumber: how many profiles exists in this edition
+myProfileNumber: how many profiles exist in this edition
 myAvatar_Face: id
 myAvatar_BgColor: string color
 myAvatar_HairColor: string color
@@ -101,8 +101,13 @@ myAvatar_SkinColor: string color
 When player finishes the initial tutorial
 
 CustomEvent: `myTutorialComplete`
+Parameters:
+```
+myPhase: string
+myDuration: int seconds
+```
 
-### TrackSpentBones
+### Track Shop / Item Bought
 When bones are spent in the Antura Space
 
 CustomEvent: `myItemBought`
@@ -113,14 +118,14 @@ myBonesSpent: int
 myItemBought: string item code
 ```
 
-### TrackCustomization
+### Track Antura Customization
 When player customizes Antura in the Antura Space
 
 CustomEvent: `myAnturaCustomize`
 
 Parameters:
 ```
-myAnturaSpace_playtime: int time spent in Antura Space
+myDuration: int time spent in Antura Space
 myAntura_Head: object name
 myAntura_EarL: object name
 myAntura_EarR: object name
@@ -150,6 +155,6 @@ CustomEvent: `myBook`
 
 Parameters:
 ```
-myBookAction: string
-myBookObject: string
+myBookAction: string action (letter, word, launch minigame)
+myBookObject: string object code (letter, word, minigame code)
 ```
