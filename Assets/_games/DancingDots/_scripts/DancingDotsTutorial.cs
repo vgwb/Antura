@@ -49,7 +49,7 @@ namespace Antura.Minigames.DancingDots
             doTutOnDots = false;
 
             foreach (DancingDotsDraggableDot dd in gameManager.dragableDots)
-                if (dd.isNeeded && dd.gameObject.activeSelf)
+                if (dd.isCorrect && dd.gameObject.activeSelf)
                 {
                     currentDD = dd;
                     doTutOnDots = true;
@@ -62,7 +62,7 @@ namespace Antura.Minigames.DancingDots
             {
 
                 foreach (DancingDotsDraggableDot dd in gameManager.dragableDiacritics)
-                    if (dd.isNeeded)
+                    if (dd.isCorrect)
                     {
                         currentDD = dd;
                         source = currentDD.transform;

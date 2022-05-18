@@ -93,7 +93,7 @@ namespace Antura.Minigames.DancingDots
                 _dotsCount = value;
                 foreach (DancingDotsDraggableDot dd in dragableDots)
                 {
-                    dd.isNeeded = dd.dots == _dotsCount;
+                    dd.isCorrect = dd.dots == _dotsCount;
                 }
             }
         }
@@ -425,7 +425,7 @@ namespace Antura.Minigames.DancingDots
 
                 foreach (DancingDotsDraggableDot dd in dragableDiacritics)
                 {
-                    dd.isNeeded = activeDiacritic.diacritic == dd.diacritic;
+                    dd.isCorrect = activeDiacritic.diacritic == dd.diacritic;
                 }
 
                 // wait for end of frame to get correct values for meshes

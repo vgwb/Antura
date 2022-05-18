@@ -21,7 +21,7 @@ namespace Antura.Minigames.DancingDots
 
         public Vector3 fingerOffset;
         public TextMeshPro draggableText;
-        public bool isNeeded = false;
+        public bool isCorrect = false;
 
         public bool isDragging = false;
         private bool overDestinationMarker = false;
@@ -78,7 +78,7 @@ namespace Antura.Minigames.DancingDots
             if (game.disableInput)
                 return;
 
-            if (overDestinationMarker)
+            if (overDestinationMarker && isCorrect)
             {
                 if (isDot)
                 {
@@ -92,7 +92,7 @@ namespace Antura.Minigames.DancingDots
             }
             else
             {
-                if (overPlayermarker && !isNeeded)
+                if (overPlayermarker && !isCorrect)
                 {
                     isDragging = false;
 
