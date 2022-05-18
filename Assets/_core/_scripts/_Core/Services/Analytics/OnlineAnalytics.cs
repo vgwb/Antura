@@ -172,8 +172,8 @@ namespace Antura.Core.Services.OnlineAnalytics
             {
                 parameters.Add($"prop_{pack.Category}", pack.BaseId);
             }
-            parameters.Add($"texture", customization.TexturePackId);
-            parameters.Add($"decal", customization.DecalPackId);
+            parameters.Add($"texture", customization.TexturePack.BaseId);
+            parameters.Add($"decal", customization.DecalPack.BaseId);
 
             AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
