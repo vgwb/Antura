@@ -19,10 +19,10 @@ namespace Antura.Database.Management
     /// <summary>
     /// Helps in managing and testing database contents.
     /// </summary>
+    [RequireComponent(typeof(EditorContentHolder))]
     public class DatabaseTester : MonoBehaviour
     {
-        [Header("Edition")]
-        public ContentEditionConfig InputContent;
+        private ContentEditionConfig inputContent;
 
         [Header("Config")]
         public Text OutputText;
@@ -42,13 +42,14 @@ namespace Antura.Database.Management
 
         void Awake()
         {
-            var langCode = InputContent.LearningLanguage;
+            inputContent = FindObjectOfType<EditorContentHolder>().InputContent;
+            var langCode = inputContent.LearningLanguage;
 
             dbLoader = GetComponent<DatabaseLoader>();
             dbLoader.langCode = langCode;
-            dbLoader.InputContent = InputContent;
+            dbLoader.InputContent = inputContent;
 
-            dbManager = new DatabaseManager(InputContent, langCode);
+            dbManager = new DatabaseManager(inputContent, langCode);
             vocabularyHelper = new VocabularyHelper(dbManager);
             scoreHelper = new ScoreHelper(dbManager);
             teacherAI = new TeacherAI(dbManager, vocabularyHelper, scoreHelper);
@@ -91,7 +92,7 @@ namespace Antura.Database.Management
 
         public void ImportAll()
         {
-            dbLoader.LoadDatabase(InputContent);
+            dbLoader.LoadDatabase(inputContent);
             DumpAllDataCounts();
         }
 

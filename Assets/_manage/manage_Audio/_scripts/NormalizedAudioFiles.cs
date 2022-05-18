@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System;
 using System.Linq;
 using System.IO;
+using Antura.Database.Management;
 using UnityEngine;
 using UnityEditor;
 
@@ -21,12 +22,12 @@ namespace Antura.Test
         public LanguageCode LanguageToCheck;
         List<string> folders;
 
-        public ContentEditionConfig ContentTarget;
+        private ContentEditionConfig ContentTarget;
         public DatabaseManager dbManager;
         public bool CheckDialogs;
         public bool CheckLetters;
         public bool CheckPhrases;
-        public bool CheckWords;        
+        public bool CheckWords;
 
         List<LocalizationData> localization;
         List<WordData> words;
@@ -360,6 +361,7 @@ namespace Antura.Test
 
         public bool PreValidateAssets()
         {
+            ContentTarget = FindObjectOfType<EditorContentHolder>()?.InputContent;
             if (ContentTarget == null) //if its not present in the script (attachable in the inspector), we shut down the call
             {
                 Debug.LogWarning("WARNING: There's no Content - Learn... asset attached to run the task");
