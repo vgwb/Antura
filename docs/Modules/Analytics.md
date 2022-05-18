@@ -35,8 +35,8 @@ Unity Analytics (the new beta version we are enabled to use) has also an SQL Dat
 
 ## Environments
 we have two environments:
-- production (published apps)
-- dev (from editor and dev builds)
+- **production** (published apps)
+- **dev** (from editor and dev builds)
 
 ## Terminology
 **JP** = Journey Position ([see](../Modules/Journey.md))
@@ -47,81 +47,109 @@ is identified by a the sequence **X.Y.Z** where X is the Stage, Y the Learning B
 ### Shared Parameters
 every custom events sends also these params:
 ```
-{
-    { "myPlayerUuid", AppSettings.LastActivePlayerUUID },
-    { "myEdition", AppSettings.ContentID },
-    { "myNativeLang", GetISO3Code(AppSettings.NativeLanguage)}
-}
+myPlayerUuid: PlayerUUID
+myEdition: ContentID
+myNativeLang: string Iso3 Code
 ```
 
 ### TrackMiniGameScore
 When player finishes a minigame
-```
-Parameters:
-{
-    { "minigame", miniGameCode.ToString() },
-    { "score", score },
-    { "duration", (int)duration },
-    { "JP", currentJourneyPosition.Id }
-};
 
-CustomEvent: myMinigameScore
+CustomEvent: `myMinigameScore`
+
+Parameters:
+```
+minigame: string code
+score: int
+duration: int
+JP: Journey Position
 ```
 
 ### TrackReachedJourneyPosition
 When the player advances in the journey
-```
-Parameters:
-{
-    { "JP", jp.Id },
-    { "Stage", jp.Stage },
-    { "LearningBlock", jp.LearningBlock },
-    { "PlaySession", jp.PlaySession }
-};
 
-CustomEvent: myLevelUp
+CustomEvent: `myLevelUp`
+
+Parameters:
+```
+JP: Journey Position
+Stage: int
+LearningBlock: int
+PlaySession: int
+TotalPlayTime: int seconds
+TotalStars: int
+TotalBones: int
 ```
 
 ### CompletedRegistration
 When player creates an Avatar (first step in the game)
-```
-Parameters:
-{
-    { "id", playerProfile.AvatarId },
-    { "bg_color", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
-    { "hair_color", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
-    { "skin_color", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
-    { "tint", playerProfile.Tint }
-    { "myGender", playerProfile.Gender.ToString() },
-    { "myAge", playerProfile.Age }
-};
 
-CustomEvent: myCompletedRegistration
+CustomEvent: `myCompletedRegistration`
+
+Parameters:
+```
+myGender: string ()
+myAge: int
+myProfileNumber: how many profiles exists in this edition
+myAvatar_Face: id
+myAvatar_BgColor: string color
+myAvatar_HairColor: string color
+myAvatar_SkinColor: string color
 ```
 
 ### TrackCompletedFirstContactPhase
 When player finishes the initial tutorial
-```
-CustomEvent: myTutorialComplete
-```
+
+CustomEvent: `myTutorialComplete`
 
 ### TrackSpentBones
 When bones are spent in the Antura Space
-```
-Parameters:
-{ "bonesSpent", nSpent }
 
-CustomEvent: myItemSpent
+CustomEvent: `myItemBought`
+
+Parameters:
+```
+myBonesSpent: int
+myItemBought: string item code
 ```
 
 ### TrackCustomization
 When player customizes Antura in the Antura Space
-```
-Parameters:
-{
-    { "customization", customization.GetJsonListOfIds() },
-    { "AnturaSpace_playtime", (int)anturaSpacePlayTime }
-};
 
-CustomEvent: myAnturaCustomize
+CustomEvent: `myAnturaCustomize`
+
+Parameters:
+```
+myAnturaSpace_playtime: int time spent in Antura Space
+myAntura_Head: object name
+myAntura_EarL: object name
+myAntura_EarR: object name
+myAntura_Nose: object name
+myAntura_Jaw: object name
+myAntura_Neck: object name
+myAntura_Back: object name
+myAntura_Tail: object name
+myAntura_Texture: object name
+myAntura_Deca: object name
+```
+
+### TrackPlayerMood
+When player replies to the mood question (once a day)
+
+CustomEvent: `myPlayerMood`
+
+Parameters:
+```
+myPlayerMood: int (1-5)
+```
+
+### TrackBook
+When the book is used.. what does player do?
+
+CustomEvent: `myBook`
+
+Parameters:
+```
+myBookAction: string
+myBookObject: string
 ```
