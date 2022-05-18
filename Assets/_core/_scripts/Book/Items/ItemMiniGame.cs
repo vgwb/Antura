@@ -1,5 +1,6 @@
 using Antura.Database;
 using Antura.Core;
+using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
@@ -13,7 +14,7 @@ namespace Antura.Book
     {
         MiniGameInfo miniGameInfo;
 
-        public Image BadgeIcon;
+        public UIMinigameVariationBadge Badge;
         public Image LockIcon;
         public Image BackgroundImage;
 
@@ -38,11 +39,9 @@ namespace Antura.Book
                 isLocked = true;
             }
             LockIcon.enabled = isLocked;
-            ////Title.text = data.Title_Ar;
 
             //var icoPath = miniGameInfo.data.GetIconResourcePath();
             //Debug.Log("resource icon for " + miniGameInfo.data.GetId() + ":" + icoPath);
-            var badge = AppManager.I.AssetManager.GetBadgeIcon(miniGameInfo.data);
 
             //// @note: we get the minigame saved score, which should be the maximum score achieved
             //// @note: I'm leaving the average-based method commented if we want to return to that logic
@@ -57,10 +56,7 @@ namespace Antura.Book
             }
 
             //Icon.sprite = Resources.Load<Sprite>(icoPath);
-            if (badge != null)
-            {
-                BadgeIcon.sprite = badge;
-            }
+            Badge.Assign(miniGameInfo.data);
         }
 
         public void OnPointerClick(PointerEventData eventData)
@@ -88,12 +84,12 @@ namespace Antura.Book
         {
             if (_status)
             {
-                BackgroundImage.sprite = ImageOn;
+                Badge.GetComponent<Image>().sprite = ImageOn;
                 // BackgroundImage.color = new Color(0.9490197f, 0.7215686f, 0.1882353f, 1f);
             }
             else
             {
-                BackgroundImage.sprite = ImageOff;
+                Badge.GetComponent<Image>().sprite = ImageOff;
                 // BackgroundImage.color = new Color(0.8862746f, 0.8862746f, 0.8862746f, 1f);
             }
         }

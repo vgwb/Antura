@@ -74,6 +74,14 @@ namespace Antura.Database
         [SerializeField]
         private string _Badge;
 
+        public string BadgeLocId
+        {
+            get { return _BadgeLocId; }
+            set { _BadgeLocId = value; }
+        }
+        [SerializeField]
+        private string _BadgeLocId;
+
         public string Scene
         {
             get { return _Scene; }
@@ -184,6 +192,9 @@ namespace Antura.Database
         {
             get { return LocalizationManager.GetLocalizationData(_TutorialId); }
         }
+
+        public bool HasBadge => !string.IsNullOrEmpty(Badge) || !string.IsNullOrEmpty(BadgeLocId);
+
 
         public string GetTitleSoundFilename()
         {

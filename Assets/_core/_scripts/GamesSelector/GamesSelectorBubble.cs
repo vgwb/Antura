@@ -1,4 +1,9 @@
-﻿using Antura.Audio;
+﻿using System;
+using Antura.Audio;
+using Antura.Core;
+using Antura.Database;
+using Antura.Language;
+using Antura.UI;
 using DG.DeExtensions;
 using DG.Tweening;
 using UnityEngine;
@@ -12,8 +17,8 @@ namespace Antura.GamesSelector
     {
         public GameObject Main;
         public GameObject Cover; // Has collider
-        public GameObject Badge;
-        public SpriteRenderer Ico, BadgeIco;
+        public SpriteRenderer Ico;
+        public UIMinigameVariationBadge Badge;
         public ParticleSystem PouffParticleSys;
 
         public bool IsOpen { get; private set; }
@@ -33,19 +38,13 @@ namespace Antura.GamesSelector
 
         #region Public Methods
 
-        public void Setup(Sprite icon, Sprite badge, float _x)
+        public void Setup(MiniGameData miniGameData, float _x)
         {
-            hasBadge = badge != null;
+            Sprite icon = AppManager.I.AssetManager.GetMainIcon(miniGameData);
             Open(false);
             Ico.sprite = icon;
-            if (hasBadge)
-            {
-                BadgeIco.sprite = badge;
-                if (BadgeIco.sprite == null)
-                {
-                    hasBadge = false;
-                }
-            }
+            hasBadge = miniGameData.HasBadge;
+            Badge.Assign(miniGameData);
             transform.localPosition = new Vector3(_x, 0, 0);
             shakeTween = DOTween.Sequence().SetLoops(-1, LoopType.Yoyo)
                 .Append(Cover.transform.DOShakeScale(4, 0.035f, 6, 90f, false))
@@ -57,7 +56,7 @@ namespace Antura.GamesSelector
             IsOpen = _doOpen;
             Cover.SetActive(!_doOpen);
             Main.SetActive(_doOpen);
-            Badge.SetActive(_doOpen && hasBadge);
+            Badge.gameObject.SetActive(_doOpen && hasBadge);
 
             if (_doOpen)
             {

@@ -20,8 +20,8 @@ namespace Antura.UI
         [Header("References")]
         public Image MaskCover;
 
-        public Image Icon, Logo, BadgeIcon;
-        public RectTransform Badge;
+        public Image Icon, Logo;
+        public UIMinigameVariationBadge Badge;
 
         public static bool IsShown { get; private set; }
         public static bool IsPlaying { get; private set; }
@@ -133,16 +133,8 @@ namespace Antura.UI
             {
                 MiniGameData mgData = AppManager.I.NavigationManager.CurrentMiniGameData;
                 Icon.sprite = AppManager.I.AssetManager.GetMainIcon(mgData);
-                Sprite badgeSprite = AppManager.I.AssetManager.GetBadgeIcon(mgData);
-                if (badgeSprite == null)
-                {
-                    Badge.gameObject.SetActive(false);
-                }
-                else
-                {
-                    Badge.gameObject.SetActive(true);
-                    BadgeIcon.sprite = badgeSprite;
-                }
+                Badge.Assign(mgData);
+                Badge.gameObject.SetActive(mgData.HasBadge);
             }
             else
             {
