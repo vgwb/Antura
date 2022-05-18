@@ -209,7 +209,7 @@ namespace Antura.Profile
                 case UIState.GenderSelection:
                     confirmationPanel.onSkip = () =>
                     {
-                        SelectGender(PlayerGender.M);
+                        SelectGender(PlayerGender.None);
                         OnContinue();
                     };
                     confirmationPanel.Show(LocalizationDataId.Help_GenderSelection);
