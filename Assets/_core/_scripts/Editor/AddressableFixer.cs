@@ -29,6 +29,10 @@ namespace Antura.Tools
         public void DrawFooterLayout(float width)
         {
             EditorGUILayout.BeginVertical();
+            if (GUILayout.Button("COMMON"))
+            {
+                FixAddressables("common");
+            }
 
             foreach (var lang in Enum.GetNames(typeof(LanguageCode)))
             {
