@@ -67,7 +67,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
-                badgeKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
+                badgeKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
 
