@@ -1,5 +1,7 @@
 ﻿using Antura.Helpers;
 using System.Collections.Generic;
+using Antura.Minigames;
+using Antura.Teacher;
 using UnityEngine;
 
 namespace Antura.Core
@@ -75,7 +77,12 @@ namespace Antura.Core
 
             float duration = (float)(endMiniGameDateTime - startMiniGameDateTime).TotalSeconds;
 
-            AppManager.I.Services.Analytics.TrackMiniGameScore(miniGameCode, score, AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition, duration);
+            var jp = AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition;
+            if (!jp.IsAssessment())
+            {
+                AppManager.I.Services.Analytics.TrackMiniGameScore(miniGameCode, score, jp, duration);
+            }
+
             //Debug.LogError("DURATION MG: " + duration);
             AppManager.I.Teacher.logAI.LogMiniGameScore(AppSession, AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition, miniGameCode, score, duration);
         }
@@ -93,8 +100,14 @@ namespace Antura.Core
         }
 
         protected internal void LogLearn(string playSession, MiniGameCode miniGameCode,
-            List<Teacher.LogAI.LearnResultParameters> resultsList)
+            List<LogAI.LearnResultParameters> resultsList, List<MinigamesLogManager.ILivingLetterAnswerData> answers)
         {
+            var jp = AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition;
+            if (jp.IsAssessment())
+            {
+                AppManager.I.Services.Analytics.TrackVocabularyDataScore(miniGameCode, AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition, answers);
+            }
+
             AppManager.I.Teacher.logAI.LogLearn(AppSession, AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition, miniGameCode, resultsList);
         }
 

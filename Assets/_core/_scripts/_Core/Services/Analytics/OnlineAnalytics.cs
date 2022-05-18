@@ -5,6 +5,8 @@ using Antura.Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Helpers;
+using Antura.Minigames;
 using UnityEngine;
 using Unity.Services.Core;
 using Unity.Services.Core.Environments;
@@ -193,6 +195,27 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
             AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
+        }
+
+        public void TrackVocabularyDataScore(MiniGameCode miniGameCode, JourneyPosition currentJourneyPosition, List<MinigamesLogManager.ILivingLetterAnswerData> answers)
+        {
+            if (!AnalyticsEnabled)
+                return;
+
+            foreach (var answer in answers)
+            {
+                if (answer._data == null) continue;
+                var parameters = new Dictionary<string, object>()
+                {
+                    { "myMinigame", miniGameCode.ToString() },
+                    { "myJP", currentJourneyPosition.Id },
+                    { "myVocabularyDataType", answer._data.DataType },
+                    { "myVocabularyDataId", answer._data.Id },
+                    { "myVocabularyCorrect", answer._isPositiveResult },
+                };
+                AddSharedParameters(parameters);
+                AnalyticsService.Instance.CustomData("myVocabularyDataScore", parameters);
+            }
         }
 
         #region Older Events

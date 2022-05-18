@@ -172,7 +172,7 @@ namespace Antura.Minigames
             }
 
             var resultsList = resultsDict.Values.ToList();
-            LogManager.I.LogLearn(sessionName, miniGameCode, resultsList);
+            LogManager.I.LogLearn(sessionName, miniGameCode, resultsList, logLearnBuffer);
         }
 
         #endregion
@@ -184,7 +184,7 @@ namespace Antura.Minigames
             string CachedType { get; }
         }
 
-        struct ILivingLetterAnswerData : IBufferizableLog
+        public struct ILivingLetterAnswerData : IBufferizableLog
         {
             public string CachedType
             {
