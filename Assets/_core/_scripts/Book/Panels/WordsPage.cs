@@ -230,7 +230,7 @@ namespace Antura.Book
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
             }
 
-            WordArabicText.text = currentWordInfo.data.Text;
+            WordArabicText.SetText(currentWordInfo.data.Text, Font2Use.Learning);
 
             if (currentWordInfo.data.DrawingId != "")
             {

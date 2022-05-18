@@ -59,7 +59,7 @@ namespace Antura.Test
 
             foreach (string lang in folders)
             {
-                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
+                if (!lang.ToLower().Equals(LanguageToCheck.ToString().ToLower()))
                     continue;
 
                 int missing_count = 0;
@@ -226,7 +226,7 @@ namespace Antura.Test
 
             foreach (string lang in folders)
             {
-                if (!lang.ToLower().Contains(LanguageToCheck.ToString().ToLower()))
+                if (!lang.ToLower().Equals(LanguageToCheck.ToString().ToLower()))
                     continue;
 
                 int missing_count = 0;
@@ -236,11 +236,13 @@ namespace Antura.Test
                 {
                     if (Directory.Exists(langPath))
                     {
+                        DirectoryInfo root = new DirectoryInfo(langPath);
                         Debug.Log("Starting to check audio files from localization table to the " + lang + " version folder...");
 
                         foreach (LocalizationData data in localization)
                         {
-                            if (!File.Exists(langPath + "/" + data.AudioKey + ".mp3") && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
+                            FileInfo[] targetFile = root.GetFiles(data.AudioKey + ".*");
+                            if (targetFile.Length <= 0 && data.AudioKey != "") //checking that the audio file of the localization table exist in the version audio folder
                             {
                                 Debug.LogError("The audio file \"" + data.AudioKey + "\" doesn't exist for " + lang + " version");
                                 missing_keys += data.AudioKey + "\n";
@@ -266,11 +268,13 @@ namespace Antura.Test
                     langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Letters/";
                     if (Directory.Exists(langPath))
                     {
+                        DirectoryInfo root = new DirectoryInfo(langPath);
                         Debug.Log("Starting to check audio files from letters table to the " + lang + " version folder...");
 
                         foreach (LetterData data in letters)
                         {
-                            if (!File.Exists(langPath + "/" + data.GetAudioFilename() + ".mp3") && data.GetAudioFilename() != "") //checking that the audio file of the letters table exist in the version audio folder
+                            FileInfo[] targetFile = root.GetFiles(data.GetAudioFilename() + ".*");
+                            if (targetFile.Length <= 0 && data.GetAudioFilename() != "") //checking that the audio file of the letters table exist in the version audio folder
                             {
                                 Debug.LogError("The audio file \"" + data.GetAudioFilename() + "\" doesn't exist for " + lang + " version");
                                 missing_keys += data.GetAudioFilename() + "\n";
@@ -296,11 +300,13 @@ namespace Antura.Test
                     langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Phrases/";
                     if (Directory.Exists(langPath))
                     {
+                        DirectoryInfo root = new DirectoryInfo(langPath);
                         Debug.Log("Starting to check audio files from phrases table to the " + lang + " version folder...");
 
                         foreach (PhraseData data in phrases)
                         {
-                            if (!File.Exists(langPath + "/" + data.Id + ".mp3") && data.Id != "") //checking that the audio file of the phrases table exist in the version audio folder
+                            FileInfo[] targetFile = root.GetFiles(data.Id + ".*");
+                            if (targetFile.Length <= 0 && data.Id != "") //checking that the audio file of the phrases table exist in the version audio folder
                             {
                                 Debug.LogError("The audio file \"" + data.Id + "\" doesn't exist for " + lang + " version");
                                 missing_keys += data.Id + "\n";
@@ -326,11 +332,13 @@ namespace Antura.Test
                     langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Words/";
                     if (Directory.Exists(langPath))
                     {
+                        DirectoryInfo root = new DirectoryInfo(langPath);
                         Debug.Log("Starting to check audio files from words table to the " + lang + " version folder...");
 
                         foreach (WordData data in words)
                         {
-                            if (!File.Exists(langPath + "/" + data.Id + ".mp3") && data.Id != "") //checking that the audio file of the words table exist in the version audio folder
+                            FileInfo[] targetFile = root.GetFiles(data.Id + ".*");
+                            if (targetFile.Length <= 0 && data.Id != "") //checking that the audio file of the words table exist in the version audio folder
                             {
                                 Debug.LogError("The audio file \"" + data.Id + "\" doesn't exist for " + lang + " version");
                                 missing_keys += data.Id + "\n";

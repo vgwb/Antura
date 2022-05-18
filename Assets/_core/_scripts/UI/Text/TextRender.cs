@@ -26,6 +26,7 @@ namespace Antura.UI
         public bool isSubtitle;
 
         public LanguageUse languageUse;
+        private Font2Use fontUse = Font2Use.Default;
         public Database.LocalizationDataId LocalizationId;
 
         public Mesh mesh
@@ -92,21 +93,24 @@ namespace Antura.UI
         /// the main method to set the text of this field. doesn't change any setting
         /// </summary>
         /// <param name="_text">Text.</param>
-        public void SetText(string _text)
+        public void SetText(string _text, Font2Use _fontUse = Font2Use.Default)
         {
+            fontUse = _fontUse;
             text = _text;
             CheckRTL();
         }
 
-        public void SetText(string _text, LanguageUse _languageUse)
+        public void SetText(string _text, LanguageUse _languageUse, Font2Use _fontUse = Font2Use.Default)
         {
             languageUse = _languageUse;
+            fontUse = _fontUse;
             text = _text;
             CheckRTL();
         }
 
-        public void SetTextUnfiltered(string text)
+        public void SetTextUnfiltered(string text, Font2Use _fontUse = Font2Use.Default)
         {
+            fontUse = _fontUse;
             TMPText.text = text;
             m_text = text;
             CheckRTL();
@@ -122,10 +126,24 @@ namespace Antura.UI
 
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (OverridenLanguageCode != LanguageCode.NONE)
+            {
                 config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
+            }
             if (!isLetter && !isNumber)
             {
-                TMPText.font = config.UIFont;
+                switch (fontUse)
+                {
+                    case Font2Use.UI:
+                        TMPText.font = config.UIFont;
+                        break;
+                    case Font2Use.Learning:
+                        TMPText.font = config.LanguageFont;
+                        break;
+                    case Font2Use.Default:
+                    default:
+                        TMPText.font = config.UIFont;
+                        break;
+                }
             }
 
             if (!isNumber && !isLetter)

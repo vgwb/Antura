@@ -5,20 +5,46 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
-using DG.DeExtensions;
 using UnityEditor;
 using UnityEditor.AddressableAssets;
 using UnityEngine;
 
 namespace Antura.Tools
 {
-    public class AddressableFixer : MonoBehaviour
+    public class AddressableFixer : EditorWindow
     {
         [MenuItem("Antura/Tools/Fix Language Addressables")]
-        public static void FixAddressables()
+        public static void ShowWindow()
+        {
+            EditorWindow.GetWindow(typeof(AddressableFixer));
+        }
+
+        void OnGUI()
+        {
+            this.titleContent.text = "Antura";
+            EditorGUILayout.LabelField("Regenerate Addressables info for language:");
+            DrawFooterLayout(Screen.width);
+        }
+
+        public void DrawFooterLayout(float width)
+        {
+            EditorGUILayout.BeginVertical();
+
+            foreach (var lang in Enum.GetNames(typeof(LanguageCode)))
+            {
+                if ((lang == "NONE") || (lang == "COUNT"))
+                    continue;
+                if (GUILayout.Button(lang))
+                {
+                    FixAddressables(lang);
+                }
+            }
+            EditorGUILayout.EndVertical();
+        }
+
+        public void FixAddressables(string lang)
         {
             // TODO: Get all assets in the lang paths for the current edition
-            var lang = "polish"; // @note: change this manually
             var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
             Debug.Log("Fixing addressable for lang: " + lang);
             var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
@@ -38,49 +64,5 @@ namespace Antura.Tools
             Debug.Log("FINISHED Fixing addressable for lang: " + lang);
         }
 
-        [MenuItem("Antura/Tools/Fix ShapeData Addressables")]
-        public static void FixShapeData()
-        {
-            AppManager.I.AppSettingsManager.SetLearningContentID(LearningContentID.LearnToRead_Dari);
-            var db = new DatabaseManager(AppManager.I.ContentEdition);
-
-            Debug.Log("Fixing addressable for shape data.");
-            var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains("common"));
-            var guids = AssetDatabase.FindAssets("", new[] { "Assets/_core/Fonts/" });
-            foreach (var guid in guids)
-            {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                if (!path.Contains("ShapeData/shapedata"))
-                    continue;
-
-                var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
-                var splits = path.Split('.')[0].Split('/');
-                var fontName = splits[splits.Length - 3].Split(' ')[1];
-                var assetName = splits[splits.Length - 1];
-                var letterId = assetName.Replace("shapedata_", "");
-                char[] hexChars = { 'A', 'B', 'C', 'D', 'E', 'F' };
-                bool allDigits = letterId.ToCharArray().All(ch => char.IsDigit(ch) || hexChars.Contains(ch));
-                if (!allDigits)
-                {
-                    var letterData = db.GetLetterDataById(letterId);
-                    if (letterData == null)
-                    {
-                        Debug.LogWarning("Could not find letter data " + letterId);
-                    }
-                    else
-                    {
-                        var unicode = letterData.GetCompleteUnicodes();
-                        assetName = $"shapedata_{unicode}";
-                        Debug.Log($"Renamed {letterId} to: {assetName}");
-                        AssetDatabase.RenameAsset(path, assetName);
-                    }
-                }
-                entry.address = fontName + "/" + assetName;
-            }
-
-            AssetDatabase.SaveAssets();
-            AssetDatabase.Refresh();
-            Debug.Log("FINISHED Fixing addressable for shape data");
-        }
     }
 }
