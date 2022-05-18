@@ -6,7 +6,7 @@
     /// </summary>
     public enum PlayerGender
     {
-        None = 0,
+        Undefined = 0,
         F = 1,
         M = 2
     }

@@ -140,7 +140,7 @@ namespace Antura.Profile
                 if (playerIconData.IsOldAvatar)
                 {
                     color = PlayerTintConverter.ToColor(playerIconData.Tint);
-                    FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.None ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
+                    FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.Undefined ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
                 }
                 else
                 {

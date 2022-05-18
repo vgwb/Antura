@@ -1,4 +1,3 @@
-using Antura.Database;
 using Antura.Dog;
 using Antura.Language;
 using Antura.Profile;
@@ -93,21 +92,14 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var avatarObJ = new Dictionary<string, object>()
-            {
-                { "id", playerProfile.AvatarId },
-                { "bg_color", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
-                { "hair_color", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
-                { "skin_color", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
-                { "tint", playerProfile.Tint }
-            };
-            string myAvatar = JsonUtility.ToJson(avatarObJ);
-
             var parameters = new Dictionary<string, object>()
             {
-                { "myAvatar", myAvatar },
                 { "myGender", playerProfile.Gender.ToString() },
-                { "myAge", playerProfile.Age }
+                { "myAge", playerProfile.Age },
+                { "myAvatar_Face", playerProfile.AvatarId },
+                { "myAvatar_BgColor", ColorUtility.ToHtmlStringRGB(playerProfile.BgColor) },
+                { "myAvatar_HairColor", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
+                { "myAvatar_SkinColor", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
             };
             AddSharedParameters(parameters);
 
@@ -124,7 +116,10 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myJP", jp.Id },
                 { "myStage", jp.Stage },
                 { "myLearningBlock", jp.LearningBlock },
-                { "myPlaySession", jp.PlaySession }
+                { "myPlaySession", jp.PlaySession },
+                { "myTotalPlayTime", 0 },
+                { "myTotalStars", 0 },
+                { "myTotalBones", 0 }
             };
             AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myLevelUp", parameters);
@@ -135,18 +130,16 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            //Dictionary<string, object> parameters = new Dictionary<string, object>()
-            //{
-            //    { "phase", (int)phase },
-            //    { "phase_name", phase.ToString() }
-            //};
-            var parameters = new Dictionary<string, object>();
+            var parameters = new Dictionary<string, object>()
+            {
+                { "myPhase", phase.ToString() }
+            };
             AddSharedParameters(parameters);
 
-            AnalyticsService.Instance.CustomData("myTutorialComplete", new Dictionary<string, object>());
+            AnalyticsService.Instance.CustomData("myTutorialComplete", parameters);
         }
 
-        public void TrackSpentBones(int nSpent, string boughtItemKey)
+        public void TrackItemBought(int nSpent, string boughtItemKey)
         {
             if (!AnalyticsEnabled)
                 return;
@@ -170,12 +163,16 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
 
-            foreach (var pack in customization.PropPacks)
-            {
-                parameters.Add($"prop_{pack.Category}", pack.BaseId);
-            }
-            parameters.Add($"texture", customization.TexturePack.BaseId);
-            parameters.Add($"decal", customization.DecalPack.BaseId);
+            parameters.Add($"myAntura_Head", customization.PropPacks.Find(item => item.Category == "HEAD").BaseId);
+            parameters.Add($"myAntura_EarL", customization.PropPacks.Find(item => item.Category == "EAR_L").BaseId);
+            parameters.Add($"myAntura_EarR", customization.PropPacks.Find(item => item.Category == "EAR_R").BaseId);
+            parameters.Add($"myAntura_Nose", customization.PropPacks.Find(item => item.Category == "NOSE").BaseId);
+            parameters.Add($"myAntura_Jaw", customization.PropPacks.Find(item => item.Category == "JAW").BaseId);
+            parameters.Add($"myAntura_Neck", customization.PropPacks.Find(item => item.Category == "NECK").BaseId);
+            parameters.Add($"myAntura_Back", customization.PropPacks.Find(item => item.Category == "BACK").BaseId);
+            parameters.Add($"myAntura_Tail", customization.PropPacks.Find(item => item.Category == "TAIL").BaseId);
+            parameters.Add($"myAntura_Texture", customization.TexturePack.BaseId);
+            parameters.Add($"myAntura_Decal", customization.DecalPack.BaseId);
 
             AddSharedParameters(parameters);
             AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
@@ -197,25 +194,31 @@ namespace Antura.Core.Services.OnlineAnalytics
             AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
         }
 
-        public void TrackVocabularyDataScore(MiniGameCode miniGameCode, JourneyPosition currentJourneyPosition, List<MinigamesLogManager.ILivingLetterAnswerData> answers)
+        public void TrackMood(int mood)
         {
             if (!AnalyticsEnabled)
                 return;
 
-            foreach (var answer in answers)
+            var parameters = new Dictionary<string, object>()
             {
-                if (answer._data == null) continue;
-                var parameters = new Dictionary<string, object>()
-                {
-                    { "myMinigame", miniGameCode.ToString() },
-                    { "myJP", currentJourneyPosition.Id },
-                    { "myVocabularyDataType", answer._data.DataType },
-                    { "myVocabularyDataId", answer._data.Id },
-                    { "myVocabularyCorrect", answer._isPositiveResult },
-                };
-                AddSharedParameters(parameters);
-                AnalyticsService.Instance.CustomData("myVocabularyDataScore", parameters);
-            }
+                { "myPlayerMood", mood }
+            };
+            AddSharedParameters(parameters);
+            AnalyticsService.Instance.CustomData("myPlayerMood", parameters);
+        }
+
+        public void TrackBook(string _action, string _object)
+        {
+            if (!AnalyticsEnabled)
+                return;
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "myAction", _action },
+                { "myObject", _object }
+            };
+            AddSharedParameters(parameters);
+            AnalyticsService.Instance.CustomData("myBook", parameters);
         }
 
         #region Older Events
@@ -229,20 +232,6 @@ namespace Antura.Core.Services.OnlineAnalytics
             //         {"lang", (AppManager.I.AppSettings.AppLanguage == AppLanguages.Italian ? "it" : "en")}
             //     };
             // Analytics.CustomEvent(eventName, eventData);
-        }
-
-        public void TrackGameEvent(LogGamePlayData _data)
-        {
-            if (!AnalyticsEnabled)
-                return;
-            // var eventName = "GamePlay";
-            // var evetData = new Dictionary<string, object>{
-            //     { "uuid", _data.Uuid },
-            //     { "app", 2 },
-            //     { "player", 3 }
-            // }
-            // Analytics.CustomEvent(eventName, evetData);
-
         }
 
         public void TrackScene(string sceneName)

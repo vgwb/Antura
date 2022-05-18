@@ -82,7 +82,7 @@ namespace Antura.Profile
         private Color currSkinColor = Color.black, currHairColor = Color.black, currBgColor = Color.black;
         private int currAvatarId = -1;
         private int currAge = -1;
-        private PlayerGender currGender = PlayerGender.None;
+        private PlayerGender currGender = PlayerGender.Undefined;
         private Tween stepTween;
 
         public ConfirmationPanelUI confirmationPanel;
@@ -209,7 +209,7 @@ namespace Antura.Profile
                 case UIState.GenderSelection:
                     confirmationPanel.onSkip = () =>
                     {
-                        SelectGender(PlayerGender.None);
+                        SelectGender(PlayerGender.Undefined);
                         OnContinue();
                     };
                     confirmationPanel.Show(LocalizationDataId.Help_GenderSelection);

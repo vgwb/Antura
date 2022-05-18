@@ -82,7 +82,7 @@ namespace Antura.AnturaSpace
         {
             if (success)
             {
-                AppManager.I.Services.Analytics.TrackSpentBones(bonesCost, ActionKey);
+                AppManager.I.Services.Analytics.TrackItemBought(bonesCost, ActionKey);
                 AppManager.I.Player.RemoveBones(bonesCost);
             }
             else

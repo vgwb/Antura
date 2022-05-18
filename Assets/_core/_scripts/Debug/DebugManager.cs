@@ -176,7 +176,7 @@ namespace Antura.Debugging
 
         public void CreateTestProfile()
         {
-            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.None, PlayerTint.Orange, Color.yellow, Color.red, Color.magenta, 4,
+            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.Undefined, PlayerTint.Orange, Color.yellow, Color.red, Color.magenta, 4,
                 AppManager.I.AppEdition.editionID,
                 AppManager.I.ContentEdition.ContentID,
                 AppManager.I.AppEdition.AppVersion);
@@ -236,7 +236,7 @@ namespace Antura.Debugging
             Debug.Log("Reset ALL players and DB.");
         }
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         [MenuItem("Antura/Delete Profiles")]
         public static void ResetAllCommand()
@@ -244,7 +244,7 @@ namespace Antura.Debugging
             DebugManager.I.ResetAll();
         }
 
-        #endif
+#endif
 
         #endregion
 
