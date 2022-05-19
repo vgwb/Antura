@@ -42,8 +42,6 @@ namespace Antura.Core.Services.OnlineAnalytics
         ///
         /// 10 - additional(json encoded additional parameters that we don't know now or custom specific per minigame)
         /// </summary>
-        /// <param name="eventName">Event name.</param>
-        ///
 
         public Analytics()
         {
@@ -102,7 +100,6 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAvatar_SkinColor", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
             };
             AddSharedParameters(parameters);
-
             AnalyticsService.Instance.CustomData("myCompletedRegistration", parameters);
         }
 
@@ -234,12 +231,15 @@ namespace Antura.Core.Services.OnlineAnalytics
                 {
                     { "myMinigame", miniGameCode.ToString() },
                     { "myJP", currentJourneyPosition.Id },
-                    { "myVocabularyDataType", answer._data.DataType },
-                    { "myVocabularyDataId", answer._data.Id },
-                    { "myVocabularyCorrect", answer._isPositiveResult },
+                    { "myStage", currentJourneyPosition.Stage },
+                    { "myLearningBlock", currentJourneyPosition.LearningBlock },
+                    { "myPlaySession", currentJourneyPosition.PlaySession },
+                    { "myLearningDataType", answer._data.DataType },
+                    { "myLearningDataId", answer._data.Id },
+                    { "myLearningIsCorrect", answer._isPositiveResult },
                 };
                 AddSharedParameters(parameters);
-                AnalyticsService.Instance.CustomData("myVocabularyDataScore", parameters);
+                AnalyticsService.Instance.CustomData("myLearning", parameters);
             }
         }
 
