@@ -52,6 +52,23 @@ myEdition: ContentID
 myNativeLang: string Iso3 Code
 ```
 
+### Track Learning
+Correct or wrong answer? (in Assessments)
+
+CustomEvent: ` myLearning`
+
+Parameters:
+```
+myMinigame: miniGameCode.ToString()
+myJP: currentJourneyPosition.Id
+myStage: currentJourneyPosition.Stage
+myLearningBlock: currentJourneyPosition.LearningBlock
+myPlaySession: currentJourneyPosition.PlaySession
+myLearningDataType: answer._data.DataType
+myLearningDataId: answer._data.Id
+myLearningIsCorrect: answer._isPositiveResult
+```
+
 ### TrackMiniGameScore
 When player finishes a minigame
 
@@ -88,7 +105,7 @@ CustomEvent: `myCompletedRegistration`
 
 Parameters:
 ```
-myGender: string ("nd", "M", "F")
+myGender: string ("Undefined", "M", "F")
 myAge: int
 myProfileNumber: how many profiles exist in this edition
 myAvatar_Face: id
@@ -104,7 +121,6 @@ CustomEvent: `myTutorialComplete`
 Parameters:
 ```
 myPhase: string
-myDuration: int seconds
 ```
 
 ### Track Shop / Item Bought
