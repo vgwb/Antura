@@ -453,7 +453,7 @@ internal class ArabicFixerTool
                 Debug.LogError($"We found a FARSI YEH at index {i}, we transform it into an ALEF MAKSURA");
                 lettersOrigin[i] = (char)IsolatedArabicLetters.AlefMaksora;
             }
-            else if (lettersOrigin[i] == (char)IsolatedArabicLetters.AlefMaksora)
+            else if (!ArabicFixer.ConvertFarsiYehToAlefMaqsura && lettersOrigin[i] == (char)IsolatedArabicLetters.AlefMaksora)
             {
                 Debug.LogError($"We found an ALEF MAKSURA at index {i}, we transform it into a FARSI YEH");
                 lettersOrigin[i] = (char)0x6CC;
