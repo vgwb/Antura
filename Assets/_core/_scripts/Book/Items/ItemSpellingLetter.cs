@@ -39,7 +39,8 @@ namespace Antura.Book
 
         public void OnPointerClick(PointerEventData eventData)
         {
-            AudioManager.I.PlayLetter(myLetterData, true, LetterDataSoundType.Phoneme);
+            var soundType = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterDataSoundType.Name : LetterDataSoundType.Phoneme;
+            AudioManager.I.PlayLetter(myLetterData, true, soundType);
         }
 
     }

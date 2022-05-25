@@ -1,11 +1,11 @@
+using Antura.Core;
+using Antura.Language;
 using Antura.LivingLetters;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
-using Antura.Core;
 using SQLite;
 using UnityEngine;
-using Antura.Language;
 
 namespace Antura.Database
 {
@@ -455,7 +455,8 @@ namespace Antura.Database
         public string GetCompleteUnicodes()
         {
             var unicode = GetUnicode();
-            if (Kind == LetterDataKind.DiacriticCombo) unicode += $"_{Symbol_Unicode}";
+            if (Kind == LetterDataKind.DiacriticCombo)
+                unicode += $"_{Symbol_Unicode}";
             return unicode;
         }
 
@@ -511,7 +512,6 @@ namespace Antura.Database
                     if (NameSound != "")
                     {
                         return NameSound;
-                        ;
                     }
                     else
                     {
