@@ -12,6 +12,9 @@
         LearnFrench = 30,
         LearnItalian = 40,
         LearnPolish = 50,
+        LearnRomanian = 60,
+        LearnHungarian = 70,
+        LearnGerman = 80,
         Multi_Dev = 1000,
     }
 }

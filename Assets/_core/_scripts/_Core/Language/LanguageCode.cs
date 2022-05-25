@@ -14,7 +14,10 @@ namespace Antura.Language
         arabic_legacy = 9,
         polish = 10,
         ukrainian = 11,
-        //        russian = 12,
+        russian = 12,
+        romanian = 13,
+        hungarian = 14,
+        german = 15,
         COUNT
     }
 }
