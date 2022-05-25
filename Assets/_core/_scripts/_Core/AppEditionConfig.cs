@@ -23,8 +23,8 @@ namespace Antura.Core
     {
         [Header("Edition")]
         public AppEditionID editionID;
-
         public ContentEditionConfig[] ContentEditions;
+        public LanguageCode[] SupportedNativeLanguages;
         public bool HasMultipleContentEditions => ContentEditions != null && ContentEditions.Length > 1;
 
         [Header("Settings - Application")]
@@ -109,7 +109,7 @@ namespace Antura.Core
         //public bool ChangePlayerSettings = false;
 
 #if UNITY_EDITOR
-        //[DeMethodButton("Configure as Active Edition")]
+        [DeMethodButton("Configure as Active Edition")]
         public void ConfigureForBuild()
         {
             var config = RootConfig.FindMainConfig();
@@ -133,16 +133,17 @@ namespace Antura.Core
             //     }
             // }
             var learningConfigsToUse = new List<ContentEditionConfig>();
+
             foreach (var edition in ContentEditions)
             {
                 learningConfigsToUse.Add(edition);
             }
 
-            // Move folders based on language...
             var languagesToUse = new HashSet<LanguageCode>();
+            languagesToUse.UnionWith(SupportedNativeLanguages);
             foreach (var edition in learningConfigsToUse)
             {
-                languagesToUse.UnionWith(edition.SupportedNativeLanguages);
+                languagesToUse.UnionWith(edition.OverridenNativeLanguages);
                 languagesToUse.Add(edition.LearningLanguage);
                 languagesToUse.Add(edition.HelpLanguage);
             }

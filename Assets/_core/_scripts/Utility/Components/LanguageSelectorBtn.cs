@@ -5,12 +5,13 @@ using UnityEngine;
 
 namespace Antura.Utilities
 {
+    // DEPRECATED
     public class LanguageSelectorBtn : MonoBehaviour
     {
 
         void Start()
         {
-            bool isVisible = AppManager.I.ContentEdition.SupportedNativeLanguages.Length > 1;
+            bool isVisible = AppManager.I.ContentEdition.OverridenNativeLanguages.Length > 1;
 
             gameObject.SetActive(isVisible);
         }

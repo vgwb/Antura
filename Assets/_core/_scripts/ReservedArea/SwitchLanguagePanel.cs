@@ -5,6 +5,7 @@ using UnityEngine;
 
 namespace Antura.UI
 {
+    // DEPRECATED
     public class SwitchLanguagePanel : MonoBehaviour
     {
         public CurrentLanguageIcon currentLanguageIcon;
@@ -46,7 +47,7 @@ namespace Antura.UI
 
         public void Awake()
         {
-            foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)
+            foreach (var lang in AppManager.I.ContentEdition.OverridenNativeLanguages)
             {
                 var buttonGO = Instantiate(prefabButton.gameObject);
                 buttonGO.transform.SetParent(prefabButton.transform.parent);

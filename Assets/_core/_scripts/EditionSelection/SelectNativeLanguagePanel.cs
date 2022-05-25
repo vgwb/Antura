@@ -47,22 +47,50 @@ namespace Antura.UI
             buttons.Clear();
 
             // Find all supported native languages, and create a button for each
+            foreach (var lang in AppManager.I.AppEdition.SupportedNativeLanguages)
+            {
+                var l = lang;
+                // HACK: Legacy is treated as arabic when selected as a language
+                if (l == LanguageCode.arabic_legacy) l = LanguageCode.arabic;
+                if (AvailableNativeCodes.Contains(l)) continue;
+                AvailableNativeCodes.Add(l);
+            }
+
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
-                for (var index = 0; index < contentEditionConfig.SupportedNativeLanguages.Length; index++)
+                for (var index = 0; index < contentEditionConfig.OverridenNativeLanguages.Length; index++)
                 {
-                    var supportedNativeLanguage = contentEditionConfig.SupportedNativeLanguages[index];
+                    var lang = contentEditionConfig.OverridenNativeLanguages[index];
 
                     // HACK: Legacy is treated as arabic when selected as a language
-                    if (supportedNativeLanguage == LanguageCode.arabic_legacy) supportedNativeLanguage = LanguageCode.arabic;
+                    if (lang == LanguageCode.arabic_legacy) lang = LanguageCode.arabic;
 
-                    if (AvailableNativeCodes.Contains(supportedNativeLanguage)) continue;
-                    AvailableNativeCodes.Add(supportedNativeLanguage);
+                    if (AvailableNativeCodes.Contains(lang)) continue;
+                    AvailableNativeCodes.Add(lang);
                 }
             }
 
             AvailableNativeCodes.Sort((code1, code2) => AppManager.I.RootConfig.LanguageSorting.IndexOf(code1) - AppManager.I.RootConfig.LanguageSorting.IndexOf(code2));
+
+            if (AppManager.I.AppEdition.DetectSystemLanguage)
+            {
+                LanguageCode systemNativeLanguage = LanguageCode.NONE;
+                foreach (var lang in AvailableNativeCodes)
+                {
+                    if (string.Equals(lang.ToString(), Application.systemLanguage.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    {
+                        systemNativeLanguage = lang;
+                        break;
+                    }
+                }
+
+                if (systemNativeLanguage != LanguageCode.NONE)
+                {
+                    AvailableNativeCodes.Remove(systemNativeLanguage);
+                    AvailableNativeCodes.Insert(0, systemNativeLanguage);
+                }
+            }
 
             foreach (var langCode in AvailableNativeCodes)
             {

@@ -35,12 +35,12 @@ namespace Antura.UI
             {
                 var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
 
-                bool isSupported = contentEditionConfig.SupportedNativeLanguages.Contains(AppManager.I.AppSettings.NativeLanguage);
+                bool isSupported = contentEditionConfig.SupportsLanguage(AppManager.I.AppSettings.NativeLanguage);
 
                 // HACK: For Arabic, we also show the Arabic_Legacy contents
                 if (!isSupported && AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic)
                 {
-                    isSupported = contentEditionConfig.SupportedNativeLanguages.Contains(LanguageCode.arabic_legacy);
+                    isSupported = contentEditionConfig.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy);
                 }
                 if (!isSupported) continue;
 
@@ -63,7 +63,7 @@ namespace Antura.UI
         {
             // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
             var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
-            if (AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic && content.SupportedNativeLanguages.Contains(LanguageCode.arabic_legacy))
+            if (AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
             {
                 AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
             }

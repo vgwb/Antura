@@ -6,6 +6,11 @@ namespace Antura.Core
     [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
     public class LearnMethodConfig : ScriptableObject
     {
+        [Header("Settings - Language")]
+
+        [Tooltip("If set, the Learning language can be the same as the Native language (e.g. learn english with english)")]
+        public bool CanUseLearningAsNative;
+
         [Header("Settings - Subtitles")]
         [Tooltip("The mode in which the keeper will show text, by default")]
         public KeeperMode DefaultKeeperMode;
@@ -37,6 +42,7 @@ namespace Antura.Core
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages
         //  - false: clicking once skips all languages at once
         public bool SkipSingleLanguage => false;
+
 
     }
 }

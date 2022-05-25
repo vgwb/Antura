@@ -56,32 +56,7 @@ namespace Antura.Core
                 Settings = new AppSettings();
                 Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
                 Settings.ContentID = LearningContentID.None;
-
-                // set native Language
-                // first set the default / fallback language
                 Settings.NativeLanguage = LanguageCode.english;
-                if (AppManager.I.AppEdition.DetectSystemLanguage)
-                {
-                    foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)
-                    {
-                        if (lang == Language.LanguageCode.italian && Application.systemLanguage == SystemLanguage.Italian)
-                        {
-                            Settings.NativeLanguage = lang;
-                        }
-                        if (lang == Language.LanguageCode.spanish && Application.systemLanguage == SystemLanguage.Spanish)
-                        {
-                            Settings.NativeLanguage = lang;
-                        }
-                        if (lang == Language.LanguageCode.arabic && Application.systemLanguage == SystemLanguage.Arabic)
-                        {
-                            Settings.NativeLanguage = lang;
-                        }
-                        if (lang == Language.LanguageCode.english && Application.systemLanguage == SystemLanguage.English)
-                        {
-                            Settings.NativeLanguage = lang;
-                        }
-                    }
-                }
             }
 
             AudioManager.I.MusicEnabled = Settings.MusicEnabled;

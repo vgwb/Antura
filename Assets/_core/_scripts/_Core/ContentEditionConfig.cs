@@ -1,7 +1,9 @@
-﻿using Antura.Database;
+﻿using System.Linq;
+using Antura.Database;
 using Antura.Language;
 using Antura.Database.Management;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Core
 {
@@ -14,7 +16,24 @@ namespace Antura.Core
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
-        public LanguageCode[] SupportedNativeLanguages;
+        [FormerlySerializedAs("SupportedNativeLanguages")] public LanguageCode[] OverridenNativeLanguages;
+        public bool SupportsLanguage(LanguageCode code)
+        {
+            bool supportsAnyLanguage = OverridenNativeLanguages.Length == 0;
+            if (supportsAnyLanguage)
+            {
+                if (!LearnMethod.CanUseLearningAsNative)
+                {
+                    return code != LearningLanguage;
+                }
+                return true;
+            }
+            else
+            {
+                return OverridenNativeLanguages.Contains(code);
+            }
+        }
+
         public LanguageCode HelpLanguage;
 
         [Header("Teacher Options")]

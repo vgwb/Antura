@@ -1,6 +1,6 @@
 namespace Antura.Language
 {
-    public enum LanguageCode
+    public enum LanguageCode    // @note: Make sure to match SystemLanguage if you add a new language, if possible
     {
         NONE = 0,
         english = 1,
