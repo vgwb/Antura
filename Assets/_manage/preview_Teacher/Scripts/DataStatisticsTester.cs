@@ -246,7 +246,7 @@ namespace Antura.Teacher.Test
 
                 string entryS = string.Format("{0}: \t{1}", data, valueFunc(data));
                 if (isProblematic) {
-                    data_s += "\n" + "<color=#FF0000>" + entryS + "</color>";
+                    data_s += "\n" + entryS;
                     problematicEntries.Add(data.ToString());
                 } else {
                     data_s += "\n" + entryS;
