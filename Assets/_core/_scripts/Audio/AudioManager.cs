@@ -580,7 +580,7 @@ namespace Antura.Audio
 
                     if (failed && source.Clip == null)
                     {
-                        Debug.LogError("Missing audio for " + source.Path.id);
+                        Debug.LogError($"Missing audio '{source.Path.id}' for language '{source.Path.code}'");
                     }
                     else
                     {
