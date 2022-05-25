@@ -266,6 +266,15 @@ namespace Antura.Minigames.ThrowBalls
 
             }
 
+
+            bool canAdvance = true;
+            if (IsTutorialRound())
+            {
+                canAdvance = false;
+                game.PlayTutorial(() => { canAdvance = true; });
+            }
+            while (!canAdvance) yield return null;
+
             SayQuestion();
 
             yield return new WaitForSeconds(1f);
@@ -323,7 +332,6 @@ namespace Antura.Minigames.ThrowBalls
 
             if (IsTutorialRound())
             {
-                audioManager.PlayDialogue(ThrowBallsConfiguration.Instance.TutorialLocalizationId);
                 inputManager.Enabled = true;
                 isVoiceOverDone = true;
                 ShowTutorialUI();
@@ -369,6 +377,15 @@ namespace Antura.Minigames.ThrowBalls
                 game.Context.GetOverlayWidget().SetMaxLives(MAX_NUM_BALLS);
             }
 
+            bool canAdvance = true;
+            if (IsTutorialRound())
+            {
+                canAdvance = false;
+                game.PlayTutorial(() => { canAdvance = true; });
+            }
+            while (!canAdvance) yield return null;
+
+
             question = newQuestionPack.GetQuestion();
             SayQuestion();
 
@@ -407,30 +424,6 @@ namespace Antura.Minigames.ThrowBalls
 
             if (IsTutorialRound())
             {
-                switch (ThrowBallsConfiguration.Instance.Variation)
-                {
-                    case ThrowBallsVariation.LetterName:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
-                        break;
-                    case ThrowBallsVariation.LetterAny:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
-                        break;
-                    case ThrowBallsVariation.Word:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_word_Tuto);
-                        break;
-                    case ThrowBallsVariation.Image:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_image_Tuto);
-                        break;
-                    case ThrowBallsVariation.BuildWord:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_buildword_Tuto);
-                        break;
-                    case ThrowBallsVariation.MultiLetterForm:
-                        audioManager.PlayDialogue(Database.LocalizationDataId.ThrowBalls_lettername_Tuto);
-                        break;
-                    default:
-                        throw new ArgumentOutOfRangeException();
-                }
-
                 inputManager.Enabled = true;
                 isVoiceOverDone = true;
                 ShowTutorialUI();
