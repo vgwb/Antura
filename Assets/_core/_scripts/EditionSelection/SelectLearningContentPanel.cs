@@ -53,9 +53,12 @@ namespace Antura.UI
 
             // Place as first
             var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.ID == LearnMethodID.LearnToRead);
-            supportedConfigs.Remove(learnToReadConfig);
-            supportedConfigs.Insert(0, learnToReadConfig);
-
+            if (learnToReadConfig != null)
+            {
+                supportedConfigs.Remove(learnToReadConfig);
+                supportedConfigs.Insert(0, learnToReadConfig);
+            }
+            
             foreach (ContentEditionConfig contentEditionConfig in supportedConfigs)
             {
                 var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
