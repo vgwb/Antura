@@ -44,8 +44,9 @@ namespace Antura.Scenes
         float fadeOutTime;
 
         bool fadeIn = true;
-        //bool showText = false;
-        //float lastAlpha = 0;
+        private bool useText => AppManager.I.ContentEdition.LearnMethod.ShowEndSceneBigText;
+        float lastAlpha = 0;
+        private bool textFadeIn = false;
 
         public TextRender text;
         public CanvasRenderer panel;
@@ -101,6 +102,13 @@ namespace Antura.Scenes
             time += Time.deltaTime * m_CameraVelocity;
             float t = cameraAnimationCurve.Evaluate(time);
 
+            var newAlpha = Mathf.Lerp(lastAlpha, textFadeIn ? 1 : 0, Time.deltaTime);
+            if (lastAlpha != newAlpha) {
+                text.Alpha = newAlpha;
+                panel.SetAlpha(newAlpha);
+                lastAlpha = newAlpha;
+            }
+
             if (fadeIn)
             {
                 vignetting.fadeOut = Mathf.Pow((1 - t), 2);
@@ -133,13 +141,6 @@ namespace Antura.Scenes
 
             Camera.main.transform.position = Vector3.Lerp(m_CameraStartPosition, m_CameraEndPosition, t);
 
-            /*var newAlpha = Mathf.Lerp(lastAlpha, showText ? 1 : 0, Time.deltaTime);
-
-            if (lastAlpha != newAlpha) {
-                text.Alpha = newAlpha;
-                panel.SetAlpha(newAlpha);
-                lastAlpha = newAlpha;
-            }*/
         }
 
 
@@ -164,10 +165,16 @@ namespace Antura.Scenes
 
             KeeperManager.I.PlayDialogue(Database.LocalizationDataId.End_Scene_1_1, false, true, OnCompleted);
             yield return new WaitUntil(CheckIfCompleted);
-            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.End_Scene_1_2, false, true, OnCompleted);
+            KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.EndSceneLocID, false, true, OnCompleted);
 
             yield return new WaitForSeconds(m_StateDelay);
             yield return new WaitUntil(CheckIfCompleted);
+            if (useText)
+            {
+                textFadeIn = true;
+                yield return new WaitForSeconds(5f);
+                textFadeIn = false;
+            }
 
             KeeperManager.I.PlayDialogue(Database.LocalizationDataId.End_Scene_3_1, false, true, OnCompleted);
             yield return new WaitUntil(CheckIfCompleted);

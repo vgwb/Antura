@@ -7,12 +7,16 @@ namespace Antura.Core
     [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
     public class LearnMethodConfig : ScriptableObject
     {
+        public string TitleLocID;
+
         [Header("Settings - Language")]
 
         [Tooltip("If set, the Learning language can be the same as the Native language (e.g. learn english with english)")]
         public bool CanUseLearningAsNative;
 
-        public string TitleLocID;
+        [Header("Settings - Scenes")]
+        public bool ShowEndSceneBigText;
+        public string EndSceneLocID;
 
         [Header("Settings - Subtitles")]
         [Tooltip("The mode in which the keeper will show text, by default")]
