@@ -191,7 +191,7 @@ namespace Antura.AnturaSpace
 
             ShopDecorationsManager.I.ResetSlotHighlights();
 
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, ShopDecorationsManager.I.ConfirmDeletion, ShopDecorationsManager.I.CancelDeletion, KeeperMode.LearningNoSubtitles);
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, ShopDecorationsManager.I.ConfirmDeletion, ShopDecorationsManager.I.CancelDeletion);
         }
 
         private void HandlePhotoConfirmationRequested()

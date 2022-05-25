@@ -238,7 +238,7 @@ namespace Antura.Core
                 Application.Quit();
             }, () =>
             {
-            }, KeeperMode.LearningNoSubtitles);
+            });
         }
 
         public void StartNewPlaySession()
