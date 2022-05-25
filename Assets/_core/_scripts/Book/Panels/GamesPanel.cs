@@ -137,23 +137,6 @@ namespace Antura.Book
                 LaunchGameButton.interactable = false;
             }
 
-            // Set icon
-            var icon = AppManager.I.AssetManager.GetMainIcon(currentMiniGame);
-            var badge = AppManager.I.AssetManager.GetBadgeIcon(currentMiniGame);
-
-            MiniGameLogoImage.sprite = icon;
-            MiniGameLogoImage.enabled = true;
-
-            if (badge != null)
-            {
-                MiniGameBadgeImage.enabled = true;
-                MiniGameBadgeImage.sprite = badge;
-            }
-            else
-            {
-                MiniGameBadgeImage.enabled = false;
-            }
-
             Debug.Log($"MiniGame selected: {selectedGameInfo.data.Code}");
         }
 
