@@ -59,7 +59,7 @@ namespace Antura.Core
                 Settings.NativeLanguage = LanguageCode.english;
             }
 
-            AudioManager.I.MusicEnabled = Settings.MusicEnabled;
+            if (AudioManager.I != null) AudioManager.I.MusicEnabled = Settings.MusicEnabled;
 
             // TODO: redo this without affecting SAppConfig.I
             //SAppConfig.I.NativeLanguage = SAppConfig.I.SubtitlesLanguage = Settings.NativeLanguage;

@@ -1,12 +1,20 @@
 ﻿using Antura.Database;
 using Antura.Keeper;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Core
 {
+    public enum LearnMethodID
+    {
+        LearnToRead,
+        LearnLanguage
+    }
+
     [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
     public class LearnMethodConfig : ScriptableObject
     {
+        public LearnMethodID ID;
         public string TitleLocID;
 
         [Header("Settings - Language")]

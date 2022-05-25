@@ -20,6 +20,8 @@ namespace Antura.UI
 
         public void OnEnable()
         {
+            GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.zero;
+
             // HACK: arabic legacy should instead be arabic when entering here
             if (AppManager.I.AppSettings.NativeLanguage == LanguageCode.arabic_legacy)
                 AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic);
@@ -29,6 +31,8 @@ namespace Antura.UI
             foreach (var button in buttons)
                 Destroy(button.gameObject);
             buttons.Clear();
+
+            List<ContentEditionConfig> supportedConfigs = new List<ContentEditionConfig>();
 
             // Find all content editions with the current native language
             for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
@@ -44,6 +48,16 @@ namespace Antura.UI
                 }
                 if (!isSupported) continue;
 
+                supportedConfigs.Add(contentEditionConfig);
+            }
+
+            // Place as first
+            var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.ID == LearnMethodID.LearnToRead);
+            supportedConfigs.Remove(learnToReadConfig);
+            supportedConfigs.Insert(0, learnToReadConfig);
+
+            foreach (ContentEditionConfig contentEditionConfig in supportedConfigs)
+            {
                 var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
                 buttonGO.transform.localScale = Vector3.one;
                 buttonGO.SetActive(true);
@@ -51,6 +65,7 @@ namespace Antura.UI
                 button.Setup(contentEditionConfig);
                 buttons.Add(button);
             }
+
             prefabButton.gameObject.SetActive(false);
 
             var key = LocalizationDataId.Learn_What;
