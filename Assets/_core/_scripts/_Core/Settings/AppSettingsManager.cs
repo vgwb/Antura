@@ -59,7 +59,8 @@ namespace Antura.Core
                 Settings.NativeLanguage = LanguageCode.english;
             }
 
-            if (AudioManager.I != null) AudioManager.I.MusicEnabled = Settings.MusicEnabled;
+            if (AudioManager.I != null)
+                AudioManager.I.MusicEnabled = Settings.MusicEnabled;
 
             // TODO: redo this without affecting SAppConfig.I
             //SAppConfig.I.NativeLanguage = SAppConfig.I.SubtitlesLanguage = Settings.NativeLanguage;
@@ -115,6 +116,7 @@ namespace Antura.Core
             }
             else
             {
+                //                Debug.Log("Settings.AppVersion: " + Settings.AppVersion);
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
             Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
