@@ -506,7 +506,15 @@ namespace Antura.Database
                     else
                     {
                         Debug.LogWarning($"Letter {Id}: missing Phoneme Sound");
-                        return "";
+                        if (NameSound != "")
+                        {
+                            Debug.LogWarning($"Letter {Id}: playing Name Sound instead");
+                            return NameSound;
+                        }
+                        else
+                        {
+                            return "";
+                        }
                     }
                 case LetterDataSoundType.Name:
                     if (NameSound != "")
