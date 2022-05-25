@@ -229,11 +229,12 @@ namespace Antura.Debugging
             AppManager.I.GameLauncher.LaunchGame(miniGameCodeSelected, config);
         }
 
-        public void ResetAll()
+        public void ResetAll(bool clearOnly)
         {
-            AppManager.I.PlayerProfileManager.ResetEverything();
-            AppManager.I.NavigationManager.GoToHome(debugMode: true);
-            Debug.Log("Reset ALL players and DB.");
+            AppManager.I.PlayerProfileManager.ResetEverything(clearOnly);
+            PlayerPrefs.DeleteAll();
+            if (!clearOnly) AppManager.I.NavigationManager.GoToHome(debugMode: true);
+            Debug.Log("Reset ALL players, DBs, and PlayerPrefs.");
         }
 
 #if UNITY_EDITOR
@@ -241,7 +242,7 @@ namespace Antura.Debugging
         [MenuItem("Antura/Delete Profiles")]
         public static void ResetAllCommand()
         {
-            DebugManager.I.ResetAll();
+            DebugManager.I.ResetAll(true);
         }
 
 #endif

@@ -1,6 +1,7 @@
 using Antura.Audio;
 using System;
 using System.Linq;
+using Antura.Language;
 using UnityEngine;
 
 namespace Antura.Core
@@ -54,11 +55,11 @@ namespace Antura.Core
                 Debug.Log("LoadSettings() FIRST INSTALLATION");
                 Settings = new AppSettings();
                 Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
-                Settings.ContentID = AppManager.I.ContentEdition.ContentID;
+                Settings.ContentID = LearningContentID.None;
 
                 // set native Language
                 // first set the default / fallback language
-                Settings.NativeLanguage = AppManager.I.AppSettings.NativeLanguage;
+                Settings.NativeLanguage = LanguageCode.english;
                 if (AppManager.I.AppEdition.DetectSystemLanguage)
                 {
                     foreach (var lang in AppManager.I.ContentEdition.SupportedNativeLanguages)

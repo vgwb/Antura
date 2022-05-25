@@ -319,7 +319,7 @@ namespace Antura.Profile
         /// <summary>
         /// Resets everything.
         /// </summary>
-        public void ResetEverything()
+        public void ResetEverything(bool clearOnly = false)
         {
             // Reset all the Databases
             if (AppManager.I.AppSettings.SavedPlayers != null)
@@ -334,7 +334,7 @@ namespace Antura.Profile
 
             // Reset all settings too
             AppManager.I.AppSettingsManager.DeleteAllSettings();
-            LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
+            if (!clearOnly) LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
             AppManager.I.Player = null;
         }
 

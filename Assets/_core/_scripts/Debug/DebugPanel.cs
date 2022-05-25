@@ -194,7 +194,7 @@ namespace Antura.Debugging
         public void ResetAll()
         {
             Close();
-            DebugManager.I.ResetAll();
+            DebugManager.I.ResetAll(clearOnly:false);
         }
 
         public void OnCreateTestProfile()
