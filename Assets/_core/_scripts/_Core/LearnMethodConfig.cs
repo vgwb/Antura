@@ -1,4 +1,5 @@
-﻿using Antura.Keeper;
+﻿using Antura.Database;
+using Antura.Keeper;
 using UnityEngine;
 
 namespace Antura.Core
@@ -10,6 +11,8 @@ namespace Antura.Core
 
         [Tooltip("If set, the Learning language can be the same as the Native language (e.g. learn english with english)")]
         public bool CanUseLearningAsNative;
+
+        public string TitleLocID;
 
         [Header("Settings - Subtitles")]
         [Tooltip("The mode in which the keeper will show text, by default")]
@@ -42,7 +45,5 @@ namespace Antura.Core
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages
         //  - false: clicking once skips all languages at once
         public bool SkipSingleLanguage => false;
-
-
     }
 }

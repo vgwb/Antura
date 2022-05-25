@@ -49,7 +49,7 @@ namespace Antura.Scenes
         {
             base.Start();
             GlobalUI.ShowPauseMenu(false, PauseMenuType.StartScreen);
-            KeeperManager.I.PlayDialogue(LocalizationDataId.Game_Title_2, false, true, null, KeeperMode.LearningThenNativeNoSubtitles);
+            KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.TitleLocID, false, true, null, KeeperMode.LearningThenNativeNoSubtitles);
 
             AnturaAnimController.State = AnturaAnimation;
             LLAnimController.State = LLAnimation;

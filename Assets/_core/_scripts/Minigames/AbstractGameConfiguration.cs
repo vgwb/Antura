@@ -28,7 +28,7 @@ namespace Antura.Minigames
                 if (GameData == null || string.IsNullOrEmpty(GameData.TitleId))
                 {
                     Debug.LogWarning("No TitleId found for game " + GameData?.GetId());
-                    return LocalizationDataId.Game_Title;
+                    return LocalizationDataId.None;
                 }
                 return (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), GameData.TitleId);
             }
@@ -52,7 +52,7 @@ namespace Antura.Minigames
                 if (GameData == null || string.IsNullOrEmpty(GameData.TutorialId))
                 {
                     Debug.LogWarning("No TutorialId found for game " + GameData?.GetId());
-                    return LocalizationDataId.Game_Title;
+                    return LocalizationDataId.None;
                 }
                 return (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), GameData.TutorialId);
             }
