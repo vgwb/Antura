@@ -93,14 +93,16 @@ namespace Antura.Minigames.HideAndSeek
 
         private IEnumerator WaitTutorial()
         {
+            bool canContinue = false;
+            game.PlayTutorial(() => canContinue = true);
+            while (!canContinue) yield return null;
+
             var winInitialDelay = 1f;
             yield return new WaitForSeconds(winInitialDelay);
 
             var answerAudio = game.Context.GetAudioManager().PlayVocabularyData(GetCorrectAnswer());
 
             yield return new WaitForSeconds(answerAudio.Duration);
-
-            game.Context.GetAudioManager().PlayDialogue(HideAndSeekConfiguration.Instance.TutorialLocalizationId);
 
             buttonRepeater.SetActive(true);
 
