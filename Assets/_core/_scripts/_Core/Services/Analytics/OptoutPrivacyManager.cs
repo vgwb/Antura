@@ -20,6 +20,7 @@ public class OptoutPrivacyManager : MonoBehaviour
         catch (ConsentCheckException e)
         {
             // Something went wrong when checking the GeoIP, check the e.Reason and handle appropriately
+            Debug.Log(e.Reason);
         }
     }
 
@@ -42,12 +43,13 @@ public class OptoutPrivacyManager : MonoBehaviour
         catch (ConsentCheckException e)
         {
             // Handle the exception by checking e.Reason
+            Debug.Log(e.Reason);
         }
     }
 
     public void onShowPrivacyPageButtonPressed()
     {
         // Open the Privacy Policy in the system's default browser
-        Application.OpenURL(Events.PrivacyUrl);
+        Application.OpenURL(AnalyticsService.Instance.PrivacyUrl);
     }
 }
