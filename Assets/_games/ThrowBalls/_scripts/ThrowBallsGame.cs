@@ -27,6 +27,7 @@ namespace Antura.Minigames.ThrowBalls
         {
             instance = this;
             GameState = new GameState(this);
+            
         }
 
         protected override IGameConfiguration GetConfiguration()
