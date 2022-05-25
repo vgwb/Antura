@@ -344,8 +344,7 @@ namespace Antura.Minigames.DancingDots
 
             dancingDotsLL.Reset();
 
-            // TODO: re-add
-            tutorial.doTutorial();
+            StartCoroutine(tutorial.DoTutorial());
 
         }
 
@@ -467,7 +466,7 @@ namespace Antura.Minigames.DancingDots
                 dancingDotsLL.HideRainbow();
                 dancingDotsLL.letterObjectView.ToggleDance();
                 //                yield return new WaitForSeconds(1f);
-                tutorial.doTutorial();
+                StartCoroutine(tutorial.DoTutorial());
                 //startUI();
 
             }
