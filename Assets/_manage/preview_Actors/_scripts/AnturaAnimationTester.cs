@@ -5,7 +5,8 @@ namespace Antura.Test
 {
     public class AnturaAnimationTester : MonoBehaviour
     {
-        AnturaAnimationController antura;
+        public AnturaAnimationController antura;
+        public bool UsingInAnimationUI;
 
         public AnturaAnimationStates targetState;
         public bool doTransition;
@@ -34,7 +35,8 @@ namespace Antura.Test
 
         void Start ()
         {
-            antura = GetComponent<AnturaAnimationController>();
+            if(!UsingInAnimationUI)
+                antura = GetComponent<AnturaAnimationController>();
         }
 	
         void Update ()
@@ -43,90 +45,104 @@ namespace Antura.Test
 
             antura.SetWalkingSpeed(walkSpeed);
 
-            if (doTransition)
+            if (doTransition || UsingInAnimationUI)
             {
-                doTransition = false;
+                if (!UsingInAnimationUI)
+                    doTransition = false;
                 antura.State = targetState;
             }
 
             if (doBurp)
             {
-                doBurp = false;
+                if (!UsingInAnimationUI)
+                    doBurp = false;
                 antura.DoBurp();
             }
 
             if (doBite)
             {
-                doBite = false;
+                if (!UsingInAnimationUI)
+                    doBite = false;
                 antura.DoBite();
             }
 
             if (doShout)
             {
-                doShout = false;
+                if (!UsingInAnimationUI)
+                    doShout = false;
                 antura.DoShout();
             }
 
 
             if (doSniff)
             {
-                doSniff = false;
+                if (!UsingInAnimationUI)
+                    doSniff = false;
                 antura.DoSniff();
             }
 
 
             if (onJumpStart)
             {
-                onJumpStart = false;
+                if (!UsingInAnimationUI)
+                    onJumpStart = false;
                 antura.OnJumpStart();
             }
 
 
             if (onJumpMiddle)
             {
-                onJumpMiddle = false;
+                if (!UsingInAnimationUI)
+                    onJumpMiddle = false;
                 antura.OnJumpMaximumHeightReached();
             }
 
             if (onJumpGrab)
             {
-                onJumpGrab = false;
+                if (!UsingInAnimationUI)
+                    onJumpGrab = false;
                 antura.OnJumpGrab();
             }
 
             if (onJumpEnd)
             {
-                onJumpEnd = false;
+                if (!UsingInAnimationUI)
+                    onJumpEnd = false;
                 antura.OnJumpEnded();
             }
 
             if (doCharge)
             {
-                doCharge = false;
+                if (!UsingInAnimationUI)
+                    doCharge = false;
                 antura.DoCharge(null);
             }
 
             if (doSpitOpen)
             {
-                doSpitOpen = false;
+                if (!UsingInAnimationUI)
+                    doSpitOpen = false;
                 antura.DoSpit(true);
             }
 
             if (doSpitClosed)
             {
-                doSpitClosed = false;
+                if (!UsingInAnimationUI)
+                    doSpitClosed = false;
                 antura.DoSpit(false);
             }
 
             if (onSlipStart)
             {
-                onSlipStart = false;
+                if (!UsingInAnimationUI)
+                    onSlipStart = false;
                 antura.OnSlipStarted();
             }
 
             if (onSlipEnd)
             {
-                onSlipEnd = false;
+                if (!UsingInAnimationUI)
+                    onSlipEnd = false;
                 antura.OnSlipEnded();
             }
         }

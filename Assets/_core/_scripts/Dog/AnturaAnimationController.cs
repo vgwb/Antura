@@ -8,6 +8,9 @@ namespace Antura.Dog
     // TODO conventions: requires renaming of variables
     public class AnturaAnimationController : MonoBehaviour
     {
+        public GameObject RewardUI;
+        public GameObject AnimatUI;
+
         public const float WALKING_SPEED = 0.0f;
         public const float RUN_SPEED = 1.0f;
 
@@ -394,6 +397,21 @@ namespace Antura.Dog
             {
                 hasToGoBackState = false;
                 State = backState;
+            }
+        }
+
+        public void ChangeTo(int target)
+        {
+            switch (target)
+            {
+                case 1:
+                    RewardUI.SetActive(false);
+                    AnimatUI.SetActive(true);
+                    break;
+                case 2:
+                    AnimatUI.SetActive(false);
+                    RewardUI.SetActive(true);
+                    break;
             }
         }
     }
