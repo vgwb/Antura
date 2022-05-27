@@ -1,5 +1,6 @@
 ﻿/*
  * Copyright (c) 2013 Calvin Rien
+ * repo: https://gist.github.com/darktable/1411710
  *
  * Based on the JSON parser by Patrick van Bergen
  * http://techblog.procurios.nl/k/618/news/view/14605/14863/How-do-I-write-my-own-parser-for-JSON.html
@@ -498,7 +499,8 @@ namespace MiniJSON
                 {
                     SerializeString(new string((char)value, 1));
                 }
-                else {
+                else
+                {
                     SerializeOther(value);
                 }
             }
@@ -584,7 +586,8 @@ namespace MiniJSON
                             {
                                 builder.Append(c);
                             }
-                            else {
+                            else
+                            {
                                 builder.Append("\\u");
                                 builder.Append(codepoint.ToString("x4"));
                             }
@@ -620,7 +623,8 @@ namespace MiniJSON
                 {
                     builder.Append(Convert.ToDouble(value).ToString("R"));
                 }
-                else {
+                else
+                {
                     SerializeString(value.ToString());
                 }
             }
