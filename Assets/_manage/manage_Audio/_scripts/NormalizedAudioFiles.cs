@@ -81,7 +81,11 @@ namespace Antura.Test
 
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = localization.FirstOrDefault(af => af.AudioKey == file.Name.Split(".")[0]);
+                                string fName = file.Name.Split(".")[0];
+                                if (fName.Substring(fName.Length - 2, 2) == "_F") //if it's an arabic female audio, we take off the _F to search in the db (cause in the db the audio_key is only in male)
+                                    fName = fName.Substring(0, fName.Length - 2);
+
+                                var fileAux = localization.FirstOrDefault(af => af.AudioKey == fName);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
