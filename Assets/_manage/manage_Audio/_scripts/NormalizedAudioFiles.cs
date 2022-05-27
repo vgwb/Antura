@@ -81,7 +81,7 @@ namespace Antura.Test
 
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = localization.FirstOrDefault(af => file.Name.Contains(af.AudioKey));
+                                var fileAux = localization.FirstOrDefault(af => af.AudioKey == file.Name.Split(".")[0]);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
@@ -164,7 +164,7 @@ namespace Antura.Test
 
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = phrases.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                var fileAux = phrases.FirstOrDefault(lt => lt.Id == file.Name.Split(".")[0]);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in phrases table of " + lang + " version");
@@ -205,7 +205,7 @@ namespace Antura.Test
 
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = words.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                var fileAux = words.FirstOrDefault(lt => lt.Id == file.Name.Split(".")[0]);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in words table of " + lang + " version");
