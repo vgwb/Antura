@@ -11,10 +11,11 @@ using UnityEngine;
 
 namespace Antura.Tools
 {
+    // DEPRECATED (used only to generate the first addressables)
     public class ShapeDataFixer : MonoBehaviour
     {
 
-        [MenuItem("Antura/Tools/Fix ShapeData Addressables")]
+        //[MenuItem("Antura/Tools/Fix ShapeData Addressables")]
         public static void FixShapeData()
         {
             AppManager.I.AppSettingsManager.SetLearningContentID(LearningContentID.LearnToRead_Dari);
