@@ -1,19 +1,22 @@
 ﻿using Antura.Database;
-#if MODULE_NOTIFICATIONS
-using Antura.Modules.Notifications;
-#endif
 using System;
 using UnityEngine;
+using NotificationSamples;
 
 namespace Antura.Core.Services.Notification
 {
     public class NotificationService
     {
+        public GameNotificationsManager NotificationsManager;
+
         public const string ChannelId = "game_channel0";
         private bool inizialized = false;
+        private GameObject myGameObject;
 
-        public NotificationService()
+        public NotificationService(GameObject _gameObject)
         {
+            myGameObject = _gameObject;
+            Init();
         }
 
         public void Init()
@@ -21,10 +24,10 @@ namespace Antura.Core.Services.Notification
             if (!inizialized)
             {
                 Debug.Log("NotificationService Init");
-#if MODULE_NOTIFICATIONS
+                NotificationsManager = myGameObject.AddComponent<GameNotificationsManager>();
+
                 var channel = new GameNotificationChannel(ChannelId, "Default Game Channel", "Generic notifications");
-                GameNotificationsManager.I.Initialize(channel);
-#endif
+                NotificationsManager.Initialize(channel);
                 inizialized = true;
             }
         }
@@ -83,14 +86,12 @@ namespace Antura.Core.Services.Notification
         /// <param name="smallIcon">List of build-in small icons: notification_icon_bell (default), notification_icon_clock, notification_icon_heart, notification_icon_message, notification_icon_nut, notification_icon_star, notification_icon_warning.</param>
         public void ScheduleSimple(DateTime deliveryTime, string title, string message)
         {
-#if MODULE_NOTIFICATIONS
-            IGameNotification notification = GameNotificationsManager.I.CreateNotification();
+            IGameNotification notification = NotificationsManager.CreateNotification();
             notification.Title = title;
             notification.Body = message;
             notification.DeliveryTime = deliveryTime;
             notification.LargeIcon = "icon_antura";
-            GameNotificationsManager.I.ScheduleNotification(notification);
-#endif
+            NotificationsManager.ScheduleNotification(notification);
         }
 
         public void DeleteAllLocalNotifications()
