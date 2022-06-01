@@ -153,7 +153,11 @@ namespace Antura.Core
             RewardSystemManager.Init();
 
             PlayerProfileManager = new PlayerProfileManager();
-            PlayerProfileManager.LoadPlayerSettings();
+            bool hasUpgraded = PlayerProfileManager.LoadPlayerSettings();
+            if (hasUpgraded)
+            {
+                yield return ReloadEdition();
+            }
 
             //            Debug.Log("AppManager Init(): UIDirector.Init()");
             UIDirector.Init(); // Must be called after NavigationManager has been initialized

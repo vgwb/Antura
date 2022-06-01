@@ -132,9 +132,25 @@ namespace Antura.Profile
         /// Reloads all the settings and, optionally, the current player
         /// TODO: rebuild database only for desynchronized profile
         /// </summary>
-        public void LoadPlayerSettings(bool alsoLoadCurrentPlayerProfile = true)
+        public bool LoadPlayerSettings(bool alsoLoadCurrentPlayerProfile = true)
         {
+            bool hasUpgraded = false;
             AppManager.I.AppSettingsManager.LoadSettings();
+
+            // Update checks
+            if (AppManager.I.AppSettings.AppVersion == "2.0.1.1")   // Old Arabic version
+            {
+                Debug.LogError("Forcing Upgrade from version 2.0.1.1");
+                AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
+                AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
+                for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
+                {
+                    PlayerIconData pl = AppManager.I.AppSettings.SavedPlayers[iPl];
+                    pl.contentID = LearningContentID.Learn_Arabic;
+                    pl.editionID = AppEditionID.Arabic;
+                }
+                hasUpgraded = true;
+            }
 
             if (alsoLoadCurrentPlayerProfile)
             {
@@ -174,6 +190,7 @@ namespace Antura.Profile
                     }
                 }
             }
+            return hasUpgraded;
         }
 
         #endregion
