@@ -141,9 +141,8 @@ namespace Antura.Core
             yield return ReloadEdition();
 
             FirstContactManager = new FirstContactManager();
-            Services = new ServicesManager();
-            Services.Analytics = gameObject.AddComponent<Analytics>();
-            Services.Analytics.Init();
+            Services = new ServicesManager(gameObject);
+
             // MonoBehaviors
             NavigationManager = gameObject.AddComponent<NavigationManager>();
             NavigationManager.Init();
@@ -156,9 +155,7 @@ namespace Antura.Core
             PlayerProfileManager = new PlayerProfileManager();
             PlayerProfileManager.LoadPlayerSettings();
 
-            //            Services = new ServicesManager();
-
-            Debug.Log("AppManager Init(): UIDirector.Init()");
+            //            Debug.Log("AppManager Init(): UIDirector.Init()");
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup

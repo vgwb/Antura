@@ -2,6 +2,7 @@ using Antura.Core.Services.Notification;
 using Antura.Core.Services.Gallery;
 using Antura.Core.Services.OnlineAnalytics;
 using Antura.Core.Services.WebView;
+using UnityEngine;
 
 namespace Antura.Core.Services
 {
@@ -12,11 +13,14 @@ namespace Antura.Core.Services
         public Analytics Analytics;
         public WebViewService WebView;
 
-        public ServicesManager()
+        public ServicesManager(GameObject _gameObject)
         {
-            Notifications = new NotificationService();
+            Notifications = new NotificationService(_gameObject);
             Gallery = new GalleryService();
-            //Analytics = new AnalyticsService();
+
+            Analytics = _gameObject.AddComponent<Analytics>();
+            Analytics.Init();
+
             WebView = new WebViewService();
         }
     }

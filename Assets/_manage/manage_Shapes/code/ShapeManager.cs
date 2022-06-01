@@ -75,7 +75,7 @@ public class ShapeManager : MonoBehaviour
         if (shapeData == null)
         {
             var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First().Split('_').Last();
-            var assetPath = $"Assets/_core/Fonts/Learning/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
+            var assetPath = $"Assets/_core/Fonts/Resources/Learning/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
 
             shapeData = AssetDatabase.LoadAssetAtPath<ShapeLetterData>(assetPath);
             if (shapeData != null)
