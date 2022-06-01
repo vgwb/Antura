@@ -14,7 +14,7 @@ namespace Antura.Minigames.DancingDots
         public TextMeshPro hintDot;
         public DancingDotsDiacriticPosition[] targetDDs;
         //public Vector3[] path;
-        public float startDelay, repeatDelay = 3;
+        public float repeatDelay = 3;
 
         private bool doTutOnDots;
 
@@ -29,22 +29,21 @@ namespace Antura.Minigames.DancingDots
         }
         void Start()
         {
-            if (gameManager.TutorialEnabled)
-                StartCoroutine(coDoTutorial());
+            StartCoroutine(UpdateTutorialCo());
 
             //warm up
             TutorialUI.DrawLine(-100 * Vector3.up, -100 * Vector3.up, TutorialUI.DrawLineMode.Arrow);
         }
 
 
-        public void doTutorial()
+        public IEnumerator DoTutorial()
         {
-
             if (!gameManager.isTutRound)
-                return;
+                yield break;
+
+            yield return sayTut(0f);
 
             Debug.Log("Tutorial started");
-
 
             doTutOnDots = false;
 
@@ -79,39 +78,36 @@ namespace Antura.Minigames.DancingDots
 
         }
 
-        IEnumerator coDoTutorial()
+        IEnumerator UpdateTutorialCo()
         {
-            yield return new WaitForSeconds(startDelay);
-            StartCoroutine(sayTut(repeatDelay));
-
-            while (gameManager.isTutRound)
+            while (true)
             {
-                if (currentDD)
+                if (gameManager.isTutRound)
                 {
-
-                    yield return new WaitForSeconds(repeatDelay);
-
-
-                    if (currentDD.isDragging || !gameManager.isTutRound)
+                    if (currentDD)
                     {
-                        yield return null;
-                        continue;
+
+                        yield return new WaitForSeconds(repeatDelay);
+
+
+                        if (currentDD.isDragging || !gameManager.isTutRound)
+                        {
+                            yield return null;
+                            continue;
+                        }
+
+                        if (doTutOnDots)
+                            targetPosition = hintDot.transform.TransformPoint(Vector3.Lerp(hintDot.mesh.vertices[0], hintDot.mesh.vertices[2], 0.5f));
+                        else
+                            targetPosition = target.position;
+
+                        TutorialUI.DrawLine(source.position - Vector3.forward * 2, targetPosition - Vector3.forward * 2, TutorialUI.DrawLineMode.FingerAndArrow);
+
+                        //yield return new WaitForSeconds(repeatDelay/2);
                     }
-
-                    if (doTutOnDots)
-                        targetPosition = hintDot.transform.TransformPoint(Vector3.Lerp(hintDot.mesh.vertices[0], hintDot.mesh.vertices[2], 0.5f));
-                    else
-                        targetPosition = target.position;
-
-                    TutorialUI.DrawLine(source.position - Vector3.forward * 2, targetPosition - Vector3.forward * 2, TutorialUI.DrawLineMode.FingerAndArrow);
-
-                    //yield return new WaitForSeconds(repeatDelay/2);
                 }
-
                 yield return null;
-
             }
-
         }
 
         IEnumerator sayTut(float delay)

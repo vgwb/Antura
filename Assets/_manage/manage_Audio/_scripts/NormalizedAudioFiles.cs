@@ -76,10 +76,16 @@ namespace Antura.Test
 
                             List<string> audioFiles = new List<string>();
                             var info = new DirectoryInfo(langPath);
-                            var filesInfo = info.GetFiles();
+                            var filesInfo = info.GetFiles().ToList();
+                            filesInfo = filesInfo.Where(fi => fi.Name.Substring(fi.Name.Length - 5, 5) != ".meta").ToList();
+
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = localization.FirstOrDefault(af => file.Name.Contains(af.AudioKey));
+                                string fName = file.Name.Split(".")[0];
+                                if (fName.Substring(fName.Length - 2, 2) == "_F") //if it's an arabic female audio, we take off the _F to search in the db (cause in the db the audio_key is only in male)
+                                    fName = fName.Substring(0, fName.Length - 2);
+
+                                var fileAux = localization.FirstOrDefault(af => af.AudioKey == fName);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in localization table of " + lang + " version");
@@ -115,10 +121,13 @@ namespace Antura.Test
 
                             List<string> audioFiles = new List<string>();
                             var info = new DirectoryInfo(langPath);
-                            var filesInfo = info.GetFiles();
+                            var filesInfo = info.GetFiles().ToList();
+                            filesInfo = filesInfo.Where(fi => fi.Name.Substring(fi.Name.Length - 5, 5) != ".meta").ToList();
+
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = letters.FirstOrDefault(lt => file.Name.Contains(lt.GetAudioFilename()));
+                                string fmWithoutExt = file.Name.Split(".")[0];
+                                var fileAux = letters.FirstOrDefault(lt => lt.NameSound == fmWithoutExt || lt.PhonemeSound == fmWithoutExt);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in letters table of " + lang + " version");
@@ -154,10 +163,12 @@ namespace Antura.Test
 
                             List<string> audioFiles = new List<string>();
                             var info = new DirectoryInfo(langPath);
-                            var filesInfo = info.GetFiles();
+                            var filesInfo = info.GetFiles().ToList();
+                            filesInfo = filesInfo.Where(fi => fi.Name.Substring(fi.Name.Length - 5, 5) != ".meta").ToList();
+
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = phrases.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                var fileAux = phrases.FirstOrDefault(lt => lt.Id == file.Name.Split(".")[0]);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in phrases table of " + lang + " version");
@@ -193,10 +204,12 @@ namespace Antura.Test
 
                             List<string> audioFiles = new List<string>();
                             var info = new DirectoryInfo(langPath);
-                            var filesInfo = info.GetFiles();
+                            var filesInfo = info.GetFiles().ToList();
+                            filesInfo = filesInfo.Where(fi => fi.Name.Substring(fi.Name.Length - 5, 5) != ".meta").ToList();
+
                             foreach (FileInfo file in filesInfo)
                             {
-                                var fileAux = words.FirstOrDefault(lt => file.Name.Contains(lt.Id));
+                                var fileAux = words.FirstOrDefault(lt => lt.Id == file.Name.Split(".")[0]);
                                 if (fileAux == null)
                                 {
                                     Debug.LogError("The audio file \"" + file.Name + "\" doesn't exist in words table of " + lang + " version");
@@ -273,14 +286,31 @@ namespace Antura.Test
                         Debug.Log("Starting to check audio files from letters table to the " + lang + " version folder...");
 
                         foreach (LetterData data in letters)
-                        {
-                            FileInfo[] targetFile = root.GetFiles(data.GetAudioFilename() + ".*");
-                            if (targetFile.Length <= 0 && data.GetAudioFilename() != "") //checking that the audio file of the letters table exist in the version audio folder
+                        {                                                        
+                            if(data.NameSound != "")
                             {
-                                Debug.LogError("The audio file \"" + data.GetAudioFilename() + "\" doesn't exist for " + lang + " version");
-                                missing_keys += data.GetAudioFilename() + "\n";
-                                missing_count++;
+                                List<FileInfo> targetFile1 = root.GetFiles(data.NameSound + ".*").ToList();
+                                targetFile1 = targetFile1.Where(fi => fi.FullName.Substring(fi.FullName.Length - 5, 5) != ".meta").ToList();
+                                if (targetFile1.Count == 0)
+                                {
+                                    Debug.LogError("The audio file \"" + data.NameSound + "\" doesn't exist for " + lang + " version");
+                                    missing_keys += data.GetAudioFilename() + "\n";
+                                    missing_count++;
+                                }
                             }
+                            if(data.PhonemeSound != "")
+                            {
+                                List<FileInfo> targetFile2 = root.GetFiles(data.PhonemeSound + ".*").ToList();
+                                targetFile2 = targetFile2.Where(fi => fi.FullName.Substring(fi.FullName.Length - 5, 5) != ".meta").ToList();
+
+                                if (targetFile2.Count == 0)
+                                {
+                                    Debug.LogError("The audio file \"" + data.PhonemeSound + "\" doesn't exist for " + lang + " version");
+                                    missing_keys += data.GetAudioFilename() + "\n";
+                                    missing_count++;
+                                }
+                            }    
+                            
                         }
                         if (missing_count > 0)
                             Debug.LogWarning("WARNING: total missing letter audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
