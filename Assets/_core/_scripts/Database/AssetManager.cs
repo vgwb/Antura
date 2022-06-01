@@ -224,7 +224,7 @@ namespace Antura
                     var item = Resources.Load<T>(key);
                     if (item != null)
                     {
-                        cache[key] = item;
+                        cache[key.Split('/').Last()] = item;
                         n++;
                     }
                 }
