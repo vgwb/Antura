@@ -17,6 +17,9 @@ namespace Antura.Language
         public AlphabetCode Alphabet;
         public string TutorialLetterId;
 
+        public AbstractLanguageHelper LanguageHelper;
+        public DiacriticsComboData DiacriticsComboData;
+
         [Header("Language Font")]
         public TMP_FontAsset LanguageFont;
         public Material OutlineLanguageFontMaterial;

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using Antura.Core;
 using Antura.Database;
@@ -8,6 +9,7 @@ using Antura.Language;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Debug = UnityEngine.Debug;
 
 namespace Antura
 {
@@ -23,7 +25,7 @@ namespace Antura
 
         public IEnumerator PreloadDataCO()
         {
-            // We ovverride the exception handler, or addressables will use theirs and we do not want that.
+            // We override the exception handler, or addressables will use theirs and we do not want that.
             UnityEngine.ResourceManagement.ResourceManager.ExceptionHandler = ((op, exception) =>
             {
                 if (VERBOSE)
@@ -46,13 +48,17 @@ namespace Antura
             ClearCache(nativeAudioCache);
             ClearCache(textCache);
 
-            // Pre-load images and icons for the wanted language
-            var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
-            var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
+            yield return LoadIconAndBadgeData();
+            yield return LoadShapeData();
+           // yield return LoadSongData();
+        }
 
-            // Icons
+        public IEnumerator LoadIconAndBadgeData()
+        {
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Icons");
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             var iconKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
@@ -60,36 +66,56 @@ namespace Antura
                 // iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
                 iconKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
+            yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+            stopwatch.Stop();
+            Debug.LogError("ICONS: " + stopwatch.ElapsedMilliseconds.ToString());
 
-            // Badges
-            if (VERBOSE)
-                Debug.Log("[Assets] Preloading Badges");
+            if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
+            stopwatch = new Stopwatch();
+            stopwatch.Start();
             var badgeKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
                 badgeKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
-            yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad);
+            yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+            stopwatch.Stop();
+            Debug.LogError("BADGES: " + stopwatch.ElapsedMilliseconds.ToString());
+        }
 
-            // Shape data
+        public IEnumerator LoadShapeData()
+        {
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Shape Data");
             if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Maze_lettername
-                                                                    || x.Code == MiniGameCode.SickLetters_lettername))
+                                                              || x.Code == MiniGameCode.SickLetters_lettername))
             {
+                bool loadFromResources = true;
                 var sideKeys = new HashSet<string>();
                 var learningFont = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
                 var fontName = learningFont.name.Split(" ").First().Split('_').Last();
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
-                    sideKeys.Add($"{fontName}/shapedata_{letterData.GetCompleteUnicodes()}");
+                    sideKeys.Add($"{(loadFromResources ? "Learning/Font " : "")} {fontName}/shapedata_{letterData.GetCompleteUnicodes()}");
                 }
-                yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad);
+                yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:loadFromResources);
             }
+            stopwatch.Stop();
+            Debug.LogError("SHAPE DATA: " + stopwatch.ElapsedMilliseconds.ToString());
 
-            // Song data
+        }
+
+        public IEnumerator LoadSongData()
+        {
+            var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
+            var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
+
+            var stopwatch = new Stopwatch();
+            stopwatch.Start();
+
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Song Data");
 
@@ -158,7 +184,13 @@ namespace Antura
             //songTextKeys.Add($"{prefix}DiacriticSong.akr");
             if (songTextKeys.Count > 0)
                 yield return LoadAssets(songTextKeys, textCache, DebugConfig.I.AddressablesBlockingLoad);
+
+            stopwatch.Stop();
+            Debug.LogError("SONG DATA: " + stopwatch.ElapsedMilliseconds.ToString());
+
+
         }
+
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
         {
@@ -177,24 +209,41 @@ namespace Antura
             cache.Clear();
         }
 
-        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string, T> cache, bool sync = false) where T : UnityEngine.Object
+        private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string, T> cache, bool sync = false, bool fromResources = false) where T : UnityEngine.Object
         {
             int n = 0;
             if (VERBOSE)
                 Debug.Log($"Loading {keys.Count} (first is {keys.FirstOrDefault()}");
-            var op = Addressables.LoadAssetsAsync<T>(keys, obj =>
+
+            if (fromResources)
+            {
+                foreach (var key in keys)
+                {
+                    var item = Resources.Load<T>(key);
+                    if (item != null)
+                    {
+                        cache[key] = item;
+                        n++;
+                    }
+                }
+            }
+            else
+            {
+                var op = Addressables.LoadAssetsAsync<T>(keys, obj =>
                 {
                     cache[obj.name] = obj;
                     n++;
                 }, Addressables.MergeMode.Union);
 
-            while (!op.IsDone)
-            {
-                if (sync)
-                    op.WaitForCompletion();
-                else
-                    yield return null;
+                while (!op.IsDone)
+                {
+                    if (sync)
+                        op.WaitForCompletion();
+                    else
+                        yield return null;
+                }
             }
+
 
             if (VERBOSE)
                 Debug.Log($"Found {n} items");
