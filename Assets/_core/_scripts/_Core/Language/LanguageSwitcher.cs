@@ -44,22 +44,28 @@ namespace Antura.Language
 
         public IEnumerator LoadAllLanguageData()
         {
+            var languagesToLoad = new HashSet<LanguageCode>();
+
             // We also need to load data for all languages, as they are needed for the selection menu
             foreach (var nativeLanguage in AppManager.I.AppEdition.SupportedNativeLanguages)
             {
-                yield return LoadLanguageData(nativeLanguage);
+                languagesToLoad.Add(nativeLanguage);
             }
 
             foreach (var contentEdition in AppManager.I.AppEdition.ContentEditions)
             {
-                yield return LoadLanguageData(contentEdition.LearningLanguage);
-                yield return LoadLanguageData(contentEdition.HelpLanguage);
+                languagesToLoad.Add(contentEdition.LearningLanguage);
+                languagesToLoad.Add(contentEdition.HelpLanguage);
                 foreach (LanguageCode nativeLanguage in contentEdition.OverridenNativeLanguages)
                 {
-                    yield return LoadLanguageData(nativeLanguage);
+                    languagesToLoad.Add(nativeLanguage);
                 }
             }
 
+            foreach (LanguageCode languageCode in languagesToLoad)
+            {
+                yield return LoadLanguageData(languageCode);
+            }
         }
 
         public IEnumerator ReloadNativeLanguage()
