@@ -6,6 +6,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
+using DG.DeExtensions;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
@@ -55,6 +56,8 @@ namespace Antura
 
         public IEnumerator LoadIconAndBadgeData()
         {
+            bool loadFromResources = true;
+
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Icons");
             //var stopwatch = new Stopwatch();
@@ -62,9 +65,10 @@ namespace Antura
             var iconKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
+                if (miniGameData.Main.IsNullOrEmpty()) continue;
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
                 // iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
-                iconKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
+                iconKeys.Add($"common/Images/GameIcons/{spriteName}{(loadFromResources ? "" : $"[{spriteName}]")}");
             }
             yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
             //stopwatch.Stop();
@@ -77,7 +81,7 @@ namespace Antura
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
-                badgeKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
+                badgeKeys.Add($"common/Images/GameIcons/{spriteName}{(loadFromResources ? "" : $"[{spriteName}]")}");
             }
             yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
             //stopwatch.Stop();
@@ -99,7 +103,7 @@ namespace Antura
                 var fontName = learningFont.name.Split(" ").First().Split('_').Last();
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
-                    sideKeys.Add($"{(loadFromResources ? "Learning/Font " : "")} {fontName}/shapedata_{letterData.GetCompleteUnicodes()}");
+                    sideKeys.Add($"{(loadFromResources ? "Learning/Font " : "")}{fontName}{(loadFromResources ? "/ShapeData" : "")}/shapedata_{letterData.GetCompleteUnicodes()}");
                 }
                 yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:loadFromResources);
             }
