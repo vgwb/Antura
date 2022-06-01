@@ -87,8 +87,8 @@ namespace Antura.Language
                 yield break;
             var languageData = new LanguageData();
 
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
             yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
             if (languageData.config == null)
             {
@@ -104,8 +104,8 @@ namespace Antura.Language
 
             languageData.diacriticsComboData = languageData.config.DiacriticsComboData;
             yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
-            stopwatch.Stop();
-            Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
+            //stopwatch.Stop();
+            //Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         public IEnumerator PreloadLocalizedDataCO()

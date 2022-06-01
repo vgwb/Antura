@@ -57,8 +57,8 @@ namespace Antura
         {
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Icons");
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
             var iconKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
@@ -67,12 +67,12 @@ namespace Antura
                 iconKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
-            stopwatch.Stop();
-            Debug.LogError("ICONS: " + stopwatch.ElapsedMilliseconds.ToString());
+            //stopwatch.Stop();
+            //Debug.LogError("ICONS: " + stopwatch.ElapsedMilliseconds.ToString());
 
             if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
-            stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //stopwatch = new Stopwatch();
+            //stopwatch.Start();
             var badgeKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
@@ -80,14 +80,14 @@ namespace Antura
                 badgeKeys.Add($"common/Images/GameIcons/{spriteName}[{spriteName}]");
             }
             yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
-            stopwatch.Stop();
-            Debug.LogError("BADGES: " + stopwatch.ElapsedMilliseconds.ToString());
+            //stopwatch.Stop();
+            //Debug.LogError("BADGES: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         public IEnumerator LoadShapeData()
         {
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Shape Data");
             if (AppManager.I.DB.GetActiveMinigames().Any(x => x.Code == MiniGameCode.Maze_lettername
@@ -103,8 +103,8 @@ namespace Antura
                 }
                 yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:loadFromResources);
             }
-            stopwatch.Stop();
-            Debug.LogError("SHAPE DATA: " + stopwatch.ElapsedMilliseconds.ToString());
+            //stopwatch.Stop();
+            //Debug.LogError("SHAPE DATA: " + stopwatch.ElapsedMilliseconds.ToString());
 
         }
 
@@ -113,8 +113,8 @@ namespace Antura
             var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
             var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
 
-            var stopwatch = new Stopwatch();
-            stopwatch.Start();
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
 
             if (VERBOSE)
                 Debug.Log("[Assets] Preloading Song Data");
@@ -185,10 +185,8 @@ namespace Antura
             if (songTextKeys.Count > 0)
                 yield return LoadAssets(songTextKeys, textCache, DebugConfig.I.AddressablesBlockingLoad);
 
-            stopwatch.Stop();
-            Debug.LogError("SONG DATA: " + stopwatch.ElapsedMilliseconds.ToString());
-
-
+            //stopwatch.Stop();
+            //Debug.LogError("SONG DATA: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
 
