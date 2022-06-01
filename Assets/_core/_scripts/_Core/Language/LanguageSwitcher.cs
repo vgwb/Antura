@@ -2,8 +2,10 @@ using Antura.Core;
 using Antura.Audio;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using Debug = UnityEngine.Debug;
 
 namespace Antura.Language
 {
@@ -85,24 +87,25 @@ namespace Antura.Language
                 yield break;
             var languageData = new LanguageData();
 
-            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad);
+            //var stopwatch = new Stopwatch();
+            //stopwatch.Start();
+            yield return AssetLoader.Load<LangConfig>($"{language}/LangConfig", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
             }
 
-            yield return AssetLoader.Load<AbstractLanguageHelper>($"{language}/LanguageHelper", r => languageData.helper = r, DebugConfig.I.AddressablesBlockingLoad);
+            languageData.helper = languageData.config.LanguageHelper;
             if (languageData.helper == null)
             {
                 throw new FileNotFoundException($"Could not find the LanguageHelper file in the language resources! Did you setup the {language} language correctly?");
             }
             loadedLanguageData[language] = languageData;
 
-            yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, DebugConfig.I.AddressablesBlockingLoad);
-            /*if (languageData.diacriticsComboData == null)
-            {
-                throw new FileNotFoundException($"Could not find the DiacriticsComboData file for {language} in the language resources! Did you setup it correctly?");
-            }*/
+            languageData.diacriticsComboData = languageData.config.DiacriticsComboData;
+            yield return AssetLoader.Load<DiacriticsComboData>($"{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+            //stopwatch.Stop();
+            //Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
         }
 
         public IEnumerator PreloadLocalizedDataCO()

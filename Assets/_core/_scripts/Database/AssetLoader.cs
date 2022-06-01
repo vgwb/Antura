@@ -3,13 +3,14 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using Object = UnityEngine.Object;
 
 namespace Antura
 {
     public static class AssetLoader
     {
 
-        public static IEnumerator ValidateAndLoad<T>(string key, Action<T> callback)
+        public static IEnumerator ValidateAndLoad<T>(string key, Action<T> callback) where T : Object
         {
             var validateAddress = Addressables.LoadResourceLocationsAsync(key);
             yield return validateAddress.Task;
@@ -26,8 +27,15 @@ namespace Antura
             }
         }
 
-        public static IEnumerator Load<T>(string path, Action<T> callback, bool sync = false)
+        public static IEnumerator Load<T>(string path, Action<T> callback, bool sync = false, bool fromResources = false) where T : Object
         {
+            if (fromResources)
+            {
+                var obj = Resources.Load<T>(path);
+                callback(obj);
+                yield break;
+            }
+
             AsyncOperationHandle<T> async = default;
             try
             {
