@@ -108,11 +108,11 @@ namespace Antura.UI
             CheckRTL();
         }
 
-        public void SetTextUnfiltered(string text, Font2Use _fontUse = Font2Use.Default)
+        public void SetTextUnfiltered(string _text, Font2Use _fontUse = Font2Use.Default)
         {
             fontUse = _fontUse;
-            TMPText.text = text;
-            m_text = text;
+            TMPText.text = _text;
+            m_text = _text;
             CheckRTL();
         }
 

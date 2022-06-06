@@ -54,9 +54,9 @@ namespace Antura.UI
             }
 
             LetterTextIsolated.SetText(isolatedChar, Font2Use.Learning);
-            LetterTextInitial.SetText(InitialChar, Font2Use.Learning);
-            LetterTextMedial.SetText(MedialChar, Font2Use.Learning);
-            LetterTextFinal.SetText(FinalChar, Font2Use.Learning);
+            LetterTextInitial.SetTextUnfiltered(InitialChar, Font2Use.Learning);
+            LetterTextMedial.SetTextUnfiltered(MedialChar, Font2Use.Learning);
+            LetterTextFinal.SetTextUnfiltered(FinalChar, Font2Use.Learning);
 
             if (Book.Book.I.EditDiacritics)
             {

@@ -101,7 +101,7 @@ namespace Antura.Book
             myLetterData = letterInfo.data;
 
             if (DebugConfig.I.VerboseBook)
-                Debug.Log("[DetailLetter]" + myLetterData.Number + " " + myLetterData.Id);
+                Debug.Log("[DetailLetter] number: " + myLetterData.Number + "  - Id: " + myLetterData.Id);
 
             HighlightLetterItem(myLetterInfo.data.Id);
 
@@ -114,8 +114,10 @@ namespace Antura.Book
                 foreach (var word in letterInfo.data.LinkedWords)
                 {
                     WordData wdata = AppManager.I.DB.GetWordDataById(word);
-                    WordInfo winfo = new WordInfo();
-                    winfo.data = wdata;
+                    var winfo = new WordInfo
+                    {
+                        data = wdata
+                    };
 
                     btnGO = Instantiate(WordItemPrefab);
                     btnGO.transform.SetParent(RelatedWordsContainer.transform, false);
@@ -165,9 +167,6 @@ namespace Antura.Book
         {
             myLetterInfo = letterInfo;
             myLetterData = letterInfo.data;
-
-            if (DebugConfig.I.VerboseBook)
-                Debug.Log("[ShowLetter]" + myLetterData.Number + " " + myLetterData.Id);
 
             string positionsString = "";
             foreach (var p in letterInfo.data.GetAvailableForms())
