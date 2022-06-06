@@ -1,6 +1,5 @@
 using Antura.Audio;
 using System;
-using System.Linq;
 using Antura.Language;
 using UnityEngine;
 
@@ -9,7 +8,7 @@ namespace Antura.Core
     public class AppSettingsManager
     {
         private const string SETTINGS_PREFS_KEY = "OPTIONS";
-        private AppSettings _settings = new AppSettings();
+        private AppSettings _settings;
 
         public AppSettings Settings
         {
@@ -46,7 +45,7 @@ namespace Antura.Core
             {
                 var serializedObjs = PlayerPrefs.GetString(SETTINGS_PREFS_KEY);
                 Settings = JsonUtility.FromJson<AppSettings>(serializedObjs);
-                //Debug.Log("LoadSettings() " + serializedObjs);
+                Debug.Log("LoadSettings() " + serializedObjs);
             }
             else
             {
@@ -116,7 +115,6 @@ namespace Antura.Core
             }
             else
             {
-                //                Debug.Log("Settings.AppVersion: " + Settings.AppVersion);
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
             Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
@@ -130,8 +128,7 @@ namespace Antura.Core
         {
             Settings.ShareAnalyticsEnabled = status;
             SaveSettings();
-            if (onEnableShareAnalytics != null)
-                onEnableShareAnalytics(status);
+            onEnableShareAnalytics?.Invoke(status);
         }
 
         public void ToggleShareAnalytics()
@@ -164,7 +161,7 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public void SetNativeLanguage(Language.LanguageCode langCode)
+        public void SetNativeLanguage(LanguageCode langCode)
         {
             Settings.NativeLanguage = langCode;
             SaveSettings();
