@@ -2,7 +2,6 @@ using System.Collections;
 using Antura.Core;
 using UnityEngine;
 
-
 namespace Antura.Minigames
 {
     /// <summary>
