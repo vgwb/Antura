@@ -90,7 +90,7 @@ namespace Antura.ReservedArea
 
         public void OnDeleteSelectPlayerProfile()
         {
-            GlobalUI.ShowPrompt(Database.LocalizationDataId.UI_AreYouSure, DoDeleteSelectPlayerProfile, DoNothing);
+            GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: DoDeleteSelectPlayerProfile, _onNoCallback: DoNothing, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
         }
 
         void DoNothing()
@@ -133,7 +133,7 @@ namespace Antura.ReservedArea
         {
             if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
             {
-                GlobalUI.ShowPrompt(Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
+                GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
             }
             else
             {
@@ -191,7 +191,6 @@ namespace Antura.ReservedArea
             bool useBestScores = true;
 
             var logAi = AppManager.I.Teacher.logAI;
-            var fakeAppSession = LogManager.I.AppSession;
 
             // Add some mood data
             Debug.Log("Start adding mood scores");
