@@ -89,23 +89,30 @@ namespace Antura.ReservedArea
 
         public void OnBtnShareData()
         {
-            AppManager.I.AppSettingsManager.ToggleShareAnalytics();
-            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
-
-            if (AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled)
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
+            () =>
             {
-                GlobalUI.ShowPrompt(id: LocalizationDataId.UI_Prompt_ShareData, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
-            }
+                AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
+                AnalyticsCheckIcon.Set(true);
+            }, () =>
+            {
+                AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
+                AnalyticsCheckIcon.Set(false);
+            }, Keeper.KeeperMode.NativeNoSubtitles);
         }
 
         public void OnBtnNotifications()
         {
-            AppManager.I.AppSettingsManager.ToggleNotifications();
-            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
-            // if (AppManager.I.AppSettings.NotificationsEnabled)
-            // {
-            //     GlobalUI.ShowPrompt(id: LocalizationDataId.UI_Prompt_ShareData, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
-            // }
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
+            () =>
+            {
+                AppManager.I.AppSettingsManager.EnableNotifications(true);
+                NotificationsCheckIcon.Set(true);
+            }, () =>
+            {
+                AppManager.I.AppSettingsManager.EnableNotifications(false);
+                NotificationsCheckIcon.Set(false);
+            }, Keeper.KeeperMode.NativeNoSubtitles);
         }
 
         public void OnOpenDonate()
