@@ -205,7 +205,15 @@ namespace Antura.Rewards
 
         public void UnlockNewReward()
         {
+            if (waitForClaimCoroutine == null)
+            {
+                Debug.LogWarning("Trying to claim before available. Ignoring the click.");
+                return;
+            }
+
             StopCoroutine(waitForClaimCoroutine);
+            waitForClaimCoroutine = null;
+
             StartCoroutine(UnlockNewRewardCO());
         }
 
