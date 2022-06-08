@@ -4,10 +4,10 @@ using System;
 using System.Linq;
 using UnityEngine;
 using DG.DeInspektor.Attributes;
-using UnityEditor.AddressableAssets;
 using System.Collections.Generic;
 #if UNITY_EDITOR
 using UnityEditor;
+using UnityEditor.AddressableAssets;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
 #endif
