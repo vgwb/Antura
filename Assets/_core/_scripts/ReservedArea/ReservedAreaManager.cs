@@ -149,7 +149,7 @@ namespace Antura.ReservedArea
 
         public void OnOpenSupportForm()
         {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing);
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
         }
 
         void DoOpenSupportForm()
