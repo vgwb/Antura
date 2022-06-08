@@ -88,7 +88,7 @@ namespace Antura.Scenes
                 {
                     AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
                     hasAnswered = true;
-                });
+                }, Keeper.KeeperMode.NativeNoSubtitles);
                 while (!hasAnswered)
                     yield return null;
 
@@ -101,7 +101,7 @@ namespace Antura.Scenes
                 {
                     AppManager.I.AppSettingsManager.EnableNotifications(false);
                     hasAnswered = true;
-                });
+                }, Keeper.KeeperMode.NativeNoSubtitles);
                 while (!hasAnswered)
                     yield return null;
             }
