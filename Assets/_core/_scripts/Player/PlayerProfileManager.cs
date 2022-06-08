@@ -70,9 +70,15 @@ namespace Antura.Profile
         /// </summary>
         /// <param name="playerUUID">The player UUID.</param>
         /// <returns></returns>
-        public PlayerProfile SetPlayerAsCurrentByUUID(string playerUUID)
+        public PlayerProfile SetPlayerAsCurrentByUUID(string playerUUID, bool hasUpgraded = false)
         {
             PlayerProfile returnProfile = GetPlayerProfileByUUID(playerUUID);
+            if (hasUpgraded)
+            {
+                returnProfile.ContentID = LearningContentID.Learn_Arabic;
+                returnProfile.editionID = AppEditionID.Multi;
+                SavePlayerProfile(returnProfile);
+            }
             AppManager.I.PlayerProfileManager.CurrentPlayer = returnProfile;
             UpdateProfileToCurrentVersion();
             return returnProfile;
@@ -139,17 +145,20 @@ namespace Antura.Profile
             AppManager.I.AppSettingsManager.LoadSettings();
 
             // Update checks
-            if (AppManager.I.AppSettings.AppVersion == "2.0.1.1")   // Old Arabic version
+            if (new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
             {
-                Debug.LogError("Forcing Upgrade from version 2.0.1.1");
+                Debug.LogError($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
                 AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
                 AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
+                var newList = new List<PlayerIconData>();
                 for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
                 {
                     PlayerIconData pl = AppManager.I.AppSettings.SavedPlayers[iPl];
                     pl.contentID = LearningContentID.Learn_Arabic;
-                    pl.editionID = AppEditionID.Arabic;
+                    pl.editionID = AppEditionID.Multi;
+                    newList.Add(pl);
                 }
+                AppManager.I.AppSettings.SavedPlayers = newList;
                 hasUpgraded = true;
             }
 
@@ -181,7 +190,7 @@ namespace Antura.Profile
                     if (profileFromDB != null)
                     {
                         //UnityEngine.Debug.Log("DB in sync! OK!");
-                        SetPlayerAsCurrentByUUID(playerUUID);
+                        SetPlayerAsCurrentByUUID(playerUUID, hasUpgraded);
                     }
                     else
                     {
