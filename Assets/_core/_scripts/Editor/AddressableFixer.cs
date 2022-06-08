@@ -55,6 +55,7 @@ namespace Antura.Tools
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
+                if (path.Contains("Resources/")) continue;
                 var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
                 var removedPathLength = "Assets/_lang_bundles/".Length;
                 var splits = path.Split('.');
