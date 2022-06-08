@@ -92,7 +92,7 @@ namespace Antura.ReservedArea
 
             if (AppManager.I.AppSettings.ShareAnalyticsEnabled)
             {
-                GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_ShareData);
+                GlobalUI.ShowPrompt(id: LocalizationDataId.UI_Prompt_ShareData, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
             }
 
         }
@@ -131,7 +131,7 @@ namespace Antura.ReservedArea
 
         public void OnOpenSupportForm()
         {
-            GlobalUI.ShowPrompt(Database.LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing);
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing);
         }
 
         void DoOpenSupportForm()
@@ -166,8 +166,7 @@ namespace Antura.ReservedArea
         /// </summary>
         public void OnExportDatabasesJoined()
         {
-            string errorString = "";
-            if (AppManager.I.DB.ExportPlayersJoinedDb(out errorString))
+            if (AppManager.I.DB.ExportPlayersJoinedDb(out string errorString))
             {
                 string dbPath = DBService.GetDatabaseFilePath(AppConfig.GetJoinedDatabaseFilename(), AppConfig.DbJoinedFolder);
                 GlobalUI.ShowPrompt("", "The joined DB is here:\n" + dbPath);

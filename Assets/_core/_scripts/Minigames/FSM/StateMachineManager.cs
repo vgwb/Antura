@@ -14,7 +14,6 @@
         public IState CurrentState
         {
             get { return currentState; }
-
             set
             {
                 if (!isInExitTransition && currentState != null)

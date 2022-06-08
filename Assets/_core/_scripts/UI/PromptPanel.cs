@@ -100,7 +100,7 @@ namespace Antura.UI
             btYesRT.SetAnchoredPosX(_onNo == null ? 0 : defYesX);
             BtNo.gameObject.SetActive(onNo != null);
             showTween.Restart();
-            this.gameObject.SetActive(true);
+            gameObject.SetActive(true);
         }
 
         public void Close()
@@ -132,10 +132,7 @@ namespace Antura.UI
 
         void OnClose()
         {
-            if (onCloseAction != null)
-            {
-                onCloseAction();
-            }
+            onCloseAction?.Invoke();
             onCloseAction = null;
         }
 
