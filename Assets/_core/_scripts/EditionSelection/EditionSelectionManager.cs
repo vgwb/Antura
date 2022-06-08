@@ -73,6 +73,7 @@ namespace Antura.Scenes
             selectLearningContentPanel.Open();
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
+            yield return new WaitForSeconds(1f); // Wait for audio to finish
 
             HasSelectedEdition = true;
             yield return AppManager.I.ReloadEdition();
