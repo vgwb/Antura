@@ -188,18 +188,6 @@ namespace Antura.Minigames.ReadingGame
             ReadState = new ReadingGameReadState(this);
             AnswerState = new ReadingGameAnswerState(this);
 
-            if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowSong)
-            {
-                ISongParser parser = new AkrSongParser();
-
-                var textAsset = ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.SongAlphabet ? alphabetSongSrt : diacriticSongSrt;
-
-                using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(textAsset.text)))
-                {
-                    songToPlay = new KaraokeSong(parser.Parse(stream));
-                }
-            }
-
             radialWidget.Hide();
 
             // Instantiating a runtime material
@@ -216,6 +204,21 @@ namespace Antura.Minigames.ReadingGame
             antura.gameObject.SetActive(ReadingGameConfiguration.Instance.CurrentGameType != ReadingGameConfiguration.GameType.SimonSong);
             dancingAntura.gameObject.SetActive(ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.SimonSong);
             dancingAntura.State = AnturaAnimationStates.dancing;
+        }
+
+        public void LoadSongAkr()
+        {
+            if (ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.FollowSong)
+            {
+                ISongParser parser = new AkrSongParser();
+
+                var textAsset = ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.SongAlphabet ? alphabetSongSrt : diacriticSongSrt;
+
+                using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(textAsset.text)))
+                {
+                    songToPlay = new KaraokeSong(parser.Parse(stream));
+                }
+            }
         }
 
         public void AddScore(int score)

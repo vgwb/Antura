@@ -156,25 +156,29 @@ namespace Antura
             }
             //songAudioKeys.Add($"{prefix}DiacriticSong");
 
+            var songAudioKeysCommon = new HashSet<string>();
             if (hasSimonSong)
             {
                 // @note: the intro is always the same regardless of the language, so it is saved in Common
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_120");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_140");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_Intro_160");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_Intro_120");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_Intro_140");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_Intro_160");
 
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_120");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_140");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_160");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_120");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_140");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicFirstHalf_160");
 
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_120");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_140");
-                songAudioKeys.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_160");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_120");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_140");
+                songAudioKeysCommon.Add($"common/Audio/Songs/SimonSong_MusicSecondHalf_160");
 
                 songAudioKeys.Add($"{prefix}SimonSong_Voice_120");
                 songAudioKeys.Add($"{prefix}SimonSong_Voice_140");
                 songAudioKeys.Add($"{prefix}SimonSong_Voice_160");
             }
+
+            if (songAudioKeysCommon.Count > 0)
+                yield return LoadAssets(songAudioKeysCommon, audioCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
 
             if (songAudioKeys.Count > 0)
                 yield return LoadAssets(songAudioKeys, audioCache, DebugConfig.I.AddressablesBlockingLoad);
@@ -231,6 +235,13 @@ namespace Antura
             }
             else
             {
+                // Check if we already have them in the cache, and avoid loading in that case
+                foreach (string key in keys.ToArray())
+                {
+                    if (cache.ContainsKey(key))
+                        keys.Remove(key);
+                }
+
                 var op = Addressables.LoadAssetsAsync<T>(keys, obj =>
                 {
                     cache[obj.name] = obj;

@@ -1,4 +1,8 @@
 using System;
+using System.Collections;
+using System.IO;
+using System.Text;
+using Antura.Core;
 
 namespace Antura.Minigames.ReadingGame
 {
@@ -15,7 +19,16 @@ namespace Antura.Minigames.ReadingGame
 
         public void EnterState()
         {
+            game.StartCoroutine(LoadDataCO());
             timer = 2;
+        }
+
+        private bool hasLoadedSongData = false;
+        private IEnumerator LoadDataCO()
+        {
+            yield return AppManager.I.AssetManager.LoadSongData();
+            hasLoadedSongData = true;
+            game.LoadSongAkr();
 
             switch (ReadingGameConfiguration.Instance.CurrentGameType)
             {
@@ -38,7 +51,6 @@ namespace Antura.Minigames.ReadingGame
             }
         }
 
-
         public void ExitState()
         {
 
@@ -48,7 +60,7 @@ namespace Antura.Minigames.ReadingGame
         {
             timer -= delta;
 
-            if (timer < 0)
+            if (timer < 0 && hasLoadedSongData)
                 game.SetCurrentState(game.QuestionState);
         }
 
