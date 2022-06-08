@@ -27,7 +27,10 @@ namespace Antura.UI
 
             var code = editionConfig.LearningLanguage;
             if (code == LanguageCode.arabic_legacy) code = LanguageCode.arabic;
-            var locKeyText = $"Learn_{code}";
+
+            string locKeyText = "";
+            locKeyText = editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead ? $"Learn_Read" : $"Learn_{code}";
+
             var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
             nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
         }
