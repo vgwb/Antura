@@ -9,8 +9,8 @@ namespace Antura.Core
 
     public class NewAppSettings
     {
-        public bool NotificationsEnabled;
-        public bool ShareAnalyticsEnabled;
+        public bool NotificationsEnabled = true;
+        public bool ShareAnalyticsEnabled = true;
         // public bool MusicEnabled = true;
         // public bool SubtitlesEnabled = true;
 
@@ -24,8 +24,8 @@ namespace Antura.Core
 
         public void Load()
         {
-            NotificationsEnabled = PlayerPrefs.GetInt("NotificationsEnabled") == 1;
-            ShareAnalyticsEnabled = PlayerPrefs.GetInt("AnalyticsEnabled") == 1;
+            NotificationsEnabled = PlayerPrefs.GetInt("NotificationsEnabled", 1) == 1;
+            ShareAnalyticsEnabled = PlayerPrefs.GetInt("AnalyticsEnabled", 1) == 1;
         }
 
         public bool Exists()
