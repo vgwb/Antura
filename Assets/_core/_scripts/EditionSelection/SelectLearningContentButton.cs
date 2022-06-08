@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
@@ -14,6 +15,7 @@ namespace Antura.UI
         public UIButton button;
         public Image iconImage;
 
+        private ContentEditionConfig Content;
         public SelectLearningContentPanel parentPanel;
 
         private LearningContentID contentId;
@@ -21,6 +23,7 @@ namespace Antura.UI
 
         public void Setup(ContentEditionConfig editionConfig)
         {
+            Content = editionConfig;
             this.contentId = editionConfig.ContentID;
 
             iconImage.sprite = editionConfig.TransitionLogo;
@@ -28,15 +31,22 @@ namespace Antura.UI
             var code = editionConfig.LearningLanguage;
             if (code == LanguageCode.arabic_legacy) code = LanguageCode.arabic;
 
-            string locKeyText = "";
-            locKeyText = editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead ? $"Learn_Read" : $"Learn_{code}";
+            nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocKey);
+        }
 
-            var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
-            nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
+        private LocalizationDataId LocKey
+        {
+            get
+            {
+                var locKeyText = Content.LearnMethod.ID == LearnMethodID.LearnToRead ? $"Learn_Read" : $"Learn_{Content.LearningLanguage}";
+                var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
+                return locKey;
+            }
         }
 
         public void OnClick()
         {
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocKey), AppManager.I.AppSettings.NativeLanguage);
             parentPanel.ConfirmSelection(contentId);
         }
 

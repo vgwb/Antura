@@ -1,4 +1,5 @@
 using System.Collections;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
@@ -26,6 +27,7 @@ namespace Antura.UI
 
         public void OnClick()
         {
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), languageCode);
             parentPanel.ConfirmSelection(languageCode);
         }
 

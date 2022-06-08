@@ -8,7 +8,8 @@ using Antura.Database;
 using Antura.Language;
 using DG.Tweening;
 using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.UIElements;
+using Image = UnityEngine.UI.Image;
 
 namespace Antura.UI
 {
@@ -19,16 +20,26 @@ namespace Antura.UI
         private Coroutine switchQuestionTextCO;
         public IEnumerator SwitchQuestionTextCO()
         {
+            List<LanguageCode> sortedCodes = new List<LanguageCode>();
+            sortedCodes.AddRange(AvailableNativeCodes);
+
+            if (AvailableNativeCodes.Contains(PreferredLanguage))
+            {
+                AvailableNativeCodes.Remove(PreferredLanguage);
+                AvailableNativeCodes.Insert(0, PreferredLanguage);
+            }
+
             int nativeCodeIndex = 0;
             while (true)
             {
                 var key = LocalizationDataId.Language_MotherLanguage;
-                AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), AvailableNativeCodes[nativeCodeIndex]);
 
-                QuestionText.SetOverridenLanguageText(AvailableNativeCodes[nativeCodeIndex], key);
+                AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(key), sortedCodes[nativeCodeIndex]);
+
+                QuestionText.SetOverridenLanguageText(sortedCodes[nativeCodeIndex], key);
 
                 nativeCodeIndex++;
-                if (nativeCodeIndex >= AvailableNativeCodes.Count)
+                if (nativeCodeIndex >= sortedCodes.Count)
                     nativeCodeIndex = 0;
                 yield return new WaitForSeconds(3f);
             }
@@ -39,6 +50,7 @@ namespace Antura.UI
         public SelectNativeLanguageButton ReselectNativeButton;
 
         private List<LanguageCode> AvailableNativeCodes = new List<LanguageCode>();
+        private LanguageCode PreferredLanguage;
 
         public void OnEnable()
         {
@@ -73,6 +85,7 @@ namespace Antura.UI
 
             AvailableNativeCodes.Sort((code1, code2) => AppManager.I.RootConfig.LanguageSorting.IndexOf(code1) - AppManager.I.RootConfig.LanguageSorting.IndexOf(code2));
 
+            PreferredLanguage = AppManager.I.AppSettingsManager.Settings.NativeLanguage;
             if (AppManager.I.AppEdition.DetectSystemLanguage)
             {
                 LanguageCode systemNativeLanguage = LanguageCode.NONE;
@@ -87,8 +100,7 @@ namespace Antura.UI
 
                 if (systemNativeLanguage != LanguageCode.NONE)
                 {
-                    AvailableNativeCodes.Remove(systemNativeLanguage);
-                    AvailableNativeCodes.Insert(0, systemNativeLanguage);
+                    PreferredLanguage = systemNativeLanguage;
                 }
             }
 
