@@ -2,9 +2,38 @@
 using Antura.Profile;
 using System;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace Antura.Core
 {
+
+    public class NewAppSettings
+    {
+        public bool NotificationsEnabled;
+        public bool ShareAnalyticsEnabled;
+        // public bool MusicEnabled = true;
+        // public bool SubtitlesEnabled = true;
+
+        public void Save()
+        {
+            PlayerPrefs.SetInt("NotificationsEnabled", NotificationsEnabled ? 1 : 0);
+            PlayerPrefs.SetInt("AnalyticsEnabled", ShareAnalyticsEnabled ? 1 : 0);
+            // PlayerPrefs.SetInt("MusicEnabled", MusicEnabled ? 1 : 0);
+            // PlayerPrefs.SetInt("SubtitlesEnabled", SubtitlesEnabled ? 1 : 0);
+        }
+
+        public void Load()
+        {
+            NotificationsEnabled = PlayerPrefs.GetInt("NotificationsEnabled") == 1;
+            ShareAnalyticsEnabled = PlayerPrefs.GetInt("AnalyticsEnabled") == 1;
+        }
+
+        public bool Exists()
+        {
+            return PlayerPrefs.HasKey("NotificationsEnabled");
+        }
+    }
+
     /// <summary>
     /// Defines app settings that must be saved locally.
     /// </summary>
@@ -25,7 +54,7 @@ namespace Antura.Core
 
         public bool MusicEnabled = true;
 
-        public bool ShareAnalyticsEnabled = true;
+        //        public bool ShareAnalyticsEnabled = true;
 
         // if set the app starts is special scene mode, used in museums and demo installations
         public bool KioskMode = false;

@@ -75,6 +75,37 @@ namespace Antura.Scenes
                 yield return null;
             yield return new WaitForSeconds(1f); // Wait for audio to finish
 
+
+            bool hasAnswered = false;
+            if (!AppManager.I.AppSettingsManager.NewSettings.Exists())
+            {
+                hasAnswered = false;
+                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics, () =>
+                {
+                    AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
+                    hasAnswered = true;
+                }, () =>
+                {
+                    AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
+                    hasAnswered = true;
+                });
+                while (!hasAnswered)
+                    yield return null;
+
+                hasAnswered = false;
+                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications, () =>
+                {
+                    AppManager.I.AppSettingsManager.EnableNotifications(true);
+                    hasAnswered = true;
+                }, () =>
+                {
+                    AppManager.I.AppSettingsManager.EnableNotifications(false);
+                    hasAnswered = true;
+                });
+                while (!hasAnswered)
+                    yield return null;
+            }
+
             HasSelectedEdition = true;
             yield return AppManager.I.ReloadEdition();
             AppManager.I.NavigationManager.GoToHome(true);

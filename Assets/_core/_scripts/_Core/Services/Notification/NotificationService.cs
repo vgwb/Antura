@@ -39,8 +39,10 @@ namespace Antura.Core.Services.Notification
         public void AppSuspended()
         {
 #if MODULE_NOTIFICATIONS
-            PrepareNextLocalNotification();
-            GameNotificationsManager.I.ChangeApplicationFocus(false);
+            if (AppManager.I.AppSettings.NotificationsEnabled) {
+                PrepareNextLocalNotification();
+                GameNotificationsManager.I.ChangeApplicationFocus(false);
+            }
 #endif
         }
 

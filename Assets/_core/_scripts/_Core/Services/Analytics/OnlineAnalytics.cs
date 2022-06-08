@@ -58,7 +58,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             await UnityServices.InitializeAsync(options);
         }
 
-        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettings.ShareAnalyticsEnabled;
+        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled;
 
         public void Init()
         {

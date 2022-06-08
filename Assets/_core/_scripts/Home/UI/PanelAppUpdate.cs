@@ -29,7 +29,7 @@ namespace Antura.Core
         public void OnBtnContinue()
         {
             gameObject.SetActive(false);
-            if (!AppManager.I.AppSettings.ShareAnalyticsEnabled)
+            if (!AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled)
             {
                 OnlineAnalyticsRequest();
             }

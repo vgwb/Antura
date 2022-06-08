@@ -15,11 +15,13 @@ namespace Antura.ReservedArea
         public TextRender SupportText;
 
         public CheckIcon AnalyticsCheckIcon;
+        public CheckIcon NotificationsCheckIcon;
 
         void Start()
         {
             SupportText.text = AppManager.I.AppEdition.GetAppVersionString();
-            AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
+            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
+            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
         }
 
         #region Buttons
@@ -88,13 +90,22 @@ namespace Antura.ReservedArea
         public void OnBtnShareData()
         {
             AppManager.I.AppSettingsManager.ToggleShareAnalytics();
-            AnalyticsCheckIcon.Set(AppManager.I.AppSettings.ShareAnalyticsEnabled);
+            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
 
-            if (AppManager.I.AppSettings.ShareAnalyticsEnabled)
+            if (AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled)
             {
                 GlobalUI.ShowPrompt(id: LocalizationDataId.UI_Prompt_ShareData, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
             }
+        }
 
+        public void OnBtnNotifications()
+        {
+            AppManager.I.AppSettingsManager.ToggleNotifications();
+            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
+            // if (AppManager.I.AppSettings.NotificationsEnabled)
+            // {
+            //     GlobalUI.ShowPrompt(id: LocalizationDataId.UI_Prompt_ShareData, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
+            // }
         }
 
         public void OnOpenDonate()

@@ -7,6 +7,8 @@ namespace Antura.Core
 {
     public class AppSettingsManager
     {
+        public NewAppSettings NewSettings;
+
         private const string SETTINGS_PREFS_KEY = "OPTIONS";
         private AppSettings _settings;
 
@@ -33,6 +35,11 @@ namespace Antura.Core
 
         public AppSettingsManager()
         {
+            NewSettings = new NewAppSettings();
+            if (NewSettings.Exists())
+            {
+                NewSettings.Load();
+            }
             LoadSettings();
         }
 
@@ -122,18 +129,28 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public Action<bool> onEnableShareAnalytics;
-
         public void EnableShareAnalytics(bool status)
         {
-            Settings.ShareAnalyticsEnabled = status;
-            SaveSettings();
-            onEnableShareAnalytics?.Invoke(status);
+            Debug.Log("EnableShareAnalytics " + status);
+            NewSettings.ShareAnalyticsEnabled = status;
+            NewSettings.Save();
+        }
+
+        public void EnableNotifications(bool status)
+        {
+            Debug.Log("EnableNotifications " + status);
+            NewSettings.NotificationsEnabled = status;
+            NewSettings.Save();
         }
 
         public void ToggleShareAnalytics()
         {
-            EnableShareAnalytics(!Settings.ShareAnalyticsEnabled);
+            EnableShareAnalytics(!NewSettings.ShareAnalyticsEnabled);
+        }
+
+        public void ToggleNotifications()
+        {
+            EnableNotifications(!NewSettings.NotificationsEnabled);
         }
 
         public void SetKioskMode(bool status)
