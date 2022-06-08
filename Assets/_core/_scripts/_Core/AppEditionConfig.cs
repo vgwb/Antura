@@ -1,11 +1,12 @@
 using Antura.Language;
 using Antura.Database;
 using System;
+using System.Linq;
 using UnityEngine;
 using DG.DeInspektor.Attributes;
-#if UNITY_EDITOR
+using UnityEditor.AddressableAssets;
 using System.Collections.Generic;
-using System.IO;
+#if UNITY_EDITOR
 using UnityEditor;
 using UnityEditor.AddressableAssets.Settings;
 using UnityEditor.AddressableAssets.Settings.GroupSchemas;
@@ -154,6 +155,8 @@ namespace Antura.Core
                 if (langCode == LanguageCode.NONE)
                     continue;
 
+                FixAddressables(langCode.ToString());
+
                 string pascalcaseName = langCode.ToString();
                 var words = pascalcaseName.Split('_');
                 pascalcaseName = "";
@@ -202,6 +205,32 @@ namespace Antura.Core
             AddressableAssetSettings.BuildPlayerContent();
             Debug.LogWarning($"Rebuilt addressables");
         }
+
+        public static void FixAddressables(string lang)
+        {
+            // TODO: Get all assets in the lang paths for the current edition
+            var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
+            Debug.Log("Fixing addressable for lang: " + lang);
+            var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                if (path.Contains("Resources/")) continue;
+                var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
+                var removedPathLength = "Assets/_lang_bundles/".Length;
+                var splits = path.Split('.');
+                if (splits.Length > 1)
+                {
+                    var extension = splits[splits.Length - 1];
+                    path = path.Substring(0, path.Length - (extension.Length + 1));
+                }
+                entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
+            }
+            Debug.Log("FINISHED Fixing addressable for lang: " + lang);
+        }
+
 #endif
+
+
     }
 }

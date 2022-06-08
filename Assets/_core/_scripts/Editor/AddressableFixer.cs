@@ -31,7 +31,7 @@ namespace Antura.Tools
             EditorGUILayout.BeginVertical();
             if (GUILayout.Button("COMMON"))
             {
-                FixAddressables("common");
+                AppEditionConfig.FixAddressables("common");
             }
 
             foreach (var lang in Enum.GetNames(typeof(LanguageCode)))
@@ -40,33 +40,10 @@ namespace Antura.Tools
                     continue;
                 if (GUILayout.Button(lang))
                 {
-                    FixAddressables(lang);
+                    AppEditionConfig.FixAddressables(lang);
                 }
             }
             EditorGUILayout.EndVertical();
-        }
-
-        public void FixAddressables(string lang)
-        {
-            // TODO: Get all assets in the lang paths for the current edition
-            var guids = AssetDatabase.FindAssets("", new[] { "Assets/_lang_bundles/" + lang });
-            Debug.Log("Fixing addressable for lang: " + lang);
-            var group = AddressableAssetSettingsDefaultObject.Settings.groups.FirstOrDefault(x => x.name.ToLower().Contains(lang));
-            foreach (var guid in guids)
-            {
-                var path = AssetDatabase.GUIDToAssetPath(guid);
-                if (path.Contains("Resources/")) continue;
-                var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
-                var removedPathLength = "Assets/_lang_bundles/".Length;
-                var splits = path.Split('.');
-                if (splits.Length > 1)
-                {
-                    var extension = splits[splits.Length - 1];
-                    path = path.Substring(0, path.Length - (extension.Length + 1));
-                }
-                entry.address = path.Substring(removedPathLength, path.Length - removedPathLength);
-            }
-            Debug.Log("FINISHED Fixing addressable for lang: " + lang);
         }
 
     }
