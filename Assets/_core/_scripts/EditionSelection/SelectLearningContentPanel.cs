@@ -18,6 +18,7 @@ namespace Antura.UI
         public SelectLearningContentButton prefabButton;
         private List<SelectLearningContentButton> buttons = new List<SelectLearningContentButton>();
 
+        private LearningContentID PreferredContentID;
         public void OnEnable()
         {
             GetComponentInChildren<ScrollRect>().normalizedPosition = Vector2.zero;
@@ -31,6 +32,8 @@ namespace Antura.UI
             foreach (var button in buttons)
                 Destroy(button.gameObject);
             buttons.Clear();
+
+            PreferredContentID = AppManager.I.AppSettings.ContentID;
 
             List<ContentEditionConfig> supportedConfigs = new List<ContentEditionConfig>();
 
@@ -58,7 +61,7 @@ namespace Antura.UI
                 supportedConfigs.Remove(learnToReadConfig);
                 supportedConfigs.Insert(0, learnToReadConfig);
             }
-            
+
             foreach (ContentEditionConfig contentEditionConfig in supportedConfigs)
             {
                 var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
@@ -124,8 +127,8 @@ namespace Antura.UI
             questionRectTr.anchoredPosition = new Vector2(0, 500);
             questionRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
 
-            scrollRectTr.anchoredPosition = new Vector2(0, 1000);
-            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f);
+            scrollRectTr.anchoredPosition = new Vector2(2500, 0);
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f).OnComplete(() => ScrollTo(PreferredContentID));
             if (BGColor == default) BGColor = BG.color;
             BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
             BG.DOColor(BGColor, 0.35f);
@@ -142,6 +145,27 @@ namespace Antura.UI
         public bool IsOpen()
         {
             return isOpen;
+        }
+
+        public void ScrollTo(LearningContentID id)
+        {
+            var scrollView = scrollRectTr.GetComponent<ScrollRect>();
+            var dir = Vector3.zero;
+            var xDelta = 0f;
+            var btn = buttons.FirstOrDefault(x => x.ContentId == id);
+            if (btn == null) return;
+
+            if (btn.transform.position.x < 0)
+            {
+                xDelta = -btn.transform.position.x + btn.GetComponent<RectTransform>().rect.x;
+                dir.x = 1;
+            }
+            else if (btn.transform.position.x > Screen.width)
+            {
+                xDelta = btn.transform.position.x - Screen.width - btn.GetComponent<RectTransform>().rect.x;
+                dir.x = -1;
+            }
+            scrollView.content.transform.DOLocalMove(new Vector2(-xDelta, 0), 0.35f);
         }
     }
 }

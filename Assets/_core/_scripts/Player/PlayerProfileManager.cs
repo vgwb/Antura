@@ -147,7 +147,7 @@ namespace Antura.Profile
             // Update checks
             if (new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
             {
-                Debug.LogError($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
+                Debug.LogWarning($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
                 AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
                 AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
                 var newList = new List<PlayerIconData>();

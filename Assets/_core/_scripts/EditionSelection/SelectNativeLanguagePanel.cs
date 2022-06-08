@@ -8,6 +8,7 @@ using Antura.Database;
 using Antura.Language;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.UIElements;
 using Image = UnityEngine.UI.Image;
 
@@ -54,6 +55,9 @@ namespace Antura.UI
 
         public void OnEnable()
         {
+            var scrollView = scrollRectTr.GetComponent<ScrollRect>();
+            scrollView.content.transform.localPosition = Vector2.zero;
+
             foreach (var button in buttons)
                 Destroy(button.gameObject);
             buttons.Clear();
@@ -86,7 +90,7 @@ namespace Antura.UI
             AvailableNativeCodes.Sort((code1, code2) => AppManager.I.RootConfig.LanguageSorting.IndexOf(code1) - AppManager.I.RootConfig.LanguageSorting.IndexOf(code2));
 
             PreferredLanguage = AppManager.I.AppSettingsManager.Settings.NativeLanguage;
-            if (AppManager.I.AppEdition.DetectSystemLanguage)
+            if (PreferredLanguage == LanguageCode.NONE && AppManager.I.AppEdition.DetectSystemLanguage)
             {
                 LanguageCode systemNativeLanguage = LanguageCode.NONE;
                 foreach (var lang in AvailableNativeCodes)
@@ -103,6 +107,7 @@ namespace Antura.UI
                     PreferredLanguage = systemNativeLanguage;
                 }
             }
+
 
             foreach (var langCode in AvailableNativeCodes)
             {
@@ -187,7 +192,7 @@ namespace Antura.UI
             }
 
             questionRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
-            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).OnComplete(() => ScrollTo(PreferredLanguage));
         }
 
         public void Close()
@@ -199,6 +204,26 @@ namespace Antura.UI
         public bool IsOpen()
         {
             return isOpen;
+        }
+
+        public void ScrollTo(LanguageCode code)
+        {
+            var scrollView = scrollRectTr.GetComponent<ScrollRect>();
+            var xDelta = 0f;
+            var btn = buttons.FirstOrDefault(x => x.LanguageCode == code);
+            if (btn == null) return;
+
+            var offsetWidth = btn.GetComponent<RectTransform>().rect.width/2f;
+            if (btn.transform.position.x < 0)
+            {
+                xDelta = -btn.transform.position.x + offsetWidth;
+            }
+            else if (btn.transform.position.x > Screen.width - offsetWidth)
+            {
+                xDelta = (btn.transform.position.x - Screen.width) + offsetWidth;
+            }
+            //Debug.LogError("X pos " + btn.transform.position.x + " X DELTA: " + xDelta + " for preferred " + code);
+            scrollView.content.transform.DOLocalMove(new Vector2(-xDelta, 0), 0.35f);
         }
     }
 }
