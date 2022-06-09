@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections;
-using Antura.Core;
+﻿using Antura.Core;
 using Antura.Database;
+using Antura.Language;
 using Antura.UI;
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Antura.Scenes
@@ -80,28 +81,34 @@ namespace Antura.Scenes
             if (!AppManager.I.AppSettingsManager.NewSettings.Exists())
             {
                 hasAnswered = false;
-                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics, () =>
+                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
+                () =>
                 {
                     AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
                     hasAnswered = true;
-                }, () =>
+                },
+                () =>
                 {
                     AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
                     hasAnswered = true;
-                }, Keeper.KeeperMode.NativeNoSubtitles);
+                });
+
                 while (!hasAnswered)
                     yield return null;
 
                 hasAnswered = false;
-                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications, () =>
+                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
+                () =>
                 {
                     AppManager.I.AppSettingsManager.EnableNotifications(true);
                     hasAnswered = true;
-                }, () =>
+                },
+                () =>
                 {
                     AppManager.I.AppSettingsManager.EnableNotifications(false);
                     hasAnswered = true;
-                }, Keeper.KeeperMode.NativeNoSubtitles);
+                });
+
                 while (!hasAnswered)
                     yield return null;
             }

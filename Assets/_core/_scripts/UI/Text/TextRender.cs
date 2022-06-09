@@ -214,7 +214,9 @@ namespace Antura.UI
 
                 TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
                 if (outlined)
+                {
                     TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
+                }
             }
             else
             {
@@ -255,7 +257,9 @@ namespace Antura.UI
             }
 
             if (flashingTextCoroutine != null)
+            {
                 StopCoroutine(flashingTextCoroutine);
+            }
             flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                 s => { text = s; }, markPrecedingLetters);
             StartCoroutine(flashingTextCoroutine);
@@ -264,7 +268,9 @@ namespace Antura.UI
         public void StopFlashing()
         {
             if (flashingTextCoroutine != null)
+            {
                 StopCoroutine(flashingTextCoroutine);
+            }
             flashingTextCoroutine = null;
         }
 

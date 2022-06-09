@@ -1,4 +1,5 @@
 using Antura.Database;
+using Antura.Language;
 using Antura.Scenes;
 using Antura.UI;
 using System;
@@ -41,11 +42,13 @@ namespace Antura.Core
 
         public void OnlineAnalyticsRequest()
         {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics, () =>
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
+            () =>
             {
                 AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
                 Close();
-            }, () =>
+            },
+            () =>
             {
                 AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
                 Close();

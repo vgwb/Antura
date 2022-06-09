@@ -98,7 +98,7 @@ namespace Antura.ReservedArea
             {
                 AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
                 AnalyticsCheckIcon.Set(false);
-            }, Keeper.KeeperMode.NativeNoSubtitles);
+            });
         }
 
         public void OnBtnNotifications()
@@ -112,7 +112,7 @@ namespace Antura.ReservedArea
             {
                 AppManager.I.AppSettingsManager.EnableNotifications(false);
                 NotificationsCheckIcon.Set(false);
-            }, Keeper.KeeperMode.NativeNoSubtitles);
+            });
         }
 
         public void OnOpenDonate()
@@ -149,7 +149,7 @@ namespace Antura.ReservedArea
 
         public void OnOpenSupportForm()
         {
-            GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_Prompt_bugreport, DoOpenSupportForm, DoNothing);
         }
 
         void DoOpenSupportForm()
@@ -187,11 +187,11 @@ namespace Antura.ReservedArea
             if (AppManager.I.DB.ExportPlayersJoinedDb(out string errorString))
             {
                 string dbPath = DBService.GetDatabaseFilePath(AppConfig.GetJoinedDatabaseFilename(), AppConfig.DbJoinedFolder);
-                GlobalUI.ShowPrompt("", "The joined DB is here:\n" + dbPath);
+                GlobalUI.ShowPrompt("The joined DB is here:\n" + dbPath);
             }
             else
             {
-                GlobalUI.ShowPrompt("", "Could not export the joined database.\n");
+                GlobalUI.ShowPrompt("Could not export the joined database.");
             }
         }
 

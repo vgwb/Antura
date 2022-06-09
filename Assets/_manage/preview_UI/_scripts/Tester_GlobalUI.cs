@@ -71,8 +71,10 @@ namespace Antura.Test
 
         public void Prompt_Show(bool yesOnly)
         {
-            if (yesOnly) GlobalUI.ShowPrompt("لعربية", "", () => Debug.Log("YES"));
-            else GlobalUI.ShowPrompt("لعربية", "", () => Debug.Log("YES"), () => Debug.Log("NO"));
+            if (yesOnly)
+                GlobalUI.ShowPrompt("لعربية", () => Debug.Log("YES"));
+            else
+                GlobalUI.ShowPrompt("لعربية", () => Debug.Log("YES"), () => Debug.Log("NO"));
         }
 
         #endregion

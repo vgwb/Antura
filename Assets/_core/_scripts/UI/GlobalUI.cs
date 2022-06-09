@@ -1,8 +1,9 @@
 using Antura.Core;
+using Antura.Keeper;
+using Antura.Language;
 using DG.DemiLib.Attributes;
 using System;
 using System.Collections.Generic;
-using Antura.Keeper;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -126,14 +127,14 @@ namespace Antura.UI
         /// <summary>
         /// Shows a popup with a YES/NO button and relative callbacks
         /// </summary>
-        public static void ShowPrompt(Database.LocalizationDataId id, Action _onYesCallback = null, Action _onNoCallback = null, KeeperMode keeperMode = KeeperMode.Default)
+        public static void ShowPrompt(Database.LocalizationDataId id, Action _onYesCallback = null, Action _onNoCallback = null, LanguageUse _languageUse = LanguageUse.Native)
         {
-            Prompt.Show(id, _onYesCallback, _onNoCallback, keeperMode);
+            Prompt.Show(id, _languageUse, _onYesCallback, _onNoCallback);
         }
 
-        public static void ShowPrompt(string _messageLearning, string _messageNative, Action _onYesCallback = null, Action _onNoCallback = null)
+        public static void ShowPrompt(string _message, Action _onYesCallback = null, Action _onNoCallback = null, LanguageUse _languageUse = LanguageUse.Native)
         {
-            Prompt.Show(_messageLearning, _messageNative, _onYesCallback, _onNoCallback);
+            Prompt.Show(_message, _languageUse, _onYesCallback, _onNoCallback);
         }
 
         public static void ClosePrompt()

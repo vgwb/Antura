@@ -90,7 +90,7 @@ namespace Antura.ReservedArea
 
         public void OnDeleteSelectPlayerProfile()
         {
-            GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: DoDeleteSelectPlayerProfile, _onNoCallback: DoNothing, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
+            GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: DoDeleteSelectPlayerProfile, _onNoCallback: DoNothing);
         }
 
         void DoNothing()
@@ -113,19 +113,19 @@ namespace Antura.ReservedArea
                 {
                     dbPath = string.Format(@"{0}/{1}", AppConfig.DbExportFolder,
                         AppConfig.GetPlayerDatabaseFilename(SelectedPlayerId));
-                    GlobalUI.ShowPrompt("", "Get the DB from iTunes app:\n" + dbPath);
+                    GlobalUI.ShowPrompt("Get the DB from iTunes app:\n" + dbPath);
                 }
                 else
                 {
                     // Android or Desktop
                     dbPath = string.Format(@"{0}/{1}/{2}", Application.persistentDataPath, AppConfig.DbExportFolder,
                         AppConfig.GetPlayerDatabaseFilename(SelectedPlayerId));
-                    GlobalUI.ShowPrompt("", "The DB is here:\n" + dbPath);
+                    GlobalUI.ShowPrompt("The DB is here:\n" + dbPath);
                 }
             }
             else
             {
-                GlobalUI.ShowPrompt("", "Could not export the database.\n");
+                GlobalUI.ShowPrompt("Could not export the database.");
             }
         }
 
@@ -133,7 +133,7 @@ namespace Antura.ReservedArea
         {
             if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
             {
-                GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
+                GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
             }
             else
             {

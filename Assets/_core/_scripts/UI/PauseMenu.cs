@@ -188,8 +188,9 @@ namespace Antura.UI
                             {
                                 OpenMenu(false);
                                 AppManager.I.NavigationManager.ExitToMainMenu();
-                            }, () => { }
-                            , keeperMode: KeeperMode.NativeNoSubtitles);
+                            },
+                            () => { }
+                            );
                         }
                         else
                         {

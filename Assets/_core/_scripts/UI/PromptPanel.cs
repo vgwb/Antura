@@ -1,5 +1,6 @@
 using Antura.Audio;
 using Antura.Core;
+using Antura.Language;
 using System;
 using Antura.Keeper;
 using UnityEngine;
@@ -16,9 +17,7 @@ namespace Antura.UI
     public class PromptPanel : MonoBehaviour
     {
         public RectTransform Content;
-        public TextRender TfMessageNative;
-        public TextRender TfMessageLearning;
-        public TextRender TfMessageLearningFull;
+        public TextRender TfMessage;
         public UIButton BtYes, BtNo;
 
         private Action onYes, onNo;
@@ -59,42 +58,33 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Show(Database.LocalizationDataId id, Action _onYes, Action _onNo, KeeperMode keeperMode = KeeperMode.Default)
+        public void Show(Database.LocalizationDataId id, LanguageUse _languageUse, Action _onYes, Action _onNo)
         {
             var localizationData = LocalizationManager.GetLocalizationData(id);
-            KeeperManager.I.PlayDialogue(id, keeperMode: keeperMode);
 
-            if (keeperMode == KeeperMode.NativeNoSubtitles || keeperMode == KeeperMode.NativeAndSubtitles)
+            if (_languageUse == LanguageUse.Native)
             {
-                Show(localizationData.NativeText, localizationData.GetNativeText(), _onYes, _onNo);
+                Show(localizationData.NativeText, _languageUse, _onYes, _onNo);
+                KeeperManager.I.PlayDialogue(id, keeperMode: KeeperMode.NativeNoSubtitles);
             }
             else
             {
-                Show(LocalizationManager.GetLearning(id), localizationData.GetNativeText(), _onYes, _onNo);
+                Show(LocalizationManager.GetLearning(id), _languageUse, _onYes, _onNo);
+                KeeperManager.I.PlayDialogue(id, keeperMode: KeeperMode.LearningNoSubtitles);
             }
         }
 
-        public void Show(string _messageLearning, Action _onYes, Action _onNo)
+        public void Show(string _message, Action _onYes, Action _onNo)
         {
-            Show(_messageLearning, "", _onYes, _onNo);
+            Show(_message, LanguageUse.Native, _onYes, _onNo);
         }
 
-        private static bool never_show_help = true;
-        public void Show(string _messageLearning, string _messageNative, Action _onYes, Action _onNo)
+        public void Show(string _message, LanguageUse _languageUse, Action _onYes, Action _onNo)
         {
             onCloseAction = null;
 
-            if (never_show_help || // @note: we never want to show the message learning anymore
-                  _messageNative.IsNullOrEmpty() || !AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
-            {
-                TfMessageLearningFull.text = _messageLearning;
-            }
-            else
-            {
-                TfMessageNative.text = _messageNative.IsNullOrEmpty() ? "" : _messageNative;
-                TfMessageLearning.text = _messageLearning.IsNullOrEmpty() ? "" : _messageLearning;
-                TfMessageLearningFull.text = "";
-            }
+            TfMessage.SetText(_message, _languageUse);
+
             onYes = _onYes;
             onNo = _onNo;
             btYesRT.SetAnchoredPosX(_onNo == null ? 0 : defYesX);

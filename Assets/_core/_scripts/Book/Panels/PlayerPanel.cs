@@ -121,7 +121,7 @@ namespace Antura.Book
 
         private TimeSpan GetTotalApplicationTime()
         {
-            string query = "select * from \"" + typeof(LogInfoData).Name + "\"";
+            string query = "select * from \"" + nameof(LogInfoData) + "\"";
             var list = AppManager.I.DB.Query<LogInfoData>(query);
 
             System.TimeSpan totalTimespan = new System.TimeSpan(0);
@@ -160,7 +160,7 @@ namespace Antura.Book
         private TimeSpan GetTotalMiniGamePlayTime()
         {
             float totalSeconds = 0f;
-            string query = "select * from " + typeof(MiniGameScoreData).Name;
+            string query = "select * from " + nameof(MiniGameScoreData);
             var list = AppManager.I.DB.Query<MiniGameScoreData>(query);
 
             foreach (var data in list)
@@ -174,7 +174,7 @@ namespace Antura.Book
         private Dictionary<MiniGameCode, float> GetMiniGamesTotalPlayTime()
         {
             Dictionary<MiniGameCode, float> dict = new Dictionary<MiniGameCode, float>();
-            string query = "select * from " + typeof(MiniGameScoreData).Name;
+            string query = "select * from " + nameof(MiniGameScoreData);
             var list = AppManager.I.DB.Query<MiniGameScoreData>(query);
 
             foreach (var data in list)
@@ -187,7 +187,7 @@ namespace Antura.Book
         private int GetTotalMiniGamePlayInstances()
         {
             int total = 0;
-            string query = "select * from " + typeof(LogMiniGameScoreData).Name;
+            string query = "select * from " + nameof(LogMiniGameScoreData);
             var list = AppManager.I.DB.Query<LogMiniGameScoreData>(query);
 
             foreach (var data in list)
@@ -199,7 +199,7 @@ namespace Antura.Book
 
         private int GetObtainedPlaySessionStars()
         {
-            string query = "select * from " + typeof(JourneyScoreData).Name;
+            string query = "select * from " + nameof(JourneyScoreData);
             var list = AppManager.I.DB.Query<JourneyScoreData>(query);
             var totalStars = list.Sum(data => data.IsMiniGamePS ? data.Stars : 0);
             return totalStars;
@@ -233,7 +233,7 @@ namespace Antura.Book
         {
             if (AppManager.I.Player.IsDemoUser)
             { return GetTotalVocabularyData(dataType); }
-            string query = "select * from " + typeof(VocabularyScoreData).Name + " where VocabularyDataType='" + (int)dataType + "'";
+            string query = "select * from " + nameof(VocabularyScoreData) + " where VocabularyDataType='" + (int)dataType + "'";
             var list = AppManager.I.DB.Query<VocabularyScoreData>(query);
             return list.Count(data => data.Unlocked);
         }
@@ -241,7 +241,7 @@ namespace Antura.Book
         private Dictionary<MiniGameCode, int> GetNumberOfPlaysByMiniGame()
         {
             Dictionary<MiniGameCode, int> dict = new Dictionary<MiniGameCode, int>();
-            string query = "select * from " + typeof(LogMiniGameScoreData).Name;
+            string query = "select * from " + nameof(LogMiniGameScoreData);
             var list = AppManager.I.DB.Query<LogMiniGameScoreData>(query);
 
             foreach (var data in list)
