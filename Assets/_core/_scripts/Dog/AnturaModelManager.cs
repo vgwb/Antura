@@ -159,6 +159,18 @@ namespace Antura.Dog
             LoadedModels.Clear();
         }
 
+        public void ClearLoadedRewardsWithoutDestroy()
+        {
+            for(int i=0; i<LoadedModels.Count; i++)
+            {
+                LoadedModels[i].GO.SetActive(false);
+                LoadedModels.RemoveAt(i);
+            }
+
+            if (LoadedModels.Count > 0) //for some reason, sometimes the loop left 1 item loaded, so we call this very same method to clean it again
+                ClearLoadedRewardsWithoutDestroy();
+        }
+
         /// <summary>
         /// Clears the loaded reward in category.
         /// </summary>

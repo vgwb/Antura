@@ -7,6 +7,7 @@ using System.Linq;
 using Antura.Core;
 using UnityEngine;
 using UnityEngine.UI;
+using System;
 
 namespace Antura
 {
@@ -22,10 +23,14 @@ namespace Antura
         [HideInInspector]
         public string RewardTypeFilter = "";
 
+        public GameObject AnturaPJ;
+        private RewardSystemManager RewardSystem;
+
         /// <summary>
         /// The actual reward enabled for material modification.
         /// </summary>
         private RewardProp actualReward;
+        //private RewardBase actualReward;
 
         private GameObject actualRewardGO;
 
@@ -41,6 +46,11 @@ namespace Antura
             AddListenersMatColor2();
             SetMaterial1("white_dark");
             SetMaterial2("white_pure");
+
+            RewardSystem = new RewardSystemManager();
+            RewardSystem.Init();
+
+            actualRewardGO = AnturaPJ;
         }
 
         void Update()
@@ -100,17 +110,48 @@ namespace Antura
         void LoadRewardOnDog(string _name)
         {
             actualReward = null;
-            //actualReward = RewardSystemManager.GetConfig().Rewards.Find(r => r.RewardName == _name);
-            //actualRewardGO = AnturaModelManager.Instance.LoadRewardOnAntura(actualReward.ID);
-            //foreach (var color in actualRewardGO.GetComponentsInChildren<MeshRenderer>()) {
-            //    if (color.name == "color_1") {
-            //        color.materials = new Material[] { MaterialManager.LoadMaterial(material1, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material1)) };
-            //    } else if (color.name == "color_2") {
-            //        color.materials = new Material[] { MaterialManager.LoadMaterial(material2, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material2)) };
-            //    }
-            //}
+
+            //actualReward = RewardSystemManager.GetConfig().Rewards.Find(r => r.RewardName == _name); //OLD LINE
+            //block01: replaces the previous non-working old line (ajzbrun 09-06-22)
+            List<RewardBase> allRewards = RewardSystem.GetRewardBasesOfType(RewardBaseType.Prop).ToList();
+            List<RewardProp> allRew = new List<RewardProp>();
+            foreach(RewardBase rw in allRewards) //conversion from RewardBase to RewardProp, which actually has the rewardname
+            {
+                RewardProp rw_aux = rw as RewardProp;
+                allRew.Add(rw_aux);
+            }
+            actualReward = allRew.Find(r => r.RewardName == _name);
+
+            AnturaPJ.GetComponent<AnturaModelManager>().ClearLoadedRewardInCategory(actualReward.Category);
+            //end block01
+
+            //actualRewardGO = AnturaModelManager.Instance.LoadRewardOnAntura(actualReward.ID); //OLD LINE
+            //block02: replaces the previous non-working old line (ajzbrun 09-06-22)
+            RewardColor rw_color = new RewardColor();
+            foreach (var color in actualRewardGO.GetComponentsInChildren<MeshRenderer>())
+            {
+                if (color.name == "color_1")
+                {
+                    //color.materials = new Material[] { MaterialManager.LoadMaterial(material1, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material1)) }; //OLD LINE
+                    rw_color.Color1RGB = actualReward.Material1;
+                }
+                else if (color.name == "color_2")
+                {
+                    //color.materials = new Material[] { MaterialManager.LoadMaterial(material2, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material2)) }; //OLD LINE
+                    rw_color.Color2RGB = actualReward.Material2;
+                }
+                rw_color.LocID = actualReward.LocID;
+                rw_color.ID = actualReward.ID;
+            }
+            RewardPack rp = new RewardPack(RewardBaseType.Prop, allRewards.Find(r => r.ID == actualReward.ID), rw_color);
+            actualRewardGO = AnturaPJ.GetComponent<AnturaModelManager>().LoadRewardPackOnAntura(rp);
+            //block02
         }
 
+        public void ClearAllRewards()
+        {
+            AnturaPJ.GetComponent<AnturaModelManager>().ClearLoadedRewardsWithoutDestroy();
+        }
 
         #endregion
 
@@ -158,14 +199,14 @@ namespace Antura
         {
             ActiveMaterial1Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.RewardName);
+                LoadRewardOnDog(actualReward.ID);
         }
 
         public void SetMaterial2(string _materialName)
         {
             ActiveMaterial2Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.RewardName);
+                LoadRewardOnDog(actualReward.ID);
         }
 
         void AddListenersMatColor1()
