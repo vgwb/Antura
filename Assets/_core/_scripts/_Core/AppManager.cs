@@ -62,7 +62,7 @@ namespace Antura.Core
             set { PlayerProfileManager.CurrentPlayer = value; }
         }
 
-        public bool IsPaused { get; private set; }
+        public bool IsAppSuspended { get; private set; }
         public bool ModalWindowActivated = false;
 
 
@@ -198,7 +198,6 @@ namespace Antura.Core
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
             AppSettingsManager.SetNativeLanguage(langCode);
-
             yield return LanguageSwitcher.ReloadNativeLanguage();
         }
 
@@ -239,7 +238,7 @@ namespace Antura.Core
                 Application.Quit();
             }, () =>
             {
-            });
+            }, keeperMode: Keeper.KeeperMode.NativeNoSubtitles);
         }
 
         public void StartNewPlaySession()
@@ -257,31 +256,29 @@ namespace Antura.Core
 #if UNITY_ANDROID
         void OnApplicationFocus(bool focus)
         {
-            PauseApplication(!focus);
+            SuspendApplication(!focus);
         }
 #endif
 
 #if UNITY_EDITOR || UNITY_IOS
         void OnApplicationPause(bool pause)
         {
-            PauseApplication(pause);
+            SuspendApplication(pause);
         }
 #endif
 
-        private void PauseApplication(bool pause)
+        private void SuspendApplication(bool pause)
         {
-            if (pause == IsPaused)
+            if (pause == IsAppSuspended)
                 return; // Ignore if paused already
-            IsPaused = pause;
-            if (IsPaused)
+            IsAppSuspended = pause;
+            if (IsAppSuspended)
             {
                 // app is pausing
                 if (LogManager.I != null)
                     LogManager.I.LogInfo(InfoEvent.AppSuspend);
-                if (AppManager.I.AppEdition.EnableNotifications)
-                {
-                    Services.Notifications.AppSuspended();
-                }
+
+                Services.Notifications.AppSuspended();
             }
             else
             {
@@ -291,12 +288,10 @@ namespace Antura.Core
                     LogManager.I.LogInfo(InfoEvent.AppResume);
                     LogManager.I.InitNewSession();
                 }
-                if (AppManager.I.AppEdition.EnableNotifications)
-                {
-                    Services.Notifications.AppResumed();
-                }
+
+                Services.Notifications.AppResumed();
             }
-            AudioManager.I.OnAppPause(IsPaused);
+            AudioManager.I.OnAppPause(IsAppSuspended);
         }
         #endregion
 

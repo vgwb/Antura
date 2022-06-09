@@ -12,6 +12,7 @@ namespace Antura.Core.Services.Notification
         public const string ChannelId = "game_channel0";
         private bool inizialized = false;
         private GameObject myGameObject;
+        protected int playReminderHour = 18;
 
         public NotificationService(GameObject _gameObject)
         {
@@ -38,12 +39,10 @@ namespace Antura.Core.Services.Notification
         /// </summary>
         public void AppSuspended()
         {
-#if MODULE_NOTIFICATIONS
-            if (AppManager.I.AppSettings.NotificationsEnabled) {
+            if (AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled)
+            {
                 PrepareNextLocalNotification();
-                GameNotificationsManager.I.ChangeApplicationFocus(false);
             }
-#endif
         }
 
         /// <summary>
@@ -51,13 +50,12 @@ namespace Antura.Core.Services.Notification
         /// </summary>
         public void AppResumed()
         {
-#if MODULE_NOTIFICATIONS
-            if (!GameNotificationsManager.I.Initialized) {
-                Init();
-            }
-            GameNotificationsManager.I.CancelAllNotifications();
-            GameNotificationsManager.I.ChangeApplicationFocus(true);
-#endif
+            // if (!NotificationsManager.Initialized)
+            // {
+            //     Init();
+            // }
+            // GameNotificationsManager.I.CancelAllNotifications();
+            // GameNotificationsManager.I.ChangeApplicationFocus(true);
         }
         #endregion
 
@@ -65,11 +63,10 @@ namespace Antura.Core.Services.Notification
         {
             //DeleteAllLocalNotifications();
             //Debug.Log("Next Local Notifications prepared");
-            var arabicString = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Notification_24h);
-            ScheduleSimple(
-                GetTomorrow(),
+            ScheduleNotification(
+                GetDateTimeTomorrow(),
                 "Antura and the Letters",
-                arabicString.NativeText
+                LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Notification_24h).NativeText
             );
 
             //NotificationManager.ScheduleSimpleWithAppIcon(
@@ -82,18 +79,18 @@ namespace Antura.Core.Services.Notification
 
         #region direct plugins methods
 
-        /// <summary>
-        /// Schedule notification with app icon.
-        /// </summary>
-        /// <param name="smallIcon">List of build-in small icons: notification_icon_bell (default), notification_icon_clock, notification_icon_heart, notification_icon_message, notification_icon_nut, notification_icon_star, notification_icon_warning.</param>
-        public void ScheduleSimple(DateTime deliveryTime, string title, string message)
+        public void ScheduleNotification(DateTime deliveryTime, string title, string message)
         {
             IGameNotification notification = NotificationsManager.CreateNotification();
+
             notification.Title = title;
             notification.Body = message;
+            notification.Group = ChannelId;
             notification.DeliveryTime = deliveryTime;
             notification.LargeIcon = "icon_antura";
             NotificationsManager.ScheduleNotification(notification);
+
+            Debug.Log("ScheduleNotification - " + deliveryTime);
         }
 
         public void DeleteAllLocalNotifications()
@@ -103,14 +100,18 @@ namespace Antura.Core.Services.Notification
         #endregion
 
         #region time utilities
-        private DateTime GetTomorrow()
+        private DateTime GetDateTimeTomorrow()
         {
-            return DateTime.Now.AddHours(20);
+            DateTime deliveryTime = DateTime.Now.ToLocalTime().AddDays(1);
+            deliveryTime = new DateTime(deliveryTime.Year, deliveryTime.Month, deliveryTime.Day, playReminderHour, 0, 0,
+                DateTimeKind.Local);
+            return deliveryTime;
+            //return DateTime.Now.AddHours(20);
         }
 
-        private DateTime GetDateTimeInMinues(int minutes)
+        private DateTime GetDateTimeInMinutes(int minutes)
         {
-            return DateTime.Now.ToLocalTime() + TimeSpan.FromMinutes(minutes);
+            return DateTime.Now.ToLocalTime().AddMinutes(minutes);
         }
 
         private int CalculateSecondsToTomorrowMidnight()
@@ -123,13 +124,12 @@ namespace Antura.Core.Services.Notification
         #region tests
         public void TestLocalNotification()
         {
-            Debug.Log("TestLocalNotification");
             //Debug.Log("Tomorrows midnight is in " + CalculateSecondsToTomorrowMidnight() + " seconds");
-            var arabicString = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Notification_24h);
-            ScheduleSimple(
-                GetDateTimeInMinues(1),
+            var description = LocalizationManager.GetLocalizationData(LocalizationDataId.UI_Notification_24h).NativeText;
+            ScheduleNotification(
+                GetDateTimeInMinutes(1),
                 "Antura and the Letters",
-                arabicString.NativeText
+                description
             );
         }
         #endregion

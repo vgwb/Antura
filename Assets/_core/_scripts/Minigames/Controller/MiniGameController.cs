@@ -298,7 +298,7 @@ namespace Antura.Minigames
             // TODO: move this outside this method (actually it is useless with the current implementation of PauseMenu)
             inputManager.Enabled = !(GlobalUI.PauseMenu.IsMenuOpen);
 
-            if ((AppManager.I.IsPaused || hasToPause) &&
+            if ((AppManager.I.IsAppSuspended || hasToPause) &&
                 !SceneTransitioner.IsShown && GetCurrentState() != OutcomeState
                 && !GlobalUI.PauseMenu.IsMenuOpen)
             {
