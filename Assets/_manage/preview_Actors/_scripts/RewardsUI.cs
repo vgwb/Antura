@@ -87,8 +87,7 @@ namespace Antura
             foreach (RewardBase rewardBase in rewardBases)
             {
                 RewardProp rewardProp = rewardBase as RewardProp;
-                Button b = Instantiate<Button>(ElementPrefab.GetComponent<Button>());
-                b.transform.SetParent(ElementContainer.transform);
+                Button b = Instantiate<Button>(ElementPrefab.GetComponent<Button>(), ElementContainer.transform, false);
                 b.GetComponentInChildren<Text>().text = rewardProp.RewardName;
                 b.onClick.AddListener(delegate { OnClickButton(b.GetComponentInChildren<Text>().text); });
             }
