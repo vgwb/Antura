@@ -132,12 +132,14 @@ namespace Antura
                 if (color.name == "color_1")
                 {
                     //color.materials = new Material[] { MaterialManager.LoadMaterial(material1, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material1)) }; //OLD LINE
-                    rw_color.Color1RGB = actualReward.Material1;
+                    rw_color.Color1RGB = ActiveMaterial1Image.material.color.ToString();
+                    rw_color.Color1Name = ActiveMaterial1Image.material.name;
                 }
                 else if (color.name == "color_2")
                 {
                     //color.materials = new Material[] { MaterialManager.LoadMaterial(material2, (PaletteType)Enum.Parse(typeof(PaletteType), actualReward.Material2)) }; //OLD LINE
-                    rw_color.Color2RGB = actualReward.Material2;
+                    rw_color.Color2RGB = ActiveMaterial2Image.material.color.ToString();
+                    rw_color.Color2Name = ActiveMaterial2Image.material.name;
                 }
                 rw_color.LocID = actualReward.LocID;
                 rw_color.ID = actualReward.ID;
