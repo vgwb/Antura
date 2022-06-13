@@ -54,8 +54,7 @@ namespace Antura.Core.Services.Notification
             // {
             //     Init();
             // }
-            // GameNotificationsManager.I.CancelAllNotifications();
-            // GameNotificationsManager.I.ChangeApplicationFocus(true);
+            NotificationsManager.DismissAllNotifications();
         }
         #endregion
 
