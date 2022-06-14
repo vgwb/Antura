@@ -70,7 +70,7 @@ namespace Antura.UI
             else
             {
                 Show(LocalizationManager.GetLearning(id), _languageUse, _onYes, _onNo);
-                KeeperManager.I.PlayDialogue(id, keeperMode: KeeperMode.LearningNoSubtitles);
+                KeeperManager.I.PlayDialogue(id, keeperMode: KeeperMode.LearningThenNativeNoSubtitles);
             }
         }
 
