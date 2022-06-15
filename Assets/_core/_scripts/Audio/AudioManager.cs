@@ -385,6 +385,13 @@ namespace Antura.Audio
                 dialogueEndedCallbacks.Clear();
             }
 
+            if (skipNext)
+            {
+                skipNext = false;
+                callback?.Invoke();
+                return null;
+            }
+
             if (!string.IsNullOrEmpty(LocalizationManager.GetLocalizedAudioFileName(data.Id)))
             {
                 var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", code, gendered: true);
@@ -395,20 +402,20 @@ namespace Antura.Audio
                 }
                 return wrapper;
             }
-            if (callback != null)
-            {
-                callback.Invoke();
-            }
+
+            callback?.Invoke();
 
             return null;
         }
 
+        private bool skipNext = false;
         public void SkipCurrentDialogue()
         {
-            StopDialogueNoClear();
-            if (!AppManager.I.ContentEdition.LearnMethod.SkipSingleLanguage)
+            StopDialogue(false);
+            if (!AppManager.I.ContentEdition.LearnMethod.SkipSingleLanguage
+                && dialogueEndedCallbacks.Any(x => x.Value.Method.Name.Contains("PlayDialogue")))
             {
-                Invoke("StopDialogueNoClear", 0.01f);
+                skipNext = true;
             }
         }
 
