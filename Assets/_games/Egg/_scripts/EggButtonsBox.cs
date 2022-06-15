@@ -444,6 +444,8 @@ namespace Antura.Minigames.Egg
                 }
                 else
                 {
+                    var s = audioManager.PlaySound(Sfx.LL_Jump);
+                    yield return new WaitForSeconds(0.5f);
                     sCallback?.Invoke();
                     eCallback?.Invoke();
                 }
