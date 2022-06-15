@@ -100,12 +100,8 @@ namespace Antura.Minigames.Egg
             {
                 game.eggController.SetQuestion(null);
                 game.eggController.SetAnswers(game.CurrentQuestion.Answers[0]);
-
-                game.eggController.PlayAudioQuestion(delegate ()
-                {
-                    EnableEggButtonsInput();
-                    game.StartCoroutine(game.eggButtonBox.PlayButtonsAudio(null, null, true, true, 0.5f, OnQuestionAudioComplete));
-                });
+                yield return game.eggButtonBox.PlayButtonsAudio(game.CurrentQuestion.Question, null, true, true, 0.5f, OnQuestionAudioComplete);
+                EnableEggButtonsInput();
             }
         }
 
