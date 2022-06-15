@@ -12,7 +12,7 @@ namespace Antura.Book
     /// </summary>
     public class ItemMainMiniGame : MonoBehaviour
     {
-        MainMiniGame mainGameInfo;
+        public MainMiniGame mainGameInfo;
 
         public Image BackgroundImage;
         public TextRender Title;

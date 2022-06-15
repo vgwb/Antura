@@ -414,11 +414,6 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogue(false);
-            foreach (KeyValuePair<IAudioSource,Action> dialogueEndedCallback in dialogueEndedCallbacks)
-            {
-                Debug.LogError(dialogueEndedCallback.Value.Method.Name);
-            }
-
             if (!AppManager.I.ContentEdition.LearnMethod.SkipSingleLanguage
                 && dialogueEndedCallbacks.Any(x => x.Value.Method.Name.Contains("PlayDialogue"))
                 && currentLangCode == AppManager.I.ContentEdition.LearningLanguage)

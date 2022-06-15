@@ -1,8 +1,11 @@
+using System.Collections.Generic;
+using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Keeper;
 using Antura.Minigames;
 using Antura.UI;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -28,12 +31,10 @@ namespace Antura.Book
         public Button LaunchGameButton;
 
         GameObject btnGO;
+        private List<ItemMainMiniGame> btns = new List<ItemMainMiniGame>();
+        public RectTransform scrollRectTr;
         BookArea currentArea = BookArea.None;
         MiniGameData currentMiniGame;
-
-        void Start()
-        {
-        }
 
         void OnEnable()
         {
@@ -62,12 +63,14 @@ namespace Antura.Book
             emptyContainer(ElementsContainer);
 
             var mainMiniGamesList = MiniGamesUtilities.GetMainMiniGameList();
+            btns.Clear();
             foreach (var game in mainMiniGamesList)
             {
                 btnGO = Instantiate(MainMiniGameItemPrefab);
                 btnGO.transform.SetParent(ElementsContainer.transform, false);
                 //btnGO.transform.SetAsFirstSibling();
                 btnGO.GetComponent<ItemMainMiniGame>().Init(this, game);
+                btns.Add(btnGO.GetComponent<ItemMainMiniGame>());
             }
             DetailMainMiniGame(null);
             DetailMiniGame(null);
@@ -154,6 +157,20 @@ namespace Antura.Book
             {
                 Destroy(t.gameObject);
             }
+        }
+
+        public void ScrollTo(string minigameCode)
+        {
+            var scrollView = scrollRectTr.GetComponent<ScrollRect>();
+            var xDelta = 0f;
+            var btn = btns.FirstOrDefault(x => x.mainGameInfo.MainId == minigameCode);
+            if (btn == null) return;
+            var index = btns.IndexOf(btn);
+
+            var size = 220;
+            xDelta = -size * Mathf.Max(index - 4, 0);
+            scrollView.enabled = false;
+            scrollView.content.transform.DOLocalMove(new Vector2(xDelta, scrollView.content.transform.localPosition.y), 0.35f).OnComplete(() => scrollView.enabled = true);
         }
     }
 }
