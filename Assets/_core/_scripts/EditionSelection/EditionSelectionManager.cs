@@ -21,8 +21,11 @@ namespace Antura.Scenes
 
         private Coroutine currentCoroutine;
 
+        private LanguageCode prevLanguageCode;
+
         public void CompleteSelection(bool firstTime)
         {
+            prevLanguageCode = AppManager.I.AppSettings.NativeLanguage;
             selectNativeLanguagePanel.Close();
             selectLearningContentPanel.Close();
 
@@ -36,6 +39,8 @@ namespace Antura.Scenes
 
         public void ContentEditionSelection()
         {
+            prevLanguageCode = AppManager.I.AppSettings.NativeLanguage;
+            selectNativeLanguagePanel.SelectedCode = AppManager.I.AppSettings.NativeLanguage;
             selectNativeLanguagePanel.Close();
             selectLearningContentPanel.Close();
 
@@ -53,9 +58,20 @@ namespace Antura.Scenes
             yield return ContentEditionSelectionCO(true);
         }
 
+        private void Back()
+        {
+            StopCoroutine(currentCoroutine);
+            AppManager.I.AppSettingsManager.SetNativeLanguage(prevLanguageCode);
+            selectNativeLanguagePanel.Close();
+            selectLearningContentPanel.Close();
+            selectedNativeButton.gameObject.SetActive(false);
+            GlobalUI.ShowBackButton(false);
+        }
+
         private IEnumerator NativeLanguageSelectionCO(bool firstTime)
         {
             GlobalUI.ShowPauseMenu(false);
+            GlobalUI.ShowBackButton(true, Back);
             selectedNativeButton.gameObject.SetActive(false);
 
             yield return selectNativeLanguagePanel.Open(firstTime);
@@ -63,11 +79,11 @@ namespace Antura.Scenes
                 yield return null;
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
-            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
+            textRender.SetOverridenLanguageText(selectNativeLanguagePanel.SelectedCode, LocalizationDataId.Language_Name);
             selectedNativeButton.gameObject.SetActive(true);
 
             bool waiting = true;
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), AppManager.I.AppSettings.NativeLanguage, callback: () => waiting = false, clearPreviousCallback:true);
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
             while (waiting) yield return null;
 
             GlobalUI.ShowPauseMenu(true);
@@ -75,12 +91,14 @@ namespace Antura.Scenes
 
         private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
         {
+            selectLearningContentPanel.SelectedNativeCode = selectNativeLanguagePanel.SelectedCode;
             KeeperManager.I.ResetKeeper();
             HasSelectedEdition = false;
             GlobalUI.ShowPauseMenu(false);
+            GlobalUI.ShowBackButton(true, Back);
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
-            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
+            textRender.SetOverridenLanguageText(selectNativeLanguagePanel.SelectedCode, LocalizationDataId.Language_Name);
             selectedNativeButton.gameObject.SetActive(true);
 
             selectLearningContentPanel.Open(scrollToLast:!fromLanguage);
@@ -88,9 +106,8 @@ namespace Antura.Scenes
                 yield return null;
 
             var btn = selectLearningContentPanel.SelectedButton;
-
             bool waiting = true;
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), AppManager.I.AppSettings.NativeLanguage, callback: () => waiting = false, clearPreviousCallback:true);
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
             while (waiting) yield return null;
 
             bool hasAnswered = false;
@@ -130,6 +147,8 @@ namespace Antura.Scenes
             }
 
             HasSelectedEdition = true;
+            GlobalUI.ShowBackButton(false);
+
             yield return AppManager.I.ReloadEdition();
             AppManager.I.NavigationManager.GoToHome(true);
         }

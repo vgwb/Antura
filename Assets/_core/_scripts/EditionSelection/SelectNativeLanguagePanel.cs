@@ -125,10 +125,15 @@ namespace Antura.UI
             switchQuestionTextCO = StartCoroutine(SwitchQuestionTextCO());
         }
 
+        public LanguageCode SelectedCode;
         public bool HasPerformedSelection;
         public SelectNativeLanguageButton SelectedButton;
         public void ConfirmSelection(LanguageCode languageCode)
         {
+            SelectedCode = languageCode;
+            if (SelectedCode == LanguageCode.arabic_legacy)
+                SelectedCode = LanguageCode.arabic;
+
             StopCoroutine(switchQuestionTextCO);
             foreach (var btn in buttons)
             {
@@ -150,7 +155,6 @@ namespace Antura.UI
 
             }
 
-            AppManager.I.AppSettingsManager.SetNativeLanguage(languageCode);
             RefreshSelection();
             HasPerformedSelection = true;
         }
@@ -159,7 +163,7 @@ namespace Antura.UI
         {
             foreach (var button in buttons)
             {
-                if (button.LanguageCode == AppManager.I.AppSettings.NativeLanguage)
+                if (button.LanguageCode == SelectedCode)
                     button.SetSelected();
                 else
                     button.SetUnselected();
