@@ -75,7 +75,7 @@ namespace Antura.Scenes
 
         private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
         {
-            KeeperManager.I.StopSpeaking();
+            KeeperManager.I.ResetKeeper();
             HasSelectedEdition = false;
             GlobalUI.ShowPauseMenu(false);
 
