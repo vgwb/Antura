@@ -297,7 +297,7 @@ namespace Antura.Minigames.Egg
             {
                 if (audioSource != null)
                 {
-                    if (!audioSource.IsPlaying)
+                    if (audioSource.IsLoaded && !audioSource.IsPlaying)
                     {
                         audioSource = null;
                     }
@@ -315,7 +315,7 @@ namespace Antura.Minigames.Egg
             {
                 if (audioSource != null)
                 {
-                    if (!audioSource.IsPlaying)
+                    if (audioSource.IsLoaded && !audioSource.IsPlaying)
                     {
                         audioSource = null;
 
