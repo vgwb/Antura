@@ -4,22 +4,23 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [2.1.0] The Multiedition One App
-From this version we have just one Antura app to learn everything.
-Included Content:
-- Learn to Read Arabic
-- Learn to Read Polish
-- Learn Persian Dari
+From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your lanaguage and discovering a foreign language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
+
+Supported languages:
+- Arabic (as before)
+- Dari Persian
+- English
+- French
+- Ukrainian
+- Russian
+ 
+Learning Content:
+- Learn to Read in Arabic (as before)
+- Learn to Read in Dari Persian 
+- Learn Polish
 - Learn English
 - Learn French
 
-Supported native languages:
-- English
-- French
-- Arabic
-- Persian Dari
-- Russian
-- Ukrainian
- 
 New features:
 - New Online Analytics
 - Local Notifications
