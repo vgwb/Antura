@@ -50,7 +50,7 @@ namespace Antura.Scenes
 
         void TutorCreateProfile()
         {
-            if (!EditionSelectionManager.MustChooseContentEditions && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1)
+            if (!EditionSelectionManager.MustChooseContentEditions && EditionSelectionManager.HasSelectedEdition && AppManager.I.PlayerProfileManager.GetPlayersIconData().Count < 1)
             {
                 KeeperManager.I.PlayDialogue(LocalizationDataId.Action_Createprofile);
             }

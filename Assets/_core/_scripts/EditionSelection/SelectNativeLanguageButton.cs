@@ -27,7 +27,7 @@ namespace Antura.UI
 
         public void OnClick()
         {
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), languageCode);
+            parentPanel.SelectedButton = this;
             parentPanel.ConfirmSelection(languageCode);
         }
 

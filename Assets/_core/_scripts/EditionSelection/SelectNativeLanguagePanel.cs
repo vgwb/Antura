@@ -126,6 +126,7 @@ namespace Antura.UI
         }
 
         public bool HasPerformedSelection;
+        public SelectNativeLanguageButton SelectedButton;
         public void ConfirmSelection(LanguageCode languageCode)
         {
             StopCoroutine(switchQuestionTextCO);

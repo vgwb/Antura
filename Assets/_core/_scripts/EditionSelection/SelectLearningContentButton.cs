@@ -34,7 +34,7 @@ namespace Antura.UI
             nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocKey);
         }
 
-        private LocalizationDataId LocKey
+        public LocalizationDataId LocKey
         {
             get
             {
@@ -46,7 +46,7 @@ namespace Antura.UI
 
         public void OnClick()
         {
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocKey), AppManager.I.AppSettings.NativeLanguage);
+            parentPanel.SelectedButton = this;
             parentPanel.ConfirmSelection(contentId);
         }
 

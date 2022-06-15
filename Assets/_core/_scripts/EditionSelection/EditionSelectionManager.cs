@@ -4,6 +4,8 @@ using Antura.Language;
 using Antura.UI;
 using System;
 using System.Collections;
+using Antura.Audio;
+using Antura.Keeper;
 using UnityEngine;
 
 namespace Antura.Scenes
@@ -60,11 +62,21 @@ namespace Antura.Scenes
             while (!selectNativeLanguagePanel.HasPerformedSelection)
                 yield return null;
 
+            var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
+            textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
+            selectedNativeButton.gameObject.SetActive(true);
+
+            bool waiting = true;
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), AppManager.I.AppSettings.NativeLanguage, callback: () => waiting = false, clearPreviousCallback:true);
+            while (waiting) yield return null;
+
             GlobalUI.ShowPauseMenu(true);
         }
 
         private IEnumerator ContentEditionSelectionCO()
         {
+            KeeperManager.I.StopSpeaking();
+            HasSelectedEdition = false;
             GlobalUI.ShowPauseMenu(false);
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
@@ -74,8 +86,12 @@ namespace Antura.Scenes
             selectLearningContentPanel.Open();
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
-            yield return new WaitForSeconds(1f); // Wait for audio to finish
 
+            var btn = selectLearningContentPanel.SelectedButton;
+
+            bool waiting = true;
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), AppManager.I.AppSettings.NativeLanguage, callback: () => waiting = false, clearPreviousCallback:true);
+            while (waiting) yield return null;
 
             bool hasAnswered = false;
             if (!AppManager.I.AppSettingsManager.NewSettings.Exists())

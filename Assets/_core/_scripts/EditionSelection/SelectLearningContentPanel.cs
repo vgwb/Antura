@@ -80,6 +80,7 @@ namespace Antura.UI
         }
 
         public bool HasPerformedSelection;
+        public SelectLearningContentButton SelectedButton;
         public void ConfirmSelection(LearningContentID contentId)
         {
             // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
