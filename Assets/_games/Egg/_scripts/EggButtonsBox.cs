@@ -398,7 +398,7 @@ namespace Antura.Minigames.Egg
             }
         }
 
-        public IEnumerator PlayButtonsAudio(ILivingLetterData playBefore, ILivingLetterData playAfter, bool lightUp, bool inPositionOrder, float delay, Action endCallback, Action startCallback = null, bool yieldDuration = false)
+        public IEnumerator PlayButtonsAudio(ILivingLetterData playBefore, ILivingLetterData playAfter, bool lightUp, bool inPositionOrder, float delay, Action endCallback, Action startCallback = null, bool yieldDuration = false, bool playButtonsNames = true)
         {
             List<EggButton> buttons = GetButtons(inPositionOrder);
 
@@ -438,7 +438,15 @@ namespace Antura.Minigames.Egg
                 }
 
                 var delayRef = new Ref<float>();
-                yield return buttons[iRTL].PlayButtonAudio(lightUp, delay, eCallback, sCallback, delayRef);
+                if (playButtonsNames)
+                {
+                    yield return buttons[iRTL].PlayButtonAudio(lightUp, delay, eCallback, sCallback, delayRef);
+                }
+                else
+                {
+                    sCallback?.Invoke();
+                    eCallback?.Invoke();
+                }
                 delay += delayRef.v;
             }
         }
