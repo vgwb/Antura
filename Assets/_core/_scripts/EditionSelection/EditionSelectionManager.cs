@@ -44,13 +44,13 @@ namespace Antura.Scenes
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
-            currentCoroutine = StartCoroutine(ContentEditionSelectionCO());
+            currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false));
         }
 
         private IEnumerator CompleteSelectionCO(bool firstTime)
         {
             yield return NativeLanguageSelectionCO(firstTime);
-            yield return ContentEditionSelectionCO();
+            yield return ContentEditionSelectionCO(true);
         }
 
         private IEnumerator NativeLanguageSelectionCO(bool firstTime)
@@ -73,7 +73,7 @@ namespace Antura.Scenes
             GlobalUI.ShowPauseMenu(true);
         }
 
-        private IEnumerator ContentEditionSelectionCO()
+        private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
         {
             KeeperManager.I.StopSpeaking();
             HasSelectedEdition = false;
@@ -83,7 +83,7 @@ namespace Antura.Scenes
             textRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocalizationDataId.Language_Name);
             selectedNativeButton.gameObject.SetActive(true);
 
-            selectLearningContentPanel.Open();
+            selectLearningContentPanel.Open(scrollToLast:!fromLanguage);
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
 

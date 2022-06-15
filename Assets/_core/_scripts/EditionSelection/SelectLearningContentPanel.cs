@@ -79,7 +79,7 @@ namespace Antura.UI
                 else
                     for (int i = 0; i < words.Length; i++)
                         if (words[i].Length > 11)
-                            auxBtn.GetComponentInChildren<TMP_Text>().fontSize = 24;                
+                            auxBtn.GetComponentInChildren<TMP_Text>().fontSize = 24;
 
                 buttons.Add(button);
             }
@@ -128,7 +128,7 @@ namespace Antura.UI
         public Image Overlay;
 
         private bool isOpen;
-        public void Open()
+        public void Open(bool scrollToLast)
         {
             gameObject.SetActive(true);
             isOpen = true;
@@ -141,7 +141,10 @@ namespace Antura.UI
             questionRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
 
             scrollRectTr.anchoredPosition = new Vector2(2500, 0);
-            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f).OnComplete(() => ScrollTo(PreferredContentID));
+            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f).OnComplete(() =>
+            {
+                if (scrollToLast) ScrollTo(PreferredContentID);
+            });
             if (BGColor == default) BGColor = BG.color;
             BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
             BG.DOColor(BGColor, 0.35f);
