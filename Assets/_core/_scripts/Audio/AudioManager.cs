@@ -324,7 +324,8 @@ namespace Antura.Audio
         /// <param name="soundType">Phoneme or Name?</param>
         public IAudioSource PlayLetter(LetterData data, bool exclusive = true, LetterDataSoundType soundType = LetterDataSoundType.Phoneme, LanguageUse use = LanguageUse.Learning, System.Action callback = null, bool clearPreviousCallback = false)
         {
-            //        Debug.Log("PlayLetter " + data.GetAudioFilename(soundType) + " use " + use);
+            // if (DebugConfig.I.VerboseAudio)
+            //     Debug.Log("PlayLetter " + data.GetAudioFilename(soundType) + " use " + use);
             var sourcePath = new SourcePath(data.GetAudioFilename(soundType), "/Audio/Letters", use);
             return PlayClip(sourcePath, vocabularyEndedCallbacks, vocabularyGroup, exclusive, callback, clearPreviousCallback);
         }
@@ -344,6 +345,9 @@ namespace Antura.Audio
         private IAudioSource PlayClip(SourcePath path, Dictionary<IAudioSource, System.Action> callbacksDict, DeAudioGroup audioGroup,
             bool exclusive = true, System.Action callback = null, bool clearPreviousCallback = false)
         {
+            if (DebugConfig.I.VerboseAudio)
+                Debug.Log("[PlayClip] path: " + path.code + "/" + path.folder + "/" + path.id + " - " + path.gendered);
+
             if (exclusive)
                 audioGroup?.Stop();
             if (clearPreviousCallback)
