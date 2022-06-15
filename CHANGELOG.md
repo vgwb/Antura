@@ -3,10 +3,29 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## [2.1.0] The Multiedition One App - not yet released
-One app for all editions.
-Added Polish and Dari
-New Online Analytics
+## [2.1.0] The Multiedition One App
+From this version we have just one Antura app to learn everything.
+Included Content:
+- Learn to Read Arabic
+- Learn to Read Polish
+- Learn Persian Dari
+- Learn English
+- Learn French
+
+Supported native languages:
+- English
+- French
+- Arabic
+- Persian Dari
+- Russian
+- Ukrainian
+ 
+New features:
+- New Online Analytics
+- Local Notifications
+
+Bugfix
+- tons
 
 ## [2.0.0] - 2021-11-17
 new Arabic
