@@ -378,8 +378,10 @@ namespace Antura.Audio
             return PlayDialogue(data, AppManager.I.LanguageSwitcher.GetLangConfig(use).Code, callback, clearPreviousCallback);
         }
 
+        private LanguageCode currentLangCode;
         public IAudioSource PlayDialogue(LocalizationData data, LanguageCode code, Action callback = null, bool clearPreviousCallback = false)
         {
+            currentLangCode = code;
             if (clearPreviousCallback)
             {
                 dialogueEndedCallbacks.Clear();
@@ -412,8 +414,14 @@ namespace Antura.Audio
         public void SkipCurrentDialogue()
         {
             StopDialogue(false);
+            foreach (KeyValuePair<IAudioSource,Action> dialogueEndedCallback in dialogueEndedCallbacks)
+            {
+                Debug.LogError(dialogueEndedCallback.Value.Method.Name);
+            }
+
             if (!AppManager.I.ContentEdition.LearnMethod.SkipSingleLanguage
-                && dialogueEndedCallbacks.Any(x => x.Value.Method.Name.Contains("PlayDialogue")))
+                && dialogueEndedCallbacks.Any(x => x.Value.Method.Name.Contains("PlayDialogue"))
+                && currentLangCode == AppManager.I.ContentEdition.LearningLanguage)
             {
                 skipNext = true;
             }
