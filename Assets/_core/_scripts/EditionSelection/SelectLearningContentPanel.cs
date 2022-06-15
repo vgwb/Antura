@@ -5,6 +5,7 @@ using Antura.Core;
 using Antura.Database;
 using Antura.Language;
 using DG.Tweening;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -69,6 +70,17 @@ namespace Antura.UI
                 buttonGO.SetActive(true);
                 var button = buttonGO.GetComponent<SelectLearningContentButton>();
                 button.Setup(contentEditionConfig);
+
+                //checking if the lang name contains more than 2 words or if any word has more than 11 chars, in that case we decrease the font size so it fits in two lines
+                var words = button.nameText.text.Split(" ");
+                var auxBtn = button.GetComponent<Button>();
+                if (words.Length > 2)
+                    auxBtn.GetComponentInChildren<TMP_Text>().fontSize = 24;
+                else
+                    for (int i = 0; i < words.Length; i++)
+                        if (words[i].Length > 11)
+                            auxBtn.GetComponentInChildren<TMP_Text>().fontSize = 24;                
+
                 buttons.Add(button);
             }
 
