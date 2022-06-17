@@ -4,7 +4,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [2.1.0] The Multiedition One App
-From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your lanaguage and discovering a foreign language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
+From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your language and discovering a new language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
 
 Supported languages:
 - Arabic (as before)
@@ -25,8 +25,7 @@ New features:
 - New Online Analytics
 - Local Notifications
 
-Bugfix
-- tons
+Plenty of bug fixes
 
 ## [2.0.0] - 2021-11-17
 new Arabic
