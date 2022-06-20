@@ -1,9 +1,9 @@
+using Antura.Core;
 using Antura.Database;
 using Antura.LivingLetters;
 using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
-using Antura.Core;
 
 namespace Antura.Minigames.FastCrowd
 {
