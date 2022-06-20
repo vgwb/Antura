@@ -16,6 +16,8 @@ namespace Antura.Core
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
+        public LangConfig LearningLanguageConfig;
+
         [FormerlySerializedAs("SupportedNativeLanguages")] public LanguageCode[] OverridenNativeLanguages;
         public bool SupportsLanguage(LanguageCode code)
         {
