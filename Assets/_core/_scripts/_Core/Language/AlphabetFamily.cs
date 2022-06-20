@@ -1,6 +1,6 @@
 ﻿namespace Antura.Language
 {
-    public enum AlphabetCode
+    public enum AlphabetFamily
     {
         latin = 0,
         arabic = 1,
