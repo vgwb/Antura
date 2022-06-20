@@ -39,7 +39,7 @@ namespace Antura.Core.Services.Notification
         /// </summary>
         public void AppSuspended()
         {
-            if (AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled)
+            if (AppManager.I.AppEdition.EnableNotifications && AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled)
             {
                 PrepareNextLocalNotification();
             }
