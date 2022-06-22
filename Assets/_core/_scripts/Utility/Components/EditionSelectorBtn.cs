@@ -7,22 +7,26 @@ using Antura.Language;
 using Antura.Scenes;
 using Antura.UI;
 using UnityEngine;
-using UnityEngine.UIElements;
+using UnityEngine.UI;
 
 namespace Antura.Utilities
 {
     public class EditionSelectorBtn : MonoBehaviour
     {
-        public TextRender TextRender;
+        public TextRender nameText;
+        public Image iconImage;
         public EditionSelectionManager SelectionManager;
 
         void Start()
         {
-            var code = AppManager.I.ContentEdition.LearningLanguage;
-            if (code == LanguageCode.arabic_legacy) code = LanguageCode.arabic;
-            var locKeyText = $"Learn_{code}";
+            ContentEditionConfig editionConfig = AppManager.I.ContentEdition;
+            var languageCode = AppManager.I.ContentEdition.LearningLanguage;
+            if (languageCode == LanguageCode.arabic_legacy)
+                languageCode = LanguageCode.arabic;
+            var locKeyText = $"Learn_{languageCode}";
             var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
-            TextRender.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
+            nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
+            iconImage.sprite = editionConfig.TransitionLogo;
 
             bool isVisible = AppManager.I.AppEdition.HasMultipleContentEditions;
             gameObject.SetActive(isVisible);
@@ -30,7 +34,7 @@ namespace Antura.Utilities
             if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // Auto-open switching panel if no player is detected
-                SelectionManager.CompleteSelection(firstTime:true);
+                SelectionManager.CompleteSelection(firstTime: true);
             }
         }
 
