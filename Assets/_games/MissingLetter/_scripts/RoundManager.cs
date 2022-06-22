@@ -159,6 +159,8 @@ namespace Antura.Minigames.MissingLetter
 
         #region PRIVATE_FUNCTION
 
+        public LetterBehaviour CurrentLetterBehaviour;
+
         void NextWordQuestion()
         {
 
@@ -188,6 +190,7 @@ namespace Antura.Minigames.MissingLetter
             qstBehaviour.onEnterScene += qstBehaviour.Speak;
             qstBehaviour.onLetterBecameInvisible += OnQuestionLetterBecameInvisible;
             qstBehaviour.m_oDefaultIdleAnimation = LLAnimationStates.LL_idle;
+            CurrentLetterBehaviour = qstBehaviour;
             m_aoCurrentQuestionScene.Add(oQuestion);
 
             m_oEmoticonsController.init(qstBehaviour.transform);
@@ -292,6 +295,7 @@ namespace Antura.Minigames.MissingLetter
                 qstBehaviour.onLetterBecameInvisible += OnQuestionLetterBecameInvisible;
                 qstBehaviour.m_oDefaultIdleAnimation = LLAnimationStates.LL_idle;
                 qstBehaviour.SetInPhrase(m_oCurrQuestionPack.GetQuestion());
+                CurrentLetterBehaviour = qstBehaviour;
 
                 m_aoCurrentQuestionScene.Add(oQuestion);
             }
