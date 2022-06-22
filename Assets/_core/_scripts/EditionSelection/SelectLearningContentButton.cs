@@ -28,10 +28,7 @@ namespace Antura.UI
 
             iconImage.sprite = editionConfig.TransitionLogo;
 
-            var code = editionConfig.LearningLanguage;
-            if (code == LanguageCode.arabic_legacy) code = LanguageCode.arabic;
-
-            nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, LocKey);
+            nameText.SetOverridenLanguageText(parentPanel.SelectedNativeCode, LocKey);
         }
 
         public LocalizationDataId LocKey
