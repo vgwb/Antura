@@ -31,9 +31,10 @@ namespace Antura.Teacher
     {
         public enum JourneyFilter
         {
-            CurrentJourney,
-            UpToFullCurrentStage,
-            CurrentLearningBlockOnly,
+            CurrentJourney,                                  // Can use data up to the current Journey Position
+            UpToFullCurrentStage,                            // Can use data up to the current Stage
+            CurrentLearningBlockOnly,                        // Can only use data from the current learning block
+            CurrentLearningBlockFallbackToCurrentJourney,   // Can only use data from the current learning block. If a question pack cannot be created with such data, we fallback to the current journey.
         }
 
         public enum PriorityFilter
@@ -54,7 +55,8 @@ namespace Antura.Teacher
         public List<string> filteringIds;
         public bool sortDataByDifficulty;
 
-        public SelectionParameters(SelectionSeverity severity, int nRequired = 0, bool getMaxData = false, bool useJourney = true, JourneyFilter journeyFilter = JourneyFilter.CurrentJourney, PackListHistory packListHistory = PackListHistory.NoFilter, List<string> filteringIds = null, bool sortDataByDifficulty = false,
+        public SelectionParameters(SelectionSeverity severity, int nRequired = 0, bool getMaxData = false, bool useJourney = true,
+            JourneyFilter journeyFilter = JourneyFilter.CurrentJourney, PackListHistory packListHistory = PackListHistory.NoFilter, List<string> filteringIds = null, bool sortDataByDifficulty = false,
             PriorityFilter priorityFilter = PriorityFilter.CurrentThenPast)
         {
             this.nRequired = nRequired;
@@ -70,7 +72,7 @@ namespace Antura.Teacher
 
         public void AssignJourney(bool insideJourney)
         {
-            journeyFilter = JourneyFilter.CurrentJourney;
+            journeyFilter = JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney;
             priorityFilter = insideJourney ? PriorityFilter.CurrentThenPast : PriorityFilter.NoPriority;
         }
     }

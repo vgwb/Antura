@@ -208,7 +208,8 @@ namespace Antura.Teacher
             }
 
             // (1) Filtering based on the builder's logic
-            var dataList = builderSelectionFunction();
+            var originalDataList = builderSelectionFunction();
+            var dataList = originalDataList;
             int nAfterBuilder = dataList.Count;
             if (ConfigAI.VerboseDataFiltering)
                 debugString_selectData += ("\n  Builder: " + dataList.Count);
@@ -230,13 +231,27 @@ namespace Antura.Teacher
                         dataList = dataList.FindAll(x => currentLearningBlockContents.Contains(x));
                         break;
 
+                    case SelectionParameters.JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney:
+                        dataList = dataList.FindAll(x => currentLearningBlockContents.Contains(x));
+                        break;
                 }
             }
-            if (selectionParams.severity == SelectionSeverity.AllRequired)
+
+            bool mustCheckNumber = selectionParams.severity == SelectionSeverity.AllRequired;
+            if (selectionParams.useJourney && !ConfigAI.ForceJourneyIgnore && selectionParams.journeyFilter == SelectionParameters.JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney) mustCheckNumber = true;
+            if (mustCheckNumber)
             {
                 if (!CheckRequiredNumberReached(dataList, selectionParams, nAfterBuilder))
                 {
-                    throw new Exception("The teacher could not find " + selectionParams.nRequired + " data instances after applying the journey logic.");
+                    if (selectionParams.journeyFilter == SelectionParameters.JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney)
+                    {
+                        Debug.LogWarning("The teacher could not find " + selectionParams.nRequired + " data instances in the current Learning Block. Fallback to CurrentJourney instead.");
+                        dataList = originalDataList.FindAll(x => currentJourneyContents.Contains(x));
+                    }
+                    else
+                    {
+                        throw new Exception("The teacher could not find " + selectionParams.nRequired + " data instances after applying the journey logic.");
+                    }
                 }
             }
             if (ConfigAI.VerboseDataFiltering)
@@ -332,6 +347,7 @@ namespace Antura.Teacher
                         s += "\n Required: " + nRemaining + " " + typeof(T).Name.ToString();
                         while (nRemaining > 0)
                         {
+                            nBefore = nRemaining;
                             var loopContents = progressionContents.GetContentsOfPlaySession(loopPos);
                             AddToHashSetFilteringByContents(loopContents, dataList, priorityFilteredHash, ref nRemaining);
                             s += "\n" + (nBefore - nRemaining) + " from PS " + loopPos.ToDisplayedString(true);
