@@ -7,6 +7,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
@@ -180,6 +181,19 @@ namespace Antura.AnturaSpace
                 }
             }
         }
+
+
+        private ShopDecorationSlot preDeleteSlot;
+        private bool hoveringOnDeleteButton;
+        public void OnEnterDeleteButton()
+        {
+            hoveringOnDeleteButton = true;
+        }
+        public void OnExitDeleteButton()
+        {
+            hoveringOnDeleteButton = false;
+        }
+
         #endregion
 
         private ShopDecorationObject SpawnNewDecoration(ShopDecorationObject UnlockableDecorationPrefab)
@@ -300,24 +314,27 @@ namespace Antura.AnturaSpace
 
                 // Check whether we are close to the delete button, instead
                 bool shouldBeDeleted = false;
-                float distanceForDelete = (Camera.main.WorldToScreenPoint(deletePropButtonTransform.position) - Input.mousePosition).sqrMagnitude;
-                if (distanceForDelete < thresholdForDelete * thresholdForDelete)
+                if (hoveringOnDeleteButton)
                 {
-
                     // First time: feedback
                     if (currentDraggedSlot != null)
                     {
+                        preDeleteSlot = currentDraggedSlot;
                         deletePropButtonTransform.GetComponent<Image>().color = Color.red;
                         if (startDragSlot)
                         { startDragSlot.Despawn(); }
-                        closestSlot = null;
                         SwitchSlotTo(null);
                     }
-
+                    closestSlot = null;
                     shouldBeDeleted = true;
                 }
                 else
                 {
+                    if (preDeleteSlot != null)
+                    {
+                        closestSlot = preDeleteSlot;
+                        preDeleteSlot = null;
+                    }
                     deletePropButtonTransform.GetComponent<Image>().color = new Color(188 / 255f, 81f / 255f, 177 / 255f);
                 }
 
@@ -344,12 +361,13 @@ namespace Antura.AnturaSpace
                     }
                 }
 
+                yield return null;
+
                 // Check if we are stopping the dragging
-                if (!Input.GetMouseButton(0))
+                if (Input.GetMouseButtonUp(0))
                 {
                     ReleaseDragPlacement(shouldBeDeleted);
                 }
-                yield return null;
             }
         }
 
