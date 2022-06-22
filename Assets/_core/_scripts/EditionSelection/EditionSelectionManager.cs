@@ -66,6 +66,7 @@ namespace Antura.Scenes
             selectLearningContentPanel.Close();
             selectedNativeButton.gameObject.SetActive(false);
             GlobalUI.ShowBackButton(false);
+            GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
         }
 
         private IEnumerator NativeLanguageSelectionCO(bool firstTime)
@@ -130,6 +131,7 @@ namespace Antura.Scenes
                     yield return null;
 
                 hasAnswered = false;
+                AppManager.I.AppSettingsManager.SetNativeLanguage(selectNativeLanguagePanel.SelectedCode);
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
                 () =>
                 {
