@@ -51,7 +51,7 @@ namespace Antura
 
             yield return LoadIconAndBadgeData();
             yield return LoadShapeData();
-           // yield return LoadSongData();
+            // yield return LoadSongData();
         }
 
         public IEnumerator LoadIconAndBadgeData()
@@ -65,16 +65,18 @@ namespace Antura
             var iconKeys = new HashSet<string>();
             foreach (var miniGameData in AppManager.I.DB.GetAllMiniGameData())
             {
-                if (miniGameData.Main.IsNullOrEmpty()) continue;
+                if (miniGameData.Main.IsNullOrEmpty())
+                    continue;
                 string spriteName = $"minigame_Ico_{miniGameData.Main}";
                 // iconKeys.Add($"{learningLanguageCode}/Images/GameIcons/{spriteName}[{spriteName}]");
                 iconKeys.Add($"common/Images/GameIcons/{spriteName}{(loadFromResources ? "" : $"[{spriteName}]")}");
             }
-            yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+            yield return LoadAssets(iconKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
             //stopwatch.Stop();
             //Debug.LogError("ICONS: " + stopwatch.ElapsedMilliseconds.ToString());
 
-            if (VERBOSE) Debug.Log("[Assets] Preloading Badges");
+            if (VERBOSE)
+                Debug.Log("[Assets] Preloading Badges");
             //stopwatch = new Stopwatch();
             //stopwatch.Start();
             var badgeKeys = new HashSet<string>();
@@ -83,7 +85,7 @@ namespace Antura
                 string spriteName = $"minigame_BadgeIco_{miniGameData.Badge}";
                 badgeKeys.Add($"common/Images/GameIcons/{spriteName}{(loadFromResources ? "" : $"[{spriteName}]")}");
             }
-            yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+            yield return LoadAssets(badgeKeys, spriteCache, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
             //stopwatch.Stop();
             //Debug.LogError("BADGES: " + stopwatch.ElapsedMilliseconds.ToString());
         }
@@ -103,9 +105,9 @@ namespace Antura
                 var fontName = learningFont.name.Split(" ").First().Split('_').Last();
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
-                    sideKeys.Add($"{(loadFromResources ? "Learning/Font " : "")}{fontName}{(loadFromResources ? "/ShapeData" : "")}/shapedata_{letterData.GetCompleteUnicodes()}");
+                    sideKeys.Add($"{(loadFromResources ? "Fonts/Learning/Font " : "")}{fontName}{(loadFromResources ? "/ShapeData" : "")}/shapedata_{letterData.GetCompleteUnicodes()}");
                 }
-                yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:loadFromResources);
+                yield return LoadAssets(sideKeys, shapeDataCache, DebugConfig.I.AddressablesBlockingLoad, fromResources: loadFromResources);
             }
             //stopwatch.Stop();
             //Debug.LogError("SHAPE DATA: " + stopwatch.ElapsedMilliseconds.ToString());
@@ -178,7 +180,7 @@ namespace Antura
             }
 
             if (songAudioKeysCommon.Count > 0)
-                yield return LoadAssets(songAudioKeysCommon, audioCache, DebugConfig.I.AddressablesBlockingLoad, fromResources:true);
+                yield return LoadAssets(songAudioKeysCommon, audioCache, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
 
             if (songAudioKeys.Count > 0)
                 yield return LoadAssets(songAudioKeys, audioCache, DebugConfig.I.AddressablesBlockingLoad);
