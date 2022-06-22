@@ -111,47 +111,46 @@ namespace Antura.Scenes
             AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
             while (waiting) yield return null;
 
+            HasSelectedEdition = true;
+            GlobalUI.ShowBackButton(false);
+
+            yield return AppManager.I.ReloadEdition();
+
             bool hasAnswered = false;
             if (!AppManager.I.AppSettingsManager.NewSettings.Exists())
             {
-                hasAnswered = false;
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
-                () =>
-                {
-                    AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
-                    hasAnswered = true;
-                },
-                () =>
-                {
-                    AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
-                    hasAnswered = true;
-                });
+                    () =>
+                    {
+                        AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
+                        hasAnswered = true;
+                    },
+                    () =>
+                    {
+                        AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
+                        hasAnswered = true;
+                    });
 
                 while (!hasAnswered)
                     yield return null;
 
                 hasAnswered = false;
-                AppManager.I.AppSettingsManager.SetNativeLanguage(selectNativeLanguagePanel.SelectedCode);
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
-                () =>
-                {
-                    AppManager.I.AppSettingsManager.EnableNotifications(true);
-                    hasAnswered = true;
-                },
-                () =>
-                {
-                    AppManager.I.AppSettingsManager.EnableNotifications(false);
-                    hasAnswered = true;
-                });
+                    () =>
+                    {
+                        AppManager.I.AppSettingsManager.EnableNotifications(true);
+                        hasAnswered = true;
+                    },
+                    () =>
+                    {
+                        AppManager.I.AppSettingsManager.EnableNotifications(false);
+                        hasAnswered = true;
+                    });
 
                 while (!hasAnswered)
                     yield return null;
             }
 
-            HasSelectedEdition = true;
-            GlobalUI.ShowBackButton(false);
-
-            yield return AppManager.I.ReloadEdition();
             AppManager.I.NavigationManager.GoToHome(true);
         }
 
