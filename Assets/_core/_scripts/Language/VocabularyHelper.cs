@@ -769,31 +769,63 @@ namespace Antura.Database
             return orderedOutputList;
         }
 
+        bool IsAllUpperCase(string input)
+        {
+            for (int i = 0; i < input.Length; i++)
+            {
+                // @note: this does not consider non-letter chars
+                if (Char.IsLetter(input[i]) && !Char.IsUpper(input[i]))
+                    return false;
+            }
+            return true;
+        }
+
+        public class WordDataWrapper
+        {
+            public bool Selected;
+            public WordData WD;
+        }
+
         // Words contained in the text of the phrase
-        public List<WordData> GetWordsFromPhraseText(PhraseData phraseData, WordFilters wordFilters = null)
+        public List<WordDataWrapper> GetWordsFromPhraseText(PhraseData phraseData, WordFilters wordFilters = null)
         {
             var gameWords = GetWordsInPhrase(phraseData, wordFilters);
 
-            List<WordData> outputDatas = new List<WordData>();
+            var outputDatas = new List<WordDataWrapper>();
             var phraseText = phraseData.Text;
             var wordsInString = phraseText.Split(' ');
-            foreach (var wordText in wordsInString)
+            var uppercaseWords = wordsInString.Where(s => s.Length >= 2 && IsAllUpperCase(s));
+
+            var uppercaseText = "";
+            foreach (string uppercaseWord in uppercaseWords) uppercaseText += uppercaseWord + " ";
+            uppercaseText = uppercaseText.TrimStart();
+
+            var foundUppercase = false;
+            for (var i = 0; i < wordsInString.Length; i++)
             {
+                var wordText = wordsInString[i];
                 // We ignore apostrophes when deciding if a word is found or not
                 var splits = wordText.Split('\'');
                 var strippedWordText = splits[splits.Length - 1];
 
-                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
+                if (strippedWordText.Length >= 2 && IsAllUpperCase(strippedWordText))
+                {
+                    if (foundUppercase) continue;
+                    foundUppercase = true;
+                    strippedWordText = uppercaseText;
+                    wordText = uppercaseText;
+                }
 
+                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
+                var wrapper = new WordDataWrapper();
                 if (wd != null)
-                {
-                    outputDatas.Add(new WordData { Id = wd.Id, Text = wordText.ToUpper() });
-                }
+                    wrapper.WD = new WordData { Id = wd.Id, Text = wordText.ToUpper() };
                 else
-                {
-                    outputDatas.Add(new WordData { Id = $"RUNTIME-{wordText}", Text = wordText.ToUpper() });
-                }
+                    wrapper.WD = new WordData { Id = $"RUNTIME-{wordText}", Text = wordText.ToUpper() };
+                wrapper.Selected = strippedWordText.Length >= 2 && IsAllUpperCase(strippedWordText);
+                outputDatas.Add(wrapper);
             }
+
             return outputDatas;
         }
 
@@ -822,10 +854,14 @@ namespace Antura.Database
             var wordsInPhraseText = GetWordsFromPhraseText(data, wordFilters);
 
             if (phraseFilters.maxLength != 0 && data.Text.Length > phraseFilters.maxLength)
+            {
                 return false;
+            }
 
             if (phraseFilters.maxWords != 0 && wordsInPhraseText.Count > phraseFilters.maxWords)
+            {
                 return false;
+            }
 
             if (phraseFilters.requireWords && nOkWords == 0)
             {

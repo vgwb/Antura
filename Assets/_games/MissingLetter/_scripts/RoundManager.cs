@@ -271,35 +271,24 @@ namespace Antura.Minigames.MissingLetter
             m_oCurrentCorrectAnswer = _correctAnswer;
         }
 
-        private List<LL_WordData> GetWordsFromPhrase(LL_PhraseData _phrase)
-        {
-            List<LL_WordData> phrase = new List<LL_WordData>();
-            var dbWords = AppManager.I.VocabularyHelper.GetWordsFromPhraseText(_phrase.Data);
-            foreach (var dbWord in dbWords)
-            {
-                phrase.Add((LL_WordData)dbWord.ConvertToLivingLetterData());
-            }
-            return phrase;
-        }
-
         void NextSentenceQuestion()
         {
             m_oCurrQuestionPack = MissingLetterConfiguration.Instance.Questions.GetNextQuestion();
 
-            List<LL_WordData> questionData = GetWordsFromPhrase((LL_PhraseData)m_oCurrQuestionPack.GetQuestion());
+            var phraseWords =  AppManager.I.VocabularyHelper.GetWordsFromPhraseText(((LL_PhraseData)m_oCurrQuestionPack.GetQuestion()).Data);
             if (LanguageSwitcher.I.IsLearningLanguageRTL())
-                questionData.Reverse();
+                phraseWords.Reverse();
 
             var _correctAnswer = (LL_WordData)m_oCurrQuestionPack.GetCorrectAnswers().ToList()[0];
             var _wrongAnswers = m_oCurrQuestionPack.GetWrongAnswers().ToList();
 
-            foreach (LL_WordData _word in questionData)
+            foreach (var _word in phraseWords)
             {
                 GameObject oQuestion = m_oQuestionPool.GetElement();
                 LetterBehaviour qstBehaviour = oQuestion.GetComponent<LetterBehaviour>();
 
                 qstBehaviour.Reset();
-                qstBehaviour.LetterData = _word;
+                qstBehaviour.LetterData = _word.WD.ConvertToLivingLetterData();
                 qstBehaviour.onLetterBecameInvisible += OnQuestionLetterBecameInvisible;
                 qstBehaviour.m_oDefaultIdleAnimation = LLAnimationStates.LL_idle;
                 qstBehaviour.SetInPhrase(m_oCurrQuestionPack.GetQuestion());
@@ -308,7 +297,7 @@ namespace Antura.Minigames.MissingLetter
             }
 
             //after insert in mCurrentQuestionScene
-            m_iRemovedLLDataIndex = RemoveWordfromQuestion(questionData, _correctAnswer);
+            m_iRemovedLLDataIndex = RemoveWordFromQuestion(phraseWords, _correctAnswer);
             m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().onEnterScene += m_aoCurrentQuestionScene[m_iRemovedLLDataIndex].GetComponent<LetterBehaviour>().Speak;
 
             GameObject _correctAnswerObject = m_oAnswerPool.GetElement();
@@ -369,17 +358,9 @@ namespace Antura.Minigames.MissingLetter
         }
 
 
-        int RemoveWordfromQuestion(List<LL_WordData> Words, LL_WordData word)
+        int RemoveWordFromQuestion(List<VocabularyHelper.WordDataWrapper> phraseWords, LL_WordData word)
         {
-            int index = 0;
-            for (; index < Words.Count; ++index)
-            {
-                if (Words[index].Id == word.Id)
-                {
-                    break;
-                }
-            }
-
+            var index = phraseWords.FindIndex(x => x.Selected);
             LivingLetterController tmp = m_aoCurrentQuestionScene[index].GetComponent<LetterBehaviour>().mLetter;
             tmp.LabelRender.text = "";
             return index;
