@@ -2,8 +2,6 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Antura.Database;
-using Antura.Keeper;
-using Antura.Tutorial;
 using Antura.UI;
 using DG.Tweening;
 using UnityEngine;

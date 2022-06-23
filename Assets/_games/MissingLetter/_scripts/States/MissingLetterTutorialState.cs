@@ -48,14 +48,17 @@ namespace Antura.Minigames.MissingLetter
         public void Update(float delta)
         {
             m_fDelayTime -= delta;
-            if (m_fDelayTime < 0 && !m_bSuggested)
+            if (m_fDelayTime < 0 && !m_bSuggested && !m_oGame.m_oRoundManager.CurrentLetterBehaviour.IsSpeaking)
             {
-                KeeperManager.I.PlayDialogue(MissingLetterConfiguration.Instance.TutorialLocalizationId);
-
-                m_oGame.m_oRoundManager.GetCorrectLLObject().GetComponent<LetterBehaviour>().PlayAnimation(LLAnimationStates.LL_dancing);
-                Vector3 pos = m_oGame.m_oRoundManager.GetCorrectLLObject().transform.position + Vector3.back * 0.8f + Vector3.up * 3;
-                TutorialUI.ClickRepeat(pos, 90, 1.5f);
                 m_bSuggested = true;
+                KeeperManager.I.PlayDialogue(MissingLetterConfiguration.Instance.IntroLocalizationId, _callback: () =>
+                {
+                    KeeperManager.I.PlayDialogue(MissingLetterConfiguration.Instance.TutorialLocalizationId);
+
+                    m_oGame.m_oRoundManager.GetCorrectLLObject().GetComponent<LetterBehaviour>().PlayAnimation(LLAnimationStates.LL_dancing);
+                    Vector3 pos = m_oGame.m_oRoundManager.GetCorrectLLObject().transform.position + Vector3.back * 0.8f + Vector3.up * 3;
+                    TutorialUI.ClickRepeat(pos, 90, 1.5f);
+                });
             }
         }
 
@@ -65,7 +68,7 @@ namespace Antura.Minigames.MissingLetter
         }
 
         MissingLetterGame m_oGame;
-        float m_fDelayTime = 2f;
+        float m_fDelayTime = 3f;
         bool m_bSuggested = false;
     }
 }

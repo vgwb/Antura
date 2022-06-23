@@ -98,6 +98,8 @@ namespace Antura.Minigames.MissingLetter
             return builder;
         }
 
+        public override bool AutoPlayIntro => false;
+
         public override MiniGameLearnRules SetupLearnRules()
         {
             var rules = new MiniGameLearnRules();

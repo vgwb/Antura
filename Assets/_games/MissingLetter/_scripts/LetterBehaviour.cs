@@ -19,6 +19,7 @@ namespace Antura.Minigames.MissingLetter
         private Collider mCollider;
 
         private bool mbIsSpeaking;
+        public bool IsSpeaking => mbIsSpeaking;
         private ILivingLetterData m_sInPhrase = null;
 
         public ILivingLetterData LetterData
@@ -211,19 +212,13 @@ namespace Antura.Minigames.MissingLetter
                 mbIsSpeaking = true;
                 if (m_sInPhrase != null)
                 {
-                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType());
+                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(m_sInPhrase, true, soundType: MissingLetterConfiguration.Instance.GetVocabularySoundType(), () => mbIsSpeaking = false);
                 }
                 else
                 {
-                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true, MissingLetterConfiguration.Instance.GetVocabularySoundType());
+                    MissingLetterConfiguration.Instance.Context.GetAudioManager().PlayVocabularyData(mLetterData, true, MissingLetterConfiguration.Instance.GetVocabularySoundType(), () => mbIsSpeaking = false);
                 }
-                StartCoroutine(Utils.LaunchDelay(0.8f, SetIsSpeaking, false));
             }
-        }
-
-        private void SetIsSpeaking(bool _isSpeaking)
-        {
-            mbIsSpeaking = _isSpeaking;
         }
 
         public void SetEnabledCollider(bool _enabled)
