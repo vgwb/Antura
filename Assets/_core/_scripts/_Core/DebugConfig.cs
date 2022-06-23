@@ -5,7 +5,7 @@ namespace Antura.Core
 {
     public class DebugConfig : ScriptableObject
     {
-        public static DebugConfig I => AppManager.I.DebugConfig;
+        public static DebugConfig I => AppManager.I.RootConfig.DebugConfig;
 
         /// <summary>
         /// generic settings (for analytics environment, for example)

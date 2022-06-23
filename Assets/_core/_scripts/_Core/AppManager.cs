@@ -31,7 +31,6 @@ namespace Antura.Core
         public ContentEditionConfig ContentEdition => RootConfig.ContentEdition;
 
         public RootConfig RootConfig;
-        public DebugConfig DebugConfig;
         public LanguageSwitcher LanguageSwitcher;
 
         public AppSettingsManager AppSettingsManager;
