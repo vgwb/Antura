@@ -257,6 +257,9 @@ namespace Antura.Core.Services.OnlineAnalytics
         }
 
         #region Older Events
+        public void TrackScene(string sceneName)
+        {
+        }
 
         public void TrackKioskEvent(string eventName)
         {
