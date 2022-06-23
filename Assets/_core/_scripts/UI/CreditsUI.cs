@@ -90,6 +90,7 @@ namespace Antura.UI
                 CreditsContainer.anchoredPosition = defCreditsContainerPos;
                 showTween.PlayForward();
                 StartScrollLoop();
+                AppManager.I.Services.Analytics.TrackGenericAction("credits");
             }
             else
             {
