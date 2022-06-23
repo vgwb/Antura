@@ -4,7 +4,7 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
 ## [2.2.0] - 2022-? - new content!
-Supported languages:
+New Supported languages:
 - German
 - Hungarian
 - Italian
@@ -12,7 +12,7 @@ Supported languages:
 - Persian Pashto
 - Polish
 
-Learning Content:
+New Learning Content:
 - Learn to Read in Persian Pashto
 - Learn German
 - Learn Hungarian
