@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using Antura.Core;
 using Antura.Language;
+using Newtonsoft.Json.Linq;
 
 namespace Antura.Database.Management
 {
@@ -310,6 +311,77 @@ namespace Antura.Database.Management
                     parser.Parse(DBInputData.rewardDataAsset.text, _databaseObject, _databaseObject.GetRewardTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.rewardDb);
+            }
+
+            AssetDatabase.SaveAssets();
+        }
+
+        public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType)
+        {
+            this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
+
+            if (importType == ContentType.Vocabulary && ImportLetters)
+            {
+                {
+                    Debug.Log("Loading Letters from temp JSON: " + fileName + " for lang: " + langCode);
+                    var parser = new LetterParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLetterTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.letterDb);
+            }
+
+            if (importType == ContentType.Vocabulary && ImportWords)
+            {
+                {
+                    // @note: depends on Letter
+                    Debug.Log("Loading Words...");
+                    var parser = new WordParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetWordTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.wordDb);
+            }
+
+            if (importType == ContentType.Vocabulary && ImportPhrases)
+            {
+                {
+                    // @note: depends on Word
+                    Debug.Log("Loading Phrases...");
+                    var parser = new PhraseParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetPhraseTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.phraseDb);
+            }
+
+            if (importType == ContentType.Localization && ImportLocalizations)
+            {
+                {
+                    Debug.Log("Loading Localization...");
+                    var parser = new LocalizationParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLocalizationTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.localizationDb);
+            }
+
+            if (importType == ContentType.PlaySession && ImportPlaySessions)
+            {
+                {
+                    // @note: depends on Minigame
+                    Debug.Log("Loading PlaySessions...");
+                    var parser = new PlaySessionParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetPlaySessionTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.playsessionDb);
+            }
+
+            if (importType == ContentType.PlaySession && ImportLearningBlocks)
+            {
+                {
+                    // @note: depends on Letter, Word, Phrase, PlaySession
+                    Debug.Log("Loading LearningBlocks...");
+                    var parser = new LearningBlockParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLearningBlockTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.learningblockDb);
             }
 
             AssetDatabase.SaveAssets();
