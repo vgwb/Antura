@@ -96,6 +96,11 @@ namespace Antura.Database.Management
             DumpAllDataCounts();
         }
 
+        public ContentEditionConfig GetInputContent()
+        {
+            return inputContent;
+        }
+
         public void RegenerateEnums()
         {
             dbLoader.RegenerateEnums();

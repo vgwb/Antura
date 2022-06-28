@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEditor;
 using Antura.Core;
 using Antura.Language;
+using Newtonsoft.Json.Linq;
 
 namespace Antura.Database.Management
 {
@@ -212,6 +213,7 @@ namespace Antura.Database.Management
         }
 
         /// <summary>
+        /// *Deprecated by the new Method DirectLoadData(...)*
         /// Load input data and place it inside the database.
         /// </summary>
         /// <param name="DBInputData"></param>
@@ -314,8 +316,85 @@ namespace Antura.Database.Management
 
             AssetDatabase.SaveAssets();
         }
-        #endregion
 
+        /// <summary>
+        /// Load the received data and place it inside the database.
+        /// </summary>
+        /// <param name="DBInputData">Generated json from Google sheet</param>
+        /// <param name="fileName">Json fileName selected to import</param>
+        /// <param name="edition">The current loaded version. (Except for Localization, for the rest importTypes must be selected the same that you're trying to load to the db)</param>
+        /// <param name="importType">Indicates if the coming json to load into de db is Vocabulary, PlaySession or Localization</param>
+        /// <param name="dataType">Not mandatory: this param indicates the sheet name from which the json was generated (only necessary for Vocabulary)</param>
+        public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType=null)
+        {
+            this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
+
+            if (importType == ContentType.Vocabulary && ImportLetters && dataType.Equals("LetterData"))
+            {
+                {
+                    Debug.Log("Loading Letters from temp JSON: " + fileName + " for lang: " + langCode);
+                    var parser = new LetterParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLetterTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.letterDb);
+            }
+
+            if (importType == ContentType.Vocabulary && ImportWords && dataType.Equals("WordData"))
+            {
+                {
+                    // @note: depends on Letter
+                    Debug.Log("Loading Words...");
+                    var parser = new WordParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetWordTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.wordDb);
+            }
+
+            if (importType == ContentType.Vocabulary && ImportPhrases && dataType.Equals("PhraseData"))
+            {
+                {
+                    // @note: depends on Word
+                    Debug.Log("Loading Phrases...");
+                    var parser = new PhraseParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetPhraseTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.phraseDb);
+            }
+
+            if (importType == ContentType.Localization && ImportLocalizations)
+            {
+                {
+                    Debug.Log("Loading Localization...");
+                    var parser = new LocalizationParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLocalizationTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.localizationDb);
+            }
+
+            if (importType == ContentType.PlaySession && ImportPlaySessions)
+            {
+                {
+                    Debug.Log("Loading PlaySessions...");
+                    var parser = new PlaySessionParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetPlaySessionTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.playsessionDb);
+            }
+
+            if (importType == ContentType.PlaySession && ImportLearningBlocks)
+            {
+                {
+                    // @note: depends on Letter, Word, Phrase, PlaySession
+                    Debug.Log("Loading LearningBlocks...");
+                    var parser = new LearningBlockParser();
+                    parser.Parse(DBInputData, _databaseObject, _databaseObject.GetLearningBlockTable(), langCode);
+                }
+                EditorUtility.SetDirty(_databaseObject.learningblockDb);
+            }
+
+            AssetDatabase.SaveAssets();
+        }
+        #endregion
     }
 }
 #endif

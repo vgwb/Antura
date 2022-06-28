@@ -5,6 +5,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 using DG.DeInspektor.Attributes;
+using UnityEngine.SceneManagement;
+using Antura.Database.Management;
 #if UNITY_EDITOR
 using System.IO;
 using Unity.EditorCoroutines.Editor;
@@ -34,7 +36,7 @@ namespace Antura.GoogleSheets
         private readonly string GoogleSecretApi = "&key=AIzaSyDZhLs3ds7swYw9HizLPz5M-0F584QMRcs";
         private readonly string PathToJson = "../_config/json_data/antura_json_data_files/";
 
-        [DeMethodButton("Import Sheet and save JSON")]
+        [DeMethodButton("Import Sheet to Unity")]
         public void ImportJSON()
         {
             EditorCoroutineUtility.StartCoroutine(fetchData(this), this);
@@ -131,7 +133,8 @@ namespace Antura.GoogleSheets
 
                         string jsonData = JsonConvert.SerializeObject(myJsonSheet);
                         //Debug.Log(jj);
-                        writeJson(jsonData, fileName + " - " + sheet.properties.title);
+                        //writeJson(jsonData, fileName + " - " + sheet.properties.title); //not necessary anymore because of the new direct import
+                        ImportDataDirectly(fileName, sheet.properties.title, jsonData);
                     }
                 }
             }
@@ -153,6 +156,34 @@ namespace Antura.GoogleSheets
             var strmWriter = new StreamWriter(outputDirectory + filename + ".json", false, System.Text.Encoding.UTF8);
             strmWriter.Write(jsonText);
             strmWriter.Close();
+        }
+
+        private void ImportDataDirectly(string fileName, string dataType, string jData)
+        {
+            if (SceneManager.GetActiveScene().name == "manage_Database")
+            {
+                EditorContentHolder ech = GameObject.Find("DatabaseImporter").GetComponent<EditorContentHolder>();
+
+                if (fileName.Equals("App_Common") || fileName.Equals("Common_Translations"))
+                    ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, ContentType.Localization);   
+                else
+                {
+                    var target = ContentType.Vocabulary;
+                    if (fileName.Contains("PlaySession"))
+                        target = ContentType.PlaySession;
+
+                    string langName = fileName.Replace("Learn", ""); //we get the clean selected lang name
+                    langName = langName.Replace("_PlaySession", "");
+                    langName = langName.Replace("_Vocabulary", "");
+
+                    if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
+                        ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, target, dataType);
+                    else
+                        Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName +" file");
+                }
+            }
+            else
+                Debug.LogError("You must open the 'manage_Database' scene before importing new data from Google sheets");
         }
 #endif
     }
