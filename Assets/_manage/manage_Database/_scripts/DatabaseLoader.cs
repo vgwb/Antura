@@ -319,7 +319,6 @@ namespace Antura.Database.Management
         public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType=null)
         {
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
-            //LoadDataFrom(InputContent.DBImportDataFiles); //this line search the files generated (not necessary)
 
             if (importType == ContentType.Vocabulary && ImportLetters && dataType.Contains("Letter"))
             {
