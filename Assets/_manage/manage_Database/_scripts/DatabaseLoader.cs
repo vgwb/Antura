@@ -213,6 +213,7 @@ namespace Antura.Database.Management
         }
 
         /// <summary>
+        /// *Deprecated by the new Method DirectLoadData(...)*
         /// Load input data and place it inside the database.
         /// </summary>
         /// <param name="DBInputData"></param>
@@ -316,6 +317,14 @@ namespace Antura.Database.Management
             AssetDatabase.SaveAssets();
         }
 
+        /// <summary>
+        /// Load the received data and place it inside the database.
+        /// </summary>
+        /// <param name="DBInputData">Generated json from Google sheet</param>
+        /// <param name="fileName">Json fileName selected to import</param>
+        /// <param name="edition">The current loaded version. (Except for Localization, for the rest importTypes must be selected the same that you're trying to load to the db)</param>
+        /// <param name="importType">Indicates if the coming json to load into de db is Vocabulary, PlaySession or Localization</param>
+        /// <param name="dataType">Not mandatory: this param indicates the sheet name from which the json was generated (only necessary for Vocabulary)</param>
         public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType=null)
         {
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
@@ -365,7 +374,6 @@ namespace Antura.Database.Management
             if (importType == ContentType.PlaySession && ImportPlaySessions)
             {
                 {
-                    // @note: depends on Minigame
                     Debug.Log("Loading PlaySessions...");
                     var parser = new PlaySessionParser();
                     parser.Parse(DBInputData, _databaseObject, _databaseObject.GetPlaySessionTable(), langCode);
@@ -387,7 +395,6 @@ namespace Antura.Database.Management
             AssetDatabase.SaveAssets();
         }
         #endregion
-
     }
 }
 #endif

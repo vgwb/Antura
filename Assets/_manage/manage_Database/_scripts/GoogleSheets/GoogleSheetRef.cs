@@ -133,8 +133,8 @@ namespace Antura.GoogleSheets
 
                         string jsonData = JsonConvert.SerializeObject(myJsonSheet);
                         //Debug.Log(jj);
-                        //writeJson(jsonData, fileName + " - " + sheet.properties.title);
-                        ImportDataDirectly(fileName, sheet.properties.title, jsonData); //improvement to import system: direct import insted of saving json and then doing it from manage_Database manually
+                        //writeJson(jsonData, fileName + " - " + sheet.properties.title); //not necessary anymore because of the new direct import
+                        ImportDataDirectly(fileName, sheet.properties.title, jsonData);
                     }
                 }
             }
