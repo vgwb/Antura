@@ -329,7 +329,7 @@ namespace Antura.Database.Management
         {
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
-            if (importType == ContentType.Vocabulary && ImportLetters && dataType.Contains("Letter"))
+            if (importType == ContentType.Vocabulary && ImportLetters && dataType.Equals("LetterData"))
             {
                 {
                     Debug.Log("Loading Letters from temp JSON: " + fileName + " for lang: " + langCode);
@@ -339,7 +339,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.letterDb);
             }
 
-            if (importType == ContentType.Vocabulary && ImportWords && dataType.Contains("Word"))
+            if (importType == ContentType.Vocabulary && ImportWords && dataType.Equals("WordData"))
             {
                 {
                     // @note: depends on Letter
@@ -350,7 +350,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.wordDb);
             }
 
-            if (importType == ContentType.Vocabulary && ImportPhrases && dataType.Contains("Phrase"))
+            if (importType == ContentType.Vocabulary && ImportPhrases && dataType.Equals("PhraseData"))
             {
                 {
                     // @note: depends on Word

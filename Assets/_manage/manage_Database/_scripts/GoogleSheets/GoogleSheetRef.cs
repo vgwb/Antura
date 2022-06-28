@@ -36,7 +36,7 @@ namespace Antura.GoogleSheets
         private readonly string GoogleSecretApi = "&key=AIzaSyDZhLs3ds7swYw9HizLPz5M-0F584QMRcs";
         private readonly string PathToJson = "../_config/json_data/antura_json_data_files/";
 
-        [DeMethodButton("Import Sheet and save JSON")]
+        [DeMethodButton("Import Sheet to Unity")]
         public void ImportJSON()
         {
             EditorCoroutineUtility.StartCoroutine(fetchData(this), this);
@@ -165,10 +165,7 @@ namespace Antura.GoogleSheets
                 EditorContentHolder ech = GameObject.Find("DatabaseImporter").GetComponent<EditorContentHolder>();
 
                 if (fileName.Equals("App_Common") || fileName.Equals("Common_Translations"))
-                {
-                    ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, ContentType.Localization);
-                    //TODO: should I generate also the json file? (I can do it quickly call the existing method writeJson()) (***)
-                }
+                    ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, ContentType.Localization);   
                 else
                 {
                     var target = ContentType.Vocabulary;
@@ -180,13 +177,9 @@ namespace Antura.GoogleSheets
                     langName = langName.Replace("_Vocabulary", "");
 
                     if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
-                    {
                         ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, target, dataType);
-
-                        //same (***)
-                    }
                     else
-                        Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName+" file");
+                        Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName +" file");
                 }
             }
             else
