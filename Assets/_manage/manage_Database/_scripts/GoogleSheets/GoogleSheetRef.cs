@@ -134,7 +134,7 @@ namespace Antura.GoogleSheets
                         string jsonData = JsonConvert.SerializeObject(myJsonSheet);
                         //Debug.Log(jj);
                         //writeJson(jsonData, fileName + " - " + sheet.properties.title);
-                        ImportDataDirectly(fileName, jsonData); //improvement to import system: direct import insted of saving json and then doing it from manage_Database manually
+                        ImportDataDirectly(fileName, sheet.properties.title, jsonData); //improvement to import system: direct import insted of saving json and then doing it from manage_Database manually
                     }
                 }
             }
@@ -158,7 +158,7 @@ namespace Antura.GoogleSheets
             strmWriter.Close();
         }
 
-        private void ImportDataDirectly(string fileName, string jData)
+        private void ImportDataDirectly(string fileName, string dataType, string jData)
         {
             if (SceneManager.GetActiveScene().name == "manage_Database")
             {
@@ -175,13 +175,13 @@ namespace Antura.GoogleSheets
                     if (fileName.Contains("PlaySession"))
                         target = ContentType.PlaySession;
 
-                    string langName = fileName.Replace("Learn", ""); //we get the clean lang name
+                    string langName = fileName.Replace("Learn", ""); //we get the clean selected lang name
                     langName = langName.Replace("_PlaySession", "");
                     langName = langName.Replace("_Vocabulary", "");
 
                     if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
                     {
-                        ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, target);
+                        ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, target, dataType);
 
                         //same (***)
                     }
