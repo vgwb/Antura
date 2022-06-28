@@ -1,9 +1,11 @@
-﻿using System.Linq;
-using Antura.Database;
+﻿using Antura.Database;
 using Antura.Language;
 using Antura.Database.Management;
+using Antura.GoogleSheets;
 using UnityEngine;
 using UnityEngine.Serialization;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Antura.Core
 {
@@ -66,6 +68,7 @@ namespace Antura.Core
         public GameObject Flag3D;
 
         [Header("Database Data Files to Import")]
+        public List<GoogleSheetRef> GoogleSheets;
         public DatabaseInputData DBImportDataFiles;
 
         public GameObject GetResource(EditionResourceID id)
