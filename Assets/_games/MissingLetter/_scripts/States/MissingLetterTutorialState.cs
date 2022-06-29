@@ -35,7 +35,6 @@ namespace Antura.Minigames.MissingLetter
         {
             if (_result)
             {
-                //TODO: tutorial finito ... mostrare qualcosa a livello di UI ?
                 m_oGame.SetCurrentState(m_oGame.PlayState);
             }
             else

@@ -10,6 +10,7 @@ using System.Collections;
 using Antura.Database;
 using Antura.Keeper;
 using Antura.Language;
+using Antura.Tutorial;
 using UnityEngine;
 
 namespace Antura.Minigames.MissingLetter
@@ -125,6 +126,7 @@ namespace Antura.Minigames.MissingLetter
             //letter animation wait for ending dancing animation, wait animator fix
             if (isCorrectAnswer(clicked.LetterData))
             {
+                TutorialUI.Clear(true); // Stopping here the tutorial, if needed
                 clicked.PlayAnimation(LLAnimationStates.LL_still);
                 clicked.mLetter.DoHorray();
 
