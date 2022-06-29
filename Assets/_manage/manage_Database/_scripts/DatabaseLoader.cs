@@ -1,5 +1,4 @@
 #if UNITY_EDITOR
-using System;
 using System.Linq;
 using UnityEngine;
 using UnityEditor;
@@ -7,9 +6,6 @@ using Antura.Core;
 using Antura.GoogleSheets;
 using Antura.Language;
 using DG.DeInspektor.Attributes;
-using Newtonsoft.Json.Linq;
-using Unity.EditorCoroutines.Editor;
-using UnityEngine.Serialization;
 
 namespace Antura.Database.Management
 {
@@ -26,9 +22,6 @@ namespace Antura.Database.Management
         public bool ImportWords;
         public bool ImportPhrases;
         public bool ImportJourney;
-        //public bool ImportMiniGames;
-        //public bool ImportStages;
-        //public bool ImportRewards;
 
         [HideInInspector]
         public LanguageCode langCode;
@@ -110,224 +103,7 @@ namespace Antura.Database.Management
             AssetDatabase.SaveAssets();
         }
 
-        public void RegenerateEnums()
-        {
-            Debug.Log("Regenerating enums from the Database..");
-
-            RegenerateEnumsFrom(InputContent.DBImportDataFiles);
-
-            Debug.Log("Finished regenerating enums!");
-        }
-
-        private void RegenerateEnumsFrom(DatabaseInputData DBInputData)
-        {
-            if (ImportLetters)
-            {
-                {
-                    Debug.Log("Generating Letters enums...");
-                    var parser = new LetterParser();
-                    parser.RegenerateEnums(DBInputData.letterDataAsset.text);
-                }
-            }
-
-            if (ImportWords)
-            {
-                {
-                    Debug.Log("Generating Words enums...");
-                    var parser = new WordParser();
-                    parser.RegenerateEnums(DBInputData.wordDataAsset.text);
-                }
-            }
-
-            if (ImportPhrases)
-            {
-                {
-                    Debug.Log("Generating Phrases enums...");
-                    var parser = new PhraseParser();
-                    parser.RegenerateEnums(DBInputData.phraseDataAsset.text);
-                }
-            }
-
-            /*if (ImportMiniGames)
-            {
-                {
-                    Debug.Log("Generating MiniGames enums...");
-                    var parser = new MiniGameParser();
-                    parser.RegenerateEnums(DBInputData.minigameDataAsset.text);
-                }
-            }*/
-
-            if (ImportJourney)
-            {
-                {
-                    Debug.Log("Generating PlaySessions enums...");
-                    var parser = new PlaySessionParser();
-                    parser.RegenerateEnums(DBInputData.playSessionDataAsset.text);
-                }
-            }
-
-            if (ImportJourney)
-            {
-                {
-                    Debug.Log("Generating LearningBlocks enums...");
-                    var parser = new LearningBlockParser();
-                    parser.RegenerateEnums(DBInputData.playSessionDataAsset.text);  // @note: LearningBlockParser works on the same table of playSessionData
-                }
-            }
-
-            if (ImportLocalizations)
-            {
-                {
-                    Debug.Log("Generating Localization enums...");
-                    var parser = new LocalizationParser();
-                    parser.RegenerateEnums(DBInputData.localizationDataAsset.text);
-                }
-            }
-
-            /*if (ImportStages)
-            {
-                {
-                    Debug.Log("Generating Stages enums...");
-                    var parser = new StageParser();
-                    parser.RegenerateEnums(DBInputData.stageDataAsset.text);
-                }
-            }
-
-            if (ImportRewards)
-            {
-                {
-                    Debug.Log("Generating Rewards enums...");
-                    var parser = new RewardParser();
-                    parser.RegenerateEnums(DBInputData.rewardDataAsset.text);
-                }
-            }*/
-        }
-
         #region Loading
-
-        /// <summary>
-        /// Load all database values from scriptable objects
-        /// </summary>
-        public void LoadDatabase(ContentEditionConfig edition)
-        {
-            // Debug.Log("Loading data from JSON files...");
-
-            this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
-            LoadDataFrom(InputContent.DBImportDataFiles);
-
-            Debug.Log("Finished loading!");
-        }
-
-        /// <summary>
-        /// *Deprecated by the new Method DirectLoadData(...)*
-        /// Load input data and place it inside the database.
-        /// </summary>
-        /// <param name="DBInputData"></param>
-        private void LoadDataFrom(DatabaseInputData DBInputData)
-        {
-            if (ImportLetters)
-            {
-                {
-                    Debug.Log("Loading Letters from JSON: " + DBInputData.letterDataAsset.name + " for lang: " + langCode);
-                    var parser = new LetterParser();
-                    parser.Parse(DBInputData.letterDataAsset.text, _databaseObject, _databaseObject.GetLetterTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.letterDb);
-            }
-
-            if (ImportWords)
-            {
-                {
-                    // @note: depends on Letter
-                    Debug.Log("Loading Words...");
-                    var parser = new WordParser();
-                    parser.Parse(DBInputData.wordDataAsset.text, _databaseObject, _databaseObject.GetWordTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.wordDb);
-            }
-
-            if (ImportPhrases)
-            {
-                {
-                    // @note: depends on Word
-                    Debug.Log("Loading Phrases...");
-                    var parser = new PhraseParser();
-                    parser.Parse(DBInputData.phraseDataAsset.text, _databaseObject, _databaseObject.GetPhraseTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.phraseDb);
-            }
-
-            if (ImportLocalizations)
-            {
-                {
-                    Debug.Log("Generating Localization enums...");
-                    var parser = new LocalizationParser();
-                    parser.RegenerateEnums(DBInputData.localizationDataAsset.text);
-                }
-
-                {
-                    Debug.Log("Loading Localization...");
-                    var parser = new LocalizationParser();
-                    parser.Parse(DBInputData.localizationDataAsset.text, _databaseObject, _databaseObject.GetLocalizationTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.localizationDb);
-
-            }
-
-            /*if (ImportMiniGames)
-            {
-                {
-                    Debug.Log("Loading MiniGames...");
-                    var parser = new MiniGameParser();
-                    parser.Parse(DBInputData.minigameDataAsset.text, _databaseObject, _databaseObject.GetMiniGameTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.minigameDb);
-            }*/
-
-            if (ImportJourney)
-            {
-                {
-                    // @note: depends on Minigame
-                    Debug.Log("Loading PlaySessions...");
-                    var parser = new PlaySessionParser();
-                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetPlaySessionTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.playsessionDb);
-            }
-
-            if (ImportJourney)
-            {
-                {
-                    // @note: depends on Letter, Word, Phrase, PlaySession
-                    Debug.Log("Loading LearningBlocks...");
-                    var parser = new LearningBlockParser();
-                    parser.Parse(DBInputData.playSessionDataAsset.text, _databaseObject, _databaseObject.GetLearningBlockTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.learningblockDb);
-            }
-
-            /*if (ImportStages)
-            {
-                {
-                    Debug.Log("Loading Stages...");
-                    var parser = new StageParser();
-                    parser.Parse(DBInputData.stageDataAsset.text, _databaseObject, _databaseObject.GetStageTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.stageDb);
-            }*/
-
-            /*if (ImportRewards)
-            {
-                {
-                    Debug.Log("Loading Rewards...");
-                    var parser = new RewardParser();
-                    parser.Parse(DBInputData.rewardDataAsset.text, _databaseObject, _databaseObject.GetRewardTable(), langCode);
-                }
-                EditorUtility.SetDirty(_databaseObject.rewardDb);
-            }*/
-
-            AssetDatabase.SaveAssets();
-        }
 
         /// <summary>
         /// Load the received data and place it inside the database.

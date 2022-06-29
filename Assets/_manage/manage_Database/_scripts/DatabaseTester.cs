@@ -90,20 +90,9 @@ namespace Antura.Database.Management
 
         #region Main Actions
 
-        public void ImportAll()
-        {
-            dbLoader.LoadDatabase(inputContent);
-            DumpAllDataCounts();
-        }
-
         public ContentEditionConfig GetInputContent()
         {
             return inputContent;
-        }
-
-        public void RegenerateEnums()
-        {
-            dbLoader.RegenerateEnums();
         }
 
         public void RecreateDatabase()

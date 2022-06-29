@@ -69,7 +69,6 @@ namespace Antura.Core
 
         [Header("Database Data Files to Import")]
         public List<GoogleSheetRef> GoogleSheets;
-        public DatabaseInputData DBImportDataFiles;
 
         public GameObject GetResource(EditionResourceID id)
         {
