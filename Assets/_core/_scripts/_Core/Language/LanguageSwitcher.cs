@@ -89,7 +89,7 @@ namespace Antura.Language
 
             //var stopwatch = new Stopwatch();
             //stopwatch.Start();
-            yield return AssetLoader.Load<LangConfig>($"languages/{language}/LangConfig", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
+            yield return AssetLoader.Load<LangConfig>($"languages/{language}/LangConfig_{language}", r => languageData.config = r, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
             if (languageData.config == null)
             {
                 throw new FileNotFoundException($"Could not find the LangConfig file for {language} in the language resources! Did you setup it correctly?");
