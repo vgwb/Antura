@@ -103,7 +103,6 @@ namespace Antura.Language
             loadedLanguageData[language] = languageData;
 
             languageData.diacriticsComboData = languageData.config.DiacriticsComboData;
-            yield return AssetLoader.Load<DiacriticsComboData>($"languages/{language}/DiacriticsComboData", r => languageData.diacriticsComboData = r, DebugConfig.I.AddressablesBlockingLoad, fromResources: true);
             //stopwatch.Stop();
             //Debug.LogError(language + "LangConfig: " + stopwatch.ElapsedMilliseconds.ToString());
         }
