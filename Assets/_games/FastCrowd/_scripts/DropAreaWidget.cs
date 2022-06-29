@@ -1,6 +1,6 @@
+using Antura.LivingLetters;
 using UnityEngine;
 using System.Collections.Generic;
-using Antura.LivingLetters;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -11,12 +11,9 @@ namespace Antura.Minigames.FastCrowd
     public class DropAreaWidget : MonoBehaviour
     {
         public DropSingleArea dropAreaPrefab;
-
         public event System.Action OnComplete;
-
-        Dictionary<ILivingLetterData, DropSingleArea> letters = new Dictionary<ILivingLetterData, DropSingleArea>();
-
-        DropContainer container;
+        private Dictionary<ILivingLetterData, DropSingleArea> letters = new Dictionary<ILivingLetterData, DropSingleArea>();
+        private DropContainer container;
 
         public ILivingLetterData GetActiveData()
         {
@@ -31,7 +28,6 @@ namespace Antura.Minigames.FastCrowd
         void Awake()
         {
             container = GetComponent<DropContainer>();
-
             container.OnObjectiveBlockCompleted += OnCompleted;
         }
 
@@ -45,12 +41,18 @@ namespace Antura.Minigames.FastCrowd
             if (active)
             {
                 if (matching)
+                {
                     currentArea.SetMatching();
+                }
                 else
+                {
                     currentArea.SetMatchingWrong();
+                }
             }
             else
+            {
                 currentArea.DeactivateMatching();
+            }
         }
 
         public bool AdvanceArea()
@@ -78,7 +80,6 @@ namespace Antura.Minigames.FastCrowd
             dropSingleArea.Init(newElement, number, container);
 
             container.AddArea(dropSingleArea);
-
             letters[newElement] = dropSingleArea;
         }
 
@@ -90,7 +91,6 @@ namespace Antura.Minigames.FastCrowd
             dropSingleArea.Init(newElement, container, asImage);
 
             container.AddArea(dropSingleArea);
-
             letters[newElement] = dropSingleArea;
         }
 

@@ -121,7 +121,10 @@ namespace Antura.UI
             fontUse = _fontUse;
             TMPText.text = _text;
             m_text = _text;
-            if (forceFont) UpdateFont();
+            if (forceFont)
+            {
+                UpdateFont();
+            }
             CheckRTL();
         }
 
@@ -299,6 +302,14 @@ namespace Antura.UI
                 StopCoroutine(flashingTextCoroutine);
             }
             flashingTextCoroutine = null;
+        }
+
+        public void HideDrawingLabel()
+        {
+            if (drawingLabelText != null)
+            {
+                drawingLabelText.gameObject.SetActive(false);
+            }
         }
 
         #endregion

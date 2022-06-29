@@ -9,13 +9,10 @@ namespace Antura.Minigames.FastCrowd
     public class DropSingleArea : MonoBehaviour
     {
         public TMP_FontAsset numbersFont;
-
         public TMP_Text NumberLabel;
         public TextRender LetterText;
-
         public ILivingLetterData Data;
-
-        Vector3 enabledPos, disabledPos;
+        private Vector3 enabledPos, disabledPos;
 
         #region Api
         public void Init(ILivingLetterData _data, DropContainer _dropContainer, bool asImage)
@@ -23,8 +20,9 @@ namespace Antura.Minigames.FastCrowd
             Data = _data;
 
             if (asImage)
+            {
                 _data = new LL_ImageData(_data.Id);
-
+            }
             LetterText.SetLetterData(_data);
             LetterText.gameObject.SetActive(true);
 
@@ -79,7 +77,6 @@ namespace Antura.Minigames.FastCrowd
         /// </summary>
         public void DeactivateMatching()
         {
-
             if (GetComponent<Collider>().enabled)
             {
                 AreaState = State.enabled;
