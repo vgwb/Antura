@@ -213,10 +213,12 @@ namespace Antura.Profile
         /// <returns></returns>
         public List<PlayerIconData> GetPlayersIconData()
         {
-            return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
-                (pl.editionID == AppManager.I.AppEdition.editionID
-                    || pl.editionID == AppEditionID.Multi) && pl.contentID == AppManager.I.ContentEdition.ContentID
-                ).ToList();
+            return FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
+        }
+
+        public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
+        {
+            return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi) && pl.contentID == contentID).ToList();
         }
 
         /// <summary>

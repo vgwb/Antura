@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
 using Antura.Language;
+using Antura.Profile;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,6 +22,8 @@ namespace Antura.Tools
 
         private static AppManager appManager;
         private static AppSettings appSettings;
+
+        private static EditionsEditorWindow window;
 
         private static void Rebuild()
         {
@@ -51,20 +54,17 @@ namespace Antura.Tools
                 languages.Add(v);
                 languageNames.Add(v.ToString());
             }
+
+            if (window == null) window = GetWindow(typeof(EditionsEditorWindow)) as EditionsEditorWindow;
+            window.selectedAppEditionIndex = appEditions.IndexOf(appManager.AppEdition.editionID);
+            window.selectedContentEditionIndex = learningContents.IndexOf(appSettings.ContentID);
+            window.selectedNativeLanguageIndex = languages.IndexOf(appSettings.NativeLanguage);
         }
 
         [MenuItem("Antura/Tools/Edition and Profiles")]
         public static void ShowWindow()
         {
             Rebuild();
-
-            var w = GetWindow(typeof(EditionsEditorWindow)) as EditionsEditorWindow;
-            Debug.LogError(appManager.AppEdition.editionID);
-            w.selectedAppEditionIndex = appEditions.IndexOf(appManager.AppEdition.editionID);
-            Debug.LogError(appManager.AppSettings.ContentID);
-            w.selectedContentEditionIndex = learningContents.IndexOf(appSettings.ContentID);
-            Debug.LogError(appManager.AppSettings.NativeLanguage);
-            w.selectedNativeLanguageIndex = languages.IndexOf(appSettings.NativeLanguage);
         }
 
         public int selectedAppEditionIndex;
@@ -76,7 +76,9 @@ namespace Antura.Tools
 
             Rebuild();
 
-            EditorGUI.BeginChangeCheck();
+            EditorGUILayout.LabelField("AppEdition: " + appEditions[selectedAppEditionIndex]);
+
+            /*EditorGUI.BeginChangeCheck();
             var newAppEditionIndex = EditorGUILayout.Popup("App Edition", selectedAppEditionIndex, appEditionNames.ToArray());
             if (EditorGUI.EndChangeCheck())
             {
@@ -85,9 +87,8 @@ namespace Antura.Tools
                     selectedAppEditionIndex = newAppEditionIndex;
                     var ed = appEditions[newAppEditionIndex];
                     Debug.Log(ed);
-                    //               appManager.AppEdition = // TODO: find it in Assets/_config
                 }
-            }
+            }*/
 
             EditorGUI.BeginChangeCheck();
             var newContentEditionIndex = EditorGUILayout.Popup("Content Edition", selectedContentEditionIndex, learningContentNames.ToArray());
@@ -96,9 +97,7 @@ namespace Antura.Tools
                 if (newContentEditionIndex != selectedContentEditionIndex)
                 {
                     selectedContentEditionIndex = newContentEditionIndex;
-                    var ed = learningContents[newContentEditionIndex];
-                    Debug.Log(ed);
-                    appSettings.ContentID = ed;
+                    appSettings.ContentID = learningContents[newContentEditionIndex];
                     appManager.AppSettingsManager.SaveSettings();
                 }
             }
@@ -110,8 +109,29 @@ namespace Antura.Tools
                 if (newNativeLanguageIndex != selectedNativeLanguageIndex)
                 {
                     selectedNativeLanguageIndex = newNativeLanguageIndex;
-                    var ed = languages[newNativeLanguageIndex];
-                    Debug.Log(ed);
+                    appSettings.NativeLanguage = languages[newNativeLanguageIndex];
+                    appManager.AppSettingsManager.SaveSettings();
+                }
+            }
+
+            var iconDatas = PlayerProfileManager.FilterPlayerIconData(appSettings, appManager.AppEdition.editionID, appSettings.ContentID);
+            EditorGUILayout.LabelField("Profiles:");
+            if (iconDatas.Count == 0)
+            {
+                EditorGUILayout.LabelField("NONE FOUND");
+            }
+            else
+            {
+                foreach (var iconData in iconDatas)
+                {
+                    if (appSettings.LastActivePlayerUUID == iconData.Uuid)
+                    {
+                        EditorGUILayout.LabelField(iconData.Uuid.Substring(0, 5) + " ACTIVE");
+                    }
+                    else
+                    {
+                        EditorGUILayout.LabelField(iconData.Uuid.Substring(0, 5));
+                    }
                 }
             }
         }
