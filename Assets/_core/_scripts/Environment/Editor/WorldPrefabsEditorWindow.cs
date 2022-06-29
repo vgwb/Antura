@@ -6,7 +6,7 @@ public class WorldPrefabsEditorWindow : EditorWindow
     WorldID world = WorldID.Default;
     WorldID lastWorld = WorldID.Default;
 
-    [MenuItem("Antura/Test/World Prefabs", false)]
+    [MenuItem("Antura/Utility/ TestWorld Prefabs", false)]
     static void Init()
     {
         // Get existing open window or if none, make a new one:

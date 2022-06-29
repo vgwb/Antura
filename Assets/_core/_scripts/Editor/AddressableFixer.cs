@@ -13,7 +13,7 @@ namespace Antura.Tools
 {
     public class AddressableFixer : EditorWindow
     {
-        [MenuItem("Antura/Tools/Fix Language Addressables")]
+        [MenuItem("Antura/Utility/Fix Language Addressables")]
         public static void ShowWindow()
         {
             EditorWindow.GetWindow(typeof(AddressableFixer));

@@ -233,13 +233,14 @@ namespace Antura.Debugging
         {
             AppManager.I.PlayerProfileManager.ResetEverything(clearOnly);
             PlayerPrefs.DeleteAll();
-            if (!clearOnly) AppManager.I.NavigationManager.GoToHome(debugMode: true);
+            if (!clearOnly)
+                AppManager.I.NavigationManager.GoToHome(debugMode: true);
             Debug.Log("Reset ALL players, DBs, and PlayerPrefs.");
         }
 
 #if UNITY_EDITOR
 
-        [MenuItem("Antura/Delete Profiles")]
+        [MenuItem("Antura/Utility/Delete Profiles")]
         public static void ResetAllCommand()
         {
             DebugManager.I.ResetAll(true);

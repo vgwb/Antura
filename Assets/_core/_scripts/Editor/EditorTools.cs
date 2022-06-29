@@ -3,7 +3,7 @@ using UnityEditor;
 
 public class EditorTools : ScriptableObject
 {
-    [MenuItem("Antura/Reveal Data Path")]
+    [MenuItem("Antura/Utility/Reveal Data Path")]
     static void RevelDataPath()
     {
         EditorUtility.RevealInFinder(Application.persistentDataPath);

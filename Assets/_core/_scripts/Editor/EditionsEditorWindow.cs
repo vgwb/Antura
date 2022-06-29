@@ -28,7 +28,8 @@ namespace Antura.Tools
         private static void Rebuild()
         {
             appManager = FindObjectOfType<AppManager>();
-            if (appManager.AppSettingsManager == null) appManager.AppSettingsManager = new AppSettingsManager();
+            if (appManager.AppSettingsManager == null)
+                appManager.AppSettingsManager = new AppSettingsManager();
             appSettings = appManager.AppSettingsManager.LoadSettings();
 
             appEditions.Clear();
@@ -55,13 +56,14 @@ namespace Antura.Tools
                 languageNames.Add(v.ToString());
             }
 
-            if (window == null) window = GetWindow(typeof(EditionsEditorWindow)) as EditionsEditorWindow;
+            if (window == null)
+                window = GetWindow(typeof(EditionsEditorWindow)) as EditionsEditorWindow;
             window.selectedAppEditionIndex = appEditions.IndexOf(appManager.AppEdition.editionID);
             window.selectedContentEditionIndex = learningContents.IndexOf(appSettings.ContentID);
             window.selectedNativeLanguageIndex = languages.IndexOf(appSettings.NativeLanguage);
         }
 
-        [MenuItem("Antura/Tools/Edition and Profiles")]
+        [MenuItem("Antura/Edition selector", false, 300)]
         public static void ShowWindow()
         {
             Rebuild();
