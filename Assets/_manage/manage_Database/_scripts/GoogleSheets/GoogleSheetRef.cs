@@ -24,6 +24,18 @@ namespace Antura.GoogleSheets
         public string Sheets2Import;
         public string FileName;
 
+        public ContentType ContentType
+        {
+            get
+            {
+                if (FileName.Equals("App_Common") || FileName.Equals("Common_Translations"))
+                    return ContentType.Localization;
+                if (FileName.Contains("PlaySession"))
+                    return ContentType.Journey;
+                return ContentType.Vocabulary;
+            }
+        }
+
 #if UNITY_EDITOR
         [DeMethodButton("Open Sheet in Web Browser")]
         public void OpenSheetInBrowser()
@@ -164,22 +176,24 @@ namespace Antura.GoogleSheets
             {
                 EditorContentHolder ech = GameObject.Find("DatabaseImporter").GetComponent<EditorContentHolder>();
 
-                if (fileName.Equals("App_Common") || fileName.Equals("Common_Translations"))
-                    ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, ContentType.Localization);   
-                else
+                var contentType = ContentType;
+                switch (contentType)
                 {
-                    var target = ContentType.Vocabulary;
-                    if (fileName.Contains("PlaySession"))
-                        target = ContentType.PlaySession;
+                    case ContentType.Localization:
+                        ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, contentType);
+                        break;
+                    case ContentType.Vocabulary:
+                    case ContentType.Journey:
+                        string langName = fileName.Replace("Learn", ""); //we get the clean selected lang name
+                        langName = langName.Replace("_PlaySession", "");
+                        langName = langName.Replace("_Vocabulary", "");
 
-                    string langName = fileName.Replace("Learn", ""); //we get the clean selected lang name
-                    langName = langName.Replace("_PlaySession", "");
-                    langName = langName.Replace("_Vocabulary", "");
+                        if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
+                            ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, contentType, dataType);
+                        else
+                            Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName +" file");
 
-                    if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
-                        ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, target, dataType);
-                    else
-                        Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName +" file");
+                        break;
                 }
             }
             else

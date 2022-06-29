@@ -1,9 +1,15 @@
 #if UNITY_EDITOR
+using System;
+using System.Linq;
 using UnityEngine;
 using UnityEditor;
 using Antura.Core;
+using Antura.GoogleSheets;
 using Antura.Language;
+using DG.DeInspektor.Attributes;
 using Newtonsoft.Json.Linq;
+using Unity.EditorCoroutines.Editor;
+using UnityEngine.Serialization;
 
 namespace Antura.Database.Management
 {
@@ -13,16 +19,16 @@ namespace Antura.Database.Management
     public class DatabaseLoader : MonoBehaviour
     {
         private DatabaseObject _databaseObject;
+        public GoogleSheetRef CommonSheet;
 
         public bool ImportLocalizations;
         public bool ImportLetters;
         public bool ImportWords;
         public bool ImportPhrases;
-        public bool ImportPlaySessions;
-        public bool ImportLearningBlocks;
-        public bool ImportMiniGames;
-        public bool ImportStages;
-        public bool ImportRewards;
+        public bool ImportJourney;
+        //public bool ImportMiniGames;
+        //public bool ImportStages;
+        //public bool ImportRewards;
 
         [HideInInspector]
         public LanguageCode langCode;
@@ -106,7 +112,7 @@ namespace Antura.Database.Management
 
         public void RegenerateEnums()
         {
-            Debug.Log("Regenerating enums from JSON files...");
+            Debug.Log("Regenerating enums from the Database..");
 
             RegenerateEnumsFrom(InputContent.DBImportDataFiles);
 
@@ -142,16 +148,16 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportMiniGames)
+            /*if (ImportMiniGames)
             {
                 {
                     Debug.Log("Generating MiniGames enums...");
                     var parser = new MiniGameParser();
                     parser.RegenerateEnums(DBInputData.minigameDataAsset.text);
                 }
-            }
+            }*/
 
-            if (ImportPlaySessions)
+            if (ImportJourney)
             {
                 {
                     Debug.Log("Generating PlaySessions enums...");
@@ -160,7 +166,7 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportLearningBlocks)
+            if (ImportJourney)
             {
                 {
                     Debug.Log("Generating LearningBlocks enums...");
@@ -178,7 +184,7 @@ namespace Antura.Database.Management
                 }
             }
 
-            if (ImportStages)
+            /*if (ImportStages)
             {
                 {
                     Debug.Log("Generating Stages enums...");
@@ -194,7 +200,7 @@ namespace Antura.Database.Management
                     var parser = new RewardParser();
                     parser.RegenerateEnums(DBInputData.rewardDataAsset.text);
                 }
-            }
+            }*/
         }
 
         #region Loading
@@ -254,15 +260,21 @@ namespace Antura.Database.Management
             if (ImportLocalizations)
             {
                 {
+                    Debug.Log("Generating Localization enums...");
+                    var parser = new LocalizationParser();
+                    parser.RegenerateEnums(DBInputData.localizationDataAsset.text);
+                }
+
+                {
                     Debug.Log("Loading Localization...");
                     var parser = new LocalizationParser();
                     parser.Parse(DBInputData.localizationDataAsset.text, _databaseObject, _databaseObject.GetLocalizationTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.localizationDb);
+
             }
 
-
-            if (ImportMiniGames)
+            /*if (ImportMiniGames)
             {
                 {
                     Debug.Log("Loading MiniGames...");
@@ -270,9 +282,9 @@ namespace Antura.Database.Management
                     parser.Parse(DBInputData.minigameDataAsset.text, _databaseObject, _databaseObject.GetMiniGameTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.minigameDb);
-            }
+            }*/
 
-            if (ImportPlaySessions)
+            if (ImportJourney)
             {
                 {
                     // @note: depends on Minigame
@@ -283,7 +295,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.playsessionDb);
             }
 
-            if (ImportLearningBlocks)
+            if (ImportJourney)
             {
                 {
                     // @note: depends on Letter, Word, Phrase, PlaySession
@@ -294,7 +306,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.learningblockDb);
             }
 
-            if (ImportStages)
+            /*if (ImportStages)
             {
                 {
                     Debug.Log("Loading Stages...");
@@ -302,9 +314,9 @@ namespace Antura.Database.Management
                     parser.Parse(DBInputData.stageDataAsset.text, _databaseObject, _databaseObject.GetStageTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.stageDb);
-            }
+            }*/
 
-            if (ImportRewards)
+            /*if (ImportRewards)
             {
                 {
                     Debug.Log("Loading Rewards...");
@@ -312,7 +324,7 @@ namespace Antura.Database.Management
                     parser.Parse(DBInputData.rewardDataAsset.text, _databaseObject, _databaseObject.GetRewardTable(), langCode);
                 }
                 EditorUtility.SetDirty(_databaseObject.rewardDb);
-            }
+            }*/
 
             AssetDatabase.SaveAssets();
         }
@@ -371,7 +383,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.localizationDb);
             }
 
-            if (importType == ContentType.PlaySession && ImportPlaySessions)
+            if (importType == ContentType.Journey && ImportJourney)
             {
                 {
                     Debug.Log("Loading PlaySessions...");
@@ -381,7 +393,7 @@ namespace Antura.Database.Management
                 EditorUtility.SetDirty(_databaseObject.playsessionDb);
             }
 
-            if (importType == ContentType.PlaySession && ImportLearningBlocks)
+            if (importType == ContentType.Journey && ImportJourney)
             {
                 {
                     // @note: depends on Letter, Word, Phrase, PlaySession
@@ -393,8 +405,46 @@ namespace Antura.Database.Management
             }
 
             AssetDatabase.SaveAssets();
+            Debug.Log("Import complete.");
         }
         #endregion
+
+        #if UNITY_EDITOR
+
+        [DeMethodButton("Import")]
+        public void Import()
+        {
+            if (ImportLocalizations)
+            {
+                Debug.Log("Importing sheet ref: " + CommonSheet.name);
+                CommonSheet.ImportJSON();
+            }
+
+            var ech = GetComponent<EditorContentHolder>();
+            if (ImportJourney)
+            {
+                var sheetRef =  ech.InputContent.GoogleSheets != null ? ech.InputContent.GoogleSheets.FirstOrDefault(x => x != null && x.ContentType == ContentType.Journey) : null;
+                if (sheetRef == null) Debug.LogError("Could not find any sheet ref to import Journey data for this Content Edition");
+                else
+                {
+                    Debug.Log("Importing sheet ref: " + sheetRef.name);
+                    sheetRef.ImportJSON();
+                }
+            }
+
+            if (ImportLetters || ImportWords || ImportPhrases)
+            {
+                var sheetRef = ech.InputContent.GoogleSheets != null ? ech.InputContent.GoogleSheets.FirstOrDefault(x => x != null && x.ContentType == ContentType.Vocabulary) : null;
+                if (sheetRef == null) Debug.LogError("Could not find any sheet ref to import Vocabulary data for this Content Edition");
+                else
+                {
+                    Debug.Log("Importing sheet ref: " + sheetRef.name);
+                    sheetRef.ImportJSON();
+                }
+            }
+        }
+
+        #endif
     }
 }
 #endif

@@ -1,9 +1,9 @@
-namespace Antura
+namespace Antura.Database.Management
 {
     public enum ContentType
     {
         Vocabulary = 0,
-        PlaySession = 1,
+        Journey = 1,
         Localization = 2
     }
 }
