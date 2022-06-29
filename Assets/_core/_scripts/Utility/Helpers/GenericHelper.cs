@@ -77,16 +77,16 @@ namespace Antura.Helpers
             var res = string.Empty;
             if (unicodeNumbers.Contains(@"\u"))
             {
-                for (int i = 0; i < unicodeNumbers.Length; i+=6)
+                for (int i = 0; i < unicodeNumbers.Length; i += 6)
                 {
-                    int code = int.Parse(unicodeNumbers.Substring(i+2, 4), NumberStyles.HexNumber);
+                    int code = int.Parse(unicodeNumbers.Substring(i + 2, 4), NumberStyles.HexNumber);
                     var ch = char.ConvertFromUtf32(code);
                     res += ch;
                 }
             }
             else
             {
-                for (int i = 0; i < unicodeNumbers.Length; i+=4)
+                for (int i = 0; i < unicodeNumbers.Length; i += 4)
                 {
                     int code = int.Parse(unicodeNumbers.Substring(i, 4), NumberStyles.HexNumber);
                     var ch = char.ConvertFromUtf32(code);
@@ -185,31 +185,31 @@ namespace Antura.Helpers
             switch (color)
             {
                 case "blue":
-                    drawingColor = Color.blue;
+                    drawingColor = new Color(17f / 255f, 85f / 255f, 204f / 255f);
                     break;
                 case "brown":
-                    drawingColor = new Color(165f / 255f, 42f / 255f, 42f / 255f);
+                    drawingColor = new Color(100f / 255f, 62f / 255f, 49f / 255f);
                     break;
                 case "gold":
                     drawingColor = new Color(255f / 255f, 215f / 255f, 0);
                     break;
                 case "green":
-                    drawingColor = Color.green;
+                    drawingColor = new Color(30f / 255f, 177f / 255f, 0f / 203f);
                     break;
                 case "grey":
                     drawingColor = Color.grey;
                     break;
                 case "orange":
-                    drawingColor = new Color(255f / 255f, 165f / 255f, 0);
+                    drawingColor = new Color(255f / 255f, 148f / 255f, 0);
                     break;
                 case "pink":
                     drawingColor = new Color(255f / 255f, 192f / 255f, 128f / 203f);
                     break;
                 case "purple":
-                    drawingColor = new Color(128f / 255f, 0, 128f / 255f);
+                    drawingColor = new Color(103f / 255f, 78f / 255f, 167f / 255f);
                     break;
                 case "red":
-                    drawingColor = Color.red;
+                    drawingColor = new Color(237f / 255f, 35f / 255f, 13f / 255f);
                     break;
                 case "silver":
                     drawingColor = new Color(128f / 255f, 128f / 255f, 128f / 255f);
@@ -218,7 +218,7 @@ namespace Antura.Helpers
                     drawingColor = Color.white;
                     break;
                 case "yellow":
-                    drawingColor = Color.yellow;
+                    drawingColor = new Color(249f / 255f, 226f / 255f, 49f / 255f);
                     break;
                 default:
                     drawingColor = Color.black;
