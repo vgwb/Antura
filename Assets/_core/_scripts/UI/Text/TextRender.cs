@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
-using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
@@ -28,6 +28,8 @@ namespace Antura.UI
         public LanguageUse languageUse;
         private Font2Use fontUse = Font2Use.Default;
         public Database.LocalizationDataId LocalizationId;
+
+        private TextRender drawingLabelText;
 
         public Mesh mesh
         {
@@ -70,6 +72,12 @@ namespace Antura.UI
 
         void Awake()
         {
+            var drawingLabelGO = transform.Find("drawingLabel");
+            if (drawingLabelGO != null)
+            {
+                drawingLabelText = drawingLabelGO.GetComponent<TextRender>();
+            }
+
             if (isSubtitle)
             {
                 gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.ShowHelpText);
@@ -222,6 +230,19 @@ namespace Antura.UI
                 if (outlined)
                 {
                     TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
+                }
+
+                if (drawingLabelText != null)
+                {
+                    if (imageData.Data.DrawingLabel != "")
+                    {
+                        drawingLabelText.gameObject.SetActive(true);
+                        drawingLabelText.SetText(imageData.Data.DrawingLabel, Font2Use.Learning);
+                    }
+                    else
+                    {
+                        drawingLabelText.gameObject.SetActive(false);
+                    }
                 }
             }
             else
