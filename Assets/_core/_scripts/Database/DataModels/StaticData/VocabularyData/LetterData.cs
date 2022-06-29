@@ -4,6 +4,7 @@ using Antura.LivingLetters;
 using System;
 using System.Collections.Generic;
 using System.Globalization;
+using Antura.Helpers;
 using SQLite;
 using UnityEngine;
 
@@ -190,37 +191,10 @@ namespace Antura.Database
         [SerializeField]
         private string _SoundZone;
 
-        public string Isolated
-        {
-            get { return _Isolated; }
-            set { _Isolated = value; }
-        }
-        [SerializeField]
-        private string _Isolated;
-
-        public string Initial
-        {
-            get { return _Initial; }
-            set { _Initial = value; }
-        }
-        [SerializeField]
-        private string _Initial;
-
-        public string Medial
-        {
-            get { return _Medial; }
-            set { _Medial = value; }
-        }
-        [SerializeField]
-        private string _Medial;
-
-        public string Final
-        {
-            get { return _Final; }
-            set { _Final = value; }
-        }
-        [SerializeField]
-        private string _Final;
+        public string Isolated => Isolated_Unicode.ToUnicodeString();
+        public string Initial => Initial_Unicode.ToUnicodeString();
+        public string Medial => Medial_Unicode.ToUnicodeString();
+        public string Final => Final_Unicode.ToUnicodeString();
 
         public string Isolated_Unicode
         {
@@ -547,19 +521,17 @@ namespace Antura.Database
 
             var output = "";
 
-            // add the "-" to diacritic symbols to indentify better if it's over or below hte mid line
+            // add the "-" to diacritic symbols to identify better if it's over or below hte mid line
             if (Type == LetterDataType.DiacriticSymbol)
             {
                 output = "\u0640";
             }
 
-            var unicode = int.Parse(hexunicode, NumberStyles.HexNumber);
-            output += ((char)unicode).ToString();
+            output += hexunicode.ToUnicodeString();
 
             if (Symbol_Unicode != "")
             {
-                var unicode_added = int.Parse(Symbol_Unicode, NumberStyles.HexNumber);
-                output += ((char)unicode_added).ToString();
+                output += Symbol_Unicode.ToUnicodeString();
             }
 
             // add a "-" before medial and final single letters where needed

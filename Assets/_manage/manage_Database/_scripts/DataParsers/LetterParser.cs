@@ -38,10 +38,6 @@ namespace Antura.Database.Management
             data.PhonemeSound = ToString(dict["PhonemeSound"]);
             data.Sound = ToString(dict["Sound"]);
             data.SoundZone = ToString(dict["SoundZone"]);
-            data.Isolated = ToString(dict["Isolated"]);
-            data.Initial = ToString(dict["Initial"]);
-            data.Medial = ToString(dict["Medial"]);
-            data.Final = ToString(dict["Final"]);
             data.Isolated_Unicode = ToString(dict["Isolated_Unicode"]);
             data.Initial_Unicode = ToString(dict["Initial_Unicode"]);
             data.Medial_Unicode = ToString(dict["Medial_Unicode"]);

@@ -72,6 +72,30 @@ namespace Antura.Helpers
             return result;
         }
 
+        public static string ToUnicodeString(this string unicodeNumbers)
+        {
+            var res = string.Empty;
+            if (unicodeNumbers.Contains(@"\u"))
+            {
+                for (int i = 0; i < unicodeNumbers.Length; i+=6)
+                {
+                    int code = int.Parse(unicodeNumbers.Substring(i+2, 4), NumberStyles.HexNumber);
+                    var ch = char.ConvertFromUtf32(code);
+                    res += ch;
+                }
+            }
+            else
+            {
+                for (int i = 0; i < unicodeNumbers.Length; i+=4)
+                {
+                    int code = int.Parse(unicodeNumbers.Substring(i, 4), NumberStyles.HexNumber);
+                    var ch = char.ConvertFromUtf32(code);
+                    res += ch;
+                }
+            }
+            return res;
+        }
+
         #endregion
 
         #region DateTime
