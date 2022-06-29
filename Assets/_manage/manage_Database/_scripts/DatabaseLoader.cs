@@ -337,7 +337,7 @@ namespace Antura.Database.Management
         /// <param name="edition">The current loaded version. (Except for Localization, for the rest importTypes must be selected the same that you're trying to load to the db)</param>
         /// <param name="importType">Indicates if the coming json to load into de db is Vocabulary, PlaySession or Localization</param>
         /// <param name="dataType">Not mandatory: this param indicates the sheet name from which the json was generated (only necessary for Vocabulary)</param>
-        public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType=null)
+        public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType = null)
         {
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);
 
@@ -409,9 +409,9 @@ namespace Antura.Database.Management
         }
         #endregion
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
-        [DeMethodButton("Import")]
+        [DeMethodButton("Import from Google Sheets")]
         public void Import()
         {
             if (ImportLocalizations)
@@ -423,8 +423,11 @@ namespace Antura.Database.Management
             var ech = GetComponent<EditorContentHolder>();
             if (ImportJourney)
             {
-                var sheetRef =  ech.InputContent.GoogleSheets != null ? ech.InputContent.GoogleSheets.FirstOrDefault(x => x != null && x.ContentType == ContentType.Journey) : null;
-                if (sheetRef == null) Debug.LogError("Could not find any sheet ref to import Journey data for this Content Edition");
+                var sheetRef = ech.InputContent.GoogleSheets != null ? ech.InputContent.GoogleSheets.FirstOrDefault(x => x != null && x.ContentType == ContentType.Journey) : null;
+                if (sheetRef == null)
+                {
+                    Debug.LogError("Could not find any sheet ref to import Journey data for this Content Edition");
+                }
                 else
                 {
                     Debug.Log("Importing sheet ref: " + sheetRef.name);
@@ -435,7 +438,10 @@ namespace Antura.Database.Management
             if (ImportLetters || ImportWords || ImportPhrases)
             {
                 var sheetRef = ech.InputContent.GoogleSheets != null ? ech.InputContent.GoogleSheets.FirstOrDefault(x => x != null && x.ContentType == ContentType.Vocabulary) : null;
-                if (sheetRef == null) Debug.LogError("Could not find any sheet ref to import Vocabulary data for this Content Edition");
+                if (sheetRef == null)
+                {
+                    Debug.LogError("Could not find any sheet ref to import Vocabulary data for this Content Edition");
+                }
                 else
                 {
                     Debug.Log("Importing sheet ref: " + sheetRef.name);
@@ -444,7 +450,7 @@ namespace Antura.Database.Management
             }
         }
 
-        #endif
+#endif
     }
 }
 #endif
