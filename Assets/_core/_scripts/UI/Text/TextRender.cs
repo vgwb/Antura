@@ -113,37 +113,43 @@ namespace Antura.UI
             fontUse = _fontUse;
             TMPText.text = _text;
             m_text = _text;
+            UpdateFont();
             CheckRTL();
         }
 
         [HideInInspector]
         public LanguageCode OverridenLanguageCode = LanguageCode.NONE;
 
-        private void UpdateText()
+        private void UpdateFont()
         {
-            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
-                return;
-
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (OverridenLanguageCode != LanguageCode.NONE)
             {
                 config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
             }
+            switch (fontUse)
+            {
+                case Font2Use.UI:
+                    TMPText.font = config.UIFont;
+                    break;
+                case Font2Use.Learning:
+                    TMPText.font = config.LanguageFont;
+                    break;
+                case Font2Use.Default:
+                default:
+                    TMPText.font = config.UIFont;
+                    break;
+            }
+        }
+
+        private void UpdateText()
+        {
+            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
+                return;
+
             if (!isLetter && !isNumber)
             {
-                switch (fontUse)
-                {
-                    case Font2Use.UI:
-                        TMPText.font = config.UIFont;
-                        break;
-                    case Font2Use.Learning:
-                        TMPText.font = config.LanguageFont;
-                        break;
-                    case Font2Use.Default:
-                    default:
-                        TMPText.font = config.UIFont;
-                        break;
-                }
+                UpdateFont();
             }
 
             if (!isNumber && !isLetter)

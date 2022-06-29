@@ -24,7 +24,7 @@ namespace Antura.UI
         {
             Label.gameObject.SetActive(true);
             NumbersLabel.gameObject.SetActive(false);
-            Label.SetTextUnfiltered(text);
+            Label.SetTextUnfiltered(text, Font2Use.Learning);
             Label.TMPText.enabled = !(string.IsNullOrEmpty(text)); // Fix to avoid the wordcomposer showing the last text sometimes (seems a TMPro bug, see https://github.com/vgwb-private/Antura/issues/298)
         }
 
