@@ -145,11 +145,12 @@ namespace Antura.Profile
             AppManager.I.AppSettingsManager.LoadSettings();
 
             // Update checks
-            if (new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
+            if (AppManager.I.AppSettings.AppVersion == "" || new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
             {
                 Debug.LogWarning($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
                 AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
                 AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
+                AppManager.I.AppSettings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
                 var newList = new List<PlayerIconData>();
                 for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
                 {
@@ -363,7 +364,8 @@ namespace Antura.Profile
 
             // Reset all settings too
             AppManager.I.AppSettingsManager.DeleteAllSettings();
-            if (!clearOnly) LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
+            if (!clearOnly)
+                LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
             AppManager.I.Player = null;
         }
 
