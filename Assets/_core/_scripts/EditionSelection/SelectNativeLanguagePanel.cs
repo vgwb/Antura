@@ -67,8 +67,10 @@ namespace Antura.UI
             {
                 var l = lang;
                 // HACK: Legacy is treated as arabic when selected as a language
-                if (l == LanguageCode.arabic_legacy) l = LanguageCode.arabic;
-                if (AvailableNativeCodes.Contains(l)) continue;
+                if (l == LanguageCode.arabic_legacy)
+                    l = LanguageCode.arabic;
+                if (AvailableNativeCodes.Contains(l))
+                    continue;
                 AvailableNativeCodes.Add(l);
             }
 
@@ -80,9 +82,11 @@ namespace Antura.UI
                     var lang = contentEditionConfig.OverridenNativeLanguages[index];
 
                     // HACK: Legacy is treated as arabic when selected as a language
-                    if (lang == LanguageCode.arabic_legacy) lang = LanguageCode.arabic;
+                    if (lang == LanguageCode.arabic_legacy)
+                        lang = LanguageCode.arabic;
 
-                    if (AvailableNativeCodes.Contains(lang)) continue;
+                    if (AvailableNativeCodes.Contains(lang))
+                        continue;
                     AvailableNativeCodes.Add(lang);
                 }
             }
@@ -182,9 +186,10 @@ namespace Antura.UI
             isOpen = true;
 
             questionRectTr.anchoredPosition = new Vector2(0, 500);
-            scrollRectTr.anchoredPosition = new Vector2(2200, 0);
+            scrollRectTr.anchoredPosition = new Vector2(2200, scrollRectTr.anchoredPosition.y);
 
-            if (BGColor == default) BGColor = BG.color;
+            if (BGColor == default)
+                BGColor = BG.color;
             if (firstTime)
             {
                 BG.color = BGColor;
@@ -197,7 +202,7 @@ namespace Antura.UI
             }
 
             questionRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f);
-            scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).OnComplete(() => ScrollTo(PreferredLanguage));
+            scrollRectTr.DOAnchorPos(new Vector2(0, scrollRectTr.anchoredPosition.y), 0.35f).OnComplete(() => ScrollTo(PreferredLanguage));
         }
 
         public void Close()
@@ -216,9 +221,10 @@ namespace Antura.UI
             var scrollView = scrollRectTr.GetComponent<ScrollRect>();
             var xDelta = 0f;
             var btn = buttons.FirstOrDefault(x => x.LanguageCode == code);
-            if (btn == null) return;
+            if (btn == null)
+                return;
 
-            var offsetWidth = btn.GetComponent<RectTransform>().rect.width/2f;
+            var offsetWidth = btn.GetComponent<RectTransform>().rect.width / 2f;
             if (btn.transform.position.x < 0)
             {
                 xDelta = -btn.transform.position.x + offsetWidth;
