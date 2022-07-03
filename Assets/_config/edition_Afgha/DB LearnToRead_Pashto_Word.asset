@@ -1134,39 +1134,7 @@ MonoBehaviour:
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup4
-    - _Id: day_friday
-      _Active: 1
-      _Kind: 5
-      _Category: 6
-      _Form: 1
-      _Article: 0
-      _Gender: 0
-      _LinkedWord: 
-      _Text: "\u062C\u0645\u0639\u0647"
-      _Value: 5
-      _SortValue: 5
-      _DrawingId: day_5
-      _DrawingLabel: VEN
-      _Complexity: 4
-      _PlaySessionLinks:
-      - WordGroup6
-    - _Id: day_monday
-      _Active: 1
-      _Kind: 5
-      _Category: 6
-      _Form: 1
-      _Article: 0
-      _Gender: 0
-      _LinkedWord: 
-      _Text: "\u062F\u0648\u0634\u0646\u0628\u0647"
-      _Value: 1
-      _SortValue: 1
-      _DrawingId: day_1
-      _DrawingLabel: LUN
-      _Complexity: 6
-      _PlaySessionLinks:
-      - WordGroup5
-    - _Id: day_saturday
+    - _Id: day_1
       _Active: 1
       _Kind: 5
       _Category: 6
@@ -1175,14 +1143,14 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0634\u0646\u0628\u0647"
-      _Value: 6
-      _SortValue: 6
-      _DrawingId: day_6
-      _DrawingLabel: SAM
+      _Value: 1
+      _SortValue: 1
+      _DrawingId: day_1
+      _DrawingLabel: "\u0634\u0646\u0628\u0647"
       _Complexity: 4
       _PlaySessionLinks:
       - WordGroup5
-    - _Id: day_sunday
+    - _Id: day_2
       _Active: 1
       _Kind: 5
       _Category: 6
@@ -1191,14 +1159,14 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u06CC\u06A9\u0634\u0646\u0628\u0647"
-      _Value: 7
-      _SortValue: 7
-      _DrawingId: day_7
-      _DrawingLabel: DIM
+      _Value: 2
+      _SortValue: 2
+      _DrawingId: day_2
+      _DrawingLabel: "\u06CC\u06A9\u0634\u0646\u0628\u0647"
       _Complexity: 6
       _PlaySessionLinks:
       - WordGroup6
-    - _Id: day_thursday
+    - _Id: day_3
       _Active: 1
       _Kind: 5
       _Category: 6
@@ -1206,15 +1174,15 @@ MonoBehaviour:
       _Article: 0
       _Gender: 0
       _LinkedWord: 
-      _Text: "\u067E\u0646\u062C\u0634\u0646\u0628\u0647"
-      _Value: 4
-      _SortValue: 4
-      _DrawingId: day_4
-      _DrawingLabel: JEU
-      _Complexity: 7
+      _Text: "\u062F\u0648\u0634\u0646\u0628\u0647"
+      _Value: 3
+      _SortValue: 3
+      _DrawingId: day_3
+      _DrawingLabel: "\u062F\u0648\u0634\u0646\u0628\u0647"
+      _Complexity: 6
       _PlaySessionLinks:
       - WordGroup5
-    - _Id: day_tuesday
+    - _Id: day_4
       _Active: 1
       _Kind: 5
       _Category: 6
@@ -1223,14 +1191,14 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0633\u0647 \u0634\u0646\u0628\u0647"
-      _Value: 2
-      _SortValue: 2
-      _DrawingId: day_2
-      _DrawingLabel: MAR
+      _Value: 4
+      _SortValue: 4
+      _DrawingId: day_4
+      _DrawingLabel: "\u0633\u0647 \u0634\u0646\u0628\u0647"
       _Complexity: 7
       _PlaySessionLinks:
       - WordGroup5
-    - _Id: day_wednesday
+    - _Id: day_5
       _Active: 1
       _Kind: 5
       _Category: 6
@@ -1239,13 +1207,45 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0686\u0627\u0631 \u0634\u0646\u0628\u0647"
-      _Value: 3
-      _SortValue: 3
-      _DrawingId: day_3
-      _DrawingLabel: MER
+      _Value: 5
+      _SortValue: 5
+      _DrawingId: day_5
+      _DrawingLabel: "\u0686\u0627\u0631 \u0634\u0646\u0628\u0647"
       _Complexity: 8
       _PlaySessionLinks:
       - WordGroup5
+    - _Id: day_6
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u067E\u0646\u062C\u0634\u0646\u0628\u0647"
+      _Value: 6
+      _SortValue: 6
+      _DrawingId: day_6
+      _DrawingLabel: "\u067E\u0646\u062C\u0634\u0646\u0628\u0647"
+      _Complexity: 7
+      _PlaySessionLinks:
+      - WordGroup5
+    - _Id: day_7
+      _Active: 1
+      _Kind: 5
+      _Category: 6
+      _Form: 1
+      _Article: 0
+      _Gender: 0
+      _LinkedWord: 
+      _Text: "\u062C\u0645\u0639\u0647"
+      _Value: 7
+      _SortValue: 7
+      _DrawingId: day_7
+      _DrawingLabel: "\u062C\u0645\u0639\u0647"
+      _Complexity: 4
+      _PlaySessionLinks:
+      - WordGroup6
     - _Id: desert
       _Active: 1
       _Kind: 5
@@ -2407,10 +2407,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062D\u0645\u0644"
-      _Value: 4
-      _SortValue: 4
+      _Value: 1
+      _SortValue: 1
       _DrawingId: month_blank
-      _DrawingLabel: AVR
+      _DrawingLabel: "\u062D\u0645\u0644"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup3
@@ -2423,10 +2423,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062B\u0648\u0631"
-      _Value: 8
-      _SortValue: 8
+      _Value: 2
+      _SortValue: 2
       _DrawingId: month_blank
-      _DrawingLabel: "AO\xDB"
+      _DrawingLabel: "\u062B\u0648\u0631"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup4
@@ -2439,10 +2439,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062C\u0648\u0632\u0627"
-      _Value: 12
-      _SortValue: 12
+      _Value: 3
+      _SortValue: 3
       _DrawingId: month_blank
-      _DrawingLabel: "D\xC9C"
+      _DrawingLabel: "\u062C\u0648\u0632\u0627"
       _Complexity: 4
       _PlaySessionLinks:
       - WordGroup4
@@ -2455,10 +2455,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0633\u0631\u0637\u0627\u0646"
-      _Value: 2
-      _SortValue: 2
+      _Value: 4
+      _SortValue: 4
       _DrawingId: month_blank
-      _DrawingLabel: "F\xC9V"
+      _DrawingLabel: "\u0633\u0631\u0637\u0627\u0646"
       _Complexity: 5
       _PlaySessionLinks:
       - WordGroup5
@@ -2471,10 +2471,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0627\u0633\u062F"
-      _Value: 1
-      _SortValue: 1
+      _Value: 5
+      _SortValue: 5
       _DrawingId: month_blank
-      _DrawingLabel: JAN
+      _DrawingLabel: "\u0627\u0633\u062F"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup5
@@ -2487,10 +2487,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0633\u0646\u0628\u0644\u0647"
-      _Value: 7
-      _SortValue: 7
+      _Value: 6
+      _SortValue: 6
       _DrawingId: month_blank
-      _DrawingLabel: JUIL
+      _DrawingLabel: "\u0633\u0646\u0628\u0644\u0647"
       _Complexity: 5
       _PlaySessionLinks:
       - WordGroup5
@@ -2503,10 +2503,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0645\u06CC\u0632\u0627\u0646"
-      _Value: 6
-      _SortValue: 6
+      _Value: 7
+      _SortValue: 7
       _DrawingId: month_blank
-      _DrawingLabel: JUIN
+      _DrawingLabel: "\u0645\u06CC\u0632\u0627\u0646"
       _Complexity: 5
       _PlaySessionLinks:
       - WordGroup4
@@ -2519,10 +2519,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0639\u0642\u0631\u0628"
-      _Value: 3
-      _SortValue: 3
+      _Value: 8
+      _SortValue: 8
       _DrawingId: month_blank
-      _DrawingLabel: MAR
+      _DrawingLabel: "\u0639\u0642\u0631\u0628"
       _Complexity: 4
       _PlaySessionLinks:
       - WordGroup6
@@ -2535,10 +2535,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u0642\u0648\u0633"
-      _Value: 5
-      _SortValue: 5
+      _Value: 9
+      _SortValue: 9
       _DrawingId: month_blank
-      _DrawingLabel: MAI
+      _DrawingLabel: "\u0642\u0648\u0633"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup6
@@ -2551,10 +2551,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062C\u062F\u06CC"
-      _Value: 11
-      _SortValue: 11
+      _Value: 10
+      _SortValue: 10
       _DrawingId: month_blank
-      _DrawingLabel: NOV
+      _DrawingLabel: "\u062C\u062F\u06CC"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup4
@@ -2567,10 +2567,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062F\u0644\u0648"
-      _Value: 10
-      _SortValue: 10
+      _Value: 11
+      _SortValue: 11
       _DrawingId: month_blank
-      _DrawingLabel: OCT
+      _DrawingLabel: "\u062F\u0644\u0648"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup4
@@ -2583,10 +2583,10 @@ MonoBehaviour:
       _Gender: 0
       _LinkedWord: 
       _Text: "\u062D\u0648\u062A"
-      _Value: 9
-      _SortValue: 9
+      _Value: 12
+      _SortValue: 12
       _DrawingId: month_blank
-      _DrawingLabel: SEP
+      _DrawingLabel: "\u062D\u0648\u062A"
       _Complexity: 3
       _PlaySessionLinks:
       - WordGroup3
