@@ -189,7 +189,7 @@ namespace Antura.GoogleSheets
                         langName = langName.Replace("_Vocabulary", "");
 
                         if (ech.InputContent.name.Contains(langName)) //check that the selected edition is the same that the one we're trying to import
-                            ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, contentType, dataType);
+                            ech.gameObject.GetComponent<DatabaseLoader>().DirectLoadData(jData, fileName, ech.InputContent, contentType, dataType, langName);
                         else
                             Debug.LogError("Be sure to have selected the corresponding Content edition in the 'Editor Content Holder' for the "+ fileName +" file");
 
