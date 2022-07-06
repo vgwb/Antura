@@ -245,7 +245,7 @@ namespace Antura.Teacher
                 {
                     if (selectionParams.journeyFilter == SelectionParameters.JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney)
                     {
-                        Debug.LogWarning("The teacher could not find " + selectionParams.nRequired + " data instances in the current Learning Block. Fallback to CurrentJourney instead.");
+                        //Debug.LogWarning("The teacher could not find " + selectionParams.nRequired + " data instances in the current Learning Block. Fallback to CurrentJourney instead.");
                         dataList = originalDataList.FindAll(x => currentJourneyContents.Contains(x));
                     }
                     else
