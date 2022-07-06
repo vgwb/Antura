@@ -591,7 +591,14 @@ namespace Antura.Database
                     isEqual = string.Equals(_Id, other._Id) && Form == other.Form;
                     break;
                 case LetterEqualityStrictness.WithVisualForm:
-                    isEqual = string.Equals(_Id, other._Id) && FormsLookTheSame(Form, other.Form);
+                    var id1 = _Id;
+                    var id2 = other._Id;
+                    if (!AppManager.I.ContentEdition.ShowAccentsOnSeparatedLivingLetters)
+                    {
+                        if (HasAccent) id1 = Base._Id;
+                        if (other.HasAccent) id2 = Base._Id;
+                    }
+                    isEqual = string.Equals(id1, id2) && FormsLookTheSame(Form, other.Form);
                     break;
             }
             return isEqual;
