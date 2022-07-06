@@ -26,11 +26,11 @@ namespace Antura.Teacher.Test
 
         IEnumerator Start()
         {
-            var Edition = FindObjectOfType<DataStatisticsTester>().Edition;
-            AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+            var edition = FindObjectOfType<Database.Management.EditorContentHolder>().InputContent;
+            AppManager.I.AppSettingsManager.SetLearningContentID(edition.ContentID);
             yield return AppManager.I.ReloadEdition();
 
-            _databaseManager = new DatabaseManager(Edition, Edition.LearningLanguage);
+            _databaseManager = new DatabaseManager(edition, edition.LearningLanguage);
             _vocabularyHelper = new VocabularyHelper(_databaseManager);
 
             _playSessionDatas = _databaseManager.GetAllPlaySessionData();
