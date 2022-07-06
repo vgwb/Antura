@@ -22,8 +22,7 @@ namespace Antura.LivingLetters.Sample
         {
             currentQuestion = -1;
 
-            // 10 QuestionPacks
-            for (int i = 0; i < 32; i++) {
+            for (int i = 0; i < 1; i++) {
                 var correctAnswers = new List<ILivingLetterData>();
                 var wrongAnswers = new List<ILivingLetterData>();
 
