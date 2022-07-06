@@ -202,6 +202,8 @@ namespace Antura
 
         private void ClearCache<T>(Dictionary<string, T> cache) where T : UnityEngine.Object
         {
+            bool tmpEnabled = Debug.unityLogger.logEnabled;
+            Debug.unityLogger.logEnabled = false;
             foreach (var keyValuePair in cache)
             {
                 try
@@ -215,6 +217,7 @@ namespace Antura
                 }
             }
             cache.Clear();
+            Debug.unityLogger.logEnabled = tmpEnabled;
         }
 
         private IEnumerator LoadAssets<T>(HashSet<string> keys, Dictionary<string, T> cache, bool sync = false, bool fromResources = false) where T : UnityEngine.Object
