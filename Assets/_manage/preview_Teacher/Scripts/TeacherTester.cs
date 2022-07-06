@@ -175,6 +175,7 @@ namespace Antura.Teacher.Test
                 if (isRecap) jp.PlaySession = JourneyPosition.RECAP_PLAY_SESSION_INDEX;
             }
             AppManager.I.Player.CurrentJourneyPosition.SetPosition(jp.Stage, jp.LearningBlock, jp.PlaySession);
+            AppManager.I.Teacher.SetPlayerProfile(AppManager.I.Player);
             AppManager.I.Teacher.InitNewPlaySession();
         }
 

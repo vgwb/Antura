@@ -58,7 +58,7 @@ namespace Antura.Teacher
             difficultySelectionAI.SetPlayerProfile(_playerProfile);
         }
 
-        private void resetPlaySession()
+        private void ResetPlaySession()
         {
             var currentPlaySessionId = playerProfile.CurrentJourneyPosition.Id;
             minigameSelectionAI.InitNewPlaySession();
@@ -71,7 +71,7 @@ namespace Antura.Teacher
 
         public void InitNewPlaySession()
         {
-            resetPlaySession();
+            ResetPlaySession();
         }
 
         /// <summary>
