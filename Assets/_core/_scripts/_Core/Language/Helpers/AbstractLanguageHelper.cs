@@ -138,6 +138,7 @@ namespace Antura.Language
                     stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
                     ld = staticDatabase.GetById(availableLettersTable, "E");
                     stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
+                    depletingWord = depletingWord.Substring(1, depletingWord.Length - 1);
                     index += 1;
                     continue;
                 }
