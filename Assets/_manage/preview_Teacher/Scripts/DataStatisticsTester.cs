@@ -39,6 +39,7 @@ namespace Antura.Teacher.Test
 
             _playSessionDatas = _databaseManager.GetAllPlaySessionData();
             _letterDatas = _databaseManager.GetAllLetterData();
+            _letterDatas.RemoveAll(x => x.Kind == LetterDataKind.SpecialChar);
             _wordDatas = _databaseManager.GetAllWordData();
             _phraseDatas = _databaseManager.GetAllPhraseData();
 
@@ -221,12 +222,12 @@ namespace Antura.Teacher.Test
         public void DoPrintLettersAndWords()
         {
             DoStatsList("Letters & words", _letterDatas,
-                data => true,
+                data => false,
                 data => {
                     string s = "";
                     var words = _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter);
                     foreach (var word in words) {
-                        s += word.Id + ", ";
+                        s += $"{word.Id} ({word.Text}), ";
                     }
                     return s;
                 });
