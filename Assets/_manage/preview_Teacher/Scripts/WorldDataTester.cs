@@ -4,6 +4,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
@@ -54,9 +55,14 @@ namespace Antura.Teacher.Test
             {
                 var letterGroup = LetterGroups[iGroup];
 
-                query += $" {letterGroup}";
-                var desiredLettersParts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(_databaseManager, new WordData { Text = query }, separateVariations: false);
-                var desiredLetters = desiredLettersParts.ConvertAll(ld => _vocabularyHelper.ConvertToLetterWithForcedForm(ld.letter, LetterForm.Isolated));
+                query += $",{letterGroup}";
+                var desiredLetters = new List<LetterData>();
+                foreach (string l in query.Split(","))
+                {
+                    if (l.IsNullOrEmpty()) continue;
+                    var data = _databaseManager.GetLetterDataById(l.Trim());
+                    desiredLetters.Add(data);
+                }
 
                 /*
                 var str = $"Group {(iGroup+1)} letters:\n";
