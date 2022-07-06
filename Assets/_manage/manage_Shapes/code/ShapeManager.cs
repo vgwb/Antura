@@ -23,7 +23,6 @@ public class ShapeManager : MonoBehaviour
 {
     public LetterFilters LetterFilters;
 
-    public ContentEditionConfig Edition;
     public ShapeDataLogic DataPrefab;
 
     private List<LetterData> letters;
@@ -32,7 +31,7 @@ public class ShapeManager : MonoBehaviour
     {
         while (!AppManager.I.Loaded)
             yield return null;
-        AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+        AppManager.I.AppSettingsManager.SetLearningContentID(AppManager.I.ContentEdition.ContentID);
         yield return AppManager.I.ReloadEdition();
 
         GlobalUI.I.gameObject.SetActive(false);
