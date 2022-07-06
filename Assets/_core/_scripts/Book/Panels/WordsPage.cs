@@ -2,13 +2,13 @@ using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Keeper;
+using Antura.Language;
+using Antura.LivingLetters;
 using Antura.Helpers;
 using Antura.Teacher;
 using Antura.UI;
 using System.Linq;
 using System.Collections.Generic;
-using Antura.Language;
-using Antura.LivingLetters;
 using UnityEngine;
 
 namespace Antura.Book
@@ -31,7 +31,7 @@ namespace Antura.Book
         public GameObject Submenu;
         public GameObject SubmenuContainer;
 
-        public TextRender WordArabicText;
+        public TextRender WordTitleText;
         public TextRender WordDrawingText;
 
         private WordInfo currentWordInfo;
@@ -230,7 +230,7 @@ namespace Antura.Book
                 btnGO.GetComponent<ItemSpellingLetter>().Init(letter.letter);
             }
 
-            WordArabicText.SetText(currentWordInfo.data.Text, Font2Use.Learning);
+            WordTitleText.SetText(currentWordInfo.data.Text, Font2Use.Learning);
 
             if (currentWordInfo.data.DrawingId != "")
             {
@@ -246,7 +246,7 @@ namespace Antura.Book
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
                 Debug.Log("drawing code: " + currentWordInfo.data.DrawingId);
                 Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
-                Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordArabicText.RenderedText));
+                Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordTitleText.RenderedText));
             }
             //ScoreText.text = "Score: " + currentWord.score;
         }
@@ -256,8 +256,8 @@ namespace Antura.Book
             if (Book.I.EditDiacritics)
             {
                 // Clear so it will be re-rendered again
-                WordArabicText.text = "";
-                WordArabicText.text = currentWordInfo.data.Text;
+                WordTitleText.text = "";
+                WordTitleText.text = currentWordInfo.data.Text;
             }
         }
 
