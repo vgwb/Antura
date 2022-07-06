@@ -123,7 +123,6 @@ namespace Antura.Language
             availableLettersList.Sort((x, y) => y.Isolated.Length - x.Isolated.Length);
 
             var depletingWord = wordData.Text;
-            var splits = new List<LetterData>();
             int maxLetterLength = availableLettersList[0].Isolated.Length;
             // From the beginning of the word, check substrings of max length
             int index = 0;
