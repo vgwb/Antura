@@ -245,7 +245,7 @@ namespace Antura.Teacher.Test
                 var jp = AppManager.I.JourneyHelper.GetMinimumJourneyPositionForMiniGame(code);
                 if (jp == null) jp = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
                 InitialisePlaySession(jp);
-                yield return StartCoroutine(DoTestMinigameCO(code));
+                yield return DoTestMinigameCO(code);
             }
         }
 
@@ -259,7 +259,7 @@ namespace Antura.Teacher.Test
             // Test all minigames at all their available journeys. Stop when we find a wrong one.
             foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
-                yield return StartCoroutine(DoTestMinigameWholeJourneyCO(code));
+                yield return DoTestMinigameWholeJourneyCO(code);
             }
         }
 
@@ -270,8 +270,8 @@ namespace Antura.Teacher.Test
         }
         private IEnumerator DoTestEverythingCO()
         {
-            yield return StartCoroutine(DoTestAllMiniGamesCO());
-            yield return StartCoroutine(DoTestAllQuestionBuildersCO());
+            yield return DoTestAllMiniGamesCO();
+            yield return DoTestAllQuestionBuildersCO();
         }
 
         [DeMethodButton("Test Minigames (current PS)")]
@@ -283,7 +283,7 @@ namespace Antura.Teacher.Test
         {
             foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
-                yield return StartCoroutine(DoTestMinigameCO(code));
+                yield return DoTestMinigameCO(code);
             }
         }
 
@@ -296,7 +296,7 @@ namespace Antura.Teacher.Test
         {
             foreach (var type in Helpers.GenericHelper.SortEnums<QuestionBuilderType>()) {
                 if (!IsCodeValid(type)) continue;
-                yield return StartCoroutine(DoTestQuestionBuilderCO(type));
+                yield return DoTestQuestionBuilderCO(type);
             }
         }
 
@@ -345,7 +345,7 @@ namespace Antura.Teacher.Test
                 }
 
                 // Skip minigames that found errors
-                yield return StartCoroutine(DoTestMinigameCO(code, 0.01f));
+                yield return DoTestMinigameCO(code, 0.01f);
                 if (minigamesButtonsDict[code].colors.normalColor == Color.red) {
                     Debug.LogError($"Minigame {code} first wrong at ps {psData.GetJourneyPosition()}");
                     isCorrect = false;
@@ -406,7 +406,7 @@ namespace Antura.Teacher.Test
             for (int i = 1; i <= numberOfSimulations; i++) {
                 Debug.Log($"************ Simulation {i} ************");
                 if (PrintReport) ConfigAI.AppendToTeacherReport($"************ Simulation {i} ************");
-                yield return StartCoroutine(CoroutineFunc());
+                yield return CoroutineFunc();
                 yield return null;
             }
             if (PrintReport) ConfigAI.PrintTeacherReport();
