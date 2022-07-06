@@ -6,6 +6,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
+using Antura.Teacher;
 using Antura.UI;
 using TMPro;
 
@@ -20,8 +21,12 @@ using UnityEngine.AddressableAssets;
 
 public class ShapeManager : MonoBehaviour
 {
+    public LetterFilters LetterFilters;
+
     public ContentEditionConfig Edition;
     public ShapeDataLogic DataPrefab;
+
+    private List<LetterData> letters;
 
     IEnumerator Start()
     {
@@ -31,7 +36,7 @@ public class ShapeManager : MonoBehaviour
         yield return AppManager.I.ReloadEdition();
 
         GlobalUI.I.gameObject.SetActive(false);
-        var letters = AppManager.I.DB.GetAllLetterData();
+        letters = AppManager.I.VocabularyHelper.GetAllLetters(LetterFilters);
         for (var i = 0; i < letters.Count; i++)
         {
             var letter = letters[i];
@@ -49,7 +54,6 @@ public class ShapeManager : MonoBehaviour
 
     private void LoadLetter(string _unicode)
     {
-        var letters = AppManager.I.DB.GetAllLetterData();
         var letterData = letters.FirstOrDefault(x => string.Equals(x.GetCompleteUnicodes(), _unicode, StringComparison.Ordinal));
         LoadLetter(letterData);
     }
