@@ -169,7 +169,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0a5f38aa0101bb46b081a9bb35db590, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Edition: {fileID: 11400000, guid: 6013380497940c94aac3e7da4390bd4b, type: 2}
+  LetterFilters:
+    excludeLetterVariations: 0
+    excludeDiacritics: 1
+    requireDiacritics: 0
+    excludeDiphthongs: 0
+    includeAccentedLetters: 0
+    includeSpecialCharacters: 0
   DataPrefab: {fileID: 968513693}
 --- !u!1 &365373180
 GameObject:
