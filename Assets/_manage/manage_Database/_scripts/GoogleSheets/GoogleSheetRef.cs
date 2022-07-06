@@ -48,7 +48,6 @@ namespace Antura.GoogleSheets
         private readonly string GoogleSecretApi = "&key=AIzaSyDZhLs3ds7swYw9HizLPz5M-0F584QMRcs";
         private readonly string PathToJson = "../_config/json_data/antura_json_data_files/";
 
-        [DeMethodButton("Import Sheet to Unity")]
         public void ImportJSON()
         {
             EditorCoroutineUtility.StartCoroutine(fetchData(this), this);
