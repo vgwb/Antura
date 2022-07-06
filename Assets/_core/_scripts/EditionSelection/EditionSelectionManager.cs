@@ -72,7 +72,7 @@ namespace Antura.Scenes
         private IEnumerator NativeLanguageSelectionCO(bool firstTime)
         {
             GlobalUI.ShowPauseMenu(false);
-            GlobalUI.ShowBackButton(true, Back);
+            GlobalUI.ShowBackButton(!firstTime, Back);
             selectedNativeButton.gameObject.SetActive(false);
 
             yield return selectNativeLanguagePanel.Open(firstTime);
