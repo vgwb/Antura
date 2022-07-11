@@ -30,6 +30,7 @@ namespace Antura.Database.Management
             data.Value = ToString(dict["Value"]);
             data.SortValue = ToString(dict["SortValue"]);
             data.DrawingId = ToString(dict["DrawingId"]);
+            data.DrawingLabel = ToString(dict["DrawingLabel"]);
             data.Complexity = ToFloat(dict["Complexity"]);
             data.PlaySessionLinks = ParseStringsArray(dict["PlaySessionLink"]);
 

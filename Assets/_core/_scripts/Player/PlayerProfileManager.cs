@@ -145,11 +145,12 @@ namespace Antura.Profile
             AppManager.I.AppSettingsManager.LoadSettings();
 
             // Update checks
-            if (new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
+            if (AppManager.I.AppSettings.AppVersion == "" || new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
             {
                 Debug.LogWarning($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
                 AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
                 AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
+                AppManager.I.AppSettings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
                 var newList = new List<PlayerIconData>();
                 for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
                 {
@@ -213,10 +214,12 @@ namespace Antura.Profile
         /// <returns></returns>
         public List<PlayerIconData> GetPlayersIconData()
         {
-            return AppManager.I.AppSettings.SavedPlayers.Where(pl =>
-                (pl.editionID == AppManager.I.AppEdition.editionID
-                    || pl.editionID == AppEditionID.Multi) && pl.contentID == AppManager.I.ContentEdition.ContentID
-                ).ToList();
+            return FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
+        }
+
+        public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
+        {
+            return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi) && pl.contentID == contentID).ToList();
         }
 
         /// <summary>
@@ -361,7 +364,8 @@ namespace Antura.Profile
 
             // Reset all settings too
             AppManager.I.AppSettingsManager.DeleteAllSettings();
-            if (!clearOnly) LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
+            if (!clearOnly)
+                LoadPlayerSettings(alsoLoadCurrentPlayerProfile: false);
             AppManager.I.Player = null;
         }
 

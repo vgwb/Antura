@@ -449,7 +449,7 @@ namespace Antura.Minigames.DancingDots
             //AudioManager.I.PlayDialog("comment_welldone");
             DancingDotsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.OK);
             TutorialUI.MarkYes(dancingDotsLL.transform.position + Vector3.up * 19 - Vector3.forward * 4, TutorialUI.MarkSize.Big);
-            KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
+            KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13), keeperMode:KeeperMode.LearningNoSubtitles);
 
             dancingDotsLL.ShowRainbow();
             dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed);
@@ -510,7 +510,7 @@ namespace Antura.Minigames.DancingDots
             //DancingDotsConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.StampOK);
             TutorialUI.MarkNo(dancingDotsLL.transform.position + Vector3.up * 19 - Vector3.forward * 4, TutorialUI.MarkSize.Big);
 
-            KeeperManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6));
+            KeeperManager.I.PlayDialogue("Keeper_Bad_" + UnityEngine.Random.Range(1, 6), keeperMode:KeeperMode.LearningNoSubtitles);
             numberOfFailedMoves++;
             dancingDotsLL.letterObjectView.SetDancingSpeed(StartingRoundDancingSpeed - numberOfFailedMoves * 0.25f);
             GameObject splat = (GameObject)Instantiate(splatPrefab);

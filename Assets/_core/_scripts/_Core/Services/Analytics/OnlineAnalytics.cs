@@ -243,7 +243,23 @@ namespace Antura.Core.Services.OnlineAnalytics
             }
         }
 
+        public void TrackGenericAction(string eventName)
+        {
+            if (!AnalyticsEnabled)
+                return;
+
+            var parameters = new Dictionary<string, object>()
+            {
+                { "myAction", eventName }
+            };
+            AddSharedParameters(parameters);
+            AnalyticsService.Instance.CustomData("myGenericAction", parameters);
+        }
+
         #region Older Events
+        public void TrackScene(string sceneName)
+        {
+        }
 
         public void TrackKioskEvent(string eventName)
         {
@@ -256,12 +272,6 @@ namespace Antura.Core.Services.OnlineAnalytics
             // Analytics.CustomEvent(eventName, eventData);
         }
 
-        public void TrackScene(string sceneName)
-        {
-            if (!AnalyticsEnabled)
-                return;
-            //Analytics.CustomEvent("changeScene", new Dictionary<string, object> { { "scene", sceneName } });
-        }
 
         public void TrackPlayerSession(int age, Profile.PlayerGender gender)
         {

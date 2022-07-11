@@ -248,7 +248,7 @@ namespace Antura.Minigames.SickLetters
             Context.GetLogManager().OnAnswered(LLPrefab.letterView.Data, false);
             if (isDDCorrect)
             {
-                KeeperManager.I.PlayDialogue("Keeper_Bad_" + Random.Range(1, 6));
+                KeeperManager.I.PlayDialogue("Keeper_Bad_" + Random.Range(1, 6), KeeperMode.LearningNoSubtitles);
                 TutorialUI.MarkNo(scale.transform.position - Vector3.forward * 2 + Vector3.up, TutorialUI.MarkSize.Big);
                 Context.GetAudioManager().PlaySound(Sfx.KO);
             }
@@ -261,7 +261,7 @@ namespace Antura.Minigames.SickLetters
         {
             if (goodCommentCounter == 3 || !lastMoveIsCorrect)
             {
-                KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13));
+                KeeperManager.I.PlayDialogue("Keeper_Good_" + UnityEngine.Random.Range(1, 13), KeeperMode.LearningNoSubtitles);
                 goodCommentCounter = 0;
             }
 

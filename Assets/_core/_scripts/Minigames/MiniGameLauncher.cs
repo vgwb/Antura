@@ -6,6 +6,7 @@ using Antura.Teacher;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
+using Antura.Environment;
 using UnityEngine;
 
 namespace Antura.Minigames
@@ -43,6 +44,8 @@ namespace Antura.Minigames
         /// <param name="launchConfig">The launch configuration. If null, the Teacher will generate a new one.</param>
         public void LaunchGame(MiniGameCode gameCode, MinigameLaunchConfiguration launchConfig)
         {
+            WorldManager.I.CurrentWorld = (WorldID)(AppManager.I.NavigationManager.NavData.CurrentPlayer.CurrentJourneyPosition.Stage - 1);
+
             LastLaunchConfig = launchConfig;
 
             ConfigAI.StartTeacherReport();

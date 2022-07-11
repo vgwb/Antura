@@ -17,8 +17,6 @@ namespace Antura.Teacher.Test
     /// </summary>
     public class DataStatisticsTester : MonoBehaviour
     {
-        public ContentEditionConfig Edition;
-
         private VocabularyHelper _vocabularyHelper;
         private DatabaseManager _databaseManager;
         private List<PlaySessionData> _playSessionDatas;
@@ -31,19 +29,18 @@ namespace Antura.Teacher.Test
 
         IEnumerator Start()
         {
-            AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
-            yield return AppManager.I.ReloadEdition();
-
             _databaseManager = AppManager.I.DB;
             _vocabularyHelper = AppManager.I.VocabularyHelper;
 
             _playSessionDatas = _databaseManager.GetAllPlaySessionData();
             _letterDatas = _databaseManager.GetAllLetterData();
+            _letterDatas.RemoveAll(x => x.Kind == LetterDataKind.SpecialChar);
             _wordDatas = _databaseManager.GetAllWordData();
             _phraseDatas = _databaseManager.GetAllPhraseData();
 
             //_letterFilters = new LetterFilters();
             _wordFilters = new WordFilters();
+            yield break;
         }
 
 
@@ -221,12 +218,12 @@ namespace Antura.Teacher.Test
         public void DoPrintLettersAndWords()
         {
             DoStatsList("Letters & words", _letterDatas,
-                data => true,
+                data => false,
                 data => {
                     string s = "";
                     var words = _vocabularyHelper.GetWordsWithLetter(_wordFilters, data, LetterEqualityStrictness.Letter);
                     foreach (var word in words) {
-                        s += word.Id + ", ";
+                        s += $"{word.Id} ({word.Text}), ";
                     }
                     return s;
                 });

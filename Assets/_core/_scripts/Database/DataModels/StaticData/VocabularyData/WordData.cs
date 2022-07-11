@@ -145,13 +145,13 @@ namespace Antura.Database
         [SerializeField]
         private string _DrawingId;
 
-        //public string DrawingLabel
-        //{
-        //    get { return _DrawingLabel; }
-        //    set { _DrawingLabel = value; }
-        //}
-        //[SerializeField]
-        //private string _DrawingLabel;
+        public string DrawingLabel
+        {
+            get { return _DrawingLabel; }
+            set { _DrawingLabel = value; }
+        }
+        [SerializeField]
+        private string _DrawingLabel;
 
         public float Complexity
         {

@@ -6,6 +6,7 @@ using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Language;
+using Antura.Teacher;
 using Antura.UI;
 using TMPro;
 
@@ -20,18 +21,21 @@ using UnityEngine.AddressableAssets;
 
 public class ShapeManager : MonoBehaviour
 {
-    public ContentEditionConfig Edition;
+    public LetterFilters LetterFilters;
+
     public ShapeDataLogic DataPrefab;
+
+    private List<LetterData> letters;
 
     IEnumerator Start()
     {
         while (!AppManager.I.Loaded)
             yield return null;
-        AppManager.I.AppSettingsManager.SetLearningContentID(Edition.ContentID);
+        AppManager.I.AppSettingsManager.SetLearningContentID(AppManager.I.ContentEdition.ContentID);
         yield return AppManager.I.ReloadEdition();
 
         GlobalUI.I.gameObject.SetActive(false);
-        var letters = AppManager.I.DB.GetAllLetterData();
+        letters = AppManager.I.VocabularyHelper.GetAllLetters(LetterFilters);
         for (var i = 0; i < letters.Count; i++)
         {
             var letter = letters[i];
@@ -49,7 +53,6 @@ public class ShapeManager : MonoBehaviour
 
     private void LoadLetter(string _unicode)
     {
-        var letters = AppManager.I.DB.GetAllLetterData();
         var letterData = letters.FirstOrDefault(x => string.Equals(x.GetCompleteUnicodes(), _unicode, StringComparison.Ordinal));
         LoadLetter(letterData);
     }
@@ -75,7 +78,7 @@ public class ShapeManager : MonoBehaviour
         if (shapeData == null)
         {
             var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First().Split('_').Last();
-            var assetPath = $"Assets/_core/Fonts/Resources/Learning/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
+            var assetPath = $"Assets/Resources/Fonts/Learning/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
 
             shapeData = AssetDatabase.LoadAssetAtPath<ShapeLetterData>(assetPath);
             if (shapeData != null)

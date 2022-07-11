@@ -14,7 +14,7 @@ namespace Antura.Language
         public string Iso3;
         public TextDirection TextDirection;
         public Sprite FlagIcon;
-        public AlphabetCode Alphabet;
+        public AlphabetFamily AlphabetFamily;
         public string TutorialLetterId;
 
         public AbstractLanguageHelper LanguageHelper;

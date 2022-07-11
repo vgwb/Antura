@@ -192,10 +192,14 @@ namespace Antura.Minigames.FastCrowd
                         //if (_dropArea.DrawSprite)
                         //    _dropArea.DrawSprite.DOFade(0, 0.4f);
                         if (_dropArea.NumberLabel)
+                        {
                             _dropArea.NumberLabel.DOFade(0, 0.4f);
+                        }
                         if (_dropArea.LetterText)
+                        {
+                            _dropArea.LetterText.HideDrawingLabel();
                             _dropArea.LetterText.TMPText.DOFade(0, 0.4f);
-
+                        }
                     }
                     if (_callback != null)
                         _callback();

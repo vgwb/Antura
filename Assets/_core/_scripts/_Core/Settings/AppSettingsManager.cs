@@ -52,7 +52,7 @@ namespace Antura.Core
             {
                 var serializedObjs = PlayerPrefs.GetString(SETTINGS_PREFS_KEY);
                 Settings = JsonUtility.FromJson<AppSettings>(serializedObjs);
-                Debug.Log("LoadSettings() " + serializedObjs);
+                //Debug.Log("LoadSettings() " + serializedObjs);
             }
             else
             {

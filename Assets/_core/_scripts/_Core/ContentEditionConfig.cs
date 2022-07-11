@@ -1,9 +1,11 @@
-﻿using System.Linq;
-using Antura.Database;
+﻿using Antura.Database;
 using Antura.Language;
 using Antura.Database.Management;
+using Antura.GoogleSheets;
 using UnityEngine;
 using UnityEngine.Serialization;
+using System.Linq;
+using System.Collections.Generic;
 
 namespace Antura.Core
 {
@@ -16,6 +18,8 @@ namespace Antura.Core
 
         [Header("Language")]
         public LanguageCode LearningLanguage;
+        public LangConfig LearningLanguageConfig;
+
         [FormerlySerializedAs("SupportedNativeLanguages")] public LanguageCode[] OverridenNativeLanguages;
         public bool SupportsLanguage(LanguageCode code)
         {
@@ -64,7 +68,7 @@ namespace Antura.Core
         public GameObject Flag3D;
 
         [Header("Database Data Files to Import")]
-        public DatabaseInputData DBImportDataFiles;
+        public List<GoogleSheetRef> GoogleSheets;
 
         public GameObject GetResource(EditionResourceID id)
         {

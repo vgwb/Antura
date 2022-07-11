@@ -30,6 +30,7 @@ namespace Antura.Core
 #endif
 
         public AppEditionConfig LoadedAppEdition;
+        public DebugConfig DebugConfig;
         public ContentEditionConfig ContentEdition
         {
             get

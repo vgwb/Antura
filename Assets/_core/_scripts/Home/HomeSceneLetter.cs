@@ -1,4 +1,6 @@
-﻿using Antura.Audio;
+﻿using System;
+using System.Linq;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Scenes;
@@ -37,7 +39,16 @@ namespace Antura.LivingLetters
                 excludeDiphthongs = true,
                 excludeDiacritics = AppManager.I.ContentEdition.PlayNameSoundWithForms ? LetterFilters.ExcludeDiacritics.All : LetterFilters.ExcludeDiacritics.None
             };
-            var letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
+            LL_LetterData letter;
+            try
+            {
+                letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
+            }
+            catch (Exception e)
+            {
+                Debug.LogError("Exception while trying to fetch a letter from the DB. Reverting to the first letter");
+                letter = AppManager.I.DB.GetAllLetterData().FirstOrDefault().ConvertToLivingLetterData() as LL_LetterData;
+            }
             LivingLetter.Init(letter);
 
             if (playSound)

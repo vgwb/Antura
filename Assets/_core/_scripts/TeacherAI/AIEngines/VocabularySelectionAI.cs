@@ -245,7 +245,7 @@ namespace Antura.Teacher
                 {
                     if (selectionParams.journeyFilter == SelectionParameters.JourneyFilter.CurrentLearningBlockFallbackToCurrentJourney)
                     {
-                        Debug.LogWarning("The teacher could not find " + selectionParams.nRequired + " data instances in the current Learning Block. Fallback to CurrentJourney instead.");
+                        //Debug.LogWarning("The teacher could not find " + selectionParams.nRequired + " data instances in the current Learning Block. Fallback to CurrentJourney instead.");
                         dataList = originalDataList.FindAll(x => currentJourneyContents.Contains(x));
                     }
                     else
@@ -454,7 +454,7 @@ namespace Antura.Teacher
             }
 
             // Given a (filtered) list of data, select some using weights
-            var score_data_list = dbManager.Query<VocabularyScoreData>("SELECT * FROM " + nameof(VocabularyScoreData) + " WHERE VocabularyDataType = '" + (int)dataType + "'");
+            List<VocabularyScoreData> score_data_list = dbManager.HasLoadedPlayerProfile() ? dbManager.Query<VocabularyScoreData>("SELECT * FROM " + nameof(VocabularyScoreData) + " WHERE VocabularyDataType = '" + (int)dataType + "'") : new List<VocabularyScoreData>();
 
             if (ConfigAI.VerboseDataSelection)
             {
@@ -468,7 +468,6 @@ namespace Antura.Teacher
                 float cumulativeWeight = 0;
                 if (ConfigAI.VerboseDataSelection)
                     weightedData_debugString += "\n" + sourceData.GetId() + " ---";
-
 
                 // Get score data
                 var score_data = score_data_list.Find(x => x.ElementId == sourceData.GetId());

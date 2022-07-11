@@ -1,13 +1,13 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Linq;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.Language;
 using Antura.LivingLetters;
-using UnityEngine;
 using TMPro;
+using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
+using UnityEngine;
 using UnityEngine.Serialization;
 
 /* this class is used as interface to text objects, to manage any type of renderer (UI text or TextMeshPro), LTR or RTL,
@@ -28,6 +28,8 @@ namespace Antura.UI
         public LanguageUse languageUse;
         private Font2Use fontUse = Font2Use.Default;
         public Database.LocalizationDataId LocalizationId;
+
+        private TextRender drawingLabelText;
 
         public Mesh mesh
         {
@@ -70,6 +72,12 @@ namespace Antura.UI
 
         void Awake()
         {
+            var drawingLabelGO = transform.Find("drawingLabel");
+            if (drawingLabelGO != null)
+            {
+                drawingLabelText = drawingLabelGO.GetComponent<TextRender>();
+            }
+
             if (isSubtitle)
             {
                 gameObject.SetActive(AppManager.I.ContentEdition.LearnMethod.ShowHelpText);
@@ -108,42 +116,51 @@ namespace Antura.UI
             CheckRTL();
         }
 
-        public void SetTextUnfiltered(string _text, Font2Use _fontUse = Font2Use.Default)
+        public void SetTextUnfiltered(string _text, Font2Use _fontUse = Font2Use.Default, bool forceFont = false)
         {
             fontUse = _fontUse;
             TMPText.text = _text;
             m_text = _text;
+            if (forceFont)
+            {
+                UpdateFont();
+            }
             CheckRTL();
         }
 
         [HideInInspector]
         public LanguageCode OverridenLanguageCode = LanguageCode.NONE;
 
-        private void UpdateText()
+        private void UpdateFont()
         {
-            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
-                return;
-
             var config = LanguageSwitcher.I.GetLangConfig(languageUse);
             if (OverridenLanguageCode != LanguageCode.NONE)
             {
                 config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
             }
+            switch (fontUse)
+            {
+                case Font2Use.UI:
+                    TMPText.font = config.UIFont;
+                    break;
+                case Font2Use.Learning:
+                    TMPText.font = config.LanguageFont;
+                    break;
+                case Font2Use.Default:
+                default:
+                    TMPText.font = config.UIFont;
+                    break;
+            }
+        }
+
+        private void UpdateText()
+        {
+            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
+                return;
+
             if (!isLetter && !isNumber)
             {
-                switch (fontUse)
-                {
-                    case Font2Use.UI:
-                        TMPText.font = config.UIFont;
-                        break;
-                    case Font2Use.Learning:
-                        TMPText.font = config.LanguageFont;
-                        break;
-                    case Font2Use.Default:
-                    default:
-                        TMPText.font = config.UIFont;
-                        break;
-                }
+                UpdateFont();
             }
 
             if (!isNumber && !isLetter)
@@ -217,6 +234,19 @@ namespace Antura.UI
                 {
                     TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
                 }
+
+                if (drawingLabelText != null)
+                {
+                    if (imageData.Data.DrawingLabel != "")
+                    {
+                        drawingLabelText.gameObject.SetActive(true);
+                        drawingLabelText.SetText(imageData.Data.DrawingLabel, Font2Use.Learning);
+                    }
+                    else
+                    {
+                        drawingLabelText.gameObject.SetActive(false);
+                    }
+                }
             }
             else
             {
@@ -272,6 +302,14 @@ namespace Antura.UI
                 StopCoroutine(flashingTextCoroutine);
             }
             flashingTextCoroutine = null;
+        }
+
+        public void HideDrawingLabel()
+        {
+            if (drawingLabelText != null)
+            {
+                drawingLabelText.gameObject.SetActive(false);
+            }
         }
 
         #endregion

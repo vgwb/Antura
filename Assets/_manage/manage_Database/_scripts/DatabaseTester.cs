@@ -67,6 +67,7 @@ namespace Antura.Database.Management
         private void Start()
         {
             GlobalUI.I.gameObject.SetActive(false);
+            ToDatabaseManager();
         }
 
         private void LoadCustomProfile(string profileID)
@@ -90,15 +91,9 @@ namespace Antura.Database.Management
 
         #region Main Actions
 
-        public void ImportAll()
+        public ContentEditionConfig GetInputContent()
         {
-            dbLoader.LoadDatabase(inputContent);
-            DumpAllDataCounts();
-        }
-
-        public void RegenerateEnums()
-        {
-            dbLoader.RegenerateEnums();
+            return inputContent;
         }
 
         public void RecreateDatabase()
@@ -769,6 +764,25 @@ namespace Antura.Database.Management
         void PrintArabicOutput(string output)
         {
             OutputTextArabic.text = output;//ArabicAlphabetHelper.PrepareStringForDisplay(output);
+        }
+
+        #endregion
+
+        #region Section Switch
+
+        public Canvas DatabaseManagerCanvas;
+        public Canvas TeacherTesterCanvas;
+
+        public void ToTeacherTester()
+        {
+            DatabaseManagerCanvas.enabled = false;
+            TeacherTesterCanvas.enabled = true;
+        }
+
+        public void ToDatabaseManager()
+        {
+            DatabaseManagerCanvas.enabled = true;
+            TeacherTesterCanvas.enabled = false;
         }
 
         #endregion

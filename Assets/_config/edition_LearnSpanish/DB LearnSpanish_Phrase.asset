@@ -1,0 +1,1528 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f6b8dc816d8d6e54d8325fbac00e0782, type: 3}
+  m_Name: DB LearnSpanish_Phrase
+  m_EditorClassIdentifier: 
+  table:
+    innerList:
+    - _Id: Phrase_apple
+      _Active: 1
+      _Text: "La MANZANA crece en el \xE1rbol"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - apple
+      - tree
+      _Answers:
+      - apple
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_arm
+      _Active: 1
+      _Text: Tu BRAZO es muy largo
+      _Category: 15
+      _Linked: 
+      _Words:
+      - arm
+      _Answers:
+      - arm
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_aunt
+      _Active: 1
+      _Text: "Mi T\xCDA vive en una gran ciudad"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - aunt
+      - city
+      _Answers:
+      - aunt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_ball
+      _Active: 1
+      _Text: Hay una PELOTA en la playa
+      _Category: 10
+      _Linked: 
+      _Words:
+      - ball
+      - beach
+      _Answers:
+      - ball
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_banana
+      _Active: 1
+      _Text: "Este PL\xC1TANO es amarillo"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - banana
+      - color_yellow
+      _Answers:
+      - banana
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_bed
+      _Active: 1
+      _Text: La CAMA es roja
+      _Category: 9
+      _Linked: 
+      _Words:
+      - bed
+      - color_red
+      _Answers:
+      - bed
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_bedroom
+      _Active: 1
+      _Text: Un gato juega en el DORMITORIO
+      _Category: 9
+      _Linked: 
+      _Words:
+      - bedroom
+      - cat
+      _Answers:
+      - bedroom
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_belly
+      _Active: 1
+      _Text: Me duele la BARRIGA
+      _Category: 15
+      _Linked: 
+      _Words:
+      - belly
+      _Answers:
+      - belly
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_bicycle
+      _Active: 1
+      _Text: La BICICLETA es vieja
+      _Category: 12
+      _Linked: 
+      _Words:
+      - bicycle
+      _Answers:
+      - bicycle
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_bird
+      _Active: 1
+      _Text: "Un P\xC1JARO canta en el bosque"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - bird
+      - forest
+      _Answers:
+      - bird
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_book
+      _Active: 1
+      _Text: Hay un LIBRO encima de la mesa
+      _Category: 10
+      _Linked: 
+      _Words:
+      - book
+      - table
+      _Answers:
+      - book
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_box
+      _Active: 1
+      _Text: Esta es una CAJA grande
+      _Category: 10
+      _Linked: 
+      _Words:
+      - box
+      _Answers:
+      - box
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_boy
+      _Active: 1
+      _Text: "Un NI\xD1O canta en el coche"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - boy
+      - car
+      _Answers:
+      - boy
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_brain
+      _Active: 1
+      _Text: "El CEREBRO est\xE1 en la cabeza"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - brain
+      - head
+      _Answers:
+      - brain
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_brother
+      _Active: 1
+      _Text: Tu HERMANO es joven
+      _Category: 13
+      _Linked: 
+      _Words:
+      - brother
+      _Answers:
+      - brother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_bus
+      _Active: 1
+      _Text: "El AUTOB\xDAS es verde"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - bus
+      - color_green
+      _Answers:
+      - bus
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_cake
+      _Active: 1
+      _Text: "Hay una TARTA en el frigor\xEDfico"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - cake
+      - fridge
+      _Answers:
+      - cake
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_camel
+      _Active: 1
+      _Text: El CAMELLO vive en el desierto
+      _Category: 8
+      _Linked: 
+      _Words:
+      - camel
+      - desert
+      _Answers:
+      - camel
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_carrot
+      _Active: 1
+      _Text: La ZANAHORIA es saludable
+      _Category: 14
+      _Linked: 
+      _Words:
+      - carrot
+      _Answers:
+      - carrot
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_castle
+      _Active: 1
+      _Text: El CASTILLO es bonito
+      _Category: 12
+      _Linked: 
+      _Words:
+      - castle
+      _Answers:
+      - castle
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_cat
+      _Active: 1
+      _Text: "El GATO es peque\xF1o"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - cat
+      _Answers:
+      - cat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_chair
+      _Active: 1
+      _Text: "Esta es una SILLA peque\xF1a"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - chair
+      _Answers:
+      - chair
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cheese
+      _Active: 1
+      _Text: Me gusta el QUESO
+      _Category: 14
+      _Linked: 
+      _Words:
+      - cheese
+      _Answers:
+      - cheese
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_chickpea
+      _Active: 1
+      _Text: "El GARBANZO es peque\xF1o"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - chickpea
+      _Answers:
+      - chickpea
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_classroom
+      _Active: 1
+      _Text: Hay una silla en el AULA
+      _Category: 12
+      _Linked: 
+      _Words:
+      - classroom
+      - chair
+      _Answers:
+      - classroom
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_closet
+      _Active: 1
+      _Text: Hay una falda en el ARMARIO
+      _Category: 9
+      _Linked: 
+      _Words:
+      - skirt
+      - closet
+      _Answers:
+      - closet
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cloud
+      _Active: 1
+      _Text: La NUBE es blanca
+      _Category: 7
+      _Linked: 
+      _Words:
+      - cloud
+      - color_white
+      _Answers:
+      - cloud
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_coat
+      _Active: 1
+      _Text: El ABRIGO es muy viejo
+      _Category: 11
+      _Linked: 
+      _Words:
+      - coat
+      _Answers:
+      - coat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_coffee
+      _Active: 1
+      _Text: "Mi madre bebe CAF\xC9"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - coffee
+      - mother
+      _Answers:
+      - coffee
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_computer
+      _Active: 1
+      _Text: "El ORDENADOR est\xE1 encendido"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - computer
+      _Answers:
+      - computer
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_couch
+      _Active: 1
+      _Text: "Este es un SOF\xC1 verde"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - couch
+      - color_green
+      _Answers:
+      - couch
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_cow
+      _Active: 1
+      _Text: La VACA da leche
+      _Category: 8
+      _Linked: 
+      _Words:
+      - cow
+      _Answers:
+      - cow
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_cup
+      _Active: 1
+      _Text: "La TAZA est\xE1 llena"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - cup
+      _Answers:
+      - cup
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_daughter
+      _Active: 1
+      _Text: "Mi HIJA ve la televisi\xF3n"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - daughter
+      - television
+      _Answers:
+      - daughter
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_dog
+      _Active: 1
+      _Text: "Este es un PERRO marr\xF3n"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - dog
+      - color_brown
+      _Answers:
+      - dog
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_door
+      _Active: 1
+      _Text: "Una PUERTA est\xE1 cerrada"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - door
+      _Answers:
+      - door
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_elephant
+      _Active: 1
+      _Text: El ELEFANTE es grande
+      _Category: 8
+      _Linked: 
+      _Words:
+      - elephant
+      _Answers:
+      - elephant
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_eye
+      _Active: 1
+      _Text: Este es un OJO azul
+      _Category: 15
+      _Linked: 
+      _Words:
+      - eye
+      - color_blue
+      _Answers:
+      - eye
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_face
+      _Active: 1
+      _Text: Tengo una CARA feliz
+      _Category: 15
+      _Linked: 
+      _Words:
+      - face
+      _Answers:
+      - face
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_father
+      _Active: 1
+      _Text: Tu PADRE trabaja en un hospital
+      _Category: 13
+      _Linked: 
+      _Words:
+      - father
+      - hospital
+      _Answers:
+      - father
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_finger
+      _Active: 1
+      _Text: Tu DEDO es muy corto
+      _Category: 15
+      _Linked: 
+      _Words:
+      - finger
+      _Answers:
+      - finger
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_flower
+      _Active: 1
+      _Text: Esta es una hermosa FLOR
+      _Category: 7
+      _Linked: 
+      _Words:
+      - flower
+      _Answers:
+      - flower
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_food
+      _Active: 1
+      _Text: La COMIDA es importante
+      _Category: 14
+      _Linked: 
+      _Words:
+      - food
+      _Answers:
+      - food
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_forest
+      _Active: 1
+      _Text: El BOSQUE es oscuro
+      _Category: 7
+      _Linked: 
+      _Words:
+      - forest
+      _Answers:
+      - forest
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_fork
+      _Active: 1
+      _Text: "Este es un TENEDOR de pl\xE1stico"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - fork
+      _Answers:
+      - fork
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_frog
+      _Active: 1
+      _Text: "Hay una RANA en el r\xEDo"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - frog
+      - river
+      _Answers:
+      - frog
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_garden
+      _Active: 1
+      _Text: "Hay un \xE1rbol en el JARD\xCDN"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - garden
+      - tree
+      _Answers:
+      - garden
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_girl
+      _Active: 1
+      _Text: "Una NI\xD1A monta en bicicleta"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - girl
+      - bicycle
+      _Answers:
+      - girl
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_gloves
+      _Active: 1
+      _Text: "Un ni\xF1o lleva GUANTES"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - boy
+      - gloves
+      _Answers:
+      - gloves
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_goat
+      _Active: 1
+      _Text: La CABRA come una planta
+      _Category: 8
+      _Linked: 
+      _Words:
+      - goat
+      - plant
+      _Answers:
+      - goat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_grandfather
+      _Active: 1
+      _Text: Tu ABUELO es muy mayor
+      _Category: 13
+      _Linked: 
+      _Words:
+      - grandfather
+      _Answers:
+      - grandfather
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_grandmother
+      _Active: 1
+      _Text: "Mi ABUELA utiliza el autob\xFAs"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - grandmother
+      - bus
+      _Answers:
+      - grandmother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_hair
+      _Active: 1
+      _Text: Mi PELO es negro
+      _Category: 15
+      _Linked: 
+      _Words:
+      - hair
+      - color_black
+      _Answers:
+      - hair
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_hand
+      _Active: 1
+      _Text: "Mi MANO es peque\xF1a"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - hand
+      _Answers:
+      - hand
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_hat
+      _Active: 1
+      _Text: "El SOMBRERO es peque\xF1o"
+      _Category: 11
+      _Linked: 
+      _Words:
+      - hat
+      _Answers:
+      - hat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_head
+      _Active: 1
+      _Text: El pollo mueve la CABEZA
+      _Category: 15
+      _Linked: 
+      _Words:
+      - head
+      - chicken
+      _Answers:
+      - head
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_horse
+      _Active: 1
+      _Text: Este es un CABALLO negro
+      _Category: 8
+      _Linked: 
+      _Words:
+      - horse
+      - color_black
+      _Answers:
+      - horse
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_house
+      _Active: 1
+      _Text: "La CASA est\xE1 en la isla"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - house
+      - island
+      _Answers:
+      - house
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_island
+      _Active: 1
+      _Text: "La ISLA est\xE1 en el mar"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - island
+      - sea
+      _Answers:
+      - island
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_jacket
+      _Active: 1
+      _Text: La CHAQUETA es amarilla
+      _Category: 11
+      _Linked: 
+      _Words:
+      - jacket
+      - color_yellow
+      _Answers:
+      - jacket
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_kitchen
+      _Active: 1
+      _Text: Hay un perro en la COCINA
+      _Category: 9
+      _Linked: 
+      _Words:
+      - kitchen
+      - dog
+      _Answers:
+      - kitchen
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_lamp
+      _Active: 1
+      _Text: "La L\xC1MPARA est\xE1 apagada"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - lamp
+      _Answers:
+      - lamp
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_lips
+      _Active: 1
+      _Text: Los LABIOS son rojos
+      _Category: 15
+      _Linked: 
+      _Words:
+      - lips
+      - color_red
+      _Answers:
+      - lips
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_man
+      _Active: 1
+      _Text: Un HOMBRE camina en el parque
+      _Category: 13
+      _Linked: 
+      _Words:
+      - man
+      - park
+      _Answers:
+      - man
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_meat
+      _Active: 1
+      _Text: "El le\xF3n come CARNE"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - lion
+      - meat
+      _Answers:
+      - meat
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_monkey
+      _Active: 1
+      _Text: El MONO es divertido
+      _Category: 8
+      _Linked: 
+      _Words:
+      - monkey
+      _Answers:
+      - monkey
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_moon
+      _Active: 1
+      _Text: Un hombre mira la LUNA
+      _Category: 7
+      _Linked: 
+      _Words:
+      - moon
+      - man
+      _Answers:
+      - moon
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_mother
+      _Active: 1
+      _Text: Mi MADRE me quiere
+      _Category: 13
+      _Linked: 
+      _Words:
+      - mother
+      _Answers:
+      - mother
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_motorbike
+      _Active: 1
+      _Text: Esta es una MOTO nueva
+      _Category: 12
+      _Linked: 
+      _Words:
+      - motorbike
+      _Answers:
+      - motorbike
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_mountain
+      _Active: 1
+      _Text: "La MONTA\xD1A es alta"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - mountain
+      _Answers:
+      - mountain
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_mouth
+      _Active: 1
+      _Text: Hay comida en la BOCA
+      _Category: 15
+      _Linked: 
+      _Words:
+      - mouth
+      - food
+      _Answers:
+      - mouth
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_museum
+      _Active: 1
+      _Text: El MUSEO tiene una gran ventana
+      _Category: 12
+      _Linked: 
+      _Words:
+      - museum
+      - window
+      _Answers:
+      - museum
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_nail
+      _Active: 1
+      _Text: "Tengo una U\xD1A rota"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - nail
+      _Answers:
+      - nail
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_needle
+      _Active: 1
+      _Text: "La AGUJA es muy peque\xF1a"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - needle
+      _Answers:
+      - needle
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_nose
+      _Active: 1
+      _Text: El hombre tiene una NARIZ grande
+      _Category: 15
+      _Linked: 
+      _Words:
+      - nose
+      - man
+      _Answers:
+      - nose
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_oil
+      _Active: 1
+      _Text: Hay ACEITE en el suelo
+      _Category: 14
+      _Linked: 
+      _Words:
+      - oil
+      - floor
+      _Answers:
+      - oil
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_oven
+      _Active: 1
+      _Text: "El HORNO est\xE1 caliente"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - oven
+      _Answers:
+      - oven
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_paper
+      _Active: 1
+      _Text: "Una ni\xF1a escribe en un PAPEL"
+      _Category: 10
+      _Linked: 
+      _Words:
+      - paper
+      - girl
+      _Answers:
+      - paper
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_parrot
+      _Active: 1
+      _Text: "Hay un LORO en el \xE1rbol"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - parrot
+      - tree
+      _Answers:
+      - parrot
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_pencil
+      _Active: 1
+      _Text: El LAPIZ es nuevo
+      _Category: 10
+      _Linked: 
+      _Words:
+      - pencil
+      _Answers:
+      - pencil
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_penguin
+      _Active: 1
+      _Text: "Un PING\xDCINO nada en el mar"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - penguin
+      - sea
+      _Answers:
+      - penguin
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_pepper
+      _Active: 1
+      _Text: Este PIMIENTO es verde
+      _Category: 14
+      _Linked: 
+      _Words:
+      - pepper
+      - color_green
+      _Answers:
+      - pepper
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_pet
+      _Active: 1
+      _Text: Yo quiero a mi MASCOTA
+      _Category: 13
+      _Linked: 
+      _Words:
+      - pet
+      _Answers:
+      - pet
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_plane
+      _Active: 1
+      _Text: "Un AVI\xD3N vuela en el cielo"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - plane
+      - sky
+      _Answers:
+      - plane
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_plant
+      _Active: 1
+      _Text: La PLANTA es verde
+      _Category: 7
+      _Linked: 
+      _Words:
+      - plant
+      - color_green
+      _Answers:
+      - plant
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_port
+      _Active: 1
+      _Text: "El PUERTO est\xE1 en el mar"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - port
+      - sea
+      _Answers:
+      - port
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_potato
+      _Active: 1
+      _Text: Esta es una PATATA grande
+      _Category: 14
+      _Linked: 
+      _Words:
+      - potato
+      _Answers:
+      - potato
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_restaurant
+      _Active: 1
+      _Text: Me gusta este RESTAURANTE
+      _Category: 12
+      _Linked: 
+      _Words:
+      - restaurant
+      _Answers:
+      - restaurant
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_river
+      _Active: 1
+      _Text: "Un ni\xF1o pesca en el R\xCDO"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - river
+      _Answers:
+      - river
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_scarf
+      _Active: 1
+      _Text: La BUFANDA es rosa
+      _Category: 11
+      _Linked: 
+      _Words:
+      - scarf
+      - color_pink
+      _Answers:
+      - scarf
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_school
+      _Active: 1
+      _Text: "El ni\xF1o va a la ESCUELA"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - school
+      - boy
+      _Answers:
+      - school
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_shirt
+      _Active: 1
+      _Text: Hay una CAMISA en el armario
+      _Category: 11
+      _Linked: 
+      _Words:
+      - shirt
+      - closet
+      _Answers:
+      - shirt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_shoes
+      _Active: 1
+      _Text: Los ZAPATOS son grises
+      _Category: 11
+      _Linked: 
+      _Words:
+      - shoes
+      - color_grey
+      _Answers:
+      - shoes
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_sister
+      _Active: 1
+      _Text: "Mi HERMANA juega al f\xFAtbol"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - sister
+      _Answers:
+      - sister
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_skirt
+      _Active: 1
+      _Text: Me gusta esta FALDA
+      _Category: 11
+      _Linked: 
+      _Words:
+      - skirt
+      _Answers:
+      - skirt
+      _Complexity: 0
+      _PlaySessionLink:
+      - Clothes
+    - _Id: Phrase_sky
+      _Active: 1
+      _Text: El CIELO es azul
+      _Category: 7
+      _Linked: 
+      _Words:
+      - sky
+      _Answers:
+      - sky
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_snake
+      _Active: 1
+      _Text: "La SERPIENTE come un rat\xF3n"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - snake
+      - rat
+      _Answers:
+      - snake
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_snow
+      _Active: 1
+      _Text: "Hay NIEVE en la monta\xF1a"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - snow
+      - mountain
+      _Answers:
+      - snow
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_son
+      _Active: 1
+      _Text: A mi HIJO le gusta el yogur
+      _Category: 13
+      _Linked: 
+      _Words:
+      - son
+      - yogurt
+      _Answers:
+      - son
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_squirrel
+      _Active: 1
+      _Text: "La ARDILLA trepa por el \xE1rbol"
+      _Category: 8
+      _Linked: 
+      _Words:
+      - squirrel
+      - tree
+      _Answers:
+      - squirrel
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_star
+      _Active: 1
+      _Text: Hay una estrella en el cielo
+      _Category: 7
+      _Linked: 
+      _Words:
+      - star
+      - sky
+      _Answers:
+      - star
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_stone
+      _Active: 1
+      _Text: "Esta es una PIEDRA peque\xF1a"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - stone
+      _Answers:
+      - stone
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_stove
+      _Active: 1
+      _Text: Hay fuego en la ESTUFA
+      _Category: 9
+      _Linked: 
+      _Words:
+      - stove
+      - fire
+      _Answers:
+      - stove
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_sun
+      _Active: 1
+      _Text: "El SOL est\xE1 en el cielo"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - sun
+      - sky
+      _Answers:
+      - sun
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_television
+      _Active: 1
+      _Text: "Una chica ve la TELEVISI\xD3N"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - girl
+      - television
+      _Answers:
+      - television
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_tiger
+      _Active: 1
+      _Text: El TIGRE vive en la jungla
+      _Category: 8
+      _Linked: 
+      _Words:
+      - tiger
+      _Answers:
+      - tiger
+      _Complexity: 0
+      _PlaySessionLink:
+      - Animals
+    - _Id: Phrase_tomato
+      _Active: 1
+      _Text: Este TOMATE es rojo
+      _Category: 14
+      _Linked: 
+      _Words:
+      - tomato
+      - color_red
+      _Answers:
+      - tomato
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_tongue
+      _Active: 1
+      _Text: "La LENGUA est\xE1 en la boca"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - tongue
+      - mouth
+      _Answers:
+      - tongue
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_tooth
+      _Active: 1
+      _Text: "El DIENTE est\xE1 roto"
+      _Category: 15
+      _Linked: 
+      _Words:
+      - tooth
+      _Answers:
+      - tooth
+      _Complexity: 0
+      _PlaySessionLink:
+      - Body
+    - _Id: Phrase_toy
+      _Active: 1
+      _Text: Hay un JUGUETE sobre la cama
+      _Category: 10
+      _Linked: 
+      _Words:
+      - toy
+      - bed
+      _Answers:
+      - toy
+      _Complexity: 0
+      _PlaySessionLink:
+      - Objects
+    - _Id: Phrase_train
+      _Active: 1
+      _Text: "El TREN para en la estaci\xF3n"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - train
+      - station
+      _Answers:
+      - train
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_tree
+      _Active: 1
+      _Text: "Este es un \xC1RBOL grande"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - tree
+      _Answers:
+      - tree
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_truck
+      _Active: 1
+      _Text: "Este es un CAMI\xD3N naranja"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - truck
+      - color_orange
+      _Answers:
+      - truck
+      _Complexity: 0
+      _PlaySessionLink:
+      - City
+    - _Id: Phrase_uncle
+      _Active: 1
+      _Text: "Mi T\xCDO vive en la ciudad"
+      _Category: 13
+      _Linked: 
+      _Words:
+      - uncle
+      - city
+      _Answers:
+      - uncle
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_volcano
+      _Active: 1
+      _Text: "Un VOLC\xC1N es peligroso"
+      _Category: 7
+      _Linked: 
+      _Words:
+      - volcano
+      _Answers:
+      - volcano
+      _Complexity: 0
+      _PlaySessionLink:
+      - Nature
+    - _Id: Phrase_water
+      _Active: 1
+      _Text: "Hay AGUA en el r\xEDo"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - water
+      - river
+      _Answers:
+      - water
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_watermelon
+      _Active: 1
+      _Text: "A la ni\xF1a le gusta la SAND\xCDA"
+      _Category: 14
+      _Linked: 
+      _Words:
+      - watermelon
+      - girl
+      _Answers:
+      - watermelon
+      _Complexity: 0
+      _PlaySessionLink:
+      - Food
+    - _Id: Phrase_window
+      _Active: 1
+      _Text: "Una VENTANA est\xE1 abierta"
+      _Category: 9
+      _Linked: 
+      _Words:
+      - window
+      _Answers:
+      - window
+      _Complexity: 0
+      _PlaySessionLink:
+      - Home
+    - _Id: Phrase_woman
+      _Active: 1
+      _Text: Una MUJER lleva un abrigo
+      _Category: 13
+      _Linked: 
+      _Words:
+      - woman
+      - coat
+      _Answers:
+      - woman
+      _Complexity: 0
+      _PlaySessionLink:
+      - Family
+    - _Id: Phrase_zoo
+      _Active: 1
+      _Text: "Un tigre vive en el ZOOL\xD3GICO"
+      _Category: 12
+      _Linked: 
+      _Words:
+      - zoo
+      - tiger
+      _Answers:
+      - zoo
+      _Complexity: 0
+      _PlaySessionLink:
+      - City

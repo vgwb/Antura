@@ -4,6 +4,8 @@ using Antura.Helpers;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using TMPro;
 using UnityEngine;
 
 namespace Antura.Language
@@ -114,26 +116,53 @@ namespace Antura.Language
         {
 
             var stringParts = new List<StringPart>();
-            char[] chars = wordData.Text.ToCharArray();
-            for (int iChar = 0; iChar < chars.Length; iChar++)
+            var availableLettersTable = staticDatabase.GetLetterTable();
+
+            // To split a word, we first check whether we can find subsets of long available letters
+            var availableLettersList = availableLettersTable.GetList().ConvertAll(x => x as LetterData);
+            availableLettersList.Sort((x, y) => y.Isolated.Length - x.Isolated.Length);
+
+            var depletingWord = wordData.Text;
+            int maxLetterLength = availableLettersList[0].Isolated.Length;
+            // From the beginning of the word, check substrings of max length
+            int index = 0;
+            while(depletingWord.Length > 0)
             {
-                var letterDataID = chars[iChar].ToString();
+                bool foundLetter = false;
 
                 // HACK: Letter "Œ" is split differently as it is a ligature
-                if (letterDataID == "Œ")
+                if (depletingWord.Substring(0,1) == "Œ")
                 {
-                    var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), "O");
-                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
-
-                    letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), "E");
-                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+                    var ld = staticDatabase.GetById(availableLettersTable, "O");
+                    stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
+                    ld = staticDatabase.GetById(availableLettersTable, "E");
+                    stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
+                    depletingWord = depletingWord.Substring(1, depletingWord.Length - 1);
+                    index += 1;
+                    continue;
                 }
-                else
+
+                for (int l = Mathf.Min(depletingWord.Length, maxLetterLength); l >= 1; l--)
                 {
-                    var letterData = staticDatabase.GetById(staticDatabase.GetLetterTable(), letterDataID);
-                    stringParts.Add(new StringPart(letterData, iChar, iChar, LetterForm.Isolated));
+                    var sub = depletingWord.Substring(0, l);
+                    var ld = availableLettersList.FirstOrDefault(x => string.Equals(x.Isolated, sub, StringComparison.InvariantCultureIgnoreCase));
+                    if (ld != null)
+                    {
+                        depletingWord = depletingWord.Substring(l, depletingWord.Length - l);
+                        foundLetter = true;
+                        stringParts.Add(new StringPart(ld, index, index + ld.Isolated.Length-1, LetterForm.Isolated));
+                        index += ld.Isolated.Length;
+                        break;
+                    }
+                }
+
+                if (!foundLetter)
+                {
+                    throw new Exception($"Could not find any letter in word {wordData} for the remainder of {depletingWord}");
                 }
             }
+
+            //Debug.LogError($"Split {wordData}: {stringParts.Select(x => x.letter.GetStringForDisplay()).ToJoinedString()}");
 
             return stringParts;
         }

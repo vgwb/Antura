@@ -202,8 +202,16 @@ namespace Antura.Teacher
 
         public List<LetterData> FindWrongLetters(WordData selectedWord, List<LetterData> wordLetters)
         {
+            // We force special characters and accented letters to not appear for wrong letters
+            var filters = new LetterFilters
+            {
+                includeSpecialCharacters = false,
+                includeAccentedLetters = false,
+                excludeDiacritics = parameters.letterFilters.excludeDiacritics
+            };
+
             var vocabularyHelper = AppManager.I.VocabularyHelper;
-            var noWordLetters = vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.Letter, parameters.letterFilters, wordLetters.ToArray());
+            var noWordLetters = vocabularyHelper.GetLettersNotIn(LetterEqualityStrictness.Letter, filters, wordLetters.ToArray());
             var eligibleLetters = new List<LetterData>();
             var badWords = new List<WordData>(currentRound_words);
             badWords.Remove(selectedWord);

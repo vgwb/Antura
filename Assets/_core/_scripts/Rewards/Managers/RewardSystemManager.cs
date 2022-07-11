@@ -22,7 +22,7 @@ namespace Antura.Rewards
     {
         private static bool VERBOSE = false;
 
-        private const string ANTURA_REWARDS_PARTS_CONFIG_PATH = "Configs/AnturaRewardsPartsConfig";
+        private const string ANTURA_REWARDS_PARTS_CONFIG_PATH = "Rewards/AnturaRewardsPartsConfig";
 
         #region Events
 

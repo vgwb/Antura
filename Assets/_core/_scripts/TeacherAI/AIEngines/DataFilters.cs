@@ -7,6 +7,7 @@ namespace Antura.Teacher
     /// <summary>
     /// Parameters used by a QuestionBuilder to filter what letters can be selected.
     /// </summary>
+    [System.Serializable]
     public class LetterFilters
     {
         public ExcludeLetterVariations excludeLetterVariations;

@@ -26,10 +26,10 @@ namespace Antura.Minigames.ColorTickle
         // Use this for initialization
         void Start()
         {
-            int alphabetCode = (int)LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Alphabet;
+            int alphabetFamily = (int)LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).AlphabetFamily;
 
-            m_Finger1Positions = line1FingerPivots[alphabetCode].GetComponentsInChildren<Transform>().Where(tr => tr != line1FingerPivots[alphabetCode]).ToArray();
-            m_Finger2Positions = line2FingerPivots[alphabetCode].GetComponentsInChildren<Transform>().Where(tr => tr != line2FingerPivots[alphabetCode]).ToArray();
+            m_Finger1Positions = line1FingerPivots[alphabetFamily].GetComponentsInChildren<Transform>().Where(tr => tr != line1FingerPivots[alphabetFamily]).ToArray();
+            m_Finger2Positions = line2FingerPivots[alphabetFamily].GetComponentsInChildren<Transform>().Where(tr => tr != line2FingerPivots[alphabetFamily]).ToArray();
             m_Delay = m_MaxDelay;
         }
 

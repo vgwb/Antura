@@ -214,7 +214,7 @@ namespace Antura.Minigames.ReadingGame
 
                 var textAsset = ReadingGameConfiguration.Instance.Variation == ReadingGameVariation.SongAlphabet ? alphabetSongSrt : diacriticSongSrt;
 
-                using (MemoryStream stream = new MemoryStream(Encoding.UTF8.GetBytes(textAsset.text)))
+                using (var stream = new MemoryStream(Encoding.UTF8.GetBytes(textAsset.text)))
                 {
                     songToPlay = new KaraokeSong(parser.Parse(stream));
                 }
@@ -270,8 +270,14 @@ namespace Antura.Minigames.ReadingGame
         {
             while (true)
             {
-                if (voice != null) loopingVoiceSource = Context.GetAudioManager().PlaySound(voice);
-                else loopingVoiceSource = null;
+                if (voice != null)
+                {
+                    loopingVoiceSource = Context.GetAudioManager().PlaySound(voice);
+                }
+                else
+                {
+                    loopingVoiceSource = null;
+                }
                 loopingSongSource = Context.GetAudioManager().PlaySound(song);
                 yield return WaitForPauseCO(song.length, true);
                 onSongLoop?.Invoke();
@@ -306,7 +312,8 @@ namespace Antura.Minigames.ReadingGame
                 float currentTime = loopingSongSource.Position;
                 lastSongTime = currentTime;
                 loopingSongSource.Pause();
-                if (loopingVoiceSource != null) loopingVoiceSource.Pause();
+                if (loopingVoiceSource != null)
+                    loopingVoiceSource.Pause();
                 songPaused = true;
                 Debug.Log("SONG PAUSING");
             }

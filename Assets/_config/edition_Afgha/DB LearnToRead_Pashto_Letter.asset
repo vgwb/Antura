@@ -31,10 +31,6 @@ MonoBehaviour:
       _NameSound: 
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: 
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 0020
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -60,17 +56,14 @@ MonoBehaviour:
       _Symbol: 
       _Type: 1
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: alif__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0627"
-      _Initial: "\u0627"
-      _Medial: "\uFE8E"
-      _Final: "\uFE8E"
       _Isolated_Unicode: 0627
       _Initial_Unicode: 0627
       _Medial_Unicode: FE8E
@@ -96,17 +89,14 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: alif_madda__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0622"
-      _Initial: "\u0622"
-      _Medial: "\uFE82"
-      _Final: "\uFE82"
       _Isolated_Unicode: 0622
       _Initial_Unicode: 0622
       _Medial_Unicode: FE82
@@ -132,58 +122,19 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: alif_zwar
       _SoundZone: 
-      _Isolated: "\u0627\u064E"
-      _Initial: "\u0627\u064E"
-      _Medial: "\uFE8E\u064E"
-      _Final: "\uFE8E\u064E"
       _Isolated_Unicode: 0627
       _Initial_Unicode: 0627
       _Medial_Unicode: FE8E
       _Final_Unicode: FE8E
       _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: alif_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: alif_zwarakay
-      _Kind: 5
-      _BaseLetter: alif
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: alif_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0627\u0659"
-      _Initial: "\u0627\u0659"
-      _Medial: "\uFE8E\u0659"
-      _Final: "\uFE8E\u0659"
-      _Isolated_Unicode: 0627
-      _Initial_Unicode: 0627
-      _Medial_Unicode: FE8E
-      _Final_Unicode: FE8E
-      _Symbol_Unicode: 0659
       _InitialFix: 
       _FinalFix: 
       _MedialFix: 
@@ -204,17 +155,14 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: alif_zer
       _SoundZone: 
-      _Isolated: "\u0627\u0650"
-      _Initial: "\u0627\u0650"
-      _Medial: "\uFE8E\u0650"
-      _Final: "\uFE8E\u0650"
       _Isolated_Unicode: 0627
       _Initial_Unicode: 0627
       _Medial_Unicode: FE8E
@@ -240,17 +188,14 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: alif_pesh
       _SoundZone: 
-      _Isolated: "\u0627\u064F"
-      _Initial: "\u0627\u064F"
-      _Medial: "\uFE8E\u064F"
-      _Final: "\uFE8E\u064F"
       _Isolated_Unicode: 0627
       _Initial_Unicode: 0627
       _Medial_Unicode: FE8E
@@ -276,25 +221,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: be__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0628"
-      _Initial: "\u0628\u0640"
-      _Medial: "\u0640\u0628\u0640"
-      _Final: "\u0640\u0628"
       _Isolated_Unicode: 0628
       _Initial_Unicode: FE91
       _Medial_Unicode: FE92
       _Final_Unicode: FE90
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -312,25 +254,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: be_zwar
       _SoundZone: 
-      _Isolated: "\u0628\u064E"
-      _Initial: "\uFE91\u064E"
-      _Medial: "\uFE92\u064E"
-      _Final: "\uFE90\u064E"
       _Isolated_Unicode: 0628
       _Initial_Unicode: FE91
       _Medial_Unicode: FE92
       _Final_Unicode: FE90
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -348,25 +287,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: be_zwarakay
       _SoundZone: 
-      _Isolated: "\u0628\u0659"
-      _Initial: "\uFE91\u0659"
-      _Medial: "\uFE92\u0659"
-      _Final: "\uFE90\u0659"
       _Isolated_Unicode: 0628
       _Initial_Unicode: FE91
       _Medial_Unicode: FE92
       _Final_Unicode: FE90
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -384,25 +320,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: be_zer
       _SoundZone: 
-      _Isolated: "\u0628\u0650"
-      _Initial: "\uFE91\u0650"
-      _Medial: "\uFE92\u0650"
-      _Final: "\uFE90\u0650"
       _Isolated_Unicode: 0628
       _Initial_Unicode: FE91
       _Medial_Unicode: FE92
       _Final_Unicode: FE90
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -420,25 +353,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: be_pesh
       _SoundZone: 
-      _Isolated: "\u0628\u064F"
-      _Initial: "\uFE91\u064F"
-      _Medial: "\uFE92\u064F"
-      _Final: "\uFE90\u064F"
       _Isolated_Unicode: 0628
       _Initial_Unicode: FE91
       _Medial_Unicode: FE92
       _Final_Unicode: FE90
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -456,25 +386,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: pe__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u067E"
-      _Initial: "\u067E\u0640"
-      _Medial: "\u0640\u067E\u0640"
-      _Final: "\u0640\u067E"
       _Isolated_Unicode: 067E
       _Initial_Unicode: FB58
       _Medial_Unicode: FB59
       _Final_Unicode: FB57
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -492,25 +419,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: pe_zwar
       _SoundZone: 
-      _Isolated: "\u067E\u064E"
-      _Initial: "\uFB58\u064E"
-      _Medial: "\uFB59\u064E"
-      _Final: "\uFB57\u064E"
       _Isolated_Unicode: 067E
       _Initial_Unicode: FB58
       _Medial_Unicode: FB59
       _Final_Unicode: FB57
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -528,25 +452,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: pe_zwarakay
       _SoundZone: 
-      _Isolated: "\u067E\u0659"
-      _Initial: "\uFB58\u0659"
-      _Medial: "\uFB59\u0659"
-      _Final: "\uFB57\u0659"
       _Isolated_Unicode: 067E
       _Initial_Unicode: FB58
       _Medial_Unicode: FB59
       _Final_Unicode: FB57
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -564,25 +485,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: pe_zer
       _SoundZone: 
-      _Isolated: "\u067E\u0650"
-      _Initial: "\uFB58\u0650"
-      _Medial: "\uFB59\u0650"
-      _Final: "\uFB57\u0650"
       _Isolated_Unicode: 067E
       _Initial_Unicode: FB58
       _Medial_Unicode: FB59
       _Final_Unicode: FB57
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -600,25 +518,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: pe_pesh
       _SoundZone: 
-      _Isolated: "\u067E\u064F"
-      _Initial: "\uFB58\u064F"
-      _Medial: "\uFB59\u064F"
-      _Final: "\uFB57\u064F"
       _Isolated_Unicode: 067E
       _Initial_Unicode: FB58
       _Medial_Unicode: FB59
       _Final_Unicode: FB57
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -636,25 +551,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: te__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062A"
-      _Initial: "\u062A\u0640"
-      _Medial: "\u0640\u062A\u0640"
-      _Final: "\u0640\u062A"
       _Isolated_Unicode: 062A
       _Initial_Unicode: FE97
       _Medial_Unicode: FE98
       _Final_Unicode: FE96
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -672,25 +584,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_zwar
       _SoundZone: 
-      _Isolated: "\u062A\u064E"
-      _Initial: "\uFE97\u064E"
-      _Medial: "\uFE98\u064E"
-      _Final: "\uFE96\u064E"
       _Isolated_Unicode: 062A
       _Initial_Unicode: FE97
       _Medial_Unicode: FE98
       _Final_Unicode: FE96
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -708,25 +617,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_zwarakay
       _SoundZone: 
-      _Isolated: "\u062A\u0659"
-      _Initial: "\uFE97\u0659"
-      _Medial: "\uFE98\u0659"
-      _Final: "\uFE96\u0659"
       _Isolated_Unicode: 062A
       _Initial_Unicode: FE97
       _Medial_Unicode: FE98
       _Final_Unicode: FE96
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -744,25 +650,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_zer
       _SoundZone: 
-      _Isolated: "\u062A\u0650"
-      _Initial: "\uFE97\u0650"
-      _Medial: "\uFE98\u0650"
-      _Final: "\uFE96\u0650"
       _Isolated_Unicode: 062A
       _Initial_Unicode: FE97
       _Medial_Unicode: FE98
       _Final_Unicode: FE96
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -780,25 +683,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_pesh
       _SoundZone: 
-      _Isolated: "\u062A\u064F"
-      _Initial: "\uFE97\u064F"
-      _Medial: "\uFE98\u064F"
-      _Final: "\uFE96\u064F"
       _Isolated_Unicode: 062A
       _Initial_Unicode: FE97
       _Medial_Unicode: FE98
       _Final_Unicode: FE96
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -816,25 +716,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: te_ring__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u067C"
-      _Initial: "\u067C\u0640"
-      _Medial: "\u0640\u067C\u0640"
-      _Final: "\u0640\u067C"
       _Isolated_Unicode: 067C
-      _Initial_Unicode: 067C
-      _Medial_Unicode: 067C
+      _Initial_Unicode: 249C
+      _Medial_Unicode: 249C
       _Final_Unicode: 067C
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -852,25 +749,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_ring_zwar
       _SoundZone: 
-      _Isolated: "\u067C\u064E"
-      _Initial: "\u067C\u064E"
-      _Medial: "\u067C\u064E"
-      _Final: "\u067C\u064E"
       _Isolated_Unicode: 067C
-      _Initial_Unicode: 067C
-      _Medial_Unicode: 067C
+      _Initial_Unicode: 249C
+      _Medial_Unicode: 249C
       _Final_Unicode: 067C
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -888,25 +782,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_ring_zwarakay
       _SoundZone: 
-      _Isolated: "\u067C\u0659"
-      _Initial: "\u067C\u0659"
-      _Medial: "\u067C\u0659"
-      _Final: "\u067C\u0659"
       _Isolated_Unicode: 067C
-      _Initial_Unicode: 067C
-      _Medial_Unicode: 067C
+      _Initial_Unicode: 249C
+      _Medial_Unicode: 249C
       _Final_Unicode: 067C
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -924,25 +815,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_ring_zer
       _SoundZone: 
-      _Isolated: "\u067C\u0650"
-      _Initial: "\u067C\u0650"
-      _Medial: "\u067C\u0650"
-      _Final: "\u067C\u0650"
       _Isolated_Unicode: 067C
-      _Initial_Unicode: 067C
-      _Medial_Unicode: 067C
+      _Initial_Unicode: 249C
+      _Medial_Unicode: 249C
       _Final_Unicode: 067C
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -960,25 +848,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: te_ring_pesh
       _SoundZone: 
-      _Isolated: "\u067C\u064F"
-      _Initial: "\u067C\u064F"
-      _Medial: "\u067C\u064F"
-      _Final: "\u067C\u064F"
       _Isolated_Unicode: 067C
-      _Initial_Unicode: 067C
-      _Medial_Unicode: 067C
+      _Initial_Unicode: 249C
+      _Medial_Unicode: 249C
       _Final_Unicode: 067C
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -996,25 +881,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: se2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062B"
-      _Initial: "\u062B\u0640"
-      _Medial: "\u0640\u062B\u0640"
-      _Final: "\u0640\u062B"
       _Isolated_Unicode: 062B
       _Initial_Unicode: FE9B
       _Medial_Unicode: FE9C
       _Final_Unicode: FE9A
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1032,61 +914,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: se2_zwar
       _SoundZone: 
-      _Isolated: "\u062B\u064E"
-      _Initial: "\uFE9B\u064E"
-      _Medial: "\uFE9C\u064E"
-      _Final: "\uFE9A\u064E"
       _Isolated_Unicode: 062B
       _Initial_Unicode: FE9B
       _Medial_Unicode: FE9C
       _Final_Unicode: FE9A
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: se2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: se2_zwarakay
-      _Kind: 5
-      _BaseLetter: se2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: se2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u062B\u0659"
-      _Initial: "\uFE9B\u0659"
-      _Medial: "\uFE9C\u0659"
-      _Final: "\uFE9A\u0659"
-      _Isolated_Unicode: 062B
-      _Initial_Unicode: FE9B
-      _Medial_Unicode: FE9C
-      _Final_Unicode: FE9A
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1104,25 +947,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: se2_zer
       _SoundZone: 
-      _Isolated: "\u062B\u0650"
-      _Initial: "\uFE9B\u0650"
-      _Medial: "\uFE9C\u0650"
-      _Final: "\uFE9A\u0650"
       _Isolated_Unicode: 062B
       _Initial_Unicode: FE9B
       _Medial_Unicode: FE9C
       _Final_Unicode: FE9A
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1140,25 +980,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: se2_pesh
       _SoundZone: 
-      _Isolated: "\u062B\u064F"
-      _Initial: "\uFE9B\u064F"
-      _Medial: "\uFE9C\u064F"
-      _Final: "\uFE9A\u064F"
       _Isolated_Unicode: 062B
       _Initial_Unicode: FE9B
       _Medial_Unicode: FE9C
       _Final_Unicode: FE9A
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1176,25 +1013,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: jim__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062C"
-      _Initial: "\u062C\u0640"
-      _Medial: "\u0640\u062C\u0640"
-      _Final: "\u0640\u062C"
       _Isolated_Unicode: 062C
       _Initial_Unicode: FE9F
       _Medial_Unicode: FEA0
       _Final_Unicode: FE9E
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1212,25 +1046,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: jim_zwar
       _SoundZone: 
-      _Isolated: "\u062C\u064E"
-      _Initial: "\uFE9F\u064E"
-      _Medial: "\uFEA0\u064E"
-      _Final: "\uFE9E\u064E"
       _Isolated_Unicode: 062C
       _Initial_Unicode: FE9F
       _Medial_Unicode: FEA0
       _Final_Unicode: FE9E
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1248,25 +1079,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: jim_zwarakay
       _SoundZone: 
-      _Isolated: "\u062C\u0659"
-      _Initial: "\uFE9F\u0659"
-      _Medial: "\uFEA0\u0659"
-      _Final: "\uFE9E\u0659"
       _Isolated_Unicode: 062C
       _Initial_Unicode: FE9F
       _Medial_Unicode: FEA0
       _Final_Unicode: FE9E
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1284,25 +1112,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: jim_zer
       _SoundZone: 
-      _Isolated: "\u062C\u0650"
-      _Initial: "\uFE9F\u0650"
-      _Medial: "\uFEA0\u0650"
-      _Final: "\uFE9E\u0650"
       _Isolated_Unicode: 062C
       _Initial_Unicode: FE9F
       _Medial_Unicode: FEA0
       _Final_Unicode: FE9E
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1320,25 +1145,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: jim_pesh
       _SoundZone: 
-      _Isolated: "\u062C\u064F"
-      _Initial: "\uFE9F\u064F"
-      _Medial: "\uFEA0\u064F"
-      _Final: "\uFE9E\u064F"
       _Isolated_Unicode: 062C
       _Initial_Unicode: FE9F
       _Medial_Unicode: FEA0
       _Final_Unicode: FE9E
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1356,25 +1178,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: che__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0686"
-      _Initial: "\u0686\u0640"
-      _Medial: "\u0640\u0686\u0640"
-      _Final: "\u0640\u0686"
       _Isolated_Unicode: 0686
       _Initial_Unicode: FB7C
       _Medial_Unicode: FB7D
       _Final_Unicode: FB7B
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1392,25 +1211,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: che_zwar
       _SoundZone: 
-      _Isolated: "\u0686\u064E"
-      _Initial: "\uFB7C\u064E"
-      _Medial: "\uFB7D\u064E"
-      _Final: "\uFB7B\u064E"
       _Isolated_Unicode: 0686
       _Initial_Unicode: FB7C
       _Medial_Unicode: FB7D
       _Final_Unicode: FB7B
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1428,25 +1244,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: che_zwarakay
       _SoundZone: 
-      _Isolated: "\u0686\u0659"
-      _Initial: "\uFB7C\u0659"
-      _Medial: "\uFB7D\u0659"
-      _Final: "\uFB7B\u0659"
       _Isolated_Unicode: 0686
       _Initial_Unicode: FB7C
       _Medial_Unicode: FB7D
       _Final_Unicode: FB7B
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1464,25 +1277,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: che_zer
       _SoundZone: 
-      _Isolated: "\u0686\u0650"
-      _Initial: "\uFB7C\u0650"
-      _Medial: "\uFB7D\u0650"
-      _Final: "\uFB7B\u0650"
       _Isolated_Unicode: 0686
       _Initial_Unicode: FB7C
       _Medial_Unicode: FB7D
       _Final_Unicode: FB7B
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1500,25 +1310,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: che_pesh
       _SoundZone: 
-      _Isolated: "\u0686\u064F"
-      _Initial: "\uFB7C\u064F"
-      _Medial: "\uFB7D\u064F"
-      _Final: "\uFB7B\u064F"
       _Isolated_Unicode: 0686
       _Initial_Unicode: FB7C
       _Medial_Unicode: FB7D
       _Final_Unicode: FB7B
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1536,25 +1343,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: he2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062D"
-      _Initial: "\u062D\u0640"
-      _Medial: "\u0640\u062D\u0640"
-      _Final: "\u0640\u062D"
       _Isolated_Unicode: 062D
       _Initial_Unicode: FEA3
       _Medial_Unicode: FEA4
       _Final_Unicode: FEA2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1572,61 +1376,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he2_zwar
       _SoundZone: 
-      _Isolated: "\u062D\u064E"
-      _Initial: "\uFEA3\u064E"
-      _Medial: "\uFEA4\u064E"
-      _Final: "\uFEA2\u064E"
       _Isolated_Unicode: 062D
       _Initial_Unicode: FEA3
       _Medial_Unicode: FEA4
       _Final_Unicode: FEA2
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: he2_zwarakay
-      _Kind: 5
-      _BaseLetter: he2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: he2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u062D\u0659"
-      _Initial: "\uFEA3\u0659"
-      _Medial: "\uFEA4\u0659"
-      _Final: "\uFEA2\u0659"
-      _Isolated_Unicode: 062D
-      _Initial_Unicode: FEA3
-      _Medial_Unicode: FEA4
-      _Final_Unicode: FEA2
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1644,25 +1409,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he2_zer
       _SoundZone: 
-      _Isolated: "\u062D\u0650"
-      _Initial: "\uFEA3\u0650"
-      _Medial: "\uFEA4\u0650"
-      _Final: "\uFEA2\u0650"
       _Isolated_Unicode: 062D
       _Initial_Unicode: FEA3
       _Medial_Unicode: FEA4
       _Final_Unicode: FEA2
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1680,25 +1442,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he2_pesh
       _SoundZone: 
-      _Isolated: "\u062D\u064F"
-      _Initial: "\uFEA3\u064F"
-      _Medial: "\uFEA4\u064F"
-      _Final: "\uFEA2\u064F"
       _Isolated_Unicode: 062D
       _Initial_Unicode: FEA3
       _Medial_Unicode: FEA4
       _Final_Unicode: FEA2
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1716,25 +1475,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: xe__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062E"
-      _Initial: "\u062E\u0640"
-      _Medial: "\u0640\u062E\u0640"
-      _Final: "\u0640\u062E"
       _Isolated_Unicode: 062E
       _Initial_Unicode: FEA7
       _Medial_Unicode: FEA8
       _Final_Unicode: FEA6
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1752,25 +1508,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xe_zwar
       _SoundZone: 
-      _Isolated: "\u062E\u064E"
-      _Initial: "\uFEA7\u064E"
-      _Medial: "\uFEA8\u064E"
-      _Final: "\uFEA6\u064E"
       _Isolated_Unicode: 062E
       _Initial_Unicode: FEA7
       _Medial_Unicode: FEA8
       _Final_Unicode: FEA6
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1788,25 +1541,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xe_zwarakay
       _SoundZone: 
-      _Isolated: "\u062E\u0659"
-      _Initial: "\uFEA7\u0659"
-      _Medial: "\uFEA8\u0659"
-      _Final: "\uFEA6\u0659"
       _Isolated_Unicode: 062E
       _Initial_Unicode: FEA7
       _Medial_Unicode: FEA8
       _Final_Unicode: FEA6
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1824,25 +1574,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xe_zer
       _SoundZone: 
-      _Isolated: "\u062E\u0650"
-      _Initial: "\uFEA7\u0650"
-      _Medial: "\uFEA8\u0650"
-      _Final: "\uFEA6\u0650"
       _Isolated_Unicode: 062E
       _Initial_Unicode: FEA7
       _Medial_Unicode: FEA8
       _Final_Unicode: FEA6
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1860,25 +1607,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xe_pesh
       _SoundZone: 
-      _Isolated: "\u062E\u064F"
-      _Initial: "\uFEA7\u064F"
-      _Medial: "\uFEA8\u064F"
-      _Final: "\uFEA6\u064F"
       _Isolated_Unicode: 062E
       _Initial_Unicode: FEA7
       _Medial_Unicode: FEA8
       _Final_Unicode: FEA6
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1896,25 +1640,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: tse__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0685"
-      _Initial: "\u0685\u0640"
-      _Medial: "\u0640\u0685\u0640"
-      _Final: "\u0640\u0685"
       _Isolated_Unicode: 0685
-      _Initial_Unicode: 0685
-      _Medial_Unicode: 0685
-      _Final_Unicode: 0685
+      _Initial_Unicode: 249D
+      _Medial_Unicode: 249D
+      _Final_Unicode: 249E
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1932,25 +1673,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: tse_zwar
       _SoundZone: 
-      _Isolated: "\u0685\u064E"
-      _Initial: "\u0685\u064E"
-      _Medial: "\u0685\u064E"
-      _Final: "\u0685\u064E"
       _Isolated_Unicode: 0685
-      _Initial_Unicode: 0685
-      _Medial_Unicode: 0685
-      _Final_Unicode: 0685
+      _Initial_Unicode: 249D
+      _Medial_Unicode: 249D
+      _Final_Unicode: 249E
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -1968,25 +1706,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: tse_zwarakay
       _SoundZone: 
-      _Isolated: "\u0685\u0659"
-      _Initial: "\u0685\u0659"
-      _Medial: "\u0685\u0659"
-      _Final: "\u0685\u0659"
       _Isolated_Unicode: 0685
-      _Initial_Unicode: 0685
-      _Medial_Unicode: 0685
-      _Final_Unicode: 0685
+      _Initial_Unicode: 249D
+      _Medial_Unicode: 249D
+      _Final_Unicode: 249E
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2004,25 +1739,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: tse_zer
       _SoundZone: 
-      _Isolated: "\u0685\u0650"
-      _Initial: "\u0685\u0650"
-      _Medial: "\u0685\u0650"
-      _Final: "\u0685\u0650"
       _Isolated_Unicode: 0685
-      _Initial_Unicode: 0685
-      _Medial_Unicode: 0685
-      _Final_Unicode: 0685
+      _Initial_Unicode: 249D
+      _Medial_Unicode: 249D
+      _Final_Unicode: 249E
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2040,25 +1772,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: tse_pesh
       _SoundZone: 
-      _Isolated: "\u0685\u064F"
-      _Initial: "\u0685\u064F"
-      _Medial: "\u0685\u064F"
-      _Final: "\u0685\u064F"
       _Isolated_Unicode: 0685
-      _Initial_Unicode: 0685
-      _Medial_Unicode: 0685
-      _Final_Unicode: 0685
+      _Initial_Unicode: 249D
+      _Medial_Unicode: 249D
+      _Final_Unicode: 249E
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2076,25 +1805,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: dzim__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0681"
-      _Initial: "\u0681\u0640"
-      _Medial: "\u0640\u0681\u0640"
-      _Final: "\u0640\u0681"
       _Isolated_Unicode: 0681
-      _Initial_Unicode: 0681
-      _Medial_Unicode: 0681
-      _Final_Unicode: 0681
+      _Initial_Unicode: 249F
+      _Medial_Unicode: 249F
+      _Final_Unicode: 24A0
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2112,25 +1838,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dzim_zwar
       _SoundZone: 
-      _Isolated: "\u0681\u064E"
-      _Initial: "\u0681\u064E"
-      _Medial: "\u0681\u064E"
-      _Final: "\u0681\u064E"
       _Isolated_Unicode: 0681
-      _Initial_Unicode: 0681
-      _Medial_Unicode: 0681
-      _Final_Unicode: 0681
+      _Initial_Unicode: 249F
+      _Medial_Unicode: 249F
+      _Final_Unicode: 24A0
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2148,25 +1871,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dzim_zwarakay
       _SoundZone: 
-      _Isolated: "\u0681\u0659"
-      _Initial: "\u0681\u0659"
-      _Medial: "\u0681\u0659"
-      _Final: "\u0681\u0659"
       _Isolated_Unicode: 0681
-      _Initial_Unicode: 0681
-      _Medial_Unicode: 0681
-      _Final_Unicode: 0681
+      _Initial_Unicode: 249F
+      _Medial_Unicode: 249F
+      _Final_Unicode: 24A0
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2184,25 +1904,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dzim_zer
       _SoundZone: 
-      _Isolated: "\u0681\u0650"
-      _Initial: "\u0681\u0650"
-      _Medial: "\u0681\u0650"
-      _Final: "\u0681\u0650"
       _Isolated_Unicode: 0681
-      _Initial_Unicode: 0681
-      _Medial_Unicode: 0681
-      _Final_Unicode: 0681
+      _Initial_Unicode: 249F
+      _Medial_Unicode: 249F
+      _Final_Unicode: 24A0
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2220,25 +1937,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup3
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dzim_pesh
       _SoundZone: 
-      _Isolated: "\u0681\u064F"
-      _Initial: "\u0681\u064F"
-      _Medial: "\u0681\u064F"
-      _Final: "\u0681\u064F"
       _Isolated_Unicode: 0681
-      _Initial_Unicode: 0681
-      _Medial_Unicode: 0681
-      _Final_Unicode: 0681
+      _Initial_Unicode: 249F
+      _Medial_Unicode: 249F
+      _Final_Unicode: 24A0
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2256,25 +1970,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: dal__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u062F"
-      _Initial: "\u062F"
-      _Medial: "\u0640\u062F"
-      _Final: "\u0640\u062F"
       _Isolated_Unicode: 062F
       _Initial_Unicode: 062F
       _Medial_Unicode: FEAA
       _Final_Unicode: FEAA
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2292,25 +2003,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_zwar
       _SoundZone: 
-      _Isolated: "\u062F\u064E"
-      _Initial: "\u062F\u064E"
-      _Medial: "\uFEAA\u064E"
-      _Final: "\uFEAA\u064E"
       _Isolated_Unicode: 062F
       _Initial_Unicode: 062F
       _Medial_Unicode: FEAA
       _Final_Unicode: FEAA
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2328,25 +2036,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_zwarakay
       _SoundZone: 
-      _Isolated: "\u062F\u0659"
-      _Initial: "\u062F\u0659"
-      _Medial: "\uFEAA\u0659"
-      _Final: "\uFEAA\u0659"
       _Isolated_Unicode: 062F
       _Initial_Unicode: 062F
       _Medial_Unicode: FEAA
       _Final_Unicode: FEAA
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2364,25 +2069,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_zer
       _SoundZone: 
-      _Isolated: "\u062F\u0650"
-      _Initial: "\u062F\u0650"
-      _Medial: "\uFEAA\u0650"
-      _Final: "\uFEAA\u0650"
       _Isolated_Unicode: 062F
       _Initial_Unicode: 062F
       _Medial_Unicode: FEAA
       _Final_Unicode: FEAA
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2400,25 +2102,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_pesh
       _SoundZone: 
-      _Isolated: "\u062F\u064F"
-      _Initial: "\u062F\u064F"
-      _Medial: "\uFEAA\u064F"
-      _Final: "\uFEAA\u064F"
       _Isolated_Unicode: 062F
       _Initial_Unicode: 062F
       _Medial_Unicode: FEAA
       _Final_Unicode: FEAA
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2436,25 +2135,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: dal_ring__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0689"
-      _Initial: "\u0689"
-      _Medial: "\u0640\u0689"
-      _Final: "\u0640\u0689"
       _Isolated_Unicode: 0689
       _Initial_Unicode: 0689
       _Medial_Unicode: 0689
       _Final_Unicode: 0689
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2472,25 +2168,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_ring_zwar
       _SoundZone: 
-      _Isolated: "\u0689\u064E"
-      _Initial: "\u0689\u064E"
-      _Medial: "\u0689\u064E"
-      _Final: "\u0689\u064E"
       _Isolated_Unicode: 0689
       _Initial_Unicode: 0689
       _Medial_Unicode: 0689
       _Final_Unicode: 0689
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2508,25 +2201,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_ring_zwarakay
       _SoundZone: 
-      _Isolated: "\u0689\u0659"
-      _Initial: "\u0689\u0659"
-      _Medial: "\u0689\u0659"
-      _Final: "\u0689\u0659"
       _Isolated_Unicode: 0689
       _Initial_Unicode: 0689
       _Medial_Unicode: 0689
       _Final_Unicode: 0689
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2544,25 +2234,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_ring_zer
       _SoundZone: 
-      _Isolated: "\u0689\u0650"
-      _Initial: "\u0689\u0650"
-      _Medial: "\u0689\u0650"
-      _Final: "\u0689\u0650"
       _Isolated_Unicode: 0689
       _Initial_Unicode: 0689
       _Medial_Unicode: 0689
       _Final_Unicode: 0689
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2580,25 +2267,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: dal_ring_pesh
       _SoundZone: 
-      _Isolated: "\u0689\u064F"
-      _Initial: "\u0689\u064F"
-      _Medial: "\u0689\u064F"
-      _Final: "\u0689\u064F"
       _Isolated_Unicode: 0689
       _Initial_Unicode: 0689
       _Medial_Unicode: 0689
       _Final_Unicode: 0689
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2616,25 +2300,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: zal2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0630"
-      _Initial: "\u0630"
-      _Medial: "\u0640\u0630"
-      _Final: "\u0640\u0630"
       _Isolated_Unicode: 0630
       _Initial_Unicode: 0630
       _Medial_Unicode: FEAC
       _Final_Unicode: FEAC
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2652,61 +2333,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zal2_zwar
       _SoundZone: 
-      _Isolated: "\u0630\u064E"
-      _Initial: "\u0630\u064E"
-      _Medial: "\uFEAC\u064E"
-      _Final: "\uFEAC\u064E"
       _Isolated_Unicode: 0630
       _Initial_Unicode: 0630
       _Medial_Unicode: FEAC
       _Final_Unicode: FEAC
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: zal2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: zal2_zwarakay
-      _Kind: 5
-      _BaseLetter: zal2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: zal2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0630\u0659"
-      _Initial: "\u0630\u0659"
-      _Medial: "\uFEAC\u0659"
-      _Final: "\uFEAC\u0659"
-      _Isolated_Unicode: 0630
-      _Initial_Unicode: 0630
-      _Medial_Unicode: FEAC
-      _Final_Unicode: FEAC
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2724,25 +2366,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zal2_zer
       _SoundZone: 
-      _Isolated: "\u0630\u0650"
-      _Initial: "\u0630\u0650"
-      _Medial: "\uFEAC\u0650"
-      _Final: "\uFEAC\u0650"
       _Isolated_Unicode: 0630
       _Initial_Unicode: 0630
       _Medial_Unicode: FEAC
       _Final_Unicode: FEAC
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2760,25 +2399,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zal2_pesh
       _SoundZone: 
-      _Isolated: "\u0630\u064F"
-      _Initial: "\u0630\u064F"
-      _Medial: "\uFEAC\u064F"
-      _Final: "\uFEAC\u064F"
       _Isolated_Unicode: 0630
       _Initial_Unicode: 0630
       _Medial_Unicode: FEAC
       _Final_Unicode: FEAC
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2796,25 +2432,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: re__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0631"
-      _Initial: "\u0631"
-      _Medial: "\u0640\u0631"
-      _Final: "\u0640\u0631"
       _Isolated_Unicode: 0631
       _Initial_Unicode: 0631
       _Medial_Unicode: FEAE
       _Final_Unicode: FEAE
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2832,25 +2465,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_zwar
       _SoundZone: 
-      _Isolated: "\u0631\u064E"
-      _Initial: "\u0631\u064E"
-      _Medial: "\uFEAE\u064E"
-      _Final: "\uFEAE\u064E"
       _Isolated_Unicode: 0631
       _Initial_Unicode: 0631
       _Medial_Unicode: FEAE
       _Final_Unicode: FEAE
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2868,25 +2498,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_zwarakay
       _SoundZone: 
-      _Isolated: "\u0631\u0659"
-      _Initial: "\u0631\u0659"
-      _Medial: "\uFEAE\u0659"
-      _Final: "\uFEAE\u0659"
       _Isolated_Unicode: 0631
       _Initial_Unicode: 0631
       _Medial_Unicode: FEAE
       _Final_Unicode: FEAE
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2904,25 +2531,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_zer
       _SoundZone: 
-      _Isolated: "\u0631\u0650"
-      _Initial: "\u0631\u0650"
-      _Medial: "\uFEAE\u0650"
-      _Final: "\uFEAE\u0650"
       _Isolated_Unicode: 0631
       _Initial_Unicode: 0631
       _Medial_Unicode: FEAE
       _Final_Unicode: FEAE
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2940,25 +2564,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_pesh
       _SoundZone: 
-      _Isolated: "\u0631\u064F"
-      _Initial: "\u0631\u064F"
-      _Medial: "\uFEAE\u064F"
-      _Final: "\uFEAE\u064F"
       _Isolated_Unicode: 0631
       _Initial_Unicode: 0631
       _Medial_Unicode: FEAE
       _Final_Unicode: FEAE
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -2976,25 +2597,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: re_ring__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0693"
-      _Initial: "\u0693"
-      _Medial: "\u0640\u0693"
-      _Final: "\u0640\u0693"
       _Isolated_Unicode: 0693
       _Initial_Unicode: 0693
       _Medial_Unicode: 0693
       _Final_Unicode: 0693
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3012,25 +2630,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_ring_zwar
       _SoundZone: 
-      _Isolated: "\u0693\u064E"
-      _Initial: "\u0693\u064E"
-      _Medial: "\u0693\u064E"
-      _Final: "\u0693\u064E"
       _Isolated_Unicode: 0693
       _Initial_Unicode: 0693
       _Medial_Unicode: 0693
       _Final_Unicode: 0693
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3048,25 +2663,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_ring_zwarakay
       _SoundZone: 
-      _Isolated: "\u0693\u0659"
-      _Initial: "\u0693\u0659"
-      _Medial: "\u0693\u0659"
-      _Final: "\u0693\u0659"
       _Isolated_Unicode: 0693
       _Initial_Unicode: 0693
       _Medial_Unicode: 0693
       _Final_Unicode: 0693
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3084,25 +2696,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_ring_zer
       _SoundZone: 
-      _Isolated: "\u0693\u0650"
-      _Initial: "\u0693\u0650"
-      _Medial: "\u0693\u0650"
-      _Final: "\u0693\u0650"
       _Isolated_Unicode: 0693
       _Initial_Unicode: 0693
       _Medial_Unicode: 0693
       _Final_Unicode: 0693
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3120,25 +2729,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: re_ring_pesh
       _SoundZone: 
-      _Isolated: "\u0693\u064F"
-      _Initial: "\u0693\u064F"
-      _Medial: "\u0693\u064F"
-      _Final: "\u0693\u064F"
       _Isolated_Unicode: 0693
       _Initial_Unicode: 0693
       _Medial_Unicode: 0693
       _Final_Unicode: 0693
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3156,25 +2762,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ze__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0632"
-      _Initial: "\u0632"
-      _Medial: "\u0640\u0632"
-      _Final: "\u0640\u0632"
       _Isolated_Unicode: 0632
       _Initial_Unicode: 0632
       _Medial_Unicode: FEB0
       _Final_Unicode: FEB0
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3192,25 +2795,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ze_zwar
       _SoundZone: 
-      _Isolated: "\u0632\u064E"
-      _Initial: "\u0632\u064E"
-      _Medial: "\uFEB0\u064E"
-      _Final: "\uFEB0\u064E"
       _Isolated_Unicode: 0632
       _Initial_Unicode: 0632
       _Medial_Unicode: FEB0
       _Final_Unicode: FEB0
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3228,25 +2828,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ze_zwarakay
       _SoundZone: 
-      _Isolated: "\u0632\u0659"
-      _Initial: "\u0632\u0659"
-      _Medial: "\uFEB0\u0659"
-      _Final: "\uFEB0\u0659"
       _Isolated_Unicode: 0632
       _Initial_Unicode: 0632
       _Medial_Unicode: FEB0
       _Final_Unicode: FEB0
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3264,25 +2861,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ze_zer
       _SoundZone: 
-      _Isolated: "\u0632\u0650"
-      _Initial: "\u0632\u0650"
-      _Medial: "\uFEB0\u0650"
-      _Final: "\uFEB0\u0650"
       _Isolated_Unicode: 0632
       _Initial_Unicode: 0632
       _Medial_Unicode: FEB0
       _Final_Unicode: FEB0
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3300,25 +2894,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ze_pesh
       _SoundZone: 
-      _Isolated: "\u0632\u064F"
-      _Initial: "\u0632\u064F"
-      _Medial: "\uFEB0\u064F"
-      _Final: "\uFEB0\u064F"
       _Isolated_Unicode: 0632
       _Initial_Unicode: 0632
       _Medial_Unicode: FEB0
       _Final_Unicode: FEB0
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3336,25 +2927,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: zhe__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0698"
-      _Initial: "\u0698"
-      _Medial: "\u0640\u0698"
-      _Final: "\u0640\u0698"
       _Isolated_Unicode: 0698
       _Initial_Unicode: 0698
       _Medial_Unicode: FB8B
       _Final_Unicode: FB8B
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3372,25 +2960,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zhe_zwar
       _SoundZone: 
-      _Isolated: "\u0698\u064E"
-      _Initial: "\u0698\u064E"
-      _Medial: "\uFB8B\u064E"
-      _Final: "\uFB8B\u064E"
       _Isolated_Unicode: 0698
       _Initial_Unicode: 0698
       _Medial_Unicode: FB8B
       _Final_Unicode: FB8B
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3408,25 +2993,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zhe_zwarakay
       _SoundZone: 
-      _Isolated: "\u0698\u0659"
-      _Initial: "\u0698\u0659"
-      _Medial: "\uFB8B\u0659"
-      _Final: "\uFB8B\u0659"
       _Isolated_Unicode: 0698
       _Initial_Unicode: 0698
       _Medial_Unicode: FB8B
       _Final_Unicode: FB8B
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3444,25 +3026,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zhe_zer
       _SoundZone: 
-      _Isolated: "\u0698\u0650"
-      _Initial: "\u0698\u0650"
-      _Medial: "\uFB8B\u0650"
-      _Final: "\uFB8B\u0650"
       _Isolated_Unicode: 0698
       _Initial_Unicode: 0698
       _Medial_Unicode: FB8B
       _Final_Unicode: FB8B
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3480,25 +3059,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zhe_pesh
       _SoundZone: 
-      _Isolated: "\u0698\u064F"
-      _Initial: "\u0698\u064F"
-      _Medial: "\uFB8B\u064F"
-      _Final: "\uFB8B\u064F"
       _Isolated_Unicode: 0698
       _Initial_Unicode: 0698
       _Medial_Unicode: FB8B
       _Final_Unicode: FB8B
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3516,25 +3092,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: gey__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0696"
-      _Initial: "\u0696"
-      _Medial: "\u0640\u0696"
-      _Final: "\u0640\u0696"
       _Isolated_Unicode: 0696
       _Initial_Unicode: 0696
       _Medial_Unicode: 0696
       _Final_Unicode: 0696
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3552,25 +3125,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: gey_zwar
       _SoundZone: 
-      _Isolated: "\u0696\u064E"
-      _Initial: "\u0696\u064E"
-      _Medial: "\u0696\u064E"
-      _Final: "\u0696\u064E"
       _Isolated_Unicode: 0696
       _Initial_Unicode: 0696
       _Medial_Unicode: 0696
       _Final_Unicode: 0696
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3588,25 +3158,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: gey_zwarakay
       _SoundZone: 
-      _Isolated: "\u0696\u0659"
-      _Initial: "\u0696\u0659"
-      _Medial: "\u0696\u0659"
-      _Final: "\u0696\u0659"
       _Isolated_Unicode: 0696
       _Initial_Unicode: 0696
       _Medial_Unicode: 0696
       _Final_Unicode: 0696
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3624,25 +3191,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: gey_zer
       _SoundZone: 
-      _Isolated: "\u0696\u0650"
-      _Initial: "\u0696\u0650"
-      _Medial: "\u0696\u0650"
-      _Final: "\u0696\u0650"
       _Isolated_Unicode: 0696
       _Initial_Unicode: 0696
       _Medial_Unicode: 0696
       _Final_Unicode: 0696
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3660,25 +3224,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup4
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: gey_pesh
       _SoundZone: 
-      _Isolated: "\u0696\u064F"
-      _Initial: "\u0696\u064F"
-      _Medial: "\u0696\u064F"
-      _Final: "\u0696\u064F"
       _Isolated_Unicode: 0696
       _Initial_Unicode: 0696
       _Medial_Unicode: 0696
       _Final_Unicode: 0696
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3696,25 +3257,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: sin__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0633"
-      _Initial: "\u0633\u0640"
-      _Medial: "\u0640\u0633\u0640"
-      _Final: "\u0640\u0633"
       _Isolated_Unicode: 0633
       _Initial_Unicode: FEB3
       _Medial_Unicode: FEB4
       _Final_Unicode: FEB2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3732,25 +3290,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: sin_zwar
       _SoundZone: 
-      _Isolated: "\u0633\u064E"
-      _Initial: "\uFEB3\u064E"
-      _Medial: "\uFEB4\u064E"
-      _Final: "\uFEB2\u064E"
       _Isolated_Unicode: 0633
       _Initial_Unicode: FEB3
       _Medial_Unicode: FEB4
       _Final_Unicode: FEB2
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3768,25 +3323,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: sin_zwarakay
       _SoundZone: 
-      _Isolated: "\u0633\u0659"
-      _Initial: "\uFEB3\u0659"
-      _Medial: "\uFEB4\u0659"
-      _Final: "\uFEB2\u0659"
       _Isolated_Unicode: 0633
       _Initial_Unicode: FEB3
       _Medial_Unicode: FEB4
       _Final_Unicode: FEB2
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3804,25 +3356,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: sin_zer
       _SoundZone: 
-      _Isolated: "\u0633\u0650"
-      _Initial: "\uFEB3\u0650"
-      _Medial: "\uFEB4\u0650"
-      _Final: "\uFEB2\u0650"
       _Isolated_Unicode: 0633
       _Initial_Unicode: FEB3
       _Medial_Unicode: FEB4
       _Final_Unicode: FEB2
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3840,25 +3389,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: sin_pesh
       _SoundZone: 
-      _Isolated: "\u0633\u064F"
-      _Initial: "\uFEB3\u064F"
-      _Medial: "\uFEB4\u064F"
-      _Final: "\uFEB2\u064F"
       _Isolated_Unicode: 0633
       _Initial_Unicode: FEB3
       _Medial_Unicode: FEB4
       _Final_Unicode: FEB2
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3876,25 +3422,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: shin__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0634"
-      _Initial: "\u0634\u0640"
-      _Medial: "\u0640\u0634\u0640"
-      _Final: "\u0640\u0634"
       _Isolated_Unicode: 0634
       _Initial_Unicode: FEB7
       _Medial_Unicode: FEB8
       _Final_Unicode: FEB6
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3912,25 +3455,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: shin_zwar
       _SoundZone: 
-      _Isolated: "\u0634\u064E"
-      _Initial: "\uFEB7\u064E"
-      _Medial: "\uFEB8\u064E"
-      _Final: "\uFEB6\u064E"
       _Isolated_Unicode: 0634
       _Initial_Unicode: FEB7
       _Medial_Unicode: FEB8
       _Final_Unicode: FEB6
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3948,25 +3488,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: shin_zwarakay
       _SoundZone: 
-      _Isolated: "\u0634\u0659"
-      _Initial: "\uFEB7\u0659"
-      _Medial: "\uFEB8\u0659"
-      _Final: "\uFEB6\u0659"
       _Isolated_Unicode: 0634
       _Initial_Unicode: FEB7
       _Medial_Unicode: FEB8
       _Final_Unicode: FEB6
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -3984,25 +3521,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: shin_zer
       _SoundZone: 
-      _Isolated: "\u0634\u0650"
-      _Initial: "\uFEB7\u0650"
-      _Medial: "\uFEB8\u0650"
-      _Final: "\uFEB6\u0650"
       _Isolated_Unicode: 0634
       _Initial_Unicode: FEB7
       _Medial_Unicode: FEB8
       _Final_Unicode: FEB6
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4020,25 +3554,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: shin_pesh
       _SoundZone: 
-      _Isolated: "\u0634\u064F"
-      _Initial: "\uFEB7\u064F"
-      _Medial: "\uFEB8\u064F"
-      _Final: "\uFEB6\u064F"
       _Isolated_Unicode: 0634
       _Initial_Unicode: FEB7
       _Medial_Unicode: FEB8
       _Final_Unicode: FEB6
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4056,25 +3587,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: xhin__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u069A"
-      _Initial: "\u069A\u0640"
-      _Medial: "\u0640\u069A\u0640"
-      _Final: "\u0640\u069A"
       _Isolated_Unicode: 069A
-      _Initial_Unicode: 069A
-      _Medial_Unicode: 069A
+      _Initial_Unicode: 24A1
+      _Medial_Unicode: 24A1
       _Final_Unicode: 069A
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4092,25 +3620,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xhin_zwar
       _SoundZone: 
-      _Isolated: "\u069A\u064E"
-      _Initial: "\u069A\u064E"
-      _Medial: "\u069A\u064E"
-      _Final: "\u069A\u064E"
       _Isolated_Unicode: 069A
-      _Initial_Unicode: 069A
-      _Medial_Unicode: 069A
+      _Initial_Unicode: 24A1
+      _Medial_Unicode: 24A1
       _Final_Unicode: 069A
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4128,25 +3653,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xhin_zwarakay
       _SoundZone: 
-      _Isolated: "\u069A\u0659"
-      _Initial: "\u069A\u0659"
-      _Medial: "\u069A\u0659"
-      _Final: "\u069A\u0659"
       _Isolated_Unicode: 069A
-      _Initial_Unicode: 069A
-      _Medial_Unicode: 069A
+      _Initial_Unicode: 24A1
+      _Medial_Unicode: 24A1
       _Final_Unicode: 069A
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4164,25 +3686,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xhin_zer
       _SoundZone: 
-      _Isolated: "\u069A\u0650"
-      _Initial: "\u069A\u0650"
-      _Medial: "\u069A\u0650"
-      _Final: "\u069A\u0650"
       _Isolated_Unicode: 069A
-      _Initial_Unicode: 069A
-      _Medial_Unicode: 069A
+      _Initial_Unicode: 24A1
+      _Medial_Unicode: 24A1
       _Final_Unicode: 069A
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4200,25 +3719,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: xhin_pesh
       _SoundZone: 
-      _Isolated: "\u069A\u064F"
-      _Initial: "\u069A\u064F"
-      _Medial: "\u069A\u064F"
-      _Final: "\u069A\u064F"
       _Isolated_Unicode: 069A
-      _Initial_Unicode: 069A
-      _Medial_Unicode: 069A
+      _Initial_Unicode: 24A1
+      _Medial_Unicode: 24A1
       _Final_Unicode: 069A
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4236,25 +3752,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: swad2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0635"
-      _Initial: "\u0635\u0640"
-      _Medial: "\u0640\u0635\u0640"
-      _Final: "\u0640\u0635"
       _Isolated_Unicode: 0635
       _Initial_Unicode: FEBB
       _Medial_Unicode: FEBC
       _Final_Unicode: FEBA
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4272,61 +3785,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: swad2_zwar
       _SoundZone: 
-      _Isolated: "\u0635\u064E"
-      _Initial: "\uFEBB\u064E"
-      _Medial: "\uFEBC\u064E"
-      _Final: "\uFEBA\u064E"
       _Isolated_Unicode: 0635
       _Initial_Unicode: FEBB
       _Medial_Unicode: FEBC
       _Final_Unicode: FEBA
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: swad2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: swad2_zwarakay
-      _Kind: 5
-      _BaseLetter: swad2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: swad2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0635\u0659"
-      _Initial: "\uFEBB\u0659"
-      _Medial: "\uFEBC\u0659"
-      _Final: "\uFEBA\u0659"
-      _Isolated_Unicode: 0635
-      _Initial_Unicode: FEBB
-      _Medial_Unicode: FEBC
-      _Final_Unicode: FEBA
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4344,25 +3818,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: swad2_zer
       _SoundZone: 
-      _Isolated: "\u0635\u0650"
-      _Initial: "\uFEBB\u0650"
-      _Medial: "\uFEBC\u0650"
-      _Final: "\uFEBA\u0650"
       _Isolated_Unicode: 0635
       _Initial_Unicode: FEBB
       _Medial_Unicode: FEBC
       _Final_Unicode: FEBA
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4380,25 +3851,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: swad2_pesh
       _SoundZone: 
-      _Isolated: "\u0635\u064F"
-      _Initial: "\uFEBB\u064F"
-      _Medial: "\uFEBC\u064F"
-      _Final: "\uFEBA\u064F"
       _Isolated_Unicode: 0635
       _Initial_Unicode: FEBB
       _Medial_Unicode: FEBC
       _Final_Unicode: FEBA
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4416,25 +3884,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: zwad2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0636"
-      _Initial: "\u0636\u0640"
-      _Medial: "\u0640\u0636\u0640"
-      _Final: "\u0640\u0636"
       _Isolated_Unicode: 0636
       _Initial_Unicode: FEBF
       _Medial_Unicode: FEC0
       _Final_Unicode: FEBE
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4452,61 +3917,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwad2_zwar
       _SoundZone: 
-      _Isolated: "\u0636\u064E"
-      _Initial: "\uFEBF\u064E"
-      _Medial: "\uFEC0\u064E"
-      _Final: "\uFEBE\u064E"
       _Isolated_Unicode: 0636
       _Initial_Unicode: FEBF
       _Medial_Unicode: FEC0
       _Final_Unicode: FEBE
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: zwad2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: zwad2_zwarakay
-      _Kind: 5
-      _BaseLetter: zwad2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: zwad2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0636\u0659"
-      _Initial: "\uFEBF\u0659"
-      _Medial: "\uFEC0\u0659"
-      _Final: "\uFEBE\u0659"
-      _Isolated_Unicode: 0636
-      _Initial_Unicode: FEBF
-      _Medial_Unicode: FEC0
-      _Final_Unicode: FEBE
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4524,25 +3950,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwad2_zer
       _SoundZone: 
-      _Isolated: "\u0636\u0650"
-      _Initial: "\uFEBF\u0650"
-      _Medial: "\uFEC0\u0650"
-      _Final: "\uFEBE\u0650"
       _Isolated_Unicode: 0636
       _Initial_Unicode: FEBF
       _Medial_Unicode: FEC0
       _Final_Unicode: FEBE
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4560,25 +3983,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwad2_pesh
       _SoundZone: 
-      _Isolated: "\u0636\u064F"
-      _Initial: "\uFEBF\u064F"
-      _Medial: "\uFEC0\u064F"
-      _Final: "\uFEBE\u064F"
       _Isolated_Unicode: 0636
       _Initial_Unicode: FEBF
       _Medial_Unicode: FEC0
       _Final_Unicode: FEBE
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4596,25 +4016,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: twe2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0637"
-      _Initial: "\u0637\u0640"
-      _Medial: "\u0640\u0637\u0640"
-      _Final: "\u0640\u0637"
       _Isolated_Unicode: 0637
       _Initial_Unicode: FEC3
       _Medial_Unicode: FEC4
       _Final_Unicode: FEC2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4632,61 +4049,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: twe2_zwar
       _SoundZone: 
-      _Isolated: "\u0637\u064E"
-      _Initial: "\uFEC3\u064E"
-      _Medial: "\uFEC4\u064E"
-      _Final: "\uFEC2\u064E"
       _Isolated_Unicode: 0637
       _Initial_Unicode: FEC3
       _Medial_Unicode: FEC4
       _Final_Unicode: FEC2
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: twe2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: twe2_zwarakay
-      _Kind: 5
-      _BaseLetter: twe2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: twe2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0637\u0659"
-      _Initial: "\uFEC3\u0659"
-      _Medial: "\uFEC4\u0659"
-      _Final: "\uFEC2\u0659"
-      _Isolated_Unicode: 0637
-      _Initial_Unicode: FEC3
-      _Medial_Unicode: FEC4
-      _Final_Unicode: FEC2
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4704,25 +4082,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: twe2_zer
       _SoundZone: 
-      _Isolated: "\u0637\u0650"
-      _Initial: "\uFEC3\u0650"
-      _Medial: "\uFEC4\u0650"
-      _Final: "\uFEC2\u0650"
       _Isolated_Unicode: 0637
       _Initial_Unicode: FEC3
       _Medial_Unicode: FEC4
       _Final_Unicode: FEC2
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4740,25 +4115,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: twe2_pesh
       _SoundZone: 
-      _Isolated: "\u0637\u064F"
-      _Initial: "\uFEC3\u064F"
-      _Medial: "\uFEC4\u064F"
-      _Final: "\uFEC2\u064F"
       _Isolated_Unicode: 0637
       _Initial_Unicode: FEC3
       _Medial_Unicode: FEC4
       _Final_Unicode: FEC2
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4776,25 +4148,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: zwe2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0638"
-      _Initial: "\u0638\u0640"
-      _Medial: "\u0640\u0638\u0640"
-      _Final: "\u0640\u0638"
       _Isolated_Unicode: 0638
       _Initial_Unicode: FEC7
       _Medial_Unicode: FEC8
       _Final_Unicode: FEC6
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4812,61 +4181,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwe2_zwar
       _SoundZone: 
-      _Isolated: "\u0638\u064E"
-      _Initial: "\uFEC7\u064E"
-      _Medial: "\uFEC8\u064E"
-      _Final: "\uFEC6\u064E"
       _Isolated_Unicode: 0638
       _Initial_Unicode: FEC7
       _Medial_Unicode: FEC8
       _Final_Unicode: FEC6
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: zwe2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: zwe2_zwarakay
-      _Kind: 5
-      _BaseLetter: zwe2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: zwe2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0638\u0659"
-      _Initial: "\uFEC7\u0659"
-      _Medial: "\uFEC8\u0659"
-      _Final: "\uFEC6\u0659"
-      _Isolated_Unicode: 0638
-      _Initial_Unicode: FEC7
-      _Medial_Unicode: FEC8
-      _Final_Unicode: FEC6
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4884,25 +4214,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwe2_zer
       _SoundZone: 
-      _Isolated: "\u0638\u0650"
-      _Initial: "\uFEC7\u0650"
-      _Medial: "\uFEC8\u0650"
-      _Final: "\uFEC6\u0650"
       _Isolated_Unicode: 0638
       _Initial_Unicode: FEC7
       _Medial_Unicode: FEC8
       _Final_Unicode: FEC6
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4920,25 +4247,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup5
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: zwe2_pesh
       _SoundZone: 
-      _Isolated: "\u0638\u064F"
-      _Initial: "\uFEC7\u064F"
-      _Medial: "\uFEC8\u064F"
-      _Final: "\uFEC6\u064F"
       _Isolated_Unicode: 0638
       _Initial_Unicode: FEC7
       _Medial_Unicode: FEC8
       _Final_Unicode: FEC6
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4956,25 +4280,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ayn2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0639"
-      _Initial: "\u0639\u0640"
-      _Medial: "\u0640\u0639\u0640"
-      _Final: "\u0640\u0639"
       _Isolated_Unicode: 0639
       _Initial_Unicode: FECB
       _Medial_Unicode: FECC
       _Final_Unicode: FECA
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -4992,61 +4313,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ayn2_zwar
       _SoundZone: 
-      _Isolated: "\u0639\u064E"
-      _Initial: "\uFECB\u064E"
-      _Medial: "\uFECC\u064E"
-      _Final: "\uFECA\u064E"
       _Isolated_Unicode: 0639
       _Initial_Unicode: FECB
       _Medial_Unicode: FECC
       _Final_Unicode: FECA
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ayn2_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: ayn2_zwarakay
-      _Kind: 5
-      _BaseLetter: ayn2
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ayn2_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0639\u0659"
-      _Initial: "\uFECB\u0659"
-      _Medial: "\uFECC\u0659"
-      _Final: "\uFECA\u0659"
-      _Isolated_Unicode: 0639
-      _Initial_Unicode: FECB
-      _Medial_Unicode: FECC
-      _Final_Unicode: FECA
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5064,25 +4346,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ayn2_zer
       _SoundZone: 
-      _Isolated: "\u0639\u0650"
-      _Initial: "\uFECB\u0650"
-      _Medial: "\uFECC\u0650"
-      _Final: "\uFECA\u0650"
       _Isolated_Unicode: 0639
       _Initial_Unicode: FECB
       _Medial_Unicode: FECC
       _Final_Unicode: FECA
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5100,25 +4379,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ayn2_pesh
       _SoundZone: 
-      _Isolated: "\u0639\u064F"
-      _Initial: "\uFECB\u064F"
-      _Medial: "\uFECC\u064F"
-      _Final: "\uFECA\u064F"
       _Isolated_Unicode: 0639
       _Initial_Unicode: FECB
       _Medial_Unicode: FECC
       _Final_Unicode: FECA
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5136,25 +4412,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ghayn__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u063A"
-      _Initial: "\u063A\u0640"
-      _Medial: "\u0640\u063A\u0640"
-      _Final: "\u0640\u063A"
       _Isolated_Unicode: 063A
       _Initial_Unicode: FECF
       _Medial_Unicode: FED0
       _Final_Unicode: FECE
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5172,25 +4445,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ghayn_zwar
       _SoundZone: 
-      _Isolated: "\u063A\u064E"
-      _Initial: "\uFECF\u064E"
-      _Medial: "\uFED0\u064E"
-      _Final: "\uFECE\u064E"
       _Isolated_Unicode: 063A
       _Initial_Unicode: FECF
       _Medial_Unicode: FED0
       _Final_Unicode: FECE
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5208,25 +4478,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ghayn_zwarakay
       _SoundZone: 
-      _Isolated: "\u063A\u0659"
-      _Initial: "\uFECF\u0659"
-      _Medial: "\uFED0\u0659"
-      _Final: "\uFECE\u0659"
       _Isolated_Unicode: 063A
       _Initial_Unicode: FECF
       _Medial_Unicode: FED0
       _Final_Unicode: FECE
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5244,25 +4511,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ghayn_zer
       _SoundZone: 
-      _Isolated: "\u063A\u0650"
-      _Initial: "\uFECF\u0650"
-      _Medial: "\uFED0\u0650"
-      _Final: "\uFECE\u0650"
       _Isolated_Unicode: 063A
       _Initial_Unicode: FECF
       _Medial_Unicode: FED0
       _Final_Unicode: FECE
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5280,25 +4544,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ghayn_pesh
       _SoundZone: 
-      _Isolated: "\u063A\u064F"
-      _Initial: "\uFECF\u064F"
-      _Medial: "\uFED0\u064F"
-      _Final: "\uFECE\u064F"
       _Isolated_Unicode: 063A
       _Initial_Unicode: FECF
       _Medial_Unicode: FED0
       _Final_Unicode: FECE
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5316,25 +4577,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: fe2__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0641"
-      _Initial: "\u0641\u0640"
-      _Medial: "\u0640\u0641\u0640"
-      _Final: "\u0640\u0641"
       _Isolated_Unicode: 0641
       _Initial_Unicode: FED3
       _Medial_Unicode: FED4
       _Final_Unicode: FED2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5352,25 +4610,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: fe2_zwar
       _SoundZone: 
-      _Isolated: "\u0641\u064E"
-      _Initial: "\uFED3\u064E"
-      _Medial: "\uFED4\u064E"
-      _Final: "\uFED2\u064E"
       _Isolated_Unicode: 0641
       _Initial_Unicode: FED3
       _Medial_Unicode: FED4
       _Final_Unicode: FED2
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5388,25 +4643,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: fe2_zwarakay
       _SoundZone: 
-      _Isolated: "\u0641\u0659"
-      _Initial: "\uFED3\u0659"
-      _Medial: "\uFED4\u0659"
-      _Final: "\uFED2\u0659"
       _Isolated_Unicode: 0641
       _Initial_Unicode: FED3
       _Medial_Unicode: FED4
       _Final_Unicode: FED2
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5424,25 +4676,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: fe2_zer
       _SoundZone: 
-      _Isolated: "\u0641\u0650"
-      _Initial: "\uFED3\u0650"
-      _Medial: "\uFED4\u0650"
-      _Final: "\uFED2\u0650"
       _Isolated_Unicode: 0641
       _Initial_Unicode: FED3
       _Medial_Unicode: FED4
       _Final_Unicode: FED2
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5460,25 +4709,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: fe2_pesh
       _SoundZone: 
-      _Isolated: "\u0641\u064F"
-      _Initial: "\uFED3\u064F"
-      _Medial: "\uFED4\u064F"
-      _Final: "\uFED2\u064F"
       _Isolated_Unicode: 0641
       _Initial_Unicode: FED3
       _Medial_Unicode: FED4
       _Final_Unicode: FED2
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5496,25 +4742,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: qap__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0642"
-      _Initial: "\u0642\u0640"
-      _Medial: "\u0640\u0642\u0640"
-      _Final: "\u0640\u0642"
       _Isolated_Unicode: 0642
       _Initial_Unicode: FED7
       _Medial_Unicode: FED8
       _Final_Unicode: FED6
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5532,25 +4775,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: qap_zwar
       _SoundZone: 
-      _Isolated: "\u0642\u064E"
-      _Initial: "\uFED7\u064E"
-      _Medial: "\uFED8\u064E"
-      _Final: "\uFED6\u064E"
       _Isolated_Unicode: 0642
       _Initial_Unicode: FED7
       _Medial_Unicode: FED8
       _Final_Unicode: FED6
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5568,25 +4808,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: qap_zwarakay
       _SoundZone: 
-      _Isolated: "\u0642\u0659"
-      _Initial: "\uFED7\u0659"
-      _Medial: "\uFED8\u0659"
-      _Final: "\uFED6\u0659"
       _Isolated_Unicode: 0642
       _Initial_Unicode: FED7
       _Medial_Unicode: FED8
       _Final_Unicode: FED6
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5604,25 +4841,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: qap_zer
       _SoundZone: 
-      _Isolated: "\u0642\u0650"
-      _Initial: "\uFED7\u0650"
-      _Medial: "\uFED8\u0650"
-      _Final: "\uFED6\u0650"
       _Isolated_Unicode: 0642
       _Initial_Unicode: FED7
       _Medial_Unicode: FED8
       _Final_Unicode: FED6
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5640,25 +4874,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: qap_pesh
       _SoundZone: 
-      _Isolated: "\u0642\u064F"
-      _Initial: "\uFED7\u064F"
-      _Medial: "\uFED8\u064F"
-      _Final: "\uFED6\u064F"
       _Isolated_Unicode: 0642
       _Initial_Unicode: FED7
       _Medial_Unicode: FED8
       _Final_Unicode: FED6
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5676,25 +4907,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: kap__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06A9"
-      _Initial: "\u06A9\u0640"
-      _Medial: "\u0640\u06A9\u0640"
-      _Final: "\u0640\u06A9"
       _Isolated_Unicode: 06A9
       _Initial_Unicode: FB90
       _Medial_Unicode: FB91
       _Final_Unicode: FB8F
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5712,25 +4940,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: kap_zwar
       _SoundZone: 
-      _Isolated: "\u06A9\u064E"
-      _Initial: "\uFB90\u064E"
-      _Medial: "\uFB91\u064E"
-      _Final: "\uFB8F\u064E"
       _Isolated_Unicode: 06A9
       _Initial_Unicode: FB90
       _Medial_Unicode: FB91
       _Final_Unicode: FB8F
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5748,25 +4973,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: kap_zwarakay
       _SoundZone: 
-      _Isolated: "\u06A9\u0659"
-      _Initial: "\uFB90\u0659"
-      _Medial: "\uFB91\u0659"
-      _Final: "\uFB8F\u0659"
       _Isolated_Unicode: 06A9
       _Initial_Unicode: FB90
       _Medial_Unicode: FB91
       _Final_Unicode: FB8F
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5784,25 +5006,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: kap_zer
       _SoundZone: 
-      _Isolated: "\u06A9\u0650"
-      _Initial: "\uFB90\u0650"
-      _Medial: "\uFB91\u0650"
-      _Final: "\uFB8F\u0650"
       _Isolated_Unicode: 06A9
       _Initial_Unicode: FB90
       _Medial_Unicode: FB91
       _Final_Unicode: FB8F
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5820,25 +5039,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: kap_pesh
       _SoundZone: 
-      _Isolated: "\u06A9\u064F"
-      _Initial: "\uFB90\u064F"
-      _Medial: "\uFB91\u064F"
-      _Final: "\uFB8F\u064F"
       _Isolated_Unicode: 06A9
       _Initial_Unicode: FB90
       _Medial_Unicode: FB91
       _Final_Unicode: FB8F
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5846,35 +5062,32 @@ MonoBehaviour:
       _Complexity: 0.5
       _LinkedWords: []
       ForcedLetterForm: 0
-    - _Id: gap
+    - _Id: gaf
       _Active: 1
       _InBook: 1
       _Number: 33
-      _Title: gap
+      _Title: gaf
       _Kind: 1
-      _BaseLetter: gap
+      _BaseLetter: gaf
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
-      _NameSound: gap__lettername
+      _NameSound: gaf__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06AB"
-      _Initial: "\u06AB\u0640"
-      _Medial: "\u0640\u06AB\u0640"
-      _Final: "\u0640\u06AB"
-      _Isolated_Unicode: 06AB
-      _Initial_Unicode: 06AB
-      _Medial_Unicode: 06AB
-      _Final_Unicode: 06AB
+      _Isolated_Unicode: 06AF
+      _Initial_Unicode: FB94
+      _Medial_Unicode: FB95
+      _Final_Unicode: FB93
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5882,35 +5095,32 @@ MonoBehaviour:
       _Complexity: 0.5
       _LinkedWords: []
       ForcedLetterForm: 0
-    - _Id: gap_zwar
+    - _Id: gaf_zwar
       _Active: 1
       _InBook: 1
       _Number: 0
-      _Title: gap_zwar
+      _Title: gaf_zwar
       _Kind: 5
-      _BaseLetter: gap
+      _BaseLetter: gaf
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
-      _PhonemeSound: gap_zwar
+      _PhonemeSound: gaf_zwar
       _SoundZone: 
-      _Isolated: "\u06AB\u064E"
-      _Initial: "\u06AB\u064E"
-      _Medial: "\u06AB\u064E"
-      _Final: "\u06AB\u064E"
-      _Isolated_Unicode: 06AB
-      _Initial_Unicode: 06AB
-      _Medial_Unicode: 06AB
-      _Final_Unicode: 06AB
+      _Isolated_Unicode: 06AF
+      _Initial_Unicode: FB94
+      _Medial_Unicode: FB95
+      _Final_Unicode: FB93
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5918,35 +5128,32 @@ MonoBehaviour:
       _Complexity: 0.5
       _LinkedWords: []
       ForcedLetterForm: 0
-    - _Id: gap_zwarakay
+    - _Id: gaf_zwarakay
       _Active: 1
       _InBook: 1
       _Number: 1
-      _Title: gap_zwarakay
+      _Title: gaf_zwarakay
       _Kind: 5
-      _BaseLetter: gap
+      _BaseLetter: gaf
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
-      _PhonemeSound: gap_zwarakay
+      _PhonemeSound: gaf_zwarakay
       _SoundZone: 
-      _Isolated: "\u06AB\u0659"
-      _Initial: "\u06AB\u0659"
-      _Medial: "\u06AB\u0659"
-      _Final: "\u06AB\u0659"
-      _Isolated_Unicode: 06AB
-      _Initial_Unicode: 06AB
-      _Medial_Unicode: 06AB
-      _Final_Unicode: 06AB
+      _Isolated_Unicode: 06AF
+      _Initial_Unicode: FB94
+      _Medial_Unicode: FB95
+      _Final_Unicode: FB93
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5954,35 +5161,32 @@ MonoBehaviour:
       _Complexity: 0.5
       _LinkedWords: []
       ForcedLetterForm: 0
-    - _Id: gap_zer
+    - _Id: gaf_zer
       _Active: 1
       _InBook: 1
       _Number: 2
-      _Title: gap_zer
+      _Title: gaf_zer
       _Kind: 5
-      _BaseLetter: gap
+      _BaseLetter: gaf
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
-      _PhonemeSound: gap_zer
+      _PhonemeSound: gaf_zer
       _SoundZone: 
-      _Isolated: "\u06AB\u0650"
-      _Initial: "\u06AB\u0650"
-      _Medial: "\u06AB\u0650"
-      _Final: "\u06AB\u0650"
-      _Isolated_Unicode: 06AB
-      _Initial_Unicode: 06AB
-      _Medial_Unicode: 06AB
-      _Final_Unicode: 06AB
+      _Isolated_Unicode: 06AF
+      _Initial_Unicode: FB94
+      _Medial_Unicode: FB95
+      _Final_Unicode: FB93
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -5990,35 +5194,32 @@ MonoBehaviour:
       _Complexity: 0.5
       _LinkedWords: []
       ForcedLetterForm: 0
-    - _Id: gap_pesh
+    - _Id: gaf_pesh
       _Active: 1
       _InBook: 1
       _Number: 3
-      _Title: gap_pesh
+      _Title: gaf_pesh
       _Kind: 5
-      _BaseLetter: gap
+      _BaseLetter: gaf
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup6
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
-      _PhonemeSound: gap_pesh
+      _PhonemeSound: gaf_pesh
       _SoundZone: 
-      _Isolated: "\u06AB\u064F"
-      _Initial: "\u06AB\u064F"
-      _Medial: "\u06AB\u064F"
-      _Final: "\u06AB\u064F"
-      _Isolated_Unicode: 06AB
-      _Initial_Unicode: 06AB
-      _Medial_Unicode: 06AB
-      _Final_Unicode: 06AB
+      _Isolated_Unicode: 06AF
+      _Initial_Unicode: FB94
+      _Medial_Unicode: FB95
+      _Final_Unicode: FB93
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6036,25 +5237,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: lam__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0644"
-      _Initial: "\u0644\u0640"
-      _Medial: "\u0640\u0644\u0640"
-      _Final: "\u0640\u0644"
       _Isolated_Unicode: 0644
       _Initial_Unicode: FEDF
       _Medial_Unicode: FEE0
       _Final_Unicode: FEDE
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6072,25 +5270,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: lam_zwar
       _SoundZone: 
-      _Isolated: "\u0644\u064E"
-      _Initial: "\uFEDF\u064E"
-      _Medial: "\uFEE0\u064E"
-      _Final: "\uFEDE\u064E"
       _Isolated_Unicode: 0644
       _Initial_Unicode: FEDF
       _Medial_Unicode: FEE0
       _Final_Unicode: FEDE
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6108,25 +5303,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: lam_zwarakay
       _SoundZone: 
-      _Isolated: "\u0644\u0659"
-      _Initial: "\uFEDF\u0659"
-      _Medial: "\uFEE0\u0659"
-      _Final: "\uFEDE\u0659"
       _Isolated_Unicode: 0644
       _Initial_Unicode: FEDF
       _Medial_Unicode: FEE0
       _Final_Unicode: FEDE
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6144,25 +5336,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: lam_zer
       _SoundZone: 
-      _Isolated: "\u0644\u0650"
-      _Initial: "\uFEDF\u0650"
-      _Medial: "\uFEE0\u0650"
-      _Final: "\uFEDE\u0650"
       _Isolated_Unicode: 0644
       _Initial_Unicode: FEDF
       _Medial_Unicode: FEE0
       _Final_Unicode: FEDE
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6180,25 +5369,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: lam_pesh
       _SoundZone: 
-      _Isolated: "\u0644\u064F"
-      _Initial: "\uFEDF\u064F"
-      _Medial: "\uFEE0\u064F"
-      _Final: "\uFEDE\u064F"
       _Isolated_Unicode: 0644
       _Initial_Unicode: FEDF
       _Medial_Unicode: FEE0
       _Final_Unicode: FEDE
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6216,25 +5402,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: mim__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0645"
-      _Initial: "\u0645\u0640"
-      _Medial: "\u0640\u0645\u0640"
-      _Final: "\u0640\u0645"
       _Isolated_Unicode: 0645
       _Initial_Unicode: FEE3
       _Medial_Unicode: FEE4
       _Final_Unicode: FEE2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6252,25 +5435,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: mim_zwar
       _SoundZone: 
-      _Isolated: "\u0645\u064E"
-      _Initial: "\uFEE3\u064E"
-      _Medial: "\uFEE4\u064E"
-      _Final: "\uFEE2\u064E"
       _Isolated_Unicode: 0645
       _Initial_Unicode: FEE3
       _Medial_Unicode: FEE4
       _Final_Unicode: FEE2
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6288,25 +5468,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: mim_zwarakay
       _SoundZone: 
-      _Isolated: "\u0645\u0659"
-      _Initial: "\uFEE3\u0659"
-      _Medial: "\uFEE4\u0659"
-      _Final: "\uFEE2\u0659"
       _Isolated_Unicode: 0645
       _Initial_Unicode: FEE3
       _Medial_Unicode: FEE4
       _Final_Unicode: FEE2
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6324,25 +5501,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: mim_zer
       _SoundZone: 
-      _Isolated: "\u0645\u0650"
-      _Initial: "\uFEE3\u0650"
-      _Medial: "\uFEE4\u0650"
-      _Final: "\uFEE2\u0650"
       _Isolated_Unicode: 0645
       _Initial_Unicode: FEE3
       _Medial_Unicode: FEE4
       _Final_Unicode: FEE2
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6360,25 +5534,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: mim_pesh
       _SoundZone: 
-      _Isolated: "\u0645\u064F"
-      _Initial: "\uFEE3\u064F"
-      _Medial: "\uFEE4\u064F"
-      _Final: "\uFEE2\u064F"
       _Isolated_Unicode: 0645
       _Initial_Unicode: FEE3
       _Medial_Unicode: FEE4
       _Final_Unicode: FEE2
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6396,25 +5567,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: nun__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0646"
-      _Initial: "\u0646\u0640"
-      _Medial: "\u0640\u0646\u0640"
-      _Final: "\u0640\u0646"
       _Isolated_Unicode: 0646
       _Initial_Unicode: FEE7
       _Medial_Unicode: FEE8
       _Final_Unicode: FEE6
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6432,25 +5600,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_zwar
       _SoundZone: 
-      _Isolated: "\u0646\u064E"
-      _Initial: "\uFEE7\u064E"
-      _Medial: "\uFEE8\u064E"
-      _Final: "\uFEE6\u064E"
       _Isolated_Unicode: 0646
       _Initial_Unicode: FEE7
       _Medial_Unicode: FEE8
       _Final_Unicode: FEE6
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6468,25 +5633,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_zwarakay
       _SoundZone: 
-      _Isolated: "\u0646\u0659"
-      _Initial: "\uFEE7\u0659"
-      _Medial: "\uFEE8\u0659"
-      _Final: "\uFEE6\u0659"
       _Isolated_Unicode: 0646
       _Initial_Unicode: FEE7
       _Medial_Unicode: FEE8
       _Final_Unicode: FEE6
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6504,25 +5666,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_zer
       _SoundZone: 
-      _Isolated: "\u0646\u0650"
-      _Initial: "\uFEE7\u0650"
-      _Medial: "\uFEE8\u0650"
-      _Final: "\uFEE6\u0650"
       _Isolated_Unicode: 0646
       _Initial_Unicode: FEE7
       _Medial_Unicode: FEE8
       _Final_Unicode: FEE6
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6540,25 +5699,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_pesh
       _SoundZone: 
-      _Isolated: "\u0646\u064F"
-      _Initial: "\uFEE7\u064F"
-      _Medial: "\uFEE8\u064F"
-      _Final: "\uFEE6\u064F"
       _Isolated_Unicode: 0646
       _Initial_Unicode: FEE7
       _Medial_Unicode: FEE8
       _Final_Unicode: FEE6
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6576,25 +5732,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: nun_ring__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06BC"
-      _Initial: "\u06BC\u0640"
-      _Medial: "\u0640\u06BC\u0640"
-      _Final: "\u0640\u06BC"
       _Isolated_Unicode: 06BC
-      _Initial_Unicode: 06BC
-      _Medial_Unicode: 06BC
+      _Initial_Unicode: 24A2
+      _Medial_Unicode: 24A2
       _Final_Unicode: 06BC
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6612,25 +5765,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_ring_zwar
       _SoundZone: 
-      _Isolated: "\u06BC\u064E"
-      _Initial: "\u06BC\u064E"
-      _Medial: "\u06BC\u064E"
-      _Final: "\u06BC\u064E"
       _Isolated_Unicode: 06BC
-      _Initial_Unicode: 06BC
-      _Medial_Unicode: 06BC
+      _Initial_Unicode: 24A2
+      _Medial_Unicode: 24A2
       _Final_Unicode: 06BC
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6648,25 +5798,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_ring_zwarakay
       _SoundZone: 
-      _Isolated: "\u06BC\u0659"
-      _Initial: "\u06BC\u0659"
-      _Medial: "\u06BC\u0659"
-      _Final: "\u06BC\u0659"
       _Isolated_Unicode: 06BC
-      _Initial_Unicode: 06BC
-      _Medial_Unicode: 06BC
+      _Initial_Unicode: 24A2
+      _Medial_Unicode: 24A2
       _Final_Unicode: 06BC
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6684,25 +5831,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_ring_zer
       _SoundZone: 
-      _Isolated: "\u06BC\u0650"
-      _Initial: "\u06BC\u0650"
-      _Medial: "\u06BC\u0650"
-      _Final: "\u06BC\u0650"
       _Isolated_Unicode: 06BC
-      _Initial_Unicode: 06BC
-      _Medial_Unicode: 06BC
+      _Initial_Unicode: 24A2
+      _Medial_Unicode: 24A2
       _Final_Unicode: 06BC
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6720,205 +5864,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: nun_ring_pesh
       _SoundZone: 
-      _Isolated: "\u06BC\u064F"
-      _Initial: "\u06BC\u064F"
-      _Medial: "\u06BC\u064F"
-      _Final: "\u06BC\u064F"
       _Isolated_Unicode: 06BC
-      _Initial_Unicode: 06BC
-      _Medial_Unicode: 06BC
+      _Initial_Unicode: 24A2
+      _Medial_Unicode: 24A2
       _Final_Unicode: 06BC
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: nun_nose
-      _Active: 1
-      _InBook: 1
-      _Number: 38
-      _Title: nun_nose
-      _Kind: 1
-      _BaseLetter: nun_nose
-      _Symbol: 
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: nun_nose__lettername
-      _PhonemeSound: 
-      _SoundZone: 
-      _Isolated: "\u06BA"
-      _Initial: "\u0646\u0640"
-      _Medial: "\u0640\u0646\u0640"
-      _Final: "\u06BA"
-      _Isolated_Unicode: 06BA
-      _Initial_Unicode: 06BA
-      _Medial_Unicode: 06BA
-      _Final_Unicode: 06BA
-      _Symbol_Unicode: 
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: nun_nose_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: nun_nose_zwar
-      _Kind: 5
-      _BaseLetter: nun_nose
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: nun_nose_zwar
-      _SoundZone: 
-      _Isolated: "\u06BA\u064E"
-      _Initial: "\u06BA\u064E"
-      _Medial: "\u06BA\u064E"
-      _Final: "\u06BA\u064E"
-      _Isolated_Unicode: 06BA
-      _Initial_Unicode: 06BA
-      _Medial_Unicode: 06BA
-      _Final_Unicode: 06BA
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: nun_nose_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: nun_nose_zwarakay
-      _Kind: 5
-      _BaseLetter: nun_nose
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: nun_nose_zwarakay
-      _SoundZone: 
-      _Isolated: "\u06BA\u0659"
-      _Initial: "\u06BA\u0659"
-      _Medial: "\u06BA\u0659"
-      _Final: "\u06BA\u0659"
-      _Isolated_Unicode: 06BA
-      _Initial_Unicode: 06BA
-      _Medial_Unicode: 06BA
-      _Final_Unicode: 06BA
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: nun_nose_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: nun_nose_zer
-      _Kind: 5
-      _BaseLetter: nun_nose
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: nun_nose_zer
-      _SoundZone: 
-      _Isolated: "\u06BA\u0650"
-      _Initial: "\u06BA\u0650"
-      _Medial: "\u06BA\u0650"
-      _Final: "\u06BA\u0650"
-      _Isolated_Unicode: 06BA
-      _Initial_Unicode: 06BA
-      _Medial_Unicode: 06BA
-      _Final_Unicode: 06BA
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: nun_nose_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: nun_nose_pesh
-      _Kind: 5
-      _BaseLetter: nun_nose
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: nun_nose_pesh
-      _SoundZone: 
-      _Isolated: "\u06BA\u064F"
-      _Initial: "\u06BA\u064F"
-      _Medial: "\u06BA\u064F"
-      _Final: "\u06BA\u064F"
-      _Isolated_Unicode: 06BA
-      _Initial_Unicode: 06BA
-      _Medial_Unicode: 06BA
-      _Final_Unicode: 06BA
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6936,25 +5897,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: waw__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0648"
-      _Initial: "\u0648"
-      _Medial: "\u0640\u0648"
-      _Final: "\u0640\u0648"
       _Isolated_Unicode: 0648
       _Initial_Unicode: 0648
       _Medial_Unicode: FEEE
       _Final_Unicode: FEEE
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -6972,25 +5930,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: waw_zwar
       _SoundZone: 
-      _Isolated: "\u0648\u064E"
-      _Initial: "\u0648\u064E"
-      _Medial: "\uFEEE\u064E"
-      _Final: "\uFEEE\u064E"
       _Isolated_Unicode: 0648
       _Initial_Unicode: 0648
       _Medial_Unicode: FEEE
       _Final_Unicode: FEEE
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7008,25 +5963,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: waw_zwarakay
       _SoundZone: 
-      _Isolated: "\u0648\u0659"
-      _Initial: "\u0648\u0659"
-      _Medial: "\uFEEE\u0659"
-      _Final: "\uFEEE\u0659"
       _Isolated_Unicode: 0648
       _Initial_Unicode: 0648
       _Medial_Unicode: FEEE
       _Final_Unicode: FEEE
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7044,25 +5996,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: waw_zer
       _SoundZone: 
-      _Isolated: "\u0648\u0650"
-      _Initial: "\u0648\u0650"
-      _Medial: "\uFEEE\u0650"
-      _Final: "\uFEEE\u0650"
       _Isolated_Unicode: 0648
       _Initial_Unicode: 0648
       _Medial_Unicode: FEEE
       _Final_Unicode: FEEE
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7080,25 +6029,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: waw_pesh
       _SoundZone: 
-      _Isolated: "\u0648\u064F"
-      _Initial: "\u0648\u064F"
-      _Medial: "\uFEEE\u064F"
-      _Final: "\uFEEE\u064F"
       _Isolated_Unicode: 0648
       _Initial_Unicode: 0648
       _Medial_Unicode: FEEE
       _Final_Unicode: FEEE
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7116,25 +6062,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: he_round__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0647"
-      _Initial: "\u0647\u0640"
-      _Medial: "\u0640\u0647\u0640"
-      _Final: "\u0640\u0647"
       _Isolated_Unicode: 0647
       _Initial_Unicode: FEEB
       _Medial_Unicode: FEEC
       _Final_Unicode: FEEA
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7152,25 +6095,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he_round_zwar
       _SoundZone: 
-      _Isolated: "\u0647\u064E"
-      _Initial: "\uFEEB\u064E"
-      _Medial: "\uFEEC\u064E"
-      _Final: "\uFEEA\u064E"
       _Isolated_Unicode: 0647
       _Initial_Unicode: FEEB
       _Medial_Unicode: FEEC
       _Final_Unicode: FEEA
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7188,25 +6128,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he_round_zwarakay
       _SoundZone: 
-      _Isolated: "\u0647\u0659"
-      _Initial: "\uFEEB\u0659"
-      _Medial: "\uFEEC\u0659"
-      _Final: "\uFEEA\u0659"
       _Isolated_Unicode: 0647
       _Initial_Unicode: FEEB
       _Medial_Unicode: FEEC
       _Final_Unicode: FEEA
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7224,25 +6161,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he_round_zer
       _SoundZone: 
-      _Isolated: "\u0647\u0650"
-      _Initial: "\uFEEB\u0650"
-      _Medial: "\uFEEC\u0650"
-      _Final: "\uFEEA\u0650"
       _Isolated_Unicode: 0647
       _Initial_Unicode: FEEB
       _Medial_Unicode: FEEC
       _Final_Unicode: FEEA
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7260,205 +6194,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup1
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: he_round_pesh
       _SoundZone: 
-      _Isolated: "\u0647\u064F"
-      _Initial: "\uFEEB\u064F"
-      _Medial: "\uFEEC\u064F"
-      _Final: "\uFEEA\u064F"
       _Isolated_Unicode: 0647
       _Initial_Unicode: FEEB
       _Medial_Unicode: FEEC
       _Final_Unicode: FEEA
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he_large
-      _Active: 1
-      _InBook: 1
-      _Number: 41
-      _Title: he_large
-      _Kind: 1
-      _BaseLetter: he_large
-      _Symbol: 
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: he_large__lettername
-      _PhonemeSound: 
-      _SoundZone: 
-      _Isolated: "\u06C0"
-      _Initial: 
-      _Medial: 
-      _Final: "\u0640\u06C0"
-      _Isolated_Unicode: 06C0
-      _Initial_Unicode: 06C0
-      _Medial_Unicode: 06C0
-      _Final_Unicode: 06C0
-      _Symbol_Unicode: 
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he_large_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: he_large_zwar
-      _Kind: 5
-      _BaseLetter: he_large
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: he_large_zwar
-      _SoundZone: 
-      _Isolated: "\u06C0\u064E"
-      _Initial: "\u06C0\u064E"
-      _Medial: "\u06C0\u064E"
-      _Final: "\u06C0\u064E"
-      _Isolated_Unicode: 06C0
-      _Initial_Unicode: 06C0
-      _Medial_Unicode: 06C0
-      _Final_Unicode: 06C0
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he_large_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: he_large_zwarakay
-      _Kind: 5
-      _BaseLetter: he_large
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: he_large_zwarakay
-      _SoundZone: 
-      _Isolated: "\u06C0\u0659"
-      _Initial: "\u06C0\u0659"
-      _Medial: "\u06C0\u0659"
-      _Final: "\u06C0\u0659"
-      _Isolated_Unicode: 06C0
-      _Initial_Unicode: 06C0
-      _Medial_Unicode: 06C0
-      _Final_Unicode: 06C0
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he_large_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: he_large_zer
-      _Kind: 5
-      _BaseLetter: he_large
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: he_large_zer
-      _SoundZone: 
-      _Isolated: "\u06C0\u0650"
-      _Initial: "\u06C0\u0650"
-      _Medial: "\u06C0\u0650"
-      _Final: "\u06C0\u0650"
-      _Isolated_Unicode: 06C0
-      _Initial_Unicode: 06C0
-      _Medial_Unicode: 06C0
-      _Final_Unicode: 06C0
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: he_large_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: he_large_pesh
-      _Kind: 5
-      _BaseLetter: he_large
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: he_large_pesh
-      _SoundZone: 
-      _Isolated: "\u06C0\u064F"
-      _Initial: "\u06C0\u064F"
-      _Medial: "\u06C0\u064F"
-      _Final: "\u06C0\u064F"
-      _Isolated_Unicode: 06C0
-      _Initial_Unicode: 06C0
-      _Medial_Unicode: 06C0
-      _Final_Unicode: 06C0
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7476,169 +6227,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ye_obvious__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u064A"
-      _Initial: "\u064A\u0640"
-      _Medial: "\u0640\u064A\u0640"
-      _Final: "\u0640\u064A"
       _Isolated_Unicode: 064A
       _Initial_Unicode: FEF3
       _Medial_Unicode: FEF4
       _Final_Unicode: FEF2
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_obvious_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: ye_obvious_zwar
-      _Kind: 5
-      _BaseLetter: ye_obvious
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_obvious_zwar
-      _SoundZone: 
-      _Isolated: "\u064A\u064E"
-      _Initial: "\uFEF3\u064E"
-      _Medial: "\uFEF4\u064E"
-      _Final: "\uFEF2\u064E"
-      _Isolated_Unicode: 064A
-      _Initial_Unicode: FEF3
-      _Medial_Unicode: FEF4
-      _Final_Unicode: FEF2
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_obvious_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: ye_obvious_zwarakay
-      _Kind: 5
-      _BaseLetter: ye_obvious
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_obvious_zwarakay
-      _SoundZone: 
-      _Isolated: "\u064A\u0659"
-      _Initial: "\uFEF3\u0659"
-      _Medial: "\uFEF4\u0659"
-      _Final: "\uFEF2\u0659"
-      _Isolated_Unicode: 064A
-      _Initial_Unicode: FEF3
-      _Medial_Unicode: FEF4
-      _Final_Unicode: FEF2
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_obvious_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: ye_obvious_zer
-      _Kind: 5
-      _BaseLetter: ye_obvious
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_obvious_zer
-      _SoundZone: 
-      _Isolated: "\u064A\u0650"
-      _Initial: "\uFEF3\u0650"
-      _Medial: "\uFEF4\u0650"
-      _Final: "\uFEF2\u0650"
-      _Isolated_Unicode: 064A
-      _Initial_Unicode: FEF3
-      _Medial_Unicode: FEF4
-      _Final_Unicode: FEF2
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_obvious_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: ye_obvious_pesh
-      _Kind: 5
-      _BaseLetter: ye_obvious
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_obvious_pesh
-      _SoundZone: 
-      _Isolated: "\u064A\u064F"
-      _Initial: "\uFEF3\u064F"
-      _Medial: "\uFEF4\u064F"
-      _Final: "\uFEF2\u064F"
-      _Isolated_Unicode: 064A
-      _Initial_Unicode: FEF3
-      _Medial_Unicode: FEF4
-      _Final_Unicode: FEF2
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7656,169 +6260,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ye_long__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06D0"
-      _Initial: "\u06D0\u0640"
-      _Medial: "\u0640\u06D0\u0640"
-      _Final: "\u0640\u06D0"
       _Isolated_Unicode: 06D0
-      _Initial_Unicode: 06D0
-      _Medial_Unicode: 06D0
-      _Final_Unicode: 06D0
+      _Initial_Unicode: FBE6
+      _Medial_Unicode: FBE6
+      _Final_Unicode: FBE5
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_long_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: ye_long_zwar
-      _Kind: 5
-      _BaseLetter: ye_long
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_long_zwar
-      _SoundZone: 
-      _Isolated: "\u06D0\u064E"
-      _Initial: "\u06D0\u064E"
-      _Medial: "\u06D0\u064E"
-      _Final: "\u06D0\u064E"
-      _Isolated_Unicode: 06D0
-      _Initial_Unicode: 06D0
-      _Medial_Unicode: 06D0
-      _Final_Unicode: 06D0
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_long_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: ye_long_zwarakay
-      _Kind: 5
-      _BaseLetter: ye_long
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_long_zwarakay
-      _SoundZone: 
-      _Isolated: "\u06D0\u0659"
-      _Initial: "\u06D0\u0659"
-      _Medial: "\u06D0\u0659"
-      _Final: "\u06D0\u0659"
-      _Isolated_Unicode: 06D0
-      _Initial_Unicode: 06D0
-      _Medial_Unicode: 06D0
-      _Final_Unicode: 06D0
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_long_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: ye_long_zer
-      _Kind: 5
-      _BaseLetter: ye_long
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_long_zer
-      _SoundZone: 
-      _Isolated: "\u06D0\u0650"
-      _Initial: "\u06D0\u0650"
-      _Medial: "\u06D0\u0650"
-      _Final: "\u06D0\u0650"
-      _Isolated_Unicode: 06D0
-      _Initial_Unicode: 06D0
-      _Medial_Unicode: 06D0
-      _Final_Unicode: 06D0
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_long_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: ye_long_pesh
-      _Kind: 5
-      _BaseLetter: ye_long
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_long_pesh
-      _SoundZone: 
-      _Isolated: "\u06D0\u064F"
-      _Initial: "\u06D0\u064F"
-      _Medial: "\u06D0\u064F"
-      _Final: "\u06D0\u064F"
-      _Isolated_Unicode: 06D0
-      _Initial_Unicode: 06D0
-      _Medial_Unicode: 06D0
-      _Final_Unicode: 06D0
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7836,25 +6293,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ye_masculine__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06CC"
-      _Initial: "\u0640"
-      _Medial: "\u0640"
-      _Final: "\u0640\u06CC"
       _Isolated_Unicode: 06CC
-      _Initial_Unicode: FBFE
-      _Medial_Unicode: FBFF
+      _Initial_Unicode: 
+      _Medial_Unicode: 
       _Final_Unicode: FBFD
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7872,25 +6326,22 @@ MonoBehaviour:
       _Symbol: zwar
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ye_masculine_zwar
       _SoundZone: 
-      _Isolated: "\u06CC\u064E"
-      _Initial: "\uFBFE\u064E"
-      _Medial: "\uFBFF\u064E"
-      _Final: "\uFBFD\u064E"
       _Isolated_Unicode: 06CC
-      _Initial_Unicode: FBFE
-      _Medial_Unicode: FBFF
+      _Initial_Unicode: 
+      _Medial_Unicode: 
       _Final_Unicode: FBFD
       _Symbol_Unicode: 064E
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7908,25 +6359,22 @@ MonoBehaviour:
       _Symbol: zwarakay
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ye_masculine_zwarakay
       _SoundZone: 
-      _Isolated: "\u06CC\u0659"
-      _Initial: "\uFBFE\u0659"
-      _Medial: "\uFBFF\u0659"
-      _Final: "\uFBFD\u0659"
       _Isolated_Unicode: 06CC
-      _Initial_Unicode: FBFE
-      _Medial_Unicode: FBFF
+      _Initial_Unicode: 
+      _Medial_Unicode: 
       _Final_Unicode: FBFD
       _Symbol_Unicode: 0659
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7944,25 +6392,22 @@ MonoBehaviour:
       _Symbol: zer
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ye_masculine_zer
       _SoundZone: 
-      _Isolated: "\u06CC\u0650"
-      _Initial: "\uFBFE\u0650"
-      _Medial: "\uFBFF\u0650"
-      _Final: "\uFBFD\u0650"
       _Isolated_Unicode: 06CC
-      _Initial_Unicode: FBFE
-      _Medial_Unicode: FBFF
+      _Initial_Unicode: 
+      _Medial_Unicode: 
       _Final_Unicode: FBFD
       _Symbol_Unicode: 0650
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -7980,25 +6425,22 @@ MonoBehaviour:
       _Symbol: pesh
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - DiacriticGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: 
       _PhonemeSound: ye_masculine_pesh
       _SoundZone: 
-      _Isolated: "\u06CC\u064F"
-      _Initial: "\uFBFE\u064F"
-      _Medial: "\uFBFF\u064F"
-      _Final: "\uFBFD\u064F"
       _Isolated_Unicode: 06CC
-      _Initial_Unicode: FBFE
-      _Medial_Unicode: FBFF
+      _Initial_Unicode: 
+      _Medial_Unicode: 
       _Final_Unicode: FBFD
       _Symbol_Unicode: 064F
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -8016,169 +6458,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ye_feminine__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u06CD"
-      _Initial: "\u0640"
-      _Medial: "\u0640"
-      _Final: "\u0640\u06CD"
       _Isolated_Unicode: 06CD
-      _Initial_Unicode: 06CD
-      _Medial_Unicode: 06CD
-      _Final_Unicode: 06CD
+      _Initial_Unicode: 
+      _Medial_Unicode: 
+      _Final_Unicode: 24A3
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_feminine_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: ye_feminine_zwar
-      _Kind: 5
-      _BaseLetter: ye_feminine
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_feminine_zwar
-      _SoundZone: 
-      _Isolated: "\u06CD\u064E"
-      _Initial: "\u06CD\u064E"
-      _Medial: "\u06CD\u064E"
-      _Final: "\u06CD\u064E"
-      _Isolated_Unicode: 06CD
-      _Initial_Unicode: 06CD
-      _Medial_Unicode: 06CD
-      _Final_Unicode: 06CD
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_feminine_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: ye_feminine_zwarakay
-      _Kind: 5
-      _BaseLetter: ye_feminine
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_feminine_zwarakay
-      _SoundZone: 
-      _Isolated: "\u06CD\u0659"
-      _Initial: "\u06CD\u0659"
-      _Medial: "\u06CD\u0659"
-      _Final: "\u06CD\u0659"
-      _Isolated_Unicode: 06CD
-      _Initial_Unicode: 06CD
-      _Medial_Unicode: 06CD
-      _Final_Unicode: 06CD
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_feminine_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: ye_feminine_zer
-      _Kind: 5
-      _BaseLetter: ye_feminine
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_feminine_zer
-      _SoundZone: 
-      _Isolated: "\u06CD\u0650"
-      _Initial: "\u06CD\u0650"
-      _Medial: "\u06CD\u0650"
-      _Final: "\u06CD\u0650"
-      _Isolated_Unicode: 06CD
-      _Initial_Unicode: 06CD
-      _Medial_Unicode: 06CD
-      _Final_Unicode: 06CD
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_feminine_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: ye_feminine_pesh
-      _Kind: 5
-      _BaseLetter: ye_feminine
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_feminine_pesh
-      _SoundZone: 
-      _Isolated: "\u06CD\u064F"
-      _Initial: "\u06CD\u064F"
-      _Medial: "\u06CD\u064F"
-      _Final: "\u06CD\u064F"
-      _Isolated_Unicode: 06CD
-      _Initial_Unicode: 06CD
-      _Medial_Unicode: 06CD
-      _Final_Unicode: 06CD
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -8196,206 +6491,22 @@ MonoBehaviour:
       _Symbol: 
       _Type: 0
       _Tag: 
-      _PlaySessionLink: []
+      _PlaySessionLink:
+      - LetterGroup2
       _Notes: 
       _SunMoon: 0
       _Sound: 
       _NameSound: ye_verbal__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0626"
-      _Initial: "\u0626\u0640"
-      _Medial: "\u0640\u0626\u0640"
-      _Final: "\u0640\u0626"
       _Isolated_Unicode: 0626
       _Initial_Unicode: FE8B
       _Medial_Unicode: FE8C
       _Final_Unicode: FE8A
       _Symbol_Unicode: 
       _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_verbal_zwar
-      _Active: 1
-      _InBook: 1
-      _Number: 0
-      _Title: ye_verbal_zwar
-      _Kind: 5
-      _BaseLetter: ye_verbal
-      _Symbol: zwar
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_verbal_zwar
-      _SoundZone: 
-      _Isolated: "\u0626\u064E"
-      _Initial: "\uFE8B\u064E"
-      _Medial: "\uFE8C\u064E"
-      _Final: "\uFE8A\u064E"
-      _Isolated_Unicode: 0626
-      _Initial_Unicode: FE8B
-      _Medial_Unicode: FE8C
-      _Final_Unicode: FE8A
-      _Symbol_Unicode: 064E
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_verbal_zwarakay
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: ye_verbal_zwarakay
-      _Kind: 5
-      _BaseLetter: ye_verbal
-      _Symbol: zwarakay
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_verbal_zwarakay
-      _SoundZone: 
-      _Isolated: "\u0626\u0659"
-      _Initial: "\uFE8B\u0659"
-      _Medial: "\uFE8C\u0659"
-      _Final: "\uFE8A\u0659"
-      _Isolated_Unicode: 0626
-      _Initial_Unicode: FE8B
-      _Medial_Unicode: FE8C
-      _Final_Unicode: FE8A
-      _Symbol_Unicode: 0659
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_verbal_zer
-      _Active: 1
-      _InBook: 1
-      _Number: 2
-      _Title: ye_verbal_zer
-      _Kind: 5
-      _BaseLetter: ye_verbal
-      _Symbol: zer
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_verbal_zer
-      _SoundZone: 
-      _Isolated: "\u0626\u0650"
-      _Initial: "\uFE8B\u0650"
-      _Medial: "\uFE8C\u0650"
-      _Final: "\uFE8A\u0650"
-      _Isolated_Unicode: 0626
-      _Initial_Unicode: FE8B
-      _Medial_Unicode: FE8C
-      _Final_Unicode: FE8A
-      _Symbol_Unicode: 0650
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: ye_verbal_pesh
-      _Active: 1
-      _InBook: 1
-      _Number: 3
-      _Title: ye_verbal_pesh
-      _Kind: 5
-      _BaseLetter: ye_verbal
-      _Symbol: pesh
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink: []
-      _Notes: 
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: 
-      _PhonemeSound: ye_verbal_pesh
-      _SoundZone: 
-      _Isolated: "\u0626\u064F"
-      _Initial: "\uFE8B\u064F"
-      _Medial: "\uFE8C\u064F"
-      _Final: "\uFE8A\u064F"
-      _Isolated_Unicode: 0626
-      _Initial_Unicode: FE8B
-      _Medial_Unicode: FE8C
-      _Final_Unicode: FE8A
-      _Symbol_Unicode: 064F
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
-      _HasDot: 0
-      _HasDiacritic: 0
-      _HasAccent: 0
-      _Orientations: 0
-      _Complexity: 0.5
-      _LinkedWords: []
-      ForcedLetterForm: 0
-    - _Id: hamza
-      _Active: 1
-      _InBook: 1
-      _Number: 1
-      _Title: hamza
-      _Kind: 4
-      _BaseLetter: 
-      _Symbol: 
-      _Type: 0
-      _Tag: 
-      _PlaySessionLink:
-      - LettersStage5
-      _Notes: applied just on the long vowels alif, waw, and yeh
-      _SunMoon: 0
-      _Sound: 
-      _NameSound: hamza__lettername
-      _PhonemeSound: 
-      _SoundZone: 
-      _Isolated: "\u0621"
-      _Initial: 
-      _Medial: 
-      _Final: 
-      _Isolated_Unicode: 0621
-      _Initial_Unicode: 
-      _Medial_Unicode: 
-      _Final_Unicode: 
-      _Symbol_Unicode: 
-      _InitialFix: 
-      _FinalFix: 
-      _MedialFix: 
+      _FinalFix: 1
+      _MedialFix: 1
       _HasDot: 0
       _HasDiacritic: 0
       _HasAccent: 0
@@ -8414,17 +6525,13 @@ MonoBehaviour:
       _Type: 0
       _Tag: 
       _PlaySessionLink:
-      - LettersStage6
+      - LetterGroup6
       _Notes: combination of laam & alif together
       _SunMoon: 0
       _Sound: 
       _NameSound: lam_alif__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\uFEFB"
-      _Initial: 
-      _Medial: 
-      _Final: "\uFEFC"
       _Isolated_Unicode: FEFB
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -8457,10 +6564,6 @@ MonoBehaviour:
       _NameSound: pesh__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u064F"
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 064F
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -8493,10 +6596,6 @@ MonoBehaviour:
       _NameSound: tashdid__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0651"
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 0651
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -8529,10 +6628,6 @@ MonoBehaviour:
       _NameSound: zwar__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u064E"
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 064E
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -8565,10 +6660,6 @@ MonoBehaviour:
       _NameSound: zwarakay__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0659"
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 0659
       _Initial_Unicode: 
       _Medial_Unicode: 
@@ -8601,10 +6692,6 @@ MonoBehaviour:
       _NameSound: zer__lettername
       _PhonemeSound: 
       _SoundZone: 
-      _Isolated: "\u0650"
-      _Initial: 
-      _Medial: 
-      _Final: 
       _Isolated_Unicode: 0650
       _Initial_Unicode: 
       _Medial_Unicode: 
