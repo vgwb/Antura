@@ -816,7 +816,7 @@ namespace Antura.Database
                     wordText = uppercaseText;
                 }
 
-                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
+                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.OrdinalIgnoreCase));
                 var wrapper = new WordDataWrapper();
                 if (wd != null)
                     wrapper.WD = new WordData { Id = wd.Id, Text = wordText.ToUpper() };

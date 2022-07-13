@@ -99,7 +99,7 @@ namespace Antura.UI
                 LanguageCode systemNativeLanguage = LanguageCode.NONE;
                 foreach (var lang in AvailableNativeCodes)
                 {
-                    if (string.Equals(lang.ToString(), Application.systemLanguage.ToString(), StringComparison.InvariantCultureIgnoreCase))
+                    if (string.Equals(lang.ToString(), Application.systemLanguage.ToString(), StringComparison.OrdinalIgnoreCase))
                     {
                         systemNativeLanguage = lang;
                         break;

@@ -1,8 +1,10 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
 using Antura.Database;
+using Antura.Helpers;
 using Antura.Language;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
@@ -63,6 +65,7 @@ namespace Antura.Teacher.Test
                     var data = _databaseManager.GetLetterDataById(l.Trim());
                     desiredLetters.Add(data);
                 }
+                desiredLetters.AddRange(_databaseManager.GetAllLetterData().Where(x => x.Kind == LetterDataKind.SpecialChar));
 
                 /*
                 var str = $"Group {(iGroup+1)} letters:\n";
@@ -147,7 +150,7 @@ namespace Antura.Teacher.Test
             foreach (var word in _vocabularyHelper.GetAllWords(new WordFilters()))
             {
                 if (previousWords.Contains(word)) continue;
-                s += $"{word.Id} ({word.Text})\n";
+                s += $"{word.Id} ({word.Text} {_vocabularyHelper.GetLettersInWord(word).Select(x => x.Isolated).ToJoinedString()})\n";
             }
             report += "\n" + s;
 
@@ -164,7 +167,14 @@ namespace Antura.Teacher.Test
             s = "PLAY SESSION LINKS:\n";
             foreach (var word in _vocabularyHelper.GetAllWords(new WordFilters()))
             {
-                s += $"{word.Id} ({word.Text}), {wordToGroup[word.Id]}\n";
+                if (wordToGroup.TryGetValue(word.Id, out var group))
+                {
+                    s += $"{word.Id} ({word.Text}), {group}\n";
+                }
+                else
+                {
+                    s += $"{word.Id} ({word.Text}), no group\n";
+                }
             }
             Debug.Log(s);
         }
