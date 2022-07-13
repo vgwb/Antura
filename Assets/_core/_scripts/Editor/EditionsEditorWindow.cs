@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Antura.Core;
+using Antura.Debugging;
 using Antura.Language;
 using Antura.Profile;
 using UnityEditor;
@@ -114,6 +115,11 @@ namespace Antura.Tools
                     appSettings.NativeLanguage = languages[newNativeLanguageIndex];
                     appManager.AppSettingsManager.SaveSettings();
                 }
+            }
+
+            if (GUILayout.Button("Add New Profile"))
+            {
+                DebugManager.I.CreateTestProfile();
             }
 
             var iconDatas = PlayerProfileManager.FilterPlayerIconData(appSettings, appManager.AppEdition.editionID, appSettings.ContentID);
