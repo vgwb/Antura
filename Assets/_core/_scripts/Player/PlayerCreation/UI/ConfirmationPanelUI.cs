@@ -3,6 +3,7 @@ using Antura.UI;
 using DG.Tweening;
 using System;
 using Antura.Database;
+using Antura.Language;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -24,11 +25,14 @@ namespace Antura.Profile
             SkipButton.Bt.onClick.RemoveAllListeners();
             SkipButton.Bt.onClick.AddListener(DoSkip);
 
+            var helpNeeded = AppManager.I.AppSettings.NativeLanguage != AppManager.I.ContentEdition.HelpLanguage;
             var textRenders = SkipButton.GetComponentsInChildren<TextRender>(true);
             foreach (var textRender in textRenders)
             {
                 textRender.LocalizationId = LocalizationDataId.UI_Btn_Skip;
                 textRender.SetSentence(textRender.LocalizationId);
+                // @note: we hide the right-most one (the Native)
+                textRender.gameObject.SetActive(textRender.languageUse != LanguageUse.Native || helpNeeded);
             }
         }
 
@@ -39,7 +43,11 @@ namespace Antura.Profile
             GetComponent<RectTransform>().anchoredPosition.SetY(-1000);
             stepTween = GetComponent<RectTransform>().DOAnchorPosY(-230, 1f).SetEase(Ease.OutBack).SetDelay(2f).Play();
 
+            var helpNeeded = AppManager.I.AppSettings.NativeLanguage != AppManager.I.ContentEdition.HelpLanguage;
             nativeMessage.SetText(LocalizationManager.GetNative(locId));
+            // @note: we hide the right-most one (the Native)
+            nativeMessage.gameObject.SetActive(helpNeeded);
+
             learningMessage.SetText(LocalizationManager.GetHelp(locId));
         }
 
