@@ -25,6 +25,8 @@ New Learning Content:
 - Learn Italian
 - Learn Romanian
 
+And some bugfix and performance improvements
+
 ## [2.1.0] - 2022-06 - The Multiedition One App
 From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your language and discovering a new language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
 
