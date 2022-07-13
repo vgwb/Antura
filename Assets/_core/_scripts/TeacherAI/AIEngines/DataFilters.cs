@@ -97,6 +97,7 @@ namespace Antura.Teacher
     public class PhraseFilters
     {
         public bool requireWords;
+        public bool requireAnswers;
         public bool requireAnswersOrWords;
         public bool requireAtLeastTwoWords;
         public int maxLength;
@@ -104,6 +105,7 @@ namespace Antura.Teacher
 
         public PhraseFilters(
             bool requireWords = false,
+            bool requireAnswers = false,
             bool requireAnswersOrWords = false,
             bool requireAtLeastTwoWords = false, // @todo: this could be reworked with Phrase Categories so to create better filters, or allow filters to have a numeric value
             int maxLength = 0,
@@ -111,6 +113,7 @@ namespace Antura.Teacher
         )
         {
             this.requireWords = requireWords;
+            this.requireAnswers = requireAnswers;
             this.requireAnswersOrWords = requireAnswersOrWords;
             this.requireAtLeastTwoWords = requireAtLeastTwoWords;
             this.maxLength = maxLength;

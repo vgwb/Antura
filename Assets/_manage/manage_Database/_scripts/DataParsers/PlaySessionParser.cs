@@ -64,7 +64,7 @@ namespace Antura.Database.Management
                     {
                         foreach (string psLink in vocabularyData.PlaySessionLinks)
                         {
-                            if (string.Equals(psLink, array[i], StringComparison.InvariantCultureIgnoreCase))
+                            if (string.Equals(psLink, array[i], StringComparison.OrdinalIgnoreCase))
                             {
                                 //Debug.LogError("FOR " + psData.Id + " FOUND " + vocabularyData.GetId() + " WITH PS LINK " + vocabularyData.PlaySessionLink);
                                 foundIDs.Add(vocabularyData.GetId());

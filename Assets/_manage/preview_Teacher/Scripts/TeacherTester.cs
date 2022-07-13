@@ -8,6 +8,7 @@ using UnityEngine.UI;
 using Antura.Core;
 using Antura.Database;
 using Antura.Minigames;
+using TMPro;
 
 namespace Antura.Teacher.Test
 {
@@ -333,8 +334,11 @@ namespace Antura.Teacher.Test
             SetButtonStatus(minigamesButtonsDict[code], Color.yellow);
             int lastStage = 0;
             bool isCorrect = true;
-            foreach (var psData in AppManager.I.DB.GetAllPlaySessionData()) {
+            bool atLeastOneFound = false;
+            foreach (var psData in AppManager.I.DB.GetAllPlaySessionData())
+            {
                 if (!AppManager.I.Teacher.CanMiniGameBePlayedAtPlaySession(psData.GetJourneyPosition(), code)) continue;
+                atLeastOneFound = true;
 
                 InitialisePlaySession(psData.GetJourneyPosition());
 
@@ -345,8 +349,9 @@ namespace Antura.Teacher.Test
                 }
 
                 // Skip minigames that found errors
-                yield return DoTestMinigameCO(code, 0.01f);
-                if (minigamesButtonsDict[code].colors.normalColor == Color.red) {
+                var result = new Ref<bool>();
+                yield return DoTestMinigameCO(code, 0.01f, result);
+                if (result.v == false) {
                     Debug.LogError($"Minigame {code} first wrong at ps {psData.GetJourneyPosition()}");
                     isCorrect = false;
                     break;
@@ -354,7 +359,13 @@ namespace Antura.Teacher.Test
 
                 yield return null;
             }
-            if (isCorrect)
+
+            if (!atLeastOneFound)
+            {
+                Debug.Log($"Minigame {code} is never found in journey position");
+                SetButtonStatus(minigamesButtonsDict[code], Color.magenta);
+            }
+            else if (isCorrect)
             {
                 Debug.Log($"Minigame {code} is always fine");
                 SetButtonStatus(minigamesButtonsDict[code], Color.green);
@@ -365,12 +376,20 @@ namespace Antura.Teacher.Test
             }
         }
 
-
-        private IEnumerator DoTestMinigameCO(MiniGameCode code, float delay = 0.1f)
+        private class Ref<T>
         {
+            public T v;
+        }
+
+        private IEnumerator DoTestMinigameCO(MiniGameCode code, float delay = 0.1f, Ref<bool> result = default)
+        {
+            var originalText = minigamesButtonsDict[code].GetComponentInChildren<Text>().text;
             SetButtonStatus(minigamesButtonsDict[code], Color.yellow);
+            minigamesButtonsDict[code].GetComponentInChildren<Text>().text += "\n" + AppManager.I.Player.CurrentJourneyPosition.ToString();
             yield return new WaitForSeconds(delay);
             var statusColor = Color.green;
+            if (result != null) result.v = true;
+
 
             if (!ignoreJourneyPlaySessionSelection && !AppManager.I.Teacher.CanMiniGameBePlayedAtAnyPlaySession(code)) {
                 Debug.LogError($"Cannot select {code} for any journey position!");
@@ -382,6 +401,7 @@ namespace Antura.Teacher.Test
                     } catch (Exception e) {
                         Debug.LogError($"!! {code} at PS({AppManager.I.Player.CurrentJourneyPosition})\n {e.Message}");
                         statusColor = Color.red;
+                        if (result != null) result.v = false;
                     }
                 } else {
                     Debug.LogError($"Cannot select {code} for position {AppManager.I.Player.CurrentJourneyPosition}");
@@ -390,6 +410,7 @@ namespace Antura.Teacher.Test
             }
 
             SetButtonStatus(minigamesButtonsDict[code], statusColor);
+            minigamesButtonsDict[code].GetComponentInChildren<Text>().text = originalText;
             yield return null;
         }
 

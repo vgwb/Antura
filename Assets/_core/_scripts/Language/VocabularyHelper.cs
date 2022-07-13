@@ -816,7 +816,7 @@ namespace Antura.Database
                     wordText = uppercaseText;
                 }
 
-                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.InvariantCultureIgnoreCase));
+                var wd = gameWords.FirstOrDefault(w => w.Text.Equals(strippedWordText, StringComparison.OrdinalIgnoreCase));
                 var wrapper = new WordDataWrapper();
                 if (wd != null)
                     wrapper.WD = new WordData { Id = wd.Id, Text = wordText.ToUpper() };
@@ -864,6 +864,10 @@ namespace Antura.Database
             }
 
             if (phraseFilters.requireWords && nOkWords == 0)
+            {
+                return false;
+            }
+            if (phraseFilters.requireAnswers && nOkAnswers == 0)
             {
                 return false;
             }

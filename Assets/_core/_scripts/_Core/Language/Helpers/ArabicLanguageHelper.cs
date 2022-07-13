@@ -428,7 +428,7 @@ namespace Antura.Language
 
                             bool Comparison(DiacriticEntryKey x)
                             {
-                                return x.letter1.unicode.Equals(formUnicode, StringComparison.InvariantCultureIgnoreCase) && x.letter2.unicode.Equals(diacriticUnicode, StringComparison.InvariantCultureIgnoreCase);
+                                return x.letter1.unicode.Equals(formUnicode, StringComparison.OrdinalIgnoreCase) && x.letter2.unicode.Equals(diacriticUnicode, StringComparison.OrdinalIgnoreCase);
                             }
 
                             if ((isSymbol && diacriticUnicode != Shaddah) || formUnicode == Shaddah)

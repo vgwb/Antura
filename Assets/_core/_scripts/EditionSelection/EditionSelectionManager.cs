@@ -49,13 +49,13 @@ namespace Antura.Scenes
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
-            currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false));
+            currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false, false));
         }
 
         private IEnumerator CompleteSelectionCO(bool firstTime)
         {
             yield return NativeLanguageSelectionCO(firstTime);
-            yield return ContentEditionSelectionCO(true);
+            yield return ContentEditionSelectionCO(true, firstTime);
         }
 
         private void Back()
@@ -90,13 +90,13 @@ namespace Antura.Scenes
             GlobalUI.ShowPauseMenu(true);
         }
 
-        private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
+        private IEnumerator ContentEditionSelectionCO(bool fromLanguage, bool firstTime)
         {
             selectLearningContentPanel.SelectedNativeCode = selectNativeLanguagePanel.SelectedCode;
             KeeperManager.I.ResetKeeper();
             HasSelectedEdition = false;
             GlobalUI.ShowPauseMenu(false);
-            GlobalUI.ShowBackButton(true, Back);
+            GlobalUI.ShowBackButton(!firstTime, Back);
 
             var textRender = selectedNativeButton.GetComponentInChildren<TextRender>(true);
             textRender.SetOverridenLanguageText(selectNativeLanguagePanel.SelectedCode, LocalizationDataId.Language_Name);

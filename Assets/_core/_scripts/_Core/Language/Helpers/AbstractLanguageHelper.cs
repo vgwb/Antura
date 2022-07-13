@@ -5,7 +5,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using TMPro;
 using UnityEngine;
 
 namespace Antura.Language
@@ -145,7 +144,7 @@ namespace Antura.Language
                 for (int l = Mathf.Min(depletingWord.Length, maxLetterLength); l >= 1; l--)
                 {
                     var sub = depletingWord.Substring(0, l);
-                    var ld = availableLettersList.FirstOrDefault(x => string.Equals(x.Isolated, sub, StringComparison.InvariantCultureIgnoreCase));
+                    var ld = availableLettersList.FirstOrDefault(x => string.Equals(x.Isolated, sub, StringComparison.OrdinalIgnoreCase));
                     if (ld != null)
                     {
                         depletingWord = depletingWord.Substring(l, depletingWord.Length - l);

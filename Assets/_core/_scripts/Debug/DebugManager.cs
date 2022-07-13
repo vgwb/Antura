@@ -176,7 +176,7 @@ namespace Antura.Debugging
 
         public void CreateTestProfile()
         {
-            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.Undefined, PlayerTint.Orange, Color.yellow, Color.red, Color.magenta, 4,
+            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, 1, PlayerGender.M, PlayerTint.Orange, Color.yellow, Color.red, Color.magenta, 4,
                 AppManager.I.AppEdition.editionID,
                 AppManager.I.ContentEdition.ContentID,
                 AppManager.I.AppEdition.AppVersion);
