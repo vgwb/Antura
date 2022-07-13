@@ -574,6 +574,13 @@ namespace Antura.Rewards
             if (nPropsLeft > 0)
                 choices.Add(RewardBaseType.Prop);
 
+            if (choices.Count == 0)
+            {
+                // Nothing left...
+                Debug.LogWarning($"Nothing left to unlock for JP {journeyPosition}");
+                return;
+            }
+
             RewardBaseType choice = choices.RandomSelectOne();
 
             if (choice == RewardBaseType.Prop)
