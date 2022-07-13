@@ -3,19 +3,25 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## [2.2.0] - 2022-? - new content!
+## [2.3.0] - 2022-? - new content!
 New Supported languages:
-- German
+- Pashto
 - Hungarian
-- Italian
-- Spanish
-- Persian Pashto
-- Polish
 
 New Learning Content:
 - Learn to Read in Persian Pashto
-- Learn German
 - Learn Hungarian
+
+## [2.2.0] - 2022-? - new content!
+New Supported languages:
+- German
+- Italian
+- Spanish
+- Polish
+
+New Learning Content:
+- Learn German
+- Learn Spanish
 - Learn Italian
 - Learn Romanian
 
