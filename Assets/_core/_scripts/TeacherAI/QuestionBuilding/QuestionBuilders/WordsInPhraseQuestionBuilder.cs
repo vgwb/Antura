@@ -45,6 +45,8 @@ namespace Antura.Teacher
             this.useAllCorrectWords = useAllCorrectWords;
             this.usePhraseAnswersIfFound = usePhraseAnswersIfFound;
             this.parameters = parameters;
+
+            parameters.phraseFilters.requireAnswers = usePhraseAnswersIfFound;
         }
 
         private List<string> previousPacksIDs = new List<string>();

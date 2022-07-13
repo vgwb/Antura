@@ -867,6 +867,10 @@ namespace Antura.Database
             {
                 return false;
             }
+            if (phraseFilters.requireAnswers && nOkAnswers == 0)
+            {
+                return false;
+            }
             if (phraseFilters.requireAtLeastTwoWords && nOkWords <= 1)
             {
                 return false;
