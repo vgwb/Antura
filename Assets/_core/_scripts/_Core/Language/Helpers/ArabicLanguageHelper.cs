@@ -305,7 +305,7 @@ namespace Antura.Language
         /// these are manually configured positions of diacritic symbols relative to the main letter
         /// since TextMesh Pro can't manage these automatically and some letters are too tall, with the symbol overlapping
         /// </summary>
-        private void BuildDiacriticCombos2Fix()
+        public void BuildDiacriticCombos2Fix()
         {
             DiacriticCombos2Fix = new Dictionary<DiacriticComboEntry, Vector2>();
 
@@ -515,7 +515,12 @@ namespace Antura.Language
 
 
         private static bool REPOPULATE_DIACRITIC_ENTRY_TABLE_FROM_HARDCODED_COMBOS = false;
-        private static bool REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = false;
+        public static bool REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = false;
+
+        public void RebuildDiacriticCombos()
+        {
+            BuildDiacriticCombos2Fix();
+        }
 
         private Vector2 FindDiacriticCombo2Fix(string Unicode1, string Unicode2)
         {
