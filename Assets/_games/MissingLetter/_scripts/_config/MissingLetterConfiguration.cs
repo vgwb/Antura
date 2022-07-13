@@ -84,6 +84,7 @@ namespace Antura.Minigames.MissingLetter
                     builderParams.phraseFilters.requireWords = true;
                     builderParams.phraseFilters.maxWords = 6;
                     builderParams.wordFilters.requireDrawings = true;
+                    builderParams.wordFilters.excludeSpaces = true;
                     builder = new WordsInPhraseQuestionBuilder(nPacks, nCorrect, nWrong, usePhraseAnswersIfFound: true, parameters: builderParams);
                     break;
 
