@@ -15,9 +15,9 @@ New Learning Content:
 ## [2.2.0] - 2022-7 - new languages
 New Supported languages:
 - German
-- Italian
 - Spanish
-- Polish
+- Italian
+- Romanian
 
 New Learning Content:
 - Learn German
