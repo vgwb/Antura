@@ -3666,7 +3666,7 @@ MonoBehaviour:
       - m_Target: {fileID: 833896940}
         m_TargetAssemblyTypeName: Antura.Scenes.EditionSelectionManager, Assembly-CSharp
         m_MethodName: CompleteSelection
-        m_Mode: 6
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -14737,9 +14737,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1187333972553106095, guid: 38dfb43e1f1044e12b7c13e8cec0b1b5,
         type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 1187333972553106095, guid: 38dfb43e1f1044e12b7c13e8cec0b1b5,
+        type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 833896940}
+    - target: {fileID: 1187333972553106095, guid: 38dfb43e1f1044e12b7c13e8cec0b1b5,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1187333972553106129, guid: 38dfb43e1f1044e12b7c13e8cec0b1b5,
         type: 3}
       propertyPath: m_Name

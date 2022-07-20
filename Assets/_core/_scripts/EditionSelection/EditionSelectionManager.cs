@@ -23,7 +23,10 @@ namespace Antura.Scenes
 
         private LanguageCode prevLanguageCode;
 
-        public void CompleteSelection(bool firstTime)
+        private bool firstTime => MustChooseContentEditions && !manuallyOpened;
+        private bool manuallyOpened;
+
+        public void CompleteSelection()
         {
             prevLanguageCode = AppManager.I.AppSettings.NativeLanguage;
             selectNativeLanguagePanel.Close();
@@ -34,11 +37,12 @@ namespace Antura.Scenes
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
-            currentCoroutine = StartCoroutine(CompleteSelectionCO(firstTime));
+            currentCoroutine = StartCoroutine(CompleteSelectionCO());
         }
 
-        public void ContentEditionSelection()
+        public void ContentEditionSelection(bool manuallyOpened)
         {
+            this.manuallyOpened = manuallyOpened;
             prevLanguageCode = AppManager.I.AppSettings.NativeLanguage;
             selectNativeLanguagePanel.SelectedCode = AppManager.I.AppSettings.NativeLanguage;
             selectNativeLanguagePanel.Close();
@@ -49,13 +53,13 @@ namespace Antura.Scenes
                 StopCoroutine(currentCoroutine);
                 currentCoroutine = null;
             }
-            currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false, false));
+            currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false));
         }
 
-        private IEnumerator CompleteSelectionCO(bool firstTime)
+        private IEnumerator CompleteSelectionCO()
         {
-            yield return NativeLanguageSelectionCO(firstTime);
-            yield return ContentEditionSelectionCO(true, firstTime);
+            yield return NativeLanguageSelectionCO();
+            yield return ContentEditionSelectionCO(true);
         }
 
         private void Back()
@@ -69,7 +73,7 @@ namespace Antura.Scenes
             GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
         }
 
-        private IEnumerator NativeLanguageSelectionCO(bool firstTime)
+        private IEnumerator NativeLanguageSelectionCO()
         {
             GlobalUI.ShowPauseMenu(false);
             GlobalUI.ShowBackButton(!firstTime, Back);
@@ -90,7 +94,7 @@ namespace Antura.Scenes
             GlobalUI.ShowPauseMenu(true);
         }
 
-        private IEnumerator ContentEditionSelectionCO(bool fromLanguage, bool firstTime)
+        private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
         {
             selectLearningContentPanel.SelectedNativeCode = selectNativeLanguagePanel.SelectedCode;
             KeeperManager.I.ResetKeeper();
