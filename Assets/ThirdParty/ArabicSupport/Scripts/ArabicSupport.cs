@@ -222,24 +222,7 @@ namespace Antura.Language
             if (mapping != null) return mapping.isolated;
             return generic;
         }
-        internal int ConvertToFinal(int generic)
-        {
-            var mapping = MappingFor(generic);
-            if (mapping != null) return mapping.final;
-            return generic;
-        }
-        internal int ConvertToMedial(int generic)
-        {
-            var mapping = MappingFor(generic);
-            if (mapping != null) return mapping.medial;
-            return generic;
-        }
-        internal int ConvertToInitial(int generic)
-        {
-            var mapping = MappingFor(generic);
-            if (mapping != null) return mapping.initial;
-            return generic;
-        }
+
 
         internal ArabicMapping MappingFor(int generic)
         {
