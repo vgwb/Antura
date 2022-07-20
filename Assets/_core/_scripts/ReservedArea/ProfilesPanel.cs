@@ -165,6 +165,7 @@ namespace Antura.ReservedArea
             // Populate with complete data
             var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
             yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
+
             AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
             AppManager.I.Player.AddBones(500);
             AppManager.I.Player.ForcePreviousJourneyPosition(maxJourneyPos);
@@ -195,32 +196,28 @@ namespace Antura.ReservedArea
             // Add some mood data
             Debug.Log("Start adding mood scores");
             yield return null;
-            int nMoodData = 15;
+            /*int nMoodData = 15; // @note: not needed
             for (int i = 0; i < nMoodData; i++)
             {
                 logAi.LogMood(0, Random.Range(AppConfig.MinMoodValue, AppConfig.MaxMoodValue + 1));
             }
-            yield return null;
+            yield return null;*/
 
             // Add scores for all play sessions
             Debug.Log("Start adding PS scores");
             yield return null;
             var logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
-            var allPlaySessionInfos = AppManager.I.ScoreHelper.GetAllPlaySessionInfo();
-            for (int i = 0; i < allPlaySessionInfos.Count; i++)
+            var allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositions();
+            foreach (var jp in allJPs)
             {
-                if (allPlaySessionInfos[i].data.Stage <= targetPosition.Stage)
+                if (jp.Stage <= targetPosition.Stage)
                 {
-                    int score = useBestScores
-                        ? AppConfig.MaxMiniGameScore
-                        : Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
-                    logPlaySessionScoreParamsList.Add(new LogPlaySessionScoreParams(allPlaySessionInfos[i].data.GetJourneyPosition(), score,
-                        12f));
-                    //Debug.Log("Add play session score for " + allPlaySessionInfos[i].data.Id);
+                    int score = useBestScores ? AppConfig.MaxMiniGameScore : Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
+                    logPlaySessionScoreParamsList.Add(new LogPlaySessionScoreParams(jp, score, 12f));
+                    //Debug.Log("Add play session score for " + jp.Id);
                 }
             }
-            logAi.LogPlaySessionScores(0, logPlaySessionScoreParamsList);
-            yield return null;
+            logAi.LogPlaySessionScores(0, logPlaySessionScoreParamsList, true);
 
             // Add scores for all minigames
             Debug.Log("Start adding MiniGame scores");
@@ -236,7 +233,8 @@ namespace Antura.ReservedArea
                     allMiniGameInfo[i].data.Code, score, 12f));
                 //Debug.Log("Add minigame score " + i);
             }
-            logAi.LogMiniGameScores(0, logMiniGameScoreParamses);
+            logAi.LogMiniGameScores(0, logMiniGameScoreParamses, true);
+            yield return null;
 
             // Add scores for some learning data (words/letters/phrases)
             /*var maxPlaySession = AppManager.I.Player.MaxJourneyPosition.ToString();

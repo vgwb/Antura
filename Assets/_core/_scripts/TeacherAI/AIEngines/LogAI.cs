@@ -348,7 +348,7 @@ namespace Antura.Teacher
             LogPlay(appSession, pos, miniGameCode, results);
         }
 
-        public void LogMiniGameScores(int appSession, List<LogMiniGameScoreParams> logMiniGameScoreParams)
+        public void LogMiniGameScores(int appSession, List<LogMiniGameScoreParams> logMiniGameScoreParams, bool demoUser = false)
         {
             //if (AppConstants.VerboseLogging) Debug.Log("LogMiniGameScore " + logMiniGameScoreParams.MiniGameCode + " / " + logMiniGameScoreParams.Score);
 
@@ -361,24 +361,36 @@ namespace Antura.Teacher
             foreach (var parameters in logMiniGameScoreParams)
             {
                 // Log for history
-                var logData = new LogMiniGameScoreData(appSession, parameters.Pos, parameters.MiniGameCode, parameters.Score, parameters.PlayTime);
-                logDataList.Add(logData);
+                if (!demoUser)
+                {
+                    var logData = new LogMiniGameScoreData(appSession, parameters.Pos, parameters.MiniGameCode, parameters.Score, parameters.PlayTime);
+                    logDataList.Add(logData);
+                }
 
                 // Score update
-                var scoreData = GetMinigameScoreDataWithMaximum(parameters.MiniGameCode, parameters.PlayTime, parameters.Score, previousScoreDataList);
-                scoreDataList.Add(scoreData);
-
-                // We also log play skills related to that minigame, as read from MiniGameData
-                var minigameData = db.GetMiniGameDataByCode(parameters.MiniGameCode);
-                var results = new List<PlayResultParameters>();
-                foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills)
+                if (demoUser)
                 {
-                    results.Add(new PlayResultParameters(PlayEvent.Skill, weightedPlaySkill.Skill, parameters.Score));
+                    scoreDataList.Add(new MiniGameScoreData(parameters.MiniGameCode, parameters.Score, parameters.PlayTime));
                 }
-                LogPlay(appSession, parameters.Pos, parameters.MiniGameCode, results);
+                else
+                {
+                    scoreDataList.Add(GetMinigameScoreDataWithMaximum(parameters.MiniGameCode, parameters.PlayTime, parameters.Score, previousScoreDataList));
+                }
+
+                if (!demoUser)
+                {
+                    // We also log play skills related to that minigame, as read from MiniGameData
+                    var minigameData = db.GetMiniGameDataByCode(parameters.MiniGameCode);
+                    var results = new List<PlayResultParameters>();
+                    foreach (var weightedPlaySkill in minigameData.AffectedPlaySkills)
+                    {
+                        results.Add(new PlayResultParameters(PlayEvent.Skill, weightedPlaySkill.Skill, parameters.Score));
+                    }
+                    LogPlay(appSession, parameters.Pos, parameters.MiniGameCode, results);
+                }
             }
 
-            db.InsertAll(logDataList);
+            if (!demoUser) db.InsertAll(logDataList);
             db.InsertOrReplaceAll(scoreDataList);
         }
 
@@ -400,26 +412,39 @@ namespace Antura.Teacher
             db.InsertOrReplace(scoreData);
         }
 
-        public void LogPlaySessionScores(int appSession, List<LogPlaySessionScoreParams> logPlaySessionScoreParamsList)
+        public void LogPlaySessionScores(int appSession, List<LogPlaySessionScoreParams> logPlaySessionScoreParamsList, bool demoUser = false)
         {
             // Retrieve previous scores
-            string query = string.Format("SELECT * FROM " + nameof(JourneyScoreData));
-            var previousScoreDataList = db.Query<JourneyScoreData>(query);
+            List<JourneyScoreData> previousScoreDataList = null;
+            if (!demoUser)
+            {
+                string query = string.Format("SELECT * FROM " + nameof(JourneyScoreData));
+                previousScoreDataList = db.Query<JourneyScoreData>(query);
+            }
 
             var logDataList = new List<LogPlaySessionScoreData>();
             var scoreDataList = new List<JourneyScoreData>();
             foreach (var parameters in logPlaySessionScoreParamsList)
             {
                 // Log for history
-                var logData = new LogPlaySessionScoreData(appSession, parameters.Pos, parameters.Score, parameters.PlayTime);
-                logDataList.Add(logData);
+                if (!demoUser)
+                {
+                    var logData = new LogPlaySessionScoreData(appSession, parameters.Pos, parameters.Score, parameters.PlayTime);
+                    logDataList.Add(logData);
+                }
 
                 // Score update
-                var scoreData = GetJourneyScoreDataWithMaximum(JourneyDataType.PlaySession, parameters.Pos.Id, parameters.Score, previousScoreDataList);
-                scoreDataList.Add(scoreData);
+                if (demoUser)
+                {
+                    scoreDataList.Add(new JourneyScoreData(parameters.Pos.Id, JourneyDataType.PlaySession, parameters.Score));
+                }
+                else
+                {
+                    scoreDataList.Add(GetJourneyScoreDataWithMaximum(JourneyDataType.PlaySession, parameters.Pos.Id, parameters.Score, previousScoreDataList));
+                }
             }
 
-            db.InsertAll(logDataList);
+            if (!demoUser) db.InsertAll(logDataList);
             db.InsertOrReplaceAll(scoreDataList);
         }
         #endregion

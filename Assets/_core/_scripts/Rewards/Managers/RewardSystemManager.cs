@@ -371,9 +371,24 @@ namespace Antura.Rewards
             return GetRewardPacks().Where(x => x.IsFoundAtJourneyPosition(journeyPosition) && x.IsUnlocked);
         }
 
-        private IEnumerable<RewardPack> GetRewardPacksForJourneyPosition(JourneyPosition journeyPosition)
+        private List<RewardPack> GetRewardPacksForJourneyPosition(JourneyPosition journeyPosition)
         {
-            return GetRewardPacks().Where(x => x.IsFoundAtJourneyPosition(journeyPosition));
+            if (rewardPacksCache.ContainsKey(journeyPosition))
+            {
+                return rewardPacksCache[journeyPosition];
+            }
+
+            var list = new List<RewardPack>();
+            foreach (RewardPack x in GetRewardPacks())
+            {
+                if (x.IsFoundAtJourneyPosition(journeyPosition))
+                {
+                    list.Add(x);
+                    //yield return x;
+                }
+            }
+            rewardPacksCache[journeyPosition] = list;
+            return list;
         }
 
         /// <summary>
@@ -490,7 +505,7 @@ namespace Antura.Rewards
 
         public List<RewardPack> UnlockAllRewardPacksForJourneyPosition(JourneyPosition journeyPosition, bool save = true)
         {
-            var packs = GetOrGenerateAllRewardPacksForJourneyPosition(journeyPosition);
+            var packs = GetOrGenerateAllRewardPacksForJourneyPosition(journeyPosition, save);
 
             if (AreAllJourneyPositionRewardsAlreadyUnlocked(journeyPosition))
             {
@@ -506,17 +521,19 @@ namespace Antura.Rewards
 
         #region Pack Generation
 
+        private Dictionary<JourneyPosition, List<RewardPack>> rewardPacksCache = new Dictionary<JourneyPosition, List<RewardPack>>();
+
         /// <summary>
         /// Generates all Reward Packs for a given journey position
         /// </summary>
         /// <returns></returns>
-        public List<RewardPack> GetOrGenerateAllRewardPacksForJourneyPosition(JourneyPosition journeyPosition)
+        public List<RewardPack> GetOrGenerateAllRewardPacksForJourneyPosition(JourneyPosition journeyPosition, bool save = true)
         {
             // First check whether we already generated them
             var rewardPacks = GetRewardPacksForJourneyPosition(journeyPosition);
             if (rewardPacks.Any())
             {
-                return rewardPacks.ToList();
+                return rewardPacks;
             }
 
             // If not, we need to generate them from scratch
@@ -524,7 +541,7 @@ namespace Antura.Rewards
             GeneratePacksFromUnlockFunction(journeyPosition, jpPacks);
 
             // We register the generated packs as locked
-            RegisterLockedPacks(jpPacks, journeyPosition);
+            RegisterLockedPacks(jpPacks, journeyPosition, save);
 
             return jpPacks;
         }
@@ -547,7 +564,7 @@ namespace Antura.Rewards
             int nTexturesLeft = GetAllRewardPacksOfBaseType(RewardBaseType.Texture).Count(x => x.IsLocked);
             int nPropsLeft = GetAllRewardPacksOfBaseType(RewardBaseType.Prop, true).Count(x => x.IsLocked);
 
-            //Debug.Log("We have left: " + nDecalsLeft + " decals, " + nTexturesLeft + " textures, " + nPropsLeft + " props");
+            //Debug.Log($"We have left: {nDecalsLeft} decals, {nTexturesLeft} textures, {nPropsLeft} props");
 
             List<RewardBaseType> choices = new List<RewardBaseType>();
             if (nDecalsLeft > 0)
@@ -556,6 +573,13 @@ namespace Antura.Rewards
                 choices.Add(RewardBaseType.Texture);
             if (nPropsLeft > 0)
                 choices.Add(RewardBaseType.Prop);
+
+            if (choices.Count == 0)
+            {
+                // Nothing left...
+                Debug.LogWarning($"Nothing left to unlock for JP {journeyPosition}");
+                return;
+            }
 
             RewardBaseType choice = choices.RandomSelectOne();
 
@@ -693,7 +717,7 @@ namespace Antura.Rewards
             packs.AddRange(decalPacks);
 
             RegisterLockedPacks(packs, zeroJP, false);
-            UnlockPacks(packs);
+            UnlockPacks(packs, false);
 
             // Force as already seen (only for texture and decals)
             foreach (var pack in texturePacks)

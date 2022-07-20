@@ -6,6 +6,7 @@ using System.Reflection;
 using DG.DeExtensions;
 using UnityEngine;
 #if UNITY_EDITOR
+using Antura.Core;
 using UnityEditor;
 #endif
 
@@ -77,7 +78,16 @@ namespace Antura.Language
                     Book.Book.I.TestShaddah = !Book.Book.I.TestShaddah;
                 }
             }
+            GUILayout.EndHorizontal();
 
+            GUILayout.BeginHorizontal();
+            EditorGUILayout.BeginFadeGroup(Application.isPlaying ? 1f : 0.1f);
+            if (GUILayout.Button("Rebuild Diacritics Combo"))
+            {
+                ArabicLanguageHelper.REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = true;
+                (AppManager.I.LanguageSwitcher.GetHelper(LanguageUse.Learning) as ArabicLanguageHelper).RebuildDiacriticCombos();
+            }
+            EditorGUILayout.EndFadeGroup();
             GUILayout.EndHorizontal();
 
             GUILayout.BeginHorizontal();
