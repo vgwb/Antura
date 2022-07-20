@@ -2,7 +2,6 @@ using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using Antura.UI;
-using ArabicSupport;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;

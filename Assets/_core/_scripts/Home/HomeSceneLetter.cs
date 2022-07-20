@@ -44,7 +44,7 @@ namespace Antura.LivingLetters
             {
                 letter = AppManager.I.Teacher.GetRandomTestLetterLL(letterFilters, useMaxJourneyData: true);
             }
-            catch (Exception e)
+            catch (Exception)
             {
                 Debug.LogError("Exception while trying to fetch a letter from the DB. Reverting to the first letter");
                 letter = AppManager.I.DB.GetAllLetterData().FirstOrDefault().ConvertToLivingLetterData() as LL_LetterData;

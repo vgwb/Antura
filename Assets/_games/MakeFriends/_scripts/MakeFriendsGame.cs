@@ -2,7 +2,6 @@ using Antura.Database;
 using Antura.LivingLetters;
 using Antura.Tutorial;
 using Antura.UI;
-using ArabicSupport;
 using Antura.Core;
 using Antura.Helpers;
 using System;
