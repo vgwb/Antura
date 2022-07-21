@@ -175,10 +175,10 @@ Roberto Lambertini
 Lucía Sayagués  
 Matias Melfi  
 Valentina Hernández  
+Sebastian & Alexandra Boros
 Dani Arguedas  
 David Osorio  
 Roger Sas
-Sebastian & Alexandra Boros
 Billy Snyder (Futura Handwritten font)  
 Plan Ceibal  
 Grupo de 3er año A de la Escuela 81 de Montevideo  
