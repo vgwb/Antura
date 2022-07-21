@@ -64,6 +64,9 @@ Mouna Belgrini
 **ARABIC TRANSLATION & VOICE ACTING**  
 Mounir Oubry
 
+**ARABIC TRANSLATION & TESTING**  
+Wassim Bassil
+
 **DARI TRANSLATION, VOICE RECORDING & TESTING**  
 Hasib Rassa (Code To Inspire)
 
@@ -174,7 +177,8 @@ Matias Melfi
 Valentina Hernández  
 Dani Arguedas  
 David Osorio  
-Roger Sas  
+Roger Sas
+Sebastian & Alexandra Boros
 Billy Snyder (Futura Handwritten font)  
 Plan Ceibal  
 Grupo de 3er año A de la Escuela 81 de Montevideo  
