@@ -175,7 +175,7 @@ Roberto Lambertini
 Lucía Sayagués  
 Matias Melfi  
 Valentina Hernández  
-Sebastian & Alexandra Boros
+Sebastian & Alexandra Boros  
 Dani Arguedas  
 David Osorio  
 Roger Sas
