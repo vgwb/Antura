@@ -168,13 +168,18 @@ namespace Antura.Language
         public int medial;
         public int final;
 
-        public ArabicMapping(int from, int isolated, int initial, int medial, int final)
+        public bool canConnectBefore;
+        public bool canConnectAfter;
+
+        public ArabicMapping(int from, int isolated, int initial, int medial, int final, bool canConnectBefore, bool canConnectAfter)
         {
             this.from = from;
             this.isolated = isolated;
             this.final = final > 0 ? final : this.isolated;
             this.initial = initial > 0 ? initial : this.isolated;
             this.medial = medial > 0 ? medial : this.final;
+            this.canConnectBefore = canConnectBefore;
+            this.canConnectAfter = canConnectAfter;
         }
 
         public bool InitialDefined => initial != isolated;
@@ -391,11 +396,11 @@ namespace Antura.Language
 
                     ArabicMapping prevMapping = null;
                     if (i > 0) prevMapping = ArabicMapper.MappingFor(lettersInput[i - 1]);
-                    bool prevConnecting = prevMapping != null && (prevMapping.MedialDefined || prevMapping.InitialDefined);
+                    bool prevConnecting = prevMapping != null && mapping.canConnectBefore && prevMapping.canConnectAfter;
 
                     ArabicMapping nextMapping = null;
                     if (i < lettersInput.Length-1) nextMapping = ArabicMapper.MappingFor(lettersInput[i + 1]);
-                    bool nextConnecting = nextMapping != null && (nextMapping.MedialDefined || nextMapping.FinalDefined);
+                    bool nextConnecting = nextMapping != null && mapping.canConnectAfter && nextMapping.canConnectBefore;
 
                     if (prevConnecting && nextConnecting)
                     {
@@ -534,7 +539,7 @@ namespace Antura.Language
 			    lettersOutput[i] = list[i];
 
 		    str = new string(lettersOutput);
-		    return str;
+            return str;
 	    }
 
     }

@@ -319,7 +319,8 @@ namespace Antura.Language
                     Convert.ToInt32($"0x{ld.Isolated_Unicode}", 16),
                     ld.Initial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Initial_Unicode}", 16),
                     ld.Medial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Medial_Unicode}", 16),
-                    ld.Final_Unicode.IsNullOrEmpty() ? 0 :Convert.ToInt32($"0x{ld.Final_Unicode}", 16)
+                    ld.Final_Unicode.IsNullOrEmpty() ? 0 :Convert.ToInt32($"0x{ld.Final_Unicode}", 16),
+                    ld.CanConnectBefore, ld.CanConnectAfter
                 );
                 mappings.Add(mapping);
             }

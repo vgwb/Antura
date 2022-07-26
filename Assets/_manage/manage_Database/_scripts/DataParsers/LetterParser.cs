@@ -53,6 +53,10 @@ namespace Antura.Database.Management
             data.HasDiacritic = (ToInt(dict["HasDiacritic"]) == 1);
             data.Orientations = ToInt(dict["Orientations"]);
 
+            data.CanConnectBefore = dict.ContainsKey("Can_Connect_Before") && (ToInt(dict["Can_Connect_Before"]) == 1);
+            data.CanConnectAfter = dict.ContainsKey("Can_Connect_After") && (ToInt(dict["Can_Connect_After"]) == 1);
+            data.HasAccent = (ToInt(dict["HasAccent"]) == 1);
+
             if (dict.ContainsKey("LinkedWords"))
             {
                 data.LinkedWords = ParseIDArray<WordData, WordTable>(data, (string)dict["LinkedWords"], db.GetWordTable());

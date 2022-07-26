@@ -302,6 +302,26 @@ namespace Antura.Database
         [SerializeField]
         private float _Complexity;
 
+
+
+        public bool CanConnectBefore
+        {
+            get { return _CanConnectBefore; }
+            set { _CanConnectBefore = value; }
+        }
+        [SerializeField]
+        private bool _CanConnectBefore;
+
+
+        public bool CanConnectAfter
+        {
+            get { return _CanConnectAfter; }
+            set { _CanConnectAfter = value; }
+        }
+        [SerializeField]
+        private bool _CanConnectAfter;
+
+
         public string[] LinkedWords
         {
             get { return _LinkedWords; }
