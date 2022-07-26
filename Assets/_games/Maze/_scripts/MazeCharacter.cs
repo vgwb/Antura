@@ -321,7 +321,7 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
-            print("Colliding with: " + other.gameObject.name);
+            //print("Colliding with: " + other.gameObject.name);
 
             if (other.gameObject.name.IndexOf("fruit_") == 0)
             {

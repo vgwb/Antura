@@ -86,7 +86,7 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
-            Debug.Log("started Drawing!");
+            //Debug.Log("started Drawing!");
 
             MazeGame.instance.drawingTool.SetActive(true);
 
