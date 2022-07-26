@@ -47,12 +47,15 @@ namespace Antura.Language
         static Dictionary<DiacriticComboLookUpEntry, LetterData> diacriticComboLookUpCache =
             new Dictionary<DiacriticComboLookUpEntry, LetterData>();
 
+
         /// <summary>
         /// Collapses diacritics and letters, collapses multiple words variations (e.g. lam + alef), selects correct forms unicodes, and reverses the string.
         /// </summary>
         /// <returns>The string, ready for display or further processing.</returns>
         public override string ProcessString(string str)
         {
+            SetupMappings();
+            
             ArabicFixer.ConvertFarsiYehToAlefMaqsura = ConvertFarsiYehToAlefMaqsura;
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
@@ -299,8 +302,12 @@ namespace Antura.Language
             }
         }
 
+        private static bool hasSetupMappings = false;
         private static void SetupMappings()
         {
+            if (hasSetupMappings) return;
+            hasSetupMappings = true;
+
             var mappings = new List<ArabicMapping>();
             var db = AppManager.I.DB;
             var allLetterData = new List<LetterData>(db.GetAllLetterData());
@@ -327,7 +334,6 @@ namespace Antura.Language
         /// </summary>
         public void BuildDiacriticCombos2Fix()
         {
-            SetupMappings();
 
             DiacriticCombos2Fix = new Dictionary<DiacriticComboEntry, Vector2>();
 
