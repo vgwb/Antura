@@ -111,6 +111,8 @@ namespace Antura.Database
         [SerializeField]
         private string _BaseLetter;
 
+        // If set, this Letter, when found, will be split for spelling into a Ligature into the letters listed in this string
+        // Example: Œ is split into OE
         public string LigatureSplit
         {
             get { return _LigatureSplit; }
