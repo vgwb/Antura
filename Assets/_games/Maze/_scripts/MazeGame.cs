@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.Core;
 using Antura.FSM;
 using Antura.LivingLetters;
@@ -166,12 +167,31 @@ namespace Antura.Minigames.Maze
         public void OnFruitGotDrawnOver(MazeArrow mazeArrow)
         {
             currentMazeLetter.NotifyFruitGotMouseOver(mazeArrow);
+
+            var nextFruit = currentCharacter._fruits.FirstOrDefault(x => x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.Reached && x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.LaunchPosition);
+            if (nextFruit != null)
+            {
+                var nextFruitIndex = currentCharacter._fruits.IndexOf(nextFruit.gameObject);
+                RefreshFruitColliderSizes(nextFruitIndex);
+            }
         }
 
         public void OnDrawnLetterWrongly()
         {
             currentMazeLetter.NotifyDrawnLetterWrongly();
         }
+
+        private Vector3 baseFruitColliderSize;
+        public void RefreshFruitColliderSizes(int nextFruit)
+        {
+            if (baseFruitColliderSize == default) baseFruitColliderSize = currentCharacter._fruits[0].GetComponent<BoxCollider>().size;
+            for (var iFruit = 0; iFruit < currentCharacter._fruits.Count; iFruit++)
+            {
+                GameObject fruit = currentCharacter._fruits[iFruit];
+                fruit.GetComponent<BoxCollider>().size = iFruit == nextFruit ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
+            }
+        }
+
 
         private bool uiInitialized;
         private void initUI()

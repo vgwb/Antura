@@ -4,6 +4,7 @@ using Antura.Minigames.Tobogan;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -312,6 +313,7 @@ namespace Antura.Minigames.Maze
             }
 
             currentFruitIndex = 1;
+            MazeGame.instance.RefreshFruitColliderSizes(currentFruitIndex);
         }
 
         void OnTriggerEnter(Collider other)
@@ -341,6 +343,7 @@ namespace Antura.Minigames.Maze
                     _fruits[currentFruitIndex].GetComponent<MazeArrow>().tweenToColor = true;
 
                     currentFruitIndex++;
+                    MazeGame.instance.RefreshFruitColliderSizes(currentFruitIndex);
 
                     if (index == 0)
                     {

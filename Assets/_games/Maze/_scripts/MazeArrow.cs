@@ -21,11 +21,11 @@ namespace Antura.Minigames.Maze
         private Color redParticleSystemColor = new Color(1f, 0f, 0.102f, 0.3765f);
         private Color yellowParticleSystemColor = new Color(1f, 0.714f, 0f, 0.3765f);
 
-        private enum HighlightState
+        public enum HighlightState
         {
             None, LaunchPosition, Reached, Unreached
         }
-        private HighlightState highlightState;
+        public HighlightState highlightState;
 
         public void HighlightAsLaunchPosition()
         {
