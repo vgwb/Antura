@@ -25,6 +25,7 @@ namespace Antura.Database.Management
             data.Title = ToString(dict["Title"]);
             data.Kind = ParseEnum<LetterDataKind>(data, dict["Kind"]);
             data.BaseLetter = ToString(dict["BaseLetter"]);
+            data.LigatureSplit = dict.ContainsKey("LigatureSplit") ? ToString(dict["LigatureSplit"]) : string.Empty;
             data.Symbol = ToString(dict["Symbol"]);
             data.Type = ParseEnum<LetterDataType>(data, dict["Type"]);
             data.Tag = ToString(dict["Tag"]);

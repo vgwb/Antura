@@ -5,6 +5,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Language
@@ -129,28 +130,29 @@ namespace Antura.Language
             {
                 bool foundLetter = false;
 
-                // HACK: Letter "Œ" is split differently as it is a ligature
-                if (depletingWord.Substring(0,1) == "Œ")
-                {
-                    var ld = staticDatabase.GetById(availableLettersTable, "O");
-                    stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
-                    ld = staticDatabase.GetById(availableLettersTable, "E");
-                    stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
-                    depletingWord = depletingWord.Substring(1, depletingWord.Length - 1);
-                    index += 1;
-                    continue;
-                }
-
                 for (int l = Mathf.Min(depletingWord.Length, maxLetterLength); l >= 1; l--)
                 {
                     var sub = depletingWord.Substring(0, l);
                     var ld = availableLettersList.FirstOrDefault(x => string.Equals(x.Isolated, sub, StringComparison.OrdinalIgnoreCase));
                     if (ld != null)
                     {
-                        depletingWord = depletingWord.Substring(l, depletingWord.Length - l);
+                        if (!ld.LigatureSplit.IsNullOrEmpty())
+                        {
+                            foreach (char c in ld.LigatureSplit)
+                            {
+                                ld = staticDatabase.GetById(availableLettersTable, c.ToString());
+                                stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
+                            }
+                            depletingWord = depletingWord.Substring(1, depletingWord.Length - 1);
+                            index += 1;
+                        }
+                        else
+                        {
+                            stringParts.Add(new StringPart(ld, index, index + ld.Isolated.Length-1, LetterForm.Isolated));
+                            depletingWord = depletingWord.Substring(l, depletingWord.Length - l);
+                            index += ld.Isolated.Length;
+                        }
                         foundLetter = true;
-                        stringParts.Add(new StringPart(ld, index, index + ld.Isolated.Length-1, LetterForm.Isolated));
-                        index += ld.Isolated.Length;
                         break;
                     }
                 }

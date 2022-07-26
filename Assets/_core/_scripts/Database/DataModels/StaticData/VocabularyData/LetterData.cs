@@ -111,6 +111,14 @@ namespace Antura.Database
         [SerializeField]
         private string _BaseLetter;
 
+        public string LigatureSplit
+        {
+            get { return _LigatureSplit; }
+            set { _LigatureSplit = value; }
+        }
+        [SerializeField]
+        private string _LigatureSplit;
+
         public string Symbol
         {
             get { return _Symbol; }
