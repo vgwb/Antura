@@ -1,9 +1,9 @@
 #if UNITY_EDITOR
-using System.Collections.Generic;
 using UnityEditor;
 #endif
 
 using System;
+using System.Collections.Generic;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -20,7 +20,7 @@ namespace Antura.Database
         public List<MiniGameData> ShownData = new List<MiniGameData>();
     }
 
-    #if UNITY_EDITOR
+#if UNITY_EDITOR
     [CustomEditor(typeof(MiniGameDatabase))]
     public class MiniGameDatabaseEditor : Editor
     {
@@ -46,5 +46,5 @@ namespace Antura.Database
             serializedObject.ApplyModifiedProperties();
         }
     }
-    #endif
+#endif
 }
