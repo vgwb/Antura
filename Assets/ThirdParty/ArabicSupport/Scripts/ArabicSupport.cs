@@ -26,10 +26,10 @@ namespace Antura.Language
     {
         public static bool ConvertFarsiYehToAlefMaqsura;
 
-        public static void BuildMappingTable(List<ArabicMapping> mappings)
+        public static void AddToMappingTable(List<ArabicMapping> mappings)
         {
             var mapper = ArabicMapper;
-            mapper.BuildFrom(mappings);
+            mapper.AddToTable(mappings);
         }
 
 		/// <summary>
@@ -202,9 +202,9 @@ namespace Antura.Language
 	    private static List<ArabicMapping> mapList;
 	    private static ArabicTable arabicMapper;
 
-        public void BuildFrom(List<ArabicMapping> mappings)
+        public void AddToTable(List<ArabicMapping> mappings)
         {
-            mapList = new List<ArabicMapping>();
+            if (mapList == null) mapList = new List<ArabicMapping>();
             mapList.AddRange(mappings);
         }
 

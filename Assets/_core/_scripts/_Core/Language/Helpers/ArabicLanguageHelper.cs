@@ -55,7 +55,7 @@ namespace Antura.Language
         public override string ProcessString(string str)
         {
             SetupMappings();
-            
+
             ArabicFixer.ConvertFarsiYehToAlefMaqsura = ConvertFarsiYehToAlefMaqsura;
             return GenericHelper.ReverseText(ArabicFixer.Fix(str, true, true));
         }
@@ -308,23 +308,35 @@ namespace Antura.Language
             if (hasSetupMappings) return;
             hasSetupMappings = true;
 
-            var mappings = new List<ArabicMapping>();
             var db = AppManager.I.DB;
-            var allLetterData = new List<LetterData>(db.GetAllLetterData());
-            foreach (var ld in allLetterData)
+            var mappings = new HashSet<ArabicMapping>();
+
+            // Get all letter DBs from all editions
+            foreach (ContentEditionConfig contentEditionConfig in AppManager.I.RootConfig.LoadedAppEdition.ContentEditions)
             {
-                // @note: in our tables, we use the General (x06__ version) directly as the Isolated (xF___ version) as it is the same character
-                var mapping = new ArabicMapping(
-                    Convert.ToInt32($"0x{ld.Isolated_Unicode}", 16),
-                    Convert.ToInt32($"0x{ld.Isolated_Unicode}", 16),
-                    ld.Initial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Initial_Unicode}", 16),
-                    ld.Medial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Medial_Unicode}", 16),
-                    ld.Final_Unicode.IsNullOrEmpty() ? 0 :Convert.ToInt32($"0x{ld.Final_Unicode}", 16),
-                    ld.CanConnectBefore, ld.CanConnectAfter
-                );
-                mappings.Add(mapping);
+                foreach (var ld in contentEditionConfig.LetterDB.table.GetValuesTyped())
+                {
+                    // @note: in our tables, we use the General (x06__ version) directly as the Isolated (xF___ version) as it is the same character
+                    try
+                    {
+                        var mapping = new ArabicMapping(
+                            Convert.ToInt32($"0x{ld.Isolated_Unicode}", 16),
+                            Convert.ToInt32($"0x{ld.Isolated_Unicode}", 16),
+                            ld.Initial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Initial_Unicode}", 16),
+                            ld.Medial_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Medial_Unicode}", 16),
+                            ld.Final_Unicode.IsNullOrEmpty() ? 0 : Convert.ToInt32($"0x{ld.Final_Unicode}", 16),
+                            ld.CanConnectBefore, ld.CanConnectAfter
+                        );
+                        mappings.Add(mapping);
+                    }
+                    catch (Exception)
+                    {
+                        // Ignore those that cannot be added
+                    }
+                }
             }
-            ArabicFixer.BuildMappingTable(mappings);
+
+            ArabicFixer.AddToMappingTable(mappings.ToList());
         }
 
         private static Dictionary<DiacriticComboEntry, Vector2> DiacriticCombos2Fix = null;
