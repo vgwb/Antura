@@ -1,6 +1,6 @@
-﻿using ArabicSupport;
-using UnityEditor;
+﻿using UnityEditor;
 using UnityEngine;
+using Antura.Language;
 
 public class ArabicSupportTool : EditorWindow
 {

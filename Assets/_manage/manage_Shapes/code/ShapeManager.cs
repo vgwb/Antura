@@ -178,8 +178,9 @@ public class ShapeManager : MonoBehaviour
     }
 
 
-    public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float start, float scale = 1f)
+    public static List<GameObject> SpawnObjectsOnSplines(GameObject prefab, Transform parent, Stroke[] strokes, float delta, float start, float scale, out List<float> tArray)
     {
+        tArray = new List<float>();
         var gos = new List<GameObject>();
         for (var iStroke = 0; iStroke < strokes.Length; iStroke++)
         {
@@ -199,21 +200,23 @@ public class ShapeManager : MonoBehaviour
                 go = SpawnAt(prefab, pivot, stroke.Spline, t, scale);
                 go.name = $"{prefab.name}_{iStroke}_{(seq)}";
                 gos.Add(go);
+                tArray.Add(t);
                 seq++;
                 t += delta;
             }
 
-            // Spawn a last one
+            // Spawn at last one
             t = 1f * n;
             go = SpawnAt(prefab, pivot, stroke.Spline, t, scale);
             go.name = $"{prefab.name}_{iStroke}_{(seq)}";
             gos.Add(go);
+            tArray.Add(t);
         }
 
         return gos;
     }
 
-    private static GameObject SpawnAt(GameObject prefab, GameObject pivot, DirectionalSpline spline, float t, float scale = 1f)
+    public static GameObject SpawnAt(GameObject prefab, GameObject pivot, DirectionalSpline spline, float t, float scale = 1f)
     {
         var pos = PositionOnSpline(spline, t);
         var tangent = TangentOnSpline(spline, t).normalized;
@@ -224,6 +227,18 @@ public class ShapeManager : MonoBehaviour
         var angle = Vector2.SignedAngle(tangent, Vector2.left);
         go.transform.localEulerAngles = new Vector3(-angle, -90, 90);
         return go;
+    }
+
+    public static void PlaceObjectOnSpline(GameObject go, GameObject pivot, DirectionalSpline spline, float t, float scale = 1f)
+    {
+        var pos = PositionOnSpline(spline, t);
+        var tangent = TangentOnSpline(spline, t).normalized;
+        go.transform.parent = pivot.transform;
+        go.transform.localPosition = pos * scale;
+
+        // @note: these are set to match Maze's orientations
+        var angle = Vector2.SignedAngle(tangent, Vector2.left);
+        go.transform.localEulerAngles = new Vector3(-angle, -90, 90);
     }
 
     public static Vector3 PositionOnSpline(Spline spline, float t)

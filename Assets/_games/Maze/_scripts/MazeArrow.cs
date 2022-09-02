@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Minigames.Maze
 {
@@ -7,12 +8,13 @@ namespace Antura.Minigames.Maze
         public bool tweenToColor = false;
         public bool pingPong = false;
 
-        private Color normalColor;
-        private Color highlightedColor;
-        private Color unreachedColor;
-        private Color launchPositionColor;
+        public Color normalColor;
+        public Color highlightedColor;
+        public Color unreachedColor;
+        public Color launchPositionColor;
 
-        public Renderer arrowOrDotMesh;
+        public Renderer arrowMesh;
+        public Renderer dotMesh;
 
         private GameObject highlightFX;
         private ParticleSystem.MainModule particleSystemMainModule;
@@ -21,11 +23,12 @@ namespace Antura.Minigames.Maze
         private Color redParticleSystemColor = new Color(1f, 0f, 0.102f, 0.3765f);
         private Color yellowParticleSystemColor = new Color(1f, 0.714f, 0f, 0.3765f);
 
-        private enum HighlightState
+        public enum HighlightState
         {
             None, LaunchPosition, Reached, Unreached
         }
-        private HighlightState highlightState;
+        public HighlightState highlightState;
+        public float splineValue;
 
         public void HighlightAsLaunchPosition()
         {
@@ -33,7 +36,8 @@ namespace Antura.Minigames.Maze
             {
                 particleSystemMainModule.loop = true;
                 particleSystemMainModule.startColor = yellowParticleSystemColor;
-                arrowOrDotMesh.material.color = launchPositionColor;
+                arrowMesh.material.color = launchPositionColor;
+                if (dotMesh != null) dotMesh.material.color = launchPositionColor;
                 highlightFX.SetActive(true);
 
                 highlightState = HighlightState.LaunchPosition;
@@ -47,7 +51,8 @@ namespace Antura.Minigames.Maze
                 particleSystemMainModule.loop = false;
                 particleSystemMainModule.startColor = greenParticleSystemColor;
                 highlightFX.SetActive(true);
-                arrowOrDotMesh.material.color = highlightedColor;
+                arrowMesh.material.color = highlightedColor;
+                if (dotMesh != null) dotMesh.material.color = highlightedColor;
                 MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.OK);
 
                 highlightState = HighlightState.Reached;
@@ -57,7 +62,8 @@ namespace Antura.Minigames.Maze
         public void Unhighlight()
         {
             highlightFX.SetActive(false);
-            arrowOrDotMesh.material.color = normalColor;
+            arrowMesh.material.color = normalColor;
+            if (dotMesh != null) dotMesh.material.color = normalColor;
 
             highlightState = HighlightState.None;
         }
@@ -66,7 +72,8 @@ namespace Antura.Minigames.Maze
         {
             if (highlightState != HighlightState.Unreached)
             {
-                arrowOrDotMesh.material.color = unreachedColor;
+                arrowMesh.material.color = unreachedColor;
+                if (dotMesh != null) dotMesh.material.color = unreachedColor;
 
                 if (isFirstUnreachedArrow)
                 {

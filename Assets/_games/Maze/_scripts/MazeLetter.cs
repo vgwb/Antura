@@ -14,7 +14,7 @@ namespace Antura.Minigames.Maze
         {
             anturaSeconds = 0;
             isDrawing = false;
-            mazeCharacter.toggleVisibility(false);
+            mazeCharacter.ToggleParticlesVisibility(false);
             //character.gameObject.SetActive (false);
         }
 
@@ -27,6 +27,7 @@ namespace Antura.Minigames.Maze
 
             if (mazeCharacter.characterIsMoving)
             {
+                //mazeCharacter.Draw();
                 anturaSeconds = 0;
                 return;
             }
@@ -81,12 +82,12 @@ namespace Antura.Minigames.Maze
 
         public void OnPointerDown()
         {
-            if (mazeCharacter.characterIsMoving || !mazeCharacter.canMouseBeDown() || mazeCharacter.finishedRound)
+            if (mazeCharacter.characterIsMoving || (!hasStartedDrawing && !mazeCharacter.canStartDrawing()) || mazeCharacter.finishedRound)
             {
                 return;
             }
 
-            Debug.Log("started Drawing!");
+            //Debug.Log("started Drawing!");
 
             MazeGame.instance.drawingTool.SetActive(true);
 
@@ -98,14 +99,39 @@ namespace Antura.Minigames.Maze
 
             // Inform that we are inside the collision:
             isDrawing = true;
+
+            if (hasStartedDrawing)
+            {
+                // Create a new line
+                MazeGame.instance.addLine(MazeGame.instance.drawingColor);
+            }
+
+            hasStartedDrawing = true;
         }
 
+        private bool hasStartedDrawing = false;
         public void OnPointerUp()
         {
+            if (!MazeCharacter.LOSE_ON_SINGLE_PATH)
+            {
+                if (!mazeCharacter.HasCompletedPath)
+                {
+                    if (CanLaunchRocket())
+                    {
+                        MazeGame.instance.drawingTool.SetActive(false);
+                        LaunchRocket(finished:false, wrong:false);
+                    }
+
+                    isDrawing = false;
+
+                    return;
+                }
+            }
+
             if (CanLaunchRocket())
             {
                 MazeGame.instance.drawingTool.SetActive(false);
-                LaunchRocket();
+                LaunchRocket(wrong:false);
             }
         }
 
@@ -114,7 +140,6 @@ namespace Antura.Minigames.Maze
             if (CanLaunchRocket())
             {
                 mazeCharacter.loseState = MazeCharacter.LoseState.OutOfBounds;
-
                 MazeGame.instance.ColorCurrentLinesAsIncorrect();
 
                 Tutorial.TutorialUI.MarkNo(pointOfImpact);
@@ -125,7 +150,7 @@ namespace Antura.Minigames.Maze
                     MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 }
 
-                LaunchRocket();
+                LaunchRocket(wrong:true);
             }
         }
 
@@ -134,15 +159,25 @@ namespace Antura.Minigames.Maze
             return MazeGame.instance.tutorialForLetterisComplete() && isDrawing;
         }
 
-        private void LaunchRocket()
+        private void LaunchRocket(bool finished = true, bool wrong = false)
         {
+            if (finished || wrong)
+            {
+                hasStartedDrawing = false;
+                MazeGame.instance.timer.StopTimer();
+            }
             isDrawing = false;
-            mazeCharacter.toggleVisibility(true);
-            mazeCharacter.initMovement();
+            mazeCharacter.ToggleParticlesVisibility(true);
 
-
-
-            MazeGame.instance.timer.StopTimer();
+            if (wrong)
+            {
+                mazeCharacter.PerformMovement(true);
+            }
+            else
+            {
+                // Recreate character waypoints from passed fruits
+                mazeCharacter.MoveOnCurrentFruits();
+            }
         }
 
         public void NotifyFruitGotMouseOver(MazeArrow fruit)
@@ -157,7 +192,15 @@ namespace Antura.Minigames.Maze
         {
             if (CanLaunchRocket())
             {
-                LaunchRocket();
+                mazeCharacter.loseState = MazeCharacter.LoseState.OutOfBounds;
+                MazeGame.instance.ColorCurrentLinesAsIncorrect();
+                MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.KO);
+                if (!MazeGame.instance.isTutorialMode)
+                {
+                    MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
+                }
+
+                LaunchRocket(wrong:true);
             }
         }
     }

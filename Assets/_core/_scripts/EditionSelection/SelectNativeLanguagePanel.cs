@@ -22,13 +22,14 @@ namespace Antura.UI
         public IEnumerator SwitchQuestionTextCO()
         {
             List<LanguageCode> sortedCodes = new List<LanguageCode>();
-            sortedCodes.AddRange(AvailableNativeCodes);
 
             if (AvailableNativeCodes.Contains(PreferredLanguage))
             {
                 AvailableNativeCodes.Remove(PreferredLanguage);
                 AvailableNativeCodes.Insert(0, PreferredLanguage);
             }
+
+            sortedCodes.AddRange(AvailableNativeCodes);
 
             int nativeCodeIndex = 0;
             while (true)

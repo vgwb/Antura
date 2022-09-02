@@ -14,7 +14,16 @@ namespace Antura.Database
     /// </summary>
     [Serializable]
     public class MiniGameData : IData
-    {
+    {  [PrimaryKey]
+        public string CodeName
+        {
+            get { return _CodeName; }
+            set { _CodeName = value; }
+        }
+        [SerializeField]
+        private string _CodeName;
+
+
         [PrimaryKey]
         public MiniGameCode Code
         {

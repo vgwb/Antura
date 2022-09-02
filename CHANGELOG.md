@@ -3,14 +3,28 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
 and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.html)
 
-## next [2.3.0] - 2022-? - new content!
+## next [2.4.0] - 2022-? - new content!
 New Supported languages:
 - Pashto
+
+New Learning Content:
+- Learn to Read - Pashto
+
+## next [2.3.0] - 2022-? - new content!
+New Supported languages:
 - Hungarian
 
 New Learning Content:
-- Learn to Read in Pashto
 - Learn Hungarian
+
+Bugfix and Improvements:
+- updated Maze minigame
+- added Facebook SDK for ukraininan promotion
+- fixed missing iOS Audio 
+
+To Test:
+- maze
+- 
 
 ## [2.2.0] - 2022-7 - new languages
 New Supported languages:

@@ -28,7 +28,7 @@ namespace Antura.Book
             {
                 var isolatedChar = myLetterData.GetStringForDisplay(LetterForm.Isolated);
                 LetterText.SetText(isolatedChar, Font2Use.Learning);
-                Debug.Log("SPelling " + isolatedChar);
+                Debug.Log("Spelling " + isolatedChar);
 
                 if (AppManager.I.ContentEdition.LearnMethod.ShowHelpText)
                     SubtitleText.SetText(myLetterData.Id);

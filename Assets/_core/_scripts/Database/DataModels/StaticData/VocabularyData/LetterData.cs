@@ -111,6 +111,16 @@ namespace Antura.Database
         [SerializeField]
         private string _BaseLetter;
 
+        // If set, this Letter, when found, will be split for spelling into a Ligature into the letters listed in this string
+        // Example: Œ is split into OE
+        public string[] LigatureSplit
+        {
+            get { return _LigatureSplit; }
+            set { _LigatureSplit = value; }
+        }
+        [SerializeField]
+        private string[] _LigatureSplit;
+
         public string Symbol
         {
             get { return _Symbol; }
@@ -301,6 +311,26 @@ namespace Antura.Database
         }
         [SerializeField]
         private float _Complexity;
+
+
+
+        public bool CanConnectBefore
+        {
+            get { return _CanConnectBefore; }
+            set { _CanConnectBefore = value; }
+        }
+        [SerializeField]
+        private bool _CanConnectBefore;
+
+
+        public bool CanConnectAfter
+        {
+            get { return _CanConnectAfter; }
+            set { _CanConnectAfter = value; }
+        }
+        [SerializeField]
+        private bool _CanConnectAfter;
+
 
         public string[] LinkedWords
         {

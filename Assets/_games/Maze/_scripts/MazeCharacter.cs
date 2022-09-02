@@ -4,6 +4,8 @@ using Antura.Minigames.Tobogan;
 using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
+using Antura.Helpers;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -102,9 +104,10 @@ namespace Antura.Minigames.Maze
 
         public List<GameObject> _fruits;
 
+        public int CurrentStrokeIndex => currentFruitList;
         private int currentFruitList = 0;
 
-        private int currentFruitIndex;
+        public int currentFruitIndex;
 
 #pragma warning disable 0219
 #pragma warning disable 0414
@@ -194,7 +197,7 @@ namespace Antura.Minigames.Maze
             transform.position = startPoint;
         }
 
-        public void toggleVisibility(bool value)
+        public void ToggleParticlesVisibility(bool value)
         {
             foreach (GameObject particle in particles)
             { particle.SetActive(value); }
@@ -273,9 +276,10 @@ namespace Antura.Minigames.Maze
                 {
                     Transform child = fruitsList.transform.GetChild(i);
 
-                    MazeArrow arrow = child.gameObject.AddComponent<MazeArrow>();
-                    child.gameObject.name = "fruit_" + (i);
-                    arrow.arrowOrDotMesh = i != 0 ? child.GetComponentInChildren<MeshRenderer>() : child.Find("Dot").GetComponent<MeshRenderer>();
+                    var arrow = child.gameObject.GetComponent<MazeArrow>();
+                    child.gameObject.name = $"fruit_{(i)}";
+
+                    arrow.arrowMesh = child.GetComponentInChildren<MeshRenderer>();
                 }
             }
 
@@ -311,7 +315,9 @@ namespace Antura.Minigames.Maze
                 fruit.GetComponent<BoxCollider>().enabled = true;
             }
 
+            reachedFruitIndex = 0;
             currentFruitIndex = 1;
+            MazeGame.instance.RefreshFruitColliderSizes(currentFruitIndex);
         }
 
         void OnTriggerEnter(Collider other)
@@ -321,7 +327,7 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
-            print("Colliding with: " + other.gameObject.name);
+            //print("Colliding with: " + other.gameObject.name);
 
             if (other.gameObject.name.IndexOf("fruit_") == 0)
             {
@@ -341,6 +347,7 @@ namespace Antura.Minigames.Maze
                     _fruits[currentFruitIndex].GetComponent<MazeArrow>().tweenToColor = true;
 
                     currentFruitIndex++;
+                    MazeGame.instance.RefreshFruitColliderSizes(currentFruitIndex);
 
                     if (index == 0)
                     {
@@ -354,7 +361,7 @@ namespace Antura.Minigames.Maze
             }
         }
 
-        void waitAndRestartScene()
+        public void waitAndRestartScene()
         {
             //if (particles) particles.SetActive(false);
             foreach (GameObject particle in particles)
@@ -365,7 +372,7 @@ namespace Antura.Minigames.Maze
                 donotHandleBorderCollision = true;
                 characterIsMoving = false;
                 transform.DOKill(false);
-                toggleVisibility(true);
+                ToggleParticlesVisibility(true);
 
                 MazeGame.instance.ColorCurrentLinesAsIncorrect();
 
@@ -407,7 +414,7 @@ namespace Antura.Minigames.Maze
 
         public void setClickedDot()
         {
-            toggleVisibility(false);
+            ToggleParticlesVisibility(false);
             MazeGame.instance.moveToNext(true);
         }
 
@@ -435,10 +442,10 @@ namespace Antura.Minigames.Maze
 
             transform.LookAt(_fruits[0].transform.position + new Vector3(0f, 0.6f, 0f));
 
-            toggleVisibility(true);
+            ToggleParticlesVisibility(true);
             transform.DOMove(_fruits[0].transform.position + new Vector3(0f, 0.6f, 0f), 1).OnComplete(() =>
             {
-                toggleVisibility(false);
+                ToggleParticlesVisibility(false);
 
                 var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
                 transform.DORotate(firstArrowRotation, 0.5f).OnComplete(() =>
@@ -468,7 +475,7 @@ namespace Antura.Minigames.Maze
 
             SetFruitsList();
 
-            toggleVisibility(false);
+            ToggleParticlesVisibility(false);
 
             var firstArrowRotation = _fruits[0].transform.rotation.eulerAngles;
             firstArrowRotation.x += 90f;
@@ -485,7 +492,7 @@ namespace Antura.Minigames.Maze
             GetComponent<Collider>().enabled = false;
         }
 
-        public bool canMouseBeDown()
+        public bool canStartDrawing()
         {
             if (_fruits == null || MazeGame.instance.isShowingAntura)
             { return false; }
@@ -497,11 +504,11 @@ namespace Antura.Minigames.Maze
             Vector3 pos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(distance));
             pos = Camera.main.ScreenToWorldPoint(pos);
 
-            float mag = (pos - _fruits[0].transform.position).sqrMagnitude;
+            //float mag = (pos - _fruits[0].transform.position).sqrMagnitude;
 
-            if (((pos - _fruits[0].transform.position).sqrMagnitude) <= 1)
+            if (((pos - _fruits[currentFruitIndex-1].transform.position).sqrMagnitude) <= 1)
             {
-                MazeGame.instance.appendToLine(_fruits[0].transform.position);
+                MazeGame.instance.appendToLine(_fruits[currentFruitIndex-1].transform.position);
                 return true;
             }
             else
@@ -510,54 +517,94 @@ namespace Antura.Minigames.Maze
             }
         }
 
-        private void MoveTween()
+        private void MoveTween(bool wrong)
         {
-            // Average distance:
-            float distance = 0;
-            for (int i = 1; i < characterWayPoints.Count; ++i)
-                distance += (characterWayPoints[i] - characterWayPoints[i - 1]).sqrMagnitude;
-
-            float time = distance * 2;
-            if (time > 2)
-                time = 2;
-
-            if (loseState == LoseState.OutOfBounds)
+            if (wrong)
             {
-                time = 0.33f;
-            }
+                // Average distance:
+                float distance = 0;
+                for (int i = 1; i < characterWayPoints.Count; ++i)
+                    distance += (characterWayPoints[i] - characterWayPoints[i - 1]).sqrMagnitude;
 
-            // Set initial angle:
-            var characterWaypointsArray = characterWayPoints.ToArray();
+                float time = distance * 2;
+                if (time > 2)
+                    time = 2;
 
-            transform.LookAt(characterWayPoints[1]);
-
-            transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore, resolution: 2).OnWaypointChange((int index) =>
-            {
-                if (index + 1 < characterWayPoints.Count)
+                if (loseState == LoseState.OutOfBounds)
                 {
-                    transform.LookAt(characterWayPoints[index + 1]);
+                    time = 0.33f;
                 }
-            }).OnComplete(pathMoveComplete);
+
+                // Set initial angle:
+                var characterWaypointsArray = characterWayPoints.ToArray();
+                if (characterWayPoints.Count >= 2) transform.LookAt(characterWayPoints[1]);
+
+                transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore, resolution: 2).OnWaypointChange((int index) =>
+                {
+                    if (index + 1 < characterWayPoints.Count)
+                    {
+                        transform.LookAt(characterWayPoints[index + 1]);
+                    }
+                }).OnComplete(OnPathMoveComplete);
+            }
+            else
+            {
+                StartCoroutine(FollowCorrectPathCO());
+            }
         }
 
-        private void pathMoveComplete()
+        private IEnumerator FollowCorrectPathCO()
         {
+            var shapeData = MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetter>().shapeData;
+            var spline = shapeData.Strokes[CurrentStrokeIndex].Spline;
+
+            var originalParent = transform.parent;
+
+            // Check start and end spline values based on current and reached
+            var arrowStart = _fruits[currentFruitIndex - 1].GetComponent<MazeArrow>();
+            var arrowEnd = _fruits[reachedFruitIndex].GetComponent<MazeArrow>();
+            float t = 0f;
+            while (t < 1f)
+            {
+                t += Time.deltaTime;
+                var lerp = Mathf.Lerp(arrowStart.splineValue, arrowEnd.splineValue, t);
+                ShapeManager.PlaceObjectOnSpline(gameObject, arrowStart.transform.parent.gameObject, spline, lerp, 0.1f);
+                yield return null;
+            }
+
+            transform.parent = originalParent;
+            OnPathMoveComplete();
+        }
+
+        public static bool LOSE_ON_SINGLE_PATH = false;
+
+        public bool HasCompletedPath => currentFruitIndex == _fruits.Count;
+
+        private void OnPathMoveComplete()
+        {
+            if (loseState == LoseState.None && !LOSE_ON_SINGLE_PATH && !HasCompletedPath)
+            {
+                // Wait for the player to finish
+                characterIsMoving = false;
+                MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().AddDotAndHideArrow(_fruits[currentFruitIndex-1].transform);
+                return;
+            }
+
             finishedRound = true;
 
             transform.parent.Find("MazeLetter").GetComponent<MazeLetter>().isDrawing = false;
 
             //arrived!
             //transform.rotation = initialRotation;
-            if (currentFruitIndex == _fruits.Count)
+            if (HasCompletedPath)
             {
-
                 print("Won");
                 // if (particles) particles.SetActive(false);
                 foreach (GameObject particle in particles)
                     particle.SetActive(false);
                 GetComponent<Collider>().enabled = false;
                 characterIsMoving = false;
-                toggleVisibility(false);
+                ToggleParticlesVisibility(false);
                 transform.DOKill(false);
                 MazeGame.instance.moveToNext(true);
 
@@ -649,7 +696,26 @@ namespace Antura.Minigames.Maze
             MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.CrateLandOnground);
         }
 
-        public void initMovement()
+
+        public int reachedFruitIndex = 0;
+        public void MoveOnCurrentFruits()
+        {
+            characterWayPoints.Clear();
+            for (int iFruit = currentFruitIndex-1; iFruit <= reachedFruitIndex; iFruit++)
+            {
+                characterWayPoints.Add(_fruits[iFruit].transform.position + new Vector3(0, 0.5f, 0));
+            }
+
+            //Debug.LogError("Move on fruits from " + (currentFruitIndex-1) + " to " + reachedFruitIndex + ": " + characterWayPoints.ToJoinedString());
+
+            // Start the highlight line
+            //MazeGame.instance.addLine(MazeGame.instance.correctPathColor);
+
+            charPosForDrawing = transform.position;
+            PerformMovement(false);
+        }
+
+        public void PerformMovement(bool wrong)
         {
             if (characterIsMoving)
             {
@@ -658,6 +724,7 @@ namespace Antura.Minigames.Maze
 
             transform.DOKill(false);
             characterIsMoving = true;
+
             GetComponent<Collider>().enabled = true;
 
             foreach (GameObject particle in particles)
@@ -668,7 +735,7 @@ namespace Antura.Minigames.Maze
             myCollider.enabled = false;
 
             // Test with tweens:
-            MoveTween();
+            MoveTween(wrong);
 
             rocketMoveSFX = MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.RocketMove);
         }
@@ -691,7 +758,6 @@ namespace Antura.Minigames.Maze
             if (previousPosition != targetPos)
             {
                 characterWayPoints.Add(targetPos + new Vector3(0, 0.5f, 0));
-                var oldDrawingToolPosition = MazeGame.instance.drawingTool.transform.position;
                 var newDrawingToolPosition = targetPos + new Vector3(0, 0.5f, 0);
                 MazeGame.instance.drawingTool.transform.position = newDrawingToolPosition;
 
@@ -720,19 +786,19 @@ namespace Antura.Minigames.Maze
                 }
             }
 
-            if ((_fruits[_fruits.Count - 1].transform.position - targetPos).sqrMagnitude < 0.1f)
+            // Completed drawing at the end
+            /*if ((_fruits[_fruits.Count - 1].transform.position - targetPos).sqrMagnitude < 0.1f)
             {
-
-                toggleVisibility(true);
-                initMovement();
-                MazeGame.instance.timer.StopTimer();
-            }
-
+               ToggleParticlesVisibility(true);
+               //initMovement();
+               MazeGame.instance.timer.StopTimer();
+               MoveOnCurrentFruits();
+            }*/
         }
 
         public void Appear()
         {
-            toggleVisibility(true);
+            ToggleParticlesVisibility(true);
             isAppearing = true;
 
             List<Vector3> trajectoryPoints = new List<Vector3>();
@@ -786,7 +852,7 @@ namespace Antura.Minigames.Maze
 
             }).OnComplete(() =>
             {
-                toggleVisibility(false);
+                ToggleParticlesVisibility(false);
                 isAppearing = false;
                 rocketMoveSFX.Stop();
 
@@ -963,7 +1029,7 @@ namespace Antura.Minigames.Maze
 
             }).OnComplete(() =>
             {
-                toggleVisibility(false);
+                ToggleParticlesVisibility(false);
                 gameObject.SetActive(false);
                 OnCelebrationOver();
             });
@@ -1025,6 +1091,17 @@ namespace Antura.Minigames.Maze
             }
 
             stateTime += Time.fixedDeltaTime;
+        }
+
+        private Vector3 charPosForDrawing;
+        public void Draw()
+        {
+            var previousPosition = charPosForDrawing;
+            charPosForDrawing = transform.position;
+            if (previousPosition != charPosForDrawing)
+            {
+                MazeGame.instance.appendToLine(previousPosition);
+            }
         }
     }
 }

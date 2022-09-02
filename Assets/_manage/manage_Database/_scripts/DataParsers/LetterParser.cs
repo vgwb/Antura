@@ -1,5 +1,7 @@
+using System;
 using System.Collections.Generic;
 using Antura.Language;
+using DG.DeExtensions;
 
 namespace Antura.Database.Management
 {
@@ -25,6 +27,9 @@ namespace Antura.Database.Management
             data.Title = ToString(dict["Title"]);
             data.Kind = ParseEnum<LetterDataKind>(data, dict["Kind"]);
             data.BaseLetter = ToString(dict["BaseLetter"]);
+
+            var ligatureTxt = dict.ContainsKey("LigatureSplit") ? ToString(dict["LigatureSplit"]) : string.Empty;
+            data.LigatureSplit = ligatureTxt.IsNullOrEmpty() ? Array.Empty<string>() : ligatureTxt.Split(',');
             data.Symbol = ToString(dict["Symbol"]);
             data.Type = ParseEnum<LetterDataType>(data, dict["Type"]);
             data.Tag = ToString(dict["Tag"]);
@@ -52,6 +57,10 @@ namespace Antura.Database.Management
             data.HasAccent = (ToInt(dict["HasAccent"]) == 1);
             data.HasDiacritic = (ToInt(dict["HasDiacritic"]) == 1);
             data.Orientations = ToInt(dict["Orientations"]);
+
+            data.CanConnectBefore = dict.ContainsKey("Can_Connect_Before") && (ToInt(dict["Can_Connect_Before"]) == 1);
+            data.CanConnectAfter = dict.ContainsKey("Can_Connect_After") && (ToInt(dict["Can_Connect_After"]) == 1);
+            data.HasAccent = (ToInt(dict["HasAccent"]) == 1);
 
             if (dict.ContainsKey("LinkedWords"))
             {

@@ -1,7 +1,6 @@
 using Antura.Helpers;
 using Antura.LivingLetters;
 using Antura.Core;
-using ArabicSupport;
 using System.Collections.Generic;
 using Antura.Language;
 

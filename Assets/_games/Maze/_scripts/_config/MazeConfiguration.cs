@@ -47,7 +47,7 @@ namespace Antura.Minigames.Maze
         {
             IQuestionBuilder builder = null;
 
-            int nPacks = 5;
+            int nPacks = 6;
 
             var builderParams = InitQuestionBuilderParamaters();
             switch (Variation)

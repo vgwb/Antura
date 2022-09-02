@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using Antura.Language;
 using DG.DeExtensions;
@@ -167,7 +168,7 @@ namespace Antura.Database.Management
             }
 
             float target_float = 0f;
-            if (!float.TryParse((string)_input, out target_float))
+            if (!float.TryParse((string)_input, NumberStyles.Float, NumberFormatInfo.InvariantInfo, out target_float))
             {
                 Debug.LogError("Object " + (string)_input + " should be a float.");
             }
