@@ -26,6 +26,7 @@ namespace Antura.Minigames.Maze
             None, LaunchPosition, Reached, Unreached
         }
         public HighlightState highlightState;
+        public float splineValue;
 
         public void HighlightAsLaunchPosition()
         {

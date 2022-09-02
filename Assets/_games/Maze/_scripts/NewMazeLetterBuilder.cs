@@ -123,7 +123,7 @@ namespace Antura.Minigames.Maze
             { _callback(); }
         }
 
-        private void AddDotAndHideArrow(Transform arrowParent)
+        public void AddDotAndHideArrow(Transform arrowParent)
         {
             GameObject firstArrow = arrowParent.GetChild(0).gameObject;
             GameObject newDot = Instantiate(MazeGame.instance.dotPrefab, firstArrow.transform);

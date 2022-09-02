@@ -9,6 +9,7 @@ using Antura.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Minigames.Maze
 {
@@ -54,7 +55,7 @@ namespace Antura.Minigames.Maze
 
         private int roundNumber;
 
-        public GameObject currentPrefab;
+        public GameObject currentNewMazeLetter;
         public int health = 4;
         public GameObject cracks;
         List<GameObject> _cracks;
@@ -75,6 +76,7 @@ namespace Antura.Minigames.Maze
         private MazeLetter currentMazeLetter;
         private IInputManager inputManager;
 
+        public Color correctPathColor;
         public Color drawingColor;
         public Color incorrectLineColor;
         public float durationToTweenLineColors;
@@ -164,9 +166,34 @@ namespace Antura.Minigames.Maze
             gameTime = 90f;
         }
 
-        public void OnFruitGotDrawnOver(MazeArrow mazeArrow)
+        public void OnFruitGotDrawnOver(MazeArrow hitFruit)
         {
-            currentMazeLetter.NotifyFruitGotMouseOver(mazeArrow);
+            // If a fruit is not in the correct order, issue an error
+            var desiredFruit = currentCharacter._fruits.FirstOrDefault(x => x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.Reached && x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.LaunchPosition);
+
+            if (desiredFruit == null)
+            {
+                // All highlighted
+                return;
+            }
+
+            var indexOfDesired = currentCharacter._fruits.IndexOf(desiredFruit.gameObject);
+            var indexOfHit = currentCharacter._fruits.IndexOf(hitFruit.gameObject);
+
+            if (indexOfHit > indexOfDesired)
+            {
+                // ERROR!
+                //Debug.LogError("ERROR - fruit NOT IN ORDER: Hit " + hitFruit.gameObject.name + " while waiting for " + desiredFruit.gameObject.name);
+                currentCharacter.loseState = MazeCharacter.LoseState.Incomplete;
+                currentMazeLetter.NotifyDrawnLetterWrongly();
+            }
+            else
+            {
+                //Debug.LogWarning("Reached fruit " + hitFruit.gameObject.name);
+                currentCharacter.reachedFruitIndex = currentCharacter._fruits.IndexOf(hitFruit.gameObject);
+            }
+
+            currentMazeLetter.NotifyFruitGotMouseOver(hitFruit);
 
             var nextFruit = currentCharacter._fruits.FirstOrDefault(x => x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.Reached && x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.LaunchPosition);
             if (nextFruit != null)
@@ -206,7 +233,7 @@ namespace Antura.Minigames.Maze
             timer.initTimer();
         }
 
-        public void addLine()
+        public void addLine(Color color)
         {
             pointsList = new List<Vector3>();
             GameObject go = new GameObject("Line");
@@ -217,7 +244,7 @@ namespace Antura.Minigames.Maze
             line.startWidth = 0.6f;
             line.endWidth = 0.6f;
             line.material = new Material(Shader.Find("Antura/Transparent"));
-            line.material.color = drawingColor;
+            line.material.color = color;
 
             lines.Add(line);
 
@@ -307,7 +334,7 @@ namespace Antura.Minigames.Maze
             }
             else
             {
-                addLine();
+                addLine(drawingColor);
                 currentCharacter.nextPath();
                 currentTutorial.moveToNextPath();
             }
@@ -334,7 +361,7 @@ namespace Antura.Minigames.Maze
                 //removeLines();
 
                 TutorialUI.Clear(false);
-                addLine();
+                addLine(drawingColor);
 
                 currentCharacter.resetToCurrent();
                 showCurrentTutorial();
@@ -358,7 +385,7 @@ namespace Antura.Minigames.Maze
 
         public void restartCurrentLetter(bool won = false)
         {
-            currentPrefab.SendMessage("moveOut", won);
+            currentNewMazeLetter.SendMessage("moveOut", won);
 
             hideCracks();
             removeLines();
@@ -403,7 +430,7 @@ namespace Antura.Minigames.Maze
             currentTutorial = null;
 
             TutorialUI.Clear(false);
-            addLine();
+            addLine(drawingColor);
 
             //get a new letter:
             IQuestionPack newQuestionPack = MazeConfiguration.Instance.Questions.GetNextQuestion();
@@ -419,9 +446,9 @@ namespace Antura.Minigames.Maze
             */
 
             currentLL = ld;
-            currentPrefab = Instantiate(newMazeLetter.gameObject);
-            currentPrefab.GetComponent<NewMazeLetter>().SetupLetter(ld);
-            currentPrefab.GetComponent<NewMazeLetterBuilder>().build(() =>
+            currentNewMazeLetter = Instantiate(newMazeLetter.gameObject);
+            currentNewMazeLetter.GetComponent<NewMazeLetter>().SetupLetter(ld);
+            currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().build(() =>
             {
 
                 if (!isTutorialMode)
@@ -432,7 +459,7 @@ namespace Antura.Minigames.Maze
                     );
                 }
 
-                foreach (Transform child in currentPrefab.transform)
+                foreach (Transform child in currentNewMazeLetter.transform)
                 {
                     if (child.name == "Mazecharacter")
                     {
@@ -446,10 +473,11 @@ namespace Antura.Minigames.Maze
 
                 currentCharacter.gameObject.SetActive(false);
 
-                currentMazeLetter = currentPrefab.GetComponentInChildren<MazeLetter>();
+                currentMazeLetter = currentNewMazeLetter.GetComponentInChildren<MazeLetter>();
             });
-            currentPrefab.GetComponent<NewMazeLetterBuilder>().Build();
+            currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().Build();
 
+            currentCharacter.loseState = MazeCharacter.LoseState.None;
         }
 
         public void showCharacterMovingIn()
