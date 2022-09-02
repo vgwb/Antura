@@ -787,13 +787,13 @@ namespace Antura.Minigames.Maze
             }
 
             // Completed drawing at the end
-            if ((_fruits[_fruits.Count - 1].transform.position - targetPos).sqrMagnitude < 0.1f)
+            /*if ((_fruits[_fruits.Count - 1].transform.position - targetPos).sqrMagnitude < 0.1f)
             {
                ToggleParticlesVisibility(true);
                //initMovement();
                MazeGame.instance.timer.StopTimer();
                MoveOnCurrentFruits();
-            }
+            }*/
         }
 
         public void Appear()
