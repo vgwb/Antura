@@ -136,11 +136,11 @@ namespace Antura.Language
                     var ld = availableLettersList.FirstOrDefault(x => string.Equals(x.Isolated, sub, StringComparison.OrdinalIgnoreCase));
                     if (ld != null)
                     {
-                        if (!ld.LigatureSplit.IsNullOrEmpty())
+                        if (ld.LigatureSplit != null && ld.LigatureSplit.Length > 0)
                         {
-                            foreach (char c in ld.LigatureSplit)
+                            foreach (var letterId in ld.LigatureSplit)
                             {
-                                ld = staticDatabase.GetById(availableLettersTable, c.ToString());
+                                ld = staticDatabase.GetById(availableLettersTable, letterId);
                                 stringParts.Add(new StringPart(ld, index, index, LetterForm.Isolated));
                             }
                             depletingWord = depletingWord.Substring(1, depletingWord.Length - 1);
