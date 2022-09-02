@@ -20,7 +20,7 @@ New Learning Content:
 Bugfix and Improvements:
 - updated Maze minigame
 - added Facebook SDK for ukraininan promotion
-- missing iOS Audio 
+- fixed missing iOS Audio 
 
 To Test:
 - maze
