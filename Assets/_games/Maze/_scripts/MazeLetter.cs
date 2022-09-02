@@ -103,7 +103,6 @@ namespace Antura.Minigames.Maze
             if (hasStartedDrawing)
             {
                 // Create a new line
-                MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().AddDotAndHideArrow(mazeCharacter._fruits[mazeCharacter.currentFruitIndex-1].transform);
                 MazeGame.instance.addLine(MazeGame.instance.drawingColor);
             }
 

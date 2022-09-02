@@ -72,7 +72,8 @@ namespace Antura.Minigames.Maze
 
                 if (child.name.IndexOf("arrow_stroke") == 0)
                 {
-                    AddDotAndHideArrow(child);
+                    AddDotAndHideArrow(child.GetChild(0));
+
                     arrowLines.Add(child.gameObject);
 
                     if (arrowLines.Count == 1)
@@ -123,16 +124,30 @@ namespace Antura.Minigames.Maze
             { _callback(); }
         }
 
-        public void AddDotAndHideArrow(Transform arrowParent)
-        {
-            GameObject firstArrow = arrowParent.GetChild(0).gameObject;
-            GameObject newDot = Instantiate(MazeGame.instance.dotPrefab, firstArrow.transform);
-            newDot.name = "Dot";
-            newDot.transform.localPosition = new Vector3(0, 0.05f, 0f);
-            newDot.transform.localEulerAngles = new Vector3(90, 0, 0);
-            newDot.transform.localScale = Vector3.one * 0.1f;
+        public static GameObject prevDot;
 
-            firstArrow.GetComponentInChildren<MeshRenderer>().enabled = false;
+        public void AddDotAndHideArrow(Transform arrowTr)
+        {
+            if (prevDot != null)
+            {
+                prevDot.GetComponent<Renderer>().enabled = false;
+            }
+
+            var mazeArrow = arrowTr.gameObject.GetComponent<MazeArrow>();
+            if (mazeArrow.dotMesh == null)
+            {
+                var currentDot = Instantiate(MazeGame.instance.dotPrefab, arrowTr.transform);
+                currentDot.name = "Dot";
+                currentDot.transform.localPosition = new Vector3(0, 0.05f, 0f);
+                currentDot.transform.localEulerAngles = new Vector3(90, 0, 0);
+                currentDot.transform.localScale = Vector3.one * 0.1f;
+                mazeArrow.dotMesh = currentDot.GetComponent<Renderer>();
+
+                if (mazeArrow.dotMesh != null) mazeArrow.dotMesh.material.color = mazeArrow.highlightedColor;
+
+                prevDot = currentDot;
+            }
+            arrowTr.GetComponentInChildren<MeshRenderer>().enabled = false;
         }
 
         public void build(System.Action callback)

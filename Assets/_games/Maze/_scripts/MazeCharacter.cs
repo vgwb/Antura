@@ -277,8 +277,9 @@ namespace Antura.Minigames.Maze
                     Transform child = fruitsList.transform.GetChild(i);
 
                     var arrow = child.gameObject.GetComponent<MazeArrow>();
-                    child.gameObject.name = "fruit_" + (i);
-                    arrow.arrowOrDotMesh = i != 0 ? child.GetComponentInChildren<MeshRenderer>() : child.Find("Dot").GetComponent<MeshRenderer>();
+                    child.gameObject.name = $"fruit_{(i)}";
+
+                    arrow.arrowMesh = child.GetComponentInChildren<MeshRenderer>();
                 }
             }
 
@@ -536,7 +537,6 @@ namespace Antura.Minigames.Maze
 
                 // Set initial angle:
                 var characterWaypointsArray = characterWayPoints.ToArray();
-                Debug.LogError("MOVING ON WAYPOINTS " + characterWaypointsArray.ToJoinedString());
                 if (characterWayPoints.Count >= 2) transform.LookAt(characterWayPoints[1]);
 
                 transform.DOPath(characterWaypointsArray, time, PathType.Linear, PathMode.Ignore, resolution: 2).OnWaypointChange((int index) =>
@@ -545,7 +545,7 @@ namespace Antura.Minigames.Maze
                     {
                         transform.LookAt(characterWayPoints[index + 1]);
                     }
-                }).OnComplete(pathMoveComplete);
+                }).OnComplete(OnPathMoveComplete);
             }
             else
             {
@@ -573,19 +573,20 @@ namespace Antura.Minigames.Maze
             }
 
             transform.parent = originalParent;
-            pathMoveComplete();
+            OnPathMoveComplete();
         }
 
         public static bool LOSE_ON_SINGLE_PATH = false;
 
         public bool HasCompletedPath => currentFruitIndex == _fruits.Count;
 
-        private void pathMoveComplete()
+        private void OnPathMoveComplete()
         {
             if (loseState == LoseState.None && !LOSE_ON_SINGLE_PATH && !HasCompletedPath)
             {
-                // Wait for it to be finished first
+                // Wait for the player to finish
                 characterIsMoving = false;
+                MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().AddDotAndHideArrow(_fruits[currentFruitIndex-1].transform);
                 return;
             }
 
