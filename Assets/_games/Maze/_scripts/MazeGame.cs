@@ -168,6 +168,11 @@ namespace Antura.Minigames.Maze
 
         public void OnFruitGotDrawnOver(MazeArrow hitFruit)
         {
+            if (hitFruit.highlightState == MazeArrow.HighlightState.Reached || hitFruit.highlightState == MazeArrow.HighlightState.LaunchPosition)
+            {
+                return;
+            }
+
             // If a fruit is not in the correct order, issue an error
             var desiredFruit = currentCharacter._fruits.FirstOrDefault(x => x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.Reached && x.GetComponent<MazeArrow>().highlightState != MazeArrow.HighlightState.LaunchPosition);
 
