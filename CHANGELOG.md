@@ -8,7 +8,7 @@ New Supported languages:
 - Pashto
 
 New Learning Content:
-- Learn Hungarian
+- Learn to Read - Pashto
 
 ## next [2.3.0] - 2022-? - new content!
 New Supported languages:
@@ -20,6 +20,7 @@ New Learning Content:
 Bugfix and Improvements:
 - updated Maze minigame
 - added Facebook SDK for ukraininan promotion
+- missing iOS Audio 
 
 To Test:
 - maze
