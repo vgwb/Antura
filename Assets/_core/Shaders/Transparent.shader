@@ -12,13 +12,6 @@
 
 		Blend SrcAlpha OneMinusSrcAlpha
 		ZWrite off
-		
-		 Stencil {
-                  Ref 10
-                  ReadMask 10
-                  Comp NotEqual
-                  Pass Replace
-              }
 
 		Pass
 		{
