@@ -20,7 +20,8 @@ New Learning Content:
 Bugfix and Improvements:
 - updated Maze minigame
 - added Facebook SDK for ukraininan promotion
-- fixed missing iOS Audio 
+- improved arabic and dari ligatures
+- fixed missing Audios 
 
 To Test:
 - maze
