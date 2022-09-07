@@ -193,6 +193,8 @@ namespace Antura.Minigames.Maze
             {
                 // ERROR!
                 Debug.LogError("ERROR - fruit NOT IN ORDER: Hit " + hitFruit.gameObject.name + " while waiting for " + desiredFruit.gameObject.name);
+
+                hitFruit.MarkAsUnreached(false);
                 currentCharacter.loseState = MazeCharacter.LoseState.Incomplete;
                 currentMazeLetter.NotifyDrawnLetterWrongly();
             }

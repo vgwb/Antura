@@ -245,15 +245,28 @@ public class ShapeManager : MonoBehaviour
     {
         var n = spline.GetPointCount();
         int iPoint = Mathf.FloorToInt(t);
-        if (iPoint < 0)
-            return spline.GetPosition(0);
-        if (iPoint >= n - 1)
-            return spline.GetPosition(n - 1);
+
+        var i0 = iPoint;
+        var i1 = iPoint + 1;
+
+        if (!spline.isOpenEnded && iPoint == n - 1)
+        {
+            i0 = iPoint;
+            i1 = 0;
+        }
+        else
+        {
+            if (iPoint < 0)
+                return spline.GetPosition(0);
+            if (iPoint >= n - 1)
+                return spline.GetPosition(n - 1);
+        }
+
         var t_in = t % 1;
-        var p0 = spline.GetPosition(iPoint);
-        var p1 = spline.GetPosition(iPoint + 1);
-        var rt = p0 + spline.GetRightTangent(iPoint);
-        var lt = p1 + spline.GetLeftTangent(iPoint + 1);
+        var p0 = spline.GetPosition(i0);
+        var p1 = spline.GetPosition(i1);
+        var rt = p0 + spline.GetRightTangent(i0);
+        var lt = p1 + spline.GetLeftTangent(i1);
         var p = SplinePos(p0, rt, lt, p1, t_in);
         return p;
     }
@@ -263,6 +276,42 @@ public class ShapeManager : MonoBehaviour
     {
         float s = 1.0f - t;
         return s * s * s * p0 + 3.0f * s * s * t * rt + 3.0f * s * t * t * lt + t * t * t * p1;
+    }
+
+    public static float DistanceFromSpline(Spline spline, Vector3 pos)
+    {
+        ClosestPointOnSpline(spline, pos, out _, out var minDistance);
+        return minDistance;
+    }
+
+    public static void ClosestPointOnSpline(Spline spline, Vector3 pos, out Vector3 closestPoint, out float minDistance, Vector3 offset = default)
+    {
+        // Approximate distance from the spline
+        var delta = 0.01f;
+        var nChecks = Mathf.FloorToInt(1f / delta) * (spline.GetPointCount() + 1);
+        minDistance = Mathf.Infinity;
+        closestPoint = Vector3.zero;
+        for (int i = 0; i < nChecks; i++)
+        {
+            var t = i * delta;
+            var splinePoint = PositionOnSpline(spline, t);
+
+            //var projectedPoint = Quaternion.AngleAxis(90f, Vector3.right) * splinePoint * 1.5f + offset;
+            //Debug.DrawLine(projectedPoint, projectedPoint + Vector3.forward*0.1f, Color.yellow);
+            //var projectedPoint2 = Quaternion.AngleAxis(90f, Vector3.right) * pos * 1.5f + offset;
+            //Debug.DrawLine(projectedPoint, projectedPoint2, Color.white);
+
+            var dist = Vector3.Distance(pos, splinePoint);
+            if (dist < minDistance)
+            {
+                minDistance = dist;
+                closestPoint = splinePoint;
+            }
+        }
+
+        //var projectedPoint1b = Quaternion.AngleAxis(90f, Vector3.right) * closestPoint * 1.5f + offset;
+        //var projectedPoint2b = Quaternion.AngleAxis(90f, Vector3.right) * pos * 1.5f + offset;
+        //Debug.DrawLine(projectedPoint2b, projectedPoint1b, Color.red);
     }
 
     public static Vector3 TangentOnSpline(Spline spline, float t)

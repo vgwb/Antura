@@ -786,14 +786,17 @@ namespace Antura.Minigames.Maze
                 MazeGame.instance.appendToLine(targetPos);
             }
 
-            var raycastSource = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.y - raycastCheckTarget.y));
-            raycastSource = Camera.main.ScreenToWorldPoint(raycastSource);
-
             if (previousPosition != targetPos)
             {
                 characterWayPoints.Add(targetPos + new Vector3(0, 0.5f, 0));
                 var newDrawingToolPosition = targetPos + new Vector3(0, 0.5f, 0);
                 MazeGame.instance.drawingTool.transform.position = newDrawingToolPosition;
+
+                // @note: this is DEPRECATED, we now check the errors in MiniDrawingTOols
+                /*
+
+                var raycastSource = new Vector3(Input.mousePosition.x, Input.mousePosition.y, Mathf.Abs(Camera.main.transform.position.y - raycastCheckTarget.y));
+                raycastSource = Camera.main.ScreenToWorldPoint(raycastSource);
 
                 if (MazeGame.instance.pointsList.Count >= 2)
                 {
@@ -805,6 +808,7 @@ namespace Antura.Minigames.Maze
                     if (Physics.Raycast(raycastSource, raycastCheckTarget - raycastSource, out hitInfo, Vector3.Distance(raycastSource, raycastCheckTarget), LayerMask.GetMask("TrackBounds")))
                     {
                         var collisionPoint = hitInfo.point;
+                        Debug.LogError(hitInfo.collider.name);
 
                         var adjustedLinePoint = Camera.main.WorldToScreenPoint(collisionPoint);
                         adjustedLinePoint = new Vector3(adjustedLinePoint.x, adjustedLinePoint.y, -distance);
@@ -818,6 +822,7 @@ namespace Antura.Minigames.Maze
                         mazeLetter.OnPointerOverTrackBounds(pointOfImpact);
                     }
                 }
+                */
             }
 
             // Completed drawing at the end
