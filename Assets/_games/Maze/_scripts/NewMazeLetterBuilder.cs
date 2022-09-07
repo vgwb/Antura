@@ -126,6 +126,14 @@ namespace Antura.Minigames.Maze
 
         public static GameObject prevDot;
 
+        public void HideDotAndShowArrow(Transform arrowTr)
+        {
+            Debug.LogError("HIDING DOT FOR " + arrowTr.name);
+            var mazeArrow = arrowTr.gameObject.GetComponent<MazeArrow>();
+            if (mazeArrow.arrowMesh != null) mazeArrow.arrowMesh.enabled = true;
+            if (mazeArrow.dotMesh != null) mazeArrow.dotMesh.enabled = false;
+        }
+
         public void AddDotAndHideArrow(Transform arrowTr)
         {
             if (prevDot != null)
@@ -143,7 +151,8 @@ namespace Antura.Minigames.Maze
                 currentDot.transform.localScale = Vector3.one * 0.1f;
                 mazeArrow.dotMesh = currentDot.GetComponent<Renderer>();
 
-                if (mazeArrow.dotMesh != null) mazeArrow.dotMesh.material.color = mazeArrow.highlightedColor;
+                mazeArrow.GetComponentInChildren<MeshRenderer>().material.color = mazeArrow.highlightedColor;
+                mazeArrow.dotMesh.material.color = mazeArrow.highlightedColor;
 
                 prevDot = currentDot;
             }

@@ -78,6 +78,17 @@ namespace Antura.Minigames.Maze
                 anturaSeconds = 0;
                 mazeCharacter.calculateMovementAndRotation();
             }
+
+            // Auto-end if surpassing the last fruit
+            if (isDrawing && mazeCharacter.HasCompletedPath)
+            {
+                var dist = Vector3.Distance(MazeGame.instance.drawingTool.transform.position, mazeCharacter._fruits[mazeCharacter._fruits.Count - 1].transform.position);
+                //Debug.LogWarning(dist);
+                if (dist > 1f)
+                {
+                    OnPointerUp();
+                }
+            }
         }
 
         public void OnPointerDown()
@@ -91,11 +102,18 @@ namespace Antura.Minigames.Maze
 
             MazeGame.instance.drawingTool.SetActive(true);
 
+            // Init drawing tool position
+            float distance = (0.1f) - Camera.main.transform.position.y;
+            var targetPos = new Vector3(Input.mousePosition.x, Input.mousePosition.y, -distance);
+            targetPos = Camera.main.ScreenToWorldPoint(targetPos);
+            var newDrawingToolPosition = targetPos + new Vector3(0, 0.5f, 0);
+            MazeGame.instance.drawingTool.transform.position = newDrawingToolPosition;
+
             idleSeconds = 0;
             MazeGame.instance.currentTutorial.stopCurrentTutorial();
             anturaSeconds = 0;
 
-            mazeCharacter.ChangeStartingFXHighlight();
+            mazeCharacter.HighlightStartFruit();
 
             // Inform that we are inside the collision:
             isDrawing = true;
@@ -112,6 +130,8 @@ namespace Antura.Minigames.Maze
         private bool hasStartedDrawing = false;
         public void OnPointerUp()
         {
+            if (!isDrawing) return;
+
             if (!MazeCharacter.LOSE_ON_SINGLE_PATH)
             {
                 if (!mazeCharacter.HasCompletedPath)

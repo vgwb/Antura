@@ -56,6 +56,7 @@ namespace Antura.Minigames.Maze
                 MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.OK);
 
                 highlightState = HighlightState.Reached;
+                //Debug.LogError("SET REACHED " + this.name);
             }
         }
 
@@ -66,6 +67,7 @@ namespace Antura.Minigames.Maze
             if (dotMesh != null) dotMesh.material.color = normalColor;
 
             highlightState = HighlightState.None;
+            //Debug.LogError("SET UNHIGHLIGHTED " + this.name);
         }
 
         public void MarkAsUnreached(bool isFirstUnreachedArrow)
@@ -82,6 +84,7 @@ namespace Antura.Minigames.Maze
                 }
 
                 highlightState = HighlightState.Unreached;
+                //Debug.LogError("SET UNREACHED " + this.name);
             }
         }
 

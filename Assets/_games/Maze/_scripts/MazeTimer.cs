@@ -6,6 +6,7 @@ namespace Antura.Minigames.Maze
 {
     public class MazeTimer : MonoBehaviour
     {
+        public static bool ENABLE_TIMER = false;
 
         [HideInInspector]
         public float time;
@@ -17,11 +18,8 @@ namespace Antura.Minigames.Maze
 
         public void initTimer()
         {
-            /*time = MazeGameManager.Instance.gameTime;
-			timeRemaining = time;
-			DisplayTime ();*/
+            if (!ENABLE_TIMER) return;
 
-            // this.StopAllCoroutines();
             if (!MazeGame.instance.isTutorialMode)
             {
                 MinigamesUI.Timer.Setup(MazeGame.instance.gameTime);
@@ -30,6 +28,7 @@ namespace Antura.Minigames.Maze
 
         public void Update()
         {
+            if (!ENABLE_TIMER) return;
             if (!MazeGame.instance.isTutorialMode &&
                 MinigamesUI.Timer != null &&
                 MinigamesUI.Timer.Duration == MinigamesUI.Timer.Elapsed)
@@ -41,8 +40,7 @@ namespace Antura.Minigames.Maze
 
         public void StartTimer()
         {
-            //isRunning = true;
-            //   this.StopAllCoroutines();
+            if (!ENABLE_TIMER) return;
             if (!MazeGame.instance.isTutorialMode)
             { MinigamesUI.Timer.Play(); }
 
@@ -50,15 +48,10 @@ namespace Antura.Minigames.Maze
 
         public void StopTimer()
         {
-            // this.StopAllCoroutines();
+            if (!ENABLE_TIMER) return;
             if (!MazeGame.instance.isTutorialMode)
             { MinigamesUI.Timer.Pause(); }
         }
 
-        public void DisplayTime()
-        {
-            /*var text = Mathf.Floor(timeRemaining).ToString();
-			timerText.text = text;*/
-        }
     }
 }
