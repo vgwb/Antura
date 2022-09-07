@@ -95,7 +95,7 @@ namespace Antura.Minigames.Maze
             MazeGame.instance.currentTutorial.stopCurrentTutorial();
             anturaSeconds = 0;
 
-            mazeCharacter.ChangeStartingFXHighlight();
+            mazeCharacter.HighlightStartFruit();
 
             // Inform that we are inside the collision:
             isDrawing = true;

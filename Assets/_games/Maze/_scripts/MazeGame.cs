@@ -218,13 +218,13 @@ namespace Antura.Minigames.Maze
         }
 
         private Vector3 baseFruitColliderSize;
-        public void RefreshFruitColliderSizes(int nextFruit)
+        public void RefreshFruitColliderSizes(int startFruitIndex)
         {
             if (baseFruitColliderSize == default) baseFruitColliderSize = currentCharacter._fruits[0].GetComponent<BoxCollider>().size;
             for (var iFruit = 0; iFruit < currentCharacter._fruits.Count; iFruit++)
             {
                 GameObject fruit = currentCharacter._fruits[iFruit];
-                fruit.GetComponent<BoxCollider>().size = iFruit == nextFruit ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
+                fruit.GetComponent<BoxCollider>().size = iFruit == (startFruitIndex +1) ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
             }
         }
 
@@ -364,9 +364,9 @@ namespace Antura.Minigames.Maze
                 TutorialUI.Clear(false);
                 addLine(drawingColor);
 
-                currentCharacter.currentFruitIndex = 0;
+                currentCharacter.startFruitIndex = 0;
                 currentCharacter.resetToCurrent();
-                showCurrentTutorial();
+                ShowLetterTutorialAndInit();
                 return;
             }
 
@@ -525,7 +525,8 @@ namespace Antura.Minigames.Maze
                     addLine(drawingColor);
 
                     currentCharacter.resetToCurrent();
-                    showCurrentTutorial();
+                    //showCurrentTutorial();
+                    currentCharacter.initialize();
 
                 }));
             }
@@ -555,8 +556,9 @@ namespace Antura.Minigames.Maze
             currentCharacter.Appear();
         }
 
-        public void showCurrentTutorial()
+        public void ShowLetterTutorialAndInit()
         {
+
             isShowingAntura = false;
 
             if (currentTutorial != null)
@@ -566,6 +568,8 @@ namespace Antura.Minigames.Maze
 
             if (currentCharacter != null)
             {
+                currentCharacter.reachedFruitIndex = 0;
+                currentCharacter.startFruitIndex = 0;
                 currentCharacter.initialize();
             }
         }
