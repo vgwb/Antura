@@ -17,6 +17,7 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
+        private const int LIVES_PER_LETTER = 3;
         private const int MAX_NUM_ROUNDS = 5;
 
         public GameObject characterPrefab;
@@ -54,6 +55,7 @@ namespace Antura.Minigames.Maze
         public TextMeshProUGUI roundNumberText;
 
         private int roundNumber;
+        private int livesLeft;
 
         public GameObject currentNewMazeLetter;
         public int health = 4;
@@ -185,16 +187,18 @@ namespace Antura.Minigames.Maze
             var indexOfDesired = currentCharacter._fruits.IndexOf(desiredFruit.gameObject);
             var indexOfHit = currentCharacter._fruits.IndexOf(hitFruit.gameObject);
 
+            Debug.LogWarning("Hit index " + indexOfHit + " desired is " + indexOfDesired);
+
             if (indexOfHit > indexOfDesired)
             {
                 // ERROR!
-                //Debug.LogError("ERROR - fruit NOT IN ORDER: Hit " + hitFruit.gameObject.name + " while waiting for " + desiredFruit.gameObject.name);
+                Debug.LogError("ERROR - fruit NOT IN ORDER: Hit " + hitFruit.gameObject.name + " while waiting for " + desiredFruit.gameObject.name);
                 currentCharacter.loseState = MazeCharacter.LoseState.Incomplete;
                 currentMazeLetter.NotifyDrawnLetterWrongly();
             }
             else
             {
-                //Debug.LogWarning("Reached fruit " + hitFruit.gameObject.name);
+                Debug.LogWarning("Reached fruit " + hitFruit.gameObject.name);
                 currentCharacter.reachedFruitIndex = currentCharacter._fruits.IndexOf(hitFruit.gameObject);
             }
 
@@ -232,8 +236,9 @@ namespace Antura.Minigames.Maze
                 return;
             uiInitialized = true;
 
-            Context.GetOverlayWidget().Initialize(true, true, false);
+            Context.GetOverlayWidget().Initialize(true, false, true);
             Context.GetOverlayWidget().SetStarsThresholds(STARS_1_THRESHOLD, STARS_2_THRESHOLD, STARS_3_THRESHOLD);
+            Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
 
             timer.initTimer();
         }
@@ -248,7 +253,7 @@ namespace Antura.Minigames.Maze
             line.positionCount = 0;
             line.startWidth = 0.6f;
             line.endWidth = 0.6f;
-            line.material = new Material(Shader.Find("Antura/Transparent"));
+            line.material = new Material(Shader.Find("Antura/TransparentNoSelfPenetration"));
             line.material.color = color;
 
             lines.Add(line);
@@ -354,20 +359,12 @@ namespace Antura.Minigames.Maze
             {
                 hideCracks();
 
-                //remove last line
-                if (lines.Count > 0)
-                {
-                    lines[lines.Count - 1].positionCount = 0;
-                    lines.RemoveAt(lines.Count - 1);
-                }
-
-                pointsList.RemoveRange(0, pointsList.Count);
-
-                //removeLines();
+                RemoveLastLine();
 
                 TutorialUI.Clear(false);
                 addLine(drawingColor);
 
+                currentCharacter.currentFruitIndex = 0;
                 currentCharacter.resetToCurrent();
                 showCurrentTutorial();
                 return;
@@ -400,6 +397,16 @@ namespace Antura.Minigames.Maze
 
         void OnAnswerValidated()
         {
+        }
+
+        void RemoveLastLine()
+        {
+            if (lines.Count > 0)
+            {
+                lines[lines.Count - 1].positionCount = 0;
+                lines.RemoveAt(lines.Count - 1);
+            }
+            pointsList.RemoveRange(0, pointsList.Count);
         }
 
         void removeLines()
@@ -483,6 +490,45 @@ namespace Antura.Minigames.Maze
             currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().Build();
 
             currentCharacter.loseState = MazeCharacter.LoseState.None;
+
+            Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
+            livesLeft = LIVES_PER_LETTER;
+        }
+
+        public void OnLoseLife()
+        {
+            livesLeft--;
+            Context.GetOverlayWidget().SetLives(livesLeft);
+
+            if (livesLeft == 0)
+            {
+                currentCharacter.waitAndRestartScene();
+            }
+            else
+            {
+                foreach (GameObject particle in currentCharacter.particles)
+                    particle.SetActive(false);
+                currentCharacter.GetComponent<Collider>().enabled = false;
+                currentCharacter.characterIsMoving = false;
+                currentCharacter.ToggleParticlesVisibility(false);
+                currentCharacter.transform.DOKill(false);
+                currentCharacter.donotHandleBorderCollision = true;
+                ColorCurrentLinesAsIncorrect();
+
+                StartCoroutine(waitAndPerformCallback(2, () => { }, () =>
+                {
+                    // Restart from the last point, deleting the line
+                    RemoveLastLine();
+
+                    isShowingAntura = false;
+                    TutorialUI.Clear(false);
+                    addLine(drawingColor);
+
+                    currentCharacter.resetToCurrent();
+                    showCurrentTutorial();
+
+                }));
+            }
         }
 
         public void showCharacterMovingIn()

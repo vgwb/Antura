@@ -112,7 +112,7 @@ namespace Antura.Minigames.Maze
 #pragma warning disable 0219
 #pragma warning disable 0414
         private bool startCheckingForCollision = false;
-        private bool donotHandleBorderCollision = false;
+        public bool donotHandleBorderCollision = false;
 #pragma warning restore 0414
 #pragma warning restore 0219
 
@@ -302,7 +302,7 @@ namespace Antura.Minigames.Maze
                 MazeArrow mazeArrow = child.gameObject.GetComponent<MazeArrow>();
                 mazeArrow.Reset();
 
-                if (i == 0)
+                if (i == (currentFruitIndex-1))
                 {
                     mazeArrow.HighlightAsLaunchPosition();
                 }
@@ -338,6 +338,7 @@ namespace Antura.Minigames.Maze
 
                 if (index == 0)
                 {
+                    Debug.LogWarning("Character Hit fruit " + index);
                     return;
                 }
                 else if (index == currentFruitIndex)
@@ -347,6 +348,7 @@ namespace Antura.Minigames.Maze
                     _fruits[currentFruitIndex].GetComponent<MazeArrow>().tweenToColor = true;
 
                     currentFruitIndex++;
+                    Debug.LogWarning("Character Hit fruit " + currentFruitIndex);
                     MazeGame.instance.RefreshFruitColliderSizes(currentFruitIndex);
 
                     if (index == 0)
@@ -460,10 +462,12 @@ namespace Antura.Minigames.Maze
 
         public void resetToCurrent()
         {
+            Debug.LogError("RETURNING TO FRUIT INDEX " + currentFruitIndex);
+
             transform.DOKill(false);
             donotHandleBorderCollision = false;
             transform.parent.Find("MazeLetter").GetComponent<MazeLetter>().isDrawing = false;
-            transform.position = _fruits[0].transform.position + new Vector3(0f, 0.6f, 0f);
+            transform.position = _fruits[currentFruitIndex-1].transform.position + new Vector3(0f, 0.6f, 0f);
 
             initialPosition = transform.position;
             targetPos = initialPosition;
@@ -584,8 +588,11 @@ namespace Antura.Minigames.Maze
         {
             if (loseState == LoseState.None && !LOSE_ON_SINGLE_PATH && !HasCompletedPath)
             {
+                Debug.LogWarning("Path not completed yet (current " + currentFruitIndex + " out of " + _fruits.Count + ")");
+
                 // Wait for the player to finish
                 characterIsMoving = false;
+                LL.SetState(LLAnimationStates.LL_rocketing);
                 MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().AddDotAndHideArrow(_fruits[currentFruitIndex-1].transform);
                 return;
             }
@@ -598,7 +605,8 @@ namespace Antura.Minigames.Maze
             //transform.rotation = initialRotation;
             if (HasCompletedPath)
             {
-                print("Won");
+                Debug.LogWarning("Path COMPLETED!");
+
                 // if (particles) particles.SetActive(false);
                 foreach (GameObject particle in particles)
                     particle.SetActive(false);
@@ -653,7 +661,7 @@ namespace Antura.Minigames.Maze
                     OnRocketImpactedWithBorder();
                 }
 
-                waitAndRestartScene();
+                MazeGame.instance.OnLoseLife();
             }
         }
 
