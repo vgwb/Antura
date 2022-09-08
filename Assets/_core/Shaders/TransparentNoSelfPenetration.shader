@@ -1,4 +1,6 @@
-﻿Shader "Antura/TransparentNoSelfPenetration"
+﻿// Variation of Transparent shader that does not self-penetrate
+// Used to get a better line in Maze game
+Shader "Antura/TransparentNoSelfPenetration"
 {
 	Properties
 	{
