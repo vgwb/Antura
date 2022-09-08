@@ -85,6 +85,7 @@ namespace Antura.Minigames.Maze
 
         public GameObject drawingTool;
 
+        public Material lineMaterial;
 
         private void OnPointerDown()
         {
@@ -255,7 +256,7 @@ namespace Antura.Minigames.Maze
             line.positionCount = 0;
             line.startWidth = 0.6f;
             line.endWidth = 0.6f;
-            line.material = new Material(Shader.Find("Antura/TransparentNoSelfPenetration"));
+            line.material = lineMaterial;
             line.material.color = color;
 
             lines.Add(line);
