@@ -157,7 +157,7 @@ namespace Antura.Rewards
 
             bonesCounter.Show();
             biscuitsSpawner.Spawn(nNewBones);
-            yield return new WaitForSeconds(0.2f);
+            yield return new WaitForSeconds(3f);
 
             // Add the new reward (for now, just bones)
             List<DailyRewardPopup> popups = popupPool.Spawn(nNewBones);
