@@ -48,7 +48,6 @@ namespace Antura.Minigames.Maze
                     child.name = "MazeLetter";
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
-                    // TODO: handle collisions somehow
                     var box = child.gameObject.AddComponent<BoxCollider>();
                     var boxSize = box.size;
                     boxSize.z = 0.05f;
@@ -56,7 +55,6 @@ namespace Antura.Minigames.Maze
                     child.gameObject.AddComponent<MeshCollider>();
                 }
 
-                // TODO: handle collisions somehow
                 if (child.name.IndexOf("Contour") != -1)
                 {
                     child.name = "BorderCollider";
@@ -84,8 +82,8 @@ namespace Antura.Minigames.Maze
                     foreach (Transform fruit in child.transform)
                     {
                         var box = fruit.gameObject.AddComponent<BoxCollider>();
-                        box.center = new Vector3(0.00789929274f, 0.000789958867f, -3.05139807e-08f);
-                        box.size = new Vector3(0.0473955721f, 0.0336077549f, 4.46760318e-09f);
+                        box.center = new Vector3(0.00789929274f, 0.000789958867f, 0.02f);
+                        box.size = new Vector3(0.0473955721f, 0.0336077549f, 0.04f);
                     }
                 }
 
