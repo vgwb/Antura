@@ -317,7 +317,7 @@ namespace Antura.Database
             var dictCache = wordsToLetterCache;
             if (!dictCache.ContainsKey(wordData.Id))
             {
-                var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, wordData, separateVariations: false);
+                var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, wordData);
                 letters = parts.ConvertAll(x => ConvertToLetterWithForcedForm(x.letter, x.letterForm));
                 dictCache[wordData.Id] = letters;
             }
