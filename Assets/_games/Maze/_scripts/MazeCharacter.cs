@@ -106,7 +106,7 @@ namespace Antura.Minigames.Maze
         public List<GameObject> _fruits;
 
         public int CurrentStrokeIndex => currentFruitList;
-        private int currentFruitList = 0;
+        public int currentFruitList = 0;
 
         public int startFruitIndex;
 
