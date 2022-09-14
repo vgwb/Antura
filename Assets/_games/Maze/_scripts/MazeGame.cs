@@ -17,7 +17,16 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
-        private int LIVES_PER_LETTER => 2 + Mathf.RoundToInt(3 * (1 - Difficulty));
+        private int LIVES_PER_LETTER
+        {
+            get
+            {
+                if (Difficulty < 0.2f) return 5;
+                if (Difficulty < 0.7f) return 4;
+                return 3;
+            }
+        }
+
         private const int MAX_NUM_ROUNDS = 5;
 
         public GameObject characterPrefab;
