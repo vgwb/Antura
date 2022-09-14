@@ -640,7 +640,7 @@ namespace Antura.Minigames.Maze
 
             gameEnded = true;
 
-            MinigamesUI.Timer.Pause();
+            //MinigamesUI.Timer.Pause();
             TutorialUI.Clear(false);
 
             // Reset physics collisions:
