@@ -221,13 +221,14 @@ namespace Antura.Minigames.Maze
         }
 
         private Vector3 baseFruitColliderSize;
-        public void RefreshFruitColliderSizes(int startFruitIndex)
+        public void RefreshFruitColliderSizes(int nextFruitIndex)
         {
             if (baseFruitColliderSize == default) baseFruitColliderSize = currentCharacter._fruits[0].GetComponent<BoxCollider>().size;
             for (var iFruit = 0; iFruit < currentCharacter._fruits.Count; iFruit++)
             {
                 GameObject fruit = currentCharacter._fruits[iFruit];
-                fruit.GetComponent<BoxCollider>().size = iFruit == (startFruitIndex +1) ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
+                fruit.GetComponent<BoxCollider>().size = iFruit == (nextFruitIndex) ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
+                //if (iFruit == nextFruitIndex) Debug.LogError("ENLARGING FRUIT " + nextFruitIndex);
             }
         }
 

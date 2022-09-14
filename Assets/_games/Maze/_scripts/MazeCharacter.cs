@@ -471,7 +471,8 @@ namespace Antura.Minigames.Maze
 
         public void resetToCurrent()
         {
-            Debug.LogError("RETURNING TO FRUIT INDEX " + startFruitIndex);
+            //Debug.LogError("RETURNING TO FRUIT INDEX " + startFruitIndex);
+            reachedFruitIndex = startFruitIndex;
 
             transform.DOKill(false);
             donotHandleBorderCollision = false;
@@ -681,7 +682,7 @@ namespace Antura.Minigames.Maze
                     OnRocketImpactedWithBorder();
                 }
 
-                Debug.LogError("LOSING WITH START " + startFruitIndex + " REACHED " + reachedFruitIndex);
+                //Debug.LogError("LOSING WITH START " + startFruitIndex + " REACHED " + reachedFruitIndex);
 
                 MazeGame.instance.OnLoseLife();
             }
@@ -694,6 +695,7 @@ namespace Antura.Minigames.Maze
 
             MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
 
+            MazeGame.instance.RefreshFruitColliderSizes(startFruitIndex+1);
         }
 
         private void OnRocketImpactedWithBorder()

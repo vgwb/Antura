@@ -115,6 +115,7 @@ namespace Antura.Minigames.Maze
 
             mazeCharacter.HighlightStartFruit();
 
+
             // Inform that we are inside the collision:
             isDrawing = true;
 
