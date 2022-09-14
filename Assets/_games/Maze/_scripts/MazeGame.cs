@@ -504,16 +504,21 @@ namespace Antura.Minigames.Maze
             currentCharacter.loseState = MazeCharacter.LoseState.None;
 
             if (!isTutorialMode)
+            {
                 initUI();
-            Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
-            Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
+                Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
+                Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
+            }
             livesLeft = LIVES_PER_LETTER;
         }
 
         public void OnLoseLife()
         {
-            livesLeft--;
-            Context.GetOverlayWidget().SetLives(livesLeft);
+            if (!isTutorialMode)
+            {
+                livesLeft--;
+                Context.GetOverlayWidget().SetLives(livesLeft);
+            }
 
             if (livesLeft == 0)
             {

@@ -93,10 +93,10 @@ namespace Antura.Minigames.Maze
 
         public void OnPointerDown()
         {
-            if (mazeCharacter.characterIsMoving || (!hasStartedDrawing && !mazeCharacter.canStartDrawing()) || mazeCharacter.finishedRound)
-            {
-                return;
-            }
+            bool shouldCheckIfCanStartDrawing = !hasStartedDrawing && !isDrawing;
+            if (shouldCheckIfCanStartDrawing && !mazeCharacter.canStartDrawing()) return;
+            if (mazeCharacter.characterIsMoving) return;
+            if (mazeCharacter.finishedRound) return;
 
             //Debug.Log("started Drawing!");
 
@@ -171,7 +171,7 @@ namespace Antura.Minigames.Maze
                     MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 }
 
-                LaunchRocket(wrong:true);
+                LaunchRocket(finished:false, wrong:true);
             }
         }
 
@@ -182,11 +182,7 @@ namespace Antura.Minigames.Maze
 
         private void LaunchRocket(bool finished = true, bool wrong = false)
         {
-            if (finished || wrong)
-            {
-                hasStartedDrawing = false;
-                MazeGame.instance.timer.StopTimer();
-            }
+            if (finished) hasStartedDrawing = false;
             isDrawing = false;
             mazeCharacter.ToggleParticlesVisibility(true);
 
@@ -221,7 +217,7 @@ namespace Antura.Minigames.Maze
                     MazeConfiguration.Instance.Context.GetAudioManager().PlaySound(Sfx.Lose);
                 }
 
-                LaunchRocket(wrong:true);
+                LaunchRocket(finished:false, wrong:true);
             }
         }
     }
