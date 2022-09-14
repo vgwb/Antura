@@ -17,7 +17,7 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
-        private const int LIVES_PER_LETTER = 3;
+        private int LIVES_PER_LETTER => 2 + Mathf.RoundToInt(3 * (1 - Difficulty));
         private const int MAX_NUM_ROUNDS = 5;
 
         public GameObject characterPrefab;
@@ -241,7 +241,6 @@ namespace Antura.Minigames.Maze
 
             Context.GetOverlayWidget().Initialize(true, false, true);
             Context.GetOverlayWidget().SetStarsThresholds(STARS_1_THRESHOLD, STARS_2_THRESHOLD, STARS_3_THRESHOLD);
-            Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
 
             timer.initTimer();
         }
@@ -494,6 +493,9 @@ namespace Antura.Minigames.Maze
 
             currentCharacter.loseState = MazeCharacter.LoseState.None;
 
+            if (!isTutorialMode)
+                initUI();
+            Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
             Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
             livesLeft = LIVES_PER_LETTER;
         }

@@ -298,8 +298,6 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
-            Debug.LogError("REDOING FRUIT LIST FROM " + startFruitIndex);
-
             // Fruits to collect:
             _fruits = new List<GameObject>();
 
@@ -603,8 +601,6 @@ namespace Antura.Minigames.Maze
             {
                 characterWayPoints.Clear();
 
-                MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
-
                 startFruitIndex = reachedFruitIndex;
 
                 Debug.LogWarning("Path not completed yet (current " + reachedFruitIndex + " / " + (_fruits.Count-1) + ")");
@@ -695,6 +691,9 @@ namespace Antura.Minigames.Maze
         {
             _fruits[startFruitIndex].GetComponent<MazeArrow>().Unhighlight();
             _fruits[startFruitIndex].GetComponent<MazeArrow>().HighlightAsReached();
+
+            MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
+
         }
 
         private void OnRocketImpactedWithBorder()
