@@ -116,7 +116,12 @@ namespace Antura.Rewards
             {
                 // Unlock the rewards for this JP (should be one, since this is an Assessment)
                 var newRewardPacks = AppManager.I.RewardSystemManager.UnlockAllRewardPacksForJourneyPosition(AppManager.I.Player.CurrentJourneyPosition);
-                var newRewardPack = newRewardPacks[0];
+
+                RewardPack newRewardPack = null;
+                if (newRewardPacks != null && newRewardPacks.Count > 0)
+                {
+                    newRewardPack = newRewardPacks[0];
+                }
 
                 // Also advance the MaxJP
                 AppManager.I.Player.AdvanceMaxJourneyPosition();    // TODO: move this out of here and into the NavigationManager instead
