@@ -43,10 +43,10 @@ namespace Antura.Language
         List<StringPart> FindLetter(DatabaseManager databaseManager, WordData wordData, LetterData letterToFind, LetterEqualityStrictness strictness);
 
         List<StringPart> SplitWord(DatabaseManager databaseManager, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false);
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
         List<StringPart> SplitPhrase(DatabaseManager databaseManager, PhraseData phraseData,
             bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);

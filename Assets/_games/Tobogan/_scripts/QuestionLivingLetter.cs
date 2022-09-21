@@ -142,7 +142,7 @@ namespace Antura.Minigames.Tobogan
         {
             string text = LanguageSwitcher.LearningHelper.ProcessString(word.Data.Text);
 
-            var parts = LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, word.Data, false, false);
+            var parts = LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, word.Data);
             if (parts.Count > letterToMark)
             {
                 text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[letterToMark], color, MarkType.SingleLetter);

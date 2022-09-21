@@ -658,21 +658,14 @@ namespace Antura.Core
                 }
 
                 // We finished an assessment.
-                if (AppManager.I.RewardSystemManager.AreAllJourneyPositionRewardsAlreadyUnlocked(NavData.CurrentPlayer.CurrentJourneyPosition))
+                bool shouldUnlockReward = NavData.CurrentPlayer.CurrentJourneyPosition.Equals(NavData.CurrentPlayer.MaxJourneyPosition);
+                if (shouldUnlockReward)
                 {
-                    // Security Check (issue #475): if the reward for the current PS has already been unlocked
-                    // we must be sure that the player is not on the most advanced PS, otherwise he/she would be stuck
-                    // so we Increment MaxJourneyPosition to let him/her progress
-                    if (NavData.CurrentPlayer.CurrentJourneyPosition.Equals(NavData.CurrentPlayer.MaxJourneyPosition))
-                    {
-                        // wrong MaxJourneyPosition...
-                        AppManager.I.Player.AdvanceMaxJourneyPosition();
-                    }
-                    GoToScene(AppScene.Map);
+                    GoToScene(AppScene.Rewards);
                 }
                 else
                 {
-                    GoToScene(AppScene.Rewards);
+                    GoToScene(AppScene.Map);
                 }
             }
             else

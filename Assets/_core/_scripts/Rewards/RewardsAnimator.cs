@@ -2,7 +2,10 @@ using Antura.Audio;
 using Antura.Minigames;
 using DG.Tweening;
 using System.Collections;
+using System.Collections.Generic;
 using Antura.Core;
+using Antura.Helpers;
+using Antura.UI;
 using UnityEngine;
 
 namespace Antura.Rewards
@@ -106,6 +109,12 @@ namespace Antura.Rewards
         {
             // Reward
             rewardPack = rewardsSceneController.GetRewardPackToInstantiate();
+            if (rewardPack == null)
+            {
+                StartCoroutine(BonesRewardCO());
+                return;
+            }
+
             rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category);
             newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
             if (newRewardInstantiatedGO != null)
@@ -134,6 +143,36 @@ namespace Antura.Rewards
                 .AppendCallback(() => { pedestalTween.Play(); });
             showTween2.Play();
         }
+
+        #region Bones Reward
+        public BonesCounter bonesCounter;
+        public GroupSpawner biscuitsSpawner;
+        public DailyRewardPopupPool popupPool;
+        public RectTransform toPopupPivot;
+        public RectTransform fromPopupPivot;
+
+        private IEnumerator BonesRewardCO()
+        {
+            int nNewBones = 30;
+
+            bonesCounter.Show();
+            biscuitsSpawner.Spawn(nNewBones);
+            yield return new WaitForSeconds(3f);
+
+            // Add the new reward (for now, just bones)
+            List<DailyRewardPopup> popups = popupPool.Spawn(nNewBones);
+            Vector2 toP = UIHelper.SwitchToRectTransform(toPopupPivot, popupPool.GetComponent<RectTransform>());
+            for (int iBone = 0; iBone < nNewBones; iBone++)
+            {
+                bonesCounter.IncreaseByOne();
+                popups[iBone].PopFromTo(fromPopupPivot.anchoredPosition, toP);
+                yield return new WaitForSeconds(0.1f);
+            }
+            AppManager.I.Player.AddBones(nNewBones);
+
+        }
+
+        #endregion
 
         void OnDestroy()
         {

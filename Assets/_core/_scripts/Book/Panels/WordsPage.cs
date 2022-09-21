@@ -218,7 +218,7 @@ namespace Antura.Book
             {
                 Destroy(t.gameObject);
             }
-            var splittedLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false, false);
+            var splittedLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false);
             foreach (var letter in splittedLetters)
             {
                 btnGO = Instantiate(SpellingLetterItemPrefab);

@@ -106,7 +106,7 @@ namespace Antura.Minigames.Maze
         public List<GameObject> _fruits;
 
         public int CurrentStrokeIndex => currentFruitList;
-        private int currentFruitList = 0;
+        public int currentFruitList = 0;
 
         public int startFruitIndex;
 
@@ -298,8 +298,6 @@ namespace Antura.Minigames.Maze
                 return;
             }
 
-            Debug.LogError("REDOING FRUIT LIST FROM " + startFruitIndex);
-
             // Fruits to collect:
             _fruits = new List<GameObject>();
 
@@ -473,7 +471,8 @@ namespace Antura.Minigames.Maze
 
         public void resetToCurrent()
         {
-            Debug.LogError("RETURNING TO FRUIT INDEX " + startFruitIndex);
+            //Debug.LogError("RETURNING TO FRUIT INDEX " + startFruitIndex);
+            reachedFruitIndex = startFruitIndex;
 
             transform.DOKill(false);
             donotHandleBorderCollision = false;
@@ -603,8 +602,6 @@ namespace Antura.Minigames.Maze
             {
                 characterWayPoints.Clear();
 
-                MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
-
                 startFruitIndex = reachedFruitIndex;
 
                 Debug.LogWarning("Path not completed yet (current " + reachedFruitIndex + " / " + (_fruits.Count-1) + ")");
@@ -685,7 +682,7 @@ namespace Antura.Minigames.Maze
                     OnRocketImpactedWithBorder();
                 }
 
-                Debug.LogError("LOSING WITH START " + startFruitIndex + " REACHED " + reachedFruitIndex);
+                //Debug.LogError("LOSING WITH START " + startFruitIndex + " REACHED " + reachedFruitIndex);
 
                 MazeGame.instance.OnLoseLife();
             }
@@ -695,6 +692,10 @@ namespace Antura.Minigames.Maze
         {
             _fruits[startFruitIndex].GetComponent<MazeArrow>().Unhighlight();
             _fruits[startFruitIndex].GetComponent<MazeArrow>().HighlightAsReached();
+
+            MazeGame.instance.currentNewMazeLetter.GetComponent<NewMazeLetterBuilder>().HideDotAndShowArrow(_fruits[startFruitIndex].transform);
+
+            MazeGame.instance.RefreshFruitColliderSizes(startFruitIndex+1);
         }
 
         private void OnRocketImpactedWithBorder()

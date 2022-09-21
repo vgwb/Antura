@@ -70,12 +70,21 @@ namespace Antura.Minigames.ColorTickle
 
         #region Score
 
-        public override int MaxScore => 6; // means 3 stars
+        public override int MaxScore => 5; // means 3 stars
 
         public int starsAwarded => Mathf.CeilToInt(CurrentScore / 2f);
 
         // Difficulty-controlled parameters
-        private int m_MaxLives => 2 + Mathf.RoundToInt(3 * (1 - Difficulty));
+        private int m_MaxLives
+        {
+            get
+            {
+                if (Difficulty < 0.2f) return 5;
+                if (Difficulty < 0.7f) return 4;
+                return 3;
+            }
+        }
+
         public int MaxLives => m_MaxLives;
 
         #endregion

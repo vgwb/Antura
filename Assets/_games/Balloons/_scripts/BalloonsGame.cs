@@ -355,9 +355,9 @@ namespace Antura.Minigames.Balloons
                         wordFlexibleContainer.SetLetterData(wordToKeepData);
 
                         // Debug
-                        Debug.Log("[New Round] Word To Keep: " + wordToKeepData.TextForLivingLetter);
-                        Debug.Log(" Matching word: " + ArabicFixer.Fix(correctAnswers.Cast<LL_WordData>().ToList()[0].Data.Text));
-                        Debug.Log(" Random words (" + wrongAnswers.Count() + "): " + string.Join(" / ", wrongAnswers.Cast<LL_WordData>().ToList().Select(x => ArabicFixer.Fix(x.Data.Text)).ToArray()));
+                        //Debug.Log("[New Round] Word To Keep: " + wordToKeepData.TextForLivingLetter);
+                        //Debug.Log(" Matching word: " + ArabicFixer.Fix(correctAnswers.Cast<LL_WordData>().ToList()[0].Data.Text));
+                        // Debug.Log(" Random words (" + wrongAnswers.Count() + "): " + string.Join(" / ", wrongAnswers.Cast<LL_WordData>().ToList().Select(x => ArabicFixer.Fix(x.Data.Text)).ToArray()));
 
                         // Start round
                         StartCoroutine(StartNewRound_Coroutine());

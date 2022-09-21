@@ -45,7 +45,9 @@ namespace Antura.Map
             {
                 //Debug.Log( playSessionState.psData.Id + " SCORE: " + score);
                 // Show surprise if this is a not yet completed assessment
-                surpriseGO.SetActive(score == 0);
+
+                var hasRewardsInSession = score == 0;//&& AppManager.I.RewardSystemManager.GetOrGenerateAllRewardPacksForJourneyPosition(journeyPosition) != null;
+                surpriseGO.SetActive(hasRewardsInSession);
             }
             else
             {

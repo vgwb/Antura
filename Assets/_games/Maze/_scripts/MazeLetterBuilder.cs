@@ -121,17 +121,10 @@ namespace Antura.Minigames.Maze
             newDot.transform.rotation = firstArrow.transform.rotation;
             newDot.transform.Rotate(Vector3.forward, 180, Space.World);
             newDot.transform.localScale = Vector3.one * 0.1f;
+            newDot.GetComponent<Renderer>().enabled = true;
 
             firstArrow.GetComponent<MeshRenderer>().enabled = false;
         }
 
-        public void build(System.Action callback)
-        {
-            _callback = callback;
-        }
-
-        void Update()
-        {
-        }
     }
 }

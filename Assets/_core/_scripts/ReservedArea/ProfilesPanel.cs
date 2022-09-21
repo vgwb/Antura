@@ -149,6 +149,8 @@ namespace Antura.ReservedArea
 
         #region Demo User Helpers
 
+        private static bool TEST_ALMOST_AT_END = false;
+
         IEnumerator CreateDemoPlayer()
         {
             //Debug.Log("creating DEMO USER ");
@@ -164,15 +166,20 @@ namespace Antura.ReservedArea
 
             // Populate with complete data
             var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
+            if (TEST_ALMOST_AT_END) maxJourneyPos = new JourneyPosition(6, 13, 100);
             yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
 
             AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
             AppManager.I.Player.AddBones(500);
             AppManager.I.Player.ForcePreviousJourneyPosition(maxJourneyPos);
-            AppManager.I.Player.SetFinalShown(isInitialising: true);
-            AppManager.I.Player.HasFinishedTheGame = true;
-            AppManager.I.Player.HasFinishedTheGameWithAllStars = true;
-            AppManager.I.Player.HasMaxStarsInCurrentPlaySessions = true;
+
+            if (!TEST_ALMOST_AT_END)
+            {
+                AppManager.I.Player.SetFinalShown(isInitialising: true);
+                AppManager.I.Player.HasFinishedTheGame = true;
+                AppManager.I.Player.HasFinishedTheGameWithAllStars = true;
+                AppManager.I.Player.HasMaxStarsInCurrentPlaySessions = true;
+            }
             AppManager.I.FirstContactManager.ForceToFinishedSequence();
             AppManager.I.FirstContactManager.ForceAllCompleted();
             AppManager.I.RewardSystemManager.UnlockAllPacks();
@@ -207,14 +214,14 @@ namespace Antura.ReservedArea
             Debug.Log("Start adding PS scores");
             yield return null;
             var logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
-            var allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositions();
+            var allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(targetPosition);
             foreach (var jp in allJPs)
             {
                 if (jp.Stage <= targetPosition.Stage)
                 {
                     int score = useBestScores ? AppConfig.MaxMiniGameScore : Random.Range(AppConfig.MinMiniGameScore, AppConfig.MaxMiniGameScore);
                     logPlaySessionScoreParamsList.Add(new LogPlaySessionScoreParams(jp, score, 12f));
-                    //Debug.Log("Add play session score for " + jp.Id);
+                    Debug.Log("Add play session score for " + jp.Id);
                 }
             }
             logAi.LogPlaySessionScores(0, logPlaySessionScoreParamsList, true);

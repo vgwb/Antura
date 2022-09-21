@@ -152,6 +152,7 @@ public class ShapeManager : MonoBehaviour
         }
         for (int i = 0; i < nStrokes; i++)
         {
+            controllers[i].name = $"Stroke_{i.ToString().PadLeft(2,'0')}";
             controllers[i].gameObject.SetActive(true);
             CopySpline(strokes[i].Spline, controllers[i].spline);
         }

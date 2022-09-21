@@ -17,7 +17,16 @@ namespace Antura.Minigames.Maze
     {
         public static MazeGame instance;
 
-        private const int LIVES_PER_LETTER = 3;
+        private int LIVES_PER_LETTER
+        {
+            get
+            {
+                if (Difficulty < 0.2f) return 5;
+                if (Difficulty < 0.7f) return 4;
+                return 3;
+            }
+        }
+
         private const int MAX_NUM_ROUNDS = 5;
 
         public GameObject characterPrefab;
@@ -221,13 +230,14 @@ namespace Antura.Minigames.Maze
         }
 
         private Vector3 baseFruitColliderSize;
-        public void RefreshFruitColliderSizes(int startFruitIndex)
+        public void RefreshFruitColliderSizes(int nextFruitIndex)
         {
             if (baseFruitColliderSize == default) baseFruitColliderSize = currentCharacter._fruits[0].GetComponent<BoxCollider>().size;
             for (var iFruit = 0; iFruit < currentCharacter._fruits.Count; iFruit++)
             {
                 GameObject fruit = currentCharacter._fruits[iFruit];
-                fruit.GetComponent<BoxCollider>().size = iFruit == (startFruitIndex +1) ? baseFruitColliderSize * 1.5f : baseFruitColliderSize * 0.25f;
+                fruit.GetComponent<BoxCollider>().size = iFruit == (nextFruitIndex) ? baseFruitColliderSize * 1.5f : new Vector3(baseFruitColliderSize.x, baseFruitColliderSize.y, 0.001f) * 0.25f;
+                //if (iFruit == nextFruitIndex) Debug.LogError("ENLARGING FRUIT " + nextFruitIndex);
             }
         }
 
@@ -241,7 +251,6 @@ namespace Antura.Minigames.Maze
 
             Context.GetOverlayWidget().Initialize(true, false, true);
             Context.GetOverlayWidget().SetStarsThresholds(STARS_1_THRESHOLD, STARS_2_THRESHOLD, STARS_3_THRESHOLD);
-            Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
 
             timer.initTimer();
         }
@@ -494,14 +503,22 @@ namespace Antura.Minigames.Maze
 
             currentCharacter.loseState = MazeCharacter.LoseState.None;
 
-            Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
+            if (!isTutorialMode)
+            {
+                initUI();
+                Context.GetOverlayWidget().SetMaxLives(LIVES_PER_LETTER);
+                Context.GetOverlayWidget().SetLives(LIVES_PER_LETTER);
+            }
             livesLeft = LIVES_PER_LETTER;
         }
 
         public void OnLoseLife()
         {
-            livesLeft--;
-            Context.GetOverlayWidget().SetLives(livesLeft);
+            if (!isTutorialMode)
+            {
+                livesLeft--;
+                Context.GetOverlayWidget().SetLives(livesLeft);
+            }
 
             if (livesLeft == 0)
             {
@@ -637,7 +654,7 @@ namespace Antura.Minigames.Maze
 
             gameEnded = true;
 
-            MinigamesUI.Timer.Pause();
+            //MinigamesUI.Timer.Pause();
             TutorialUI.Clear(false);
 
             // Reset physics collisions:

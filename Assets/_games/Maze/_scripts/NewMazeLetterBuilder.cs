@@ -48,7 +48,6 @@ namespace Antura.Minigames.Maze
                     child.name = "MazeLetter";
                     letter = child.gameObject.AddComponent<MazeLetter>();
 
-                    // TODO: handle collisions somehow
                     var box = child.gameObject.AddComponent<BoxCollider>();
                     var boxSize = box.size;
                     boxSize.z = 0.05f;
@@ -56,7 +55,6 @@ namespace Antura.Minigames.Maze
                     child.gameObject.AddComponent<MeshCollider>();
                 }
 
-                // TODO: handle collisions somehow
                 if (child.name.IndexOf("Contour") != -1)
                 {
                     child.name = "BorderCollider";
@@ -84,8 +82,8 @@ namespace Antura.Minigames.Maze
                     foreach (Transform fruit in child.transform)
                     {
                         var box = fruit.gameObject.AddComponent<BoxCollider>();
-                        box.center = new Vector3(0.00789929274f, 0.000789958867f, -3.05139807e-08f);
-                        box.size = new Vector3(0.0473955721f, 0.0336077549f, 4.46760318e-09f);
+                        box.center = new Vector3(0.00789929274f, 0.000789958867f, 0.02f);
+                        box.size = new Vector3(0.0473955721f, 0.0336077549f, 0.04f);
                     }
                 }
 
@@ -124,11 +122,10 @@ namespace Antura.Minigames.Maze
             { _callback(); }
         }
 
-        public static GameObject prevDot;
+        //public static GameObject prevDot;
 
         public void HideDotAndShowArrow(Transform arrowTr)
         {
-            Debug.LogError("HIDING DOT FOR " + arrowTr.name);
             var mazeArrow = arrowTr.gameObject.GetComponent<MazeArrow>();
             if (mazeArrow.arrowMesh != null) mazeArrow.arrowMesh.enabled = true;
             if (mazeArrow.dotMesh != null) mazeArrow.dotMesh.enabled = false;
@@ -136,10 +133,10 @@ namespace Antura.Minigames.Maze
 
         public void AddDotAndHideArrow(Transform arrowTr)
         {
-            if (prevDot != null)
-            {
-                prevDot.GetComponent<Renderer>().enabled = false;
-            }
+            //if (prevDot != null)
+            //{
+            //    prevDot.GetComponent<Renderer>().enabled = false;
+            //}
 
             var mazeArrow = arrowTr.gameObject.GetComponent<MazeArrow>();
             if (mazeArrow.dotMesh == null)
@@ -150,11 +147,12 @@ namespace Antura.Minigames.Maze
                 currentDot.transform.localEulerAngles = new Vector3(90, 0, 0);
                 currentDot.transform.localScale = Vector3.one * 0.1f;
                 mazeArrow.dotMesh = currentDot.GetComponent<Renderer>();
+                mazeArrow.dotMesh.GetComponent<Renderer>().enabled = true;
 
                 mazeArrow.GetComponentInChildren<MeshRenderer>().material.color = mazeArrow.highlightedColor;
                 mazeArrow.dotMesh.material.color = mazeArrow.highlightedColor;
 
-                prevDot = currentDot;
+                //prevDot = currentDot;
             }
             arrowTr.GetComponentInChildren<MeshRenderer>().enabled = false;
         }

@@ -62,7 +62,7 @@ namespace Antura.Language
 
 
         public override List<StringPart> SplitWord(DatabaseObject staticDatabase, WordData wordData,
-            bool separateDiacritics = false, bool separateVariations = false, bool keepFormInsideLetter = false)
+            bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false)
         {
             // Use ArabicFixer to deal only with combined unicodes
             return AnalyzeArabicString(staticDatabase, ProcessString(wordData.Text), separateDiacritics,
