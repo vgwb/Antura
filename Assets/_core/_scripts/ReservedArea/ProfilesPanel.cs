@@ -149,7 +149,7 @@ namespace Antura.ReservedArea
 
         #region Demo User Helpers
 
-        private static bool TEST_ALMOST_AT_END = true;
+        private static bool TEST_ALMOST_AT_END = false;
 
         IEnumerator CreateDemoPlayer()
         {
