@@ -35,6 +35,38 @@ namespace Antura.Minigames.FastCrowd
 
             string word = string.Empty;
 
+            // Merge ligatures, if found
+            var allLetters = AppManager.I.DB.GetAllLetterData();
+            foreach (var letterData in allLetters)
+            {
+                var ligatureSplit = letterData.LigatureSplit;
+                if (ligatureSplit == null || ligatureSplit.Length == 0) continue;
+
+                for (int iLetter = 0; iLetter < CompletedLetters.Count; iLetter++)
+                {
+                    bool needsLigature = false;
+                    for (int iSplit = 0; iSplit < ligatureSplit.Length; iSplit++)
+                    {
+                        if (iLetter + iSplit >= CompletedLetters.Count) break;
+                        if (CompletedLetters[iLetter + iSplit].Id != ligatureSplit[iSplit]) break;
+                        if (iSplit == ligatureSplit.Length - 1)
+                        {
+                            // If we reach the last ligature letter without breaking, it is a correct split
+                            needsLigature = true;
+                        }
+                    }
+
+                    if (needsLigature)
+                    {
+                        var form = CompletedLetters[iLetter].Data.Form;
+                        CompletedLetters.RemoveRange(iLetter, ligatureSplit.Length);
+                        var ligature = letterData.ConvertToLivingLetterData() as LL_LetterData;
+                        ligature.Form = form;
+                        CompletedLetters.Insert(iLetter, ligature);
+                    }
+                }
+            }
+
             for (int i = 0; i < CompletedLetters.Count; ++i)
             {
                 LL_LetterData letter = CompletedLetters[i];

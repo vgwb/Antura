@@ -17,7 +17,7 @@ namespace Antura.Test
     /// <summary>
     /// Automatic check for all audio files to be present for each language in both ways: from the localization table to the project folder and vice versa
     /// </summary>
-    public class NormalizedAudioFiles : MonoBehaviour
+    public class AudioFileChecker : MonoBehaviour
     {
         public LanguageCode LanguageToCheck;
         List<string> folders;
@@ -286,7 +286,7 @@ namespace Antura.Test
                         Debug.Log("Starting to check audio files from letters table to the " + lang + " version folder...");
 
                         foreach (LetterData data in letters)
-                        {                                                        
+                        {
                             if(data.NameSound != "")
                             {
                                 List<FileInfo> targetFile1 = root.GetFiles(data.NameSound + ".*").ToList();
@@ -309,8 +309,8 @@ namespace Antura.Test
                                     missing_keys += data.GetAudioFilename() + "\n";
                                     missing_count++;
                                 }
-                            }    
-                            
+                            }
+
                         }
                         if (missing_count > 0)
                             Debug.LogWarning("WARNING: total missing letter audio files in the folder of " + lang + " version: " + missing_count.ToString() + "\nList of missing Audio files in the project:\n" + missing_keys);
