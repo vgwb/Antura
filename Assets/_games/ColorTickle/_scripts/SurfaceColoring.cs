@@ -1,5 +1,6 @@
 using UnityEngine;
 using System;
+using Antura.UI;
 
 namespace Antura.Minigames.ColorTickle
 {
@@ -60,7 +61,7 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (Input.GetMouseButton(0) && !UI.PauseMenu.I.IsMenuOpen) //On touch
+            if (Input.GetMouseButton(0) && !GlobalUI.I.IsFingerOverUI() && !UI.PauseMenu.I.IsMenuOpen) //On touch
             {
 
                 Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint

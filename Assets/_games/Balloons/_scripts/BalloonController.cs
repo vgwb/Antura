@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Antura.UI;
+using UnityEngine;
 
 namespace Antura.Minigames.Balloons
 {
@@ -46,6 +47,7 @@ namespace Antura.Minigames.Balloons
 
         public void OnMouseDown()
         {
+            if (GlobalUI.I.IsFingerOverUI()) return;
             TapAction();
         }
 

@@ -149,8 +149,7 @@ namespace Antura.Minigames.ColorTickle
         {
             IsTouching = false;
 
-            if (Input.GetMouseButton(0) &&
-                !PauseMenu.I.IsMenuOpen) //On touch
+            if (Input.GetMouseButton(0) && !GlobalUI.I.IsFingerOverUI() && !PauseMenu.I.IsMenuOpen) //On touch
             {
 
                 Ray _mouseRay = Camera.main.ScreenPointToRay(Input.mousePosition); //Ray with direction camera->screenpoint
