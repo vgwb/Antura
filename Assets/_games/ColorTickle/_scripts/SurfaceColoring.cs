@@ -61,7 +61,7 @@ namespace Antura.Minigames.ColorTickle
 
         void Update()
         {
-            if (GlobalUI.I.IsFingerOverUI() && ColorTickleConfiguration.Instance.TutorialEnabled) return;
+            if (GlobalUI.I.IsFingerOverUI()) return;
             if (Input.GetMouseButton(0) && !PauseMenu.I.IsMenuOpen) //On touch
             {
 
