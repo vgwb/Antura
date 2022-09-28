@@ -110,13 +110,14 @@ namespace Antura.Scenes
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
 
+            GlobalUI.ShowBackButton(false);
+            
             var btn = selectLearningContentPanel.SelectedButton;
             bool waiting = true;
             AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
             while (waiting) yield return null;
 
             HasSelectedEdition = true;
-            GlobalUI.ShowBackButton(false);
 
             yield return AppManager.I.ReloadEdition();
 
