@@ -56,6 +56,7 @@ namespace Antura.Minigames.ColorTickle
                     builderParams.letterFilters.excludeDiacritics = LetterFilters.ExcludeDiacritics.All;
                     builderParams.letterFilters.excludeLetterVariations = LetterFilters.ExcludeLetterVariations.None;
                     builderParams.letterFilters.excludeDiphthongs = true;
+                    builderParams.letterFilters.excludeMultiCharacterLetters = true;
                     builderParams.wordFilters.excludeDiacritics = true;
                     builder = new RandomLettersQuestionBuilder(nPacks, nCorrect, parameters: builderParams);
                     break;

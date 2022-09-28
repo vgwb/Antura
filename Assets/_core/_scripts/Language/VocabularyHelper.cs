@@ -27,18 +27,13 @@ namespace Antura.Database
 
         public bool CheckFilters(LetterFilters filters, LetterData data)
         {
-            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
-            { return false; }
-            if (!FilterByDiacritics(filters.excludeDiacritics, data))
-            { return false; }
-            if (!FilterByLetterVariations(filters.excludeLetterVariations, data))
-            { return false; }
-            if (!FilterByDipthongs(filters.excludeDiphthongs, data))
-            { return false; }
-            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter))
-            { return false; }
-            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar))
-            { return false; }
+            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) { return false; }
+            if (!FilterByDiacritics(filters.excludeDiacritics, data)) { return false; }
+            if (!FilterByLetterVariations(filters.excludeLetterVariations, data)) { return false; }
+            if (!FilterByDipthongs(filters.excludeDiphthongs, data)) { return false; }
+            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter)) { return false; }
+            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar)) { return false; }
+            if (filters.excludeMultiCharacterLetters && data.Isolated.Length > 1) { return false; }
 
             // always skip symbols
             if (data.IsOfKindCategory(LetterKindCategory.Symbol))

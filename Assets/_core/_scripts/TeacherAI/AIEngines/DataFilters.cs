@@ -16,6 +16,7 @@ namespace Antura.Teacher
         public bool excludeDiphthongs;
         public bool includeAccentedLetters;
         public bool includeSpecialCharacters;
+        public bool excludeMultiCharacterLetters;
 
         public enum ExcludeLetterVariations
         {
@@ -37,7 +38,8 @@ namespace Antura.Teacher
             ExcludeDiacritics excludeDiacritics = ExcludeDiacritics.None,
             ExcludeLetterVariations excludeLetterVariations = ExcludeLetterVariations.None,
             bool includeAccentedLetters = false,
-            bool includeSpecialCharacters = false
+            bool includeSpecialCharacters = false,
+            bool excludeMultiCharacterLetters = false
             )
         {
             this.excludeDiacritics = excludeDiacritics;
@@ -46,6 +48,7 @@ namespace Antura.Teacher
             this.excludeDiphthongs = excludeDiphthongs;
             this.includeAccentedLetters = includeAccentedLetters;
             this.includeSpecialCharacters = includeSpecialCharacters;
+            this.excludeMultiCharacterLetters = excludeMultiCharacterLetters;
         }
     }
 
