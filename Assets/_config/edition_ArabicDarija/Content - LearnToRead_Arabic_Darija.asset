@@ -13,13 +13,13 @@ MonoBehaviour:
   m_Name: Content - LearnToRead_Arabic_Darija
   m_EditorClassIdentifier: 
   ContentID: 21
-  Icon: {fileID: 0}
   Title: 
   LearnMethod: {fileID: 11400000, guid: b75bce9630fdabe4aa9ef0ca9cb1b00b, type: 2}
   LearningLanguage: 2
-  NativeLanguage: 2
-  HelpLanguage: 2
-  SupportedNativeLanguages: 02000000
+  LearningLanguageConfig: {fileID: 11400000, guid: 030f04a10bce904448269b2a5d5dfc97,
+    type: 2}
+  OverridenNativeLanguages: 10000000
+  HelpLanguage: 5
   DiacriticsOnlyOnIsolated: 0
   PlayNameSoundWithForms: 0
   ShowAccentsOnSeparatedLivingLetters: 0
@@ -32,16 +32,7 @@ MonoBehaviour:
   PlaySessionDB: {fileID: 11400000, guid: 510b71d298f8949e9b6d1fc6a8cf9a8f, type: 2}
   MiniGameDB: {fileID: 11400000, guid: e5435968d408599469dea5ecb4d7df55, type: 2}
   RewardDB: {fileID: 11400000, guid: 234fae081fc351547a4636d7d7230c1d, type: 2}
-  HomeLogo: {fileID: 21300000, guid: f2da8e370592d444a9cb6e55972f525b, type: 3}
-  TransitionLogo: {fileID: 21300000, guid: 6ec048aa7bf421149af2d14ce677cf74, type: 3}
+  HomeLogo: {fileID: 21300000, guid: 7210c10a493a70d4a81e69253537b396, type: 3}
+  TransitionLogo: {fileID: 21300000, guid: 7210c10a493a70d4a81e69253537b396, type: 3}
   Flag3D: {fileID: 0}
-  DBImportDataFiles:
-    localizationDataAsset: {fileID: 4900000, guid: 03c285001072a44be9a47d2bf102c971,
-      type: 3}
-    letterDataAsset: {fileID: 0}
-    wordDataAsset: {fileID: 0}
-    phraseDataAsset: {fileID: 0}
-    playSessionDataAsset: {fileID: 0}
-    minigameDataAsset: {fileID: 0}
-    stageDataAsset: {fileID: 4900000, guid: 6e66f219faa61485fa14707a7408b0b0, type: 3}
-    rewardDataAsset: {fileID: 4900000, guid: 9a8f84a0ca7174b87996c4bd292301cf, type: 3}
+  GoogleSheets: []
