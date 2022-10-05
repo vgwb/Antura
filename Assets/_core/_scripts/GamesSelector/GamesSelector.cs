@@ -168,6 +168,11 @@ namespace Antura.GamesSelector
                 return;
             }
 
+            HitBubble(hitBubble);
+        }
+
+        public void HitBubble(GamesSelectorBubble hitBubble)
+        {
             if (tutorial.isPlaying)
             {
                 tutorial.Stop();

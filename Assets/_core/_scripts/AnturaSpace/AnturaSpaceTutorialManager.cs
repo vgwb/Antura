@@ -143,7 +143,7 @@ namespace Antura.AnturaSpace
             Dialogue(LocalizationDataId.AnturaSpace_Intro);
         }
 
-        private void HandleAnturaTouched()
+        public void HandleAnturaTouched()
         {
             m_oAnturaBehaviour.onTouched -= HandleAnturaTouched;
 

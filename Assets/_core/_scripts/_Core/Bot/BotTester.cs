@@ -1,5 +1,7 @@
 using System;
 using System.Collections;
+using Antura.AnturaSpace;
+using Antura.AnturaSpace.UI;
 using Antura.Debugging;
 using Antura.GamesSelector;
 using Antura.Helpers;
@@ -8,6 +10,7 @@ using Antura.Minigames;
 using Antura.Profile;
 using Antura.Rewards;
 using Antura.Scenes;
+using Antura.Tutorial;
 using Antura.UI;
 using Antura.Utilities;
 using UnityEngine;
@@ -47,12 +50,12 @@ namespace Antura.Core
                 Time.timeScale = C.GameSpeed;
 
                 var appScene = AppManager.I.NavigationManager.GetCurrentScene();
-                BotLog($"We are in {appScene}");
 
                 GlobalUI.WidgetSubtitles.OnHintClicked();
 
                 bool hasChangedScene = prevScene != appScene;
                 prevScene = appScene;
+                if (hasChangedScene) BotLog($"We are in {appScene}");
 
                 switch (appScene)
                 {
@@ -173,8 +176,36 @@ namespace Antura.Core
                     }
                         break;
 
-                    case AppScene.AnturaSpace:  // TODO: perform the tutorial too
+                    case AppScene.AnturaSpace:
                     {
+                        // TODO: perform the tutorial too
+                        var phase = FirstContactManager.I.CurrentPhaseInSequence;
+                        switch (phase)
+                        {
+                            case FirstContactPhase.AnturaSpace_TouchAntura:
+                                var manager = FindObjectOfType<AnturaSpaceTutorialManager>();
+                                if (manager != null)
+                                {
+                                    manager.HandleAnturaTouched();
+                                }
+                                break;
+
+                            case FirstContactPhase.AnturaSpace_Customization:
+                                var modsButton = FindObjectOfType<AnturaSpaceModsButton>();
+                                if (modsButton != null) Click(modsButton);
+
+                                foreach (var btn in FindObjectsOfType<AnturaSpaceCategoryButton>())
+                                {
+                                    Click(btn);
+                                }
+
+                                break;
+                            case FirstContactPhase.AnturaSpace_Exit:
+                                Click(GlobalUI.I.BackButton);
+                                break;
+                        }
+
+
                         yield return new WaitForSeconds(C.Delay);
                     }
                         break;
