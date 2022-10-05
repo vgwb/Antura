@@ -18,6 +18,7 @@ namespace Antura.Language
         romanian = 13,
         hungarian = 14,
         german = 15,
+        darija = 16,
         COUNT
     }
 }
