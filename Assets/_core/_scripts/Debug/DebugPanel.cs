@@ -5,6 +5,7 @@ using Antura.UI;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 namespace Antura.Debugging
@@ -30,6 +31,11 @@ namespace Antura.Debugging
         public Toggle VerboseTeacherToggle;
         public Toggle SafeLaunchToggle;
         public Toggle AutoCorrectJourneyPosToggle;
+
+        public Toggle BotEnabledToggle;
+        public Toggle BotStopAtJPToggle;
+        public Slider BotDelay;
+        public Slider BotGameSpeed;
 
         public bool TutorialEnabled
         {
@@ -244,6 +250,11 @@ namespace Antura.Debugging
 
         #region UI
 
+        private void Update()
+        {
+            BotTester.I.Config.StopBeforeJP = GetCurrentJourneyPositionInUI();
+        }
+
         private void BuildUI()
         {
             if (AppManager.I.Player != null)
@@ -259,6 +270,21 @@ namespace Antura.Debugging
             AutoCorrectJourneyPosToggle.isOn = AutoCorrectJourneyPos;
             VerboseTeacherToggle.isOn = VerboseTeacher;
             SafeLaunchToggle.isOn = SafeLaunch;
+
+            BotEnabledToggle.isOn = BotTester.I.Config.BotEnabled;
+            BotEnabledToggle.onValueChanged.RemoveAllListeners();
+            BotEnabledToggle.onValueChanged.AddListener(v => BotTester.I.Config.BotEnabled = v);
+            BotStopAtJPToggle.isOn = BotTester.I.Config.EnableStopBeforeJP;
+            BotStopAtJPToggle.onValueChanged.RemoveAllListeners();
+            BotStopAtJPToggle.onValueChanged.AddListener(v => BotTester.I.Config.EnableStopBeforeJP = v);
+
+            BotDelay.value = BotTester.I.Config.Delay;
+            BotDelay.onValueChanged.RemoveAllListeners();
+            BotDelay.onValueChanged.AddListener(v => BotTester.I.Config.Delay = v);
+
+            BotGameSpeed.value = BotTester.I.Config.GameSpeed;
+            BotGameSpeed.onValueChanged.RemoveAllListeners();
+            BotGameSpeed.onValueChanged.AddListener(v => BotTester.I.Config.GameSpeed = v);
 
             try
             {

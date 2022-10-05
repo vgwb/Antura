@@ -49,6 +49,8 @@ namespace Antura.UI
         {
             defIcon = Icon.sprite;
 
+            if (AppManager.I.RootConfig.DebugConfig.SpeedUpAnimations) AnimationDuration = 0.01f;
+
             tween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(MaskCover.DOFillAmount(0, AnimationDuration).From())
                 .Join(Icon.transform.DOScale(0.01f, AnimationDuration * 0.6f).From())
