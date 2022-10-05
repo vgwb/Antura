@@ -75,7 +75,7 @@ namespace Antura.Profile
             PlayerProfile returnProfile = GetPlayerProfileByUUID(playerUUID);
             if (hasUpgraded)
             {
-                returnProfile.ContentID = LearningContentID.Learn_Arabic;
+                returnProfile.ContentID = LearningContentID.LearnToRead_Arabic;
                 returnProfile.editionID = AppEditionID.Multi;
                 SavePlayerProfile(returnProfile);
             }
@@ -148,14 +148,14 @@ namespace Antura.Profile
             if (AppManager.I.AppSettings.AppVersion == "" || new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
             {
                 Debug.LogWarning($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
-                AppManager.I.AppSettings.ContentID = LearningContentID.Learn_Arabic;
+                AppManager.I.AppSettings.ContentID = LearningContentID.LearnToRead_Arabic;
                 AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
                 AppManager.I.AppSettings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
                 var newList = new List<PlayerIconData>();
                 for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
                 {
                     PlayerIconData pl = AppManager.I.AppSettings.SavedPlayers[iPl];
-                    pl.contentID = LearningContentID.Learn_Arabic;
+                    pl.contentID = LearningContentID.LearnToRead_Arabic;
                     pl.editionID = AppEditionID.Multi;
                     newList.Add(pl);
                 }
