@@ -788,12 +788,13 @@ namespace Antura.Database
 
             var outputDatas = new List<WordDataWrapper>();
             var phraseText = phraseData.Text;
-            var wordsInString = phraseText.Split(' ');
+            var wordsInString = phraseText.Split(new[] { ' ', '\'' }, StringSplitOptions.None);
             var uppercaseWords = wordsInString.Where(s => s.Length >= 2 && IsAllUpperCase(s));
 
             var uppercaseText = "";
             foreach (string uppercaseWord in uppercaseWords) uppercaseText += uppercaseWord + " ";
-            uppercaseText = uppercaseText.TrimStart();
+            uppercaseText = uppercaseText.Trim();
+            uppercaseText = new string(uppercaseText.Where(c => !char.IsPunctuation(c)).ToArray());
 
             var foundUppercase = false;
             for (var i = 0; i < wordsInString.Length; i++)
