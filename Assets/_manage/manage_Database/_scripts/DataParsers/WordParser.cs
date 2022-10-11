@@ -76,7 +76,7 @@ namespace Antura.Database.Management
             {
                 if (data.LinkedWord != "" && table.GetValue(data.LinkedWord) == null)
                 {
-                    LogValidation(data, "Cannot find id of WordData for Linked value " + data.LinkedWord + " (found in word " + data.Id + ")");
+                    LogValidationError(data, "Cannot find id of WordData for Linked value " + data.LinkedWord + " (found in word " + data.Id + ")");
                 }
             }
 

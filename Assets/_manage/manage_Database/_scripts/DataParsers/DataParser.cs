@@ -38,7 +38,7 @@ namespace Antura.Database.Management
                     {
                         if (!CanHaveSameKeyMultipleTimes)
                         {
-                            LogValidation(data, "found multiple ID " + value);
+                            LogValidationError(data, "found multiple ID " + value);
                         }
                         continue;
                     }
@@ -74,7 +74,7 @@ namespace Antura.Database.Management
             }
             catch
             {
-                LogValidation(data, "field valued '" + enum_string + "', not available as an enum value for type " + typeof(T).ToString() + ".");
+                LogValidationError(data, "field valued '" + enum_string + "', not available as an enum value for type " + typeof(T).ToString() + ".");
             }
             return parsed_enum;
         }
@@ -88,7 +88,7 @@ namespace Antura.Database.Management
             var value = table.GetValue(id_string);
             if (value == null)
             {
-                LogValidation(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + id_string);
+                LogValidationError(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + id_string);
             }
             return id_string;
         }
@@ -97,7 +97,7 @@ namespace Antura.Database.Management
         {
             if (table == null)
             {
-                LogValidation(data, "Table of type " + typeof(OtherDTable).Name + " was null!");
+                LogValidationError(data, "Table of type " + typeof(OtherDTable).Name + " was null!");
             }
 
             var array = array_string.Split(',');
@@ -111,16 +111,22 @@ namespace Antura.Database.Management
                 var value = table.GetValue(array[i]);
                 if (value == null)
                 {
-                    LogValidation(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + array[i]);
+                    LogValidationError(data, "could not find a reference inside " + typeof(OtherDTable).Name + " for ID " + array[i]);
                 }
             }
             return array;
         }
 
-        protected void LogValidation(D data, string msg)
+        protected void LogValidationError(D data, string msg)
+        {
+            Debug.LogError(data.GetType().ToString() + " (ID " + data.GetId() + "): " + msg);
+        }
+
+        protected void LogValidationWarning(D data, string msg)
         {
             Debug.LogWarning(data.GetType().ToString() + " (ID " + data.GetId() + "): " + msg);
         }
+
 
         #region Conversions
 
