@@ -10,6 +10,7 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
+        public bool ExlusiveLanguageOnly; // Used only if added to Exclusive languages.
         public string LocalizedName;
         public string Iso3;
         public TextDirection TextDirection;

@@ -21,11 +21,18 @@ namespace Antura.Core
         public LangConfig LearningLanguageConfig;
 
         [FormerlySerializedAs("SupportedNativeLanguages")] public LanguageCode[] OverridenNativeLanguages;
+
         public bool SupportsLanguage(LanguageCode code)
         {
             bool supportsAnyLanguage = OverridenNativeLanguages.Length == 0;
             if (supportsAnyLanguage)
             {
+                var langConfig = AppManager.I.LanguageSwitcher.GetLangConfig(code);
+                if (langConfig.ExlusiveLanguageOnly)
+                {
+                    return false;
+                }
+
                 if (!LearnMethod.CanUseLearningAsNative)
                 {
                     return code != LearningLanguage;
