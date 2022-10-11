@@ -18,7 +18,7 @@ namespace Antura.AnturaSpace
         public override void PerformDrag()
         {
             if (!AnturaSpaceScene.I.TutorialMode)
-                KeeperManager.I.PlayDialogue("UI_Antura_Shop_" + LocID, keeperMode: KeeperMode.LearningAndSubtitles);
+                KeeperManager.I.PlayDialogue("UI_Antura_Shop_" + LocID, keeperMode: KeeperMode.LearningNoSubtitles);
 
             ShopDecorationsManager.I.CreateAndStartDragPlacement(UnlockableDecorationObject, bonesCost);
             ShopDecorationsManager.I.OnPurchaseComplete += CommitAction;
