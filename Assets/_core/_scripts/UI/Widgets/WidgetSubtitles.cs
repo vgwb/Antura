@@ -116,7 +116,11 @@ namespace Antura.UI
             {
                 bgColorTween.PlayForward();
             }
-            WalkieTalkie.Show(_isKeeper);
+
+            if (!learningText.IsNullOrEmpty())
+            {
+                WalkieTalkie.Show(_isKeeper);
+            }
 
             Display(learningText, helpText, fillPeriod);
         }
