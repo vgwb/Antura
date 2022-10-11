@@ -114,7 +114,7 @@ namespace Antura.Minigames.ReadingGame
 
                             if (game.TutorialEnabled)
                             {
-                                UnityEngine.Debug.LogError("TUTORIAL ON");
+                                //UnityEngine.Debug.LogError("TUTORIAL ON");
                                 game.Context.GetAudioManager()
                                     .PlayDialogue(ReadingGameConfiguration.Instance.TutorialLocalizationId, () =>
                                     {

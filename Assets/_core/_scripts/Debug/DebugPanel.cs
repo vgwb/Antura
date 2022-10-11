@@ -250,10 +250,12 @@ namespace Antura.Debugging
 
         #region UI
 
+        #if !UNITY_EDITOR
         private void Update()
         {
             BotTester.I.Config.StopBeforeJP = GetCurrentJourneyPositionInUI();
         }
+        #endif
 
         private void BuildUI()
         {
@@ -274,6 +276,13 @@ namespace Antura.Debugging
             BotEnabledToggle.isOn = BotTester.I.Config.BotEnabled;
             BotEnabledToggle.onValueChanged.RemoveAllListeners();
             BotEnabledToggle.onValueChanged.AddListener(v => BotTester.I.Config.BotEnabled = v);
+
+            #if UNITY_EDITOR
+            BotStopAtJPToggle.gameObject.SetActive(false);
+            #else
+            BotStopAtJPToggle.gameObject.SetActive(true);
+            #endif
+
             BotStopAtJPToggle.isOn = BotTester.I.Config.EnableStopBeforeJP;
             BotStopAtJPToggle.onValueChanged.RemoveAllListeners();
             BotStopAtJPToggle.onValueChanged.AddListener(v => BotTester.I.Config.EnableStopBeforeJP = v);

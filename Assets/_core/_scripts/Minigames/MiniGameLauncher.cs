@@ -59,6 +59,10 @@ namespace Antura.Minigames
 
             if (DebugConfig.I.DebugLogEnabled)
             {
+                if (BotTester.I.Config.BotEnabled)
+                {
+                    BotTester.I.BotLog("StartGame " + gameCode.ToString());
+                }
                 Debug.Log("StartGame " + gameCode.ToString());
                 Debug.Log(launchConfig);
             }

@@ -6,22 +6,34 @@ using System.Linq;
 using Antura.AnturaSpace;
 using Antura.AnturaSpace.UI;
 using Antura.Book;
+using Antura.Database.Management;
 using Antura.Debugging;
 using Antura.GamesSelector;
 using Antura.Helpers;
 using Antura.Map;
 using Antura.Minigames;
 using Antura.Profile;
+using Antura.ReservedArea;
 using Antura.Rewards;
 using Antura.Scenes;
+using Antura.Teacher.Test;
+using Antura.Test;
 using Antura.Tutorial;
 using Antura.UI;
 using Antura.Utilities;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Antura.Core
 {
+    public enum BotStep
+    {
+        PlayAllGamesInBook,
+        PlayJourney,
+    }
+
     public class BotTester : MonoBehaviour
     {
         public static BotTester I;
@@ -48,7 +60,9 @@ namespace Antura.Core
         private float timer = 0f;
         private AppScene prevScene;
 
-        private List<string> PlayedMinigameVariations = new List<string>();
+        private List<string> playedMinigameVariations = new List<string>();
+        private List<EditionCombo> playedCombos = new List<EditionCombo>();
+        private List<BotStep> botSteps = new List<BotStep>();
 
         private void Update()
         {
@@ -57,7 +71,7 @@ namespace Antura.Core
             {
                 if (runCheck >= runCheckLimit)
                 {
-                    BotLog("Bot was stopped abruptly! Restarting.");
+                    BotLog("Bot was stopped abruptly or timed out! Restarting.");
                 }
                 RestartBot();
                 runCheck = 0f;
@@ -77,9 +91,59 @@ namespace Antura.Core
             if (co != null) StopCoroutine(co);
         }
 
+        private bool completedFirstTime = false;
+
         private IEnumerator BotFlowCO()
         {
             Application.runInBackground = true;
+
+            if (!completedFirstTime && C.DeleteExistingProfiles)
+            {
+                BotLog($"Deleted all player profiles");
+                DebugManager.I.ResetAll(true);
+                DebugManager.I.GoToHome();
+            }
+
+#if UNITY_EDITOR
+            if (!completedFirstTime && (C.StartTeacherTester || C.CheckMissingAudio))
+            {
+                var op = SceneManager.LoadSceneAsync("manage_Database", new LoadSceneParameters(LoadSceneMode.Additive));
+                while (!op.isDone) yield return null;
+
+                // Avoids duplicates
+                var eventSystem = FindObjectOfType<EventSystem>();
+                Destroy(eventSystem);
+
+                if (C.StartTeacherTester)
+                {
+                    BotLog($"Starting Teacher Tester");
+                    var databaseTester = FindObjectOfType<DatabaseTester>();
+                    databaseTester.ToTeacherTester();
+
+                    var teacherTester = FindObjectOfType<TeacherTester>();
+                    teacherTester.DoTestCompleteJourney();
+                    while (teacherTester.IsExecuting) yield return null;
+                    BotLog($"Completed Teacher Tester");
+                }
+
+                if (C.CheckMissingAudio)
+                {
+                    var missingAudioFileChecker = FindObjectOfType<MissingAudioFileChecker>();
+                    BotLog("Checking missing audio: DB against Project");
+                    missingAudioFileChecker.CheckDbAgaistProject();
+                    BotLog("Checking missing audio: Project against DB");
+                    missingAudioFileChecker.CheckProjectAgainstDb();
+                }
+
+                op = SceneManager.UnloadSceneAsync("manage_Database");
+                while (!op.isDone) yield return null;
+                DebugManager.I.GoToHome();
+            }
+#endif
+            completedFirstTime = true;
+
+            if (C.PlayAllGamesInBook) botSteps.Add(BotStep.PlayAllGamesInBook);
+            if (C.PlayJourney) botSteps.Add(BotStep.PlayJourney);
 
             while (true)
             {
@@ -103,29 +167,80 @@ namespace Antura.Core
                         var homeScene = FindObjectOfType<HomeScene>();
 
                         // Choose language
-                        /*while (AppManager.I.AppSettings.NativeLanguage != C.NativeLanguage)
+                        if (C.TestEditionCombos)
                         {
-                            Click(FindObjectOfType<EditionSelectorBtn>());
-                            yield return new WaitForSeconds(C.Delay);
-                            Click(FindObjectOfType<SelectNativeLanguageButton>());
-                            yield return new WaitForSeconds(C.Delay);
-
-                            var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
-                            foreach (var nativeLangBtn in nativeLangBtns)
+                            bool foundCombo = false;
+                            foreach (var combo in C.Combos)
                             {
-                                if (nativeLangBtn.LanguageCode == C.NativeLanguage)
-                                {
-                                    Click(nativeLangBtn);
-                                    break;
-                                }
-                            }
-                            yield return new WaitForSeconds(C.Delay);
+                                if (playedCombos.Contains(combo)) continue;
 
-                        }*/
+                                BotLog("Switching to learning combo " + combo);
+                                if (AppManager.I.AppSettings.NativeLanguage != combo.NativeLanguage)
+                                {
+                                    Click(FindObjectOfType<EditionSelectorBtn>());
+                                    yield return new WaitForSeconds(C.Delay);
+                                    Click(FindObjectOfType<SelectNativeLanguageButton>());
+                                    yield return new WaitForSeconds(C.Delay);
+
+                                    var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
+                                    foreach (var nativeLangBtn in nativeLangBtns)
+                                    {
+                                        if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
+                                        {
+                                            Click(nativeLangBtn);
+                                            break;
+                                        }
+                                    }
+                                    yield return new WaitForSeconds(C.Delay);
+                                }
+                                else if (AppManager.I.AppSettings.ContentID != combo.LearningContent)
+                                {
+                                    var learningContentBtns = FindObjectsOfType<SelectLearningContentButton>();
+                                    foreach (var learningContentBtn in learningContentBtns)
+                                    {
+                                        if (learningContentBtn.ContentId == combo.LearningContent)
+                                        {
+                                            Click(learningContentBtn);
+                                            break;
+                                        }
+                                    }
+                                    yield return new WaitForSeconds(C.Delay);
+                                }
+                                foundCombo = true;
+                            }
+
+                            if (!foundCombo)
+                            {
+                                BotLog("Completed all combos. Stopping");
+                                StopBot();
+                                yield break;
+                            }
+                        }
+
+                        var playerIcons = homeScene.ProfileSelectorUI.GetComponentsInChildren<PlayerIcon>(true);
+                        if (C.UseDemoProfile)
+                        {
+                            if (!AppManager.I.PlayerProfileManager.IsDemoUserExisting())
+                            {
+                                DebugManager.I.GoToReservedArea();
+                                yield return new WaitForSeconds(1f);
+                                var profilesPanel = FindObjectOfType<ProfilesPanel>();
+                                yield return profilesPanel.CreateDemoPlayer();
+                                DebugManager.I.GoToHome();
+                            }
+                        }
+                        if (homeScene == null) homeScene = FindObjectOfType<HomeScene>();
 
                         // Play
-                        var playerIcons = homeScene.ProfileSelectorUI.GetComponentsInChildren<PlayerIcon>(true);
-                        if (!C.CreateNewProfile && playerIcons.Length > 0)
+                        if (C.UseDemoProfile)
+                        {
+                            var desiredPlayerIcon = playerIcons.FirstOrDefault(x => x.HatImage != null && x.HatImage.gameObject.activeInHierarchy);
+                            Click(desiredPlayerIcon);
+                            yield return new WaitForSeconds(C.Delay);
+
+                            Click(homeScene.ProfileSelectorUI.transform.Find("BT Play"));
+                        }
+                        else if (!C.CreateNewProfile && playerIcons.Length > 0)
                         {
                             // Existing player
                             var desiredPlayerIcon = playerIcons[0];
@@ -145,11 +260,10 @@ namespace Antura.Core
                     case AppScene.Map:
                     {
                         // Go to the BOOK
-                        if (C.PlayAllGamesInBook)
+                        if (botSteps.Contains(BotStep.PlayAllGamesInBook))
                         {
-                            Click(FindObjectOfType<OpenPlayerBookScene>());
-                            yield return new WaitForSeconds(C.Delay);
-                            yield return new WaitForSeconds(C.Delay);
+                            var openBookBtn = FindObjectOfType<OpenPlayerBookScene>();
+                            if (openBookBtn != null) openBookBtn.OnPointerClick(new PointerEventData(EventSystem.current));
                             yield return new WaitForSeconds(C.Delay);
 
                             Click("MiniGames");
@@ -165,11 +279,11 @@ namespace Antura.Core
                                     foreach (var variation in minigame.mainGameInfo.variations)
                                     {
                                         var key = $"{minigame.mainGameInfo.MainId}_{variation.data.Variation}";
-                                        if (PlayedMinigameVariations.Contains(key)) continue;
+                                        if (playedMinigameVariations.Contains(key)) continue;
 
                                         BotLog("Testing minigame variation " + key);
                                         // This is the next minigame to play
-                                        PlayedMinigameVariations.Add(key);
+                                        playedMinigameVariations.Add(key);
 
                                         Click(minigame.GetComponentInChildren<Button>(true));
                                         yield return new WaitForSeconds(C.Delay);
@@ -177,6 +291,7 @@ namespace Antura.Core
 
                                         var allVariations = GameObject.Find("Variations Container").GetComponentsInChildren<ItemMiniGame>(true);
                                         var variationItem = allVariations.FirstOrDefault(x => x.miniGameInfo.data.Variation == variation.data.Variation);
+                                        //if (variationItem == null) continue;
 
                                         Click(variationItem.GetComponentInChildren<Button>(true));
                                         yield return new WaitForSeconds(C.Delay);
@@ -188,29 +303,40 @@ namespace Antura.Core
                                     }
                                     if (gameChosen) break;
                                 }
-                            }
-                        }
 
-                        if (C.PlayJourney)
-                        {
-                            if (C.EnableStopBeforeJP)
-                            {
-                                if (AppManager.I.Player.MaxJourneyPosition.Equals(C.StopBeforeJP))
+                                if (!gameChosen)
                                 {
-                                    BotLog($"We reached the target Journey Position");
-                                    StopBot();
-                                    yield break;
+                                    BotLog("Completed minigame phase. Played " + playedMinigameVariations.Count + " minigames");
+                                    botSteps.Remove(BotStep.PlayAllGamesInBook);
                                 }
                             }
-
-                            var stageMapsManager = FindObjectOfType<StageMapsManager>(true);
-                            if (stageMapsManager != null)
+                        }
+                        else
+                        // Or, play the journey instead
+                        if (botSteps.Contains(BotStep.PlayJourney))
+                        {
+                            var stopAtJp = AppManager.I.JourneyHelper.GetFinalJourneyPosition();
+                            if (C.EnableStopBeforeJP)
                             {
-                                var targetJourneyPos = AppManager.I.Player.MaxJourneyPosition;
-                                var playerStageMap = stageMapsManager.StageMap(targetJourneyPos.Stage);
-                                stageMapsManager.SelectPin(playerStageMap.PinForJourneyPosition(targetJourneyPos));
-                                BotLog($"Selected pin fr Journey Position " + targetJourneyPos);
-                                yield return new WaitForSeconds(C.Delay);
+                                stopAtJp = C.StopBeforeJP;
+                            }
+                            if (AppManager.I.Player.MaxJourneyPosition.IsGreaterOrEqual(stopAtJp))
+                            {
+                                BotLog($"We reached the target Journey Position " + stopAtJp);
+                                botSteps.Remove(BotStep.PlayJourney);
+                            }
+                            else
+                            {
+                                var stageMapsManager = FindObjectOfType<StageMapsManager>(true);
+                                if (stageMapsManager != null)
+                                {
+                                    var targetJourneyPos = AppManager.I.Player.MaxJourneyPosition;
+                                    var playerStageMap = stageMapsManager.StageMap(targetJourneyPos.Stage);
+                                    stageMapsManager.SelectPin(playerStageMap.PinForJourneyPosition(targetJourneyPos));
+                                    BotLog($"Selected pin fr Journey Position " + targetJourneyPos);
+                                    yield return new WaitForSeconds(1f);
+                                    yield return new WaitForSeconds(C.Delay);
+                                }
                             }
                         }
                     }
@@ -294,6 +420,7 @@ namespace Antura.Core
                             var moodButtons = emoticons.GetComponentsInChildren<Button>(true);
                             var btn = moodButtons.GetRandom();
                             Click(btn);
+                            yield return new WaitForSeconds(2f); // Or it breaks for some reason
                         }
                         yield return new WaitForSeconds(C.Delay);
                     }
@@ -321,7 +448,7 @@ namespace Antura.Core
 
                     case AppScene.MiniGame:
                     {
-                        BotLog($"Timer: " + timer);
+                        //BotLog($"Timer: " + timer);
                         if (timer > C.MinigamePlayDelay)
                         {
                             var controller = FindObjectOfType<MiniGameController>(true);
@@ -336,6 +463,15 @@ namespace Antura.Core
 
                         timer += C.Delay;
                         yield return new WaitForSeconds(C.Delay);
+
+                        var minigameRunLimit = 50;
+                        if (timer > minigameRunLimit)
+                        {
+                            BotError("Minigame timeout, could not be completed! Back to MAP.");
+                            timer = 0f;
+                            DebugManager.I.GoToMap();
+                            yield return new WaitForSeconds(C.Delay);
+                        }
                     }
                         break;
 
@@ -349,18 +485,19 @@ namespace Antura.Core
 
                     case AppScene.AnturaSpace:
                     {
-                        // TODO: perform the tutorial too
                         var phase = FirstContactManager.I.CurrentPhaseInSequence;
                         switch (phase)
                         {
+
                             case FirstContactPhase.AnturaSpace_TouchAntura:
                                 var manager = FindObjectOfType<AnturaSpaceTutorialManager>();
                                 if (manager != null)
                                 {
+                                    // @note: sometimes it can block here, so it's better to just wait a bit more
                                     manager.HandleAnturaTouched();
-                                    yield return new WaitForSeconds(0.1f);
+                                    yield return new WaitForSeconds(2f);
                                     GlobalUI.WidgetSubtitles.OnHintClicked();
-                                    yield return new WaitForSeconds(0.1f);
+                                    yield return new WaitForSeconds(2f);
                                     GlobalUI.WidgetSubtitles.OnHintClicked();
                                     yield return new WaitForSeconds(2f);
                                 }
@@ -391,10 +528,27 @@ namespace Antura.Core
 
                             case FirstContactPhase.AnturaSpace_Shop:
                                 Click(GameObject.Find("Btn Shop Bones"));
-                                break;
-                            case FirstContactPhase.AnturaSpace_Photo:
-                                Click(GameObject.Find("ShopActionUI_Photo"));
+                                yield return new WaitForSeconds(C.Delay);
+                                var shopActionThrow = FindObjectOfType<ShopAction_Throw>();
+                                if (shopActionThrow != null)
+                                {
+                                    DoOnce(shopActionThrow.PerformAction);
+                                    yield return new WaitForSeconds(C.Delay);
+                                }
                                 Click(GameObject.Find("BT Yes"));
+
+                                // FAKE TUTORIAL COMPLETION (too hard to drag)
+                                var tutManager = FindObjectOfType<AnturaSpaceTutorialManager>();
+                                tutManager.FakeAdvanceTutorialShop();
+
+                                break;
+
+                            case FirstContactPhase.AnturaSpace_Photo:
+                            case FirstContactPhase.Finished:
+                                Click(GameObject.Find("ShopActionUI_Photo"));
+                                yield return new WaitForSeconds(C.Delay);
+                                Click(GameObject.Find("BT Yes"));
+                                yield return new WaitForSeconds(C.Delay);
                                 break;
                         }
 
@@ -409,6 +563,15 @@ namespace Antura.Core
                 yield return null;
                 runCheck = 0f;
             }
+        }
+
+        private List<Action> performedActions = new List<Action>();
+
+        private void DoOnce(Action performAction)
+        {
+            if (performedActions.Contains(performAction)) return;
+            performedActions.Add(performAction);
+            performAction.Invoke();
         }
 
         private bool Click(string goName)
@@ -435,14 +598,27 @@ namespace Antura.Core
             var button = comp.GetComponentInChildren<Button>(true);
             if (button == null) return false;
 
-            BotLog($"Clicking {button.name} for component {comp.name}");
+            BotDebug($"Clicking {button.name} for component {comp.name}");
             button.onClick.Invoke();
             return true;
         }
 
-        private void BotLog(string msg)
+        private void BotDebug(string msg)
+        {
+            if (C.DebugMode)
+            {
+                Debug.Log($"[BOT] {msg}");
+            }
+        }
+
+        public void BotLog(string msg)
         {
             Debug.Log($"[BOT] {msg}");
+        }
+
+        public void BotError(string msg)
+        {
+            Debug.LogError($"[BOT] {msg}");
         }
     }
 }

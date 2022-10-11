@@ -326,6 +326,11 @@ namespace Antura.AnturaSpace
             FINISH
         }
 
+        public void FakeAdvanceTutorialShop()
+        {
+            StepTutorialShop();
+        }
+
         private ShopTutorialStep _currentShopStep = ShopTutorialStep.START;
         private void StepTutorialShop()
         {

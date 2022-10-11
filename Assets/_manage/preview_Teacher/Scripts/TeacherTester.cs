@@ -255,13 +255,18 @@ namespace Antura.Teacher.Test
         {
             StartCoroutine(DoTest(() => DoTestCompleteJourneyCO()));
         }
+
+        public bool IsExecuting { get; set; }
+
         private IEnumerator DoTestCompleteJourneyCO()
         {
+            IsExecuting = true;
             // Test all minigames at all their available journeys. Stop when we find a wrong one.
             foreach (var code in Helpers.GenericHelper.SortEnums<MiniGameCode>()) {
                 if (!IsCodeValid(code)) continue;
                 yield return DoTestMinigameWholeJourneyCO(code);
             }
+            IsExecuting = false;
         }
 
         [DeMethodButton("Test Everything (current PS)")]
