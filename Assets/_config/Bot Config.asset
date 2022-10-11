@@ -12,16 +12,25 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: daaeadcaece4414daf2efea637148f2a, type: 3}
   m_Name: Bot Config
   m_EditorClassIdentifier: 
-  AutoStart: 0
   BotEnabled: 0
-  Delay: 0.4303514
+  AutoStart: 0
+  Delay: 0.5
   GameSpeed: 30
   MinigamePlayDelay: 10
-  CreateNewProfile: 0
-  PlayJourney: 0
-  PlayAllGamesInBook: 1
+  DeleteExistingProfiles: 0
+  CreateNewProfile: 1
+  UseDemoProfile: 0
+  StartTeacherTester: 0
+  CheckMissingAudio: 0
+  PlayAllGamesInBook: 0
+  PlayJourney: 1
   EnableStopBeforeJP: 0
   StopBeforeJP:
-    Stage: 6
-    LearningBlock: 9
+    Stage: 2
+    LearningBlock: 1
     PlaySession: 1
+  TestEditionCombos: 0
+  Combos:
+  - LearningContent: 30
+    NativeLanguage: 9
+  DebugMode: 0
