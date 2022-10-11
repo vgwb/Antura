@@ -3,12 +3,25 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.AddressableAssets;
 using UnityEngine.ResourceManagement.AsyncOperations;
+using UnityEngine.ResourceManagement.ResourceLocations;
 using Object = UnityEngine.Object;
 
 namespace Antura
 {
     public static class AssetLoader
     {
+
+        public static bool Exists<T>(string key)
+        {
+            foreach (var l in Addressables.ResourceLocators)
+            {
+                if (l.Locate(key, typeof(T), out _))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         public static IEnumerator ValidateAndLoad<T>(string key, Action<T> callback) where T : Object
         {

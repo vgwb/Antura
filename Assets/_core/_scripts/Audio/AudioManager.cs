@@ -500,6 +500,13 @@ namespace Antura.Audio
 
         #region Addressable Loading
 
+        public bool Exists(SourcePath path, LanguageCode langCode)
+        {
+            var langDir = langCode.ToString();
+            var completePath = $"{langDir}{path.folder}/{path.id}";
+            return AssetLoader.Exists<AudioClip>(completePath);
+        }
+
         private IEnumerator LoadAudio(AudioSourceWrapper source)
         {
             //Debug.Log($"Start loading {source.Path.id}");
