@@ -27,6 +27,12 @@ namespace Antura.Core
         public bool BypassDialogs = false;
 
         /// <summary>
+        /// Speed-up some animations to fast game test
+        /// Set to FALSE for production.
+        /// </summary>
+        public bool SpeedUpAnimations = false;
+
+        /// <summary>
         /// Switches on all Debug.Log calls for performance.
         /// Set to FALSE for production.
         /// </summary>

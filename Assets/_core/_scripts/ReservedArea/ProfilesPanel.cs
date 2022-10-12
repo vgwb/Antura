@@ -151,7 +151,7 @@ namespace Antura.ReservedArea
 
         private static bool TEST_ALMOST_AT_END = false;
 
-        IEnumerator CreateDemoPlayer()
+        public IEnumerator CreateDemoPlayer()
         {
             //Debug.Log("creating DEMO USER ");
             yield return null;

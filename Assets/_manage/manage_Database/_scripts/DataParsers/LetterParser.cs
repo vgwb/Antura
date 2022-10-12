@@ -87,29 +87,29 @@ namespace Antura.Database.Management
                 {
                     if (data.BaseLetter == "")
                     {
-                        LogValidation(data, "LetterData with id  " + data.Id + " is a Combination but does not have a BaseLetter.");
+                        LogValidationError(data, "LetterData with id  " + data.Id + " is a Combination but does not have a BaseLetter.");
                     }
 
                     if (data.Symbol == "")
                     {
-                        LogValidation(data, "LetterData with id  " + data.Id + " is a Combination but does not have a Symbol.");
+                        LogValidationError(data, "LetterData with id  " + data.Id + " is a Combination but does not have a Symbol.");
                     }
 
                     if ((data.Id != data.BaseLetter + "_" + data.Symbol) && (data.Id != "alef_hamza_hi" && data.Id != "alef_hamza_low"))
                     {
                         // alef_hamza_hi and alef_hamza_low are the only exceptions in the name format on Combinations
-                        LogValidation(data, "LetterData with id  " + data.Id + " is a Combination, but the BaseLetter and Symbol do not match the Id.");
+                        LogValidationError(data, "LetterData with id  " + data.Id + " is a Combination, but the BaseLetter and Symbol do not match the Id.");
                     }
                 }
 
                 if (data.BaseLetter != "" && table.GetValue(data.BaseLetter) == null)
                 {
-                    LogValidation(data, "Cannot find id of LetterData for BaseLetter value " + data.BaseLetter + " (found in letter " + data.Id + ")");
+                    LogValidationError(data, "Cannot find id of LetterData for BaseLetter value " + data.BaseLetter + " (found in letter " + data.Id + ")");
                 }
 
                 if (data.Symbol != "" && table.GetValue(data.Symbol) == null)
                 {
-                    LogValidation(data, "Cannot find id of LetterData for Symbol value " + data.Symbol + " (found in letter " + data.Id + ")");
+                    LogValidationError(data, "Cannot find id of LetterData for Symbol value " + data.Symbol + " (found in letter " + data.Id + ")");
                 }
             }
         }

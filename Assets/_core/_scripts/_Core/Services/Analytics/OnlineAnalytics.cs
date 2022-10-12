@@ -4,6 +4,7 @@ using Antura.Profile;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.Helpers;
 using Antura.Minigames;
 using UnityEngine;
@@ -160,14 +161,30 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
 
-            parameters.Add($"myAntura_Head", customization.PropPacks.Find(item => item.Category == "HEAD").BaseId);
-            parameters.Add($"myAntura_EarL", customization.PropPacks.Find(item => item.Category == "EAR_L").BaseId);
-            parameters.Add($"myAntura_EarR", customization.PropPacks.Find(item => item.Category == "EAR_R").BaseId);
-            parameters.Add($"myAntura_Nose", customization.PropPacks.Find(item => item.Category == "NOSE").BaseId);
-            parameters.Add($"myAntura_Jaw", customization.PropPacks.Find(item => item.Category == "JAW").BaseId);
-            parameters.Add($"myAntura_Neck", customization.PropPacks.Find(item => item.Category == "NECK").BaseId);
-            parameters.Add($"myAntura_Back", customization.PropPacks.Find(item => item.Category == "BACK").BaseId);
-            parameters.Add($"myAntura_Tail", customization.PropPacks.Find(item => item.Category == "TAIL").BaseId);
+            var item = customization.PropPacks.FirstOrDefault(item => item.Category == "HEAD");
+            if (item != null) parameters.Add($"myAntura_Head", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_L");
+            if (item != null) parameters.Add($"myAntura_EarL", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_R");
+            if (item != null) parameters.Add($"myAntura_EarR", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "NOSE");
+            if (item != null) parameters.Add($"myAntura_Nose", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "JAW");
+            if (item != null) parameters.Add($"myAntura_Jaw", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "NECK");
+            if (item != null) parameters.Add($"myAntura_Neck", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "BACK");
+            if (item != null) parameters.Add($"myAntura_Back", item.BaseId);
+
+            item = customization.PropPacks.FirstOrDefault(item => item.Category == "TAIL");
+            if (item != null) parameters.Add($"myAntura_Tail", item.BaseId);
+
             parameters.Add($"myAntura_Texture", customization.TexturePack.BaseId);
             parameters.Add($"myAntura_Decal", customization.DecalPack.BaseId);
 

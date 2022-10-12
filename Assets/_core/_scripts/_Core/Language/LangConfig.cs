@@ -2,6 +2,7 @@ using Antura.Core;
 using System;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 namespace Antura.Language
 {
@@ -10,6 +11,9 @@ namespace Antura.Language
     public class LangConfig : ScriptableObject
     {
         public LanguageCode Code;
+
+        [Tooltip("This language won't be assigned by default to learning contents and must instead be added manually to the Overriden Native Languages list.")]
+        public bool ExtraLanguage; // Used only if added manually as an override
         public string LocalizedName;
         public string Iso3;
         public TextDirection TextDirection;

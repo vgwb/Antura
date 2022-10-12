@@ -143,7 +143,7 @@ namespace Antura.AnturaSpace
             Dialogue(LocalizationDataId.AnturaSpace_Intro);
         }
 
-        private void HandleAnturaTouched()
+        public void HandleAnturaTouched()
         {
             m_oAnturaBehaviour.onTouched -= HandleAnturaTouched;
 
@@ -324,6 +324,11 @@ namespace Antura.AnturaSpace
             MOVE_DECORATION,
             EXIT_SHOP,
             FINISH
+        }
+
+        public void FakeAdvanceTutorialShop()
+        {
+            StepTutorialShop();
         }
 
         private ShopTutorialStep _currentShopStep = ShopTutorialStep.START;

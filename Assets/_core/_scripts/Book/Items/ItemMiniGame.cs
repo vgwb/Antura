@@ -12,7 +12,7 @@ namespace Antura.Book
     /// </summary>
     public class ItemMiniGame : MonoBehaviour, IPointerClickHandler
     {
-        MiniGameInfo miniGameInfo;
+        public MiniGameInfo miniGameInfo;
 
         public UIMinigameVariationBadge Badge;
         public Image LockIcon;
