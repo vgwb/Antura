@@ -14,6 +14,7 @@ namespace Antura.UI
         public TextRender nameText;
         public UIButton button;
         public Image iconImage;
+        public Image Flag;
 
         private ContentEditionConfig Content;
         public SelectLearningContentPanel parentPanel;
@@ -29,6 +30,8 @@ namespace Antura.UI
             iconImage.sprite = editionConfig.TransitionLogo;
 
             nameText.SetOverridenLanguageText(parentPanel.SelectedNativeCode, LocKey);
+
+            Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
         }
 
         public LocalizationDataId LocKey
