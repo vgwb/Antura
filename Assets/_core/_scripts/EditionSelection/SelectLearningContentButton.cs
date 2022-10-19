@@ -13,6 +13,7 @@ namespace Antura.UI
     {
         public TextRender nameText;
         public UIButton button;
+        public Image BookImage;
         public Image iconImage;
         public Image Flag;
 
@@ -32,6 +33,17 @@ namespace Antura.UI
             nameText.SetOverridenLanguageText(parentPanel.SelectedNativeCode, LocKey);
 
             Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
+
+            if (editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead)
+            {
+                Flag.gameObject.SetActive(false);
+                // BookImage.color = new Color(255f / 253f, 255f / 182, 255f / 182);
+            }
+            else
+            {
+                Flag.gameObject.SetActive(true);
+                // BookImage.color = Color.white;
+            }
         }
 
         public LocalizationDataId LocKey
