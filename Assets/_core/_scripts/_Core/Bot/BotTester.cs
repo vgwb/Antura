@@ -480,6 +480,7 @@ namespace Antura.Core
                             }
                                 break;
 
+                            /*
                             case "FastCrowdGame":
                             {
                                 var ll = FindObjectOfType<StrollingLivingLetter>();
@@ -494,6 +495,7 @@ namespace Antura.Core
                                 }
                             }
                                 break;
+                                */
                             default:
                             {
                                 // Skip the game
