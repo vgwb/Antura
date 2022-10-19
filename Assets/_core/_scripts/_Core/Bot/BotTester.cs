@@ -175,38 +175,36 @@ namespace Antura.Core
                                 if (playedCombos.Contains(combo)) continue;
 
                                 BotLog("Switching to learning combo " + combo);
-                                if (AppManager.I.AppSettings.NativeLanguage != combo.NativeLanguage)
-                                {
-                                    Click(FindObjectOfType<EditionSelectorBtn>());
-                                    yield return new WaitForSeconds(C.Delay);
-                                    Click(FindObjectOfType<SelectNativeLanguageButton>());
-                                    yield return new WaitForSeconds(C.Delay);
+                                Click(FindObjectOfType<EditionSelectorBtn>());
+                                yield return new WaitForSeconds(C.Delay);
+                                Click(FindObjectOfType<SelectNativeLanguageButton>());
+                                yield return new WaitForSeconds(C.Delay);
 
-                                    var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
-                                    foreach (var nativeLangBtn in nativeLangBtns)
-                                    {
-                                        if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
-                                        {
-                                            Click(nativeLangBtn);
-                                            break;
-                                        }
-                                    }
-                                    yield return new WaitForSeconds(C.Delay);
-                                }
-                                else if (AppManager.I.AppSettings.ContentID != combo.LearningContent)
+                                var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
+                                foreach (var nativeLangBtn in nativeLangBtns)
                                 {
-                                    var learningContentBtns = FindObjectsOfType<SelectLearningContentButton>();
-                                    foreach (var learningContentBtn in learningContentBtns)
+                                    if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
                                     {
-                                        if (learningContentBtn.ContentId == combo.LearningContent)
-                                        {
-                                            Click(learningContentBtn);
-                                            break;
-                                        }
+                                        Click(nativeLangBtn);
+                                        break;
                                     }
-                                    yield return new WaitForSeconds(C.Delay);
                                 }
+                                yield return new WaitForSeconds(3f);
+
+                                var learningContentBtns = FindObjectsOfType<SelectLearningContentButton>();
+                                foreach (var learningContentBtn in learningContentBtns)
+                                {
+                                    if (learningContentBtn.ContentId == combo.LearningContent)
+                                    {
+                                        Click(learningContentBtn);
+                                        break;
+                                    }
+                                }
+                                yield return new WaitForSeconds(C.Delay);
+
                                 foundCombo = true;
+                                playedCombos.Add(combo);
+                                break;
                             }
 
                             if (!foundCombo)
