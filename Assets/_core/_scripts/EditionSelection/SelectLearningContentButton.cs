@@ -36,10 +36,12 @@ namespace Antura.UI
 
             if (editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead)
             {
+                Flag.gameObject.SetActive(false);
                 // BookImage.color = new Color(255f / 253f, 255f / 182, 255f / 182);
             }
             else
             {
+                Flag.gameObject.SetActive(true);
                 // BookImage.color = Color.white;
             }
         }
