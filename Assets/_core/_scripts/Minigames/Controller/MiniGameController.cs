@@ -248,6 +248,13 @@ namespace Antura.Minigames
         /// </summary>
         public void EndGame(int stars, int score)
         {
+            if (BotTester.I.Config.BotEnabled)
+            {
+                // Fake max score with the bot, so we can advance
+                stars = 3;
+                score = 3;
+            }
+
             StarsScore = stars;
 
             if (OnGameEnded != null)
