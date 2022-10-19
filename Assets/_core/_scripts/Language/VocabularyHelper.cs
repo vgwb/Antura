@@ -794,7 +794,7 @@ namespace Antura.Database
             var uppercaseText = "";
             foreach (string uppercaseWord in uppercaseWords) uppercaseText += uppercaseWord + " ";
             uppercaseText = uppercaseText.Trim();
-            uppercaseText = new string(uppercaseText.Where(c => !char.IsPunctuation(c)).ToArray());
+            uppercaseText = new string(uppercaseText.Where(c => !char.IsPunctuation(c) || c is '-').ToArray());
 
             var foundUppercase = false;
             for (var i = 0; i < wordsInString.Length; i++)
