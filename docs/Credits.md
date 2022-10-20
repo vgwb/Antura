@@ -165,10 +165,11 @@ Pauline Müller
 Morris Andreas  
 Alexander Boccia  
 Alexandra Petrus  
-Mar Mas  
-Miriam Lozano  
-Fabio Cecere  
-Montse Villar  
+Mark and Victoriya Andriyets
+Fabio Cecere
+Miriam Lozano
+Montse Villar
+Mar Mas
 Florencia Fernández Marinovic  
 Victoria Asti  
 Roberto Lambertini  
