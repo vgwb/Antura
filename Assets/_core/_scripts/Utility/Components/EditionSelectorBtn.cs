@@ -15,6 +15,7 @@ namespace Antura.Utilities
     {
         public TextRender nameText;
         public Image iconImage;
+        public Image Flag;
         public EditionSelectionManager SelectionManager;
 
         void Start()
@@ -27,6 +28,16 @@ namespace Antura.Utilities
             var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
             nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
             iconImage.sprite = editionConfig.TransitionLogo;
+
+            Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
+            if (editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead)
+            {
+                Flag.gameObject.SetActive(false);
+            }
+            else
+            {
+                Flag.gameObject.SetActive(true);
+            }
 
             bool isVisible = AppManager.I.AppEdition.HasMultipleContentEditions;
             gameObject.SetActive(isVisible);
