@@ -1,3 +1,4 @@
+using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -37,6 +38,11 @@ namespace Antura.Rewards
 
         public DailyReward GetReward(int i)
         {
+            if (i < 0)
+                i = 0;
+            if (i >= rewards.Count)
+                i = rewards.Count - 1;
+            //            Debug.Log("i= " + i + " / length rewards=" + rewards.Count);
             return rewards[i];
         }
 

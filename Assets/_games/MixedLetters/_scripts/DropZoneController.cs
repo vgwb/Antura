@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 using System.Collections;
 using Antura.Tutorial;
 
@@ -133,6 +134,14 @@ namespace Antura.Minigames.MixedLetters
 
             throbAnimation = ThrobCoroutine();
             StartCoroutine(throbAnimation);
+        }
+
+        private void OnEnable()
+        {
+            if (THROB_INIT_SCALE > 0f)
+            {
+                transform.localScale = new Vector3(THROB_INIT_SCALE, THROB_INIT_SCALE, 1);
+            }
         }
 
         private IEnumerator ThrobCoroutine()

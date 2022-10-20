@@ -4,6 +4,7 @@ using Antura.Core;
 using Antura.Database;
 using Antura.Language;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.UI
 {
@@ -12,6 +13,7 @@ namespace Antura.UI
         public TextRender nameText;
         public TextRender Label;
         public UIButton button;
+        public Image Flag;
 
         public SelectNativeLanguagePanel parentPanel;
 
@@ -23,6 +25,8 @@ namespace Antura.UI
             this.languageCode = languageCode;
             nameText.SetOverridenLanguageText(languageCode, LocalizationDataId.Language_Name);
             Label.SetText(languageCode.ToString());
+            var langConfig = AppManager.I.LanguageSwitcher.GetLangConfig(languageCode);
+            Flag.sprite = langConfig.FlagIcon;
         }
 
         public void OnClick()

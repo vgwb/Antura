@@ -12,6 +12,8 @@ using Antura.GamesSelector;
 using Antura.Helpers;
 using Antura.Map;
 using Antura.Minigames;
+using Antura.Minigames.Egg;
+using Antura.Minigames.FastCrowd;
 using Antura.Profile;
 using Antura.ReservedArea;
 using Antura.Rewards;
@@ -77,6 +79,17 @@ namespace Antura.Core
                 runCheck = 0f;
             }
             runCheck += Time.deltaTime;
+
+            // Reset timescale when we disable the bot
+            if (!C.BotEnabled && Time.timeScale > 1f)
+            {
+                Time.timeScale = 1f;
+            }
+        }
+
+        private void OnApplicationQuit()
+        {
+            C.BotEnabled = false;
         }
 
         private void RestartBot()
@@ -105,7 +118,7 @@ namespace Antura.Core
             }
 
 #if UNITY_EDITOR
-            if (!completedFirstTime && (C.StartTeacherTester || C.CheckMissingAudio))
+            if (!completedFirstTime && (C.StartTeacherTester || C.CheckLearningMissingAudio))
             {
                 var op = SceneManager.LoadSceneAsync("manage_Database", new LoadSceneParameters(LoadSceneMode.Additive));
                 while (!op.isDone) yield return null;
@@ -126,9 +139,10 @@ namespace Antura.Core
                     BotLog($"Completed Teacher Tester");
                 }
 
-                if (C.CheckMissingAudio)
+                if (C.CheckLearningMissingAudio)
                 {
                     var missingAudioFileChecker = FindObjectOfType<MissingAudioFileChecker>();
+                    missingAudioFileChecker.LanguageToCheck = AppManager.I.ContentEdition.LearningLanguage;
                     BotLog("Checking missing audio: DB against Project");
                     missingAudioFileChecker.CheckDbAgaistProject();
                     BotLog("Checking missing audio: Project against DB");
@@ -175,38 +189,36 @@ namespace Antura.Core
                                 if (playedCombos.Contains(combo)) continue;
 
                                 BotLog("Switching to learning combo " + combo);
-                                if (AppManager.I.AppSettings.NativeLanguage != combo.NativeLanguage)
-                                {
-                                    Click(FindObjectOfType<EditionSelectorBtn>());
-                                    yield return new WaitForSeconds(C.Delay);
-                                    Click(FindObjectOfType<SelectNativeLanguageButton>());
-                                    yield return new WaitForSeconds(C.Delay);
+                                Click(FindObjectOfType<EditionSelectorBtn>());
+                                yield return new WaitForSeconds(C.Delay);
+                                Click(FindObjectOfType<SelectNativeLanguageButton>());
+                                yield return new WaitForSeconds(C.Delay);
 
-                                    var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
-                                    foreach (var nativeLangBtn in nativeLangBtns)
-                                    {
-                                        if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
-                                        {
-                                            Click(nativeLangBtn);
-                                            break;
-                                        }
-                                    }
-                                    yield return new WaitForSeconds(C.Delay);
-                                }
-                                else if (AppManager.I.AppSettings.ContentID != combo.LearningContent)
+                                var nativeLangBtns = FindObjectsOfType<SelectNativeLanguageButton>();
+                                foreach (var nativeLangBtn in nativeLangBtns)
                                 {
-                                    var learningContentBtns = FindObjectsOfType<SelectLearningContentButton>();
-                                    foreach (var learningContentBtn in learningContentBtns)
+                                    if (nativeLangBtn.LanguageCode == combo.NativeLanguage)
                                     {
-                                        if (learningContentBtn.ContentId == combo.LearningContent)
-                                        {
-                                            Click(learningContentBtn);
-                                            break;
-                                        }
+                                        Click(nativeLangBtn);
+                                        break;
                                     }
-                                    yield return new WaitForSeconds(C.Delay);
                                 }
+                                yield return new WaitForSeconds(3f);
+
+                                var learningContentBtns = FindObjectsOfType<SelectLearningContentButton>();
+                                foreach (var learningContentBtn in learningContentBtns)
+                                {
+                                    if (learningContentBtn.ContentId == combo.LearningContent)
+                                    {
+                                        Click(learningContentBtn);
+                                        break;
+                                    }
+                                }
+                                yield return new WaitForSeconds(C.Delay);
+
                                 foundCombo = true;
+                                playedCombos.Add(combo);
+                                break;
                             }
 
                             if (!foundCombo)
@@ -236,7 +248,8 @@ namespace Antura.Core
                         {
                             var desiredPlayerIcon = playerIcons.FirstOrDefault(x => x.HatImage != null && x.HatImage.gameObject.activeInHierarchy);
                             Click(desiredPlayerIcon);
-                            yield return new WaitForSeconds(C.Delay);
+                            yield return new WaitForSeconds(2f);
+                            if (homeScene == null) homeScene = FindObjectOfType<HomeScene>();
 
                             Click(homeScene.ProfileSelectorUI.transform.Find("BT Play"));
                         }
@@ -448,15 +461,55 @@ namespace Antura.Core
 
                     case AppScene.MiniGame:
                     {
-                        //BotLog($"Timer: " + timer);
-                        if (timer > C.MinigamePlayDelay)
+                        var controller = FindObjectOfType<MiniGameController>(true);
+                        switch (controller.GetType().Name)
                         {
-                            var controller = FindObjectOfType<MiniGameController>(true);
-                            if (controller != null && controller.StarsScore == 0)
+                            case "EggGame":
                             {
-                                DebugManager.I.ForceCurrentMinigameEnd(3);
-                                timer = 0f;
+                                var buttons = FindObjectsOfType<EggButton>();
+                                if (buttons.Length > 0)
+                                {
+                                    var btn = buttons.GetRandom();
+                                    var nClicks = buttons.Length == 1 ? 10 : 1;
+                                    for (int i = 0; i < nClicks; i++)
+                                    {
+                                        Click(btn);
+                                        yield return new WaitForSeconds(0.2f);
+                                    }
+                                }
                             }
+                                break;
+
+                            /*
+                            case "FastCrowdGame":
+                            {
+                                var ll = FindObjectOfType<StrollingLivingLetter>();
+                                if (ll != null)
+                                {
+                                    var drops = FindObjectsOfType<DropAreaWidget>();
+                                    if (drops.Length > 0)
+                                    {
+                                        ll.DropOnArea(drops[0]);
+                                        yield return new WaitForSeconds(0.2f);
+                                    }
+                                }
+                            }
+                                break;
+                                */
+                            default:
+                            {
+                                // Skip the game
+                                //BotLog($"Timer: " + timer);
+                                if (timer > C.MinigamePlayDelay)
+                                {
+                                    if (controller != null && controller.StarsScore == 0)
+                                    {
+                                        DebugManager.I.ForceCurrentMinigameEnd(3);
+                                        timer = 0f;
+                                    }
+                                }
+                            }
+                                break;
                         }
 
                         Click(GlobalUI.ContinueScreen.BtContinue);
@@ -464,10 +517,10 @@ namespace Antura.Core
                         timer += C.Delay;
                         yield return new WaitForSeconds(C.Delay);
 
-                        var minigameRunLimit = 50;
+                        var minigameRunLimit = 300;
                         if (timer > minigameRunLimit)
                         {
-                            BotError("Minigame timeout, could not be completed! Back to MAP.");
+                            BotError($"Minigame timeout, could not be completed in {minigameRunLimit} seconds! Back to MAP.");
                             timer = 0f;
                             DebugManager.I.GoToMap();
                             yield return new WaitForSeconds(C.Delay);
