@@ -142,6 +142,11 @@ namespace Antura.Core
             FirstContactManager = new FirstContactManager();
             Services = new ServicesManager(gameObject);
 
+            if (AppEdition.EnableNotifications)
+            {
+                Services.Notifications.Init();
+            }
+
             // MonoBehaviors
             NavigationManager = gameObject.AddComponent<NavigationManager>();
             NavigationManager.Init();
@@ -200,13 +205,6 @@ namespace Antura.Core
             yield return LanguageSwitcher.ReloadNativeLanguage();
         }
 
-        private void Start()
-        {
-            if (AppManager.I.AppEdition.EnableNotifications)
-            {
-                Services.Notifications.Init();
-            }
-        }
         #endregion
 
         void Update()
@@ -277,7 +275,8 @@ namespace Antura.Core
                 if (LogManager.I != null)
                     LogManager.I.LogInfo(InfoEvent.AppSuspend);
 
-                Services.Notifications.AppSuspended();
+                if (Services != null)
+                    Services.Notifications.AppSuspended();
             }
             else
             {
@@ -288,7 +287,8 @@ namespace Antura.Core
                     LogManager.I.InitNewSession();
                 }
 
-                Services.Notifications.AppResumed();
+                if (Services != null)
+                    Services.Notifications.AppResumed();
             }
             AudioManager.I.OnAppPause(IsAppSuspended);
         }
