@@ -30,7 +30,6 @@ namespace Antura.LivingLetters
         public Transform boneToScaleTransform;
 
         public UI.TextRender LabelRender;
-        public SpriteRenderer ImageSprite;
 
         private Vector3 startScale;
         private Vector2 startTextScale;
@@ -69,13 +68,8 @@ namespace Antura.LivingLetters
             {
                 data = value;
 
-                if (Data == null)
+                if (Data != null)
                 {
-                    ImageSprite.enabled = false;
-                }
-                else
-                {
-                    ImageSprite.enabled = false;
                     LabelRender.enabled = true;
                     LabelRender.SetLetterData(data, outline);
                     // Scale modification
@@ -143,8 +137,6 @@ namespace Antura.LivingLetters
         {
             startScale = transform.localScale;
             startTextScale = textTransform.sizeDelta;
-
-            ImageSprite.enabled = false;
         }
 
         void Start()
@@ -174,7 +166,6 @@ namespace Antura.LivingLetters
             idleTimer = Random.Range(3, 8);
             outline = _outline;
             Data = _data;
-            ImageSprite.enabled = false;
             LabelRender.text = _customText;
             Scale = _scale;
         }
