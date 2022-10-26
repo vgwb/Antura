@@ -2,6 +2,7 @@ using System;
 using Antura.Helpers;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.UI
 {
@@ -131,14 +132,15 @@ namespace Antura.UI
 
         protected void Warp()
         {
-            //Debug.LogError("Update characters");
+           //Debug.LogError("Warp characters");
             var index_X = 0;
             for (int i = 0; i < m_characterCount; i++)
             {
                 int materialIndex = m_textInfo.characterInfo[i].materialReferenceIndex;
 
-                var warpTop = (upperHead.transform.position - transform.position - Vector3.forward* 0.12f);
-                warpTop *= 3f; // exxagerate a bit
+                var warpTop = (upperHead.transform.position - transform.position - transform.forward* 0.12f);
+                warpTop = Vector3.Project(warpTop, transform.parent.forward);
+                warpTop *= 2f; // exxagerate a bit
                 warpTop.x = 0f;
                 warpTop.y = 0f;
                 if (warpTop.z > 0) warpTop.z = 0;
@@ -182,13 +184,10 @@ namespace Antura.UI
 
                 index_X += 6;
             }
-            havePropertiesChanged = true;
-        }
-
-        public void OnPreRender()
-        {
-            if (!FixTextAnimation) return;
-            Warp();
+            //havePropertiesChanged = true;
+            //Rebuild(CanvasUpdate.LatePreRender);
+            SetVerticesDirty();
+            SetLayoutDirty();
         }
 
         public void LateUpdate()
