@@ -69,6 +69,8 @@ namespace Antura.Core
         [Tooltip("If true, the reserved area panel will appear with two languages")]
         public bool HelpTextInReservedArea;
 
+        [Tooltip("If true, the hidden debug button will be used to open the report UI")]
+        public bool OpenBugReportOnHiddenButton = false;
 
         [Header("Player Profile")]
         [Tooltip("Require the Gender of the user when a profile is created")]

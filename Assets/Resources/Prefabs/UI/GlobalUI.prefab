@@ -7353,7 +7353,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5870277764489617743}
-  - component: {fileID: 7773666419545150055}
   m_Layer: 5
   m_Name: Reporter
   m_TagString: Untagged
@@ -7382,19 +7381,6 @@ RectTransform:
   m_AnchoredPosition: {x: -707.11, y: -360}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &7773666419545150055
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3630340160274257330}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c2a27d944f381a49aefa8ab6ca4d222, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UserReportingScript: {fileID: 7395627151700424122}
 --- !u!1 &6904648565114520651
 GameObject:
   m_ObjectHideFlags: 0
@@ -7705,7 +7691,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1601555676859110, guid: c1aa92cd8198f654b933334ac725dc4f, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114007766782849930, guid: c1aa92cd8198f654b933334ac725dc4f,
+        type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 114676038347651840, guid: c1aa92cd8198f654b933334ac725dc4f,
         type: 3}
@@ -7850,15 +7841,3 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 7437099442637082298}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &7395627151700424122 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 114676038347651840, guid: c1aa92cd8198f654b933334ac725dc4f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7437099442637082298}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 984a50ddbd1a62640808daa709e4fdfa, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
