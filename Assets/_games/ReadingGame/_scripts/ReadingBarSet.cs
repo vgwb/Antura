@@ -347,7 +347,7 @@ namespace Antura.Minigames.ReadingGame
                     var songStart = songWords[0].start;
                     if (currentTime > songStart - 2)
                     {
-                        if (!songStarted && activeBar == null)
+                        if (!songStarted && activeBar == null && bars.Count > 0)
                             SetActiveBar(bars[0]);
 
                         songStarted = true;
@@ -357,6 +357,10 @@ namespace Antura.Minigames.ReadingGame
                     {
                         for (int i = 0; i < songWords.Count; ++i)
                         {
+                            if (i >= currentBarWords.Length)
+                            {
+                                Debug.LogWarning("Cannot find current bar words.");
+                            }
                             var currentSongWord = songWords[i];
                             var currentBarWord = currentBarWords[i];
 
