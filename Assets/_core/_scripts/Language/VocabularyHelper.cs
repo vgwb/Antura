@@ -788,7 +788,18 @@ namespace Antura.Database
 
             var outputDatas = new List<WordDataWrapper>();
             var phraseText = phraseData.Text;
-            var wordsInString = phraseText.Split(new[] { ' ', '\'' }, StringSplitOptions.None);
+            var wordsInString = phraseText.Split(new[] { ' ' }, StringSplitOptions.None).ToList();
+            for (int iWord = wordsInString.Count - 1; iWord >= 0; iWord--)
+            {
+                // Separate apostrophes and place them on the first word
+                var splits = wordsInString[iWord].Split(new[] { '\''}, StringSplitOptions.None).ToList();
+                if (splits.Count >= 2)
+                {
+                    wordsInString.RemoveAt(iWord);
+                    wordsInString.Insert(iWord, splits[1]);
+                    wordsInString.Insert(iWord, splits[0] + "\'");
+                }
+            }
             var uppercaseWords = wordsInString.Where(s => s.Length >= 2 && IsAllUpperCase(s));
 
             var uppercaseText = "";
@@ -797,7 +808,7 @@ namespace Antura.Database
             uppercaseText = new string(uppercaseText.Where(c => !char.IsPunctuation(c) || c is '-').ToArray());
 
             var foundUppercase = false;
-            for (var i = 0; i < wordsInString.Length; i++)
+            for (var i = 0; i < wordsInString.Count; i++)
             {
                 var wordText = wordsInString[i];
                 // We ignore apostrophes when deciding if a word is found or not
