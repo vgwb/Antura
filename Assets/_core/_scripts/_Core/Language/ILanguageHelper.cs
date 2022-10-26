@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
+using TMPro;
 using UnityEngine;
 
 namespace Antura.Language
@@ -54,7 +55,7 @@ namespace Antura.Language
         List<StringPart> SplitPhrase(DatabaseObject staticDatabase, PhraseData phraseData,
             bool separateDiacritics = false, bool separateVariations = true, bool keepFormInsideLetter = false);
 
-        bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo);
+        bool FixTMProDiacriticPositions(TMP_TextInfo textInfo, bool isLLText);
 
         string DebugShowDiacriticFix(string unicode1, string unicode2);
 

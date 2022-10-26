@@ -321,7 +321,7 @@ namespace Antura.Core
         void On_TMPro_Text_Changed(Object obj)
         {
             var tmpText = obj as TMPro.TMP_Text;
-            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo))
+            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo, tmpText is LLText))
             {
                 tmpText.UpdateVertexData();
             }

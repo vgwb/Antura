@@ -6,6 +6,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using DG.DeExtensions;
+using TMPro;
 using UnityEngine;
 
 namespace Antura.Language
@@ -183,7 +184,7 @@ namespace Antura.Language
         }
 
         // TODO: remove from here
-        public virtual bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
+        public virtual bool FixTMProDiacriticPositions(TMP_TextInfo textInfo, bool isLLText)
         {
             return true;
         }

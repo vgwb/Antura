@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using DG.DeExtensions;
+using TMPro;
 using UnityEngine;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -339,7 +340,7 @@ namespace Antura.Language
             ArabicFixer.AddToMappingTable(mappings.ToList());
         }
 
-        private static Dictionary<DiacriticComboEntry, Vector2> DiacriticCombos2Fix = null;
+        private static Dictionary<DiacriticComboEntry, Vector2> DiacriticCombos2Fix = null; // TODO: this is DEPRECATED now!!!
 
         /// <summary>
         /// these are manually configured positions of diacritic symbols relative to the main letter
@@ -564,7 +565,8 @@ namespace Antura.Language
         /// </summary>
         /// <returns><c>true</c>, if diacritic positions was adjusted, <c>false</c> otherwise.</returns>
         /// <param name="textInfo">Text info.</param>
-        public override bool FixTMProDiacriticPositions(TMPro.TMP_TextInfo textInfo)
+        /// <param name="isLLText"></param>
+        public override bool FixTMProDiacriticPositions(TMP_TextInfo textInfo, bool isLLText)
         {
             int characterCount = textInfo.characterCount;
             if (characterCount <= 1)
@@ -590,18 +592,18 @@ namespace Antura.Language
                 if (char1IsDiacritic && char2IsShaddah)
                 {
                     CopyPosition(textInfo, char2Pos, char1Pos);             // Place the diacritic where the shaddah is
-                    ApplyOffset(textInfo, char1Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));    // then, move the diacritic in respect to the shaddah using the delta
+                    ApplyOffset(textInfo, char1Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2), isLLText);    // then, move the diacritic in respect to the shaddah using the delta
                 }
                 else if (char1IsShaddah && char2IsDiacritic)
                 {
                     CopyPosition(textInfo, char1Pos, char2Pos);             // Place the diacritic where the shaddah is
-                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar2, UnicodeChar1));    // then, move the diacritic in respect to the shaddah using the delta
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar2, UnicodeChar1), isLLText);    // then, move the diacritic in respect to the shaddah using the delta
                 }
                 else
                 {
                     // Move the symbol in respect to the base letter
                     //Debug.LogError($"Mod for {UnicodeChar1} to {UnicodeChar2}: {modificationDelta}");
-                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
+                    ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2), isLLText);
 
                     // If we get a Diacritic and the next char is a Shaddah, however, we need to instead first move the shaddah, then move the diacritic in respect to the shaddah
                     if (charPosition < characterCount - 2)
@@ -614,12 +616,12 @@ namespace Antura.Language
                         // Place this Shaddah in respect to the letter
                         if (char2IsDiacritic && char3IsShaddah)
                         {
-                            ApplyOffset(textInfo, char3Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3));
+                            ApplyOffset(textInfo, char3Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar3), isLLText);
                         }
                         else if (char2IsShaddah && char3IsDiacritic)
                         {
                             //Debug.LogWarning(textInfo.textComponent.text + " " + " has weird shaddah & diacritic placement (shaddah is before the diacritic)");
-                            ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2));
+                            ApplyOffset(textInfo, char2Pos, FindDiacriticCombo2Fix(UnicodeChar1, UnicodeChar2), isLLText);
                         }
                     }
 
@@ -628,21 +630,27 @@ namespace Antura.Language
             return changed;
         }
 
-        private void ApplyOffset(TMPro.TMP_TextInfo textInfo, int charPosition, Vector2 modificationDelta)
+        private void ApplyOffset(TMP_TextInfo textInfo, int charPosition, Vector2 modificationDelta, bool use6Vertices)
         {
-            int materialIndex2 = textInfo.characterInfo[charPosition].materialReferenceIndex;
-            int vertexIndex2 = textInfo.characterInfo[charPosition].vertexIndex;
-            Vector3[] Vertices2 = textInfo.meshInfo[materialIndex2].vertices;
+            var materialIndex = textInfo.characterInfo[charPosition].materialReferenceIndex;
+            var vertexIndex = textInfo.characterInfo[charPosition].vertexIndex;
+            var vertices = textInfo.meshInfo[materialIndex].vertices;
 
-            float charsize2 = (Vertices2[vertexIndex2 + 2].y - Vertices2[vertexIndex2 + 0].y);
-            float dx2 = charsize2 * modificationDelta.x / 100f;
-            float dy2 = charsize2 * modificationDelta.y / 100f;
-            Vector3 offset2 = new Vector3(dx2, dy2, 0f);
+            float charsize = (vertices[vertexIndex + 2].y - vertices[vertexIndex + 0].y);
+            float dx = charsize * modificationDelta.x / 100f;
+            float dy = charsize * modificationDelta.y / 100f;
+            Vector3 offset = new Vector3(dx, dy, 0f);
 
-            Vertices2[vertexIndex2 + 0] = Vertices2[vertexIndex2 + 0] + offset2;
-            Vertices2[vertexIndex2 + 1] = Vertices2[vertexIndex2 + 1] + offset2;
-            Vertices2[vertexIndex2 + 2] = Vertices2[vertexIndex2 + 2] + offset2;
-            Vertices2[vertexIndex2 + 3] = Vertices2[vertexIndex2 + 3] + offset2;
+            vertices[vertexIndex + 0] += offset;
+            vertices[vertexIndex + 1] += offset;
+            vertices[vertexIndex + 2] += offset;
+            vertices[vertexIndex + 3] += offset;
+
+            if (use6Vertices)
+            {
+                vertices[vertexIndex + 4] += offset;
+                vertices[vertexIndex + 5] += offset;
+            }
         }
 
         private void CopyPosition(TMPro.TMP_TextInfo textInfo, int charFrom, int charTo)
