@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using Antura.Core;
 using Antura.Minigames;
 using Antura.UI;
@@ -96,7 +97,15 @@ namespace Antura.Debugging
             clickCounter++;
             if (clickCounter >= 3)
             {
-                Open();
+                if (AppManager.I.RootConfig.LoadedAppEdition.OpenBugReportOnHiddenButton)
+                {
+                    FindObjectOfType<UserReportingScript>().CreateUserReport();
+                    clickCounter = 0;
+                }
+                else
+                {
+                    Open();
+                }
             }
         }
 
@@ -442,5 +451,17 @@ namespace Antura.Debugging
         }
 
         #endregion
+
+        public void OpenReportPanel()
+        {
+            StartCoroutine(DoCreateUserReport());
+        }
+
+        private IEnumerator DoCreateUserReport()
+        {
+            Close();
+            yield return new WaitForEndOfFrame();
+            FindObjectOfType<UserReportingScript>().CreateUserReport();
+        }
     }
 }
