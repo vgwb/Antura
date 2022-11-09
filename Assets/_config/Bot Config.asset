@@ -14,23 +14,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BotEnabled: 0
   AutoStart: 0
-  Delay: 0.5
-  GameSpeed: 30
-  MinigamePlayDelay: 10
   DeleteExistingProfiles: 0
-  CreateNewProfile: 1
-  UseDemoProfile: 0
+  CreateNewProfile: 0
+  UseDemoProfile: 1
   StartTeacherTester: 0
-  CheckMissingAudio: 0
-  PlayAllGamesInBook: 0
-  PlayJourney: 1
+  CheckLearningMissingAudio: 0
+  PlayAllGamesInBook: 1
+  PlayJourney: 0
   EnableStopBeforeJP: 0
   StopBeforeJP:
-    Stage: 2
-    LearningBlock: 1
+    Stage: 1
+    LearningBlock: 3
     PlaySession: 1
-  TestEditionCombos: 1
+  TestEditionCombos: 0
   Combos:
-  - LearningContent: 30
-    NativeLanguage: 2
-  DebugMode: 1
+  - LearningContent: 50
+    NativeLanguage: 7
+  MinigamePlayDelay: 10
+  Delay: 0.5
+  GameSpeed: 30
+  DebugMode: 0
