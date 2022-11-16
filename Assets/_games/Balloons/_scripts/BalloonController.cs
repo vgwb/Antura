@@ -47,11 +47,12 @@ namespace Antura.Minigames.Balloons
 
         public void OnMouseDown()
         {
-            if (GlobalUI.I.IsFingerOverUI()) return;
+            if (GlobalUI.I.IsFingerOverUI())
+                return;
             TapAction();
         }
 
-        void TapAction()
+        public void TapAction()
         {
             taps++;
             if (taps >= parentFloatingLetter.tapsNeeded)
