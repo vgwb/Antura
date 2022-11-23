@@ -19,6 +19,7 @@
         Learn_Romanian = 70,
         Learn_Hungarian = 80,
         Learn_German = 90,
-        Learn_Spanish = 100
+        Learn_Spanish = 100,
+        Learn_Cherokee = 110
     }
 }
