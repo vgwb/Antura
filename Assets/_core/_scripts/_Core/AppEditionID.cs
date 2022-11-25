@@ -15,6 +15,7 @@
         LearnRomanian = 60,
         LearnHungarian = 70,
         LearnGerman = 80,
+        LearnCherokee = 200,
         Multi_Dev = 1000,
     }
 }
