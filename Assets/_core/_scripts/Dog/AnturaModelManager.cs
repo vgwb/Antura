@@ -19,7 +19,6 @@ namespace Antura.Dog
 
         [Header("Bones Attach")]
         public Transform Dog_head;
-
         public Transform Dog_spine01;
         public Transform Dog_jaw;
         public Transform Dog_Tail3;
@@ -114,6 +113,7 @@ namespace Antura.Dog
                 case RewardBaseType.Prop:
                     return LoadRewardPropOnAntura(rewardPack);
                 case RewardBaseType.Texture:
+                    break;  // TMP FOR CAT
                     var newMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     var mats = SkinnedMesh.sharedMaterials;
@@ -129,6 +129,7 @@ namespace Antura.Dog
                     }
                     break;
                 case RewardBaseType.Decal:
+                    break;  // TMP FOR CAT
                     Material newDecalMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     Material[] decalMats = SkinnedMesh.sharedMaterials;
