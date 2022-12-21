@@ -139,6 +139,7 @@ namespace Antura.AnturaSpace
         void Awake()
         {
             AnimationController = GetComponent<AnturaAnimationController>();
+            if (AnimationController == null)  AnimationController = GetComponentInParent<AnturaAnimationController>();
         }
 
         void Update()

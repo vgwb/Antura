@@ -64,7 +64,12 @@ namespace Antura.Minigames.FastCrowd
                     case FastCrowdVariation.BuildWord:
                     {
                         var provider = (FastCrowdConfiguration.Instance.Questions as SequentialQuestionPackProvider);
-                        var firstPack = provider.PeekFirstQuestion();
+                        var firstPack = provider?.PeekFirstQuestion();
+                        if (firstPack == null)
+                        {
+                            return 0;
+                        }
+
                         int totLetters = (int)(provider?.EnumerateAllPacks().Sum(pack => pack.GetCorrectAnswers().Count()) - firstPack.GetCorrectAnswers().Count());
                         return totLetters;
                     }

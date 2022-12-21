@@ -89,6 +89,7 @@ namespace Antura.Dog
         public AnturaCustomization SaveAnturaCustomization()
         {
             AnturaCustomization returnCustomization = new AnturaCustomization();
+            return returnCustomization;
             foreach (LoadedModel loadedModel in LoadedModels)
             {
                 returnCustomization.PropPacks.Add(loadedModel.RewardPack);
