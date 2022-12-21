@@ -6910,6 +6910,55 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 842241377}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &842241379 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1000012126422044, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
+    type: 3}
+  m_PrefabInstance: {fileID: 842241377}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &842241380 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 114000013605779992, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
+    type: 3}
+  m_PrefabInstance: {fileID: 842241377}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842241379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8886d6a27b893af4cada5d6bfcc4342f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &842241381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 842241379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 296965421c3447747910ad205a792a31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  antura: {fileID: 842241380}
+  UsingInAnimationUI: 0
+  targetState: 1
+  doTransition: 1
+  walkSpeed: 0
+  angry: 0
+  onJumpStart: 0
+  onJumpGrab: 0
+  onJumpMiddle: 0
+  onJumpEnd: 0
+  doCharge: 0
+  doBurp: 0
+  doBite: 0
+  doShout: 0
+  doSniff: 0
+  doSpitOpen: 0
+  doSpitClosed: 0
+  onSlipStart: 0
+  onSlipEnd: 0
 --- !u!4 &844966794
 Transform:
   m_ObjectHideFlags: 0

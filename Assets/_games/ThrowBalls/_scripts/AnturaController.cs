@@ -39,6 +39,7 @@ namespace Antura.Minigames.ThrowBalls
         void Start()
         {
             animator = GetComponent<AnturaAnimationController>();
+            if (animator == null) animator = GetComponentInChildren<AnturaAnimationController>();
 
             state = State.Running;
             animator.State = AnturaAnimationStates.walking;
