@@ -20,7 +20,6 @@ using UnityEngine.Networking;
 
 namespace Antura.Core
 {
-
     /// <summary>
     /// Core of the application.
     /// Works as a general manager and entry point for all other systems and managers.

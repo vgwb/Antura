@@ -4,8 +4,8 @@ using UnityEngine;
 
 namespace Antura.Core
 {
-
     /// <summary>
+    ///
     /// Container for application-wide static constants.
     /// </summary>
     // TODO refactor: enforce code convention
