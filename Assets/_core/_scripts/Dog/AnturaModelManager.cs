@@ -25,6 +25,10 @@ namespace Antura.Dog
         public Transform Dog_R_ear04;
         public Transform Dog_L_ear04;
 
+
+        [Header("Skinned mesh renderers")]
+        public SkinnedMeshRenderer[] additionalSMRs;
+
         [Header("Materials Owner")]
         public SkinnedMeshRenderer SkinnedMesh;
 
@@ -49,6 +53,27 @@ namespace Antura.Dog
             {
                 var c = AppManager.I.Player.CurrentAnturaCustomizations;
                 LoadAnturaCustomization(c);
+            }
+
+            // Skinned mesh renderer support (for the cat)
+            SkinnedMeshRenderer targetRenderer = SkinnedMesh;
+            var boneMap = new Dictionary<string,Transform>();
+            foreach(var bone in targetRenderer.bones)
+                boneMap[bone.gameObject.name] = bone;
+
+            foreach (SkinnedMeshRenderer additionalSmr in additionalSMRs)
+            {
+                var newBones = new Transform[additionalSmr.bones.Length];
+                for( int i = 0; i < additionalSmr.bones.Length; ++i )
+                {
+                    GameObject bone = additionalSmr.bones[i].gameObject;
+                    if(!boneMap.TryGetValue(bone.name, out newBones[i]))
+                    {
+                        Debug.Log($"Unable to map bone {bone.name} to target skeleton.");
+                        break;
+                    }
+                }
+                additionalSmr.bones = newBones;
             }
         }
 
