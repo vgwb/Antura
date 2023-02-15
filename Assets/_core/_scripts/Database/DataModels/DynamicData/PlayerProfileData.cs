@@ -1,13 +1,22 @@
 using System;
 using Antura.Core;
+using Antura.Dog;
 using Antura.Helpers;
 using Antura.Profile;
 using DG.DeExtensions;
 using SQLite;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Database
 {
+
+    [Serializable]
+    public class PetData
+    {
+        public AnturaPetType SelectedPet;
+        public bool CatUnlocked;
+    }
 
     public class PlayerProfileAdditionalData
     {
@@ -61,6 +70,12 @@ namespace Antura.Database
         public AppEditionID EditionID { get; set; }
 
         public LearningContentID ContentID { get; set; }
+
+        #region Pet Data
+        public AnturaPetType SelectedPet { get; set; }
+        public bool CatUnlocked { get; set; }
+        #endregion
+
 
         #region PlayerIconData
 
@@ -221,7 +236,8 @@ namespace Antura.Database
                 FirstContactState currentFirstContactState,
                 AppEditionID editionID,
                 LearningContentID contentID,
-                string appVersion
+                string appVersion,
+                PetData petData
                 )
         {
             Id = UNIQUE_ID;  // Only one record
@@ -249,6 +265,8 @@ namespace Antura.Database
             AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_HasMaxStarsInCurrentPlaySessions, comboPlayDays, currentShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
 
+            SelectedPet = petData.SelectedPet;
+            CatUnlocked = petData.CatUnlocked;
         }
 
         public bool HasFinishedTheGameWithAllStars()

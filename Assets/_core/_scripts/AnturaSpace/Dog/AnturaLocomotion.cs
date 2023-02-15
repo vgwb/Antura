@@ -19,8 +19,20 @@ namespace Antura.AnturaSpace
 
         public event Action onTouched;
 
-        [NonSerialized]
-        public AnturaAnimationController AnimationController;
+        public AnturaPetSwitcher PetSwitcher
+        {
+            get
+            {
+                if (_petSwitcher == null)
+                {
+                    _petSwitcher = GetComponent<AnturaPetSwitcher>();
+                }
+                return _petSwitcher;
+            }
+        }
+        private AnturaPetSwitcher _petSwitcher;
+
+        public AnturaAnimationController AnimController => PetSwitcher.AnimController;
 
         Vector3 lastVelocity;
         Vector3 lastPosition;
@@ -62,20 +74,11 @@ namespace Antura.AnturaSpace
             }
         }
 
-        public bool IsSliping
-        {
-            get { return isSliping; }
-        }
+        public bool IsSliping => isSliping;
 
-        public bool IsSleeping
-        {
-            get { return AnimationController.State == AnturaAnimationStates.sleeping; }
-        }
+        public bool IsSleeping => PetSwitcher.AnimController.State == AnturaAnimationStates.sleeping;
 
-        public bool IsJumping
-        {
-            get { return AnimationController.IsJumping || AnimationController.IsAnimationActuallyJumping; }
-        }
+        public bool IsJumping => PetSwitcher.AnimController.IsJumping || PetSwitcher.AnimController.IsAnimationActuallyJumping;
 
         public bool Excited;
 
@@ -135,13 +138,6 @@ namespace Antura.AnturaSpace
             }
         }
 
-
-        void Awake()
-        {
-            AnimationController = GetComponent<AnturaAnimationController>();
-            if (AnimationController == null)  AnimationController = GetComponentInParent<AnturaAnimationController>();
-        }
-
         void Update()
         {
             if (isSliping)
@@ -163,7 +159,7 @@ namespace Antura.AnturaSpace
                 {
                     isSliping = false;
                     runningTime = 0;
-                    AnimationController.OnSlipEnded();
+                    PetSwitcher.AnimController.OnSlipEnded();
                 }
 
                 return;
@@ -182,7 +178,7 @@ namespace Antura.AnturaSpace
                     wasNearPosition = false;
                     float speedFactor = Mathf.Lerp(0, 1, distMagnitude / 10);
                     speed = Mathf.Lerp(WALK_SPEED, RUN_SPEED, speedFactor) * Mathf.Lerp(0, 1, distMagnitude);
-                    AnimationController.SetWalkingSpeed(speedFactor);
+                    PetSwitcher.AnimController.SetWalkingSpeed(speedFactor);
 
                     if (speedFactor > 0.75f)
                     {
@@ -195,7 +191,7 @@ namespace Antura.AnturaSpace
                             // Slip!
                             runningTime = 0;
                             isSliping = true;
-                            AnimationController.OnSlipStarted();
+                            PetSwitcher.AnimController.OnSlipStarted();
                             Update();
                             return;
                         }
@@ -210,9 +206,9 @@ namespace Antura.AnturaSpace
 
                 if (speed > 0.05f)
                 {
-                    AnimationController.State = AnturaAnimationStates.walking;
+                    PetSwitcher.AnimController.State = AnturaAnimationStates.walking;
 
-                    if (AnimationController.IsAnimationActuallyWalking)
+                    if (PetSwitcher.AnimController.IsAnimationActuallyWalking)
                     {
                         distance.Normalize();
 
@@ -252,9 +248,9 @@ namespace Antura.AnturaSpace
                             transform.rotation = Quaternion.Slerp(transform.rotation, target.rotation,
                                 Time.deltaTime * 4 * (0.2f + 0.8f * dot));
                         }
-                        if ((!rotateAsTarget || dot > 0.9f) && AnimationController.State == AnturaAnimationStates.walking)
+                        if ((!rotateAsTarget || dot > 0.9f) && PetSwitcher.AnimController.State == AnturaAnimationStates.walking)
                         {
-                            AnimationController.State = AnturaAnimationStates.idle;
+                            PetSwitcher.AnimController.State = AnturaAnimationStates.idle;
                         }
                     }
                 }

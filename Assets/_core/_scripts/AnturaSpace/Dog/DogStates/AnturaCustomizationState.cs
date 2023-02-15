@@ -23,7 +23,7 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            controller.Antura.AnimationController.State = AnturaAnimationStates.sitting;
+            controller.Antura.AnimController.State = AnturaAnimationStates.sitting;
         }
 
         public override void ExitState()
@@ -31,7 +31,7 @@ namespace Antura.AnturaSpace
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization -= AnturaSpaceUI_onRewardCategorySelectedInCustomization;
             controller.RotatingBase.Angle = 0;
             controller.RotatingBase.Activated = false;
-            controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
             controller.Antura.SetTarget(null, false);
             base.ExitState();
         }

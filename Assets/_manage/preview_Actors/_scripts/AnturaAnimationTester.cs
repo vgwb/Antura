@@ -5,7 +5,8 @@ namespace Antura.Test
 {
     public class AnturaAnimationTester : MonoBehaviour
     {
-        public AnturaAnimationController antura;
+        public AnturaPetSwitcher petSwitcher;
+        public AnturaAnimationController animController => petSwitcher.AnimController;
         public bool UsingInAnimationUI;
 
         public AnturaAnimationStates targetState;
@@ -36,41 +37,41 @@ namespace Antura.Test
         void Start ()
         {
             if(!UsingInAnimationUI)
-                antura = GetComponent<AnturaAnimationController>();
+                petSwitcher = GetComponentInChildren<AnturaPetSwitcher>();
         }
-	
+
         void Update ()
         {
-            antura.IsAngry = angry;
+            animController.IsAngry = angry;
 
-            antura.SetWalkingSpeed(walkSpeed);
+            animController.SetWalkingSpeed(walkSpeed);
 
             if (doTransition || UsingInAnimationUI)
             {
                 if (!UsingInAnimationUI)
                     doTransition = false;
-                antura.State = targetState;
+                animController.State = targetState;
             }
 
             if (doBurp)
             {
                 if (!UsingInAnimationUI)
                     doBurp = false;
-                antura.DoBurp();
+                animController.DoBurp();
             }
 
             if (doBite)
             {
                 if (!UsingInAnimationUI)
                     doBite = false;
-                antura.DoBite();
+                animController.DoBite();
             }
 
             if (doShout)
             {
                 if (!UsingInAnimationUI)
                     doShout = false;
-                antura.DoShout();
+                animController.DoShout();
             }
 
 
@@ -78,7 +79,7 @@ namespace Antura.Test
             {
                 if (!UsingInAnimationUI)
                     doSniff = false;
-                antura.DoSniff();
+                animController.DoSniff();
             }
 
 
@@ -86,7 +87,7 @@ namespace Antura.Test
             {
                 if (!UsingInAnimationUI)
                     onJumpStart = false;
-                antura.OnJumpStart();
+                animController.OnJumpStart();
             }
 
 
@@ -94,56 +95,56 @@ namespace Antura.Test
             {
                 if (!UsingInAnimationUI)
                     onJumpMiddle = false;
-                antura.OnJumpMaximumHeightReached();
+                animController.OnJumpMaximumHeightReached();
             }
 
             if (onJumpGrab)
             {
                 if (!UsingInAnimationUI)
                     onJumpGrab = false;
-                antura.OnJumpGrab();
+                animController.OnJumpGrab();
             }
 
             if (onJumpEnd)
             {
                 if (!UsingInAnimationUI)
                     onJumpEnd = false;
-                antura.OnJumpEnded();
+                animController.OnJumpEnded();
             }
 
             if (doCharge)
             {
                 if (!UsingInAnimationUI)
                     doCharge = false;
-                antura.DoCharge(null);
+                animController.DoCharge(null);
             }
 
             if (doSpitOpen)
             {
                 if (!UsingInAnimationUI)
                     doSpitOpen = false;
-                antura.DoSpit(true);
+                animController.DoSpit(true);
             }
 
             if (doSpitClosed)
             {
                 if (!UsingInAnimationUI)
                     doSpitClosed = false;
-                antura.DoSpit(false);
+                animController.DoSpit(false);
             }
 
             if (onSlipStart)
             {
                 if (!UsingInAnimationUI)
                     onSlipStart = false;
-                antura.OnSlipStarted();
+                animController.OnSlipStarted();
             }
 
             if (onSlipEnd)
             {
                 if (!UsingInAnimationUI)
                     onSlipEnd = false;
-                antura.OnSlipEnded();
+                animController.OnSlipEnded();
             }
         }
     }

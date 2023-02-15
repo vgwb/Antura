@@ -31,6 +31,7 @@ namespace Antura.Profile
         public AppEditionID editionID;
         public LearningContentID ContentID;
         public string AppVersion;
+        public PetData PetData = new PetData();
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
 
@@ -569,7 +570,7 @@ namespace Antura.Profile
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
-                    FirstContactState, editionID, ContentID, AppVersion
+                    FirstContactState, editionID, ContentID, AppVersion, PetData
             );
             newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
             newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
@@ -595,6 +596,7 @@ namespace Antura.Profile
                 editionID = this.editionID,
                 contentID = this.ContentID,
                 AppVersion = this.AppVersion,
+                PetData = this.PetData
             };
             return returnIconData;
         }

@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Database;
 using Antura.UI;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
@@ -234,7 +235,7 @@ namespace Antura.Profile
                                                        new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1),
                                                        AppEditionID.LearnEnglish,
                                                        0,
-                                                       "TEST");
+                                                       "TEST", new PetData());
             SetAppearance(rndPlayerIconData,
                 rnd2 < 0.33f ? EndgameState.Unfinished : rnd2 < 0.66f ? EndgameState.Finished : EndgameState.FinishedWAllStars
             );

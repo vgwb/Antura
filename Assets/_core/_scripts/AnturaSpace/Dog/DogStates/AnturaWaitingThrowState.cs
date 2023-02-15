@@ -19,7 +19,7 @@ namespace Antura.AnturaSpace
             base.EnterState();
             shoutTimer = Random.Range(1, 3);
             timeInThisState = 0;
-            controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
 
             waitForLaunchPoint = new GameObject("WaitForLaunch");
             controller.Antura.SetTarget(waitForLaunchPoint.transform, true);
@@ -57,12 +57,12 @@ namespace Antura.AnturaSpace
 
                     if (Random.value < 0.3f)
                     {
-                        controller.Antura.AnimationController.DoSniff();
+                        controller.Antura.AnimController.DoSniff();
                         Audio.AudioManager.I.PlaySound(Sfx.DogSnorting);
                     }
                     else
                     {
-                        controller.Antura.AnimationController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
+                        controller.Antura.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
                     }
                 }
             }

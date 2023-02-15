@@ -9,6 +9,7 @@ using System.Collections;
 using Antura.Debugging;
 using Antura.Helpers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Rewards
 {
@@ -23,7 +24,7 @@ namespace Antura.Rewards
         public AnturaAnimationStates AnturaAnimation = AnturaAnimationStates.sitting;
 
         [Header("References")]
-        public AnturaAnimationController AnturaAnimController;
+        public AnturaPetSwitcher PetSwitcher;
         //public Button AnturaSpaceBtton;
 
         //Tween btAnturaTween;
@@ -34,7 +35,7 @@ namespace Antura.Rewards
             GlobalUI.ShowPauseMenu(false);
             //Debug.Log("RewardsManager playsession: " + AppManager.I.Player.CurrentJourneyPosition.PlaySession);
 
-            AnturaAnimController.State = AnturaAnimation;
+            PetSwitcher.AnimController.State = AnturaAnimation;
             //AnturaSpaceBtton.gameObject.SetActive(false);
             ShowReward();
 

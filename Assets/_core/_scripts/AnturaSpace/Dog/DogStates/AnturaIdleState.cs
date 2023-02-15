@@ -17,7 +17,7 @@ namespace Antura.AnturaSpace
         public override void EnterState()
         {
             base.EnterState();
-            controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
             sitTimer = 0.5f;
             timeToStayInThisState = 4 + UnityEngine.Random.value * 2;
             animateTimer = UnityEngine.Random.Range(4, 8) - 2 * controller.AnturaHappiness;
@@ -57,7 +57,7 @@ namespace Antura.AnturaSpace
                         return;
                     }
 
-                    controller.Antura.AnimationController.State = AnturaAnimationStates.sitting;
+                    controller.Antura.AnimController.State = AnturaAnimationStates.sitting;
                 }
             }
 
@@ -88,7 +88,7 @@ namespace Antura.AnturaSpace
 
             if (controller.Antura.HasReachedTarget)
             {
-                controller.Antura.AnimationController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
+                controller.Antura.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
             }
         }
     }

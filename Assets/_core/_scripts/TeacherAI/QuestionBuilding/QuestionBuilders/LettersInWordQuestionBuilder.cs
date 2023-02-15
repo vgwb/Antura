@@ -93,6 +93,9 @@ namespace Antura.Teacher
                 selectionParams1
             );
             var wordQuestion = usableWords[0];
+
+            wordQuestion = AppManager.I.DB.GetWordDataById("number_03");
+
             currentRound_words.Add(wordQuestion);
             //UnityEngine.Debug.LogWarning("Chosen word: " + wordQuestion);
 

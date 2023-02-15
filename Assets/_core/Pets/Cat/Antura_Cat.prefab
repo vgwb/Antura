@@ -46,12 +46,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c53fcdd2399cb4596303ca7ead281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Dog_head: {fileID: 7139593351458479806}
-  Dog_spine01: {fileID: 0}
-  Dog_jaw: {fileID: 0}
-  Dog_Tail3: {fileID: 0}
-  Dog_R_ear04: {fileID: 0}
-  Dog_L_ear04: {fileID: 0}
+  PetType: 1
+  HeadBone: {fileID: 7139593351458479806}
+  SpineBone: {fileID: 8351781398346114398}
+  JawBone: {fileID: 1082238031790218449}
+  TailBone: {fileID: 8685178761411626947}
+  EarRBone: {fileID: 7916099619543790174}
+  EraLBone: {fileID: 7723619518061710923}
+  additionalSMRs: []
   SkinnedMesh: {fileID: 6078199169177777609}
   SkinnedMeshsTextureOnly: []
   transformParent: {fileID: 0}
@@ -258,10 +260,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5828979002318216439, guid: 03b5425d41fc2454aa96979a7d864fb7,
         type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: bb11a6b515fb71248be008744fcbec5f, type: 2}
+    - target: {fileID: 5828979002318216439, guid: 03b5425d41fc2454aa96979a7d864fb7,
+        type: 3}
       propertyPath: m_Materials.Array.data[1]
       value: 
-      objectReference: {fileID: -3988838343700887882, guid: 03b5425d41fc2454aa96979a7d864fb7,
-        type: 3}
+      objectReference: {fileID: 2100000, guid: 2a762b6cd8f9d024c986c8ac6840bf01, type: 2}
     - target: {fileID: 5866666021909216657, guid: 03b5425d41fc2454aa96979a7d864fb7,
         type: 3}
       propertyPath: m_Enabled
@@ -281,6 +287,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 341895838509377854}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &1082238031790218449 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8378303112283212305, guid: 03b5425d41fc2454aa96979a7d864fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 341895838509377854}
+  m_PrefabAsset: {fileID: 0}
 --- !u!137 &6078199169177777609 stripped
 SkinnedMeshRenderer:
   m_CorrespondingSourceObject: {fileID: 5828979002318216439, guid: 03b5425d41fc2454aa96979a7d864fb7,
@@ -290,6 +302,30 @@ SkinnedMeshRenderer:
 --- !u!4 &7139593351458479806 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7469860066722936704, guid: 03b5425d41fc2454aa96979a7d864fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 341895838509377854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7723619518061710923 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -1184051480737437835, guid: 03b5425d41fc2454aa96979a7d864fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 341895838509377854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &7916099619543790174 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7594488293099182944, guid: 03b5425d41fc2454aa96979a7d864fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 341895838509377854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8351781398346114398 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -623233313264661408, guid: 03b5425d41fc2454aa96979a7d864fb7,
+    type: 3}
+  m_PrefabInstance: {fileID: 341895838509377854}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &8685178761411626947 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -272084712003195139, guid: 03b5425d41fc2454aa96979a7d864fb7,
     type: 3}
   m_PrefabInstance: {fileID: 341895838509377854}
   m_PrefabAsset: {fileID: 0}

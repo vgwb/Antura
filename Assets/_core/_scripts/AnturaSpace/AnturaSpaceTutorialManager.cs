@@ -131,7 +131,7 @@ namespace Antura.AnturaSpace
 
             // Reset antura as sleeping
             _mScene.Antura.transform.position = _mScene.SceneCenter.position;
-            _mScene.Antura.AnimationController.State = AnturaAnimationStates.sleeping;
+            _mScene.Antura.AnimController.State = AnturaAnimationStates.sleeping;
             _mScene.CurrentState = _mScene.Sleeping;
 
             m_oAnturaBehaviour.onTouched += HandleAnturaTouched;

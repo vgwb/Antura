@@ -4,6 +4,7 @@ using Antura.Profile;
 using Antura.Rewards;
 using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine.Serialization;
 
 namespace Antura.Dog
 {
@@ -17,13 +18,16 @@ namespace Antura.Dog
         // TODO refactor: remove static instance
         public static AnturaModelManager I;
 
+        [Header("Pet")]
+        public AnturaPetType PetType;
+
         [Header("Bones Attach")]
-        public Transform Dog_head;
-        public Transform Dog_spine01;
-        public Transform Dog_jaw;
-        public Transform Dog_Tail3;
-        public Transform Dog_R_ear04;
-        public Transform Dog_L_ear04;
+        [FormerlySerializedAs("Dog_head")] public Transform HeadBone;
+        [FormerlySerializedAs("Dog_spine01")] public Transform SpineBone;
+        [FormerlySerializedAs("Dog_jaw")] public Transform JawBone;
+        [FormerlySerializedAs("Dog_Tail3")] public Transform TailBone;
+        [FormerlySerializedAs("Dog_R_ear04")] public Transform EarRBone;
+        [FormerlySerializedAs("Dog_L_ear04")] public Transform EraLBone;
 
 
         [Header("Skinned mesh renderers")]
@@ -114,7 +118,6 @@ namespace Antura.Dog
         public AnturaCustomization SaveAnturaCustomization()
         {
             AnturaCustomization returnCustomization = new AnturaCustomization();
-            return returnCustomization;
             foreach (LoadedModel loadedModel in LoadedModels)
             {
                 returnCustomization.PropPacks.Add(loadedModel.RewardPack);
@@ -139,7 +142,6 @@ namespace Antura.Dog
                 case RewardBaseType.Prop:
                     return LoadRewardPropOnAntura(rewardPack);
                 case RewardBaseType.Texture:
-                    break;  // TMP FOR CAT
                     var newMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     var mats = SkinnedMesh.sharedMaterials;
@@ -155,7 +157,6 @@ namespace Antura.Dog
                     }
                     break;
                 case RewardBaseType.Decal:
-                    break;  // TMP FOR CAT
                     Material newDecalMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     Material[] decalMats = SkinnedMesh.sharedMaterials;
@@ -253,22 +254,22 @@ namespace Antura.Dog
             switch (boneParent)
             {
                 case "dog_head":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_head);
+                    rewardModel = ModelsManager.MountModel(prop.ID, HeadBone);
                     break;
                 case "dog_spine01":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_spine01);
+                    rewardModel = ModelsManager.MountModel(prop.ID, SpineBone);
                     break;
                 case "dog_jaw":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_jaw);
+                    rewardModel = ModelsManager.MountModel(prop.ID, JawBone);
                     break;
                 case "dog_Tail4":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_Tail3);
+                    rewardModel = ModelsManager.MountModel(prop.ID, TailBone);
                     break;
                 case "dog_R_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_R_ear04);
+                    rewardModel = ModelsManager.MountModel(prop.ID, EarRBone);
                     break;
                 case "dog_L_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_L_ear04);
+                    rewardModel = ModelsManager.MountModel(prop.ID, EraLBone);
                     break;
             }
 

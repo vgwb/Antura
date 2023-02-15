@@ -2,6 +2,7 @@
 using Antura.Audio;
 using Antura.Helpers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Minigames.FastCrowd
 {
@@ -12,7 +13,7 @@ namespace Antura.Minigames.FastCrowd
         Vector3 target;
         public const float ANTURA_SPEED = 15.0f;
 
-        public AnturaAnimationController antura;
+        public AnturaPetSwitcher PetSwitcher;
 
         public bool IsAnturaTime { get; private set; }
 
@@ -22,8 +23,8 @@ namespace Antura.Minigames.FastCrowd
         {
             transform.position = HidePosition.position;
             target = HidePosition.position;
-            antura.State = AnturaAnimationStates.walking;
-            antura.SetWalkingSpeed(AnturaAnimationController.RUN_SPEED);
+            PetSwitcher.AnimController.State = AnturaAnimationStates.walking;
+            PetSwitcher.AnimController.SetWalkingSpeed(AnturaAnimationController.RUN_SPEED);
         }
 
         void Update()
@@ -36,7 +37,7 @@ namespace Antura.Minigames.FastCrowd
                 if (nextAnturaBarkTimer <= 0)
                 {
                     PrepareNextAnturaBark();
-                    antura.DoShout(() =>
+                    PetSwitcher.AnimController.DoShout(() =>
                     {
                         AudioManager.I.PlaySound(Sfx.DogBarking);
                     });

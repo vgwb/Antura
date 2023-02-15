@@ -36,12 +36,12 @@ namespace Antura.AnturaSpace
 
                 if (timer <= 0)
                 {
-                    controller.Antura.AnimationController.State = AnturaAnimationStates.sleeping;
+                    controller.Antura.AnimController.State = AnturaAnimationStates.sleeping;
                 }
             }
-            else if (controller.Antura.AnimationController.State == AnturaAnimationStates.sleeping)
+            else if (controller.Antura.AnimController.State == AnturaAnimationStates.sleeping)
             {
-                controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+                controller.Antura.AnimController.State = AnturaAnimationStates.idle;
             }
         }
 

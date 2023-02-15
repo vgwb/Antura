@@ -1,3 +1,4 @@
+using System;
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -133,7 +134,16 @@ namespace Antura.UI
 
         private void UpdateFont()
         {
-            var config = LanguageSwitcher.I.GetLangConfig(languageUse);
+            LangConfig config;
+            try
+            {
+                config = LanguageSwitcher.I.GetLangConfig(languageUse);
+            }
+            catch (Exception)
+            {
+                return; // Will try later
+            }
+
             if (OverridenLanguageCode != LanguageCode.NONE)
             {
                 config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);

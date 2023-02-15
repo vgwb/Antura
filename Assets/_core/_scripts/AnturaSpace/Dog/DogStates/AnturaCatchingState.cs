@@ -51,7 +51,7 @@ namespace Antura.AnturaSpace
                     objectInteracted = true;
 
                     // Jump & Interact
-                    controller.Antura.AnimationController.DoSmallJumpAndGrab(InteractWithCurrentObject);
+                    controller.Antura.AnimController.DoSmallJumpAndGrab(InteractWithCurrentObject);
 
                 }
                 else if (controller.Antura.TargetHeight <= 4.5f)
@@ -59,7 +59,7 @@ namespace Antura.AnturaSpace
                     objectInteracted = true;
 
                     // Interact from the ground
-                    controller.Antura.AnimationController.DoBite(InteractWithCurrentObject);
+                    controller.Antura.AnimController.DoBite(InteractWithCurrentObject);
                 }
             }
         }
