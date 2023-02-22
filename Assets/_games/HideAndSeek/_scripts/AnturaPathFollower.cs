@@ -18,11 +18,12 @@ namespace Antura.Minigames.HideAndSeek
 
         public bool IsFollowing { get { return path != null; } }
 
-        AnturaAnimationController animationController;
+        AnturaPetSwitcher petSwitcher;
+        private AnturaAnimationController animationController => petSwitcher.AnimController;
 
         void Awake()
         {
-            animationController = GetComponent<AnturaAnimationController>();
+            petSwitcher = GetComponent<AnturaPetSwitcher>();
         }
 
         public void FollowPath(AnturaPath path)

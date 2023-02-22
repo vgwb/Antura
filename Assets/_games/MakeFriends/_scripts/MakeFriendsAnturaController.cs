@@ -1,11 +1,12 @@
 ﻿using Antura.Dog;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Minigames.MakeFriends
 {
     public class MakeFriendsAnturaController : MonoBehaviour
     {
-        public AnturaAnimationController animationController;
+        public AnturaPetSwitcher petSwitcher;
         public Vector3 runDirection;
         public float runSpeed;
 
@@ -14,7 +15,7 @@ namespace Antura.Minigames.MakeFriends
 
         public void ReactToEndGame()
         {
-            animationController.DoCharge(null);
+            petSwitcher.AnimController.DoCharge(null);
             run = true;
         }
 
@@ -28,13 +29,13 @@ namespace Antura.Minigames.MakeFriends
 
         public void ReactNegatively()
         {
-            animationController.DoShout();
+            petSwitcher.AnimController.DoShout();
             Audio.AudioManager.I.PlaySound(Sfx.DogBarking);
         }
 
         public void ReactPositively()
         {
-            animationController.DoSniff();
+            petSwitcher.AnimController.DoSniff();
             Audio.AudioManager.I.PlaySound(Sfx.DogSnorting);
         }
     }

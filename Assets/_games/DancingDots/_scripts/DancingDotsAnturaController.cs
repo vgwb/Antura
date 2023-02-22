@@ -13,7 +13,7 @@ namespace Antura.Minigames.DancingDots
     {
         private bool movingToDestination = false; //When true Antura will move towards the setted destination
         private float movementSpeed = 10; //Movement speed
-        private AnturaAnimationController antura;
+        private AnturaPetSwitcher antura;
         private bool rotatingToTarget;
         private Vector3 destination;
 
@@ -28,10 +28,10 @@ namespace Antura.Minigames.DancingDots
 
         void Awake()
         {
-            antura = gameObject.GetComponent<AnturaAnimationController>();
+            antura = gameObject.GetComponent<AnturaPetSwitcher>();
 
-            antura.State = AnturaAnimationStates.sitting;
-            antura.WalkingSpeed = 0; //walk-0, run-1
+            antura.AnimController.State = AnturaAnimationStates.sitting;
+            antura.AnimController.WalkingSpeed = 0; //walk-0, run-1
             status = AnturaContollerState.LEFTHOME;
 
             StartCoroutine(co_AnturaNextDesicion());
@@ -83,14 +83,14 @@ namespace Antura.Minigames.DancingDots
                 case AnturaContollerState.LEFTHOME:
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1, 5));
                     MoveToNewDestination(rightHome);
-                    antura.State = AnturaAnimationStates.walking;
+                    antura.AnimController.State = AnturaAnimationStates.walking;
                     status = AnturaContollerState.WALKING;
 
                     break;
                 case AnturaContollerState.RIGHTHOME:
                     yield return new WaitForSeconds(UnityEngine.Random.Range(1, 5));
                     MoveToNewDestination(leftHome);
-                    antura.State = AnturaAnimationStates.walking;
+                    antura.AnimController.State = AnturaAnimationStates.walking;
                     status = AnturaContollerState.WALKING;
                     break;
             }
@@ -104,7 +104,7 @@ namespace Antura.Minigames.DancingDots
             {
                 danceDuration = 3.5f * UnityEngine.Random.Range(1, 3);
                 status = AnturaContollerState.DANCING;
-                antura.State = AnturaAnimationStates.dancing;
+                antura.AnimController.State = AnturaAnimationStates.dancing;
                 movingToDestination = false;
             }
         }
@@ -124,7 +124,7 @@ namespace Antura.Minigames.DancingDots
                 if (danceDuration < 0)
                 {
                     status = AnturaContollerState.FINISHINGDANICING;
-                    antura.State = AnturaAnimationStates.walking;
+                    antura.AnimController.State = AnturaAnimationStates.walking;
                     finishDance = 1f;
                 }
             }

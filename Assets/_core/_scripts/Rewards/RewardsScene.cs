@@ -98,7 +98,7 @@ namespace Antura.Rewards
         public void ClearLoadedRewardsOnAntura()
         {
             // Clean and load antura reward.
-            AnturaModelManager.I.ClearLoadedRewardPacks();
+            PetSwitcher.ModelManager.ClearLoadedRewardPacks();
         }
 
         /// <summary>
@@ -138,7 +138,7 @@ namespace Antura.Rewards
         /// <returns></returns>
         public GameObject InstantiateReward(RewardPack _rewardToInstantiate)
         {
-            return AnturaModelManager.I.LoadRewardPackOnAntura(_rewardToInstantiate);
+            return PetSwitcher.ModelManager.LoadRewardPackOnAntura(_rewardToInstantiate);
         }
 
         #endregion

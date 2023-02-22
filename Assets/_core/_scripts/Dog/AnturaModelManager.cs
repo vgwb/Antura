@@ -46,11 +46,6 @@ namespace Antura.Dog
 
         #region Life cycle
 
-        void Awake()
-        {
-            I = this;
-        }
-
         void Start()
         {
             if (AppManager.I.Player != null)

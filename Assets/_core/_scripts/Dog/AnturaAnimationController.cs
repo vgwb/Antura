@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using Antura.Test;
+using UnityEngine;
 
 namespace Antura.Dog
 {
@@ -8,8 +9,8 @@ namespace Antura.Dog
     // TODO conventions: requires renaming of variables
     public class AnturaAnimationController : MonoBehaviour
     {
-        public GameObject RewardUI;
-        public GameObject AnimatUI;
+        private GameObject RewardUI;
+        private GameObject AnimatUI;
 
         public const float WALKING_SPEED = 0.0f;
         public const float RUN_SPEED = 1.0f;
@@ -257,7 +258,7 @@ namespace Antura.Dog
 
         private Animator animator_;
 
-        Animator animator
+        public Animator animator
         {
             get
             {
@@ -402,6 +403,9 @@ namespace Antura.Dog
 
         public void ChangeTo(int target)
         {
+            if (RewardUI == null) RewardUI = FindObjectOfType<RewardsUI>().gameObject;
+            if (AnimatUI == null) AnimatUI = FindObjectOfType<AnturaAnimationTester>().gameObject;
+
             switch (target)
             {
                 case 1:

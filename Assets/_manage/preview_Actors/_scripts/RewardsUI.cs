@@ -23,7 +23,7 @@ namespace Antura
         [HideInInspector]
         public string RewardTypeFilter = "";
 
-        public GameObject AnturaPJ;
+        public AnturaPetSwitcher AnturaPJ;
         private RewardSystemManager RewardSystem;
 
         /// <summary>
@@ -49,16 +49,14 @@ namespace Antura
 
             RewardSystem = new RewardSystemManager();
             RewardSystem.Init();
-
-            actualRewardGO = AnturaPJ;
         }
 
         void Update()
         {
-            if (AnturaModelManager.I.transformParent != null) {
-                Camera.main.transform.LookAt(AnturaModelManager.I.transformParent.position);
+            if (AnturaPJ.ModelManager.transformParent != null) {
+                Camera.main.transform.LookAt(AnturaPJ.ModelManager.transformParent.position);
             } else {
-                Camera.main.transform.LookAt(AnturaModelManager.I.transform.position);
+                Camera.main.transform.LookAt(AnturaPJ.ModelManager.transform.position);
             }
         }
 
@@ -145,13 +143,13 @@ namespace Antura
                 rw_color.ID = actualReward.ID;
             }
             RewardPack rp = new RewardPack(RewardBaseType.Prop, allRewards.Find(r => r.ID == actualReward.ID), rw_color);
-            actualRewardGO = AnturaPJ.GetComponent<AnturaModelManager>().LoadRewardPackOnAntura(rp);
+            actualRewardGO = AnturaPJ.ModelManager.LoadRewardPackOnAntura(rp);
             //block02
         }
 
         public void ClearAllRewards()
         {
-            AnturaPJ.GetComponent<AnturaModelManager>().ClearLoadedRewardsWithoutDestroy();
+            AnturaPJ.ModelManager.ClearLoadedRewardsWithoutDestroy();
         }
 
         #endregion

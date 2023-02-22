@@ -80,8 +80,9 @@ namespace Antura.Minigames.Maze
 
             IsAnturaTime = _isAnturaTime;
 
-            GetComponent<AnturaAnimationController>().SetWalkingSpeed(ANTURA_SPEED);
-            GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.walking;
+            var ac = GetComponent<AnturaPetSwitcher>().AnimController;
+            ac.SetWalkingSpeed(ANTURA_SPEED);
+            ac.State = AnturaAnimationStates.walking;
 
             if (IsAnturaTime)
             {

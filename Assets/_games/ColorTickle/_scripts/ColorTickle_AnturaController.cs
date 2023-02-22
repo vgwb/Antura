@@ -43,7 +43,8 @@ namespace Antura.Minigames.ColorTickle
         #endregion
 
         #region PRIVATE MEMBERS
-        private AnturaAnimationController m_oAntura;
+        private AnturaPetSwitcher m_oPetSwitcher;
+        private AnturaAnimationController m_oAntura => m_oPetSwitcher.AnimController;
         private AnturaContollerState m_eAnturaState = AnturaContollerState.SLEEPING;
         private Vector3 m_v3Destination;
         private float m_fBarkTimeProgress = 0;
@@ -124,7 +125,7 @@ namespace Antura.Minigames.ColorTickle
             /*m_Antura = gameObject.GetComponent<Antura>();
             m_StartPosition = gameObject.transform.position;
             m_Antura.SetAnimation(AnturaAnim.SitBreath);*/
-            m_oAntura = gameObject.GetComponent<AnturaAnimationController>();
+            m_oPetSwitcher = gameObject.GetComponent<AnturaPetSwitcher>();
             m_v3StartPosition = m_oAntura.gameObject.transform.position;
             m_eAnturaState = AnturaContollerState.SLEEPING;
             m_fBarkTimeProgress = 0;

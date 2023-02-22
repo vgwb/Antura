@@ -18,7 +18,7 @@ namespace Antura.Minigames.ReadingGame
         public HiddenText hiddenText;
         public GameObject circleBox;
         public ReadingGameAntura antura;
-        public AnturaAnimationController dancingAntura;
+        public AnturaPetSwitcher dancingAntura;
         public ReadingRadialWidget radialWidget;
         public Camera uiCamera;
 
@@ -203,7 +203,7 @@ namespace Antura.Minigames.ReadingGame
 
             antura.gameObject.SetActive(ReadingGameConfiguration.Instance.CurrentGameType != ReadingGameConfiguration.GameType.SimonSong);
             dancingAntura.gameObject.SetActive(ReadingGameConfiguration.Instance.CurrentGameType == ReadingGameConfiguration.GameType.SimonSong);
-            dancingAntura.State = AnturaAnimationStates.dancing;
+            dancingAntura.AnimController.State = AnturaAnimationStates.dancing;
         }
 
         public void LoadSongAkr()

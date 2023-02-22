@@ -13,8 +13,8 @@ namespace Antura.Minigames.ReadingGame
             SAD
         }
 
-        [HideInInspector]
-        public AnturaAnimationController animator;
+        public AnturaAnimationController animator => petSwitcher.AnimController;
+        private AnturaPetSwitcher petSwitcher;
 
         StateMachineManager stateManager = new StateMachineManager();
 
@@ -50,7 +50,7 @@ namespace Antura.Minigames.ReadingGame
 
         void Awake()
         {
-            animator = GetComponent<AnturaAnimationController>();
+            petSwitcher = GetComponent<AnturaPetSwitcher>();
 
             WalkingState = new WalkAnturaState(this);
             IdleState = new IdleAnturaState(this);

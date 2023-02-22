@@ -10,7 +10,7 @@ namespace Antura.Minigames.MissingLetter
 
         void Start()
         {
-            m_oAnturaCtrl = GetComponent<AnturaAnimationController>();
+            m_oPetSwitcher = GetComponent<AnturaPetSwitcher>();
             Assert.IsNotNull<AnturaAnimationController>(m_oAnturaCtrl, "Add Antura Script to " + name);
             transform.position = m_oStart.position;
             m_oNextPos = m_oEnd;
@@ -36,6 +36,7 @@ namespace Antura.Minigames.MissingLetter
         public Transform m_oStart, m_oEnd;
 
         private Transform m_oNextPos;
-        private AnturaAnimationController m_oAnturaCtrl;
+        private AnturaAnimationController m_oAnturaCtrl => m_oPetSwitcher.AnimController;
+        private AnturaPetSwitcher m_oPetSwitcher;
     }
 }

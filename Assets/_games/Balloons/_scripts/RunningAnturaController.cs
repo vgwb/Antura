@@ -5,7 +5,8 @@ namespace Antura.Minigames.Balloons
 {
     public class RunningAnturaController : MonoBehaviour
     {
-        public AnturaAnimationController anturaAnimator;
+        public AnturaPetSwitcher petSwitcher;
+        public AnturaAnimationController anturaAnimator => petSwitcher.AnimController;
         public Vector3 startingPosition1;
         public Vector3 startingPosition2;
         public float runningSpeed;
