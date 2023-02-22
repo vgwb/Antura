@@ -20,10 +20,11 @@ namespace Antura.Core
         /// <summary>
         /// Version of the MySQL Database Scheme.
         /// @note: Change with EXTREME CAUTION, as the MySQL databases are regenerated (and thus the data is removed) when a change is detected.
+        /// 1.0.3.0 (20230222): added pet data
         /// 1.0.2.0 (20211117): added language edition index to player profile
         /// 1.0.1.0 (20190701): added colors to player profile
         /// </summary>
-        public const string DynamicDbSchemeVersion = "1.0.2.0";
+        public const string DynamicDbSchemeVersion = "1.0.3.0";
 
         #region Debug Options
 
