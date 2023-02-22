@@ -137,7 +137,7 @@ namespace Antura.Dog
                 case RewardBaseType.Prop:
                     return LoadRewardPropOnAntura(rewardPack);
                 case RewardBaseType.Texture:
-                    var newMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
+                    var newMaterial = MaterialManager.LoadTextureMaterial(PetType, rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     var mats = SkinnedMesh.sharedMaterials;
                     mats[0] = newMaterial;
@@ -152,7 +152,7 @@ namespace Antura.Dog
                     }
                     break;
                 case RewardBaseType.Decal:
-                    Material newDecalMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
+                    Material newDecalMaterial = MaterialManager.LoadTextureMaterial(PetType, rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     Material[] decalMats = SkinnedMesh.sharedMaterials;
                     decalMats[1] = newDecalMaterial;
@@ -249,22 +249,22 @@ namespace Antura.Dog
             switch (boneParent)
             {
                 case "dog_head":
-                    rewardModel = ModelsManager.MountModel(prop.ID, HeadBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, HeadBone);
                     break;
                 case "dog_spine01":
-                    rewardModel = ModelsManager.MountModel(prop.ID, SpineBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, SpineBone);
                     break;
                 case "dog_jaw":
-                    rewardModel = ModelsManager.MountModel(prop.ID, JawBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, JawBone);
                     break;
                 case "dog_Tail4":
-                    rewardModel = ModelsManager.MountModel(prop.ID, TailBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, TailBone);
                     break;
                 case "dog_R_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, EarRBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, EarRBone);
                     break;
                 case "dog_L_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, EraLBone);
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, EraLBone);
                     break;
             }
 

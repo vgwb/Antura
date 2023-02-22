@@ -1,5 +1,7 @@
 using System.Linq;
+using Antura.Core;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Dog
 {
@@ -8,7 +10,19 @@ namespace Antura.Dog
     /// </summary>
     public class AnturaPetSwitcher : MonoBehaviour
     {
-        public AnturaPetType PetType = AnturaPetType.Dog;
+        public bool UseForcedPetType;
+        public AnturaPetType ForcedPetType = AnturaPetType.Dog;
+        private AnturaPetType PetType {
+            get
+            {
+                if (UseForcedPetType)
+                {
+                    return ForcedPetType;
+                }
+
+                return AppManager.I.Player.PetData.SelectedPet;
+            }
+        }
         public bool AutoSpawn;
 
         public AnturaModelManager[] LoadablePrefabs;
@@ -39,10 +53,15 @@ namespace Antura.Dog
         }
 
         public Transform Pivot;
+        private bool initialised;
 
         public void Awake()
         {
             if (AutoSpawn) LoadPet(PetType);
+        }
+
+        private void CheckPet()
+        {
         }
 
         public void LoadPet(AnturaPetType petType)
@@ -63,8 +82,11 @@ namespace Antura.Dog
         {
             if (Input.GetKeyDown(KeyCode.A))
             {
-                if (ModelManager.PetType == AnturaPetType.Dog) LoadPet(AnturaPetType.Cat);
-                else LoadPet(AnturaPetType.Dog);
+                if (UseForcedPetType) return;
+
+                if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog) AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
+                else AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
+                LoadPet(AppManager.I.Player.PetData.SelectedPet);
             }
         }
     }

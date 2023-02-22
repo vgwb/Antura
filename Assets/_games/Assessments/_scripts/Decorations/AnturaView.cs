@@ -9,7 +9,8 @@ namespace Antura.Assessment
 {
     public class AnturaView : MonoBehaviour
     {
-        AnturaAnimationController controller = null;
+        AnturaPetSwitcher petSwitcher;
+        private AnturaAnimationController controller => petSwitcher.AnimController;
         ReadingGameAntura antura = null;
 
         // States (Coroutine State Machine => easier animations)
@@ -19,7 +20,7 @@ namespace Antura.Assessment
 
         private void Awake()
         {
-            controller = GetComponent<AnturaAnimationController>();
+            petSwitcher = GetComponent<AnturaPetSwitcher>();
 
             // Reuse a well made animation
             antura = gameObject.AddComponent<ReadingGameAntura>();

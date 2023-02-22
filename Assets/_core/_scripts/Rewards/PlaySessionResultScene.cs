@@ -1,6 +1,7 @@
 using Antura.Core;
 using System.Linq;
 using Antura.Debugging;
+using Antura.Dog;
 
 namespace Antura.Rewards
 {
@@ -58,7 +59,7 @@ namespace Antura.Rewards
                 for (int i = 0; i < rewardPacksUnlocked.Count() && i < uiGameObjects.Length; i++)
                 {
                     var matPair = rewardPacksUnlocked[i].GetMaterialPair();
-                    ModelsManager.MountModel(rewardPacksUnlocked[i].BaseId, uiGameObjects[i].transform, matPair);
+                    ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, rewardPacksUnlocked[i].BaseId, uiGameObjects[i].transform, matPair);
                 }
 
             }

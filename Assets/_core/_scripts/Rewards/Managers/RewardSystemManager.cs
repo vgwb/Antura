@@ -814,7 +814,7 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
-                            ModelsManager.MountModel(returnList[i].data.ID, _parentsTransForModels[i]);
+                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, _parentsTransForModels[i]);
                         }
                     }
                     break;
@@ -824,7 +824,7 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
-                            string texturePath = "AnturaStuff/Textures_and_Materials/";
+                            string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
                             _parentsTransForModels[i].GetComponent<RawImage>().texture = inputTexture;
                         }
@@ -836,7 +836,7 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
-                            string texturePath = "AnturaStuff/Textures_and_Materials/";
+                            string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
                             _parentsTransForModels[i].GetComponent<RawImage>().texture = inputTexture;
                             //Debug.Log("Returned texture " + inputTexture.name + " for reward " + returnList[i].data.ID);

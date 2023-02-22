@@ -1,27 +1,28 @@
 using Antura.Core;
+using Antura.Dog;
 using UnityEngine;
 
 namespace Antura.Rewards
 {
     public static class ModelsManager
     {
-        public const string ANTURA_REWARDS_PREFABS_PATH = "Prefabs/Rewards/";
+        public const string ANTURA_REWARDS_PREFABS_PATH = "Rewards/";
 
         #region API
 
-        public static GameObject MountModel(string _id, Transform _parent, ModelType _type = ModelType.AnturaForniture)
+        public static GameObject MountModel(AnturaPetType petType, string _id, Transform _parent, ModelType _type = ModelType.AnturaForniture)
         {
             //Debug.Log("Mounting model " + _id + " on " + _parent.name);
-            GameObject rewardModel = GetObject(_type, _id);
+            GameObject rewardModel = GetObject(petType, _type, _id);
             rewardModel.transform.SetParent(_parent, false);
             return rewardModel;
         }
 
-        public static GameObject MountModel(string _id, Transform _parent, MaterialPair _materialPair,
+        public static GameObject MountModel(AnturaPetType petType, string _id, Transform _parent, MaterialPair _materialPair,
             ModelType _type = ModelType.AnturaForniture)
         {
             CleanTranformChildren(_parent);
-            GameObject returnObject = MountModel(_id, _parent, _type);
+            GameObject returnObject = MountModel(petType, _id, _parent, _type);
             SwitchMaterial(returnObject, _materialPair);
             return returnObject;
         }
@@ -57,7 +58,7 @@ namespace Antura.Rewards
 
         #region internal functionalities
 
-        static GameObject GetObject(ModelType _type, string _id)
+        static GameObject GetObject(AnturaPetType petType, ModelType _type, string _id)
         {
             string resourceToLoadPath;
             switch (_type)
@@ -69,7 +70,7 @@ namespace Antura.Rewards
                     return null;
             }
 
-            GameObject model = GameObject.Instantiate(Resources.Load(resourceToLoadPath + _id)) as GameObject;
+            GameObject model = GameObject.Instantiate(Resources.Load($"{petType}/{resourceToLoadPath}{_id}")) as GameObject;
 
             return model;
         }
