@@ -9,6 +9,7 @@ namespace Antura.Rewards
     public class RewardBase
     {
         public string ID;
+        public string SharedID; // Shared reward ID. All Props with this ID are unlocked together.
     }
 
     [Serializable]

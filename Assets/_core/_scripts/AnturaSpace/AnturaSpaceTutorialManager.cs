@@ -190,7 +190,7 @@ namespace Antura.AnturaSpace
                     var anturaModelManager = FindObjectOfType<AnturaModelManager>();
                     if (anturaModelManager)
                         anturaModelManager.ClearLoadedRewardPacks();
-                    AppManager.I.Player.CurrentAnturaCustomizations.ClearEquippedProps();
+                    AppManager.I.Player.CurrentAnturaCustomization.ClearEquippedProps();
 
                     DialogueThen(
                         LocalizationDataId.AnturaSpace_Custom_1,

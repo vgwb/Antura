@@ -432,7 +432,7 @@ namespace Antura.AnturaSpace.UI
             ReloadRewardsDatas();
             yield return null;
 
-            RewardBaseItem selectedRewardBaseData = RefreshItems();
+            RewardBaseItem selectedRewardBaseData = RefreshItems(petType:AppManager.I.Player.PetData.SelectedPet);
             ItemsContainer.gameObject.SetActive(true);
             showItemsTween.PlayForward();
 
@@ -526,7 +526,7 @@ namespace Antura.AnturaSpace.UI
 
             ReloadRewardsDatas();
             RefreshCategories();
-            RefreshItems(true);
+            RefreshItems(true, AppManager.I.Player.PetData.SelectedPet);
         }
 
         void SelectSwatch(RewardColorItem _colorData)
@@ -598,7 +598,7 @@ namespace Antura.AnturaSpace.UI
         }
 
         // Returns eventual selected reward item
-        RewardBaseItem RefreshItems(bool toggleOnly = false)
+        RewardBaseItem RefreshItems(bool toggleOnly = false, AnturaPetType petType = AnturaPetType.Dog)
         {
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
@@ -633,7 +633,7 @@ namespace Antura.AnturaSpace.UI
                 {
                     item.Toggle(false);
                 }
-                item.Lock(rewardBaseItem == null || !AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data));
+                item.Lock(rewardBaseItem == null || !AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
             }
             return selectedRewardBaseData;
         }
@@ -732,7 +732,7 @@ namespace Antura.AnturaSpace.UI
                 _bt.SetAsNew(false);
                 ReloadRewardsDatas();
                 RefreshCategories();
-                RefreshItems(true);
+                RefreshItems(true, AppManager.I.Player.PetData.SelectedPet);
             }
         }
 

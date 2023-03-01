@@ -8,12 +8,32 @@ using UnityEngine;
 
 namespace Antura.Dog
 {
+    [Serializable]
+    public class AllPetsAnturaCustomization
+    {
+        public AnturaCustomization[] Customizations = new AnturaCustomization[0];
+        public string GetJsonListOfIds()
+        {
+            return JsonUtility.ToJson(this);
+        }
+
+        public void Append(AnturaCustomization customization)
+        {
+            var list = Customizations.ToList();
+            list.RemoveAll(x => x.PetType == customization.PetType);
+            list.Add(customization);
+            Customizations = list.ToArray();
+        }
+    }
+
     /// <summary>
     /// Saved data that defines how Antura is currently customized
     /// </summary>
     [Serializable]
     public class AnturaCustomization
     {
+        public AnturaPetType PetType = AnturaPetType.Dog;
+
         [NonSerialized]
         public List<RewardPack> PropPacks = new List<RewardPack>();
         public List<string> PropPacksIds = new List<string>();
@@ -38,12 +58,32 @@ namespace Antura.Dog
                 return;
             }
 
-            AnturaCustomization tmp = JsonUtility.FromJson<AnturaCustomization>(_listOfIdsAsJsonString);
-            if (tmp != null)
+            AnturaCustomization customization = null;
+            try
             {
-                PropPacksIds = tmp.PropPacksIds;
-                TexturePackId = tmp.TexturePackId;
-                DecalPackId = tmp.DecalPackId;
+                var allPetsAnturaCustomization = JsonUtility.FromJson<AllPetsAnturaCustomization>(_listOfIdsAsJsonString);
+                if (allPetsAnturaCustomization.Customizations.Length == 0)
+                {
+                    throw new Exception("Old customization detected");
+                }
+                customization = allPetsAnturaCustomization.Customizations.FirstOrDefault(x => x.PetType == PetType);
+            }
+            catch (Exception)
+            {
+                Debug.LogWarning("Old customization detected. Upgrading it.");
+                var dogCustomization = JsonUtility.FromJson<AnturaCustomization>(_listOfIdsAsJsonString);
+                if (PetType == AnturaPetType.Dog)
+                {
+                    customization = dogCustomization;
+                    AppManager.I.Player.MigrateOldCustomization(customization);
+                }
+            }
+
+            if (customization != null)
+            {
+                PropPacksIds = customization.PropPacksIds;
+                TexturePackId = customization.TexturePackId;
+                DecalPackId = customization.DecalPackId;
             }
 
             var rewardSystem = AppManager.I.RewardSystemManager;

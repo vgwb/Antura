@@ -15,9 +15,6 @@ namespace Antura.Dog
     // TODO refactor: the class needs a complete refactoring
     public class AnturaModelManager : MonoBehaviour
     {
-        // TODO refactor: remove static instance
-        public static AnturaModelManager I;
-
         [Header("Pet")]
         public AnturaPetType PetType;
 
@@ -49,7 +46,7 @@ namespace Antura.Dog
         {
             if (AppManager.I.Player != null)
             {
-                var c = AppManager.I.Player.CurrentAnturaCustomizations;
+                var c = AppManager.I.Player.AnturaCustomization(PetType);
                 LoadAnturaCustomization(c);
             }
         }
@@ -305,7 +302,7 @@ namespace Antura.Dog
 
         private void PlayerProfileManager_OnProfileChanged()
         {
-            LoadAnturaCustomization(AppManager.I.Player.CurrentAnturaCustomizations);
+            LoadAnturaCustomization(AppManager.I.Player.CurrentAnturaCustomization);
         }
 
         private void RewardSystemManager_OnRewardItemChanged(RewardPack rewardPack)

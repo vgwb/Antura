@@ -1,21 +1,28 @@
 {
   "PropBases": [
     {
-      "Type": "Reward",
-      "ID": "reward_tube_hat",
+      "ID": "reward_traveler_hat",
+      "SharedID": "head_1",
       "RewardName": "Tube hat",
-      "Priority": "",
-      "Done": "DONE",
       "BoneAttach": "dog_head",
       "Material1": "diffuse_saturated",
       "Material2": "diffuse_saturated",
       "Category": "HEAD",
-      "RemTongue": "",
       "LocID": "UI_Antura_Item_Hat"
     },
     {
+          "ID": "reward_traveler_hat2",
+          "RewardName": "Tube hat",
+          "BoneAttach": "dog_head",
+          "Material1": "diffuse_saturated",
+          "Material2": "diffuse_saturated",
+          "Category": "HEAD",
+          "LocID": "UI_Antura_Item_Hat"
+    },
+    {
       "Type": "Reward",
-      "ID": "reward_punk_hair",
+      "SharedID": "head_2",
+       "ID": "reward_punk_hair",
       "RewardName": "Punk hair",
       "Priority": "",
       "Done": "DONE",
@@ -24,8 +31,8 @@
       "Material2": "diffuse_saturated",
       "Category": "HEAD",
       "RemTongue": "",
-      "LocID": "UI_Antura_Item_Crest"
-    },
+      "LocID": "UI_Antura_Item_TEST_NO_AUDIO"
+  },
     {
       "Type": "Reward",
       "ID": "reward_viking_helm",
