@@ -46,7 +46,7 @@ namespace Antura.AnturaSpace.UI
         public RectTransform ShopPanelContainer;
         public ShopPanelUI ShopPanelUI;
         public TMPro.TextMeshProUGUI bonesNumber;
-
+        public AnturaPetSwitcher petSwitcher;
 
         public event System.Action onEnterCustomization;
         public event System.Action onExitCustomization;
@@ -465,12 +465,12 @@ namespace Antura.AnturaSpace.UI
                 }
                 if (currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
                 {
-                    AnturaModelManager.I.ClearLoadedRewardInCategory("EAR_L");
-                    AnturaModelManager.I.ClearLoadedRewardInCategory("EAR_R");
+                    petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_L");
+                    petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_R");
                 }
                 else
                 {
-                    AnturaModelManager.I.ClearLoadedRewardInCategory(currCategory.ToString());
+                    petSwitcher.ModelManager.ClearLoadedRewardInCategory(currCategory.ToString());
                 }
                 return;
             }

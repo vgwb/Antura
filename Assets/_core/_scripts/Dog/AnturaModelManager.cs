@@ -22,6 +22,7 @@ namespace Antura.Dog
         public AnturaPetType PetType;
 
         [Header("Bones Attach")]
+        public Transform RootBone;
         [FormerlySerializedAs("Dog_head")] public Transform HeadBone;
         [FormerlySerializedAs("Dog_spine01")] public Transform SpineBone;
         [FormerlySerializedAs("Dog_jaw")] public Transform JawBone;
@@ -29,9 +30,7 @@ namespace Antura.Dog
         [FormerlySerializedAs("Dog_R_ear04")] public Transform EarRBone;
         [FormerlySerializedAs("Dog_L_ear04")] public Transform EraLBone;
 
-
-        [Header("Skinned mesh renderers")]
-        public SkinnedMeshRenderer[] additionalSMRs;
+        private List<SkinnedMeshRenderer> propSMRs = new List<SkinnedMeshRenderer>();
 
         [Header("Materials Owner")]
         public SkinnedMeshRenderer SkinnedMesh;
@@ -53,14 +52,19 @@ namespace Antura.Dog
                 var c = AppManager.I.Player.CurrentAnturaCustomizations;
                 LoadAnturaCustomization(c);
             }
+        }
 
-            // Skinned mesh renderer support (for the cat)
+        public void AssignPropSkinnedMeshRenderers()
+        {
+            propSMRs.RemoveAll(x => x is null);
+
+            // Skinned mesh renderer support
             SkinnedMeshRenderer targetRenderer = SkinnedMesh;
             var boneMap = new Dictionary<string,Transform>();
             foreach(var bone in targetRenderer.bones)
                 boneMap[bone.gameObject.name] = bone;
 
-            foreach (SkinnedMeshRenderer additionalSmr in additionalSMRs)
+            foreach (SkinnedMeshRenderer additionalSmr in propSMRs)
             {
                 var newBones = new Transform[additionalSmr.bones.Length];
                 for( int i = 0; i < additionalSmr.bones.Length; ++i )
@@ -243,9 +247,9 @@ namespace Antura.Dog
                 LoadedModels.Remove(loadedModel);
             }
 
+            GameObject rewardModel = null;
             // Load Model
             string boneParent = prop.BoneAttach;
-            GameObject rewardModel = null;
             switch (boneParent)
             {
                 case "dog_head":
@@ -266,6 +270,17 @@ namespace Antura.Dog
                 case "dog_L_ear04":
                     rewardModel = ModelsManager.MountModel(PetType, prop.ID, EraLBone);
                     break;
+            }
+
+            var smrs = rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>();
+            if (smrs.Length > 0)
+            {
+                rewardModel.transform.SetParent(RootBone, false);
+                foreach (var smr in rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    propSMRs.Add(smr);
+                }
+                AssignPropSkinnedMeshRenderers();
             }
 
             // Set materials

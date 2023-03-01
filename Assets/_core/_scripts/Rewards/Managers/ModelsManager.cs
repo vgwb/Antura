@@ -42,6 +42,17 @@ namespace Antura.Rewards
                     color.materials = new Material[] { _materialPair.Material2 };
                 }
             }
+            foreach (var color in _gameObject.GetComponentsInChildren<SkinnedMeshRenderer>())
+            {
+                if (color.name == "color_1")
+                {
+                    color.materials = new Material[] { _materialPair.Material1 };
+                }
+                else if (color.name == "color_2")
+                {
+                    color.materials = new Material[] { _materialPair.Material2 };
+                }
+            }
             return _materialPair;
         }
 
