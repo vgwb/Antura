@@ -3,7 +3,7 @@
     {
       "ID": "reward_traveler_hat",
       "SharedID": "head_1",
-      "RewardName": "Tube hat",
+      "RewardName": "Traveler hat",
       "BoneAttach": "dog_head",
       "Material1": "diffuse_saturated",
       "Material2": "diffuse_saturated",
@@ -11,54 +11,45 @@
       "LocID": "UI_Antura_Item_Hat"
     },
     {
-          "ID": "reward_traveler_hat2",
-          "RewardName": "Tube hat",
-          "BoneAttach": "dog_head",
-          "Material1": "diffuse_saturated",
-          "Material2": "diffuse_saturated",
-          "Category": "HEAD",
-          "LocID": "UI_Antura_Item_Hat"
-    },
-    {
-      "Type": "Reward",
       "SharedID": "head_2",
-       "ID": "reward_punk_hair",
-      "RewardName": "Punk hair",
-      "Priority": "",
-      "Done": "DONE",
+       "ID": "reward_propeller_cap",
+      "RewardName": "Propeller Cap",
       "BoneAttach": "dog_head",
       "Material1": "diffuse_saturated",
       "Material2": "diffuse_saturated",
       "Category": "HEAD",
-      "RemTongue": "",
       "LocID": "UI_Antura_Item_TEST_NO_AUDIO"
   },
     {
-      "Type": "Reward",
-      "ID": "reward_viking_helm",
-      "RewardName": "Viking helm",
-      "Priority": "",
-      "Done": "TO DO",
+      "SharedID": "head_3",
+      "ID": "reward_anglerfish_hood",
+      "RewardName": "Anglerfish Hood",
       "BoneAttach": "dog_head",
       "Material1": "diffuse_saturated",
       "Material2": "specular_saturated_2side",
       "Category": "HEAD",
-      "RemTongue": "",
       "LocID": "UI_Antura_Item_Helmet"
     },
     {
-      "Type": "Reward",
-      "ID": "reward_robot_helm",
-      "RewardName": "Robot helm",
-      "Priority": "",
-      "Done": "DONE",
+      "SharedID": "head_4",
+      "ID": "reward_sharkhood_skin",
+      "RewardName": "Sharkhood Skin",
       "BoneAttach": "dog_head",
-      "Material1": "specular_saturated_2side",
-      "Material2": "transparent_saturated_2side",
+      "Material1": "diffuse_saturated",
+      "Material2": "specular_saturated_2side",
       "Category": "HEAD",
-      "RemTongue": "",
       "LocID": "UI_Antura_Item_Box"
     },
+      {
+          "SharedID": "head_5",
+          "ID": "reward_test_fifth_hat",
+          "RewardName": "Test Fifth Hat",
+          "BoneAttach": "dog_head",
+          "Material1": "diffuse_saturated",
+          "Material2": "specular_saturated_2side",
+          "Category": "HEAD",
+          "LocID": "UI_Antura_Item_Box"
+        },
     {
       "Type": "Reward",
       "ID": "reward_glass_punk",
@@ -610,19 +601,30 @@
       "Color2Name": "black_pure",
       "Color2RGB": "000000",
       "LocID": "UI_Antura_Color_Black"
+    },
+    {
+      "ID": "21",
+      "Color1Name": "black_pure",
+      "Color1RGB": "2323AA",
+      "Color2Name": "black_pure",
+      "Color2RGB": "AA2323",
+      "LocID": "TEST_COLOR"
     }
   ],
   "DecalBases": [
     {
       "ID": "Antura_decalmap01",
+      "SharedID": "decal_01",
       "ColorVariations": "3"
     },
     {
       "ID": "Antura_decalmap02",
+      "SharedID": "decal_02",
       "ColorVariations": "3"
     },
     {
       "ID": "Antura_decalmap03",
+      "SharedID": "decal_03",
       "ColorVariations": "3"
     }
   ],
@@ -644,19 +646,28 @@
       "Color1Name": "",
       "Color1RGB": "960078FF",
       "LocID": "UI_Antura_Color_Purple"
-    }
+    },
+     {
+          "ID": "color4",
+          "Color1Name": "",
+          "Color1RGB": "96AA78FF",
+          "LocID": "UI_Antura_Color_Purple"
+        }
   ],
   "TextureBases": [
     {
       "ID": "Antura_flower_tilemat",
+      "SharedID": "texture_01",
       "ColorVariations": "7"
     },
     {
       "ID": "Antura_fur2_tilemat",
+      "SharedID": "texture_02",
       "ColorVariations": "6"
     },
     {
       "ID": "Antura_fur_tilemat",
+      "SharedID": "texture_03",
       "ColorVariations": "6"
     },
     {

@@ -32,6 +32,7 @@ namespace Antura.Profile
                 if (_currentPlayer != value)
                 {
                     AppManager.I.Player = _currentPlayer = value;
+                    //AppManager.I.Player.jsonAnturaCustomizationData = "{\"PetType\":0,\"PropPacksIds\":[],\"TexturePackId\":\"Antura_flower_tilemat_color1\",\"DecalPackId\":\"Antura_decalmap01_color1\"}";
 
                     if (_currentPlayer != null)
                     {

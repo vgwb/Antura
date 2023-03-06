@@ -53,7 +53,7 @@ namespace Antura.Dog
 
         public void AssignPropSkinnedMeshRenderers()
         {
-            propSMRs.RemoveAll(x => x is null);
+            propSMRs.RemoveAll(x => x == null);
 
             // Skinned mesh renderer support
             SkinnedMeshRenderer targetRenderer = SkinnedMesh;
@@ -114,6 +114,7 @@ namespace Antura.Dog
         public AnturaCustomization SaveAnturaCustomization()
         {
             AnturaCustomization returnCustomization = new AnturaCustomization();
+            returnCustomization.PetType = AppManager.I.Player.PetData.SelectedPet;
             foreach (LoadedModel loadedModel in LoadedModels)
             {
                 returnCustomization.PropPacks.Add(loadedModel.RewardPack);
@@ -302,7 +303,7 @@ namespace Antura.Dog
 
         private void PlayerProfileManager_OnProfileChanged()
         {
-            LoadAnturaCustomization(AppManager.I.Player.CurrentAnturaCustomization);
+            LoadAnturaCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization);
         }
 
         private void RewardSystemManager_OnRewardItemChanged(RewardPack rewardPack)

@@ -286,26 +286,26 @@ namespace Antura.Profile
 
         #region Antura Customization and Rewards
 
-        private AllPetsAnturaCustomization _currentAnturaCustomizations = new();
+        private AllPetsAnturaCustomization _currentAllPetsAnturaCustomization = new();
 
         public void MigrateOldCustomization(AnturaCustomization dogCustomization)
         {
-            _currentAnturaCustomizations = new AllPetsAnturaCustomization();
-            if (dogCustomization != null) _currentAnturaCustomizations.Append(dogCustomization);
-            jsonAnturaCustomizationData = _currentAnturaCustomizations.GetJsonListOfIds();
+            _currentAllPetsAnturaCustomization = new AllPetsAnturaCustomization();
+            if (dogCustomization != null) _currentAllPetsAnturaCustomization.Append(dogCustomization);
+            jsonAnturaCustomizationData = _currentAllPetsAnturaCustomization.GetJsonListOfIds();
             Save();
         }
 
         public AnturaCustomization AnturaCustomization(AnturaPetType petType)
         {
-            if (_currentAnturaCustomizations.Customizations == null) _currentAnturaCustomizations.Customizations = Array.Empty<AnturaCustomization>();
-            var customization = _currentAnturaCustomizations.Customizations.FirstOrDefault(x => x.PetType == petType);
+            if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+            var customization = _currentAllPetsAnturaCustomization.Customizations.FirstOrDefault(x => x.PetType == petType);
             if (customization == null)
             {
                 customization = new AnturaCustomization();
                 customization.PetType = petType;
                 customization.LoadFromListOfIds(jsonAnturaCustomizationData);
-                _currentAnturaCustomizations.Append(customization);
+                _currentAllPetsAnturaCustomization.Append(customization);
             }
             return customization;
         }
@@ -313,16 +313,16 @@ namespace Antura.Profile
         /// <summary>
         /// The current antura customizations
         /// </summary>
-        public AnturaCustomization CurrentAnturaCustomization
+        public AnturaCustomization CurrentSingleAnturaCustomization
         {
             get => AnturaCustomization(PetData.SelectedPet);
             set
             {
-                if (_currentAnturaCustomizations.Customizations == null) _currentAnturaCustomizations.Customizations = Array.Empty<AnturaCustomization>();
-                var list = _currentAnturaCustomizations.Customizations.ToList();
+                if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+                var list = _currentAllPetsAnturaCustomization.Customizations.ToList();
                 list.RemoveAll(x => x.PetType == PetData.SelectedPet);
-                _currentAnturaCustomizations.Customizations = list.ToArray();
-                _currentAnturaCustomizations.Append(value);
+                _currentAllPetsAnturaCustomization.Customizations = list.ToArray();
+                _currentAllPetsAnturaCustomization.Append(value);
                 SaveAnturaCustomization();
             }
         }
@@ -485,9 +485,10 @@ namespace Antura.Profile
         {
             if (_anturaCustomization != null)
             {
-                CurrentAnturaCustomization = _anturaCustomization;
+                CurrentSingleAnturaCustomization = _anturaCustomization;
             }
-            jsonAnturaCustomizationData = CurrentAnturaCustomization.GetJsonListOfIds();
+            jsonAnturaCustomizationData = _currentAllPetsAnturaCustomization.GetJsonListOfIds();
+            //Debug.LogError("SAVED CUSTOMIZATION " + jsonAnturaCustomizationData);
             Save();
 
             AppManager.I.LogManager.LogInfo(InfoEvent.AnturaCustomization, jsonAnturaCustomizationData);
@@ -588,7 +589,7 @@ namespace Antura.Profile
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
-                    TotalNumberOfBones, ProfileCompletion, this._currentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
+                    TotalNumberOfBones, ProfileCompletion, this._currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
                     FirstContactState, editionID, ContentID, AppVersion, PetData
             );
             newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);

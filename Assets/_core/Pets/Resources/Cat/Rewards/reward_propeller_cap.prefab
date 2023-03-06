@@ -1,0 +1,129 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1000012794206192
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4000010073696708}
+  m_Layer: 0
+  m_Name: reward_propeller_cap
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4000010073696708
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012794206192}
+  m_LocalRotation: {x: -0, y: -0.0000000013969624, z: -8.8817096e-16, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.0000019, y: 1.0000038, z: 1.0000019}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 488951520072403713}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1001 &91096378166537450
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 4000010073696708}
+    m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8487019821342013350, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_Name
+      value: color_1
+      objectReference: {fileID: 0}
+    - target: {fileID: -978209756357016371, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_Name
+      value: color_2
+      objectReference: {fileID: 0}
+    - target: {fileID: 448497770639871429, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_Name
+      value: color_4
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_Name
+      value: PropellerCap
+      objectReference: {fileID: 0}
+    - target: {fileID: 8084147345618775635, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+        type: 3}
+      propertyPath: m_Name
+      value: color_3
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 89c01bd03ed4be54fae1dc1d48f32343, type: 3}
+--- !u!4 &488951520072403713 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 89c01bd03ed4be54fae1dc1d48f32343,
+    type: 3}
+  m_PrefabInstance: {fileID: 91096378166537450}
+  m_PrefabAsset: {fileID: 0}

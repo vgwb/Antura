@@ -309,7 +309,7 @@ namespace Antura.AnturaSpace
         public void TriggerSceneExit()
         {
             Antura.PetSwitcher.ModelManager.SaveAnturaCustomization();
-            AppManager.I.Services.Analytics.TrackCustomization(AppManager.I.Player.CurrentAnturaCustomization, anturaSpacePlayTime);
+            AppManager.I.Services.Analytics.TrackCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization, anturaSpacePlayTime);
         }
     }
 }
