@@ -1,4 +1,5 @@
-﻿using DG.DeExtensions;
+﻿using Antura.Dog;
+using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Helpers
@@ -37,13 +38,22 @@ namespace Antura.Helpers
             _trans.SetZ(_cam.transform.position.z + requiredDistance);
         }
 
-        public static void FitRewardToUICamera(Transform _trans, Camera _cam, bool _flip = false)
+        public static void FitRewardToUICamera(Transform _trans, Camera _cam, bool _flip = false, AnturaPetType petType = AnturaPetType.Dog)
         {
+
             _trans.localPosition = Vector3.zero;
             if (_flip)
             {
-                _trans.eulerAngles = new Vector3(-45, 60, 150);
+                var flipVector = new Vector3(-45, 60, 150);
+                if (petType == AnturaPetType.Cat)
+                {
+                    flipVector = new Vector3(-45, 60, -100);
+                    bool isSkinned = _trans.GetComponentInChildren<SkinnedMeshRenderer>(true) != null;
+                    if (isSkinned)  flipVector =  new Vector3(32f,141f,0);
+                }
+                _trans.eulerAngles = flipVector;
             }
+
             Bounds bounds = new Bounds(Vector3.zero, new Vector3(-1, -1, -1));
             Renderer[] rs = _trans.GetComponentsInChildren<Renderer>(true);
             foreach (Renderer r in rs)

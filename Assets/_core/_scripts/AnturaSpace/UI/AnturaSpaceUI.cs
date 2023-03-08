@@ -138,11 +138,11 @@ namespace Antura.AnturaSpace.UI
                 {
                     ItemsContainer.gameObject.SetActive(false);
                     // Clear items containers children
-                    foreach (Transform container in rewardsContainers)
+                    /*foreach (Transform container in rewardsContainers)
                     {
                         foreach (Transform child in container)
                             Destroy(child.gameObject);
-                    }
+                    }*/
                 });
             showSwatchesTween = SwatchesContainer.DOAnchorPosY(-100, duration).From().SetEase(Ease.OutBack).SetAutoKill(false).Pause()
                 .OnRewind(() => SwatchesContainer.gameObject.SetActive(false));
@@ -620,7 +620,7 @@ namespace Antura.AnturaSpace.UI
                     if (!useImages && !toggleOnly)
                     {
                         item.RewardContainer.gameObject.SetLayerRecursive(GenericHelper.LayerMaskToIndex(RewardsLayer));
-                        CameraHelper.FitRewardToUICamera(item.RewardContainer.GetChild(0), item.RewardCamera, FlipRewards);
+                        if (item.RewardContainer.childCount > 0) CameraHelper.FitRewardToUICamera(item.RewardContainer.GetChild(0), item.RewardCamera, FlipRewards, petType);
                     }
                     item.SetAsNew(rewardBaseItem.IsNew);
                     item.Toggle(rewardBaseItem.IsSelected);

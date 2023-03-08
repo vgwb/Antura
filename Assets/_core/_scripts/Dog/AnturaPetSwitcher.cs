@@ -60,10 +60,6 @@ namespace Antura.Dog
             if (AutoSpawn) LoadPet(PetType);
         }
 
-        private void CheckPet()
-        {
-        }
-
         public void LoadPet(AnturaPetType petType)
         {
             if (currentModelManager != null)

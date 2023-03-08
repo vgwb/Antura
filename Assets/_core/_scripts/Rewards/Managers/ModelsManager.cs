@@ -1,3 +1,4 @@
+using System.Linq;
 using Antura.Core;
 using Antura.Dog;
 using UnityEngine;
@@ -10,10 +11,49 @@ namespace Antura.Rewards
 
         #region API
 
-        public static GameObject MountModel(AnturaPetType petType, string _id, Transform _parent, ModelType _type = ModelType.AnturaForniture)
+        public static GameObject MountModel(AnturaPetType petType, string _id, Transform _parent, ModelType _type = ModelType.AnturaForniture, bool checkExisting = false)
         {
             //Debug.Log("Mounting model " + _id + " on " + _parent.name);
-            GameObject rewardModel = GetObject(petType, _type, _id);
+            string resourceToLoadPath;
+            switch (_type)
+            {
+                case ModelType.AnturaForniture:
+                    resourceToLoadPath = ANTURA_REWARDS_PREFABS_PATH;
+                    break;
+                default:
+                    return null;
+            }
+
+            var prefab = Resources.Load($"{petType}/{resourceToLoadPath}{_id}");
+
+            if (_parent.childCount > 0 && checkExisting)
+            {
+                Transform spawnedChild = null;
+                foreach (Transform childTr in _parent.transform)
+                {
+                    if (childTr == _parent) continue;
+                    if (!childTr.gameObject.name.Contains("(Clone)")) continue;
+                    spawnedChild = childTr;
+                    break;
+                }
+
+                if (spawnedChild != null)
+                {
+                    if (spawnedChild.name.Contains(prefab.name))
+                    {
+                        // Already loaded
+                        return spawnedChild.gameObject;
+                    }
+                    else
+                    {
+                        // Wrong one, destroy it
+                        GameObject.Destroy(spawnedChild.gameObject);
+                    }
+                }
+            }
+
+
+            var rewardModel = GameObject.Instantiate(prefab) as GameObject;
             rewardModel.transform.SetParent(_parent, false);
             return rewardModel;
         }
@@ -63,27 +103,6 @@ namespace Antura.Rewards
                 var child = _parent.GetChild(i).gameObject;
                 GameObject.Destroy(child);
             }
-        }
-
-        #endregion
-
-        #region internal functionalities
-
-        static GameObject GetObject(AnturaPetType petType, ModelType _type, string _id)
-        {
-            string resourceToLoadPath;
-            switch (_type)
-            {
-                case ModelType.AnturaForniture:
-                    resourceToLoadPath = ANTURA_REWARDS_PREFABS_PATH;
-                    break;
-                default:
-                    return null;
-            }
-
-            GameObject model = GameObject.Instantiate(Resources.Load($"{petType}/{resourceToLoadPath}{_id}")) as GameObject;
-
-            return model;
         }
 
         #endregion

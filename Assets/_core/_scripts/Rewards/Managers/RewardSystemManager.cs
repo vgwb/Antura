@@ -857,7 +857,7 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
-                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, _parentsTransForModels[i]);
+                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, _parentsTransForModels[i], checkExisting:true);
                         }
                     }
                     break;
