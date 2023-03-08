@@ -277,13 +277,13 @@ namespace Antura.Dog
             animator.SetFloat("walkSpeed", Mathf.Lerp(oldSpeed, walkingSpeed, Time.deltaTime * 4.0f));
         }
 
-        void OnShoutStarted()
+        public void OnShoutStarted()
         {
             if (onShoutStartedCallback != null)
                 onShoutStartedCallback();
         }
 
-        void OnSniffStart()
+        public void OnSniffStart()
         {
             if (onSniffStartedCallback != null)
             {
@@ -291,7 +291,7 @@ namespace Antura.Dog
             }
         }
 
-        void OnSniffEnd()
+        public  void OnSniffEnd()
         {
             if (onSniffEndedCallback != null)
             {
@@ -356,27 +356,27 @@ namespace Antura.Dog
             }
         }
 
-        void OnAnimationWalkStart()
+        public void OnAnimationWalkStart()
         {
             ++walkRefCount;
         }
 
-        void OnAnimationWalkEnd()
+        public void OnAnimationWalkEnd()
         {
             --walkRefCount;
         }
 
-        void OnAnimationJumpStart()
+        public void OnAnimationJumpStart()
         {
             ++jumpRefCount;
         }
 
-        void OnAnimationJumpEnd()
+        public  void OnAnimationJumpEnd()
         {
             --jumpRefCount;
         }
 
-        void OnAnimationJumpGrab()
+        public void OnAnimationJumpGrab()
         {
             if (onGrabbed != null)
             {
@@ -392,7 +392,7 @@ namespace Antura.Dog
         /// <summary>
         /// Used by SpecialStateEventBehaviour
         /// </summary>
-        void OnActionCompleted()
+        public void OnActionCompleted()
         {
             if (hasToGoBackState)
             {
