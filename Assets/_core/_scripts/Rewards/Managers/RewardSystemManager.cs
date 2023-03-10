@@ -21,7 +21,7 @@ namespace Antura.Rewards
 
     public class RewardSystemManager
     {
-        private static bool VERBOSE = true;
+        private static bool VERBOSE = false;
 
         private const string ANTURA_REWARDS_PARTS_CONFIG_PATH = "Rewards/AnturaRewardsPartsConfig";
 

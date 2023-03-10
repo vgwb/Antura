@@ -12011,7 +12011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 296965421c3447747910ad205a792a31, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  antura: {fileID: 0}
+  petSwitcher: {fileID: 0}
   UsingInAnimationUI: 0
   targetState: 1
   doTransition: 1
@@ -14719,6 +14719,7 @@ GameObject:
   - component: {fileID: 1941151131}
   - component: {fileID: 1941151133}
   - component: {fileID: 1941151132}
+  - component: {fileID: 1941151134}
   m_Layer: 0
   m_Name: Ico
   m_TagString: Untagged
@@ -14787,6 +14788,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1941151130}
   m_CullTransparentMesh: 0
+--- !u!114 &1941151134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1941151130}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e704eda22bca4ca3887116f588f9c7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: 0
+  noBorder: 0
 --- !u!4 &1941747050
 Transform:
   m_ObjectHideFlags: 0

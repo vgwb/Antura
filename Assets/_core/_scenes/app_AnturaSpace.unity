@@ -1182,6 +1182,7 @@ GameObject:
   - component: {fileID: 105990583}
   - component: {fileID: 105990585}
   - component: {fileID: 105990584}
+  - component: {fileID: 105990586}
   m_Layer: 5
   m_Name: Ico
   m_TagString: Untagged
@@ -1247,6 +1248,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 105990582}
   m_CullTransparentMesh: 0
+--- !u!114 &105990586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105990582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e704eda22bca4ca3887116f588f9c7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: 0
+  noBorder: 0
 --- !u!1 &122279227
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5879,7 @@ Transform:
   - {fileID: 313998947}
   - {fileID: 731829841}
   - {fileID: 69530356}
-  - {fileID: 882659742}
+  - {fileID: 675432733}
   m_Father: {fileID: 837188165}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -8273,55 +8288,52 @@ MonoBehaviour:
   slots:
   - {fileID: 954539834}
   - {fileID: 1214294462}
---- !u!1001 &675566493
-PrefabInstance:
+--- !u!4 &675432733
+Transform:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 517820958}
-    m_Modifications:
-    - target: {fileID: 100000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_Name
-      value: ThrownBone
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_RootOrder
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2300000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
-      propertyPath: m_Materials.Array.data[0]
-      value: 
-      objectReference: {fileID: 2100000, guid: 0998c7ca47222d744a4b13f0630641de, type: 2}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 2eff0ca861e20d244b76ef2db9dc7f44, type: 3}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675665213}
+  m_LocalRotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
+  m_LocalPosition: {x: -0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 517820958}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &675665213
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 675432733}
+  - component: {fileID: 675665214}
+  m_Layer: 0
+  m_Name: ThrownBone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &675665214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 675665213}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfee728a715149af8a0565323f306a85, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  autoSpawn: 0
+  skipSwitching: 1
 --- !u!1 &688977046
 GameObject:
   m_ObjectHideFlags: 0
@@ -10156,18 +10168,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 879419111}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &882659741 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 100000, guid: 2eff0ca861e20d244b76ef2db9dc7f44,
-    type: 3}
-  m_PrefabInstance: {fileID: 675566493}
-  m_PrefabAsset: {fileID: 0}
---- !u!4 &882659742 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 400000, guid: 2eff0ca861e20d244b76ef2db9dc7f44,
-    type: 3}
-  m_PrefabInstance: {fileID: 675566493}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &888746057
 GameObject:
   m_ObjectHideFlags: 0
@@ -10181,6 +10181,7 @@ GameObject:
   - component: {fileID: 888746060}
   - component: {fileID: 888746059}
   - component: {fileID: 888746061}
+  - component: {fileID: 888746062}
   m_Layer: 5
   m_Name: Ico
   m_TagString: Untagged
@@ -10267,6 +10268,20 @@ MonoBehaviour:
   Duration: 0.35
   ScaleInOnEnable: 0
   ScaleInDuration: 0.3
+--- !u!114 &888746062
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 888746057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e704eda22bca4ca3887116f588f9c7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: 0
+  noBorder: 0
 --- !u!1 &900544722
 GameObject:
   m_ObjectHideFlags: 0
@@ -14961,7 +14976,7 @@ MonoBehaviour:
   LocID: 
   iconSprite: {fileID: 21300000, guid: bf643df48648349f6866020979bf5ab9, type: 3}
   bonesCost: 2
-  objectToRender: {fileID: 0}
+  objectsToRender: {fileID: 0}
   throwingObjectPrefabGO: {fileID: 114959570897666474, guid: 3531dcc60c838413fba09c1b6bca0bcd,
     type: 3}
 --- !u!1 &1302082262
@@ -15237,7 +15252,7 @@ MonoBehaviour:
   LocID: 
   iconSprite: {fileID: 21300000, guid: 5bdcb75c4b97dc94f9707663504143b6, type: 3}
   bonesCost: 1
-  objectToRender: {fileID: 882659741}
+  objectsToRender: {fileID: 675665213}
   throwingObjectPrefabGO: {fileID: 114493489969328278, guid: 685c462fa590b0c479d02d3418fd5f37,
     type: 3}
 --- !u!1001 &1320169198

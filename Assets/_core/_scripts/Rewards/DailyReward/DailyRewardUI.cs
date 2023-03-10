@@ -12,7 +12,7 @@ namespace Antura.Rewards
     {
         public Color unlockedColor = Color.green;
 
-        public Sprite bonesSprite, usedBonesSprite;
+        public Sprite bonesSprite;
         public Sprite test1Sprite;
         public Sprite test2Sprite;
 
@@ -61,6 +61,9 @@ namespace Antura.Rewards
             {
                 case DailyRewardType.Bones:
                     imageUI.sprite = bonesSprite;
+                    var uiBone = imageUI.GetComponent<UIBone>();
+                    uiBone.empty = false;
+                    uiBone.Switch();
                     break;
                 case DailyRewardType.Test1:
                     imageUI.sprite = test1Sprite;
@@ -115,7 +118,11 @@ namespace Antura.Rewards
         public void SetUnlocked(bool animate = false)
         {
             bgImg.color = unlockedColor;
-            imageUI.sprite = usedBonesSprite;
+
+            var uiBone = imageUI.GetComponent<UIBone>();
+            uiBone.empty = true;
+            uiBone.Switch();
+
             Bounce(false);
             if (!animate)
             {

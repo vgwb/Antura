@@ -12,44 +12,22 @@ namespace Antura.AnturaSpace
         public Vector3 eulOffset = Vector3.zero;
         public string LocID;
 
-        public virtual GameObject ObjectToRender
-        {
-            get { return null; }
-        }
+        public virtual GameObject ObjectToRender => null;
 
         public Sprite iconSprite;
+        public virtual Sprite IconSprite => iconSprite;
+
         public int bonesCost;
 
-        public virtual bool IsOnTheSide
-        {
-            get { return false; }
-        }
+        public virtual bool IsOnTheSide => false;
 
-        public virtual bool CanPurchaseAnywhere
-        {
-            get { return false; }
-        }
+        public virtual bool CanPurchaseAnywhere => false;
 
-        public virtual bool IsLocked
-        {
-            get
-            {
-                return NotEnoughBones;
-            }
-        }
+        public virtual bool IsLocked => NotEnoughBones;
 
-        public virtual bool IsClickButton
-        {
-            get { return false; }
-        }
+        public virtual bool IsClickButton => false;
 
-        public bool NotEnoughBones
-        {
-            get
-            {
-                return AppManager.I.Player.GetTotalNumberOfBones() < bonesCost;
-            }
-        }
+        public bool NotEnoughBones => AppManager.I.Player.GetTotalNumberOfBones() < bonesCost;
 
         public Action OnActionCommitted;
         public Action OnActionRefreshed;

@@ -1,22 +1,22 @@
-﻿using Antura.Core;
+﻿using System;
+using Antura.Core;
+using Antura.Dog;
 using UnityEngine;
 
 namespace Antura.AnturaSpace
 {
+
     public class ShopAction_Throw : ShopAction
     {
-        public GameObject objectToRender;
+        public GameObject objectsToRender;
         public ThrowableObject throwingObjectPrefabGO;
         protected override string ActionKey => "bone";
-        public override GameObject ObjectToRender
-        {
-            get { return objectToRender; }
-        }
 
-        public AnturaSpaceScene AnturaSpaceScene
-        {
-            get { return ((AnturaSpaceScene)AnturaSpaceScene.I); }
-        }
+        public override Sprite IconSprite => Resources.Load<Sprite>($"{AppManager.I.Player.PetData.SelectedPet}/UI/bone");
+
+        public override GameObject ObjectToRender => objectsToRender;
+
+        public AnturaSpaceScene AnturaSpaceScene => ((AnturaSpaceScene)AnturaSpaceScene.I);
 
         public override void PerformAction()
         {
@@ -47,5 +47,6 @@ namespace Antura.AnturaSpace
                 return !AnturaSpaceScene.CanSpawnMoreObjects;
             }
         }
+
     }
 }

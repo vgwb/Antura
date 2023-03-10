@@ -66,7 +66,7 @@ namespace Antura.AnturaSpace
 
         private void InteractWithCurrentObject()
         {
-            if (objectToCatch.Edible)
+            if (objectToCatch != null && objectToCatch.Edible)
             {
                 controller.EatObject(objectToCatch);
             }
