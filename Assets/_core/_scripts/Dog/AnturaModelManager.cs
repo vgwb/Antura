@@ -21,6 +21,8 @@ namespace Antura.Dog
         [Header("Bones Attach")]
         public Transform RootBone;
 
+        public Transform JawBone; // @note: Needed for bone catching
+
         private List<SkinnedMeshRenderer> propSMRs = new List<SkinnedMeshRenderer>();
 
         [Header("Materials Owner")]
