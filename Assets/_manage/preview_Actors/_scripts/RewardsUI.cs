@@ -97,14 +97,14 @@ namespace Antura
         /// <param name="_name">The name.</param>
         void OnClickButton(string _name)
         {
-            LoadRewardOnDog(_name);
+            LoadRewardOnAntura(_name);
         }
 
         /// <summary>
-        /// Loads the reward on dog.
+        /// Loads the reward on the pet.
         /// </summary>
         /// <param name="_name">The name.</param>
-        void LoadRewardOnDog(string _name)
+        void LoadRewardOnAntura(string _name)
         {
             actualReward = null;
 
@@ -198,14 +198,14 @@ namespace Antura
         {
             ActiveMaterial1Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.ID);
+                LoadRewardOnAntura(actualReward.ID);
         }
 
         public void SetMaterial2(string _materialName)
         {
             ActiveMaterial2Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.ID);
+                LoadRewardOnAntura(actualReward.ID);
         }
 
         void AddListenersMatColor1()
