@@ -1,3 +1,4 @@
+using System;
 using Antura.Core;
 using Antura.Database;
 using Antura.Profile;
@@ -241,8 +242,18 @@ namespace Antura.Dog
                 LoadedModels.Remove(loadedModel);
             }
 
-            GameObject rewardModel = null;
-            // Load Model
+            // Load the new Model
+            var targetBone = RootBone;
+            if (prop.BoneAttach.ToLower() != "none")
+            {
+                targetBone = RecursiveFind(RootBone, prop.BoneAttach);
+                if (targetBone == null)
+                {
+                    Debug.LogWarning($"Could not find bone {prop.BoneAttach} to attach the prop to.");
+                    targetBone = RootBone; // Fallback
+                }
+            }
+            var rewardModel = ModelsManager.MountModel(PetType, prop.ID, targetBone);
 
             var smrs = rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>();
             if (smrs.Length > 0)
@@ -254,18 +265,6 @@ namespace Antura.Dog
                 }
                 AssignPropSkinnedMeshRenderers();
             }
-            else
-            {
-                var targetBone = RootBone.Find(prop.BoneAttach);
-                if (targetBone == null)
-                {
-                    Debug.LogWarning($"Could not find bone {prop.BoneAttach} to attach the prop to.");
-                }
-                else
-                {
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, targetBone);
-                }
-            }
 
             // Set materials
             ModelsManager.SwitchMaterial(rewardModel, rewardPack.GetMaterialPair());
@@ -273,6 +272,24 @@ namespace Antura.Dog
             // Save on LoadedModel List
             LoadedModels.Add(new LoadedModel() { RewardPack = rewardPack, GO = rewardModel });
             return rewardModel;
+        }
+
+        private Transform RecursiveFind(Transform rootBone, string childName)
+        {
+            foreach (Transform childTr in rootBone.transform)
+            {
+                if (childTr.name.Equals(childName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return childTr;
+                }
+
+                if (childTr.childCount > 0)
+                {
+                    var found = RecursiveFind(childTr, childName);
+                    if (found != null) return found;
+                }
+            }
+            return null;
         }
 
         #endregion
