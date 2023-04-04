@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using Antura.Dog;
 using Antura.Teacher;
+using DG.DeExtensions;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -117,14 +118,36 @@ namespace Antura.Rewards
             return null;
         }
 
+        private Dictionary<string, RewardPack> uniqueIdRewardPacksCache = new Dictionary<string, RewardPack>();
         public RewardPack GetRewardPackByUniqueId(string uniqueId)
         {
-            return GetRewardPacks(AppManager.I.Player.PetData.SelectedPet).FirstOrDefault(p => p.UniqueId == uniqueId);
+            var pet = AppManager.I.Player.PetData.SelectedPet;
+            var key = $"{pet}_{uniqueId}";
+
+            if (uniqueIdRewardPacksCache.TryGetValue(key, out var pack))
+            {
+                return pack;
+            }
+
+            var packs = GetRewardPacks(AppManager.I.Player.PetData.SelectedPet);
+            foreach (var p in packs)
+            {
+                if (p.UniqueId.Equals(uniqueId, StringComparison.OrdinalIgnoreCase))
+                {
+                    uniqueIdRewardPacksCache[key] = p;
+                    return p;
+                }
+            }
+            return null;
         }
 
         public RewardPack GetRewardPackByPartsIds(string baseId, string colorId)
         {
-            return GetRewardPacks(AppManager.I.Player.PetData.SelectedPet).FirstOrDefault(p => p.BaseId == baseId && p.ColorId == colorId);
+            foreach (var p in GetRewardPacks(AppManager.I.Player.PetData.SelectedPet))
+            {
+                if (p.BaseId == baseId && p.ColorId == colorId) return p;
+            }
+            return null;
         }
 
         public List<RewardPack> GetAllRewardPacksOfBaseType(RewardBaseType baseType, bool onePerBase = false)
@@ -275,21 +298,18 @@ namespace Antura.Rewards
                 {
                     if (petType == AnturaPetType.Dog) continue;
 
+                    // @note: may slow down a lot if the SharedID is not available
                     var rewards = petRewardPacksDict[petType];
                     foreach (var baseType in rewards.Keys)
                     {
                         foreach (var pack in rewards[baseType])
                         {
-                            if (pack.RewardBase.SharedID == null) continue;
-                            var originalUnlockData = unlockDataList.FirstOrDefault(x =>
+                            if (pack.RewardBase.SharedID.IsNullOrEmpty()) continue;
+                            var bases = GetRewardBasesOfType(baseType, AnturaPetType.Dog);
+                            var originalBase = bases.FirstOrDefault(b => string.Equals(b.SharedID, pack.RewardBase.SharedID, StringComparison.OrdinalIgnoreCase));
+                            if (originalBase != null)
                             {
-                                var originalPack = GetRewardPackByUniqueId(x.Id);
-                                if (originalPack == null) return false;
-                                return originalPack.RewardBase.SharedID == pack.RewardBase.SharedID;
-                            });
-                            if (originalUnlockData != null)
-                            {
-                                RegisterLockedPack(pack, originalUnlockData.GetJourneyPosition());
+                                RegisterLockedPack(pack, JourneyPosition.InitialJourneyPosition);   // Fake journey position, just so we can unlock it
                                 UnlockPack(pack);
                             }
                         }
@@ -959,7 +979,7 @@ namespace Antura.Rewards
             if (OnRewardSelectionChanged != null)
                 OnRewardSelectionChanged(currentSelectedReward);
 
-            // Makes sure to set everything pack with that color as seen
+            // Makes sure to set every pack with that color as seen
             foreach (var pack in GetUnlockedRewardPacksForBase(_rewardBase))
             {
                 pack.SetNew(false);
