@@ -20,12 +20,6 @@ namespace Antura.Dog
 
         [Header("Bones Attach")]
         public Transform RootBone;
-        [FormerlySerializedAs("Dog_head")] public Transform HeadBone;
-        [FormerlySerializedAs("Dog_spine01")] public Transform SpineBone;
-        [FormerlySerializedAs("Dog_jaw")] public Transform JawBone;
-        [FormerlySerializedAs("Dog_Tail3")] public Transform TailBone;
-        [FormerlySerializedAs("Dog_R_ear04")] public Transform EarRBone;
-        [FormerlySerializedAs("Dog_L_ear04")] public Transform EraLBone;
 
         private List<SkinnedMeshRenderer> propSMRs = new List<SkinnedMeshRenderer>();
 
@@ -247,28 +241,6 @@ namespace Antura.Dog
 
             GameObject rewardModel = null;
             // Load Model
-            string boneParent = prop.BoneAttach;
-            switch (boneParent)
-            {
-                case "dog_head":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, HeadBone);
-                    break;
-                case "dog_spine01":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, SpineBone);
-                    break;
-                case "dog_jaw":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, JawBone);
-                    break;
-                case "dog_Tail4":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, TailBone);
-                    break;
-                case "dog_R_ear04":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, EarRBone);
-                    break;
-                case "dog_L_ear04":
-                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, EraLBone);
-                    break;
-            }
 
             var smrs = rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>();
             if (smrs.Length > 0)
@@ -279,6 +251,18 @@ namespace Antura.Dog
                     propSMRs.Add(smr);
                 }
                 AssignPropSkinnedMeshRenderers();
+            }
+            else
+            {
+                var targetBone = RootBone.Find(prop.BoneAttach);
+                if (targetBone == null)
+                {
+                    Debug.LogWarning($"Could not find bone {prop.BoneAttach} to attach the prop to.");
+                }
+                else
+                {
+                    rewardModel = ModelsManager.MountModel(PetType, prop.ID, targetBone);
+                }
             }
 
             // Set materials

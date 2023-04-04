@@ -26,6 +26,12 @@ namespace Antura.Rewards
 
             var prefab = Resources.Load($"{petType}/{resourceToLoadPath}{_id}");
 
+            if (prefab == null)
+            {
+                Debug.LogWarning($"No prop found named {_id}");
+                return null;
+            }
+
             if (_parent.childCount > 0 && checkExisting)
             {
                 Transform spawnedChild = null;

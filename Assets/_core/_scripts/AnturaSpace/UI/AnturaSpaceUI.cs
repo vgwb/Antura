@@ -603,7 +603,7 @@ namespace Antura.AnturaSpace.UI
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
             // Hide non-existent items
-            for (int i = currRewardBaseItems.Count - 1; i < btsItems.Length; ++i)
+            for (int i = Mathf.Max(0, currRewardBaseItems.Count - 1); i < btsItems.Length; ++i)
             {
                 btsItems[i].gameObject.SetActive(false);
             }
