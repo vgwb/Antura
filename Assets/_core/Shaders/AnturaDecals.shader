@@ -19,7 +19,8 @@ Shader "Antura/Decal" {
 
 		_Emission("Emission", Color) = (0,0,0,0)
 		_SpecularColor("Specular Color", Color) = (0,0,0,0)
-	}
+        _Rotation ("Rotation", Float) = 2.0
+		}
 		SubShader{
 		Tags{ "RenderType" = "Transparent" "Queue"="Transparent" }
 		LOD 250
@@ -28,7 +29,7 @@ Shader "Antura/Decal" {
 		ZTest Equal
 
 		CGPROGRAM
-#pragma surface surf AnturaBlinnPhong exclude_path:prepass nolightmap noforwardadd halfasview interpolateview alpha:blend keepalpha
+#pragma surface surf AnturaBlinnPhong exclude_path:prepass nolightmap noforwardadd halfasview interpolateview alpha:blend keepalpha vertex:vert
 
 #include "LightningSpecular.cginc"
 
@@ -54,6 +55,15 @@ Shader "Antura/Decal" {
 			half2 uv_OverTex;
 			half2 uv_Occlusion;
 		};
+
+        float _Rotation;
+        void vert (inout appdata_full v) {
+            float sinX = sin ( _Rotation  );
+            float cosX = cos ( _Rotation );
+            float sinY = sin ( _Rotation  );
+            float2x2 rotationMatrix = float2x2( cosX, -sinX, sinY, cosX);
+            v.texcoord1.xy = mul ( v.texcoord1.xy, rotationMatrix );
+        }
 
 		void surf(Input IN, inout SurfaceOutputSpecularAntura o) 
 		{
