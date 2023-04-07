@@ -496,7 +496,8 @@ namespace Antura.Rewards
             var unlockData = new RewardPackUnlockData(LogManager.I.AppSession, pack.UniqueId, jp)
             {
                 IsLocked = true,
-                IsNew = true
+                IsNew = true,
+                Edited = true
             };
             AppManager.I.Player.RegisterUnlockData(unlockData);
             pack.SetUnlockData(unlockData);
@@ -527,6 +528,7 @@ namespace Antura.Rewards
         {
             pack.SetUnlocked();
             pack.SetNew(true);
+            pack.SetEdited();
             if (VERBOSE)
                 Debug.Log("Unlocked pack " + pack);
         }
@@ -983,6 +985,7 @@ namespace Antura.Rewards
             foreach (var pack in GetUnlockedRewardPacksForBase(_rewardBase))
             {
                 pack.SetNew(false);
+                pack.SetEdited();
             }
             SaveRewardsUnlockDataChanges();
         }

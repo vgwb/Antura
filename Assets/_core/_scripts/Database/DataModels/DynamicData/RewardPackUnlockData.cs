@@ -1,3 +1,4 @@
+using System;
 using Antura.Core;
 using Antura.Helpers;
 using Antura.Rewards;
@@ -66,6 +67,9 @@ namespace Antura.Database
         /// JSON-serialized additional data, may be added as needed.
         /// </summary>
         public string AdditionalData { get; set; }
+
+        [NonSerialized]
+        public bool Edited; // @temporary state
 
         public RewardPackUnlockData()
         {

@@ -352,7 +352,9 @@ namespace Antura.Profile
 
         public void SaveRewardPackUnlockDataList()
         {
-            AppManager.I.DB.UpdateRewardPackUnlockDataAll(_rewardPackUnlockDataList);
+            var listToUpdate = _rewardPackUnlockDataList.Where(x => x.Edited).ToList();
+            AppManager.I.DB.UpdateRewardPackUnlockDataAll(listToUpdate);
+            _rewardPackUnlockDataList.ForEach(x => x.Edited = false);
         }
 
         public void RegisterUnlockData(RewardPackUnlockData unlockData)

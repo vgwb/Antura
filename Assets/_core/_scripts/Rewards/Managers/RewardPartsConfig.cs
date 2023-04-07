@@ -178,6 +178,11 @@ namespace Antura.Rewards
             unlockData.IsNew = b;
         }
 
+        public void SetEdited()
+        {
+            unlockData.Edited = true;
+        }
+
         public bool HasUnlockData()
         {
             return unlockData != null;

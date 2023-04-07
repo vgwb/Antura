@@ -23,7 +23,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010059750426}
-  m_LocalRotation: {x: -0.404798, y: 0.5486131, z: 0.43434054, w: 0.5886515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -31,7 +31,7 @@ Transform:
   - {fileID: 5507871224988299132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -72.39, y: 76.558, z: 12.833}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &5468877167695267991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -94,11 +94,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7791238913926286147, guid: b87a3adeb2bb41246842b5cfdc3b18ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a898b9c32b4a6d44fbb9c9c24a2a87d7, type: 2}
     - target: {fileID: 919132149155446097, guid: b87a3adeb2bb41246842b5cfdc3b18ff,
         type: 3}
       propertyPath: m_Name
       value: SharkHood
       objectReference: {fileID: 0}
+    - target: {fileID: 3620805360333528624, guid: b87a3adeb2bb41246842b5cfdc3b18ff,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 73daf068dc668894bb672fe231e39a5f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b87a3adeb2bb41246842b5cfdc3b18ff, type: 3}
 --- !u!4 &5507871224988299132 stripped
