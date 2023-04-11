@@ -1,6 +1,7 @@
 using System.Linq;
 using Antura.AnturaSpace;
 using Antura.Core;
+using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -85,6 +86,7 @@ namespace Antura.Dog
                 if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog) AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
                 else AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
                 LoadPet(AppManager.I.Player.PetData.SelectedPet);
+                AppManager.I.Player.Save();
 
                 foreach (var bone3D in FindObjectsOfType<Bone3D>())
                 {

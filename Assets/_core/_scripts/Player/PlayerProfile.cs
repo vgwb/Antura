@@ -571,6 +571,9 @@ namespace Antura.Profile
             CurrentShopState = AnturaSpace.ShopState.CreateFromJson(_data.GetAdditionalData().CurrentShopStateJSON);
             FirstContactState = JsonUtility.FromJson<FirstContactState>(_data.FirstContactStateJSON);
 
+            PetData.SelectedPet = _data.SelectedPet;
+            PetData.CatUnlocked = _data.CatUnlocked;
+
             SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
             SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
             // Antura customization save only customization data
