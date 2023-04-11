@@ -4612,7 +4612,7 @@ MonoBehaviour:
   - {fileID: 160583096}
   - {fileID: 1674462479}
   HidePosition: {fileID: 476723361}
-  ModelSwitcher: {fileID: 248865150}
+  PetSwitcher: {fileID: 248865150}
 --- !u!135 &754174490
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -18563,6 +18563,11 @@ PrefabInstance:
         type: 3}
       propertyPath: PetType
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913635256544164688, guid: c2f7449713269484693e87f5e289c351,
+        type: 3}
+      propertyPath: AutoSpawn
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8913635256544164690, guid: c2f7449713269484693e87f5e289c351,
         type: 3}

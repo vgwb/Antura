@@ -309,7 +309,10 @@ namespace Antura.Rewards
                             var originalBase = bases.FirstOrDefault(b => string.Equals(b.SharedID, pack.RewardBase.SharedID, StringComparison.OrdinalIgnoreCase));
                             if (originalBase != null)
                             {
-                                RegisterLockedPack(pack, JourneyPosition.InitialJourneyPosition);   // Fake journey position, just so we can unlock it
+                                if (!pack.HasUnlockData())
+                                {
+                                    RegisterLockedPack(pack, JourneyPosition.InitialJourneyPosition);   // Fake journey position, just so we can unlock it
+                                }
                                 UnlockPack(pack);
                             }
                         }
@@ -489,7 +492,8 @@ namespace Antura.Rewards
         {
             if (pack.HasUnlockData())
             {
-                throw new Exception($"Pack {pack} is already registered! Cannot register again");
+                Debug.LogWarning($"Pack {pack} is already registered! Cannot register again");
+                return;
             }
 
             // Add the unlock data and register it

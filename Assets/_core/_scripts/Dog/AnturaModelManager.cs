@@ -301,13 +301,8 @@ namespace Antura.Dog
             if (AppManager.I == null || AppManager.I.RewardSystemManager == null)
                 return;
             AppManager.I.RewardSystemManager.OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
-            PlayerProfileManager.OnProfileChanged += PlayerProfileManager_OnProfileChanged;
         }
 
-        private void PlayerProfileManager_OnProfileChanged()
-        {
-            LoadAnturaCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization);
-        }
 
         private void RewardSystemManager_OnRewardItemChanged(RewardPack rewardPack)
         {

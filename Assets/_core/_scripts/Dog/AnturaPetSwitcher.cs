@@ -100,5 +100,21 @@ namespace Antura.Dog
                 }
             }
         }
+
+        void OnEnable()
+        {
+            if (AppManager.I == null || AppManager.I.RewardSystemManager == null)
+                return;
+            PlayerProfileManager.OnProfileChanged += PlayerProfileManager_OnProfileChanged;
+        }
+        void OnDisable()
+        {
+            PlayerProfileManager.OnProfileChanged -= PlayerProfileManager_OnProfileChanged;
+        }
+        private void PlayerProfileManager_OnProfileChanged()
+        {
+            LoadPet(AppManager.I.Player.PetData.SelectedPet);
+        }
+
     }
 }
