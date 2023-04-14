@@ -15,11 +15,20 @@ namespace Antura.Minigames.ThrowBalls
         private Vector3 velocity;
         private Vector3 ballOffset;
         private AnturaPetSwitcher petSwitcher;
-        private AnturaAnimationController animator => petSwitcher.AnimController;
+        private AnturaPetSwitcher PetSwitcher
+        {
+            get
+            {
+                if (petSwitcher == null) petSwitcher =  GetComponent<AnturaPetSwitcher>();
+                return petSwitcher;
+            }
+        }
+
+        private AnturaAnimationController animator => PetSwitcher.AnimController;
         private bool ballGrabbed;
         private bool jumped;
 
-        private AnturaModelManager modelManager => petSwitcher.ModelManager;
+        private AnturaModelManager modelManager => PetSwitcher.ModelManager;
         private Rigidbody rigidBody;
 
         private enum State
@@ -38,8 +47,6 @@ namespace Antura.Minigames.ThrowBalls
 
         void Start()
         {
-            petSwitcher = GetComponent<AnturaPetSwitcher>();
-
             state = State.Running;
             animator.State = AnturaAnimationStates.walking;
         }
