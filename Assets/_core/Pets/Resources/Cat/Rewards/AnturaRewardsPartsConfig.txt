@@ -15,6 +15,19 @@
     },
     {
       "SharedID": "head_2",
+      "ID": "reward_cow_hat",
+      "RewardName": "CowHorns",
+      "BoneAttach": "Head",
+      "Material1": "diffuse_saturated",
+      "Material2": "diffuse_saturated",
+      "Material3 Fixed Color": "None",
+      "Category": "HEAD",
+      "LocID": "UI_Antura_Item_Cow_Horns",
+      "Mesh Type": "Rigid",
+      "State": "1"
+    },
+    {
+      "SharedID": "head_3",
       "ID": "reward_fisher_hat",
       "RewardName": "FisherHat",
       "BoneAttach": "None",
@@ -27,7 +40,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_3",
+      "SharedID": "head_4",
       "ID": "reward_propeller_hat",
       "RewardName": "PropellerCap",
       "BoneAttach": "Head",
@@ -40,7 +53,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_5",
       "ID": "reward_traveler_hat",
       "RewardName": "TravelerHat",
       "BoneAttach": "Head",
@@ -53,20 +66,20 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_6",
       "ID": "reward_unicorn_hat",
       "RewardName": "UnicornHornHat",
       "BoneAttach": "Head",
       "Material1": "diffuse_saturated",
       "Material2": "diffuse_saturated",
-      "Material3 Fixed Color": "diffuse_saturated",
+      "Material3 Fixed Color": "None",
       "Category": "HEAD",
       "LocID": "UI_Antura_Item_Hat_Unicorn",
       "Mesh Type": "Rigid",
-      "State": "0.8"
+      "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_7",
       "ID": "reward_wizard_hat",
       "RewardName": "WizardHat",
       "BoneAttach": "Head",
@@ -79,7 +92,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_8",
       "ID": "reward_anglerfish_helm",
       "RewardName": "AnglerfishHood",
       "BoneAttach": "None",
@@ -92,7 +105,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_9",
       "ID": "reward_apple_helm",
       "RewardName": "AppleHood",
       "BoneAttach": "None",
@@ -105,7 +118,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_10",
       "ID": "reward_pineapple_helm",
       "RewardName": "PineappleHood",
       "BoneAttach": "None",
@@ -118,7 +131,7 @@
       "State": "1"
     },
     {
-      "SharedID": "head_1",
+      "SharedID": "head_11",
       "ID": "reward_shark_helm",
       "RewardName": "SharkHood",
       "BoneAttach": "None",
@@ -145,8 +158,8 @@
     },
     {
       "SharedID": "ear_r_1",
-      "ID": "reward_bell_earing_r",
-      "RewardName": "BellEaring_R",
+      "ID": "reward_bell_earring_r",
+      "RewardName": "BellEarring_R",
       "BoneAttach": "RightEar2",
       "Material1": "specular_saturated",
       "Material2": "specular_saturated",
@@ -154,12 +167,12 @@
       "Category": "EAR_R",
       "LocID": "UI_Antura_Item_Ear_R_Bell",
       "Mesh Type": "Rigid",
-      "State": "0.8"
+      "State": "1"
     },
     {
       "SharedID": "ear_r_2",
-      "ID": "reward_bow_earing_r",
-      "RewardName": "BowEaring_R",
+      "ID": "reward_bow_earring_r",
+      "RewardName": "BowEarring_R",
       "BoneAttach": "RightEar2",
       "Material1": "specular_saturated",
       "Material2": "specular_saturated_2side",
@@ -167,15 +180,28 @@
       "Category": "EAR_R",
       "LocID": "UI_Antura_Item_Ear_R_Bow",
       "Mesh Type": "Rigid",
-      "State": "0.8"
+      "State": "1"
     },
     {
       "SharedID": "ear_r_3",
-      "ID": "reward_diamond_earing_r",
-      "RewardName": "DiamondEaring_R",
+      "ID": "reward_brooch_earring_r",
+      "RewardName": "BroochEarring_R",
+      "BoneAttach": "RightEar3",
+      "Material1": "specular_saturated",
+      "Material2": "specular_saturated",
+      "Material3 Fixed Color": "None",
+      "Category": "EAR_R",
+      "LocID": "UI_Antura_Item_Ear_R_Brooch",
+      "Mesh Type": "Rigid",
+      "State": "1"
+    },
+    {
+      "SharedID": "ear_r_4",
+      "ID": "reward_diamond_earring_r",
+      "RewardName": "DiamondEarring_R",
       "BoneAttach": "RightEar2",
       "Material1": "specular_saturated_2side",
-      "Material2": "transparent_saturated_2side",
+      "Material2": "transparent_glass_saturated",
       "Material3 Fixed Color": "None",
       "Category": "EAR_R",
       "LocID": "UI_Antura_Item_Ear_R_Diamond",
@@ -183,9 +209,22 @@
       "State": "1"
     },
     {
-      "SharedID": "ear_r_4",
-      "ID": "reward_star_earing_r",
-      "RewardName": "StarEaring_R",
+      "SharedID": "ear_r_5",
+      "ID": "reward_ring_earring_r",
+      "RewardName": "RingEarring_R",
+      "BoneAttach": "RightEar3",
+      "Material1": "specular_saturated",
+      "Material2": "specular_saturated",
+      "Material3 Fixed Color": "None",
+      "Category": "EAR_R",
+      "LocID": "UI_Antura_Item_Ear_R_Ring",
+      "Mesh Type": "Rigid",
+      "State": "1"
+    },
+    {
+      "SharedID": "ear_r_6",
+      "ID": "reward_star_earring_r",
+      "RewardName": "StarEarring_R",
       "BoneAttach": "RightEar2",
       "Material1": "specular_saturated",
       "Material2": "specular_saturated",
@@ -193,59 +232,7 @@
       "Category": "EAR_R",
       "LocID": "UI_Antura_Item_Ear_R_Star",
       "Mesh Type": "Rigid",
-      "State": "0.8"
-    },
-    {
-      "SharedID": "ear_l_1",
-      "ID": "reward_bell_earing_l",
-      "RewardName": "BellEaring_L",
-      "BoneAttach": "LeftEar2",
-      "Material1": "specular_saturated",
-      "Material2": "specular_saturated",
-      "Material3 Fixed Color": "diffuse_saturated",
-      "Category": "EAR_L",
-      "LocID": "UI_Antura_Item_Ear_L_Bell",
-      "Mesh Type": "Rigid",
-      "State": "0.8"
-    },
-    {
-      "SharedID": "ear_l_2",
-      "ID": "reward_bow_earing_l",
-      "RewardName": "BowEaring_L",
-      "BoneAttach": "LeftEar2",
-      "Material1": "specular_saturated",
-      "Material2": "specular_saturated_2side",
-      "Material3 Fixed Color": "None",
-      "Category": "EAR_L",
-      "LocID": "UI_Antura_Item_Ear_L_Bow",
-      "Mesh Type": "Rigid",
-      "State": "0.8"
-    },
-    {
-      "SharedID": "ear_l_3",
-      "ID": "reward_diamond_earing_l",
-      "RewardName": "DiamondEaring_L",
-      "BoneAttach": "LeftEar2",
-      "Material1": "specular_saturated_2side",
-      "Material2": "transparent_saturated_2side",
-      "Material3 Fixed Color": "None",
-      "Category": "EAR_L",
-      "LocID": "UI_Antura_Item_Ear_L_Diamond",
-      "Mesh Type": "Rigid",
-      "State": "0.9"
-    },
-    {
-      "SharedID": "ear_l_4",
-      "ID": "reward_star_earing_l",
-      "RewardName": "StarEaring_L",
-      "BoneAttach": "LeftEar2",
-      "Material1": "specular_saturated",
-      "Material2": "specular_saturated",
-      "Material3 Fixed Color": "None",
-      "Category": "EAR_L",
-      "LocID": "UI_Antura_Item_Ear_L_Star",
-      "Mesh Type": "Rigid",
-      "State": "0.8"
+      "State": "1"
     },
     {
       "SharedID": "",
@@ -305,7 +292,7 @@
       "RewardName": "HeartGlasses",
       "BoneAttach": "Head",
       "Material1": "diffuse_saturated",
-      "Material2": "specular_saturated_2side",
+      "Material2": "transparent_glass_saturated",
       "Material3 Fixed Color": "None",
       "Category": "NOSE",
       "LocID": "UI_Antura_Item_Glasses_Heart",
@@ -313,12 +300,12 @@
       "State": "1"
     },
     {
-      "SharedID": "nose_4",
+      "SharedID": "nose_5",
       "ID": "reward_round_glasses",
       "RewardName": "RoundGlasses",
       "BoneAttach": "Head",
       "Material1": "diffuse_saturated",
-      "Material2": "specular_saturated_2side",
+      "Material2": "transparent_glass_saturated",
       "Material3 Fixed Color": "None",
       "Category": "NOSE",
       "LocID": "UI_Antura_Item_Glasses_Round",
@@ -326,7 +313,7 @@
       "State": "1"
     },
     {
-      "SharedID": "nose_4",
+      "SharedID": "nose_6",
       "ID": "reward_small_glasses",
       "RewardName": "SmallGlasses",
       "BoneAttach": "Head",
@@ -375,7 +362,7 @@
       "Category": "JAW",
       "LocID": "UI_Antura_Item_Jaw_Flower",
       "Mesh Type": "Rigid",
-      "State": "0.8"
+      "State": "1"
     },
     {
       "SharedID": "jaw_3",
@@ -466,7 +453,7 @@
       "Category": "NECK",
       "LocID": "UI_Antura_Item_Collar_Flower",
       "Mesh Type": "Skinned",
-      "State": "0.8"
+      "State": "1"
     },
     {
       "SharedID": "",
@@ -485,40 +472,40 @@
       "SharedID": "back_1",
       "ID": "reward_batwings_back",
       "RewardName": "BatWings",
-      "BoneAttach": "Spine1",
+      "BoneAttach": "None",
       "Material1": "diffuse_saturated",
-      "Material2": "diffuse_saturated",
+      "Material2": "diffuse_saturated_2side",
       "Material3 Fixed Color": "None",
       "Category": "BACK",
       "LocID": "UI_Antura_Item_Back_Batwings",
-      "Mesh Type": "Rigid",
-      "State": "50%%"
+      "Mesh Type": "Skinned",
+      "State": "1"
     },
     {
       "SharedID": "back_2",
       "ID": "reward_butterflywings_back",
       "RewardName": "ButterflyWings",
-      "BoneAttach": "Spine1",
+      "BoneAttach": "None",
       "Material1": "specular_saturated_2side",
       "Material2": "specular_saturated_2side",
       "Material3 Fixed Color": "specular_saturated_2side",
       "Category": "BACK",
       "LocID": "UI_Antura_Item_Back_Butterflywings",
-      "Mesh Type": "Rigid",
-      "State": "50%%"
+      "Mesh Type": "Skinned",
+      "State": "1"
     },
     {
       "SharedID": "back_3",
       "ID": "reward_cloudwings_back",
       "RewardName": "CloudWings",
-      "BoneAttach": "Spine1",
-      "Material1": "diffuse_saturated",
-      "Material2": "diffuse_saturated",
+      "BoneAttach": "None",
+      "Material1": "diffuse_saturated_2side",
+      "Material2": "diffuse_saturated_2side",
       "Material3 Fixed Color": "None",
       "Category": "BACK",
       "LocID": "UI_Antura_Item_Back_Cloudwings",
-      "Mesh Type": "Rigid",
-      "State": "50%%"
+      "Mesh Type": "Skinned",
+      "State": "1"
     },
     {
       "SharedID": "back_4",
@@ -530,20 +517,20 @@
       "Material3 Fixed Color": "diffuse_saturated",
       "Category": "BACK",
       "LocID": "UI_Antura_Item_Back_Saxophone",
-      "Mesh Type": "Rigid",
+      "Mesh Type": "Skinned",
       "State": "1"
     },
     {
-      "SharedID": "back_4",
+      "SharedID": "back_5",
       "ID": "reward_umbrella_back",
       "RewardName": "Umbrella",
-      "BoneAttach": "Spine",
+      "BoneAttach": "None",
       "Material1": "diffuse_saturated_2side",
       "Material2": "diffuse_saturated",
       "Material3 Fixed Color": "None",
       "Category": "BACK",
       "LocID": "UI_Antura_Item_Back_Umbrella",
-      "Mesh Type": "Rigid",
+      "Mesh Type": "Skinned",
       "State": "1"
     },
     {
@@ -566,7 +553,7 @@
       "BoneAttach": "None",
       "Material1": "diffuse_saturated",
       "Material2": "specular_saturated_2side",
-      "Material3 Fixed Color": "diffuse_saturated",
+      "Material3 Fixed Color": "None",
       "Category": "TAIL",
       "LocID": "UI_Antura_Item_Tail_Bow",
       "Mesh Type": "Skinned",
@@ -574,6 +561,19 @@
     },
     {
       "SharedID": "tail_2",
+      "ID": "reward_brooch_tail",
+      "RewardName": "BroochTailRing",
+      "BoneAttach": "None",
+      "Material1": "specular_saturated",
+      "Material2": "specular_saturated",
+      "Material3 Fixed Color": "None",
+      "Category": "TAIL",
+      "LocID": "UI_Antura_Item_Tail_Brooch",
+      "Mesh Type": "Skinned",
+      "State": "1"
+    },
+    {
+      "SharedID": "tail_3",
       "ID": "reward_flower_tail",
       "RewardName": "FlowerTailRing",
       "BoneAttach": "None",
@@ -586,20 +586,7 @@
       "State": "1"
     },
     {
-      "SharedID": "tail_2",
-      "ID": "reward_socks_tail",
-      "RewardName": "SocksTail",
-      "BoneAttach": "None",
-      "Material1": "diffuse_saturated",
-      "Material2": "diffuse_saturated",
-      "Material3 Fixed Color": "None",
-      "Category": "TAIL",
-      "LocID": "UI_Antura_Item_Tail_Socks",
-      "Mesh Type": "Skinned",
-      "State": "1"
-    },
-    {
-      "SharedID": "tail_2",
+      "SharedID": "tail_4",
       "ID": "reward_spikes_tail",
       "RewardName": "SpikesTailRing",
       "BoneAttach": "None",
@@ -612,7 +599,7 @@
       "State": "1"
     },
     {
-      "SharedID": "tail_2",
+      "SharedID": "tail_5",
       "ID": "reward_star_tail",
       "RewardName": "StarTailRing",
       "BoneAttach": "None",
@@ -802,6 +789,16 @@
       "SharedID": "decal_03",
       "ID": "Antura_decalmap03",
       "ColorVariations": "3"
+    },
+    {
+      "SharedID": "decal_03",
+      "ID": "Antura_decalmap04",
+      "ColorVariations": "3"
+    },
+    {
+      "SharedID": "decal_03",
+      "ID": "Antura_decalmap05",
+      "ColorVariations": "3"
     }
   ],
   "DecalColors": [
@@ -819,67 +816,52 @@
       "ID": "color3",
       "Color1Name": "",
       "Color1RGB": "960078FF"
-    },
-    {
-      "ID": "color4",
-      "Color1Name": "",
-      "Color1RGB": "262626FF"
-    },
-    {
-      "ID": "color5",
-      "Color1Name": "",
-      "Color1RGB": "960078FF"
     }
   ],
   "TextureBases": [
     {
       "SharedID": "texture_01",
-      "ID": "Antura_flower_tilemat",
-      "ColorVariations": "7"
+      "ID": "Cat_Base_Pattern_A",
+      "ColorVariations": "6"
     },
     {
       "SharedID": "texture_02",
-      "ID": "Antura_fur2_tilemat",
+      "ID": "Cat_Base_Pattern_B",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_03",
-      "ID": "Antura_fur_tilemat",
+      "ID": "Cat_Base_Pattern_C",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_04",
-      "ID": "Antura_heart_pois_tilemat",
+      "ID": "Cat_Base_Pattern_D",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_05",
-      "ID": "Antura_pois_tilemat",
+      "ID": "Cat_Base_Pattern_E",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_06",
-      "ID": "Antura_scales_tilemat",
+      "ID": "Cat_Base_Pattern_F",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_07",
-      "ID": "Antura_scottish_tilemat",
+      "ID": "Cat_Base_Pattern_G",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_08",
-      "ID": "Antura_wool_tilemat",
+      "ID": "Cat_Base_Pattern_H",
       "ColorVariations": "6"
     },
     {
       "SharedID": "texture_09",
-      "ID": "Saturated",
-      "ColorVariations": "6"
-    },
-    {
-      "SharedID": "texture_10",
-      "ID": "Saturated",
+      "ID": "Cat_Base_NoPattern",
       "ColorVariations": "6"
     }
   ],
@@ -887,32 +869,32 @@
     {
       "ID": "color1",
       "Color1Name": "",
-      "Color1RGB": "00BAFFFF"
+      "Color1RGB": "ADAAAA"
     },
     {
       "ID": "color2",
       "Color1Name": "",
-      "Color1RGB": "BB5400FF"
+      "Color1RGB": "FFE9CF"
     },
     {
       "ID": "color3",
       "Color1Name": "",
-      "Color1RGB": "F78BAFFF"
+      "Color1RGB": "000000"
     },
     {
       "ID": "color4",
       "Color1Name": "",
-      "Color1RGB": "FFFFFFFF"
+      "Color1RGB": "FDF2B8"
     },
     {
       "ID": "color5",
       "Color1Name": "",
-      "Color1RGB": "000000FF"
+      "Color1RGB": "AAAAAA"
     },
     {
       "ID": "color6",
       "Color1Name": "",
-      "Color1RGB": "FFBA00FF"
+      "Color1RGB": "AAAAAA"
     }
   ]
 }
