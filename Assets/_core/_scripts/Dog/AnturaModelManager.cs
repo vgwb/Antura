@@ -313,7 +313,6 @@ namespace Antura.Dog
         void OnDisable()
         {
             AppManager.I.RewardSystemManager.OnRewardSelectionChanged -= RewardSystemManager_OnRewardItemChanged;
-            PlayerProfileManager.OnProfileChanged -= PlayerProfileManager_OnProfileChanged;
         }
 
         #endregion
