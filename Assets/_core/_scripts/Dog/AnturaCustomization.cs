@@ -111,7 +111,22 @@ namespace Antura.Dog
             }
 
             TexturePack = rewardSystem.GetRewardPackByUniqueId(TexturePackId);
+            if (TexturePack == null)
+            {
+                RewardPack defaultTileTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Texture)[0];
+                Debug.LogWarning($"AnturaCustomization: Could not find TexturePackID {TexturePackId}. Using default texture: " + defaultTileTexturePack);
+                TexturePackId = defaultTileTexturePack.UniqueId;
+                TexturePack = defaultTileTexturePack;
+            }
+
             DecalPack = rewardSystem.GetRewardPackByUniqueId(DecalPackId);
+            if (string.IsNullOrEmpty(DecalPackId))
+            {
+                RewardPack defaultDecalTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Decal)[0];
+                Debug.LogWarning($"AnturaCustomization: Could not find DecalPackId {DecalPackId}. Using default texture: " + defaultDecalTexturePack);
+                DecalPackId = defaultDecalTexturePack.UniqueId;
+                DecalPack = defaultDecalTexturePack;
+            }
         }
 
         /// <summary>
