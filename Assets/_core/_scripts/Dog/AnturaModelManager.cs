@@ -98,7 +98,7 @@ namespace Antura.Dog
             foreach (var propPack in _anturaCustomization.PropPacks)
             {
                 LoadRewardPackOnAntura(propPack);
-                ModelsManager.SwitchMaterial(LoadRewardPackOnAntura(propPack), propPack.GetMaterialPair());
+                ModelsManager.SwitchMaterial(LoadRewardPackOnAntura(propPack), propPack.GetMaterialPair(), _anturaCustomization.PetType);
             }
             LoadRewardPackOnAntura(_anturaCustomization.TexturePack);
             LoadRewardPackOnAntura(_anturaCustomization.DecalPack);
@@ -215,7 +215,7 @@ namespace Antura.Dog
         /// <returns></returns>
         public GameObject SetRewardMaterialColors(GameObject _gameObject, RewardPack rewardPack)
         {
-            ModelsManager.SwitchMaterial(_gameObject, rewardPack.GetMaterialPair());
+            ModelsManager.SwitchMaterial(_gameObject, rewardPack.GetMaterialPair(), PetType);
             //actualRewardsForCategoryColor.Add()
             return _gameObject;
         }
@@ -267,7 +267,7 @@ namespace Antura.Dog
             }
 
             // Set materials
-            ModelsManager.SwitchMaterial(rewardModel, rewardPack.GetMaterialPair());
+            ModelsManager.SwitchMaterial(rewardModel, rewardPack.GetMaterialPair(), PetType);
 
             // Save on LoadedModel List
             LoadedModels.Add(new LoadedModel() { RewardPack = rewardPack, GO = rewardModel });

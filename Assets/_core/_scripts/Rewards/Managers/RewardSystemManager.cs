@@ -881,7 +881,7 @@ namespace Antura.Rewards
                 case RewardBaseType.Prop:
                     for (int i = 0; i < returnList.Count; i++)
                     {
-                        if (returnList[i] != null)
+                        if (returnList[i] != null && i < _parentsTransForModels.Count)
                         {
                             ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, _parentsTransForModels[i], checkExisting:true);
                         }

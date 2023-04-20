@@ -25,7 +25,7 @@ namespace Antura.AnturaSpace.UI
     /// </summary>
     public class AnturaSpaceUI : MonoBehaviour
     {
-        public int MaxItems = 10;
+        private static int MaxItems = 12;
         public LayerMask RewardsLayer;
 
         [DeToggleButton]
@@ -425,6 +425,7 @@ namespace Antura.AnturaSpace.UI
             _currRewardBaseType = CategoryToRewardBaseType(_category);
             bool useImages = _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
+
             foreach (var item in btsItems)
             {
                 item.SetImage(!useImages);
@@ -435,6 +436,10 @@ namespace Antura.AnturaSpace.UI
             RewardBaseItem selectedRewardBaseData = RefreshItems(petType:AppManager.I.Player.PetData.SelectedPet);
             ItemsContainer.gameObject.SetActive(true);
             showItemsTween.PlayForward();
+
+            // Change number of columns based on reward type
+            bool useTwoColumns = _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears || currRewardBaseItems.Count <= 8;
+            btsItems[0].GetComponentInParent<GridLayoutGroup>(true).constraintCount = useTwoColumns ? 2 : 3;
 
             // Select eventual reward
             if (selectedRewardBaseData != null)

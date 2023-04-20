@@ -69,34 +69,51 @@ namespace Antura.Rewards
         {
             CleanTranformChildren(_parent);
             GameObject returnObject = MountModel(petType, _id, _parent, _type);
-            SwitchMaterial(returnObject, _materialPair);
+            SwitchMaterial(returnObject, _materialPair, petType);
             return returnObject;
         }
 
-        public static MaterialPair SwitchMaterial(GameObject _gameObject, MaterialPair _materialPair)
+        public static MaterialPair SwitchMaterial(GameObject _gameObject, MaterialPair _materialPair, AnturaPetType petType)
         {
             if (_materialPair.Material1 == null || _materialPair.Material2 == null)
             { return _materialPair; }
+
+            var colMat1 = new Material(_materialPair.Material1);
+            var colMat2 = new Material(_materialPair.Material2);
+
+            var saturation = 1f;
+            if (petType == AnturaPetType.Cat) saturation = 0.5f;
+
+            {
+                Color.RGBToHSV(colMat1.color, out var h, out var s, out var v);
+                colMat1.color = Color.HSVToRGB(h, s*saturation, v);
+            }
+
+            {
+                Color.RGBToHSV(colMat2.color, out var h, out var s, out var v);
+                colMat2.color = Color.HSVToRGB(h, s*saturation, v);
+            }
+
             foreach (var color in _gameObject.GetComponentsInChildren<MeshRenderer>())
             {
                 if (color.name.ToLower() == "color_1")
                 {
-                    color.materials = new Material[] { _materialPair.Material1 };
+                    color.materials = new[] { colMat1 };
                 }
                 else if (color.name.ToLower() == "color_2")
                 {
-                    color.materials = new Material[] { _materialPair.Material2 };
+                    color.materials = new[] { colMat2 };
                 }
             }
             foreach (var color in _gameObject.GetComponentsInChildren<SkinnedMeshRenderer>())
             {
                 if (color.name.ToLower() == "color_1")
                 {
-                    color.materials = new Material[] { _materialPair.Material1 };
+                    color.materials = new[] { colMat1 };
                 }
                 else if (color.name.ToLower() == "color_2")
                 {
-                    color.materials = new Material[] { _materialPair.Material2 };
+                    color.materials = new[] { colMat2 };
                 }
             }
             return _materialPair;
