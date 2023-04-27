@@ -287,8 +287,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 1617caaab623d2540a8221ae61f8c33f, type: 2}
-  - {fileID: 2100000, guid: 4262facf9cf9fb349b47e1c25fea5e74, type: 2}
+  - {fileID: 2100000, guid: 706be2af3e94d9b459c38649ee35fe40, type: 2}
+  - {fileID: 2100000, guid: 4a788262ed31edc419a4c689ffecf7f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1022,12 +1022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   PetType: 0
   RootBone: {fileID: 4000013813502230}
-  HeadBone: {fileID: 4000010555120730}
-  SpineBone: {fileID: 4000011366790114}
   JawBone: {fileID: 4000010154735368}
-  TailBone: {fileID: 4000011132357180}
-  EarRBone: {fileID: 4000010782369868}
-  EraLBone: {fileID: 4000012725755454}
   SkinnedMesh: {fileID: 137000012419263434}
   SkinnedMeshsTextureOnly:
   - {fileID: 137000012251546260}
@@ -1048,7 +1043,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!95 &95000011799149138
 Animator:
-  serializedVersion: 4
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -1065,7 +1060,8 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1000012181675510
 GameObject:
   m_ObjectHideFlags: 0
@@ -1150,8 +1146,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dbedea5197b723439242b5310c40453, type: 2}
-  - {fileID: 2100000, guid: d46515f4fd1912243bf904d702b252ea, type: 2}
+  - {fileID: 2100000, guid: 706be2af3e94d9b459c38649ee35fe40, type: 2}
+  - {fileID: 2100000, guid: 4a788262ed31edc419a4c689ffecf7f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1555,8 +1551,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dbedea5197b723439242b5310c40453, type: 2}
-  - {fileID: 2100000, guid: d46515f4fd1912243bf904d702b252ea, type: 2}
+  - {fileID: 2100000, guid: 706be2af3e94d9b459c38649ee35fe40, type: 2}
+  - {fileID: 2100000, guid: 4a788262ed31edc419a4c689ffecf7f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1926,8 +1922,8 @@ SkinnedMeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 3dbedea5197b723439242b5310c40453, type: 2}
-  - {fileID: 2100000, guid: d46515f4fd1912243bf904d702b252ea, type: 2}
+  - {fileID: 2100000, guid: 706be2af3e94d9b459c38649ee35fe40, type: 2}
+  - {fileID: 2100000, guid: 4a788262ed31edc419a4c689ffecf7f5, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

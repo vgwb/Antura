@@ -96,10 +96,10 @@ namespace Antura.Rewards
         public RewardBaseType BaseType;
 
         public RewardBase RewardBase;
-        public string BaseId { get { return RewardBase.ID; } }
+        public string BaseId => RewardBase.ID;
 
         public RewardColor RewardColor;
-        public string ColorId { get { return RewardColor.ID; } }
+        public string ColorId => RewardColor.ID;
 
         public RewardPack(RewardBaseType baseType, RewardBase rewardBase, RewardColor rewardColor)
         {

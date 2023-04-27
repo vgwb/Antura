@@ -23,6 +23,12 @@ namespace Antura.Dog
                     return ForcedPetType;
                 }
 
+                if (AppManager.I.Player == null)
+                {
+                    return AnturaPetType.Dog;
+                    // No profile fix
+                }
+
                 return AppManager.I.Player.PetData.SelectedPet;
             }
         }
