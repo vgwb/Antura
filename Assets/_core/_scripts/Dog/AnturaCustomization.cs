@@ -4,6 +4,7 @@ using Antura.Rewards;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.AnturaSpace.UI;
 using UnityEngine;
 
 namespace Antura.Dog
@@ -146,6 +147,11 @@ namespace Antura.Dog
             if (TexturePack.BaseId == baseId)
                 return true;
             return false;
+        }
+
+        public bool HasSomethingEquipped(AnturaSpaceCategoryButton.AnturaSpaceCategory category)
+        {
+            return PropPacks.Exists(f => f.Category == category.ToString());
         }
 
         public RewardPack GetEquippedPack(string baseId)

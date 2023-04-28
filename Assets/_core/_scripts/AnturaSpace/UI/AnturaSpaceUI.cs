@@ -48,8 +48,12 @@ namespace Antura.AnturaSpace.UI
         public TMPro.TextMeshProUGUI bonesNumber;
         public AnturaPetSwitcher petSwitcher;
 
-        public event System.Action onEnterCustomization;
-        public event System.Action onExitCustomization;
+        public event Action onEnterCustomization;
+        public event Action onExitCustomization;
+
+        public static bool SEPARATE_EARS = true;
+        public static bool MERGE_REMOVE_INTO_PROPS = true;
+        public static bool REWARDS_CAN_BE_BOUGHT = true;
 
         public delegate void AnturaSpaceUIEvent(string _id);
 
@@ -152,7 +156,7 @@ namespace Antura.AnturaSpace.UI
             ItemsContainer.gameObject.SetActive(false);
             SwatchesContainer.gameObject.SetActive(false);
 
-            // Listeneres
+            // Listeners
             BtOpenModsPanel.Bt.onClick.AddListener(() => OnClick(BtOpenModsPanel));
             BtBonesShop.Bt.onClick.AddListener(() => OnClick(BtBonesShop));
             BTRemoveMods.Bt.onClick.AddListener(() => OnClick(BTRemoveMods));
@@ -438,7 +442,7 @@ namespace Antura.AnturaSpace.UI
             showItemsTween.PlayForward();
 
             // Change number of columns based on reward type
-            bool useTwoColumns = _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears || currRewardBaseItems.Count <= 8;
+            bool useTwoColumns = (SEPARATE_EARS && _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears) || currRewardBaseItems.Count <= 8;
             btsItems[0].GetComponentInParent<GridLayoutGroup>(true).constraintCount = useTwoColumns ? 2 : 3;
 
             // Select eventual reward
@@ -461,14 +465,14 @@ namespace Antura.AnturaSpace.UI
             showSwatchesTween.Rewind();
             bool isTextureOrDecal = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture
                                     || currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
-            BTRemoveMods.gameObject.SetActive(!isTextureOrDecal && rewardBaseData != null);
+            BTRemoveMods.gameObject.SetActive(!MERGE_REMOVE_INTO_PROPS && !isTextureOrDecal && rewardBaseData != null);
             if (rewardBaseData == null)
             {
                 foreach (AnturaSpaceItemButton item in btsItems)
                 {
                     item.Toggle(false);
                 }
-                if (currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
+                if (SEPARATE_EARS && currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
                 {
                     petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_L");
                     petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_R");
@@ -554,7 +558,7 @@ namespace Antura.AnturaSpace.UI
         {
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
-            if (currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
+            if (SEPARATE_EARS && currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
             {
                 currRewardBaseItems = AppManager.I.RewardSystemManager.GetRewardBaseItems(_currRewardBaseType, rewardsContainers, "EAR_L");
                 List<Transform> altRewardContainers = new List<Transform>(rewardsContainers);
@@ -577,7 +581,7 @@ namespace Antura.AnturaSpace.UI
                 var categoryStrings = new List<string>();
                 switch (btCat.Category)
                 {
-                    case AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears:
+                    case AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears when SEPARATE_EARS:
                         categoryStrings.Add("EAR_L");
                         categoryStrings.Add("EAR_R");
                         break;
@@ -607,38 +611,51 @@ namespace Antura.AnturaSpace.UI
         {
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
+
+            int from = 0;
+            if (MERGE_REMOVE_INTO_PROPS) from = 1;
+
             // Hide non-existent items
-            for (int i = Mathf.Max(0, currRewardBaseItems.Count - 1); i < btsItems.Length; ++i)
+            for (int i = Mathf.Max(0, currRewardBaseItems.Count - 1 + from); i < btsItems.Length; ++i)
             {
                 btsItems[i].gameObject.SetActive(false);
             }
+
+            if (!useImages && MERGE_REMOVE_INTO_PROPS)
+            {
+                // First item will be the "remove" item instead
+                var item = btsItems[0];
+                item.gameObject.SetActive(true);
+                item.Toggle(!AppManager.I.Player.CurrentSingleAnturaCustomization.HasSomethingEquipped(currCategory));
+            }
+
             // Setup and show items
             RewardBaseItem selectedRewardBaseData = null;
-            for (int i = 0; i < currRewardBaseItems.Count; ++i)
+            for (int i = from; i < currRewardBaseItems.Count + from; ++i)
             {
-                RewardBaseItem rewardBaseItem = currRewardBaseItems[i];
+                RewardBaseItem rewardBaseItem = currRewardBaseItems[i-from];
                 AnturaSpaceItemButton item = btsItems[i];
+
+                if (rewardBaseItem == null || rewardBaseItem.data == null)
+                {
+                    Debug.LogWarning("Could not find data for reward base item");
+                    item.gameObject.SetActive(false);
+                    continue;
+                }
                 item.gameObject.SetActive(true);
                 item.Data = rewardBaseItem;
-                if (rewardBaseItem != null)
+                if (!useImages && !toggleOnly)
                 {
-                    if (!useImages && !toggleOnly)
-                    {
-                        item.RewardContainer.gameObject.SetLayerRecursive(GenericHelper.LayerMaskToIndex(RewardsLayer));
-                        if (item.RewardContainer.childCount > 0) CameraHelper.FitRewardToUICamera(item.RewardContainer.GetChild(0), item.RewardCamera, FlipRewards, petType);
-                    }
-                    item.SetAsNew(rewardBaseItem.IsNew);
-                    item.Toggle(rewardBaseItem.IsSelected);
-                    if (rewardBaseItem.IsSelected)
-                    {
-                        selectedRewardBaseData = rewardBaseItem;
-                    }
+                    item.RewardContainer.gameObject.SetLayerRecursive(GenericHelper.LayerMaskToIndex(RewardsLayer));
+                    if (item.RewardContainer.childCount > 0) CameraHelper.FitRewardToUICamera(item.RewardContainer.GetChild(0), item.RewardCamera, FlipRewards, petType);
                 }
-                else
+                item.SetAsNew(rewardBaseItem.IsNew);
+                item.Toggle(rewardBaseItem.IsSelected);
+                if (rewardBaseItem.IsSelected)
                 {
-                    item.Toggle(false);
+                    selectedRewardBaseData = rewardBaseItem;
                 }
-                item.Lock(rewardBaseItem == null || !AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
+                item.Lock(!AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
             }
             return selectedRewardBaseData;
         }
@@ -705,6 +722,13 @@ namespace Antura.AnturaSpace.UI
                 return;
 
             SelectReward(_bt.Data);
+
+            if (_bt.Data == null)
+            {
+                // This is the "remove" button, no prop is added
+                return;
+            }
+
             RewardBase rewardBase = _bt.Data.data;
             if (rewardBase != null && onRewardSelectedInCustomization != null)
             {
@@ -714,12 +738,11 @@ namespace Antura.AnturaSpace.UI
             RewardProp rewardProp = rewardBase as RewardProp;
             if (rewardProp != null)
             {
-                if (rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L"
+                if (SEPARATE_EARS && rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L"
                     && onRewardCategorySelectedInCustomization != null)
                 {
                     onRewardCategorySelectedInCustomization(rewardProp.Category);
                 }
-
                 AudioManager.I.PlayDialogue(rewardProp.LocID);
             }
         }

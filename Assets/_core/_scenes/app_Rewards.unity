@@ -1985,6 +1985,7 @@ GameObject:
   - component: {fileID: 1739923868}
   - component: {fileID: 1739923870}
   - component: {fileID: 1739923869}
+  - component: {fileID: 1739923871}
   m_Layer: 0
   m_Name: Ico
   m_TagString: Untagged
@@ -2050,6 +2051,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1739923867}
   m_CullTransparentMesh: 0
+--- !u!114 &1739923871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1739923867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e704eda22bca4ca3887116f588f9c7a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  empty: 0
+  noBorder: 0
 --- !u!1 &1775565532
 GameObject:
   m_ObjectHideFlags: 0
@@ -2796,6 +2811,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bfee728a715149af8a0565323f306a85, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  autoSpawn: 1
+  skipSwitching: 0
 --- !u!65 &65456082450710278
 BoxCollider:
   m_ObjectHideFlags: 0

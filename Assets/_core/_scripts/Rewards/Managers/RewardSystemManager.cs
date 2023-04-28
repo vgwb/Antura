@@ -883,7 +883,9 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null && i < _parentsTransForModels.Count)
                         {
-                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, _parentsTransForModels[i], checkExisting:true);
+                            var targetParentTr = _parentsTransForModels[i];
+                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
+                            ModelsManager.MountModel(AppManager.I.Player.PetData.SelectedPet, returnList[i].data.ID, targetParentTr, checkExisting:true);
                         }
                     }
                     break;
@@ -999,28 +1001,62 @@ namespace Antura.Rewards
         /// </summary>
         /// <param name="_categoryId">The category identifier.</param>
         /// <returns></returns>
-        public float GetAnturaRotationAngleViewForRewardCategory(string _categoryId)
+        public float GetAnturaRotationAngleViewForRewardCategory(string _categoryId, AnturaPetType _petType)
         {
-            switch (_categoryId)
+            var id  = Enum.Parse<AnturaSpaceCategory>(_categoryId);
+
+            switch (_petType)
             {
-                case "HEAD":
-                    return 40;
-                case "NOSE":
-                    return -20;
-                case "BACK":
-                    return 200;
-                case "NECK":
-                    return -80;
-                case "JAW":
-                    return 60;
-                case "TAIL":
-                    return 160;
-                case "EAR_R":
-                    return -40;
-                case "EAR_L":
-                    return 40;
+                case AnturaPetType.Dog:
+
+                    switch (id)
+                    {
+                        case AnturaSpaceCategory.HEAD:
+                            return 40;
+                        case AnturaSpaceCategory.NOSE:
+                            return -20;
+                        case AnturaSpaceCategory.BACK:
+                            return 200;
+                        case AnturaSpaceCategory.NECK:
+                            return -80;
+                        case AnturaSpaceCategory.JAW:
+                            return 60;
+                        case AnturaSpaceCategory.TAIL:
+                            return 160;
+                        case AnturaSpaceCategory.Ears:
+                        case AnturaSpaceCategory.EAR_R:
+                            return -40;
+                        case AnturaSpaceCategory.EAR_L:
+                            return 40;
+                        default:
+                            return 0;
+                    }
+                case AnturaPetType.Cat:
+
+                    switch (id)
+                    {
+                        case AnturaSpaceCategory.HEAD:
+                            return 40;
+                        case AnturaSpaceCategory.NOSE:
+                            return -20;
+                        case AnturaSpaceCategory.BACK:
+                            return 200;
+                        case AnturaSpaceCategory.NECK:
+                            return -80;
+                        case AnturaSpaceCategory.JAW:
+                            return 60;
+                        case AnturaSpaceCategory.TAIL:
+                            return 120;
+                        case AnturaSpaceCategory.Ears:
+                        case AnturaSpaceCategory.EAR_R:
+                            return -40;
+                        case AnturaSpaceCategory.EAR_L:
+                            return 40;
+                        default:
+                            return 0;
+                    }
                 default:
-                    return 0;
+                    throw new ArgumentOutOfRangeException(nameof(_petType), _petType, null);
             }
         }
 

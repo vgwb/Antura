@@ -115,7 +115,7 @@ namespace Antura.Rewards
                 return;
             }
 
-            rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category);
+            rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category, _petType:AppManager.I.Player.PetData.SelectedPet);
             newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
             if (newRewardInstantiatedGO != null)
                 newRewardInstantiatedGO.transform.localScale = Vector3.one * 0.001f;

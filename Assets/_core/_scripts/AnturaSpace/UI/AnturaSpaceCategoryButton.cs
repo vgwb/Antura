@@ -22,7 +22,11 @@ namespace Antura.AnturaSpace.UI
             BACK,
             TAIL,
             Texture,
-            Decal
+            Decal,
+
+            // @note: added to handle ears separately instead
+            EAR_L,
+            EAR_R,
         }
 
         public AnturaSpaceCategory Category;

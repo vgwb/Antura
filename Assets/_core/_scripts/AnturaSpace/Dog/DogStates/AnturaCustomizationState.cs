@@ -1,6 +1,7 @@
 using Antura.Core;
 using Antura.Dog;
 using Antura.Rewards;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Antura.AnturaSpace
@@ -14,6 +15,9 @@ namespace Antura.AnturaSpace
         public override void EnterState()
         {
             base.EnterState();
+            Camera.main.DOFieldOfView(50, 0.5f);
+            Camera.main.transform.DOLocalRotate(new Vector3(10, -8, 0), 0.5f);
+
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization += AnturaSpaceUI_onRewardCategorySelectedInCustomization;
             controller.Antura.SetTarget(controller.SceneCenter, true, controller.RotatingBase.transform);
             controller.RotatingBase.Activated = true;
@@ -28,6 +32,9 @@ namespace Antura.AnturaSpace
 
         public override void ExitState()
         {
+            Camera.main.DOFieldOfView(60, 0.5f);
+            Camera.main.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f);
+
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization -= AnturaSpaceUI_onRewardCategorySelectedInCustomization;
             controller.RotatingBase.Angle = 0;
             controller.RotatingBase.Activated = false;
@@ -42,7 +49,7 @@ namespace Antura.AnturaSpace
         /// <param name="_category">The category.</param>
         private void AnturaSpaceUI_onRewardCategorySelectedInCustomization(string _category)
         {
-            float rotation = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(_category);
+            float rotation = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(_category, AppManager.I.Player.PetData.SelectedPet);
             float offSet = rotation == 0 ? 0 : 40;
             controller.RotatingBase.Angle = rotation + offSet;
         }

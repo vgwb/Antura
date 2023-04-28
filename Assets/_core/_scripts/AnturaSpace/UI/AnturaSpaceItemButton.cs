@@ -19,15 +19,9 @@ namespace Antura.AnturaSpace.UI
         [System.NonSerialized]
         public RewardBaseItem Data;
 
-        public bool IsNew
-        {
-            get { return isNew && !isNewForceHidden; }
-        }
+        public bool IsNew => isNew && !isNewForceHidden;
 
-        public bool IsItemLocked
-        {
-            get { return _isItemLocked; }
-        }
+        public bool IsItemLocked => _isItemLocked;
 
         private RenderTexture renderTexture;
         private bool isNew, isNewForceHidden, _isItemLocked;
