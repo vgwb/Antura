@@ -91,7 +91,7 @@ namespace Antura.Rewards
     [Serializable]
     public class RewardPack
     {
-        public static bool FORCE_ALL_UNLOCKED = false;
+        public static bool FORCE_ALL_UNLOCKED => DebugConfig.I.ForceAllRewardsUnlocked;
 
         public RewardBaseType BaseType;
 

@@ -619,7 +619,7 @@ namespace Antura.AnturaSpace.UI
                 btsItems[i].gameObject.SetActive(false);
             }
 
-            if (!useImages && MERGE_REMOVE_INTO_PROPS)
+            if (MERGE_REMOVE_INTO_PROPS)
             {
                 // First item will be the "remove" item instead
                 var item = btsItems[0];
@@ -636,8 +636,10 @@ namespace Antura.AnturaSpace.UI
 
                 if (rewardBaseItem == null || rewardBaseItem.data == null)
                 {
-                    Debug.LogWarning("Could not find data for reward base item");
-                    item.gameObject.SetActive(false);
+                    // Here, item may be locked
+                    item.gameObject.SetActive(true);
+                    item.Toggle(false);
+                    item.Lock(true);
                     continue;
                 }
                 item.gameObject.SetActive(true);

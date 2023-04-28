@@ -896,9 +896,11 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
+                            var targetParentTr = _parentsTransForModels[i];
+                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
                             string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
-                            _parentsTransForModels[i].GetComponent<RawImage>().texture = inputTexture;
+                            targetParentTr.GetComponent<RawImage>().texture = inputTexture;
                         }
                     }
                     break;
@@ -908,9 +910,11 @@ namespace Antura.Rewards
                     {
                         if (returnList[i] != null)
                         {
+                            var targetParentTr = _parentsTransForModels[i];
+                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
                             string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
-                            _parentsTransForModels[i].GetComponent<RawImage>().texture = inputTexture;
+                            targetParentTr.GetComponent<RawImage>().texture = inputTexture;
                             //Debug.Log("Returned texture " + inputTexture.name + " for reward " + returnList[i].data.ID);
                         }
                     }
