@@ -3,7 +3,6 @@ using Antura.Dog;
 using Antura.Extensions;
 using Antura.Helpers;
 using Antura.Rewards;
-using Antura.Tutorial;
 using Antura.UI;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
@@ -14,7 +13,6 @@ using System.Linq;
 using Antura.Audio;
 using Antura.Database;
 using Antura.Keeper;
-using Antura.Profile;
 using UnityEngine;
 using UnityEngine.UI;
 

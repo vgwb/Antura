@@ -4,11 +4,12 @@ using Antura.Helpers;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using Antura.AnturaSpace.UI;
 using Antura.Dog;
-using Antura.Teacher;
 using DG.DeExtensions;
 using UnityEngine;
 using UnityEngine.UI;
+using static Antura.AnturaSpace.UI.AnturaSpaceCategoryButton;
 
 namespace Antura.Rewards
 {
@@ -700,11 +701,11 @@ namespace Antura.Rewards
 
                     var lockedBases = GetLockedRewardBasesOfBaseType(baseType);
 
-                    //Debug.Log("locked bases count: " + lockedBases.Count);
+                    Debug.Log("locked bases count: " + lockedBases.Count);
 
                     if (allowedCategories != null)
                     {
-                        //Debug.Log("Allowed categories: " + allowedCategories.ToDebugString());
+                        Debug.Log("Allowed categories: " + allowedCategories.ToDebugString());
                         lockedBases = lockedBases.Where(x => allowedCategories.Contains((x as RewardProp).Category)).ToList();
                     }
 
