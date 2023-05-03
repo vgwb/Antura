@@ -105,9 +105,16 @@ namespace Antura.Rewards
             newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
         }
 
+        public static bool GIVE_BONES_ONLY = true;
         void SpawnRewardAndPoof()
         {
             // Reward
+            if (GIVE_BONES_ONLY)
+            {
+                StartCoroutine(BonesRewardCO());
+                return;
+            }
+
             rewardPack = rewardsSceneController.GetRewardPackToInstantiate();
             if (rewardPack == null)
             {
