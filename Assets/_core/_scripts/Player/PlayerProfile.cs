@@ -286,6 +286,8 @@ namespace Antura.Profile
 
         #region Antura Customization and Rewards
 
+        public CustomizationShopState CustomizationShopState = new CustomizationShopState();
+
         private AllPetsAnturaCustomization _currentAllPetsAnturaCustomization = new();
 
         public void MigrateOldCustomization(AnturaCustomization dogCustomization)
@@ -570,6 +572,7 @@ namespace Antura.Profile
             ConsecutivePlayDays = _data.GetAdditionalData().ConsecutivePlayDays;
             CurrentShopState = AnturaSpace.ShopState.CreateFromJson(_data.GetAdditionalData().CurrentShopStateJSON);
             FirstContactState = JsonUtility.FromJson<FirstContactState>(_data.FirstContactStateJSON);
+            CustomizationShopState = CustomizationShopState.CreateFromJson(_data.GetAdditionalData().CurrentCustomizationShopStateJSON);
 
             PetData.SelectedPet = _data.SelectedPet;
             PetData.CatUnlocked = _data.CatUnlocked;
@@ -594,11 +597,11 @@ namespace Antura.Profile
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
-                    TotalNumberOfBones, ProfileCompletion, this._currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
+                    TotalNumberOfBones, ProfileCompletion, _currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState, CustomizationShopState,
                     FirstContactState, editionID, ContentID, AppVersion, PetData
             );
-            newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
-            newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
+            newProfileData.SetCurrentJourneyPosition(CurrentJourneyPosition);
+            newProfileData.SetMaxJourneyPosition(MaxJourneyPosition);
             return newProfileData;
         }
 

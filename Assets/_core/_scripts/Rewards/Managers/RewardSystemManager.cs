@@ -529,7 +529,7 @@ namespace Antura.Rewards
                 SaveRewardsUnlockDataChanges();
         }
 
-        private void UnlockPack(RewardPack pack)
+        public void UnlockPack(RewardPack pack)
         {
             pack.SetUnlocked();
             pack.SetNew(true);
@@ -857,11 +857,12 @@ namespace Antura.Rewards
             foreach (var rewardBase in rewardBases)
             {
                 bool isToBeShown = IsRewardBaseUnlocked(rewardBase, currentAnturaCustomizations.PetType);
+                if (AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT) isToBeShown = true;
                 // Debug.Log("Reward prop base "  + rewardBase.ID + " to be shown? " + isToBeShown);
 
                 if (isToBeShown)
                 {
-                    returnList.Add(new RewardBaseItem()
+                    returnList.Add(new RewardBaseItem
                     {
                         data = rewardBase,
                         IsNew = IsRewardBaseNew(rewardBase),
@@ -938,7 +939,7 @@ namespace Antura.Rewards
             var packsOfBase = GetRewardPacks(AppManager.I.Player.PetData.SelectedPet).Where(x => x.RewardBase == _Base);
             foreach (var pack in packsOfBase)
             {
-                bool isToBeShown = pack.IsUnlocked;
+                bool isToBeShown = AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT || pack.IsUnlocked;
                 if (isToBeShown)
                 {
                     RewardColorItem rci = new RewardColorItem

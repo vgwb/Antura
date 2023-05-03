@@ -450,7 +450,7 @@ namespace Antura.AnturaSpace
                 OnDeleteConfirmationRequested();
         }
 
-        private void AskPurchaseConfirmation()
+        public void AskPurchaseConfirmation()
         {
             if (OnPurchaseConfirmationRequested != null)
                 OnPurchaseConfirmationRequested();
@@ -543,5 +543,6 @@ namespace Antura.AnturaSpace
             SaveState();
             SetContextPurchase();
         }
+
     }
 }

@@ -37,11 +37,17 @@ namespace Antura.Database
         /// </summary>
         public string CurrentShopStateJSON;
 
-        public PlayerProfileAdditionalData(bool hasMaxStarsInCurrentPlaySessions, int _ConsecutivePlayDays, string currentShopStateJSON)
+        /// <summary>
+        /// JSON data for the current customiation shop unlocked state.
+        /// </summary>
+        public string CurrentCustomizationShopStateJSON;
+
+        public PlayerProfileAdditionalData(bool hasMaxStarsInCurrentPlaySessions, int _ConsecutivePlayDays, string currentShopStateJSON, string currentCustomizationShopStateJSON)
         {
             HasMaxStarsInCurrentPlaySessions = hasMaxStarsInCurrentPlaySessions;
             ConsecutivePlayDays = _ConsecutivePlayDays;
             CurrentShopStateJSON = currentShopStateJSON;
+            CurrentCustomizationShopStateJSON = currentCustomizationShopStateJSON;
         }
     }
 
@@ -233,6 +239,7 @@ namespace Antura.Database
                 string currentAnturaCustomization,
                 int comboPlayDays,
                 AnturaSpace.ShopState currentShopState,
+                CustomizationShopState currentCustomizationShopState,
                 FirstContactState currentFirstContactState,
                 AppEditionID editionID,
                 LearningContentID contentID,
@@ -262,7 +269,7 @@ namespace Antura.Database
             SetCurrentJourneyPosition(JourneyPosition.InitialJourneyPosition);
             Timestamp = GenericHelper.GetTimestampForNow();
             CurrentAnturaCustomization = currentAnturaCustomization;
-            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_HasMaxStarsInCurrentPlaySessions, comboPlayDays, currentShopState.ToJson()));
+            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_HasMaxStarsInCurrentPlaySessions, comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
 
             SelectedPet = petData.SelectedPet;
@@ -299,7 +306,7 @@ namespace Antura.Database
             }
             else
             {
-                return new PlayerProfileAdditionalData(false, 0, "");
+                return new PlayerProfileAdditionalData(false, 0, "", currentCustomizationShopStateJSON:"");
             }
         }
 
