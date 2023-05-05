@@ -33,9 +33,11 @@ namespace Antura.AnturaSpace
         Tween scrollShowTween;
 
         private Tween showShopPanelTween,
-            showDragPanelTween,
-            showConfirmationPanelTween,
-            showPurchasePanelAlwaysAvailableTween;
+            showDragPanelTween;
+
+        public Tween showConfirmationPanelTween;
+
+        private Tween showPurchasePanelAlwaysAvailableTween;
 
 
         public ShopActionUI GetActionUIByName(string actionName)
@@ -76,7 +78,7 @@ namespace Antura.AnturaSpace
             showConfirmationPanelTween =
                 confirmationPanel.DOAnchorPosY(-350, duration).From().SetEase(Ease.Linear).SetAutoKill(false).Pause();
             showPurchasePanelAlwaysAvailableTween =
-                purchasePanelAlwaysAvailableUI.DOAnchorPosX(200, duration)
+                purchasePanelAlwaysAvailableUI.DOAnchorPosX(-200, duration)
                     .From()
                     .SetEase(Ease.OutBack)
                     .SetAutoKill(false);
@@ -161,6 +163,12 @@ namespace Antura.AnturaSpace
 
 
         #region Confirmation
+
+        public void HandleCustomizationShopPurchaseConfirmationRequested(Action confirmPurchase, Action cancelPurchase)
+        {
+            confirmationPanelUI.SetupForPurchase();
+            AskForConfirmation( () => confirmPurchase(), () => cancelPurchase());
+        }
 
         private void HandlePurchaseConfirmationRequested()
         {
@@ -250,5 +258,6 @@ namespace Antura.AnturaSpace
             }
             photoActionUI.UpdateAction();
         }
+
     }
 }

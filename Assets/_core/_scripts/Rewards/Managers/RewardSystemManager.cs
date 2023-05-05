@@ -898,7 +898,6 @@ namespace Antura.Rewards
                         if (returnList[i] != null)
                         {
                             var targetParentTr = _parentsTransForModels[i];
-                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
                             string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
                             targetParentTr.GetComponent<RawImage>().texture = inputTexture;
@@ -912,7 +911,6 @@ namespace Antura.Rewards
                         if (returnList[i] != null)
                         {
                             var targetParentTr = _parentsTransForModels[i];
-                            if (AnturaSpaceUI.MERGE_REMOVE_INTO_PROPS) targetParentTr = _parentsTransForModels[i + 1];
                             string texturePath = $"{AppManager.I.Player.PetData.SelectedPet}/Textures_and_Materials/";
                             Texture2D inputTexture = Resources.Load<Texture2D>(texturePath + returnList[i].data.ID);
                             targetParentTr.GetComponent<RawImage>().texture = inputTexture;
@@ -988,10 +986,7 @@ namespace Antura.Rewards
         /// </summary>
         public void SelectRewardColorItem(RewardBase _rewardBase, RewardColor _rewardColor)
         {
-            var currentSelectedReward = GetRewardPackByPartsIds(_rewardBase.ID, _rewardColor.ID);
-
-            if (OnRewardSelectionChanged != null)
-                OnRewardSelectionChanged(currentSelectedReward);
+            PreviewReward(_rewardBase, _rewardColor);
 
             // Makes sure to set every pack with that color as seen
             foreach (var pack in GetUnlockedRewardPacksForBase(_rewardBase))
@@ -1000,6 +995,13 @@ namespace Antura.Rewards
                 pack.SetEdited();
             }
             SaveRewardsUnlockDataChanges();
+        }
+
+        public void PreviewReward(RewardBase _rewardBase, RewardColor _rewardColor)
+        {
+            var currentSelectedReward = GetRewardPackByPartsIds(_rewardBase.ID, _rewardColor.ID);
+            if (OnRewardSelectionChanged != null)
+                OnRewardSelectionChanged(currentSelectedReward);
         }
 
         /// <summary>

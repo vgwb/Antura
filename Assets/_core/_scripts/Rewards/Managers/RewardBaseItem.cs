@@ -1,3 +1,6 @@
+using System.Linq;
+using Antura.Core;
+
 namespace Antura.Rewards
 {
     /// <summary>
@@ -12,5 +15,15 @@ namespace Antura.Rewards
         // State
         public bool IsSelected;
 
+        public bool IsBought
+        {
+            get
+            {
+                // An item is considered bought if it was either unlocked (old mode), or if the shop state is present
+                var shopState = AppManager.I.Player.CustomizationShopState.CustomizationShopStates.FirstOrDefault(x => x.SharedID == data.SharedID);
+                bool unlocked = AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(data, AppManager.I.Player.PetData.SelectedPet);
+                return unlocked || (shopState != null && shopState.Bought);
+            }
+        }
     }
 }

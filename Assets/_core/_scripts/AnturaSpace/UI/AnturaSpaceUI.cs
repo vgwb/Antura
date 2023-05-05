@@ -49,7 +49,7 @@ namespace Antura.AnturaSpace.UI
         public event Action onEnterCustomization;
         public event Action onExitCustomization;
 
-        public static bool SEPARATE_EARS = true;
+        public static bool MERGE_EARS = true;
         public static bool MERGE_REMOVE_INTO_PROPS = true;
         public static bool REWARDS_CAN_BE_BOUGHT = true;
 
@@ -397,6 +397,12 @@ namespace Antura.AnturaSpace.UI
             // Save configuration
             //AnturaModelManager.Instance.SaveAnturaCustomization();
 
+            if (_currSelectedRewardBaseItem != null && !_currSelectedRewardBaseItem.IsBought)
+            {
+                CancelPurchase();
+            }
+            _currSelectedRewardBaseItem = null;
+
             // Toggle buttons
             foreach (AnturaSpaceCategoryButton bt in btsCategories)
             {
@@ -440,7 +446,8 @@ namespace Antura.AnturaSpace.UI
             showItemsTween.PlayForward();
 
             // Change number of columns based on reward type
-            bool useTwoColumns = (SEPARATE_EARS && _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears) || currRewardBaseItems.Count <= 8;
+            bool useTwoColumns = //(SEPARATE_EARS && _category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears) ||
+                                 currRewardBaseItems.Count <= 8;
             btsItems[0].GetComponentInParent<GridLayoutGroup>(true).constraintCount = useTwoColumns ? 2 : 3;
 
             // Select eventual reward
@@ -460,25 +467,19 @@ namespace Antura.AnturaSpace.UI
             if (rewardBaseData == null && scene.TutorialMode)
                 return;
 
+            if (_currSelectedRewardBaseItem != null && !_currSelectedRewardBaseItem.IsBought)
+            {
+                CancelPurchase();
+            }
+
             showSwatchesTween.Rewind();
             bool isTextureOrDecal = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture
                                     || currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
             BTRemoveMods.gameObject.SetActive(!MERGE_REMOVE_INTO_PROPS && !isTextureOrDecal && rewardBaseData != null);
             if (rewardBaseData == null)
             {
-                foreach (AnturaSpaceItemButton item in btsItems)
-                {
-                    item.Toggle(false);
-                }
-                if (SEPARATE_EARS && currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
-                {
-                    petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_L");
-                    petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_R");
-                }
-                else
-                {
-                    petSwitcher.ModelManager.ClearLoadedRewardInCategory(currCategory.ToString());
-                }
+                _currSelectedRewardBaseItem = null;
+                ClearRewardsOfCategory(currCategory);
                 return;
             }
 
@@ -490,51 +491,116 @@ namespace Antura.AnturaSpace.UI
                 return;
             }
 
-            // Hide non-existent swatches
-            for (int i = currRewardColorItems.Count - 1; i < btsSwatches.Length; ++i)
-                btsSwatches[i].gameObject.SetActive(false);
-            // Setup and show swatches
-            RewardColorItem selectedSwatchData = null;
-            for (int i = 0; i < currRewardColorItems.Count; ++i)
+            var bought = rewardBaseData.IsBought;
+            bool hasEnoughBones =  AppManager.I.Player.GetTotalNumberOfBones() >= rewardBaseData.data.Cost;
+            if (!bought)
             {
-                RewardColorItem swatchData = currRewardColorItems[i];
-                AnturaSpaceSwatchButton swatch = btsSwatches[i];
-                swatch.gameObject.SetActive(true);
-                swatch.Data = swatchData;
-                if (swatchData != null)
+                if (hasEnoughBones)
                 {
-                    swatch.SetAsNew(false); // @note: we force the swatch colors to never be shown as new
-                    //swatch.SetAsNew(!swatchData.IsSelected && swatchData.IsNew);
-                    swatch.Toggle(swatchData.IsSelected);
-                    Color hexColor1 = GenericHelper.HexToColor(swatchData.data.Color1RGB);
-                    Color hexColor2 = swatchData.data.Color2RGB == null ? hexColor1 : GenericHelper.HexToColor(swatchData.data.Color2RGB);
-                    swatch.SetColors(hexColor1, hexColor2);
-                    if (swatchData.IsSelected)
-                    {
-                        selectedSwatchData = swatchData;
-                    }
+                    // @note: we use the Decoration Shop logic to handle the purchase
+                    ShopDecorationsManager.I.CurrentDecorationCost = rewardBaseData.data.Cost;
+                    ShopPanelUI.HandleCustomizationShopPurchaseConfirmationRequested(ConfirmPurchase, CancelPurchase);
+
+                    // Mount anyway (preview)
+                    AppManager.I.RewardSystemManager.PreviewReward(_currSelectedRewardBaseItem.data, currRewardColorItems[0].data);
                 }
                 else
                 {
-                    swatch.Toggle(false);
-                    swatch.SetColors(GenericHelper.HexToColor("787878FF"), GenericHelper.HexToColor("494949FF"));
+                    // Cannot select at all
                 }
-                swatch.Lock(swatchData == null);
             }
-
-            SwatchesContainer.gameObject.SetActive(true);
-            showSwatchesTween.PlayForward();
-
-            // Select eventual color
-            if (selectedSwatchData != null)
+            else
             {
-                SelectSwatch(selectedSwatchData);
+
+                // Hide non-existent swatches
+                for (int i = currRewardColorItems.Count - 1; i < btsSwatches.Length; ++i)
+                    btsSwatches[i].gameObject.SetActive(false);
+                // Setup and show swatches
+                RewardColorItem selectedSwatchData = null;
+                for (int i = 0; i < currRewardColorItems.Count; ++i)
+                {
+                    RewardColorItem swatchData = currRewardColorItems[i];
+                    AnturaSpaceSwatchButton swatch = btsSwatches[i];
+                    swatch.gameObject.SetActive(true);
+                    swatch.Data = swatchData;
+                    if (swatchData != null)
+                    {
+                        swatch.SetAsNew(false); // @note: we force the swatch colors to never be shown as new
+                        //swatch.SetAsNew(!swatchData.IsSelected && swatchData.IsNew);
+                        swatch.Toggle(swatchData.IsSelected);
+                        Color hexColor1 = GenericHelper.HexToColor(swatchData.data.Color1RGB);
+                        Color hexColor2 = swatchData.data.Color2RGB == null ? hexColor1 : GenericHelper.HexToColor(swatchData.data.Color2RGB);
+                        swatch.SetColors(hexColor1, hexColor2);
+                        if (swatchData.IsSelected)
+                        {
+                            selectedSwatchData = swatchData;
+                        }
+                    }
+                    else
+                    {
+                        swatch.Toggle(false);
+                        swatch.SetColors(GenericHelper.HexToColor("787878FF"), GenericHelper.HexToColor("494949FF"));
+                    }
+                    swatch.Lock(swatchData == null);
+                }
+
+                SwatchesContainer.gameObject.SetActive(true);
+                showSwatchesTween.PlayForward();
+
+                // Select eventual color
+                if (selectedSwatchData != null)
+                {
+                    SelectSwatch(selectedSwatchData);
+                }
+
             }
 
             ReloadRewardsDatas();
             RefreshCategories();
             RefreshItems(true, AppManager.I.Player.PetData.SelectedPet);
         }
+
+        private void ClearRewardsOfCategory(AnturaSpaceCategoryButton.AnturaSpaceCategory category)
+        {
+            for (int index = 1; index < btsItems.Length; index++)
+            {
+                AnturaSpaceItemButton item = btsItems[index];
+                item.Toggle(false);
+            }
+            btsItems[0].Toggle(true);
+
+            if (MERGE_EARS && category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
+            {
+                petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_L");
+                petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_R");
+            }
+            else
+            {
+                petSwitcher.ModelManager.ClearLoadedRewardInCategory(category.ToString());
+            }
+        }
+
+        #region New Shop
+
+        public void ConfirmPurchase()
+        {
+            // TODO: analytics? AppManager.I.Services.Analytics.TrackItemBought(bonesCost, ActionKey);
+            AppManager.I.Player.RemoveBones(_currSelectedRewardBaseItem.data.Cost);
+            AppManager.I.Player.CustomizationShopState.ConfirmPurchase(_currSelectedRewardBaseItem.data.SharedID);
+            AppManager.I.Player.Save();
+            ShopPanelUI.showConfirmationPanelTween.PlayBackwards();
+            SelectReward(_currSelectedRewardBaseItem); // Refresh so swatches can be seen
+        }
+
+        public void CancelPurchase()
+        {
+            AudioManager.I.PlaySound(Sfx.KO);
+            ShopPanelUI.showConfirmationPanelTween.PlayBackwards();
+            ClearRewardsOfCategory(currCategory);
+            _currSelectedRewardBaseItem = null;
+        }
+
+        #endregion
 
         void SelectSwatch(RewardColorItem _colorData)
         {
@@ -556,7 +622,7 @@ namespace Antura.AnturaSpace.UI
         {
             bool useImages = currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture ||
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
-            if (SEPARATE_EARS && currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
+            if (MERGE_EARS && currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears)
             {
                 currRewardBaseItems = AppManager.I.RewardSystemManager.GetRewardBaseItems(_currRewardBaseType, rewardsContainers, "EAR_L");
                 List<Transform> altRewardContainers = new List<Transform>(rewardsContainers);
@@ -579,7 +645,7 @@ namespace Antura.AnturaSpace.UI
                 var categoryStrings = new List<string>();
                 switch (btCat.Category)
                 {
-                    case AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears when SEPARATE_EARS:
+                    case AnturaSpaceCategoryButton.AnturaSpaceCategory.Ears when MERGE_EARS:
                         categoryStrings.Add("EAR_L");
                         categoryStrings.Add("EAR_R");
                         break;
@@ -611,7 +677,7 @@ namespace Antura.AnturaSpace.UI
                              currCategory == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal;
 
             int from = 0;
-            if (MERGE_REMOVE_INTO_PROPS) from = 1;
+            if (MERGE_REMOVE_INTO_PROPS && !useImages) from = 1;
 
             // Hide non-existent items
             for (int i = Mathf.Max(0, currRewardBaseItems.Count - 1 + from); i < btsItems.Length; ++i)
@@ -619,11 +685,15 @@ namespace Antura.AnturaSpace.UI
                 btsItems[i].gameObject.SetActive(false);
             }
 
-            if (MERGE_REMOVE_INTO_PROPS)
+            if (MERGE_REMOVE_INTO_PROPS && !useImages)
             {
                 // First item will be the "remove" item instead
                 var item = btsItems[0];
                 item.gameObject.SetActive(true);
+                item.Lock(false);
+                item.Data = null;
+                item.IcoRemove.SetActive(true);
+                item.amountUI.transform.parent.gameObject.SetActive(false);
                 item.Toggle(!AppManager.I.Player.CurrentSingleAnturaCustomization.HasSomethingEquipped(currCategory));
             }
 
@@ -636,12 +706,16 @@ namespace Antura.AnturaSpace.UI
 
                 if (rewardBaseItem == null || rewardBaseItem.data == null)
                 {
-                    // Here, item may be locked
+                    // Unknown item
                     item.gameObject.SetActive(true);
                     item.Toggle(false);
-                    item.Lock(true);
+                    item.Lock(false);
+                    item.Data = null;
+                    item.IcoRemove.SetActive(true);
+                    item.amountUI.transform.parent.gameObject.SetActive(false);
                     continue;
                 }
+                item.IcoRemove.SetActive(false);
                 item.gameObject.SetActive(true);
                 item.Data = rewardBaseItem;
                 if (!useImages && !toggleOnly)
@@ -655,7 +729,21 @@ namespace Antura.AnturaSpace.UI
                 {
                     selectedRewardBaseData = rewardBaseItem;
                 }
-                item.Lock(!AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
+
+                if (rewardBaseItem != null && !rewardBaseItem.IsBought)
+                {
+                    item.amountUI.transform.parent.gameObject.SetActive(true);
+                    item.amountUI.text = rewardBaseItem.data.Cost.ToString();
+
+                    bool hasEnoughBones = AppManager.I.Player.GetTotalNumberOfBones() >= rewardBaseItem.data.Cost;
+                    item.BtImg.color = hasEnoughBones ? Color.white : Color.gray;
+                }
+                else
+                {
+                    item.amountUI.transform.parent.gameObject.SetActive(false);
+                }
+
+                item.Lock(!REWARDS_CAN_BE_BOUGHT && !AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
             }
             return selectedRewardBaseData;
         }

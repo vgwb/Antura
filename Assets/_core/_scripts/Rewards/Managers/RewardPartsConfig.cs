@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Antura.AnturaSpace.UI;
 using Antura.Core;
 using Antura.Database;
 
@@ -43,15 +44,24 @@ namespace Antura.Rewards
             {
                 case RewardBaseType.Prop:
                     foreach (var b in PropBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 case RewardBaseType.Decal:
                     foreach (var b in DecalBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 case RewardBaseType.Texture:
                     foreach (var b in TextureBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
@@ -157,7 +167,7 @@ namespace Antura.Rewards
         {
             get
             {
-                if (FORCE_ALL_UNLOCKED)
+                if (FORCE_ALL_UNLOCKED || AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT)
                     return false;
                 return unlockData.IsNew;
             }
