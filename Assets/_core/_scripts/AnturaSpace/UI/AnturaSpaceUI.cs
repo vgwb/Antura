@@ -826,7 +826,7 @@ namespace Antura.AnturaSpace.UI
             RewardProp rewardProp = rewardBase as RewardProp;
             if (rewardProp != null)
             {
-                if (SEPARATE_EARS && rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L"
+                if (MERGE_EARS && rewardProp.Category == "EAR_R" || rewardProp.Category == "EAR_L"
                     && onRewardCategorySelectedInCustomization != null)
                 {
                     onRewardCategorySelectedInCustomization(rewardProp.Category);
