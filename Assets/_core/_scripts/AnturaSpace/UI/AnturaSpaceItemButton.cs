@@ -1,5 +1,6 @@
 using Antura.Rewards;
 using Antura.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,8 +14,10 @@ namespace Antura.AnturaSpace.UI
         public RawImage RewardImage;
         public GameObject IcoLock;
         public GameObject IcoNew;
+        public GameObject IcoRemove;
         public Camera RewardCamera;
         public Transform RewardContainer;
+        public TextMeshProUGUI amountUI;
 
         [System.NonSerialized]
         public RewardBaseItem Data;

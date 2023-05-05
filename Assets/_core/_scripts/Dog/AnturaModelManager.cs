@@ -5,6 +5,7 @@ using Antura.Profile;
 using Antura.Rewards;
 using UnityEngine;
 using System.Collections.Generic;
+using Antura.AnturaSpace.UI;
 using UnityEngine.Serialization;
 
 namespace Antura.Dog
@@ -130,7 +131,9 @@ namespace Antura.Dog
         public GameObject LoadRewardPackOnAntura(RewardPack rewardPack)
         {
             if (rewardPack == null)
-            { return null; }
+            {
+                return null;
+            }
             switch (rewardPack.BaseType)
             {
                 case RewardBaseType.Prop:
@@ -240,6 +243,14 @@ namespace Antura.Dog
             {
                 Destroy(loadedModel.GO);
                 LoadedModels.Remove(loadedModel);
+            }
+
+            if (AnturaSpaceUI.MERGE_EARS)
+            {
+                // TODO: Load the L ear too, when we load the R one
+                if (prop.Category == "EAR_R")
+                {
+                }
             }
 
             // Load the new Model
