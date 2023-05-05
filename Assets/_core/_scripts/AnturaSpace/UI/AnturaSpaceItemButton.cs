@@ -61,8 +61,12 @@ namespace Antura.AnturaSpace.UI
 
             _isItemLocked = _doLock;
 
-            IcoLock.SetActive(_doLock);
+            // deprecated, we now show the reward instead
+            /*IcoLock.SetActive(_doLock);
             RewardImage.gameObject.SetActive(!_doLock);
+            */
+            IcoLock.SetActive(false);
+
             if (_doLock)
             {
                 IcoNew.SetActive(false);

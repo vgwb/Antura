@@ -33,7 +33,7 @@ namespace Antura.AnturaSpace
         public override void ExitState()
         {
             Camera.main.DOFieldOfView(60, 0.5f);
-            Camera.main.transform.DOLocalRotate(new Vector3(0, 0, 0), 0.5f);
+            Camera.main.transform.DOLocalRotate(new Vector3(8, 0, 0), 0.5f);
 
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization -= AnturaSpaceUI_onRewardCategorySelectedInCustomization;
             controller.RotatingBase.Angle = 0;

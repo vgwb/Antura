@@ -91,13 +91,13 @@ namespace Antura.Dog
 
             if (string.IsNullOrEmpty(TexturePackId))
             {
-                RewardPack defaultTileTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Texture)[0];
+                RewardPack defaultTileTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Texture, petType:PetType)[0];
                 Debug.LogWarning("AnturaCustomization: Using default texture: " + defaultTileTexturePack);
                 TexturePackId = defaultTileTexturePack.UniqueId;
             }
             if (string.IsNullOrEmpty(DecalPackId))
             {
-                RewardPack defaultDecalTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Decal)[0];
+                RewardPack defaultDecalTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Decal, petType:PetType)[0];
                 Debug.LogWarning("AnturaCustomization: Using default decal: " + defaultDecalTexturePack);
                 DecalPackId = defaultDecalTexturePack.UniqueId;
             }
@@ -106,24 +106,24 @@ namespace Antura.Dog
             PropPacks = new List<RewardPack>();
             foreach (string propPackId in PropPacksIds)
             {
-                var pack = rewardSystem.GetRewardPackByUniqueId(propPackId);
+                var pack = rewardSystem.GetRewardPackByUniqueId(propPackId, PetType);
                 if (pack != null)
                     PropPacks.Add(pack);
             }
 
-            TexturePack = rewardSystem.GetRewardPackByUniqueId(TexturePackId);
+            TexturePack = rewardSystem.GetRewardPackByUniqueId(TexturePackId, PetType);
             if (TexturePack == null)
             {
-                RewardPack defaultTileTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Texture)[0];
+                RewardPack defaultTileTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Texture, petType:PetType)[0];
                 Debug.LogWarning($"AnturaCustomization: Could not find TexturePackID {TexturePackId}. Using default texture: " + defaultTileTexturePack);
                 TexturePackId = defaultTileTexturePack.UniqueId;
                 TexturePack = defaultTileTexturePack;
             }
 
-            DecalPack = rewardSystem.GetRewardPackByUniqueId(DecalPackId);
+            DecalPack = rewardSystem.GetRewardPackByUniqueId(DecalPackId, PetType);
             if (string.IsNullOrEmpty(DecalPackId))
             {
-                RewardPack defaultDecalTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Decal)[0];
+                RewardPack defaultDecalTexturePack = rewardSystem.GetAllRewardPacksOfBaseType(RewardBaseType.Decal, petType:PetType)[0];
                 Debug.LogWarning($"AnturaCustomization: Could not find DecalPackId {DecalPackId}. Using default texture: " + defaultDecalTexturePack);
                 DecalPackId = defaultDecalTexturePack.UniqueId;
                 DecalPack = defaultDecalTexturePack;

@@ -335,6 +335,23 @@ namespace Antura.AnturaSpace.UI
             return null;
         }
 
+        public AnturaSpaceCategoryButton GetSpecificCategory(AnturaSpaceCategoryButton.AnturaSpaceCategory category)
+        {
+            if (!IsModsPanelOpen)
+            {
+                Debug.LogWarning("AnturaSpaceUI.GetNewCategoryButton > Mods Panel is not open");
+                return null;
+            }
+            foreach (AnturaSpaceCategoryButton bt in btsCategories)
+            {
+                if (bt.Category == category)
+                {
+                    return bt;
+                }
+            }
+            return null;
+        }
+
         /// <summary>
         /// Returns a random category button.
         /// Return NULL if the mods panel is not open.
@@ -349,6 +366,27 @@ namespace Antura.AnturaSpace.UI
             foreach (AnturaSpaceCategoryButton bt in btsCategories)
             {
                 if (bt.Unlocked)
+                {
+                    return bt;
+                }
+            }
+            return null;
+        }
+
+        /// <summary>
+        /// Returns a specific item button with the provided Shared ID
+        /// Return NULL if the mods panel is not open or a category is not selected.
+        /// </summary>
+        public AnturaSpaceItemButton GetSpecificItemButton(string sharedID)
+        {
+            if (!IsModsPanelOpen || !ItemsContainer.gameObject.activeSelf)
+            {
+                Debug.LogWarning("AnturaSpaceUI.GetRandomItemButton > Mods Panel is not open or category is not selected");
+                return null;
+            }
+            foreach (var bt in btsItems)
+            {
+                if (bt.Data != null && Equals(bt.Data.data.SharedID, sharedID))
                 {
                     return bt;
                 }
@@ -380,6 +418,11 @@ namespace Antura.AnturaSpace.UI
         public AnturaSpaceSwatchButton GetRandomUnselectedSwatch()
         {
             return btsSwatches.Where(x => x.Data != null).ToList().GetRange(15, 4).Where(x => !x.Data.IsSelected).ToList().RandomSelectOne();
+        }
+
+        public AnturaSpaceSwatchButton[] GetAllSwatches()
+        {
+            return btsSwatches;
         }
 
         #endregion
@@ -730,12 +773,13 @@ namespace Antura.AnturaSpace.UI
                     selectedRewardBaseData = rewardBaseItem;
                 }
 
+                bool hasEnoughBones = true;
                 if (rewardBaseItem != null && !rewardBaseItem.IsBought)
                 {
                     item.amountUI.transform.parent.gameObject.SetActive(true);
                     item.amountUI.text = rewardBaseItem.data.Cost.ToString();
 
-                    bool hasEnoughBones = AppManager.I.Player.GetTotalNumberOfBones() >= rewardBaseItem.data.Cost;
+                    hasEnoughBones = AppManager.I.Player.GetTotalNumberOfBones() >= rewardBaseItem.data.Cost;
                     item.BtImg.color = hasEnoughBones ? Color.white : Color.gray;
                 }
                 else
@@ -743,7 +787,7 @@ namespace Antura.AnturaSpace.UI
                     item.amountUI.transform.parent.gameObject.SetActive(false);
                 }
 
-                item.Lock(!REWARDS_CAN_BE_BOUGHT && !AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(rewardBaseItem.data, petType));
+                item.Lock(!hasEnoughBones);
             }
             return selectedRewardBaseData;
         }

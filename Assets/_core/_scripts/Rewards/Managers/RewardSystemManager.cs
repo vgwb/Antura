@@ -120,9 +120,9 @@ namespace Antura.Rewards
         }
 
         private Dictionary<string, RewardPack> uniqueIdRewardPacksCache = new Dictionary<string, RewardPack>();
-        public RewardPack GetRewardPackByUniqueId(string uniqueId)
+        public RewardPack GetRewardPackByUniqueId(string uniqueId, AnturaPetType petType)
         {
-            var pet = AppManager.I.Player.PetData.SelectedPet;
+            var pet = petType;
             var key = $"{pet}_{uniqueId}";
 
             if (uniqueIdRewardPacksCache.TryGetValue(key, out var pack))
@@ -151,11 +151,11 @@ namespace Antura.Rewards
             return null;
         }
 
-        public List<RewardPack> GetAllRewardPacksOfBaseType(RewardBaseType baseType, bool onePerBase = false)
+        public List<RewardPack> GetAllRewardPacksOfBaseType(RewardBaseType baseType, bool onePerBase = false, AnturaPetType petType = AnturaPetType.Dog)
         {
-            if (!dogRewardPacksDict.ContainsKey(baseType))
+            if (!petRewardPacksDict[petType].ContainsKey(baseType))
             { throw new ArgumentNullException("Dict not initialised correctly!"); }
-            var allRewardsOfBaseType = dogRewardPacksDict[baseType];
+            var allRewardsOfBaseType = petRewardPacksDict[petType][baseType];
             return onePerBase ? FilterByOnePerBase(allRewardsOfBaseType, baseType) : allRewardsOfBaseType;
         }
 
@@ -281,11 +281,11 @@ namespace Antura.Rewards
                 pack.SetUnlockData(null);
             }
 
-            // Load the data in
+            // Load the data in (for the Dog, first)
             foreach (var unlockData in unlockDataList)
             {
                 var id = unlockData.Id;
-                var pack = GetRewardPackByUniqueId(id);
+                var pack = GetRewardPackByUniqueId(id, AnturaPetType.Dog);
                 if (pack != null)
                 {
                     pack.SetUnlockData(unlockData);
@@ -1033,7 +1033,7 @@ namespace Antura.Rewards
                             return 160;
                         case AnturaSpaceCategory.Ears:
                         case AnturaSpaceCategory.EAR_R:
-                            return -40;
+                            return 10;
                         case AnturaSpaceCategory.EAR_L:
                             return 40;
                         default:
