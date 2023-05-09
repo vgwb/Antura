@@ -105,12 +105,13 @@ namespace Antura.Rewards
         /// Gets the reward to instantiate.
         /// </summary>
         /// <returns></returns>
-        public RewardPack GetRewardPackToInstantiate()
+        public RewardPack GetRewardPackToInstantiate(out bool advancingJP)
         {
             if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
             {
                 // Get the first prop reward (already unlocked)
                 var firstRewardPack = AppManager.I.RewardSystemManager.GetUnlockedRewardPacksOfBaseType(RewardBaseType.Prop).RandomSelectOne();
+                advancingJP = false;
                 return firstRewardPack;
             }
             else
@@ -124,9 +125,7 @@ namespace Antura.Rewards
                     newRewardPack = newRewardPacks[0];
                 }
 
-                // Also advance the MaxJP
-                AppManager.I.Player.AdvanceMaxJourneyPosition();    // TODO: move this out of here and into the NavigationManager instead
-
+                advancingJP = true;
                 return newRewardPack;
             }
         }
