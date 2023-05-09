@@ -183,7 +183,6 @@ namespace Antura.Rewards
 
         private IEnumerator BonesRewardCO()
         {
-            int nNewBones = 30;
 
             bonesCounter.Show();
             biscuitsSpawner.Spawn(nNewBones);
