@@ -417,7 +417,7 @@ namespace Antura.AnturaSpace.UI
 
         public AnturaSpaceSwatchButton GetRandomUnselectedSwatch()
         {
-            return btsSwatches.Where(x => x.Data != null).ToList().GetRange(15, 4).Where(x => !x.Data.IsSelected).ToList().RandomSelectOne();
+            return btsSwatches.Where(x => x.Data != null).ToList().Where(x => !x.Data.IsSelected).ToList().RandomSelectOne();
         }
 
         public AnturaSpaceSwatchButton[] GetAllSwatches()
