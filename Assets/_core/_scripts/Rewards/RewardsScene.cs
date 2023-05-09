@@ -144,6 +144,8 @@ namespace Antura.Rewards
 
         public void Continue()
         {
+            GetComponent<RewardsAnimator>().Complete();
+
             if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
                 FirstContactManager.I.CompleteCurrentPhaseInSequence();
 
