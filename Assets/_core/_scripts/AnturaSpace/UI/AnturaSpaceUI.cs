@@ -44,7 +44,7 @@ namespace Antura.AnturaSpace.UI
         public RectTransform ShopPanelContainer;
         public ShopPanelUI ShopPanelUI;
         public TMPro.TextMeshProUGUI bonesNumber;
-        public AnturaPetSwitcher petSwitcher;
+        public AnturaPetSwitcher petSwitcher => (AnturaSpaceScene.I as AnturaSpaceScene).AnturaMain.PetSwitcher;
 
         public event Action onEnterCustomization;
         public event Action onExitCustomization;
@@ -617,7 +617,14 @@ namespace Antura.AnturaSpace.UI
                 petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_L");
                 petSwitcher.ModelManager.ClearLoadedRewardInCategory("EAR_R");
             }
-            else
+            else if (category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal)
+            {
+                // TODO: clear decal & texture here
+            }
+            else if (category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture)
+            {
+                // TODO: clear decal & texture here
+            } else
             {
                 petSwitcher.ModelManager.ClearLoadedRewardInCategory(category.ToString());
             }

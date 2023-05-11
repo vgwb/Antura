@@ -106,6 +106,9 @@ namespace Antura.AnturaSpace
 
         private void OnAnturaSideTouched()
         {
+            // TODO: do not allow clicking and switching during shop
+
+            AnturaMain.AnimController.State = AnturaAnimationStates.idle;
             AnturaSide.AnimController.State = AnturaAnimationStates.idle;
 
             AnturaSide.SetTarget(SceneCenter, false);
@@ -119,6 +122,9 @@ namespace Antura.AnturaSpace
 
         public void ReassignCallbacks()
         {
+            AnturaMain.PetSwitcher.ModelManager.SetMainPet(true);
+            AnturaSide.PetSwitcher.ModelManager.SetMainPet(false);
+
             AnturaMain.onTouched -= OnAnturaMainTouched;
             AnturaMain.onTouched -= OnAnturaSideTouched;
 

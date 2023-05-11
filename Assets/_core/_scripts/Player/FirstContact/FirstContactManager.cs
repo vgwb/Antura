@@ -34,6 +34,11 @@ namespace Antura.Profile
         AnturaSpace_Photo,
 
         Finished,
+
+        // These must be below, so to not mess with phaseState's order
+        Reward_NewPet,
+        AnturaSpace_NewPet,
+
         MAX,
 
         NONE
@@ -84,10 +89,7 @@ namespace Antura.Profile
     /// </summary>
     public class FirstContactManager
     {
-        public static FirstContactManager I
-        {
-            get { return AppManager.I.FirstContactManager; }
-        }
+        public static FirstContactManager I => AppManager.I.FirstContactManager;
 
         // State
         private List<FirstContactPhase> phasesSequence;
@@ -112,6 +114,7 @@ namespace Antura.Profile
 
             // Define the first contact sequence
             // Phases in the sequence can be unlocked one after the other, so that when the previous one is completed we can start the next one
+            // @note: some phases may not be in the sequence, but they can be triggered separately
             phasesSequence = new List<FirstContactPhase>
             {
                 FirstContactPhase.Intro,
@@ -181,7 +184,7 @@ namespace Antura.Profile
         {
             if (AppConfig.DisableFirstContact)
                 return true;
-            if (SIMULATE_FIRST_CONTACT)
+            if (SIMULATE_FIRST_CONTACT && SIMULATE_FIRST_CONTACT_PHASE != FirstContactPhase.Finished)
                 return false;
             return phasesSequence.All(HasCompletedPhase);
         }
@@ -296,12 +299,13 @@ namespace Antura.Profile
 
         public bool HasCompletedPhase(FirstContactPhase _phase)
         {
+            if (SIMULATE_FIRST_CONTACT && _phase < SIMULATE_FIRST_CONTACT_PHASE) return true;
             return GetPhaseState(_phase) == FirstContactPhaseState.Completed;
         }
 
         public bool IsPhaseUnlockedAndNotCompleted(FirstContactPhase _phase)
         {
-            if (SIMULATE_FIRST_CONTACT && SIMULATE_FIRST_CONTACT_PHASE == _phase)
+            if (SIMULATE_FIRST_CONTACT && _phase == SIMULATE_FIRST_CONTACT_PHASE)
                 return true;
             return HasUnlockedPhase(_phase) && !HasCompletedPhase(_phase);
         }
@@ -344,11 +348,27 @@ namespace Antura.Profile
 
         private void SetPhaseState(FirstContactPhase _phase, FirstContactPhaseState _state)
         {
+            // Fix in case of new phases being added
+            while ((int)_phase >= state.phaseStates.Length)
+            {
+                var tmpList = state.phaseStates.ToList();
+                tmpList.Add(FirstContactPhaseState.Locked);
+                state.phaseStates = tmpList.ToArray();
+            }
+
             state.phaseStates[(int)_phase] = _state;
         }
 
         private FirstContactPhaseState GetPhaseState(FirstContactPhase _phase)
         {
+            // Fix in case of new phases being added
+            while ((int)_phase >= state.phaseStates.Length)
+            {
+                var tmpList = state.phaseStates.ToList();
+                tmpList.Add(FirstContactPhaseState.Locked);
+                state.phaseStates = tmpList.ToArray();
+            }
+
             return state.phaseStates[(int)_phase];
         }
 
@@ -380,12 +400,18 @@ namespace Antura.Profile
         {
             switch (phase)
             {
-                case FirstContactPhase.AnturaSpace_Photo:
-                    return new JourneyPosition(1, 2, 1);
-
                 case FirstContactPhase.Map_GoToAnturaSpace:
                 case FirstContactPhase.Map_GoToProfile:
                     return new JourneyPosition(1, 1, 1);    // This means from the start
+
+                case FirstContactPhase.AnturaSpace_Photo:
+                    return new JourneyPosition(1, 2, 1);
+
+                case FirstContactPhase.Reward_NewPet:
+                    return new JourneyPosition(1, 2, 100);  // After the second reward
+
+                case FirstContactPhase.AnturaSpace_NewPet:
+                    return new JourneyPosition(1, 3, 1);  // After you enter Antura space when this is unlocked
 
                 default:
                     return null; // This means not auto-unlocked
@@ -401,6 +427,7 @@ namespace Antura.Profile
                 case FirstContactPhase.AnturaSpace_Photo:
                 case FirstContactPhase.AnturaSpace_Shop:
                 case FirstContactPhase.AnturaSpace_TouchAntura:
+                case FirstContactPhase.AnturaSpace_NewPet:
                     return AppScene.AnturaSpace;
 
                 case FirstContactPhase.Map_GoToAnturaSpace:
@@ -415,6 +442,7 @@ namespace Antura.Profile
                     return AppScene.Intro;
 
                 case FirstContactPhase.Reward_FirstBig:
+                case FirstContactPhase.Reward_NewPet:
                     return AppScene.Rewards;
             }
             return AppScene.NONE;
@@ -448,6 +476,8 @@ namespace Antura.Profile
             FilterTransitionOn(FirstContactPhase.Reward_FirstBig, fromScene == AppScene.Intro, ref toScene, AppScene.Rewards);
             FilterTransitionOn(FirstContactPhase.AnturaSpace_TouchAntura, fromScene == AppScene.Rewards, ref toScene, AppScene.AnturaSpace);
             FilterTransitionOn(FirstContactPhase.AnturaSpace_Shop, fromScene == AppScene.PlaySessionResult, ref toScene, AppScene.AnturaSpace);
+            FilterTransitionOn(FirstContactPhase.Reward_NewPet, fromScene == AppScene.PlaySessionResult, ref toScene, AppScene.AnturaSpace);
+            FilterTransitionOn(FirstContactPhase.AnturaSpace_NewPet, fromScene == AppScene.Rewards, ref toScene, AppScene.AnturaSpace);
 
             // Force the game to re-start from the scene of the current tutorial phase if needed
             // @note: we always filter if we are coming from home, to handle the fact that the player can shut down the game during a tutorial
@@ -455,7 +485,6 @@ namespace Antura.Profile
             {
                 FilterTransitionOn(phase, fromScene == AppScene.Home, ref toScene, GetSceneForTutorialOfPhase(phase));
             }
-
             return toScene;
         }
 

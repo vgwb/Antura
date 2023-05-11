@@ -114,9 +114,10 @@ namespace Antura.Rewards
 
         void SpawnRewardAndPoof()
         {
-            bool spawnCat = FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.AnturaSpace_NewPet);
+            bool spawnCat = FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet);
             if (spawnCat)
             {
+                FirstContactManager.I.CompletePhase(FirstContactPhase.Reward_NewPet);
                 rewardsSceneController.PetSwitcher.LoadPet(AnturaPetType.Cat);
                 AppManager.I.Player.AdvanceMaxJourneyPosition();
             }

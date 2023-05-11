@@ -85,27 +85,38 @@ namespace Antura.Dog
 
         public void Update()
         {
+            #if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.A))
             {
                 if (UseForcedPetType) return;
+                SwitchPet(alsoLoadInScene:true);
+            }
+            #endif
+        }
 
-                if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog) AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
-                else AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
+        public void SwitchPet(bool alsoLoadInScene)
+        {
+            if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog) AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
+            else AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
+
+            if (alsoLoadInScene)
+            {
                 LoadPet(AppManager.I.Player.PetData.SelectedPet);
-                AppManager.I.Player.Save();
+            }
 
-                foreach (var bone3D in FindObjectsOfType<Bone3D>())
-                {
-                    bone3D.Switch();
-                }
-                foreach (var uiBone in FindObjectsOfType<UIBone>())
-                {
-                    uiBone.Switch();
-                }
-                foreach (var shopActionUI in FindObjectsOfType<ShopActionUI>())
-                {
-                    shopActionUI.RetriggerRender();
-                }
+            AppManager.I.Player.Save();
+
+            foreach (var bone3D in FindObjectsOfType<Bone3D>())
+            {
+                bone3D.Switch();
+            }
+            foreach (var uiBone in FindObjectsOfType<UIBone>())
+            {
+                uiBone.Switch();
+            }
+            foreach (var shopActionUI in FindObjectsOfType<ShopActionUI>())
+            {
+                shopActionUI.RetriggerRender();
             }
         }
 

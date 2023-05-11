@@ -311,7 +311,28 @@ namespace Antura.Dog
         {
             if (AppManager.I == null || AppManager.I.RewardSystemManager == null)
                 return;
-            AppManager.I.RewardSystemManager.OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
+
+            if (isMainPet)
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
+            }
+        }
+
+        private bool isMainPet;
+        public void SetMainPet(bool choice)
+        {
+            isMainPet = choice;
+            if (choice)
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
+            }
+            else
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged -= RewardSystemManager_OnRewardItemChanged;
+            }
         }
 
 

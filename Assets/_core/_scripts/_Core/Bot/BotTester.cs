@@ -84,7 +84,7 @@ namespace Antura.Core
             // Reset timescale when we disable the bot
             if (!C.BotEnabled && Time.timeScale > 1f)
             {
-                Time.timeScale = 1f;
+                Time.timeScale = AppManager.I.CurrentTimeScale;
             }
         }
 

@@ -66,7 +66,11 @@ namespace Antura.Rewards
 
         IEnumerator StartReward()
         {
-            if (FirstContactManager.I.IsSequenceFinished())
+            if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet))
+            {
+                KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Reward_Big_3);
+            }
+            else if (FirstContactManager.I.IsSequenceFinished())
             {
                 int rnd = Random.Range(1, 3);
                 switch (rnd)

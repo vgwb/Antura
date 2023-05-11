@@ -16,7 +16,7 @@ namespace Antura.AnturaSpace
         {
             base.EnterState();
 
-            controller.Antura.SetTarget(controller.SceneCenter, true);
+            controller.AnturaMain.SetTarget(controller.SceneCenter, true);
             timer = 0.5f;
         }
 
@@ -30,18 +30,18 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            if (controller.Antura.HasReachedTarget)
+            if (controller.AnturaMain.HasReachedTarget)
             {
                 timer -= delta;
 
                 if (timer <= 0)
                 {
-                    controller.Antura.AnimController.State = AnturaAnimationStates.sleeping;
+                    controller.AnturaMain.AnimController.State = AnturaAnimationStates.sleeping;
                 }
             }
-            else if (controller.Antura.AnimController.State == AnturaAnimationStates.sleeping)
+            else if (controller.AnturaMain.AnimController.State == AnturaAnimationStates.sleeping)
             {
-                controller.Antura.AnimController.State = AnturaAnimationStates.idle;
+                controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
             }
         }
 
@@ -49,7 +49,7 @@ namespace Antura.AnturaSpace
         {
             base.ExitState();
             controller.LastTimeCatching = Time.realtimeSinceStartup;
-            controller.Antura.SetTarget(null, false);
+            controller.AnturaMain.SetTarget(null, false);
         }
     }
 }
