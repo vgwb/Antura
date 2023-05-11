@@ -14,6 +14,7 @@ using Antura.Helpers;
 using Antura.Keeper;
 using Antura.Profile;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.AnturaSpace
 {
@@ -25,12 +26,14 @@ namespace Antura.AnturaSpace
         private const int MaxSpawnedObjectsInScene = 5;
 
         [Header("References")]
-        public AnturaLocomotion Antura;
+        public AnturaLocomotion AnturaMain;
+        public AnturaLocomotion AnturaSide;
 
         public AnturaSpaceUI UI;
         public ShopActionsManager ShopActionsManager;
 
         public Transform SceneCenter;
+        public Transform SideAnturaPivot;
         public Pedestal RotatingBase;
         public Transform AttentionPosition;
         public GameObject PoofPrefab;
@@ -84,15 +87,46 @@ namespace Antura.AnturaSpace
             UI.onEnterCustomization += OnEnterCustomization;
             UI.onExitCustomization += OnExitCustomization;
 
-            Antura.onTouched += () =>
-            {
-                if (CurrentState != null)
-                {
-                    CurrentState.OnTouched();
-                }
-            };
+            AnturaMain.PetSwitcher.LoadPet(AppManager.I.Player.PetData.SelectedPet);
+            AnturaSide.PetSwitcher.LoadPet(AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog ? AnturaPetType.Cat : AnturaPetType.Dog);
+            AnturaSide.SetTarget(SideAnturaPivot,true);
+
+            ReassignCallbacks();
 
             LastTimeCatching = Time.realtimeSinceStartup;
+        }
+
+        private void OnAnturaMainTouched()
+        {
+            if (CurrentState != null)
+            {
+                CurrentState.OnTouched();
+            }
+        }
+
+        private void OnAnturaSideTouched()
+        {
+            AnturaSide.AnimController.State = AnturaAnimationStates.idle;
+
+            AnturaSide.SetTarget(SceneCenter, false);
+            AnturaMain.SetTarget(SideAnturaPivot, true);
+            (AnturaMain, AnturaSide) = (AnturaSide, AnturaMain);
+
+            AnturaMain.PetSwitcher.SwitchPet(alsoLoadInScene:false);
+
+            ReassignCallbacks();
+        }
+
+        public void ReassignCallbacks()
+        {
+            AnturaMain.onTouched -= OnAnturaMainTouched;
+            AnturaMain.onTouched -= OnAnturaSideTouched;
+
+            AnturaSide.onTouched -= OnAnturaMainTouched;
+            AnturaSide.onTouched -= OnAnturaSideTouched;
+
+            AnturaMain.onTouched += OnAnturaMainTouched;
+            AnturaSide.onTouched += OnAnturaSideTouched;
         }
 
         public void InitStates()
@@ -154,6 +188,12 @@ namespace Antura.AnturaSpace
                 AudioManager.I.PlaySound(Sfx.ThrowObj);
                 DraggedTransform.GetComponent<ThrowableObject>().LetGo();
                 DraggedTransform = null;
+            }
+
+            // Handle side creature
+            if (anturaSpacePlayTime > 2f && AnturaSide.HasReachedTarget)
+            {
+                AnturaSide.AnimController.State = AnturaAnimationStates.sleeping;
             }
         }
 
@@ -244,7 +284,7 @@ namespace Antura.AnturaSpace
 
         private ThrowableObject SpawnNewObject(ThrowableObject ObjectPrefab)
         {
-            Antura.BoneSmell();
+            AnturaMain.BoneSmell();
 
             var newObjectGo = Instantiate(ObjectPrefab.gameObject);
             newObjectGo.SetActive(true);
@@ -308,7 +348,7 @@ namespace Antura.AnturaSpace
 
         public void TriggerSceneExit()
         {
-            Antura.PetSwitcher.ModelManager.SaveAnturaCustomization();
+            AnturaMain.PetSwitcher.ModelManager.SaveAnturaCustomization();
             AppManager.I.Services.Analytics.TrackCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization, anturaSpacePlayTime);
         }
     }

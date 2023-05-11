@@ -26,16 +26,16 @@ namespace Antura.AnturaSpace
             objectToCatch = newObjectToCatch;
             objectInteracted = false;
 
-            controller.Antura.SetTarget(objectToCatch.transform, false);
+            controller.AnturaMain.SetTarget(objectToCatch.transform, false);
             objectRigidBody = objectToCatch.GetComponent<Rigidbody>();
-            controller.Antura.Excited = true;
+            controller.AnturaMain.Excited = true;
         }
 
         public override void ExitState()
         {
             base.ExitState();
 
-            controller.Antura.Excited = false;
+            controller.AnturaMain.Excited = false;
             controller.LastTimeCatching = Time.realtimeSinceStartup;
         }
 
@@ -43,23 +43,23 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            if (!objectInteracted && !controller.Antura.IsJumping &&
-                (controller.Antura.HasReachedTarget || controller.Antura.PlanarDistanceFromTarget < 5))
+            if (!objectInteracted && !controller.AnturaMain.IsJumping &&
+                (controller.AnturaMain.HasReachedTarget || controller.AnturaMain.PlanarDistanceFromTarget < 5))
             {
-                if ((controller.Antura.TargetHeight >= 2 && objectRigidBody != null && objectRigidBody.velocity.y > 10))
+                if ((controller.AnturaMain.TargetHeight >= 2 && objectRigidBody != null && objectRigidBody.velocity.y > 10))
                 {
                     objectInteracted = true;
 
                     // Jump & Interact
-                    controller.Antura.AnimController.DoSmallJumpAndGrab(InteractWithCurrentObject);
+                    controller.AnturaMain.AnimController.DoSmallJumpAndGrab(InteractWithCurrentObject);
 
                 }
-                else if (controller.Antura.TargetHeight <= 4.5f)
+                else if (controller.AnturaMain.TargetHeight <= 4.5f)
                 {
                     objectInteracted = true;
 
                     // Interact from the ground
-                    controller.Antura.AnimController.DoBite(InteractWithCurrentObject);
+                    controller.AnturaMain.AnimController.DoBite(InteractWithCurrentObject);
                 }
             }
         }

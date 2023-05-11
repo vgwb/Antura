@@ -34,6 +34,7 @@ namespace Antura.AnturaSpace
 #pragma warning restore 649
 
         public AnturaLocomotion m_oAnturaBehaviour;
+        public AnturaLocomotion m_oAnturaSideBehaviour;
         public AnturaSpaceUI UI;
         public ShopDecorationsManager ShopDecorationsManager;
         public Button m_oCookieButton;
@@ -74,10 +75,19 @@ namespace Antura.AnturaSpace
             }
 
             // Play bonus tutorial phases
-            bool isPhaseToBeCompleted = IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_Photo);
-            if (isPhaseToBeCompleted)
+            if (IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_Photo))
             {
                 StepTutorialPhoto();
+                return;
+            }
+
+            if (IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_NewPet))
+            {
+                _mScene.AnturaSide.transform.position = new Vector3(-20, 0, 0);
+                _mScene.AnturaSide.gameObject.SetActive(true);
+                _mScene.AnturaSide.SetTarget(_mScene.SideAnturaPivot, true);
+
+                StepTutorialNewPet();
                 return;
             }
 
@@ -105,6 +115,10 @@ namespace Antura.AnturaSpace
                     break;
                 case FirstContactPhase.AnturaSpace_Photo:
                     m_oPhotoButton.gameObject.SetActive(choice);
+                    _mScene.UI.ShopPanelUI.showPurchasePanelAlwaysAvailableTween.PlayForward();
+                    break;
+                case FirstContactPhase.AnturaSpace_NewPet:
+                    _mScene.AnturaSide.gameObject.SetActive(choice);
                     break;
                 case FirstContactPhase.AnturaSpace_Exit:
                     if (choice)
@@ -130,8 +144,8 @@ namespace Antura.AnturaSpace
             TutorialUI.Clear(false);
 
             // Reset antura as sleeping
-            _mScene.Antura.transform.position = _mScene.SceneCenter.position;
-            _mScene.Antura.AnimController.State = AnturaAnimationStates.sleeping;
+            _mScene.AnturaMain.transform.position = _mScene.SceneCenter.position;
+            _mScene.AnturaMain.AnimController.State = AnturaAnimationStates.sleeping;
             _mScene.CurrentState = _mScene.Sleeping;
 
             m_oAnturaBehaviour.onTouched += HandleAnturaTouched;
@@ -330,7 +344,7 @@ namespace Antura.AnturaSpace
             {
                 var sw = _mScene.UI.GetRandomUnselectedSwatch();
                 TutorialUI.Click(sw.transform.position);
-                yield return new WaitForSeconds(0.5f);
+                yield return new WaitForSeconds(1f);
             }
         }
 
@@ -623,6 +637,66 @@ namespace Antura.AnturaSpace
             }
         }
         #endregion
+
+
+        #region New pet
+
+        private enum NewPetTutorialStep
+        {
+            START,
+            CLICK_PET,
+            FINISH
+        }
+
+        private NewPetTutorialStep _currentNewPetTutorialStep = NewPetTutorialStep.START;
+        private void StepTutorialNewPet()
+        {
+            CurrentRunningPhase = FirstContactPhase.AnturaSpace_NewPet;
+
+            if (_currentNewPetTutorialStep < NewPetTutorialStep.FINISH)
+                _currentNewPetTutorialStep += 1;
+
+            TutorialUI.Clear(false);
+
+            // Hide other UIs
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Customization, false);
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Exit, false);
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Photo, false);
+
+            switch (_currentNewPetTutorialStep)
+            {
+                case NewPetTutorialStep.CLICK_PET:
+
+                    StartCoroutine(DelayedCallbackCO(() =>
+                        DialogueThen(LocalizationDataId.Reward_Big_1,
+                            () =>
+                            {
+                                // Focus on the cat
+                                m_oAnturaSideBehaviour.onTouched += HandleAnturaSideTouched;
+                                TutorialUI.ClickRepeat(m_oAnturaSideBehaviour.transform.position, float.MaxValue, 1);
+                            }), 2f));
+
+                    break;
+
+                case NewPetTutorialStep.FINISH:
+
+                    // New step
+                    _mScene.ShowBackButton();
+                    // TODO: say something here? Dialogue(LocalizationDataId.AnturaSpace_Photo_Gallery);
+                    CompleteTutorialPhase();
+                    CurrentTutorialFocus = null;
+                    break;
+            }
+        }
+
+        public void HandleAnturaSideTouched()
+        {
+            m_oAnturaSideBehaviour.onTouched -= HandleAnturaSideTouched;
+            StepTutorialNewPet();
+        }
+
+        #endregion
+
 
         #region Exit
 

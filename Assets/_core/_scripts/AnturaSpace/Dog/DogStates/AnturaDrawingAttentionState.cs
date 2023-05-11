@@ -17,8 +17,8 @@ namespace Antura.AnturaSpace
             base.EnterState();
             shoutTimer = UnityEngine.Random.Range(1, 3);
             timeInThisState = 0;
-            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
-            controller.Antura.SetTarget(controller.AttentionPosition, true);
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
+            controller.AnturaMain.SetTarget(controller.AttentionPosition, true);
         }
 
         public override void ExitState()
@@ -44,7 +44,7 @@ namespace Antura.AnturaSpace
                 return;
             }
 
-            if (shoutTimer > 0 & controller.Antura.HasReachedTarget)
+            if (shoutTimer > 0 & controller.AnturaMain.HasReachedTarget)
             {
                 timeInThisState += delta;
                 shoutTimer -= delta;
@@ -55,12 +55,12 @@ namespace Antura.AnturaSpace
 
                     if (UnityEngine.Random.value < 0.3f)
                     {
-                        controller.Antura.AnimController.DoSniff();
+                        controller.AnturaMain.AnimController.DoSniff();
                         Audio.AudioManager.I.PlaySound(Sfx.DogSnorting);
                     }
                     else
                     {
-                        controller.Antura.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
+                        controller.AnturaMain.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
                     }
                 }
             }

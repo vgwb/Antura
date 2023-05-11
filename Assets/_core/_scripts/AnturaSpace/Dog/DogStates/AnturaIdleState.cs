@@ -17,11 +17,11 @@ namespace Antura.AnturaSpace
         public override void EnterState()
         {
             base.EnterState();
-            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
             sitTimer = 0.5f;
             timeToStayInThisState = 4 + UnityEngine.Random.value * 2;
             animateTimer = UnityEngine.Random.Range(4, 8) - 2 * controller.AnturaHappiness;
-            controller.Antura.SetTarget(controller.SceneCenter, true);
+            controller.AnturaMain.SetTarget(controller.SceneCenter, true);
         }
 
         public override void Update(float delta)
@@ -43,7 +43,7 @@ namespace Antura.AnturaSpace
                 return;
             }
 
-            if (controller.Antura.HasReachedTarget)
+            if (controller.AnturaMain.HasReachedTarget)
             {
                 timeToStayInThisState -= delta;
 
@@ -57,7 +57,7 @@ namespace Antura.AnturaSpace
                         return;
                     }
 
-                    controller.Antura.AnimController.State = AnturaAnimationStates.sitting;
+                    controller.AnturaMain.AnimController.State = AnturaAnimationStates.sitting;
                 }
             }
 
@@ -69,7 +69,7 @@ namespace Antura.AnturaSpace
             {
                 animateTimer -= delta;
 
-                if (animateTimer <= 0 && Vector3.Distance(controller.Antura.transform.position, controller.SceneCenter.position) < 6)
+                if (animateTimer <= 0 && Vector3.Distance(controller.AnturaMain.transform.position, controller.SceneCenter.position) < 6)
                 {
                     controller.CurrentState = controller.Animate;
                 }
@@ -78,7 +78,7 @@ namespace Antura.AnturaSpace
 
         public override void ExitState()
         {
-            controller.Antura.SetTarget(null, false);
+            controller.AnturaMain.SetTarget(null, false);
             base.ExitState();
         }
 
@@ -86,9 +86,9 @@ namespace Antura.AnturaSpace
         {
             base.OnTouched();
 
-            if (controller.Antura.HasReachedTarget)
+            if (controller.AnturaMain.HasReachedTarget)
             {
-                controller.Antura.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
+                controller.AnturaMain.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
             }
         }
     }

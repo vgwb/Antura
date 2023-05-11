@@ -36,9 +36,7 @@ namespace Antura.AnturaSpace
             showDragPanelTween;
 
         public Tween showConfirmationPanelTween;
-
-        private Tween showPurchasePanelAlwaysAvailableTween;
-
+        public Tween showPurchasePanelAlwaysAvailableTween;
 
         public ShopActionUI GetActionUIByName(string actionName)
         {

@@ -19,7 +19,7 @@ namespace Antura.AnturaSpace
             Camera.main.transform.DOLocalRotate(new Vector3(10, -8, 0), 0.5f);
 
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization += AnturaSpaceUI_onRewardCategorySelectedInCustomization;
-            controller.Antura.SetTarget(controller.SceneCenter, true, controller.RotatingBase.transform);
+            controller.AnturaMain.SetTarget(controller.SceneCenter, true, controller.RotatingBase.transform);
             controller.RotatingBase.Activated = true;
         }
 
@@ -27,7 +27,7 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            controller.Antura.AnimController.State = AnturaAnimationStates.sitting;
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.sitting;
         }
 
         public override void ExitState()
@@ -38,8 +38,8 @@ namespace Antura.AnturaSpace
             UI.AnturaSpaceUI.onRewardCategorySelectedInCustomization -= AnturaSpaceUI_onRewardCategorySelectedInCustomization;
             controller.RotatingBase.Angle = 0;
             controller.RotatingBase.Activated = false;
-            controller.Antura.AnimController.State = AnturaAnimationStates.idle;
-            controller.Antura.SetTarget(null, false);
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
+            controller.AnturaMain.SetTarget(null, false);
             base.ExitState();
         }
 
