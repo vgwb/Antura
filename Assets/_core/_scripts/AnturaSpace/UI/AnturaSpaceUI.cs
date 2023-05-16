@@ -639,8 +639,25 @@ namespace Antura.AnturaSpace.UI
 
         public void ConfirmPurchase()
         {
-            // TODO: analytics? AppManager.I.Services.Analytics.TrackItemBought(bonesCost, ActionKey);
-            AppManager.I.Player.RemoveBones(_currSelectedRewardBaseItem.data.Cost);
+            var dialogues = new[]
+            {
+                LocalizationDataId.Keeper_Good_1,
+                LocalizationDataId.Keeper_Good_2,
+                LocalizationDataId.Keeper_Good_3,
+                LocalizationDataId.Keeper_Good_4,
+                LocalizationDataId.Keeper_Good_5,
+                LocalizationDataId.Keeper_Good_6,
+                LocalizationDataId.Keeper_Good_7,
+                LocalizationDataId.Keeper_Good_8,
+                LocalizationDataId.Keeper_Good_9,
+                LocalizationDataId.Keeper_Good_10,
+                LocalizationDataId.Keeper_Good_11,
+                LocalizationDataId.Keeper_Good_12,
+            };
+            AudioManager.I.PlayDialogue(dialogues.GetRandom().ToString());
+            var bonesCost = _currSelectedRewardBaseItem.data.Cost;
+            AppManager.I.Services.Analytics.TrackItemBought(bonesCost, _currSelectedRewardBaseItem.data.SharedID);
+            AppManager.I.Player.RemoveBones(bonesCost);
             AppManager.I.Player.CustomizationShopState.ConfirmPurchase(_currSelectedRewardBaseItem.data.SharedID);
             AppManager.I.Player.Save();
             ShopPanelUI.showConfirmationPanelTween.PlayBackwards();
