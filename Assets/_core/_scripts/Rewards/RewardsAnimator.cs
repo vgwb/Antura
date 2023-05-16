@@ -129,7 +129,10 @@ namespace Antura.Rewards
                 {
                     isGivingBones = true;
                     StartCoroutine(BonesRewardCO());
-                    AppManager.I.Player.AdvanceMaxJourneyPosition();
+                    if (!FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
+                    {
+                        AppManager.I.Player.AdvanceMaxJourneyPosition();
+                    }
                     return;
                 }
 
@@ -142,7 +145,6 @@ namespace Antura.Rewards
                     StartCoroutine(BonesRewardCO());
                     return;
                 }
-
 
                 rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category, _petType:AppManager.I.Player.PetData.SelectedPet);
                 newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
@@ -184,7 +186,6 @@ namespace Antura.Rewards
 
         private IEnumerator BonesRewardCO()
         {
-
             bonesCounter.Show();
             biscuitsSpawner.Spawn(nNewBones);
             yield return new WaitForSeconds(3f);
