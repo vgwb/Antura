@@ -82,7 +82,7 @@ namespace Antura.AnturaSpace
                     .SetEase(Ease.OutBack)
                     .SetAutoKill(false);
             scrollRect.horizontalNormalizedPosition = 0;
-            scrollShowTween = scrollRect.DOHorizontalNormalizedPos(1, 0.6f).SetAutoKill(false).Pause().SetDelay(0.15f);
+            scrollShowTween = scrollRect.DOHorizontalNormalizedPos(0, 0.6f).SetAutoKill(false).Pause().SetDelay(0.15f);
             scrollShowTween.ForceInit();
 
             ShopDecorationsManager.I.OnContextChange += HandleContextChange;
