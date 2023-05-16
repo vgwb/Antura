@@ -267,6 +267,8 @@ namespace Antura.AnturaSpace
                         {
                             var yesButton = _mScene.UI.ShopPanelUI.confirmationYesButton;
                             yesButton.onClick.AddListener(StepTutorialCustomization);
+                            CurrentTutorialFocus = yesButton;
+                            _mScene.UI.ShopPanelUI.confirmationNoButton.enabled = false;
 
                             TutorialUI.ClickRepeat(yesButton.transform.position, float.MaxValue, 1);
                             Dialogue(LocalizationDataId.AnturaSpace_Shop_ConfirmBuy);
@@ -274,10 +276,14 @@ namespace Antura.AnturaSpace
                     break;
                 case CustomizationTutorialStep.SELECT_COLOR:
 
+                    // @note: after purchase, we complete the tutorial sequence anyway so you cannot get stuck here
+                    FirstContactManager.I.CompletePhaseCheckSequence(CurrentRunningPhase);
+
                     Dialogue(LocalizationDataId.AnturaSpace_Custom_3);
 
                     // Cleanup last step
                     _mScene.UI.ShopPanelUI.confirmationYesButton.onClick.RemoveListener(StepTutorialCustomization);
+                    _mScene.UI.ShopPanelUI.confirmationNoButton.enabled = true;
                     CurrentTutorialFocus = null;
 
                     StartCoroutine(DelayedCallbackCO(
@@ -682,7 +688,7 @@ namespace Antura.AnturaSpace
 
                     // New step
                     _mScene.ShowBackButton();
-                    // TODO: say something here? Dialogue(LocalizationDataId.AnturaSpace_Photo_Gallery);
+                    Dialogue(LocalizationDataId.Keeper_Good_9);
                     CompleteTutorialPhase();
                     CurrentTutorialFocus = null;
                     break;

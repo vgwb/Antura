@@ -106,7 +106,11 @@ namespace Antura.AnturaSpace
 
         private void OnAnturaSideTouched()
         {
-            // TODO: do not allow clicking and switching during shop
+            if (ShopDecorationsManager.I.ShopContext != ShopContext.Closed
+                 && ShopDecorationsManager.I.ShopContext != ShopContext.Hidden)
+            {
+                return;
+            }
 
             AnturaMain.AnimController.State = AnturaAnimationStates.idle;
             AnturaSide.AnimController.State = AnturaAnimationStates.idle;

@@ -544,6 +544,7 @@ namespace Antura.AnturaSpace.UI
                 {
                     // @note: we use the Decoration Shop logic to handle the purchase
                     ShopDecorationsManager.I.CurrentDecorationCost = rewardBaseData.data.Cost;
+
                     ShopPanelUI.HandleCustomizationShopPurchaseConfirmationRequested(ConfirmPurchase, CancelPurchase);
 
                     // Mount anyway (preview)

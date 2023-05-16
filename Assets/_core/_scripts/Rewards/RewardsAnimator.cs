@@ -45,6 +45,9 @@ namespace Antura.Rewards
 
         IEnumerator Start()
         {
+            bool spawnCat = FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet);
+            isGivingBones = !spawnCat;
+
             rewardsSceneController = GetComponent<RewardsScene>();
             rewardsSceneController.ClearLoadedRewardsOnAntura();
 
