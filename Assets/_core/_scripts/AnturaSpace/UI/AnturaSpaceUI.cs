@@ -434,6 +434,7 @@ namespace Antura.AnturaSpace.UI
             BtBonesShop.gameObject.SetActive(show);
         }
 
+        private RewardBaseItem prevReward;
         void SelectCategory(AnturaSpaceCategoryButton.AnturaSpaceCategory _category)
         {
             StopAllCoroutines();
@@ -504,13 +505,13 @@ namespace Antura.AnturaSpace.UI
             }
         }
 
-        void SelectReward(RewardBaseItem rewardBaseData)
+        void SelectReward(RewardBaseItem rewardBaseData, bool backToPrev = false)
         {
             var scene = AnturaSpaceScene.I as AnturaSpaceScene;
             if (rewardBaseData == null && scene.TutorialMode)
                 return;
 
-            if (_currSelectedRewardBaseItem != null && !_currSelectedRewardBaseItem.IsBought)
+            if (!backToPrev && _currSelectedRewardBaseItem != null && !_currSelectedRewardBaseItem.IsBought)
             {
                 CancelPurchase();
             }
@@ -522,6 +523,7 @@ namespace Antura.AnturaSpace.UI
             if (rewardBaseData == null)
             {
                 _currSelectedRewardBaseItem = null;
+                prevReward = null;
                 ClearRewardsOfCategory(currCategory);
                 return;
             }
@@ -554,6 +556,8 @@ namespace Antura.AnturaSpace.UI
             }
             else
             {
+                // This reward is selected
+                prevReward = rewardBaseData;
 
                 // Hide non-existent swatches
                 for (int i = currRewardColorItems.Count - 1; i < btsSwatches.Length; ++i)
@@ -619,12 +623,13 @@ namespace Antura.AnturaSpace.UI
             }
             else if (category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Decal)
             {
-                // TODO: clear decal & texture here
+                SelectReward(currRewardBaseItems[0], backToPrev:true);
             }
             else if (category == AnturaSpaceCategoryButton.AnturaSpaceCategory.Texture)
             {
-                // TODO: clear decal & texture here
-            } else
+                SelectReward(currRewardBaseItems[0], backToPrev:true);
+            }
+            else
             {
                 petSwitcher.ModelManager.ClearLoadedRewardInCategory(category.ToString());
             }
@@ -647,7 +652,13 @@ namespace Antura.AnturaSpace.UI
             AudioManager.I.PlaySound(Sfx.KO);
             ShopPanelUI.showConfirmationPanelTween.PlayBackwards();
             ClearRewardsOfCategory(currCategory);
-            _currSelectedRewardBaseItem = null;
+
+            if (prevReward != null && _currSelectedRewardBaseItem != prevReward)
+            {
+                SelectReward(prevReward, backToPrev:true);
+            }
+
+            _currSelectedRewardBaseItem = prevReward;
         }
 
         #endregion

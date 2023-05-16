@@ -47,6 +47,7 @@ namespace Antura.AnturaSpace
         public void SetActions(ShopAction[] shopActions)
         {
             actionUIs = new List<ShopActionUI>();
+            shopActions = shopActions.Reverse().ToArray();    // @note: shop now starts from the left
             foreach (var shopAction in shopActions)
             {
                 var shopActionUIgo = Instantiate(shopActionUIPrefab);
