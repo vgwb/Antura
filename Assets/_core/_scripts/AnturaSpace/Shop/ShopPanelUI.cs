@@ -221,6 +221,8 @@ namespace Antura.AnturaSpace
         private UnityAction currentNoAction;
         private void AskForConfirmation(UnityAction yesAction, UnityAction noAction)
         {
+            ResetConfirmationButtons(); // Just to make sure, to avoid double confirmations
+
             currentYesAction = yesAction;
             currentNoAction = noAction;
 
@@ -238,8 +240,11 @@ namespace Antura.AnturaSpace
 
         private void ResetConfirmationButtons()
         {
-            confirmationYesButton.onClick.RemoveListener(currentYesAction);
-            confirmationYesButton.onClick.RemoveListener(ResetConfirmationButtons);
+            if (currentYesAction != null)
+            {
+                confirmationYesButton.onClick.RemoveListener(currentYesAction);
+                confirmationYesButton.onClick.RemoveListener(ResetConfirmationButtons);
+            }
             if (currentNoAction != null)
             {
                 confirmationNoButton.onClick.RemoveListener(currentNoAction);

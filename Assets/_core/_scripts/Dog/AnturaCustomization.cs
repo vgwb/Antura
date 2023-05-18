@@ -109,7 +109,13 @@ namespace Antura.Dog
             {
                 var pack = rewardSystem.GetRewardPackByUniqueId(propPackId, PetType);
                 if (pack != null)
+                {
                     PropPacks.Add(pack);
+                }
+                else
+                {
+                    Debug.LogError("Null pack with id " + propPackId);
+                }
             }
 
             TexturePack = rewardSystem.GetRewardPackByUniqueId(TexturePackId, PetType);

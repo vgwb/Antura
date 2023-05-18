@@ -20,6 +20,7 @@ namespace Antura.Rewards
             get
             {
                 // An item is considered bought if it was either unlocked (old mode), or if the shop state is present
+                if (data.Cost == 0) return true; // Any item with cost 0 is already unlocked too
                 var shopState = AppManager.I.Player.CustomizationShopState.CustomizationShopStates.FirstOrDefault(x => x.SharedID == data.SharedID);
                 bool unlocked = AppManager.I.RewardSystemManager.IsRewardBaseUnlocked(data, AppManager.I.Player.PetData.SelectedPet);
                 return unlocked || (shopState != null && shopState.Bought);

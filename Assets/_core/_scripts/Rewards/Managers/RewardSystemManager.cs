@@ -130,7 +130,7 @@ namespace Antura.Rewards
                 return pack;
             }
 
-            var packs = GetRewardPacks(AppManager.I.Player.PetData.SelectedPet);
+            var packs = GetRewardPacks(petType);
             foreach (var p in packs)
             {
                 if (p.UniqueId.Equals(uniqueId, StringComparison.OrdinalIgnoreCase))

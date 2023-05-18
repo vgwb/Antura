@@ -889,6 +889,8 @@ namespace Antura.AnturaSpace.UI
             if (scene.TutorialMode && scene.tutorialManager.CurrentTutorialFocus != _bt)
                 return;
 
+            if (_bt.Data == _currSelectedRewardBaseItem) return; // Already clicked
+
             SelectReward(_bt.Data);
 
             if (_bt.Data == null)
