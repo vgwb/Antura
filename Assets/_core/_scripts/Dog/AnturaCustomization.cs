@@ -53,7 +53,7 @@ namespace Antura.Dog
         /// <param name="_listOfIdsAsJsonString">The list of ids as json string.</param>
         public void LoadFromListOfIds(string _listOfIdsAsJsonString)
         {
-            Debug.LogError("LOADING PET " + PetType);
+            //Debug.LogError("LOADING PET " + PetType);
             if (AppManager.I.Player == null)
             {
                 Debug.Log("No default reward already created. Unable to load customization now");

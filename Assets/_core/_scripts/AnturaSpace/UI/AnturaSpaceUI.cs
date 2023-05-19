@@ -665,9 +665,9 @@ namespace Antura.AnturaSpace.UI
             SelectReward(_currSelectedRewardBaseItem); // Refresh so swatches can be seen
         }
 
+
         public void CancelPurchase()
         {
-            AudioManager.I.PlaySound(Sfx.KO);
             ShopPanelUI.showConfirmationPanelTween.PlayBackwards();
             ClearRewardsOfCategory(currCategory);
 

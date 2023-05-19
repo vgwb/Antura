@@ -99,6 +99,14 @@ namespace Antura.Rewards
             return rewardPacks;
         }
 
+        // This is needed to create packs to place on Antura without using the reward system
+        // Used by the EAR_L logic
+        public RewardPack BuildFakePack(string id, RewardColor color, RewardBase rewardBase, RewardBaseType baseType)
+        {
+            var pack = new RewardPack(baseType, rewardBase, color);
+            return pack;
+        }
+
         public IEnumerable<RewardBase> GetRewardBasesOfType(RewardBaseType baseType, AnturaPetType petType = AnturaPetType.Dog)
         {
             return petPartsConfig[petType].GetBasesForType(baseType);

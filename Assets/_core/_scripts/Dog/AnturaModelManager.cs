@@ -5,6 +5,7 @@ using Antura.Profile;
 using Antura.Rewards;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
 using Antura.AnturaSpace.UI;
 using UnityEngine.Serialization;
 
@@ -247,9 +248,27 @@ namespace Antura.Dog
 
             if (AnturaSpaceUI.MERGE_EARS)
             {
-                // TODO: Load the L ear too, when we load the R one
+                // Load the L ear too, when we load the R one
                 if (prop.Category == "EAR_R")
                 {
+                    var id = $"{prop.ID.Substring(0, prop.ID.Length - 2)}_l";
+
+                    // Create a fake new prop for this, to load the model as if it was a pack
+                    var rewardBase = new RewardProp
+                    {
+                        Category = "EAR_L",
+                        BoneAttach = prop.BoneAttach.Replace("Right","Left").Replace("_R_","_L_"),
+                        Material1 = prop.Material1,
+                        Material2 = prop.Material2,
+                        RewardName = prop.RewardName.Replace("_R","_L"),
+
+                        ID = id,
+                        Cost = 0,
+                        Enabled = true,
+                        SharedID = ""
+                    };
+                    var otherEarPack = AppManager.I.RewardSystemManager.BuildFakePack( id,rewardPack.RewardColor, rewardBase, RewardBaseType.Prop);
+                    LoadRewardPropOnAntura(otherEarPack);
                 }
             }
 
