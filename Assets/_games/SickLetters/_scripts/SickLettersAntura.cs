@@ -1,17 +1,18 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Antura.Dog;
 
 namespace Antura.Minigames.SickLetters
 {
     public class SickLettersAntura : MonoBehaviour
     {
 
-        Animator anturaAnimator;
-
+        AnturaPetSwitcher anturaPetSwitcher;
+        private Animator anturaAnimator => anturaPetSwitcher.AnimController.animator;
 
         void Start()
         {
-            anturaAnimator = GetComponent<Animator>();
+            anturaPetSwitcher = GetComponent<AnturaPetSwitcher>();
         }
 
 

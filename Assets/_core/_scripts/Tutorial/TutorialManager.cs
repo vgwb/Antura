@@ -68,7 +68,9 @@ namespace Antura.Tutorial
             StopTutorialRunning();
             if (FirstContactManager.SIMULATE_FIRST_CONTACT)
                 return;
-            FirstContactManager.I.CompletePhaseCheckSequence(CurrentRunningPhase);
+
+            if (!IsPhaseCompleted(CurrentRunningPhase))
+                FirstContactManager.I.CompletePhaseCheckSequence(CurrentRunningPhase);
 
             // Check if we have more
             HandleStart();

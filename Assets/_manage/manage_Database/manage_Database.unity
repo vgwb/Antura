@@ -6660,6 +6660,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SendPointerHoverToParent: 1
   m_HorizontalAxis: Horizontal
   m_VerticalAxis: Vertical
   m_SubmitButton: Submit
@@ -14651,8 +14652,8 @@ MonoBehaviour:
   CommonSheet: {fileID: 11400000, guid: 06d42a6d82bee4a0fad8aabbd80d48ba, type: 2}
   ImportLocalizations: 0
   ImportLetters: 1
-  ImportWords: 1
-  ImportPhrases: 1
+  ImportWords: 0
+  ImportPhrases: 0
   ImportJourney: 0
   langCode: 3
   InputContent: {fileID: 11400000, guid: 75dd18b826bf742288124ca2b84045d5, type: 2}
@@ -14668,7 +14669,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8578742a68a773a49b9e294dd3661d8e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  LanguageToCheck: 10
+  LanguageToCheck: 11
   CheckDialogs: 1
   CheckLetters: 1
   CheckPhrases: 1

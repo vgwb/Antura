@@ -19,7 +19,23 @@ namespace Antura.AnturaSpace
 
         private ShopAction shopAction;
 
-        public ShopAction ShopAction { get { return shopAction; } }
+        public ShopAction ShopAction => shopAction;
+
+        public void RetriggerRender()
+        {
+            if (ShopAction is ShopAction_Throw)
+            {
+                TriggerRender();
+            }
+        }
+
+        void TriggerRender()
+        {
+            renderedMeshUI.scaleMultiplier = shopAction.scaleMultiplier;
+            renderedMeshUI.eulOffset = shopAction.eulOffset;
+            renderedMeshUI.AssignObjectToRender(shopAction.ObjectToRender);
+            iconUI.enabled = false;
+        }
 
         public void SetAction(ShopAction shopAction)
         {
@@ -27,10 +43,7 @@ namespace Antura.AnturaSpace
 
             if (shopAction.ObjectToRender != null)
             {
-                renderedMeshUI.scaleMultiplier = shopAction.scaleMultiplier;
-                renderedMeshUI.eulOffset = shopAction.eulOffset;
-                renderedMeshUI.AssignObjectToRender(shopAction.ObjectToRender);
-                iconUI.enabled = false;
+                TriggerRender();
             }
             else
             {

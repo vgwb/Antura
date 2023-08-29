@@ -8,6 +8,7 @@ using Antura.LivingLetters;
 using Antura.UI;
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Scenes
 {
@@ -19,7 +20,7 @@ namespace Antura.Scenes
         [Header("References")]
         public LivingLetterController[] Letters;
 
-        public AnturaAnimationController Antura;
+        public AnturaPetSwitcher AnturaPetSwitcher;
 
         public float m_StateDelay = 1.0f;
         public float m_EndDelay = 2.0f;
@@ -73,7 +74,7 @@ namespace Antura.Scenes
                 l.State = LLAnimationStates.LL_dancing;
             }
 
-            Antura.State = AnturaAnimationStates.dancing;
+            AnturaPetSwitcher.AnimController.State = AnturaAnimationStates.dancing;
 
             text.SetSentence(Database.LocalizationDataId.End_Scene_2);
             text.Alpha = 0;

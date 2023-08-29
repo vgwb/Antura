@@ -4,7 +4,9 @@ using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using Antura.Core;
+using Antura.Dog;
 using Antura.Helpers;
+using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 
@@ -43,6 +45,9 @@ namespace Antura.Rewards
 
         IEnumerator Start()
         {
+            bool spawnCat = FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet);
+            isGivingBones = !spawnCat;
+
             rewardsSceneController = GetComponent<RewardsScene>();
             rewardsSceneController.ClearLoadedRewardsOnAntura();
 
@@ -105,20 +110,50 @@ namespace Antura.Rewards
             newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
         }
 
+        public static bool GIVE_BONES_ONLY = true;
+
+
+        private bool isGivingBones;
+
         void SpawnRewardAndPoof()
         {
-            // Reward
-            rewardPack = rewardsSceneController.GetRewardPackToInstantiate();
-            if (rewardPack == null)
+            bool spawnCat = FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet);
+            if (spawnCat)
             {
-                StartCoroutine(BonesRewardCO());
-                return;
+                FirstContactManager.I.CompletePhase(FirstContactPhase.Reward_NewPet);
+                rewardsSceneController.PetSwitcher.LoadPet(AnturaPetType.Cat);
+                AppManager.I.Player.AdvanceMaxJourneyPosition();
             }
 
-            rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category);
-            newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
-            if (newRewardInstantiatedGO != null)
-                newRewardInstantiatedGO.transform.localScale = Vector3.one * 0.001f;
+            // Reward
+            if (!spawnCat)
+            {
+                if (GIVE_BONES_ONLY)
+                {
+                    isGivingBones = true;
+                    StartCoroutine(BonesRewardCO());
+                    if (!FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
+                    {
+                        AppManager.I.Player.AdvanceMaxJourneyPosition();
+                    }
+                    return;
+                }
+
+                rewardPack = rewardsSceneController.GetRewardPackToInstantiate(out bool advancingJP);
+                if (advancingJP) AppManager.I.Player.AdvanceMaxJourneyPosition();
+
+                if (rewardPack == null)
+                {
+                    isGivingBones = true;
+                    StartCoroutine(BonesRewardCO());
+                    return;
+                }
+
+                rotationAngleView = AppManager.I.RewardSystemManager.GetAnturaRotationAngleViewForRewardCategory(rewardPack.Category, _petType:AppManager.I.Player.PetData.SelectedPet);
+                newRewardInstantiatedGO = rewardsSceneController.InstantiateReward(rewardPack);
+                if (newRewardInstantiatedGO != null)
+                    newRewardInstantiatedGO.transform.localScale = Vector3.one * 0.001f;
+            }
 
             Pedestal.gameObject.SetActive(true);
             Pedestal.transform.localScale = Vector3.one;
@@ -150,11 +185,10 @@ namespace Antura.Rewards
         public DailyRewardPopupPool popupPool;
         public RectTransform toPopupPivot;
         public RectTransform fromPopupPivot;
+        int nNewBones = 30;
 
         private IEnumerator BonesRewardCO()
         {
-            int nNewBones = 30;
-
             bonesCounter.Show();
             biscuitsSpawner.Spawn(nNewBones);
             yield return new WaitForSeconds(3f);
@@ -169,7 +203,7 @@ namespace Antura.Rewards
                 yield return new WaitForSeconds(0.1f);
             }
             AppManager.I.Player.AddBones(nNewBones);
-
+            isGivingBones = false;
         }
 
         #endregion
@@ -205,5 +239,12 @@ namespace Antura.Rewards
 
         #endregion
         */
+        public void Complete()
+        {
+            if (isGivingBones)
+            {
+                AppManager.I.Player.AddBones(nNewBones);
+            }
+        }
     }
 }

@@ -579,7 +579,7 @@ namespace Antura.Minigames.MakeFriends
 
             yield return new WaitForSeconds(1.0f);
 
-            antura.animationController.DoShout();
+            antura.petSwitcher.AnimController.DoShout();
             Context.GetAudioManager().PlaySound(Sfx.DogBarking);
 
             /*

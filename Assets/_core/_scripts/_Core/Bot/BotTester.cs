@@ -12,6 +12,7 @@ using Antura.GamesSelector;
 using Antura.Helpers;
 using Antura.Map;
 using Antura.Minigames;
+using Antura.Minigames.Balloons;
 using Antura.Minigames.Egg;
 using Antura.Minigames.FastCrowd;
 using Antura.Profile;
@@ -83,7 +84,7 @@ namespace Antura.Core
             // Reset timescale when we disable the bot
             if (!C.BotEnabled && Time.timeScale > 1f)
             {
-                Time.timeScale = 1f;
+                Time.timeScale = AppManager.I.CurrentTimeScale;
             }
         }
 
@@ -480,12 +481,33 @@ namespace Antura.Core
                             }
                                 break;
 
-                            /*
+                            case "BalloonsGame":
+                            {
+                                var balloons = FindObjectsOfType<BalloonController>();
+                                if (balloons.Length > 0)
+                                {
+                                    var chosen = balloons.GetRandom();
+                                    var nClicks = 1;
+                                    for (int i = 0; i < nClicks; i++)
+                                    {
+                                        chosen.TapAction();
+                                        yield return new WaitForSeconds(0.1f);
+                                    }
+                                }
+                            }
+                                break;
+
                             case "FastCrowdGame":
                             {
-                                var ll = FindObjectOfType<StrollingLivingLetter>();
-                                if (ll != null)
+                                if (GlobalUI.WidgetPopupWindow.isActiveAndEnabled)
                                 {
+                                    Click(GlobalUI.WidgetPopupWindow.ButtonGO);
+                                    yield return new WaitForSeconds(0.2f);
+                                }
+                                var lls = FindObjectsOfType<StrollingLivingLetter>();
+                                if (lls.Length > 0)
+                                {
+                                    var ll = lls.GetRandom();
                                     var drops = FindObjectsOfType<DropAreaWidget>();
                                     if (drops.Length > 0)
                                     {
@@ -495,7 +517,7 @@ namespace Antura.Core
                                 }
                             }
                                 break;
-                                */
+
                             default:
                             {
                                 // Skip the game

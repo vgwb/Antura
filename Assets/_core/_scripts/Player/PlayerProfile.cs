@@ -3,6 +3,7 @@ using Antura.Database;
 using Antura.Dog;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using DG.DeExtensions;
 using UnityEngine;
 
@@ -31,6 +32,7 @@ namespace Antura.Profile
         public AppEditionID editionID;
         public LearningContentID ContentID;
         public string AppVersion;
+        public PetData PetData = new PetData();
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
 
@@ -284,25 +286,45 @@ namespace Antura.Profile
 
         #region Antura Customization and Rewards
 
-        private AnturaCustomization _currentAnturaCustomizations;
+        public CustomizationShopState CustomizationShopState = new CustomizationShopState();
+
+        private AllPetsAnturaCustomization _currentAllPetsAnturaCustomization = new();
+
+        public void MigrateOldCustomization(AnturaCustomization dogCustomization)
+        {
+            _currentAllPetsAnturaCustomization = new AllPetsAnturaCustomization();
+            if (dogCustomization != null) _currentAllPetsAnturaCustomization.Append(dogCustomization);
+            jsonAnturaCustomizationData = _currentAllPetsAnturaCustomization.GetJsonListOfIds();
+            Save();
+        }
+
+        public AnturaCustomization AnturaCustomization(AnturaPetType petType)
+        {
+            if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+            var customization = _currentAllPetsAnturaCustomization.Customizations.FirstOrDefault(x => x.PetType == petType);
+            if (customization == null)
+            {
+                customization = new AnturaCustomization();
+                customization.PetType = petType;
+                customization.LoadFromListOfIds(jsonAnturaCustomizationData);
+                _currentAllPetsAnturaCustomization.Append(customization);
+            }
+            return customization;
+        }
 
         /// <summary>
         /// The current antura customizations
         /// </summary>
-        public AnturaCustomization CurrentAnturaCustomizations
+        public AnturaCustomization CurrentSingleAnturaCustomization
         {
-            get
+            get => AnturaCustomization(PetData.SelectedPet);
+            set
             {
-                if (_currentAnturaCustomizations == null)
-                {
-                    _currentAnturaCustomizations = new AnturaCustomization();
-                    _currentAnturaCustomizations.LoadFromListOfIds(jsonAnturaCustomizationData);
-                }
-                return _currentAnturaCustomizations;
-            }
-            private set
-            {
-                _currentAnturaCustomizations = value;
+                if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+                var list = _currentAllPetsAnturaCustomization.Customizations.ToList();
+                list.RemoveAll(x => x.PetType == PetData.SelectedPet);
+                _currentAllPetsAnturaCustomization.Customizations = list.ToArray();
+                _currentAllPetsAnturaCustomization.Append(value);
                 SaveAnturaCustomization();
             }
         }
@@ -332,7 +354,9 @@ namespace Antura.Profile
 
         public void SaveRewardPackUnlockDataList()
         {
-            AppManager.I.DB.UpdateRewardPackUnlockDataAll(_rewardPackUnlockDataList);
+            var listToUpdate = _rewardPackUnlockDataList.Where(x => x.Edited).ToList();
+            AppManager.I.DB.UpdateRewardPackUnlockDataAll(listToUpdate);
+            _rewardPackUnlockDataList.ForEach(x => x.Edited = false);
         }
 
         public void RegisterUnlockData(RewardPackUnlockData unlockData)
@@ -400,9 +424,9 @@ namespace Antura.Profile
         }*/
 
         /// <summary>
-        /// Used to store antura custumization data in json and load it at runtime.
+        /// Used to store antura customization data in json and load it at runtime.
         /// </summary>
-        string jsonAnturaCustomizationData = string.Empty;
+        public string jsonAnturaCustomizationData = string.Empty;
 
         #endregion
 
@@ -465,12 +489,13 @@ namespace Antura.Profile
         {
             if (_anturaCustomization != null)
             {
-                CurrentAnturaCustomizations = _anturaCustomization;
+                CurrentSingleAnturaCustomization = _anturaCustomization;
             }
-            jsonAnturaCustomizationData = CurrentAnturaCustomizations.GetJsonListOfIds();
+            jsonAnturaCustomizationData = _currentAllPetsAnturaCustomization.GetJsonListOfIds();
+            //Debug.LogError("SAVED CUSTOMIZATION " + jsonAnturaCustomizationData);
             Save();
 
-            AppManager.I.LogManager.LogInfo(InfoEvent.AnturaCustomization, CurrentAnturaCustomizations.GetJsonListOfIds());
+            AppManager.I.LogManager.LogInfo(InfoEvent.AnturaCustomization, jsonAnturaCustomizationData);
         }
 
         #endregion
@@ -547,6 +572,10 @@ namespace Antura.Profile
             ConsecutivePlayDays = _data.GetAdditionalData().ConsecutivePlayDays;
             CurrentShopState = AnturaSpace.ShopState.CreateFromJson(_data.GetAdditionalData().CurrentShopStateJSON);
             FirstContactState = JsonUtility.FromJson<FirstContactState>(_data.FirstContactStateJSON);
+            CustomizationShopState = CustomizationShopState.CreateFromJson(_data.GetAdditionalData().CurrentCustomizationShopStateJSON);
+
+            PetData.SelectedPet = _data.SelectedPet;
+            PetData.CatUnlocked = _data.CatUnlocked;
 
             SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
             SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
@@ -568,11 +597,11 @@ namespace Antura.Profile
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
-                    TotalNumberOfBones, ProfileCompletion, this.CurrentAnturaCustomizations.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState,
-                    FirstContactState, editionID, ContentID, AppVersion
+                    TotalNumberOfBones, ProfileCompletion, _currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState, CustomizationShopState,
+                    FirstContactState, editionID, ContentID, AppVersion, PetData
             );
-            newProfileData.SetCurrentJourneyPosition(this.CurrentJourneyPosition);
-            newProfileData.SetMaxJourneyPosition(this.MaxJourneyPosition);
+            newProfileData.SetCurrentJourneyPosition(CurrentJourneyPosition);
+            newProfileData.SetMaxJourneyPosition(MaxJourneyPosition);
             return newProfileData;
         }
 
@@ -595,6 +624,7 @@ namespace Antura.Profile
                 editionID = this.editionID,
                 contentID = this.ContentID,
                 AppVersion = this.AppVersion,
+                PetData = this.PetData
             };
             return returnIconData;
         }

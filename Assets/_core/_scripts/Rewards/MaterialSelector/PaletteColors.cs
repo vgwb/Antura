@@ -29,5 +29,8 @@ namespace Antura.Rewards
         diffuse_saturated,
         specular_saturated_2side,
         transparent_saturated_2side,
+        specular_saturated,
+        diffuse_saturated_2side,
+        transparent_glass_saturated
     }
 }

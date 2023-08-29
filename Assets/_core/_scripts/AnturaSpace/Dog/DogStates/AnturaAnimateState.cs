@@ -48,7 +48,7 @@ namespace Antura.AnturaSpace
         {
             base.Update(delta);
 
-            controller.Antura.AnimationController.State = state;
+            controller.AnturaMain.AnimController.State = state;
 
             timer -= delta;
 
@@ -60,7 +60,7 @@ namespace Antura.AnturaSpace
 
         public override void ExitState()
         {
-            controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
             base.ExitState();
         }
     }

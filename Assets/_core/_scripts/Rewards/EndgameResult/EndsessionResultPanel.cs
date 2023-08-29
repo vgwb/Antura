@@ -201,7 +201,7 @@ namespace Antura.Rewards
                 if (go.transform.childCount == 0)
                 { continue; }
                 go.SetLayerRecursive(GenericHelper.LayerMaskToIndex(RewardsGosLayer));
-                CameraHelper.FitRewardToUICamera(go.transform.GetChild(0), RewardsCams[i], true);
+                CameraHelper.FitRewardToUICamera(go.transform.GetChild(0), RewardsCams[i], true, AppManager.I.Player.PetData.SelectedPet);
             }
         }
 

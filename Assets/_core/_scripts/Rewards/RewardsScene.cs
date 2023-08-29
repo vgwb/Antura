@@ -9,6 +9,7 @@ using System.Collections;
 using Antura.Debugging;
 using Antura.Helpers;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Rewards
 {
@@ -23,7 +24,7 @@ namespace Antura.Rewards
         public AnturaAnimationStates AnturaAnimation = AnturaAnimationStates.sitting;
 
         [Header("References")]
-        public AnturaAnimationController AnturaAnimController;
+        public AnturaPetSwitcher PetSwitcher;
         //public Button AnturaSpaceBtton;
 
         //Tween btAnturaTween;
@@ -34,7 +35,7 @@ namespace Antura.Rewards
             GlobalUI.ShowPauseMenu(false);
             //Debug.Log("RewardsManager playsession: " + AppManager.I.Player.CurrentJourneyPosition.PlaySession);
 
-            AnturaAnimController.State = AnturaAnimation;
+            PetSwitcher.AnimController.State = AnturaAnimation;
             //AnturaSpaceBtton.gameObject.SetActive(false);
             ShowReward();
 
@@ -65,7 +66,11 @@ namespace Antura.Rewards
 
         IEnumerator StartReward()
         {
-            if (FirstContactManager.I.IsSequenceFinished())
+            if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_NewPet))
+            {
+                KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Reward_Big_3);
+            }
+            else if (FirstContactManager.I.IsSequenceFinished())
             {
                 int rnd = Random.Range(1, 3);
                 switch (rnd)
@@ -97,19 +102,20 @@ namespace Antura.Rewards
         public void ClearLoadedRewardsOnAntura()
         {
             // Clean and load antura reward.
-            AnturaModelManager.I.ClearLoadedRewardPacks();
+            PetSwitcher.ModelManager.ClearLoadedRewardPacks();
         }
 
         /// <summary>
         /// Gets the reward to instantiate.
         /// </summary>
         /// <returns></returns>
-        public RewardPack GetRewardPackToInstantiate()
+        public RewardPack GetRewardPackToInstantiate(out bool advancingJP)
         {
             if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
             {
                 // Get the first prop reward (already unlocked)
                 var firstRewardPack = AppManager.I.RewardSystemManager.GetUnlockedRewardPacksOfBaseType(RewardBaseType.Prop).RandomSelectOne();
+                advancingJP = false;
                 return firstRewardPack;
             }
             else
@@ -123,9 +129,7 @@ namespace Antura.Rewards
                     newRewardPack = newRewardPacks[0];
                 }
 
-                // Also advance the MaxJP
-                AppManager.I.Player.AdvanceMaxJourneyPosition();    // TODO: move this out of here and into the NavigationManager instead
-
+                advancingJP = true;
                 return newRewardPack;
             }
         }
@@ -137,13 +141,15 @@ namespace Antura.Rewards
         /// <returns></returns>
         public GameObject InstantiateReward(RewardPack _rewardToInstantiate)
         {
-            return AnturaModelManager.I.LoadRewardPackOnAntura(_rewardToInstantiate);
+            return PetSwitcher.ModelManager.LoadRewardPackOnAntura(_rewardToInstantiate);
         }
 
         #endregion
 
         public void Continue()
         {
+            GetComponent<RewardsAnimator>().Complete();
+
             if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.Reward_FirstBig))
                 FirstContactManager.I.CompleteCurrentPhaseInSequence();
 

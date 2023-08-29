@@ -1,5 +1,6 @@
 using Antura.Rewards;
 using Antura.UI;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -13,21 +14,17 @@ namespace Antura.AnturaSpace.UI
         public RawImage RewardImage;
         public GameObject IcoLock;
         public GameObject IcoNew;
+        public GameObject IcoRemove;
         public Camera RewardCamera;
         public Transform RewardContainer;
+        public TextMeshProUGUI amountUI;
 
         [System.NonSerialized]
         public RewardBaseItem Data;
 
-        public bool IsNew
-        {
-            get { return isNew && !isNewForceHidden; }
-        }
+        public bool IsNew => isNew && !isNewForceHidden;
 
-        public bool IsItemLocked
-        {
-            get { return _isItemLocked; }
-        }
+        public bool IsItemLocked => _isItemLocked;
 
         private RenderTexture renderTexture;
         private bool isNew, isNewForceHidden, _isItemLocked;
@@ -64,8 +61,12 @@ namespace Antura.AnturaSpace.UI
 
             _isItemLocked = _doLock;
 
-            IcoLock.SetActive(_doLock);
+            // deprecated, we now show the reward instead
+            /*IcoLock.SetActive(_doLock);
             RewardImage.gameObject.SetActive(!_doLock);
+            */
+            IcoLock.SetActive(false);
+
             if (_doLock)
             {
                 IcoNew.SetActive(false);

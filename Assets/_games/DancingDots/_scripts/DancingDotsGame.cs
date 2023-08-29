@@ -222,7 +222,7 @@ namespace Antura.Minigames.DancingDots
                 CreatePoof(pos, 2f, false);
                 yield return new WaitForSeconds(0.4f);
                 antura.transform.position = pos;
-                antura.GetComponent<AnturaAnimationController>().DoSniff();
+                antura.GetComponent<AnturaPetSwitcher>().AnimController.DoSniff();
                 yield return new WaitForSeconds(UnityEngine.Random.Range(anturaMinScreenTime, anturaMaxScreenTime));
                 CreatePoof(pos, 2f, false);
                 antura.transform.position = new Vector3(-50, pos.y, pos.z);

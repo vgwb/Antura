@@ -19,6 +19,7 @@ namespace Antura.Language
         hungarian = 14,
         german = 15,
         darija = 16,
+        cherokee = 17,
         COUNT
     }
 }

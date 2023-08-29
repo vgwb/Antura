@@ -9,7 +9,8 @@ namespace Antura.Minigames.Egg
     public class AnturaEggController : MonoBehaviour
     {
         GameObject anturaPrefab;
-        AnturaAnimationController anturaAnimation;
+        private AnturaAnimationController anturaAnimation => anturaPetSwitcher.AnimController;
+        AnturaPetSwitcher anturaPetSwitcher;
 
         public bool anturaTest;
         public bool noEntry;
@@ -31,13 +32,13 @@ namespace Antura.Minigames.Egg
 
         public void Initialize(GameObject anturaPrefab)
         {
-            anturaAnimation = GameObject.Instantiate(anturaPrefab).GetComponent<AnturaAnimationController>();
-            anturaAnimation.transform.SetParent(transform);
-            anturaAnimation.transform.position = exitPosition.position;
-            anturaAnimation.transform.localEulerAngles = new Vector3(0f, 90f);
-            anturaAnimation.transform.localScale = Vector3.one;
+            anturaPetSwitcher = GameObject.Instantiate(anturaPrefab).GetComponent<AnturaPetSwitcher>();
+            anturaPetSwitcher.transform.SetParent(transform);
+            anturaPetSwitcher.transform.position = exitPosition.position;
+            anturaPetSwitcher.transform.localEulerAngles = new Vector3(0f, 90f);
+            anturaPetSwitcher.transform.localScale = Vector3.one;
 
-            ChengeGameObjectLayer(anturaAnimation.gameObject);
+            ChengeGameObjectLayer(anturaPetSwitcher.gameObject);
 
             ChengeGameObjectLayer(aspirationParticle);
 
@@ -99,7 +100,7 @@ namespace Antura.Minigames.Egg
 
             moveEndCallback = callback;
 
-            moveTween = anturaAnimation.transform.DOMove(position, duration).OnComplete(delegate ()
+            moveTween = anturaPetSwitcher.transform.DOMove(position, duration).OnComplete(delegate ()
             { if (moveEndCallback != null) moveEndCallback(); });
         }
 

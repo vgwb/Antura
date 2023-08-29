@@ -16,14 +16,18 @@ namespace Antura.Minigames.HideAndSeek
         float randomSniffTime;
         bool isSniffing = false;
 
-        public bool IsFollowing { get { return path != null; } }
+        public bool IsFollowing => path != null;
 
-        AnturaAnimationController animationController;
-
-        void Awake()
+        AnturaPetSwitcher petSwitcher;
+        private AnturaPetSwitcher PetSwitcher
         {
-            animationController = GetComponent<AnturaAnimationController>();
+            get
+            {
+                if (petSwitcher == null) petSwitcher =  GetComponent<AnturaPetSwitcher>();
+                return petSwitcher;
+            }
         }
+        private AnturaAnimationController animationController => PetSwitcher.AnimController;
 
         public void FollowPath(AnturaPath path)
         {

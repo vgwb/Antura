@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using Antura.AnturaSpace.UI;
 using Antura.Core;
 using Antura.Database;
 
@@ -43,15 +44,24 @@ namespace Antura.Rewards
             {
                 case RewardBaseType.Prop:
                     foreach (var b in PropBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 case RewardBaseType.Decal:
                     foreach (var b in DecalBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 case RewardBaseType.Texture:
                     foreach (var b in TextureBases)
-                        yield return b;
+                    {
+                        if (b.Enabled)
+                            yield return b;
+                    }
                     break;
                 default:
                     throw new ArgumentOutOfRangeException("type", type, null);
@@ -91,15 +101,15 @@ namespace Antura.Rewards
     [Serializable]
     public class RewardPack
     {
-        public static bool FORCE_ALL_UNLOCKED = false;
+        public static bool FORCE_ALL_UNLOCKED => DebugConfig.I.ForceAllRewardsUnlocked;
 
         public RewardBaseType BaseType;
 
         public RewardBase RewardBase;
-        public string BaseId { get { return RewardBase.ID; } }
+        public string BaseId => RewardBase.ID;
 
         public RewardColor RewardColor;
-        public string ColorId { get { return RewardColor.ID; } }
+        public string ColorId => RewardColor.ID;
 
         public RewardPack(RewardBaseType baseType, RewardBase rewardBase, RewardColor rewardColor)
         {
@@ -157,7 +167,7 @@ namespace Antura.Rewards
         {
             get
             {
-                if (FORCE_ALL_UNLOCKED)
+                if (FORCE_ALL_UNLOCKED || AnturaSpaceUI.REWARDS_CAN_BE_BOUGHT)
                     return false;
                 return unlockData.IsNew;
             }
@@ -176,6 +186,11 @@ namespace Antura.Rewards
             if (FORCE_ALL_UNLOCKED)
                 return;
             unlockData.IsNew = b;
+        }
+
+        public void SetEdited()
+        {
+            unlockData.Edited = true;
         }
 
         public bool HasUnlockData()

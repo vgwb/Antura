@@ -23,7 +23,7 @@ namespace Antura
         [HideInInspector]
         public string RewardTypeFilter = "";
 
-        public GameObject AnturaPJ;
+        public AnturaPetSwitcher AnturaPJ;
         private RewardSystemManager RewardSystem;
 
         /// <summary>
@@ -49,16 +49,14 @@ namespace Antura
 
             RewardSystem = new RewardSystemManager();
             RewardSystem.Init();
-
-            actualRewardGO = AnturaPJ;
         }
 
         void Update()
         {
-            if (AnturaModelManager.I.transformParent != null) {
-                Camera.main.transform.LookAt(AnturaModelManager.I.transformParent.position);
+            if (AnturaPJ.ModelManager.transformParent != null) {
+                Camera.main.transform.LookAt(AnturaPJ.ModelManager.transformParent.position);
             } else {
-                Camera.main.transform.LookAt(AnturaModelManager.I.transform.position);
+                Camera.main.transform.LookAt(AnturaPJ.ModelManager.transform.position);
             }
         }
 
@@ -99,14 +97,14 @@ namespace Antura
         /// <param name="_name">The name.</param>
         void OnClickButton(string _name)
         {
-            LoadRewardOnDog(_name);
+            LoadRewardOnAntura(_name);
         }
 
         /// <summary>
-        /// Loads the reward on dog.
+        /// Loads the reward on the pet.
         /// </summary>
         /// <param name="_name">The name.</param>
-        void LoadRewardOnDog(string _name)
+        void LoadRewardOnAntura(string _name)
         {
             actualReward = null;
 
@@ -145,13 +143,13 @@ namespace Antura
                 rw_color.ID = actualReward.ID;
             }
             RewardPack rp = new RewardPack(RewardBaseType.Prop, allRewards.Find(r => r.ID == actualReward.ID), rw_color);
-            actualRewardGO = AnturaPJ.GetComponent<AnturaModelManager>().LoadRewardPackOnAntura(rp);
+            actualRewardGO = AnturaPJ.ModelManager.LoadRewardPackOnAntura(rp);
             //block02
         }
 
         public void ClearAllRewards()
         {
-            AnturaPJ.GetComponent<AnturaModelManager>().ClearLoadedRewardsWithoutDestroy();
+            AnturaPJ.ModelManager.ClearLoadedRewardsWithoutDestroy();
         }
 
         #endregion
@@ -200,14 +198,14 @@ namespace Antura
         {
             ActiveMaterial1Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.ID);
+                LoadRewardOnAntura(actualReward.ID);
         }
 
         public void SetMaterial2(string _materialName)
         {
             ActiveMaterial2Image.material = MaterialManager.LoadMaterial(_materialName, PaletteType.specular_saturated_2side);
             if (actualReward != null)
-                LoadRewardOnDog(actualReward.ID);
+                LoadRewardOnAntura(actualReward.ID);
         }
 
         void AddListenersMatColor1()

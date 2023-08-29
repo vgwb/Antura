@@ -13,7 +13,8 @@ namespace Antura.Minigames.MixedLetters
         private System.Action NotifyFightBeganCallback;
         private System.Action NotifyAnturaExitedScene;
 
-        private AnturaAnimationController animator;
+        private AnturaAnimationController animator => petSwitcher.AnimController;
+        private AnturaPetSwitcher petSwitcher;
 
         private bool _lastEnteredFromTheLeft;
         public bool LastEnteredFromTheLeft
@@ -27,10 +28,6 @@ namespace Antura.Minigames.MixedLetters
         void Awake()
         {
             instance = this;
-        }
-
-        void Start()
-        {
             foreach (Collider collider in GetComponentsInChildren<Collider>())
             {
                 collider.enabled = false;
@@ -38,8 +35,7 @@ namespace Antura.Minigames.MixedLetters
 
             capsuleCollider.enabled = true;
 
-            animator = GetComponent<AnturaAnimationController>();
-
+            petSwitcher = GetComponent<AnturaPetSwitcher>();
             Reset();
         }
 

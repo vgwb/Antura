@@ -1,4 +1,5 @@
 ﻿using System;
+using Antura.UI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -42,6 +43,7 @@ namespace Antura.Rewards
                 spawnedGo.transform.localEulerAngles = Random.insideUnitSphere.normalized * 90;
                 spawnedGo.transform.localScale = Vector3.one * (scale + Random.Range(-0.1f, 0.1f));
                 spawnedGo.GetComponent<Rigidbody>().velocity = speed;
+                spawnedGo.GetComponent<Bone3D>().Switch();
             }
             originalGo.SetActive(false);
         }

@@ -1,9 +1,13 @@
+using System;
 using Antura.Core;
 using Antura.Database;
 using Antura.Profile;
 using Antura.Rewards;
 using UnityEngine;
 using System.Collections.Generic;
+using System.Linq;
+using Antura.AnturaSpace.UI;
+using UnityEngine.Serialization;
 
 namespace Antura.Dog
 {
@@ -14,17 +18,15 @@ namespace Antura.Dog
     // TODO refactor: the class needs a complete refactoring
     public class AnturaModelManager : MonoBehaviour
     {
-        // TODO refactor: remove static instance
-        public static AnturaModelManager I;
+        [Header("Pet")]
+        public AnturaPetType PetType;
 
         [Header("Bones Attach")]
-        public Transform Dog_head;
+        public Transform RootBone;
 
-        public Transform Dog_spine01;
-        public Transform Dog_jaw;
-        public Transform Dog_Tail3;
-        public Transform Dog_R_ear04;
-        public Transform Dog_L_ear04;
+        public Transform JawBone; // @note: Needed for bone catching
+
+        private List<SkinnedMeshRenderer> propSMRs = new List<SkinnedMeshRenderer>();
 
         [Header("Materials Owner")]
         public SkinnedMeshRenderer SkinnedMesh;
@@ -39,17 +41,38 @@ namespace Antura.Dog
 
         #region Life cycle
 
-        void Awake()
-        {
-            I = this;
-        }
-
         void Start()
         {
             if (AppManager.I.Player != null)
             {
-                var c = AppManager.I.Player.CurrentAnturaCustomizations;
+                var c = AppManager.I.Player.AnturaCustomization(PetType);
                 LoadAnturaCustomization(c);
+            }
+        }
+
+        public void AssignPropSkinnedMeshRenderers()
+        {
+            propSMRs.RemoveAll(x => x == null);
+
+            // Skinned mesh renderer support
+            SkinnedMeshRenderer targetRenderer = SkinnedMesh;
+            var boneMap = new Dictionary<string,Transform>();
+            foreach(var bone in targetRenderer.bones)
+                boneMap[bone.gameObject.name] = bone;
+
+            foreach (SkinnedMeshRenderer additionalSmr in propSMRs)
+            {
+                var newBones = new Transform[additionalSmr.bones.Length];
+                for( int i = 0; i < additionalSmr.bones.Length; ++i )
+                {
+                    GameObject bone = additionalSmr.bones[i].gameObject;
+                    if(!boneMap.TryGetValue(bone.name, out newBones[i]))
+                    {
+                        Debug.Log($"Unable to map bone {bone.name} to target skeleton.");
+                        break;
+                    }
+                }
+                additionalSmr.bones = newBones;
             }
         }
 
@@ -77,7 +100,7 @@ namespace Antura.Dog
             foreach (var propPack in _anturaCustomization.PropPacks)
             {
                 LoadRewardPackOnAntura(propPack);
-                ModelsManager.SwitchMaterial(LoadRewardPackOnAntura(propPack), propPack.GetMaterialPair());
+                ModelsManager.SwitchMaterial(LoadRewardPackOnAntura(propPack), propPack.GetMaterialPair(), _anturaCustomization.PetType);
             }
             LoadRewardPackOnAntura(_anturaCustomization.TexturePack);
             LoadRewardPackOnAntura(_anturaCustomization.DecalPack);
@@ -90,6 +113,7 @@ namespace Antura.Dog
         public AnturaCustomization SaveAnturaCustomization()
         {
             AnturaCustomization returnCustomization = new AnturaCustomization();
+            returnCustomization.PetType = AppManager.I.Player.PetData.SelectedPet;
             foreach (LoadedModel loadedModel in LoadedModels)
             {
                 returnCustomization.PropPacks.Add(loadedModel.RewardPack);
@@ -108,13 +132,15 @@ namespace Antura.Dog
         public GameObject LoadRewardPackOnAntura(RewardPack rewardPack)
         {
             if (rewardPack == null)
-            { return null; }
+            {
+                return null;
+            }
             switch (rewardPack.BaseType)
             {
                 case RewardBaseType.Prop:
                     return LoadRewardPropOnAntura(rewardPack);
                 case RewardBaseType.Texture:
-                    var newMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
+                    var newMaterial = MaterialManager.LoadTextureMaterial(PetType, rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     var mats = SkinnedMesh.sharedMaterials;
                     mats[0] = newMaterial;
@@ -129,7 +155,7 @@ namespace Antura.Dog
                     }
                     break;
                 case RewardBaseType.Decal:
-                    Material newDecalMaterial = MaterialManager.LoadTextureMaterial(rewardPack.BaseId, rewardPack.ColorId);
+                    Material newDecalMaterial = MaterialManager.LoadTextureMaterial(PetType, rewardPack.BaseId, rewardPack.ColorId);
                     // Main mesh
                     Material[] decalMats = SkinnedMesh.sharedMaterials;
                     decalMats[1] = newDecalMaterial;
@@ -193,7 +219,7 @@ namespace Antura.Dog
         /// <returns></returns>
         public GameObject SetRewardMaterialColors(GameObject _gameObject, RewardPack rewardPack)
         {
-            ModelsManager.SwitchMaterial(_gameObject, rewardPack.GetMaterialPair());
+            ModelsManager.SwitchMaterial(_gameObject, rewardPack.GetMaterialPair(), PetType);
             //actualRewardsForCategoryColor.Add()
             return _gameObject;
         }
@@ -220,37 +246,80 @@ namespace Antura.Dog
                 LoadedModels.Remove(loadedModel);
             }
 
-            // Load Model
-            string boneParent = prop.BoneAttach;
-            GameObject rewardModel = null;
-            switch (boneParent)
+            if (AnturaSpaceUI.MERGE_EARS)
             {
-                case "dog_head":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_head);
-                    break;
-                case "dog_spine01":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_spine01);
-                    break;
-                case "dog_jaw":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_jaw);
-                    break;
-                case "dog_Tail4":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_Tail3);
-                    break;
-                case "dog_R_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_R_ear04);
-                    break;
-                case "dog_L_ear04":
-                    rewardModel = ModelsManager.MountModel(prop.ID, Dog_L_ear04);
-                    break;
+                // Load the L ear too, when we load the R one
+                if (prop.Category == "EAR_R")
+                {
+                    var id = $"{prop.ID.Substring(0, prop.ID.Length - 2)}_l";
+
+                    // Create a fake new prop for this, to load the model as if it was a pack
+                    var rewardBase = new RewardProp
+                    {
+                        Category = "EAR_L",
+                        BoneAttach = prop.BoneAttach.Replace("Right","Left").Replace("_R_","_L_"),
+                        Material1 = prop.Material1,
+                        Material2 = prop.Material2,
+                        RewardName = prop.RewardName.Replace("_R","_L"),
+
+                        ID = id,
+                        Cost = 0,
+                        Enabled = true,
+                        SharedID = ""
+                    };
+                    var otherEarPack = AppManager.I.RewardSystemManager.BuildFakePack( id,rewardPack.RewardColor, rewardBase, RewardBaseType.Prop);
+                    LoadRewardPropOnAntura(otherEarPack);
+                }
+            }
+
+            // Load the new Model
+            var targetBone = RootBone;
+            if (prop.BoneAttach.ToLower() != "none")
+            {
+                targetBone = RecursiveFind(RootBone, prop.BoneAttach);
+                if (targetBone == null)
+                {
+                    Debug.LogWarning($"Could not find bone {prop.BoneAttach} to attach the prop to.");
+                    targetBone = RootBone; // Fallback
+                }
+            }
+            var rewardModel = ModelsManager.MountModel(PetType, prop.ID, targetBone);
+
+            var smrs = rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>();
+            if (smrs.Length > 0)
+            {
+                rewardModel.transform.SetParent(RootBone, false);
+                foreach (var smr in rewardModel.GetComponentsInChildren<SkinnedMeshRenderer>())
+                {
+                    propSMRs.Add(smr);
+                }
+                AssignPropSkinnedMeshRenderers();
             }
 
             // Set materials
-            ModelsManager.SwitchMaterial(rewardModel, rewardPack.GetMaterialPair());
+            ModelsManager.SwitchMaterial(rewardModel, rewardPack.GetMaterialPair(), PetType);
 
             // Save on LoadedModel List
             LoadedModels.Add(new LoadedModel() { RewardPack = rewardPack, GO = rewardModel });
             return rewardModel;
+        }
+
+        private Transform RecursiveFind(Transform rootBone, string childName)
+        {
+            foreach (Transform childTr in rootBone.transform)
+            {
+                if (childTr.name.Equals(childName, StringComparison.OrdinalIgnoreCase))
+                {
+                    return childTr;
+                }
+
+                if (childTr.childCount > 0)
+                {
+                    var found = RecursiveFind(childTr, childName);
+                    if (found != null) return found;
+                }
+            }
+            return null;
         }
 
         #endregion
@@ -261,28 +330,40 @@ namespace Antura.Dog
         {
             if (AppManager.I == null || AppManager.I.RewardSystemManager == null)
                 return;
-            AppManager.I.RewardSystemManager.OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
-            PlayerProfileManager.OnProfileChanged += PlayerProfileManager_OnProfileChanged;
+
+            if (isMainPet)
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
+            }
         }
 
-        private void PlayerProfileManager_OnProfileChanged()
+        private bool isMainPet;
+        public void SetMainPet(bool choice)
         {
-            LoadAnturaCustomization(AppManager.I.Player.CurrentAnturaCustomizations);
+            isMainPet = choice;
+            if (choice)
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged += RewardSystemManager_OnRewardItemChanged;
+            }
+            else
+            {
+                AppManager.I.RewardSystemManager.
+                    OnRewardSelectionChanged -= RewardSystemManager_OnRewardItemChanged;
+            }
         }
+
 
         private void RewardSystemManager_OnRewardItemChanged(RewardPack rewardPack)
         {
             LoadRewardPackOnAntura(rewardPack);
-            //rewardPack.SetNew(false);
-
-            AppManager.I.RewardSystemManager.SaveRewardsUnlockDataChanges();
             SaveAnturaCustomization();
         }
 
         void OnDisable()
         {
             AppManager.I.RewardSystemManager.OnRewardSelectionChanged -= RewardSystemManager_OnRewardItemChanged;
-            PlayerProfileManager.OnProfileChanged -= PlayerProfileManager_OnProfileChanged;
         }
 
         #endregion

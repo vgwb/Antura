@@ -10,6 +10,7 @@ using Antura.UI;
 using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
+using Antura.Dog;
 
 // refactor: standardize random use across the codebase
 using RND = UnityEngine.Random;
@@ -703,7 +704,7 @@ namespace Antura.Database.Management
         {
             dbManager.UpdatePlayerProfileData(
                 new PlayerProfileData(DEBUG_PLAYER_UUID, 1, PlayerGender.M, PlayerTint.Blue, Color.yellow, Color.red, Color.magenta, 4, false, false, false, false,
-                                      8, 0, "", 0, new AnturaSpace.ShopState(), new FirstContactState(), AppManager.I.AppEdition.editionID, AppManager.I.AppSettings.ContentID, AppManager.I.AppEdition.AppVersion)
+                                      8, 0, "", 0, new AnturaSpace.ShopState(), new CustomizationShopState(), new FirstContactState(), AppManager.I.AppEdition.editionID, AppManager.I.AppSettings.ContentID, AppManager.I.AppEdition.AppVersion, new PetData())
             );
             var playerProfileData = dbManager.GetPlayerProfileData();
             PrintOutput(playerProfileData.ToString());

@@ -19,16 +19,16 @@ namespace Antura.AnturaSpace
             base.EnterState();
             shoutTimer = Random.Range(1, 3);
             timeInThisState = 0;
-            controller.Antura.AnimationController.State = AnturaAnimationStates.idle;
+            controller.AnturaMain.AnimController.State = AnturaAnimationStates.idle;
 
             waitForLaunchPoint = new GameObject("WaitForLaunch");
-            controller.Antura.SetTarget(waitForLaunchPoint.transform, true);
-            controller.Antura.Excited = true;
+            controller.AnturaMain.SetTarget(waitForLaunchPoint.transform, true);
+            controller.AnturaMain.Excited = true;
         }
 
         public override void ExitState()
         {
-            controller.Antura.Excited = false;
+            controller.AnturaMain.Excited = false;
             GameObject.Destroy(waitForLaunchPoint);
             base.ExitState();
         }
@@ -46,7 +46,7 @@ namespace Antura.AnturaSpace
             waitForLaunchPoint.transform.position = controller.DraggedTransform.position + Camera.main.transform.forward * 6;
             waitForLaunchPoint.transform.forward = (controller.DraggedTransform.position - waitForLaunchPoint.transform.position).normalized;
 
-            if (shoutTimer > 0 & controller.Antura.HasReachedTarget)
+            if (shoutTimer > 0 & controller.AnturaMain.HasReachedTarget)
             {
                 timeInThisState += delta;
                 shoutTimer -= delta;
@@ -57,12 +57,12 @@ namespace Antura.AnturaSpace
 
                     if (Random.value < 0.3f)
                     {
-                        controller.Antura.AnimationController.DoSniff();
+                        controller.AnturaMain.AnimController.DoSniff();
                         Audio.AudioManager.I.PlaySound(Sfx.DogSnorting);
                     }
                     else
                     {
-                        controller.Antura.AnimationController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
+                        controller.AnturaMain.AnimController.DoShout(() => { Audio.AudioManager.I.PlaySound(Sfx.DogBarking); });
                     }
                 }
             }

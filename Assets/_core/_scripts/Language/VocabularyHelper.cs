@@ -768,6 +768,9 @@ namespace Antura.Database
         {
             for (int i = 0; i < input.Length; i++)
             {
+                // If with apostrophes, this is in all probability an article
+                if (input[i] == '\'') return false;
+
                 // @note: this does not consider non-letter chars
                 if (Char.IsLetter(input[i]) && !Char.IsUpper(input[i]))
                     return false;

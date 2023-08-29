@@ -10,13 +10,13 @@ namespace Antura.Dog
         // TODO refactor: cache AnturaAnimationController
         public override void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<AnturaAnimationController>()
+            animator.GetComponentInParent<AnturaAnimationController>()
                 .SendMessage("OnAnimationJumpStart", SendMessageOptions.DontRequireReceiver);
         }
 
         public override void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
         {
-            animator.GetComponent<AnturaAnimationController>()
+            animator.GetComponentInParent<AnturaAnimationController>()
                 .SendMessage("OnAnimationJumpEnd", SendMessageOptions.DontRequireReceiver);
         }
     }

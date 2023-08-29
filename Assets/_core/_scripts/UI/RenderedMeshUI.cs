@@ -23,7 +23,15 @@ namespace Antura.UI
 
         public void AssignObjectToRender(GameObject go)
         {
+            if (renderedGo != null) Destroy(renderedGo);
             renderedGo = Instantiate(go);
+            var bone3D = renderedGo.GetComponent<Bone3D>();
+            if (bone3D != null)
+            {
+                bone3D.skipSwitching = false;
+                bone3D.Switch();
+            }
+
             renderedGo.transform.SetParent(containerPivotTR);
             renderedGo.transform.localScale = Vector3.one;
             renderedGo.transform.localPosition = Vector3.zero;

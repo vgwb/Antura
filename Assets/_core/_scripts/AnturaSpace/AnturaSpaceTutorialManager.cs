@@ -34,6 +34,7 @@ namespace Antura.AnturaSpace
 #pragma warning restore 649
 
         public AnturaLocomotion m_oAnturaBehaviour;
+        public AnturaLocomotion m_oAnturaSideBehaviour;
         public AnturaSpaceUI UI;
         public ShopDecorationsManager ShopDecorationsManager;
         public Button m_oCookieButton;
@@ -74,10 +75,19 @@ namespace Antura.AnturaSpace
             }
 
             // Play bonus tutorial phases
-            bool isPhaseToBeCompleted = IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_Photo);
-            if (isPhaseToBeCompleted)
+            if (IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_Photo))
             {
                 StepTutorialPhoto();
+                return;
+            }
+
+            if (IsPhaseToBeCompleted(FirstContactPhase.AnturaSpace_NewPet))
+            {
+                _mScene.AnturaSide.transform.position = new Vector3(-20, 0, 0);
+                _mScene.AnturaSide.gameObject.SetActive(true);
+                _mScene.AnturaSide.SetTarget(_mScene.SideAnturaPivot, true);
+
+                StepTutorialNewPet();
                 return;
             }
 
@@ -105,6 +115,10 @@ namespace Antura.AnturaSpace
                     break;
                 case FirstContactPhase.AnturaSpace_Photo:
                     m_oPhotoButton.gameObject.SetActive(choice);
+                    _mScene.UI.ShopPanelUI.showPurchasePanelAlwaysAvailableTween.PlayForward();
+                    break;
+                case FirstContactPhase.AnturaSpace_NewPet:
+                    _mScene.AnturaSide.gameObject.SetActive(choice);
                     break;
                 case FirstContactPhase.AnturaSpace_Exit:
                     if (choice)
@@ -130,8 +144,8 @@ namespace Antura.AnturaSpace
             TutorialUI.Clear(false);
 
             // Reset antura as sleeping
-            _mScene.Antura.transform.position = _mScene.SceneCenter.position;
-            _mScene.Antura.AnimationController.State = AnturaAnimationStates.sleeping;
+            _mScene.AnturaMain.transform.position = _mScene.SceneCenter.position;
+            _mScene.AnturaMain.AnimController.State = AnturaAnimationStates.sleeping;
             _mScene.CurrentState = _mScene.Sleeping;
 
             m_oAnturaBehaviour.onTouched += HandleAnturaTouched;
@@ -165,11 +179,13 @@ namespace Antura.AnturaSpace
             OPEN_CUSTOMIZE,
             SELECT_CATEGORY,
             SELECT_ITEM,
+            BUY_ITEM,
             SELECT_COLOR,
             CLOSE_CUSTOMIZE,
             FINISH
         }
 
+        private Coroutine fingerCo;
         private CustomizationTutorialStep _currentCustomizationStep = CustomizationTutorialStep.START;
         private void StepTutorialCustomization()
         {
@@ -190,10 +206,10 @@ namespace Antura.AnturaSpace
                     var anturaModelManager = FindObjectOfType<AnturaModelManager>();
                     if (anturaModelManager)
                         anturaModelManager.ClearLoadedRewardPacks();
-                    AppManager.I.Player.CurrentAnturaCustomizations.ClearEquippedProps();
+                    AppManager.I.Player.CurrentSingleAnturaCustomization.ClearEquippedProps();
 
                     DialogueThen(
-                        LocalizationDataId.AnturaSpace_Custom_1,
+                        LocalizationDataId.AnturaSpace_Shop_Intro,
                         () =>
                         {
                             m_oCustomizationButton.gameObject.SetActive(true);
@@ -214,11 +230,7 @@ namespace Antura.AnturaSpace
                     StartCoroutine(DelayedCallbackCO(
                         () =>
                         {
-                            m_oCategoryButton = _mScene.UI.GetNewCategoryButton();
-                            if (m_oCategoryButton == null)
-                            {
-                                m_oCategoryButton = _mScene.UI.GetFirstUnlockedCategoryButton();
-                            }
+                            m_oCategoryButton = _mScene.UI.GetSpecificCategory(AnturaSpaceCategoryButton.AnturaSpaceCategory.HEAD);
                             m_oCategoryButton.Bt.onClick.AddListener(StepTutorialCustomization);
                             CurrentTutorialFocus = m_oCategoryButton;
 
@@ -236,11 +248,7 @@ namespace Antura.AnturaSpace
                         () =>
                         {
                             // Register on item button
-                            m_oItemButton = _mScene.UI.GetNewItemButton();
-                            if (m_oItemButton == null)
-                            {
-                                m_oItemButton = _mScene.UI.GetFirstUnlockedItemButton();
-                            }
+                            m_oItemButton = _mScene.UI.GetSpecificItemButton("head_2");
                             m_oItemButton.Bt.onClick.AddListener(StepTutorialCustomization);
                             CurrentTutorialFocus = m_oItemButton;
 
@@ -248,10 +256,7 @@ namespace Antura.AnturaSpace
                         }));
                     break;
 
-                case CustomizationTutorialStep.SELECT_COLOR:
-
-                    Dialogue(LocalizationDataId.AnturaSpace_Custom_3);
-                    CurrentTutorialFocus = null;
+                case CustomizationTutorialStep.BUY_ITEM:
 
                     // Cleanup last step
                     m_oItemButton.Bt.onClick.RemoveListener(StepTutorialCustomization);
@@ -260,11 +265,36 @@ namespace Antura.AnturaSpace
                     StartCoroutine(DelayedCallbackCO(
                         () =>
                         {
-                            // Register on item button
-                            m_oSwatchButton = _mScene.UI.GetRandomUnselectedSwatch();
-                            m_oSwatchButton.Bt.onClick.AddListener(StepTutorialCustomization);
+                            var yesButton = _mScene.UI.ShopPanelUI.confirmationYesButton;
+                            yesButton.onClick.AddListener(StepTutorialCustomization);
+                            CurrentTutorialFocus = yesButton;
+                            _mScene.UI.ShopPanelUI.confirmationNoButton.enabled = false;
 
-                            TutorialUI.ClickRepeat(m_oSwatchButton.transform.position, float.MaxValue, 1);
+                            TutorialUI.ClickRepeat(yesButton.transform.position, float.MaxValue, 1);
+                            Dialogue(LocalizationDataId.AnturaSpace_Shop_ConfirmBuy);
+                        }));
+                    break;
+                case CustomizationTutorialStep.SELECT_COLOR:
+
+                    // @note: after purchase, we complete the tutorial sequence anyway so you cannot get stuck here
+                    FirstContactManager.I.CompletePhaseCheckSequence(CurrentRunningPhase);
+
+                    Dialogue(LocalizationDataId.AnturaSpace_Custom_3);
+
+                    // Cleanup last step
+                    _mScene.UI.ShopPanelUI.confirmationYesButton.onClick.RemoveListener(StepTutorialCustomization);
+                    _mScene.UI.ShopPanelUI.confirmationNoButton.enabled = true;
+                    CurrentTutorialFocus = null;
+
+                    StartCoroutine(DelayedCallbackCO(
+                        () =>
+                        {
+                            // Register on swatches button
+                            foreach (var sw in _mScene.UI.GetAllSwatches())
+                            {
+                                sw.Bt.onClick.AddListener(StepTutorialCustomization);
+                            }
+                            fingerCo = StartCoroutine(ShowFingerOnRandomSwatchesCO());
                         }));
                     break;
 
@@ -273,7 +303,11 @@ namespace Antura.AnturaSpace
                     Dialogue(LocalizationDataId.AnturaSpace_Custom_4);
 
                     // Cleanup last step
-                    m_oSwatchButton.Bt.onClick.RemoveListener(StepTutorialCustomization);
+                    foreach (var sw in _mScene.UI.GetAllSwatches())
+                    {
+                        sw.Bt.onClick.RemoveListener(StepTutorialCustomization);
+                    }
+                    StopCoroutine(fingerCo);
 
                     // New step
                     m_oAnturaBehaviour.onTouched += StepTutorialCustomization;
@@ -307,6 +341,16 @@ namespace Antura.AnturaSpace
 
                     CompleteTutorialPhase();
                     break;
+            }
+        }
+
+        private IEnumerator ShowFingerOnRandomSwatchesCO()
+        {
+            while (true)
+            {
+                var sw = _mScene.UI.GetRandomUnselectedSwatch();
+                TutorialUI.Click(sw.transform.position);
+                yield return new WaitForSeconds(1f);
             }
         }
 
@@ -599,6 +643,66 @@ namespace Antura.AnturaSpace
             }
         }
         #endregion
+
+
+        #region New pet
+
+        private enum NewPetTutorialStep
+        {
+            START,
+            CLICK_PET,
+            FINISH
+        }
+
+        private NewPetTutorialStep _currentNewPetTutorialStep = NewPetTutorialStep.START;
+        private void StepTutorialNewPet()
+        {
+            CurrentRunningPhase = FirstContactPhase.AnturaSpace_NewPet;
+
+            if (_currentNewPetTutorialStep < NewPetTutorialStep.FINISH)
+                _currentNewPetTutorialStep += 1;
+
+            TutorialUI.Clear(false);
+
+            // Hide other UIs
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Customization, false);
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Exit, false);
+            SetPhaseUIShown(FirstContactPhase.AnturaSpace_Photo, false);
+
+            switch (_currentNewPetTutorialStep)
+            {
+                case NewPetTutorialStep.CLICK_PET:
+
+                    StartCoroutine(DelayedCallbackCO(() =>
+                        DialogueThen(LocalizationDataId.Reward_Big_1,
+                            () =>
+                            {
+                                // Focus on the cat
+                                m_oAnturaSideBehaviour.onTouched += HandleAnturaSideTouched;
+                                TutorialUI.ClickRepeat(m_oAnturaSideBehaviour.transform.position, float.MaxValue, 1);
+                            }), 2f));
+
+                    break;
+
+                case NewPetTutorialStep.FINISH:
+
+                    // New step
+                    _mScene.ShowBackButton();
+                    Dialogue(LocalizationDataId.Keeper_Good_9);
+                    CompleteTutorialPhase();
+                    CurrentTutorialFocus = null;
+                    break;
+            }
+        }
+
+        public void HandleAnturaSideTouched()
+        {
+            m_oAnturaSideBehaviour.onTouched -= HandleAnturaSideTouched;
+            StepTutorialNewPet();
+        }
+
+        #endregion
+
 
         #region Exit
 

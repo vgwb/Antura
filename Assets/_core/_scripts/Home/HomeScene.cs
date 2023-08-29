@@ -7,6 +7,7 @@ using Antura.Language;
 using Antura.LivingLetters;
 using Antura.UI;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Scenes
 {
@@ -20,7 +21,7 @@ namespace Antura.Scenes
         public LLAnimationStates LLAnimation = LLAnimationStates.LL_dancing;
 
         [Header("References")]
-        public AnturaAnimationController AnturaAnimController;
+        public AnturaPetSwitcher PetSwitcher;
         public LivingLetterController LLAnimController;
         public GameObject DialogReservedArea;
         public GameObject ProfileSelectorUI;
@@ -34,7 +35,7 @@ namespace Antura.Scenes
             if (EditionSelectionManager.MustChooseContentEditions)
             {
                 // First choose a learning edition
-                AnturaAnimController.gameObject.SetActive(false);
+                PetSwitcher.gameObject.SetActive(false);
                 LLAnimController.gameObject.SetActive(false);
                 HomeLogo.SetActive(false);
                 GlobalUI.ShowPauseMenu(false, PauseMenuType.StartScreen);
@@ -43,7 +44,7 @@ namespace Antura.Scenes
             {
                 GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
                 KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.TitleLocID, false, true, TutorCreateProfile, KeeperMode.LearningNoSubtitles);
-                AnturaAnimController.State = AnturaAnimation;
+                PetSwitcher.AnimController.State = AnturaAnimation;
                 LLAnimController.State = LLAnimation;
             }
         }

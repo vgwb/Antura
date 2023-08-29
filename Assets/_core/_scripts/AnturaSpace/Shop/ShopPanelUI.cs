@@ -33,10 +33,10 @@ namespace Antura.AnturaSpace
         Tween scrollShowTween;
 
         private Tween showShopPanelTween,
-            showDragPanelTween,
-            showConfirmationPanelTween,
-            showPurchasePanelAlwaysAvailableTween;
+            showDragPanelTween;
 
+        public Tween showConfirmationPanelTween;
+        public Tween showPurchasePanelAlwaysAvailableTween;
 
         public ShopActionUI GetActionUIByName(string actionName)
         {
@@ -47,6 +47,7 @@ namespace Antura.AnturaSpace
         public void SetActions(ShopAction[] shopActions)
         {
             actionUIs = new List<ShopActionUI>();
+            shopActions = shopActions.Reverse().ToArray();    // @note: shop now starts from the left
             foreach (var shopAction in shopActions)
             {
                 var shopActionUIgo = Instantiate(shopActionUIPrefab);
@@ -76,12 +77,12 @@ namespace Antura.AnturaSpace
             showConfirmationPanelTween =
                 confirmationPanel.DOAnchorPosY(-350, duration).From().SetEase(Ease.Linear).SetAutoKill(false).Pause();
             showPurchasePanelAlwaysAvailableTween =
-                purchasePanelAlwaysAvailableUI.DOAnchorPosX(200, duration)
+                purchasePanelAlwaysAvailableUI.DOAnchorPosX(-200, duration)
                     .From()
                     .SetEase(Ease.OutBack)
                     .SetAutoKill(false);
             scrollRect.horizontalNormalizedPosition = 0;
-            scrollShowTween = scrollRect.DOHorizontalNormalizedPos(1, 0.6f).SetAutoKill(false).Pause().SetDelay(0.15f);
+            scrollShowTween = scrollRect.DOHorizontalNormalizedPos(0, 0.6f).SetAutoKill(false).Pause().SetDelay(0.15f);
             scrollShowTween.ForceInit();
 
             ShopDecorationsManager.I.OnContextChange += HandleContextChange;
@@ -162,6 +163,12 @@ namespace Antura.AnturaSpace
 
         #region Confirmation
 
+        public void HandleCustomizationShopPurchaseConfirmationRequested(Action confirmPurchase, Action cancelPurchase)
+        {
+            confirmationPanelUI.SetupForPurchase();
+            AskForConfirmation( () => confirmPurchase(), () => cancelPurchase());
+        }
+
         private void HandlePurchaseConfirmationRequested()
         {
             showDragPanelTween.PlayBackwards();
@@ -214,6 +221,8 @@ namespace Antura.AnturaSpace
         private UnityAction currentNoAction;
         private void AskForConfirmation(UnityAction yesAction, UnityAction noAction)
         {
+            ResetConfirmationButtons(); // Just to make sure, to avoid double confirmations
+
             currentYesAction = yesAction;
             currentNoAction = noAction;
 
@@ -231,8 +240,11 @@ namespace Antura.AnturaSpace
 
         private void ResetConfirmationButtons()
         {
-            confirmationYesButton.onClick.RemoveListener(currentYesAction);
-            confirmationYesButton.onClick.RemoveListener(ResetConfirmationButtons);
+            if (currentYesAction != null)
+            {
+                confirmationYesButton.onClick.RemoveListener(currentYesAction);
+                confirmationYesButton.onClick.RemoveListener(ResetConfirmationButtons);
+            }
             if (currentNoAction != null)
             {
                 confirmationNoButton.onClick.RemoveListener(currentNoAction);
@@ -250,5 +262,6 @@ namespace Antura.AnturaSpace
             }
             photoActionUI.UpdateAction();
         }
+
     }
 }

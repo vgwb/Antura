@@ -17,21 +17,21 @@ namespace Antura.Dog
 
             if (rnd < 0.3f)
             {
-                GetComponent<AnturaAnimationController>().DoSniff(null, () => { AudioManager.I.PlaySound(Sfx.DogSnorting); });
+                GetComponent<AnturaPetSwitcher>().AnimController.DoSniff(null, () => { AudioManager.I.PlaySound(Sfx.DogSnorting); });
             }
             else if (rnd < 0.5f)
             {
-                GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.digging;
+                GetComponent<AnturaPetSwitcher>().AnimController.State = AnturaAnimationStates.digging;
                 animationTimer = 2;
             }
             else if (rnd < 0.7f)
             {
-                GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.sheeping;
+                GetComponent<AnturaPetSwitcher>().AnimController.State = AnturaAnimationStates.sheeping;
                 animationTimer = 2;
             }
             else
             {
-                GetComponent<AnturaAnimationController>().DoShout(() => { AudioManager.I.PlaySound(Sfx.DogBarking); });
+                GetComponent<AnturaPetSwitcher>().AnimController.DoShout(() => { AudioManager.I.PlaySound(Sfx.DogBarking); });
             }
         }
 
@@ -42,7 +42,7 @@ namespace Antura.Dog
                 animationTimer -= Time.deltaTime;
                 if (animationTimer <= 0)
                 {
-                    GetComponent<AnturaAnimationController>().State = AnturaAnimationStates.sitting;
+                    GetComponent<AnturaPetSwitcher>().AnimController.State = AnturaAnimationStates.sitting;
                 }
             }
         }

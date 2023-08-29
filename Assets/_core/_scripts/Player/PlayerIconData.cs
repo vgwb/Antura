@@ -1,5 +1,6 @@
 using Antura.Core;
 using System;
+using Antura.Database;
 using UnityEngine;
 
 namespace Antura.Profile
@@ -25,9 +26,10 @@ namespace Antura.Profile
         public AppEditionID editionID;
         public LearningContentID contentID;
         public string AppVersion;
+        public PetData PetData;
 
         public PlayerIconData(string _Uuid, int _AvatarId, PlayerTint _Tint, PlayerGender _Gender, Color _SkinColor, Color _HairColor, Color _BgColor, bool _IsDemoUser,
-            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditionID editionID, LearningContentID contentID, string _AppVersion)
+            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditionID editionID, LearningContentID contentID, string _AppVersion, PetData _petData)
         {
             Uuid = _Uuid;
             AvatarId = _AvatarId;
@@ -44,6 +46,7 @@ namespace Antura.Profile
             this.editionID = editionID;
             this.contentID = contentID;
             AppVersion = _AppVersion;
+            PetData = _petData;
             Debug.Log("CREATE PLAYER ICON DATA > " + SkinColor + " > " + HairColor);
         }
 

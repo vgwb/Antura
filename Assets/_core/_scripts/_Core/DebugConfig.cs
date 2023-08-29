@@ -46,6 +46,7 @@ namespace Antura.Core
         [Header("Tutorial")]
         public bool SimulateFirstContact;
         public FirstContactPhase SimulateFirstContactPhase;
+        public bool ForceAllRewardsUnlocked;
 
         [Header("Verbose")]
         public bool VerboseBook;
