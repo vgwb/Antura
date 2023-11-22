@@ -5,7 +5,7 @@ nav_order: 1
 has_children: false
 ---
 # Antura Docs
-this documentation website is dedicated to Teachers, Designers and Developers who want to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.
+This documentation website is dedicated to Teachers, Designers and Developers who want to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.
 
 - **Antura Docs:** [docs.antura.org](http://docs.antura.org)
 - **GitHub project:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)
