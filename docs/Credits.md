@@ -4,15 +4,17 @@ title: Credits
 nav_order: 90
 has_children: false
 ---
-# ANTURA AND THE LETTERS
+# Credits
 
 Based on the original game **Antura and the Letters - Arabic**
 
-**DEVELOPED BY**   
+**DEVELOPED BY**
+
 - [Video Games Without Borders](http://vgwb.org)   
 - [TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
- 
-**IN COLLABORATION WITH**  
+
+**IN COLLABORATION WITH**
+
 - [Wixel Studios](www.wixelstudios.com)  
 - Institut Français du Maroc  
 - Asociación Oleaje  
@@ -158,36 +160,37 @@ Anouchka Kerouas (Institut Français du Maroc)
 **SCIENTIFIC TRANSLATION COORDINATOR INSPECTOR**  
 Amina Alaoui (AREF de la région Casablanca-Settat)
 
-
 ## SPECIAL THANKS
-Kateryna Holubinka  
-Pauline Müller  
-Morris Andreas  
-Alexander Boccia  
-Alexandra Petrus  
-Mark and Victoriya Andriyets  
-Fabio Cecere  
-Miriam Lozano  
-Montse Villar  
-Mar Mas  
-Florencia Fernández Marinovic  
-Victoria Asti  
-Roberto Lambertini  
-Lucía Sayagués  
-Matias Melfi  
-Valentina Hernández  
-Sebastian & Alexandra Boros  
-Dani Arguedas  
-David Osorio  
-Roger Sas
-Billy Snyder (Futura Handwritten font)  
-Plan Ceibal  
-Grupo de 3er año A de la Escuela 81 de Montevideo  
-Andalucia Open Future: La Farola, Málaga  
-Polo de Contenidos Digitales, Málaga  
-Centro de Innovación Social La Noria, Málaga  
-Techfugees  
-UNHCR NGO Innovation Award Team  
+
+- Kateryna Holubinka  
+- Pauline Müller  
+- Morris Andreas  
+- Alexander Boccia  
+- Alexandra Petrus  
+- Mark and Victoriya Andriyets  
+- Fabio Cecere  
+- Miriam Lozano  
+- Montse Villar  
+- Mar Mas  
+- Florencia Fernández Marinovic  
+- Victoria Asti  
+- Roberto Lambertini  
+- Lucía Sayagués  
+- Matias Melfi  
+- Valentina Hernández  
+- Sebastian & Alexandra Boros  
+- Dani Arguedas  
+- David Osorio  
+- Roger Sas
+- Alessandra Giancaterino (Conexión Creando Puentes)
+- Billy Snyder (Futura Handwritten font)  
+- Plan Ceibal  
+- Grupo de 3er año A de la Escuela 81 de Montevideo  
+- Andalucia Open Future: La Farola, Málaga  
+- Polo de Contenidos Digitales, Málaga  
+- Centro de Innovación Social La Noria, Málaga  
+- Techfugees  
+- UNHCR NGO Innovation Award Team  
 
 **A VERY SPECIAL THANKS TO**  
 **UBISOFT** for their support of this game!
@@ -196,7 +199,8 @@ UNHCR NGO Innovation Award Team
 
 ## ORIGINAL GAME ANTURA AND THE LETTERS - ARABIC
 
-**DEVELOPED BY**   
+**DEVELOPED BY**
+
 - [TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
 - [Video Games Without Borders](http://vgwb.org)
 - [Wixel Studios](www.wixelstudios.com)
@@ -425,22 +429,21 @@ Dr. Juho Hamari
 	
 ### SPECIAL THANKS TO
 
-Gaby Gehlen (Wiku Köln)  
-Sultana Denise Marquardt (Wiku Köln)  
-Till Lupertz (German Red Cross)  
-Liv Marte Kristiansen Nordhaug (Norad)  
-Alf Inge Wang (Norwegian University of Science)  
-Leila Chihab  
-Roberto Mangiafico  
-Miriam Lozano  
-Curtis Maughan  
-Mai Saki  
-Aurélie Perrin  
-Bárbara Cejudo  
-Efsaia Vardoulaki  
-Suany Lima  
-Fabio Cecere  
-
+- Gaby Gehlen (Wiku Köln)  
+- Sultana Denise Marquardt (Wiku Köln)  
+- Till Lupertz (German Red Cross)  
+- Liv Marte Kristiansen Nordhaug (Norad)  
+- Alf Inge Wang (Norwegian University of Science)  
+- Leila Chihab  
+- Roberto Mangiafico  
+- Miriam Lozano  
+- Curtis Maughan  
+- Mai Saki  
+- Aurélie Perrin  
+- Bárbara Cejudo  
+- Efsaia Vardoulaki  
+- Suany Lima  
+- Fabio Cecere  
 
 **PRODUCED WITH THE GENEROUS SUPPORT OF**  
 - Unity
@@ -452,6 +455,5 @@ Fabio Cecere
 - DOTween (C# library)
 - Arabic Support (C# library)
 - GitHub
-
 
 The original Arabic project was funded by the Norwegian Ministry of Foreign Affairs as part of EduApp4Syria innovation competition.
