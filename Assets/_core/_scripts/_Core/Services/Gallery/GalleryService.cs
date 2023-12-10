@@ -14,7 +14,7 @@ namespace Antura.Core.Services.Gallery
 
         public void DetectWriteAccess()
         {
-            var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write);
+            var permission = NativeGallery.CheckPermission(NativeGallery.PermissionType.Write, NativeGallery.MediaType.Image);
             HasWriteAccess = (permission == NativeGallery.Permission.ShouldAsk || permission == NativeGallery.Permission.Granted);
             if (!HasWriteAccess)
                 Debug.LogWarning("Has no write access to the gallery!");
