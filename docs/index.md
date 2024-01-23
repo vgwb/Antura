@@ -17,6 +17,6 @@ please help us improve by [opening a issue](https://github.com/vgwb/Antura/issue
 
 ## License
 Antura is licensed under the BSD 2-clause "Simplified" License and the Creative Commons Attribution 4.0 International.
-Copyright [TH Köln / Cologne Game Lab](https://www.colognegamelab.de/), [Video Games Without Borders](https://vgwb.org) & [Wixel Studios](https://www.wixelstudios.com)
+Copyright [TH Köln / Cologne Game Lab](https://www.colognegamelab.de/), [Video Games Without Borders](https://vgwb.org) & Wixel Studios.
 
 ![antura_gametitle](assets/img/antura_gametitle.jpg)
