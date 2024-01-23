@@ -39,7 +39,7 @@ we have two environments:
 - **dev** (from editor and dev builds)
 
 ## Terminology
-**JP** = Journey Position ([see](../Modules/Journey.md))
+**JP** = Journey Position ([see](./Journey.md))
 is identified by a the sequence **X.Y.Z** where X is the Stage, Y the Learning Block, and Z the Play Session.
 
 ## Custom Events

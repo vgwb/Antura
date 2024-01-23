@@ -26,7 +26,7 @@ The simplest way to copy the files is by connecting the Android phone to a PC, b
 
 Attach the iOS device to a computer via USB and open iTunes. Go to your device -> Apps -> File Sharing panel and select Antura. Drag the `players` folder onto your Desktop and the files are all there.
 
-![](../assets/img/iTunes-Antura_files_sharing.png)
+![Alt text](../../assets/img/iTunes-Antura_files_sharing.png)
 
 ## Windows
 
@@ -39,6 +39,7 @@ You just drag and drop the file and you browse it!
 ## Recover the player ID (UUID)
 
 To recover the player ID, you have to
+
 1. Go in the parent section (yellow button top right of the home screen)
 2. Pass the parent code test (that ask you to press in a certain order colored buttons)
 3. Then in the parent section you select the profile icon of the player

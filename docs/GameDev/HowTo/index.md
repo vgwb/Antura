@@ -18,7 +18,6 @@ has_children: true
 - [Developer Guidelines and Tips](DeveloperGuidelines.md) general guidelines for developers that want to contribute to the project
 - [Refactoring Guidelines](RefactoringGuidelines.md)
 - [Export Google Sheet Data](ExportGoogleSheetData.md) as JSON files
-- [Arabic Font](ArabicFont.md) how to create the arabic Atlas with TextMeshPro
 - [Drawing Font](DrawingsFont.md) how to create the drawings font Atlas with TextMeshPro
 
-- [How To regenerate DoxyGen docs](APIDocsGeneration.html)
+- [How To regenerate DoxyGen docs](APIDocsGeneration.md)

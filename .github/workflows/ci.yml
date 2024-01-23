@@ -1,0 +1,17 @@
+name: publish
+on:
+  push:
+    branches:
+      - docs
+permissions:
+  contents: write
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v4
+        with:
+          python-version: 3.x
+      - run: pip install mkdocs-material mkdocs-minify-plugin pillow cairosvg mkdocs-table-reader-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-exclude
+      - run: mkdocs gh-deploy --force

@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Antura Docs
+title: Antura
 nav_order: 1
 has_children: false
 ---

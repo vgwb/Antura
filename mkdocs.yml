@@ -1,0 +1,77 @@
+site_name: Antura Docs
+site_url: https://docs.antura.org
+site_author: VGWB
+site_description: the Antura project docs for Educators, Game Designers and Game Developers
+copyright: <a href="/about">© VGWB | CC BY-NC-SA</a> |
+
+theme:
+  name: material
+  language: en
+  logo: assets/icon.png
+  favicon: assets/icon.png
+  icon:
+    repo: fontawesome/brands/git-alt
+    edit: material/file-edit-outline
+  features:
+    - content.action.edit
+    - navigation.footer
+    - navigation.tracking
+    - navigation.tabs
+#    - navigation.tabs.sticky
+    - navigation.top
+    - navigation.indexes
+#    - navigation.expand
+#    - navigation.sections
+#    - announce.dismiss
+  font:
+    text: Roboto
+    code: Roboto Mono
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+markdown_extensions:
+  - tables
+  - footnotes
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.caret
+  - pymdownx.mark
+  - pymdownx.tilde
+  - attr_list
+  - def_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+# Plugins
+plugins:
+  - search:
+      lang: en
+  - table-reader
+  - minify:
+      minify_html: true
+  - awesome-pages
+  - exclude:
+      glob:
+        - "*/_local/*"
+        - "*/_draft/*"
+
+repo_url: https://github.com/vgwb/Antura
+edit_uri: "edit/main/docs/"
+repo_name: GitHub/Antura
+
+extra_css:
+  - assets/stylesheets/extra.css

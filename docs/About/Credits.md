@@ -15,7 +15,7 @@ Based on the original game **Antura and the Letters - Arabic**
 
 **IN COLLABORATION WITH**
 
-- [Wixel Studios](www.wixelstudios.com)  
+- [Wixel Studios](http://www.wixelstudios.com)  
 - Institut Français du Maroc  
 - Asociación Oleaje  
 - Zone 3:45  
@@ -201,9 +201,9 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 
 **DEVELOPED BY**
 
-- [TH Köln / Cologne Game Lab](http://www.colognegamelab.de)
-- [Video Games Without Borders](http://vgwb.org)
-- [Wixel Studios](www.wixelstudios.com)
+- [TH Köln / Cologne Game Lab](https://www.colognegamelab.de)
+- [Video Games Without Borders](https://vgwb.org)
+- [Wixel Studios](https://www.wixelstudios.com)
 
 ### CORE TEAM
 
