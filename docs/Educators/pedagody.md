@@ -10,8 +10,8 @@ The game is organized in 6 different worlds each world includes between 15 and 2
 
 To pass the different mini-games words, images and sounds so that the learning process sounds so that the learning process and the learning process and progress in the game go hand in hand.
 
-## Currently supported languages
-### Learning Modules
+## Current Learning Modules
+### Learning a new Language
 
 - Learn English
 - Learn French
@@ -22,12 +22,15 @@ To pass the different mini-games words, images and sounds so that the learning p
 - Learn Romanian
 - Learn Spanish
 
-- LearnToRead Arabic
-- LearnToRead Persian Dari
-- LearnToRead Pashto (in progress)
-- LearnToRead Ukrainian
+### Learning to read your own language
 
-### Supported native language
+- Learn To Read Arabic
+- Learn To Read Persian Dari
+- Learn To Read Pashto (in progress)
+- Learn To Read Ukrainian (in progress)
+
+### Supported native languages
+(the language used to speak to the player)
 
 - Arabic
 - English
@@ -78,11 +81,12 @@ Each group of words will be introduced through blocks of mini-games in a progres
 
 We start with an introductory world where you will become familiar with English phonetics through the alphabet and where we will see the first vocabulary words that will be added transversely to the rest of the worlds. The different worlds are as follows:
 
-- Alphabet
-- Nature and animals
-- Home, objects and clothes 
-- Places in the city and family
-- Body parts and food
+1. Alphabet
+2. Nature and animals
+3. Home, objects and clothes
+4. City and family
+5. Body parts and food
+6. Calendar, Colors and Numbers
 
 ## Development
 
