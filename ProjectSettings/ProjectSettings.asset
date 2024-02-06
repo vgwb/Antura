@@ -80,6 +80,7 @@ PlayerSettings:
   androidMinimumWindowWidth: 400
   androidMinimumWindowHeight: 300
   androidFullscreenMode: 1
+  androidAutoRotationBehavior: 1
   defaultIsNativeResolution: 1
   macRetinaSupport: 1
   runInBackground: 0
@@ -140,6 +141,8 @@ PlayerSettings:
   vulkanEnableLateAcquireNextImage: 0
   vulkanEnableCommandBufferRecycling: 1
   loadStoreDebugModeEnabled: 0
+  visionOSBundleVersion: 1.0
+  tvOSBundleVersion: 1.0
   bundleVersion: 3.0.0
   preloadedAssets: []
   metroInputSource: 0
@@ -920,16 +923,24 @@ PlayerSettings:
   webGLPowerPreference: 2
   scriptingDefineSymbols:
     : CT_RTV
-    Android: CT_RTV
+    Android: CT_RTV;DOTWEEN
+    EmbeddedLinux: DOTWEEN
+    GameCoreScarlett: DOTWEEN
+    GameCoreXboxOne: DOTWEEN
+    LinuxHeadlessSimulation: DOTWEEN
     Lumin: CT_RTV
-    Nintendo Switch: CT_RTV
-    PS4: CT_RTV
-    Standalone: CT_RTV
-    WebGL: CT_RTV
-    Windows Store Apps: CT_RTV
-    XboxOne: CT_RTV
-    iPhone: CT_RTV
-    tvOS: CT_RTV
+    Nintendo Switch: CT_RTV;DOTWEEN
+    PS4: CT_RTV;DOTWEEN
+    PS5: DOTWEEN
+    QNX: DOTWEEN
+    Stadia: DOTWEEN
+    Standalone: CT_RTV;DOTWEEN
+    VisionOS: DOTWEEN
+    WebGL: CT_RTV;DOTWEEN
+    Windows Store Apps: CT_RTV;DOTWEEN
+    XboxOne: CT_RTV;DOTWEEN
+    iPhone: CT_RTV;DOTWEEN
+    tvOS: CT_RTV;DOTWEEN
   additionalCompilerArguments: {}
   platformArchitecture:
     iPhone: 1
