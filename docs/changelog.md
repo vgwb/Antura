@@ -9,45 +9,49 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 ## [3.0.0] - 2024
 
 New Features
+
 - Cat!
 
 Internal refactoring
+
 - Removed Facebook SDK
 - Unity 2022
 
-
 ## [2.4.0] - 2022
 New Supported languages:
+
 - Pashto
 
 New Learning Content:
+
 - Learn to Read - Pashto
 
 ## [2.3.0] - 2022
 New Supported languages:
+
 - Hungarian
 
 New Learning Content:
+
 - Learn Hungarian
 
 Bugfix and Improvements:
+
 - updated Maze minigame
 - added Facebook SDK for ukraininan promotion
 - improved arabic and dari ligatures
-- fixed missing Audios 
-
-To Test:
-- maze
-- 
+- fixed missing Audios
 
 ## [2.2.0] - 2022-7 - new languages
 New Supported languages:
+
 - German
 - Spanish
 - Italian
 - Romanian
 
 New Learning Content:
+
 - Learn German
 - Learn Spanish
 - Learn Italian
@@ -59,6 +63,7 @@ And some bugfix and performance improvements
 From this version Antura and the Letters supports multiple languages and a variety of learning contents, including both learning to read in your language and discovering a new language, with the priority set in helping Syrian, Afghan and Ukrainian kids.
 
 Supported languages:
+
 - Arabic (as before)
 - Dari Persian
 - English
@@ -67,6 +72,7 @@ Supported languages:
 - Russian
  
 Learning Content:
+
 - Learn to Read in Arabic (as before)
 - Learn to Read in Dari Persian 
 - Learn Polish
@@ -74,17 +80,18 @@ Learning Content:
 - Learn French
 
 New features:
+
 - New Online Analytics
 - Local Notifications
 
 Plenty of bug fixes
 
 ## [2.0.0] - 2021-11-17
-new Arabic
-Addressables system
+- new Arabic
+- Addressables system
 
 ## [1.4.0] - 2020-08-07
-Learn French edition (v1.0.0 french)
+- Learn French edition (v1.0.0 french)
 
 ## [1.3.0] - 2019-02-18
 this is the first release of the Learn English with Antura.
