@@ -29,6 +29,26 @@ please check the [collaborator docs](https://docs.antura.org/HowTo/Collaborator.
 
 This repository is a Unity project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
 
+# Docs
+all docs are in directory `/docs` and rendered to [docs.antura.org](http://docs.antura.org) by Pages Actions via MkDocs
+
+To render the docs locally:
+
+- `mkdocs new [dir-name]` - Create a new project.
+- `mkdocs serve` - Start the live-reloading docs server.
+- `mkdocs build` - Build the documentation site.
+- `mkdocs -h` - Print help message and exit.
+
+**Install**
+
+pip3 install mkdocs-material mkdocs-minify-plugin pillow cairosvg mkdocs-table-reader-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-exclude mkdocs-glightbox
+
+upgrade:  
+`pip3 install --upgrade mkdocs-material`
+
+check version:  
+`pip3 show mkdocs-material`
+
 ## Licensing
 
 The project is licensed under the BSD 2-clause "Simplified" License [read here](LICENSE.md).

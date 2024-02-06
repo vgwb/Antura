@@ -1,8 +1,8 @@
 ---
-layout: default
-title: Antura
-nav_order: 1
-has_children: false
+title: Home
+hide:
+  - title
+  - navigation
 ---
 # Antura Docs
 This documentation website is dedicated to Teachers, Designers and Developers who want to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.

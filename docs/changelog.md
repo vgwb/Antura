@@ -1,3 +1,6 @@
+---
+title: Changelog
+---
 # Antura Changelog
 All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/en/1.0.0/)
@@ -13,14 +16,14 @@ Internal refactoring
 - Unity 2022
 
 
-## [2.4.0] - 2022-? - new content!
+## [2.4.0] - 2022
 New Supported languages:
 - Pashto
 
 New Learning Content:
 - Learn to Read - Pashto
 
-## [2.3.0] - 2022-? - new content!
+## [2.3.0] - 2022
 New Supported languages:
 - Hungarian
 
