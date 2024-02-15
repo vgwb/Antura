@@ -3,8 +3,9 @@ CAT UPGRADE NOTES
 This documents highlights the changes implemented with the Cat Update.
 
 # Useful links
-[Cat reward system definition] https://docs.google.com/spreadsheets/d/1GlJdBhl66x5CB0Lgt5N3O_JGkGwTveCe5PQLl-FAHLc)
-[Antura integration step by step] https://docs.google.com/document/d/1kg49N5FazWJmktR4iAXE2HVI2Rong0s3jsyCMBkPXIk)
+[Cat reward system definition](https://docs.google.com/spreadsheets/d/1GlJdBhl66x5CB0Lgt5N3O_JGkGwTveCe5PQLl-FAHLc)
+
+[Antura integration step by step](https://docs.google.com/document/d/1kg49N5FazWJmktR4iAXE2HVI2Rong0s3jsyCMBkPXIk)
 
 # General Changes
 The Cat update introduces the possibility for Antura to be replaced with another pet in all the game scenes.
@@ -53,7 +54,9 @@ The update introduces some upgrades to the character controller.
 
 # Data Entry Changes
 Each pet now has a separate configuration table. The item cost is added to each entry in the table.
+
 [Antura Dog Rewards configuration](https://docs.google.com/spreadsheets/d/19noVtlaRO93bnSVEHkFY0vFdJgRpwLeQQLmMyb1yXxo)
+
 [Antura Cat Rewards configuration](https://docs.google.com/spreadsheets/d/14Bl1XBLUx6oFLnI2XYfZJRcLE4Od_FT1tm48bQ87zh4)
 
 # Saved Data Changes 
