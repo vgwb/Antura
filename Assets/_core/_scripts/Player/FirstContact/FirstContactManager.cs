@@ -458,6 +458,8 @@ namespace Antura.Profile
         public AppScene FilterNavigation(AppScene fromScene, AppScene toScene, out bool keepPrevAsBackable)
         {
             keepPrevAsBackable = false;
+            if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry)) return toScene;
+
             if (IsSequenceFinished())
                 return toScene;
             if (toScene == AppScene.PlayerCreation || toScene == AppScene.ReservedArea)

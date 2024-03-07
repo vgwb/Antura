@@ -1,5 +1,7 @@
-﻿using Antura.Database;
+﻿using System;
+using Antura.Database;
 using Antura.Keeper;
+using Antura.Language;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -8,7 +10,8 @@ namespace Antura.Core
     public enum LearnMethodID
     {
         LearnToRead,
-        LearnLanguage
+        LearnLanguage,
+        DiscoverCountry
     }
 
     [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
@@ -25,6 +28,7 @@ namespace Antura.Core
         [Header("Settings - Scenes")]
         public bool ShowEndSceneBigText;
         public string EndSceneLocID;
+        public bool ShowFlag;
 
         [Header("Settings - Subtitles")]
         [Tooltip("The mode in which the keeper will show text, by default")]
@@ -57,5 +61,20 @@ namespace Antura.Core
         //  - true: clicking once skips only one of the two dialogues that are read for the two languages
         //  - false: clicking once skips all languages at once
         public bool SkipSingleLanguage => false;
+
+        public string LearningContentButtonKey(LanguageCode lang)
+        {
+            switch (ID)
+            {
+                case LearnMethodID.LearnToRead:
+                    return "Learn_Read";
+                case LearnMethodID.LearnLanguage:
+                    return $"Learn_{lang}";
+                case LearnMethodID.DiscoverCountry:
+                    return "Discover_Country";
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
     }
 }

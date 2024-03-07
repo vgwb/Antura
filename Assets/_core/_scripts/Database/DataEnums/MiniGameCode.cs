@@ -91,6 +91,9 @@ namespace Antura
         Assessment_SunMoonWord = 110,
         Assessment_SunMoonLetter = 111,
         Assessment_QuestionAndReply = 112,
-        Assessment_SelectPronouncedWordByImage = 116
+        Assessment_SelectPronouncedWordByImage = 116,
+
+        Discover_Country = 1000,
+
     }
 }

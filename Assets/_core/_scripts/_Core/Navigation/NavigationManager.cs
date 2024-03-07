@@ -139,7 +139,16 @@ namespace Antura.Core
             switch (NavData.CurrentScene)
             {
                 case AppScene.Home:
-                    GoToScene(AppScene.Map);
+                    if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
+                    {
+                        AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                    }
+                    else
+                    {
+                        GoToScene(AppScene.Map);
+                    }
                     break;
                 case AppScene.PlayerCreation:
                     GoToScene(AppScene.Intro);
@@ -582,7 +591,11 @@ namespace Antura.Core
             NavData.IsJourneyPlaySession = !directMiniGame;
             NavData.DirectMiniGameData = dataToUse;
 
-            AppManager.I.Teacher.InitNewPlaySession();
+            if (!AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))    // Breaks as profile is not defined yet
+            {
+                AppManager.I.Teacher.InitNewPlaySession();
+            }
+
             NavData.SetFirstMinigame();
 
             if (NavData.IsJourneyPlaySession)

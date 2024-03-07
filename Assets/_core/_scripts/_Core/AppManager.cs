@@ -333,5 +333,14 @@ namespace Antura.Core
             }
         }
         #endregion
+
+        #region Learning Method Shortcuts
+
+        public static bool IsLearningMethod(LearnMethodID learnMethodID)
+        {
+            return AppManager.I.ContentEdition.LearnMethod.ID == learnMethodID;
+        }
+
+        #endregion
     }
 }

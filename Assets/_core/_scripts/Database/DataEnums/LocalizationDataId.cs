@@ -661,6 +661,10 @@ namespace Antura.Database
       Variation_phonemes_badge = 736,
       Variation_phrases_badge = 737,
       Variation_words_badge = 738,
+
+
+      // ADDED MANUALLY
+      Discover_Country,
   }
 }
 

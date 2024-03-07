@@ -1224,6 +1224,20 @@ MonoBehaviour:
       _IntroId: ThrowBalls_Intro
       _TutorialId: ThrowBalls_lettername_Tuto
       _AffectedPlaySkills: []
+    - _CodeName: Discover_Country
+      _Code: 1000
+      _Active: 1
+      _Type: 1
+      _Main: Discover_Country
+      _Variation: Discover_Country
+      _Badge: Discover_Country
+      _BadgeLocId: 
+      _Scene: game_DiscoverCountry
+      _TitleId: Discover_Country_Title
+      _VariationId: Discover_Country
+      _IntroId: Discover_Country_Intro
+      _TutorialId: Discover_Country_Tuto
+      _AffectedPlaySkills: []
   ShownData:
   - _CodeName: Assessment_CompleteWord
     _Code: 103
@@ -1267,9 +1281,9 @@ MonoBehaviour:
       Weight: 0.3
   - _CodeName: Assessment_LetterAny
     _Code: 115
-    _Active: 0
+    _Active: 1
     _Type: 2
-    _Main: CECECECE
+    _Main: Assessment
     _Variation: LetterAny
     _Badge: 
     _BadgeLocId: 
@@ -1306,7 +1320,7 @@ MonoBehaviour:
     _Active: 1
     _Type: 2
     _Main: Assessment
-    _Variation: MatchLett
+    _Variation: MatchLettersToWord
     _Badge: 
     _BadgeLocId: 
     _Scene: game_Assessment
@@ -2174,7 +2188,7 @@ MonoBehaviour:
     _Active: 1
     _Type: 1
     _Main: Song
-    _Variation: sdsdsd
+    _Variation: alphabet
     _Badge: 
     _BadgeLocId: Variation_alphabet_badge
     _Scene: game_ReadingGame
@@ -2434,4 +2448,18 @@ MonoBehaviour:
     _VariationId: Variation_forms
     _IntroId: ThrowBalls_Intro
     _TutorialId: ThrowBalls_lettername_Tuto
+    _AffectedPlaySkills: []
+  - _CodeName: Discover_Country
+    _Code: 1000
+    _Active: 1
+    _Type: 1
+    _Main: Discover_Country
+    _Variation: Discover_Country
+    _Badge: Discover_Country
+    _BadgeLocId: 
+    _Scene: DiscoverCountry
+    _TitleId: Discover_Country_Title
+    _VariationId: Discover_Country
+    _IntroId: Discover_Country_Intro
+    _TutorialId: Discover_Country_Tuto
     _AffectedPlaySkills: []

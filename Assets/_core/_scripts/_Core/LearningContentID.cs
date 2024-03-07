@@ -20,6 +20,9 @@
         Learn_Hungarian = 80,
         Learn_German = 90,
         Learn_Spanish = 100,
-        Learn_Cherokee = 110
+        Learn_Cherokee = 110,
+
+
+        Discover_France = 1000,
     }
 }

@@ -34,7 +34,7 @@ namespace Antura.UI
 
             Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
 
-            if (editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead)
+            if (editionConfig.LearnMethod.ShowFlag)
             {
                 Flag.gameObject.SetActive(false);
                 // BookImage.color = new Color(255f / 253f, 255f / 182, 255f / 182);
@@ -50,7 +50,7 @@ namespace Antura.UI
         {
             get
             {
-                var locKeyText = Content.LearnMethod.ID == LearnMethodID.LearnToRead ? $"Learn_Read" : $"Learn_{Content.LearningLanguage}";
+                var locKeyText = Content.LearnMethod.LearningContentButtonKey(Content.LearningLanguage);
                 var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
                 return locKey;
             }

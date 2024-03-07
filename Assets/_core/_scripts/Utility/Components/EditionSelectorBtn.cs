@@ -30,7 +30,7 @@ namespace Antura.Utilities
             iconImage.sprite = editionConfig.TransitionLogo;
 
             Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
-            if (editionConfig.LearnMethod.ID == LearnMethodID.LearnToRead)
+            if (editionConfig.LearnMethod.ShowFlag)
             {
                 Flag.gameObject.SetActive(false);
             }
