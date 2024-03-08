@@ -665,6 +665,7 @@ namespace Antura.Database
 
       // ADDED MANUALLY
       Discover_Country,
+      Discover_Country_Intro,
   }
 }
 
