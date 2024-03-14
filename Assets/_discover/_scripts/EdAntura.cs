@@ -36,7 +36,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             moveTween?.Kill();
             moveEndCallback = callback;
-            moveTween = anturaPetSwitcher.transform.DOMove(position, duration).OnComplete(() =>
+            moveTween = transform.DOMove(position, duration).OnComplete(() =>
             {
                 moveEndCallback?.Invoke();
             });

@@ -17,6 +17,21 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             Antura.Initialize();
+            Letter1.ShowImage("ball");
+            Letter2.ShowImage("bread");
+
+            Letter1.OnInteraction += o =>
+            {
+                Debug.Log("Letter 1 interacted!");
+                Letter1.ShowImage("brain");
+            };
+
+            Letter2.OnInteraction += o =>
+            {
+                Debug.Log("Letter 2 interacted!");
+                Letter2.ShowImage("cloud");
+            };
+
             StartCoroutine(AnimateCO());
         }
 
@@ -27,8 +42,6 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 Letter1.ShowHeadProp(false);
                 Letter2.ShowHeadProp(false);
-                Letter1.ShowImage("ball");
-                Letter2.ShowImage("bread");
                 yield return new WaitForSeconds(2f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
@@ -37,7 +50,6 @@ namespace Antura.Minigames.DiscoverCountry
 
                 Letter1.ShowHeadProp(true);
                 Letter1.PlayAnimation((LLAnimationStates)Random.Range(0,5));
-                Letter1.ShowImage("apple");
                 yield return new WaitForSeconds(1f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
@@ -46,7 +58,6 @@ namespace Antura.Minigames.DiscoverCountry
 
                 Letter2.ShowHeadProp(true);
                 Letter2.PlayAnimation((LLAnimationStates)Random.Range(0,5));
-                Letter2.ShowImage("banana");
                 yield return new WaitForSeconds(1f);
             }
         }
