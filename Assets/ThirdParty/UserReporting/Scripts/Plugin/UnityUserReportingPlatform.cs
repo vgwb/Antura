@@ -537,7 +537,7 @@ namespace Unity.Cloud.UserReporting.Plugin
             }
             deviceMetadata.Add("ResolutionWidth", Screen.currentResolution.width.ToString());
             deviceMetadata.Add("ResolutionHeight", Screen.currentResolution.height.ToString());
-            deviceMetadata.Add("ResolutionRefreshRate", Screen.currentResolution.refreshRate.ToString());
+            deviceMetadata.Add("ResolutionRefreshRate", Screen.currentResolution.refreshRateRatio.ToString());
             deviceMetadata.Add("SystemLanguage", Application.systemLanguage.ToString());
             deviceMetadata.Add("SystemMemorySize", SystemInfo.systemMemorySize.ToString());
             deviceMetadata.Add("TargetFrameRate", Application.targetFrameRate.ToString());
