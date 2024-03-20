@@ -2,6 +2,7 @@ using System;
 using Antura.LivingLetters;
 using Antura.UI;
 using UnityEngine;
+using Homer;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -9,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         [Header("Homer")]
         public string UniqueID;
+        public HomerActors.Actors ActorId;
 
         [Header("References")]
         public LivingLetterController letterObjectView;
