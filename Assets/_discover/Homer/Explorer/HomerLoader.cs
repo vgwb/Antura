@@ -31,7 +31,6 @@ namespace Homer
             PrintFlows();
             SelectProject();
             PrintLocaleChooser();
-
         }
 
         public override void InitializeFlow(string id)
@@ -95,9 +94,8 @@ namespace Homer
             }
 
             PrintNodeData();
-
         }
-        
+
         public void Next(string elementId = null)
         {
             HomerNode nextNode = runningFlow.NextNode(elementId);
@@ -110,7 +108,7 @@ namespace Homer
             else
                 DrawNode();
         }
-        
+
         public void Preview()
         {
             Cover.gameObject.SetActive(false);
