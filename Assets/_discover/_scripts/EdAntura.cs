@@ -10,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
         GameObject anturaPrefab;
         private AnturaAnimationController anturaAnimation => anturaPetSwitcher.AnimController;
         public AnturaPetSwitcher anturaPetSwitcher;
+        public float speed = 5f;
 
         public void Initialize()
         {
@@ -17,6 +18,17 @@ namespace Antura.Minigames.DiscoverCountry
             (tr = anturaPetSwitcher.transform).SetParent(transform);
             tr.localEulerAngles = new Vector3(0f, 90f);
             tr.localScale = Vector3.one;
+        }
+
+        void Update()
+        {
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput);
+            movementDirection.Normalize();
+
+            transform.Translate(movementDirection * speed * Time.deltaTime);
         }
 
         public void PlayAnimation(AnturaAnimationStates anim)

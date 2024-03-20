@@ -32,7 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
                 Letter2.ShowImage("cloud");
             };
 
-            StartCoroutine(AnimateCO());
+            //StartCoroutine(AnimateCO());
         }
 
         private IEnumerator AnimateCO()
@@ -49,7 +49,7 @@ namespace Antura.Minigames.DiscoverCountry
                 yield return new WaitForSeconds(1f);
 
                 Letter1.ShowHeadProp(true);
-                Letter1.PlayAnimation((LLAnimationStates)Random.Range(0,5));
+                Letter1.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
@@ -57,7 +57,7 @@ namespace Antura.Minigames.DiscoverCountry
                 yield return new WaitForSeconds(1f);
 
                 Letter2.ShowHeadProp(true);
-                Letter2.PlayAnimation((LLAnimationStates)Random.Range(0,5));
+                Letter2.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
             }
         }
