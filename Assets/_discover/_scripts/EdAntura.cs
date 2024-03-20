@@ -16,7 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Transform tr;
             (tr = anturaPetSwitcher.transform).SetParent(transform);
-            tr.localEulerAngles = new Vector3(0f, 90f);
+            tr.localEulerAngles = new Vector3(0f, 180f);
             tr.localScale = Vector3.one;
         }
 
@@ -28,7 +28,15 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 movementDirection = new Vector3(horizontalInput, 0f, verticalInput);
             movementDirection.Normalize();
 
-            transform.Translate(movementDirection * speed * Time.deltaTime);
+            if (movementDirection != Vector3.zero)
+            {
+                anturaAnimation.State = AnturaAnimationStates.walking;
+                transform.Translate(movementDirection * speed * Time.deltaTime);
+            }
+            else
+            {
+                anturaAnimation.State = AnturaAnimationStates.idle;
+            }
         }
 
         public void PlayAnimation(AnturaAnimationStates anim)

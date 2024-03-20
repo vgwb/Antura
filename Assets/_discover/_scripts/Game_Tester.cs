@@ -8,28 +8,26 @@ namespace Antura.Minigames.DiscoverCountry
     public class Game_Tester : MonoBehaviour
     {
         public EdAntura Antura;
-        public EdLivingLetter Letter1;
-        public EdLivingLetter Letter2;
-
-        public Transform pos1;
-        public Transform pos2;
+        public EdLivingLetter LetterMAJOR;
+        public EdLivingLetter LetterTEACHER;
+        public EdLivingLetter LetterGUIDE;
 
         void Start()
         {
             Antura.Initialize();
-            Letter1.ShowImage("ball");
-            Letter2.ShowImage("bread");
+            LetterMAJOR.ShowImage("ball");
+            LetterTEACHER.ShowImage("bread");
 
-            Letter1.OnInteraction += o =>
+            LetterMAJOR.OnInteraction += o =>
             {
                 Debug.Log("Letter 1 interacted!");
-                Letter1.ShowImage("brain");
+                LetterMAJOR.ShowImage("brain");
             };
 
-            Letter2.OnInteraction += o =>
+            LetterTEACHER.OnInteraction += o =>
             {
                 Debug.Log("Letter 2 interacted!");
-                Letter2.ShowImage("cloud");
+                LetterTEACHER.ShowImage("cloud");
             };
 
             //StartCoroutine(AnimateCO());
@@ -40,24 +38,24 @@ namespace Antura.Minigames.DiscoverCountry
 
             while (true)
             {
-                Letter1.ShowHeadProp(false);
-                Letter2.ShowHeadProp(false);
+                LetterMAJOR.ShowHeadProp(false);
+                LetterTEACHER.ShowHeadProp(false);
                 yield return new WaitForSeconds(2f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
-                Antura.GoTo(pos1);
+                //Antura.GoTo(pos1);
                 yield return new WaitForSeconds(1f);
 
-                Letter1.ShowHeadProp(true);
-                Letter1.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
+                LetterMAJOR.ShowHeadProp(true);
+                LetterTEACHER.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
-                Antura.GoTo(pos2);
+                //Antura.GoTo(pos2);
                 yield return new WaitForSeconds(1f);
 
-                Letter2.ShowHeadProp(true);
-                Letter2.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
+                LetterMAJOR.ShowHeadProp(true);
+                LetterTEACHER.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
             }
         }
