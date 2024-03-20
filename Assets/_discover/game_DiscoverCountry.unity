@@ -1791,9 +1791,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 992411538}
-  - component: {fileID: 992411539}
   m_Layer: 0
-  m_Name: Gameplay
+  m_Name: Game
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7206,22 +7205,6 @@ Transform:
   - {fileID: 2088690300}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &992411539
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 685761009}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fa7fae0cbcb045bfbf06142e7d245aa1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Antura: {fileID: 1290209292}
-  LetterMAJOR: {fileID: 2142390845}
-  LetterTEACHER: {fileID: 2142390845}
-  LetterGUIDE: {fileID: 1970851474}
 --- !u!4 &1045972305 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013653253802, guid: 0f95fe55fb3038a45b8e01cbe421e68f,
@@ -8202,6 +8185,8 @@ GameObject:
   - component: {fileID: 1814291036}
   - component: {fileID: 1814291034}
   - component: {fileID: 1814291035}
+  - component: {fileID: 1814291038}
+  - component: {fileID: 1814291037}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -8260,6 +8245,35 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1814291037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814291033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Quest: {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+--- !u!114 &1814291038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1814291033}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa7fae0cbcb045bfbf06142e7d245aa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Antura: {fileID: 1290209292}
+  LetterMAJOR: {fileID: 2142390845}
+  LetterTEACHER: {fileID: 2142390845}
+  LetterGUIDE: {fileID: 1970851474}
 --- !u!4 &1828983833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
