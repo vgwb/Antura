@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEngine;
 using static Homer.HomerFlowRunningHelper;
@@ -170,19 +171,40 @@ namespace Homer
                     availableConnection = GetConnectionsByElementId(node, ElementId);
                     break;
 
-                    /** HomerParser.js
-                    case NodeType.subFlow:
-                                    if (node._connections.length) {
-                                        if (HomerParser.activeSubFlows.indexOf(node._id) < 0) {
-                                            availableConnection = node._connections.filter(conn => conn._type === NodeType.subFlow)[0];
-                                            HomerParser.activeSubFlows.unshift(node._id);
-                                        } else {
-                                            HomerParser.activeSubFlows.shift();
-                                            availableConnection = node._connections.filter(conn => conn._type !== NodeType.subFlow)[0];
-                                        }
-                                    }
+                case NodeType.subFlow:
+                    if (node._connections != null && node._connections.Length > 0)
+                    {
+                        if (!HomerProjectRunning.ActiveSubFlows.Contains(node._id))
+                        {
+                           foreach (var homerConnection in node._connections)
+                            {
+                                if (homerConnection._type == NodeType.subFlow)
+                                {
+                                    availableConnection = homerConnection;
                                     break;
-                    */
+                                }
+                            }
+                           if (availableConnection!=null)
+                            HomerProjectRunning.ActiveSubFlows.Add(node._id);
+                        }
+                        else
+                        {
+                            HomerProjectRunning.ActiveSubFlows.Remove(HomerProjectRunning.ActiveSubFlows.Last());
+                            
+                            foreach (var homerConnection in node._connections)
+                            {
+                                if (homerConnection._type != NodeType.subFlow)
+                                {
+                                    availableConnection = homerConnection;
+                                    break;
+                                }
+                            }
+                            
+                        }
+                    }
+
+                    break;
+
 
                 case NodeType.condition:
 
@@ -365,12 +387,20 @@ namespace Homer
 
             if (connection == null || connection._to == null)
             {
-                if (previousNode._type != NodeType.jumpToNode)
+                if (HomerProjectRunning.ActiveSubFlows.Count>0) {
+                    var subFlow_node_id = 
+                        HomerProjectRunning.ActiveSubFlows[HomerProjectRunning.ActiveSubFlows.Count-1];
+                    _selectedNodeId = subFlow_node_id;
+                    NextNode();
+                    return GetNode(_selectedNodeId);
+
+                } else if (previousNode._type != NodeType.jumpToNode)
                 {
                     _selectedNodeId = "THE END";
 
                     return null;
                 }
+                
             }
             else
             {
@@ -378,15 +408,15 @@ namespace Homer
             }
 
             /**
-			 * Next Node
-			 */
+             * Next Node
+             */
             HomerNode node = GetNode(_selectedNodeId);
             node._previousNodeId = previousNode._id;
 
             /**
-			 * if node type choice and no elements are available
-			 * check if the node has a failed connection and get it for next node.
-			 */
+             * if node type choice and no elements are available
+             * check if the node has a failed connection and get it for next node.
+             */
             List<HomerElement> possibleElements = GetPossibleElements(node);
 
             if (node._type == NodeType.choice && possibleElements.Count == 0)
@@ -411,11 +441,7 @@ namespace Homer
                 node._type == NodeType.random ||
                 node._type == NodeType.variables ||
                 node._type == NodeType.layout ||
-
-                /** HomerParser.js
                 node._type == NodeType.subFlow ||
-                */
-
                 node._type == NodeType.jumpToNode ||
                 node._type == NodeType.condition)
             {

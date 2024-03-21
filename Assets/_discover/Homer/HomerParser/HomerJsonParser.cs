@@ -9,14 +9,15 @@ namespace Homer
 {
     public static class HomerJsonParser
     {
-        public static string ApiVersion = "1.3";
+        public static string ApiVersion = "1.4";
 
         public static HomerProject LoadHomerProject()
         {
-            var pathAndFile = Application.streamingAssetsPath + "/Homer/ProjectData/homer.json";
+            //file to be readable needs to be in streamingAssets
+            //var pathAndFile = "Assets/Plugins/Homer/Resources/homer.json";
 
-            string jsonContent = "";
-
+            //string jsonContent = "";
+/*
 #if UNITY_ANDROID
             // Android only use WWW to read file
             WWW reader = new WWW(pathAndFile);
@@ -26,6 +27,9 @@ namespace Homer
 #else
             jsonContent = System.IO.File.ReadAllText(pathAndFile).Trim();
 #endif
+*/
+
+            string jsonContent = HomerConfig.I.Homer.text;
 
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(jsonContent);
 

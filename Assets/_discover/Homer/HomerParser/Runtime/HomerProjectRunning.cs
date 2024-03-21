@@ -12,11 +12,9 @@ namespace Homer
         public List<HomerLocalVariable> LocalVariables;
 
         public static List<HomerVariation> _variations;
-
-        /**
-        HomerParser.js
-        static activeSubFlows = [];
-        */
+       
+        public static List<string> ActiveSubFlows;
+       
 
         public static HomerProjectRunning I;
 
@@ -27,11 +25,17 @@ namespace Homer
             I.Project._locale = I.Project._mainLocale._code;
 
             I.InitializeLocalvars();
+            I.InitializeActiveSubFlows();
         }
 
         public void InitializeLocalvars()
         {
             LocalVariables = new List<HomerLocalVariable>();
+        }
+        
+        public void InitializeActiveSubFlows()
+        {
+            ActiveSubFlows = new List<string>();
         }
 
         public void AddLocalVariable(string name)

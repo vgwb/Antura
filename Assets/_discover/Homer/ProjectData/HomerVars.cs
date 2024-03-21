@@ -10,10 +10,19 @@ Developer: Pupunzi (Matteo Bicocchi)
 namespace Homer {
 
 public static class HomerVars {
+
+    public static bool TEACHER_MET = false; 
+
+    public enum ACTION_TYPE { OPEN_DOOR, CLOSE_DOOR };
+    public static string ACTION; 
+
+    public static string CMD = "";
+
+    public static int TOTAL_COINS = 0;
 }
 
 public static class HomerActors {
-    public enum Actors {TUTOR, MAJOR, YOU}
+    public enum Actors {GUIDE, TEACHER, TUTOR, MAJOR}
 
 }
 
