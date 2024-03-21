@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Reflection;
+
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -31,6 +32,7 @@ namespace Homer
             PrintFlows();
             SelectProject();
             PrintLocaleChooser();
+
         }
 
         public override void InitializeFlow(string id)
@@ -94,8 +96,9 @@ namespace Homer
             }
 
             PrintNodeData();
-        }
 
+        }
+        
         public void Next(string elementId = null)
         {
             HomerNode nextNode = runningFlow.NextNode(elementId);
@@ -108,7 +111,7 @@ namespace Homer
             else
                 DrawNode();
         }
-
+        
         public void Preview()
         {
             Cover.gameObject.SetActive(false);
