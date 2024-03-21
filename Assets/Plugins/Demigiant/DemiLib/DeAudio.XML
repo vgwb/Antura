@@ -38,6 +38,18 @@
             Returns TRUE if this clip is currently playing
             </summary>
         </member>
+        <member name="T:DG.DeAudio.DeAudioClipDataVariant">
+            <summary>
+            Used to store variants for the same sfx and return a smart random one when needed
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioClipDataVariant.GetClipData">
+            <summary>
+            Returns a random <see cref="T:DG.DeAudio.DeAudioClipData"/> among its variants,
+            but never returns the same one twice in a row (unless there's only one variant)
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:DG.DeAudio.DeAudioClipGUIMode">
             <summary>
             Display mode used when drawing <see cref="T:DG.DeAudio.DeAudioClipData"/> objects in a custom editor.
@@ -106,6 +118,30 @@
             <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
             </summary>
         </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Prewarm(DG.DeAudio.DeAudioClipData,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Loads and immediately pauses the given <see cref="T:DG.DeAudio.DeAudioClipData"/> with the stored volume, pitch and loop settings (unless set otherwise).
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound with the given options.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Prewarm(DG.DeAudio.DeAudioClipData,System.Single,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Loads and immediately pauses the given sound with the stored volume, pitch and loop settings (unless set otherwise).
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound with the given options from the given time.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
         <member name="M:DG.DeAudio.DeAudioGroup.Stop">
             <summary>Stops all sounds for this group</summary>
         </member>
@@ -138,6 +174,9 @@
             </summary>
             <param name="value">Pitch to set</param>
             <param name="assignAsTargetPitch">If TRUE also sets this pitch as the new targetPitch for each source</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioGroup.SetTimeScale(System.Single)">
+            <summary>Sets the timeScale for this group (same as setting <see cref="P:DG.DeAudio.DeAudioGroup.timeScale"/> directly)</summary>
         </member>
         <member name="M:DG.DeAudio.DeAudioGroup.SetVolume(System.Single)">
             <summary>Sets the volume for this group (same as setting <see cref="P:DG.DeAudio.DeAudioGroup.volume"/> directly)</summary>
@@ -193,6 +232,11 @@
         <member name="F:DG.DeAudio.DeAudioManager.inspectorUpdater">
             <summary>Used internally inside Unity Editor, as a trick to update DeAudioManager's inspector at every frame</summary>
         </member>
+        <member name="P:DG.DeAudio.DeAudioManager.timeScale">
+            <summary>
+            Changes the global pitch of all sources to reflect the given timeScale
+            </summary>
+        </member>
         <member name="M:DG.DeAudio.DeAudioManager.Init">
             <summary>
             Creates a DeAudioManager instance (if it's not present already) and sets it as DontDestroyOnLoad.
@@ -211,6 +255,31 @@
             <summary>
             Creates a DeAudioManager instance (if it's not present already), sets it as DontDestroyOnLoad, and sets it with the given groups.
             Returns TRUE if the initialization is successful, FALSE otherwise.
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.SetRegisterMode(DG.DeAudio.RegisterMode)">
+            <summary>
+            Sets the register mode (by <see cref="T:UnityEngine.AudioClip"/> name or object reference)
+            used when registering <see cref="T:DG.DeAudio.DeAudioClipData"/> and then retrieving them.
+            This can only be called before registering the first <see cref="T:DG.DeAudio.DeAudioClipData"/>
+            </summary>
+            <param name="mode"></param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.RegisterAudioClipDatas(System.Collections.Generic.IList{DG.DeAudio.DeAudioClipData})">
+            <summary>
+            Registers <see cref="T:DG.DeAudio.DeAudioClipData"/> elements so that they can be retrieved via <see cref="M:DG.DeAudio.DeAudioManager.GetAudioClipData(UnityEngine.AudioClip,System.Boolean)"/>.
+            Note that clips are registered by name, so each clip must have univocal name
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.RegisterAudioClipData(DG.DeAudio.DeAudioClipData)">
+            <summary>
+            Registers the given <see cref="T:DG.DeAudio.DeAudioClipData"/> so that it can be retrieved via <see cref="M:DG.DeAudio.DeAudioManager.GetAudioClipData(UnityEngine.AudioClip,System.Boolean)"/>.
+            Note that clips are registered by name, so each clip must have univocal name
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.UnregisterAllAudioClipDatas">
+            <summary>
+            Unregisters all stored <see cref="T:DG.DeAudio.DeAudioClipData"/> elements and unlocks <see cref="T:DG.DeAudio.RegisterMode"/>
             </summary>
         </member>
         <member name="M:DG.DeAudio.DeAudioManager.Play(DG.DeAudio.DeAudioClipData,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
@@ -253,6 +322,48 @@
             <summary>
             Plays the given sound external to any group, using the given options and from the given time.
             <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance used to play, or NULL if the clip couldn't be played</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(DG.DeAudio.DeAudioClipData,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Loads and immediately pauses the given <see cref="T:DG.DeAudio.DeAudioClipData"/> on the stored group,
+            with the stored volume, pitch and loop settings (unless set otherwise).
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually load.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound with the given options and using the given group id.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually load.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound external to any group, using the given options.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(DG.DeAudio.DeAudioClipData,System.Single,System.Nullable{System.Single},System.Nullable{System.Single},System.Nullable{System.Boolean})">
+            <summary>
+            Loads and immediately pauses the given <see cref="T:DG.DeAudio.DeAudioClipData"/> on the stored group,
+            with the stored volume, pitch, loop settings (unless set otherwise), and from the given time.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually load.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(DG.DeAudio.DeAudioGroupId,UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound with the given options, using the given group id, and from the given time.
+            A <see cref="T:DG.DeAudio.DeAudioGroup"/> with the given ID must exist in order for the sound to actually load.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given sound external to any group, using the given options and from the given time.
+            <para>Returns the <see cref="T:DG.DeAudio.DeAudioSource"/> instance to which the sound was assigned, or NULL if the clip couldn't be loaded</para>
             </summary>
         </member>
         <member name="M:DG.DeAudio.DeAudioManager.Stop">
@@ -298,8 +409,12 @@
         <member name="M:DG.DeAudio.DeAudioManager.ChangePitch(System.Single)">
             <summary>Changes the pitch for all audio groups' existing sources</summary>
         </member>
+        <member name="M:DG.DeAudio.DeAudioManager.SetTimeScale(System.Single)">
+            <summary>Sets the global timeScale of all audio reproduction, by changing every clip's pitch
+            (same as setting <see cref="P:DG.DeAudio.DeAudioManager.timeScale"/> directly)</summary>
+        </member>
         <member name="M:DG.DeAudio.DeAudioManager.SetVolume(System.Single)">
-            <summary>Sets the global volume (same as setting <see cref="P:DG.DeAudio.DeAudioManager.globalVolume"/> directly</summary>
+            <summary>Sets the global volume (same as setting <see cref="P:DG.DeAudio.DeAudioManager.globalVolume"/> directly)</summary>
         </member>
         <member name="M:DG.DeAudio.DeAudioManager.SetVolume(DG.DeAudio.DeAudioGroupId,System.Single)">
             <summary>Sets the volume for the given group</summary>
@@ -315,6 +430,18 @@
         </member>
         <member name="M:DG.DeAudio.DeAudioManager.Unlock(UnityEngine.AudioClip)">
             <summary>Unlocks all <see cref="T:DG.DeAudio.DeAudioSource"/> instances for the given clip</summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.IsPlaying(UnityEngine.AudioClip,System.Boolean)">
+            <summary>Returns TRUE if any group is playing the given audioClip</summary>
+            <param name="clip"></param>
+            <param name="ignoreIfFadingOutWithStop">If TRUE, doesn't consider clip as playing if it's fading out with a stop onComplete behaviour</param>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioManager.GetAudioClipData(UnityEngine.AudioClip,System.Boolean)">
+            <summary>
+            Returns the registered <see cref="T:DG.DeAudio.DeAudioClipData"/> for the given <see cref="T:UnityEngine.AudioClip"/>, or NULL if there is none
+            </summary>
+            <param name="fromClip"><see cref="T:UnityEngine.AudioClip"/> whose registered <see cref="T:DG.DeAudio.DeAudioClipData"/> to search</param>
+            <param name="throwErrorIfNotFound">If TRUE, will throw an error if no <see cref="T:DG.DeAudio.DeAudioClipData"/> is found</param>
         </member>
         <member name="M:DG.DeAudio.DeAudioManager.GetAudioGroup(DG.DeAudio.DeAudioGroupId)">
             <summary>
@@ -432,8 +559,8 @@
             <summary>Unscaled pitch (doesn't include modifiers caused by targetPitch)</summary>
         </member>
         <member name="P:DG.DeAudio.DeAudioSource.pitch">
-            <summary>Getter returns current audioSource.pitch (which is influenced by targetPitch).<para/>
-            Setter automatically applies scale factors (targetPitch)</summary>
+            <summary>Getter returns current audioSource.pitch (which is influenced by global, group and target pitch).<para/>
+            Setter automatically applies scale factors (target, audioGroup and global pitch)</summary>
         </member>
         <member name="M:DG.DeAudio.DeAudioSource.SetTargetVolume(System.Single,System.Boolean)">
             <summary>
@@ -475,6 +602,34 @@
             <summary>
             Play the given clip with the given options from the given time.
             Calling PlayFrom directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Prewarm(DG.DeAudio.DeAudioClipData)">
+            <summary>
+            Loads and immediately pauses the given clip with the stored volume, pitch and loop settings.
+            Calling Prewarm directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given clip with the given options.
+            Calling Prewarm directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Prewarm(DG.DeAudio.DeAudioClipData,System.Single)">
+            <summary>
+            Loads and immediately pauses the given clip with the stored volume, pitch and loop settings.
+            Calling Prewarm directly from a DeAudioSource overrides any lock that might've been set
+            (though the locked status won't change)
+            </summary>
+        </member>
+        <member name="M:DG.DeAudio.DeAudioSource.Prewarm(UnityEngine.AudioClip,System.Single,System.Single,System.Single,System.Boolean)">
+            <summary>
+            Loads and immediately pauses the given clip with the given options from the given time.
+            Calling Prewarm directly from a DeAudioSource overrides any lock that might've been set
             (though the locked status won't change)
             </summary>
         </member>
