@@ -21,6 +21,7 @@ namespace Antura.Debugging
 
         public bool DebugPanelEnabled;
         public bool DebugPanelOpened;
+        public bool DisableDebugKeys;
 
         public delegate void OnSkipCurrentSceneDelegate();
 
@@ -118,7 +119,7 @@ namespace Antura.Debugging
 
         void Update()
         {
-            if (!DebugPanelOpened)
+            if (!DebugPanelOpened && !DisableDebugKeys)
             {
                 // RESERVED AREA
                 if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
