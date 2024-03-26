@@ -8,15 +8,8 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class DiscoverCountryQuestionState : FSM.IState
     {
-        DiscoverCountryGame game;
-
-        bool firstQuestion;
-
         public DiscoverCountryQuestionState(DiscoverCountryGame game)
         {
-            this.game = game;
-
-            firstQuestion = true;
         }
 
         public void EnterState()
@@ -25,7 +18,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ExitState()
         {
-            firstQuestion = false;
         }
 
         public void Update(float delta)
