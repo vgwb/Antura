@@ -60,6 +60,7 @@ namespace Antura.Core
         public const string UrlSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLScWxs5I0w-k8GlIgPFKoWBitMVJ9gxxJlKvGKOXzZsnAA0qNw/viewform";
         public const string UrlGithubRepository = "https://github.com/vgwb/Antura";
         public const string UrlDeveloperDocs = "https://docs.antura.org";
+        public const string UrlHomer = "https://homer.open-lab.com/?project_uid=0474c008-e8e9-4e69-a24e-1652618909210";
 
         // files
         public const string PdfAndroidInstall = "TeacherManual.pdf";
