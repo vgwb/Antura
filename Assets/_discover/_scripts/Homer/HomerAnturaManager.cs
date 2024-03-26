@@ -32,6 +32,8 @@ namespace Antura.Homer
         public class QuestNode
         {
             public HomerNode.NodeType Type;
+            public string Id;
+            public string[] Metadata;
 
             //Text node
             public string Content;
@@ -83,7 +85,9 @@ namespace Antura.Homer
                 return null;
             }
 
-            QuestNode hac = new QuestNode();
+            QuestNode questNode = new QuestNode();
+            questNode.Id = homerNode._permalink;
+            questNode.Metadata = homerNode._metadata;
 
             // CHOICE
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
@@ -93,9 +97,9 @@ namespace Antura.Homer
                 HomerElement header = runningFlow.SelectedNode.Node._header;
                 string headerText = runningFlow.SelectedNode.GetParsedText(header);
 
-                hac.Type = HomerNode.NodeType.CHOICE;
-                hac.ChoiceHeader = headerText;
-                hac.Choices = choices;
+                questNode.Type = HomerNode.NodeType.CHOICE;
+                questNode.ChoiceHeader = headerText;
+                questNode.Choices = choices;
             }
 
             // TEXT
@@ -105,9 +109,8 @@ namespace Antura.Homer
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
                 string text = runningFlow.SelectedNode.GetParsedText(element);
 
-                hac.Type = HomerNode.NodeType.TEXT;
-                hac.Content = text;
-
+                questNode.Type = HomerNode.NodeType.TEXT;
+                questNode.Content = text;
             }
 
             // RECUR
@@ -118,7 +121,7 @@ namespace Antura.Homer
 
             // RESULT ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-            return hac;
+            return questNode;
         }
     }
 }

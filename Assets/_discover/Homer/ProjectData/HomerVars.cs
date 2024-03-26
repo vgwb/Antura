@@ -11,6 +11,8 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static string AUDIO_ID = "";
+
     public static bool TEACHER_MET = false; 
 
     public enum ACTION_TYPE { OPEN_DOOR, CLOSE_DOOR };
@@ -28,6 +30,7 @@ public static class HomerActors {
 
 public static class HomerMeta {
 
+    public enum ACTION {QUEST_FINISHED, OPEN_DOOR, SHOW_MONUMENT}
     public enum MOOD {NEUTRAL, HAPPY, VERY_HAPPY, SAD, ANGRY, AMAZED}
     public enum EXPRESSION {RELAXED, GRINNING, PENSIVE, FROWNING, CRYING, ENRAGED}
     public enum BALLOON_TYPE {SPEECH, WHISPER, THOUGHT, SCREAM, SLEEP, SING_SONG}
