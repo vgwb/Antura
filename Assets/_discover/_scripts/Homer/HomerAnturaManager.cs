@@ -29,45 +29,6 @@ namespace Antura.Homer
             }
         }
 
-        public class QuestNode
-        {
-            public HomerNode.NodeType Type;
-            public string Id;
-            public string[] Metadata;
-
-            //Text node
-            public string Content;
-
-            //Choice node
-            public string ChoiceHeader;
-            public List<HomerElement> Choices;
-
-
-            public string GetAction()
-            {
-                return GetMetadata("ACTION");
-            }
-
-            public string GetMood()
-            {
-                return GetMetadata("MOOD");
-            }
-
-            private string GetMetadata(string kind)
-            {
-                foreach (var metaId in Metadata)
-                {
-                    var metadato = HomerAnturaManager.I.GetMetadataByValueId(metaId);
-                    //Debug.Log("metadato._uid= " + metadato._uid);
-                    if (metadato._uid == kind)
-                    {
-                        return HomerAnturaManager.I.GetMetadataValueById(metaId)._value;
-                    }
-                }
-                return null;
-            }
-        }
-
         public void Setup()
         {
             currentHomerProject = HomerJsonParser.LoadHomerProject();

@@ -40,7 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
                             true
                             );
 
-            Debug.Log("HOMER: " + questNode.Content);
+            Debug.Log("QuestNode Content: " + questNode.Content);
             Debug.Log("QuestNode Id: " + questNode.Id);
             Debug.Log("QuestNode Action: " + questNode.GetAction());
             Debug.Log("QuestNode Mood: " + questNode.GetMood());
