@@ -35,19 +35,10 @@ namespace Antura.Minigames.DiscoverCountry
             PlayState = new DiscoverCountryPlayState(this);
             ResultState = new DiscoverCountryResultState(this);
 
-            //CurrentQuestion = null;
-
             tutorialFlag = GetConfiguration().TutorialEnabled;
             overlayWidgetInitialized = false;
 
-            //currentStage = 0;
             CurrentScore = 0;
-
-            /*eggController.Initialize(letterObjectPrefab, shadowPrefab, eggBox.GetEggLocalPositions(), eggBox.GetLocalLettersMaxPositions(),
-                EggConfiguration.Instance.Context.GetAudioManager());
-            eggButtonBox.Initialize(eggButtonPrefab, context.GetAudioManager(), isSingleVariation ? 30 : 20, isSingleVariation);
-            runLettersBox.Initialize(letterObjectPrefab, shadowPrefab);
-            antura.Initialize(anturaPrefab);*/
         }
 
         private bool overlayWidgetInitialized;

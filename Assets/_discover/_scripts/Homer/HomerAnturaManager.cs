@@ -7,13 +7,13 @@ namespace Antura.Homer
 {
     public class HomerAnturaManager : MonoBehaviour
     {
+        public static HomerAnturaManager I;
+
         //runtime
         private bool firstFlowSetup;
-        HomerProject currentHomerProject;
-        HomerFlowSlugs.FlowSlug currentFlowSlug;
-        HomerFlowRunning runningFlow;
-
-        public static HomerAnturaManager I;
+        private HomerProject currentHomerProject;
+        private HomerFlowSlugs.FlowSlug currentFlowSlug;
+        private HomerFlowRunning runningFlow;
 
         void Awake()
         {
@@ -29,11 +29,7 @@ namespace Antura.Homer
             }
         }
 
-        void Start()
-        {
-        }
-
-        public class HomerAnturaContent
+        public class QuestNode
         {
             public HomerNode.NodeType Type;
 
@@ -51,7 +47,7 @@ namespace Antura.Homer
             HomerProjectRunning.SetUp(currentHomerProject);
         }
 
-        public HomerAnturaContent GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, bool restart,
+        public QuestNode GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, bool restart,
             string language = "EN")
         {
             // SETUP :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
@@ -87,7 +83,7 @@ namespace Antura.Homer
                 return null;
             }
 
-            HomerAnturaContent hac = new HomerAnturaContent();
+            QuestNode hac = new QuestNode();
 
             // CHOICE
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)

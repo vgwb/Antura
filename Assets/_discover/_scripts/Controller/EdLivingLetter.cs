@@ -43,7 +43,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnInteractionWith(GameObject otherGo)
         {
-            OnInteraction?.Invoke(otherGo);
+            //OnInteraction?.Invoke(otherGo);
+            QuestManager.I.OnInteract(ActorId);
         }
     }
 }

@@ -31,18 +31,20 @@ namespace Antura.Homer
             if (watchDog > 100)
                 return;
 
-            var hac =
-                HomerAnturaManager.I.GetContent(
-                    HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL, command, restart);
+            var questNode = HomerAnturaManager.I.GetContent(
+                HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL,
+                command,
+                restart
+                );
 
-            if (hac != null)
+            if (questNode != null)
             {
                 //full content printer in HomerBasicUsageSample
 
-                if (hac.Type == HomerNode.NodeType.TEXT)
-                    Debug.Log($"\nCMD: {command} RESULT: {hac.Content}");
-                else if (hac.Type == HomerNode.NodeType.CHOICE)
-                    Debug.Log($"\nCMD: {command} RESULT: # of choices {hac.Choices.Count}");
+                if (questNode.Type == HomerNode.NodeType.TEXT)
+                    Debug.Log($"\nCMD: {command} RESULT: {questNode.Content}");
+                else if (questNode.Type == HomerNode.NodeType.CHOICE)
+                    Debug.Log($"\nCMD: {command} RESULT: # of choices {questNode.Choices.Count}");
 
                 ContentTest(false, command);
             }
