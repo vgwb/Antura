@@ -68,7 +68,7 @@ namespace Antura.Homer
                     if (flow._slug == flowSlug.ToString())
                     {
                         currentFlowSlug = flowSlug;
-                        runningFlow =HomerFlowRunning.Instantiate(flow);
+                        runningFlow = HomerFlowRunning.Instantiate(flow);
                         runningFlow.SetUp(currentHomerProject);
                         break;
                     }
