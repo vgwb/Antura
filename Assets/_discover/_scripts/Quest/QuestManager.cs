@@ -12,10 +12,12 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestData Quest;
 
         private GameObject currentNPC;
+        private int total_coins = 0;
 
         void Start()
         {
             HomerAnturaManager.I.Setup();
+            total_coins = 0;
 
             var questNode = HomerAnturaManager.I.GetContent(
                             Quest.QuestId,
@@ -39,6 +41,14 @@ namespace Antura.Minigames.DiscoverCountry
                             );
 
             Debug.Log("HOMER: " + questNode.Content);
+        }
+
+        public void OnCollectCoin(GameObject go)
+        {
+            total_coins++;
+            HomerVars.TOTAL_COINS = total_coins;
+            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+            Destroy(go);
         }
 
     }
