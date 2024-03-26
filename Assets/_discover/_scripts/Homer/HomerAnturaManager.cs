@@ -21,7 +21,6 @@ namespace Antura.Homer
             {
                 I = this;
                 firstFlowSetup = true;
-                DontDestroyOnLoad(gameObject);
             }
             else
             {
