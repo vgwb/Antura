@@ -44,6 +44,8 @@ namespace Antura.Core.Services.OnlineAnalytics
         /// 10 - additional(json encoded additional parameters that we don't know now or custom specific per minigame)
         /// </summary>
 
+        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled;
+
         public Analytics()
         {
         }
@@ -59,29 +61,27 @@ namespace Antura.Core.Services.OnlineAnalytics
             await UnityServices.InitializeAsync(options);
         }
 
-        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled;
-
         public void Init()
         {
             //  Debug.Log("init AnalyticsService");
         }
 
-        private void AddSharedParameters(Dictionary<string, object> dict)
+        private void AddSharedParameters(CustomEvent myEvent)
         {
-            dict.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
-            dict.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
-            dict.Add("myNativeLang", LanguageUtilities.GetISO3Code(AppManager.I.AppSettings.NativeLanguage));
+            myEvent.Add("myPlayerUuid", AppManager.I.AppSettings.LastActivePlayerUUID.ToString());
+            myEvent.Add("myEdition", AppManager.I.AppSettings.ContentID.ToString());
+            myEvent.Add("myNativeLang", LanguageUtilities.GetISO3Code(AppManager.I.AppSettings.NativeLanguage));
         }
 
         public void TestEvent()
         {
             if (!AnalyticsEnabled)
                 return;
-
-            var parameters = new Dictionary<string, object>();
-            AddSharedParameters(parameters);
-
-            AnalyticsService.Instance.CustomData("myTestEvent", parameters);
+            var myEvent = new CustomEvent("myTestEvent")
+            {
+            };
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
             AnalyticsService.Instance.Flush();
             Debug.Log("Analytics TestEvent");
         }
@@ -91,7 +91,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myCompletedRegistration")
             {
                 { "myGender", playerProfile.Gender.ToString() },
                 { "myAge", playerProfile.Age },
@@ -100,8 +100,8 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAvatar_HairColor", ColorUtility.ToHtmlStringRGB(playerProfile.HairColor) },
                 { "myAvatar_SkinColor", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myCompletedRegistration", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
@@ -109,7 +109,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myLevelUp")
             {
                 { "myJP", jp.Id },
                 { "myStage", jp.Stage },
@@ -119,8 +119,8 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myTotalStars", 0 },
                 { "myTotalBones", 0 }
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myLevelUp", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackCompletedFirstContactPhase(FirstContactPhase phase)
@@ -128,13 +128,13 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myTutorialComplete")
             {
                 { "myPhase", phase.ToString() }
             };
-            AddSharedParameters(parameters);
+            AddSharedParameters(myEvent);
 
-            AnalyticsService.Instance.CustomData("myTutorialComplete", parameters);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackItemBought(int nSpent, string boughtItemKey)
@@ -142,13 +142,13 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myItemBought")
             {
                 { "myBonesSpent", nSpent },
                 { "myBoughtItem", boughtItemKey}
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myItemBought", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackCustomization(AnturaCustomization customization, float anturaSpacePlayTime)
@@ -156,40 +156,48 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>
+            var myEvent = new CustomEvent("myAnturaCustomize")
             {
                 { "myAnturaSpace_playtime", (int)anturaSpacePlayTime }
             };
 
             var item = customization.PropPacks.FirstOrDefault(item => item.Category == "HEAD");
-            if (item != null) parameters.Add($"myAntura_Head", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Head", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_L");
-            if (item != null) parameters.Add($"myAntura_EarL", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_EarL", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_R");
-            if (item != null) parameters.Add($"myAntura_EarR", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_EarR", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "NOSE");
-            if (item != null) parameters.Add($"myAntura_Nose", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Nose", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "JAW");
-            if (item != null) parameters.Add($"myAntura_Jaw", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Jaw", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "NECK");
-            if (item != null) parameters.Add($"myAntura_Neck", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Neck", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "BACK");
-            if (item != null) parameters.Add($"myAntura_Back", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Back", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "TAIL");
-            if (item != null) parameters.Add($"myAntura_Tail", item.BaseId);
+            if (item != null)
+                myEvent.Add($"myAntura_Tail", item.BaseId);
 
-            parameters.Add($"myAntura_Texture", customization.TexturePack.BaseId);
-            parameters.Add($"myAntura_Decal", customization.DecalPack.BaseId);
+            myEvent.Add($"myAntura_Texture", customization.TexturePack.BaseId);
+            myEvent.Add($"myAntura_Decal", customization.DecalPack.BaseId);
 
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackMiniGameScore(MiniGameCode miniGameCode, int score, JourneyPosition currentJourneyPosition, float duration)
@@ -197,15 +205,15 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myMinigameEnd")
             {
                 { "myMinigame", miniGameCode.ToString() },
                 { "myScore", score },
                 { "myDuration", (int)duration },
                 { "myJP", currentJourneyPosition.Id }
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackMood(int mood)
@@ -213,12 +221,12 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myPlayerMood")
             {
                 { "myPlayerMood", mood }
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myPlayerMood", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackBook(string _action, string _object)
@@ -226,13 +234,13 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myBook")
             {
                 { "myAction", _action },
                 { "myObject", _object }
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myBook", parameters);
+            AddSharedParameters(myEvent);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         public void TrackVocabularyDataScore(MiniGameCode miniGameCode, JourneyPosition currentJourneyPosition, List<MinigamesLogManager.ILivingLetterAnswerData> answers)
@@ -244,7 +252,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             {
                 if (answer._data == null)
                     continue;
-                var parameters = new Dictionary<string, object>()
+                var myEvent = new CustomEvent("myLearning")
                 {
                     { "myMinigame", miniGameCode.ToString() },
                     { "myJP", currentJourneyPosition.Id },
@@ -255,8 +263,8 @@ namespace Antura.Core.Services.OnlineAnalytics
                     { "myLearningDataId", answer._data.Id },
                     { "myLearningIsCorrect", answer._isPositiveResult },
                 };
-                AddSharedParameters(parameters);
-                AnalyticsService.Instance.CustomData("myLearning", parameters);
+                AddSharedParameters(myEvent);
+                AnalyticsService.Instance.RecordEvent(myEvent);
             }
         }
 
@@ -265,12 +273,11 @@ namespace Antura.Core.Services.OnlineAnalytics
             if (!AnalyticsEnabled)
                 return;
 
-            var parameters = new Dictionary<string, object>()
+            var myEvent = new CustomEvent("myGenericAction")
             {
                 { "myAction", eventName }
             };
-            AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myGenericAction", parameters);
+            AnalyticsService.Instance.RecordEvent(myEvent);
         }
 
         #region Older Events
