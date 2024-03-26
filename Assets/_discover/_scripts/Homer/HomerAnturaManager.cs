@@ -41,12 +41,47 @@ namespace Antura.Homer
             //Choice node
             public string ChoiceHeader;
             public List<HomerElement> Choices;
+
+
+            public string GetAction()
+            {
+                return GetMetadata("ACTION");
+            }
+
+            public string GetMood()
+            {
+                return GetMetadata("MOOD");
+            }
+
+            private string GetMetadata(string kind)
+            {
+                foreach (var metaId in Metadata)
+                {
+                    var metadato = HomerAnturaManager.I.GetMetadataByValueId(metaId);
+                    //Debug.Log("metadato._uid= " + metadato._uid);
+                    if (metadato._uid == kind)
+                    {
+                        return HomerAnturaManager.I.GetMetadataValueById(metaId)._value;
+                    }
+                }
+                return null;
+            }
         }
 
         public void Setup()
         {
             currentHomerProject = HomerJsonParser.LoadHomerProject();
             HomerProjectRunning.SetUp(currentHomerProject);
+        }
+
+        public HomerMetadata GetMetadataByValueId(string metadataValueId)
+        {
+            return runningFlow.Project.GetMetadataByValueId(metadataValueId);
+        }
+
+        public HomerMetadataValue GetMetadataValueById(string metadataValueId)
+        {
+            return runningFlow.Project.GetMetadataValueById(metadataValueId);
         }
 
         public QuestNode GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, bool restart,

@@ -42,10 +42,8 @@ namespace Antura.Minigames.DiscoverCountry
 
             Debug.Log("HOMER: " + questNode.Content);
             Debug.Log("QuestNode Id: " + questNode.Id);
-            foreach (var meta in questNode.Metadata)
-            {
-                Debug.Log("QuestNode Metadata: " + meta);
-            }
+            Debug.Log("QuestNode Action: " + questNode.GetAction());
+            Debug.Log("QuestNode Mood: " + questNode.GetMood());
         }
 
         public void OnCollectCoin(GameObject go)
