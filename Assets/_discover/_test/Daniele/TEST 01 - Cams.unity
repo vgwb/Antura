@@ -1070,8 +1070,8 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 588524362}
-  - {fileID: 1286536573}
-  m_Father: {fileID: 992411538}
+  - {fileID: 1189551033}
+  m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &457542533 stripped
 Transform:
@@ -1471,7 +1471,7 @@ Transform:
   m_GameObject: {fileID: 588524361}
   serializedVersion: 2
   m_LocalRotation: {x: 0.20791169, y: -0, z: -0, w: 0.9781476}
-  m_LocalPosition: {x: 0, y: 13.35247, z: -12.221806}
+  m_LocalPosition: {x: 0, y: 13.149101, z: -11.765034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7296,7 +7296,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 455048485}
   - {fileID: 1150288620}
   - {fileID: 1828983833}
   - {fileID: 2142390844}
@@ -7434,6 +7433,38 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1150288619}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1189551032
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1189551033}
+  m_Layer: 0
+  m_Name: Virtual Cams
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1189551033
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1189551032}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1286536573}
+  m_Father: {fileID: 455048485}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1200002642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7613,7 +7644,7 @@ GameObject:
   - component: {fileID: 1286536573}
   - component: {fileID: 1286536574}
   m_Layer: 0
-  m_Name: Virtual Camera
+  m_Name: Main - PC
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7627,13 +7658,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1286536572}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.35247, z: -12.221806}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 13.149101, z: -11.765034}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2105498520}
-  m_Father: {fileID: 455048485}
+  m_Father: {fileID: 1189551033}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1286536574
 MonoBehaviour:
@@ -8884,7 +8915,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Damping: 1
+  m_Damping: 0.5
 --- !u!114 &2105498525
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -8897,11 +8928,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bd6043bde05a7fc4cba197d06915c1e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Damping: {x: 0.1, y: 0.5, z: 2}
+  Damping: {x: 0.1, y: 0.5, z: 1}
   ShoulderOffset: {x: 0, y: 6.5, z: -11.38}
   VerticalArmLength: 0.4
   CameraSide: 0.5
-  CameraDistance: 5.5
+  CameraDistance: 5
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
@@ -9234,6 +9265,7 @@ SceneRoots:
   m_Roots:
   - {fileID: 1994858043}
   - {fileID: 1814291036}
+  - {fileID: 455048485}
   - {fileID: 992411538}
   - {fileID: 688744172}
   - {fileID: 22220586}
