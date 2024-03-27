@@ -223,7 +223,33 @@ namespace Antura.AnturaSpace
 
         void OnExit()
         {
-            AppManager.I.NavigationManager.GoToNextScene();
+            if (FirstContactManager.I.IsPhaseUnlockedAndNotCompleted(FirstContactPhase.AnturaSpace_Exit))
+            {
+                FirstContactManager.I.CompletePhase(FirstContactPhase.AnturaSpace_Exit);
+            }
+
+            if (FirstContactManager.I.CurrentPhaseInSequence == FirstContactPhase.Assessment_Skip)
+            {
+                GlobalUI.ShowPrompt(LocalizationDataId.UI_Assessment_Skip,
+                    () =>
+                    {
+                        FirstContactManager.I.CompletePhase(FirstContactPhase.Assessment_Skip);
+                        // Skip to the assessment test playsession
+                        var fakeAssessmentJP = new JourneyPosition(0, 0, 100);
+                        AppManager.I.Player.SetCurrentJourneyPosition(fakeAssessmentJP);
+                        AppManager.I.NavigationManager.GoToPlaySession(fakeAssessmentJP);
+
+                    },
+                    () =>
+                    {
+                        FirstContactManager.I.CompletePhase(FirstContactPhase.Assessment_Skip);
+                        AppManager.I.NavigationManager.GoToNextScene();
+                    });
+            }
+            else
+            {
+                AppManager.I.NavigationManager.GoToNextScene();
+            }
         }
 
         void OnEnterCustomization()

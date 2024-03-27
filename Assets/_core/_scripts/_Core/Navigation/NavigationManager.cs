@@ -342,6 +342,12 @@ namespace Antura.Core
                 var tutorialEnabled = teacher.GetTutorialEnabled(_miniGame.Code);
                 _launchConfig = new MinigameLaunchConfiguration(difficulty, numberOfRounds, tutorialEnabled, insideJourney: true);
             }
+
+            if (NavData.CurrentPlayer.CurrentJourneyPosition.IsAssessmentTest())
+            {
+                _launchConfig.IgnoreJourney = true;
+            }
+
             AppManager.I.GameLauncher.LaunchGame(_miniGame.Code, _launchConfig);
         }
 
@@ -472,6 +478,11 @@ namespace Antura.Core
                 default:
                     canTravel = !NavData.IsJourneyPlaySession;
                     break;
+            }
+
+            if (AppManager.I.Player.CurrentJourneyPosition.IsAssessmentTest())
+            {
+                canTravel = true;
             }
 
             if (canTravel)
@@ -609,14 +620,17 @@ namespace Antura.Core
             }
         }
 
-        private void GoToPlaySession()
+        public void GoToPlaySession()
+        {
+            GoToPlaySession(NavData.CurrentPlayer.CurrentJourneyPosition);
+        }
+
+        public void GoToPlaySession(JourneyPosition jp)
         {
             // This must be called before any play session is started
             InitNewPlaySession();
             LogManager.I.StartPlaySession();
 
-            // From the map
-            var jp = NavData.CurrentPlayer.CurrentJourneyPosition;
             if (jp.IsEndGame())
             {
                 // Go to the end scene directly

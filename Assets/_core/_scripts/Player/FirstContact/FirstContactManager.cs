@@ -39,6 +39,8 @@ namespace Antura.Profile
         Reward_NewPet,
         AnturaSpace_NewPet,
 
+        Assessment_Skip,
+
         MAX,
 
         NONE
@@ -123,6 +125,8 @@ namespace Antura.Profile
                 FirstContactPhase.AnturaSpace_TouchAntura,
                 FirstContactPhase.AnturaSpace_Customization,
                 FirstContactPhase.AnturaSpace_Exit,
+
+                FirstContactPhase.Assessment_Skip,
 
                 FirstContactPhase.Map_PlayFirstSession,
 
@@ -428,6 +432,7 @@ namespace Antura.Profile
                 case FirstContactPhase.AnturaSpace_Shop:
                 case FirstContactPhase.AnturaSpace_TouchAntura:
                 case FirstContactPhase.AnturaSpace_NewPet:
+                case FirstContactPhase.Assessment_Skip:
                     return AppScene.AnturaSpace;
 
                 case FirstContactPhase.Map_GoToAnturaSpace:
@@ -467,7 +472,7 @@ namespace Antura.Profile
 
             // Check whether this transition is completing a phase
             TransitionCompletePhaseOn(FirstContactPhase.Intro, fromScene == AppScene.Intro);
-            TransitionCompletePhaseOn(FirstContactPhase.AnturaSpace_Exit, fromScene == AppScene.AnturaSpace);
+            //TransitionCompletePhaseOn(FirstContactPhase.AnturaSpace_Exit, fromScene == AppScene.AnturaSpace);
             TransitionCompletePhaseOn(FirstContactPhase.Map_PlayFirstSession, fromScene == AppScene.PlaySessionResult);
             TransitionCompletePhaseOn(FirstContactPhase.Map_GoToAnturaSpace, fromScene == AppScene.Map && toScene == AppScene.AnturaSpace);
             TransitionCompletePhaseOn(FirstContactPhase.Map_GoToBook, fromScene == AppScene.Map && toScene == AppScene.Book);

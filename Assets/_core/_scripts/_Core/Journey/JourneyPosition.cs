@@ -145,6 +145,11 @@ namespace Antura.Core
             return !IsMinor(other);
         }
 
+        public bool IsAssessmentTest()
+        {
+            return Stage == 0 && LearningBlock == 0 && PlaySession == ASSESSMENT_PLAY_SESSION_INDEX;
+        }
+
         public bool IsAssessment()
         {
             return PlaySession == ASSESSMENT_PLAY_SESSION_INDEX;

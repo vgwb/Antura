@@ -161,6 +161,15 @@ namespace Antura.Map
 
             //Debug.Log("Current JP is " + CurrentJourneyPosition + "\nPrevious JP was " + PreviousJourneyPosition);
 
+            if (CurrentJourneyPosition.IsAssessmentTest())
+            {
+                // After the initial assessment, jump directly to the new JP
+                var skippedToJP = new JourneyPosition(2, 1, 1);
+                AppManager.I.Player.SetMaxJourneyPosition(skippedToJP, _forced: true);
+                AppManager.I.Player.SetCurrentJourneyPosition(skippedToJP);
+                targetCurrentJourneyPosition = skippedToJP;
+            }
+
             shownStage = PreviousPlayerStage;
             targetCurrentJourneyPosition = CurrentJourneyPosition;
 
