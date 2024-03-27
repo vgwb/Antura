@@ -1049,6 +1049,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 455048485}
+  - component: {fileID: 455048487}
+  - component: {fileID: 455048486}
   m_Layer: 0
   m_Name: Cameras
   m_TagString: Untagged
@@ -1073,6 +1075,40 @@ Transform:
   - {fileID: 1189551033}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &455048486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455048484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb1b940ec41442cdb694c0c4b4989842, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  invertYAxis: 0
+  minMaxVerticalRotation:
+    min: 30
+    max: 340
+  lookUpZoomFactor: 3
+  lookUpArmLengthFactor: 2
+  virtualCam: {fileID: 1286536574}
+  camPivot: {fileID: 708761252}
+--- !u!114 &455048487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 455048484}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6896b99f8ac344e4bab7c4f0e25ed5c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CamController: {fileID: 455048486}
 --- !u!4 &457542533 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000012326848640, guid: 8a3d6b07504889b4e82bed69c9a0e58b,
@@ -1470,8 +1506,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 588524361}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20791169, y: -0, z: -0, w: 0.9781476}
-  m_LocalPosition: {x: 0, y: 13.149101, z: -11.765034}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 6.31, z: -15.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1978,7 +2014,7 @@ GameObject:
   m_Component:
   - component: {fileID: 708761252}
   m_Layer: 0
-  m_Name: CameraTarget
+  m_Name: Camera Pivot
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1992,13 +2028,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 708761251}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.20791169, y: 0, z: 0, w: 0.9781476}
-  m_LocalPosition: {x: 0, y: 4.25, z: 4.02}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 4.25, z: -0.27}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1150288620}
-  m_LocalEulerAnglesHint: {x: 24, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &713258650
 GameObject:
   m_ObjectHideFlags: 0
@@ -7712,7 +7748,7 @@ GameObject:
   - component: {fileID: 1286536573}
   - component: {fileID: 1286536574}
   m_Layer: 0
-  m_Name: Main - PC
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7727,7 +7763,7 @@ Transform:
   m_GameObject: {fileID: 1286536572}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 13.149101, z: -11.765034}
+  m_LocalPosition: {x: 0, y: 6.31, z: -15.89}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -8935,7 +8971,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2105498520}
   - component: {fileID: 2105498523}
-  - component: {fileID: 2105498524}
   - component: {fileID: 2105498525}
   m_Layer: 0
   m_Name: cm
@@ -8971,19 +9006,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac0b09e7857660247b1477e93731de29, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2105498524
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105498519}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4c41ac9245b87c4192012080077d830, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Damping: 0.5
 --- !u!114 &2105498525
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -8997,10 +9019,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Damping: {x: 0.1, y: 0.5, z: 1}
-  ShoulderOffset: {x: 0, y: 6.5, z: -11.38}
-  VerticalArmLength: 0.4
+  ShoulderOffset: {x: 0, y: -1.74, z: 0}
+  VerticalArmLength: 3.8
   CameraSide: 0.5
-  CameraDistance: 5
+  CameraDistance: 15.62
   CameraCollisionFilter:
     serializedVersion: 2
     m_Bits: 0
