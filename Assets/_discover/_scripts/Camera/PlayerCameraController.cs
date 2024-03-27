@@ -29,6 +29,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Range(1, 20)]
         [SerializeField] int rotationSpeed = 10;
+        [Range(0, 10)]
+        [SerializeField] float resetRotationDelay = 2.5f;
         [SerializeField] bool invertYAxis = false;
         [DeRange(0, 360)]
         [SerializeField] IntRange minMaxVerticalRotation = new IntRange(65, 210);
@@ -51,6 +53,8 @@ namespace Antura.Minigames.DiscoverCountry
         InteractionLayer interactionLayer;
         Cinemachine3rdPersonFollow camFollow;
         float defCamDistance, defCamArmLength;
+        float lastRotationTime;
+        bool isMoving { get { return CurrMovementVector != Vector3.zero; } }
         
         #region Unity
 
@@ -75,7 +79,9 @@ namespace Antura.Minigames.DiscoverCountry
                 switch (mode)
                 {
                     case Mode.Desktop:
-                        UpdateMouseRotation();
+                        Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                        if (mouseOffset != Vector2.zero) UpdateMouseRotation(mouseOffset);
+                        else if (isMoving || Time.time - lastRotationTime > resetRotationDelay) UpdateResetRotation(isMoving);
                         UpdateMovementVector();
                         break;
                 }
@@ -91,11 +97,8 @@ namespace Antura.Minigames.DiscoverCountry
             mode = newMode;
         }
 
-        void UpdateMouseRotation()
+        void UpdateMouseRotation(Vector2 mouseOffset)
         {
-            Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-            if (mouseOffset == Vector2.zero) return;
-
             if (invertYAxis) mouseOffset.y = -mouseOffset.y;
             Quaternion camRot = camPivot.rotation;
             // Left/right rotation
@@ -115,6 +118,16 @@ namespace Antura.Minigames.DiscoverCountry
             camFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
             // Assign
             camPivot.rotation = Quaternion.Euler(camAngle);
+
+            lastRotationTime = Time.time;
+        }
+
+        void UpdateResetRotation(bool fast)
+        {
+            Vector3 currPivotEuler = camPivot.localEulerAngles;
+            currPivotEuler.y = 0;
+            Quaternion targetRot = Quaternion.Euler(currPivotEuler);
+            camPivot.localRotation = Quaternion.Lerp(camPivot.localRotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
         }
 
         void UpdateMovementVector()
@@ -129,6 +142,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDrawGizmos()
         {
+            if (!Application.isPlaying) return;
+            
             Vector3 p = camPivot.position;
             p.y = 0;
             Gizmos.color = Color.magenta;
