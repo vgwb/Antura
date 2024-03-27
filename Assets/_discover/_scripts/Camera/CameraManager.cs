@@ -15,5 +15,28 @@ namespace Antura.Minigames.DiscoverCountry
         public PlayerCameraController CamController;
 
         #endregion
+
+        public static CameraManager I;
+
+        #region Unity
+
+        void Awake()
+        {
+            if (I != null)
+            {
+                Debug.LogError("CameraManager already exists in scene, destroying duplicate");
+                Destroy(this.gameObject);
+                return;
+            }
+            
+            I = this;
+        }
+
+        void OnDestroy()
+        {
+            if (I == this) I = null;
+        }
+
+        #endregion
     }
 }

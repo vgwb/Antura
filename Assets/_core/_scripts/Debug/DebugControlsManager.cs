@@ -24,8 +24,12 @@ namespace Antura.Debugging
         #endregion
 
         static readonly StringBuilder _Strb = new StringBuilder();
-        bool activateLearnLanguageCheats { get { return true; } } // TODO find if we're in learn language mode
-        bool activateDiscoverCountriesCheats { get { return true; } } // TODO find if we're in discover countries mode
+        // This returns error in discover mode because NavData.CurrentMiniGameData is null, comment for now and enable when it's working
+        // bool activateLearnLanguageCheats { get { return AppManager.I.NavigationManager.CurrentMiniGameData.Code != MiniGameCode.Discover_Country; } }
+        bool activateLearnLanguageCheats { get { return true; } }
+        // This returns error in discover mode because NavData.CurrentMiniGameData is null, comment for now and enable when it's working
+        // bool activateDiscoverCountriesCheats { get { return AppManager.I.NavigationManager.CurrentMiniGameData.Code == MiniGameCode.Discover_Country; } }
+        bool activateDiscoverCountriesCheats { get { return true; } }
         
         #region Commands
         

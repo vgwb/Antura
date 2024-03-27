@@ -5,9 +5,7 @@ using System;
 using Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
-using Unity.Mathematics;
 using UnityEngine;
-using Range = DG.DemiLib.Range;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -39,12 +37,16 @@ namespace Antura.Minigames.DiscoverCountry
         [DeRange(0, 10)]
         [SerializeField] int lookUpArmLengthFactor = 3;
         [DeEmptyAlert]
+        [SerializeField] Camera cam;
+        [DeEmptyAlert]
         [SerializeField] CinemachineVirtualCamera virtualCam;
         [DeEmptyAlert]
         [SerializeField] Transform camPivot;
 
         #endregion
 
+        public Vector3 CurrMovementVector;
+        
         Mode mode;
         InteractionLayer interactionLayer;
         Cinemachine3rdPersonFollow camFollow;
@@ -74,6 +76,7 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     case Mode.Desktop:
                         UpdateMouseRotation();
+                        UpdateMovementVector();
                         break;
                 }
             }
@@ -112,6 +115,24 @@ namespace Antura.Minigames.DiscoverCountry
             camFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
             // Assign
             camPivot.rotation = Quaternion.Euler(camAngle);
+        }
+
+        void UpdateMovementVector()
+        {
+            Vector3 movementFactor = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+            Quaternion camRot = cam.transform.rotation;
+            Vector3 camRotEuler = camRot.eulerAngles;
+            camRotEuler.x = 0;
+            camRot = Quaternion.Euler(camRotEuler);
+            CurrMovementVector = camRot * movementFactor;
+        }
+
+        void OnDrawGizmos()
+        {
+            Vector3 p = camPivot.position;
+            p.y = 0;
+            Gizmos.color = Color.magenta;
+            Gizmos.DrawLine(p, p + CurrMovementVector * 10);
         }
 
         #endregion
