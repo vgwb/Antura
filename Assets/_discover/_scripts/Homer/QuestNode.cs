@@ -20,6 +20,11 @@ namespace Antura.Homer
         public string ChoiceHeader;
         public List<HomerElement> Choices;
 
+        public string GetAudio()
+        {
+            return GetMetadata("AUDIO");
+        }
+
         public string GetAction()
         {
             return GetMetadata("ACTION");

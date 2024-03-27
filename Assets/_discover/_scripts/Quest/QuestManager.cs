@@ -21,7 +21,7 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.Setup();
             total_coins = 0;
 
-            List<QuestNode> answers = new List<QuestNode>();
+            var answers = new List<QuestNode>();
 
             HomerAnturaManager.I.GetContent(
                             Quest.QuestId,
@@ -30,7 +30,10 @@ namespace Antura.Minigames.DiscoverCountry
                             true
                             );
 
-            Debug.Log("HOMER: " + answers.Count);
+            foreach (QuestNode questNode in answers)
+            {
+                DebugNodeInfo(questNode);
+            }
         }
 
 
@@ -73,6 +76,7 @@ namespace Antura.Minigames.DiscoverCountry
             Debug.Log("QuestNode Id: " + questNode.Id);
             Debug.Log("QuestNode Action: " + questNode.GetAction());
             Debug.Log("QuestNode Mood: " + questNode.GetMood());
+            Debug.Log("QuestNode Audio: " + questNode.GetAudio());
         }
 
     }
