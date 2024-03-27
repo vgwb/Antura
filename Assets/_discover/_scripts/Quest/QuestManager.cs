@@ -39,8 +39,7 @@ namespace Antura.Minigames.DiscoverCountry
             Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
             string talk_action = "TALK_" + ActorId.ToString();
 
-            List<QuestNode> answers = new List<QuestNode>();
-
+            var answers = new List<QuestNode>();
             HomerAnturaManager.I.GetContent(
                             Quest.QuestId,
                             talk_action,
@@ -50,10 +49,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             foreach (QuestNode questNode in answers)
             {
-                Debug.Log("QuestNode Content: " + questNode.Content);
-                Debug.Log("QuestNode Id: " + questNode.Id);
-                Debug.Log("QuestNode Action: " + questNode.GetAction());
-                Debug.Log("QuestNode Mood: " + questNode.GetMood());
+                DebugNodeInfo(questNode);
             }
         }
 
@@ -63,6 +59,20 @@ namespace Antura.Minigames.DiscoverCountry
             HomerVars.TOTAL_COINS = total_coins;
             Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
             Destroy(go);
+        }
+
+        public void OnInfoPoint(string nodeId)
+        {
+            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(Quest.QuestId, nodeId);
+            DebugNodeInfo(questNode);
+        }
+
+        private void DebugNodeInfo(QuestNode questNode)
+        {
+            Debug.Log("QuestNode Content: " + questNode.Content);
+            Debug.Log("QuestNode Id: " + questNode.Id);
+            Debug.Log("QuestNode Action: " + questNode.GetAction());
+            Debug.Log("QuestNode Mood: " + questNode.GetMood());
         }
 
     }

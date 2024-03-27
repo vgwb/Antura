@@ -10,7 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("Movement")]
         public float MaxSpeed = 1f;
         public float RotationSpeed = 1f;
-        private float Speed;
+        private float WalkSpeed;
+        private float RunSpeed;
         //public float AccelerationWeight = 1f;
         //private float Acceleration = 0f;
 
@@ -33,6 +34,7 @@ namespace Antura.Minigames.DiscoverCountry
         private Vector3 lastDesiredDir;
         private bool isJumping;
         private float jumpSpeed;
+
         void Update()
         {
             var tr = transform;
@@ -62,8 +64,8 @@ namespace Antura.Minigames.DiscoverCountry
             //Speed = Mathf.Clamp(Speed, 0f, MaxSpeed);
             tr.transform.position += desiredDir * MaxSpeed * Time.deltaTime;
 
-            Debug.DrawLine(position, position + desiredDir * accelerationMagnitude*10f, Color.red);
-            Debug.DrawLine(position, position + tr.forward*10f, Color.yellow);
+            Debug.DrawLine(position, position + desiredDir * accelerationMagnitude * 10f, Color.red);
+            Debug.DrawLine(position, position + tr.forward * 10f, Color.yellow);
 
             if (doJump && !isJumping)
             {

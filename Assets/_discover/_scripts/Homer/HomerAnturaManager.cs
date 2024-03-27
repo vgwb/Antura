@@ -58,6 +58,7 @@ namespace Antura.Homer
                 {
                     QuestNode questNode = new QuestNode();
                     questNode.Id = homerNode._permalink;
+                    questNode.Metadata = homerNode._metadata;
 
                     //we just take the first line
                     HomerLocalizedContent[] homerLocalizedContents = homerNode._elements[0]._localizedContents;
@@ -71,11 +72,9 @@ namespace Antura.Homer
                             break;
                         }
                     }
-
                     return questNode;
                 }
             }
-
             return null;
         }
 

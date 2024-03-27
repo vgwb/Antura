@@ -35,7 +35,7 @@ namespace Antura.Homer
             foreach (var metaId in Metadata)
             {
                 var metadata = HomerAnturaManager.I.GetMetadataByValueId(metaId);
-                //Debug.Log("metadata._uid= " + metadato._uid);
+                //                Debug.Log("metadata._uid= " + metadata._uid);
                 if (metadata._uid == kind)
                 {
                     return HomerAnturaManager.I.GetMetadataValueById(metaId)._value;
