@@ -15,11 +15,15 @@ namespace Antura.Homer
         {
             HomerAnturaManager.I.Setup();
 
+            HomerAnturaManager.I.GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL,
+                "isolated_node_1");
+
             ContentTest(true, "TALK_TEACHER");
             DOVirtual.DelayedCall(1, () => ContentTest(true, "TALK_TEACHER"));
 
             DOVirtual.DelayedCall(2, () => ContentTest(true, "TALK_MAJOR"));
             DOVirtual.DelayedCall(3, () => ContentTest(true, "TALK_MAJOR"));
+
         }
 
         static int watchDog = 0;
@@ -31,20 +35,23 @@ namespace Antura.Homer
             if (watchDog > 100)
                 return;
 
-            var questNode = HomerAnturaManager.I.GetContent(
-                HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL,
-                command,
-                restart
-                );
+            List<QuestNode> answers = new List<QuestNode>();
 
-            if (questNode != null)
+            HomerAnturaManager.I.GetContent(
+                HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL, command, answers,
+                restart);
+
+            if (answers.Count>0)
             {
                 //full content printer in HomerBasicUsageSample
 
-                if (questNode.Type == HomerNode.NodeType.TEXT)
-                    Debug.Log($"\nCMD: {command} RESULT: {questNode.Content}");
-                else if (questNode.Type == HomerNode.NodeType.CHOICE)
-                    Debug.Log($"\nCMD: {command} RESULT: # of choices {questNode.Choices.Count}");
+                foreach (QuestNode questNode in answers)
+                {
+                    if (questNode.Type == HomerNode.NodeType.TEXT)
+                        Debug.Log($"\nCMD: {command} RESULT: {questNode.Content}");
+                    else if (questNode.Type == HomerNode.NodeType.CHOICE)
+                        Debug.Log($"\nCMD: {command} RESULT: # of choices {questNode.Choices.Count}");
+                }
 
                 ContentTest(false, command);
             }

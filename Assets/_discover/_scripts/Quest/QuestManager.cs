@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
 using Antura.Utilities;
 using UnityEngine;
 using Homer;
@@ -7,6 +8,7 @@ using Antura.Homer;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
         public QuestData Quest;
@@ -19,13 +21,16 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.Setup();
             total_coins = 0;
 
-            var questNode = HomerAnturaManager.I.GetContent(
+            List<QuestNode> answers = new List<QuestNode>();
+
+            HomerAnturaManager.I.GetContent(
                             Quest.QuestId,
                             "INIT",
+                            answers,
                             true
                             );
 
-            Debug.Log("HOMER: " + questNode.Content);
+            Debug.Log("HOMER: " + answers.Count);
         }
 
 
@@ -34,16 +39,22 @@ namespace Antura.Minigames.DiscoverCountry
             Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
             string talk_action = "TALK_" + ActorId.ToString();
 
-            var questNode = HomerAnturaManager.I.GetContent(
+            List<QuestNode> answers = new List<QuestNode>();
+
+            HomerAnturaManager.I.GetContent(
                             Quest.QuestId,
                             talk_action,
+                            answers,
                             true
                             );
 
-            Debug.Log("QuestNode Content: " + questNode.Content);
-            Debug.Log("QuestNode Id: " + questNode.Id);
-            Debug.Log("QuestNode Action: " + questNode.GetAction());
-            Debug.Log("QuestNode Mood: " + questNode.GetMood());
+            foreach (QuestNode questNode in answers)
+            {
+                Debug.Log("QuestNode Content: " + questNode.Content);
+                Debug.Log("QuestNode Id: " + questNode.Id);
+                Debug.Log("QuestNode Action: " + questNode.GetAction());
+                Debug.Log("QuestNode Mood: " + questNode.GetMood());
+            }
         }
 
         public void OnCollectCoin(GameObject go)
