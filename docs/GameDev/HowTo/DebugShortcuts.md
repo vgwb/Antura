@@ -10,7 +10,11 @@ nav_order: 0
 to enable the Debug panel, the app has to be compiled with the `AppConstants.DebugPanelEnabled = true`, and then TRIPLE CLICK on the bottom right corner of the screen
 
 ## Keyboard Shortcuts
-these works in Editor and in the Desktop versions of Antura
+these work in Editor and in the Desktop versions of Antura if cheat codes are enabled in the "AppDebug Config" prefab
+
+- <kbd>SHIFT + C</kbd> show shortcuts available for current game mode (if enabled in config)
+
+### Legacy (to be removed later)
 
 - <kbd>SHIFT + B</kbd> add 50 bones
 

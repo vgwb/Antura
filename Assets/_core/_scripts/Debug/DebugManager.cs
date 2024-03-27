@@ -114,61 +114,66 @@ namespace Antura.Debugging
             {
                 EnableDebugPanel();
             }
-        }
-
-        void Update()
-        {
-            if (!DebugPanelOpened && DebugConfig.I.CheatCodesEnabled)
+            if (DebugConfig.I.CheatCodesEnabled)
             {
-                // RESERVED AREA
-                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
-                {
-                    AppManager.I.NavigationManager.GoToReservedArea();
-                }
-
-                // ADD BONES
-                if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
-                {
-                    AddBones();
-                }
-
-                // SKIPS
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    Debug.Log("DEBUG - SPACE : skip");
-                    if (OnSkipCurrentScene != null)
-                        OnSkipCurrentScene();
-                }
-
-                // END MINIGAMES
-                if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0))
-                {
-                    ForceCurrentMinigameEnd(0);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
-                {
-                    ForceCurrentMinigameEnd(1);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
-                {
-                    ForceCurrentMinigameEnd(2);
-                }
-
-                if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
-                {
-                    ForceCurrentMinigameEnd(3);
-                }
-
-                /// VARIOUS TESTS
-                if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T))
-                {
-                    AppManager.I.Services.Notifications.TestLocalNotification();
-                }
-
+                GameObject go = Instantiate(Resources.Load<DebugControlsManager>(AppConfig.RESOURCES_PATH_DEBUG_CONTROLS_MANAGER)).gameObject;
+                go.transform.SetParent(AppManager.I.transform, false);
             }
         }
+
+        // ---> Commented out (to be removed later when approved) because cheat codes system has been replaced by DebugControlsManager
+        // ---> (instantiated by this class if cheat codes are active)
+        // void Update()
+        // {
+        //     if (!DebugPanelOpened && DebugConfig.I.CheatCodesEnabled)
+        //     {
+        //         // RESERVED AREA
+        //         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))
+        //         {
+        //             AppManager.I.NavigationManager.GoToReservedArea();
+        //         }
+        //
+        //         // ADD BONES
+        //         if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.B))
+        //         {
+        //             AddBones();
+        //         }
+        //
+        //         // SKIPS
+        //         if (Input.GetKeyDown(KeyCode.Space))
+        //         {
+        //             SkipCurrentScene();
+        //         }
+        //
+        //         // END MINIGAMES
+        //         if (Input.GetKeyDown(KeyCode.Keypad0) || Input.GetKeyDown(KeyCode.Alpha0))
+        //         {
+        //             ForceCurrentMinigameEnd(0);
+        //         }
+        //
+        //         if (Input.GetKeyDown(KeyCode.Keypad1) || Input.GetKeyDown(KeyCode.Alpha1))
+        //         {
+        //             ForceCurrentMinigameEnd(1);
+        //         }
+        //
+        //         if (Input.GetKeyDown(KeyCode.Keypad2) || Input.GetKeyDown(KeyCode.Alpha2))
+        //         {
+        //             ForceCurrentMinigameEnd(2);
+        //         }
+        //
+        //         if (Input.GetKeyDown(KeyCode.Keypad3) || Input.GetKeyDown(KeyCode.Alpha3))
+        //         {
+        //             ForceCurrentMinigameEnd(3);
+        //         }
+        //
+        //         /// VARIOUS TESTS
+        //         if (Input.GetKeyDown(KeyCode.LeftControl) && Input.GetKeyDown(KeyCode.T))
+        //         {
+        //             AppManager.I.Services.Notifications.TestLocalNotification();
+        //         }
+        //
+        //     }
+        // }
 
         #endregion
 
@@ -195,6 +200,13 @@ namespace Antura.Debugging
         public void AddBones()
         {
             AppManager.I.Player.AddBones(50);
+        }
+
+        public void SkipCurrentScene()
+        {
+            Debug.Log("DEBUG - SPACE : skip");
+            if (OnSkipCurrentScene != null)
+                OnSkipCurrentScene();
         }
 
         public void ForceCurrentMinigameEnd(int stars)

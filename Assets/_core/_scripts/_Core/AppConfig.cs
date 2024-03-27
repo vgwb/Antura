@@ -89,6 +89,7 @@ namespace Antura.Core
         // Resource Paths
         public const string RESOURCES_DIR_AVATARS = "Images/Avatars/";
         public const string RESOURCES_PATH_DEBUG_PANEL = "Prefabs/Debug/Debug UI Canvas";
+        public const string RESOURCES_PATH_DEBUG_CONTROLS_MANAGER = "Prefabs/Debug/Debug Controls Manager";
 
         #endregion
 
