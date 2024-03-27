@@ -5,11 +5,26 @@ using Homer;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    public enum QuestCategory
+    {
+        Place,
+        Character,
+        NaturalSite,
+        Food,
+        Art,
+        CultureElement
+    }
+
     [CreateAssetMenu(menuName = "Antura/Quest Data")]
     public class QuestData : ScriptableObject
     {
         public string Title;
         public HomerFlowSlugs.FlowSlug QuestId;
+
+        public Texture Thumbnail;
+        public string Description;
+
+        public QuestCategory[] Categories;
 
     }
 }
