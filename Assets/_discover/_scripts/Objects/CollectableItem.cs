@@ -13,8 +13,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnTriggerEnter(Collider other)
         {
-            Debug.Log("TRIGGER");
-            Destroy(this);
+            //Debug.Log("TRIGGER");
+            QuestManager.I.OnCollectCoin(gameObject);
+            //Destroy(this);
         }
     }
 }

@@ -37,6 +37,8 @@ namespace Antura.Dog
         public AnturaModelManager[] LoadablePrefabs;
         private AnturaModelManager currentModelManager;
 
+        public AnturaModelManager StartingModelManager;
+
         public AnturaModelManager ModelManager
         {
             get
@@ -67,6 +69,7 @@ namespace Antura.Dog
         public void Awake()
         {
             if (AutoSpawn) LoadPet(PetType);
+            if (StartingModelManager != null) currentModelManager = StartingModelManager;
         }
 
         public void LoadPet(AnturaPetType petType)

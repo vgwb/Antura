@@ -17,14 +17,15 @@ namespace Antura.Core.Services.Notification
         public NotificationService(GameObject _gameObject)
         {
             myGameObject = _gameObject;
-            Init();
+            //Init();
         }
 
         public void Init()
         {
             if (!inizialized)
             {
-                Debug.Log("NotificationService Init");
+                if (DebugConfig.I.DebugLogEnabled)
+                    Debug.Log("NotificationService Init");
                 NotificationsManager = myGameObject.AddComponent<GameNotificationsManager>();
 
                 var channel = new GameNotificationChannel(ChannelId, "Default Game Channel", "Generic notifications");

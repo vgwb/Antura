@@ -48,6 +48,11 @@ namespace Antura.Editor
                 Application.OpenURL(AppConfig.UrlWebsite);
             }
 
+            if (GUILayout.Button("Homer Antura"))
+            {
+                Application.OpenURL(AppConfig.UrlHomer);
+            }
+
             //if (GUILayout.Button("Trello", GUILayout.Width(width / 2f - margin))) {
             //    Application.OpenURL(AppConstants.UrlTrello);
             //}

@@ -17,7 +17,7 @@ namespace Antura.Core
 
         public static RootConfig FindMainConfig()
         {
-            var configPath = $"Assets/_config/Config Root.asset";
+            var configPath = $"Assets/_config/_Config Root.asset";
             var config = AssetDatabase.LoadAssetAtPath<RootConfig>(configPath);
             if (config == null)
             {

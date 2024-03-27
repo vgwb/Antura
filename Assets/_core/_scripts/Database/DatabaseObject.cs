@@ -82,7 +82,7 @@ namespace Antura.Database
 
         public void LoadTablesFromEdition(ContentEditionConfig edition)
         {
-            Debug.Log("LoadTablesFromEdition " + edition.ContentID.ToString());
+            //            Debug.Log("LoadTablesFromEdition " + edition.ContentID.ToString());
             stageDb = edition.StageDB;
             learningblockDb = edition.LearningBlockDB;
             playsessionDb = edition.PlaySessionDB;

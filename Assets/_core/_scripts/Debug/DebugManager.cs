@@ -118,7 +118,7 @@ namespace Antura.Debugging
 
         void Update()
         {
-            if (!DebugPanelOpened)
+            if (!DebugPanelOpened && DebugConfig.I.CheatCodesEnabled)
             {
                 // RESERVED AREA
                 if (Input.GetKey(KeyCode.LeftShift) && Input.GetKeyDown(KeyCode.R))

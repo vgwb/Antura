@@ -27,6 +27,12 @@ namespace Antura.Core
         public bool BypassDialogs = false;
 
         /// <summary>
+        /// Enable shortcuts
+        /// Set to FALSE for production.
+        /// </summary>
+        public bool CheatCodesEnabled = false;
+
+        /// <summary>
         /// Speed-up some animations to fast game test
         /// Set to FALSE for production.
         /// </summary>

@@ -190,7 +190,7 @@ namespace Homer
                         else
                         {
                             HomerProjectRunning.ActiveSubFlows.Remove(HomerProjectRunning.ActiveSubFlows.Last());
-                            
+
                             foreach (var homerConnection in node._connections)
                             {
                                 if (homerConnection._type != NodeType.subFlow)
@@ -199,7 +199,7 @@ namespace Homer
                                     break;
                                 }
                             }
-                            
+
                         }
                     }
 
@@ -351,7 +351,6 @@ namespace Homer
             if (_selectedNodeId == "THE END")
                 return null;
 
-
             if (_selectedNodeId == null)
                 _selectedNodeId = GetNodesByType(NodeType.start, Flow)[0]._id;
 
@@ -388,7 +387,7 @@ namespace Homer
             if (connection == null || connection._to == null)
             {
                 if (HomerProjectRunning.ActiveSubFlows.Count>0) {
-                    var subFlow_node_id = 
+                    var subFlow_node_id =
                         HomerProjectRunning.ActiveSubFlows[HomerProjectRunning.ActiveSubFlows.Count-1];
                     _selectedNodeId = subFlow_node_id;
                     NextNode();
@@ -400,7 +399,7 @@ namespace Homer
 
                     return null;
                 }
-                
+
             }
             else
             {
@@ -451,6 +450,11 @@ namespace Homer
             {
                 return node;
             }
+        }
+
+        public void Restart()
+        {
+            _selectedNodeId = null;
         }
     }
 }
