@@ -35,7 +35,6 @@ using RewriteRuleITokenStream = Antlr.Runtime.Tree.RewriteRuleTokenStream;
 namespace  HomerNCalc 
 {
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.5.0.2")]
-[System.CLSCompliant(false)]
 public partial class NCalcParser : Antlr.Runtime.Parser
 {
 	internal static readonly string[] tokenNames = new string[] {
