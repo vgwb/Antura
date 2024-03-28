@@ -27,8 +27,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Serialized
 
+        [SerializeField] bool clickAndRotate = true;
         [Range(1, 20)]
         [SerializeField] int rotationSpeed = 10;
+        [SerializeField] bool resetRotationAfterAWhile = false;
         [Range(0, 10)]
         [SerializeField] float resetRotationDelay = 2.5f;
         [SerializeField] bool invertYAxis = false;
@@ -80,8 +82,9 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     case Mode.Desktop:
                         Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        if (mouseOffset != Vector2.zero) UpdateMouseRotation(mouseOffset);
-                        else if (isMoving || Time.time - lastRotationTime > resetRotationDelay) UpdateResetRotation(isMoving);
+                        bool manualRotate = Input.GetMouseButton(1) && mouseOffset != Vector2.zero; 
+                        if (manualRotate) UpdateMouseRotation(mouseOffset);
+                        else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay)) UpdateResetRotation(isMoving);
                         UpdateMovementVector();
                         break;
                 }
