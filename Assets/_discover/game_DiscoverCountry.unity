@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.4465785, g: 0.49641234, b: 0.57481736, a: 1}
+  m_IndirectSpecularColor: {r: 0.4465791, g: 0.49641275, b: 0.5748184, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -603,26 +603,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Discover Cameras
       objectReference: {fileID: 0}
-    - target: {fileID: 2121464385290010030, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 2121464385290010030, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.89
-      objectReference: {fileID: 0}
-    - target: {fileID: 2695500429786643157, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 10.31
-      objectReference: {fileID: 0}
-    - target: {fileID: 2695500429786643157, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -9.89
-      objectReference: {fileID: 0}
     - target: {fileID: 3095188253238184365, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -672,16 +652,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6215519614824689255, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: CameraDistance
-      value: 9.62
-      objectReference: {fileID: 0}
-    - target: {fileID: 6215519614824689255, guid: 517d2acc735dd5b4683a252a2b4fe05c,
-        type: 3}
-      propertyPath: VerticalArmLength
-      value: 7.8
       objectReference: {fileID: 0}
     - target: {fileID: 8795589920222479008, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -8831,7 +8801,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71d0b79193ce834eb8bd1db8a65804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stagePositiveResult: 0
 --- !u!4 &1814291036
 Transform:
   m_ObjectHideFlags: 0
