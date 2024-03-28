@@ -46,6 +46,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] CinemachineVirtualCamera virtualCam;
         [DeEmptyAlert]
         [SerializeField] Transform camPivot;
+        [Header("Debug")]
+        [SerializeField] bool drawGizmos = false;
 
         #endregion
 
@@ -56,6 +58,8 @@ namespace Antura.Minigames.DiscoverCountry
         Cinemachine3rdPersonFollow camFollow;
         float defCamDistance, defCamArmLength;
         float lastRotationTime;
+        Transform camPivotOriginalParent;
+        Vector3 camPivotOffset;
         bool isMoving { get { return CurrMovementVector != Vector3.zero; } }
         
         #region Unity
@@ -72,10 +76,14 @@ namespace Antura.Minigames.DiscoverCountry
             camFollow = virtualCam.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
             defCamDistance = camFollow.CameraDistance;
             defCamArmLength = camFollow.VerticalArmLength;
+            camPivotOriginalParent = camPivot.parent;
+            camPivotOffset = camPivot.localPosition;
+            camPivot.SetParent(this.transform);
         }
 
         void Update()
         {
+            camPivot.position = camPivotOriginalParent.position + camPivotOffset;
             if (interactionLayer == InteractionLayer.Movement)
             {
                 switch (mode)
@@ -89,6 +97,11 @@ namespace Antura.Minigames.DiscoverCountry
                         break;
                 }
             }
+        }
+
+        void LateUpdate()
+        {
+            camPivot.position = camPivotOriginalParent.position + camPivotOffset;
         }
 
         #endregion
@@ -127,10 +140,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         void UpdateResetRotation(bool fast)
         {
-            Vector3 currPivotEuler = camPivot.localEulerAngles;
-            currPivotEuler.y = 0;
+            Vector3 currPivotEuler = camPivot.eulerAngles;
+            currPivotEuler.y = camPivotOriginalParent.eulerAngles.y;
             Quaternion targetRot = Quaternion.Euler(currPivotEuler);
-            camPivot.localRotation = Quaternion.Lerp(camPivot.localRotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
+            camPivot.rotation = Quaternion.Lerp(camPivot.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
         }
 
         void UpdateMovementVector()
@@ -145,11 +158,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDrawGizmos()
         {
-            if (!Application.isPlaying) return;
+            if (!drawGizmos || !Application.isPlaying) return;
             
             Vector3 p = camPivot.position;
             p.y = 0;
-            Gizmos.color = Color.magenta;
+            Gizmos.color = Color.blue;
             Gizmos.DrawLine(p, p + CurrMovementVector * 10);
         }
 
