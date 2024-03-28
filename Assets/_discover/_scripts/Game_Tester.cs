@@ -38,15 +38,12 @@ namespace Antura.Minigames.DiscoverCountry
 
             while (true)
             {
-                LetterMAJOR.ShowHeadProp(false);
-                LetterTEACHER.ShowHeadProp(false);
                 yield return new WaitForSeconds(2f);
 
                 Antura.PlayAnimation(AnturaAnimationStates.walking);
                 //Antura.GoTo(pos1);
                 yield return new WaitForSeconds(1f);
 
-                LetterMAJOR.ShowHeadProp(true);
                 LetterTEACHER.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
 
@@ -54,7 +51,6 @@ namespace Antura.Minigames.DiscoverCountry
                 //Antura.GoTo(pos2);
                 yield return new WaitForSeconds(1f);
 
-                LetterMAJOR.ShowHeadProp(true);
                 LetterTEACHER.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
             }
