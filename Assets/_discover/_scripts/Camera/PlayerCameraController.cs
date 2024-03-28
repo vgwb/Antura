@@ -82,7 +82,7 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     case Mode.Desktop:
                         Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        bool manualRotate = Input.GetMouseButton(1) && mouseOffset != Vector2.zero; 
+                        bool manualRotate = (!clickAndRotate || Input.GetMouseButton(1)) && mouseOffset != Vector2.zero;
                         if (manualRotate) UpdateMouseRotation(mouseOffset);
                         else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay)) UpdateResetRotation(isMoving);
                         UpdateMovementVector();
