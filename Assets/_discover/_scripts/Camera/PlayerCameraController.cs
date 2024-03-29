@@ -2,7 +2,7 @@
 // Created: 2024/03/27
 
 using System;
-using Unity.Cinemachine;
+using Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;
