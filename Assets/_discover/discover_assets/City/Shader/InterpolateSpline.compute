@@ -1,0 +1,16 @@
+#include "Packages/com.unity.splines/Shader/Spline.cginc"
+
+#pragma kernel GetPositions
+
+SplineInfo info = float4(0,0,0,0);
+StructuredBuffer<BezierCurve> curves;
+StructuredBuffer<float> curveLengths;
+RWStructuredBuffer<float3> positions;
+float positionsCount;
+
+[numthreads(64,1,1)]
+void GetPositions (uint id : SV_DispatchThreadID)
+{
+    float curve = SplineToCurveT(info, curveLengths, id/(positionsCount - 1));
+    positions[id] = EvaluatePosition(curves[floor(curve) % GetKnotCount(info)], frac(curve)); 
+}
