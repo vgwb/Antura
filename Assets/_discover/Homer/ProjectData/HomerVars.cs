@@ -48,7 +48,7 @@ public static class HomerLabels {
 }
 
 public static class HomerFlowSlugs {
-    public enum FlowSlug { FR_01_TOUR_EIFFEL, FR_02_PAN_AU_CHOCOLATE, PL_01_QUEST_, FR_03_THE_SCHOOL }
+    public enum FlowSlug { TUTORIAL, FR_01_TOUR_EIFFEL, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
 }
 
 }
