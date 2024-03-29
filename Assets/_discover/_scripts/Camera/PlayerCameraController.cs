@@ -2,7 +2,7 @@
 // Created: 2024/03/27
 
 using System;
-using Cinemachine;
+using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;
@@ -52,7 +52,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         public Vector3 CurrMovementVector;
-        
+
         Mode mode;
         InteractionLayer interactionLayer;
         Cinemachine3rdPersonFollow camFollow;
@@ -61,7 +61,7 @@ namespace Antura.Minigames.DiscoverCountry
         Transform camPivotOriginalParent;
         Vector3 camPivotOffset;
         bool isMoving { get { return CurrMovementVector != Vector3.zero; } }
-        
+
         #region Unity
 
         void Awake()
@@ -91,8 +91,10 @@ namespace Antura.Minigames.DiscoverCountry
                     case Mode.Desktop:
                         Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
                         bool manualRotate = (!clickAndRotate || Input.GetMouseButton(1)) && mouseOffset != Vector2.zero;
-                        if (manualRotate) UpdateMouseRotation(mouseOffset);
-                        else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay)) UpdateResetRotation(isMoving);
+                        if (manualRotate)
+                            UpdateMouseRotation(mouseOffset);
+                        else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
+                            UpdateResetRotation(isMoving);
                         UpdateMovementVector();
                         break;
                 }
@@ -115,7 +117,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void UpdateMouseRotation(Vector2 mouseOffset)
         {
-            if (invertYAxis) mouseOffset.y = -mouseOffset.y;
+            if (invertYAxis)
+                mouseOffset.y = -mouseOffset.y;
             Quaternion camRot = camPivot.rotation;
             // Left/right rotation
             camRot *= Quaternion.AngleAxis(mouseOffset.x * rotationSpeed, Vector3.up);
@@ -124,8 +127,10 @@ namespace Antura.Minigames.DiscoverCountry
             // Clamp
             Vector3 camAngle = camRot.eulerAngles;
             camAngle.z = 0;
-            if (camAngle.x > 180 && camAngle.x < minMaxVerticalRotation.max) camAngle.x = minMaxVerticalRotation.max;
-            else if (camAngle.x < 180 && camAngle.x > minMaxVerticalRotation.min) camAngle.x = minMaxVerticalRotation.min;
+            if (camAngle.x > 180 && camAngle.x < minMaxVerticalRotation.max)
+                camAngle.x = minMaxVerticalRotation.max;
+            else if (camAngle.x < 180 && camAngle.x > minMaxVerticalRotation.min)
+                camAngle.x = minMaxVerticalRotation.min;
             // LookUp factor
             float currLookUpPerc = camAngle.x < 180 ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
             float currZoomFactor = lookUpZoomFactor * currLookUpPerc;
@@ -158,8 +163,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDrawGizmos()
         {
-            if (!drawGizmos || !Application.isPlaying) return;
-            
+            if (!drawGizmos || !Application.isPlaying)
+                return;
+
             Vector3 p = camPivot.position;
             p.y = 0;
             Gizmos.color = Color.blue;

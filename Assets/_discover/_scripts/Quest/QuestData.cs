@@ -26,5 +26,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public QuestCategory[] Categories;
 
+        [Header("Level Prefabs")]
+        public GameObject Town;
+        public GameObject GameLevel;
+
     }
 }

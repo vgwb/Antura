@@ -1,7 +1,7 @@
 ﻿// Author: Daniele Giardini - http://www.demigiant.com
 // Created: 2024/03/27
 
-using Cinemachine;
+using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
@@ -28,13 +28,14 @@ namespace Antura.Minigames.DiscoverCountry
                 Destroy(this.gameObject);
                 return;
             }
-            
+
             I = this;
         }
 
         void OnDestroy()
         {
-            if (I == this) I = null;
+            if (I == this)
+                I = null;
         }
 
         #endregion
