@@ -68,7 +68,7 @@ namespace Antura.Homer
                         if (localizedContent._localeCode == language)
                         {
                             questNode.Content = localizedContent._text;
-                            Debug.Log($"GetQuestNodeByPermalink {permalink} : result: {questNode.Content}");
+                            // Debug.Log($"GetQuestNodeByPermalink {permalink} : result: {questNode.Content}");
                             break;
                         }
                     }
