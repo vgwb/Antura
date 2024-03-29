@@ -1,8 +1,5 @@
-﻿// Author: Daniele Giardini - http://www.demigiant.com
-// Created: 2024/03/27
-
-using System;
-using Cinemachine;
+﻿using System;
+using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;

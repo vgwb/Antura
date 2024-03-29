@@ -1,7 +1,4 @@
-﻿// Author: Daniele Giardini - http://www.demigiant.com
-// Created: 2024/03/27
-
-using Cinemachine;
+﻿using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
