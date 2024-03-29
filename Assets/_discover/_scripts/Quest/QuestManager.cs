@@ -72,11 +72,14 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void DebugNodeInfo(QuestNode questNode)
         {
-            Debug.Log("QuestNode Content: " + questNode.Content);
-            Debug.Log("QuestNode Id: " + questNode.Id);
-            Debug.Log("QuestNode Action: " + questNode.GetAction());
-            Debug.Log("QuestNode Mood: " + questNode.GetMood());
-            Debug.Log("QuestNode Audio: " + questNode.GetAudio());
+            string nodeInfo = "";
+            nodeInfo += "\nContent: " + questNode.Content;
+            nodeInfo += "\nId: " + questNode.Id;
+            nodeInfo += "\nAction: " + questNode.GetAction();
+            nodeInfo += "\nMood: " + questNode.GetMood();
+            nodeInfo += "\nAudio: " + questNode.GetAudio();
+            nodeInfo += "\nNextTarget: " + questNode.GetNextTarget();
+            Debug.Log("QuestNode INFO: " + nodeInfo);
         }
 
     }

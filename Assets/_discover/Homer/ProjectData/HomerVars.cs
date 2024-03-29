@@ -30,6 +30,7 @@ public static class HomerActors {
 
 public static class HomerMeta {
 
+    public enum NEXTTARGET { }
     public enum AUDIO { }
     public enum ACTION {QUEST_FINISHED, OPEN_DOOR, SHOW_MONUMENT}
     public enum MOOD {NEUTRAL, HAPPY, VERY_HAPPY, SAD, ANGRY, AMAZED}

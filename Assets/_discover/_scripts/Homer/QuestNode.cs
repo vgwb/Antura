@@ -35,6 +35,11 @@ namespace Antura.Homer
             return GetMetadata("MOOD");
         }
 
+        public string GetNextTarget()
+        {
+            return GetMetadata("NEXTTARGET");
+        }
+
         private string GetMetadata(string kind)
         {
             foreach (var metaId in Metadata)
