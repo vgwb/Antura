@@ -30,8 +30,8 @@ public static class HomerActors {
 
 public static class HomerMeta {
 
-    public enum NEXTTARGET { }
-    public enum AUDIO { }
+    public enum NEXTTARGET {}
+    public enum AUDIO {}
     public enum ACTION {QUEST_FINISHED, OPEN_DOOR, SHOW_MONUMENT}
     public enum MOOD {NEUTRAL, HAPPY, VERY_HAPPY, SAD, ANGRY, AMAZED}
     public enum EXPRESSION {RELAXED, GRINNING, PENSIVE, FROWNING, CRYING, ENRAGED}
@@ -45,11 +45,11 @@ public static class HomerMeta {
 
 public static class HomerLabels {
 
-     public enum Label { NEW_LABEL_KEY }
+public enum Label { NEW_LABEL_KEY }
 }
 
 public static class HomerFlowSlugs {
-    public enum FlowSlug { TUTORIAL, FR_01_TOUR_EIFFEL, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
+public enum FlowSlug { TUTORIAL, FR_01_TOUR_EIFFEL, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
 }
 
 }
