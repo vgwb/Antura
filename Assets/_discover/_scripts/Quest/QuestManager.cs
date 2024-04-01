@@ -11,7 +11,8 @@ namespace Antura.Minigames.DiscoverCountry
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        public QuestData Quest;
+        public Quests Quests;
+        public QuestData CurrentQuest;
 
         private GameObject currentNPC;
         private int total_coins = 0;
@@ -24,7 +25,7 @@ namespace Antura.Minigames.DiscoverCountry
             var answers = new List<QuestNode>();
 
             HomerAnturaManager.I.GetContent(
-                            Quest.QuestId,
+                            CurrentQuest.QuestId,
                             "INIT",
                             answers,
                             true
@@ -44,7 +45,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             var answers = new List<QuestNode>();
             HomerAnturaManager.I.GetContent(
-                            Quest.QuestId,
+                            CurrentQuest.QuestId,
                             talk_action,
                             answers,
                             true
@@ -66,7 +67,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnInfoPoint(string nodeId)
         {
-            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(Quest.QuestId, nodeId);
+            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
             DebugNodeInfo(questNode);
         }
 
