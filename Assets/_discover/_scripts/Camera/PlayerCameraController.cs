@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class PlayerCameraController : MonoBehaviour
+    public class PlayerCameraController : AbstractCineCamera
     {
         enum Mode
         {
@@ -25,6 +25,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Serialized
 
+        [DeEmptyAlert]
+        [SerializeField] Camera cam;
+        [DeHeader("Options")]
         [SerializeField] bool clickAndRotate = true;
         [Range(1, 20)]
         [SerializeField] int rotationSpeed = 10;
@@ -45,11 +48,6 @@ namespace Antura.Minigames.DiscoverCountry
         [DeRange(0, -3f)]
         [SerializeField] float lookDownShoulderZFactor = -1.9f;
         [SerializeField] Ease lookDownShoulderZFactorEase = Ease.InQuad;
-        [Header("References - Prefab")]
-        [DeEmptyAlert]
-        [SerializeField] Camera cam;
-        [DeEmptyAlert]
-        [SerializeField] CinemachineCamera cineMain;
         [Header("Debug")]
         [SerializeField] bool drawGizmos = false;
 
@@ -90,21 +88,28 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            camTarget.position = camTargetOriginalParent.position + camTargetOffset;
-            if (interactionLayer == InteractionLayer.Movement)
+            if (Active)
             {
-                switch (mode)
+                camTarget.position = camTargetOriginalParent.position + camTargetOffset;
+                if (interactionLayer == InteractionLayer.Movement)
                 {
-                    case Mode.Desktop:
-                        Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        bool manualRotate = (!clickAndRotate || Input.GetMouseButton(1)) && mouseOffset != Vector2.zero;
-                        if (manualRotate)
-                            UpdateMouseRotation(mouseOffset);
-                        else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
-                            UpdateResetRotation(isMoving);
-                        UpdateMovementVector();
-                        break;
+                    switch (mode)
+                    {
+                        case Mode.Desktop:
+                            Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                            bool manualRotate = (!clickAndRotate || Input.GetMouseButton(1)) && mouseOffset != Vector2.zero;
+                            if (manualRotate)
+                                UpdateMouseRotation(mouseOffset);
+                            else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
+                                UpdateResetRotation(isMoving);
+                            UpdateMovementVector();
+                            break;
+                    }
                 }
+            }
+            else
+            {
+                CurrMovementVector = Vector3.zero;
             }
         }
 
