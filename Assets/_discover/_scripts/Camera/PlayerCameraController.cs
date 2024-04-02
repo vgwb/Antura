@@ -48,9 +48,6 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("References - Prefab")]
         [DeEmptyAlert]
         [SerializeField] Camera cam;
-        [Header("References - Scene")]
-        [DeEmptyAlert]
-        [SerializeField] Transform camPivot;
         [DeEmptyAlert]
         [SerializeField] CinemachineCamera cineMain;
         [Header("Debug")]
@@ -66,8 +63,9 @@ namespace Antura.Minigames.DiscoverCountry
         Vector3 defShoulderOffset;
         float defCamDistance, defCamArmLength;
         float lastRotationTime;
-        Transform camPivotOriginalParent;
-        Vector3 camPivotOffset;
+        Transform camTarget;
+        Transform camTargetOriginalParent;
+        Vector3 camTargetOffset;
         bool isMoving { get { return CurrMovementVector != Vector3.zero; } }
 
         #region Unity
@@ -79,18 +77,20 @@ namespace Antura.Minigames.DiscoverCountry
 #else
             SetMode(Mode.Mobile);
 #endif
-
             interactionLayer = InteractionLayer.Movement;
+            camTarget = FindObjectOfType<PlayerCameraTarget>(true).transform;
+            cineMain.Target.TrackingTarget = camTarget;
             cineMainFollow = cineMain.GetComponent<CinemachineThirdPersonFollow>();
-            camPivotOriginalParent = camPivot.parent;
-            camPivotOffset = camPivot.localPosition;
-            camPivot.SetParent(this.transform);
+            camTargetOriginalParent = camTarget.parent;
+            camTargetOffset = camTarget.localPosition;
+            camTarget.SetParent(this.transform);
             RefreshCinemachineSetup();
+            UpdateMouseRotation(Vector2.zero);
         }
 
         void Update()
         {
-            camPivot.position = camPivotOriginalParent.position + camPivotOffset;
+            camTarget.position = camTargetOriginalParent.position + camTargetOffset;
             if (interactionLayer == InteractionLayer.Movement)
             {
                 switch (mode)
@@ -110,7 +110,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void LateUpdate()
         {
-            camPivot.position = camPivotOriginalParent.position + camPivotOffset;
+            camTarget.position = camTargetOriginalParent.position + camTargetOffset;
         }
 
         #endregion
@@ -134,7 +134,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (invertYAxis)
                 mouseOffset.y = -mouseOffset.y;
-            Quaternion camRot = camPivot.rotation;
+            Quaternion camRot = camTarget.rotation;
             // Left/right rotation
             camRot *= Quaternion.AngleAxis(mouseOffset.x * rotationSpeed, Vector3.up);
             // Up/down rotation
@@ -162,17 +162,17 @@ namespace Antura.Minigames.DiscoverCountry
             }
             cineMainFollow.ShoulderOffset = currShoulderOffset;
             // Assign
-            camPivot.rotation = Quaternion.Euler(camAngle);
+            camTarget.rotation = Quaternion.Euler(camAngle);
 
             lastRotationTime = Time.time;
         }
 
         void UpdateResetRotation(bool fast)
         {
-            Vector3 currPivotEuler = camPivot.eulerAngles;
-            currPivotEuler.y = camPivotOriginalParent.eulerAngles.y;
+            Vector3 currPivotEuler = camTarget.eulerAngles;
+            currPivotEuler.y = camTargetOriginalParent.eulerAngles.y;
             Quaternion targetRot = Quaternion.Euler(currPivotEuler);
-            camPivot.rotation = Quaternion.Lerp(camPivot.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
+            camTarget.rotation = Quaternion.Lerp(camTarget.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
         }
 
         void UpdateMovementVector()
@@ -190,7 +190,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (!drawGizmos || !Application.isPlaying)
                 return;
 
-            Vector3 p = camPivot.position;
+            Vector3 p = camTarget.position;
             p.y = 0;
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(p, p + CurrMovementVector * 10);
