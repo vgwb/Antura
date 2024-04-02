@@ -2,6 +2,7 @@
 using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
@@ -43,6 +44,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] float lookDownArmLengthFactor = 0.25f;
         [DeRange(0, -3f)]
         [SerializeField] float lookDownShoulderZFactor = -1.9f;
+        [SerializeField] Ease lookDownShoulderZFactorEase = Ease.InQuad;
         [Header("References - Prefab")]
         [DeEmptyAlert]
         [SerializeField] Camera cam;
@@ -155,7 +157,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 currShoulderOffset = defShoulderOffset;
             if (isLookingDown)
             {
-                float currShoulderZFactor = lookDownShoulderZFactor * currLookDownPerc;
+                float currShoulderZFactor = lookDownShoulderZFactor * DOVirtual.EasedValue(0, 1, currLookDownPerc, lookDownShoulderZFactorEase);
                 currShoulderOffset.z += currShoulderZFactor;
             }
             cineMainFollow.ShoulderOffset = currShoulderOffset;
