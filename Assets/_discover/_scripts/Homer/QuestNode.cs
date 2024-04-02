@@ -21,28 +21,16 @@ namespace Antura.Homer
         public List<HomerElement> Choices;
 
         // audio id to be player as voiceover (language to be added)
-        public string GetAudio()
-        {
-            return GetMetadata("AUDIO");
-        }
+        public string Audio => GetMetadata("AUDIO");
 
         // if a special methid needs to be triggered in the scene
-        public string GetAction()
-        {
-            return GetMetadata("ACTION");
-        }
+        public string Action => GetMetadata("ACTION");
 
         // well.. the mood
-        public string GetMood()
-        {
-            return GetMetadata("MOOD");
-        }
+        public string Mood => GetMetadata("MOOD");
 
         // if a pin / direction should be higlighted in scene / minimap
-        public string GetNextTarget()
-        {
-            return GetMetadata("NEXTTARGET");
-        }
+        public string NextTarget => GetMetadata("NEXTTARGET");
 
         private string GetMetadata(string kind)
         {
