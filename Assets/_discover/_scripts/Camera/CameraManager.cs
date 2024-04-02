@@ -4,14 +4,11 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    [RequireComponent(typeof(PlayerCameraController), typeof(DialogueCamera))]
     public class CameraManager : MonoBehaviour
     {
-        #region Serialized
-
-        [DeEmptyAlert]
-        public PlayerCameraController CamController;
-
-        #endregion
+        public PlayerCameraController CamController { get; private set; }
+        DialogueCamera dialogueCam;
 
         public static CameraManager I;
 
@@ -27,6 +24,8 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             I = this;
+            CamController = this.GetComponent<PlayerCameraController>();
+            dialogueCam = this.GetComponent<DialogueCamera>();
         }
 
         void OnDestroy()

@@ -1,7 +1,4 @@
-﻿// Author: Daniele Giardini - http://www.demigiant.com
-// Created: 2024/04/02
-
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
