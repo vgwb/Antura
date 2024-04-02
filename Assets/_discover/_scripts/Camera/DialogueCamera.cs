@@ -2,7 +2,7 @@
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class DialogueCamera : MonoBehaviour
+    public class DialogueCamera : AbstractCineCamera
     {
         
     }
