@@ -117,7 +117,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Methods
 
-        [DeMethodButton]
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void RefreshCinemachineSetup()
         {
             defShoulderOffset = cineMainFollow.ShoulderOffset;
