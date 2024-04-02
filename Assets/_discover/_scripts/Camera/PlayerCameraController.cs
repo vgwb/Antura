@@ -34,25 +34,34 @@ namespace Antura.Minigames.DiscoverCountry
         [DeRange(0, 360)]
         [SerializeField] IntRange minMaxVerticalRotation = new IntRange(65, 210);
         [DeRange(0, 10)]
-        [SerializeField] int lookUpZoomFactor = 5;
+        [SerializeField] float lookUpZoomFactor = 4;
         [DeRange(0, 10)]
-        [SerializeField] int lookUpArmLengthFactor = 3;
+        [SerializeField] float lookUpArmLengthFactor = 0.25f;
+        [DeRange(0, -10)]
+        [SerializeField] float lookDownZoomFactor = -4;
+        [DeRange(0, 10)]
+        [SerializeField] float lookDownArmLengthFactor = 0.25f;
+        [DeRange(0, -3f)]
+        [SerializeField] float lookDownShoulderZFactor = -1.9f;
+        [Header("References - Prefab")]
         [DeEmptyAlert]
         [SerializeField] Camera cam;
-        [DeEmptyAlert]
-        [SerializeField] CinemachineVirtualCamera virtualCam;
+        [Header("References - Scene")]
         [DeEmptyAlert]
         [SerializeField] Transform camPivot;
+        [DeEmptyAlert]
+        [SerializeField] CinemachineCamera cineMain;
         [Header("Debug")]
         [SerializeField] bool drawGizmos = false;
 
         #endregion
 
-        public Vector3 CurrMovementVector;
+        [NonSerialized] public Vector3 CurrMovementVector;
 
         Mode mode;
         InteractionLayer interactionLayer;
-        Cinemachine3rdPersonFollow camFollow;
+        CinemachineThirdPersonFollow cineMainFollow;
+        Vector3 defShoulderOffset;
         float defCamDistance, defCamArmLength;
         float lastRotationTime;
         Transform camPivotOriginalParent;
@@ -70,12 +79,11 @@ namespace Antura.Minigames.DiscoverCountry
 #endif
 
             interactionLayer = InteractionLayer.Movement;
-            camFollow = virtualCam.GetCinemachineComponent<Cinemachine3rdPersonFollow>();
-            defCamDistance = camFollow.CameraDistance;
-            defCamArmLength = camFollow.VerticalArmLength;
+            cineMainFollow = cineMain.GetComponent<CinemachineThirdPersonFollow>();
             camPivotOriginalParent = camPivot.parent;
             camPivotOffset = camPivot.localPosition;
             camPivot.SetParent(this.transform);
+            RefreshCinemachineSetup();
         }
 
         void Update()
@@ -107,6 +115,14 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Methods
 
+        [DeMethodButton]
+        void RefreshCinemachineSetup()
+        {
+            defShoulderOffset = cineMainFollow.ShoulderOffset;
+            defCamDistance = cineMainFollow.CameraDistance;
+            defCamArmLength = cineMainFollow.VerticalArmLength;
+        }
+
         void SetMode(Mode newMode)
         {
             mode = newMode;
@@ -128,12 +144,21 @@ namespace Antura.Minigames.DiscoverCountry
                 camAngle.x = minMaxVerticalRotation.max;
             else if (camAngle.x < 180 && camAngle.x > minMaxVerticalRotation.min)
                 camAngle.x = minMaxVerticalRotation.min;
-            // LookUp factor
-            float currLookUpPerc = camAngle.x < 180 ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
-            float currZoomFactor = lookUpZoomFactor * currLookUpPerc;
-            float currArmLengthFactor = lookUpArmLengthFactor * currLookUpPerc;
-            camFollow.CameraDistance = defCamDistance - currZoomFactor;
-            camFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
+            // LookUp/Down modifiers
+            bool isLookingDown = camAngle.x < 180;
+            float currLookUpPerc = isLookingDown ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
+            float currLookDownPerc = !isLookingDown ? 0 : Mathf.Clamp(camAngle.x / minMaxVerticalRotation.min, 0, 1);
+            float currZoomFactor = isLookingDown ? lookDownZoomFactor * currLookDownPerc : lookUpZoomFactor * currLookUpPerc;
+            float currArmLengthFactor = isLookingDown ? lookDownArmLengthFactor * currLookDownPerc : lookUpArmLengthFactor * currLookUpPerc;
+            cineMainFollow.CameraDistance = defCamDistance - currZoomFactor;
+            cineMainFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
+            Vector3 currShoulderOffset = defShoulderOffset;
+            if (isLookingDown)
+            {
+                float currShoulderZFactor = lookDownShoulderZFactor * currLookDownPerc;
+                currShoulderOffset.z += currShoulderZFactor;
+            }
+            cineMainFollow.ShoulderOffset = currShoulderOffset;
             // Assign
             camPivot.rotation = Quaternion.Euler(camAngle);
 
