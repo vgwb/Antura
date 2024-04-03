@@ -1,5 +1,6 @@
 ﻿using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
+using DG.DemiLib;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
@@ -14,9 +15,23 @@ namespace Antura.Minigames.DiscoverCountry
             Dialogue,
             Map
         }
+
+        #region Serialized
+
+        /// <summary>After reaching min zoom level it switches to map view</summary>
+        [DeRange(-50, 10)]
+        [SerializeField] IntRange minMaxPlayerZoomLevel = new IntRange(-10, 0);
+        [Range(0.1f, 10)]
+        [SerializeField] float zoomTick = 2;
+        [Range(0, 0.5f)]
+        [SerializeField] float minIntervalBetweenZoomTicks = 0.25f;
+
+        #endregion
         
         public PlayerCameraController CamController { get; private set; }
 
+        float lastZoomTickTime;
+        float leaveMapTime;
         CameraMode cameraMode;
         DialogueCamera dialogueCam;
         MapCamera mapCam;
@@ -52,16 +67,36 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            // Zoom to/from map mode via mouse scroll
-            if (!Mathf.Approximately(Input.mouseScrollDelta.y, 0))
+            // Zoom via mouse scroll
+            if (!Mathf.Approximately(Input.mouseScrollDelta.y, 0) && Time.time - leaveMapTime > 0.5f && Time.time - lastZoomTickTime >= minIntervalBetweenZoomTicks)
             {
+                lastZoomTickTime = Time.time;
                 switch (cameraMode)
                 {
                     case CameraMode.Player:
-                        if (Input.mouseScrollDelta.y < 0) ChangeCameraMode(CameraMode.Map);
+                        if (Input.mouseScrollDelta.y > 0)
+                        {
+                            CamController.SetZoomLevel(Mathf.Clamp(CamController.ZoomLevel + zoomTick, minMaxPlayerZoomLevel.min, minMaxPlayerZoomLevel.max));
+                        }
+                        else if (Input.mouseScrollDelta.y < 0)
+                        {
+                            if (CamController.ZoomLevel > minMaxPlayerZoomLevel.min)
+                            {
+                                CamController.SetZoomLevel(Mathf.Clamp(CamController.ZoomLevel - zoomTick, minMaxPlayerZoomLevel.min, minMaxPlayerZoomLevel.max));
+                            }
+                            else
+                            {
+                                ChangeCameraMode(CameraMode.Map);
+                            }
+                        }
                         break;
                     case CameraMode.Map:
-                        if (Input.mouseScrollDelta.y > 0) ChangeCameraMode(CameraMode.Player);
+                        if (Input.mouseScrollDelta.y > 0)
+                        {
+                            leaveMapTime = Time.time;
+                            ChangeCameraMode(CameraMode.Player);
+                            CamController.SetZoomLevel(minMaxPlayerZoomLevel.min);
+                        }
                         break;
                 }
             }

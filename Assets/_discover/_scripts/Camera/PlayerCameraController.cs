@@ -53,16 +53,23 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
+        public float ZoomLevel { get; private set; }
+        
+        bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
+        float baseCamDistance { get { return defCamDistance - currZoomLevel; } }
+        
         Mode mode;
         InteractionLayer interactionLayer;
         CinemachineThirdPersonFollow cineMainFollow;
         Vector3 defShoulderOffset;
         float defCamDistance, defCamArmLength;
         float lastRotationTime;
+        float currZoomLevel;
+        float currLookZoomFactor;
         Transform camTarget;
         Transform camTargetOriginalParent;
         Vector3 camTargetOffset;
-        bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
+        Tween zoomLevelTween;
 
         #region Unity
 
@@ -82,6 +89,11 @@ namespace Antura.Minigames.DiscoverCountry
             camTarget.SetParent(this.transform);
             RefreshCinemachineSetup();
             UpdateMouseRotation(Vector2.zero);
+        }
+
+        void OnDestroy()
+        {
+            zoomLevelTween.Kill();
         }
 
         void Update()
@@ -114,6 +126,31 @@ namespace Antura.Minigames.DiscoverCountry
         void LateUpdate()
         {
             camTarget.position = camTargetOriginalParent.position + camTargetOffset;
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void SetZoomLevel(float value, bool immediate = false)
+        {
+            ZoomLevel = value;
+            if (immediate)
+            {
+                currZoomLevel = value;
+                SetZoomLevel_Update();
+            }
+            else
+            {
+                zoomLevelTween.Kill();
+                zoomLevelTween = DOTween.To(() => currZoomLevel, x => currZoomLevel = x, value, 0.25f).SetEase(Ease.OutQuad)
+                    .OnUpdate(SetZoomLevel_Update);
+            }
+        }
+
+        void SetZoomLevel_Update()
+        {
+            cineMainFollow.CameraDistance = baseCamDistance - currLookZoomFactor;
         }
 
         #endregion
@@ -153,9 +190,9 @@ namespace Antura.Minigames.DiscoverCountry
             bool isLookingDown = camAngle.x < 180;
             float currLookUpPerc = isLookingDown ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
             float currLookDownPerc = !isLookingDown ? 0 : Mathf.Clamp(camAngle.x / minMaxVerticalRotation.min, 0, 1);
-            float currZoomFactor = isLookingDown ? lookDownZoomFactor * currLookDownPerc : lookUpZoomFactor * currLookUpPerc;
+            currLookZoomFactor = isLookingDown ? lookDownZoomFactor * currLookDownPerc : lookUpZoomFactor * currLookUpPerc;
             float currArmLengthFactor = isLookingDown ? lookDownArmLengthFactor * currLookDownPerc : lookUpArmLengthFactor * currLookUpPerc;
-            cineMainFollow.CameraDistance = defCamDistance - currZoomFactor;
+            cineMainFollow.CameraDistance = baseCamDistance - currLookZoomFactor;
             cineMainFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
             Vector3 currShoulderOffset = defShoulderOffset;
             if (isLookingDown)
