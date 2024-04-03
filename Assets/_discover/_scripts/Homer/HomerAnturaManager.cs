@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
@@ -78,6 +79,57 @@ namespace Antura.Homer
             return null;
         }
 
+        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
+            List<QuestNode> answers, string language = "EN")
+        {
+            MoveToPermalinkNode(permalink, flowSlug);
+
+            GetContent(flowSlug,command, answers, false, language);
+        }
+
+        void MoveToPermalinkNode(string permalink, HomerFlowSlugs.FlowSlug flowSlug)
+        {
+            HomerNode startNode = null;
+
+            foreach (HomerNode homerNode in runningFlow.Flow._nodes)
+            {
+                if (homerNode._permalink == permalink)
+                {
+                    startNode = homerNode;
+                    break;
+                }
+            }
+
+            if (startNode != null)
+            {
+                SetupCurrentFlow(flowSlug);
+                runningFlow.SelectedNode = HomerNodeRunning.Instantiate(startNode, runningFlow);
+            }
+        }
+
+        public void GetContentFromChoice(int choiceIndex, string permalink, HomerFlowSlugs.FlowSlug flowSlug,
+            string command, List<QuestNode> answers, string language = "EN")
+        {
+            MoveToPermalinkNode(permalink, flowSlug);
+            GetContentFromChoice(choiceIndex, flowSlug, command, answers, language);
+        }
+
+        public void GetContentFromChoice(int choiceIndex, HomerFlowSlugs.FlowSlug flowSlug,
+            string command, List<QuestNode> answers, string language = "EN")
+        {
+            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            {
+                List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
+                var chosenChoice = choices[choiceIndex];
+                //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
+                runningFlow.NextNode(chosenChoice._id);
+                GetContent(flowSlug,command, answers, false, language);
+            }
+            else
+                throw new Exception("Current node is not a choice!");
+        }
+
+
         public void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
             bool restart, string language = "EN")
         {
@@ -140,7 +192,7 @@ namespace Antura.Homer
 
         }
 
-        private void SetupCurrentFlow(HomerFlowSlugs.FlowSlug flowSlug)
+        void SetupCurrentFlow(HomerFlowSlugs.FlowSlug flowSlug)
         {
             if (firstFlowSetup || currentFlowSlug != flowSlug)
             {
