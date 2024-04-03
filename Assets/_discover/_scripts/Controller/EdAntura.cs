@@ -44,7 +44,7 @@ namespace Antura.Minigames.DiscoverCountry
             bool doJump = Input.GetKeyDown(KeyCode.Space);
 
             // var desiredDir = new Vector3(horizontalInput, 0, verticalInput);
-            var desiredDir = CameraManager.I.CamController.CurrMovementVector;
+            var desiredDir = InputManager.CurrMovementVector;
             var accelerationMagnitude = desiredDir.magnitude;
             accelerationMagnitude = Mathf.Clamp01(accelerationMagnitude);
             if (desiredDir != Vector3.zero)

@@ -53,8 +53,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
-        [NonSerialized] public Vector3 CurrMovementVector;
-
         Mode mode;
         InteractionLayer interactionLayer;
         CinemachineThirdPersonFollow cineMainFollow;
@@ -64,7 +62,7 @@ namespace Antura.Minigames.DiscoverCountry
         Transform camTarget;
         Transform camTargetOriginalParent;
         Vector3 camTargetOffset;
-        bool isMoving { get { return CurrMovementVector != Vector3.zero; } }
+        bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
 
         #region Unity
 
@@ -109,7 +107,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             else
             {
-                CurrMovementVector = Vector3.zero;
+                InputManager.SetCurrMovementVector(Vector3.zero);
             }
         }
 
@@ -187,7 +185,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 camRotEuler = camRot.eulerAngles;
             camRotEuler.x = 0;
             camRot = Quaternion.Euler(camRotEuler);
-            CurrMovementVector = camRot * movementFactor;
+            InputManager.SetCurrMovementVector(camRot * movementFactor);
         }
 
         void OnDrawGizmos()
@@ -198,7 +196,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 p = camTarget.position;
             p.y = 0;
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(p, p + CurrMovementVector * 10);
+            Gizmos.DrawLine(p, p + InputManager.CurrMovementVector * 10);
         }
 
         #endregion
