@@ -8,14 +8,6 @@ namespace Antura.Minigames.DiscoverCountry
     [RequireComponent(typeof(PlayerCameraController), typeof(DialogueCamera), typeof(MapCamera))]
     public class CameraManager : MonoBehaviour
     {
-        enum CameraMode
-        {
-            Unset,
-            Player,
-            Map,
-            Dialogue
-        }
-
         #region Serialized
 
         /// <summary>After reaching min zoom level it switches to map view</summary>
@@ -28,6 +20,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
         
+        public static CameraManager I;
         public PlayerCameraController CamController { get; private set; }
 
         float lastZoomTickTime;
@@ -36,7 +29,6 @@ namespace Antura.Minigames.DiscoverCountry
         DialogueCamera dialogueCam;
         MapCamera mapCam;
 
-        public static CameraManager I;
 
         #region Unity
 
@@ -48,11 +40,12 @@ namespace Antura.Minigames.DiscoverCountry
                 Destroy(this.gameObject);
                 return;
             }
+
+            I = this;
         }
 
         void Start()
         {
-            I = this;
             CamController = this.GetComponent<PlayerCameraController>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
@@ -104,9 +97,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
-        #region Methods
+        #region Public Methods
 
-        void ChangeCameraMode(CameraMode newMode)
+        public void ChangeCameraMode(CameraMode newMode)
         {
             if (newMode == cameraMode) return;
 
@@ -115,6 +108,11 @@ namespace Antura.Minigames.DiscoverCountry
             CamController.Activate(cameraMode == CameraMode.Player);
             dialogueCam.Activate(cameraMode == CameraMode.Dialogue);
             mapCam.Activate(cameraMode == CameraMode.Map);
+        }
+
+        public void FocusDialogueCamOn(Transform target)
+        {
+            dialogueCam.SetTarget(target);
         }
 
         #endregion

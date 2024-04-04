@@ -21,9 +21,17 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             I = this;
         }
 
+        void Start()
+        {
+            Layer = InteractionLayer.World;
+            
+            DiscoverNotifier.Game.OnLivingLetterTriggered.Subscribe(OnLivingLetterTriggered);
+        }
+
         void OnDestroy()
         {
             if (I == this) I = null;
+            DiscoverNotifier.Game.OnLivingLetterTriggered.Unsubscribe(OnLivingLetterTriggered);
         }
 
         void Update()
@@ -43,6 +51,34 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void UpdateWorld()
         {
             
+        }
+
+        #endregion
+
+        #region Methods
+
+        void ChangeLayer(InteractionLayer newLayer)
+        {
+            if (newLayer == Layer) return;
+
+            Layer = newLayer;
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnLivingLetterTriggered(EdLivingLetter ll)
+        {
+            Debug.Log("HERE " + Layer);
+            switch (Layer)
+            {
+                case InteractionLayer.World:
+                    ChangeLayer(InteractionLayer.Dialogue);
+                    CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
+                    CameraManager.I.FocusDialogueCamOn(ll.transform);
+                    break;
+            }
         }
 
         #endregion
