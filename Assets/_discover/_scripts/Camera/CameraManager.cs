@@ -12,8 +12,8 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Unset,
             Player,
-            Dialogue,
-            Map
+            Map,
+            Dialogue
         }
 
         #region Serialized
