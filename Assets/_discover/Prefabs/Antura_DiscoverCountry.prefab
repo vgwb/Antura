@@ -12,7 +12,6 @@ GameObject:
   - component: {fileID: 114000012958938292}
   - component: {fileID: 4967944192259509247}
   - component: {fileID: 6641456805808195093}
-  - component: {fileID: 3171425435617514733}
   m_Layer: 0
   m_Name: Antura_DiscoverCountry
   m_TagString: Player
@@ -49,11 +48,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4253c72057b9cb47bb143201103c085, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxSpeed: 3
+  MaxSpeed: 60
+  WalkSpeed: 15
   RotationSpeed: 10
-  jumpStrength: 5
-  jumpDeceleration: 18
-  gravity: 10
+  AnimSpeed: 3
+  JumpDelay: 0.1
+  GroundTouchedThreshold: 0.01
+  MaxJumps: 2
+  MultiJumpCooldown: 0.1
+  JumpStrength: 50
+  MultiJumpStrength: 50
+  WallJumpStrength: 100
+  WallAttachDistance: 0.2
+  airGravity: -50
+  wallGravity: 0
+  AirControl: 0.5
+  airDrag: 3
+  groundDrag: 5
   anturaPetSwitcher: {fileID: 8650874481058016865}
 --- !u!54 &4967944192259509247
 Rigidbody:
@@ -63,10 +74,10 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1000010778754222}
   serializedVersion: 4
-  m_Mass: 1
+  m_Mass: 4
   m_Drag: 0
-  m_AngularDrag: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_AngularDrag: 0
+  m_CenterOfMass: {x: 0, y: 0.5, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
   m_IncludeLayers:
@@ -78,10 +89,10 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 0
-  m_IsKinematic: 1
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 2
 --- !u!135 &6641456805808195093
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -101,34 +112,8 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 1
-  m_Center: {x: 0, y: 0.5, z: 0}
---- !u!143 &3171425435617514733
-CharacterController:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1000010778754222}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 0
-  m_ProvidesContacts: 0
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Height: 2
-  m_Radius: 0.5
-  m_SlopeLimit: 45
-  m_StepOffset: 0.3
-  m_SkinWidth: 0.08
-  m_MinMoveDistance: 0.001
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 0.25
+  m_Center: {x: 0, y: 0.25, z: 0}
 --- !u!1 &373812137074730878
 GameObject:
   m_ObjectHideFlags: 0
@@ -215,7 +200,7 @@ PrefabInstance:
         type: 3}
       propertyPath: StartingModelManager
       value: 
-      objectReference: {fileID: 6031296530500331576}
+      objectReference: {fileID: 7667103284234480656}
     - target: {fileID: 8913635256544164690, guid: c2f7449713269484693e87f5e289c351,
         type: 3}
       propertyPath: m_Name
@@ -327,7 +312,7 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8913635257114703281, guid: c2f7449713269484693e87f5e289c351,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 5920069297033556302}
+      addedObject: {fileID: 7781149528222332262}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c2f7449713269484693e87f5e289c351, type: 3}
 --- !u!114 &8650874481058016865 stripped
@@ -354,7 +339,7 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 269526083559363889}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &5919553269151303162
+--- !u!1001 &7778287994054001106
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -406,22 +391,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6078199169177777609, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
+        type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 80a3b8661d9636e4ba2214ee10d049bf, type: 2}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04df59fe74ca40e41a6b4ddf30fb6705, type: 3}
---- !u!4 &5920069297033556302 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4000011149227188, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
-    type: 3}
-  m_PrefabInstance: {fileID: 5919553269151303162}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6031296530500331576 stripped
+--- !u!114 &7667103284234480656 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 114000013671050690, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
     type: 3}
-  m_PrefabInstance: {fileID: 5919553269151303162}
+  m_PrefabInstance: {fileID: 7778287994054001106}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
@@ -429,3 +413,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6c53fcdd2399cb4596303ca7ead281e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!4 &7781149528222332262 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4000011149227188, guid: 04df59fe74ca40e41a6b4ddf30fb6705,
+    type: 3}
+  m_PrefabInstance: {fileID: 7778287994054001106}
+  m_PrefabAsset: {fileID: 0}
