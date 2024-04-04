@@ -204,9 +204,11 @@ namespace Antura.Debugging
 
         public void SkipCurrentScene()
         {
+            /* TEMP removed
             Debug.Log("DEBUG - SPACE : skip");
             if (OnSkipCurrentScene != null)
                 OnSkipCurrentScene();
+            */
         }
 
         public void ForceCurrentMinigameEnd(int stars)
