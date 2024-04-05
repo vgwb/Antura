@@ -30,6 +30,7 @@ public static class HomerActors {
 
 public static class HomerMeta {
 
+    public enum IMAGE {}
     public enum NEXTTARGET {}
     public enum AUDIO {}
     public enum ACTION {QUEST_FINISHED, OPEN_DOOR, SHOW_MONUMENT}
@@ -38,7 +39,7 @@ public static class HomerMeta {
     public enum BALLOON_TYPE {SPEECH, WHISPER, THOUGHT, SCREAM, SLEEP, SING_SONG}
     public enum LOCATION {HOME, OUTSIDE, OFFICE, PARK, SEA, MOUNTAIN}
     public enum CAMERA_DIRECTION {CLOSE_UP, ANGLE_ON, OFF_SCREEN, FADE_OUT, FADE_IN, VOICE_OVER}
-    public enum LIGHTINING {KEY, BACK, PRACTICAL, HARD, SOFT, CHIAROSCURO}
+    public enum LIGHTINING {}
     public enum FLOW_STATE {IDEA, NOTES, DRAFT, EDITOR, FINAL}
     public enum FixedTypes { NOTE, IMAGE }
 }
@@ -49,7 +50,7 @@ public enum Label { NEW_LABEL_KEY }
 }
 
 public static class HomerFlowSlugs {
-public enum FlowSlug { TUTORIAL, FR_01_TOUR_EIFFEL, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
+public enum FlowSlug { TUTORIAL, FR_01_EIFFEL_TOWER, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
 }
 
 }

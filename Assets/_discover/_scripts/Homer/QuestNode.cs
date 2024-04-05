@@ -16,9 +16,11 @@ namespace Antura.Homer
         // Text node
         public string Content;
 
-        // Choice node
-        public string ChoiceHeader;
+        // Choices (for choice node)
         public List<HomerElement> Choices;
+
+        // image to be loaded from resources
+        public string Image => GetMetadata("IMAGE");
 
         // audio id to be player as voiceover (language to be added)
         public string Audio => GetMetadata("AUDIO");

@@ -84,7 +84,7 @@ namespace Antura.Homer
         {
             MoveToPermalinkNode(permalink, flowSlug);
 
-            GetContent(flowSlug,command, answers, false, language);
+            GetContent(flowSlug, command, answers, false, language);
         }
 
         void MoveToPermalinkNode(string permalink, HomerFlowSlugs.FlowSlug flowSlug)
@@ -123,7 +123,7 @@ namespace Antura.Homer
                 var chosenChoice = choices[choiceIndex];
                 //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
                 runningFlow.NextNode(chosenChoice._id);
-                GetContent(flowSlug,command, answers, false, language);
+                GetContent(flowSlug, command, answers, false, language);
             }
             else
                 throw new Exception("Current node is not a choice!");
@@ -165,7 +165,7 @@ namespace Antura.Homer
                 string headerText = runningFlow.SelectedNode.GetParsedText(header);
 
                 questNode.Type = HomerNode.NodeType.CHOICE;
-                questNode.ChoiceHeader = headerText;
+                questNode.Content = headerText;
                 questNode.Choices = choices;
 
                 answers.Add(questNode);
