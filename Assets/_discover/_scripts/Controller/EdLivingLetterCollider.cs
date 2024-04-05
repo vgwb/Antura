@@ -9,7 +9,12 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnTriggerEnter(Collider other)
         {
             LL.OnInteractionWith(other.gameObject);
-            DiscoverNotifier.Game.OnLivingLetterTriggered.Dispatch(LL);
+            DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Dispatch(LL);
+        }
+        
+        public void OnTriggerExit(Collider other)
+        {
+            DiscoverNotifier.Game.OnLivingLetterTriggerExit.Dispatch(LL);
         }
     }
 }

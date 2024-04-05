@@ -7,6 +7,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
 
+        EdLivingLetter nearbyLetter;
+
         #region Unity
 
         void Awake()
@@ -25,13 +27,15 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             Layer = InteractionLayer.World;
             
-            DiscoverNotifier.Game.OnLivingLetterTriggered.Subscribe(OnLivingLetterTriggered);
+            DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Subscribe(OnLivingLetterTriggerEnter);
+            DiscoverNotifier.Game.OnLivingLetterTriggerExit.Subscribe(OnLivingLetterTriggerExit);
         }
 
         void OnDestroy()
         {
             if (I == this) I = null;
-            DiscoverNotifier.Game.OnLivingLetterTriggered.Unsubscribe(OnLivingLetterTriggered);
+            DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Unsubscribe(OnLivingLetterTriggerEnter);
+            DiscoverNotifier.Game.OnLivingLetterTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
         }
 
         void Update()
@@ -40,6 +44,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             {
                 case InteractionLayer.World:
                     UpdateWorld();
+                    break;
+                case InteractionLayer.Dialogue:
+                    UpdateDialogue();
                     break;
             }
         }
@@ -50,7 +57,23 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void UpdateWorld()
         {
-            
+            if (Input.GetKeyDown(KeyCode.E) && nearbyLetter != null)
+            {
+                // Start dialogue with LL
+                ChangeLayer(InteractionLayer.Dialogue);
+                CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
+                CameraManager.I.FocusDialogueCamOn(nearbyLetter.transform);
+            }
+        }
+
+        void UpdateDialogue()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape))
+            {
+                // Exit dialogue
+                ChangeLayer(InteractionLayer.World);
+                CameraManager.I.ChangeCameraMode(CameraMode.Player);
+            }
         }
 
         #endregion
@@ -68,17 +91,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         #region Callbacks
 
-        void OnLivingLetterTriggered(EdLivingLetter ll)
+        void OnLivingLetterTriggerEnter(EdLivingLetter ll)
         {
-            Debug.Log("HERE " + Layer);
-            switch (Layer)
-            {
-                case InteractionLayer.World:
-                    ChangeLayer(InteractionLayer.Dialogue);
-                    CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                    CameraManager.I.FocusDialogueCamOn(ll.transform);
-                    break;
-            }
+            nearbyLetter = ll;
+        }
+        
+        void OnLivingLetterTriggerExit(EdLivingLetter ll)
+        {
+            if (nearbyLetter == ll) nearbyLetter = null;
         }
 
         #endregion

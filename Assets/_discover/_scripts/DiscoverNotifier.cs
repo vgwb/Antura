@@ -10,8 +10,10 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static class Game
         {
-            /// <summary>When a Living Letter's collider OnTriggerEnter is triggered</summary>
-            public static readonly ActionEvent<EdLivingLetter> OnLivingLetterTriggered = new("DiscoverNotifier.Game.OnLivingLetterTriggered");
+            /// <summary>When a Living Letter's collider OnTriggerEnter is entered</summary>
+            public static readonly ActionEvent<EdLivingLetter> OnLivingLetterTriggerEnter = new("DiscoverNotifier.Game.OnLivingLetterTriggerEnter");
+            /// <summary>When a Living Letter's collider OnTriggerEnter is exited</summary>
+            public static readonly ActionEvent<EdLivingLetter> OnLivingLetterTriggerExit = new("DiscoverNotifier.Game.OnLivingLetterTriggerExit");
         }
         
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
