@@ -15,7 +15,7 @@ namespace Antura.Homer
         {
             HomerAnturaManager.I.Setup();
 
-            HomerAnturaManager.I.GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL,
+            HomerAnturaManager.I.GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug.FR_01_EIFFEL_TOWER,
                 "isolated_node_1");
 
             ContentTest(true, "TALK_TEACHER");
@@ -38,10 +38,10 @@ namespace Antura.Homer
             List<QuestNode> answers = new List<QuestNode>();
 
             HomerAnturaManager.I.GetContent(
-                HomerFlowSlugs.FlowSlug.FR_01_TOUR_EIFFEL, command, answers,
+                HomerFlowSlugs.FlowSlug.FR_01_EIFFEL_TOWER, command, answers,
                 restart);
 
-            if (answers.Count>0)
+            if (answers.Count > 0)
             {
                 //full content printer in HomerBasicUsageSample
 
