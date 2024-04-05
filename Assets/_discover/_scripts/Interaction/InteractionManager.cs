@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Antura.Homer;
+using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry.Interaction
 {
@@ -8,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public InteractionLayer Layer { get; private set; }
 
         EdLivingLetter nearbyLetter;
+        Coroutine coStartDialogue;
 
         #region Unity
 
@@ -34,6 +37,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void OnDestroy()
         {
             if (I == this) I = null;
+            this.StopAllCoroutines();
             DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Unsubscribe(OnLivingLetterTriggerEnter);
             DiscoverNotifier.Game.OnLivingLetterTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
         }
@@ -60,22 +64,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (Input.GetKeyDown(KeyCode.E) && nearbyLetter != null)
             {
                 // Start dialogue with LL
-                ChangeLayer(InteractionLayer.Dialogue);
-                CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                CameraManager.I.FocusDialogueCamOn(nearbyLetter.transform);
-                UIManager.I.dialogues.HideDialogueSignal();
+                if (coStartDialogue != null) this.StopCoroutine(coStartDialogue);
+                coStartDialogue = this.StartCoroutine(CO_StartDialogue());
             }
         }
 
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-            {
-                // Exit dialogue
-                ChangeLayer(InteractionLayer.World);
-                CameraManager.I.ChangeCameraMode(CameraMode.Player);
-                if (nearbyLetter != null) UIManager.I.dialogues.ShowDialogueSignalFor(nearbyLetter);
-            }
+            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
         }
 
         #endregion
@@ -87,6 +83,35 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (newLayer == Layer) return;
 
             Layer = newLayer;
+        }
+
+        IEnumerator CO_StartDialogue()
+        {
+            ChangeLayer(InteractionLayer.Dialogue);
+            CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
+            CameraManager.I.FocusDialogueCamOn(nearbyLetter.transform);
+            UIManager.I.dialogues.HideDialogueSignal();
+            QuestNode questNode = QuestManager.I.GetQuestNode(nearbyLetter.ActorId);
+            if (questNode == null) Debug.LogError("QuestNode is NULL, shouldn't happen");
+            else
+            {
+                yield return new WaitForSeconds(0.5f);
+                UIManager.I.dialogues.StartDialogue(questNode);
+            }
+            coStartDialogue = null;
+        }
+
+        void ExitDialogue()
+        {
+            ChangeLayer(InteractionLayer.World);
+            CameraManager.I.ChangeCameraMode(CameraMode.Player);
+            if (nearbyLetter != null) UIManager.I.dialogues.ShowDialogueSignalFor(nearbyLetter);
+            if (coStartDialogue != null)
+            {
+                this.StopCoroutine(coStartDialogue);
+                coStartDialogue = null;
+            }
+            UIManager.I.dialogues.CloseDialogue();
         }
 
         #endregion

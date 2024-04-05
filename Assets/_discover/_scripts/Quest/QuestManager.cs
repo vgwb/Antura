@@ -16,6 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private GameObject currentNPC;
         private int total_coins = 0;
+        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         void Start()
         {
@@ -35,6 +36,18 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 DebugNodeInfo(questNode);
             }
+        }
+
+        /// <summary>
+        /// Returns the correct quest node for the given actorID
+        /// </summary>
+        public QuestNode GetQuestNode(HomerActors.Actors actorId)
+        {
+            // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
+            string command = $"TALK_{actorId.ToString()}";
+            tmpQuestNodes.Clear();
+            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true);
+            return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
 
