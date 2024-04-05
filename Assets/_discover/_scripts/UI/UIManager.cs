@@ -1,10 +1,11 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry.UI
+namespace Antura.Minigames.DiscoverCountry
 {
     public class UIManager : MonoBehaviour
     {
         public static UIManager I { get; private set; }
+        public DialoguesUI dialogues { get; private set; }
 
         #region Unity
 
@@ -18,6 +19,7 @@ namespace Antura.Minigames.DiscoverCountry.UI
             }
 
             I = this;
+            dialogues = this.GetComponentInChildren<DialoguesUI>(true);
         }
 
         void OnDestroy()

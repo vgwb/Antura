@@ -63,6 +63,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 ChangeLayer(InteractionLayer.Dialogue);
                 CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
                 CameraManager.I.FocusDialogueCamOn(nearbyLetter.transform);
+                UIManager.I.dialogues.HideDialogueSignal();
             }
         }
 
@@ -73,6 +74,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 // Exit dialogue
                 ChangeLayer(InteractionLayer.World);
                 CameraManager.I.ChangeCameraMode(CameraMode.Player);
+                if (nearbyLetter != null) UIManager.I.dialogues.ShowDialogueSignalFor(nearbyLetter);
             }
         }
 
@@ -94,11 +96,16 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void OnLivingLetterTriggerEnter(EdLivingLetter ll)
         {
             nearbyLetter = ll;
+            UIManager.I.dialogues.ShowDialogueSignalFor(nearbyLetter);
         }
         
         void OnLivingLetterTriggerExit(EdLivingLetter ll)
         {
-            if (nearbyLetter == ll) nearbyLetter = null;
+            if (nearbyLetter == ll)
+            {
+                nearbyLetter = null;
+                UIManager.I.dialogues.HideDialogueSignal();
+            }
         }
 
         #endregion

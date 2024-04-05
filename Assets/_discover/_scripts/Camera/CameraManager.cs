@@ -21,6 +21,8 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
         
         public static CameraManager I;
+        public Camera MainCam { get; private set; }
+        public Transform MainCamTrans { get; private set; }
         public PlayerCameraController CamController { get; private set; }
 
         float lastZoomTickTime;
@@ -42,6 +44,8 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             I = this;
+            MainCam = Camera.main;
+            MainCamTrans = MainCam.transform;
         }
 
         void Start()
