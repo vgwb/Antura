@@ -29,11 +29,11 @@ namespace Antura.Minigames.DiscoverCountry
             Vector2 defAnchoredP = rt.anchoredPosition;
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .AppendInterval(0.2f)
-                .Append(this.transform.DOScale(defScale, 0.5f).From(0).SetEase(Ease.OutBack))
-                .Join(rt.DOAnchorPos(defAnchoredP, 0.3f).From(defAnchoredP + new Vector2(-180, -660)).SetEase(Ease.OutCubic))
-                .Join(this.transform.DOLocalRotate(defRot, 0.5f, RotateMode.FastBeyond360).From(new Vector3(0, 0, 360)).SetEase(Ease.OutBack));
+                .Append(rt.DOAnchorPos(defAnchoredP, 0.5f).From(defAnchoredP + new Vector2(-380, -960)).SetEase(Ease.OutCubic))
+                .Join(this.transform.DOScale(defScale, 0.5f).From(0).SetEase(Ease.OutBack))
+                .Join(this.transform.DOLocalRotate(defRot, 0.5f, RotateMode.FastBeyond360).From(new Vector3(0, 0, 960)).SetEase(Ease.OutCubic));
             hideTween = DOTween.Sequence().SetAutoKill(false).Pause()
-                .Join(this.transform.DOScale(0, 0.5f).From(defScale).SetEase(Ease.InQuad))
+                .Join(this.transform.DOScale(0, 0.5f).From(defScale).SetEase(Ease.InBack))
                 .Join(rt.DOAnchorPos(defAnchoredP + new Vector2(290, 340), 0.5f).From(defAnchoredP).SetEase(Ease.InQuad))
                 .Join(this.transform.DOLocalRotate(new Vector3(0, 0, 60), 0.5f).From(defRot).SetEase(Ease.InSine))
                 .OnComplete(() => this.gameObject.SetActive(false));

@@ -1,5 +1,6 @@
 ﻿using System;
 using Antura.Homer;
+using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using Homer;
 using UnityEngine;
@@ -23,12 +24,21 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialoguePostcard postcard;
 
         #endregion
+        
+        public bool IsOpen { get; private set; }
 
         #region Unity
 
         void Awake()
         {
             contentBox.SetActive(true);
+            
+            choices.OnChoiceSelected.Subscribe(OnChoiceSelected);
+        }
+
+        void OnDestroy()
+        {
+            choices.OnChoiceSelected.Unsubscribe(OnChoiceSelected);
         }
 
         #endregion
@@ -47,6 +57,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void StartDialogue(QuestNode node)
         {
+            IsOpen = true;
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
@@ -59,16 +70,30 @@ namespace Antura.Minigames.DiscoverCountry
                     choices.Show(node.Choices);
                     break;
                 default:
+                    IsOpen = false;
                     Debug.LogError("DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type");
                     break;
             }
         }
 
-        public void CloseDialogue()
+        public void CloseDialogue(int choiceIndex = -1)
         {
+            if (!IsOpen) return;
+            
+            IsOpen = false;
             balloon.Hide();
             postcard.Hide();
-            choices.Hide();
+            choices.Hide(choiceIndex);
+            DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnChoiceSelected(int choiceIndex)
+        {
+            CloseDialogue(choiceIndex);
         }
 
         #endregion

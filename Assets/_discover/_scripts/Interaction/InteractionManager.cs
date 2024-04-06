@@ -30,6 +30,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             Layer = InteractionLayer.World;
             
+            DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Subscribe(OnLivingLetterTriggerEnter);
             DiscoverNotifier.Game.OnLivingLetterTriggerExit.Subscribe(OnLivingLetterTriggerExit);
         }
@@ -38,6 +39,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             if (I == this) I = null;
             this.StopAllCoroutines();
+            DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnLivingLetterTriggerEnter.Unsubscribe(OnLivingLetterTriggerEnter);
             DiscoverNotifier.Game.OnLivingLetterTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
         }
@@ -117,6 +119,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         #endregion
 
         #region Callbacks
+
+        void OnCloseDialogue()
+        {
+            ExitDialogue();
+        }
 
         void OnLivingLetterTriggerEnter(EdLivingLetter ll)
         {

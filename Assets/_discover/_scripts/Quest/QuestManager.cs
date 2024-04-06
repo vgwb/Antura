@@ -86,7 +86,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void DebugNodeInfo(QuestNode questNode)
         {
-            string nodeInfo = "";
+            string nodeInfo = "\nType: " + questNode.Type;
             if (questNode.Type == HomerNode.NodeType.CHOICE)
             {
                 nodeInfo += "\nContent: " + questNode.Content;

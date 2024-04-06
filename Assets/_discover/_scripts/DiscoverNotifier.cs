@@ -10,6 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static class Game
         {
+            /// <summary>Dispatched when the dialogue UI closes</summary>
+            public static readonly ActionEvent OnCloseDialogue = new("DialoguesUI.OnCloseDialogue");
             /// <summary>When a Living Letter's collider OnTriggerEnter is entered</summary>
             public static readonly ActionEvent<EdLivingLetter> OnLivingLetterTriggerEnter = new("DiscoverNotifier.Game.OnLivingLetterTriggerEnter");
             /// <summary>When a Living Letter's collider OnTriggerEnter is exited</summary>
