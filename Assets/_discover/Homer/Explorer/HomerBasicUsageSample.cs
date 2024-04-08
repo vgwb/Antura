@@ -5,6 +5,7 @@ using System.Reflection;
 using System.Text;
 using UnityEngine;
 using Random = UnityEngine.Random;
+// ReSharper disable All
 
 namespace Homer
 {
@@ -56,7 +57,7 @@ namespace Homer
             var runningFlow = HomerFlowRunning.Instantiate(homerProject._flows[0]);
             runningFlow.SetUp(homerProject);
             Debug.Log($"\nFlow Title {runningFlow.Flow._name}\n");
-            
+
             // Now navigates the whole flow by always choosing the first choice, up to a 100 steps
             // (in case of looping flow).
             DoNext(runningFlow);
@@ -71,11 +72,11 @@ namespace Homer
                 return;
             }
             watchDog++;
-            
+
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
             // CHOICES
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
- 
+
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
             {
                 List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
@@ -100,7 +101,7 @@ namespace Homer
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
             // TEXT
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-            
+
             else if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT &&
                      runningFlow.SelectedNode.Node._elements.Length > 0)
             {
@@ -114,7 +115,7 @@ namespace Homer
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
             // OTHERS
             //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-            
+
             else
             {
                 //Debug.Log($"Logic/structural node {runningFlow.SelectedNode.GetNodeType()}\n");

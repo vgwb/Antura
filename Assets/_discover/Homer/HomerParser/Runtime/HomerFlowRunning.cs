@@ -6,6 +6,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using static Homer.HomerFlowRunningHelper;
 using Random = UnityEngine.Random;
+// ReSharper disable All
 
 namespace Homer
 {

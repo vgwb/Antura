@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Homer;
 using UnityEngine;
+// ReSharper disable All
 
 namespace Antura.Homer
 {
@@ -47,5 +48,12 @@ namespace Antura.Homer
             }
             return null;
         }
+
+        //This method assumes you have called SetupForNavigation(flowSlug) as flow setup.
+        public QuestNode NextNode(int choiceIndex = 0)
+        {
+            return HomerAnturaManager.I.NextNode(choiceIndex);
+        }
+
     }
 }

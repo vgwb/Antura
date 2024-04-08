@@ -34,8 +34,11 @@ namespace Antura.Homer
 
         public void Setup()
         {
-            currentHomerProject = HomerJsonParser.LoadHomerProject();
-            HomerProjectRunning.SetUp(currentHomerProject);
+            if (currentHomerProject == null)
+            {
+                currentHomerProject = HomerJsonParser.LoadHomerProject();
+                HomerProjectRunning.SetUp(currentHomerProject);
+            }
         }
 
         public HomerMetadata GetMetadataByValueId(string metadataValueId)
@@ -49,7 +52,7 @@ namespace Antura.Homer
         }
 
         public QuestNode GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
-             string language = "EN")
+            string language = "EN")
         {
             SetupCurrentFlow(flowSlug);
 
@@ -73,9 +76,11 @@ namespace Antura.Homer
                             break;
                         }
                     }
+
                     return questNode;
                 }
             }
+
             return null;
         }
 
@@ -189,11 +194,76 @@ namespace Antura.Homer
             {
                 GetContent(currentFlowSlug, command, answers, false, language);
             }
+        }
 
+        public void SetupForNavigation(HomerFlowSlugs.FlowSlug flowSlug)
+        {
+            SetupCurrentFlow(flowSlug);
+        }
+
+        public QuestNode NextNode(int choiceIndex = 0)
+        {
+            HomerNode next = null;
+
+            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            {
+                List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
+                var chosenChoice = choices[choiceIndex];
+                next = runningFlow.NextNode(chosenChoice._id);
+            }
+            else
+            {
+                next = runningFlow.NextNode();
+            }
+
+            if (next == null)
+            {
+                return null;
+            }
+
+            return NextNodeRecur();
+        }
+
+        QuestNode NextNodeRecur()
+        {
+            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            {
+                QuestNode questNode = new QuestNode();
+                questNode.Id = runningFlow.SelectedNode.Node._permalink;
+                questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
+                questNode.Type = HomerNode.NodeType.CHOICE;
+                HomerElement header = runningFlow.SelectedNode.Node._header;
+                string headerText = runningFlow.SelectedNode.GetParsedText(header);
+                questNode.Content = headerText;
+                questNode.Choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
+
+                return questNode;
+            }
+            else if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT)
+            {
+                QuestNode questNode = new QuestNode();
+                questNode.Id = runningFlow.SelectedNode.Node._permalink;
+                questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
+                questNode.Type = HomerNode.NodeType.TEXT;
+                HomerElement element = runningFlow.SelectedNode.GetTextElement();
+                string text = runningFlow.SelectedNode.GetParsedText(element);
+                questNode.Content = text;
+                return questNode;
+            }
+            else
+            {
+                HomerNode homerNode = runningFlow.NextNode();
+                if (homerNode == null)
+                    return null;
+                return NextNodeRecur();
+            }
         }
 
         void SetupCurrentFlow(HomerFlowSlugs.FlowSlug flowSlug)
         {
+            if (currentHomerProject == null)
+                Setup();
+
             if (firstFlowSetup || currentFlowSlug != flowSlug)
             {
                 firstFlowSetup = false;
