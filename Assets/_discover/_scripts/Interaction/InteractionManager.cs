@@ -73,7 +73,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
+            // if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
         }
 
         #endregion

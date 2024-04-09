@@ -10,9 +10,10 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         [SerializeField] Vector3 offsetFromLLBase = new Vector3(0, 1, 0);
+        [SerializeField] bool animateIco;
         [Header("References")]
         [DeEmptyAlert]
-        [SerializeField] SpriteRenderer icon;
+        [SerializeField] Transform icon;
 
         #endregion
 
@@ -33,7 +34,8 @@ namespace Antura.Minigames.DiscoverCountry
                     this.gameObject.SetActive(false);
                     llTrans = null;
                 });
-            loopTween = icon.transform.DOLocalRotate(new Vector3(0, 0, 9), 0.75f).From(new Vector3(0, 0, -9)).SetAutoKill(false).Pause()
+            // loopTween = icon.DOLocalRotate(new Vector3(0, 0, 9), 0.75f).From(new Vector3(0, 0, -9)).SetAutoKill(false).Pause()
+            loopTween = icon.DOScale(1f, 0.75f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
                 .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
          
             this.gameObject.SetActive(false);
@@ -57,7 +59,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void ShowFor(EdLivingLetter ll)
         {
             showTween.Restart();
-            loopTween.Restart();
+            if (animateIco) loopTween.Restart();
             this.gameObject.SetActive(true);
             llTrans = ll.transform;
         }

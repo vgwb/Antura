@@ -61,6 +61,11 @@ namespace Antura.Minigames.DiscoverCountry
             icoContinueTween.Kill();
         }
 
+        void Update()
+        {
+            if (bt.interactable && Input.GetKeyDown(KeyCode.E)) OnBalloonClicked.Dispatch();
+        }
+
         #endregion
 
         #region Public Methods
