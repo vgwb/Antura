@@ -77,6 +77,9 @@ namespace Antura.Tools
         {
             this.titleContent.text = "Antura - Editions & Profiles";
 
+            if (FindObjectOfType<AppManager>() == null)
+                return;
+
             Rebuild();
 
             EditorGUILayout.LabelField("AppEdition: " + appEditions[selectedAppEditionIndex]);
