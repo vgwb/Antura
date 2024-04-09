@@ -24,6 +24,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
+        public bool IsOpen { get; private set; }
+        
         Sequence showTween, hideTween;
 
         #region Unity
@@ -51,6 +53,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(List<HomerElement> choiceElements)
         {
+            IsOpen = true;
             const float startupInterval = 0.3f;
             showTween.Kill();
             hideTween.Kill();
@@ -73,6 +76,7 @@ namespace Antura.Minigames.DiscoverCountry
         
         public void Hide(int selectedChoiceIndex = -1)
         {
+            IsOpen = false;
             SetInteractable(false);
             showTween.Kill();
             hideTween.Kill();
@@ -85,8 +89,8 @@ namespace Antura.Minigames.DiscoverCountry
                 if (!choice.gameObject.activeSelf) break;
                 if (i == selectedChoiceIndex)
                 {
-                    hideTween.Insert(0f, choice.transform.DOPunchScale(Vector3.one * 0.35f, 0.55f, 6))
-                        .Insert(0.4f, choice.CanvasGroup.DOFade(0, 0.15f).SetEase(Ease.InSine));
+                    hideTween.Insert(0f, choice.transform.DOPunchScale(Vector3.one * 0.35f, 0.35f, 6))
+                        .Insert(0.2f, choice.CanvasGroup.DOFade(0, 0.15f).SetEase(Ease.InSine));
                 }
                 else
                 {

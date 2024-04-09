@@ -27,17 +27,21 @@ namespace Antura.Minigames.DiscoverCountry
         
         public bool IsOpen { get; private set; }
 
+        QuestNode currNode;
+
         #region Unity
 
         void Awake()
         {
             contentBox.SetActive(true);
             
+            balloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             choices.OnChoiceSelected.Subscribe(OnChoiceSelected);
         }
 
         void OnDestroy()
         {
+            balloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             choices.OnChoiceSelected.Unsubscribe(OnChoiceSelected);
         }
 
@@ -57,15 +61,36 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void StartDialogue(QuestNode node)
         {
+            ShowDialogueFor(node);
+        }
+
+        public void CloseDialogue(int choiceIndex = 0)
+        {
+            if (!IsOpen) return;
+            
+            IsOpen = false;
+            balloon.Hide();
+            postcard.Hide();
+            if (choices.IsOpen) choices.Hide(choiceIndex);
+            DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
+        }
+
+        #endregion
+
+        #region Methods
+
+        void ShowDialogueFor(QuestNode node)
+        {
             IsOpen = true;
+            currNode = node;
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
-                    balloon.Show(node.Content);
+                    balloon.Show(node);
                     postcard.Show();
                     break;
                 case HomerNode.NodeType.CHOICE:
-                    if (!string.IsNullOrEmpty(node.Content)) balloon.Show(node.Content);
+                    if (!string.IsNullOrEmpty(node.Content)) balloon.Show(node);
                     postcard.Show();
                     choices.Show(node.Choices);
                     break;
@@ -76,24 +101,27 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        public void CloseDialogue(int choiceIndex = -1)
+        void Next(int choiceIndex = 0)
         {
-            if (!IsOpen) return;
+            if (choices.IsOpen) choices.Hide(choiceIndex);
             
-            IsOpen = false;
-            balloon.Hide();
-            postcard.Hide();
-            choices.Hide(choiceIndex);
-            DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
+            QuestNode next = currNode.NextNode(choiceIndex);
+            if (next == null) CloseDialogue(choiceIndex);
+            else ShowDialogueFor(next);
         }
 
         #endregion
 
         #region Callbacks
+        
+        void OnBalloonClicked()
+        {
+            Next();
+        }
 
         void OnChoiceSelected(int choiceIndex)
         {
-            CloseDialogue(choiceIndex);
+            Next(choiceIndex);
         }
 
         #endregion
