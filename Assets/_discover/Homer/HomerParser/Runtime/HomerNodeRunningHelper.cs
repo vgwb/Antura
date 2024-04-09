@@ -158,7 +158,7 @@ namespace Homer
                         {
                             field.SetValue(null, (float)(o));
                         }
-                        catch (Exception)
+                        catch (Exception f)
                         {
                             field.SetValue(null, Convert.ToInt32(o));    
                         }

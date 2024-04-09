@@ -376,7 +376,7 @@ namespace Homer
                     return a;
             }
 
-            throw new Exception("No Actor woth UID " + Node._actorId);
+            throw new Exception("No Actor with UID " + Node._actorId);
         }
     }
 }

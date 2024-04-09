@@ -6,7 +6,6 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using static Homer.HomerFlowRunningHelper;
 using Random = UnityEngine.Random;
-// ReSharper disable All
 
 namespace Homer
 {
@@ -24,6 +23,8 @@ namespace Homer
         List<HomerNodeRunning> allNodes;
 
         public HomerNodeRunning SelectedNode;
+
+        bool isJumping;
 
         public static HomerFlowRunning Instantiate(HomerFlow flow)
         {
@@ -177,7 +178,7 @@ namespace Homer
                     {
                         if (!HomerProjectRunning.ActiveSubFlows.Contains(node._id))
                         {
-                           foreach (var homerConnection in node._connections)
+                            foreach (var homerConnection in node._connections)
                             {
                                 if (homerConnection._type == NodeType.subFlow)
                                 {
@@ -185,8 +186,9 @@ namespace Homer
                                     break;
                                 }
                             }
-                           if (availableConnection!=null)
-                            HomerProjectRunning.ActiveSubFlows.Add(node._id);
+
+                            if (availableConnection != null)
+                                HomerProjectRunning.ActiveSubFlows.Add(node._id);
                         }
                         else
                         {
@@ -200,7 +202,6 @@ namespace Homer
                                     break;
                                 }
                             }
-
                         }
                     }
 
@@ -352,57 +353,66 @@ namespace Homer
             if (_selectedNodeId == "THE END")
                 return null;
 
+            // If the current node ID is not set, set it to the ID of the start node
             if (_selectedNodeId == null)
                 _selectedNodeId = GetNodesByType(NodeType.start, Flow)[0]._id;
 
-            HomerNode previousNode = GetNode(_selectedNodeId);
+            HomerNode currentNode = GetNode(_selectedNodeId);
 
-            HomerElement element = GetNodeElement(_selectedNodeId, elementId);
+            HomerElement nodeElement = GetNodeElement(_selectedNodeId, elementId);
 
             HomerConnection connection = GetAvailableConnections(elementId);
 
-            if (previousNode._type == NodeType.jumpToNode)
-            {
-                if (previousNode._jumpTo.flowId == "false" || previousNode._jumpTo.flowId == "Select a Flow")
-                    return null;
+            if (connection == null)
+                connection = GetFailedConnection(currentNode);
 
-                //this.start(previousNode._jumpTo.flowId, previousNode._jumpTo.flowId);
-                NextNode();
-                previousNode = GetNode(_selectedNodeId);
-                return previousNode;
+            // Handle logic based on the type of the previous node
+            if (currentNode._type == NodeType.choice && !isJumping)
+            {
+                // Logic for handling choices and just-once elements
+                if (nodeElement != null && nodeElement._justOnce)
+                {
+                    nodeElement._visited = true;
+                }
+
+                SelectedNode.GetParsedText(nodeElement, true);
             }
-            else if (previousNode._type == NodeType.choice)
+            else if (currentNode._type == NodeType.jumpToNode)
             {
-                if (element != null && element._justOnce)
-                    element._visited = true;
+                if (!NodeExists(currentNode._jumpTo.nodeId, currentNode._jumpTo.flowId))
+                {
+                    // if (actualNode._jumpTo.flowId === "false" || actualNode._jumpTo.flowId === "Select a Flow") {
+                    Debug.Log("This 'jump to Node' is not set");
+                    return currentNode;
+                }
 
-                //do not remove this: it does the eval
-                SelectedNode.GetParsedText(element, true);
+                // Set the jumping flag
+                isJumping = true;
             }
             else
             {
-                if (element != null)
-                    element._visited = true;
+                if (nodeElement != null)
+                    nodeElement._visited = true;
             }
 
-            if (connection == null || connection._to == null)
+            if (connection == null || connection._to == null  && currentNode._type != NodeType.jumpToNode)
             {
-                if (HomerProjectRunning.ActiveSubFlows.Count>0) {
+                if (HomerProjectRunning.ActiveSubFlows.Count > 0)
+                {
                     var subFlow_node_id =
-                        HomerProjectRunning.ActiveSubFlows[HomerProjectRunning.ActiveSubFlows.Count-1];
+                        HomerProjectRunning.ActiveSubFlows[HomerProjectRunning.ActiveSubFlows.Count - 1];
                     _selectedNodeId = subFlow_node_id;
                     NextNode();
                     return GetNode(_selectedNodeId);
-
-                } else if (previousNode._type != NodeType.jumpToNode)
+                }
+                else if (currentNode._type != NodeType.jumpToNode)
                 {
                     _selectedNodeId = "THE END";
 
                     return null;
                 }
-
             }
-            else
+            else if (!isJumping)
             {
                 _selectedNodeId = connection._to;
             }
@@ -410,52 +420,75 @@ namespace Homer
             /**
              * Next Node
              */
-            HomerNode node = GetNode(_selectedNodeId);
-            node._previousNodeId = previousNode._id;
+            HomerNode targetNode = GetNode(_selectedNodeId);
+            targetNode._previousNodeId = currentNode._id;
 
             /**
              * if node type choice and no elements are available
              * check if the node has a failed connection and get it for next node.
              */
-            List<HomerElement> possibleElements = GetPossibleElements(node);
+            List<HomerElement> possibleElements = GetPossibleElements(targetNode);
 
-            if (node._type == NodeType.choice && possibleElements.Count == 0)
+            if (targetNode._type == NodeType.choice && possibleElements.Count == 0)
             {
-                connection = GetFailedConnection(node);
+                connection = GetFailedConnection(targetNode);
 
                 if (connection != null)
                 {
                     _selectedNodeId = connection._to;
-                    node = GetNode(_selectedNodeId);
-                    node._previousNodeId = previousNode._id;
-                    //this.nextNode();
+                    targetNode = GetNode(_selectedNodeId);
+                    targetNode._previousNodeId = currentNode._id;
+                    return NextNode();
                 }
             }
+
+            isJumping = false;
 
             SelectedNode = HomerNodeRunning.Instantiate(GetNode(), this);
 
             if (
-                node._type == NodeType.start ||
-                node._type == NodeType.note ||
-                node._type == NodeType.sequence ||
-                node._type == NodeType.random ||
-                node._type == NodeType.variables ||
-                node._type == NodeType.layout ||
-                node._type == NodeType.subFlow ||
-                node._type == NodeType.jumpToNode ||
-                node._type == NodeType.condition)
+                targetNode._type == NodeType.start ||
+                targetNode._type == NodeType.note ||
+                targetNode._type == NodeType.sequence ||
+                targetNode._type == NodeType.random ||
+                targetNode._type == NodeType.variables ||
+                targetNode._type == NodeType.layout ||
+                targetNode._type == NodeType.subFlow ||
+                targetNode._type == NodeType.jumpToNode ||
+                targetNode._type == NodeType.condition)
             {
                 return NextNode();
             }
             else
             {
-                return node;
+                return targetNode;
             }
         }
 
         public void Restart()
         {
             _selectedNodeId = null;
+        }
+        
+        bool NodeExists(string jumpToNodeId, string jumpToFlowId)
+        {
+            HomerFlow flow = null;
+            foreach (var aflow in Project._flows)
+            {
+                if (aflow._id == jumpToFlowId)
+                     flow = aflow;
+            }
+
+            if (flow == null)
+                flow = Flow;
+
+            foreach (var flowNode in flow._nodes)
+            {
+                if (flowNode._id == jumpToNodeId)
+                    return true;
+            }
+
+            return false;
         }
     }
 }

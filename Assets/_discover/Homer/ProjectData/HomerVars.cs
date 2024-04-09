@@ -24,7 +24,7 @@ public static class HomerVars {
 }
 
 public static class HomerActors {
-    public enum Actors {GUIDE, TEACHER, TUTOR, MAJOR}
+    public enum Actors {GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
 
 }
 
@@ -46,11 +46,11 @@ public static class HomerMeta {
 
 public static class HomerLabels {
 
-public enum Label { NEW_LABEL_KEY }
+public enum Label { NEW_LABEL_KEY = 0 }
 }
 
 public static class HomerFlowSlugs {
-public enum FlowSlug { TUTORIAL, FR_01_EIFFEL_TOWER, FR_02_PAN_AU_CHOCOLATE, FR_03_THE_SCHOOL, PL_01_QUEST_ }
+public enum FlowSlug { TUTORIAL = 0, FR_01_EIFFEL_TOWER = 1, FR_02_PAN_AU_CHOCOLATE = 2, FR_03_THE_SCHOOL = 3, PL_01_QUEST_ = 4    }
 }
 
 }
