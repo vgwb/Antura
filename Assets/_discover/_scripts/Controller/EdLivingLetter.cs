@@ -1,10 +1,6 @@
-using System;
 using Antura.LivingLetters;
-using Antura.UI;
 using DG.DeExtensions;
 using UnityEngine;
-using Homer;
-using UnityEngine.Serialization;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -16,11 +12,8 @@ namespace Antura.Minigames.DiscoverCountry
         TubeHat
     }
 
-    public class EdLivingLetter : MonoBehaviour
+    public class EdLivingLetter : EdAgent
     {
-        [Header("Homer")]
-        public HomerActors.Actors ActorId;
-
         [Header("Starting Appearance")]
         public HeadPropID HeadProp = HeadPropID.None;
         public string Word;
@@ -33,7 +26,6 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject HeadProp_PunkHair;
         public GameObject HeadProp_TubeHat;
 
-        public Action<GameObject> OnInteraction;
         private ILivingLetterData letterData { get; set; }
 
         void Start()
@@ -77,10 +69,5 @@ namespace Antura.Minigames.DiscoverCountry
             letterObjectView.Init(letterData);
         }
 
-
-        public void OnInteractionWith(GameObject otherGo)
-        {
-            QuestManager.I.OnInteract(ActorId);
-        }
     }
 }

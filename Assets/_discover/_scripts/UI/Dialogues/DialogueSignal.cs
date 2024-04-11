@@ -18,7 +18,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         Transform trans;
-        Transform llTrans;
+        Transform agentTrans;
         Tween showTween, loopTween;
 
         #region Unity
@@ -32,7 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
                 .OnRewind(() => {
                     loopTween.Rewind();
                     this.gameObject.SetActive(false);
-                    llTrans = null;
+                    agentTrans = null;
                 });
             // loopTween = icon.DOLocalRotate(new Vector3(0, 0, 9), 0.75f).From(new Vector3(0, 0, -9)).SetAutoKill(false).Pause()
             loopTween = icon.DOScale(1f, 0.75f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
@@ -49,19 +49,19 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            trans.position = llTrans.position + offsetFromLLBase;
+            trans.position = agentTrans.position + offsetFromLLBase;
         }
 
         #endregion
 
         #region Public Methods
 
-        public void ShowFor(EdLivingLetter ll)
+        public void ShowFor(EdAgent agent)
         {
             showTween.Restart();
             if (animateIco) loopTween.Restart();
             this.gameObject.SetActive(true);
-            llTrans = ll.transform;
+            agentTrans = agent.transform;
         }
 
         public void Hide()

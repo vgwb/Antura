@@ -49,9 +49,9 @@ namespace Antura.Minigames.DiscoverCountry
         
         #region Public Methods
 
-        public void ShowDialogueSignalFor(EdLivingLetter ll)
+        public void ShowDialogueSignalFor(EdAgent agent)
         {
-            signal.ShowFor(ll);
+            signal.ShowFor(agent);
         }
 
         public void HideDialogueSignal()

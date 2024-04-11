@@ -6,6 +6,7 @@ using Vector3 = UnityEngine.Vector3;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    // @note: DEPRECATED
     public class EdAntura : MonoBehaviour
     {
         [Header("Movement")]

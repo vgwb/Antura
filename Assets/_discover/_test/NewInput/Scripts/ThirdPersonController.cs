@@ -33,12 +33,22 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
+        [Space(10)]
+        [Tooltip("The height the player can jump mid air")]
+        public float MidAirJumpHeight = 1.2f;
+
+        [Tooltip("Number of jumps the player can perform before landing")]
+        public int MaxJumps = 2;
+
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
         [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
+
+        [Tooltip("Time required to pass before being able to jump again mid air. Set to 0f to instantly jump again")]
+        public float MidAirJumpTimeout = 0.50f;
 
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
@@ -56,16 +66,6 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
-        [Header("Cinemachine")]
-        [Tooltip("The follow target set in the Cinemachine Virtual Camera that the camera will follow")]
-        public GameObject CinemachineCameraTarget;
-
-        [Tooltip("How far in degrees can you move the camera up")]
-        public float TopClamp = 70.0f;
-
-        [Tooltip("How far in degrees can you move the camera down")]
-        public float BottomClamp = -30.0f;
-
         // player
         private float _speed;
         private float _animationBlend;
@@ -76,26 +76,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
+        private float _midAirJumpTimeoutDelta;
         private float _fallTimeoutDelta;
-
-        // animation IDs
-        private int _animIDSpeed;
-        private int _animIDGrounded;
-        private int _animIDJump;
-        private int _animIDFreeFall;
-        private int _animIDMotionSpeed;
+        private int _nCurrentJump;
 
 #if ENABLE_INPUT_SYSTEM
         private PlayerInput _playerInput;
 #endif
-        private Animator _animator;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-
-        private const float _threshold = 0.01f;
-
-        private bool _hasAnimator;
 
         private bool IsCurrentDeviceMouse
         {
@@ -121,7 +111,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Start()
         {
-            //            _hasAnimator = TryGetComponent(out _animator);
             _controller = GetComponent<CharacterController>();
             _input = GetComponent<StarterAssetsInputs>();
 #if ENABLE_INPUT_SYSTEM
@@ -130,17 +119,14 @@ namespace Antura.Minigames.DiscoverCountry
 			Debug.LogError( "Starter Assets package is missing dependencies. Please use Tools/Starter Assets/Reinstall Dependencies to fix it");
 #endif
 
-            AssignAnimationIDs();
-
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
+            _midAirJumpTimeoutDelta = MidAirJumpTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
 
         private void Update()
         {
-            //            _hasAnimator = TryGetComponent(out _animator);
-
             JumpAndGravity();
             GroundedCheck();
             Move();
@@ -150,15 +136,6 @@ namespace Antura.Minigames.DiscoverCountry
         {
         }
 
-        private void AssignAnimationIDs()
-        {
-            // _animIDSpeed = Animator.StringToHash("Speed");
-            // _animIDGrounded = Animator.StringToHash("Grounded");
-            // _animIDJump = Animator.StringToHash("Jump");
-            // _animIDFreeFall = Animator.StringToHash("FreeFall");
-            // _animIDMotionSpeed = Animator.StringToHash("MotionSpeed");
-        }
-
         private void GroundedCheck()
         {
             // set sphere position, with offset
@@ -166,12 +143,6 @@ namespace Antura.Minigames.DiscoverCountry
                 transform.position.z);
             Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
                 QueryTriggerInteraction.Ignore);
-
-            // update animator if using character
-            // if (_hasAnimator)
-            // {
-            //     _animator.SetBool(_animIDGrounded, Grounded);
-            // }
         }
 
         private void Move()
@@ -209,9 +180,9 @@ namespace Antura.Minigames.DiscoverCountry
                 _speed = targetSpeed;
             }
 
-            _animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            if (_animationBlend < 0.01f)
-                _animationBlend = 0f;
+            //_animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
+            // if (_animationBlend < 0.01f)
+            // _animationBlend = 0f;
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
@@ -237,8 +208,15 @@ namespace Antura.Minigames.DiscoverCountry
                              new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
 
             // update animator if using character
-            anturaAnimation.State = AnturaAnimationStates.walking;
-            anturaAnimation.WalkingSpeed = Mathf.Lerp(0, 1, inputMagnitude / (_animIDMotionSpeed * 0.2f));
+            if (_speed > 0f)
+            {
+                anturaAnimation.State = AnturaAnimationStates.walking;
+                anturaAnimation.WalkingSpeed = _input.sprint ? Mathf.Lerp(0, 1, _speed * 1f) : 0f;
+            }
+            else
+            {
+                anturaAnimation.State = AnturaAnimationStates.idle;
+            }
 
             // if (_hasAnimator)
             // {
@@ -250,7 +228,18 @@ namespace Antura.Minigames.DiscoverCountry
         private void JumpAndGravity()
         {
             if (Grounded)
+                anturaAnimation.animator.speed = 1f;
+            else
+                anturaAnimation.animator.speed = 2f;
+
+            if (Grounded)
             {
+                if (_nCurrentJump > 0)
+                {
+                    _nCurrentJump = 0;
+                    anturaAnimation.OnJumpEnded();
+                }
+
                 // reset the fall timeout timer
                 _fallTimeoutDelta = FallTimeout;
 
@@ -267,11 +256,14 @@ namespace Antura.Minigames.DiscoverCountry
                     _verticalVelocity = -2f;
                 }
 
-                // Jump
+                // Jumps
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
+                    _nCurrentJump = 1;
+                    _midAirJumpTimeoutDelta = JumpTimeout;
+                    anturaAnimation.OnJumpStart();
 
                     // update animator if using character
                     // if (_hasAnimator)
@@ -305,8 +297,22 @@ namespace Antura.Minigames.DiscoverCountry
                     // }
                 }
 
-                // if we are not grounded, do not jump
-                _input.jump = false;
+                if (_nCurrentJump > 0 && _nCurrentJump < MaxJumps && _input.jump && _midAirJumpTimeoutDelta <= 0.0f)
+                {
+                    // Double-jump
+                    _verticalVelocity = Mathf.Sqrt(MidAirJumpHeight * -2f * Gravity);
+                    _nCurrentJump++;
+                }
+                else
+                {
+                    // if we are not grounded, do not jump
+                    _input.jump = false;
+                }
+
+                if (_midAirJumpTimeoutDelta >= 0.0f)
+                {
+                    _midAirJumpTimeoutDelta -= Time.deltaTime;
+                }
             }
 
             // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
