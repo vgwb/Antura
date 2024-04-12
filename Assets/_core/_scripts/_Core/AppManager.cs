@@ -206,14 +206,15 @@ namespace Antura.Core
 
         #endregion
 
-        public float CurrentTimeScale => fastScale ? 6f :1f;
+        public float CurrentTimeScale => fastScale ? 6f : 1f;
         public bool fastScale = false;
         void Update()
         {
-            #if UNITY_EDITOR
-            if (Input.GetKeyDown(KeyCode.F)) fastScale = !fastScale;
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.F))
+                fastScale = !fastScale;
             Time.timeScale = CurrentTimeScale;
-            #endif
+#endif
 
             // Exit with Android back button
             //if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -222,10 +223,10 @@ namespace Antura.Core
             //    }
             //}
 
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Services.Analytics.TestEvent();
-            }
+            // if (Input.GetKeyDown(KeyCode.T))
+            // {
+            //     Services.Analytics.TestEvent();
+            // }
         }
 
         public void OnSceneChanged()
