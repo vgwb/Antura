@@ -7,7 +7,7 @@ using UnityEngine.UI;
 namespace Antura.Minigames.DiscoverCountry
 {
     [RequireComponent(typeof(Button), typeof(CanvasGroup))]
-    public class DialogueChoice : MonoBehaviour
+    public class Legacy_DialogueChoice : MonoBehaviour
     {
         #region Serialized
 

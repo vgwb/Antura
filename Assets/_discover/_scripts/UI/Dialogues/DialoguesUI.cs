@@ -29,7 +29,7 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] SpeechBalloon speechBalloon;
         [DeEmptyAlert]
-        [SerializeField] DialogueChoices choices;
+        [SerializeField] Legacy_DialogueChoices choices;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcard postcard;
 
