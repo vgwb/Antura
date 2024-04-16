@@ -9,7 +9,7 @@ using UnityEngine.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class DialogueBalloon : MonoBehaviour
+    public abstract class AbstractDialogueBalloon : MonoBehaviour
     {
         #region Events
 
@@ -21,7 +21,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Header("References")]
         [DeEmptyAlert]
-        [SerializeField] Button bt;
+        [SerializeField] protected Button bt;
         [DeEmptyAlert]
         [SerializeField] TextRender textRender;
         [DeEmptyAlert]
@@ -31,23 +31,15 @@ namespace Antura.Minigames.DiscoverCountry
         
         public bool IsOpen { get; private set; }
 
-        QuestNode currNode;
-        Tween showTween, icoContinueTween;
+        protected QuestNode currNode;
+        protected Tween showTween, icoContinueTween;
         
         #region Unity
 
         void Start()
         {
-            showTween = this.transform.DOScale(0, 0.5f).From().SetAutoKill(false).Pause()
-                .SetEase(Ease.OutBack)
-                .OnComplete(() => {
-                    bt.interactable = currNode.Type == HomerNode.NodeType.TEXT;
-                })
-                .OnRewind(() => {
-                    icoContinueTween.Rewind();
-                    this.gameObject.SetActive(false);
-                });
-
+            CreateShowTween();
+            
             icoContinueTween = icoContinue.DOAnchorPosY(16, 0.75f).SetRelative().SetAutoKill(false).Pause()
                 .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
 
@@ -99,6 +91,12 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.timeScale = 2;
             showTween.PlayBackwards();
         }
+
+        #endregion
+
+        #region Methods
+
+        protected abstract void CreateShowTween();
 
         #endregion
     }
