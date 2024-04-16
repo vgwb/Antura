@@ -10,8 +10,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         protected override void CreateShowTween()
         {
-            showTween = this.transform.DOScale(0, 0.5f).From().SetAutoKill(false).Pause()
-                .SetEase(Ease.OutBack)
+            const float duration = 0.6f;
+            showTween = DOTween.Sequence().SetAutoKill(false).Pause()
+                .Join(this.transform.DOScale(0, duration).From().SetEase(Ease.OutBack))
+                .Join(this.GetComponent<RectTransform>().DOAnchorPosY(-350, duration).From(true).SetEase(Ease.OutBack))
+                .Join(this.transform.DOPunchRotation(new Vector3(0, 0, 18), duration, 8))
                 .OnComplete(() => {
                     bt.interactable = currNode.Type == HomerNode.NodeType.TEXT;
                 })

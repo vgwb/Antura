@@ -46,6 +46,8 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             contentBox.SetActive(true);
+            narratorBalloon.gameObject.SetActive(true);
+            speechBalloon.gameObject.SetActive(true);
             
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
@@ -103,7 +105,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             IsOpen = true;
             currNode = node;
-            currBalloon = speechBalloon; // TODO : Assign correct balloon
+            currBalloon = narratorBalloon; // TODO : Assign correct balloon
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
