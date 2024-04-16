@@ -54,7 +54,6 @@ namespace Antura.Minigames.DiscoverCountry
         public void Show(List<HomerElement> choiceElements)
         {
             IsOpen = true;
-            const float startupInterval = 0.3f;
             showTween.Kill();
             hideTween.Kill();
             showTween = DOTween.Sequence()
@@ -66,7 +65,7 @@ namespace Antura.Minigames.DiscoverCountry
                 choice.gameObject.SetActive(i < totChoices);
                 if (i >= totChoices) continue;
                 choice.SetText(choiceElements[i]._localizedContents[0]._text);
-                float interval = startupInterval + 0.1f * i;
+                float interval = 0.1f * i;
                 showTween
                     .Insert(interval, choice.RectT.DOAnchorPosX(choice.DefAnchoredP.x, 0.5f).From(new Vector2(choice.DefAnchoredP.x + 500, 0)).SetEase(Ease.OutBack))
                     .Join(choice.CanvasGroup.DOFade(1, 0.2f).From(0).SetEase(Ease.Linear));

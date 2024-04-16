@@ -28,7 +28,6 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 defRot = this.transform.localEulerAngles;
             Vector2 defAnchoredP = rt.anchoredPosition;
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
-                .AppendInterval(0.2f)
                 .Append(rt.DOAnchorPos(defAnchoredP, 0.5f).From(defAnchoredP + new Vector2(-380, -960)).SetEase(Ease.OutCubic))
                 .Join(this.transform.DOScale(defScale, 0.5f).From(0).SetEase(Ease.OutBack))
                 .Join(this.transform.DOLocalRotate(defRot, 0.5f, RotateMode.FastBeyond360).From(new Vector3(0, 0, 960)).SetEase(Ease.OutCubic));

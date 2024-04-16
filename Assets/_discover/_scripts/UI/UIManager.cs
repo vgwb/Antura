@@ -20,6 +20,9 @@ namespace Antura.Minigames.DiscoverCountry
 
             I = this;
             dialogues = this.GetComponentInChildren<DialoguesUI>(true);
+            Canvas canvas = dialogues.GetComponentInParent<Canvas>(true);
+            canvas.gameObject.SetActive(true);
+            dialogues.gameObject.SetActive(true);
         }
 
         void OnDestroy()

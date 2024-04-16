@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Antura.Homer;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -9,6 +10,13 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class DialoguesUI : MonoBehaviour
     {
+        public enum DialogueType
+        {
+            Text,
+            Choice,
+            Quiz
+        }
+        
         #region Serialized
 
         [Header("References")]
@@ -28,6 +36,7 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsOpen { get; private set; }
 
         QuestNode currNode;
+        Coroutine coShowDialogue, coNext;
 
         #region Unity
 
@@ -41,6 +50,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDestroy()
         {
+            this.StopAllCoroutines();
             balloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             choices.OnChoiceSelected.Unsubscribe(OnChoiceSelected);
         }
@@ -81,17 +91,28 @@ namespace Antura.Minigames.DiscoverCountry
 
         void ShowDialogueFor(QuestNode node)
         {
+            this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
+        }
+
+        IEnumerator CO_ShowDialogueFor(QuestNode node)
+        {
             IsOpen = true;
             currNode = node;
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
                     balloon.Show(node);
+                    yield return new WaitForSeconds(0.2f);
                     postcard.Show();
                     break;
                 case HomerNode.NodeType.CHOICE:
-                    if (!string.IsNullOrEmpty(node.Content)) balloon.Show(node);
+                    if (!string.IsNullOrEmpty(node.Content))
+                    {
+                        balloon.Show(node);
+                        yield return new WaitForSeconds(0.2f);
+                    }
                     postcard.Show();
+                    yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
                 default:
@@ -99,15 +120,27 @@ namespace Antura.Minigames.DiscoverCountry
                     Debug.LogError("DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type");
                     break;
             }
+            coShowDialogue = null;
         }
 
         void Next(int choiceIndex = 0)
         {
-            if (choices.IsOpen) choices.Hide(choiceIndex);
+            this.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
+        }
+
+        IEnumerator CO_Next(int choiceIndex)
+        {
+            if (balloon.IsOpen) balloon.Hide();
+            if (choices.IsOpen)
+            {
+                choices.Hide(choiceIndex);
+                yield return new WaitForSeconds(0.35f);
+            }
             
             QuestNode next = currNode.NextNode(choiceIndex);
             if (next == null) CloseDialogue(choiceIndex);
             else ShowDialogueFor(next);
+            coNext = null;
         }
 
         #endregion

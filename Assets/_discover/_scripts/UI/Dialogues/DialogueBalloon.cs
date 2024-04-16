@@ -28,6 +28,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] RectTransform icoContinue;
 
         #endregion
+        
+        public bool IsOpen { get; private set; }
 
         QuestNode currNode;
         Tween showTween, icoContinueTween;
@@ -72,6 +74,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestNode node)
         {
+            IsOpen = true;
             currNode = node;
             bt.interactable = false;
             textRender.SetText(node.Content);
@@ -91,6 +94,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Hide()
         {
+            IsOpen = false;
             bt.interactable = false;
             showTween.timeScale = 2;
             showTween.PlayBackwards();
