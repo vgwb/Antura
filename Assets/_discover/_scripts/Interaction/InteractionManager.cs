@@ -66,8 +66,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (Input.GetKeyDown(KeyCode.E) && nearbyAgent != null)
             {
                 // Start dialogue with LL
-                if (coStartDialogue != null) this.StopCoroutine(coStartDialogue);
-                coStartDialogue = this.StartCoroutine(CO_StartDialogue());
+                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
             }
         }
 
@@ -108,11 +107,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (nearbyAgent != null) UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
-            if (coStartDialogue != null)
-            {
-                this.StopCoroutine(coStartDialogue);
-                coStartDialogue = null;
-            }
+            this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
 
