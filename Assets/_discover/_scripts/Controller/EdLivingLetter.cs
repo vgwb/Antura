@@ -28,8 +28,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         private ILivingLetterData letterData { get; set; }
 
-        void Start()
+        public override void Start()
         {
+            base.Start();
             PlayAnimation(Animation);
 
             if (!Word.IsNullOrEmpty())
@@ -67,6 +68,20 @@ namespace Antura.Minigames.DiscoverCountry
         {
             letterData = new LL_ImageData(id);
             letterObjectView.Init(letterData);
+        }
+
+        public override void Update()
+        {
+            base.Update();
+            if (NavMeshAgent.enabled)
+            {
+                letterObjectView.SetState(LLAnimationStates.LL_walking);
+                letterObjectView.SetWalkingSpeed(NavMeshAgent.speed);
+            }
+            else
+            {
+                letterObjectView.SetState(LLAnimationStates.LL_idle);
+            }
         }
 
     }
