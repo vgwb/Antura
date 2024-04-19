@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
@@ -11,7 +12,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         #region Events
 
-        public readonly ActionEvent<int> OnChoiceSelected = new("DialogueChoices.OnChoiceSelected");
+        public readonly ActionEvent<int> OnChoiceConfirmed = new("DialogueChoices.OnChoiceConfirmed");
 
         #endregion
         
@@ -26,10 +27,21 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         public bool IsOpen { get; private set; }
-        
+        public bool IsOpening { get; private set; }
+        public bool IsHiding { get; private set; }
+
+        ChoicesLayout currLayout;
+        ChoicesLayout[] allLayouts;
+        Coroutine coShow, coHide;
         Sequence showTween, hideTween;
 
         #region Unity
+
+        void Awake()
+        {
+            allLayouts = this.GetComponentsInChildren<ChoicesLayout>(true);
+            foreach (ChoicesLayout layout in allLayouts) layout.OnChoiceConfirmed.Subscribe(OnLayoutChoiceConfirmed);
+        }
 
         void Start()
         {
@@ -39,8 +51,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDestroy()
         {
+            this.StopAllCoroutines();
             showTween.Kill();
             hideTween.Kill();
+            foreach (ChoicesLayout layout in allLayouts)
+            {
+                if (layout != null) layout.OnChoiceConfirmed.Unsubscribe(OnLayoutChoiceConfirmed);
+            }
         }
 
         #endregion
@@ -49,51 +66,33 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(List<HomerElement> choiceElements)
         {
-            IsOpen = true;
-            // showTween.Kill();
-            // hideTween.Kill();
-            // showTween = DOTween.Sequence()
-            //     .OnComplete(() => SetInteractable(true));
-            // int totChoices = choiceElements.Count;
-            // for (int i = 0; i < choices.Length; i++)
-            // {
-            //     Legacy_DialogueChoice choice = choices[i];
-            //     choice.gameObject.SetActive(i < totChoices);
-            //     if (i >= totChoices) continue;
-            //     choice.SetText(choiceElements[i]._localizedContents[0]._text);
-            //     float interval = 0.1f * i;
-            //     showTween
-            //         .Insert(interval, choice.RectT.DOAnchorPosX(choice.DefAnchoredP.x, 0.5f).From(new Vector2(choice.DefAnchoredP.x + 500, 0)).SetEase(Ease.OutBack))
-            //         .Join(choice.CanvasGroup.DOFade(1, 0.2f).From(0).SetEase(Ease.Linear));
-            // }
-            // this.gameObject.SetActive(true);
+            this.gameObject.SetActive(true);
+            this.RestartCoroutine(ref coShow, CO_Show(choiceElements));
+        }
+
+        IEnumerator CO_Show(List<HomerElement> choiceElements)
+        {
+            IsOpen = IsOpening = true;
+            IsHiding = false;
+            currLayout = textChoicesLayout; // TODO > use correct layout when we have a system to distinguish it
+            currLayout.Show(choiceElements);
+            while (currLayout.IsShowingOrHidingElements) yield return null;
+            IsOpening = false;
+            coShow = null;
         }
         
-        public void Hide(int selectedChoiceIndex = -1)
+        public void Hide(int confirmedChoiceIndex = -1)
         {
-            IsOpen = false;
-            // SetInteractable(false);
-            // showTween.Kill();
-            // hideTween.Kill();
-            // hideTween = DOTween.Sequence()
-            //     .OnComplete(() => this.gameObject.SetActive(false));
-            // int unselectedIndex = -1;
-            // for (int i = 0; i < choices.Length; i++)
-            // {
-            //     Legacy_DialogueChoice choice = choices[i];
-            //     if (!choice.gameObject.activeSelf) break;
-            //     if (i == selectedChoiceIndex)
-            //     {
-            //         hideTween.Insert(0f, choice.transform.DOPunchScale(Vector3.one * 0.35f, 0.35f, 6))
-            //             .Insert(0.2f, choice.CanvasGroup.DOFade(0, 0.15f).SetEase(Ease.InSine));
-            //     }
-            //     else
-            //     {
-            //         unselectedIndex++;
-            //         hideTween.Insert(unselectedIndex * 0.05f + 0.15f, choice.CanvasGroup.DOFade(0, 0.2f).SetEase(Ease.Linear))
-            //             .Insert(unselectedIndex * 0.05f, choice.RectT.DOAnchorPosX(100, 0.35f).SetEase(Ease.InSine));
-            //     }
-            // }
+            this.RestartCoroutine(ref coHide, CO_Hide(confirmedChoiceIndex));
+        }
+        IEnumerator CO_Hide(int confirmedChoiceIndex = -1)
+        {
+            IsOpen = IsOpening = false;
+            IsHiding = true;
+            currLayout.Hide(confirmedChoiceIndex);
+            while (currLayout.IsShowingOrHidingElements) yield return null;
+            this.gameObject.SetActive(false);
+            IsHiding = false;
         }
 
         #endregion
@@ -102,17 +101,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         void SetInteractable(bool interactable)
         {
-            textChoicesLayout.interactable = interactable;
-            imageChoicesLayout.interactable = interactable;
+            foreach (ChoicesLayout layout in allLayouts) layout.Interactable = interactable;
         }
 
         #endregion
 
         #region Callbacks
 
-        void OnChoiceClicked(int index)
+        void OnLayoutChoiceConfirmed(int index)
         {
-            OnChoiceSelected.Dispatch(index);
+            OnChoiceConfirmed.Dispatch(index);
         }
 
         #endregion

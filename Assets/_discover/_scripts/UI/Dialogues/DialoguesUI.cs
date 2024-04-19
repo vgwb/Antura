@@ -29,7 +29,7 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] SpeechBalloon speechBalloon;
         [DeEmptyAlert]
-        [SerializeField] Legacy_DialogueChoices choices;
+        [SerializeField] DialogueChoices choices;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcard postcard;
 
@@ -51,7 +51,7 @@ namespace Antura.Minigames.DiscoverCountry
             
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
-            choices.OnChoiceSelected.Subscribe(OnChoiceSelected);
+            choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
         }
 
         void OnDestroy()
@@ -59,7 +59,7 @@ namespace Antura.Minigames.DiscoverCountry
             this.StopAllCoroutines();
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
-            choices.OnChoiceSelected.Unsubscribe(OnChoiceSelected);
+            choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
         }
 
         #endregion
@@ -142,7 +142,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (choices.IsOpen)
             {
                 choices.Hide(choiceIndex);
-                yield return new WaitForSeconds(0.35f);
+                while (choices.IsHiding) yield return null;
+                // yield return new WaitForSeconds(0.35f);
             }
             
             QuestNode next = currNode.NextNode(choiceIndex);
@@ -160,7 +161,7 @@ namespace Antura.Minigames.DiscoverCountry
             Next();
         }
 
-        void OnChoiceSelected(int choiceIndex)
+        void OnChoiceConfirmed(int choiceIndex)
         {
             Next(choiceIndex);
         }
