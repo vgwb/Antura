@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using Antura.Homer;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -9,6 +10,13 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class DialoguesUI : MonoBehaviour
     {
+        public enum DialogueType
+        {
+            Text,
+            Choice,
+            Quiz
+        }
+        
         #region Serialized
 
         [Header("References")]
@@ -17,7 +25,9 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] GameObject contentBox;
         [DeEmptyAlert]
-        [SerializeField] DialogueBalloon balloon;
+        [SerializeField] NarratorBalloon narratorBalloon;
+        [DeEmptyAlert]
+        [SerializeField] SpeechBalloon speechBalloon;
         [DeEmptyAlert]
         [SerializeField] DialogueChoices choices;
         [DeEmptyAlert]
@@ -28,21 +38,28 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsOpen { get; private set; }
 
         QuestNode currNode;
+        AbstractDialogueBalloon currBalloon;
+        Coroutine coShowDialogue, coNext;
 
         #region Unity
 
         void Awake()
         {
             contentBox.SetActive(true);
+            narratorBalloon.gameObject.SetActive(true);
+            speechBalloon.gameObject.SetActive(true);
             
-            balloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
-            choices.OnChoiceSelected.Subscribe(OnChoiceSelected);
+            narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
+            speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
+            choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
         }
 
         void OnDestroy()
         {
-            balloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
-            choices.OnChoiceSelected.Unsubscribe(OnChoiceSelected);
+            this.StopAllCoroutines();
+            narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
+            speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
+            choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
         }
 
         #endregion
@@ -69,7 +86,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (!IsOpen) return;
             
             IsOpen = false;
-            balloon.Hide();
+            if (currBalloon != null) currBalloon.Hide();
             postcard.Hide();
             if (choices.IsOpen) choices.Hide(choiceIndex);
             DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
@@ -81,17 +98,29 @@ namespace Antura.Minigames.DiscoverCountry
 
         void ShowDialogueFor(QuestNode node)
         {
+            this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
+        }
+
+        IEnumerator CO_ShowDialogueFor(QuestNode node)
+        {
             IsOpen = true;
             currNode = node;
+            currBalloon = narratorBalloon; // TODO : Assign correct balloon
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
-                    balloon.Show(node);
+                    currBalloon.Show(node);
+                    yield return new WaitForSeconds(0.2f);
                     postcard.Show();
                     break;
                 case HomerNode.NodeType.CHOICE:
-                    if (!string.IsNullOrEmpty(node.Content)) balloon.Show(node);
+                    if (!string.IsNullOrEmpty(node.Content))
+                    {
+                        currBalloon.Show(node);
+                        yield return new WaitForSeconds(0.2f);
+                    }
                     postcard.Show();
+                    yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
                 default:
@@ -99,15 +128,28 @@ namespace Antura.Minigames.DiscoverCountry
                     Debug.LogError("DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type");
                     break;
             }
+            coShowDialogue = null;
         }
 
         void Next(int choiceIndex = 0)
         {
-            if (choices.IsOpen) choices.Hide(choiceIndex);
+            this.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
+        }
+
+        IEnumerator CO_Next(int choiceIndex)
+        {
+            if (currBalloon != null && currBalloon.IsOpen) currBalloon.Hide();
+            if (choices.IsOpen)
+            {
+                choices.Hide(choiceIndex);
+                while (choices.IsHiding) yield return null;
+                // yield return new WaitForSeconds(0.35f);
+            }
             
             QuestNode next = currNode.NextNode(choiceIndex);
             if (next == null) CloseDialogue(choiceIndex);
             else ShowDialogueFor(next);
+            coNext = null;
         }
 
         #endregion
@@ -119,7 +161,7 @@ namespace Antura.Minigames.DiscoverCountry
             Next();
         }
 
-        void OnChoiceSelected(int choiceIndex)
+        void OnChoiceConfirmed(int choiceIndex)
         {
             Next(choiceIndex);
         }
