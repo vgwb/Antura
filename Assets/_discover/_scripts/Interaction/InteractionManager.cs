@@ -9,6 +9,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
 
+        EdAntura player;
         EdAgent nearbyAgent;
         Coroutine coStartDialogue;
 
@@ -29,6 +30,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void Start()
         {
             Layer = InteractionLayer.World;
+            player = FindObjectOfType<EdAntura>(true);
             
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
@@ -89,6 +91,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         IEnumerator CO_StartDialogue()
         {
             ChangeLayer(InteractionLayer.Dialogue);
+            nearbyAgent.LookAt(player.transform);
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             CameraManager.I.FocusDialogueCamOn(nearbyAgent.transform);
             UIManager.I.dialogues.HideDialogueSignal();
