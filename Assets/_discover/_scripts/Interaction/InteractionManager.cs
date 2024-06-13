@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using Antura.Homer;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Antura.Minigames.DiscoverCountry.Interaction
 {
@@ -8,6 +9,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
     {
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
+        public StarterAssetsInputs _input;
 
         EdAntura player;
         EdAgent nearbyAgent;
@@ -31,7 +33,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             Layer = InteractionLayer.World;
             player = FindObjectOfType<EdAntura>(true);
-            
+
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExit.Subscribe(OnLivingLetterTriggerExit);
@@ -39,7 +41,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnDestroy()
         {
-            if (I == this) I = null;
+            if (I == this)
+                I = null;
             this.StopAllCoroutines();
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Unsubscribe(OnAgentTriggerEnter);
@@ -65,11 +68,20 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void UpdateWorld()
         {
-            if (Input.GetKeyDown(KeyCode.E) && nearbyAgent != null)
+            if (_input.sprint && nearbyAgent != null)
             {
+                _input.sprint = false;
+                Debug.Log("INTERACTIOONATO");
                 // Start dialogue with LL
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
             }
+            // if (Input.GetKeyDown(KeyCode.E) && nearbyAgent != null)
+            // {
+            //     // Start dialogue with LL
+            //     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
+            // }
+
+
         }
 
         void UpdateDialogue()
@@ -83,7 +95,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer) return;
+            if (newLayer == Layer)
+                return;
 
             Layer = newLayer;
         }
@@ -96,7 +109,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             CameraManager.I.FocusDialogueCamOn(nearbyAgent.transform);
             UIManager.I.dialogues.HideDialogueSignal();
             QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent.ActorId);
-            if (questNode == null) Debug.LogError("QuestNode is NULL, shouldn't happen");
+            if (questNode == null)
+                Debug.LogError("QuestNode is NULL, shouldn't happen");
             else
             {
                 yield return new WaitForSeconds(0.5f);
@@ -109,7 +123,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (nearbyAgent != null) UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
+            if (nearbyAgent != null)
+                UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
