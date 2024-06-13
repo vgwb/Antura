@@ -59,7 +59,8 @@ namespace Antura.Minigames.DiscoverCountry
         private bool jumpTriggered;
         void Update()
         {
-            if (Input.GetKeyDown(KeyCode.Space)) jumpTriggered = true;
+            if (Input.GetKeyDown(KeyCode.Space))
+                jumpTriggered = true;
             runOn = Input.GetKey(KeyCode.LeftShift);
         }
 
@@ -86,7 +87,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             else
             {
-                Debug.DrawLine(fromPoint, Vector3.down*10, Color.yellow);
+                Debug.DrawLine(fromPoint, Vector3.down * 10, Color.yellow);
             }
 
             var wallDistance = Mathf.Infinity;
@@ -116,7 +117,8 @@ namespace Antura.Minigames.DiscoverCountry
                 if ((groundDistance <= GroundTouchedThreshold || tr.position.y <= 0)
                     && (rb.velocity.y <= 0f))
                 {
-                    if (tr.position.y < 0) tr.position = new Vector3(tr.position.x, 0f, tr.position.z);
+                    if (tr.position.y < 0)
+                        tr.position = new Vector3(tr.position.x, 0f, tr.position.z);
                     isInAir = false;
                     nCurrentJump = 0;
                     anturaAnimation.OnJumpEnded();
@@ -154,7 +156,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 JumpDelayTimer -= Time.fixedDeltaTime;
                 doJump = JumpDelayTimer <= 0f;
-                if (doJump) JumpDelayTimer = 0f;
+                if (doJump)
+                    JumpDelayTimer = 0f;
             }
 
             if (MultiJumpCooldownTimer > 0f)
@@ -232,7 +235,7 @@ namespace Antura.Minigames.DiscoverCountry
                 if (accelerationMagnitude > 0f)
                 {
                     anturaAnimation.State = AnturaAnimationStates.walking;
-                    anturaAnimation.WalkingSpeed = Mathf.Lerp(0,1, rb.velocity.magnitude / (MaxSpeed*0.2f));
+                    anturaAnimation.WalkingSpeed = Mathf.Lerp(0, 1, rb.velocity.magnitude / (MaxSpeed * 0.2f));
                 }
                 else
                 {
