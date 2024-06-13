@@ -1,7 +1,5 @@
 using UnityEngine;
-#if ENABLE_INPUT_SYSTEM
 using UnityEngine.InputSystem;
-#endif
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -20,7 +18,6 @@ namespace Antura.Minigames.DiscoverCountry
         public bool cursorLocked = true;
         public bool cursorInputForLook = true;
 
-#if ENABLE_INPUT_SYSTEM
         public void OnMove(InputValue value)
         {
             MoveInput(value.Get<Vector2>());
@@ -43,7 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             SprintInput(value.isPressed);
         }
-#endif
+
 
 
         public void MoveInput(Vector2 newMoveDirection)
