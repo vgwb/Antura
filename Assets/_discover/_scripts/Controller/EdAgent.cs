@@ -76,7 +76,8 @@ namespace Antura.Minigames.DiscoverCountry
         {
             aiPaused = false;
             NavMeshAgent.enabled = true;
-            if (Waypoints.Length > 0) NavMeshAgent.SetDestination(Waypoints[sequentialWaypointIndex].position);
+            if (Waypoints.Length > 0)
+                NavMeshAgent.SetDestination(Waypoints[sequentialWaypointIndex].position);
         }
     }
 }

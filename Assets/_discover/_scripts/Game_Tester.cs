@@ -7,14 +7,14 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class Game_Tester : MonoBehaviour
     {
-        public EdAntura Antura;
+        public EdPlayer Antura;
         public EdLivingLetter LetterMAJOR;
         public EdLivingLetter LetterTEACHER;
         public EdLivingLetter LetterGUIDE;
 
         void Start()
         {
-            Antura.Initialize();
+            //            Antura.Initialize();
             LetterMAJOR.ShowImage("ball");
             LetterTEACHER.ShowImage("bread");
 
@@ -40,14 +40,14 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 yield return new WaitForSeconds(2f);
 
-                Antura.PlayAnimation(AnturaAnimationStates.walking);
+                //                Antura.PlayAnimation(AnturaAnimationStates.walking);
                 //Antura.GoTo(pos1);
                 yield return new WaitForSeconds(1f);
 
                 LetterTEACHER.PlayAnimation((LLAnimationStates)Random.Range(0, 5));
                 yield return new WaitForSeconds(1f);
 
-                Antura.PlayAnimation(AnturaAnimationStates.walking);
+                //                Antura.PlayAnimation(AnturaAnimationStates.walking);
                 //Antura.GoTo(pos2);
                 yield return new WaitForSeconds(1f);
 

@@ -57,10 +57,17 @@ namespace Antura.Minigames.DiscoverCountry
 
             switch (propID)
             {
-                case HeadPropID.None: break;
-                case HeadPropID.Ribbon: HeadProp_Ribbon.SetActive(choice); break;
-                case HeadPropID.PunkHair: HeadProp_PunkHair.SetActive(choice); break;
-                case HeadPropID.TubeHat: HeadProp_TubeHat.SetActive(choice); break;
+                case HeadPropID.None:
+                    break;
+                case HeadPropID.Ribbon:
+                    HeadProp_Ribbon.SetActive(choice);
+                    break;
+                case HeadPropID.PunkHair:
+                    HeadProp_PunkHair.SetActive(choice);
+                    break;
+                case HeadPropID.TubeHat:
+                    HeadProp_TubeHat.SetActive(choice);
+                    break;
             }
         }
 

@@ -9,10 +9,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
     {
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
-        public StarterAssetsInputs _input;
 
-        EdAntura player;
-        EdAgent nearbyAgent;
+        public EdPlayer player;
+        public EdAgent nearbyAgent;
         Coroutine coStartDialogue;
 
         #region Unity
@@ -32,7 +31,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void Start()
         {
             Layer = InteractionLayer.World;
-            player = FindObjectOfType<EdAntura>(true);
+            //            player = FindObjectOfType<EdAntura>(true);
 
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
@@ -66,22 +65,23 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         #region Update Methods
 
-        void UpdateWorld()
+
+        public void OnAct(InputValue value)
         {
-            if (_input.sprint && nearbyAgent != null)
+            if (nearbyAgent != null)
             {
-                _input.sprint = false;
-                Debug.Log("INTERACTIOONATO");
                 // Start dialogue with LL
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
             }
+        }
+
+        void UpdateWorld()
+        {
             // if (Input.GetKeyDown(KeyCode.E) && nearbyAgent != null)
             // {
             //     // Start dialogue with LL
             //     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
             // }
-
-
         }
 
         void UpdateDialogue()

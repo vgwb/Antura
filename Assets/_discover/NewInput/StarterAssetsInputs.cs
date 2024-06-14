@@ -10,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Vector2 look;
         public bool jump;
         public bool sprint;
+        public bool act;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -41,7 +42,15 @@ namespace Antura.Minigames.DiscoverCountry
             SprintInput(value.isPressed);
         }
 
+        // public void OnAct(InputValue value)
+        // {
+        //     ActInput(value.isPressed);
+        // }
 
+        // public void OnActStarted(InputValue value)
+        // {
+        //     Debug.Log("ACT STARTED");
+        // }
 
         public void MoveInput(Vector2 newMoveDirection)
         {
@@ -61,6 +70,11 @@ namespace Antura.Minigames.DiscoverCountry
         public void SprintInput(bool newSprintState)
         {
             sprint = newSprintState;
+        }
+
+        public void ActInput(bool newActState)
+        {
+            act = newActState;
         }
 
         private void OnApplicationFocus(bool hasFocus)

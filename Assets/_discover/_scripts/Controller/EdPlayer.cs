@@ -6,7 +6,8 @@ namespace Antura.Minigames.DiscoverCountry
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInput))]
-    public class ThirdPersonController : MonoBehaviour
+
+    public class EdPlayer : MonoBehaviour
     {
         [Header("Player")]
         public AnturaPetSwitcher anturaPetSwitcher;
@@ -89,10 +90,8 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-
         private void Awake()
         {
-            // get a reference to our main camera
             if (_mainCamera == null)
             {
                 _mainCamera = GameObject.FindGameObjectWithTag("MainCamera");

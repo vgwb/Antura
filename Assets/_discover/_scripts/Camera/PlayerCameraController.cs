@@ -54,10 +54,10 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         public float ZoomLevel { get; private set; }
-        
+
         bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
         float baseCamDistance { get { return defCamDistance - currZoomLevel; } }
-        
+
         Mode mode;
         InteractionLayer interactionLayer;
         CinemachineThirdPersonFollow cineMainFollow;

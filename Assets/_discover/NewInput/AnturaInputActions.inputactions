@@ -58,6 +58,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Zoom",
+                    "type": "Value",
+                    "id": "905873bb-e0ce-4c86-a655-bc527ef189df",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
                 }
             ],
             "bindings": [
@@ -337,15 +346,48 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "",
-                    "id": "cb5339f7-26a2-42e1-988f-41df6da9f20c",
-                    "path": "<Keyboard>/#(Q)",
+                    "name": "Two Modifiers",
+                    "id": "d41e051e-2258-466e-a88d-29a4a6395b7f",
+                    "path": "TwoModifiers",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Act",
-                    "isComposite": false,
+                    "action": "Zoom",
+                    "isComposite": true,
                     "isPartOfComposite": false
+                },
+                {
+                    "name": "modifier1",
+                    "id": "cbd19269-67a9-4520-9539-a523317632c9",
+                    "path": "<Touchscreen>/touch0/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Touch",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "modifier2",
+                    "id": "d1cbbd04-398a-4a0b-959a-3d4809ef83c5",
+                    "path": "<Touchscreen>/touch1/press",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "binding",
+                    "id": "b64404d2-a321-49e3-82ef-47431aede4ad",
+                    "path": "<Touchscreen>/delta",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Zoom",
+                    "isComposite": false,
+                    "isPartOfComposite": true
                 }
             ]
         },

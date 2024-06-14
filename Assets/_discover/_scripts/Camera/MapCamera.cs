@@ -14,7 +14,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] bool alignToPlayerCam = true;
 
         #endregion
-        
+
         Transform camTarget;
         Transform playerCamT;
         CinemachinePositionComposer cineComposer;

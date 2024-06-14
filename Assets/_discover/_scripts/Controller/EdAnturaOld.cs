@@ -7,7 +7,7 @@ using Vector3 = UnityEngine.Vector3;
 namespace Antura.Minigames.DiscoverCountry
 {
     // @note: DEPRECATED
-    public class EdAntura : MonoBehaviour
+    public class EdAnturaOld : MonoBehaviour
     {
         [Header("Movement")]
         public float MaxSpeed = 1f;

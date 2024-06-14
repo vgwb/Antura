@@ -19,7 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] float minIntervalBetweenZoomTicks = 0.25f;
 
         #endregion
-        
+
         public static CameraManager I;
         public Camera MainCam { get; private set; }
         public Transform MainCamTrans { get; private set; }
@@ -30,7 +30,6 @@ namespace Antura.Minigames.DiscoverCountry
         CameraMode cameraMode;
         DialogueCamera dialogueCam;
         MapCamera mapCam;
-
 
         #region Unity
 
@@ -105,10 +104,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ChangeCameraMode(CameraMode newMode)
         {
-            if (newMode == cameraMode) return;
+            if (newMode == cameraMode)
+                return;
 
             cameraMode = newMode;
-            
+
             CamController.Activate(cameraMode == CameraMode.Player);
             dialogueCam.Activate(cameraMode == CameraMode.Dialogue);
             mapCam.Activate(cameraMode == CameraMode.Map);

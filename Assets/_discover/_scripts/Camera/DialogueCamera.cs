@@ -20,7 +20,7 @@ namespace Antura.Minigames.DiscoverCountry
             positionComposer = CineMain.GetComponent<CinemachinePositionComposer>();
             defComposerScreenPositionX = positionComposer.Composition.ScreenPosition.x;
         }
-        
+
         #region Public Methods
 
         public void SetTarget(Transform target, bool hasChoices = false)
