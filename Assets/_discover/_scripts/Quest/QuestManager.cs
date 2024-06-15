@@ -1,10 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Antura.Utilities;
 using UnityEngine;
 using Homer;
+using Antura.Audio;
 using Antura.Homer;
+using Antura.Utilities;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -36,6 +37,12 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 DebugNodeInfo(questNode);
             }
+
+            AudioManager.I.PlayDiscoverDialogue(
+                "AR_NODEL-a8afc7ca-5911-431d-b0c9-1713862706608.mp3",
+                Language.LanguageCode.arabic
+            );
+
         }
 
         /// <summary>
