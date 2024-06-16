@@ -3,9 +3,11 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using UnityEngine;
 using Homer;
+using Antura.Core;
 using Antura.Audio;
 using Antura.Homer;
 using Antura.Utilities;
+using Antura.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -14,9 +16,12 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public Quests Quests;
         public QuestData CurrentQuest;
+        public BonesCounter bonesCounter;
+        public BonesCounter coinsCounter;
 
         private GameObject currentNPC;
         private int total_coins = 0;
+        private int total_bones = 0;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         void Start()
@@ -77,11 +82,20 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        public void OnCollectBone(GameObject go)
+        {
+            total_bones++;
+            bonesCounter.IncreaseByOne();
+            AppManager.I.Player.AddBones(1);
+            Destroy(go);
+        }
+
         public void OnCollectCoin(GameObject go)
         {
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
-            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+            coinsCounter.IncreaseByOne();
+            // Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
             Destroy(go);
         }
 
