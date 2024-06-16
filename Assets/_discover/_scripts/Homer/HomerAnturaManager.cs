@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using System.Linq;
 using Homer;
 using UnityEngine;
 
@@ -62,7 +63,14 @@ namespace Antura.Homer
                 {
                     QuestNode questNode = new QuestNode();
                     questNode.Id = homerNode._permalink;
-                    questNode.LocId = homerNode._header._id;
+                    if (homerNode._elements.Count() > 0)
+                    {
+                        questNode.LocId = homerNode._elements[0]._id;
+                    }
+                    else
+                    {
+                        questNode.LocId = homerNode._header._id;
+                    }
                     questNode.Metadata = homerNode._metadata;
 
                     //we just take the first line
