@@ -440,9 +440,10 @@ namespace Antura.Audio
         #endregion
 
         #region DiscoverDialogue
-        public IAudioSource PlayDiscoverDialogue(string audio_id, LanguageCode code, Action callback = null, bool clearPreviousCallback = false)
+        public IAudioSource PlayDiscoverDialogue(string node_id, LanguageCode langCode, Action callback = null, bool clearPreviousCallback = false)
         {
-            currentLangCode = code;
+            currentLangCode = langCode;
+
             if (clearPreviousCallback)
             {
                 dialogueEndedCallbacks.Clear();
@@ -454,8 +455,8 @@ namespace Antura.Audio
                 callback?.Invoke();
                 return null;
             }
-
-            var sourcePath = new SourcePath(audio_id, "/Audio/Discover", code);
+            var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
+            var sourcePath = new SourcePath(audio_id + ".mp3", "/Audio/Discover", langCode);
             var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
             if (callback != null)
             {

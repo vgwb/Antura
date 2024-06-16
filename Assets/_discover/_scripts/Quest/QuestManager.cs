@@ -39,7 +39,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             AudioManager.I.PlayDiscoverDialogue(
-                "AR_NODEL-a8afc7ca-5911-431d-b0c9-1713862706608.mp3",
+                "NODEL-a8afc7ca-5911-431d-b0c9-1713862706608",
                 Language.LanguageCode.arabic
             );
 
