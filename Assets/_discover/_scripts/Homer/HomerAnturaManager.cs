@@ -195,7 +195,14 @@ namespace Antura.Homer
                 string text = runningFlow.SelectedNode.GetParsedText(element);
 
                 questNode.Type = HomerNode.NodeType.TEXT;
-                questNode.LocId = homerNode._header._id;
+                if (homerNode._elements.Count() > 0)
+                {
+                    questNode.LocId = homerNode._elements[0]._id;
+                }
+                else
+                {
+                    questNode.LocId = homerNode._header._id;
+                }
                 questNode.Content = text;
 
                 answers.Add(questNode);
@@ -242,6 +249,14 @@ namespace Antura.Homer
             {
                 QuestNode questNode = new QuestNode();
                 questNode.Id = runningFlow.SelectedNode.Node._permalink;
+                if (runningFlow.SelectedNode.Node._elements.Count() > 0)
+                {
+                    questNode.LocId = runningFlow.SelectedNode.Node._elements[0]._id;
+                }
+                else
+                {
+                    questNode.LocId = runningFlow.SelectedNode.Node._header._id;
+                }
                 questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
                 questNode.Type = HomerNode.NodeType.CHOICE;
                 HomerElement header = runningFlow.SelectedNode.Node._header;
@@ -255,6 +270,14 @@ namespace Antura.Homer
             {
                 QuestNode questNode = new QuestNode();
                 questNode.Id = runningFlow.SelectedNode.Node._permalink;
+                if (runningFlow.SelectedNode.Node._elements.Count() > 0)
+                {
+                    questNode.LocId = runningFlow.SelectedNode.Node._elements[0]._id;
+                }
+                else
+                {
+                    questNode.LocId = runningFlow.SelectedNode.Node._header._id;
+                }
                 questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
                 questNode.Type = HomerNode.NodeType.TEXT;
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
