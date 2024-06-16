@@ -1,4 +1,5 @@
-﻿using Antura.Homer;
+﻿using Antura.Audio;
+using Antura.Homer;
 using Antura.UI;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -16,7 +17,7 @@ namespace Antura.Minigames.DiscoverCountry
         public readonly ActionEvent OnBalloonClicked = new("DialogueBalloon.OnBalloonClicked");
 
         #endregion
-        
+
         #region Serialized
 
         [Header("References")]
@@ -28,24 +29,24 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] RectTransform icoContinue;
 
         #endregion
-        
+
         public bool IsOpen { get; private set; }
 
         protected QuestNode currNode;
         protected Tween showTween, icoContinueTween;
-        
+
         #region Unity
 
         void Start()
         {
             CreateShowTween();
-            
+
             icoContinueTween = icoContinue.DOAnchorPosY(16, 0.75f).SetRelative().SetAutoKill(false).Pause()
                 .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
 
             bt.interactable = false;
             this.gameObject.SetActive(false);
-            
+
             bt.onClick.AddListener(OnBalloonClicked.Dispatch);
         }
 
@@ -57,7 +58,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            if (bt.interactable && Input.GetKeyDown(KeyCode.E)) OnBalloonClicked.Dispatch();
+            if (bt.interactable && Input.GetKeyDown(KeyCode.E))
+                OnBalloonClicked.Dispatch();
         }
 
         #endregion
@@ -82,6 +84,12 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 icoContinue.gameObject.SetActive(false);
             }
+
+            //Debug.Log("QUI PLAYO LocId: " + node.LocId);
+            AudioManager.I.PlayDiscoverDialogue(
+                 node.LocId,
+                 Language.LanguageCode.english
+            );
         }
 
         public void Hide()

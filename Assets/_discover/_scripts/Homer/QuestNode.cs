@@ -9,6 +9,7 @@ namespace Antura.Homer
     public class QuestNode
     {
         public HomerNode.NodeType Type;
+        public string LocId;
         // permalink
         public string Id;
         // persed by custom methods. do not parse these manually

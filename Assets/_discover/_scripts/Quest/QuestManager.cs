@@ -43,10 +43,10 @@ namespace Antura.Minigames.DiscoverCountry
                 DebugNodeInfo(questNode);
             }
 
-            AudioManager.I.PlayDiscoverDialogue(
-                "NODEL-a8afc7ca-5911-431d-b0c9-1713862706608",
-                Language.LanguageCode.arabic
-            );
+            // AudioManager.I.PlayDiscoverDialogue(
+            //     "NODEL-a8afc7ca-5911-431d-b0c9-1713862706608",
+            //     Language.LanguageCode.arabic
+            // );
 
         }
 

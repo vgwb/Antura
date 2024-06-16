@@ -15,7 +15,7 @@ namespace Antura.Minigames.DiscoverCountry
         public readonly ActionEvent<int> OnChoiceConfirmed = new("DialogueChoices.OnChoiceConfirmed");
 
         #endregion
-        
+
         #region Serialized
 
         [Header("References")]
@@ -40,7 +40,8 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             allLayouts = this.GetComponentsInChildren<ChoicesLayout>(true);
-            foreach (ChoicesLayout layout in allLayouts) layout.OnChoiceConfirmed.Subscribe(OnLayoutChoiceConfirmed);
+            foreach (ChoicesLayout layout in allLayouts)
+                layout.OnChoiceConfirmed.Subscribe(OnLayoutChoiceConfirmed);
         }
 
         void Start()
@@ -56,7 +57,8 @@ namespace Antura.Minigames.DiscoverCountry
             hideTween.Kill();
             foreach (ChoicesLayout layout in allLayouts)
             {
-                if (layout != null) layout.OnChoiceConfirmed.Unsubscribe(OnLayoutChoiceConfirmed);
+                if (layout != null)
+                    layout.OnChoiceConfirmed.Unsubscribe(OnLayoutChoiceConfirmed);
             }
         }
 
@@ -76,11 +78,12 @@ namespace Antura.Minigames.DiscoverCountry
             IsHiding = false;
             currLayout = textChoicesLayout; // TODO > use correct layout when we have a system to distinguish it
             currLayout.Show(choiceElements);
-            while (currLayout.IsShowingOrHidingElements) yield return null;
+            while (currLayout.IsShowingOrHidingElements)
+                yield return null;
             IsOpening = false;
             coShow = null;
         }
-        
+
         public void Hide(int confirmedChoiceIndex = -1)
         {
             this.RestartCoroutine(ref coHide, CO_Hide(confirmedChoiceIndex));
@@ -90,7 +93,8 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = IsOpening = false;
             IsHiding = true;
             currLayout.Hide(confirmedChoiceIndex);
-            while (currLayout.IsShowingOrHidingElements) yield return null;
+            while (currLayout.IsShowingOrHidingElements)
+                yield return null;
             this.gameObject.SetActive(false);
             IsHiding = false;
         }
@@ -101,7 +105,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void SetInteractable(bool interactable)
         {
-            foreach (ChoicesLayout layout in allLayouts) layout.Interactable = interactable;
+            foreach (ChoicesLayout layout in allLayouts)
+                layout.Interactable = interactable;
         }
 
         #endregion

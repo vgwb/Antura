@@ -15,6 +15,8 @@ def get_voice_actor(language, actor):
     return "Rachel"
 
 def synthesize_speech(dialogue_text, language, actor, output_file):
+  if (dialogue_text == "--- to be translated ---"):
+    return
   audio = client.generate(
     text = dialogue_text,
     voice = get_voice_actor(language, actor),

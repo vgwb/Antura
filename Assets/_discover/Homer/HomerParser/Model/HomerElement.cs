@@ -5,7 +5,7 @@ using UnityEngine;
 namespace Homer
 {
     public class HomerElement
-	{
+    {
         public string _id;
         public string _type;
         public string _nodeId;
@@ -16,7 +16,7 @@ namespace Homer
         public bool _toBeTranslated;
 
         public bool _justOnce;
-        
+
         public string _permalink;
     }
 }

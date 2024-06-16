@@ -62,6 +62,7 @@ namespace Antura.Homer
                 {
                     QuestNode questNode = new QuestNode();
                     questNode.Id = homerNode._permalink;
+                    questNode.LocId = homerNode._header._id;
                     questNode.Metadata = homerNode._metadata;
 
                     //we just take the first line
@@ -159,6 +160,7 @@ namespace Antura.Homer
 
             QuestNode questNode = new QuestNode();
             questNode.Id = homerNode._permalink;
+            questNode.LocId = homerNode._header._id;
             questNode.Metadata = homerNode._metadata;
 
             // CHOICE
@@ -170,6 +172,7 @@ namespace Antura.Homer
                 string headerText = runningFlow.SelectedNode.GetParsedText(header);
 
                 questNode.Type = HomerNode.NodeType.CHOICE;
+                questNode.LocId = homerNode._header._id;
                 questNode.Content = headerText;
                 questNode.Choices = choices;
 
@@ -184,6 +187,7 @@ namespace Antura.Homer
                 string text = runningFlow.SelectedNode.GetParsedText(element);
 
                 questNode.Type = HomerNode.NodeType.TEXT;
+                questNode.LocId = homerNode._header._id;
                 questNode.Content = text;
 
                 answers.Add(questNode);
