@@ -32,6 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public bool IsOpen { get; private set; }
 
+        protected bool SpeechCycle = false;
         protected QuestNode currNode;
         protected Tween showTween, icoContinueTween;
 
@@ -48,6 +49,7 @@ namespace Antura.Minigames.DiscoverCountry
             this.gameObject.SetActive(false);
 
             bt.onClick.AddListener(OnBalloonClicked.Dispatch);
+            SpeechCycle = false;
         }
 
         void OnDestroy()
@@ -88,13 +90,15 @@ namespace Antura.Minigames.DiscoverCountry
             //Debug.Log("QUI PLAYO LocId: " + node.LocId);
             AudioManager.I.PlayDiscoverDialogue(
                  node.LocId,
-                 Language.LanguageCode.english
+                 SpeechCycle ? Language.LanguageCode.english : Language.LanguageCode.french
             );
+            SpeechCycle = !SpeechCycle;
         }
 
         public void Hide()
         {
             IsOpen = false;
+            SpeechCycle = false;
             bt.interactable = false;
             showTween.timeScale = 2;
             showTween.PlayBackwards();

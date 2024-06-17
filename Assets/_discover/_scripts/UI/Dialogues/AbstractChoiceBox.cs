@@ -38,6 +38,7 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
         public string LocId { get; private set; }
+        private bool SpeechCycle = false;
 
         bool selected;
         bool confirmedForThisRound;
@@ -70,6 +71,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             btMain.onClick.AddListener(Select);
             btConfirm.onClick.AddListener(Confirm);
+            SpeechCycle = false;
         }
 
         void OnDestroy()
@@ -117,6 +119,7 @@ namespace Antura.Minigames.DiscoverCountry
             hoverTween.PlayBackwards();
             confirmHoverTween.PlayBackwards();
             showTween.PlayBackwards();
+            SpeechCycle = false;
         }
 
         public void Deselect(float timeScale = 2)
@@ -166,8 +169,9 @@ namespace Antura.Minigames.DiscoverCountry
         {
             AudioManager.I.PlayDiscoverDialogue(
                  LocId,
-                 Language.LanguageCode.english
+                 SpeechCycle ? Language.LanguageCode.english : Language.LanguageCode.french
             );
+            SpeechCycle = !SpeechCycle;
 
             if (selected)
                 return;
