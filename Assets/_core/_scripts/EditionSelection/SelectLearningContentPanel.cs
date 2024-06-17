@@ -92,19 +92,25 @@ namespace Antura.UI
             QuestionText.SetOverridenLanguageText(SelectedNativeCode, key);
         }
 
+        public static void ConfirmNativeLanguage(LanguageCode nativeCode, LearningContentID contentId)
+        {
+            // Update data only after the selection is performed
+            AppManager.I.AppSettingsManager.SetNativeLanguage(nativeCode);
+
+            // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
+            // TODO: check this! Is it needed anymore?
+            var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
+            if (nativeCode == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
+            {
+                AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
+            }
+        }
+
         public bool HasPerformedSelection;
         public SelectLearningContentButton SelectedButton;
         public void ConfirmSelection(LearningContentID contentId)
         {
-            // Update data only after the selection is performed
-            AppManager.I.AppSettingsManager.SetNativeLanguage(SelectedNativeCode);
-
-            // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
-            var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
-            if (SelectedNativeCode == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
-            {
-                AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
-            }
+            ConfirmNativeLanguage(SelectedNativeCode, contentId);
 
             AppManager.I.AppSettingsManager.SetLearningContentID(contentId);
             RefreshSelection();

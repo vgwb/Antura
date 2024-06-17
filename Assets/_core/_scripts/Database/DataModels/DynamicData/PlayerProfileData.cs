@@ -25,7 +25,7 @@ namespace Antura.Database
         /// Used only for the player icons in the Home scene.
         /// Part of PlayerIconData
         /// </summary>
-        public bool HasMaxStarsInCurrentPlaySessions;
+        public bool HasMaxStarsInCurrentPlaySessions;        // TODO: Move out! Specific to the content
 
         /// <summary>
         /// Number of consecutive days of playin
@@ -49,6 +49,33 @@ namespace Antura.Database
             CurrentShopStateJSON = currentShopStateJSON;
             CurrentCustomizationShopStateJSON = currentCustomizationShopStateJSON;
         }
+    }
+
+
+    /// <summary>
+    /// Serialized information about a content. Used by the new Player Profile.
+    /// </summary>
+    [System.Serializable]
+    public class ContentProfileData
+    {
+        /// <summary>
+        /// Primary key for the database.
+        /// Unique, as there is only one row for this table.
+        /// </summary>
+        [PrimaryKey]
+        public string Id { get; set; }
+
+        public LearningContentID ContentID { get; set; }
+
+        public bool JourneyCompleted { get; set; }
+        public float TotalScore { get; set; }
+        public ProfileCompletionState ProfileCompletion { get; set; }
+        public int MaxStage { get; set; }
+        public int MaxLearningBlock { get; set; }
+        public int MaxPlaySession { get; set; }
+        public int CurrentStage { get; set; }
+        public int CurrentLearningBlock { get; set; }
+        public int CurrentPlaySession { get; set; }
     }
 
     /// <summary>
@@ -75,7 +102,7 @@ namespace Antura.Database
 
         public AppEditionID EditionID { get; set; }
 
-        public LearningContentID ContentID { get; set; }
+        public LearningContentID ContentID { get; set; } // TODO: Move out, now part of the Content data
 
         #region Pet Data
         public AnturaPetType SelectedPet { get; set; }
@@ -130,14 +157,14 @@ namespace Antura.Database
         /// Used only for the player icons in the Home scene.
         /// Part of PlayerIconData.
         /// </summary>
-        public bool JourneyCompleted { get; set; }
+        public bool JourneyCompleted { get; set; }  // TODO: Move out: now part of the Content Profile
 
         /// <summary>
         /// general total final overall score
         /// Used only for the player icons in the Home scene.
         /// Part of PlayerIconData.
         /// </summary>
-        public float TotalScore { get; set; }
+        public float TotalScore { get; set; }   // TODO: Move out: now part of the Content Profile
         #endregion
 
         #region Details
@@ -155,38 +182,38 @@ namespace Antura.Database
         /// State of completion for the player profile.
         /// See PlayerProfile for further details.
         /// </summary>
-        public ProfileCompletionState ProfileCompletion { get; set; }
+        public ProfileCompletionState ProfileCompletion { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// Maximum journey position: stage reached.
         /// </summary>
-        public int MaxStage { get; set; }
+        public int MaxStage { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// Maximum journey position: learning block reached.
         /// </summary>
-        public int MaxLearningBlock { get; set; }
+        public int MaxLearningBlock { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// Maximum journey position: play session reached.
         /// </summary>
-        public int MaxPlaySession { get; set; }
+        public int MaxPlaySession { get; set; }  // TODO: Move out!
 
 
         /// <summary>
         /// Current journey position: play session reached.
         /// </summary>
-        public int CurrentStage { get; set; }
+        public int CurrentStage { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// Current journey position: learning block reached.
         /// </summary>
-        public int CurrentLearningBlock { get; set; }
+        public int CurrentLearningBlock { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// Current journey position: play session reached.
         /// </summary>
-        public int CurrentPlaySession { get; set; }
+        public int CurrentPlaySession { get; set; }  // TODO: Move out!
 
         /// <summary>
         /// State of the first contact in JSON format

@@ -17,6 +17,8 @@ namespace Antura.UI
         public Image iconImage;
         public Image Flag;
 
+        public TextRender ContentJourneyLabel;
+
         private ContentEditionConfig Content;
         public SelectLearningContentPanel parentPanel;
 

@@ -56,10 +56,33 @@ namespace Antura.Scenes
             currentCoroutine = StartCoroutine(ContentEditionSelectionCO(false));
         }
 
+        public void NativeLanguageSelection()
+        {
+            prevLanguageCode = AppManager.I.AppSettings.NativeLanguage;
+            selectNativeLanguagePanel.Close();
+            selectLearningContentPanel.Close();
+
+            if (currentCoroutine != null)
+            {
+                StopCoroutine(currentCoroutine);
+                currentCoroutine = null;
+            }
+            currentCoroutine = StartCoroutine(NativeLanguageSelectionCO(true));
+        }
+
         private IEnumerator CompleteSelectionCO()
         {
             yield return NativeLanguageSelectionCO();
-            yield return ContentEditionSelectionCO(true);
+
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // In this case, we'll directly go to the profile instead
+                AppManager.I.NavigationManager.GoToHome(true);
+            }
+            else
+            {
+                yield return ContentEditionSelectionCO(true);
+            }
         }
 
         private void Back()
@@ -73,7 +96,7 @@ namespace Antura.Scenes
             GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
         }
 
-        private IEnumerator NativeLanguageSelectionCO()
+        private IEnumerator NativeLanguageSelectionCO(bool languageChangeOnly = false)
         {
             GlobalUI.ShowPauseMenu(false);
             GlobalUI.ShowBackButton(!firstTime, Back);
@@ -92,6 +115,14 @@ namespace Antura.Scenes
             while (waiting) yield return null;
 
             GlobalUI.ShowPauseMenu(true);
+
+            if (languageChangeOnly)
+            {
+                SelectLearningContentPanel.ConfirmNativeLanguage(selectNativeLanguagePanel.SelectedCode, LearningContentID.None);
+
+                // Reload after changing
+                AppManager.I.NavigationManager.GoToHome(true);
+            }
         }
 
         private IEnumerator ContentEditionSelectionCO(bool fromLanguage)
@@ -106,12 +137,17 @@ namespace Antura.Scenes
             textRender.SetOverridenLanguageText(selectNativeLanguagePanel.SelectedCode, LocalizationDataId.Language_Name);
             selectedNativeButton.gameObject.SetActive(true);
 
+            if (AppManager.PROFILE_INVERSION)
+            {
+                selectedNativeButton.gameObject.SetActive(false);
+            }
+
             selectLearningContentPanel.Open(scrollToLast:!fromLanguage);
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
 
             GlobalUI.ShowBackButton(false);
-            
+
             var btn = selectLearningContentPanel.SelectedButton;
             bool waiting = true;
             AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
@@ -156,7 +192,16 @@ namespace Antura.Scenes
                     yield return null;
             }
 
-            AppManager.I.NavigationManager.GoToHome(true);
+
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // We'll start the current content now
+                HomeScene.ResumeCurrentPlaySession();
+            }
+            else
+            {
+                AppManager.I.NavigationManager.GoToHome(true);
+            }
         }
 
     }

@@ -293,7 +293,7 @@ namespace Antura.Core
             GoToSceneByName(SceneHelper.GetSceneName(filteredNewScene, minigameData));
         }
 
-        private void GoToSceneByName(string sceneName)
+        public void GoToSceneByName(string sceneName)
         {
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
@@ -721,5 +721,15 @@ namespace Antura.Core
         }
 
         #endregion
+
+        public void GenerateContentData(PlayerProfile player)
+        {
+            NavData.CurrentContent = new ContentProfile();
+            NavData.CurrentContent.PlayerUuid = player.Uuid;
+            NavData.CurrentContent.ContentID = player.ContentID;
+            NavData.CurrentContent.MaxJourneyPosition = player.MaxJourneyPosition;
+            NavData.CurrentContent.CurrentJourneyPosition = player.CurrentJourneyPosition;
+            NavData.CurrentContent.PreviousJourneyPosition = player.PreviousJourneyPosition;
+        }
     }
 }

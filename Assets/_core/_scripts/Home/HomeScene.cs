@@ -1,3 +1,4 @@
+using System.Linq;
 using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
@@ -21,6 +22,7 @@ namespace Antura.Scenes
         public LLAnimationStates LLAnimation = LLAnimationStates.LL_dancing;
 
         [Header("References")]
+        public EditionSelectionManager SelectionManager;
         public AnturaPetSwitcher PetSwitcher;
         public LivingLetterController LLAnimController;
         public GameObject DialogReservedArea;
@@ -62,9 +64,44 @@ namespace Antura.Scenes
         /// </summary>
         public void Play()
         {
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // We need to choose the content instead, then we will resume the play session
+                SelectionManager.ContentEditionSelection(true);
+            }
+            else
+            {
+                ResumeCurrentPlaySession();
+            }
+        }
+
+        public static void ResumeCurrentPlaySession()
+        {
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // We must load the play session data, or create it
+                Debug.Log("Entering game with Player: " + AppManager.I.Player.Uuid);
+                var playerAppVersion = AppManager.I.Player.AppVersion;
+                var majorVersion = int.Parse(playerAppVersion.Split('.').First());
+                if (majorVersion < 4)   // Older player profile, must be moved to the new separate content
+                {
+                    Debug.LogWarning("Player is OLD, must upgrade");
+                    var contentID = AppManager.I.AppSettingsManager.Settings.ContentID;
+                    Debug.LogWarning("ContentID selected is " + contentID);
+                    // TODO: generate new content, and save it
+                    AppManager.I.NavigationManager.GenerateContentData(AppManager.I.Player);
+                }
+                else
+                {
+                    Debug.Log("Player is new, let's get the content too");
+                    // TODO: load the content
+                }
+
+                Debug.Log($"Content ID is: {AppManager.I.PlayerProfileManager.CurrentPlayer.ContentID}");
+            }
+
             // Debug.Log("Play with Player: " + AppManager.I.Player);
             GlobalUI.ShowPauseMenu(true);
-
             AppManager.I.StartNewPlaySession();
             AppManager.I.NavigationManager.GoToNextScene();
         }

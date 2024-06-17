@@ -7,6 +7,8 @@ namespace Antura.Core
     public struct NavigationData
     {
         public PlayerProfile CurrentPlayer;
+        public ContentProfile CurrentContent;
+
         public AppScene CurrentScene;
         public bool IsJourneyPlaySession;
         public Stack<AppScene> PrevSceneStack;

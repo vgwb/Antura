@@ -33,7 +33,16 @@ namespace Antura.Scenes
                                 AppManager.I.ContentEdition.ContentID,
                                 AppManager.I.AppEdition.AppVersion);
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
-            AppManager.I.NavigationManager.GoToNextScene();
+
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // For now, we go back home, then we'll get to the content selection screen
+                AppManager.I.NavigationManager.GoToHome(debugMode:true); // debug mode to force transition
+            }
+            else
+            {
+                AppManager.I.NavigationManager.GoToNextScene();
+            }
         }
 
     }

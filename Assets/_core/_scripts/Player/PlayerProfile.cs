@@ -6,9 +6,21 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.DeExtensions;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Profile
 {
+    [Serializable]
+    public class ContentProfile
+    {
+        public string Uuid;
+        public string PlayerUuid;
+        public LearningContentID ContentID;
+        public JourneyPosition MaxJourneyPosition = JourneyPosition.InitialJourneyPosition;
+        public JourneyPosition CurrentJourneyPosition = JourneyPosition.InitialJourneyPosition;
+        public JourneyPosition PreviousJourneyPosition = JourneyPosition.InitialJourneyPosition;
+    }
+
     /// <summary>
     /// A Player Profile contains persistent data on details and on the progression status of a single player.
     /// </summary>
@@ -30,12 +42,13 @@ namespace Antura.Profile
         public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
         public AppEditionID editionID;
-        public LearningContentID ContentID;
+        public LearningContentID ContentID; // TODO: Move out
         public string AppVersion;
         public PetData PetData = new PetData();
 
         public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
 
+        // TODO: Move out
         private JourneyPosition maxJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition MaxJourneyPosition
         {
@@ -43,6 +56,7 @@ namespace Antura.Profile
             private set { maxJourneyPosition = value; }
         }
 
+        // TODO: Move out
         private JourneyPosition currentJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition CurrentJourneyPosition
         {
@@ -50,6 +64,7 @@ namespace Antura.Profile
             private set { currentJourneyPosition = value; }
         }
 
+        // TODO: Move out
         private JourneyPosition previousJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition PreviousJourneyPosition
         {

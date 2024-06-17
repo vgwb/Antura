@@ -26,6 +26,8 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
+        public static bool PROFILE_INVERSION = true;
+
         public AppEditionConfig AppEdition => RootConfig.LoadedAppEdition;
         public ContentEditionConfig ContentEdition => RootConfig.ContentEdition;
 
