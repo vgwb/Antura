@@ -11,6 +11,10 @@ https://elevenlabs.io/docs/introduction
 https://github.com/elevenlabs/elevenlabs-python
 https://elevenlabs.io/app/voice-library
 
+
+https://elevenlabs.io/app/speech-synthesis
+https://elevenlabs.io/docs/voices/premade-voices
+
 ## Test message
 
 English

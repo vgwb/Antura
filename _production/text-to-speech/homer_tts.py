@@ -8,21 +8,42 @@ client = ElevenLabs(
   api_key="", # Defaults to ELEVEN_API_KEY
 )
 
-def get_voice_actor(language, actor):
-  if actor == "Tutor":
-    return "Adam"
-  else:
-    return "Rachel"
-
 def synthesize_speech(dialogue_text, language, actor, output_file):
   if (dialogue_text == "--- to be translated ---"):
     return
-  audio = client.generate(
-    text = dialogue_text,
-    voice = get_voice_actor(language, actor),
-    model = "eleven_multilingual_v2",
-  #  settings=VoiceSettings(stability=0.71, similarity_boost=0.5, style=0.0, use_speaker_boost=True)
-  )
+
+  if actor == "Major":
+    audio = client.generate(
+      text = dialogue_text,
+      voice = "Dave",
+      model = "eleven_multilingual_v1",
+    )
+  elif actor == "Guide":
+    audio = client.generate(
+      text = dialogue_text,
+      voice = "Rachel",
+      model = "eleven_multilingual_v2",
+    )
+  elif actor == "Teacher":
+    return "Charlotte"
+    audio = client.generate(
+      text = dialogue_text,
+      voice = "Charlotte",
+      model = "eleven_multilingual_v1",
+    )
+  elif actor == "Cook":
+    audio = client.generate(
+      text = dialogue_text,
+      voice = "Jessie",
+      model = "eleven_multilingual_v1",
+    )
+  else:
+    audio = client.generate(
+      text = dialogue_text,
+      voice = "Adam",
+      model = "eleven_multilingual_v2",
+    #  settings=VoiceSettings(stability=0.71, similarity_boost=0.5, style=0.0, use_speaker_boost=True)
+    )
   # Ensure the directory exists
   os.makedirs(os.path.dirname(output_file), exist_ok=True)
   save(audio, output_file)
