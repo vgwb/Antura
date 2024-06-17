@@ -24,7 +24,7 @@ public static class HomerVars {
 }
 
 public static class HomerActors {
-    public enum Actors {GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
+    public enum Actors {COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
 
 }
 
@@ -38,7 +38,7 @@ public static class HomerMeta {
     public enum EXPRESSION {RELAXED, GRINNING, PENSIVE, FROWNING, CRYING, ENRAGED}
     public enum BALLOON_TYPE {SPEECH, WHISPER, THOUGHT, SCREAM, SLEEP, SING_SONG}
     public enum LOCATION {HOME, OUTSIDE, OFFICE, PARK, SEA, MOUNTAIN}
-    public enum CAMERA_DIRECTION {CLOSE_UP, ANGLE_ON, OFF_SCREEN, FADE_OUT, FADE_IN, VOICE_OVER}
+    public enum CAMERA_DIRECTION {}
     public enum LIGHTINING {}
     public enum FLOW_STATE {IDEA, NOTES, DRAFT, EDITOR, FINAL}
     public enum FixedTypes { NOTE, IMAGE }
