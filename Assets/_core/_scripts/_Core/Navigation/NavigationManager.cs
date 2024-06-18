@@ -151,7 +151,16 @@ namespace Antura.Core
                     }
                     break;
                 case AppScene.PlayerCreation:
-                    GoToScene(AppScene.Intro);
+                    if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
+                    {
+                        AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                    }
+                    else
+                    {
+                        GoToScene(AppScene.Intro);
+                    }
                     break;
                 case AppScene.Mood:
                     GoToScene(AppScene.DailyReward);
@@ -431,7 +440,14 @@ namespace Antura.Core
                     }
                     else
                     {
-                        GoToScene(AppScene.Map);
+                        if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
+                        {
+                            GoToScene(AppScene.Home);
+                        }
+                        else
+                        {
+                            GoToScene(AppScene.Map);
+                        }
                     }
                     break;
             }
