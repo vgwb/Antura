@@ -16,7 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
             Choice,
             Quiz
         }
-        
+
         #region Serialized
 
         [Header("References")]
@@ -34,7 +34,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialoguePostcard postcard;
 
         #endregion
-        
+
         public bool IsOpen { get; private set; }
 
         QuestNode currNode;
@@ -48,7 +48,7 @@ namespace Antura.Minigames.DiscoverCountry
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
             speechBalloon.gameObject.SetActive(true);
-            
+
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
@@ -63,7 +63,7 @@ namespace Antura.Minigames.DiscoverCountry
         }
 
         #endregion
-        
+
         #region Public Methods
 
         public void ShowDialogueSignalFor(EdAgent agent)
@@ -83,12 +83,15 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void CloseDialogue(int choiceIndex = 0)
         {
-            if (!IsOpen) return;
-            
+            if (!IsOpen)
+                return;
+
             IsOpen = false;
-            if (currBalloon != null) currBalloon.Hide();
+            if (currBalloon != null)
+                currBalloon.Hide();
             postcard.Hide();
-            if (choices.IsOpen) choices.Hide(choiceIndex);
+            if (choices.IsOpen)
+                choices.Hide(choiceIndex);
             DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
         }
 
@@ -138,24 +141,28 @@ namespace Antura.Minigames.DiscoverCountry
 
         IEnumerator CO_Next(int choiceIndex)
         {
-            if (currBalloon != null && currBalloon.IsOpen) currBalloon.Hide();
+            if (currBalloon != null && currBalloon.IsOpen)
+                currBalloon.Hide();
             if (choices.IsOpen)
             {
                 choices.Hide(choiceIndex);
-                while (choices.IsHiding) yield return null;
+                while (choices.IsHiding)
+                    yield return null;
                 // yield return new WaitForSeconds(0.35f);
             }
-            
+
             QuestNode next = currNode.NextNode(choiceIndex);
-            if (next == null) CloseDialogue(choiceIndex);
-            else ShowDialogueFor(next);
+            if (next == null)
+                CloseDialogue(choiceIndex);
+            else
+                ShowDialogueFor(next);
             coNext = null;
         }
 
         #endregion
 
         #region Callbacks
-        
+
         void OnBalloonClicked()
         {
             Next();
