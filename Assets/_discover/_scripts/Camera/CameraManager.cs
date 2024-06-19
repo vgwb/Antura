@@ -24,6 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Camera MainCam { get; private set; }
         public Transform MainCamTrans { get; private set; }
         public PlayerCameraController CamController { get; private set; }
+        public StarterAssetsInputs StarterInput { get; private set; }
 
         float lastZoomTickTime;
         float leaveMapTime;
@@ -50,15 +51,18 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             CamController = this.GetComponent<PlayerCameraController>();
+            StarterInput = FindObjectOfType<StarterAssetsInputs>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
             ChangeCameraMode(CameraMode.Player);
+            
+            DiscoverNotifier.Game.OnMapButtonToggled.Subscribe(OnMapButtonToggled);
         }
 
         void OnDestroy()
         {
-            if (I == this)
-                I = null;
+            if (I == this) I = null;
+            DiscoverNotifier.Game.OnMapButtonToggled.Unsubscribe(OnMapButtonToggled);
         }
 
         void Update()
@@ -117,6 +121,22 @@ namespace Antura.Minigames.DiscoverCountry
         public void FocusDialogueCamOn(Transform target)
         {
             dialogueCam.SetTarget(target);
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnMapButtonToggled(bool toggleOn)
+        {
+            if (toggleOn)
+            {
+                if (cameraMode == CameraMode.Player) ChangeCameraMode(CameraMode.Map);
+            }
+            else
+            {
+                if (cameraMode == CameraMode.Map) ChangeCameraMode(CameraMode.Player);
+            }
         }
 
         #endregion

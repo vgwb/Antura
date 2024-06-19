@@ -86,6 +86,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void MapInput(bool newMapState)
         {
             map = newMapState;
+            DiscoverNotifier.Game.OnMapButtonToggled.Dispatch(map);
         }
 
         private void OnApplicationFocus(bool hasFocus)

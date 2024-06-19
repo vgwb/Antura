@@ -27,8 +27,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         [DeEmptyAlert]
         [SerializeField] Camera cam;
-        [DeEmptyAlert]
-        [SerializeField] StarterAssetsInputs starterInput;
         [DeHeader("Options")]
         [Range(1, 20)]
         [SerializeField] int mouseRotationSpeed = 3;
@@ -102,11 +100,11 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
                     bool mouseLookActive = Input.GetMouseButton(1) && mouseOffset != Vector2.zero;
-                    bool touchLookActive = starterInput.look != Vector2.zero;
+                    bool touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
                     bool manualRotate = mouseLookActive || touchLookActive;
                     if (manualRotate)
                     {
-                        Vector2 lookOffset = mouseLookActive ? mouseOffset : starterInput.look * 0.003f;
+                        Vector2 lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
                         UpdateManualRotation(lookOffset, mouseLookActive ? mouseRotationSpeed : touchRotationSpeed);
                     }
                     else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
