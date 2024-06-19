@@ -58,6 +58,10 @@ namespace Antura.Homer
 
         public Texture2D GetImage()
         {
+            if (Image != null)
+            {
+                return Resources.Load<Texture2D>("DiscoverImages/" + Image);
+            }
             return null;
         }
 
