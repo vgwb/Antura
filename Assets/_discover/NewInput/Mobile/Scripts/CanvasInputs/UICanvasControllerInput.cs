@@ -33,6 +33,10 @@ namespace Antura.Minigames.DiscoverCountry
             starterAssetsInputs.ActInput(virtualActState);
         }
 
+        public void VirtualMapInput(bool virtualMapState)
+        {
+            starterAssetsInputs.MapInput(virtualMapState);
+        }
     }
 
 }

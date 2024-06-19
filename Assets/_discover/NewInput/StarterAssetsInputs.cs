@@ -11,6 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
         public bool jump;
         public bool sprint;
         public bool act;
+        public bool map;
 
         [Header("Movement Settings")]
         public bool analogMovement;
@@ -42,10 +43,15 @@ namespace Antura.Minigames.DiscoverCountry
             SprintInput(value.isPressed);
         }
 
-        // public void OnAct(InputValue value)
-        // {
-        //     ActInput(value.isPressed);
-        // }
+        public void OnAct(InputValue value)
+        {
+            ActInput(value.isPressed);
+        }
+
+        public void OnMap(InputValue value)
+        {
+            MapInput(value.isPressed);
+        }
 
         // public void OnActStarted(InputValue value)
         // {
@@ -75,6 +81,11 @@ namespace Antura.Minigames.DiscoverCountry
         public void ActInput(bool newActState)
         {
             act = newActState;
+        }
+
+        public void MapInput(bool newMapState)
+        {
+            map = newMapState;
         }
 
         private void OnApplicationFocus(bool hasFocus)
