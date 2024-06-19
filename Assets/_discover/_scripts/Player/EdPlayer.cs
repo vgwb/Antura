@@ -132,15 +132,25 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Move()
         {
+            bool isSprinting = _input.sprint;
+            
             // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
+            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed;
 
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero)
-                targetSpeed = 0.0f;
+            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            else
+            {
+                targetSpeed *= _input.move.magnitude;
+                if (targetSpeed >= SprintSpeed)
+                {
+                    targetSpeed = SprintSpeed;
+                    isSprinting = true;
+                }
+            }
 
             // a reference to the players current horizontal velocity
             float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
@@ -196,7 +206,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (_speed > 0f)
             {
                 anturaAnimation.State = AnturaAnimationStates.walking;
-                anturaAnimation.WalkingSpeed = _input.sprint ? Mathf.Lerp(0, 1, _speed * 1f) : 0f;
+                anturaAnimation.WalkingSpeed = isSprinting ? Mathf.Lerp(0, 1, _speed * 1f) : 0f;
             }
             else
             {
