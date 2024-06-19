@@ -31,7 +31,9 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] StarterAssetsInputs starterInput;
         [DeHeader("Options")]
         [Range(1, 20)]
-        [SerializeField] int rotationSpeed = 10;
+        [SerializeField] int mouseRotationSpeed = 3;
+        [Range(1, 20)]
+        [SerializeField] int touchRotationSpeed = 3;
         [SerializeField] bool resetRotationAfterAWhile = false;
         [Range(0, 10)]
         [SerializeField] float resetRotationDelay = 2.5f;
@@ -83,7 +85,7 @@ namespace Antura.Minigames.DiscoverCountry
             camTargetOffset = camTarget.localPosition;
             camTarget.SetParent(this.transform);
             RefreshCinemachineSetup();
-            UpdateManualRotation(Vector2.zero);
+            UpdateManualRotation(Vector2.zero, 1);
         }
 
         void OnDestroy()
@@ -104,8 +106,8 @@ namespace Antura.Minigames.DiscoverCountry
                     bool manualRotate = mouseLookActive || touchLookActive;
                     if (manualRotate)
                     {
-                        Vector2 lookOffset = mouseLookActive ? mouseOffset : starterInput.look * 0.01f;
-                        UpdateManualRotation(lookOffset);
+                        Vector2 lookOffset = mouseLookActive ? mouseOffset : starterInput.look * 0.003f;
+                        UpdateManualRotation(lookOffset, mouseLookActive ? mouseRotationSpeed : touchRotationSpeed);
                     }
                     else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
                     {
@@ -162,15 +164,15 @@ namespace Antura.Minigames.DiscoverCountry
             defCamArmLength = cineMainFollow.VerticalArmLength;
         }
 
-        void UpdateManualRotation(Vector2 inputOffset)
+        void UpdateManualRotation(Vector2 inputOffset, float speed)
         {
             if (invertYAxis)
                 inputOffset.y = -inputOffset.y;
             Quaternion camRot = camTarget.rotation;
             // Left/right rotation
-            camRot *= Quaternion.AngleAxis(inputOffset.x * rotationSpeed, Vector3.up);
+            camRot *= Quaternion.AngleAxis(inputOffset.x * speed, Vector3.up);
             // Up/down rotation
-            camRot *= Quaternion.AngleAxis(inputOffset.y * rotationSpeed, Vector3.right);
+            camRot *= Quaternion.AngleAxis(inputOffset.y * speed, Vector3.right);
             // Clamp
             Vector3 camAngle = camRot.eulerAngles;
             camAngle.z = 0;
