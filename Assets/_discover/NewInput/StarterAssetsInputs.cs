@@ -80,13 +80,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ActInput(bool newActState)
         {
+            bool changed = act != newActState;
             act = newActState;
+            if (changed && act) DiscoverNotifier.Game.OnActPressed.Dispatch();
         }
 
         public void MapInput(bool newMapState)
         {
+            bool changed = map != newMapState;
             map = newMapState;
-            DiscoverNotifier.Game.OnMapButtonToggled.Dispatch(map);
+            if (changed) DiscoverNotifier.Game.OnMapButtonToggled.Dispatch(map);
         }
 
         private void OnApplicationFocus(bool hasFocus)

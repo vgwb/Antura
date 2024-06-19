@@ -36,6 +36,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExit.Subscribe(OnLivingLetterTriggerExit);
+            DiscoverNotifier.Game.OnActPressed.Subscribe(OnActPressed);
         }
 
         void OnDestroy()
@@ -68,11 +69,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public void OnAct(InputValue value)
         {
-            if (nearbyAgent != null)
-            {
-                // Start dialogue with LL
-                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
-            }
+            Act();
         }
 
         void UpdateWorld()
@@ -92,6 +89,16 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         #endregion
 
         #region Methods
+
+        void Act()
+        {
+            if (Layer != InteractionLayer.World) return;
+            if (nearbyAgent != null)
+            {
+                // Start dialogue with LL
+                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
+            }
+        }
 
         void ChangeLayer(InteractionLayer newLayer)
         {
@@ -136,6 +143,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void OnCloseDialogue()
         {
             ExitDialogue();
+        }
+
+        void OnActPressed()
+        {
+            Act();
         }
 
         void OnAgentTriggerEnter(EdAgent ll)
