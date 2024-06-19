@@ -27,8 +27,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         [DeEmptyAlert]
         [SerializeField] Camera cam;
+        [DeEmptyAlert]
+        [SerializeField] StarterAssetsInputs starterInput;
         [DeHeader("Options")]
-        [SerializeField] bool clickAndRotate = true;
         [Range(1, 20)]
         [SerializeField] int rotationSpeed = 10;
         [SerializeField] bool resetRotationAfterAWhile = false;
@@ -58,7 +59,6 @@ namespace Antura.Minigames.DiscoverCountry
         bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
         float baseCamDistance { get { return defCamDistance - currZoomLevel; } }
 
-        Mode mode;
         InteractionLayer interactionLayer;
         CinemachineThirdPersonFollow cineMainFollow;
         Vector3 defShoulderOffset;
@@ -75,11 +75,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Awake()
         {
-#if UNITY_EDITOR || UNITY_STANDALONE_WIN || UNITY_STANDALONE_OSX
-            SetMode(Mode.Desktop);
-#else
-            SetMode(Mode.Mobile);
-#endif
             interactionLayer = InteractionLayer.Movement;
             camTarget = FindObjectOfType<PlayerCameraTarget>(true).transform;
             cineMain.Target.TrackingTarget = camTarget;
@@ -88,7 +83,7 @@ namespace Antura.Minigames.DiscoverCountry
             camTargetOffset = camTarget.localPosition;
             camTarget.SetParent(this.transform);
             RefreshCinemachineSetup();
-            UpdateMouseRotation(Vector2.zero);
+            UpdateManualRotation(Vector2.zero);
         }
 
         void OnDestroy()
@@ -103,18 +98,20 @@ namespace Antura.Minigames.DiscoverCountry
                 camTarget.position = camTargetOriginalParent.position + camTargetOffset;
                 if (interactionLayer == InteractionLayer.Movement)
                 {
-                    switch (mode)
+                    Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                    bool mouseLookActive = Input.GetMouseButton(1) && mouseOffset != Vector2.zero;
+                    bool touchLookActive = starterInput.look != Vector2.zero;
+                    bool manualRotate = mouseLookActive || touchLookActive;
+                    if (manualRotate)
                     {
-                        case Mode.Desktop:
-                            Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                            bool manualRotate = (!clickAndRotate || Input.GetMouseButton(1)) && mouseOffset != Vector2.zero;
-                            if (manualRotate)
-                                UpdateMouseRotation(mouseOffset);
-                            else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
-                                UpdateResetRotation(isMoving);
-                            UpdateMovementVector();
-                            break;
+                        Vector2 lookOffset = mouseLookActive ? mouseOffset : starterInput.look * 0.01f;
+                        UpdateManualRotation(lookOffset);
                     }
+                    else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
+                    {
+                        UpdateResetRotation(isMoving);
+                    }
+                    UpdateMovementVector();
                 }
             }
             else
@@ -165,20 +162,15 @@ namespace Antura.Minigames.DiscoverCountry
             defCamArmLength = cineMainFollow.VerticalArmLength;
         }
 
-        void SetMode(Mode newMode)
-        {
-            mode = newMode;
-        }
-
-        void UpdateMouseRotation(Vector2 mouseOffset)
+        void UpdateManualRotation(Vector2 inputOffset)
         {
             if (invertYAxis)
-                mouseOffset.y = -mouseOffset.y;
+                inputOffset.y = -inputOffset.y;
             Quaternion camRot = camTarget.rotation;
             // Left/right rotation
-            camRot *= Quaternion.AngleAxis(mouseOffset.x * rotationSpeed, Vector3.up);
+            camRot *= Quaternion.AngleAxis(inputOffset.x * rotationSpeed, Vector3.up);
             // Up/down rotation
-            camRot *= Quaternion.AngleAxis(mouseOffset.y * rotationSpeed, Vector3.right);
+            camRot *= Quaternion.AngleAxis(inputOffset.y * rotationSpeed, Vector3.right);
             // Clamp
             Vector3 camAngle = camRot.eulerAngles;
             camAngle.z = 0;
