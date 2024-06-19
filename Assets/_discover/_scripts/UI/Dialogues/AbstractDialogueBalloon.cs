@@ -1,4 +1,5 @@
-﻿using Antura.Audio;
+﻿using Antura.Core;
+using Antura.Audio;
 using Antura.Homer;
 using Antura.UI;
 using Demigiant.DemiTools;
@@ -90,7 +91,7 @@ namespace Antura.Minigames.DiscoverCountry
             //Debug.Log("QUI PLAYO LocId: " + node.LocId);
             AudioManager.I.PlayDiscoverDialogue(
                  node.LocId,
-                 SpeechCycle ? Language.LanguageCode.english : Language.LanguageCode.french
+                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;
         }

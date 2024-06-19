@@ -1,4 +1,5 @@
-﻿using Antura.Audio;
+﻿using Antura.Core;
+using Antura.Audio;
 using System.Globalization;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -169,7 +170,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             AudioManager.I.PlayDiscoverDialogue(
                  LocId,
-                 SpeechCycle ? Language.LanguageCode.english : Language.LanguageCode.french
+                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;
 
