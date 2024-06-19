@@ -56,5 +56,10 @@ namespace Antura.Homer
             return HomerAnturaManager.I.NextNode(choiceIndex);
         }
 
+        public Texture2D GetImage()
+        {
+            return null;
+        }
+
     }
 }
