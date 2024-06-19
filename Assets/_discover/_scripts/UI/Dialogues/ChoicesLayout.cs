@@ -94,7 +94,7 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
                     choiceBoxes[i].SetLocId(choiceElements[i]._id);
-                    choiceBoxes[i].Show(choiceElements[i]._localizedContents[0]._text);
+                    choiceBoxes[i].Show(choiceElements[i]._localizedContents[1]._text);
                     yield return new WaitForSeconds(i * 0.15f);
                 }
             }

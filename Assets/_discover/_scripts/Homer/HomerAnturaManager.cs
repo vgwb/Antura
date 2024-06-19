@@ -18,6 +18,7 @@ namespace Antura.Homer
         private HomerProject currentHomerProject;
         private HomerFlowSlugs.FlowSlug currentFlowSlug;
         private HomerFlowRunning runningFlow;
+        private string currentLanguage;
 
         void Awake()
         {
@@ -55,6 +56,7 @@ namespace Antura.Homer
         public QuestNode GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
             string language = "EN")
         {
+            currentLanguage = language;
             SetupCurrentFlow(flowSlug);
 
             foreach (HomerNode homerNode in runningFlow.Flow._nodes)
@@ -74,18 +76,7 @@ namespace Antura.Homer
                     questNode.Metadata = homerNode._metadata;
 
                     //we just take the first line
-                    HomerLocalizedContent[] homerLocalizedContents = homerNode._elements[0]._localizedContents;
-
-                    foreach (HomerLocalizedContent localizedContent in homerLocalizedContents)
-                    {
-                        if (localizedContent._localeCode == language)
-                        {
-                            questNode.Content = localizedContent._text;
-                            // Debug.Log($"GetQuestNodeByPermalink {permalink} : result: {questNode.Content}");
-                            break;
-                        }
-                    }
-
+                    questNode.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, language);
                     return questNode;
                 }
             }
@@ -93,15 +84,31 @@ namespace Antura.Homer
             return null;
         }
 
+        private string GetLocalizedContentFromElements(HomerLocalizedContent[] elements, string language)
+        {
+            string content = "";
+            foreach (HomerLocalizedContent localizedContent in elements)
+            {
+                if (localizedContent._localeCode == language)
+                {
+                    content = localizedContent._text;
+                    // Debug.Log($"GetQuestNodeByPermalink {permalink} : result: {questNode.Content}");
+                    break;
+                }
+            }
+            return content;
+        }
+
         public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
             List<QuestNode> answers, string language = "EN")
         {
+            currentLanguage = language;
             MoveToPermalinkNode(permalink, flowSlug);
 
             GetContent(flowSlug, command, answers, false, language);
         }
 
-        void MoveToPermalinkNode(string permalink, HomerFlowSlugs.FlowSlug flowSlug)
+        private void MoveToPermalinkNode(string permalink, HomerFlowSlugs.FlowSlug flowSlug)
         {
             HomerNode startNode = null;
 
@@ -131,6 +138,7 @@ namespace Antura.Homer
         public void GetContentFromChoice(int choiceIndex, HomerFlowSlugs.FlowSlug flowSlug,
             string command, List<QuestNode> answers, string language = "EN")
         {
+            currentLanguage = language;
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
             {
                 List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
@@ -140,7 +148,9 @@ namespace Antura.Homer
                 GetContent(flowSlug, command, answers, false, language);
             }
             else
+            {
                 throw new Exception("Current node is not a choice!");
+            }
         }
 
 
@@ -148,7 +158,7 @@ namespace Antura.Homer
             bool restart, string language = "EN")
         {
             // SETUP :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
+            currentLanguage = language;
             HomerVars.CMD = command;
 
             SetupCurrentFlow(flowSlug);
@@ -177,11 +187,13 @@ namespace Antura.Homer
                 List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
 
                 HomerElement header = runningFlow.SelectedNode.Node._header;
-                string headerText = runningFlow.SelectedNode.GetParsedText(header);
+                //string headerText = runningFlow.SelectedNode.GetParsedText(header);
+                string headerText = GetLocalizedContentFromElements(runningFlow.SelectedNode.Node._header._localizedContents, language);
 
                 questNode.Type = HomerNode.NodeType.CHOICE;
                 questNode.LocId = homerNode._header._id;
                 questNode.Content = headerText;
+
                 questNode.Choices = choices;
 
                 answers.Add(questNode);
@@ -192,7 +204,8 @@ namespace Antura.Homer
                      runningFlow.SelectedNode.Node._elements.Length > 0)
             {
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                string text = runningFlow.SelectedNode.GetParsedText(element);
+                //string text = runningFlow.SelectedNode.GetParsedText(element);
+                string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, language);
 
                 questNode.Type = HomerNode.NodeType.TEXT;
                 if (homerNode._elements.Count() > 0)
@@ -203,6 +216,7 @@ namespace Antura.Homer
                 {
                     questNode.LocId = homerNode._header._id;
                 }
+
                 questNode.Content = text;
 
                 answers.Add(questNode);
@@ -281,7 +295,9 @@ namespace Antura.Homer
                 questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
                 questNode.Type = HomerNode.NodeType.TEXT;
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                string text = runningFlow.SelectedNode.GetParsedText(element);
+                //string text = runningFlow.SelectedNode.GetParsedText(element);
+                string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, currentLanguage);
+
                 questNode.Content = text;
                 return questNode;
             }

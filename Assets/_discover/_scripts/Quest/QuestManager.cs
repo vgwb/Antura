@@ -35,7 +35,8 @@ namespace Antura.Minigames.DiscoverCountry
                             CurrentQuest.QuestId,
                             "INIT",
                             answers,
-                            true
+                            true,
+                            "FR"
                             );
 
             foreach (QuestNode questNode in answers)
@@ -58,7 +59,7 @@ namespace Antura.Minigames.DiscoverCountry
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
             string command = $"TALK_{actorId.ToString()}";
             tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true);
+            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, "FR");
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
@@ -73,7 +74,8 @@ namespace Antura.Minigames.DiscoverCountry
                             CurrentQuest.QuestId,
                             talk_action,
                             answers,
-                            true
+                            true,
+                            "FR"
                             );
 
             foreach (QuestNode questNode in answers)
