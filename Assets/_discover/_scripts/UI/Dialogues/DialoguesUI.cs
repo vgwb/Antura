@@ -180,7 +180,8 @@ namespace Antura.Minigames.DiscoverCountry
         
         void OnBalloonClicked()
         {
-            Next();
+            // Play/repeat alternate audio here
+            Debug.Log($"► Should play audio for main balloon");
         }
 
         void OnChoiceConfirmed(int choiceIndex)
