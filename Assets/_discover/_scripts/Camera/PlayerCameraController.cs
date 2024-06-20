@@ -1,9 +1,10 @@
 ﻿using System;
-using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.InputSystem.EnhancedTouch;
+using Unity.Cinemachine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -91,6 +92,10 @@ namespace Antura.Minigames.DiscoverCountry
             zoomLevelTween.Kill();
         }
 
+        bool mouseLookActive = false;
+        Vector2 mouseOffset = Vector2.zero;
+        bool touchLookActive;
+        bool manualRotate;
         void Update()
         {
             if (Active)
@@ -98,10 +103,15 @@ namespace Antura.Minigames.DiscoverCountry
                 camTarget.position = camTargetOriginalParent.position + camTargetOffset;
                 if (interactionLayer == InteractionLayer.Movement)
                 {
-                    Vector2 mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                    bool mouseLookActive = Input.GetMouseButton(1) && mouseOffset != Vector2.zero;
-                    bool touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
-                    bool manualRotate = mouseLookActive || touchLookActive;
+                    mouseLookActive = false;
+                    mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                    if (Input.mousePosition.y > Screen.height / 2f)
+                    {
+                        mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
+                    }
+
+                    touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
+                    manualRotate = mouseLookActive || touchLookActive;
                     if (manualRotate)
                     {
                         Vector2 lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
