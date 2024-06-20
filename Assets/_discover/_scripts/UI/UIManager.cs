@@ -12,9 +12,9 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] Canvas canvas;
         [DeEmptyAlert]
-        [SerializeField] GameObject joysticksUI;
-        [DeEmptyAlert]
         [SerializeField] UIVirtualButton btAct;
+        [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
+        [SerializeField] GameObject[] hideDuringDialogue;
 
         #endregion
         
@@ -72,12 +72,12 @@ namespace Antura.Minigames.DiscoverCountry
         
         void OnStartDialogue()
         {
-            joysticksUI.gameObject.SetActive(false);
+            foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(false);
         }
         
         void OnCloseDialogue()
         {
-            joysticksUI.gameObject.SetActive(true);
+            foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(true);
         }
 
         #endregion

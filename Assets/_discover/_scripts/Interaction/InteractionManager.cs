@@ -36,7 +36,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExit.Subscribe(OnLivingLetterTriggerExit);
-            DiscoverNotifier.Game.OnActPressed.Subscribe(OnActPressed);
+            DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
         void OnDestroy()
@@ -146,7 +146,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             ExitDialogue();
         }
 
-        void OnActPressed()
+        void OnActClicked()
         {
             Act();
         }

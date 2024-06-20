@@ -45,7 +45,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnAct(InputValue value)
         {
-            ActInput(value.isPressed);
+            ActInput();
         }
 
         public void OnMap(InputValue value)
@@ -78,11 +78,9 @@ namespace Antura.Minigames.DiscoverCountry
             sprint = newSprintState;
         }
 
-        public void ActInput(bool newActState)
+        public void ActInput()
         {
-            bool changed = act != newActState;
-            act = newActState;
-            if (changed && act) DiscoverNotifier.Game.OnActPressed.Dispatch();
+            DiscoverNotifier.Game.OnActClicked.Dispatch();
         }
 
         public void MapInput(bool newMapState)

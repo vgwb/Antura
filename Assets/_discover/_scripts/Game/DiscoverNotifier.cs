@@ -19,7 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
             /// <summary>When an Agent's collider OnTriggerEnter is exited</summary>
             public static readonly ActionEvent<EdAgent> OnAgentTriggerExit = new("DiscoverNotifier.Game.OnAgentTriggerExit");
             /// <summary>When the action button is pressed</summary>
-            public static readonly ActionEvent OnActPressed = new("DiscoverNotifier.Game.OnActPressed");
+            public static readonly ActionEvent OnActClicked = new("DiscoverNotifier.Game.OnActClicked");
             /// <summary>When the map button is toggled on or off</summary>
             public static readonly ActionEvent<bool> OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
         }
