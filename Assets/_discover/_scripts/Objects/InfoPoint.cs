@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
+using Antura.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
     public class InfoPoint : MonoBehaviour
     {
         public string HomerNodeId;
-        public TextMeshPro label;
+        public string Text;
+        public TextRender Label;
 
         void Start()
         {
-
+            if (Text != "")
+            {
+                Label.SetText(Text);
+            }
         }
 
         public void OnTriggerEnter(Collider other)
