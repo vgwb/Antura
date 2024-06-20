@@ -60,6 +60,12 @@ namespace Homer
 
             HomerLocalizedContent content = HomerNodeRunningHelper.GetContent(element, localeCode);
 
+            // If the text content is empty and not in the main locale, try to get it from the main locale.
+            if (content == null || string.IsNullOrEmpty(content._text))
+            {
+                content = GetContent(element, project._mainLocale._code);
+            }
+
             if (content == null)
                 return "NO CONTENT";
 
@@ -93,14 +99,16 @@ namespace Homer
             return variations;
         }
 
-        public static string SanitizeVariables(string str)
+        public static string SanitizeVariables(string str, bool removeDoubleApex = true)
         {
+            str = str.Replace("'", "’");
             str = str.Replace("<br>", "");
             str = str.Replace("&nbsp;", " ");
             str = str.Replace("&gt;", ">");
             str = str.Replace("&lt;", "<");
             str = str.Replace("\\", "");
-            str = str.Replace("\"", "'");
+            if (removeDoubleApex)
+                str = str.Replace("\"", "'");
             return str;
         }
 
@@ -124,13 +132,29 @@ namespace Homer
             string lhs = expr.Split('=')[0].Trim();
             string rhs = expr.Split('=')[1].Trim();
 
+            /*if (lhs.Length > 2)
+            {
+                var internalPart = lhs.Substring(1, lhs.Length - 2);
+                internalPart = internalPart.Replace("'", "’");
+                lhs = "'" + internalPart + "'";
+            }
+            if (rhs.Length > 2)
+            {
+                var internalPart = rhs.Substring(1, rhs.Length - 2);
+                internalPart = internalPart.Replace("'", "’");
+                rhs = "'" + internalPart + "'";
+            }*/
+
             Expression e = new Expression(rhs);
             e.EvaluateFunction += NCalcExtensionFunctions;
 
             Type type = typeof(HomerVars);
             foreach (var p in type.GetFields(BindingFlags.Public | BindingFlags.Static))
             {
-                var v = p.GetValue(null); // static classes cannot be instanced, so use null
+                var v = p.GetValue(null);
+
+
+                // static classes cannot be instanced, so use null
                 //Debug.Log(p.Name + "  " + v + "  " + p.FieldType);
                 e.Parameters[p.Name] = v;
             }
@@ -158,16 +182,15 @@ namespace Homer
                         {
                             field.SetValue(null, (float)(o));
                         }
-                        catch (Exception f)
+                        catch (Exception)
                         {
-                            field.SetValue(null, Convert.ToInt32(o));    
+                            field.SetValue(null, Convert.ToInt32(o));
                         }
                     }
                     else
                     {
                         field.SetValue(null, o);
                     }
-                    
                 }
             }
         }
