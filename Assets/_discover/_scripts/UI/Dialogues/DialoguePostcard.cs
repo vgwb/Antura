@@ -16,7 +16,8 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
         
         public bool active { get; private set; }
-        
+
+        Sprite currSprite;
         Tween showTween, hideTween;
         
         #region Unity
@@ -50,18 +51,24 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show()
+        public void Show(Sprite sprite)
         {
-            // TODO > Pass image as parameter
             active = true;
-            hideTween.Complete();
-            showTween.Restart();
+            img.sprite = sprite;
+            if (currSprite != sprite)
+            {
+                hideTween.Complete();
+                showTween.Restart();
+            }
             this.gameObject.SetActive(true);
+            currSprite = sprite;
         }
 
         public void Hide()
         {
+            Debug.Log("HIDE");
             active = false;
+            currSprite = null;
             showTween.Complete();
             hideTween.Restart();
         }

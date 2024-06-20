@@ -63,11 +63,11 @@ namespace Antura.Homer
             return HomerAnturaManager.I.NextNode(choiceIndex);
         }
 
-        public Texture2D GetImage()
+        public Sprite GetImage()
         {
             if (Image != null)
             {
-                return Resources.Load<Texture2D>("DiscoverImages/" + Image);
+                return Resources.Load<Sprite>("DiscoverImages/" + Image);
             }
             return null;
         }

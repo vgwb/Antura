@@ -109,20 +109,23 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
+            Sprite image;
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
                     currBalloon.Show(node);
-                    yield return new WaitForSeconds(0.2f);
-                    postcard.Show();
+                    // yield return new WaitForSeconds(0.2f);
+                    image = node.GetImage();
+                    if (image != null) postcard.Show(image);
                     break;
                 case HomerNode.NodeType.CHOICE:
                     if (!string.IsNullOrEmpty(node.Content))
                     {
                         currBalloon.Show(node);
-                        yield return new WaitForSeconds(0.2f);
+                        // yield return new WaitForSeconds(0.2f);
                     }
-                    postcard.Show();
+                    image = node.GetImage();
+                    if (image != null) postcard.Show(image);
                     yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
