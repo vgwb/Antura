@@ -34,8 +34,11 @@ namespace Antura.Homer
         // audio id to be player as voiceover (language to be added)
         public string Audio => GetMetadata("AUDIO");
 
-        // if a special methid needs to be triggered in the scene
+        // if a special method needs to be triggered in the scene
         public string Action => GetMetadata("ACTION");
+
+        // if a special method needs to be triggered in the scene when the dialogue is closed
+        public string ActionPost => GetMetadata("ACTION_POST");
 
         // well.. the mood
         public string Mood => GetMetadata("MOOD");

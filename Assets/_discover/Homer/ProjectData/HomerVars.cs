@@ -32,6 +32,7 @@ public static class HomerActors {
 
 public static class HomerMeta {
 
+    public enum ACTION_POST {}
     public enum IMAGE {}
     public enum NEXTTARGET {}
     public enum ACTION {}
