@@ -116,6 +116,7 @@ namespace Antura.Minigames.DiscoverCountry
             Sprite image;
             switch (node.Type)
             {
+                case HomerNode.NodeType.START:
                 case HomerNode.NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
@@ -138,7 +139,7 @@ namespace Antura.Minigames.DiscoverCountry
                 default:
                     IsOpen = false;
                     CurrDialogueType = DialogueType.None;
-                    Debug.LogError("DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type");
+                    Debug.LogError($"DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type ({node.Type})");
                     break;
             }
             coShowDialogue = null;

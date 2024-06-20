@@ -21,7 +21,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnTriggerEnter(Collider other)
         {
-            QuestManager.I.OnInfoPoint(HomerNodeId);
+            QuestManager.I.OnInfoPoint(this, HomerNodeId);
         }
     }
 }

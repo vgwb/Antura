@@ -16,7 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
                 .Join(this.GetComponent<RectTransform>().DOAnchorPosY(-350, duration).From(true).SetEase(Ease.OutBack))
                 .Join(this.transform.DOPunchRotation(new Vector3(0, 0, 18), duration, 8))
                 .OnComplete(() => {
-                    bt.interactable = currNode.Type == HomerNode.NodeType.TEXT;
+                    bt.interactable = true;
                 })
                 .OnRewind(() => {
                     icoContinueTween.Rewind();

@@ -6,6 +6,7 @@ using Homer;
 using Antura.Core;
 using Antura.Audio;
 using Antura.Homer;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using Antura.Utilities;
 using Antura.UI;
 
@@ -101,9 +102,10 @@ namespace Antura.Minigames.DiscoverCountry
             Destroy(go);
         }
 
-        public void OnInfoPoint(string nodeId)
+        public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
         {
             var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
             AudioManager.I.PlayDiscoverDialogue(
                 questNode.LocId,
                 Language.LanguageCode.french

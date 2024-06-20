@@ -11,7 +11,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public InteractionLayer Layer { get; private set; }
 
         public EdPlayer player;
-        public EdAgent nearbyAgent;
+        public EdAgent nearbyAgent { get; private set; }
         Coroutine coChangeLayer, coStartDialogue;
 
         #region Unity
@@ -49,22 +49,28 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             DiscoverNotifier.Game.OnAgentTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
         }
 
+        #endregion
+
+        #region Update
+
         void Update()
         {
             switch (Layer)
             {
-                case InteractionLayer.World:
-                    UpdateWorld();
-                    break;
                 case InteractionLayer.Dialogue:
                     UpdateDialogue();
                     break;
             }
         }
+        
+        void UpdateDialogue()
+        {
+            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
+        }
 
         #endregion
 
-        #region Update Methods
+        #region Public Methods
 
 
         public void OnAct(InputValue value)
@@ -72,18 +78,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             Act();
         }
 
-        void UpdateWorld()
+        public void StartInfoPointDialogue(InfoPoint infoPoint, QuestNode questNode)
         {
-            // if (Input.GetKeyDown(KeyCode.E) && nearbyAgent != null)
-            // {
-            //     // Start dialogue with LL
-            //     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
-            // }
-        }
-
-        void UpdateDialogue()
-        {
-            // if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
+            this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, infoPoint));
         }
 
         #endregion
@@ -96,7 +93,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (nearbyAgent != null)
             {
                 // Start dialogue with LL
-                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue());
+                QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent.ActorId);
+                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
             }
         }
 
@@ -112,15 +110,15 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             Layer = newLayer;
         }
 
-        IEnumerator CO_StartDialogue()
+        IEnumerator CO_StartDialogue(QuestNode questNode, InfoPoint infoPoint = null)
         {
+            bool isInfoPointMode = infoPoint != null;
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
-            nearbyAgent.LookAt(player.transform);
+            if (!isInfoPointMode) nearbyAgent.LookAt(player.transform);
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-            CameraManager.I.FocusDialogueCamOn(nearbyAgent.transform);
+            CameraManager.I.FocusDialogueCamOn(isInfoPointMode ? infoPoint.transform : nearbyAgent.transform);
             UIManager.I.dialogues.HideDialogueSignal();
-            QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent.ActorId);
             if (questNode == null)
                 Debug.LogError("QuestNode is NULL, shouldn't happen");
             else

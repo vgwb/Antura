@@ -72,11 +72,13 @@ namespace Antura.Minigames.DiscoverCountry
         
         void OnStartDialogue()
         {
+            btAct.gameObject.SetActive(true);
             foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(false);
         }
         
         void OnCloseDialogue()
         {
+            if (InteractionManager.I.nearbyAgent == null) btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(true);
         }
 

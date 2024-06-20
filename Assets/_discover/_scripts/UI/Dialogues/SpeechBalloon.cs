@@ -13,7 +13,7 @@ namespace Antura.Minigames.DiscoverCountry
             showTween = this.transform.DOScale(0, 0.5f).From().SetAutoKill(false).Pause()
                 .SetEase(Ease.OutBack)
                 .OnComplete(() => {
-                    bt.interactable = currNode.Type == HomerNode.NodeType.TEXT;
+                    bt.interactable = true;
                 })
                 .OnRewind(() => {
                     icoContinueTween.Rewind();
