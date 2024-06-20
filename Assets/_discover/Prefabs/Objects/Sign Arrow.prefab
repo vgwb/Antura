@@ -94,6 +94,7 @@ GameObject:
   - component: {fileID: 3538664954075531438}
   - component: {fileID: 8488535572932029399}
   - component: {fileID: 8105765474568195801}
+  - component: {fileID: 7299343778163664838}
   m_Layer: 0
   m_Name: mesh
   m_TagString: Untagged
@@ -123,7 +124,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5038365561796146602}
-  m_Mesh: {fileID: 4300000, guid: 200f1ecc2df845742b3b7f584bac9f22, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 51d7ee40e97444a9c80fe3b0d3bc0f69, type: 2}
 --- !u!23 &8105765474568195801
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -166,6 +167,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &7299343778163664838
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5038365561796146602}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7352314, y: 0.16448204, z: 0.584563}
+  m_Center: {x: -0.007030487, y: -0.028462432, z: 0.2998802}
 --- !u!1 &6200834178807133525
 GameObject:
   m_ObjectHideFlags: 0
@@ -194,7 +216,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2.585011, y: 0, z: 14.762902}
-  m_LocalScale: {x: 6, y: 6, z: 6}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3538664954075531438}
@@ -221,8 +243,8 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 1, y: 1, z: 1}
-  m_Center: {x: 0, y: 0.5, z: 0}
+  m_Size: {x: 1.137538, y: 0.94598794, z: 0.9467926}
+  m_Center: {x: 0.0020165443, y: 0.47299397, z: -0.06634903}
 --- !u!114 &2626795165514183687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -420,7 +442,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 1
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0.017658208, z: 0, w: -0.009306556}
+  m_margin: {x: 0, y: 0.017658208, z: -0.049263, w: -0.009306556}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

@@ -6,6 +6,13 @@ using UnityEngine;
 
 namespace Antura.Homer
 {
+    public struct QuestElement
+    {
+        public string Content;
+        public string ContentNative;
+        public string AudioId;
+    }
+
     public class QuestNode
     {
         public HomerNode.NodeType Type;
