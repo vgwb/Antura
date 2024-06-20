@@ -111,6 +111,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         IEnumerator CO_StartDialogue()
         {
             ChangeLayer(InteractionLayer.Dialogue);
+            DiscoverNotifier.Game.OnStartDialogue.Dispatch();
             nearbyAgent.LookAt(player.transform);
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             CameraManager.I.FocusDialogueCamOn(nearbyAgent.transform);

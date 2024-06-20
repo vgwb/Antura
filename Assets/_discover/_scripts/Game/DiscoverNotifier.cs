@@ -10,6 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static class Game
         {
+            /// <summary>Dispatched when the a dialogue starts, before its UI even appears</summary>
+            public static readonly ActionEvent OnStartDialogue = new("DialoguesUI.OnStartDialogue");
             /// <summary>Dispatched when the dialogue UI closes</summary>
             public static readonly ActionEvent OnCloseDialogue = new("DialoguesUI.OnCloseDialogue");
             /// <summary>When an Agent's collider OnTriggerEnter is entered</summary>
