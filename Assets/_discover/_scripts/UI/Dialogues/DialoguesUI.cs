@@ -12,9 +12,9 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public enum DialogueType
         {
+            None,
             Text,
-            Choice,
-            Quiz
+            Choice
         }
 
         #region Serialized
@@ -36,6 +36,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         public bool IsOpen { get; private set; }
+        public DialogueType CurrDialogueType { get; private set; }
 
         QuestNode currNode;
         AbstractDialogueBalloon currBalloon;
@@ -52,6 +53,7 @@ namespace Antura.Minigames.DiscoverCountry
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
+            DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
         void OnDestroy()
@@ -60,6 +62,7 @@ namespace Antura.Minigames.DiscoverCountry
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
+            DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
         #endregion
@@ -93,6 +96,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (choices.IsOpen)
                 choices.Hide(choiceIndex);
             DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
+            CurrDialogueType = DialogueType.None;
         }
 
         #endregion
@@ -113,12 +117,14 @@ namespace Antura.Minigames.DiscoverCountry
             switch (node.Type)
             {
                 case HomerNode.NodeType.TEXT:
+                    CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
                     // yield return new WaitForSeconds(0.2f);
                     image = node.GetImage();
                     if (image != null) postcard.Show(image);
                     break;
                 case HomerNode.NodeType.CHOICE:
+                    CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                     {
                         currBalloon.Show(node);
@@ -131,6 +137,7 @@ namespace Antura.Minigames.DiscoverCountry
                     break;
                 default:
                     IsOpen = false;
+                    CurrDialogueType = DialogueType.None;
                     Debug.LogError("DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type");
                     break;
             }
@@ -166,6 +173,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Callbacks
 
+        void OnActClicked()
+        {
+            if (CurrDialogueType == DialogueType.Text) Next();
+        }
+        
         void OnBalloonClicked()
         {
             Next();

@@ -12,7 +12,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public EdPlayer player;
         public EdAgent nearbyAgent;
-        Coroutine coStartDialogue;
+        Coroutine coChangeLayer, coStartDialogue;
 
         #region Unity
 
@@ -102,9 +102,13 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer)
-                return;
-
+            if (newLayer == Layer) return;
+            this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
+        }
+        IEnumerator CO_ChangeLayer(InteractionLayer newLayer)
+        {
+            Layer = InteractionLayer.Changing;
+            yield return null;
             Layer = newLayer;
         }
 
