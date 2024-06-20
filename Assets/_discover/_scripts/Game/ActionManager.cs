@@ -28,7 +28,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            Beam_Eiffel.SetActive(false);
+            //Beam_Eiffel.SetActive(false);
         }
 
         public void ShowNextTarget(string targetName)

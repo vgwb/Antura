@@ -9,8 +9,15 @@ namespace Antura.Minigames.DiscoverCountry
     public class EdAgent : MonoBehaviour
     {
         [Header("Homer")]
+        public bool IsInteractable;
         public HomerActors.Actors ActorId;
         public Action<GameObject> OnInteraction;
+
+        [Header("AI")]
+        public NavMeshAgent NavMeshAgent;
+
+        public Transform[] Waypoints;
+        private int sequentialWaypointIndex;
 
         public virtual void Start()
         {
@@ -19,19 +26,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnInteractionWith(GameObject otherGo)
         {
-            OnInteraction?.Invoke(otherGo);
-            QuestManager.I.OnInteract(ActorId);
-
+            if (IsInteractable)
+            {
+                OnInteraction?.Invoke(otherGo);
+                QuestManager.I.OnInteract(ActorId);
+            }
             // TESTING
             //if (!aiPaused) LookAt(otherGo.transform, stopWalking:true);
             //else StopLookAt();
         }
 
-        [Header("AI")]
-        public NavMeshAgent NavMeshAgent;
-
-        public Transform[] Waypoints;
-        private int sequentialWaypointIndex;
 
         public void StartMovement()
         {
@@ -75,9 +79,11 @@ namespace Antura.Minigames.DiscoverCountry
         public void StopLookAt()
         {
             aiPaused = false;
-            NavMeshAgent.enabled = true;
             if (Waypoints.Length > 0)
+            {
+                NavMeshAgent.enabled = true;
                 NavMeshAgent.SetDestination(Waypoints[sequentialWaypointIndex].position);
+            }
         }
     }
 }

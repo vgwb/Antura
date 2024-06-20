@@ -11,6 +11,8 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static int TOTAL_ITEMS_1 = 0;
+
     public static string AUDIO_ID = "";
 
     public static bool TEACHER_MET = false; 
@@ -24,7 +26,7 @@ public static class HomerVars {
 }
 
 public static class HomerActors {
-    public enum Actors {COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
+    public enum Actors {NPG_F = 6, NPG_M = 5, COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
 
 }
 
@@ -32,7 +34,6 @@ public static class HomerMeta {
 
     public enum IMAGE {}
     public enum NEXTTARGET {}
-    public enum AUDIO {}
     public enum ACTION {}
     public enum MOOD {NEUTRAL, HAPPY, VERY_HAPPY, SAD, ANGRY, AMAZED}
     public enum EXPRESSION {RELAXED, GRINNING, PENSIVE, FROWNING, CRYING, ENRAGED}
