@@ -10,13 +10,13 @@ namespace Antura.Minigames.DiscoverCountry
         public float amplify = 0.001f;
         public float sensitivity = 0.001f;
         public float zoomSpeed = 1f;
-        float distance = 1000;
-        float distanceTarget;
-        Vector2 mouse;
-        Vector2 mouseOnDown;
-        Vector2 rotation;
-        Vector2 target = new Vector2(Mathf.PI * 3 / 2, Mathf.PI / 6);
-        Vector2 targetOnDown;
+        public float distance = 1000;
+        public float distanceTarget;
+        public Vector2 mouse;
+        public Vector2 mouseOnDown;
+        public Vector2 rotation;
+        public Vector2 target = new Vector2(Mathf.PI * 3 / 2, Mathf.PI / 6);
+        public Vector2 targetOnDown;
 
         // Use this for initialization
         void Start()
@@ -25,7 +25,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         }
         bool down = false;
-        // Update is called once per frame
         void Update()
         {
             if (Input.touchCount > 0)

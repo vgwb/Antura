@@ -98,6 +98,7 @@ namespace Antura.Core
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.MiniGame, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Rewards, AppScene.AnturaSpace));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFrance));
 
             // Transitions that can register for a 'back' function
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.ReservedArea));
@@ -105,6 +106,9 @@ namespace Antura.Core
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.GameSelector));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.MiniGame));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.DiscoverCountry));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFrance));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverFrance, AppScene.DiscoverCountry));
         }
 
         /// <summary>
@@ -141,9 +145,10 @@ namespace Antura.Core
                 case AppScene.Home:
                     if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
                     {
-                        AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
-                        var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
-                        AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                        GoToScene(AppScene.DiscoverCountry);
+                        // AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        // var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        // AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
                     }
                     else
                     {
@@ -153,9 +158,10 @@ namespace Antura.Core
                 case AppScene.PlayerCreation:
                     if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
                     {
-                        AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
-                        var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
-                        AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                        GoToScene(AppScene.DiscoverCountry);
+                        // AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        // var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        // AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
                     }
                     else
                     {
@@ -376,6 +382,11 @@ namespace Antura.Core
         public void GoToMap(bool debugMode = false)
         {
             CustomGoTo(AppScene.Map, debugMode);
+        }
+
+        public void GoToCountryFrance(bool debugMode = false)
+        {
+            CustomGoTo(AppScene.DiscoverFrance, debugMode);
         }
 
         public void GoToEnding(bool debugMode = false)

@@ -21,6 +21,8 @@
         Ending = 13,
         DailyReward = 14,
         Kiosk = 16,
+        DiscoverCountry = 20,
+        DiscoverFrance = 21,
 
         NONE = 100
     }

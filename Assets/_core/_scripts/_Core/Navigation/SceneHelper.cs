@@ -42,6 +42,10 @@ namespace Antura.Core
                     return "app_DailyReward";
                 case AppScene.Kiosk:
                     return "app_Kiosk";
+                case AppScene.DiscoverCountry:
+                    return "DiscoverCountry";
+                case AppScene.DiscoverFrance:
+                    return "Discover_France";
                 default:
                     return "";
             }
@@ -82,6 +86,10 @@ namespace Antura.Core
                     return AppScene.DailyReward;
                 case "app_Kiosk":
                     return AppScene.Kiosk;
+                case "DiscoverCountry":
+                    return AppScene.DiscoverCountry;
+                case "Discover_France":
+                    return AppScene.DiscoverFrance;
                 default:
                     return AppScene.MiniGame;
             }
