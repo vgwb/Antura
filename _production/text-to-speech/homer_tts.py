@@ -49,7 +49,11 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
   save(audio, output_file)
 
 def process_csv(lang_code):
-  with open(f"csv/Antura-{lang_code}.csv", newline='', encoding='utf-8') as csvfile:
+  file_langcode = lang_code
+  # English is taken from EN column of the FR csv
+  if (lang_code == "EN"):
+    file_langcode = "FR"
+  with open(f"csv/Antura-{file_langcode}.csv", newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
     for row in reader:
       dialogue_text = row[lang_code]
@@ -68,6 +72,7 @@ if __name__ == "__main__":
     args = parse_arguments()
     if args.lang_code:
         process_csv(args.lang_code)
+        print("DONE!!")
     else:
         print("Error: You must provide the lang_code.")
         parser.print_help()
