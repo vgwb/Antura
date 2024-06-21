@@ -18,6 +18,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public GameObject TutorialElevator;
 
+        public GameObject WinFx;
+
         void Awake()
         {
             if (I == null)
