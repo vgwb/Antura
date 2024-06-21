@@ -8,6 +8,7 @@ using DG.Tweening;
 using Homer;
 using UnityEngine;
 using UnityEngine.UI;
+using Antura.Minigames.DiscoverCountry.Interaction;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -105,6 +106,11 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.timeScale = 2;
             showTween.PlayBackwards();
             DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
+            if (currNode.NextTarget != null)
+            {
+                ActionManager.I.CameraShowTarget(currNode.NextTarget);
+            }
+
         }
 
         #endregion

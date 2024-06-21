@@ -1,3 +1,4 @@
+using Antura.Minigames.DiscoverCountry.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,6 +8,8 @@ namespace Antura.Minigames.DiscoverCountry
     public class ActionManager : MonoBehaviour
     {
         public static ActionManager I;
+
+        public Transform Target_TutorialTreasure;
 
         public GameObject Beam_Eiffel;
         public GameObject Beam_NotreDame;
@@ -28,7 +31,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            //Beam_Eiffel.SetActive(false);
+            Beam_Eiffel.SetActive(false);
+        }
+
+        public void CameraShowTarget(string targetName)
+        {
+            InteractionManager.I.FocusCameraOn(Target_TutorialTreasure);
         }
 
         public void ShowNextTarget(string targetName)

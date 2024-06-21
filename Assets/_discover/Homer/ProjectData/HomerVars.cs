@@ -39,7 +39,7 @@ public static class HomerMeta {
     public enum MOOD {NEUTRAL, HAPPY, VERY_HAPPY, SAD, ANGRY, AMAZED}
     public enum EXPRESSION {RELAXED, GRINNING, PENSIVE, FROWNING, CRYING, ENRAGED}
     public enum BALLOON_TYPE {SPEECH, WHISPER, THOUGHT, SCREAM, SLEEP, SING_SONG}
-    public enum LOCATION {HOME, OUTSIDE, OFFICE, PARK, SEA, MOUNTAIN}
+    public enum LOCATION {}
     public enum CAMERA_DIRECTION {}
     public enum LIGHTINING {}
     public enum FLOW_STATE {IDEA, NOTES, DRAFT, EDITOR, FINAL}
