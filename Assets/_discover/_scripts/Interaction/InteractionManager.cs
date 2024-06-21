@@ -20,7 +20,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public bool IsUsingFocusView { get; private set; }
 
         public EdAgent nearbyAgent { get; private set; }
-        Coroutine coChangeLayer, coStartDialogue, coFocusCam;
+        int focusViewEnterFrame;
+        Coroutine coChangeLayer, coStartDialogue;
 
         #region Unity
 
@@ -55,6 +56,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnAgentTriggerEnter.Unsubscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
+            DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
         #endregion
@@ -77,17 +79,12 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void UpdateDialogue()
         {
             if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
+            if (IsUsingFocusView && Input.GetMouseButtonDown(0)) UnfocusCam();
         }
 
         #endregion
 
         #region Public Methods
-
-
-        public void OnAct(InputValue value)
-        {
-            Act();
-        }
 
         public void StartInfoPointDialogue(InfoPoint infoPoint, QuestNode questNode)
         {
@@ -96,7 +93,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public void FocusCameraOn(Transform target)
         {
-            this.RestartCoroutine(ref coFocusCam, CO_FocusCamOn(target));
+            IsUsingFocusView = true;
+            focusViewEnterFrame = Time.frameCount;
+            CameraManager.I.FocusCamOn(target);
+            CameraManager.I.ChangeCameraMode(CameraMode.Focus);
+            UIManager.I.gameObject.SetActive(false);
         }
 
         #endregion
@@ -105,6 +106,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Act()
         {
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) UnfocusCam();
             if (Layer != InteractionLayer.World) return;
             if (nearbyAgent != null)
             {
@@ -155,14 +157,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             UIManager.I.dialogues.CloseDialogue();
         }
 
-        IEnumerator CO_FocusCamOn(Transform target)
+        void UnfocusCam()
         {
-            IsUsingFocusView = true;
-            CameraManager.I.FocusCamOn(target);
-            CameraManager.I.ChangeCameraMode(CameraMode.Focus);
-            UIManager.I.gameObject.SetActive(false);
-            
-            while (!Input.GetMouseButtonDown(0)) yield return null;
             IsUsingFocusView = false;
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             UIManager.I.gameObject.SetActive(true);

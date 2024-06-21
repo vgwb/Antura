@@ -196,7 +196,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnActClicked()
         {
-            if (CurrDialogueType == DialogueType.Text)
+            if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
                 Next();
         }
 
