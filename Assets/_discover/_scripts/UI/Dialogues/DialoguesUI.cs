@@ -127,7 +127,8 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
-            while (InteractionManager.I.IsUsingFocusView) yield return null;
+            while (InteractionManager.I.IsUsingFocusView)
+                yield return null;
             Sprite image;
             SpeechCycle = true;
             switch (node.Type)
@@ -202,7 +203,7 @@ namespace Antura.Minigames.DiscoverCountry
         void OnBalloonClicked()
         {
             // Play/repeat alternate audio here
-            Debug.Log($"► Should play audio for main balloon");
+            // Debug.Log($"► Should play audio for main balloon");
             AudioManager.I.PlayDiscoverDialogue(
                  currNode.LocId,
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
@@ -214,12 +215,12 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Next(choiceIndex);
         }
-        
+
         void OnPostcardClicked(Sprite sprite)
         {
             postcardFocusView.Show(sprite);
         }
-        
+
         void OnPostcardFocusViewClicked()
         {
             postcardFocusView.Hide();
