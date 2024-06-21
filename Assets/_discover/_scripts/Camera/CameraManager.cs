@@ -30,6 +30,7 @@ namespace Antura.Minigames.DiscoverCountry
         float leaveMapTime;
         CameraMode cameraMode;
         DialogueCamera dialogueCam;
+        FocusCamera focusCam;
         MapCamera mapCam;
 
         #region Unity
@@ -54,6 +55,7 @@ namespace Antura.Minigames.DiscoverCountry
             StarterInput = FindObjectOfType<StarterAssetsInputs>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
+            focusCam = this.GetComponent<FocusCamera>();
             ChangeCameraMode(CameraMode.Player);
             
             DiscoverNotifier.Game.OnMapButtonToggled.Subscribe(OnMapButtonToggled);
@@ -116,11 +118,21 @@ namespace Antura.Minigames.DiscoverCountry
             CamController.Activate(cameraMode == CameraMode.Player);
             dialogueCam.Activate(cameraMode == CameraMode.Dialogue);
             mapCam.Activate(cameraMode == CameraMode.Map);
+            focusCam.Activate(cameraMode == CameraMode.Focus);
         }
 
         public void FocusDialogueCamOn(Transform target)
         {
             dialogueCam.SetTarget(target);
+        }
+
+        // For now this will be called only during dialogues
+        public void FocusCamOn(Transform target)
+        {
+            Vector3 toCamPos = dialogueCam.CineMain.transform.position;
+            toCamPos.y += focusCam.YOffset;
+            focusCam.CineMain.transform.position = toCamPos;
+            focusCam.SetTarget(target);
         }
 
         #endregion

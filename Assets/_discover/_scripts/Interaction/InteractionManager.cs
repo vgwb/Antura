@@ -7,12 +7,19 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 {
     public class InteractionManager : MonoBehaviour
     {
+        #region Serialized
+
+        public EdPlayer player;
+        // [Header("Debug References")]
+        // [SerializeField] Transform debugFocusTarget;
+
+        #endregion
+        
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
 
-        public EdPlayer player;
         public EdAgent nearbyAgent { get; private set; }
-        Coroutine coChangeLayer, coStartDialogue;
+        Coroutine coChangeLayer, coStartDialogue, coFocusCam;
 
         #region Unity
 
@@ -61,6 +68,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                     UpdateDialogue();
                     break;
             }
+            
+            // // DEBUG
+            // if (Input.GetKeyDown(KeyCode.Q)) FocusCameraOn(debugFocusTarget);
         }
         
         void UpdateDialogue()
@@ -81,6 +91,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public void StartInfoPointDialogue(InfoPoint infoPoint, QuestNode questNode)
         {
             this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, infoPoint));
+        }
+
+        public void FocusCameraOn(Transform target)
+        {
+            this.RestartCoroutine(ref coFocusCam, CO_FocusCamOn(target));
         }
 
         #endregion
@@ -137,6 +152,16 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
+        }
+
+        IEnumerator CO_FocusCamOn(Transform target)
+        {
+            CameraManager.I.FocusCamOn(target);
+            CameraManager.I.ChangeCameraMode(CameraMode.Focus);
+            UIManager.I.gameObject.SetActive(false);
+            while (!Input.GetMouseButtonDown(0)) yield return null;
+            CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
+            UIManager.I.gameObject.SetActive(true);
         }
 
         #endregion

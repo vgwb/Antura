@@ -120,6 +120,7 @@ GameObject:
   - component: {fileID: 8920996469554083315}
   - component: {fileID: 288706909089222361}
   - component: {fileID: 5518086750646737963}
+  - component: {fileID: 2617435436034988313}
   m_Layer: 0
   m_Name: Discover Cameras
   m_TagString: Untagged
@@ -219,6 +220,20 @@ MonoBehaviour:
   cineMain: {fileID: 8166982652764982939}
   zoomOutFactor: 125
   alignToPlayerCam: 0
+--- !u!114 &2617435436034988313
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 871988805559257101}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed089674de4b49c8944a39a0fc189b8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cineMain: {fileID: 8949929356995156494}
+  YOffset: 4
 --- !u!1 &2338504365239918445
 GameObject:
   m_ObjectHideFlags: 0
@@ -450,6 +465,7 @@ Transform:
   m_Children:
   - {fileID: 2695500429786643157}
   - {fileID: 8857367647254540548}
+  - {fileID: 2300513166328129596}
   - {fileID: 1519557290285375451}
   m_Father: {fileID: 3095188253238184365}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -733,3 +749,92 @@ MonoBehaviour:
       Wait: 1
       Time: 2
     Restrictions: 0
+--- !u!1 &8888110128879963417
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2300513166328129596}
+  - component: {fileID: 8949929356995156494}
+  - component: {fileID: 8139893654558365296}
+  m_Layer: 0
+  m_Name: Focus Cam
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2300513166328129596
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888110128879963417}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.090541825, y: -0.8246315, z: -0.13799599, w: -0.54105663}
+  m_LocalPosition: {x: 19.776648, y: 1.7948619, z: -50.383167}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 4416102472715644289}
+  m_LocalEulerAnglesHint: {x: 0, y: 219.23, z: 0}
+--- !u!114 &8949929356995156494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888110128879963417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 0
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20230301
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 90
+    OrthographicSize: 11.99
+    NearClipPlane: 0.01
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
+--- !u!114 &8139893654558365296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8888110128879963417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1e8b78ac948f05a46a6d8339a503172b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  LookAtOffset: {x: 0, y: 0, z: 0}
