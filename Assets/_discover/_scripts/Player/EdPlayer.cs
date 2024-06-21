@@ -1,4 +1,5 @@
-﻿using Antura.Dog;
+﻿using Antura.Audio;
+using Antura.Dog;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -133,7 +134,7 @@ namespace Antura.Minigames.DiscoverCountry
         private void Move()
         {
             bool isSprinting = _input.sprint;
-            
+
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed;
 
@@ -141,7 +142,8 @@ namespace Antura.Minigames.DiscoverCountry
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero) targetSpeed = 0.0f;
+            if (_input.move == Vector2.zero)
+                targetSpeed = 0.0f;
             else
             {
                 targetSpeed *= _input.move.magnitude;
@@ -223,9 +225,13 @@ namespace Antura.Minigames.DiscoverCountry
         private void JumpAndGravity()
         {
             if (Grounded)
+            {
                 anturaAnimation.animator.speed = 1f;
+            }
             else
+            {
                 anturaAnimation.animator.speed = 2f;
+            }
 
             if (Grounded)
             {
@@ -254,6 +260,7 @@ namespace Antura.Minigames.DiscoverCountry
                 // Jumps
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
+                    AudioManager.I.PlaySound(Sfx.CatMeow);
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                     _nCurrentJump = 1;
