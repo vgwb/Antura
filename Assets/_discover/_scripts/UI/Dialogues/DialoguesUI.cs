@@ -34,6 +34,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialogueChoices choices;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcard postcard;
+        [DeEmptyAlert]
+        [SerializeField] DialoguePostcardFocusView postcardFocusView;
 
         #endregion
 
@@ -52,10 +54,13 @@ namespace Antura.Minigames.DiscoverCountry
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
             speechBalloon.gameObject.SetActive(true);
+            postcardFocusView.Hide();
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
+            postcard.OnClicked.Subscribe(OnPostcardClicked);
+            postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
@@ -65,6 +70,8 @@ namespace Antura.Minigames.DiscoverCountry
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
+            postcard.OnClicked.Unsubscribe(OnPostcardClicked);
+            postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
@@ -200,6 +207,16 @@ namespace Antura.Minigames.DiscoverCountry
         void OnChoiceConfirmed(int choiceIndex)
         {
             Next(choiceIndex);
+        }
+        
+        void OnPostcardClicked(Sprite sprite)
+        {
+            postcardFocusView.Show(sprite);
+        }
+        
+        void OnPostcardFocusViewClicked()
+        {
+            postcardFocusView.Hide();
         }
 
         #endregion
