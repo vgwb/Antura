@@ -31,9 +31,6 @@ namespace Antura.Homer
         // image to be loaded from resources
         public string Image => GetMetadata("IMAGE");
 
-        // audio id to be player as voiceover (language to be added)
-        public string Audio => GetMetadata("AUDIO");
-
         // if a special method needs to be triggered in the scene
         public string Action => GetMetadata("ACTION");
 

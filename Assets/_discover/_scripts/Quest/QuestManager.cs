@@ -64,10 +64,9 @@ namespace Antura.Minigames.DiscoverCountry
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
-
         public void OnInteract(HomerActors.Actors ActorId)
         {
-            Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
+            //            Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
             string talk_action = "TALK_" + ActorId.ToString();
 
             var answers = new List<QuestNode>();
@@ -134,7 +133,6 @@ namespace Antura.Minigames.DiscoverCountry
             nodeInfo += "\nLocId: " + questNode.LocId;
             nodeInfo += "\nAction: " + questNode.Action;
             nodeInfo += "\nMood: " + questNode.Mood;
-            nodeInfo += "\nAudio: " + questNode.Audio;
             nodeInfo += "\nNextTarget: " + questNode.NextTarget;
             Debug.Log("QuestNode INFO: " + nodeInfo);
         }
