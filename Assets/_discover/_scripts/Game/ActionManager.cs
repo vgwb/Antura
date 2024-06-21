@@ -16,6 +16,8 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Beam_Louvre;
         public GameObject Beam_Baguette;
 
+        public GameObject TutorialElevator;
+
         void Awake()
         {
             if (I == null)
@@ -44,6 +46,14 @@ namespace Antura.Minigames.DiscoverCountry
             Beam_Eiffel.SetActive(true);
         }
 
+        public void ResolveAction(string action)
+        {
+            Debug.Log("ResolveAction" + action);
+            if (action == "tutorial_elevator")
+            {
+                TutorialElevator.GetComponent<MovingPlatform>().Activate(true);
+            }
+        }
 
     }
 }

@@ -329,6 +329,7 @@ MonoBehaviour:
   Beam_NotreDame: {fileID: 8129699339529423316}
   Beam_Louvre: {fileID: 8634284429808317248}
   Beam_Baguette: {fileID: 8169301037481667564}
+  TutorialElevator: {fileID: 8633535707822640214}
 --- !u!1 &4985426018006344035
 GameObject:
   m_ObjectHideFlags: 0
@@ -3433,6 +3434,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def632b5963504e469243783bf89334a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActivated: 0
   speed: 2
   distance: 5
 --- !u!1001 &7754830656933566376
@@ -4165,7 +4167,7 @@ PrefabInstance:
     - target: {fileID: 899428459418414007, guid: e5f4daf24146ee040b5a2d7a73b30aa0,
         type: 3}
       propertyPath: m_Name
-      value: moveable
+      value: tutorial_elevator
       objectReference: {fileID: 0}
     - target: {fileID: 8718778828885884488, guid: e5f4daf24146ee040b5a2d7a73b30aa0,
         type: 3}
@@ -4250,6 +4252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: def632b5963504e469243783bf89334a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsActivated: 0
   speed: 2
   distance: 6
 --- !u!1001 &8952183683212636385

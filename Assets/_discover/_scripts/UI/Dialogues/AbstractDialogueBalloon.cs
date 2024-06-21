@@ -96,6 +96,10 @@ namespace Antura.Minigames.DiscoverCountry
             );
             SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
+            if (currNode.Action != null)
+            {
+                ActionManager.I.ResolveAction(currNode.Action);
+            }
         }
 
         public void Hide()
@@ -109,6 +113,10 @@ namespace Antura.Minigames.DiscoverCountry
             if (currNode.NextTarget != null)
             {
                 ActionManager.I.CameraShowTarget(currNode.NextTarget);
+            }
+            if (currNode.ActionPost != null)
+            {
+                ActionManager.I.ResolveAction(currNode.ActionPost);
             }
 
         }
