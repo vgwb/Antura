@@ -10,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
         public static ActionManager I;
 
         public Transform Target_TutorialTreasure;
+        public Transform Target_Eiffel;
 
         public GameObject Beam_Eiffel;
         public GameObject Beam_NotreDame;
@@ -40,12 +41,23 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void CameraShowTarget(string targetName)
         {
-            InteractionManager.I.FocusCameraOn(Target_TutorialTreasure);
+            switch (targetName)
+            {
+                case "tutorial":
+                    InteractionManager.I.FocusCameraOn(Target_TutorialTreasure);
+                    break;
+                case "toureiffel":
+                    InteractionManager.I.FocusCameraOn(Target_Eiffel);
+                    Beam_Eiffel.SetActive(true);
+                    break;
+                default:
+                    break;
+            }
         }
 
         public void ShowNextTarget(string targetName)
         {
-            Beam_Eiffel.SetActive(true);
+
         }
 
         public void ResolveAction(string action)
