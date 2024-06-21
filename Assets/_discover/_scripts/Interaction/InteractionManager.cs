@@ -17,6 +17,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
+        public bool IsUsingFocusView { get; private set; }
 
         public EdAgent nearbyAgent { get; private set; }
         Coroutine coChangeLayer, coStartDialogue, coFocusCam;
@@ -156,10 +157,13 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         IEnumerator CO_FocusCamOn(Transform target)
         {
+            IsUsingFocusView = true;
             CameraManager.I.FocusCamOn(target);
             CameraManager.I.ChangeCameraMode(CameraMode.Focus);
             UIManager.I.gameObject.SetActive(false);
+            
             while (!Input.GetMouseButtonDown(0)) yield return null;
+            IsUsingFocusView = false;
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             UIManager.I.gameObject.SetActive(true);
         }

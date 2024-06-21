@@ -214,7 +214,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 currPivotEuler = camTarget.eulerAngles;
             currPivotEuler.y = camTargetOriginalParent.eulerAngles.y;
             Quaternion targetRot = Quaternion.Euler(currPivotEuler);
-            camTarget.rotation = Quaternion.Lerp(camTarget.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
+            camTarget.rotation = Quaternion.Slerp(camTarget.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
         }
 
         void UpdateMovementVector()

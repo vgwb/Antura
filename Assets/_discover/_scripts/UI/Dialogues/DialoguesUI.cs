@@ -6,6 +6,7 @@ using DG.DeInspektor.Attributes;
 using Homer;
 using System;
 using System.Collections;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
@@ -67,6 +68,8 @@ namespace Antura.Minigames.DiscoverCountry
         void OnDestroy()
         {
             this.StopAllCoroutines();
+            this.CancelCoroutine(ref coShowDialogue);
+            this.CancelCoroutine(ref coNext);
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
@@ -115,7 +118,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void ShowDialogueFor(QuestNode node)
         {
-            this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
+            // this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
+            CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }
 
         IEnumerator CO_ShowDialogueFor(QuestNode node)
@@ -123,6 +127,7 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
+            while (InteractionManager.I.IsUsingFocusView) yield return null;
             Sprite image;
             SpeechCycle = true;
             switch (node.Type)
@@ -160,7 +165,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Next(int choiceIndex = 0)
         {
-            this.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
+            // this.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
+            CoroutineRunner.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
         }
 
         IEnumerator CO_Next(int choiceIndex)
