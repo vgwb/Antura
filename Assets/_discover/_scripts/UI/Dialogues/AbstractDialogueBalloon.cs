@@ -94,6 +94,7 @@ namespace Antura.Minigames.DiscoverCountry
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;
+            DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
         }
 
         public void Hide()
@@ -103,6 +104,7 @@ namespace Antura.Minigames.DiscoverCountry
             bt.interactable = false;
             showTween.timeScale = 2;
             showTween.PlayBackwards();
+            DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
         }
 
         #endregion

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Reflection;
 using System.Text;
+using Antura.Homer;
 using Demigiant.DemiTools;
 using UnityEngine;
 
@@ -14,6 +15,10 @@ namespace Antura.Minigames.DiscoverCountry
             public static readonly ActionEvent OnStartDialogue = new("DialoguesUI.OnStartDialogue");
             /// <summary>Dispatched when the dialogue UI closes</summary>
             public static readonly ActionEvent OnCloseDialogue = new("DialoguesUI.OnCloseDialogue");
+            /// <summary>Dispatched when a main dialogue balloon opens</summary>
+            public static readonly ActionEvent<QuestNode> OnShowDialogueBalloon = new("DialoguesUI.OnShowDialogueBalloon");
+            /// <summary>Dispatched when a main dialogue balloon closes</summary>
+            public static readonly ActionEvent<QuestNode> OnCloseDialogueBalloon = new("DialoguesUI.OnCloseDialogueBalloon");
             /// <summary>When an Agent's collider OnTriggerEnter is entered</summary>
             public static readonly ActionEvent<EdAgent> OnAgentTriggerEnter = new("DiscoverNotifier.Game.OnAgentTriggerEnter");
             /// <summary>When an Agent's collider OnTriggerEnter is exited</summary>

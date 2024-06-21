@@ -66,7 +66,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Hide()
         {
-            Debug.Log("HIDE");
             active = false;
             currSprite = null;
             showTween.Complete();
