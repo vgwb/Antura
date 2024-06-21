@@ -1,3 +1,4 @@
+using System;
 using Antura.LivingLetters;
 using DG.DeExtensions;
 using UnityEngine;
@@ -9,7 +10,12 @@ namespace Antura.Minigames.DiscoverCountry
         None,
         Ribbon,
         PunkHair,
-        TubeHat
+        TubeHat,
+        Guard,
+        Wizard,
+        Guide,
+        Cook,
+        Tutor
     }
 
     public class EdLivingLetter : EdAgent
@@ -25,6 +31,11 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject HeadProp_Ribbon;
         public GameObject HeadProp_PunkHair;
         public GameObject HeadProp_TubeHat;
+        public GameObject HeadProp_Guard;
+        public GameObject HeadProp_Wizard;
+        public GameObject HeadProp_Guide;
+        public GameObject Prop_Cook;
+        public GameObject Prop_Tutor;
 
         private ILivingLetterData letterData { get; set; }
 
@@ -54,6 +65,11 @@ namespace Antura.Minigames.DiscoverCountry
             HeadProp_Ribbon.SetActive(false);
             HeadProp_PunkHair.SetActive(false);
             HeadProp_TubeHat.SetActive(false);
+            HeadProp_Guard.SetActive(false);
+            HeadProp_Wizard.SetActive(false);
+            HeadProp_Guide.SetActive(false);
+            Prop_Cook.SetActive(false);
+            Prop_Tutor.SetActive(false);
 
             switch (propID)
             {
@@ -68,6 +84,23 @@ namespace Antura.Minigames.DiscoverCountry
                 case HeadPropID.TubeHat:
                     HeadProp_TubeHat.SetActive(choice);
                     break;
+                case HeadPropID.Guard:
+                    HeadProp_Guard.SetActive(choice);
+                    break;
+                case HeadPropID.Wizard:
+                    HeadProp_Wizard.SetActive(choice);
+                    break;
+                case HeadPropID.Guide:
+                    HeadProp_Guide.SetActive(choice);
+                    break;
+                case HeadPropID.Cook:
+                    Prop_Cook.SetActive(choice);
+                    break;
+                case HeadPropID.Tutor:
+                    Prop_Tutor.SetActive(choice);
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(propID), propID, null);
             }
         }
 
