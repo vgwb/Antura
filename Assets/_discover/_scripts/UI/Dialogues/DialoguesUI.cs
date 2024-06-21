@@ -1,9 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using Antura.Audio;
+using Antura.Core;
 using Antura.Homer;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using Homer;
+using System;
+using System.Collections;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
@@ -41,6 +43,7 @@ namespace Antura.Minigames.DiscoverCountry
         QuestNode currNode;
         AbstractDialogueBalloon currBalloon;
         Coroutine coShowDialogue, coNext;
+        bool SpeechCycle = false;
 
         #region Unity
 
@@ -114,6 +117,7 @@ namespace Antura.Minigames.DiscoverCountry
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
             Sprite image;
+            SpeechCycle = true;
             switch (node.Type)
             {
                 case HomerNode.NodeType.START:
@@ -122,7 +126,8 @@ namespace Antura.Minigames.DiscoverCountry
                     currBalloon.Show(node);
                     // yield return new WaitForSeconds(0.2f);
                     image = node.GetImage();
-                    if (image != null) postcard.Show(image);
+                    if (image != null)
+                        postcard.Show(image);
                     break;
                 case HomerNode.NodeType.CHOICE:
                     CurrDialogueType = DialogueType.Choice;
@@ -132,7 +137,8 @@ namespace Antura.Minigames.DiscoverCountry
                         // yield return new WaitForSeconds(0.2f);
                     }
                     image = node.GetImage();
-                    if (image != null) postcard.Show(image);
+                    if (image != null)
+                        postcard.Show(image);
                     yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
@@ -176,13 +182,19 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnActClicked()
         {
-            if (CurrDialogueType == DialogueType.Text) Next();
+            if (CurrDialogueType == DialogueType.Text)
+                Next();
         }
-        
+
         void OnBalloonClicked()
         {
             // Play/repeat alternate audio here
             Debug.Log($"► Should play audio for main balloon");
+            AudioManager.I.PlayDiscoverDialogue(
+                 currNode.LocId,
+                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
+            );
+            SpeechCycle = !SpeechCycle;
         }
 
         void OnChoiceConfirmed(int choiceIndex)
