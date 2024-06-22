@@ -11,18 +11,17 @@ namespace Homer {
 
 public static class HomerVars {
 
-    public static int TOTAL_ITEMS_1 = 0;
-
-    public static string AUDIO_ID = "";
-
-    public static bool TEACHER_MET = false; 
-
-    public enum ACTION_TYPE { OPEN_DOOR, CLOSE_DOOR };
-    public static string ACTION; 
+    public static int TOTAL_COINS = 0;
 
     public static string CMD = "";
 
-    public static int TOTAL_COINS = 0;
+    public static int TOTAL_ITEMS_1 = 0;
+
+    public static bool MET_GUIDE = false; 
+
+    public static bool MET_MAJOR = false; 
+
+    public static bool MET_TEACHER = false; 
 }
 
 public static class HomerActors {
