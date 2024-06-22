@@ -25,13 +25,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 113176}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &114000010424636218
 MonoBehaviour:
@@ -72,6 +72,7 @@ MonoBehaviour:
     recycle: 1
     fooVolume: 1
   fooGlobalVolume: 0.95
+  fooTimeScale: 1
   fadeEase: 1
   inspectorUpdater: 0
 --- !u!114 &11439158
@@ -528,6 +529,13 @@ MonoBehaviour:
     clips:
     - {fileID: 8300000, guid: bdf186b121c294535b8f1c26b3b94023, type: 3}
     volume: 1
+    randomPitchOffset: 0
+  - sfx: 74
+    clips:
+    - {fileID: 8300000, guid: 16e5ad6d228cb49f8aa3627e44c3be4d, type: 3}
+    - {fileID: 8300000, guid: 770f0e2d7e9fc4aa4a07b3f82b7a562d, type: 3}
+    - {fileID: 8300000, guid: 32b005a62f64e42a890331c974b5dc45, type: 3}
+    volume: 0.17
     randomPitchOffset: 0
   musicConfs:
   - music: 1

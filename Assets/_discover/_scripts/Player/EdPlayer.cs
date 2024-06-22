@@ -197,7 +197,6 @@ namespace Antura.Minigames.DiscoverCountry
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
-
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
             // move the player
@@ -221,16 +220,24 @@ namespace Antura.Minigames.DiscoverCountry
             //     _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             // }
         }
-
+        bool inAir;
+        bool justJumped;
         private void JumpAndGravity()
         {
             if (Grounded)
             {
                 anturaAnimation.animator.speed = 1f;
+                if (inAir)
+                {
+                    inAir = false;
+                    justJumped = false;
+                    AudioManager.I.PlaySound(Sfx.BushRustlingIn);
+                }
             }
             else
             {
                 anturaAnimation.animator.speed = 2f;
+                inAir = true;
             }
 
             if (Grounded)
@@ -260,7 +267,6 @@ namespace Antura.Minigames.DiscoverCountry
                 // Jumps
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f)
                 {
-                    AudioManager.I.PlaySound(Sfx.CatMeow);
                     // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                     _nCurrentJump = 1;
@@ -278,6 +284,12 @@ namespace Antura.Minigames.DiscoverCountry
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
+                }
+
+                if (_verticalVelocity > 0.0f && !justJumped)
+                {
+                    justJumped = true;
+                    AudioManager.I.PlaySound(Sfx.CatMeow);
                 }
             }
             else
