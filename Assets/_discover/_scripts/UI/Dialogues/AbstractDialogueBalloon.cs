@@ -114,6 +114,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 ActionManager.I.CameraShowTarget(currNode.NextTarget);
             }
+            //            Debug.Log("ACTION POST: " + currNode.ActionPost);
             if (currNode.ActionPost != null)
             {
                 ActionManager.I.ResolveAction(currNode.ActionPost);

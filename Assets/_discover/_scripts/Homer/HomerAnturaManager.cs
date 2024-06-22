@@ -157,7 +157,7 @@ namespace Antura.Homer
         public void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
             bool restart, string language = "EN")
         {
-            // SETUP :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // SETUP ::::::::::::::::::::::
             currentLanguage = language;
             HomerVars.CMD = command;
 
@@ -166,7 +166,7 @@ namespace Antura.Homer
             if (restart)
                 runningFlow.Restart();
 
-            // SEARCH CONTENT ::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+            // SEARCH CONTENT ::::::::::::::
 
             HomerNode homerNode = runningFlow.NextNode();
 

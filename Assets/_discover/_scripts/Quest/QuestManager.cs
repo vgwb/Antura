@@ -25,8 +25,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public string LanguageCode = "";
         private GameObject currentNPC;
-        private int total_coins = 0;
-        private int total_bones = 0;
+        public int total_coins = 0;
+        public int total_bones = 0;
+        public int total_items = 0;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         void Start()
@@ -80,14 +81,32 @@ namespace Antura.Minigames.DiscoverCountry
                             CurrentQuest.QuestId,
                             talk_action,
                             answers,
-                            true,
+                            restart: true,
                             LanguageCode
                             );
 
-            foreach (QuestNode questNode in answers)
-            {
-                DebugNodeInfo(questNode);
-            }
+            // foreach (QuestNode questNode in answers)
+            // {
+            //     DebugNodeInfo(questNode);
+            // }
+        }
+
+        public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
+        {
+            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
+            AudioManager.I.PlayDiscoverDialogue(
+                questNode.LocId,
+                Language.LanguageCode.french
+            );
+
+            // DebugNodeInfo(questNode);
+        }
+        public void OnCollectItem(GameObject go)
+        {
+            total_items++;
+            HomerVars.TOTAL_ITEMS_1 = total_items;
+            Destroy(go);
         }
 
         public void OnCollectBone(GameObject go)
@@ -107,21 +126,11 @@ namespace Antura.Minigames.DiscoverCountry
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
             coinsCounter.IncreaseByOne();
-            // Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
             Destroy(go);
         }
 
-        public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
-        {
-            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
-            InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
-            AudioManager.I.PlayDiscoverDialogue(
-                questNode.LocId,
-                Language.LanguageCode.french
-            );
 
-            DebugNodeInfo(questNode);
-        }
 
         private void DebugNodeInfo(QuestNode questNode)
         {

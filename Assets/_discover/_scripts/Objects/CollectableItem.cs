@@ -9,7 +9,8 @@ namespace Antura.Minigames.DiscoverCountry
         public enum CollectableType
         {
             bone = 1,
-            coin = 2
+            coin = 2,
+            item = 3
         }
 
         public CollectableType Type;
@@ -29,6 +30,10 @@ namespace Antura.Minigames.DiscoverCountry
             if (Type == CollectableType.bone)
             {
                 QuestManager.I.OnCollectBone(gameObject);
+            }
+            if (Type == CollectableType.item)
+            {
+                QuestManager.I.OnCollectItem(gameObject);
             }
             //Destroy(this);
         }

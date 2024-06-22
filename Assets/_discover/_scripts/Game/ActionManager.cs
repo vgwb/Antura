@@ -40,6 +40,9 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             Beam_Eiffel.SetActive(false);
+            Beam_NotreDame.SetActive(false);
+            Beam_Louvre.SetActive(false);
+            Beam_Bakery.SetActive(false);
         }
 
         public void CameraShowTarget(string targetName)
@@ -77,7 +80,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ResolveAction(string action)
         {
-            //            Debug.Log("ResolveAction" + action);
+            Debug.Log("ResolveAction" + action);
             switch (action)
             {
                 case "updatecoins":
@@ -89,9 +92,9 @@ namespace Antura.Minigames.DiscoverCountry
                 case "eiffel_elevator":
                     break;
                 case "game_end":
-                    InteractionManager.I.FocusCameraOn(Target_Eiffel);
                     WinFx.SetActive(true);
                     WinFx.GetComponent<ParticleSystem>().Play();
+                    InteractionManager.I.FocusCameraOn(Target_Eiffel);
                     break;
             }
 
