@@ -1,3 +1,4 @@
+using Antura.Audio;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using System.Collections;
 using System.Collections.Generic;
@@ -94,7 +95,8 @@ namespace Antura.Minigames.DiscoverCountry
                 case "game_end":
                     WinFx.SetActive(true);
                     WinFx.GetComponent<ParticleSystem>().Play();
-                    InteractionManager.I.FocusCameraOn(Target_Eiffel);
+                    //InteractionManager.I.FocusCameraOn(Target_Eiffel);
+                    AudioManager.I.PlaySound(Sfx.Win);
                     break;
             }
 
