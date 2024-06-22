@@ -9,6 +9,7 @@ using Antura.Homer;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using Antura.Utilities;
 using Antura.UI;
+using Antura.Language;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -20,6 +21,9 @@ namespace Antura.Minigames.DiscoverCountry
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
 
+        public bool DebugEnglish = false;
+
+        public string LanguageCode = "";
         private GameObject currentNPC;
         private int total_coins = 0;
         private int total_bones = 0;
@@ -29,6 +33,14 @@ namespace Antura.Minigames.DiscoverCountry
         {
             HomerAnturaManager.I.Setup();
             total_coins = 0;
+            if (DebugEnglish)
+            {
+                LanguageCode = "EN";
+            }
+            else
+            {
+                LanguageCode = "FR";
+            }
 
             var answers = new List<QuestNode>();
 
@@ -37,19 +49,13 @@ namespace Antura.Minigames.DiscoverCountry
                             "INIT",
                             answers,
                             true,
-                            "FR"
+                            LanguageCode
                             );
 
-            foreach (QuestNode questNode in answers)
-            {
-                DebugNodeInfo(questNode);
-            }
-
-            // AudioManager.I.PlayDiscoverDialogue(
-            //     "NODEL-a8afc7ca-5911-431d-b0c9-1713862706608",
-            //     Language.LanguageCode.arabic
-            // );
-
+            // foreach (QuestNode questNode in answers)
+            // {
+            //     DebugNodeInfo(questNode);
+            // }
         }
 
         /// <summary>
@@ -60,7 +66,7 @@ namespace Antura.Minigames.DiscoverCountry
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
             string command = $"TALK_{actorId.ToString()}";
             tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, "FR");
+            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
@@ -75,7 +81,7 @@ namespace Antura.Minigames.DiscoverCountry
                             talk_action,
                             answers,
                             true,
-                            "FR"
+                            LanguageCode
                             );
 
             foreach (QuestNode questNode in answers)
@@ -92,6 +98,10 @@ namespace Antura.Minigames.DiscoverCountry
             Destroy(go);
         }
 
+        public void UpateCoinsCounter()
+        {
+            coinsCounter.SetValue(HomerVars.TOTAL_COINS);
+        }
         public void OnCollectCoin(GameObject go)
         {
             total_coins++;
