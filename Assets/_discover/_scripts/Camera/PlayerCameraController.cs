@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Antura.Core;
+using System;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using DG.Tweening;
@@ -94,6 +95,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         bool mouseLookActive = false;
         Vector2 mouseOffset = Vector2.zero;
+        Vector2 lookOffset = Vector2.zero;
         bool touchLookActive;
         bool manualRotate;
         void Update()
@@ -104,17 +106,20 @@ namespace Antura.Minigames.DiscoverCountry
                 if (interactionLayer == InteractionLayer.Movement)
                 {
                     mouseLookActive = false;
-                    mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                    if (Input.mousePosition.y > Screen.height / 2f)
+                    if (AppConfig.IsDesktopPlatform())
                     {
-                        mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
+                        mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
+                        if (Input.mousePosition.y > Screen.height / 2f)
+                        {
+                            mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
+                        }
                     }
 
                     touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
                     manualRotate = mouseLookActive || touchLookActive;
                     if (manualRotate)
                     {
-                        Vector2 lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
+                        lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
                         UpdateManualRotation(lookOffset, mouseLookActive ? mouseRotationSpeed : touchRotationSpeed);
                     }
                     else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
