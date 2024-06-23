@@ -19,6 +19,7 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
   voice_mapping = {
     "Major": ("Dave", "eleven_multilingual_v1"),
     "Guide": ("Rachel", "eleven_multilingual_v2"),
+    "Museum Guide": ("Rachel", "eleven_multilingual_v2"),
     "Teacher": ("Charlotte", "eleven_multilingual_v1"),
     "Cook": ("Jessie", "eleven_multilingual_v1"),
   }
