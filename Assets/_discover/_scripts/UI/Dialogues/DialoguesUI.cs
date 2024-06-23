@@ -118,6 +118,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void ShowDialogueFor(QuestNode node)
         {
+            Debug.Log("TOTAL ECONS " + HomerVars.TOTAL_COINS);
             // this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
             CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }

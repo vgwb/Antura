@@ -106,16 +106,19 @@ namespace Antura.Minigames.DiscoverCountry
                 if (interactionLayer == InteractionLayer.Movement)
                 {
                     mouseLookActive = false;
-                    if (AppConfig.IsDesktopPlatform())
+                    if (Application.isEditor || AppConfig.IsDesktopPlatform())
                     {
                         mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        if (Input.mousePosition.y > Screen.height / 2f)
-                        {
-                            mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
-                        }
+                        // if (Input.mousePosition.y > Screen.height / 2f)
+                        // {
+                        mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
+                        // }
                     }
-
-                    touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
+                    touchLookActive = false;
+                    if (AppConfig.IsMobilePlatform())
+                    {
+                        touchLookActive = CameraManager.I.StarterInput.look != Vector2.zero;
+                    }
                     manualRotate = mouseLookActive || touchLookActive;
                     if (manualRotate)
                     {

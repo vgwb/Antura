@@ -18,6 +18,7 @@ namespace Antura.Minigames.DiscoverCountry
     [CreateAssetMenu(menuName = "Antura/Quest Data")]
     public class QuestData : ScriptableObject
     {
+        public bool Active;
         public string Title;
         public HomerFlowSlugs.FlowSlug QuestId;
 

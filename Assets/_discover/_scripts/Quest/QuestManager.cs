@@ -126,7 +126,7 @@ namespace Antura.Minigames.DiscoverCountry
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
             coinsCounter.IncreaseByOne();
-            //            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+            Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
             Destroy(go);
         }
 

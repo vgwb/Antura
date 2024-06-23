@@ -16,12 +16,21 @@ namespace Antura.Minigames.DiscoverCountry
         public Transform Target_Louvre;
         public Transform Target_Bakery;
 
+        public GameObject Beam_Tutorial;
         public GameObject Beam_Eiffel;
         public GameObject Beam_NotreDame;
         public GameObject Beam_Louvre;
         public GameObject Beam_Bakery;
 
+        public GameObject Area_Tutorial;
+        public GameObject Area_Eiffel;
+        public GameObject Area_NotreDame;
+        public GameObject Area_Louvre;
+        public GameObject Area_Bakery;
+
         public GameObject TutorialElevator;
+        public GameObject Eiffel_Guide;
+        public GameObject NotreDame_Major;
 
         public GameObject WinFx;
 
@@ -40,10 +49,20 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
+            Area_Tutorial.SetActive(false);
+            Area_Eiffel.SetActive(false);
+            Area_NotreDame.SetActive(false);
+            Area_Louvre.SetActive(false);
+            Area_Bakery.SetActive(false);
+
+            Beam_Tutorial.SetActive(false);
             Beam_Eiffel.SetActive(false);
             Beam_NotreDame.SetActive(false);
             Beam_Louvre.SetActive(false);
             Beam_Bakery.SetActive(false);
+
+            Eiffel_Guide.SetActive(true);
+            NotreDame_Major.SetActive(true);
         }
 
         public void CameraShowTarget(string targetName)
@@ -87,10 +106,23 @@ namespace Antura.Minigames.DiscoverCountry
                 case "updatecoins":
                     QuestManager.I.UpateCoinsCounter();
                     break;
-                case "tutorial_elevator":
+                case "area_tutorial":
+                    Area_Tutorial.SetActive(true);
                     TutorialElevator.GetComponent<MovingPlatform>().Activate(true);
                     break;
-                case "eiffel_elevator":
+                case "area_eiffel":
+                    Area_Eiffel.SetActive(true);
+                    Eiffel_Guide.SetActive(true);
+                    break;
+                case "area_notredame":
+                    Area_NotreDame.SetActive(true);
+                    NotreDame_Major.SetActive(false);
+                    break;
+                case "area_louvre":
+                    Area_Louvre.SetActive(true);
+                    break;
+                case "area_bakery":
+                    Area_Bakery.SetActive(true);
                     break;
                 case "game_end":
                     WinFx.SetActive(true);
