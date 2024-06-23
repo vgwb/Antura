@@ -37,6 +37,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Transform Spawn_Louvre_Exit;
 
         public GameObject WinFx;
+        public GameObject AnturaDog;
 
         void Awake()
         {
@@ -67,6 +68,8 @@ namespace Antura.Minigames.DiscoverCountry
 
             Eiffel_Guide.SetActive(true);
             NotreDame_Major.SetActive(true);
+
+            AnturaDog.SetActive(false);
         }
 
         public void CameraShowTarget(string targetName)
@@ -133,11 +136,13 @@ namespace Antura.Minigames.DiscoverCountry
                     WinFx.GetComponent<ParticleSystem>().Play();
                     //InteractionManager.I.FocusCameraOn(Target_Eiffel);
                     AudioManager.I.PlaySound(Sfx.Win);
+                    AnturaDog.SetActive(true);
                     break;
                 case "louvre_exit":
                     Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Exit);
                     break;
                 case "louvre_enter":
+                    Area_Louvre.SetActive(true);
                     Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Enter);
                     break;
             }

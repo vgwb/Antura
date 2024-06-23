@@ -11,6 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("Homer")]
         public bool IsInteractable;
         public HomerActors.Actors ActorId;
+        public string SubCommand = "";
         public Action<GameObject> OnInteraction;
 
         [Header("AI")]
@@ -29,7 +30,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (IsInteractable)
             {
                 OnInteraction?.Invoke(otherGo);
-                QuestManager.I.OnInteract(ActorId);
+                QuestManager.I.OnInteract(this);
             }
             // TESTING
             //if (!aiPaused) LookAt(otherGo.transform, stopWalking:true);

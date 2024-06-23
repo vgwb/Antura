@@ -62,24 +62,32 @@ namespace Antura.Minigames.DiscoverCountry
         /// <summary>
         /// Returns the correct quest node for the given actorID
         /// </summary>
-        public QuestNode GetQuestNode(HomerActors.Actors actorId)
+        public QuestNode GetQuestNode(EdAgent agent)
         {
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
-            string command = $"TALK_{actorId.ToString()}";
+            string command = "TALK_" + agent.ActorId.ToString();
+            if (agent.SubCommand != "")
+            {
+                command += "_" + agent.SubCommand;
+            }
             tmpQuestNodes.Clear();
             HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
-        public void OnInteract(HomerActors.Actors ActorId)
+        public void OnInteract(EdAgent agent)
         {
             //            Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
-            string talk_action = "TALK_" + ActorId.ToString();
+            string command = "TALK_" + agent.ActorId.ToString();
+            if (agent.SubCommand != "")
+            {
+                command += "_" + agent.SubCommand;
+            }
 
             var answers = new List<QuestNode>();
             HomerAnturaManager.I.GetContent(
                             CurrentQuest.QuestId,
-                            talk_action,
+                            command,
                             answers,
                             restart: true,
                             LanguageCode

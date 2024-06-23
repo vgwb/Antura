@@ -14,7 +14,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         // [SerializeField] Transform debugFocusTarget;
 
         #endregion
-        
+
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
         public bool IsUsingFocusView { get; private set; }
@@ -71,15 +71,17 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                     UpdateDialogue();
                     break;
             }
-            
+
             // // DEBUG
             // if (Input.GetKeyDown(KeyCode.Q)) FocusCameraOn(debugFocusTarget);
         }
-        
+
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
-            if (IsUsingFocusView && Input.GetMouseButtonDown(0)) UnfocusCam();
+            if (Input.GetKeyDown(KeyCode.Escape))
+                ExitDialogue();
+            if (IsUsingFocusView && Input.GetMouseButtonDown(0))
+                UnfocusCam();
         }
 
         #endregion
@@ -106,19 +108,26 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Act()
         {
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) UnfocusCam();
-            if (Layer != InteractionLayer.World) return;
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
+            {
+                UnfocusCam();
+            }
+            if (Layer != InteractionLayer.World)
+            {
+                return;
+            }
             if (nearbyAgent != null)
             {
                 // Start dialogue with LL
-                QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent.ActorId);
+                QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent);
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
             }
         }
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer) return;
+            if (newLayer == Layer)
+                return;
             this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
         }
         IEnumerator CO_ChangeLayer(InteractionLayer newLayer)
@@ -133,7 +142,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             bool isInfoPointMode = infoPoint != null;
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
-            if (!isInfoPointMode) nearbyAgent.LookAt(player.transform);
+            if (!isInfoPointMode)
+                nearbyAgent.LookAt(player.transform);
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             CameraManager.I.FocusDialogueCamOn(isInfoPointMode ? infoPoint.transform : nearbyAgent.transform);
             UIManager.I.dialogues.HideDialogueSignal();
