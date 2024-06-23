@@ -153,9 +153,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 0
-  canPush: 0
-  strength: 1.1
+    m_Bits: 1
+  canPush: 1
+  strength: 0.94
 --- !u!114 &6937420662406837792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -272,6 +272,7 @@ MonoBehaviour:
   jump: 0
   sprint: 0
   act: 0
+  map: 0
   analogMovement: 0
   cursorLocked: 0
   cursorInputForLook: 0
@@ -288,7 +289,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 4390398867187468687}
-  nearbyAgent: {fileID: 0}
 --- !u!1001 &262451133245991105
 PrefabInstance:
   m_ObjectHideFlags: 0
