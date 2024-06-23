@@ -5,7 +5,9 @@ from elevenlabs import play, save
 from elevenlabs.client import ElevenLabs
 
 client = ElevenLabs(
-  api_key="", # Defaults to ELEVEN_API_KEY
+  # api_key="", # Defaults to ELEVEN_API_KEY
+  # or use an environment variable!
+  api_key = os.getenv('ELEVEN_API_KEY')
 )
 
 def synthesize_speech(dialogue_text, language, actor, output_file):
@@ -25,7 +27,6 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
       model = "eleven_multilingual_v2",
     )
   elif actor == "Teacher":
-    return "Charlotte"
     audio = client.generate(
       text = dialogue_text,
       voice = "Charlotte",
@@ -71,6 +72,7 @@ def parse_arguments():
 if __name__ == "__main__":
     args = parse_arguments()
     if args.lang_code:
+        print("Please wait a few minutes...")
         process_csv(args.lang_code)
         print("DONE!!")
     else:
