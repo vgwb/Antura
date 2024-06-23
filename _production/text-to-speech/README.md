@@ -38,3 +38,6 @@ ceci est un message test pour entendre la qualité de cette voix synthétisée.
 Arabic
 هذه رسالة اختبارية لسماع جودة هذا الصوت المركب
 
+## Install
+pip install elevenlabs
+pip install tqdm
