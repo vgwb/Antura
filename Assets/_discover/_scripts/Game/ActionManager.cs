@@ -32,6 +32,10 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Eiffel_Guide;
         public GameObject NotreDame_Major;
 
+        public GameObject Player;
+        public Transform Spawn_Louvre_Enter;
+        public Transform Spawn_Louvre_Exit;
+
         public GameObject WinFx;
 
         void Awake()
@@ -129,6 +133,12 @@ namespace Antura.Minigames.DiscoverCountry
                     WinFx.GetComponent<ParticleSystem>().Play();
                     //InteractionManager.I.FocusCameraOn(Target_Eiffel);
                     AudioManager.I.PlaySound(Sfx.Win);
+                    break;
+                case "louvre_exit":
+                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Exit);
+                    break;
+                case "louvre_enter":
+                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Enter);
                     break;
             }
 

@@ -21,11 +21,11 @@ public static class HomerVars {
 
     public static bool MET_MAJOR = false; 
 
-    public static bool MET_TEACHER = false; 
+    public static bool MET_MONALISA = false; 
 }
 
 public static class HomerActors {
-    public enum Actors {NPG_F = 6, NPG_M = 5, COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
+    public enum Actors {MUSEUM_GUIDE = 7, NPG_F = 6, NPG_M = 5, COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}
 
 }
 

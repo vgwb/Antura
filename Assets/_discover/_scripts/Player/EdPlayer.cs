@@ -118,17 +118,14 @@ namespace Antura.Minigames.DiscoverCountry
             Move();
         }
 
-        private void LateUpdate()
-        {
-        }
-
+        Vector3 spherePosition;
         private void GroundedCheck()
         {
             // set sphere position, with offset
-            Vector3 spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset,
-                transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers,
-                QueryTriggerInteraction.Ignore);
+            spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
+            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+            // why this custom methid instead of using native:
+            // Grounded = _controller.isGrounded;
         }
 
         private void Move()
@@ -143,7 +140,9 @@ namespace Antura.Minigames.DiscoverCountry
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is no input, set the target speed to 0
             if (_input.move == Vector2.zero)
+            {
                 targetSpeed = 0.0f;
+            }
             else
             {
                 targetSpeed *= _input.move.magnitude;
@@ -334,6 +333,12 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
+        }
+
+        public void SpawnToNewLocation(Transform newLocation)
+        {
+            // TO DO MAYBE A TRANSITION?
+            transform.position = newLocation.position;
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
