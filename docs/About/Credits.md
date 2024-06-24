@@ -31,14 +31,12 @@ Francesco Cavallari
 **BRAND & RESEARCH DIRECTOR**  
 Prof. Dr. Emmanuel Guardiola (Cologne Game Lab)
 
-**R&D AND PRODUCTION**  
+**R&D, PRODUCTION AND ADDITIONAL GAME DESIGN**  
 Stefano Cecere
-
-**LOCALIZATION COORDINATOR AND PRODUCTION**  
-Chad Comeau  
 
 **PROGRAMMING**  
 Michele Pirovano  
+Stefano Cecere
 
 **ADDITIONAL PROGRAMMING**  
 Alejandro J. Zbrun  
@@ -54,11 +52,14 @@ Yadira Marin
 Cristina Segura Toro (Margarito Estudio)  
 Pierre Schlömp
 
-**VOICE RECORDING & EDITING**  
-Tabea Steinhauer
-
 **MUSIC, AUDIO DESIGN & FRENCH TRANSLATION**  
 Hamza Chioua
+
+**LOCALIZATION COORDINATOR AND PRODUCTION**  
+Chad Comeau  
+
+**VOICE RECORDING & EDITING**  
+Tabea Steinhauer
 
 **FRENCH VOICE ACTING**  
 Mouna Belgrini
