@@ -456,7 +456,7 @@ namespace Antura.Audio
                 return null;
             }
             var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
-            var sourcePath = new SourcePath(audio_id + ".mp3", "/Audio/Discover", langCode);
+            var sourcePath = new SourcePath(audio_id, "/Audio/Discover", langCode);
             var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
             if (callback != null)
             {
