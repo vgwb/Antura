@@ -30,6 +30,8 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] protected RectTransform numbox;
         [DeEmptyAlert]
+        [SerializeField] protected Image icoTranslation;
+        [DeEmptyAlert]
         [SerializeField] TMP_Text tfNumber;
         [DeEmptyAlert]
         [SerializeField] protected RectTransform bg, box, confirmBg, confirmArrow;

@@ -27,7 +27,8 @@ namespace Antura.Minigames.DiscoverCountry
                 .Join(box.DOAnchorMin(new Vector2(1, 0), duration).From().SetEase(Ease.OutBack))
                 .Join(bg.DOAnchorMax(new Vector2(0, 1), duration * 0.85f).From().SetEase(Ease.OutBack))
                 .Join(bg.DOAnchorPosX(400, duration * 0.85f).From().SetEase(Ease.OutBack))
-                .Insert(duration * 0.4f, numbox.DOScale(0, duration * 0.8f).From().SetEase(Ease.OutBounce));
+                .Insert(duration * 0.4f, numbox.DOScale(0, duration * 0.8f).From().SetEase(Ease.OutBounce))
+                .Insert(duration * 0.4f, icoTranslation.transform.DOScale(0, duration * 0.8f).From().SetEase(Ease.OutBounce));
         }
         
         protected override Sequence CreateHoverTween()
@@ -46,7 +47,8 @@ namespace Antura.Minigames.DiscoverCountry
                 .Join(tf.transform.DOScale(1 / scale, duration).SetEase(Ease.OutBack))
                 .Join(bg.DOScale(scale, duration * 0.75f).SetEase(Ease.OutBack))
                 .Join(btConfirm.GetComponent<RectTransform>().DOAnchorPosX(160, duration).From(true).SetEase(Ease.OutBack))
-                .Join(numbox.DOAnchorPos(new Vector2(100, 32), duration).SetRelative().SetEase(Ease.OutBack));
+                .Join(numbox.DOAnchorPos(new Vector2(100, 32), duration).SetRelative().SetEase(Ease.OutBack))
+                .Join(icoTranslation.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-100, -32), duration).SetRelative().SetEase(Ease.OutBack));
         }
 
         protected override void SetText(string text)

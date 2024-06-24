@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class SpeechBalloon : AbstractDialogueBalloon
+    public class Legacy_SpeechBalloon : AbstractDialogueBalloon
     {
         #region Methods
 
@@ -16,7 +16,6 @@ namespace Antura.Minigames.DiscoverCountry
                     bt.interactable = true;
                 })
                 .OnRewind(() => {
-                    icoContinueTween.Rewind();
                     this.gameObject.SetActive(false);
                 });
         }

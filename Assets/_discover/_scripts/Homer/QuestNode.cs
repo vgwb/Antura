@@ -43,6 +43,9 @@ namespace Antura.Homer
         // if a pin / direction should be higlighted in scene / minimap
         public string NextTarget => GetMetadata("NEXTTARGET");
 
+        public bool IsDialogueNode => Type == HomerNode.NodeType.TEXT || Type == HomerNode.NodeType.START;
+        public bool IsChoiceNode => Type == HomerNode.NodeType.CHOICE;
+
         private string GetMetadata(string kind)
         {
             foreach (var metaId in Metadata)

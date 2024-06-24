@@ -30,8 +30,6 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] NarratorBalloon narratorBalloon;
         [DeEmptyAlert]
-        [SerializeField] SpeechBalloon speechBalloon;
-        [DeEmptyAlert]
         [SerializeField] DialogueChoices choices;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcard postcard;
@@ -54,11 +52,10 @@ namespace Antura.Minigames.DiscoverCountry
         {
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
-            speechBalloon.gameObject.SetActive(true);
             postcardFocusView.Hide();
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
-            speechBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
+            narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
             postcard.OnClicked.Subscribe(OnPostcardClicked);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
@@ -71,7 +68,7 @@ namespace Antura.Minigames.DiscoverCountry
             this.CancelCoroutine(ref coShowDialogue);
             this.CancelCoroutine(ref coNext);
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
-            speechBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
+            narratorBalloon.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
             postcard.OnClicked.Unsubscribe(OnPostcardClicked);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
@@ -210,6 +207,11 @@ namespace Antura.Minigames.DiscoverCountry
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;
+        }
+
+        void OnBalloonContinueClicked()
+        {
+            Next();
         }
 
         void OnChoiceConfirmed(int choiceIndex)
