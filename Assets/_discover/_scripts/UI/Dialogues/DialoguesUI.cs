@@ -128,7 +128,15 @@ namespace Antura.Minigames.DiscoverCountry
             while (InteractionManager.I.IsUsingFocusView)
                 yield return null;
             Sprite image;
-            SpeechCycle = true;
+            if (node.Native)
+            {
+                SpeechCycle = false;
+            }
+            else
+            {
+                SpeechCycle = true;
+
+            }
             switch (node.Type)
             {
                 case HomerNode.NodeType.START:

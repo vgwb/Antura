@@ -86,10 +86,15 @@ namespace Antura.Minigames.DiscoverCountry
                 btContinue.gameObject.SetActive(false);
             }
 
-            //Debug.Log("QUI PLAYO LocId: " + node.LocId);
+            //            Debug.Log("QUI PLAYO SpeechCycle: " + SpeechCycle);
+            if (node.Native)
+            {
+                SpeechCycle = true;
+            }
+            Language.LanguageCode spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
-                 node.LocId,
-                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
+                node.LocId,
+                spokenLang
             );
             SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);

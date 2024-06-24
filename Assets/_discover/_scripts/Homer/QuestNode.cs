@@ -40,6 +40,8 @@ namespace Antura.Homer
         // well.. the mood
         public string Mood => GetMetadata("MOOD");
 
+        public bool Native => GetMetadata("NATIVE") == "native";
+
         // if a pin / direction should be higlighted in scene / minimap
         public string NextTarget => GetMetadata("NEXTTARGET");
 
