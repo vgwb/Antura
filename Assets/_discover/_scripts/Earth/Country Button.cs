@@ -6,18 +6,16 @@ using Antura.Core;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class DiscoverMenu : MonoBehaviour
+    public class CountryButton : MonoBehaviour
     {
         void Start()
         {
-
         }
 
         void Update()
         {
             if (Input.GetMouseButtonDown(0))
             {
-
                 RaycastHit hit;
                 Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -33,8 +31,7 @@ namespace Antura.Minigames.DiscoverCountry
         private void OnCubeClicked()
         {
             Debug.Log("Cube was clicked or tapped!");
-            AppManager.I.NavigationManager.GoToCountryFrance();
-            // Call any method you want here
+            EarthManager.I.SelectFrance();
         }
     }
 }

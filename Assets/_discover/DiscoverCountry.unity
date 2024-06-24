@@ -1484,6 +1484,7 @@ GameObject:
   - component: {fileID: 1276314360}
   - component: {fileID: 1276314359}
   - component: {fileID: 1276314358}
+  - component: {fileID: 1276314362}
   m_Layer: 5
   m_Name: Canvas UI
   m_TagString: Untagged
@@ -1574,6 +1575,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1276314362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1276314357}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2de6bc779225e49ed9fc5e8134bd9a5a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  MenuItemPrefab: {fileID: 7018029010785833623, guid: 0626bb03a87f641fba3bdb3240f18ecb,
+    type: 3}
+  Container: {fileID: 5371276580595778424}
+  QuestsData: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
 --- !u!1 &1415335253
 GameObject:
   m_ObjectHideFlags: 0
@@ -1872,6 +1889,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1705710303}
+  - component: {fileID: 1705710304}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1894,6 +1912,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1705710304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1705710302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1bf23b4572fa64d828dfd3dad7e2e0ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2020681215
 GameObject:
   m_ObjectHideFlags: 0
