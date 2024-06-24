@@ -16,11 +16,13 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] UIVirtualButton btAct;
         [DeEmptyAlert]
         [SerializeField] PlayerMapIcon playerMapIco;
+        [DeEmptyAlert]
+        [SerializeField] AnturaMapIcon anturaMapIco;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
         #endregion
-        
+
         public static UIManager I { get; private set; }
         public DialoguesUI dialogues { get; private set; }
 
@@ -41,6 +43,7 @@ namespace Antura.Minigames.DiscoverCountry
             dialogues.gameObject.SetActive(true);
             btAct.gameObject.SetActive(false);
             playerMapIco.gameObject.SetActive(true);
+            anturaMapIco.gameObject.SetActive(true);
         }
 
         void Start()
@@ -54,7 +57,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDestroy()
         {
-            if (I == this) I = null;
+            if (I == this)
+                I = null;
             this.StopAllCoroutines();
             DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
@@ -66,7 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Callbacks
-        
+
         void OnAgentTriggerEnter(EdAgent agent)
         {
             btAct.gameObject.SetActive(true);
@@ -76,28 +80,33 @@ namespace Antura.Minigames.DiscoverCountry
         {
             btAct.gameObject.SetActive(false);
         }
-        
+
         void OnStartDialogue()
         {
             btAct.gameObject.SetActive(true);
-            foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(false);
+            foreach (GameObject go in hideDuringDialogue)
+                go.gameObject.SetActive(false);
         }
-        
+
         void OnCloseDialogue()
         {
-            if (InteractionManager.I.nearbyAgent == null) btAct.gameObject.SetActive(false);
-            foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(true);
+            if (InteractionManager.I.nearbyAgent == null)
+                btAct.gameObject.SetActive(false);
+            foreach (GameObject go in hideDuringDialogue)
+                go.gameObject.SetActive(true);
         }
-        
+
         void OnMapCameraActivated(bool activated)
         {
             if (activated)
             {
                 playerMapIco.Show();
+                anturaMapIco.Show();
             }
             else
             {
                 playerMapIco.Hide();
+                anturaMapIco.Hide();
             }
         }
 

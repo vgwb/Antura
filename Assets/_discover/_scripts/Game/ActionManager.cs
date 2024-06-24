@@ -15,6 +15,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Transform Target_NotreDame;
         public Transform Target_Louvre;
         public Transform Target_Bakery;
+        public Transform Target_AnturaLocation;
 
         public GameObject Beam_Tutorial;
         public GameObject Beam_Eiffel;
@@ -65,6 +66,7 @@ namespace Antura.Minigames.DiscoverCountry
             Beam_NotreDame.SetActive(false);
             Beam_Louvre.SetActive(false);
             Beam_Bakery.SetActive(false);
+            Target_AnturaLocation = null;
 
             Eiffel_Guide.SetActive(true);
             NotreDame_Major.SetActive(true);
@@ -78,22 +80,27 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 case "tutorial":
                     InteractionManager.I.FocusCameraOn(Target_TutorialTreasure);
+                    Target_AnturaLocation = null;
                     break;
                 case "toureiffel":
                     InteractionManager.I.FocusCameraOn(Target_Eiffel);
                     Beam_Eiffel.SetActive(true);
+                    Target_AnturaLocation = Beam_Eiffel.transform;
                     break;
                 case "notredame":
                     InteractionManager.I.FocusCameraOn(Target_NotreDame);
                     Beam_NotreDame.SetActive(true);
+                    Target_AnturaLocation = Beam_NotreDame.transform;
                     break;
                 case "louvre":
                     InteractionManager.I.FocusCameraOn(Target_Louvre);
                     Beam_Louvre.SetActive(true);
+                    Target_AnturaLocation = Beam_Louvre.transform;
                     break;
                 case "bakery":
                     InteractionManager.I.FocusCameraOn(Target_Bakery);
                     Beam_Bakery.SetActive(true);
+                    Target_AnturaLocation = Beam_Bakery.transform;
                     break;
                 default:
                     break;
