@@ -28,7 +28,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void SelectFrance()
         {
-            AppManager.I.NavigationManager.GoToCountryFrance();
+            EarthUIManager.I.ShowCountry("france");
         }
 
         public void SelectQuest(QuestData questData)
