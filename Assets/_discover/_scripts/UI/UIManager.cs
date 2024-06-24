@@ -41,8 +41,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExit.Subscribe(OnAgentTriggerExit);
+            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Subscribe(OnAgentTriggerEnter);
+            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Subscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
         }
@@ -50,8 +50,8 @@ namespace Antura.Minigames.DiscoverCountry
         void OnDestroy()
         {
             if (I == this) I = null;
-            DiscoverNotifier.Game.OnAgentTriggerEnter.Unsubscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExit.Unsubscribe(OnAgentTriggerExit);
+            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
+            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
         }

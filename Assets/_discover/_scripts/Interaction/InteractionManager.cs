@@ -18,6 +18,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
         public bool IsUsingFocusView { get; private set; }
+        public bool HasValidNearbyAgent => nearbyAgent != null && nearbyAgent.gameObject.activeInHierarchy;
 
         public EdAgent nearbyAgent { get; private set; }
         int focusViewEnterFrame;
@@ -43,8 +44,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             //            player = FindObjectOfType<EdAntura>(true);
 
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnAgentTriggerEnter.Subscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExit.Subscribe(OnLivingLetterTriggerExit);
+            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Subscribe(OnAgentTriggerEnter);
+            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Subscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
@@ -54,8 +55,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 I = null;
             this.StopAllCoroutines();
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnAgentTriggerEnter.Unsubscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExit.Unsubscribe(OnLivingLetterTriggerExit);
+            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
+            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
@@ -67,6 +68,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             switch (Layer)
             {
+                case InteractionLayer.World:
+                    UpdateWorld();
+                    break;
                 case InteractionLayer.Dialogue:
                     UpdateDialogue();
                     break;
@@ -74,6 +78,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
             // // DEBUG
             // if (Input.GetKeyDown(KeyCode.Q)) FocusCameraOn(debugFocusTarget);
+        }
+
+        void UpdateWorld()
+        {
+            if (nearbyAgent != null && !HasValidNearbyAgent)
+            {
+                DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Dispatch(nearbyAgent);
+            }
         }
 
         void UpdateDialogue()
@@ -116,7 +128,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             {
                 return;
             }
-            if (nearbyAgent != null)
+            if (HasValidNearbyAgent)
             {
                 // Start dialogue with LL
                 QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent);
@@ -161,7 +173,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (nearbyAgent != null)
+            if (HasValidNearbyAgent)
                 UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
@@ -190,12 +202,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnAgentTriggerEnter(EdAgent ll)
         {
+            Debug.Log($"Enter {ll}", ll);
             nearbyAgent = ll;
             UIManager.I.dialogues.ShowDialogueSignalFor(nearbyAgent);
         }
 
-        void OnLivingLetterTriggerExit(EdAgent ll)
+        void OnAgentTriggerExit(EdAgent ll)
         {
+            Debug.Log($"Exit {ll} ({ll == nearbyAgent})", ll);
             if (nearbyAgent == ll)
             {
                 nearbyAgent = null;
