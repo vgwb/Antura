@@ -126,7 +126,7 @@ namespace Antura.Minigames.DiscoverCountry
                     break;
                 case "area_eiffel":
                     Area_Eiffel.SetActive(true);
-                    Eiffel_Guide.SetActive(true);
+                    Eiffel_Guide.SetActive(false);
                     break;
                 case "area_notredame":
                     Area_NotreDame.SetActive(true);

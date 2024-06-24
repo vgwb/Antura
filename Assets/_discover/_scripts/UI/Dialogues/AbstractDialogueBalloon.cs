@@ -86,7 +86,6 @@ namespace Antura.Minigames.DiscoverCountry
                 btContinue.gameObject.SetActive(false);
             }
 
-            //            Debug.Log("QUI PLAYO SpeechCycle: " + SpeechCycle);
             if (node.Native)
             {
                 SpeechCycle = true;
@@ -96,6 +95,7 @@ namespace Antura.Minigames.DiscoverCountry
                 node.LocId,
                 spokenLang
             );
+            // Debug.Log("Show Dialogue: LocId: " + node.LocId);
             SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             if (currNode.Action != null)

@@ -29,9 +29,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            Vector3 pos = ActionManager.I.Target_AnturaLocation.position;
-            pos.y = defY;
-            this.transform.position = pos;
+            if (ActionManager.I.Target_AnturaLocation != null)
+            {
+                Vector3 pos = ActionManager.I.Target_AnturaLocation.position;
+                pos.y = defY;
+                this.transform.position = pos;
+            }
         }
 
         #endregion
