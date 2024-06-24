@@ -1,4 +1,5 @@
-﻿using Antura.Minigames.DiscoverCountry.Interaction;
+﻿using System.Collections;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Canvas canvas;
         [DeEmptyAlert]
         [SerializeField] UIVirtualButton btAct;
+        [DeEmptyAlert]
+        [SerializeField] PlayerMapIcon playerMapIco;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -37,6 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
             canvas.gameObject.SetActive(true);
             dialogues.gameObject.SetActive(true);
             btAct.gameObject.SetActive(false);
+            playerMapIco.gameObject.SetActive(true);
         }
 
         void Start()
@@ -45,15 +49,18 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Subscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
+            DiscoverNotifier.Game.OnMapCameraActivated.Subscribe(OnMapCameraActivated);
         }
 
         void OnDestroy()
         {
             if (I == this) I = null;
+            this.StopAllCoroutines();
             DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
             DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
+            DiscoverNotifier.Game.OnMapCameraActivated.Unsubscribe(OnMapCameraActivated);
         }
 
         #endregion
@@ -80,6 +87,18 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (InteractionManager.I.nearbyAgent == null) btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue) go.gameObject.SetActive(true);
+        }
+        
+        void OnMapCameraActivated(bool activated)
+        {
+            if (activated)
+            {
+                playerMapIco.Show();
+            }
+            else
+            {
+                playerMapIco.Hide();
+            }
         }
 
         #endregion

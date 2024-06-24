@@ -47,6 +47,11 @@ namespace Antura.Minigames.DiscoverCountry
                     euler.y = playerCamEuler.y;
                     cineMain.transform.rotation = Quaternion.Euler(euler);
                 }
+                DiscoverNotifier.Game.OnMapCameraActivated.Dispatch(true);
+            }
+            else
+            {
+                DiscoverNotifier.Game.OnMapCameraActivated.Dispatch(false);
             }
         }
 
