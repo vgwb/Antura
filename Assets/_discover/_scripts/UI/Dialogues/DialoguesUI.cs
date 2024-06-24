@@ -145,8 +145,8 @@ namespace Antura.Minigames.DiscoverCountry
                     currBalloon.Show(node);
                     // yield return new WaitForSeconds(0.2f);
                     image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
+                    if (image != null) postcard.Show(image);
+                    else postcard.Hide();
                     break;
                 case HomerNode.NodeType.CHOICE:
                     CurrDialogueType = DialogueType.Choice;
@@ -156,8 +156,8 @@ namespace Antura.Minigames.DiscoverCountry
                         // yield return new WaitForSeconds(0.2f);
                     }
                     image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
+                    if (image != null) postcard.Show(image);
+                    else postcard.Hide();
                     yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
