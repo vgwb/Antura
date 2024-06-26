@@ -1,4 +1,4 @@
-# Pedagogy
+# Pedagogy
 
 ## Summary
 
