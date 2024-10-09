@@ -121,13 +121,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         /// <param name="target">Required only if activating, the target to follow</param>
         public void ActivateWorldTargetIcon(bool activate, Transform target = null)
         {
-            if (activate && target == null)
-            {
-                Debug.LogError("You can't call ActivateWorldTargetIcon(TRUE) without passing a Transform");
-                return;
-            }
-            
-            // TODO
+            UIManager.I.ActivateWorldTargetMarker(activate, target);
         }
 
         #endregion

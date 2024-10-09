@@ -18,6 +18,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] PlayerMapIcon playerMapIco;
         [DeEmptyAlert]
         [SerializeField] AnturaMapIcon anturaMapIco;
+        [DeEmptyAlert]
+        [SerializeField] TargetMarker targetMarker;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -44,6 +46,7 @@ namespace Antura.Minigames.DiscoverCountry
             btAct.gameObject.SetActive(false);
             playerMapIco.gameObject.SetActive(true);
             anturaMapIco.gameObject.SetActive(true);
+            targetMarker.gameObject.SetActive(true);
         }
 
         void Start()
@@ -65,6 +68,22 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnMapCameraActivated.Unsubscribe(OnMapCameraActivated);
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        public void ActivateWorldTargetMarker(bool activate, Transform target = null)
+        {
+            if (activate && target == null)
+            {
+                Debug.LogError("UIManager: you can't call ActivateWorldTargetIcon(TRUE) without passing a Transform");
+                return;
+            }
+            
+            if (activate) targetMarker.Show(target);
+            else targetMarker.Hide();
         }
 
         #endregion
