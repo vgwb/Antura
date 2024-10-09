@@ -105,6 +105,7 @@ namespace Antura.Minigames.DiscoverCountry
                 default:
                     break;
             }
+            if (Target_AnturaLocation != null) InteractionManager.I.ActivateWorldTargetIcon(true, Target_AnturaLocation);
         }
 
         public void ShowNextTarget(string targetName)

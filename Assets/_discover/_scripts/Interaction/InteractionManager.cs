@@ -114,6 +114,22 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             UIManager.I.gameObject.SetActive(false);
         }
 
+        /// <summary>
+        /// Activates the world icon for the light beam
+        /// </summary>
+        /// <param name="activate">TRUE to activate, FALSE otherwise</param>
+        /// <param name="target">Required only if activating, the target to follow</param>
+        public void ActivateWorldTargetIcon(bool activate, Transform target = null)
+        {
+            if (activate && target == null)
+            {
+                Debug.LogError("You can't call ActivateWorldTargetIcon(TRUE) without passing a Transform");
+                return;
+            }
+            
+            // TODO
+        }
+
         #endregion
 
         #region Methods
