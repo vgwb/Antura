@@ -10,17 +10,6 @@ using UnityEngine.Serialization;
 
 namespace Antura.Profile
 {
-    [Serializable]
-    public class ContentProfile
-    {
-        public string Uuid;
-        public string PlayerUuid;
-        public LearningContentID ContentID;
-        public JourneyPosition MaxJourneyPosition = JourneyPosition.InitialJourneyPosition;
-        public JourneyPosition CurrentJourneyPosition = JourneyPosition.InitialJourneyPosition;
-        public JourneyPosition PreviousJourneyPosition = JourneyPosition.InitialJourneyPosition;
-    }
-
     /// <summary>
     /// A Player Profile contains persistent data on details and on the progression status of a single player.
     /// </summary>
@@ -36,19 +25,18 @@ namespace Antura.Profile
         public Color HairColor;
         public Color BgColor;
         public bool IsDemoUser;
-        public bool HasFinishedTheGame;
-        public bool HasFinishedTheGameWithAllStars;
-        public bool HasMaxStarsInCurrentPlaySessions;
+        public bool HasFinishedTheGame; // TODO: Move out (now tied to the content)
+        public bool HasFinishedTheGameWithAllStars; // TODO: Move out (now tied to the content)
+        public bool HasMaxStarsInCurrentPlaySessions; // TODO: Move out (now tied to the content)
         public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
         public AppEditionID editionID;
-        public LearningContentID ContentID; // TODO: Move out
+        public LearningContentID ContentID; // @note: This will be updated with the selected content, so we know what to load / save
         public string AppVersion;
         public PetData PetData = new PetData();
+        public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;   // TODO: Move out (now tied to the content)
 
-        public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;
-
-        // TODO: Move out
+        // @note: Now part of the Content Profile
         private JourneyPosition maxJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition MaxJourneyPosition
         {
