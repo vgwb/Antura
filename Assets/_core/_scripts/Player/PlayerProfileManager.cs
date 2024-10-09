@@ -220,6 +220,11 @@ namespace Antura.Profile
 
         public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
         {
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // With inverted profiles, the saved players are taken regardless of the content ID
+                return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi)).ToList();
+            }
             return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi) && pl.contentID == contentID).ToList();
         }
 
