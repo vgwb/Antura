@@ -308,6 +308,39 @@ namespace Antura.Profile
 
         #endregion
 
+        #region Content Profile
+
+        public ContentProfile GetContentProfile(LearningContentID contentId)
+        {
+            var dataFromDB = AppManager.I.DB.GetContentProfileData(contentId);
+            if (dataFromDB == null)
+            {
+                // Not found, then create a new one instead
+                var newProfile = new ContentProfile();
+                newProfile.ContentID = contentId;
+                return newProfile;
+            }
+            return new ContentProfile().FromData(dataFromDB);
+        }
+
+        /// <summary>
+        /// Saves the content profile.
+        /// </summary>
+        /// <param name="_contentProfile">The content profile.</param>
+        public void SaveContentProfile(ContentProfile _contentProfile)
+        {
+            try
+            {
+                AppManager.I.DB.UpdateContentProfileData(_contentProfile.ToData());
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e);
+            }
+        }
+
+        #endregion
+
         #region Player Profile Deletion
 
         /// <summary>
