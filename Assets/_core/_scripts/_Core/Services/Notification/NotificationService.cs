@@ -55,7 +55,10 @@ namespace Antura.Core.Services.Notification
             // {
             //     Init();
             // }
-            NotificationsManager.DismissAllNotifications();
+            if (NotificationsManager.Initialized)
+            {
+                NotificationsManager.DismissAllNotifications();
+            }
         }
         #endregion
 
