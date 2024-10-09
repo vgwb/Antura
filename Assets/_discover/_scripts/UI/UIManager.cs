@@ -50,6 +50,7 @@ namespace Antura.Minigames.DiscoverCountry
             playerMapIco.gameObject.SetActive(true);
             anturaMapIco.gameObject.SetActive(true);
             targetMarker.gameObject.SetActive(true);
+            targetIndicator.gameObject.SetActive(true);
         }
 
         void Start()
