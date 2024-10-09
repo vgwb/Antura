@@ -29,6 +29,21 @@ namespace Antura.Minigames.DiscoverCountry
             public static readonly ActionEvent<bool> OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
             /// <summary>When the map camera is activated or deactivated</summary>
             public static readonly ActionEvent<bool> OnMapCameraActivated = new("DiscoverNotifier.Game.OnMapCameraActivated");
+
+            // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+            // ███ INTERNAL CLASSES ████████████████████████████████████████████████████████████████████████████████████████████████
+            // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
+
+            public static class Commands
+            {
+                /// <summary>
+                /// Requests the activation of the target icon that points towards a precise point in the light beam
+                /// Parameter: the transform where to place (and follow with) the target icon 
+                /// </summary>
+                public static readonly ActionEvent<Transform> ActivateTargetIcon = new("DiscoverNotifier.Game.Commands.ActivateTargetIcon");
+                /// <summary>Requests the deactivation of the target icon</summary>
+                public static readonly ActionEvent DeactivateTargetIcon = new("DiscoverNotifier.Game.Commands.DeactivateTargetIcon");
+            }
         }
         
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
