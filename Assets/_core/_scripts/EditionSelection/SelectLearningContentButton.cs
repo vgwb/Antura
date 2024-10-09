@@ -46,6 +46,23 @@ namespace Antura.UI
                 Flag.gameObject.SetActive(true);
                 // BookImage.color = Color.white;
             }
+
+            if (AppManager.PROFILE_INVERSION)
+            {
+                // Load the data tied to this, if exists
+                var contentID = editionConfig.ContentID;
+                var data = AppManager.I.DB.GetContentProfileData(contentID);
+                if (data != null)
+                {
+                    if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[Inversion] Loaded MAX JP for {contentID} as {data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}");
+                    ContentJourneyLabel.text = $"{data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}";
+                }
+                else
+                {
+                    if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[Inversion] No data for {contentID}, using initial JP");
+                    ContentJourneyLabel.text = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
+                }
+            }
         }
 
         public LocalizationDataId LocKey
