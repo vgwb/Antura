@@ -40,24 +40,69 @@ namespace Antura.Profile
         private JourneyPosition maxJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition MaxJourneyPosition
         {
-            get { return maxJourneyPosition; }
-            private set { maxJourneyPosition = value; }
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    maxJourneyPosition = AppManager.I.NavigationManager.NavData.CurrentContent.MaxJourneyPosition;
+                }
+                return maxJourneyPosition;
+            }
+            private set
+            {
+                maxJourneyPosition = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                AppManager.I.NavigationManager.NavData.CurrentContent.MaxJourneyPosition = value;
+            }
         }
 
-        // TODO: Move out
+        // @note: Now part of the Content Profile
         private JourneyPosition currentJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition CurrentJourneyPosition
         {
-            get { return currentJourneyPosition; }
-            private set { currentJourneyPosition = value; }
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    currentJourneyPosition = AppManager.I.NavigationManager.NavData.CurrentContent.CurrentJourneyPosition;
+                }
+                return currentJourneyPosition;
+            }
+            private set
+            {
+                currentJourneyPosition = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                AppManager.I.NavigationManager.NavData.CurrentContent.CurrentJourneyPosition = value;
+            }
         }
 
-        // TODO: Move out
+        // @note: Now part of the Content Profile
         private JourneyPosition previousJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition PreviousJourneyPosition
         {
-            get { return previousJourneyPosition; }
-            private set { previousJourneyPosition = value; }
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    previousJourneyPosition = AppManager.I.NavigationManager.NavData.CurrentContent.PreviousJourneyPosition;
+                }
+                return previousJourneyPosition;
+            }
+            private set
+            {
+                previousJourneyPosition = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                AppManager.I.NavigationManager.NavData.CurrentContent.PreviousJourneyPosition = value;
+            }
         }
 
         #region First Contact State
