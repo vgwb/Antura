@@ -641,8 +641,8 @@ namespace Antura.Profile
             PetData.SelectedPet = _data.SelectedPet;
             PetData.CatUnlocked = _data.CatUnlocked;
 
-            SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
-            SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
+            // DEPRECATED - SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
+            // DEPRECATED - SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
             // Antura customization save only customization data
             jsonAnturaCustomizationData = _data.CurrentAnturaCustomization;
 
