@@ -98,11 +98,7 @@ namespace Antura.Core
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.MiniGame, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Rewards, AppScene.AnturaSpace));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverTutorial));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceParis));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceAngers));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceNantes));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceLeMans));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverQuest));
 
             // Transitions that can register for a 'back' function
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.ReservedArea));
@@ -111,8 +107,7 @@ namespace Antura.Core
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.DiscoverCountry));
-            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverTutorial));
-            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverTutorial, AppScene.DiscoverCountry));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverQuest));
         }
 
         /// <summary>
@@ -388,11 +383,6 @@ namespace Antura.Core
             CustomGoTo(AppScene.Map, debugMode);
         }
 
-        public void GoToCountryFrance(bool debugMode = false)
-        {
-            CustomGoTo(AppScene.DiscoverFranceParis, debugMode);
-        }
-
         public void GoToEnding(bool debugMode = false)
         {
             CustomGoTo(AppScene.Ending, debugMode);
@@ -418,6 +408,15 @@ namespace Antura.Core
             Debug.Log("GoToKiosk");
             AppManager.I.AppSettingsManager.SetKioskMode(true);
             CustomGoTo(AppScene.Kiosk, debugMode);
+        }
+
+        public void GoToDiscoverQuest(string questSceneName, bool debugMode = false)
+        {
+            if (NavData.CurrentScene == AppScene.DiscoverCountry)
+            {
+                UpdatePrevSceneStack(NavData.CurrentScene);
+            }
+            GoToSceneByName(questSceneName);
         }
 
         /// <summary>

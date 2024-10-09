@@ -22,11 +22,7 @@
         DailyReward = 14,
         Kiosk = 16,
         DiscoverCountry = 20,
-        DiscoverTutorial = 21,
-        DiscoverFranceParis = 22,
-        DiscoverFranceAngers = 23,
-        DiscoverFranceNantes = 24,
-        DiscoverFranceLeMans = 25,
+        DiscoverQuest = 21,
 
         NONE = 100
     }

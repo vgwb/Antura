@@ -44,16 +44,8 @@ namespace Antura.Core
                     return "app_Kiosk";
                 case AppScene.DiscoverCountry:
                     return "DiscoverCountry";
-                case AppScene.DiscoverTutorial:
+                case AppScene.DiscoverQuest:
                     return "discover_tutorial";
-                case AppScene.DiscoverFranceParis:
-                    return "discover_fr_paris";
-                case AppScene.DiscoverFranceAngers:
-                    return "discover_fr_angers";
-                case AppScene.DiscoverFranceNantes:
-                    return "discover_fr_nantes";
-                case AppScene.DiscoverFranceLeMans:
-                    return "discover_fr_lemans";
                 default:
                     return "";
             }
@@ -97,17 +89,16 @@ namespace Antura.Core
                 case "DiscoverCountry":
                     return AppScene.DiscoverCountry;
                 case "discover_tutorial":
-                    return AppScene.DiscoverTutorial;
-                case "discover_fr_paris":
-                    return AppScene.DiscoverFranceParis;
-                case "discover_fr_angers":
-                    return AppScene.DiscoverFranceAngers;
-                case "discover_fr_nantes":
-                    return AppScene.DiscoverFranceNantes;
-                case "discover_fr_lemans":
-                    return AppScene.DiscoverFranceLeMans;
+                    return AppScene.DiscoverQuest;
                 default:
-                    return AppScene.MiniGame;
+                    if (currentScene.Substring(0, 5) == "game_")
+                    {
+                        return AppScene.MiniGame;
+                    }
+                    else
+                    {
+                        return AppScene.DiscoverQuest;
+                    }
             }
         }
     }
