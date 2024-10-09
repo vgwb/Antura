@@ -1,10 +1,13 @@
 /*
-C# Variables, Actors and Metadata for the Homer project:
-Antura
 Homer - The Story Flow Editor.
 Copyright (c)2021-2024. Open Lab s.r.l - Florence, Italy
 Developer: Pupunzi (Matteo Bicocchi)
 
+-------------------------------------------------------------------------------------
+C# Variables, Actors, Metadata, Labels and Flows Slug.
+Homer project: Antura
+Generated on: 2024-10-09 15:46:26
+-------------------------------------------------------------------------------------
 */
 
 namespace Homer {
@@ -48,11 +51,11 @@ public static class HomerMeta {
 
 public static class HomerLabels {
 
-public enum Label { NEW_LABEL_KEY = 0 }
+    public enum Label { NEW_LABEL_KEY = 0 }
 }
 
 public static class HomerFlowSlugs {
-public enum FlowSlug { TUTORIAL = 0, FR_01_EIFFEL_TOWER = 1, FR_02_PAN_AU_CHOCOLATE = 2, FR_03_THE_SCHOOL = 3, PL_01_QUEST_ = 4    }
+    public enum FlowSlug { TUTORIAL = 0, FR_01_PARIS = 1, FR_02_ANGERS = 2, FR_03_NANTES = 3, PL_01_QUEST_ = 4, FR_04_LE_MANS = 5 }
 }
 
 }

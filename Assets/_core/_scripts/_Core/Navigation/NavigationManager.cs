@@ -98,7 +98,11 @@ namespace Antura.Core
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.MiniGame, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Rewards, AppScene.AnturaSpace));
-            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFrance));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverTutorial));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceParis));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceAngers));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceNantes));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFranceLeMans));
 
             // Transitions that can register for a 'back' function
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.ReservedArea));
@@ -107,8 +111,8 @@ namespace Antura.Core
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.DiscoverCountry));
-            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverFrance));
-            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverFrance, AppScene.DiscoverCountry));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverTutorial));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverTutorial, AppScene.DiscoverCountry));
         }
 
         /// <summary>
@@ -386,7 +390,7 @@ namespace Antura.Core
 
         public void GoToCountryFrance(bool debugMode = false)
         {
-            CustomGoTo(AppScene.DiscoverFrance, debugMode);
+            CustomGoTo(AppScene.DiscoverFranceParis, debugMode);
         }
 
         public void GoToEnding(bool debugMode = false)
