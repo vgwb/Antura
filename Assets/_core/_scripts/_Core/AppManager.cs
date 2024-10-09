@@ -264,7 +264,7 @@ namespace Antura.Core
         }
 #endif
 
-#if UNITY_EDITOR || UNITY_IOS
+#if UNITY_IOS
         void OnApplicationPause(bool pause)
         {
             SuspendApplication(pause);
