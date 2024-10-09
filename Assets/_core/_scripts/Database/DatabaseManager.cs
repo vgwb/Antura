@@ -108,6 +108,7 @@ namespace Antura.Database
 
         private void LoadDynamicDbForPlayerProfile(string playerUuid)
         {
+            if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Loading dynamic DB for player " + playerUuid);
             dynamicDb = DBService.OpenFromPlayerUUID(true, playerUuid);
         }
 
@@ -141,21 +142,37 @@ namespace Antura.Database
 
         #region Player Profile Data
 
-        public void UpdatePlayerProfileData(PlayerProfileData playerProfileData)
+        public void UpdatePlayerProfileData(PlayerProfileData data)
         {
-            //Debug.Log("UPDATING " + playerProfileData.ToString());
-            dynamicDb.InsertOrReplace(playerProfileData);
+            if (AppManager.VERBOSE_INVERSION) Debug.LogError("[INVERSION] UPDATING PLAYER DATA " + data.ToString());
+            dynamicDb.InsertOrReplace(data);
         }
 
         public PlayerProfileData GetPlayerProfileData()
         {
             var data = dynamicDb.GetPlayerProfileData();
-            //Debug.Log("LOADING " + data.ToString());
+            if (AppManager.VERBOSE_INVERSION)  Debug.LogError("[INVERSION] LOADING PLAYER DATA " + data.ToString());
             return data;
         }
 
         #endregion
 
+        #region Player Content Data
+
+        public void UpdateContentProfileData(ContentProfileData data)
+        {
+            if (AppManager.VERBOSE_INVERSION) Debug.LogError("[INVERSION] UPDATING CONTENT DATA " + data.ToString());
+            dynamicDb.InsertOrReplace(data);
+        }
+
+        public ContentProfileData GetContentProfileData(LearningContentID contentID)
+        {
+            var data = dynamicDb.GetContentProfileData(contentID);
+            if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[INVERSION] LOADING CONTENT DATA for {contentID} " + data?.ToString());
+            return data;
+        }
+
+        #endregion
         #region Utilities
 
         // Utilities

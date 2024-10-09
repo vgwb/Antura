@@ -53,32 +53,6 @@ namespace Antura.Database
 
 
     /// <summary>
-    /// Serialized information about a content. Used by the new Player Profile.
-    /// </summary>
-    [System.Serializable]
-    public class ContentProfileData
-    {
-        /// <summary>
-        /// Primary key for the database.
-        /// Unique, as there is only one row for this table.
-        /// </summary>
-        [PrimaryKey]
-        public string Id { get; set; }
-
-        public LearningContentID ContentID { get; set; }
-
-        public bool JourneyCompleted { get; set; }
-        public float TotalScore { get; set; }
-        public ProfileCompletionState ProfileCompletion { get; set; }
-        public int MaxStage { get; set; }
-        public int MaxLearningBlock { get; set; }
-        public int MaxPlaySession { get; set; }
-        public int CurrentStage { get; set; }
-        public int CurrentLearningBlock { get; set; }
-        public int CurrentPlaySession { get; set; }
-    }
-
-    /// <summary>
     /// Serialized information about the player. Used by the Player Profile.
     /// </summary>
     [System.Serializable]
@@ -187,33 +161,33 @@ namespace Antura.Database
         /// <summary>
         /// Maximum journey position: stage reached.
         /// </summary>
-        public int MaxStage { get; set; }  // TODO: Move out!
+        public int MaxStage { get; set; }  // Deprecated: Now part of ContentProfile
 
         /// <summary>
         /// Maximum journey position: learning block reached.
         /// </summary>
-        public int MaxLearningBlock { get; set; }  // TODO: Move out!
+        public int MaxLearningBlock { get; set; }  // Deprecated: Now part of ContentProfile
 
         /// <summary>
         /// Maximum journey position: play session reached.
         /// </summary>
-        public int MaxPlaySession { get; set; }  // TODO: Move out!
+        public int MaxPlaySession { get; set; }  // Deprecated: Now part of ContentProfile
 
 
         /// <summary>
         /// Current journey position: play session reached.
         /// </summary>
-        public int CurrentStage { get; set; }  // TODO: Move out!
+        public int CurrentStage { get; set; }  // Deprecated: Now part of ContentProfile
 
         /// <summary>
         /// Current journey position: learning block reached.
         /// </summary>
-        public int CurrentLearningBlock { get; set; }  // TODO: Move out!
+        public int CurrentLearningBlock { get; set; }  // Deprecated: Now part of ContentProfile
 
         /// <summary>
         /// Current journey position: play session reached.
         /// </summary>
-        public int CurrentPlaySession { get; set; }  // TODO: Move out!
+        public int CurrentPlaySession { get; set; }   // Deprecated: Now part of ContentProfile
 
         /// <summary>
         /// State of the first contact in JSON format

@@ -168,6 +168,7 @@ namespace Antura.Database
             // @note: define the DB structure here
             GenerateTable<DatabaseInfoData>(create, drop);
             GenerateTable<PlayerProfileData>(create, drop);
+            GenerateTable<ContentProfileData>(create, drop);
             GenerateTable<VocabularyScoreData>(create, drop);
             GenerateTable<MiniGameScoreData>(create, drop);
             GenerateTable<JourneyScoreData>(create, drop);
@@ -304,6 +305,16 @@ namespace Antura.Database
         private PlayerProfileData FindPlayerProfileDataById(string target_id)
         {
             return _connection.Table<PlayerProfileData>().Where((x) => (x.Id.Equals(target_id))).FirstOrDefault();
+        }
+
+        public ContentProfileData GetContentProfileData(LearningContentID contentID)
+        {
+            return FindContentProfileDataById(contentID.ToString());
+        }
+
+        private ContentProfileData FindContentProfileDataById(string target_id)
+        {
+            return _connection.Table<ContentProfileData>().Where((x) => (x.Id.Equals(target_id))).FirstOrDefault();
         }
 
         // @note: this cannot be used as the current SQLite implementation does not support Parameter expression nodes in LINQ
