@@ -190,6 +190,15 @@ namespace Antura.Core
             yield return LanguageSwitcher.LoadAllLanguageData();
             yield return LanguageSwitcher.LoadEditionData();
             DB = new DatabaseManager(ContentEdition);
+            if (PROFILE_INVERSION)
+            {
+                // We need to make sure we also set the player profile again, as it needs to re-load the Dynamic DB
+                if (PlayerProfileManager != null && Player != null)
+                {
+                    Debug.LogError($"[Inversion] Reloading Player {Player.Uuid}");
+                    DB.LoadDatabaseForPlayer(Player.Uuid);
+                }
+            }
             yield return LanguageSwitcher.PreloadLocalizedDataCO();
 
             // TODO refactor: standardize initialisation of managers
@@ -199,6 +208,14 @@ namespace Antura.Core
             Teacher = new TeacherAI(DB, VocabularyHelper, ScoreHelper);
             LogManager = new LogManager();
             GameLauncher = new MiniGameLauncher(Teacher);
+
+            if (PROFILE_INVERSION)
+            {
+                if (PlayerProfileManager != null && Player != null)
+                {
+                    Teacher.SetPlayerProfile(Player);
+                }
+            }
         }
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
