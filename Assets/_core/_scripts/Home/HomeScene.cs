@@ -6,6 +6,7 @@ using Antura.Dog;
 using Antura.Keeper;
 using Antura.Language;
 using Antura.LivingLetters;
+using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -33,6 +34,12 @@ namespace Antura.Scenes
         protected override void Start()
         {
             base.Start();
+
+            if (AppManager.PROFILE_INVERSION && AppManager.I.NavigationManager.NavData.CurrentContent != null)
+            {
+                if (AppManager.VERBOSE_INVERSION) Debug.LogError("[INVERSION] Set Current Content to NULL as we are in Home");
+                AppManager.I.NavigationManager.NavData.CurrentContent = null;
+            }
 
             if (EditionSelectionManager.MustChooseContentEditions)
             {
