@@ -725,7 +725,6 @@ namespace Antura.Core
         public void GenerateContentData(PlayerProfile player)
         {
             NavData.CurrentContent = new ContentProfile();
-            NavData.CurrentContent.PlayerUuid = player.Uuid;
             NavData.CurrentContent.ContentID = player.ContentID;
             NavData.CurrentContent.MaxJourneyPosition = player.MaxJourneyPosition;
             NavData.CurrentContent.CurrentJourneyPosition = player.CurrentJourneyPosition;
