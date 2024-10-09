@@ -33,8 +33,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void SelectQuest(QuestData questData)
         {
-            //            Debug.Log("Selected " + questData.Title);
-            AppManager.I.NavigationManager.GoToCountryFrance();
+            //Debug.Log("Load scene " + questData.scene);
+            AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
         }
     }
 }

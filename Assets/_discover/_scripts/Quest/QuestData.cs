@@ -5,15 +5,6 @@ using Homer;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public enum QuestCategory
-    {
-        Place,
-        Character,
-        NaturalSite,
-        Food,
-        Art,
-        CultureElement
-    }
 
     [CreateAssetMenu(menuName = "Antura/Quest Data")]
     public class QuestData : ScriptableObject
@@ -25,7 +16,8 @@ namespace Antura.Minigames.DiscoverCountry
         public Texture Thumbnail;
         public string Description;
 
-        public QuestCategory[] Categories;
+        [Header("Scene")]
+        public string scene;
 
         [Header("Level Prefabs")]
         public GameObject Town;

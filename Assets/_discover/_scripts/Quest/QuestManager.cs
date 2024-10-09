@@ -102,14 +102,14 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
         {
             var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            DebugNodeInfo(questNode);
             InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
             AudioManager.I.PlayDiscoverDialogue(
                 questNode.LocId,
                 Language.LanguageCode.french
             );
-
-            // DebugNodeInfo(questNode);
         }
+
         public void OnCollectItem(GameObject go)
         {
             total_items++;
@@ -157,8 +157,10 @@ namespace Antura.Minigames.DiscoverCountry
             nodeInfo += "\nId: " + questNode.Id;
             nodeInfo += "\nLocId: " + questNode.LocId;
             nodeInfo += "\nAction: " + questNode.Action;
+            nodeInfo += "\nAction Post: " + questNode.ActionPost;
             nodeInfo += "\nMood: " + questNode.Mood;
             nodeInfo += "\nNextTarget: " + questNode.NextTarget;
+
             Debug.Log("QuestNode INFO: " + nodeInfo);
         }
 

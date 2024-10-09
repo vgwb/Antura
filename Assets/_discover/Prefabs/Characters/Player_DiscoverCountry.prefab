@@ -139,6 +139,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 513
+  slideSpeed: 2
 --- !u!114 &829250532355678283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +298,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7101564007038771914}
     m_Modifications:
+    - target: {fileID: 1540926570240930981, guid: c2f7449713269484693e87f5e289c351,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1544665340384594883, guid: c2f7449713269484693e87f5e289c351,
         type: 3}
       propertyPath: m_LocalScale.x

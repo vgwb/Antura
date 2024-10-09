@@ -1420,6 +1420,11 @@ PrefabInstance:
       propertyPath: starterAssetsInputs
       value: 
       objectReference: {fileID: 6982812147441340503}
+    - target: {fileID: 6100238245964821501, guid: e39f710d285d38544bc283f5e522411a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7166995640580039466, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
       propertyPath: m_IsActive
@@ -1874,10 +1879,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: tutorial_level
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 5767522312143184151, guid: aec059f64328e48b6a52efffc7aadf91, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4084988046746803712, guid: aec059f64328e48b6a52efffc7aadf91,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 2552036045064332849, guid: aec059f64328e48b6a52efffc7aadf91,
         type: 3}
       insertIndex: -1

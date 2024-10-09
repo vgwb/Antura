@@ -7,9 +7,13 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class InfoPoint : MonoBehaviour
     {
+        [Header("Homer")]
+        public bool IsInteractable;
         public string HomerNodeId;
-        public string Text;
+        [Header("References")]
         public TextRender Label;
+        [Header("Content")]
+        public string Text;
 
         void Start()
         {
@@ -21,7 +25,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnTriggerEnter(Collider other)
         {
-            QuestManager.I.OnInfoPoint(this, HomerNodeId);
+            if (IsInteractable)
+            {
+                QuestManager.I.OnInfoPoint(this, HomerNodeId);
+            }
         }
     }
 }
