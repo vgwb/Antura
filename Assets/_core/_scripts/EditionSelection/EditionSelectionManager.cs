@@ -76,8 +76,8 @@ namespace Antura.Scenes
 
             if (AppManager.PROFILE_INVERSION)
             {
-                // In this case, we'll directly go to the profile instead
-                AppManager.I.NavigationManager.GoToHome(true);
+                // Start creating a PROFILE right away
+                AppManager.I.NavigationManager.GoToPlayerCreation();
             }
             else
             {
