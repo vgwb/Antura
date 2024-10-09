@@ -87,24 +87,25 @@ namespace Antura.Scenes
             if (AppManager.PROFILE_INVERSION)
             {
                 // We must load the play session data, or create it
-                Debug.Log("Entering game with Player: " + AppManager.I.Player.Uuid);
+                if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Entering game with Player: " + AppManager.I.Player.Uuid);
                 var playerAppVersion = AppManager.I.Player.AppVersion;
                 var majorVersion = int.Parse(playerAppVersion.Split('.').First());
                 if (majorVersion < 4)   // Older player profile, must be moved to the new separate content
                 {
-                    Debug.LogWarning("Player is OLD, must upgrade");
+                    if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Player is OLD, must upgrade");
                     var contentID = AppManager.I.AppSettingsManager.Settings.ContentID;
-                    Debug.LogWarning("ContentID selected is " + contentID);
+                    if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] ContentID selected is " + contentID);
                     // TODO: generate new content, and save it
                     AppManager.I.NavigationManager.GenerateContentData(AppManager.I.Player);
                 }
                 else
                 {
-                    Debug.Log("Player is new, let's get the content too");
-                    // TODO: load the content
+                    if (AppManager.VERBOSE_INVERSION)  Debug.LogError("[Inversion] Player is new, let's get the content too");
+                    var contentID = AppManager.I.AppSettingsManager.Settings.ContentID;
+                    var contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(contentID);
+                    AppManager.I.NavigationManager.NavData.CurrentContent = contentProfile;
+                    if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Current content: " + AppManager.I.NavigationManager.NavData.CurrentContent.ToString());
                 }
-
-                Debug.Log($"Content ID is: {AppManager.I.PlayerProfileManager.CurrentPlayer.ContentID}");
             }
 
             // Debug.Log("Play with Player: " + AppManager.I.Player);
