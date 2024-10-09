@@ -20,7 +20,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
         
-        bool showing;
+        public bool IsShown { get; private set; }
+        public OutOfBoundsHor OutHor { get; private set; } 
+        public OutOfBoundsVert OutVert { get; private set; } 
+        
         Transform trans;
         Transform target;
         Tween showTween, rotateTween, barkTween;
@@ -63,13 +66,25 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            if (!showing) return;
+            if (!IsShown) return;
+            
             if (target == null)
             {
                 Hide();
                 return;
             }
+            
             trans.position = target.position;
+            
+            // Check out of bounds
+            Vector3 viewportP = CameraManager.I.MainCam.WorldToViewportPoint(trans.position);
+            OutHor = viewportP.x < 0 && viewportP.z > 0 || viewportP.x > 1 && viewportP.z < 0
+                ? OutOfBoundsHor.Left
+                : viewportP.z < 0 || viewportP.x < 0 || viewportP.x > 1
+                    ? OutOfBoundsHor.Right
+                    : OutOfBoundsHor.None;
+            OutVert = OutOfBoundsVert.None;
+            // Debug.Log(">>>> " + viewportP);
         }
 
         #endregion
@@ -78,7 +93,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(Transform newTarget)
         {
-            showing = true;
+            IsShown = true;
             target = newTarget;
             showTween.timeScale = 1f;
             showTween.Restart();
@@ -89,7 +104,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Hide(bool immediate = false)
         {
-            showing = false;
+            IsShown = false;
+            OutHor = OutOfBoundsHor.None;
+            OutVert = OutOfBoundsVert.None;
             if (immediate)
             {
                 showTween.Rewind();

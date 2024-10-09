@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
@@ -20,6 +21,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] AnturaMapIcon anturaMapIco;
         [DeEmptyAlert]
         [SerializeField] TargetMarker targetMarker;
+        [DeEmptyAlert]
+        [SerializeField] TargetIndicator targetIndicator;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -68,6 +71,11 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnMapCameraActivated.Unsubscribe(OnMapCameraActivated);
+        }
+
+        void LateUpdate()
+        {
+            if (targetMarker.IsShown) targetIndicator.SetIndicators(targetMarker.OutHor, targetMarker.OutVert);
         }
 
         #endregion
