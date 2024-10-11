@@ -25,16 +25,117 @@ namespace Antura.Profile
         public Color HairColor;
         public Color BgColor;
         public bool IsDemoUser;
-        public bool HasFinishedTheGame; // TODO: Move out (now tied to the content)
-        public bool HasFinishedTheGameWithAllStars; // TODO: Move out (now tied to the content)
-        public bool HasMaxStarsInCurrentPlaySessions; // TODO: Move out (now tied to the content)
-        public int TotalNumberOfBones;
+       public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
         public AppEditionID editionID;
         public LearningContentID ContentID; // @note: This will be updated with the selected content, so we know what to load / save
         public string AppVersion;
         public PetData PetData = new PetData();
-        public ProfileCompletionState ProfileCompletion = ProfileCompletionState.New;   // TODO: Move out (now tied to the content)
+
+        public bool hasFinishedTheGame;
+        public bool HasFinishedTheGame
+        {
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    Debug.LogError("GETTING HasFinishedTheGame FROM CONTENT");
+                    hasFinishedTheGame = AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGame;
+                }
+                Debug.LogError("hasFinishedTheGame: " + hasFinishedTheGame);
+                return hasFinishedTheGame;
+            }
+            set
+            {
+                Debug.LogError("SET hasFinishedTheGame: " + value);
+                hasFinishedTheGame = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                Debug.LogError("SET hasFinishedTheGame TO CONTENT!");
+                AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGame = value;
+            }
+        }
+
+        public bool hasFinishedTheGameWithAllStars;
+        public bool HasFinishedTheGameWithAllStars
+        {
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    Debug.LogError("GETTING hasFinishedTheGameWithAllStars FROM CONTENT");
+                    hasFinishedTheGameWithAllStars = AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGameWithAllStars;
+                }
+                Debug.LogError("hasFinishedTheGameWithAllStars: " + hasFinishedTheGameWithAllStars);
+                return hasFinishedTheGameWithAllStars;
+            }
+            set
+            {
+                Debug.LogError("SET hasFinishedTheGameWithAllStars: " + value);
+                hasFinishedTheGameWithAllStars = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                Debug.LogError("SET hasFinishedTheGameWithAllStars TO CONTENT!");
+                AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGameWithAllStars = value;
+            }
+        }
+
+        public bool hasMaxStarsInCurrentPlaySessions;
+        public bool HasMaxStarsInCurrentPlaySessions
+        {
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    Debug.LogError("GETTING hasMaxStarsInCurrentPlaySessions FROM CONTENT");
+                    hasMaxStarsInCurrentPlaySessions = AppManager.I.NavigationManager.NavData.CurrentContent.HasMaxStarsInCurrentPlaySessions;
+                }
+                Debug.LogError("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
+                return hasMaxStarsInCurrentPlaySessions;
+            }
+            set
+            {
+                Debug.LogError("SET hasMaxStarsInCurrentPlaySessions: " + value);
+                hasMaxStarsInCurrentPlaySessions = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                Debug.LogError("SET hasMaxStarsInCurrentPlaySessions TO CONTENT!");
+                AppManager.I.NavigationManager.NavData.CurrentContent.HasMaxStarsInCurrentPlaySessions = value;
+            }
+        }
+
+        // @note: Now part of the Content Profile
+        public ProfileCompletionState profileCompletion = ProfileCompletionState.New;
+        public ProfileCompletionState ProfileCompletion
+        {
+            get
+            {
+                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
+                {
+                    Debug.LogError("GETTING PROFILE COMPLETION FROM CONTENT");
+                    profileCompletion = AppManager.I.NavigationManager.NavData.CurrentContent.ProfileCompletion;
+                }
+                Debug.LogError("PROFILE COMPLETION: " + profileCompletion);
+                return profileCompletion;
+            }
+            set
+            {
+                Debug.LogError("SET PROFILE COMPLETION: " + value);
+                profileCompletion = value;
+                if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
+                {
+                    return;
+                }
+                Debug.LogError("SET PROFILE COMPLETION TO CONTENT!");
+                AppManager.I.NavigationManager.NavData.CurrentContent.ProfileCompletion = value;
+            }
+        }
 
         // @note: Now part of the Content Profile
         private JourneyPosition maxJourneyPosition = JourneyPosition.InitialJourneyPosition;

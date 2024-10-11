@@ -13,6 +13,10 @@ namespace Antura.Profile
         public int TotalScore;
         public ProfileCompletionState ProfileCompletion;
 
+        public bool HasFinishedTheGame;
+        public bool HasFinishedTheGameWithAllStars;
+        public bool HasMaxStarsInCurrentPlaySessions;
+
         public JourneyPosition MaxJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition CurrentJourneyPosition = JourneyPosition.InitialJourneyPosition;
         public JourneyPosition PreviousJourneyPosition = JourneyPosition.InitialJourneyPosition;
