@@ -1,4 +1,5 @@
-﻿using DG.DeInspektor.Attributes;
+﻿using Demigiant.DemiTools;
+using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,6 +8,12 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class DialoguePostcard : MonoBehaviour
     {
+        #region Events
+
+        public readonly ActionEvent<Sprite> OnClicked = new("DialoguePostcard.OnClicked");
+
+        #endregion
+        
         #region Serialized
 
         [Header("References")]
@@ -16,17 +23,23 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
         
         public bool active { get; private set; }
-        
+
+        Button bt;
+        Sprite currSprite;
         Tween showTween, hideTween;
         
         #region Unity
 
         void Start()
         {
+            bt = this.GetComponent<Button>();
             RectTransform rt = this.GetComponent<RectTransform>();
             Vector3 defScale = this.transform.localScale;
             Vector3 defRot = this.transform.localEulerAngles;
             Vector2 defAnchoredP = rt.anchoredPosition;
+            
+            bt.onClick.AddListener(() => OnClicked.Dispatch(currSprite));
+            
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Append(rt.DOAnchorPos(defAnchoredP, 0.5f).From(defAnchoredP + new Vector2(-380, -960)).SetEase(Ease.OutCubic))
                 .Join(this.transform.DOScale(defScale, 0.5f).From(0).SetEase(Ease.OutBack))
@@ -50,18 +63,23 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show()
+        public void Show(Sprite sprite)
         {
-            // TODO > Pass image as parameter
             active = true;
-            hideTween.Complete();
-            showTween.Restart();
+            img.sprite = sprite;
+            if (currSprite != sprite)
+            {
+                hideTween.Complete();
+                showTween.Restart();
+            }
             this.gameObject.SetActive(true);
+            currSprite = sprite;
         }
 
         public void Hide()
         {
             active = false;
+            currSprite = null;
             showTween.Complete();
             hideTween.Restart();
         }

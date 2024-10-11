@@ -11,7 +11,8 @@ Material:
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
-  m_ValidKeywords: []
+  m_ValidKeywords:
+  - _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A
   m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -29,7 +30,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 10, y: 10}
         m_Offset: {x: 0, y: 0}
     - _DetailMask:
         m_Texture: {fileID: 0}
@@ -41,11 +42,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     - _EmissionMap:
         m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 0}
-        m_Scale: {x: 1, y: 1}
+        m_Texture: {fileID: 2800000, guid: 6ae60bd5ade814216bfe130d2038c725, type: 3}
+        m_Scale: {x: 20, y: 20}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
         m_Texture: {fileID: 0}
@@ -72,7 +73,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _SmoothnessTextureChannel: 0
+    - _SmoothnessTextureChannel: 1
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _UVSec: 0

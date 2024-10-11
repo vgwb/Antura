@@ -58,6 +58,7 @@ GameObject:
   - component: {fileID: 829250532355678283}
   - component: {fileID: 6937420662406837792}
   - component: {fileID: 4294298240500422975}
+  - component: {fileID: 3744103283373756085}
   m_Layer: 8
   m_Name: Player_DiscoverCountry
   m_TagString: Player
@@ -73,7 +74,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8502568018897201893}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -101,13 +102,13 @@ CharacterController:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Height: 0.5
-  m_Radius: 0.39
+  m_Height: 0.58
+  m_Radius: 0.3
   m_SlopeLimit: 45
   m_StepOffset: 0.25
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
-  m_Center: {x: 0, y: 0.3, z: 0}
+  m_Center: {x: 0, y: 0.32, z: 0}
 --- !u!114 &4390398867187468687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,10 +139,7 @@ MonoBehaviour:
   GroundLayers:
     serializedVersion: 2
     m_Bits: 513
-  CinemachineCameraTarget: {fileID: 3843209171659240733}
-  TopClamp: 70
-  BottomClamp: -30
-  RunSpeedBlend: 0
+  slideSpeed: 2
 --- !u!114 &829250532355678283
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,9 +154,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 0
-  canPush: 0
-  strength: 1.1
+    m_Bits: 1
+  canPush: 1
+  strength: 0.94
 --- !u!114 &6937420662406837792
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,9 +272,24 @@ MonoBehaviour:
   look: {x: 0, y: 0}
   jump: 0
   sprint: 0
+  act: 0
+  map: 0
   analogMovement: 0
-  cursorLocked: 1
-  cursorInputForLook: 1
+  cursorLocked: 0
+  cursorInputForLook: 0
+--- !u!114 &3744103283373756085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502568018897201893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 11b766f0cd324f1489129c211f3b8840, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 4390398867187468687}
 --- !u!1001 &262451133245991105
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -285,6 +298,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7101564007038771914}
     m_Modifications:
+    - target: {fileID: 1540926570240930981, guid: c2f7449713269484693e87f5e289c351,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1544665340384594883, guid: c2f7449713269484693e87f5e289c351,
         type: 3}
       propertyPath: m_LocalScale.x

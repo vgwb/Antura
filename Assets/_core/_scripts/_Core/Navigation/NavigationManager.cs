@@ -98,6 +98,7 @@ namespace Antura.Core
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.MiniGame, AppScene.Kiosk));
             customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Rewards, AppScene.AnturaSpace));
+            customTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverQuest));
 
             // Transitions that can register for a 'back' function
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.ReservedArea));
@@ -105,6 +106,8 @@ namespace Antura.Core
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.GameSelector));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Map, AppScene.MiniGame));
             backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Kiosk, AppScene.MiniGame));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.Home, AppScene.DiscoverCountry));
+            backableTransitions.Add(new KeyValuePair<AppScene, AppScene>(AppScene.DiscoverCountry, AppScene.DiscoverQuest));
         }
 
         /// <summary>
@@ -141,9 +144,10 @@ namespace Antura.Core
                 case AppScene.Home:
                     if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
                     {
-                        AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
-                        var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
-                        AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                        GoToScene(AppScene.DiscoverCountry);
+                        // AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        // var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        // AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
                     }
                     else
                     {
@@ -151,7 +155,17 @@ namespace Antura.Core
                     }
                     break;
                 case AppScene.PlayerCreation:
-                    GoToScene(AppScene.Intro);
+                    if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
+                    {
+                        GoToScene(AppScene.DiscoverCountry);
+                        // AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
+                        // var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
+                        // AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
+                    }
+                    else
+                    {
+                        GoToScene(AppScene.Intro);
+                    }
                     break;
                 case AppScene.Mood:
                     GoToScene(AppScene.DailyReward);
@@ -396,6 +410,15 @@ namespace Antura.Core
             CustomGoTo(AppScene.Kiosk, debugMode);
         }
 
+        public void GoToDiscoverQuest(string questSceneName, bool debugMode = false)
+        {
+            if (NavData.CurrentScene == AppScene.DiscoverCountry)
+            {
+                UpdatePrevSceneStack(NavData.CurrentScene);
+            }
+            GoToSceneByName(questSceneName);
+        }
+
         /// <summary>
         /// Exit from the current scene. Called while in pause mode during a minigame.
         /// </summary>
@@ -431,7 +454,14 @@ namespace Antura.Core
                     }
                     else
                     {
-                        GoToScene(AppScene.Map);
+                        if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry))
+                        {
+                            GoToScene(AppScene.Home);
+                        }
+                        else
+                        {
+                            GoToScene(AppScene.Map);
+                        }
                     }
                     break;
             }

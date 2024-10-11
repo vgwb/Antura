@@ -439,6 +439,34 @@ namespace Antura.Audio
 
         #endregion
 
+        #region DiscoverDialogue
+        public IAudioSource PlayDiscoverDialogue(string node_id, LanguageCode langCode, Action callback = null, bool clearPreviousCallback = false)
+        {
+            currentLangCode = langCode;
+
+            if (clearPreviousCallback)
+            {
+                dialogueEndedCallbacks.Clear();
+            }
+
+            if (skipNext)
+            {
+                skipNext = false;
+                callback?.Invoke();
+                return null;
+            }
+            var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
+            var sourcePath = new SourcePath(audio_id, "/Audio/Discover", langCode);
+            var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
+            if (callback != null)
+            {
+                dialogueEndedCallbacks[wrapper] = callback;
+            }
+            return wrapper;
+
+        }
+        #endregion
+
         #region Audio clip management
 
         #region Audio Get
@@ -538,7 +566,7 @@ namespace Antura.Audio
                     // No female found
                     if (DebugConfig.I.VerboseAudio)
                         Debug.Log($"[Audio] No Female audio file for localization ID {path.id} was found. Fallback to male/neutral.");
-                    yield return LoadAudioClip("/Audio/Dialogs", neutralAudioFileName, result, path.code);
+                    yield return LoadAudioClip(path.folder, neutralAudioFileName, result, path.code);
                 }
             }
 

@@ -31,15 +31,19 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
-        public bool Interactable {
+        public bool Interactable
+        {
             get { return allButtons[0].interactable; }
             set { SetInteractable(value); }
         }
-        public bool IsShowingOrHidingElements {
-            get {
+        public bool IsShowingOrHidingElements
+        {
+            get
+            {
                 foreach (AbstractChoiceBox choiceBox in choiceBoxes)
                 {
-                    if (choiceBox.IsShowingOrHiding) return true;
+                    if (choiceBox.IsShowingOrHiding)
+                        return true;
                 }
                 return false;
             }
@@ -65,7 +69,8 @@ namespace Antura.Minigames.DiscoverCountry
         void OnDestroy()
         {
             this.StopAllCoroutines();
-            for (int i = 0; i < choiceBoxes.Length; i++) choiceBoxes[i].OnSelect.Unsubscribe(OnChoiceBoxSelected);
+            for (int i = 0; i < choiceBoxes.Length; i++)
+                choiceBoxes[i].OnSelect.Unsubscribe(OnChoiceBoxSelected);
         }
 
         #endregion
@@ -83,19 +88,22 @@ namespace Antura.Minigames.DiscoverCountry
             int totChoices = choiceElements.Count;
             for (int i = 0; i < choiceBoxes.Length; i++)
             {
-                if (i >= totChoices) choiceBoxes[i].gameObject.SetActive(false);
+                if (i >= totChoices)
+                    choiceBoxes[i].gameObject.SetActive(false);
                 else
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
-                    choiceBoxes[i].Show(choiceElements[i]._localizedContents[0]._text);
+                    choiceBoxes[i].SetLocId(choiceElements[i]._id);
+                    choiceBoxes[i].Show(choiceElements[i]._localizedContents[1]._text);
                     yield return new WaitForSeconds(i * 0.15f);
                 }
             }
-            while (IsShowingOrHidingElements) yield return null;
+            while (IsShowingOrHidingElements)
+                yield return null;
             SetInteractable(true);
             coShow = null;
         }
-        
+
 
         public void Hide(int confirmedChoiceIndex)
         {
@@ -107,7 +115,8 @@ namespace Antura.Minigames.DiscoverCountry
             int unconfirmedTimeIndex = -1;
             for (int i = 0; i < choiceBoxes.Length; i++)
             {
-                if (i == confirmedChoiceIndex) continue;
+                if (i == confirmedChoiceIndex)
+                    continue;
                 unconfirmedTimeIndex++;
                 choiceBoxes[i].Hide();
                 yield return new WaitForSeconds(unconfirmedTimeIndex * 0.1f);
@@ -116,7 +125,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 choiceBoxes[confirmedChoiceIndex].Hide();
             }
-            while (IsShowingOrHidingElements) yield return null;
+            while (IsShowingOrHidingElements)
+                yield return null;
             this.gameObject.SetActive(false);
             coHide = null;
         }
@@ -127,9 +137,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         void SetInteractable(bool interactable)
         {
-            foreach (AbstractChoiceBox choiceBox in choiceBoxes) choiceBox.SetInteractable(interactable);
+            foreach (AbstractChoiceBox choiceBox in choiceBoxes)
+                choiceBox.SetInteractable(interactable);
         }
-        
+
         #endregion
 
         #region Callbacks
@@ -138,10 +149,11 @@ namespace Antura.Minigames.DiscoverCountry
         {
             foreach (AbstractChoiceBox choiceBox in choiceBoxes)
             {
-                if (choiceBox != selectedChoiceBox) choiceBox.Deselect();
+                if (choiceBox != selectedChoiceBox)
+                    choiceBox.Deselect();
             }
         }
-        
+
         void OnChoiceBoxConfirmed(AbstractChoiceBox confirmedChoiceBox)
         {
             OnChoiceConfirmed.Dispatch(confirmedChoiceBox.Index);

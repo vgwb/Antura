@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: AddressableAssetSettings
   m_EditorClassIdentifier: 
   m_DefaultGroup: dafff4c4e20272c459d81311d6032379
-  m_CachedHash:
+  m_currentHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
   m_OptimizeCatalogSize: 0
@@ -32,13 +32,16 @@ MonoBehaviour:
   m_ShaderBundleNaming: 0
   m_ShaderBundleCustomNaming: 
   m_MonoScriptBundleNaming: 0
+  m_CheckForContentUpdateRestrictionsOption: 0
   m_MonoScriptBundleCustomNaming: 
   m_RemoteCatalogBuildPath:
     m_Id: 20120af751137064f9c93f45503e5623
   m_RemoteCatalogLoadPath:
     m_Id: e07fb50dd87b93d4bb7c3a6f33de078a
+  m_ContentStateBuildPathProfileVariableName: <default settings path>
+  m_CustomContentStateBuildPath: 
   m_ContentStateBuildPath: 
-  m_BuildAddressablesWithPlayerBuild: 2
+  m_BuildAddressablesWithPlayerBuild: 1
   m_overridePlayerVersion: 
   m_GroupAssets:
   - {fileID: 11400000, guid: bab1a4700d745264d86ab478d06edc73, type: 2}
@@ -59,6 +62,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 898a3ad0f3d204c8799120c0d4279350, type: 2}
   - {fileID: 11400000, guid: e3580b5dedb969a40888253c8dfbc08a, type: 2}
   - {fileID: 11400000, guid: 9a6364903f060f849a256b39e2e404a6, type: 2}
+  - {fileID: 11400000, guid: 47c7cf9f75a2845f29ffd0fdf3d37d95, type: 2}
+  - {fileID: 11400000, guid: 05322697fe96443af9d352a8dde28c7e, type: 2}
+  - {fileID: 11400000, guid: d66e191c1af004eaca361b9f37bf4039, type: 2}
+  - {fileID: 11400000, guid: 841b2f6e2761d49dab887db56d7e7d23, type: 2}
+  - {fileID: 11400000, guid: 4fdcac64e043c4f328570c7b212c3ae5, type: 2}
+  - {fileID: 11400000, guid: e92efb242d42e4634bfb86e3d39834fc, type: 2}
+  - {fileID: 11400000, guid: d5a90883d6b8e4fc484754d6a8d8d510, type: 2}
+  - {fileID: 11400000, guid: e3c881eddf464404e9f8e1bd45bc1cab, type: 2}
+  - {fileID: 11400000, guid: 58930462ef83f4f998cc0f6a3c49908b, type: 2}
   m_BuildSettings:
     m_CompileScriptsInVirtualMode: 0
     m_CleanupStreamingAssetsAfterBuilds: 1
@@ -113,16 +125,16 @@ MonoBehaviour:
       m_Name: BuildTarget
       m_InlineUsage: 0
     - m_Id: 61bef379b0f51bc4f9a82731a1718d1d
-      m_Name: LocalBuildPath
+      m_Name: Local.BuildPath
       m_InlineUsage: 0
     - m_Id: dcdeb92695169864787587a98eca2fb0
-      m_Name: LocalLoadPath
+      m_Name: Local.LoadPath
       m_InlineUsage: 0
     - m_Id: 20120af751137064f9c93f45503e5623
-      m_Name: RemoteBuildPath
+      m_Name: Remote.BuildPath
       m_InlineUsage: 0
     - m_Id: e07fb50dd87b93d4bb7c3a6f33de078a
-      m_Name: RemoteLoadPath
+      m_Name: Remote.LoadPath
       m_InlineUsage: 0
     m_ProfileVersion: 1
   m_LabelTable:
@@ -133,6 +145,18 @@ MonoBehaviour:
     - audio_songs
     - icons
     - shapedata
+    - Locale
+    - Locale-en
+    - Locale-ar
+    - Locale-fr
+    - Locale-de
+    - Locale-it
+    - Locale-pl
+    - Locale-ro
+    - Locale-ru
+    - Locale-es
+    - Locale-uk
+    - Locale-audio
   m_SchemaTemplates: []
   m_GroupTemplateObjects:
   - {fileID: 11400000, guid: c4aa22099a6f33f49b70426083bec26d, type: 2}
@@ -153,3 +177,4 @@ MonoBehaviour:
     m_NextInstanceId: 1
     m_RegisteredServiceTypeRefs:
     - UnityEditor.AddressableAssets.HostingServices.HttpHostingService, Unity.Addressables.Editor
+    m_PingTimeoutInMilliseconds: 5000

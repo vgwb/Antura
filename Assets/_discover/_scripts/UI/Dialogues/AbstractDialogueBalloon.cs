@@ -1,4 +1,6 @@
-﻿using Antura.Homer;
+﻿using Antura.Core;
+using Antura.Audio;
+using Antura.Homer;
 using Antura.UI;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -6,6 +8,7 @@ using DG.Tweening;
 using Homer;
 using UnityEngine;
 using UnityEngine.UI;
+using Antura.Minigames.DiscoverCountry.Interaction;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -14,9 +17,10 @@ namespace Antura.Minigames.DiscoverCountry
         #region Events
 
         public readonly ActionEvent OnBalloonClicked = new("DialogueBalloon.OnBalloonClicked");
+        public readonly ActionEvent OnBalloonContinueClicked = new("DialogueBalloon.OnBalloonContinueClicked");
 
         #endregion
-        
+
         #region Serialized
 
         [Header("References")]
@@ -25,39 +29,39 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] TextRender textRender;
         [DeEmptyAlert]
-        [SerializeField] RectTransform icoContinue;
+        [SerializeField] Button btContinue;
 
         #endregion
-        
+
         public bool IsOpen { get; private set; }
 
+        protected bool SpeechCycle = false;
         protected QuestNode currNode;
-        protected Tween showTween, icoContinueTween;
-        
+        protected Tween showTween;
+
         #region Unity
 
         void Start()
         {
             CreateShowTween();
-            
-            icoContinueTween = icoContinue.DOAnchorPosY(16, 0.75f).SetRelative().SetAutoKill(false).Pause()
-                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
 
-            bt.interactable = false;
+            SetInteractable(false);
             this.gameObject.SetActive(false);
-            
+
             bt.onClick.AddListener(OnBalloonClicked.Dispatch);
+            btContinue.onClick.AddListener(OnBalloonContinueClicked.Dispatch);
+            SpeechCycle = false;
         }
 
         void OnDestroy()
         {
             showTween.Kill();
-            icoContinueTween.Kill();
         }
 
         void Update()
         {
-            if (bt.interactable && Input.GetKeyDown(KeyCode.E)) OnBalloonClicked.Dispatch();
+            if (bt.interactable && Input.GetKeyDown(KeyCode.E))
+                OnBalloonClicked.Dispatch();
         }
 
         #endregion
@@ -68,28 +72,56 @@ namespace Antura.Minigames.DiscoverCountry
         {
             IsOpen = true;
             currNode = node;
-            bt.interactable = false;
+            SetInteractable(false);
             textRender.SetText(node.Content);
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);
-            if (node.Type == HomerNode.NodeType.TEXT)
+            if (node.IsDialogueNode)
             {
-                icoContinue.gameObject.SetActive(true);
-                icoContinueTween.Restart();
+                btContinue.gameObject.SetActive(true);
             }
             else
             {
-                icoContinue.gameObject.SetActive(false);
+                btContinue.gameObject.SetActive(false);
+            }
+
+            if (node.Native)
+            {
+                SpeechCycle = true;
+            }
+            Language.LanguageCode spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
+            AudioManager.I.PlayDiscoverDialogue(
+                node.LocId,
+                spokenLang
+            );
+            // Debug.Log("Show Dialogue: LocId: " + node.LocId);
+            SpeechCycle = !SpeechCycle;
+            DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
+            if (currNode.Action != null)
+            {
+                ActionManager.I.ResolveAction(currNode.Action);
             }
         }
 
         public void Hide()
         {
             IsOpen = false;
-            bt.interactable = false;
+            SpeechCycle = false;
+            SetInteractable(false);
             showTween.timeScale = 2;
             showTween.PlayBackwards();
+            DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
+            if (currNode.NextTarget != null)
+            {
+                ActionManager.I.CameraShowTarget(currNode.NextTarget);
+            }
+            //            Debug.Log("ACTION POST: " + currNode.ActionPost);
+            if (currNode.ActionPost != null)
+            {
+                ActionManager.I.ResolveAction(currNode.ActionPost);
+            }
+
         }
 
         #endregion
@@ -97,6 +129,11 @@ namespace Antura.Minigames.DiscoverCountry
         #region Methods
 
         protected abstract void CreateShowTween();
+
+        protected void SetInteractable(bool interactable)
+        {
+            bt.interactable = btContinue.interactable = interactable;
+        }
 
         #endregion
     }

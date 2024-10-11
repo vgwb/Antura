@@ -42,6 +42,10 @@ namespace Antura.Core
                     return "app_DailyReward";
                 case AppScene.Kiosk:
                     return "app_Kiosk";
+                case AppScene.DiscoverCountry:
+                    return "DiscoverCountry";
+                case AppScene.DiscoverQuest:
+                    return "discover_tutorial";
                 default:
                     return "";
             }
@@ -82,8 +86,19 @@ namespace Antura.Core
                     return AppScene.DailyReward;
                 case "app_Kiosk":
                     return AppScene.Kiosk;
+                case "DiscoverCountry":
+                    return AppScene.DiscoverCountry;
+                case "discover_tutorial":
+                    return AppScene.DiscoverQuest;
                 default:
-                    return AppScene.MiniGame;
+                    if (currentScene.Substring(0, 5) == "game_")
+                    {
+                        return AppScene.MiniGame;
+                    }
+                    else
+                    {
+                        return AppScene.DiscoverQuest;
+                    }
             }
         }
     }

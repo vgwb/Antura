@@ -24,7 +24,9 @@ namespace Antura.Utilities
             var languageCode = AppManager.I.ContentEdition.LearningLanguage;
             if (languageCode == LanguageCode.arabic_legacy)
                 languageCode = LanguageCode.arabic;
-            var locKeyText = $"Learn_{languageCode}";
+
+            var locKeyText = editionConfig.LearnMethod.LearningContentButtonKey(AppManager.I.ContentEdition.LearningLanguage);
+            //var locKeyText = $"Learn_{languageCode}";
             var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
             nameText.SetOverridenLanguageText(AppManager.I.AppSettings.NativeLanguage, locKey);
             iconImage.sprite = editionConfig.TransitionLogo;

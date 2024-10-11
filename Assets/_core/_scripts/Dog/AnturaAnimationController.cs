@@ -205,8 +205,8 @@ namespace Antura.Dog
 
         public void OnJumpMaximumHeightReached()
         {
-            animator.SetBool("jumping", false);
-            animator.SetBool("falling", true);
+            animator.SetBool("jumping", true);
+            animator.SetBool("falling", false);
         }
 
         public void OnJumpEnded()
@@ -291,7 +291,7 @@ namespace Antura.Dog
             }
         }
 
-        public  void OnSniffEnd()
+        public void OnSniffEnd()
         {
             if (onSniffEndedCallback != null)
             {
@@ -371,7 +371,7 @@ namespace Antura.Dog
             ++jumpRefCount;
         }
 
-        public  void OnAnimationJumpEnd()
+        public void OnAnimationJumpEnd()
         {
             --jumpRefCount;
         }
@@ -403,8 +403,10 @@ namespace Antura.Dog
 
         public void ChangeTo(int target)
         {
-            if (RewardUI == null) RewardUI = FindObjectOfType<RewardsUI>().gameObject;
-            if (AnimatUI == null) AnimatUI = FindObjectOfType<AnturaAnimationTester>().gameObject;
+            if (RewardUI == null)
+                RewardUI = FindObjectOfType<RewardsUI>().gameObject;
+            if (AnimatUI == null)
+                AnimatUI = FindObjectOfType<AnturaAnimationTester>().gameObject;
 
             switch (target)
             {

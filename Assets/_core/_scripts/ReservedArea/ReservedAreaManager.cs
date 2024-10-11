@@ -12,14 +12,11 @@ namespace Antura.ReservedArea
     {
 
         [Header("References")]
-        public TextRender SupportText;
-
         public CheckIcon AnalyticsCheckIcon;
         public CheckIcon NotificationsCheckIcon;
 
         void Start()
         {
-            SupportText.text = AppManager.I.AppEdition.GetAppVersionString();
             AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
         }

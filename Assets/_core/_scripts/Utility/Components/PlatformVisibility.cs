@@ -19,7 +19,7 @@ namespace Antura.Utilities
 
         public AppEditionID editionIDOnly;
 
-        void Start()
+        void OnEnable()
         {
             if (ConditionSetting != ConditionSettingEnum.none)
             {
@@ -34,7 +34,7 @@ namespace Antura.Utilities
                 }
 
             }
-            else if (!Application.isEditor)
+            else
             {
                 bool visible = false;
 

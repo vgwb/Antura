@@ -19,18 +19,19 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] float minIntervalBetweenZoomTicks = 0.25f;
 
         #endregion
-        
+
         public static CameraManager I;
         public Camera MainCam { get; private set; }
         public Transform MainCamTrans { get; private set; }
         public PlayerCameraController CamController { get; private set; }
+        public StarterAssetsInputs StarterInput { get; private set; }
 
         float lastZoomTickTime;
         float leaveMapTime;
         CameraMode cameraMode;
         DialogueCamera dialogueCam;
+        FocusCamera focusCam;
         MapCamera mapCam;
-
 
         #region Unity
 
@@ -51,15 +52,19 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             CamController = this.GetComponent<PlayerCameraController>();
+            StarterInput = FindObjectOfType<StarterAssetsInputs>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
+            focusCam = this.GetComponent<FocusCamera>();
             ChangeCameraMode(CameraMode.Player);
+            
+            DiscoverNotifier.Game.OnMapButtonToggled.Subscribe(OnMapButtonToggled);
         }
 
         void OnDestroy()
         {
-            if (I == this)
-                I = null;
+            if (I == this) I = null;
+            DiscoverNotifier.Game.OnMapButtonToggled.Unsubscribe(OnMapButtonToggled);
         }
 
         void Update()
@@ -105,18 +110,45 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ChangeCameraMode(CameraMode newMode)
         {
-            if (newMode == cameraMode) return;
+            if (newMode == cameraMode)
+                return;
 
             cameraMode = newMode;
-            
+
             CamController.Activate(cameraMode == CameraMode.Player);
             dialogueCam.Activate(cameraMode == CameraMode.Dialogue);
             mapCam.Activate(cameraMode == CameraMode.Map);
+            focusCam.Activate(cameraMode == CameraMode.Focus);
         }
 
         public void FocusDialogueCamOn(Transform target)
         {
             dialogueCam.SetTarget(target);
+        }
+
+        // For now this will be called only during dialogues
+        public void FocusCamOn(Transform target)
+        {
+            Vector3 toCamPos = dialogueCam.CineMain.transform.position;
+            toCamPos.y += focusCam.YOffset;
+            focusCam.CineMain.transform.position = toCamPos;
+            focusCam.SetTarget(target);
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnMapButtonToggled(bool toggleOn)
+        {
+            if (toggleOn)
+            {
+                if (cameraMode == CameraMode.Player) ChangeCameraMode(CameraMode.Map);
+            }
+            else
+            {
+                if (cameraMode == CameraMode.Map) ChangeCameraMode(CameraMode.Player);
+            }
         }
 
         #endregion

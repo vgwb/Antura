@@ -13,10 +13,10 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] protected CinemachineCamera cineMain;
 
         #endregion
-        
+
         public bool Active { get; private set; }
         public CinemachineCamera CineMain { get { return cineMain; } }
-        
+
         #region Public Methods
 
         public virtual void Activate(bool activate)

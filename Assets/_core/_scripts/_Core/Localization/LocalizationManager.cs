@@ -1,5 +1,6 @@
 using System;
 using Antura.Database;
+using Antura.Language;
 using Antura.Profile;
 
 namespace Antura.Core
@@ -72,6 +73,48 @@ namespace Antura.Core
         {
             var locId = (LocalizationDataId)Enum.Parse(typeof(LocalizationDataId), $"UI_Phrases_{cat}");
             return GetLocalizationData(locId);
+        }
+
+        public static string PrefixHomerNodeWithLangCode(string node_id, LanguageCode langCode)
+        {
+            string prefix = "";
+            switch (langCode)
+            {
+                case LanguageCode.english:
+                    prefix = "EN";
+                    break;
+                case LanguageCode.arabic:
+                    prefix = "AR";
+                    break;
+                case LanguageCode.spanish:
+                    prefix = "ES";
+                    break;
+                case LanguageCode.italian:
+                    prefix = "IT";
+                    break;
+                case LanguageCode.french:
+                    prefix = "FR";
+                    break;
+                case LanguageCode.polish:
+                    prefix = "PL";
+                    break;
+                case LanguageCode.ukrainian:
+                    prefix = "UK";
+                    break;
+                case LanguageCode.russian:
+                    prefix = "RU";
+                    break;
+                case LanguageCode.romanian:
+                    prefix = "RO";
+                    break;
+                case LanguageCode.hungarian:
+                    prefix = "HU";
+                    break;
+                case LanguageCode.german:
+                    prefix = "DE";
+                    break;
+            }
+            return prefix + "_" + node_id;
         }
     }
 }

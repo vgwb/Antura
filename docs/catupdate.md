@@ -18,14 +18,13 @@ Here are the general changes to the system
 - Reward system redone to support shopping of props and textures
 - Added support for more advanced characters
 
-
-# Antura Pet Switcher 
+# Antura Pet Switcher
 
 The new Antura prefab has logic to select and spawn the correct pet based on the context, and functions as an entry point to the pet's capabilities.
 It supports loading the current selected pet, or forcing showing a pet (for example, if we want to show both pets at once).
 All scenes containing Antura now use this new prefab.
 An enumerator named AnturaPetType defines what pet to use.
-	
+
 # Flow changes
 All gifts are now sent as biscuits.
 The Antura Space tutorial now has new steps that show how to buy items. It now has these entry points:
@@ -37,17 +36,19 @@ The Antura Space tutorial now has new steps that show how to buy items. It now h
 
 ## Reward System Redone
 The new Reward System allows players to gain biscuits and spend them to unlock new props. The major changes are as follows:
+
 - Players are now rewarded with biscuits only, instead of props
 - Props can be purchased in a shop inside the Antura Space, and they show item costs
 - Your bones are shown separately in Antura Space (no more tied to the Decorations)
 - Customization is now less hardcoded, allowing separate item classes with variable numbers of props
 - Ears are now merged into a single shop item
 - Depending on the selected Pet, the biscuit icon changes throughout the application
-	
-For retrocompatibility, if a Reward was already unlocked, it is kept as unlocked.Rewards with a cost of 0 (zero) count as already unlocked. 
+
+For retrocompatibility, if a Reward was already unlocked, it is kept as unlocked.Rewards with a cost of 0 (zero) count as already unlocked.
 
 # Advanced characters support
 The update introduces some upgrades to the character controller.
+
 - An updated shader to handle multiple textured materials instead of only one 
 - Support for Skinned Mesh Renderers, allowing pets to employ aniamted props.
 - A new glass material to improve visual fidelity
@@ -59,6 +60,6 @@ Each pet now has a separate configuration table. The item cost is added to each 
 
 [Antura Cat Rewards configuration](https://docs.google.com/spreadsheets/d/14Bl1XBLUx6oFLnI2XYfZJRcLE4Od_FT1tm48bQ87zh4)
 
-# Saved Data Changes 
+# Saved Data Changes
 
 Profiles now also contain a PetData serializable structure that currently holds the last used Pet, and whether the Cat is unlocked or not.

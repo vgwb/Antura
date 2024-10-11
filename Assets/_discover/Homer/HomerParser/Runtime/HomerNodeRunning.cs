@@ -190,7 +190,7 @@ namespace Homer
                         break;
                 }
 
-                output = output.Replace(variation.Value, "<link=variation>" + variationContent + "</link>");
+                output = output.Replace(variation.Value, "<link=variation>" + variationContent.Trim() + "</link>");
                 ++idx;
             }
 
@@ -210,7 +210,8 @@ namespace Homer
 
                 var print = " --ERROR-- ";
 
-                strTWT = HomerNodeRunningHelper.SanitizeVariables(strTWT);
+                strTWT = HomerNodeRunningHelper.SanitizeVariables(strTWT, false);
+                
                 var result = Evaluate(strTWT);
 
                 if (result)

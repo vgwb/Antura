@@ -15,7 +15,7 @@
         Theme10 = 10
     }
 
-    // last is 73
+    // last is 74
     public enum Sfx
     {
         AlarmClock = 13,
@@ -26,6 +26,7 @@
         BushRustlingOut = 33,
         CameraMovement = 12,
         CameraMovementShort = 63,
+        CatMeow = 74,
         ChoiceSwipe = 64,
         CrateLandOnground = 34,
         DangerClock = 3,

@@ -8,7 +8,8 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Road
-  m_Shader: {fileID: -6465566751694194690, guid: 2de5d28125b5b4b36b52de0a0e164e44, type: 3}
+  m_Shader: {fileID: -6465566751694194690, guid: 2de5d28125b5b4b36b52de0a0e164e44,
+    type: 3}
   m_Parent: {fileID: 0}
   m_ModifiedSerializedProperties: 0
   m_ValidKeywords: []
@@ -16,7 +17,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: -1
+  m_CustomRenderQueue: 2000
   stringTagMap:
     RenderType: Opaque
   disabledShaderPasses: []
@@ -84,7 +85,7 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Smoothness: 0.5
+    - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1

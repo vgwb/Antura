@@ -4,6 +4,8 @@
 using System;
 using System.Text;
 using Antura.Core;
+using Antura.Minigames.DiscoverCountry;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using DG.DeExtensions;
 using TMPro;
 using UnityEngine;
@@ -80,8 +82,10 @@ namespace Antura.Debugging
         };
         // ANTURA DISCOVER CHEATS
         readonly DebugCommand[] _discoverCountriesCheats = new[] {
-            new DebugCommand("Stub cheat until we add some", CommandCondition.OnPress, KeyCode.F12, on => {
-                // Stub
+            new DebugCommand("Activate Target Marker on random light beam", CommandCondition.OnPress, KeyCode.T, KeyModifier.Shift, on => {
+                LightBeam beam = FindObjectOfType<LightBeam>(true);
+                if (beam == null) Debug.LogWarning("Couldn't find a target beam");
+                else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
             })
         };
         

@@ -15,13 +15,8 @@ namespace Antura.Minigames.DiscoverCountry
                 .Join(this.transform.DOScale(0, duration).From().SetEase(Ease.OutBack))
                 .Join(this.GetComponent<RectTransform>().DOAnchorPosY(-350, duration).From(true).SetEase(Ease.OutBack))
                 .Join(this.transform.DOPunchRotation(new Vector3(0, 0, 18), duration, 8))
-                .OnComplete(() => {
-                    bt.interactable = currNode.Type == HomerNode.NodeType.TEXT;
-                })
-                .OnRewind(() => {
-                    icoContinueTween.Rewind();
-                    this.gameObject.SetActive(false);
-                });
+                .OnComplete(() => SetInteractable(true))
+                .OnRewind(() => this.gameObject.SetActive(false));
         }
 
         #endregion

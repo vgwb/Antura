@@ -5,6 +5,7 @@
         Unset,
         Player,
         Map,
-        Dialogue
+        Dialogue,
+        Focus
     }
 }

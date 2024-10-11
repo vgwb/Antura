@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 6835084506471693629}
   - component: {fileID: 8424209946385524509}
   - component: {fileID: 5984220788659573719}
+  - component: {fileID: 3971356979032529201}
   m_Layer: 0
   m_Name: Building02
   m_TagString: Untagged
@@ -25,13 +26,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5589270418618203356}
+  serializedVersion: 2
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -0.1293335, y: 0.000000029802322, z: -15.40502}
   m_LocalScale: {x: 1.5, y: 1.5, z: 1.5}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8424209946385524509
 MeshFilter:
@@ -86,3 +87,24 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &3971356979032529201
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5589270418618203356}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 1.0717888, y: 1.9177046, z: 1.1057844}
+  m_Center: {x: -0.07345861, y: 0.9588523, z: 0.024123967}

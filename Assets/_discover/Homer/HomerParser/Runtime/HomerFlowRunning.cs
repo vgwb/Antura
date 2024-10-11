@@ -214,6 +214,10 @@ namespace Homer
                     {
                         string condition =
                             HomerNodeRunningHelper.GetContentText(HomerProjectRunning.I.Project, element);
+                        
+                        //strip {}
+                        condition = condition.TrimStart('{').TrimEnd('}');
+                        
                         bool result = HomerNodeRunning.Evaluate(condition);
                         if (result && availableConnection == null)
                         {

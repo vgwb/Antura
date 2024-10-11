@@ -20,7 +20,7 @@ _requirement: Android 4.1_
 - **Direct download** (1.2.0 - feb 2018): [download APK](http://www.antura.org/assets/antura-android-v1.2.0.apk) and [Android Install Docs](assets/pdf/Antura_InstallHelp.pdf)
 
 ### iOS
-_requirement: iOS 10.0_
+_requirement: iOS 12.0_
 
 - **AppStore**: [Antura on iOS AppStore](https://itunes.apple.com/us/app/antura-and-the-letters/id1210334699?ls=1&amp;mt=8)
 
