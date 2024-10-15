@@ -74,6 +74,15 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
+        /// <summary>
+        /// Returns the correct quest node for the given infoPoint
+        /// </summary>
+        public QuestNode GetQuestNode(InfoPoint infoPoint, string nodeId)
+        {
+            QuestNode questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            DebugNodeInfo(questNode);
+            return questNode;
+        }
 
         public void OnInteract(EdAgent agent)
         {
@@ -99,16 +108,16 @@ namespace Antura.Minigames.DiscoverCountry
             // }
         }
 
-        public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
-        {
-            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
-            DebugNodeInfo(questNode);
-            InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
-            AudioManager.I.PlayDiscoverDialogue(
-                questNode.LocId,
-                Language.LanguageCode.french
-            );
-        }
+        // Moved to same logic as dialogue, within InteractionManager
+        // public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
+        // {
+        //     var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+        //     DebugNodeInfo(questNode);
+        //     AudioManager.I.PlayDiscoverDialogue(
+        //         questNode.LocId,
+        //         Language.LanguageCode.french
+        //     );
+        // }
 
         public void OnCollectItem(GameObject go)
         {

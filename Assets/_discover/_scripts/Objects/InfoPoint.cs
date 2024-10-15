@@ -1,5 +1,7 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
 using Antura.UI;
 
@@ -27,8 +29,14 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (IsInteractable)
             {
-                QuestManager.I.OnInfoPoint(this, HomerNodeId);
+                // QuestManager.I.OnInfoPoint(this, HomerNodeId);
+                if (other.gameObject == InteractionManager.I.player.gameObject) DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId);
             }
+        }
+
+        void OnTriggerExit(Collider other)
+        {
+            if (other.gameObject == InteractionManager.I.player.gameObject) DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Dispatch(this);
         }
     }
 }

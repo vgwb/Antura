@@ -9,16 +9,26 @@ namespace Antura.Minigames.DiscoverCountry
     {
         #region Serialized
 
-        [SerializeField] Vector3 offsetFromLLBase = new Vector3(0, 1, 0);
+        [SerializeField] Vector3 offsetFromLLAgentBase = new Vector3(0, 1.2f, 0);
+        [SerializeField] Vector3 offsetFromInfoPointBase = new Vector3(0, 0.8f, 0);
         [SerializeField] bool animateIco;
         [Header("References")]
         [DeEmptyAlert]
-        [SerializeField] Transform icon;
+        [SerializeField] GameObject balloon_talk;
+        [DeEmptyAlert]
+        [SerializeField] GameObject balloon_info;
+        [DeEmptyAlert]
+        [SerializeField] Transform iconContainer;
+        [DeEmptyAlert]
+        [SerializeField] GameObject ico_talk;
+        [DeEmptyAlert]
+        [SerializeField] GameObject ico_info;
 
         #endregion
 
+        Vector3 currOffset;
         Transform trans;
-        Transform agentTrans;
+        Transform targetTrans;
         Tween showTween, loopTween;
 
         #region Unity
@@ -32,10 +42,9 @@ namespace Antura.Minigames.DiscoverCountry
                 .OnRewind(() => {
                     loopTween.Rewind();
                     this.gameObject.SetActive(false);
-                    agentTrans = null;
+                    targetTrans = null;
                 });
-            // loopTween = icon.DOLocalRotate(new Vector3(0, 0, 9), 0.75f).From(new Vector3(0, 0, -9)).SetAutoKill(false).Pause()
-            loopTween = icon.DOScale(1f, 0.75f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
+            loopTween = iconContainer.DOScale(1.1f, 0.45f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
                 .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
          
             this.gameObject.SetActive(false);
@@ -49,7 +58,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            trans.position = agentTrans.position + offsetFromLLBase;
+            trans.position = targetTrans.position + currOffset;
         }
 
         #endregion
@@ -58,15 +67,40 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ShowFor(EdAgent agent)
         {
-            showTween.Restart();
-            if (animateIco) loopTween.Restart();
-            this.gameObject.SetActive(true);
-            agentTrans = agent.transform;
+            SetAppearance(true);
+            Show(agent.transform);
+            
+        }
+        public void ShowFor(InfoPoint infoPoint)
+        {
+            SetAppearance(false);
+            Show(infoPoint.transform);
         }
 
         public void Hide()
         {
             showTween.PlayBackwards();
+        }
+
+        #endregion
+
+        #region Methods
+
+        void Show(Transform target)
+        {
+            showTween.Restart();
+            if (animateIco) loopTween.Restart();
+            this.gameObject.SetActive(true);
+            targetTrans = target;
+        }
+
+        void SetAppearance(bool isDialogue)
+        {
+            currOffset = isDialogue ? offsetFromLLAgentBase : offsetFromInfoPointBase;
+            balloon_talk.gameObject.SetActive(isDialogue);
+            ico_talk.gameObject.SetActive(isDialogue);
+            balloon_info.gameObject.SetActive(!isDialogue);
+            ico_info.gameObject.SetActive(!isDialogue);
         }
 
         #endregion
