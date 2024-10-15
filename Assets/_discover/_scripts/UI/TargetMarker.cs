@@ -83,9 +83,9 @@ namespace Antura.Minigames.DiscoverCountry
                 : viewportP.z < 0 || viewportP.x < 0 || viewportP.x > 1
                     ? OutOfBoundsHor.Right
                     : OutOfBoundsHor.None;
-            OutVert = viewportP.y < 0
+            OutVert = viewportP.y > 1
                 ? OutOfBoundsVert.Top
-                : viewportP.y > 1
+                : viewportP.y < 0
                     ? OutOfBoundsVert.Bottom
                     : OutOfBoundsVert.None;
         }
