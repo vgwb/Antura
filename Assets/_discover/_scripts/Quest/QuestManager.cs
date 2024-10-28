@@ -34,6 +34,16 @@ namespace Antura.Minigames.DiscoverCountry
         {
             HomerAnturaManager.I.Setup();
             total_coins = 0;
+            if (coinsCounter == null)
+            {
+                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
+            }
+            if (bonesCounter == null)
+            {
+                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
+            }
+
+
             if (DebugEnglish)
             {
                 LanguageCode = "EN";
