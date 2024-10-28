@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -12,9 +13,9 @@ namespace Homer
         public List<HomerLocalVariable> LocalVariables;
 
         public static List<HomerVariation> _variations;
-       
+
         public static List<string> ActiveSubFlows;
-       
+
 
         public static HomerProjectRunning I;
 
@@ -32,7 +33,7 @@ namespace Homer
         {
             LocalVariables = new List<HomerLocalVariable>();
         }
-        
+
         public void InitializeActiveSubFlows()
         {
             ActiveSubFlows = new List<string>();
@@ -81,8 +82,14 @@ namespace Homer
 
             foreach (HomerLabel l in Project._labels)
             {
-                if (l._key == key)
+                if (l != null && l._key == key)
                     label = l;
+            }
+
+            if (label == null)
+            {
+                Debug.Log($"No label for {key}");
+                return key;
             }
 
             HomerLocalizedContent content = null;
@@ -92,8 +99,24 @@ namespace Homer
                     content = localizedContent;
             }
 
-            return content._text;
-        }
+            var contentText = content._text;
 
+            List<string> vs = HomerNodeRunningHelper.FindGlobalVariables(contentText);
+            if (vs.Count > 0)
+            {
+                foreach (string v in vs)
+                {
+                    Type type = typeof(HomerVars);
+                    var vCleaned = v.Replace("$", "");
+                    var field = type.GetField(vCleaned);
+                    if (field != null)
+                        contentText = contentText.Replace(v, field.GetValue(null).ToString());
+                    else
+                        Debug.Log($"GlobalVariables: missing field: {v}");
+                }
+            }
+
+            return contentText;
+        }
     }
 }

@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using HomerNCalc;
@@ -32,9 +33,17 @@ namespace Homer
             foreach (Match m in regex.Matches(text))
             {
                 Console.WriteLine("M " + m);
-                globalVariables.Add(m.ToString());
+                var item = m.ToString();
+                //remove punctuation
+                string pattern = @"[^\w\s_$]";
+                // Replace matched characters with an empty string (or any other character you prefer)
+                item = Regex.Replace(item, pattern, "");
+                globalVariables.Add(item);
             }
-
+            
+            globalVariables = globalVariables.OrderByDescending(x => x.Length)
+                .ToList();
+            
             return globalVariables;
         }
 
@@ -73,7 +82,7 @@ namespace Homer
 
             if (resolveVariables)
             {
-                List<string> vs = HomerNodeRunningHelper.FindGlobalVariables(contentText);
+                List<string> vs = FindGlobalVariables(contentText);
                 if (vs.Count > 0)
                 {
                     foreach (string v in vs)
