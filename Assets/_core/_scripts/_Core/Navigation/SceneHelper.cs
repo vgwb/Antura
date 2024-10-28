@@ -45,7 +45,7 @@ namespace Antura.Core
                 case AppScene.DiscoverCountry:
                     return "DiscoverCountry";
                 case AppScene.DiscoverQuest:
-                    return "discover_tutorial";
+                    return minigameData.Scene;
                 default:
                     return "";
             }
@@ -95,9 +95,13 @@ namespace Antura.Core
                     {
                         return AppScene.MiniGame;
                     }
-                    else
+                    else if (currentScene.Substring(0, 9) == "discover_")
                     {
                         return AppScene.DiscoverQuest;
+                    }
+                    else
+                    {
+                        return AppScene.Home;
                     }
             }
         }

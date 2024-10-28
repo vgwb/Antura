@@ -312,7 +312,9 @@ namespace Antura.Core
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
             if (DebugConfig.I.DebugLogEnabled)
-            { Debug.LogFormat(" ==== Loading scene {0} ====", sceneName); }
+            {
+                Debug.LogFormat(" ==== Loading scene {0} ====", sceneName);
+            }
             SceneTransitionManager.LoadSceneWithTransition(sceneName);
 
             AppManager.I.Services.Analytics.TrackScene(sceneName);
@@ -405,7 +407,7 @@ namespace Antura.Core
 
         public void GoToKiosk(bool debugMode = false)
         {
-            Debug.Log("GoToKiosk");
+            //Debug.Log("GoToKiosk");
             AppManager.I.AppSettingsManager.SetKioskMode(true);
             CustomGoTo(AppScene.Kiosk, debugMode);
         }
@@ -416,6 +418,7 @@ namespace Antura.Core
             {
                 UpdatePrevSceneStack(NavData.CurrentScene);
             }
+            NavData.CurrentScene = AppScene.DiscoverQuest;
             GoToSceneByName(questSceneName);
         }
 
@@ -446,6 +449,10 @@ namespace Antura.Core
                     // We also clear the navigation data
                     NavData.PrevSceneStack.Clear();
                     GoToScene(AppScene.Home);
+                    break;
+                case AppScene.DiscoverQuest:
+                    NavData.PrevSceneStack.Clear();
+                    GoToScene(AppScene.DiscoverCountry);
                     break;
                 default:
                     if (AppManager.I.AppSettings.KioskMode)
