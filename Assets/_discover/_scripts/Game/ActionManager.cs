@@ -15,7 +15,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Transform Target_NotreDame;
         public Transform Target_Louvre;
         public Transform Target_Bakery;
-        public Transform Target_Sein;
+        public Transform Target_Seine;
         public Transform Target_AnturaLocation;
 
         public GameObject Beam_Tutorial;
@@ -23,14 +23,14 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Beam_NotreDame;
         public GameObject Beam_Louvre;
         public GameObject Beam_Bakery;
-        public GameObject Beam_Sein;
+        public GameObject Beam_Seine;
 
         public GameObject Area_Tutorial;
         public GameObject Area_Eiffel;
         public GameObject Area_NotreDame;
         public GameObject Area_Louvre;
         public GameObject Area_Bakery;
-        public GameObject Area_Sein;
+        public GameObject Area_Seine;
 
         public GameObject TutorialElevator;
         public GameObject Eiffel_Guide;
@@ -63,14 +63,14 @@ namespace Antura.Minigames.DiscoverCountry
             Area_NotreDame.SetActive(false);
             Area_Louvre.SetActive(false);
             Area_Bakery.SetActive(false);
-            Area_Sein.SetActive(false);
+            Area_Seine.SetActive(false);
 
             Beam_Tutorial.SetActive(false);
             Beam_Eiffel.SetActive(false);
             Beam_NotreDame.SetActive(false);
             Beam_Louvre.SetActive(false);
             Beam_Bakery.SetActive(false);
-            Beam_Sein.SetActive(false);
+            Beam_Seine.SetActive(false);
             Target_AnturaLocation = null;
 
             Eiffel_Guide.SetActive(true);
@@ -108,9 +108,9 @@ namespace Antura.Minigames.DiscoverCountry
                     Target_AnturaLocation = Beam_Bakery.transform;
                     break;
                 case "sein":
-                    InteractionManager.I.FocusCameraOn(Target_Sein);
-                    Beam_Sein.SetActive(true);
-                    Target_AnturaLocation = Beam_Sein.transform;
+                    InteractionManager.I.FocusCameraOn(Target_Seine);
+                    Beam_Seine.SetActive(true);
+                    Target_AnturaLocation = Beam_Seine.transform;
                     break;
                 default:
                     break;
@@ -150,8 +150,8 @@ namespace Antura.Minigames.DiscoverCountry
                 case "area_bakery":
                     Area_Bakery.SetActive(true);
                     break;
-                case "area_sein":
-                    Area_Sein.SetActive(true);
+                case "area_seine":
+                    Area_Seine.SetActive(true);
                     break;
                 case "game_end":
                     WinFx.SetActive(true);

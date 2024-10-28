@@ -6,7 +6,7 @@ Developer: Pupunzi (Matteo Bicocchi)
 -------------------------------------------------------------------------------------
 C# Variables, Actors, Metadata, Labels and Flows Slug.
 Homer project: Antura
-Generated on: 2024-10-28 04:14:57
+Generated on: 2024-10-28 16:06:52
 -------------------------------------------------------------------------------------
 */
 
@@ -15,17 +15,11 @@ namespace Homer {
     public static class HomerVars {
     
     public static int TOTAL_COINS = 0;
-
     public static string CMD = "";
-
     public static int TOTAL_ITEMS_1 = 0;
-
     public static bool MET_GUIDE = false; 
-
     public static bool MET_MAJOR = false; 
-
-    public static bool MET_MONALISA = false; 
-    }
+    public static bool MET_MONALISA = false;     }
 
     public static class HomerActors {
         public enum Actors {MUSEUM_GUIDE = 7, NPG_F = 6, NPG_M = 5, COOK = 4, GUIDE = 0, TEACHER = 1, TUTOR = 2, MAJOR = 3}

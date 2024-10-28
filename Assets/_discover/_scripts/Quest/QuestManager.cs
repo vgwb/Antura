@@ -16,12 +16,15 @@ namespace Antura.Minigames.DiscoverCountry
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
+        public GameObject Player;
+
         public Quests Quests;
         public QuestData CurrentQuest;
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
 
         public bool DebugEnglish = false;
+        public Transform PlayerSpawnPoint;
 
         public string LanguageCode = "";
         private GameObject currentNPC;
@@ -43,6 +46,10 @@ namespace Antura.Minigames.DiscoverCountry
                 bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
             }
 
+            if (PlayerSpawnPoint != null)
+            {
+                Player.transform.SetPositionAndRotation(PlayerSpawnPoint.position, PlayerSpawnPoint.rotation);
+            }
 
             if (DebugEnglish)
             {
