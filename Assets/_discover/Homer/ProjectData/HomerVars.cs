@@ -6,7 +6,7 @@ Developer: Pupunzi (Matteo Bicocchi)
 -------------------------------------------------------------------------------------
 C# Variables, Actors, Metadata, Labels, Colors and Flows Slug.
 Homer project: Antura
-Generated on: 2024-10-29 13:25:12
+Generated on: 2024-10-29 18:54:35
 -------------------------------------------------------------------------------------
 */
 
@@ -76,7 +76,8 @@ namespace Homer {
               FR_02_ANGERS = 2, 
               FR_03_NANTES = 3, 
               PL_01_QUEST_ = 4, 
-              FR_04_LE_MANS = 5
+              FR_04_LE_MANS = 5, 
+              FR_01B_PARIS = 6
             }
     }
 
