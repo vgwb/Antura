@@ -194,7 +194,7 @@ namespace Antura.Minigames.DiscoverCountry
                 }
             }
 
-            var desiredMoveDir = InputManager.CurrMovementVector;
+            var desiredMoveDir = InputManager.CurrWorldMovementVector;
             actualMoveDir = Vector3.Lerp(actualMoveDir, desiredMoveDir, isInAir ? AirControl : 1f);
 
             var accelerationMagnitude = actualMoveDir.magnitude;

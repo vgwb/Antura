@@ -6,6 +6,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         static InputManager I;
         public static Vector3 CurrMovementVector { get; private set; } // Set by PlayerCameraController
+        public static Vector3 CurrWorldMovementVector { get; private set; } // Set by PlayerCameraController
 
         #region Unity
 
@@ -26,16 +27,17 @@ namespace Antura.Minigames.DiscoverCountry
             if (I != this) return;
 
             I = null;
-            CurrMovementVector = Vector3.zero;
+            CurrMovementVector = CurrWorldMovementVector = Vector3.zero;
         }
 
         #endregion
 
         #region Public Methods
 
-        public static void SetCurrMovementVector(Vector3 vector)
+        public static void SetCurrMovementVector(Vector3 vector, Vector3 worldVector)
         {
             CurrMovementVector = vector;
+            CurrWorldMovementVector = worldVector;
         }
 
         #endregion

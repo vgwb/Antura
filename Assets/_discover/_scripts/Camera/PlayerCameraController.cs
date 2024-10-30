@@ -25,6 +25,12 @@ namespace Antura.Minigames.DiscoverCountry
             Other
         }
 
+        enum AutoRotateMode
+        {
+            None,
+            YAxis
+        }
+
         #region Serialized
 
         [DeEmptyAlert]
@@ -34,9 +40,9 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] int mouseRotationSpeed = 3;
         [Range(1, 20)]
         [SerializeField] int touchRotationSpeed = 3;
-        [SerializeField] bool resetRotationAfterAWhile = false;
+        [SerializeField] AutoRotateMode autoRotateMode = AutoRotateMode.YAxis;
         [Range(0, 10)]
-        [SerializeField] float resetRotationDelay = 2.5f;
+        [SerializeField] float resetRotationDelay = 2.5f; // Only used if autoRotate is active
         [SerializeField] bool invertYAxis = false;
         [DeRange(0, 360)]
         [SerializeField] IntRange minMaxVerticalRotation = new IntRange(65, 210);
@@ -58,7 +64,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public float ZoomLevel { get; private set; }
 
-        bool isMoving { get { return InputManager.CurrMovementVector != Vector3.zero; } }
+        bool isPlayerMoving { get { return InputManager.CurrWorldMovementVector != Vector3.zero; } }
         float baseCamDistance { get { return defCamDistance - currZoomLevel; } }
 
         InteractionLayer interactionLayer;
@@ -125,16 +131,16 @@ namespace Antura.Minigames.DiscoverCountry
                         lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
                         UpdateManualRotation(lookOffset, mouseLookActive ? mouseRotationSpeed : touchRotationSpeed);
                     }
-                    else if (resetRotationAfterAWhile && (isMoving || Time.time - lastRotationTime > resetRotationDelay))
+                    else if (autoRotateMode != AutoRotateMode.None && (isPlayerMoving || Time.time - lastRotationTime > resetRotationDelay))
                     {
-                        UpdateResetRotation(isMoving);
+                        UpdateAutoRotation();
                     }
                     UpdateMovementVector();
                 }
             }
             else
             {
-                InputManager.SetCurrMovementVector(Vector3.zero);
+                InputManager.SetCurrMovementVector(Vector3.zero, Vector3.zero);
             }
         }
 
@@ -196,12 +202,11 @@ namespace Antura.Minigames.DiscoverCountry
                 camAngle.x = minMaxVerticalRotation.max;
             else if (camAngle.x < 180 && camAngle.x > minMaxVerticalRotation.min)
                 camAngle.x = minMaxVerticalRotation.min;
-            // LookUp/Down modifiers
-            bool isLookingDown = camAngle.x < 180;
-            float currLookUpPerc = isLookingDown ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
-            float currLookDownPerc = !isLookingDown ? 0 : Mathf.Clamp(camAngle.x / minMaxVerticalRotation.min, 0, 1);
-            currLookZoomFactor = isLookingDown ? lookDownZoomFactor * currLookDownPerc : lookUpZoomFactor * currLookUpPerc;
-            float currArmLengthFactor = isLookingDown ? lookDownArmLengthFactor * currLookDownPerc : lookUpArmLengthFactor * currLookUpPerc;
+            
+            GetDataForCamAngle(camAngle, out bool isLookingDown, out float currLookUpPerc, out float currLookDownPerc, out float lookZoomFactor, out float currArmLengthFactor);
+            currLookZoomFactor = lookZoomFactor;
+            
+            // float currArmLengthFactor = isLookingDown ? lookDownArmLengthFactor * currLookDownPerc : lookUpArmLengthFactor * currLookUpPerc;
             cineMainFollow.CameraDistance = baseCamDistance - currLookZoomFactor;
             cineMainFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
             Vector3 currShoulderOffset = defShoulderOffset;
@@ -217,12 +222,20 @@ namespace Antura.Minigames.DiscoverCountry
             lastRotationTime = Time.time;
         }
 
-        void UpdateResetRotation(bool fast)
+        void UpdateAutoRotation()
         {
+            float speed = 0.5f;
             Vector3 currPivotEuler = camTarget.eulerAngles;
+            if (isPlayerMoving)
+            {
+                float turnAngle = Vector2.Angle(new Vector2(0, 1), new Vector2(InputManager.CurrMovementVector.x, InputManager.CurrMovementVector.z));
+                if (turnAngle > 135) return; // Don't re-adapt camera if moving backwards
+                speed = 0.25f + (1 - turnAngle / 180) * 2f;
+            }
             currPivotEuler.y = camTargetOriginalParent.eulerAngles.y;
             Quaternion targetRot = Quaternion.Euler(currPivotEuler);
-            camTarget.rotation = Quaternion.Slerp(camTarget.rotation, targetRot, Time.deltaTime * (fast ? 5 : 0.75f));
+            float time = Time.deltaTime * speed;
+            camTarget.rotation = Quaternion.Slerp(camTarget.rotation, targetRot, time);
         }
 
         void UpdateMovementVector()
@@ -232,7 +245,16 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 camRotEuler = camRot.eulerAngles;
             camRotEuler.x = 0;
             camRot = Quaternion.Euler(camRotEuler);
-            InputManager.SetCurrMovementVector(camRot * movementFactor);
+            InputManager.SetCurrMovementVector(movementFactor, camRot * movementFactor);
+        }
+
+        void GetDataForCamAngle(Vector3 camAngle, out bool isLookingDown, out float lookUpPerc, out float lookDownPerc, out float lookZoomFactor, out float armLengthFactor)
+        {
+            isLookingDown = camAngle.x < 180;
+            lookUpPerc = isLookingDown ? 0 : Mathf.Clamp((360 - camAngle.x) / (360 - minMaxVerticalRotation.max), 0, 1);
+            lookDownPerc = !isLookingDown ? 0 : Mathf.Clamp(camAngle.x / minMaxVerticalRotation.min, 0, 1);
+            lookZoomFactor = isLookingDown ? lookDownZoomFactor * lookDownPerc : lookUpZoomFactor * lookUpPerc;
+            armLengthFactor = isLookingDown ? lookDownArmLengthFactor * lookDownPerc : lookUpArmLengthFactor * lookUpPerc;
         }
 
         void OnDrawGizmos()
@@ -243,7 +265,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 p = camTarget.position;
             p.y = 0;
             Gizmos.color = Color.blue;
-            Gizmos.DrawLine(p, p + InputManager.CurrMovementVector * 10);
+            Gizmos.DrawLine(p, p + InputManager.CurrWorldMovementVector * 10);
         }
 
         #endregion
