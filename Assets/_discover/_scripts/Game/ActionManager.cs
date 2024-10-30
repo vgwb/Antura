@@ -36,12 +36,13 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Eiffel_Guide;
         public GameObject NotreDame_Major;
 
-        public GameObject Player;
         public Transform Spawn_Louvre_Enter;
         public Transform Spawn_Louvre_Exit;
 
         public GameObject WinFx;
         public GameObject AnturaDog;
+
+        private GameObject Player;
 
         void Awake()
         {
@@ -58,6 +59,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
+            Player = GameObject.FindWithTag("Player");
+
             Area_Tutorial.SetActive(false);
             Area_Eiffel.SetActive(false);
             Area_NotreDame.SetActive(false);
