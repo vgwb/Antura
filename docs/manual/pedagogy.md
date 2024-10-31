@@ -516,5 +516,3 @@ Each world from 2 to 6 wil work with about 50 words organized in several subgrou
 ![content 1](../assets/img/docs_antura_content_1.jpg)
 ![content 2](../assets/img/docs_antura_book2.jpg)
 ![book](../assets/img/docs_antura_book2.jpg)
-
-
