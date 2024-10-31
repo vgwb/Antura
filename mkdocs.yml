@@ -68,6 +68,13 @@ plugins:
       glob:
         - "*/_local/*"
         - "*/_draft/*"
+  - blog:
+      blog_toc: true
+      authors: false
+      post_date_format: "dd-MM-yyyy"
+      post_url_date_format: yyyy
+      post_url_format: "{date}/{slug}"
+      post_readtime: false
 
 repo_url: https://github.com/vgwb/Antura
 edit_uri: "edit/main/docs/"
