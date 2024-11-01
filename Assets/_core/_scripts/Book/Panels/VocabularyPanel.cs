@@ -25,7 +25,7 @@ namespace Antura.Book
         Letters,
         Words,
         Phrases,
-        LearningBlock
+        Journey
     }
 
     /// <summary>
@@ -37,8 +37,10 @@ namespace Antura.Book
         public GameObject LettersPage;
         public GameObject WordsPage;
         public GameObject PhrasesPage;
+        public GameObject JourneyPage;
         public UIButton BtnLetters;
         public UIButton BtnWords;
+        public UIButton BtnJourney;
 
         private VocabularyChapter currentChapter = VocabularyChapter.None;
 
@@ -48,7 +50,7 @@ namespace Antura.Book
 
         void OnEnable()
         {
-            OpenArea(VocabularyChapter.Letters);
+            OpenArea(VocabularyChapter.Journey);
         }
 
         void OpenArea(VocabularyChapter newArea)
@@ -69,15 +71,26 @@ namespace Antura.Book
                     KeeperManager.I.PlayDialogue(LocalizationDataId.UI_Letters, KeeperMode.LearningNoSubtitles);
                     LettersPage.SetActive(true);
                     WordsPage.SetActive(false);
+                    JourneyPage.SetActive(false);
                     break;
                 case VocabularyChapter.Words:
                     KeeperManager.I.PlayDialogue(LocalizationDataId.UI_Words, KeeperMode.LearningNoSubtitles);
                     LettersPage.SetActive(false);
                     WordsPage.SetActive(true);
+                    JourneyPage.SetActive(false);
                     break;
                 case VocabularyChapter.Phrases:
                     KeeperManager.I.PlayDialogue(LocalizationDataId.UI_Phrases, KeeperMode.LearningNoSubtitles);
+                    LettersPage.SetActive(false);
+                    WordsPage.SetActive(false);
                     PhrasesPage.SetActive(true);
+                    JourneyPage.SetActive(false);
+                    break;
+                case VocabularyChapter.Journey:
+                    //KeeperManager.I.PlayDialogue(LocalizationDataId.UI_Phrases, KeeperMode.LearningNoSubtitles);
+                    LettersPage.SetActive(false);
+                    WordsPage.SetActive(false);
+                    JourneyPage.SetActive(true);
                     break;
             }
         }
@@ -103,6 +116,10 @@ namespace Antura.Book
         public void BtnOpenPhrases()
         {
             OpenArea(VocabularyChapter.Phrases);
+        }
+        public void BtnOpenJourney()
+        {
+            OpenArea(VocabularyChapter.Journey);
         }
         #endregion
 

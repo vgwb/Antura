@@ -47,7 +47,7 @@ namespace Antura.Book
 
         void OpenArea()
         {
-            KeeperManager.I.PlayDialogue(LocalizationDataId.UI_LearningBlock);
+            //            KeeperManager.I.PlayDialogue(LocalizationDataId.UI_LearningBlock);
             DetailPanel.SetActive(false);
             LearningBlockPanel(AppManager.I.Player.CurrentJourneyPosition.Stage);
         }
@@ -83,7 +83,7 @@ namespace Antura.Book
                     this,
                     new GenericCategoryData
                     {
-                        area = VocabularyChapter.LearningBlock,
+                        area = VocabularyChapter.Journey,
                         Id = stage.Id,
                         TitleLearning = stage.Id,
                         TitleNative = stage.Id
@@ -110,7 +110,7 @@ namespace Antura.Book
             DetailDescriptionAr.text = currentLearningBlock.data.Description_LearningLang;
 
             HighlightItem(currentLearningBlock.data.Id);
-            ScoreText.text = "Score: " + currentLearningBlock.score;
+            //ScoreText.text = "Score: " + currentLearningBlock.score;
         }
 
         void emptyListContainers()
