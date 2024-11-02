@@ -59,9 +59,7 @@ namespace Antura.Minigames.DiscoverCountry
         public string Content;
 
         public string LanguageRef;
-
-        [TextArea(3, 10)]
-        public string ExtraRef;
+        public string manualPage;
 
         public Texture Thumbnail;
 

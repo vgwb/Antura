@@ -10,6 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
 
+        private QuestData currentQuestData;
+
         void Start()
         {
 
@@ -17,6 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestData questData)
         {
+            currentQuestData = questData;
             Title.text = questData.Code + " | " + questData.Title;
             Description.text = questData.Description + "\n\n";
             Description.text += "<b>Location:</b> " + questData.Location + "\n";
@@ -30,7 +33,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OpenManual()
         {
-            Application.OpenURL("https://docs.antura.org");
+            Application.OpenURL("https://docs.antura.org/manual/quests/" + currentQuestData.manualPage);
         }
 
         public void Close()
