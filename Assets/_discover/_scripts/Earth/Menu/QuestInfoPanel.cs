@@ -31,6 +31,11 @@ namespace Antura.Minigames.DiscoverCountry
             Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
         }
 
+        public void Play()
+        {
+            EarthManager.I.OpenQuest(currentQuestData);
+        }
+
         public void OpenManual()
         {
             Application.OpenURL("https://docs.antura.org/manual/quests/" + currentQuestData.manualPage);
