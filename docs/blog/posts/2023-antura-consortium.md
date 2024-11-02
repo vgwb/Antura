@@ -6,7 +6,7 @@ date: 2023-12-12
 authors: 
  - stefano
 tags:
- - erasmus
+ - erasmus+
 categories:
  - information
 ---

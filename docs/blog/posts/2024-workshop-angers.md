@@ -6,7 +6,7 @@ date: 2024-02-01
 authors: 
  - stefano
 tags:
- - erasmus
+ - erasmus+
 categories:
  - workshop
 ---
