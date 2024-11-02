@@ -8,6 +8,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static EarthUIManager I;
 
+        public DiscoveryBookPanel BookPanel;
         public QuestInfoPanel InfoPanel;
         public GameObject MenuItemPrefab;
         public GameObject Container;
@@ -50,10 +51,16 @@ namespace Antura.Minigames.DiscoverCountry
             Container.SetActive(true);
         }
 
+        public void OpenBook()
+        {
+            BookPanel.Show();
+        }
+
         public void SelectQuest(QuestData questData)
         {
             InfoPanel.Show(questData);
         }
+
         private void emptyContainer(GameObject container)
         {
             foreach (Transform t in container.transform)
