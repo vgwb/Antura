@@ -26,7 +26,7 @@ The simplest way to copy the files is by connecting the Android phone to a PC, b
 
 Attach the iOS device to a computer via USB and open iTunes. Go to your device -> Apps -> File Sharing panel and select Antura. Drag the `players` folder onto your Desktop and the files are all there.
 
-![share](../../../assets/img/iTunes-Antura_files_sharing.png)
+![share](../../assets/img/iTunes-Antura_files_sharing.png)
 
 ## Windows
 
