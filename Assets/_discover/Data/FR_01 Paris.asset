@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
-  m_Name: France 1b Paris Seine
+  m_Name: FR_01 Paris
   m_EditorClassIdentifier: 
   Active: 1
-  Title: "\xEEle de France \u2013 Paris - Seine"
-  QuestId: 6
+  QuestId: 1
+  Title: Explore Paris!
+  Location: "\xEEle de France \u2013 Paris "
+  Categories: Place, Character, Art
+  Country: 2
+  Code: 1
+  Duration: 20
+  Description: Explore Paris
+  Content: "- La Tour Eiffel and Gustave Eiffel\n- Notre Dame de Paris\n- Mus\xE9e
+    du Louvre and Mona Lisa\n- La Baguette\n"
+  LanguageRef: 2.10 / 3.20
   Thumbnail: {fileID: 0}
-  Description: 
-  scene: discover_fr_paris_sein
+  scene: discover_fr_paris
   Town: {fileID: 4756090750195079128, guid: f342316d43d1d46d9a37132e3847f78f, type: 3}
   GameLevel: {fileID: 4836856928656916913, guid: 9263f703ee58a4c05b541889a7a875e1,
     type: 3}

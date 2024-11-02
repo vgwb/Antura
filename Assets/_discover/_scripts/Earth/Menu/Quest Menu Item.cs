@@ -10,7 +10,9 @@ namespace Antura.Minigames.DiscoverCountry
     public class QuestMenuItem : MonoBehaviour
     {
         [Header("References")]
+        public TextMeshProUGUI Code;
         public TextMeshProUGUI Title;
+        public TextMeshProUGUI Location;
         public Button SelectBtn;
         public Button ConfirmBtn;
 
@@ -19,9 +21,11 @@ namespace Antura.Minigames.DiscoverCountry
         public void Init(QuestData _questData)
         {
             questData = _questData;
-            SelectBtn.interactable = questData.Active;
+            //SelectBtn.interactable = questData.Active;
             ConfirmBtn.interactable = questData.Active;
+            Code.text = _questData.Code;
             Title.text = _questData.Title;
+            Location.text = _questData.Location;
         }
 
         public void OnSelectQuest()
@@ -31,7 +35,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnOpenQuest()
         {
-            EarthManager.I.SelectQuest(questData);
+            EarthManager.I.OpenQuest(questData);
         }
 
     }

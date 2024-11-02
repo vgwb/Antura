@@ -33,6 +33,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void SelectQuest(QuestData questData)
         {
+            EarthUIManager.I.SelectQuest(questData);
+        }
+
+        public void OpenQuest(QuestData questData)
+        {
             //Debug.Log("Load scene " + questData.scene);
             AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
         }
