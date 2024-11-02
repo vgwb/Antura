@@ -74,7 +74,6 @@ namespace Antura.Book
             }
 
             var listStages = AppManager.I.DB.GetAllStageData();
-            listStages.Reverse();
             foreach (var stage in listStages)
             {
                 btnGO = Instantiate(CategoryItemPrefab);
