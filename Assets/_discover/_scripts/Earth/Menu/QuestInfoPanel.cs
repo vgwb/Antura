@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 namespace Antura.Minigames.DiscoverCountry
@@ -9,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
+        public GameObject Thumbnail;
 
         private QuestData currentQuestData;
 
@@ -29,6 +31,17 @@ namespace Antura.Minigames.DiscoverCountry
             Description.text += "<b>References:</b> " + questData.LanguageRef + "\n";
             Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
             Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
+
+            if (currentQuestData.Thumbnail != null)
+            {
+                Thumbnail.SetActive(true);
+                Thumbnail.GetComponent<Image>().sprite = currentQuestData.Thumbnail;
+            }
+            else
+            {
+                Thumbnail.SetActive(false);
+            }
+
         }
 
         public void Play()
