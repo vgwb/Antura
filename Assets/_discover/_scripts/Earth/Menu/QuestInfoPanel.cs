@@ -19,6 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestData questData)
         {
+            gameObject.SetActive(true);
             currentQuestData = questData;
             Title.text = questData.Code + " | " + questData.Title;
             Description.text = questData.Description + "\n\n";
@@ -28,7 +29,6 @@ namespace Antura.Minigames.DiscoverCountry
             Description.text += "<b>References:</b> " + questData.LanguageRef + "\n";
             Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
             Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
-            gameObject.SetActive(true);
         }
 
         public void OpenManual()
