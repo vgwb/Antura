@@ -33,13 +33,6 @@ namespace Antura.Minigames.DiscoverCountry
         public int total_items = 0;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
-        void Awake()
-        {
-            // INSTATIATE TOWN PREFAB
-            // GameObject townInstance = Instantiate(CurrentQuest.Town, Vector3.zero, Quaternion.identity);
-            // townInstance.transform.SetParent(null);
-        }
-
         void Start()
         {
             // INSTATIATE LEVEL PREFAB
