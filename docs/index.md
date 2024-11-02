@@ -4,15 +4,26 @@ hide:
   - title
   - navigation
 ---
-# Antura Docs
+
+# Antura Project
+
+![antura_gametitle](assets/img/antura_gametitle.jpg)
+
+> Learn to read and discover new languages with this award-winning free game!  
+> It has been developed to help children that are not able to attend school, mainly from Syria, Afghanistan and Ukraine, but any child can play and learn easily with Antura.
+
 This documentation website is dedicated to Teachers, Designers and Developers who want to work with Antura. It is maintained by the Antura Core Team directly inside the project repository.
 
-- **Antura Docs:** [docs.antura.org](http://docs.antura.org)
-- **GitHub project:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)
-- **Public Website:** [www.antura.org](http://www.antura.org)
+## Video
+
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/HDM7a1i_kIw?si=M-E6xnKNRxrh1Wkw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+
+## Download
+
+[![download applestore](./assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
+
+[![download googleplay](./assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
 
 ## License
 Antura is licensed under the BSD 2-clause "Simplified" License and the Creative Commons Attribution 4.0 International.
 Copyright [TH Köln / Cologne Game Lab](https://www.colognegamelab.de/), [Video Games Without Borders](https://vgwb.org) & Wixel Studios.
-
-![antura_gametitle](assets/img/antura_gametitle.jpg)

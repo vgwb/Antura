@@ -29,7 +29,7 @@ please check the [collaborator docs](https://docs.antura.org/HowTo/Collaborator.
 
 This repository is a Unity project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
 
-# Docs
+## Docs
 all docs are in directory `/docs` and rendered to [docs.antura.org](http://docs.antura.org) by Pages Actions via MkDocs
 
 To render the docs locally:

@@ -12,7 +12,7 @@ The player Profile Database is saved as a SQLite database and can be easily retr
 
 Go to the Folder:
 `\storage\emulated\0\Android\data\org.eduapp4syria.antura\files\players`
- 
+
 You will find 1 to 5 files names like:
 `Antura_Player_5b8e61c3-f990-43f5-a43f-e7cbf9556f17.sqlite3`
 
@@ -26,7 +26,7 @@ The simplest way to copy the files is by connecting the Android phone to a PC, b
 
 Attach the iOS device to a computer via USB and open iTunes. Go to your device -> Apps -> File Sharing panel and select Antura. Drag the `players` folder onto your Desktop and the files are all there.
 
-![Alt text](../../assets/img/iTunes-Antura_files_sharing.png)
+![share](../../../assets/img/iTunes-Antura_files_sharing.png)
 
 ## Windows
 

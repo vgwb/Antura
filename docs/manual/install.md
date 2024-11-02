@@ -7,7 +7,7 @@ title: Install
 _requirement: Android 4.1_
 
 - **Google Play**: [Antura Google Play](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)  
-- **Direct download** (1.2.0 - feb 2018): [download APK](http://www.antura.org/assets/antura-android-v1.2.0.apk) and [Android Install Docs](assets/pdf/Antura_InstallHelp.pdf)
+- **Direct download** (1.2.0 - feb 2018): [download APK](http://www.antura.org/assets/antura-android-v1.2.0.apk)
 
 ### iOS
 _requirement: iOS 12.0_
