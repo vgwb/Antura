@@ -6,7 +6,7 @@ Developer: Pupunzi (Matteo Bicocchi)
 -------------------------------------------------------------------------------------
 C# Variables, Actors, Metadata, Labels, Colors and Flows Slug.
 Homer project: Antura
-Generated on: 2024-10-29 19:03:44
+Generated on: 2024-11-02 17:03:50
 -------------------------------------------------------------------------------------
 */
 
@@ -58,6 +58,12 @@ namespace Homer {
             }
     }
 
+
+    public static class HomerTags {
+        public enum Tag { 
+            }
+    }
+
     public static class HomerColors {
 
         public enum color { 
@@ -77,7 +83,13 @@ namespace Homer {
               FR_03_NANTES = 3, 
               PL_01_QUEST_ = 4, 
               FR_04_LE_MANS = 5, 
-              FR_01B_PARIS = 6
+              FR_01B_PARIS = 6, 
+              FR_05_CASTLES = 7, 
+              FR_06A_CARNAC___MENHIRS = 8, 
+              FR_06B_PIRATES___MONEY = 9, 
+              FR_07_NORMANDIE = 10, 
+              FR_08_MONT_BLANC___MOUNTAINS = 11, 
+              FR_09_COTES_DAZUR = 12
             }
     }
 
