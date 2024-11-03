@@ -25,7 +25,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Display()
         {
-            Debug.Log("show " + currentIndex);
             questData = QData.AvailableQuests[currentIndex];
 
             Title.text = questData.Code + " | " + questData.Title;
