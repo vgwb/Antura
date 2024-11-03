@@ -728,7 +728,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bgRotationDuration: 6
   intervalBetweenBarks: 2
-  bg: {fileID: 3102189162164186758}
+  transparencyCurve: 3
+  fullTransparencyMinPerc: 0.1
+  bg: {fileID: 4097835985771565408}
   ico: {fileID: 834544981250207403}
 --- !u!114 &3311445531480895727
 MonoBehaviour:
@@ -2163,7 +2165,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a1e0c3b6d9a45b48808a4154bc6e8c9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  offsetFromTargetBase: {x: 0, y: 1.2, z: 0}
+  offsetFromLLAgentBase: {x: 0, y: 1.2, z: 0}
+  offsetFromInfoPointBase: {x: 0, y: 0.8, z: 0}
   animateIco: 1
   balloon_talk: {fileID: 8489536345256583916}
   balloon_info: {fileID: 6475147112099838029}

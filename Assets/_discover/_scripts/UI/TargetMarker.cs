@@ -1,4 +1,5 @@
 ﻿using System;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
@@ -13,6 +14,9 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] float bgRotationDuration = 1;
         [Range(1, 30)]
         [SerializeField] int intervalBetweenBarks = 6;
+        [SerializeField] Ease transparencyCurve = Ease.InSine;
+        [Range(0, 1f)]
+        [SerializeField] float fullTransparencyMinPerc = 0.1f;
         [DeEmptyAlert]
         [SerializeField] SpriteRenderer bg;
         [DeEmptyAlert]
@@ -75,6 +79,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             
             trans.position = target.position;
+            SetTransparency();
             
             // Check out of bounds
             Vector3 viewportP = CameraManager.I.MainCam.WorldToViewportPoint(trans.position);
@@ -103,6 +108,7 @@ namespace Antura.Minigames.DiscoverCountry
             rotateTween.PlayForward();
             barkTween.PlayForward();
             this.gameObject.SetActive(true);
+            SetTransparency();
         }
 
         public void Hide(bool immediate = false)
@@ -120,6 +126,28 @@ namespace Antura.Minigames.DiscoverCountry
                 showTween.timeScale = 2.5f;
                 showTween.PlayBackwards();
             }
+        }
+
+        #endregion
+
+        #region Methods
+
+        // Sets transparency based on screen position
+        void SetTransparency()
+        {
+            Vector2 screenP = CameraManager.I.MainCam.WorldToScreenPoint(trans.position);
+            Vector2 screenSizeHalf = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
+            screenP -= screenSizeHalf;
+            Vector2 screenPercentOffsetClamped = new(screenP.x / screenSizeHalf.x,  screenP.y / screenSizeHalf.y);
+            float dist = screenPercentOffsetClamped.magnitude;
+            float alpha = 0;
+            if (dist > fullTransparencyMinPerc)
+            {
+                float val = (Mathf.Clamp01(dist) - fullTransparencyMinPerc) / (1 - fullTransparencyMinPerc);
+                alpha = DOVirtual.EasedValue(0, 1, val, transparencyCurve);
+            }
+            bg.SetAlpha(alpha);
+            ico.SetAlpha(alpha);
         }
 
         #endregion
