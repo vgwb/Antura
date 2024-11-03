@@ -41,6 +41,7 @@ namespace Antura.Minigames.DiscoverCountry
         [Range(1, 20)]
         [SerializeField] int touchRotationSpeed = 3;
         [SerializeField] AutoRotateMode autoRotateMode = AutoRotateMode.YAxis;
+        [SerializeField] bool resetRotationWhenStationary = false; // Only used if autoRotate is active
         [Range(0, 10)]
         [SerializeField] float resetRotationDelay = 2.5f; // Only used if autoRotate is active
         [SerializeField] bool invertYAxis = false;
@@ -131,7 +132,7 @@ namespace Antura.Minigames.DiscoverCountry
                         lookOffset = mouseLookActive ? mouseOffset : CameraManager.I.StarterInput.look * 0.003f;
                         UpdateManualRotation(lookOffset, mouseLookActive ? mouseRotationSpeed : touchRotationSpeed);
                     }
-                    else if (autoRotateMode != AutoRotateMode.None && (isPlayerMoving || Time.time - lastRotationTime > resetRotationDelay))
+                    else if (autoRotateMode != AutoRotateMode.None && (isPlayerMoving || resetRotationWhenStationary && Time.time - lastRotationTime > resetRotationDelay))
                     {
                         UpdateAutoRotation();
                     }
