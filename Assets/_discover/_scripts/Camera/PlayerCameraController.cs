@@ -136,13 +136,13 @@ namespace Antura.Minigames.DiscoverCountry
                     {
                         UpdateAutoRotation();
                     }
-                    UpdateMovementVector();
+                    // UpdateMovementVector();
                 }
             }
-            else
-            {
-                InputManager.SetCurrMovementVector(Vector3.zero, Vector3.zero);
-            }
+            // else
+            // {
+            //     InputManager.SetCurrMovementVector(Vector3.zero);
+            // }
         }
 
         void LateUpdate()
@@ -239,15 +239,11 @@ namespace Antura.Minigames.DiscoverCountry
             camTarget.rotation = Quaternion.Slerp(camTarget.rotation, targetRot, time);
         }
 
-        void UpdateMovementVector()
-        {
-            Vector3 movementFactor = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-            Quaternion camRot = cam.transform.rotation;
-            Vector3 camRotEuler = camRot.eulerAngles;
-            camRotEuler.x = 0;
-            camRot = Quaternion.Euler(camRotEuler);
-            InputManager.SetCurrMovementVector(movementFactor, camRot * movementFactor);
-        }
+        // void UpdateMovementVector()
+        // {
+        //     Vector3 movementFactor = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
+        //     InputManager.SetCurrMovementVector(movementFactor);
+        // }
 
         void GetDataForCamAngle(Vector3 camAngle, out bool isLookingDown, out float lookUpPerc, out float lookDownPerc, out float lookZoomFactor, out float armLengthFactor)
         {

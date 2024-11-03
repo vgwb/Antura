@@ -5,8 +5,8 @@ namespace Antura.Minigames.DiscoverCountry
     public class InputManager : MonoBehaviour
     {
         static InputManager I;
-        public static Vector3 CurrMovementVector { get; private set; } // Set by PlayerCameraController
-        public static Vector3 CurrWorldMovementVector { get; private set; } // Set by PlayerCameraController
+        public static Vector3 CurrMovementVector { get; private set; } // Set by EdPlayer
+        public static Vector3 CurrWorldMovementVector { get; private set; } // Set by EdPlayer
 
         #region Unity
 
@@ -34,10 +34,15 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public static void SetCurrMovementVector(Vector3 vector, Vector3 worldVector)
+        public static void SetCurrMovementVector(Vector3 relativeVector)
         {
-            CurrMovementVector = vector;
-            CurrWorldMovementVector = worldVector;
+            CurrMovementVector = relativeVector;
+            
+            Quaternion camRot = CameraManager.I.CamController.transform.rotation;
+            Vector3 camRotEuler = camRot.eulerAngles;
+            camRotEuler.x = 0;
+            camRot = Quaternion.Euler(camRotEuler);
+            CurrWorldMovementVector = camRot * relativeVector;
         }
 
         #endregion
