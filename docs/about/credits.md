@@ -1,8 +1,5 @@
 ---
-layout: default
 title: Credits
-nav_order: 90
-has_children: false
 ---
 # Credits
 
@@ -37,6 +34,7 @@ Stefano Cecere
 **PROGRAMMING**  
 Michele Pirovano  
 Stefano Cecere
+Daniele Giardini
 
 **ADDITIONAL PROGRAMMING**  
 Alejandro J. Zbrun  
@@ -46,6 +44,7 @@ Giacomo “Sugni” Salvadori
 Daniele Giardini
 
 **ART & GRAPHIC DESIGN**  
+Daniele Giardini
 Yadira Marin
 
 **2D DRAWINGS**  
@@ -169,7 +168,8 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 - Alexander Boccia  
 - Alexandra Petrus  
 - Mark and Victoriya Andriyets  
-- Fabio Cecere  
+- Fabio Cecere
+- Bruno Cecere
 - Miriam Lozano  
 - Montse Villar  
 - Mar Mas  
@@ -278,11 +278,13 @@ Pierre Schlömp
 **PROMOTIONAL ART AND DESIGN**  
 Karen Barbosa
 
-
 ### VIDEO GAMES WITHOUT BORDERS
 
 **PRODUCER AND ADDITIONAL GAME DESIGN**  
 Francesco Cavallari
+
+**R&D AND PRODUCTION**  
+Stefano Cecere
 
 **ART DIRECTOR AND LEAD ARTIST**  
 Gaetano Leonardi
@@ -295,16 +297,13 @@ Paolo Bragonzi
 Davide Barbieri  
 Michele Pirovano
 
-**MUSIC AND SOUND DESIGNER**  
-Hamza Chioua
-
-**R&D AND PRODUCTION**  
-Stefano Cecere
-
 **PROGRAMMERS**  
 Armando Teora  
 Elena Blanes  
 Dario Oliveri
+
+**MUSIC AND SOUND DESIGNER**  
+Hamza Chioua
 
 **3D ART PRODUCER**  
 Andrey Sazonov
