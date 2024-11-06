@@ -1,7 +1,7 @@
-site_name: Antura Docs
+site_name: Learn with Antura
 site_url: https://docs.antura.org
 site_author: VGWB
-site_description: the Antura project docs for Educators, Game Designers and Game Developers
+site_description: The Learn with Antura project website and docs for Educators, Game Designers and Game Developers
 copyright: <a href="/about">© VGWB | CC BY-NC-SA</a> |
 
 theme:
@@ -68,10 +68,28 @@ plugins:
       glob:
         - "*/_local/*"
         - "*/_draft/*"
+  - tags:
+      tags: true
+  - blog:
+      blog_toc: true
+      authors: false
+      post_date_format: "dd-MM-yyyy"
+      post_url_date_format: yyyy
+      post_url_format: "{date}/{slug}"
+      post_readtime: false
 
 repo_url: https://github.com/vgwb/Antura
 edit_uri: "edit/main/docs/"
 repo_name: GitHub/Antura
+
+# extra:
+#   alternate:
+#     - name: English
+#       link: / 
+#       lang: en
+#     - name: Deutsch
+#       link: /de/
+#       lang: de
 
 extra_css:
   - assets/stylesheets/extra.css

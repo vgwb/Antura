@@ -182,6 +182,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             // normalise input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
+            InputManager.SetCurrMovementVector(inputDirection); // Very important since now it's set from here, so other elements can check the current movement vector from InputManager
 
             // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
             // if there is a move input rotate player when the player is moving

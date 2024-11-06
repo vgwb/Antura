@@ -11,6 +11,7 @@ namespace Antura.Core
     {
         public bool NotificationsEnabled = true;
         public bool ShareAnalyticsEnabled = true;
+        public bool ClassroomModeEnabled = false;
         // public bool MusicEnabled = true;
         // public bool SubtitlesEnabled = true;
 
@@ -18,6 +19,7 @@ namespace Antura.Core
         {
             PlayerPrefs.SetInt("NotificationsEnabled", NotificationsEnabled ? 1 : 0);
             PlayerPrefs.SetInt("AnalyticsEnabled", ShareAnalyticsEnabled ? 1 : 0);
+            PlayerPrefs.SetInt("ClassroomModeEnabled", ClassroomModeEnabled ? 1 : 0);
             // PlayerPrefs.SetInt("MusicEnabled", MusicEnabled ? 1 : 0);
             // PlayerPrefs.SetInt("SubtitlesEnabled", SubtitlesEnabled ? 1 : 0);
         }
@@ -26,6 +28,7 @@ namespace Antura.Core
         {
             NotificationsEnabled = PlayerPrefs.GetInt("NotificationsEnabled", 1) == 1;
             ShareAnalyticsEnabled = PlayerPrefs.GetInt("AnalyticsEnabled", 1) == 1;
+            ClassroomModeEnabled = PlayerPrefs.GetInt("ClassroomModeEnabled", 1) == 1;
         }
 
         public bool Exists()

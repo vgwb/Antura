@@ -14,11 +14,13 @@ namespace Antura.ReservedArea
         [Header("References")]
         public CheckIcon AnalyticsCheckIcon;
         public CheckIcon NotificationsCheckIcon;
+        public CheckIcon ClassroomModeCheckIcon;
 
         void Start()
         {
             AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
+            ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ClassroomModeEnabled);
         }
 
         #region Buttons
@@ -110,6 +112,21 @@ namespace Antura.ReservedArea
                 AppManager.I.AppSettingsManager.EnableNotifications(false);
                 NotificationsCheckIcon.Set(false);
             });
+        }
+
+        public void OnBtnClassroomMode()
+        {
+            if (AppManager.I.AppSettingsManager.NewSettings.ClassroomModeEnabled)
+            {
+                AppManager.I.AppSettingsManager.EnableClassroomMode(false);
+                ClassroomModeCheckIcon.Set(false);
+            }
+            else
+            {
+                AppManager.I.AppSettingsManager.EnableClassroomMode(true);
+                ClassroomModeCheckIcon.Set(true);
+            }
+
         }
 
         public void OnOpenDonate()

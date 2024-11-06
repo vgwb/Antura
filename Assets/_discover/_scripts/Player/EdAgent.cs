@@ -30,7 +30,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (IsInteractable)
             {
                 OnInteraction?.Invoke(otherGo);
-                QuestManager.I.OnInteract(this);
+                QuestManager.I?.OnInteract(this);
             }
             // TESTING
             //if (!aiPaused) LookAt(otherGo.transform, stopWalking:true);

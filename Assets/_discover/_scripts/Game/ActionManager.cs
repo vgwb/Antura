@@ -15,6 +15,7 @@ namespace Antura.Minigames.DiscoverCountry
         public Transform Target_NotreDame;
         public Transform Target_Louvre;
         public Transform Target_Bakery;
+        public Transform Target_Seine;
         public Transform Target_AnturaLocation;
 
         public GameObject Beam_Tutorial;
@@ -22,23 +23,26 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Beam_NotreDame;
         public GameObject Beam_Louvre;
         public GameObject Beam_Bakery;
+        public GameObject Beam_Seine;
 
         public GameObject Area_Tutorial;
         public GameObject Area_Eiffel;
         public GameObject Area_NotreDame;
         public GameObject Area_Louvre;
         public GameObject Area_Bakery;
+        public GameObject Area_Seine;
 
         public GameObject TutorialElevator;
         public GameObject Eiffel_Guide;
         public GameObject NotreDame_Major;
 
-        public GameObject Player;
         public Transform Spawn_Louvre_Enter;
         public Transform Spawn_Louvre_Exit;
 
         public GameObject WinFx;
         public GameObject AnturaDog;
+
+        private GameObject Player;
 
         void Awake()
         {
@@ -55,17 +59,21 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
+            Player = GameObject.FindWithTag("Player");
+
             Area_Tutorial.SetActive(false);
             Area_Eiffel.SetActive(false);
             Area_NotreDame.SetActive(false);
             Area_Louvre.SetActive(false);
             Area_Bakery.SetActive(false);
+            Area_Seine.SetActive(false);
 
             Beam_Tutorial.SetActive(false);
             Beam_Eiffel.SetActive(false);
             Beam_NotreDame.SetActive(false);
             Beam_Louvre.SetActive(false);
             Beam_Bakery.SetActive(false);
+            Beam_Seine.SetActive(false);
             Target_AnturaLocation = null;
 
             Eiffel_Guide.SetActive(true);
@@ -102,10 +110,16 @@ namespace Antura.Minigames.DiscoverCountry
                     Beam_Bakery.SetActive(true);
                     Target_AnturaLocation = Beam_Bakery.transform;
                     break;
+                case "sein":
+                    InteractionManager.I.FocusCameraOn(Target_Seine);
+                    Beam_Seine.SetActive(true);
+                    Target_AnturaLocation = Beam_Seine.transform;
+                    break;
                 default:
                     break;
             }
-            if (Target_AnturaLocation != null) InteractionManager.I.ActivateWorldTargetIcon(true, Target_AnturaLocation);
+            if (Target_AnturaLocation != null)
+                InteractionManager.I.ActivateWorldTargetIcon(true, Target_AnturaLocation);
         }
 
         public void ShowNextTarget(string targetName)
@@ -138,6 +152,9 @@ namespace Antura.Minigames.DiscoverCountry
                     break;
                 case "area_bakery":
                     Area_Bakery.SetActive(true);
+                    break;
+                case "area_seine":
+                    Area_Seine.SetActive(true);
                     break;
                 case "game_end":
                     WinFx.SetActive(true);

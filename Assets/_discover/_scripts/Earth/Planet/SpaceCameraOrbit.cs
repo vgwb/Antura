@@ -5,6 +5,10 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class SpaceCameraOrbit : MonoBehaviour
     {
+        public int SafeAreaX = 1000;
+        public Canvas canvas;
+        public RectTransform canvasRectTransform;
+
         public float MinDistance = 1.0f;
         public float MaxDistance = 1.3f;
         public float amplify = 0.001f;
@@ -18,12 +22,11 @@ namespace Antura.Minigames.DiscoverCountry
         public Vector2 target = new Vector2(Mathf.PI * 3 / 2, Mathf.PI / 6);
         public Vector2 targetOnDown;
 
-        // Use this for initialization
         void Start()
         {
             distanceTarget = transform.position.magnitude;
-
         }
+
         bool down = false;
         void Update()
         {
@@ -80,6 +83,11 @@ namespace Antura.Minigames.DiscoverCountry
                 target.y = Mathf.Clamp(target.y, -Mathf.PI / 2 + 0.01f, Mathf.PI / 2 - 0.01f);
             }
 
+            if (ScreenToCanvasPosition(mouse) > SafeAreaX)
+            {
+                return;
+            }
+
             distanceTarget -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
             distanceTarget = Mathf.Clamp(distanceTarget, MinDistance, MaxDistance);
 
@@ -92,6 +100,21 @@ namespace Antura.Minigames.DiscoverCountry
             position.z = distance * Mathf.Cos(rotation.x) * Mathf.Cos(rotation.y);
             transform.position = position;
             transform.LookAt(Vector3.zero);
+        }
+
+        private float ScreenToCanvasPosition(Vector2 screenPosition)
+        {
+            Vector2 localPoint;
+
+            // Convert screen position to local point in the canvas
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(
+                canvasRectTransform,
+                screenPosition,
+                canvas.renderMode == RenderMode.ScreenSpaceOverlay ? null : canvas.worldCamera,
+                out localPoint
+            );
+
+            return localPoint.x;
         }
     }
 }

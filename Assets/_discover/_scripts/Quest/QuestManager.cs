@@ -16,12 +16,15 @@ namespace Antura.Minigames.DiscoverCountry
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
+        public GameObject Player;
+
         public Quests Quests;
         public QuestData CurrentQuest;
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
 
         public bool DebugEnglish = false;
+        public Transform PlayerSpawnPoint;
 
         public string LanguageCode = "";
         private GameObject currentNPC;
@@ -32,8 +35,27 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
+            // INSTATIATE LEVEL PREFAB
+            // Vector3 spawnPosition = new Vector3(0, 1, 0);
+            // GameObject levelInstance = Instantiate(CurrentQuest.GameLevel, spawnPosition, Quaternion.identity);
+            // levelInstance.transform.SetParent(null);
+
             HomerAnturaManager.I.Setup();
             total_coins = 0;
+            if (coinsCounter == null)
+            {
+                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
+            }
+            if (bonesCounter == null)
+            {
+                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
+            }
+
+            if (PlayerSpawnPoint != null)
+            {
+                Player.transform.SetPositionAndRotation(PlayerSpawnPoint.position, PlayerSpawnPoint.rotation);
+            }
+
             if (DebugEnglish)
             {
                 LanguageCode = "EN";
@@ -74,6 +96,15 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
+        /// <summary>
+        /// Returns the correct quest node for the given infoPoint
+        /// </summary>
+        public QuestNode GetQuestNode(InfoPoint infoPoint, string nodeId)
+        {
+            QuestNode questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            DebugNodeInfo(questNode);
+            return questNode;
+        }
 
         public void OnInteract(EdAgent agent)
         {
@@ -99,16 +130,16 @@ namespace Antura.Minigames.DiscoverCountry
             // }
         }
 
-        public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
-        {
-            var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
-            DebugNodeInfo(questNode);
-            InteractionManager.I.StartInfoPointDialogue(infoPoint, questNode);
-            AudioManager.I.PlayDiscoverDialogue(
-                questNode.LocId,
-                Language.LanguageCode.french
-            );
-        }
+        // Moved to same logic as dialogue, within InteractionManager
+        // public void OnInfoPoint(InfoPoint infoPoint, string nodeId)
+        // {
+        //     var questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+        //     DebugNodeInfo(questNode);
+        //     AudioManager.I.PlayDiscoverDialogue(
+        //         questNode.LocId,
+        //         Language.LanguageCode.french
+        //     );
+        // }
 
         public void OnCollectItem(GameObject go)
         {

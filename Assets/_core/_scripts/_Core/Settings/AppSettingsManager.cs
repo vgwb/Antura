@@ -143,6 +143,13 @@ namespace Antura.Core
             NewSettings.Save();
         }
 
+        public void EnableClassroomMode(bool status)
+        {
+            Debug.Log("EnableClassroomMode " + status);
+            NewSettings.ClassroomModeEnabled = status;
+            NewSettings.Save();
+        }
+
         public void ToggleShareAnalytics()
         {
             EnableShareAnalytics(!NewSettings.ShareAnalyticsEnabled);

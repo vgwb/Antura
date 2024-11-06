@@ -8,10 +8,11 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static EarthUIManager I;
 
+        public DiscoveryBookPanel BookPanel;
+        public QuestInfoPanel InfoPanel;
         public GameObject MenuItemPrefab;
         public GameObject Container;
         public Quests QuestsData;
-
 
         void Awake()
         {
@@ -29,6 +30,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             Container.SetActive(false);
+            InfoPanel.Close();
         }
 
         private void LoadCountry(string country)
@@ -49,6 +51,16 @@ namespace Antura.Minigames.DiscoverCountry
             Container.SetActive(true);
         }
 
+        public void OpenBook()
+        {
+            BookPanel.Show();
+        }
+
+        public void SelectQuest(QuestData questData)
+        {
+            InfoPanel.Show(questData);
+        }
+
         private void emptyContainer(GameObject container)
         {
             foreach (Transform t in container.transform)
@@ -56,6 +68,8 @@ namespace Antura.Minigames.DiscoverCountry
                 Destroy(t.gameObject);
             }
         }
+
+
     }
 
 }
