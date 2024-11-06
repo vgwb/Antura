@@ -19,12 +19,12 @@ namespace Antura.Profile
         public Color HairColor;
         public Color BgColor;
         public bool IsDemoUser;
-        public bool HasFinishedTheGame;  // DEPRECATED (not part of the profile)
-        public bool HasFinishedTheGameWithAllStars; // DEPRECATED (not part of the profile)
-        public bool HasMaxStarsInCurrentPlaySessions;    // DEPRECATED (not part of the profile)
-        public JourneyPosition MaxJourneyPosition; // DEPRECATED (not part of the profile)
+        public bool HasFinishedTheGame;  // DEPRECATED (now part of the content instead)
+        public bool HasFinishedTheGameWithAllStars; // DEPRECATED (now part of the content instead)
+        public bool HasMaxStarsInCurrentPlaySessions;    // DEPRECATED (now part of the content instead)
+        public JourneyPosition MaxJourneyPosition; // DEPRECATED (now part of the content instead)
         public AppEditionID editionID;
-        public LearningContentID contentID;  // DEPRECATED (not part of the profile)
+        public LearningContentID contentID;  // DEPRECATED (now part of the content instead)
         public string AppVersion;
         public PetData PetData;
 

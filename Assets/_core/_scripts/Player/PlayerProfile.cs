@@ -25,7 +25,7 @@ namespace Antura.Profile
         public Color HairColor;
         public Color BgColor;
         public bool IsDemoUser;
-       public int TotalNumberOfBones;
+        public int TotalNumberOfBones;
         public int ConsecutivePlayDays;
         public AppEditionID editionID;
         public LearningContentID ContentID; // @note: This will be updated with the selected content, so we know what to load / save
@@ -728,12 +728,12 @@ namespace Antura.Profile
             HairColor = string.IsNullOrEmpty(_data.HairColor) ? Color.white : _data.HairColor.HexToColor();
             BgColor = string.IsNullOrEmpty(_data.BgColor) ? Color.white : _data.BgColor.HexToColor();
             IsDemoUser = _data.IsDemoUser;
-            HasFinishedTheGame = _data.JourneyCompleted;
-            HasFinishedTheGameWithAllStars = _data.HasFinishedTheGameWithAllStars();
+            //HasFinishedTheGame = _data.JourneyCompleted;
+            //HasFinishedTheGameWithAllStars = _data.HasFinishedTheGameWithAllStars();
             ProfileCompletion = _data.ProfileCompletion;
             TotalNumberOfBones = _data.TotalBones;
 
-            HasMaxStarsInCurrentPlaySessions = _data.GetAdditionalData().HasMaxStarsInCurrentPlaySessions;
+            //HasMaxStarsInCurrentPlaySessions = _data.GetAdditionalData().HasMaxStarsInCurrentPlaySessions;
             ConsecutivePlayDays = _data.GetAdditionalData().ConsecutivePlayDays;
             CurrentShopState = AnturaSpace.ShopState.CreateFromJson(_data.GetAdditionalData().CurrentShopStateJSON);
             FirstContactState = JsonUtility.FromJson<FirstContactState>(_data.FirstContactStateJSON);
@@ -782,9 +782,9 @@ namespace Antura.Profile
                 HairColor = this.HairColor,
                 BgColor = this.BgColor,
                 IsDemoUser = this.IsDemoUser,
-                HasFinishedTheGame = this.HasFinishedTheGame,
-                HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
-                HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
+                //HasFinishedTheGame = this.HasFinishedTheGame,
+                //HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
+                //HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
                 MaxJourneyPosition = this.MaxJourneyPosition,
                 editionID = this.editionID,
                 contentID = this.ContentID,

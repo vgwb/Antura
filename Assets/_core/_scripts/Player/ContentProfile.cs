@@ -12,7 +12,6 @@ namespace Antura.Profile
         public bool JourneyCompleted;
         public int TotalScore;
         public ProfileCompletionState ProfileCompletion;
-
         public bool HasFinishedTheGame;
         public bool HasFinishedTheGameWithAllStars;
         public bool HasMaxStarsInCurrentPlaySessions;
@@ -27,9 +26,9 @@ namespace Antura.Profile
         {
             ContentID = _data.ContentID;
             JourneyCompleted = _data.JourneyCompleted;
-            //HasFinishedTheGameWithAllStars = _data.HasFinishedTheGameWithAllStars();
+            HasFinishedTheGameWithAllStars = _data.HasFinishedTheGameWithAllStars;
             ProfileCompletion = _data.ProfileCompletion;
-            //HasMaxStarsInCurrentPlaySessions = _data.GetAdditionalData().HasMaxStarsInCurrentPlaySessions;
+            HasMaxStarsInCurrentPlaySessions = _data.HasMaxStarsInCurrentPlaySessions;
             MaxJourneyPosition = new JourneyPosition(_data.MaxStage, _data.MaxLearningBlock, _data.MaxPlaySession);
             CurrentJourneyPosition = new JourneyPosition(_data.CurrentStage, _data.CurrentLearningBlock, _data.CurrentPlaySession);
             PreviousJourneyPosition = new JourneyPosition(_data.CurrentStage, _data.CurrentLearningBlock, _data.CurrentPlaySession);    // Get from Current too
@@ -50,6 +49,9 @@ namespace Antura.Profile
                 JourneyCompleted = this.JourneyCompleted,
                 TotalScore = this.TotalScore,
                 ProfileCompletion = this.ProfileCompletion,
+                HasFinishedTheGame = this.HasFinishedTheGame,
+                HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
+                HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
 
                 MaxStage = this.MaxJourneyPosition.Stage,
                 MaxLearningBlock = this.MaxJourneyPosition.LearningBlock,

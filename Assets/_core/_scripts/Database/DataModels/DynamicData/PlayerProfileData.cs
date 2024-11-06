@@ -21,13 +21,6 @@ namespace Antura.Database
     public class PlayerProfileAdditionalData
     {
         /// <summary>
-        /// general total final overall score
-        /// Used only for the player icons in the Home scene.
-        /// Part of PlayerIconData
-        /// </summary>
-        public bool HasMaxStarsInCurrentPlaySessions;        // TODO: Move out! Specific to the content
-
-        /// <summary>
         /// Number of consecutive days of playin
         /// </summary>
         public int ConsecutivePlayDays;
@@ -42,9 +35,8 @@ namespace Antura.Database
         /// </summary>
         public string CurrentCustomizationShopStateJSON;
 
-        public PlayerProfileAdditionalData(bool hasMaxStarsInCurrentPlaySessions, int _ConsecutivePlayDays, string currentShopStateJSON, string currentCustomizationShopStateJSON)
+        public PlayerProfileAdditionalData(int _ConsecutivePlayDays, string currentShopStateJSON, string currentCustomizationShopStateJSON)
         {
-            HasMaxStarsInCurrentPlaySessions = hasMaxStarsInCurrentPlaySessions;
             ConsecutivePlayDays = _ConsecutivePlayDays;
             CurrentShopStateJSON = currentShopStateJSON;
             CurrentCustomizationShopStateJSON = currentCustomizationShopStateJSON;
@@ -260,17 +252,17 @@ namespace Antura.Database
             HairColor = _HairColor.ToHex();
             BgColor = _BgColor.ToHex();
             IsDemoUser = _IsDemoUser;
-            JourneyCompleted = _HasFinishedTheGame;
-            TotalScore = (_HasFinishedTheGameWithAllStars ? 1f : 0f);
+            //JourneyCompleted = _HasFinishedTheGame;
+            //TotalScore = (_HasFinishedTheGameWithAllStars ? 1f : 0f);
 
             Age = _Age;
-            ProfileCompletion = profileCompletion;
+            //ProfileCompletion = profileCompletion;
             TotalBones = totalBones;
             SetMaxJourneyPosition(JourneyPosition.InitialJourneyPosition);
             SetCurrentJourneyPosition(JourneyPosition.InitialJourneyPosition);
             Timestamp = GenericHelper.GetTimestampForNow();
             CurrentAnturaCustomization = currentAnturaCustomization;
-            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_HasMaxStarsInCurrentPlaySessions, comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
+            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
 
             SelectedPet = petData.SelectedPet;
@@ -307,7 +299,7 @@ namespace Antura.Database
             }
             else
             {
-                return new PlayerProfileAdditionalData(false, 0, "", currentCustomizationShopStateJSON:"");
+                return new PlayerProfileAdditionalData(0, "", currentCustomizationShopStateJSON:"");
             }
         }
 

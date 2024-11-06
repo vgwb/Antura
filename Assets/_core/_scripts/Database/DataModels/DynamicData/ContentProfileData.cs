@@ -18,9 +18,12 @@ namespace Antura.Database
 
         public LearningContentID ContentID { get; set; }
 
-        public bool JourneyCompleted { get; set; }   // TODO: Move
-        public float TotalScore { get; set; }   // TODO: Move
-        public ProfileCompletionState ProfileCompletion { get; set; }    // TODO: Move
+        public bool JourneyCompleted { get; set; }
+        public float TotalScore { get; set; }
+        public ProfileCompletionState ProfileCompletion { get; set; }
+        public bool HasFinishedTheGame { get; set; }
+        public bool HasFinishedTheGameWithAllStars { get; set; }
+        public bool HasMaxStarsInCurrentPlaySessions { get; set; }
 
         public int MaxStage { get; set; }
         public int MaxLearningBlock { get; set; }
