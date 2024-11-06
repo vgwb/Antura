@@ -81,11 +81,12 @@ namespace Antura.Core
             }
             runCheck += Time.deltaTime;
 
-            // Reset timescale when we disable the bot
+            // DEPRECATED: conflicts with CHEATS
+            /*// Reset timescale when we disable the bot
             if (!C.BotEnabled && Time.timeScale > 1f)
             {
                 Time.timeScale = AppManager.I.CurrentTimeScale;
-            }
+            }*/
         }
 
         private void OnApplicationQuit()
