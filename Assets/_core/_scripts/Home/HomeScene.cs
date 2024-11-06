@@ -88,6 +88,7 @@ namespace Antura.Scenes
             {
                 // We must load the play session data, or create it
                 if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Entering game with Player: " + AppManager.I.Player.Uuid);
+                /* @note: Old profiles are ignored for now, always use the new logic instead!
                 var playerAppVersion = AppManager.I.Player.AppVersion;
                 var majorVersion = int.Parse(playerAppVersion.Split('.').First());
                 if (majorVersion < 4)   // Older player profile, must be moved to the new separate content
@@ -98,7 +99,7 @@ namespace Antura.Scenes
                     // TODO: generate new content, and save it
                     AppManager.I.NavigationManager.GenerateContentData(AppManager.I.Player);
                 }
-                else
+                else*/
                 {
                     if (AppManager.VERBOSE_INVERSION)  Debug.LogError("[Inversion] Player is new, let's get the content too");
                     var contentID = AppManager.I.AppSettingsManager.Settings.ContentID;
