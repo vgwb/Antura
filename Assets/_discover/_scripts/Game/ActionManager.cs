@@ -10,6 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static ActionManager I;
 
+        public ActionData[] Actions;
         public Transform Target_TutorialTreasure;
         public Transform Target_Eiffel;
         public Transform Target_NotreDame;
