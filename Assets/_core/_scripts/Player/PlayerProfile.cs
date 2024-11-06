@@ -39,21 +39,21 @@ namespace Antura.Profile
             {
                 if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
                 {
-                    Debug.LogError("GETTING HasFinishedTheGame FROM CONTENT");
+                    //Debug.LogError("GETTING HasFinishedTheGame FROM CONTENT");
                     hasFinishedTheGame = AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGame;
                 }
-                Debug.LogError("hasFinishedTheGame: " + hasFinishedTheGame);
+                //Debug.LogError("hasFinishedTheGame: " + hasFinishedTheGame);
                 return hasFinishedTheGame;
             }
             set
             {
-                Debug.LogError("SET hasFinishedTheGame: " + value);
+                //Debug.LogError("SET hasFinishedTheGame: " + value);
                 hasFinishedTheGame = value;
                 if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
                 {
                     return;
                 }
-                Debug.LogError("SET hasFinishedTheGame TO CONTENT!");
+                //Debug.LogError("SET hasFinishedTheGame TO CONTENT!");
                 AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGame = value;
             }
         }
@@ -65,21 +65,21 @@ namespace Antura.Profile
             {
                 if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
                 {
-                    Debug.LogError("GETTING hasFinishedTheGameWithAllStars FROM CONTENT");
+                    //Debug.LogError("GETTING hasFinishedTheGameWithAllStars FROM CONTENT");
                     hasFinishedTheGameWithAllStars = AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGameWithAllStars;
                 }
-                Debug.LogError("hasFinishedTheGameWithAllStars: " + hasFinishedTheGameWithAllStars);
+                //Debug.LogError("hasFinishedTheGameWithAllStars: " + hasFinishedTheGameWithAllStars);
                 return hasFinishedTheGameWithAllStars;
             }
             set
             {
-                Debug.LogError("SET hasFinishedTheGameWithAllStars: " + value);
+                //Debug.LogError("SET hasFinishedTheGameWithAllStars: " + value);
                 hasFinishedTheGameWithAllStars = value;
                 if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
                 {
                     return;
                 }
-                Debug.LogError("SET hasFinishedTheGameWithAllStars TO CONTENT!");
+                //Debug.LogError("SET hasFinishedTheGameWithAllStars TO CONTENT!");
                 AppManager.I.NavigationManager.NavData.CurrentContent.HasFinishedTheGameWithAllStars = value;
             }
         }
@@ -91,21 +91,21 @@ namespace Antura.Profile
             {
                 if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
                 {
-                    Debug.LogError("GETTING hasMaxStarsInCurrentPlaySessions FROM CONTENT");
+                    //Debug.LogError("GETTING hasMaxStarsInCurrentPlaySessions FROM CONTENT");
                     hasMaxStarsInCurrentPlaySessions = AppManager.I.NavigationManager.NavData.CurrentContent.HasMaxStarsInCurrentPlaySessions;
                 }
-                Debug.LogError("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
+                //Debug.LogError("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
                 return hasMaxStarsInCurrentPlaySessions;
             }
             set
             {
-                Debug.LogError("SET hasMaxStarsInCurrentPlaySessions: " + value);
+                //Debug.LogError("SET hasMaxStarsInCurrentPlaySessions: " + value);
                 hasMaxStarsInCurrentPlaySessions = value;
                 if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
                 {
                     return;
                 }
-                Debug.LogError("SET hasMaxStarsInCurrentPlaySessions TO CONTENT!");
+                //Debug.LogError("SET hasMaxStarsInCurrentPlaySessions TO CONTENT!");
                 AppManager.I.NavigationManager.NavData.CurrentContent.HasMaxStarsInCurrentPlaySessions = value;
             }
         }
@@ -118,21 +118,21 @@ namespace Antura.Profile
             {
                 if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
                 {
-                    Debug.LogError("GETTING PROFILE COMPLETION FROM CONTENT");
+                    //Debug.LogError("GETTING PROFILE COMPLETION FROM CONTENT");
                     profileCompletion = AppManager.I.NavigationManager.NavData.CurrentContent.ProfileCompletion;
                 }
-                Debug.LogError("PROFILE COMPLETION: " + profileCompletion);
+                //Debug.LogError("PROFILE COMPLETION: " + profileCompletion);
                 return profileCompletion;
             }
             set
             {
-                Debug.LogError("SET PROFILE COMPLETION: " + value);
+                //Debug.LogError("SET PROFILE COMPLETION: " + value);
                 profileCompletion = value;
                 if (AppManager.I.NavigationManager.NavData.CurrentContent == null)
                 {
                     return;
                 }
-                Debug.LogError("SET PROFILE COMPLETION TO CONTENT!");
+                //Debug.LogError("SET PROFILE COMPLETION TO CONTENT!");
                 AppManager.I.NavigationManager.NavData.CurrentContent.ProfileCompletion = value;
             }
         }
