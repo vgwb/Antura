@@ -81,7 +81,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             var parameters = new Dictionary<string, object>();
             AddSharedParameters(parameters);
 
-            AnalyticsService.Instance.CustomData("myTestEvent", parameters);
+            //AnalyticsService.Instance.CustomData("myTestEvent", parameters);
             AnalyticsService.Instance.Flush();
             Debug.Log("Analytics TestEvent");
         }
@@ -101,7 +101,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAvatar_SkinColor", ColorUtility.ToHtmlStringRGB(playerProfile.SkinColor) },
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myCompletedRegistration", parameters);
+            //           AnalyticsService.Instance.CustomData("myCompletedRegistration", parameters);
         }
 
         public void TrackReachedJourneyPosition(JourneyPosition jp)
@@ -120,7 +120,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myTotalBones", 0 }
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myLevelUp", parameters);
+            //            AnalyticsService.Instance.CustomData("myLevelUp", parameters);
         }
 
         public void TrackCompletedFirstContactPhase(FirstContactPhase phase)
@@ -134,7 +134,7 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
             AddSharedParameters(parameters);
 
-            AnalyticsService.Instance.CustomData("myTutorialComplete", parameters);
+            //             AnalyticsService.Instance.CustomData("myTutorialComplete", parameters);
         }
 
         public void TrackItemBought(int nSpent, string boughtItemKey)
@@ -148,7 +148,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myBoughtItem", boughtItemKey}
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myItemBought", parameters);
+            //             AnalyticsService.Instance.CustomData("myItemBought", parameters);
         }
 
         public void TrackCustomization(AnturaCustomization customization, float anturaSpacePlayTime)
@@ -162,34 +162,42 @@ namespace Antura.Core.Services.OnlineAnalytics
             };
 
             var item = customization.PropPacks.FirstOrDefault(item => item.Category == "HEAD");
-            if (item != null) parameters.Add($"myAntura_Head", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Head", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_L");
-            if (item != null) parameters.Add($"myAntura_EarL", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_EarL", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "EAR_R");
-            if (item != null) parameters.Add($"myAntura_EarR", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_EarR", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "NOSE");
-            if (item != null) parameters.Add($"myAntura_Nose", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Nose", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "JAW");
-            if (item != null) parameters.Add($"myAntura_Jaw", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Jaw", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "NECK");
-            if (item != null) parameters.Add($"myAntura_Neck", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Neck", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "BACK");
-            if (item != null) parameters.Add($"myAntura_Back", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Back", item.BaseId);
 
             item = customization.PropPacks.FirstOrDefault(item => item.Category == "TAIL");
-            if (item != null) parameters.Add($"myAntura_Tail", item.BaseId);
+            if (item != null)
+                parameters.Add($"myAntura_Tail", item.BaseId);
 
             parameters.Add($"myAntura_Texture", customization.TexturePack.BaseId);
             parameters.Add($"myAntura_Decal", customization.DecalPack.BaseId);
 
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
+            //             AnalyticsService.Instance.CustomData("myAnturaCustomize", parameters);
         }
 
         public void TrackMiniGameScore(MiniGameCode miniGameCode, int score, JourneyPosition currentJourneyPosition, float duration)
@@ -205,7 +213,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myJP", currentJourneyPosition.Id }
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
+            //             AnalyticsService.Instance.CustomData("myMinigameEnd", parameters);
         }
 
         public void TrackMood(int mood)
@@ -218,7 +226,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myPlayerMood", mood }
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myPlayerMood", parameters);
+            //            AnalyticsService.Instance.CustomData("myPlayerMood", parameters);
         }
 
         public void TrackBook(string _action, string _object)
@@ -232,7 +240,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myObject", _object }
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myBook", parameters);
+            //             AnalyticsService.Instance.CustomData("myBook", parameters);
         }
 
         public void TrackVocabularyDataScore(MiniGameCode miniGameCode, JourneyPosition currentJourneyPosition, List<MinigamesLogManager.ILivingLetterAnswerData> answers)
@@ -256,7 +264,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                     { "myLearningIsCorrect", answer._isPositiveResult },
                 };
                 AddSharedParameters(parameters);
-                AnalyticsService.Instance.CustomData("myLearning", parameters);
+                //                 AnalyticsService.Instance.CustomData("myLearning", parameters);
             }
         }
 
@@ -270,7 +278,7 @@ namespace Antura.Core.Services.OnlineAnalytics
                 { "myAction", eventName }
             };
             AddSharedParameters(parameters);
-            AnalyticsService.Instance.CustomData("myGenericAction", parameters);
+            //             AnalyticsService.Instance.CustomData("myGenericAction", parameters);
         }
 
         #region Older Events
