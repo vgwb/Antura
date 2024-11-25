@@ -1,8 +1,9 @@
-# Antura and the Letters game
+# Learn with Antura project
 
 ![antura_gametitle](docs/assets/img/antura_gametitle.jpg)
 
-The open source project for the multiple awards winning game "Antura and the Letters" to learn:
+The open source project for the multiple awards winning game "Learn with Antura" to learn:
+
 - Arabic
 - Darija
 - English
@@ -15,22 +16,20 @@ This project is a multi edition evolution of the original [Antura Edu App 4 Syri
 
 ## Project references
 
-- **Antura Docs:** [docs.antura.org](http://docs.antura.org)
+- **Antura Website and Docs:** [antura.org](http://antura.org)
 - **Source Code:** [github.com/vgwb/Antura](https://github.com/vgwb/Antura)
-- **Public Website:** [www.antura.org](http://www.antura.org)
-- **original Antura Arabic** [github.com/vgwb/Antura_arabic](https://github.com/vgwb/Antura_arabic)
 
 ## Collaborate
 
 Anybody is invited to collaborate to this open source project:
-please check the [collaborator docs](https://docs.antura.org/HowTo/Collaborator.html) and contact us if you want to help or be helped
+please check the [collaborator docs](https://antura.org/HowTo/Collaborator.html) and contact us if you want to help or be helped
 
 ## Requirements
 
 This repository is a Unity project ([download it here](https://unity.com/download)) and works on mobile (iOS and Android) and Desktop computers
 
 ## Docs
-all docs are in directory `/docs` and rendered to [docs.antura.org](http://docs.antura.org) by Pages Actions via MkDocs
+all docs are in directory `/docs` and rendered to [antura.org](http://antura.org) by Pages Actions via MkDocs
 
 To render the docs locally:
 
