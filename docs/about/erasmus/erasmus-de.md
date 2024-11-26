@@ -1,29 +1,29 @@
-# Erasmus+
+# Erasmus+ DE
 
-![Erasmus+](../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
 
-## Project Overview
+## Über das projekt
 
-**Project Title:** Interactive Learning Game for Refugee and Migrant Children's Inclusion and Integration  
-**Project Acronym:** ANTURA  
+**Projekttitel:** Interactive Learning Game for Refugee and Migrant Children's Inclusion and Integration  
+**Projektakronym:** ANTURA  
 **Program:** Erasmus+  
-**Action Type:** KA220-SCH - Cooperation Partnerships in School Education  
-**Duration:** 1 December 2023 - 30 November 2026  
+**Aktionsart:** KA220-SCH - Partnerschaften für die Zusammenarbeit in der Schulbildung  
+**Dauer:** 1 December 2023 - 30 November 2026  
 **Budget:** 400.000 €  
-**Lead Organization:**
+**Leitorganisation:**
 
-- Technische Hochschule Köln, Germany  
-
-**Partner Organizations:**
+- Technische Hochschule Köln, Deutschland
+  
+**Partnerorganisationen:**
 
 - Videojuegos Sin Fronteras, Spain
 - Dolnośląska Szkoła Wyższa, Poland
 - Ogólnopolski Operator Oświaty, Poland
 - Académie de Nantes Rectorat, France
 
-### Project Objectives
+### Projektziele
 
-The ANTURA project has set out several key objectives aimed at supporting refugee and migrant children:
+Das ANTURA-Projekt hat mehrere Hauptziele, die darauf abzielen, Flüchtlings- und Migrantenkinder zu unterstützen:
 
 1. **Language and Integration Support:** The primary goal is to help children learn the language of their host country while understanding and adapting to its cultural nuances.
 2. **Educational Support for Schools and Teachers:** By offering a digital educational tool and a pedagogical methodology, the project supports educators in integrating the game into classroom activities effectively.
@@ -34,25 +34,44 @@ The ANTURA project has set out several key objectives aimed at supporting refuge
 
 The ANTURA project will undertake several key activities to achieve its objectives:
 
-- **Development of the Mobile Game:** A mobile game will be created to teach language and cultural context in a fun and engaging way. The game will be freely available and open-source, ensuring wide accessibility.
-- **Pilot Testing:** The game will be piloted in both small and large-scale trials in France and Poland. These pilots will help refine the game before its broader release.
-- **Teacher Training and Toolkit Development:** A comprehensive toolkit will be developed to assist teachers in integrating the game into their curriculum. This will include training materials and guidelines.
-- **Promotion and Scaling:** The project will promote the game widely, preparing it for distribution across different countries and educational contexts.
+- **Sprach- und Integrationsunterstützung**: Das Hauptziel ist es, den Kindern zu helfen, die Sprache ihres Gastlandes zu erlernen und gleichzeitig die kulturellen Nuancen zu verstehen und sich daran anzupassen.
+- **Bildungsunterstützung für Schulen und Lehrkräfte**: Durch das Angebot eines digitalen Bildungswerkzeugs und einer pädagogischen Methodik unterstützt das Projekt Lehrkräfte dabei, das Spiel effektiv in den Unterricht zu integrieren.
+- **Anpassungsfähigkeit des Spiels**: Das Spiel ist so konzipiert, dass es an verschiedene Länder und Kontexte anpassbar ist und so ein vielseitiges Werkzeug für unterschiedliche Bildungsumgebungen darstellt.
+- **Einblicke in digitale Werkzeuge**: Das Projekt zielt auch darauf ab, wertvolle Erkenntnisse darüber zu gewinnen, wie digitale Bildungswerkzeuge in Krisenzeiten, wie der ukrainischen Flüchtlingskrise, genutzt werden können.
 
-### Expected Results
+### Projektaktivitäten
 
-By the end of the project, several tangible outcomes are expected:
+Das ANTURA-Projekt wird mehrere wichtige Aktivitäten durchführen, um seine Ziele zu erreichen:
 
-- **Interactive Mobile Game:** A multilingual, open-source game that fosters language learning and cultural integration.
-- **Teacher Toolkit:** A resource for educators to effectively use the game in their teaching practices.
-- **Impact Evaluation Report:** An assessment of the game’s effectiveness in improving language skills and psychosocial well-being among the children.
-- **Replicability Manual:** A guide to help adapt the game to various contexts, ensuring its long-term usefulness and adaptability.
+- **Entwicklung des Mobile Games**: Es wird ein mobiles Spiel entwickelt, das auf unterhaltsame und ansprechende Weise Sprache und kulturellen Kontext vermittelt. Das Spiel wird frei verfügbar und Open Source sein, um eine breite Zugänglichkeit zu gewährleisten.
+- **Pilotversuche**: Das Spiel wird sowohl in kleinen als auch in groß angelegten Tests in Frankreich und Polen erprobt. Diese Pilotprojekte helfen dabei, das Spiel vor der breiteren Veröffentlichung zu verfeinern.
+- **Lehrerfortbildung und Toolkit-Entwicklung**: Ein umfassendes Toolkit wird entwickelt, um Lehrkräfte bei der Integration des Spiels in ihren Lehrplan zu unterstützen. Dies umfasst Schulungsmaterialien und Richtlinien.
+- **Förderung und Skalierung**: Das Projekt wird das Spiel weitreichend bewerben und es für die Verbreitung in verschiedenen Ländern und Bildungskontexten vorbereiten.
 
-### Long-Term Benefits
+### Zu erreichende Indikatoren im Projekt
 
-The ANTURA project is poised to make a lasting impact on the lives of refugee and migrant children by improving their integration into new societies. The open-source nature of the game, combined with a detailed replicability manual, ensures that this tool can be adapted and used across different educational settings, providing a valuable resource during crises. The collaborative efforts of the diverse partner organizations involved will ensure that the project is developed and implemented successfully, ultimately contributing to the inclusion and integration of vulnerable children across Europe.
+- Schulung von mindestens 610 Lehrern in Polen (400) und Frankreich (210), die mit Migranten-/Flüchtlingskindern arbeiten, damit sie das ANTURA-Spiel in ihrer täglichen Arbeit nutzen können.
+- Schulung von mindestens 40 Schulmediatoren in Frankreich, die mit Migranten-/Flüchtlingskindern arbeiten.
+- Schulung von mindestens 150 Lehrern in Europa, die mit Migranten-/Flüchtlingskindern arbeiten, um das ANTURA-Spiel in ihrer täglichen Arbeit zu nutzen.
+- Information von mindestens 500 Lehrern, Direktoren und anderem Schulpersonal über das ANTURA-Projekt und seine Ergebnisse durch verschiedene persönliche und Online-Promotionsaktivitäten.
+- Mindestens 50 europäische Lehrer (und Mediatoren), die mit Grundschülern aus Migranten-/Flüchtlingsfamilien arbeiten, treten den ANTURA-Praktikergemeinschaften bei, die auf sozialen Medien und eTwinning gegründet werden. Es könnten mehrere Gruppen in verschiedenen Sprachen (Französisch, Polnisch, Englisch) gebildet werden, um die Kommunikation zwischen den Lehrern zu erleichtern.
+- Mindestens 5 neue Multiplikatororganisationen (Schulen und andere Bildungseinrichtungen), die sich verpflichten, das Spiel an neue soziokulturelle Umgebungen anzupassen.
+- Mindestens 5 neue Multiplikatororganisationen (öffentliche Bildungsbehörden), die sich verpflichten, ANTURA in ihre Ausbildungsprogramme für Lehrer zu integrieren.
 
-This project exemplifies how digital innovation can be harnessed to address some of the most pressing educational challenges of our time, offering hope and support to those who need it most.
+### Erwartete Ergebnisse
+
+Bis zum Ende des Projekts werden mehrere greifbare Ergebnisse erwartet:
+
+- **Interaktives Mobile Game**: Ein mehrsprachiges, Open-Source-Spiel, das Sprachlernen und kulturelle Integration fördert.
+- **Lehrertoolkit**: Ein Hilfsmittel für Lehrkräfte, um das Spiel effektiv in ihrer Unterrichtspraxis einzusetzen.
+- **Wirkungsbewertungsbericht**: Eine Bewertung der Wirksamkeit des Spiels bei der Verbesserung der Sprachkenntnisse und des psychosozialen Wohlbefindens der Kinder.
+- **Replikationshandbuch**: Ein Leitfaden zur Anpassung des Spiels an verschiedene Kontexte, der seine langfristige Nützlichkeit und Anpassungsfähigkeit sicherstellt.
+
+### Langfristige Vorteile
+
+Das ANTURA-Projekt ist darauf ausgelegt, einen nachhaltigen Einfluss auf das Leben von Flüchtlings- und Migrantenkindern zu haben, indem es ihre Integration in neue Gesellschaften verbessert. Die Open-Source-Natur des Spiels, kombiniert mit einem detaillierten Replikationshandbuch, sorgt dafür, dass dieses Werkzeug an verschiedene Bildungskontexte angepasst und in Krisenzeiten als wertvolle Ressource genutzt werden kann. Die gemeinsame Anstrengung der vielfältigen Partnerorganisationen wird sicherstellen, dass das Projekt erfolgreich entwickelt und umgesetzt wird, was letztlich zur Inklusion und Integration schutzbedürftiger Kinder in ganz Europa beiträgt.
+
+Dieses Projekt zeigt, wie digitale Innovation genutzt werden kann, um einige der drängendsten Bildungsherausforderungen unserer Zeit zu bewältigen und denen Hoffnung und Unterstützung zu bieten, die sie am dringendsten benötigen.
 
 ---
 
@@ -108,6 +127,6 @@ Each of these organizations brings critical skills and knowledge to the ANTURA p
 
 ---
 
-![Erasmus+](../assets/img/blog/Co-fundedbytheEU.webp)
+![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
 
 ANTURA Project: Empowering Refugee and Migrant Children through Interactive Learning The ANTURA project, funded by the Erasmus+ Programme under the KA220-SCH - Cooperation Partnerships in School Education.

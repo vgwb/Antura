@@ -3,9 +3,10 @@ title: Home
 hide:
   - title
   - navigation
+  - toc
 ---
 
-# Antura Project
+# Learn with Antura project
 
 ![antura_gametitle](assets/img/antura_gametitle.jpg)
 
@@ -24,6 +25,3 @@ This documentation website is dedicated to Teachers, Designers and Developers wh
 
 [![download googleplay](./assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
 
-## License
-Antura is licensed under the BSD 2-clause "Simplified" License and the Creative Commons Attribution 4.0 International.
-Copyright [TH Köln / Cologne Game Lab](https://www.colognegamelab.de/), [Video Games Without Borders](https://vgwb.org) & Wixel Studios.
