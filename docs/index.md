@@ -24,4 +24,3 @@ This documentation website is dedicated to Teachers, Designers and Developers wh
 [![download applestore](./assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
 
 [![download googleplay](./assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
-
