@@ -25,19 +25,10 @@
 
 Das ANTURA-Projekt hat mehrere Hauptziele, die darauf abzielen, Flüchtlings- und Migrantenkinder zu unterstützen:
 
-1. **Language and Integration Support:** The primary goal is to help children learn the language of their host country while understanding and adapting to its cultural nuances.
-2. **Educational Support for Schools and Teachers:** By offering a digital educational tool and a pedagogical methodology, the project supports educators in integrating the game into classroom activities effectively.
-3. **Game Replicability:** The game is designed to be adaptable, allowing it to be used in various countries and contexts, making it a versatile tool for different educational settings.
-4. **Insights into Digital Tools:** The project also seeks to provide valuable insights into how digital educational tools can be used during crises, such as the Ukrainian refugee crisis.
-
-### Project Activities
-
-The ANTURA project will undertake several key activities to achieve its objectives:
-
-- **Sprach- und Integrationsunterstützung**: Das Hauptziel ist es, den Kindern zu helfen, die Sprache ihres Gastlandes zu erlernen und gleichzeitig die kulturellen Nuancen zu verstehen und sich daran anzupassen.
-- **Bildungsunterstützung für Schulen und Lehrkräfte**: Durch das Angebot eines digitalen Bildungswerkzeugs und einer pädagogischen Methodik unterstützt das Projekt Lehrkräfte dabei, das Spiel effektiv in den Unterricht zu integrieren.
-- **Anpassungsfähigkeit des Spiels**: Das Spiel ist so konzipiert, dass es an verschiedene Länder und Kontexte anpassbar ist und so ein vielseitiges Werkzeug für unterschiedliche Bildungsumgebungen darstellt.
-- **Einblicke in digitale Werkzeuge**: Das Projekt zielt auch darauf ab, wertvolle Erkenntnisse darüber zu gewinnen, wie digitale Bildungswerkzeuge in Krisenzeiten, wie der ukrainischen Flüchtlingskrise, genutzt werden können.
+1. **Sprach- und Integrationsunterstützung**: Das Hauptziel ist es, den Kindern zu helfen, die Sprache ihres Gastlandes zu erlernen und gleichzeitig die kulturellen Nuancen zu verstehen und sich daran anzupassen.
+2. **Bildungsunterstützung für Schulen und Lehrkräfte**: Durch das Angebot eines digitalen Bildungswerkzeugs und einer pädagogischen Methodik unterstützt das Projekt Lehrkräfte dabei, das Spiel effektiv in den Unterricht zu integrieren.
+3. **Anpassungsfähigkeit des Spiels**: Das Spiel ist so konzipiert, dass es an verschiedene Länder und Kontexte anpassbar ist und so ein vielseitiges Werkzeug für unterschiedliche Bildungsumgebungen darstellt.
+4. **Einblicke in digitale Werkzeuge:** Das Projekt zielt auch darauf ab, wertvolle Erkenntnisse darüber zu gewinnen, wie digitale Bildungswerkzeuge in Krisenzeiten, wie der ukrainischen Flüchtlingskrise, genutzt werden können.
 
 ### Projektaktivitäten
 
@@ -77,56 +68,70 @@ Dieses Projekt zeigt, wie digitale Innovation genutzt werden kann, um einige der
 
 ## Consortium Overview
 
-The ANTURA project is supported by a diverse and experienced consortium of organizations from across Europe, each bringing unique expertise to the table. Here's a closer look at the key partners involved in this innovative educational initiative:
+Das Projektkonsortium besteht aus vielfältigen Partnern aus ganz Europa, darunter Bildungseinrichtungen, Technologieanbieter, NGOs und Integrationsspezialisten. Jeder Partner bringt Fachwissen in den Bereichen Bildung, Technologie oder Sozialwissenschaften ein, um den Erfolg des Projekts zu gewährleisten. Hier ist ein genauerer Blick auf die wichtigsten Partner, die an dieser innovativen Bildungsinitiative beteiligt sind:
 
 ### Technische Hochschule Köln (TH Köln) - Germany
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlVdg8tqwvFAXmgm8vOYX3yTtYYJlx4vtRNi1wUXfNskAVV-eeeDc2wS4EBxBxQpl3ZJIJ8NYsky6p_0wl2Vmyo3CKpnsHcKLyH826tJxH5aM6PhOrAY4rK8_7nxoe9CZa9L0SNYiwKtOEHqfcr-xkA9dzsSPlt-_utxiZ-ueqlUAA4WRoHnR-z0KhPCA/w182-h192/publicpreview.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhlVdg8tqwvFAXmgm8vOYX3yTtYYJlx4vtRNi1wUXfNskAVV-eeeDc2wS4EBxBxQpl3ZJIJ8NYsky6p_0wl2Vmyo3CKpnsHcKLyH826tJxH5aM6PhOrAY4rK8_7nxoe9CZa9L0SNYiwKtOEHqfcr-xkA9dzsSPlt-_utxiZ-ueqlUAA4WRoHnR-z0KhPCA/s1920/publicpreview.jpg)
+![CGL logo](img/logo_cgl.jpg){width="150"}
 
 Website: [www.th-koeln.de](http://www.th-koeln.de) 
 
-TH Köln, Germany's largest university of applied sciences, is a leading institution with approximately 26,000 students and 430 professors. The university offers over 90 degree programs across various disciplines, including engineering, social sciences, and humanities. A significant contributor to the project is the Cologne Game Lab (CGL), a specialized unit within TH Köln's Faculty of Cultural Sciences. The CGL focuses on game design and development, conducting interdisciplinary research in areas such as Game Design, Game Art, Sound Design, and Game Studies. TH Köln’s expertise in digital work and sustainable resources provides a strong foundation for the ANTURA project.
+Die TH Köln, Deutschlands größte Hochschule für Angewandte Wissenschaften, ist eine führende Institution mit etwa 26.000 Studierenden und 430 Professoren. Die Universität bietet über 90 Studiengänge in verschiedenen Disziplinen an, darunter Ingenieurwissenschaften, Sozialwissenschaften und Geisteswissenschaften. Ein bedeutender Beitrag zum Projekt kommt vom Cologne Game Lab (CGL), einer spezialisierten Einheit innerhalb der Fakultät für Kulturwissenschaften der TH Köln. Das CGL konzentriert sich auf Game Design und Entwicklung und betreibt interdisziplinäre Forschung in Bereichen wie Game Design, Game Art, Sound Design und Game Studies. Die Expertise der TH Köln in den Bereichen digitale Arbeit und nachhaltige Ressourcen bildet eine solide Grundlage für das ANTURA-Projekt.
+
+Die TH Köln ist der Koordinator und Initiator des Projekts und verfügt über umfangreiche Erfahrung und akademische Kompetenz im Bereich Game Design und Evaluierung. Seit der Gründung im Jahr 2017 hat sie das Antura-Spiel gemeinsam mit VGWB mitgestaltet und weiterentwickelt, um es an bedeutende globale Ereignisse wie die syrische Flüchtlingskrise und den russischen Einmarsch in die Ukraine anzupassen.
 
 ### Videojuegos Sin Fronteras (VGWB) - Spain
 
+![logo vgwb](img/logo_vgwb.jpg)
+
 Website: [vgwb.org](http://vgwb.org)
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkx1TTk9ZJMrsLiHYDf3GT9HxLuCjE0nuOmNpuMvTaOSQGq0sPcdF4nYqPIrbYmE7xsX7WtfD-j1H5dvrOGMtkWz-izGYfeqYHYOIqqkMioOEliP2shyphenhyphen8dTvwybCQEjoIEB1edo6MbG-Dw2E_lSSamo3mKd7UTZIpbdG21CibWJJsQtF9LE0NwUl5uoSU/s320/VGWB_Logo_Horiz.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhkx1TTk9ZJMrsLiHYDf3GT9HxLuCjE0nuOmNpuMvTaOSQGq0sPcdF4nYqPIrbYmE7xsX7WtfD-j1H5dvrOGMtkWz-izGYfeqYHYOIqqkMioOEliP2shyphenhyphen8dTvwybCQEjoIEB1edo6MbG-Dw2E_lSSamo3mKd7UTZIpbdG21CibWJJsQtF9LE0NwUl5uoSU/s2072/VGWB_Logo_Horiz.png)
+Videojuegos Sin Fronteras, auch bekannt als Video Games Without Borders, ist eine gemeinnützige Organisation, die 2015 gegründet wurde. Sie agiert als internationale Gemeinschaft mit über 300 Freiwilligen aus 30 Ländern, die sich der Entwicklung von Videospielen mit sozialem Einfluss widmet. VGWB arbeitet mit verschiedenen öffentlichen und privaten Einrichtungen zusammen, um Spiele zu entwickeln, die globale Herausforderungen thematisieren.
 
+VGWB ist seit 2015 auf die Entwicklung von Videospielen mit sozialem Einfluss und digitaler Verbreitung spezialisiert. Sie managen alle Aspekte der Spielentwicklung, von der anfänglichen Konzeption bis zur Veröffentlichung auf digitalen Plattformen, wie sie es erfolgreich mit Antura getan haben. Ihr Team umfasst Spieleentwickler, Psychologen, Pädagogen und Übersetzer, um einen umfassenden und wirkungsvollen Ansatz sicherzustellen.
 
-Videojuegos Sin Fronteras, also known as Video Games Without Borders, is a nonprofit organization founded in 2015. It operates as an international community of over 300 volunteers from 30 countries, dedicated to developing video games for social impact. VGWB collaborates with various public and private entities to create games that address global issues. Notably, VGWB was involved in developing "Antura and the Letters," an educational game for refugee children, which has been instrumental in supporting the ANTURA project’s goals.
+Besonders bemerkenswert ist, dass VGWB an der Entwicklung von "Antura and the Letters" beteiligt war, einem Bildungs-Spiel für Flüchtlingskinder, das wesentlich zur Unterstützung der Ziele des ANTURA-Projekts beigetragen hat.
 
 ### Dolnośląska Szkoła Wyższa (University of Lower Silesia) - Poland
 
+![logo](img/logo_DSW.jpg)
+
 Website: [www.dsw.edu.pl](http://www.dsw.edu.pl)  
-Located in Wrocław, Poland, Dolnośląska Szkoła Wyższa is a higher education institution specializing in social sciences, including education, psychology, and sociology. The university houses the Centre of Games and Animation, a research unit focused on digital game design and animation. This center plays a crucial role in the ANTURA project, particularly in evaluating the educational impact of digital games through field research, ensuring that the project’s outcomes are scientifically validated and effective.
+
+Die Dolnośląska Szkoła Wyższa mit Sitz in Wrocław, Polen, ist eine Hochschule, die sich auf Sozialwissenschaften wie Pädagogik, Psychologie und Soziologie spezialisiert hat. Die Universität beherbergt das Centre of Games and Animation, eine Forschungseinheit, die sich auf digitales Game Design und Animation konzentriert. Dieses Zentrum spielt eine entscheidende Rolle im ANTURA-Projekt, insbesondere bei der Bewertung der pädagogischen Wirkung digitaler Spiele durch Feldforschung, um sicherzustellen, dass die Ergebnisse des Projekts wissenschaftlich validiert und wirksam sind.
 
 ### Ogólnopolski Operator Oświaty (NEO) - Poland
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK4riS8UlQ5vQ9BEC3RPtardaIBrp9AWGg2mSdkVMAm78yCXEPPUa3q_DKE4USRgezVjKFEHpWXpV44FIPVgqyG4_y7BBSt7l59DrVGBv6K1xA707SxN1pOSUCeT1SAbTMtogNV8I4zRs4cN3tzftZ35OeysqGiSRCXec2263P-ZEFE_HDtzmvRFhXbqw/w282-h107/OOO%20logo%20rgb%20po.jpg)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjK4riS8UlQ5vQ9BEC3RPtardaIBrp9AWGg2mSdkVMAm78yCXEPPUa3q_DKE4USRgezVjKFEHpWXpV44FIPVgqyG4_y7BBSt7l59DrVGBv6K1xA707SxN1pOSUCeT1SAbTMtogNV8I4zRs4cN3tzftZ35OeysqGiSRCXec2263P-ZEFE_HDtzmvRFhXbqw/s1358/OOO%20logo%20rgb%20po.jpg)
+![logo](img/logo_ogolnopolsky.jpg)
 
 Website: [operator.edu.pl](http://operator.edu.pl)  
-Ogólnopolski Operator Oświaty, one of Poland’s largest educational foundations, was established in 2001. NEO operates over 63 educational centers, including schools and kindergartens, providing care and education to more than 7,000 children. With a focus on integrating Ukrainian refugee children into the Polish education system, NEO brings extensive experience in educational innovation and the use of ICT in education. Their role in the ANTURA project is pivotal in ensuring the practical application and scalability of the game in real-world educational settings.
+
+Ogólnopolski Operator Oświaty (Nationwide Education Operator), eine der größten Bildungsstiftungen Polens, wurde 2001 gegründet. NEO betreibt über 69 Bildungseinrichtungen, darunter Schulen und Kindergärten, und bietet mehr als 7.000 Kindern Betreuung und Bildung. Mit einem besonderen Fokus auf die Integration ukrainischer Flüchtlingskinder in das polnische Bildungssystem bringt NEO umfassende Erfahrung in Bildungsinnovationen und der Nutzung von IKT im Bildungsbereich mit. Ihre Rolle im ANTURA-Projekt ist entscheidend, um die praktische Anwendung und Skalierbarkeit des Spiels in realen Bildungssituationen sicherzustellen.  
+Seit 2022 organisieren sie Vorbereitungsklassen für ukrainische Flüchtlingskinder, um ihnen den Einstieg in das polnische Bildungssystem zu erleichtern. NEO leitet auch die Grundschule Leonardo in Wrocław, die derzeit mehr als 100 ukrainische Flüchtlingskinder beherbergt.
 
 ### Académie de Nantes Rectorat - France
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_hEtfdTEi-ibMGCPsvq6AY_ZDoLzfPQG-33msY7afzfuPp94H-cYhd5W1ll21vYDu5i-kKngeDEPRId94PdOEPLgMoWTAM-_I0o_h2qDGERwGGF2-y3e5BBBMEuCY1uWzSZouXD4PWUoroqTaN_LC-cu3dpFaeRavUeUQa4PBLQcKIg_WY5lPQR5M0XE/w202-h192/Logo%20AN.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEg_hEtfdTEi-ibMGCPsvq6AY_ZDoLzfPQG-33msY7afzfuPp94H-cYhd5W1ll21vYDu5i-kKngeDEPRId94PdOEPLgMoWTAM-_I0o_h2qDGERwGGF2-y3e5BBBMEuCY1uWzSZouXD4PWUoroqTaN_LC-cu3dpFaeRavUeUQa4PBLQcKIg_WY5lPQR5M0XE/s230/Logo%20AN.png)
-
+![logo](img/logo_academie_nantes.jpg)
 
 Website: [www.ac-nantes.fr](http://www.ac-nantes.fr)  
 
-The Académie de Nantes Rectorat oversees the education of over 800,000 primary and secondary students in the Pays de la Loire region, managing a vast network of more than 68,000 staff members. Through its Department for European and International Relations (DAREIC), the Rectorat fosters educational cooperation across Europe. The CASNAV department within the Rectorat is specialized in the education of newly arrived allophone children, ensuring their successful integration into the French education system. Their expertise in managing and integrating diverse student populations makes them a key player in the ANTURA consortium.
+Das Académie de Nantes Rectorat ist für die Bildung von über 800.000 Grund- und Sekundarschülern in der Region Pays de la Loire verantwortlich und verwaltet ein großes Netzwerk von mehr als 68.000 Mitarbeitern. Durch seine Abteilung für europäische und internationale Beziehungen (DAREIC) fördert das Rectorat die Bildungszusammenarbeit in ganz Europa. Die Abteilung CASNAV innerhalb des Rectorats ist auf die Bildung neu angekommener allophoner Kinder spezialisiert und sorgt für deren erfolgreiche Integration in das französische Bildungssystem. Ihre Expertise im Umgang mit und der Integration vielfältiger Schülergruppen macht sie zu einem wichtigen Partner im ANTURA-Konsortium.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT8GxHdrBddf14nN2YbF1k0r2z-dSvi1sygbv6JSngmJYOifnIJWcb5xIZR-k49KOo42rBqVhGmOMn2R0haZVUJkF10L84ma47hCI7L3o37qzHPeIfyZ4b1_jGSCjOPyn-_YsTD4H6Po8tmdvZkNztn7xkuvyeiwWimOW56nSw4_BgvucyIS0e7Q1mOtY/w156-h156/Logo-DAREIC%20(AN)%20(1).png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjT8GxHdrBddf14nN2YbF1k0r2z-dSvi1sygbv6JSngmJYOifnIJWcb5xIZR-k49KOo42rBqVhGmOMn2R0haZVUJkF10L84ma47hCI7L3o37qzHPeIfyZ4b1_jGSCjOPyn-_YsTD4H6Po8tmdvZkNztn7xkuvyeiwWimOW56nSw4_BgvucyIS0e7Q1mOtY/s225/Logo-DAREIC%20(AN)%20(1).png) [![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7l83y7N_LvzkUISXZ6fRhGgtElJ6dWnCUAUg6T9VfpnOWFczQJgrgGNEEOWemgUkMct_MzZ8v72y9UeF5pkQGr4Ji2iBiT4BVHai3XbGQwq08QBA9n-v5LmsAW-5tYASZkfxeprkzA_vDrRli2i2xfMhnkCec9sn1dLZdlTLzAj5XzKghAe49xSdXLt0/w139-h154/Logo%20CASNAV%20(AN)%20(1).png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj7l83y7N_LvzkUISXZ6fRhGgtElJ6dWnCUAUg6T9VfpnOWFczQJgrgGNEEOWemgUkMct_MzZ8v72y9UeF5pkQGr4Ji2iBiT4BVHai3XbGQwq08QBA9n-v5LmsAW-5tYASZkfxeprkzA_vDrRli2i2xfMhnkCec9sn1dLZdlTLzAj5XzKghAe49xSdXLt0/s262/Logo%20CASNAV%20(AN)%20(1).png)
+![logo](img/logo-DAREIC.png)
+![logo](img/logo-CASNAV.png)
 
+## Assoziierte Partner im ANTURA-Projekt
 
+- **Die Französische Interministerielle Delegation für Unterkunft und Zugang zu Wohnraum (DIHAL):** DIHAL koordiniert die öffentlichen Politiken für Unterkunft und Wohnraum für obdachlose oder schlecht untergebrachte Personen. AN arbeitet eng mit DIHAL zusammen, das die Finanzierung von zwei Schulmediatoren übernommen hat, die die Bildung von Roma-Kindern vor Ort unterstützen.
+- **Universität Angers:** Eine Forscherin der Universität Angers, spezialisiert auf die Didaktik des Französischen als Fremdsprache, Analyse von Klassenzimmerinteraktionen und Mehrsprachigkeit, wird USL bei der Bewertung der Wirksamkeit des Spiels in Frankreich unterstützen.
+- **Die Polnische Stiftung Education for Future** betreibt ein Psychologisches und Pädagogisches Beratungszentrum, in dem ukrainische Flüchtlingskinder psychologische Beratung erhalten können.
 
-Each of these organizations brings critical skills and knowledge to the ANTURA project, ensuring that it is well-equipped to achieve its mission of supporting refugee and migrant children through innovative educational tools. Together, they are creating a powerful consortium committed to making a lasting impact on education across Europe.
+Diese starke und vielfältige Partnerschaft stellt sicher, dass das ANTURA-Projekt gut gerüstet ist, um durch innovative digitale Lösungen einen bedeutenden Beitrag zur Integration und Bildung von Migranten- und Flüchtlingskindern zu leisten.
 
-[![](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgenFgVpspDX_Gk1wT_vAhyphenhyphenBrn0u86DyOvn_1TX7SCWhY5dTS6IzpYbGA7tUStaXmVl6VtrGyoN0wa2cC0AjhoI46GIBeRszrjq1Mh0fZKoCEia_aqVFnouNppz5ALparQtk0jI2M4fycmJap3BWyzKLgokI6c2rhK25pqA5pv-1-nYIpE5PY3L0nJRjr8/s320/Erasmus_with_baseline-left_pos_RGB_EN.png)](https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgenFgVpspDX_Gk1wT_vAhyphenhyphenBrn0u86DyOvn_1TX7SCWhY5dTS6IzpYbGA7tUStaXmVl6VtrGyoN0wa2cC0AjhoI46GIBeRszrjq1Mh0fZKoCEia_aqVFnouNppz5ALparQtk0jI2M4fycmJap3BWyzKLgokI6c2rhK25pqA5pv-1-nYIpE5PY3L0nJRjr8/s2708/Erasmus_with_baseline-left_pos_RGB_EN.png)
+Jede dieser Organisationen bringt entscheidende Fähigkeiten und Kenntnisse in das ANTURA-Projekt ein und stellt sicher, dass es seine Mission, Flüchtlings- und Migrantenkindern mit innovativen Bildungstools zu helfen, erfolgreich erfüllen kann. Gemeinsam bilden sie ein starkes Konsortium, das sich der Schaffung eines nachhaltigen Einflusses auf die Bildung in ganz Europa verpflichtet hat.
 
 ---
 
 ![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
 
-ANTURA Project: Empowering Refugee and Migrant Children through Interactive Learning The ANTURA project, funded by the Erasmus+ Programme under the KA220-SCH - Cooperation Partnerships in School Education.
+Von der Europäischen Union finanziert. Die geäußerten Ansichten und Meinungen entsprechen jedoch ausschließlich denen des Autors bzw. der Autoren und spiegeln nicht zwingend die der Europäischen Union oder der Europäischen Exekutivagentur für Bildung und Kultur (EACEA) wider. Weder die Europäische Union noch die EACEA können dafür verantwortlich gemacht werden.
