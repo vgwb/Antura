@@ -6,9 +6,9 @@ date: 2024-02-01
 authors: 
  - stefano
 tags:
- - erasmus+
-categories:
  - workshop
+categories:
+ - erasmus
 ---
 
 # Workshops in Angers, France

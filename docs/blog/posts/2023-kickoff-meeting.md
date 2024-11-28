@@ -6,9 +6,9 @@ date: 2023-12-15
 authors: 
  - stefano
 tags:
- - erasmus+
-categories:
  - meeting
+categories:
+ - erasmus
 ---
 
 # Kick off meeting - Cologne, Germany

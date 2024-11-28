@@ -6,9 +6,9 @@ date: 2024-07-01
 authors: 
  - stefano
 tags:
- - erasmus+
-categories:
  - meeting
+categories:
+ - erasmus
 ---
 
 ## Consortium Meeting in Angers, France – June 27, 2024
