@@ -32,57 +32,57 @@ namespace Homer
             jsonUrl = "https://homer.open-lab.com/api/project/" + projectId;
             CsUrl = "https://homer.open-lab.com/api/variables/cs/" + projectId;
 
-            if (GUILayout.Button("Download JSON"))
-            {
-                DownloadFiles(true, jsonUrl, CsUrl);
-            }
-
-            if (GUILayout.Button("Download Vars"))
-            {
-                DownloadFiles(false, jsonUrl, CsUrl);
-            }
-        }
-
-        private void DownloadFiles(bool doJson, string jsonFileUrl, string csFileUrl)
-        {
-            // Ensure the download directory exists
             if (!Directory.Exists(downloadDirectory))
             {
                 Directory.CreateDirectory(downloadDirectory);
             }
 
-            if (doJson)
+            if (GUILayout.Button("Open Homer Project"))
             {
-                // Download the JSON file
-                DownloadAndSaveJson(jsonFileUrl, Path.Combine(downloadDirectory, "homer.json"));
-            }
-            else
-            {
-                // Download the .cs file
-                DownloadAndSaveCs(csFileUrl, Path.Combine(downloadDirectory, "HomerVars.cs"));
+                Application.OpenURL("https://homer.open-lab.com/?project_uid=" + projectId);
             }
 
-            Debug.Log("Files downloaded successfully!");
+            GUILayout.Space(10);
+            GUILayout.Box("", GUILayout.ExpandWidth(true), GUILayout.Height(1));
+            GUILayout.Space(10);
+
+            if (GUILayout.Button("Download JSON Data"))
+            {
+                DownloadAndSaveFile(jsonUrl, Path.Combine(downloadDirectory, "homer.json"), true);
+            }
+
+            // if (GUILayout.Button("Download JSON Data Raw"))
+            // {
+            //     DownloadAndSaveFile(jsonUrl, Path.Combine(downloadDirectory, "homer.json"));
+            // }
+
+            if (GUILayout.Button("Download C# Vars"))
+            {
+                DownloadAndSaveFile(CsUrl, Path.Combine(downloadDirectory, "HomerVars.cs"));
+            }
         }
 
-        private void DownloadAndSaveJson(string url, string fileName)
+        private void DownloadAndSaveFile(string url, string fileName, bool JSONFormat = false)
         {
             using (WebClient client = new WebClient())
             {
                 try
                 {
-                    string json = client.DownloadString(url);
+                    string downloadedFile = client.DownloadString(url);
 
-                    // Format JSON
-                    var parsedJson = JToken.Parse(json);
-                    var formattedJson = parsedJson.ToString(Newtonsoft.Json.Formatting.Indented);
+                    if (JSONFormat)
+                    {
+                        // Format JSON
+                        var parsedJson = JToken.Parse(downloadedFile);
+                        downloadedFile = parsedJson.ToString(Newtonsoft.Json.Formatting.Indented);
+                    }
 
                     string path = Path.Combine(Application.dataPath, fileName);
-                    File.WriteAllText(path, formattedJson);
+                    File.WriteAllText(path, downloadedFile);
 
                     AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in the Editor
 
-                    Debug.Log($"JSON file downloaded and saved to {path}");
+                    Debug.Log($"File downloaded and saved to {path}");
                 }
                 catch (WebException ex)
                 {
@@ -95,46 +95,6 @@ namespace Homer
             }
         }
 
-        private void DownloadAndSaveCs(string url, string fileName)
-        {
-            using (WebClient client = new WebClient())
-            {
-                try
-                {
-                    string csfile = client.DownloadString(url);
-
-                    string path = Path.Combine(Application.dataPath, fileName);
-                    File.WriteAllText(path, csfile);
-
-                    AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in the Editor
-
-                    Debug.Log($"CS file downloaded and saved to {path}");
-                }
-                catch (WebException ex)
-                {
-                    Debug.LogError($"Error downloading JSON: {ex.Message}");
-                }
-                catch (IOException ex)
-                {
-                    Debug.LogError($"Error saving file: {ex.Message}");
-                }
-            }
-        }
-        private void DownloadFile(string url, string path)
-        {
-            using (WebClient client = new WebClient())
-            {
-                try
-                {
-                    client.DownloadFile(url, path);
-                    Debug.Log($"Downloaded file from {url} to {path}");
-                }
-                catch (WebException e)
-                {
-                    Debug.LogError($"Failed to download file from {url}: {e.Message}");
-                }
-            }
-        }
     }
 }
 #endif
