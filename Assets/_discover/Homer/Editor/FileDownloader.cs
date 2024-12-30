@@ -3,6 +3,7 @@ using UnityEditor;
 using UnityEngine;
 using System.IO;
 using System.Net;
+using Newtonsoft.Json.Linq;
 
 namespace Homer
 {
@@ -13,7 +14,7 @@ namespace Homer
         private string jsonUrl = "";
         private string csUrl = "";
 
-        private const string downloadDirectory = "Assets/_discover/Homer/ProjectData";
+        private const string downloadDirectory = "_discover/Homer/ProjectData";
 
         public string CsUrl { get => csUrl; set => csUrl = value; }
 
@@ -28,16 +29,21 @@ namespace Homer
             GUILayout.Label("Download Project Data Files", EditorStyles.boldLabel);
 
             projectId = EditorGUILayout.TextField("Project ID", projectId);
+            jsonUrl = "https://homer.open-lab.com/api/project/" + projectId;
+            CsUrl = "https://homer.open-lab.com/api/variables/cs/" + projectId;
 
-            if (GUILayout.Button("Download Files"))
+            if (GUILayout.Button("Download JSON"))
             {
-                jsonUrl = "https://homer.open-lab.com/api/project/" + projectId;
-                CsUrl = "https://homer.open-lab.com/api/variables/cs/" + projectId;
-                DownloadFiles(jsonUrl, CsUrl);
+                DownloadFiles(true, jsonUrl, CsUrl);
+            }
+
+            if (GUILayout.Button("Download Vars"))
+            {
+                DownloadFiles(false, jsonUrl, CsUrl);
             }
         }
 
-        private void DownloadFiles(string jsonFileUrl, string csFileUrl)
+        private void DownloadFiles(bool doJson, string jsonFileUrl, string csFileUrl)
         {
             // Ensure the download directory exists
             if (!Directory.Exists(downloadDirectory))
@@ -45,18 +51,75 @@ namespace Homer
                 Directory.CreateDirectory(downloadDirectory);
             }
 
-            // Download the JSON file
-            DownloadFile(jsonFileUrl, Path.Combine(downloadDirectory, "homer.json"));
-
-            // Download the .cs file
-            DownloadFile(csFileUrl, Path.Combine(downloadDirectory, "HomerVars.cs"));
-
-            // Refresh the AssetDatabase to show downloaded files in Unity
-            AssetDatabase.Refresh();
+            if (doJson)
+            {
+                // Download the JSON file
+                DownloadAndSaveJson(jsonFileUrl, Path.Combine(downloadDirectory, "homer.json"));
+            }
+            else
+            {
+                // Download the .cs file
+                DownloadAndSaveCs(csFileUrl, Path.Combine(downloadDirectory, "HomerVars.cs"));
+            }
 
             Debug.Log("Files downloaded successfully!");
         }
 
+        private void DownloadAndSaveJson(string url, string fileName)
+        {
+            using (WebClient client = new WebClient())
+            {
+                try
+                {
+                    string json = client.DownloadString(url);
+
+                    // Format JSON
+                    var parsedJson = JToken.Parse(json);
+                    var formattedJson = parsedJson.ToString(Newtonsoft.Json.Formatting.Indented);
+
+                    string path = Path.Combine(Application.dataPath, fileName);
+                    File.WriteAllText(path, formattedJson);
+
+                    AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in the Editor
+
+                    Debug.Log($"JSON file downloaded and saved to {path}");
+                }
+                catch (WebException ex)
+                {
+                    Debug.LogError($"Error downloading JSON: {ex.Message}");
+                }
+                catch (IOException ex)
+                {
+                    Debug.LogError($"Error saving file: {ex.Message}");
+                }
+            }
+        }
+
+        private void DownloadAndSaveCs(string url, string fileName)
+        {
+            using (WebClient client = new WebClient())
+            {
+                try
+                {
+                    string csfile = client.DownloadString(url);
+
+                    string path = Path.Combine(Application.dataPath, fileName);
+                    File.WriteAllText(path, csfile);
+
+                    AssetDatabase.Refresh(); // Refresh the AssetDatabase to show the new file in the Editor
+
+                    Debug.Log($"CS file downloaded and saved to {path}");
+                }
+                catch (WebException ex)
+                {
+                    Debug.LogError($"Error downloading JSON: {ex.Message}");
+                }
+                catch (IOException ex)
+                {
+                    Debug.LogError($"Error saving file: {ex.Message}");
+                }
+            }
+        }
         private void DownloadFile(string url, string path)
         {
             using (WebClient client = new WebClient())

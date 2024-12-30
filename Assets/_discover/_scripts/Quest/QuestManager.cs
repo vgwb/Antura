@@ -144,7 +144,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnCollectItem(GameObject go)
         {
             total_items++;
-            HomerVars.TOTAL_ITEMS_1 = total_items;
+            HomerVars.TOTAL_ITEMS = total_items;
             Destroy(go);
         }
 

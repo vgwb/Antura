@@ -1,31 +1,38 @@
-/*
-Homer - The Story Flow Editor.
-Copyright (c)2021-2024. Open Lab s.r.l - Florence, Italy
-Developer: Pupunzi (Matteo Bicocchi)
-
--------------------------------------------------------------------------------------
-C# Variables, Actors, Metadata, Labels, Colors and Flows Slug.
-Homer project: Antura
-Generated on: 2024-11-02 17:03:50
--------------------------------------------------------------------------------------
+/**
+* Homer - The Story Flow Editor.
+* https://homer.open-lab.com
+* Doc: https://homer.open-lab.com/doc
+*
+* Copyright (c)2021-2024. Open Lab s.r.l - Florence, Italy
+* Developer: Pupunzi (Matteo Bicocchi)
+*
+* -------------------------------------------------------------------------------------
+* C# Variables, Actors, Metadata, Labels, Colors, Tags and Flows Slug.
+* Homer project: Antura*
+* Generated on: 2024-12-30 11:31:59
+* -------------------------------------------------------------------------------------
 */
 
 namespace Homer {
 
     public static class HomerVars {
     
+    public static bool AGE = false; 
     public static int TOTAL_COINS = 0;
     public static string CMD = "";
-    public static int TOTAL_ITEMS_1 = 0;
+    public static int TOTAL_ITEMS = 0;
     public static bool MET_GUIDE = false; 
     public static bool MET_MAJOR = false; 
-    public static bool MET_MONALISA = false;     }
+    public static bool MET_MONALISA = false; 
+    }
 
     public static class HomerActors {
         public enum Actors {
+              KID_FEMALE = 9, 
+              KID_MALE = 8, 
               MUSEUM_GUIDE = 7, 
-              NPG_F = 6, 
-              NPG_M = 5, 
+              WOMAN = 6, 
+              MAN = 5, 
               COOK = 4, 
               GUIDE = 0, 
               TEACHER = 1, 
@@ -36,8 +43,7 @@ namespace Homer {
     }
 
     public static class HomerMeta {
-    
-          public enum NATIVE {}
+              public enum NATIVE {}
           public enum ACTION_POST {}
           public enum IMAGE {}
           public enum NEXTTARGET {}
@@ -49,7 +55,7 @@ namespace Homer {
           public enum CAMERA_DIRECTION {}
           public enum LIGHTINING {}
           public enum FLOW_STATE {IDEA, NOTES, DRAFT, EDITOR, FINAL}
-    public enum FixedTypes { NOTE, IMAGE }
+          public enum FixedTypes { NOTE, IMAGE }
         }
 
     public static class HomerLabels {
@@ -83,7 +89,7 @@ namespace Homer {
               FR_03_NANTES = 3, 
               PL_01_QUEST_ = 4, 
               FR_04_LE_MANS = 5, 
-              FR_01B_PARIS = 6, 
+              FR_01B_PARIS___SEINE = 6, 
               FR_05_CASTLES = 7, 
               FR_06A_CARNAC___MENHIRS = 8, 
               FR_06B_PIRATES___MONEY = 9, 
