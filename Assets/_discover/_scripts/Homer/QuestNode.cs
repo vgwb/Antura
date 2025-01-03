@@ -40,6 +40,7 @@ namespace Antura.Homer
         // well.. the mood
         public string Mood => GetMetadata("MOOD");
 
+        // if we want to show the text in the native language first
         public bool Native => GetMetadata("NATIVE") == "native";
 
         // if a pin / direction should be higlighted in scene / minimap
@@ -53,7 +54,7 @@ namespace Antura.Homer
             foreach (var metaId in Metadata)
             {
                 var metadata = HomerAnturaManager.I.GetMetadataByValueId(metaId);
-                //                Debug.Log("metadata._uid= " + metadata._uid);
+                // Debug.Log("metadata._uid= " + metadata._uid);
                 if (metadata._uid == kind)
                 {
                     return HomerAnturaManager.I.GetMetadataValueById(metaId)._value;
@@ -62,7 +63,7 @@ namespace Antura.Homer
             return null;
         }
 
-        //This method assumes you have called SetupForNavigation(flowSlug) as flow setup.
+        //  This method assumes you have called SetupForNavigation(flowSlug) as flow setup.
         public QuestNode NextNode(int choiceIndex = 0)
         {
             return HomerAnturaManager.I.NextNode(choiceIndex);

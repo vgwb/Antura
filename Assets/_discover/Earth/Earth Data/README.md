@@ -2,6 +2,8 @@
 
 The data comes from [Natural Earth](http://www.naturalearthdata.com/), a community effort to make visually pleasing, well-crafted maps with cartography or GIS software at small scale.
 
+https://github.com/johan/world.geo.json
+
 ## How to render GeoJSON
 
 here is an article
