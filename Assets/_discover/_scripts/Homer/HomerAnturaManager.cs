@@ -178,7 +178,16 @@ namespace Antura.Homer
 
             QuestNode questNode = new QuestNode();
             questNode.Id = homerNode._permalink;
-            questNode.LocId = homerNode._header._id;
+            // Debug.Log(homerNode._id);
+            if (homerNode._header != null)
+            {
+                questNode.LocId = homerNode._header._id;
+            }
+            else
+            {
+                questNode.LocId = homerNode._elements[0]._id;
+            }
+            //questNode.LocId = homerNode._header._id;
             questNode.Metadata = homerNode._metadata;
 
             // CHOICE
