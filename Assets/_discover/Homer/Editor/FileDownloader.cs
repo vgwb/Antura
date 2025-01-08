@@ -72,8 +72,9 @@ namespace Homer
 
                     if (JSONFormat)
                     {
-                        // Format JSON
                         var parsedJson = JToken.Parse(downloadedFile);
+                        // Recursively modify "_x" and "_y_ fields to 0
+                        ModifyFieldsRecursively(parsedJson);
                         downloadedFile = parsedJson.ToString(Newtonsoft.Json.Formatting.Indented);
                     }
 
@@ -91,6 +92,28 @@ namespace Homer
                 catch (IOException ex)
                 {
                     Debug.LogError($"Error saving file: {ex.Message}");
+                }
+            }
+        }
+
+        private static void ModifyFieldsRecursively(JToken token)
+        {
+            if (token is JObject obj)
+            {
+                foreach (var property in obj.Properties())
+                {
+                    if (property.Name.Equals("_x") || property.Name.Equals("_y"))
+                    {
+                        property.Value = 0;
+                    }
+                    ModifyFieldsRecursively(property.Value);
+                }
+            }
+            else if (token is JArray array)
+            {
+                foreach (var item in array)
+                {
+                    ModifyFieldsRecursively(item);
                 }
             }
         }
