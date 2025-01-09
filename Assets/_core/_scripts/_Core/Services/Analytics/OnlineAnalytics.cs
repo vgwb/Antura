@@ -44,7 +44,7 @@ namespace Antura.Core.Services.OnlineAnalytics
         /// 10 - additional(json encoded additional parameters that we don't know now or custom specific per minigame)
         /// </summary>
 
-        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled;
+        private bool AnalyticsEnabled => AppManager.I.AppEdition.OnlineAnalyticsEnabled && AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled;
 
         public Analytics()
         {

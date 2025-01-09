@@ -57,7 +57,7 @@ namespace Antura.Scenes
             LLAnimController.Init(AppManager.I.Teacher.GetRandomTestLetterLL(useMaxJourneyData: true));
 
             AppManager.I.AppSettings.KioskMode = true;
-            AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled = true;
+            AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled = true;
             AppManager.I.AppSettings.KeeperSubtitlesEnabled = true;
             updateUI();
 

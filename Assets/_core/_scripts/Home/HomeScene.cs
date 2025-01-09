@@ -37,7 +37,8 @@ namespace Antura.Scenes
 
             if (AppManager.PROFILE_INVERSION && AppManager.I.NavigationManager.NavData.CurrentContent != null)
             {
-                if (AppManager.VERBOSE_INVERSION) Debug.LogError("[INVERSION] Set Current Content to NULL as we are in Home");
+                if (AppManager.VERBOSE_INVERSION)
+                    Debug.LogError("[INVERSION] Set Current Content to NULL as we are in Home");
                 AppManager.I.NavigationManager.NavData.CurrentContent = null;
             }
 
@@ -87,7 +88,8 @@ namespace Antura.Scenes
             if (AppManager.PROFILE_INVERSION)
             {
                 // We must load the play session data, or create it
-                if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Entering game with Player: " + AppManager.I.Player.Uuid);
+                if (AppManager.VERBOSE_INVERSION)
+                    Debug.LogError("[Inversion] Entering game with Player: " + AppManager.I.Player.Uuid);
                 /* @note: Old profiles are ignored for now, always use the new logic instead!
                 var playerAppVersion = AppManager.I.Player.AppVersion;
                 var majorVersion = int.Parse(playerAppVersion.Split('.').First());
@@ -101,11 +103,15 @@ namespace Antura.Scenes
                 }
                 else*/
                 {
-                    if (AppManager.VERBOSE_INVERSION)  Debug.LogError("[Inversion] Player is new, let's get the content too");
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError("[Inversion] Player is new, let's get the content too");
+
                     var contentID = AppManager.I.AppSettingsManager.Settings.ContentID;
                     var contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(contentID);
                     AppManager.I.NavigationManager.NavData.CurrentContent = contentProfile;
-                    if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Current content: " + AppManager.I.NavigationManager.NavData.CurrentContent.ToString());
+
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError("[Inversion] Current content: " + AppManager.I.NavigationManager.NavData.CurrentContent.ToString());
                 }
             }
 

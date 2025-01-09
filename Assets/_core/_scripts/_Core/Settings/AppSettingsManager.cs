@@ -7,8 +7,6 @@ namespace Antura.Core
 {
     public class AppSettingsManager
     {
-        public NewAppSettings NewSettings;
-
         private const string SETTINGS_PREFS_KEY = "OPTIONS";
         private AppSettings _settings;
 
@@ -35,11 +33,6 @@ namespace Antura.Core
 
         public AppSettingsManager()
         {
-            NewSettings = new NewAppSettings();
-            if (NewSettings.Exists())
-            {
-                NewSettings.Load();
-            }
             LoadSettings();
         }
 
@@ -132,32 +125,32 @@ namespace Antura.Core
         public void EnableShareAnalytics(bool status)
         {
             Debug.Log("EnableShareAnalytics " + status);
-            NewSettings.ShareAnalyticsEnabled = status;
-            NewSettings.Save();
+            Settings.ShareAnalyticsEnabled = status;
+            SaveSettings();
+        }
+
+        public void ToggleShareAnalytics()
+        {
+            EnableShareAnalytics(!Settings.ShareAnalyticsEnabled);
         }
 
         public void EnableNotifications(bool status)
         {
             Debug.Log("EnableNotifications " + status);
-            NewSettings.NotificationsEnabled = status;
-            NewSettings.Save();
-        }
-
-        public void EnableClassroomMode(bool status)
-        {
-            Debug.Log("EnableClassroomMode " + status);
-            NewSettings.ClassroomModeEnabled = status;
-            NewSettings.Save();
-        }
-
-        public void ToggleShareAnalytics()
-        {
-            EnableShareAnalytics(!NewSettings.ShareAnalyticsEnabled);
+            Settings.NotificationsEnabled = status;
+            SaveSettings();
         }
 
         public void ToggleNotifications()
         {
-            EnableNotifications(!NewSettings.NotificationsEnabled);
+            EnableNotifications(!Settings.NotificationsEnabled);
+        }
+
+        public void SetClassroomMode(int classroomMode)
+        {
+            Debug.Log("SetClassroomMode " + classroomMode);
+            Settings.ClassRoomMode = classroomMode;
+            SaveSettings();
         }
 
         public void SetKioskMode(bool status)

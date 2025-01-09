@@ -6,45 +6,22 @@ using UnityEngine;
 
 namespace Antura.Core
 {
-
-    public class NewAppSettings
-    {
-        public bool NotificationsEnabled = true;
-        public bool ShareAnalyticsEnabled = true;
-        public bool ClassroomModeEnabled = false;
-        // public bool MusicEnabled = true;
-        // public bool SubtitlesEnabled = true;
-
-        public void Save()
-        {
-            PlayerPrefs.SetInt("NotificationsEnabled", NotificationsEnabled ? 1 : 0);
-            PlayerPrefs.SetInt("AnalyticsEnabled", ShareAnalyticsEnabled ? 1 : 0);
-            PlayerPrefs.SetInt("ClassroomModeEnabled", ClassroomModeEnabled ? 1 : 0);
-            // PlayerPrefs.SetInt("MusicEnabled", MusicEnabled ? 1 : 0);
-            // PlayerPrefs.SetInt("SubtitlesEnabled", SubtitlesEnabled ? 1 : 0);
-        }
-
-        public void Load()
-        {
-            NotificationsEnabled = PlayerPrefs.GetInt("NotificationsEnabled", 1) == 1;
-            ShareAnalyticsEnabled = PlayerPrefs.GetInt("AnalyticsEnabled", 1) == 1;
-            ClassroomModeEnabled = PlayerPrefs.GetInt("ClassroomModeEnabled", 1) == 1;
-        }
-
-        public bool Exists()
-        {
-            return PlayerPrefs.HasKey("NotificationsEnabled");
-        }
-    }
-
     /// <summary>
     /// Defines app settings that must be saved locally.
     /// </summary>
     [Serializable]
     public class AppSettings
     {
+        public bool FirstRun = true;
+
         public LearningContentID ContentID;
         public LanguageCode NativeLanguage = LanguageCode.english;
+
+        public bool NotificationsEnabled = true;
+        public bool ShareAnalyticsEnabled = true;
+
+        // 0 is off, 1,2,3,4,5 is on with the class selected
+        public int ClassRoomMode = 0;
 
         // not used anymore.. but could be useful in the future
         public bool HighQualityGfx = false;

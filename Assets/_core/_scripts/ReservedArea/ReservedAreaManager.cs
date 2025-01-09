@@ -18,9 +18,9 @@ namespace Antura.ReservedArea
 
         void Start()
         {
-            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ShareAnalyticsEnabled);
-            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.NotificationsEnabled);
-            ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.NewSettings.ClassroomModeEnabled);
+            AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled);
+            NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
+            ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
         }
 
         #region Buttons
@@ -116,14 +116,14 @@ namespace Antura.ReservedArea
 
         public void OnBtnClassroomMode()
         {
-            if (AppManager.I.AppSettingsManager.NewSettings.ClassroomModeEnabled)
+            if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
             {
-                AppManager.I.AppSettingsManager.EnableClassroomMode(false);
+                AppManager.I.AppSettingsManager.SetClassroomMode(0);
                 ClassroomModeCheckIcon.Set(false);
             }
             else
             {
-                AppManager.I.AppSettingsManager.EnableClassroomMode(true);
+                AppManager.I.AppSettingsManager.SetClassroomMode(1);
                 ClassroomModeCheckIcon.Set(true);
             }
 

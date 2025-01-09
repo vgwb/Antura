@@ -111,8 +111,9 @@ namespace Antura.Scenes
             selectedNativeButton.gameObject.SetActive(true);
 
             bool waiting = true;
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
-            while (waiting) yield return null;
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(LocalizationDataId.Language_Name), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback: true);
+            while (waiting)
+                yield return null;
 
             GlobalUI.ShowPauseMenu(true);
 
@@ -142,7 +143,7 @@ namespace Antura.Scenes
                 selectedNativeButton.gameObject.SetActive(false);
             }
 
-            selectLearningContentPanel.Open(scrollToLast:!fromLanguage);
+            selectLearningContentPanel.Open(scrollToLast: !fromLanguage);
             while (!selectLearningContentPanel.HasPerformedSelection)
                 yield return null;
 
@@ -150,15 +151,16 @@ namespace Antura.Scenes
 
             var btn = selectLearningContentPanel.SelectedButton;
             bool waiting = true;
-            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback:true);
-            while (waiting) yield return null;
+            AudioManager.I.PlayDialogue(LocalizationManager.GetLocalizationData(btn.LocKey), selectNativeLanguagePanel.SelectedCode, callback: () => waiting = false, clearPreviousCallback: true);
+            while (waiting)
+                yield return null;
 
             HasSelectedEdition = true;
 
             yield return AppManager.I.ReloadEdition();
 
             bool hasAnswered = false;
-            if (!AppManager.I.AppSettingsManager.NewSettings.Exists())
+            if (AppManager.I.AppSettingsManager.Settings.FirstRun)
             {
                 GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
                     () =>
@@ -190,6 +192,8 @@ namespace Antura.Scenes
 
                 while (!hasAnswered)
                     yield return null;
+
+                AppManager.I.AppSettingsManager.Settings.FirstRun = false;
             }
 
 
