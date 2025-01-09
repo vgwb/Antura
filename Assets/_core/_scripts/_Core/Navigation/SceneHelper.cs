@@ -43,7 +43,7 @@ namespace Antura.Core
                 case AppScene.Kiosk:
                     return "app_Kiosk";
                 case AppScene.DiscoverCountry:
-                    return "DiscoverCountry";
+                    return "discover__menu";
                 case AppScene.DiscoverQuest:
                     return minigameData.Scene;
                 default:
@@ -86,10 +86,8 @@ namespace Antura.Core
                     return AppScene.DailyReward;
                 case "app_Kiosk":
                     return AppScene.Kiosk;
-                case "DiscoverCountry":
+                case "discover__menu":
                     return AppScene.DiscoverCountry;
-                case "discover_tutorial":
-                    return AppScene.DiscoverQuest;
                 default:
                     if (currentScene.Substring(0, 5) == "game_")
                     {
