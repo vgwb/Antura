@@ -195,8 +195,10 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (HasValidNearbyAgent) UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
-            else if (HasValidNearbyInfoPoint) UIManager.I.dialogues.ShowSignalFor(nearbyInfoPoint);
+            if (HasValidNearbyAgent)
+                UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
+            else if (HasValidNearbyInfoPoint)
+                UIManager.I.dialogues.ShowSignalFor(nearbyInfoPoint);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
@@ -224,24 +226,24 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnAgentTriggerEnter(EdAgent ll)
         {
-            Debug.Log($"Enter {ll}", ll);
+            //            Debug.Log($"Enter {ll}", ll);
             nearbyAgent = ll;
             UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
         }
 
         void OnAgentTriggerExit(EdAgent ll)
         {
-            Debug.Log($"Exit {ll} ({ll == nearbyAgent})", ll);
+            //            Debug.Log($"Exit {ll} ({ll == nearbyAgent})", ll);
             if (nearbyAgent == ll)
             {
                 nearbyAgent = null;
                 UIManager.I.dialogues.HideSignal();
             }
         }
-        
+
         void OnInfoPointTriggerEnter(InfoPoint infoPoint, string nodeId)
         {
-            Debug.Log($"Enter {infoPoint}", infoPoint);
+            //            Debug.Log($"Enter {infoPoint}", infoPoint);
             nearbyInfoPoint = infoPoint;
             nearbyInfoPointNodeId = nodeId;
             UIManager.I.dialogues.ShowSignalFor(infoPoint);
@@ -249,7 +251,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnInfoPointTriggerExit(InfoPoint infoPoint)
         {
-            Debug.Log($"Exit {infoPoint} ({infoPoint == nearbyInfoPoint})", infoPoint);
+            //            Debug.Log($"Exit {infoPoint} ({infoPoint == nearbyInfoPoint})", infoPoint);
             if (nearbyInfoPoint == infoPoint)
             {
                 nearbyInfoPoint = null;

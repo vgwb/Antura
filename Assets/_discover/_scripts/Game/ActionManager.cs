@@ -18,14 +18,10 @@ namespace Antura.Minigames.DiscoverCountry
         private Transform target_AnturaLocation;
         public Transform Target_AnturaLocation { get => target_AnturaLocation; set => target_AnturaLocation = value; }
 
-        public Transform Spawn_Louvre_Enter;
-        public Transform Spawn_Louvre_Exit;
-
         public GameObject WinFx;
         public GameObject AnturaDog;
 
         private GameObject Player;
-
 
         void Awake()
         {
@@ -104,6 +100,20 @@ namespace Antura.Minigames.DiscoverCountry
             Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
         }
 
+        private void Trigger(string actionCode)
+        {
+            var actionData = GetActionData(actionCode);
+            if (actionData != null)
+            {
+                Debug.Log("Trigger: " + actionData.ActionCode);
+                //actionData.Trigger();
+            }
+            else
+            {
+                Debug.Log("Trigger: Could not find actionCode: " + actionCode);
+            }
+        }
+
         public void ResolveAction(string action)
         {
             Debug.Log("ResolveAction: " + action);
@@ -128,6 +138,9 @@ namespace Antura.Minigames.DiscoverCountry
                         WinFx.GetComponent<ParticleSystem>().Play();
                         AudioManager.I.PlaySound(Sfx.Win);
                         AnturaDog.SetActive(true);
+                        break;
+                    default:
+                        Trigger(action);
                         break;
                 }
             }
