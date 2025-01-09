@@ -12,6 +12,7 @@ namespace Antura.Profile
     public struct PlayerIconData
     {
         public string Uuid;
+        public string PlayerName;
         public int AvatarId;
         public PlayerGender Gender;
         public PlayerTint Tint; // Kept for backwards compatibility
@@ -32,6 +33,7 @@ namespace Antura.Profile
             bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditionID editionID, LearningContentID contentID, string _AppVersion, PetData _petData)
         {
             Uuid = _Uuid;
+            PlayerName = "";
             AvatarId = _AvatarId;
             SkinColor = _SkinColor;
             HairColor = _HairColor;
