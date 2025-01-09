@@ -195,6 +195,8 @@ namespace Homer
                 JObject jsonObject = JObject.Parse(jsonContent);
 
                 jsonObject.Remove("_info");
+                jsonObject.Remove("_selectedFlowId");
+                jsonObject.Remove("_modified");
 
                 // Process the "_flows" array
                 JArray flowsArray = (JArray)jsonObject["_flows"];
@@ -203,6 +205,7 @@ namespace Homer
                     // Ensure flow is a JObject, then remove "_x" and "_y" properties
                     if (flow is JObject flowObject)
                     {
+                        flowObject.Remove("_modified");
                         flowObject.Remove("_x");
                         flowObject.Remove("_y");
 
@@ -213,6 +216,7 @@ namespace Homer
                             // Ensure node is a JObject, then remove "_x" and "_y" properties
                             if (node is JObject nodeObject)
                             {
+                                flowObject.Remove("_modified");
                                 nodeObject.Remove("_x");
                                 nodeObject.Remove("_y");
                             }
