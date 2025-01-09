@@ -55,7 +55,7 @@ namespace Antura.Core.Services.Notification
             // {
             //     Init();
             // }
-            if (NotificationsManager.Initialized)
+            if (NotificationsManager != null && NotificationsManager.Initialized)
             {
                 NotificationsManager.DismissAllNotifications();
             }
