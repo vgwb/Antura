@@ -15,11 +15,8 @@ namespace Antura.Minigames.DiscoverCountry
         public ActionData[] Actions;
 
         [Header("Specific")]
-        public Transform Target_AnturaLocation;
-
-        public GameObject TutorialElevator;
-        public GameObject Eiffel_Guide;
-        public GameObject NotreDame_Major;
+        private Transform target_AnturaLocation;
+        public Transform Target_AnturaLocation { get => target_AnturaLocation; set => target_AnturaLocation = value; }
 
         public Transform Spawn_Louvre_Enter;
         public Transform Spawn_Louvre_Exit;
@@ -28,6 +25,7 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject AnturaDog;
 
         private GameObject Player;
+
 
         void Awake()
         {
@@ -59,17 +57,21 @@ namespace Antura.Minigames.DiscoverCountry
             AnturaDog.SetActive(false);
         }
 
-        private ActionData GetActionDataByCode(string actionCode)
+        private ActionData GetActionData(string actionCode)
         {
             return Actions.FirstOrDefault(action => action.ActionCode == actionCode);
+        }
+
+        private ActionData GetActionData(ActionType type, string actionCode)
+        {
+            return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
         }
 
         public void CameraShowTarget(string targetArea)
         {
             Debug.Log("CameraShowTarget targetArea:" + targetArea);
 
-
-            var actionData = GetActionDataByCode(targetArea);
+            var actionData = GetActionData(ActionType.Area, targetArea);
 
             Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
             InteractionManager.I.FocusCameraOn(actionData.Target.transform);
@@ -84,53 +86,51 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void ActivateArea(string targetArea)
         {
-            var actionData = GetActionDataByCode(targetArea);
-            actionData.Area.SetActive(true);
+            var actionData = GetActionData(ActionType.Area, targetArea);
+            if (actionData != null)
+            {
+                Debug.Log("ActivateArea: " + actionData.ActionCode);
+                actionData.Area.SetActive(true);
+            }
+            else
+            {
+                Debug.Log("ActivateArea: Could not find targetArea: " + targetArea);
+            }
+        }
+
+        private void Spawn(string spawnCode)
+        {
+            var actionData = GetActionData(ActionType.Spawn, spawnCode);
+            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
         }
 
         public void ResolveAction(string action)
         {
-            Debug.Log("ResolveAction" + action);
+            Debug.Log("ResolveAction: " + action);
 
-            switch (action)
+            if (action.Substring(0, 5) == "area_")
             {
-                case "updatecoins":
-                    QuestManager.I.UpateCoinsCounter();
-                    break;
-                case "area_tutorial":
-                    ActivateArea("tutorial");
-                    break;
-                case "area_eiffel":
-                    ActivateArea("eiffel");
-                    break;
-                case "area_notredame":
-                    ActivateArea("notredame");
-                    break;
-                case "area_louvre":
-                    ActivateArea("louvre");
-                    break;
-                case "area_bakery":
-                    ActivateArea("bakery");
-                    break;
-                case "area_seine":
-                    ActivateArea("seine");
-                    break;
-                case "game_end":
-                    WinFx.SetActive(true);
-                    WinFx.GetComponent<ParticleSystem>().Play();
-                    //InteractionManager.I.FocusCameraOn(Target_Eiffel);
-                    AudioManager.I.PlaySound(Sfx.Win);
-                    AnturaDog.SetActive(true);
-                    break;
-                case "louvre_exit":
-                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Exit);
-                    break;
-                case "louvre_enter":
-                    ActivateArea("louvre");
-                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(Spawn_Louvre_Enter);
-                    break;
+                ActivateArea(action.Substring(5));
             }
-
+            else if (action.Substring(0, 6) == "spawn_")
+            {
+                Spawn(action.Substring(6));
+            }
+            else
+            {
+                switch (action)
+                {
+                    case "updatecoins":
+                        QuestManager.I.UpateCoinsCounter();
+                        break;
+                    case "game_end":
+                        WinFx.SetActive(true);
+                        WinFx.GetComponent<ParticleSystem>().Play();
+                        AudioManager.I.PlaySound(Sfx.Win);
+                        AnturaDog.SetActive(true);
+                        break;
+                }
+            }
         }
 
     }

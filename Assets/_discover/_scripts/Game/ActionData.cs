@@ -6,8 +6,9 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public enum ActionType
     {
-        UnityAction = 1,
+        Trigger = 1,
         Area = 2,
+        Spawn = 3
     }
 
     [System.Serializable]

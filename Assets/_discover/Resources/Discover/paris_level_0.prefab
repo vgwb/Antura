@@ -994,10 +994,18 @@ MonoBehaviour:
     Area: {fileID: 3801867184993699979}
     Beam: {fileID: 5250660345688480549}
     Target: {fileID: 5250660345688480549}
-  Target_AnturaLocation: {fileID: 0}
-  TutorialElevator: {fileID: 8633535707822640214}
-  Eiffel_Guide: {fileID: 8858105146526750398}
-  NotreDame_Major: {fileID: 3020839928233936388}
+  - Type: 3
+    ActionCode: Louvre_Enter
+    mainObject: {fileID: 0}
+    Area: {fileID: 0}
+    Beam: {fileID: 0}
+    Target: {fileID: 7682271527375124140}
+  - Type: 3
+    ActionCode: Louvre_Exit
+    mainObject: {fileID: 0}
+    Area: {fileID: 0}
+    Beam: {fileID: 0}
+    Target: {fileID: 3790655348080124701}
   Spawn_Louvre_Enter: {fileID: 6095798890353665125}
   Spawn_Louvre_Exit: {fileID: 94389938884491366}
   WinFx: {fileID: 5496044238103751749}
@@ -6145,12 +6153,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
---- !u!1 &8858105146526750398 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-    type: 3}
-  m_PrefabInstance: {fileID: 4079367631297021714}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9020341247896905496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
@@ -9300,12 +9302,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
---- !u!1 &3020839928233936388 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-    type: 3}
-  m_PrefabInstance: {fileID: 7754830656933566376}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3327265984205092770 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
