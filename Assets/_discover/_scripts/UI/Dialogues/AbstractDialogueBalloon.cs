@@ -70,6 +70,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestNode node)
         {
+            if (IsOpen) return;
+            
             IsOpen = true;
             currNode = node;
             SetInteractable(false);
@@ -106,6 +108,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Hide()
         {
+            if (!IsOpen) return;
+            
             IsOpen = false;
             SpeechCycle = false;
             SetInteractable(false);
