@@ -36,17 +36,18 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             trans = this.transform;
-            
+
             showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
                 .SetEase(Ease.OutCubic)
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     loopTween.Rewind();
                     this.gameObject.SetActive(false);
                     targetTrans = null;
                 });
             loopTween = iconContainer.DOScale(1.1f, 0.45f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
                 .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-         
+
             this.gameObject.SetActive(false);
         }
 
@@ -69,7 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             SetAppearance(true);
             Show(agent.transform);
-            
+
         }
         public void ShowFor(InfoPoint infoPoint)
         {
@@ -89,7 +90,8 @@ namespace Antura.Minigames.DiscoverCountry
         void Show(Transform target)
         {
             showTween.Restart();
-            if (animateIco) loopTween.Restart();
+            if (animateIco)
+                loopTween.Restart();
             this.gameObject.SetActive(true);
             targetTrans = target;
         }
