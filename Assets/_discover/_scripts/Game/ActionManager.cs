@@ -21,7 +21,7 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject WinFx;
         public GameObject AnturaDog;
 
-        private GameObject Player;
+        public GameObject Player;
 
         void Awake()
         {
@@ -44,8 +44,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 if (action.Type == ActionType.Area)
                 {
-                    action.Area.SetActive(false);
-                    action.Beam.SetActive(false);
+                    action.Area?.SetActive(false);
+                    action.Beam?.SetActive(false);
                 }
             }
 
@@ -97,6 +97,11 @@ namespace Antura.Minigames.DiscoverCountry
         private void Spawn(string spawnCode)
         {
             var actionData = GetActionData(ActionType.Spawn, spawnCode);
+            // Debug.Log("Spawn spawnCode: " + spawnCode);
+            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
+            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
+            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
+
             Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
         }
 

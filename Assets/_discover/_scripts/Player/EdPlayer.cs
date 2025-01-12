@@ -338,7 +338,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void SpawnToNewLocation(Transform newLocation)
         {
-            // TO DO MAYBE A TRANSITION?
+            // TODO MAYBE A TRANSITION?
             transform.position = newLocation.position;
         }
 

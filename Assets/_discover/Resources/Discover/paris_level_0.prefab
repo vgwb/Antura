@@ -502,7 +502,7 @@ GameObject:
   - component: {fileID: 94389938884491366}
   m_Layer: 8
   m_Name: Teleport Louvre Exit
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -920,6 +920,7 @@ Transform:
   - {fileID: 2894044624203672755}
   - {fileID: 9168125704405784210}
   - {fileID: 3128819669299731019}
+  - {fileID: 9020341247896905496}
   - {fileID: 2195020252119486166}
   - {fileID: 7288816277101360129}
   - {fileID: 6891245719642517654}
@@ -965,6 +966,12 @@ MonoBehaviour:
     Beam: {fileID: 7463619252466453830}
     Target: {fileID: 3495116014142512195}
   - Type: 2
+    ActionCode: eiffelguide
+    mainObject: {fileID: 0}
+    Area: {fileID: 8858105146526750398}
+    Beam: {fileID: 5855752261689155084}
+    Target: {fileID: 0}
+  - Type: 2
     ActionCode: toureiffel
     mainObject: {fileID: 0}
     Area: {fileID: 7162114587635243061}
@@ -995,21 +1002,20 @@ MonoBehaviour:
     Beam: {fileID: 5250660345688480549}
     Target: {fileID: 5250660345688480549}
   - Type: 3
-    ActionCode: Louvre_Enter
+    ActionCode: louvre_enter
     mainObject: {fileID: 0}
     Area: {fileID: 0}
     Beam: {fileID: 0}
     Target: {fileID: 7682271527375124140}
   - Type: 3
-    ActionCode: Louvre_Exit
+    ActionCode: louvre_exit
     mainObject: {fileID: 0}
     Area: {fileID: 0}
     Beam: {fileID: 0}
     Target: {fileID: 3790655348080124701}
-  Spawn_Louvre_Enter: {fileID: 6095798890353665125}
-  Spawn_Louvre_Exit: {fileID: 94389938884491366}
   WinFx: {fileID: 5496044238103751749}
   AnturaDog: {fileID: 6876625745733814505}
+  Player: {fileID: 0}
 --- !u!1 &4985426018006344035
 GameObject:
   m_ObjectHideFlags: 0
@@ -1388,7 +1394,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 9020341247896905496}
   - {fileID: 6877234523654535461}
   - {fileID: 737347779700979050}
   - {fileID: 5324065131165996100}
@@ -1491,7 +1496,7 @@ GameObject:
   - component: {fileID: 6095798890353665125}
   m_Layer: 8
   m_Name: Teleport Louvre Enter
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6026,7 +6031,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 2195020252119486166}
+    m_TransformParent: {fileID: 4710161876339224747}
     m_Modifications:
     - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -6153,6 +6158,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
+--- !u!1 &8858105146526750398 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
+    type: 3}
+  m_PrefabInstance: {fileID: 4079367631297021714}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9020341247896905496 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
