@@ -11,6 +11,8 @@ namespace Antura.Minigames.DiscoverCountry
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
         public GameObject Thumbnail;
+        public Button PlayBtn;
+        public Button PlayManual;
 
         private QuestData currentQuestData;
 
@@ -40,6 +42,24 @@ namespace Antura.Minigames.DiscoverCountry
             else
             {
                 Thumbnail.SetActive(false);
+            }
+
+            if (currentQuestData.Active)
+            {
+                PlayBtn.interactable = true;
+            }
+            else
+            {
+                PlayBtn.interactable = false;
+            }
+
+            if (currentQuestData.manualPage != "")
+            {
+                PlayManual.gameObject.SetActive(true);
+            }
+            else
+            {
+                PlayManual.gameObject.SetActive(false);
             }
 
         }

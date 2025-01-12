@@ -307,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &65562135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -476,11 +476,11 @@ RectTransform:
   m_Children:
   - {fileID: 972689231}
   - {fileID: 1954586185}
-  m_Father: {fileID: 799168558}
+  m_Father: {fileID: 1685516364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -80, y: 60}
+  m_AnchoredPosition: {x: -49.99994, y: 40}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &137932582
@@ -591,7 +591,7 @@ GameObject:
   - component: {fileID: 163728099}
   - component: {fileID: 163728098}
   m_Layer: 5
-  m_Name: BT Close
+  m_Name: Btn Close
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -613,7 +613,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 23, y: 19}
+  m_AnchoredPosition: {x: 35, y: 26}
   m_SizeDelta: {x: 120, y: 174}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &163728098
@@ -1910,8 +1910,6 @@ RectTransform:
   - {fileID: 1583209179}
   - {fileID: 836526219}
   - {fileID: 39659590}
-  - {fileID: 987373995}
-  - {fileID: 137932581}
   m_Father: {fileID: 1276314361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2713,11 +2711,11 @@ RectTransform:
   m_Children:
   - {fileID: 2046450268}
   - {fileID: 888574575}
-  m_Father: {fileID: 799168558}
+  m_Father: {fileID: 1685516364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 60}
+  m_AnchoredPosition: {x: 75, y: 40}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &987373996
@@ -4469,7 +4467,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1685516364
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4485,15 +4483,17 @@ RectTransform:
   - {fileID: 163728097}
   - {fileID: 2084276836}
   - {fileID: 2020821290}
-  - {fileID: 3455157447158251342}
-  - {fileID: 1934073852}
   - {fileID: 465390417}
+  - {fileID: 1934073852}
+  - {fileID: 3455157447158251342}
+  - {fileID: 987373995}
+  - {fileID: 137932581}
   m_Father: {fileID: 1276314361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: -200, y: -200}
+  m_SizeDelta: {x: -100, y: -100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1685516366
 MonoBehaviour:
@@ -4515,8 +4515,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 24d1a8a2096a3bb4e91ac694106202eb, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 8da192d260b31144f8f34730ea9b192f, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4548,6 +4548,8 @@ MonoBehaviour:
   Title: {fileID: 2084276837}
   Description: {fileID: 2020821287}
   Thumbnail: {fileID: 465390414}
+  PlayBtn: {fileID: 1934073853}
+  PlayManual: {fileID: 3672415641881565808}
 --- !u!4 &1694531366 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4000013672398182, guid: b60128b9dc7d9a84096fdc9147160640,
@@ -4692,7 +4694,7 @@ GameObject:
   - component: {fileID: 1934073854}
   - component: {fileID: 1934073853}
   m_Layer: 5
-  m_Name: Quest PLAY
+  m_Name: Btn Play
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4716,7 +4718,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -100, y: 50}
+  m_AnchoredPosition: {x: -58, y: 285}
   m_SizeDelta: {x: 300, y: 80}
   m_Pivot: {x: 1, y: 0}
 --- !u!114 &1934073853
@@ -4744,7 +4746,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
     m_PressedColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 1}
     m_SelectedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
-    m_DisabledColor: {r: 0.6316305, g: 0.68204635, b: 0.8867924, a: 0.69411767}
+    m_DisabledColor: {r: 0.46226418, g: 0.46226418, b: 0.46226418, a: 0.44705883}
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
@@ -4789,7 +4791,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44455323, g: 0.8490566, b: 0.45208806, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -5619,7 +5621,7 @@ GameObject:
   - component: {fileID: 1672637876752198618}
   - component: {fileID: 3672415641881565808}
   m_Layer: 5
-  m_Name: Quest Open Manual
+  m_Name: Btn Manual
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5795,7 +5797,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 80, y: 50}
+  m_AnchoredPosition: {x: 964, y: 163}
   m_SizeDelta: {x: 320, y: 80}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &3672415641881565808
