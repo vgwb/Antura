@@ -70,5 +70,16 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Town;
         public GameObject GameLevel;
 
+        /// <summary>
+        /// Gets the score (completeness) for this quest.
+        /// </summary>
+        /// <returns>
+        /// An integer representing the number of stars.. 0 -> 3.
+        /// </returns>
+        public int GetScore()
+        {
+            return 0;
+        }
+
     }
 }

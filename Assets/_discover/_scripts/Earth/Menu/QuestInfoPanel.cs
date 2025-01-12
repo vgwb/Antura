@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -8,6 +9,9 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class QuestInfoPanel : MonoBehaviour
     {
+        private int currentIndex = 0;
+        public Quests QData;
+
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
         public GameObject Thumbnail;
@@ -77,6 +81,26 @@ namespace Antura.Minigames.DiscoverCountry
         public void Close()
         {
             gameObject.SetActive(false);
+        }
+
+        public void BtnNextQuest()
+        {
+            currentIndex++;
+            if (currentIndex >= QData.AvailableQuests.Count())
+            {
+                currentIndex = 0;
+            }
+            Show(QData.AvailableQuests[currentIndex]);
+        }
+
+        public void BtnPrevQuest()
+        {
+            currentIndex--;
+            if (currentIndex < 0)
+            {
+                currentIndex = QData.AvailableQuests.Count() - 1;
+            }
+            Show(QData.AvailableQuests[currentIndex]);
         }
 
     }
