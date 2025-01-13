@@ -63,18 +63,7 @@ namespace Antura.Homer
             {
                 if (homerNode._permalink == permalink)
                 {
-                    QuestNode questNode = new QuestNode();
-                    questNode.Id = homerNode._permalink;
-                    if (homerNode._elements.Count() > 0)
-                    {
-                        questNode.LocId = homerNode._elements[0]._id;
-                    }
-                    else
-                    {
-                        questNode.LocId = homerNode._header._id;
-                    }
-                    questNode.Metadata = homerNode._metadata;
-
+                    QuestNode questNode = getQuestNode(homerNode);
                     //we just take the first line
                     questNode.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, language);
                     return questNode;
@@ -153,7 +142,6 @@ namespace Antura.Homer
             }
         }
 
-
         public void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
             bool restart, string language = "EN")
         {
@@ -164,7 +152,9 @@ namespace Antura.Homer
             SetupCurrentFlow(flowSlug);
 
             if (restart)
+            {
                 runningFlow.Restart();
+            }
 
             // SEARCH CONTENT ::::::::::::::
 
@@ -176,19 +166,7 @@ namespace Antura.Homer
                 return;
             }
 
-            QuestNode questNode = new QuestNode();
-            questNode.Id = homerNode._permalink;
-            // Debug.Log(homerNode._id);
-            if (homerNode._header != null)
-            {
-                questNode.LocId = homerNode._header._id;
-            }
-            else
-            {
-                questNode.LocId = homerNode._elements[0]._id;
-            }
-            //questNode.LocId = homerNode._header._id;
-            questNode.Metadata = homerNode._metadata;
+            QuestNode questNode = getQuestNode(homerNode);
 
             // CHOICE
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
@@ -196,13 +174,10 @@ namespace Antura.Homer
                 List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
 
                 HomerElement header = runningFlow.SelectedNode.Node._header;
-                //string headerText = runningFlow.SelectedNode.GetParsedText(header);
                 string headerText = GetLocalizedContentFromElements(runningFlow.SelectedNode.Node._header._localizedContents, language);
 
-                questNode.Type = HomerNode.NodeType.CHOICE;
                 questNode.LocId = homerNode._header._id;
                 questNode.Content = headerText;
-
                 questNode.Choices = choices;
 
                 answers.Add(questNode);
@@ -213,19 +188,7 @@ namespace Antura.Homer
                      runningFlow.SelectedNode.Node._elements.Length > 0)
             {
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                //string text = runningFlow.SelectedNode.GetParsedText(element);
                 string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, language);
-
-                questNode.Type = HomerNode.NodeType.TEXT;
-                if (homerNode._elements.Count() > 0)
-                {
-                    questNode.LocId = homerNode._elements[0]._id;
-                }
-                else
-                {
-                    questNode.LocId = homerNode._header._id;
-                }
-
                 questNode.Content = text;
 
                 answers.Add(questNode);
@@ -266,22 +229,11 @@ namespace Antura.Homer
             return NextNodeRecur();
         }
 
-        QuestNode NextNodeRecur()
+        private QuestNode NextNodeRecur()
         {
             if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
             {
-                QuestNode questNode = new QuestNode();
-                questNode.Id = runningFlow.SelectedNode.Node._permalink;
-                if (runningFlow.SelectedNode.Node._elements.Count() > 0)
-                {
-                    questNode.LocId = runningFlow.SelectedNode.Node._elements[0]._id;
-                }
-                else
-                {
-                    questNode.LocId = runningFlow.SelectedNode.Node._header._id;
-                }
-                questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
-                questNode.Type = HomerNode.NodeType.CHOICE;
+                QuestNode questNode = getQuestNode(runningFlow.SelectedNode.Node);
                 HomerElement header = runningFlow.SelectedNode.Node._header;
                 string headerText = runningFlow.SelectedNode.GetParsedText(header);
                 questNode.Content = headerText;
@@ -291,20 +243,8 @@ namespace Antura.Homer
             }
             else if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT)
             {
-                QuestNode questNode = new QuestNode();
-                questNode.Id = runningFlow.SelectedNode.Node._permalink;
-                if (runningFlow.SelectedNode.Node._elements.Count() > 0)
-                {
-                    questNode.LocId = runningFlow.SelectedNode.Node._elements[0]._id;
-                }
-                else
-                {
-                    questNode.LocId = runningFlow.SelectedNode.Node._header._id;
-                }
-                questNode.Metadata = runningFlow.SelectedNode.Node._metadata;
-                questNode.Type = HomerNode.NodeType.TEXT;
+                QuestNode questNode = getQuestNode(runningFlow.SelectedNode.Node);
                 HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                //string text = runningFlow.SelectedNode.GetParsedText(element);
                 string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, currentLanguage);
 
                 questNode.Content = text;
@@ -319,7 +259,7 @@ namespace Antura.Homer
             }
         }
 
-        void SetupCurrentFlow(HomerFlowSlugs.FlowSlug flowSlug)
+        private void SetupCurrentFlow(HomerFlowSlugs.FlowSlug flowSlug)
         {
             if (currentHomerProject == null)
                 Setup();
@@ -339,6 +279,48 @@ namespace Antura.Homer
                     }
                 }
             }
+        }
+
+        private QuestNode getQuestNode(HomerNode homerNode)
+        {
+            var node = new QuestNode();
+            node.Id = homerNode._permalink;
+            node.Type = homerNode.GetNodeType();
+            node.Image = GetMetadata("IMAGE", homerNode._metadata);
+            node.Action = GetMetadata("ACTION", homerNode._metadata);
+            node.ActionPost = GetMetadata("ACTION_POST", homerNode._metadata);
+            node.Mood = GetMetadata("MOOD", homerNode._metadata);
+            node.Native = GetMetadata("NATIVE", homerNode._metadata) == "native";
+            node.NextTarget = GetMetadata("NEXTTARGET", homerNode._metadata);
+            node.Native = GetMetadata("NATIVE", homerNode._metadata) == "native";
+            node.NextTarget = GetMetadata("NEXTTARGET", homerNode._metadata);
+            node.IsDialogueNode = homerNode.GetNodeType() == HomerNode.NodeType.TEXT || homerNode.GetNodeType() == HomerNode.NodeType.START;
+            node.IsChoiceNode = homerNode.GetNodeType() == HomerNode.NodeType.CHOICE;
+
+            if (homerNode._elements.Count() > 0)
+            {
+                node.LocId = homerNode._elements[0]._id;
+            }
+            else
+            {
+                node.LocId = homerNode._header._id;
+            }
+
+            return node;
+        }
+
+        private string GetMetadata(string kind, string[] Metadata)
+        {
+            foreach (var metaId in Metadata)
+            {
+                var metadata = GetMetadataByValueId(metaId);
+                // Debug.Log("metadata._uid= " + metadata._uid);
+                if (metadata._uid == kind)
+                {
+                    return GetMetadataValueById(metaId)._value;
+                }
+            }
+            return null;
         }
     }
 }

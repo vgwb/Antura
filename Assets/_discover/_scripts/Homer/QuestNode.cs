@@ -19,8 +19,6 @@ namespace Antura.Homer
         public string LocId;
         // permalink
         public string Id;
-        // persed by custom methods. do not parse these manually
-        public string[] Metadata;
 
         // Text node
         public string Content;
@@ -29,39 +27,25 @@ namespace Antura.Homer
         public List<HomerElement> Choices;
 
         // image to be loaded from resources
-        public string Image => GetMetadata("IMAGE");
+        public string Image;
 
         // if a special method needs to be triggered in the scene
-        public string Action => GetMetadata("ACTION");
+        public string Action;
 
         // if a special method needs to be triggered in the scene when the dialogue is closed
-        public string ActionPost => GetMetadata("ACTION_POST");
+        public string ActionPost;
 
         // well.. the mood
-        public string Mood => GetMetadata("MOOD");
+        public string Mood;
 
         // if we want to show the text in the native language first
-        public bool Native => GetMetadata("NATIVE") == "native";
+        public bool Native;
 
         // if a pin / direction should be higlighted in scene / minimap
-        public string NextTarget => GetMetadata("NEXTTARGET");
+        public string NextTarget;
 
-        public bool IsDialogueNode => Type == HomerNode.NodeType.TEXT || Type == HomerNode.NodeType.START;
-        public bool IsChoiceNode => Type == HomerNode.NodeType.CHOICE;
-
-        private string GetMetadata(string kind)
-        {
-            foreach (var metaId in Metadata)
-            {
-                var metadata = HomerAnturaManager.I.GetMetadataByValueId(metaId);
-                // Debug.Log("metadata._uid= " + metadata._uid);
-                if (metadata._uid == kind)
-                {
-                    return HomerAnturaManager.I.GetMetadataValueById(metaId)._value;
-                }
-            }
-            return null;
-        }
+        public bool IsDialogueNode;
+        public bool IsChoiceNode;
 
         //  This method assumes you have called SetupForNavigation(flowSlug) as flow setup.
         public QuestNode NextNode(int choiceIndex = 0)
