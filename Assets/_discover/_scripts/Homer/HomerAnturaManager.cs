@@ -12,8 +12,6 @@ namespace Antura.Homer
     public class HomerAnturaManager : MonoBehaviour
     {
         public static HomerAnturaManager I;
-
-        //runtime
         private bool firstFlowSetup;
         private HomerProject currentHomerProject;
         private HomerFlowSlugs.FlowSlug currentFlowSlug;
@@ -43,21 +41,14 @@ namespace Antura.Homer
             }
         }
 
-        public HomerMetadata GetMetadataByValueId(string metadataValueId)
-        {
-            return runningFlow.Project.GetMetadataByValueId(metadataValueId);
-        }
-
-        public HomerMetadataValue GetMetadataValueById(string metadataValueId)
-        {
-            return runningFlow.Project.GetMetadataValueById(metadataValueId);
-        }
-
-        public QuestNode GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
+        public QuestNode GetQuestNodeById(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
             string language = "EN")
         {
             currentLanguage = language;
-            SetupCurrentFlow(flowSlug);
+            if (currentFlowSlug != flowSlug)
+            {
+                SetupCurrentFlow(flowSlug);
+            }
 
             foreach (HomerNode homerNode in runningFlow.Flow._nodes)
             {
@@ -71,6 +62,15 @@ namespace Antura.Homer
             }
 
             return null;
+        }
+
+        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
+            List<QuestNode> answers, string language = "EN")
+        {
+            currentLanguage = language;
+            MoveToPermalinkNode(permalink, flowSlug);
+
+            GetContent(flowSlug, command, answers, false, language);
         }
 
         private string GetLocalizedContentFromElements(HomerLocalizedContent[] elements, string language)
@@ -88,14 +88,7 @@ namespace Antura.Homer
             return content;
         }
 
-        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
-            List<QuestNode> answers, string language = "EN")
-        {
-            currentLanguage = language;
-            MoveToPermalinkNode(permalink, flowSlug);
 
-            GetContent(flowSlug, command, answers, false, language);
-        }
 
         private void MoveToPermalinkNode(string permalink, HomerFlowSlugs.FlowSlug flowSlug)
         {
@@ -306,6 +299,8 @@ namespace Antura.Homer
                 node.LocId = homerNode._header._id;
             }
 
+            //node.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, currentLanguage);
+
             return node;
         }
 
@@ -321,6 +316,16 @@ namespace Antura.Homer
                 }
             }
             return null;
+        }
+
+        private HomerMetadata GetMetadataByValueId(string metadataValueId)
+        {
+            return runningFlow.Project.GetMetadataByValueId(metadataValueId);
+        }
+
+        private HomerMetadataValue GetMetadataValueById(string metadataValueId)
+        {
+            return runningFlow.Project.GetMetadataValueById(metadataValueId);
         }
     }
 }

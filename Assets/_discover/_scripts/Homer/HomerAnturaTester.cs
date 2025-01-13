@@ -15,7 +15,7 @@ namespace Antura.Homer
         {
             HomerAnturaManager.I.Setup();
 
-            HomerAnturaManager.I.GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug.FR_01_PARIS,
+            HomerAnturaManager.I.GetQuestNodeById(HomerFlowSlugs.FlowSlug.FR_01_PARIS,
                 "isolated_node_1");
 
             ContentTest(true, "TALK_TEACHER");

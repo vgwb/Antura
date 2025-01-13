@@ -102,7 +102,7 @@ namespace Antura.Minigames.DiscoverCountry
         /// </summary>
         public QuestNode GetQuestNode(InfoPoint infoPoint, string nodeId)
         {
-            QuestNode questNode = HomerAnturaManager.I.GetQuestNodeByPermalink(CurrentQuest.QuestId, nodeId);
+            QuestNode questNode = HomerAnturaManager.I.GetQuestNodeById(CurrentQuest.QuestId, nodeId);
             // DebugNodeInfo(questNode);
             return questNode;
         }
