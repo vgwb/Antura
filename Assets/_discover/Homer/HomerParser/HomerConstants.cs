@@ -12,11 +12,14 @@ namespace Homer
         public static string VARIABLES = "\\{(.*?)\\}";
         public static string LOCAL_VARIABLES = "\\%([a-zA-Z0-9\\]\\w.?()[a-zA-Z]+)";
         public static string GLOBAL_VARIABLES = "\\$([a-zA-Z0-9\\]\\w.?()[a-zA-Z]+)";
+        public static string ACTOR_PROPERTIES = "\\@([a-zA-Z0-9\\]\\w.?()[a-zA-Z]+)";
         public static string EXTENDED_TRIM = "^(\\s+<br(\\/)?>)*|(<br(\\/)?>\\s)*$";
         public static string EXTENDED_REPLACE = "^(\\?<br(\\/)?>\\?)+|(\\?<br(\\/)?>\\?)+$";
         public static string SQUARE_BRACKETS = "\\[\\+\\]";
         public static string TODO = "\\[TODO(.*?)\\]";
         public static string ONCE = "\\[-\\]";
+        public static string COMMENTS = "\\/\\*([\\s\\S]*?)\\*\\/";
+        public static string TAGS = "(?!<[^>]*>)(#\\w+)";
 
 	}
 

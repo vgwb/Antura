@@ -1,6 +1,5 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using System.Text.RegularExpressions;
 using UnityEngine;
@@ -132,6 +131,7 @@ namespace Homer
 
             string output = content;
 
+
             // Find VARIATIONS
 
             Regex variationsRegExp = new Regex(Regexes.VARIATIONS);
@@ -195,7 +195,7 @@ namespace Homer
             }
 
 
-            // Find CONDITIONAL_INSIDE_TEXT
+            // FIND CONDITIONAL_INSIDE_TEXT
 
             Regex conditionalInsideTextRegExp = new Regex(Regexes.CONDITIONALS);
 
@@ -211,7 +211,7 @@ namespace Homer
                 var print = " --ERROR-- ";
 
                 strTWT = HomerNodeRunningHelper.SanitizeVariables(strTWT, false);
-                
+
                 var result = Evaluate(strTWT);
 
                 if (result)
@@ -226,7 +226,8 @@ namespace Homer
 
             List<string> variableBlocks = new List<string>();
 
-            // Find Variables
+
+            // FIND VARIABLES
             var variableRegExp = new Regex(Regexes.VARIABLES);
             var variableBlocksMatches = variableRegExp.Matches(content);
 
@@ -263,7 +264,15 @@ namespace Homer
                         globalVariables[0])
                     {
                         Type type = typeof(HomerVars);
-                        var field = type.GetField(globalVariables[0].Replace("$", ""));
+                        var contentGV = globalVariables[0];
+                        var hasAt = contentGV.IndexOf("@") > -1;
+                        contentGV = contentGV.Replace("$", "");
+                        if (hasAt)
+                        {
+                            contentGV = contentGV.Replace("@","").
+                                Replace(".","_");
+                        }
+                        var field = type.GetField(contentGV);
                         output = output.Replace(block, field.GetValue(null).ToString());
                     }
                     else if (localVariables.Count > 0 && block.Replace("{", "").Replace("}", "").Trim() ==
@@ -322,6 +331,35 @@ namespace Homer
                 }
             }
 
+
+            // Find COMMENTS
+            var commentsRegExp = new Regex(Regexes.COMMENTS);
+            var commentsBlocks = commentsRegExp.Matches(content);
+
+            if (commentsBlocks.Count > 0)
+            {
+                foreach (Match comment in commentsBlocks)
+                {
+                    output = output.Replace(comment.Value, "");
+                }
+            }
+
+
+            // Find TAGS
+            /*
+            var tagsRegExp = new Regex(Regexes.TAGS);
+            var tagsBlocks = tagsRegExp.Matches(content);
+
+            if (tagsBlocks.Count > 0)
+            {
+                foreach (Match tag in tagsBlocks)
+                {
+                    output = output.Replace(tag.Value, "");
+                }
+            }
+            */
+
+
             //Trim from BR and \n
             output = output.Replace(Regexes.EXTENDED_TRIM, "");
 
@@ -344,6 +382,7 @@ namespace Homer
             expr = HomerNodeRunningHelper.SanitizeVariables(expr);
 
             expr = expr.Replace("$", "");
+            expr = expr.Replace("@", "");
             expr = expr.Replace("%", "___");
 
             Expression e = new Expression(expr);

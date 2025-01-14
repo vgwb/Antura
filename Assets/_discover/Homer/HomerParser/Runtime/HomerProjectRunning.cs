@@ -12,6 +12,7 @@ namespace Homer
 
         public List<HomerLocalVariable> LocalVariables;
 
+        
         public static List<HomerVariation> _variations;
 
         public static List<string> ActiveSubFlows;
@@ -34,6 +35,7 @@ namespace Homer
             LocalVariables = new List<HomerLocalVariable>();
         }
 
+       
         public void InitializeActiveSubFlows()
         {
             ActiveSubFlows = new List<string>();
@@ -73,6 +75,7 @@ namespace Homer
             throw new System.Exception("Variable does not exist " + name);
         }
 
+       
         public string GetLabel(string key, string localeCode = null)
         {
             if (localeCode == null)
@@ -109,7 +112,7 @@ namespace Homer
                     Type type = typeof(HomerVars);
                     var vCleaned = v.Replace("$", "");
                     var field = type.GetField(vCleaned);
-                    if (field != null)
+                    if (field != null && field.GetValue(null)!=null)
                         contentText = contentText.Replace(v, field.GetValue(null).ToString());
                     else
                         Debug.Log($"GlobalVariables: missing field: {v}");

@@ -11,5 +11,8 @@ namespace Homer
         public string _uid;
         public string _color;
         public string _isNarrator;
+
+        public Dictionary<string, int> _properties;
+
     }
 }

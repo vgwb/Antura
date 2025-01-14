@@ -2,9 +2,9 @@
   "_id": "0474c008-e8e9-4e69-a24e-1652618909210",
   "_name": "Antura",
   "_date": 1652618909210,
-  "_version": "1.2.4",
-  "_build": "50382",
-  "_apiVersion": "1.4",
+  "_version": "1.2.5",
+  "_build": "51640",
+  "_apiVersion": "1.5",
   "_owner": null,
   "_mainLocale": {
     "_id": "53591339-bd4f-40e5-9161-1652618909210",
@@ -1225,7 +1225,6 @@
           "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
           "_actorUID": "GUIDE",
           "_metadata": [
-            "MTV-fc961311-df69-42d6-8c57-1719033782281",
             "MTV-353ce0ac-a1c6-4e72-86c1-1719103917258"
           ],
           "_note": "",
@@ -1316,8 +1315,9 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1710913364361,
-          "_height": 97,
-          "_color": null
+          "_height": 257,
+          "_color": null,
+          "_image": "toureiffel"
         },
         {
           "_id": "NOD-fed54da4-d7d4-4a6a-a9e2-1710930108414",
@@ -3526,9 +3526,7 @@
           "_type": "Text",
           "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
           "_actorUID": "GUIDE",
-          "_metadata": [
-            "MTV-e1cd2f9f-7781-4c54-b6ac-1712331091780"
-          ],
+          "_metadata": [],
           "_note": "",
           "_cycleType": "List",
           "_elements": [
@@ -3617,8 +3615,9 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1712331010391,
-          "_height": 97,
-          "_color": null
+          "_height": 257,
+          "_color": null,
+          "_image": "NOD-d98f61db-c9e9-4d30-8129-1712331010391"
         },
         {
           "_id": "NOD-d066b188-9241-48d7-ae50-1718630702075",
@@ -18256,6 +18255,11 @@
       "title": "",
       "copyright": ""
     },
+    "NOD-d98f61db-c9e9-4d30-8129-1712331010391": {
+      "name": "NOD-d98f61db-c9e9-4d30-8129-1712331010391",
+      "title": "",
+      "copyright": ""
+    },
     "NOD-e035e20d-df79-49b6-b355-1730703737733": {
       "name": "NOD-e035e20d-df79-49b6-b355-1730703737733",
       "title": "",
@@ -18305,6 +18309,11 @@
       "name": "NOD-f2f664c4-241c-4ddd-ad7a-1730660461651",
       "title": "",
       "copyright": ""
+    },
+    "toureiffel": {
+      "name": "toureiffel",
+      "title": "Tour Eiffel",
+      "copyright": "CC"
     }
   },
   "_labels": [
@@ -18540,23 +18549,9 @@
       "_scope": "node",
       "_values": [
         {
-          "_id": "MTV-e1cd2f9f-7781-4c54-b6ac-1712331091780",
-          "_metadataId": "MTA-3d2e9b69-8c3c-442a-8f2e-1712330843113",
-          "_value": "gustaveeiffel",
-          "_uid": "",
-          "_icon": "🖼"
-        },
-        {
           "_id": "MTV-97bad289-5543-4db2-89a3-1718800374626",
           "_metadataId": "MTA-3d2e9b69-8c3c-442a-8f2e-1712330843113",
           "_value": "paris",
-          "_uid": "",
-          "_icon": "🖼"
-        },
-        {
-          "_id": "MTV-fc961311-df69-42d6-8c57-1719033782281",
-          "_metadataId": "MTA-3d2e9b69-8c3c-442a-8f2e-1712330843113",
-          "_value": "toureiffel",
           "_uid": "",
           "_icon": "🖼"
         },
@@ -19104,6 +19099,7 @@
     "Red": "d63762",
     "Green": "47b58b"
   },
+  "_actors_properties": [],
   "_actors": [
     {
       "_id": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
@@ -19130,11 +19126,7 @@
       "_color": "#2CF5FF",
       "_gender": "female_cisgender",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-228ca623-60ae-4b48-996f-1730786813961",
@@ -19161,11 +19153,7 @@
       "_color": "#BD9562",
       "_gender": "Male Cisgender",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-da0076b7-1095-4bc9-966f-1719131980159",
@@ -19192,11 +19180,7 @@
       "_color": "#81F004",
       "_gender": "female",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-65498e7e-a742-48f3-bebc-1718875211761",
@@ -19223,11 +19207,7 @@
       "_color": "#6E475A",
       "_gender": "female_cisgender",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
@@ -19254,11 +19234,7 @@
       "_color": "#671C06",
       "_gender": "Male",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-3306696b-4eeb-4754-884f-1718640599175",
@@ -19285,11 +19261,7 @@
       "_color": "#39C283",
       "_gender": "male",
       "_isNarrator": false,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
@@ -19316,11 +19288,7 @@
       "_gender": "female",
       "_isNarrator": false,
       "_prog": 0,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
@@ -19347,11 +19315,7 @@
       "_gender": "female",
       "_isNarrator": false,
       "_prog": 1,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
@@ -19378,11 +19342,7 @@
       "_gender": "fluid",
       "_isNarrator": true,
       "_prog": 2,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     },
     {
       "_id": "ACT-b3e5294a-2e45-4e65-a4be-1708696815246",
@@ -19409,11 +19369,7 @@
       "_gender": "Male",
       "_isNarrator": false,
       "_prog": 3,
-      "_properties": {
-        "LIFE": 100,
-        "POWER": 100,
-        "SCORE": 0
-      }
+      "_properties": []
     }
   ],
   "_defaultActor": null,

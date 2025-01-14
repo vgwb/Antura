@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
@@ -9,7 +9,7 @@ namespace Homer
 {
     public static class HomerJsonParser
     {
-        public static string ApiVersion = "1.4";
+        public static string ApiVersion = "1.5";
 
         public static HomerProject LoadHomerProject()
         {

@@ -41,6 +41,14 @@ namespace Homer
                 globalVariables.Add(item);
             }
             
+            Regex regexActors = new Regex(Regexes.ACTOR_PROPERTIES);
+            foreach (Match m in regexActors.Matches(text))
+            {
+                Console.WriteLine("M " + m);
+                var item = m.ToString();
+                globalVariables.Add(item);
+            }
+            
             globalVariables = globalVariables.OrderByDescending(x => x.Length)
                 .ToList();
             
@@ -87,7 +95,15 @@ namespace Homer
                 {
                     foreach (string v in vs)
                     {
-                        contentText = contentText.Replace(v, "HomerVars." + v.Replace("$", ""));
+                        var replace = v.Replace("$", "");
+                        var hasAt = v.IndexOf("@") > -1;
+                        if (hasAt)
+                        {
+                            replace = replace.Replace("@","").Replace(".","_");
+                        }
+                        contentText = contentText.Replace(v, "HomerVars." + 
+                                                             replace);
+                        
                     }
                 }
             }
@@ -135,24 +151,18 @@ namespace Homer
             expr = SanitizeVariables(expr);
             expr = expr.Replace("$", "");
             expr = expr.Replace("%", "___");
+            var hasAt = expr.IndexOf("@") > -1;
+            if (hasAt)
+            {
+                expr = expr.Replace("@", "");
+                expr = expr.Replace(".", "_");
+            }
+
             if (expr.IndexOf('=') < 0)
                 return;
 
             string lhs = expr.Split('=')[0].Trim();
             string rhs = expr.Split('=')[1].Trim();
-
-            /*if (lhs.Length > 2)
-            {
-                var internalPart = lhs.Substring(1, lhs.Length - 2);
-                internalPart = internalPart.Replace("'", "’");
-                lhs = "'" + internalPart + "'";
-            }
-            if (rhs.Length > 2)
-            {
-                var internalPart = rhs.Substring(1, rhs.Length - 2);
-                internalPart = internalPart.Replace("'", "’");
-                rhs = "'" + internalPart + "'";
-            }*/
 
             Expression e = new Expression(rhs);
             e.EvaluateFunction += NCalcExtensionFunctions;
@@ -161,8 +171,6 @@ namespace Homer
             foreach (var p in type.GetFields(BindingFlags.Public | BindingFlags.Static))
             {
                 var v = p.GetValue(null);
-
-
                 // static classes cannot be instanced, so use null
                 //Debug.Log(p.Name + "  " + v + "  " + p.FieldType);
                 e.Parameters[p.Name] = v;
