@@ -162,36 +162,36 @@ namespace Antura.Scenes
             bool hasAnswered = false;
             if (AppManager.I.AppSettingsManager.Settings.FirstRun)
             {
-                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
-                    () =>
-                    {
-                        AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
-                        hasAnswered = true;
-                    },
-                    () =>
-                    {
-                        AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
-                        hasAnswered = true;
-                    });
+                // GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
+                //     () =>
+                //     {
+                //         AppManager.I.AppSettingsManager.EnableShareAnalytics(true);
+                //         hasAnswered = true;
+                //     },
+                //     () =>
+                //     {
+                //         AppManager.I.AppSettingsManager.EnableShareAnalytics(false);
+                //         hasAnswered = true;
+                //     });
 
-                while (!hasAnswered)
-                    yield return null;
+                // while (!hasAnswered)
+                //     yield return null;
 
-                hasAnswered = false;
-                GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
-                    () =>
-                    {
-                        AppManager.I.AppSettingsManager.EnableNotifications(true);
-                        hasAnswered = true;
-                    },
-                    () =>
-                    {
-                        AppManager.I.AppSettingsManager.EnableNotifications(false);
-                        hasAnswered = true;
-                    });
+                // hasAnswered = false;
+                // GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptNotifications,
+                //     () =>
+                //     {
+                //         AppManager.I.AppSettingsManager.EnableNotifications(true);
+                //         hasAnswered = true;
+                //     },
+                //     () =>
+                //     {
+                //         AppManager.I.AppSettingsManager.EnableNotifications(false);
+                //         hasAnswered = true;
+                //     });
 
-                while (!hasAnswered)
-                    yield return null;
+                // while (!hasAnswered)
+                //     yield return null;
 
                 AppManager.I.AppSettingsManager.Settings.FirstRun = false;
             }
