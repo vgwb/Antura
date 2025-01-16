@@ -17,6 +17,9 @@ namespace Antura.Profile
     public class PlayerProfile
     {
         public string Uuid;
+        public string PlayerName;
+        public int Classroom;
+        public TalkToPlayerStyle TalkToPlayerStyle;
         public int AvatarId;
         public PlayerGender Gender;
         public PlayerTint Tint; // Kept for backwards compatibility
@@ -263,11 +266,13 @@ namespace Antura.Profile
             {
                 if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
                 {
-                    if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
                 }
                 else
                 {
-                    if (AppManager.VERBOSE_INVERSION) Debug.LogError("[Inversion] Saving current data (profile only)");
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError("[Inversion] Saving current data (profile only)");
                 }
             }
 
@@ -458,14 +463,16 @@ namespace Antura.Profile
         public void MigrateOldCustomization(AnturaCustomization dogCustomization)
         {
             _currentAllPetsAnturaCustomization = new AllPetsAnturaCustomization();
-            if (dogCustomization != null) _currentAllPetsAnturaCustomization.Append(dogCustomization);
+            if (dogCustomization != null)
+                _currentAllPetsAnturaCustomization.Append(dogCustomization);
             jsonAnturaCustomizationData = _currentAllPetsAnturaCustomization.GetJsonListOfIds();
             Save();
         }
 
         public AnturaCustomization AnturaCustomization(AnturaPetType petType)
         {
-            if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+            if (_currentAllPetsAnturaCustomization.Customizations == null)
+                _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
             var customization = _currentAllPetsAnturaCustomization.Customizations.FirstOrDefault(x => x.PetType == petType);
             if (customization == null)
             {
@@ -485,7 +492,8 @@ namespace Antura.Profile
             get => AnturaCustomization(PetData.SelectedPet);
             set
             {
-                if (_currentAllPetsAnturaCustomization.Customizations == null) _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
+                if (_currentAllPetsAnturaCustomization.Customizations == null)
+                    _currentAllPetsAnturaCustomization.Customizations = Array.Empty<AnturaCustomization>();
                 var list = _currentAllPetsAnturaCustomization.Customizations.ToList();
                 list.RemoveAll(x => x.PetType == PetData.SelectedPet);
                 _currentAllPetsAnturaCustomization.Customizations = list.ToArray();

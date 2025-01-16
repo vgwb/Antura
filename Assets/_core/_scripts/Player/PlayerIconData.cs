@@ -5,6 +5,15 @@ using UnityEngine;
 
 namespace Antura.Profile
 {
+    public enum TalkToPlayerStyle
+    {
+        DontTalk = 0,
+        NativeOnly = 1,
+        LearningLanguageOnly = 2,
+        LearningThenNative = 3,
+        NativeThenLearning = 4
+    }
+
     /// <summary>
     /// Contains the data to generate a saved player profile (icon in the main menu)
     /// </summary>
@@ -13,6 +22,8 @@ namespace Antura.Profile
     {
         public string Uuid;
         public string PlayerName;
+        public int Classroom;
+        public TalkToPlayerStyle TalkToPlayerStyle;
         public int AvatarId;
         public PlayerGender Gender;
         public PlayerTint Tint; // Kept for backwards compatibility
