@@ -53,7 +53,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Header("Player Grounded")]
         [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
-        public bool Grounded = true;
+        public bool isGrounded = true;
+        public bool isOnSlope = false;
 
         [Tooltip("Useful for rough ground")]
         public float GroundedOffset = -0.14f;
@@ -71,6 +72,7 @@ namespace Antura.Minigames.DiscoverCountry
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
+        public float slideSpeed = 5f;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -82,14 +84,6 @@ namespace Antura.Minigames.DiscoverCountry
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
-
-        private bool IsCurrentDeviceMouse
-        {
-            get
-            {
-                return _playerInput.currentControlScheme == "KeyboardMouse";
-            }
-        }
 
         private void Awake()
         {
@@ -119,13 +113,26 @@ namespace Antura.Minigames.DiscoverCountry
         }
 
         Vector3 spherePosition;
+        private RaycastHit SlopeHit;
+
         private void GroundedCheck()
         {
             // set sphere position, with offset
             spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-            Grounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
+            isGrounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
             // why this custom methid instead of using native:
             // Grounded = _controller.isGrounded;
+
+            if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, _controller.height / 2 + 0.1f))
+            {
+                float slopeAngle = Vector3.Angle(SlopeHit.normal, Vector3.up);
+                isOnSlope = slopeAngle > _controller.slopeLimit;
+            }
+            else
+            {
+                isOnSlope = false;
+            }
+
         }
 
         private void Move()
@@ -158,6 +165,14 @@ namespace Antura.Minigames.DiscoverCountry
 
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
+
+            // Check if the character is on a steep slope
+            if (isGrounded && isOnSlope)
+            {
+                Vector3 slideDirection = new Vector3(SlopeHit.normal.x, -SlopeHit.normal.y, SlopeHit.normal.z);
+                currentHorizontalSpeed += slideDirection.x * slideSpeed;
+                _verticalVelocity += slideDirection.y * slideSpeed;
+            }
 
             // accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
@@ -220,11 +235,12 @@ namespace Antura.Minigames.DiscoverCountry
             //     _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
             // }
         }
+
         bool inAir;
         bool justJumped;
         private void JumpAndGravity()
         {
-            if (Grounded)
+            if (isGrounded && !isOnSlope)
             {
                 anturaAnimation.animator.speed = 1f;
                 if (inAir)
@@ -240,7 +256,7 @@ namespace Antura.Minigames.DiscoverCountry
                 inAir = true;
             }
 
-            if (Grounded)
+            if (isGrounded && !isOnSlope)
             {
                 if (_nCurrentJump > 0)
                 {
@@ -336,6 +352,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+
         public void SpawnToNewLocation(Transform newLocation)
         {
             // TODO MAYBE A TRANSITION?
@@ -356,7 +373,7 @@ namespace Antura.Minigames.DiscoverCountry
             Color transparentGreen = new Color(0.0f, 1.0f, 0.0f, 0.35f);
             Color transparentRed = new Color(1.0f, 0.0f, 0.0f, 0.35f);
 
-            if (Grounded)
+            if (isGrounded)
                 Gizmos.color = transparentGreen;
             else
                 Gizmos.color = transparentRed;
