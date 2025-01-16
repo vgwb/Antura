@@ -1,6 +1,7 @@
 using Antura.Core;
 using Antura.Database;
 using Antura.Dog;
+using Antura.Language;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Antura.Profile
         public string PlayerName;
         public int Classroom;
         public TalkToPlayerStyle TalkToPlayerStyle;
+        public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
         public PlayerTint Tint; // Kept for backwards compatibility

@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Language;
 using System;
 using Antura.Database;
 using UnityEngine;
@@ -24,6 +25,7 @@ namespace Antura.Profile
         public string PlayerName;
         public int Classroom;
         public TalkToPlayerStyle TalkToPlayerStyle;
+        public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
         public PlayerTint Tint; // Kept for backwards compatibility
@@ -45,6 +47,9 @@ namespace Antura.Profile
         {
             Uuid = _Uuid;
             PlayerName = "";
+            Classroom = 0;
+            NativeLanguage = LanguageCode.english;
+            TalkToPlayerStyle = TalkToPlayerStyle.LearningThenNative;
             AvatarId = _AvatarId;
             SkinColor = _SkinColor;
             HairColor = _HairColor;
