@@ -23,7 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-
+            SelectFrance();
         }
 
         public void SelectFrance()

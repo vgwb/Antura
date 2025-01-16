@@ -14,6 +14,8 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Container;
         public Quests QuestsData;
 
+        private bool loadedCountry = false;
+
         void Awake()
         {
             if (I == null)
@@ -31,6 +33,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Container.SetActive(false);
             InfoPanel.Close();
+            loadedCountry = false;
         }
 
         private void LoadCountry(string country)
@@ -42,12 +45,15 @@ namespace Antura.Minigames.DiscoverCountry
                 btnGO.transform.SetParent(Container.transform, false);
                 btnGO.GetComponent<QuestMenuItem>().Init(questData);
             }
-
+            loadedCountry = true;
         }
 
         public void ShowCountry(string country)
         {
-            LoadCountry(country);
+            if (!loadedCountry)
+            {
+                LoadCountry(country);
+            }
             Container.SetActive(true);
         }
 
@@ -68,7 +74,6 @@ namespace Antura.Minigames.DiscoverCountry
                 Destroy(t.gameObject);
             }
         }
-
 
     }
 
