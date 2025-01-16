@@ -34,8 +34,6 @@ namespace Antura.Core
 
         public bool MusicEnabled = true;
 
-        //        public bool ShareAnalyticsEnabled = true;
-
         // if set the app starts is special scene mode, used in museums and demo installations
         public bool KioskMode = false;
 
