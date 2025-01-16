@@ -10,6 +10,7 @@ using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 using UnityEngine.Serialization;
+using TMPro;
 
 namespace Antura.Scenes
 {
@@ -30,6 +31,7 @@ namespace Antura.Scenes
         public GameObject ProfileSelectorUI;
         public GameObject PanelAppUpdate;
         public GameObject HomeLogo;
+        public TextMeshProUGUI ClassroomName;
 
         protected override void Start()
         {
@@ -57,6 +59,8 @@ namespace Antura.Scenes
                 PetSwitcher.AnimController.State = AnturaAnimation;
                 LLAnimController.State = LLAnimation;
             }
+
+            updateClassroomName();
         }
 
         void TutorCreateProfile()
@@ -135,6 +139,7 @@ namespace Antura.Scenes
             {
                 OpenReservedAreaPanel();
             }
+            updateClassroomName();
         }
 
         public void OnBtnQuit()
@@ -161,5 +166,17 @@ namespace Antura.Scenes
         }
         #endregion
 
+        private void updateClassroomName()
+        {
+            var classroom = AppManager.I.AppSettingsManager.Settings.GetClassroom();
+            if (classroom != "")
+            {
+                ClassroomName.text = "Class " + classroom;
+            }
+            else
+            {
+                ClassroomName.text = "";
+            }
+        }
     }
 }

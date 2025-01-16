@@ -34,8 +34,6 @@ namespace Antura.Core
 
         public bool MusicEnabled = true;
 
-        //        public bool ShareAnalyticsEnabled = true;
-
         // if set the app starts is special scene mode, used in museums and demo installations
         public bool KioskMode = false;
 
@@ -54,6 +52,25 @@ namespace Antura.Core
         {
             SavedPlayers = new List<PlayerIconData>();
             LastActivePlayerUUID = "";
+        }
+
+        public string GetClassroom()
+        {
+            switch (ClassRoomMode)
+            {
+                case 1:
+                    return "A";
+                case 2:
+                    return "B";
+                case 3:
+                    return "C";
+                case 4:
+                    return "D";
+                case 5:
+                    return "E";
+                default:
+                    return "";
+            }
         }
     }
 }

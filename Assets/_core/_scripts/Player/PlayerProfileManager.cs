@@ -145,25 +145,6 @@ namespace Antura.Profile
             bool hasUpgraded = false;
             AppManager.I.AppSettingsManager.LoadSettings();
 
-            // Update checks
-            if (AppManager.I.AppSettings.AppVersion == "" || new Version(AppManager.I.AppSettings.AppVersion) <= new Version(2, 0, 1, 1))
-            {
-                Debug.LogWarning($"Forcing Upgrade from version {AppManager.I.AppSettings.AppVersion} to MultiEdition");
-                AppManager.I.AppSettings.ContentID = LearningContentID.LearnToRead_Arabic;
-                AppManager.I.AppSettings.NativeLanguage = LanguageCode.arabic_legacy;
-                AppManager.I.AppSettings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
-                var newList = new List<PlayerIconData>();
-                for (var iPl = 0; iPl < AppManager.I.AppSettings.SavedPlayers.Count; iPl++)
-                {
-                    PlayerIconData pl = AppManager.I.AppSettings.SavedPlayers[iPl];
-                    pl.contentID = LearningContentID.LearnToRead_Arabic;
-                    pl.editionID = AppEditionID.Multi;
-                    newList.Add(pl);
-                }
-                AppManager.I.AppSettings.SavedPlayers = newList;
-                hasUpgraded = true;
-            }
-
             if (alsoLoadCurrentPlayerProfile)
             {
                 // No last active? Get the first one.
@@ -220,12 +201,8 @@ namespace Antura.Profile
 
         public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
         {
-            if (AppManager.PROFILE_INVERSION)
-            {
-                // With inverted profiles, the saved players are taken regardless of the content ID
-                return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi)).ToList();
-            }
-            return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi) && pl.contentID == contentID).ToList();
+            // With inverted profiles, the saved players are taken regardless of the content ID
+            return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi)).ToList();
         }
 
         /// <summary>

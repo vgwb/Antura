@@ -195,7 +195,7 @@ namespace Antura.Core
                 // We need to make sure we also set the player profile again, as it needs to re-load the Dynamic DB
                 if (PlayerProfileManager != null && Player != null)
                 {
-                    Debug.LogError($"[Inversion] Reloading Player {Player.Uuid}");
+                    Debug.LogWarningFormat($"[Inversion] Reloading Player {Player.Uuid}");
                     DB.LoadDatabaseForPlayer(Player.Uuid);
                 }
             }
