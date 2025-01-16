@@ -79,12 +79,12 @@ namespace Antura.Profile
             }
             Uuid = playerIconData.Uuid;
             //Debug.Log("playerIconData " + playerIconData.Uuid + " " + playerIconData.Gender + " " + playerIconData.AvatarId + " " + playerIconData.Tint + " " + playerIconData.IsDemoUser + " > " + playerIconData.HasFinishedTheGame + "/" + playerIconData.HasFinishedTheGameWithAllStars);
-            EndgameState endgameState = playerIconData.HasFinishedTheGameWithAllStars
-                ? EndgameState.FinishedWAllStars
-                : playerIconData.HasFinishedTheGame
-                    ? EndgameState.Finished
-                    : EndgameState.Unfinished;
-            SetAppearance(playerIconData, endgameState);
+            // EndgameState endgameState = playerIconData.HasFinishedTheGameWithAllStars
+            //     ? EndgameState.FinishedWAllStars
+            //     : playerIconData.HasFinishedTheGame
+            //         ? EndgameState.Finished
+            //         : EndgameState.Unfinished;
+            SetAppearance(playerIconData, EndgameState.Unfinished);
         }
 
         [DeMethodButton("DEBUG: Select", mode = DeButtonMode.PlayModeOnly)]
@@ -170,17 +170,20 @@ namespace Antura.Profile
                     HatImage.sprite = EndgameHatWStars;
                     break;
             }
-            if (HideLevel || hasHat)
-            {
-                LevelLabel.text = "";
-            }
-            else
-            {
-                LevelLabel.text = $"{playerIconData.MaxJourneyPosition.Stage}-{playerIconData.MaxJourneyPosition.LearningBlock}";
-            }
+            // if (HideLevel || hasHat)
+            // {
+            //     LevelLabel.text = "";
+            // }
+            // else
+            // {
+            //     // LevelLabel.text = $"{playerIconData.MaxJourneyPosition.Stage}-{playerIconData.MaxJourneyPosition.LearningBlock}";
+            //     // TODO
+            //     LevelLabel.text = "";
+            // }
+            LevelLabel.text = playerIconData.PlayerName;
 
             // Debug.Log("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
-            HighlightImage.SetActive(playerIconData.HasMaxStarsInCurrentPlaySessions);
+            //HighlightImage.SetActive(playerIconData.HasMaxStarsInCurrentPlaySessions);
 
             //            if (playerIconData.Gender == PlayerGender.None) {
             //                Debug.LogWarning("Player gender set to NONE");
@@ -222,20 +225,19 @@ namespace Antura.Profile
             float rnd2 = UnityEngine.Random.value;
             float rnd3 = UnityEngine.Random.value;
             var rndPlayerIconData = new PlayerIconData(Uuid = "",
+                                                        "",
+                                                        0,
                                                        UnityEngine.Random.Range(0, 7),
-                                                       PlayerTint.Blue,
                                                        PlayerGender.M,
+                                                       PlayerTint.Blue,
                                                        UnityEngine.Random.ColorHSV(),
                                                        UnityEngine.Random.ColorHSV(),
                                                        UnityEngine.Random.ColorHSV(),
-                                                       rnd0 <= 0.5f,
-                                                       rnd1 <= 0.5f,
-                                                       rnd2 <= 0.5f,
                                                        rnd3 <= 0.5f,
-                                                       new JourneyPosition(UnityEngine.Random.Range(1, 6), UnityEngine.Random.Range(1, 15), 1),
                                                        AppEditionID.LearnEnglish,
-                                                       0,
-                                                       "TEST", new PetData());
+                                                       "TEST",
+                                                       new PetData()
+                                                       );
             SetAppearance(rndPlayerIconData,
                 rnd2 < 0.33f ? EndgameState.Unfinished : rnd2 < 0.66f ? EndgameState.Finished : EndgameState.FinishedWAllStars
             );

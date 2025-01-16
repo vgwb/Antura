@@ -1,19 +1,13 @@
 using Antura.Core;
 using Antura.Language;
-using System;
 using Antura.Database;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Antura.Profile
 {
-    public enum TalkToPlayerStyle
-    {
-        DontTalk = 0,
-        NativeOnly = 1,
-        LearningLanguageOnly = 2,
-        LearningThenNative = 3,
-        NativeThenLearning = 4
-    }
 
     /// <summary>
     /// Contains the data to generate a saved player profile (icon in the main menu)
@@ -33,21 +27,28 @@ namespace Antura.Profile
         public Color HairColor;
         public Color BgColor;
         public bool IsDemoUser;
-        public bool HasFinishedTheGame;  // DEPRECATED (now part of the content instead)
-        public bool HasFinishedTheGameWithAllStars; // DEPRECATED (now part of the content instead)
-        public bool HasMaxStarsInCurrentPlaySessions;    // DEPRECATED (now part of the content instead)
-        public JourneyPosition MaxJourneyPosition; // DEPRECATED (now part of the content instead)
         public AppEditionID editionID;
-        public LearningContentID contentID;  // DEPRECATED (now part of the content instead)
         public string AppVersion;
         public PetData PetData;
 
-        public PlayerIconData(string _Uuid, int _AvatarId, PlayerTint _Tint, PlayerGender _Gender, Color _SkinColor, Color _HairColor, Color _BgColor, bool _IsDemoUser,
-            bool _HasFinishedTheGame, bool _HasFinishedTheGameWithAllStars, bool _HasMaxStarsInCurrentPlaySessions, JourneyPosition _MaxJourneyPosition, AppEditionID editionID, LearningContentID contentID, string _AppVersion, PetData _petData)
+        public PlayerIconData(
+            string _Uuid,
+            string _PlayerName,
+            int _Classroom,
+            int _AvatarId,
+            PlayerGender _Gender,
+            PlayerTint _Tint,
+            Color _SkinColor,
+            Color _HairColor,
+            Color _BgColor,
+            bool _IsDemoUser,
+            AppEditionID editionID,
+            string _AppVersion,
+            PetData _petData)
         {
             Uuid = _Uuid;
-            PlayerName = "";
-            Classroom = 0;
+            PlayerName = _PlayerName;
+            Classroom = _Classroom;
             NativeLanguage = LanguageCode.english;
             TalkToPlayerStyle = TalkToPlayerStyle.LearningThenNative;
             AvatarId = _AvatarId;
@@ -57,12 +58,7 @@ namespace Antura.Profile
             Gender = _Gender;
             Tint = _Tint;
             IsDemoUser = _IsDemoUser;
-            HasFinishedTheGame = _HasFinishedTheGame;
-            HasFinishedTheGameWithAllStars = _HasFinishedTheGameWithAllStars;
-            HasMaxStarsInCurrentPlaySessions = _HasMaxStarsInCurrentPlaySessions;
-            MaxJourneyPosition = _MaxJourneyPosition;
             this.editionID = editionID;
-            this.contentID = contentID;
             AppVersion = _AppVersion;
             PetData = _petData;
             Debug.Log("CREATE PLAYER ICON DATA > " + SkinColor + " > " + HairColor);

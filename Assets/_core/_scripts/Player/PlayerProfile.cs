@@ -11,6 +11,22 @@ using UnityEngine.Serialization;
 
 namespace Antura.Profile
 {
+    public enum TalkToPlayerStyle
+    {
+        DontTalk = 0,
+        NativeOnly = 1,
+        LearningLanguageOnly = 2,
+        LearningThenNative = 3,
+        NativeThenLearning = 4
+    }
+
+    [Serializable]
+    public class DiscoverQuestSaved
+    {
+        public string QuestCode;
+        public int Score;
+    }
+
     /// <summary>
     /// A Player Profile contains persistent data on details and on the progression status of a single player.
     /// </summary>
@@ -785,6 +801,8 @@ namespace Antura.Profile
             PlayerIconData returnIconData = new PlayerIconData
             {
                 Uuid = this.Uuid,
+                PlayerName = this.PlayerName,
+                Classroom = this.Classroom,
                 AvatarId = this.AvatarId,
                 Gender = this.Gender,
                 Tint = this.Tint,
@@ -792,12 +810,7 @@ namespace Antura.Profile
                 HairColor = this.HairColor,
                 BgColor = this.BgColor,
                 IsDemoUser = this.IsDemoUser,
-                //HasFinishedTheGame = this.HasFinishedTheGame,
-                //HasFinishedTheGameWithAllStars = this.HasFinishedTheGameWithAllStars,
-                //HasMaxStarsInCurrentPlaySessions = this.HasMaxStarsInCurrentPlaySessions,
-                MaxJourneyPosition = this.MaxJourneyPosition,
                 editionID = this.editionID,
-                contentID = this.ContentID,
                 AppVersion = this.AppVersion,
                 PetData = this.PetData
             };
