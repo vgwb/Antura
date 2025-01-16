@@ -279,7 +279,7 @@ namespace Antura.Homer
             var node = new QuestNode();
             node.Id = homerNode._permalink;
             node.Type = homerNode.GetNodeType();
-            node.Image = GetMetadata("IMAGE", homerNode._metadata);
+            node.Image = GetImage(homerNode._image);
             node.Action = GetMetadata("ACTION", homerNode._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", homerNode._metadata);
             node.Mood = GetMetadata("MOOD", homerNode._metadata);
@@ -316,6 +316,22 @@ namespace Antura.Homer
                 }
             }
             return null;
+        }
+
+        private string GetImage(string imageId)
+        {
+            if (imageId == "" || imageId == null)
+            {
+                return "";
+            }
+            if (runningFlow.Project._assets.TryGetValue(imageId, out HomerAsset foundAsset))
+            {
+                return foundAsset.name;
+            }
+            else
+            {
+                return "NOT FOUND";
+            }
         }
 
         private HomerMetadata GetMetadataByValueId(string metadataValueId)

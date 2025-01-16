@@ -57,7 +57,7 @@ namespace Antura.Homer
         {
             if (Image != null)
             {
-                return Resources.Load<Sprite>("DiscoverImages/" + Image);
+                return Resources.Load<Sprite>("DiscoverAssets/" + Image);
             }
             return null;
         }

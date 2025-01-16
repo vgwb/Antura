@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Object = UnityEngine.Object;
@@ -14,7 +14,7 @@ namespace Homer
         public string _locale;
 
         public string _apiVersion;
-        
+
         public HomerLocale _mainLocale;
         public HomerLocale[] _availableLocale;
         public HomerFlow[] _flows;
@@ -22,6 +22,7 @@ namespace Homer
         public HomerActor[] _actors;
         public HomerVariable[] _variables;
         public HomerMetadata[] _metadata;
+        public Dictionary<string, HomerAsset> _assets { get; set; }
 
         public HomerLabel[] _labels;
 
@@ -41,8 +42,9 @@ namespace Homer
             }
             return c;
         }
-        
-        public HomerMetadata GetMetadataByName(string name) {
+
+        public HomerMetadata GetMetadataByName(string name)
+        {
             HomerMetadata metadata = null;
             foreach (var meta in _metadata)
             {
@@ -52,7 +54,8 @@ namespace Homer
             return metadata;
         }
 
-        public HomerMetadata GetMetadataById(string id) {
+        public HomerMetadata GetMetadataById(string id)
+        {
             HomerMetadata metadata = null;
             foreach (var meta in _metadata)
             {
@@ -61,8 +64,9 @@ namespace Homer
             }
             return metadata;
         }
-        
-        public HomerMetadata GetMetadataByUID(string uid) {
+
+        public HomerMetadata GetMetadataByUID(string uid)
+        {
             HomerMetadata metadata = null;
             foreach (var meta in _metadata)
             {
@@ -71,8 +75,9 @@ namespace Homer
             }
             return metadata;
         }
-        
-        public HomerMetadataValue GetMetadataValueById(string metadataValueId) {
+
+        public HomerMetadataValue GetMetadataValueById(string metadataValueId)
+        {
             HomerMetadataValue metadatav = null;
             foreach (var meta in _metadata)
             {
@@ -87,8 +92,9 @@ namespace Homer
             }
             return metadatav;
         }
-        
-        public HomerMetadata GetMetadataByValueId(string metadataValueId) {
+
+        public HomerMetadata GetMetadataByValueId(string metadataValueId)
+        {
             HomerMetadata metadata = null;
             foreach (var meta in _metadata)
             {
@@ -103,6 +109,6 @@ namespace Homer
             }
             return metadata;
         }
-        
+
     }
 }

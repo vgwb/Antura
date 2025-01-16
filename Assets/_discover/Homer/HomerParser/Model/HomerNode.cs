@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -16,6 +16,7 @@ namespace Homer
         public string _cycleType;
 
         public string _permalink;
+        public string _image;
 
         //public HomerMetadataValue[] _metadata;
 
