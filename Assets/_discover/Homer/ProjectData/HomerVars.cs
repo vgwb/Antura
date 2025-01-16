@@ -28,24 +28,34 @@ public static class HomerVars {
 
 
 //KID_FEMALE
+    public static int KID_FEMALE_LEVEL = 0;
 
 //KID_MALE
+    public static int KID_MALE_LEVEL = 0;
 
 //MUSEUM_GUIDE
+    public static int MUSEUM_GUIDE_LEVEL = 0;
 
 //WOMAN
+    public static int WOMAN_LEVEL = 0;
 
 //MAN
+    public static int MAN_LEVEL = 0;
 
 //COOK
+    public static int COOK_LEVEL = 0;
 
 //GUIDE
+    public static int GUIDE_LEVEL = 0;
 
 //TEACHER
+    public static int TEACHER_LEVEL = 0;
 
 //TUTOR
+    public static int TUTOR_LEVEL = 0;
 
 //MAJOR
+    public static int MAJOR_LEVEL = 0;
 
 }
 
