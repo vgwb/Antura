@@ -14,18 +14,22 @@ namespace Antura.Minigames.DiscoverCountry
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Location;
         public Button SelectBtn;
-        public Button ConfirmBtn;
+        [SerializeField] GameObject[] stars;
 
-        private QuestData questData;
+        QuestData questData;
+        CanvasGroup cg;
 
         public void Init(QuestData _questData)
         {
+            cg = this.gameObject.AddComponent<CanvasGroup>();
+            
             questData = _questData;
-            //SelectBtn.interactable = questData.Active;
-            ConfirmBtn.interactable = questData.Active;
+            SelectBtn.interactable = questData.Active;
+            cg.alpha = SelectBtn.interactable ? 1 : 0.7f;
             Code.text = _questData.Code;
             Title.text = _questData.Title;
             Location.text = _questData.Location;
+            SetStars(questData.GetScore());
         }
 
         public void OnSelectQuest()
@@ -38,5 +42,12 @@ namespace Antura.Minigames.DiscoverCountry
             EarthManager.I.OpenQuest(questData);
         }
 
+        void SetStars(int totStars)
+        {
+            for (int i = 0; i < stars.Length; i++)
+            {
+                stars[i].SetActive(i < totStars);
+            }
+        }
     }
 }
