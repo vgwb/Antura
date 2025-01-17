@@ -44,7 +44,7 @@ namespace Antura.Homer
         public void InitNode(HomerFlowSlugs.FlowSlug flowSlug, string language = "EN")
         {
             var answers = new List<QuestNode>();
-            GetContent(flowSlug, "INIT",
+            GetContent(flowSlug, "", "INIT",
                             answers,
                             true,
                             language
@@ -87,13 +87,27 @@ namespace Antura.Homer
             }
         }
 
-        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
-    List<QuestNode> answers, string language = "EN")
+        public QuestNode GetQuestNodeById(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
+            string language = "EN")
         {
             currentLanguage = language;
-            MoveToPermalinkNode(permalink, flowSlug);
+            if (currentFlowSlug != flowSlug)
+            {
+                SetupCurrentFlow(flowSlug);
+            }
 
-            GetContent(flowSlug, command, answers, false, language);
+            foreach (HomerNode homerNode in runningFlow.Flow._nodes)
+            {
+                if (homerNode._permalink == permalink)
+                {
+                    QuestNode questNode = getQuestNode(homerNode);
+                    //we just take the first line
+                    questNode.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, language);
+                    return questNode;
+                }
+            }
+
+            return null;
         }
 
         public void GetContentFromChoice(int choiceIndex, string permalink, HomerFlowSlugs.FlowSlug flowSlug,
@@ -113,7 +127,7 @@ namespace Antura.Homer
                 var chosenChoice = choices[choiceIndex];
                 //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
                 runningFlow.NextNode(chosenChoice._id);
-                GetContent(flowSlug, command, answers, false, language);
+                GetContent(flowSlug, "", command, answers, false, language);
             }
             else
             {
@@ -121,7 +135,21 @@ namespace Antura.Homer
             }
         }
 
-        public void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
+        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
+    List<QuestNode> answers, string language = "EN")
+        {
+            //MoveToPermalinkNode(permalink, flowSlug);
+            GetContent(flowSlug, permalink, "", answers, false, language);
+            Debug.Log("GetContentFromPermalink found" + answers.Count);
+        }
+
+        public void GetContentByCommand(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
+    bool restart, string language = "EN")
+        {
+            GetContent(flowSlug, "", command, answers, restart, language);
+        }
+
+        private void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string permalink, string command, List<QuestNode> answers,
             bool restart, string language = "EN")
         {
             // SETUP ::::::::::::::::::::::
@@ -130,6 +158,8 @@ namespace Antura.Homer
 
             SetupCurrentFlow(flowSlug);
 
+            HomerNode homerNode;
+
             if (restart)
             {
                 runningFlow.Restart();
@@ -137,8 +167,31 @@ namespace Antura.Homer
 
             // SEARCH CONTENT ::::::::::::::
 
-            HomerNode homerNode = runningFlow.NextNode();
+            if (permalink != "")
+            {
+                homerNode = null;
+                foreach (HomerNode hNode in runningFlow.Flow._nodes)
+                {
+                    if (hNode._permalink == permalink)
+                    {
+                        //Debug.Log("NODE FOUND " + permalink);
+                        homerNode = hNode;
+                        break;
+                    }
+                }
 
+                if (homerNode != null)
+                {
+                    SetupCurrentFlow(flowSlug);
+                    runningFlow.SelectedNode = HomerNodeRunning.Instantiate(homerNode, runningFlow);
+                }
+                //homerNode = runningFlow.GetNode();
+                // Debug.Log("searching and found for " + homerNode._permalink);
+            }
+            else
+            {
+                homerNode = runningFlow.NextNode();
+            }
             //END
             if (homerNode == null)
             {
@@ -176,7 +229,7 @@ namespace Antura.Homer
             // RECUR
             else
             {
-                GetContent(currentFlowSlug, command, answers, false, language);
+                GetContent(currentFlowSlug, "", command, answers, false, language);
             }
         }
 

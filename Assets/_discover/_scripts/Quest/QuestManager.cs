@@ -78,23 +78,25 @@ namespace Antura.Minigames.DiscoverCountry
         /// </summary>
         public QuestNode GetQuestNodeByCommand(string command)
         {
+            Debug.Log("GetQuestNodeByCommand " + command);
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
             tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
+            HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
         /// <summary>
         /// Returns the correct quest node for the given infoPoint
         /// </summary>
-        public QuestNode GetQuestNodeByPermalink(string permalink)
+        public QuestNode GetQuestNodeByPermalink(string nodeId)
         {
+            Debug.Log("GetQuestNodeByPermalink " + nodeId);
             // QuestNode questNode = HomerAnturaManager.I.GetQuestNodeById(CurrentQuest.QuestId, nodeId);
             // // DebugNodeInfo(questNode);
             // return questNode;
 
             tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContentFromPermalink(permalink, CurrentQuest.QuestId, "", tmpQuestNodes, LanguageCode);
+            HomerAnturaManager.I.GetContentFromPermalink(nodeId, CurrentQuest.QuestId, "", tmpQuestNodes, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
@@ -108,7 +110,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             var answers = new List<QuestNode>();
-            HomerAnturaManager.I.GetContent(
+            HomerAnturaManager.I.GetContentByCommand(
                             CurrentQuest.QuestId,
                             command,
                             answers,

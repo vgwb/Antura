@@ -37,7 +37,7 @@ namespace Antura.Homer
 
             List<QuestNode> answers = new List<QuestNode>();
 
-            HomerAnturaManager.I.GetContent(
+            HomerAnturaManager.I.GetContentByCommand(
                 HomerFlowSlugs.FlowSlug.FR_01_PARIS, command, answers,
                 restart);
 

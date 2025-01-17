@@ -162,7 +162,16 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 // Start info dialogue
                 //Debug.Log("nearbyInfoPointNodeId: " + nearbyInfoPointNodeId);
                 // QuestNode questNode = QuestManager.I.GetQuestNodeByPermalink(nearbyInfoPointNodeId);
-                QuestNode questNode = QuestManager.I.GetQuestNodeByCommand(nearbyInfoPointNodeCommand);
+                QuestNode questNode;
+                if (nearbyInfoPointNodeId != null)
+                {
+                    questNode = QuestManager.I.GetQuestNodeByPermalink(nearbyInfoPointNodeId);
+                }
+                else
+                {
+                    questNode = QuestManager.I.GetQuestNodeByCommand(nearbyInfoPointNodeCommand);
+                }
+
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInfoPoint));
             }
         }
