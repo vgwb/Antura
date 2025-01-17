@@ -126,7 +126,7 @@ namespace Antura.Profile
                 FirstContactPhase.AnturaSpace_Customization,
                 FirstContactPhase.AnturaSpace_Exit,
 
-                FirstContactPhase.Assessment_Skip,
+                //FirstContactPhase.Assessment_Skip,
 
                 FirstContactPhase.Map_PlayFirstSession,
 
