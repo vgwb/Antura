@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Minigames.DiscoverCountry;
 using Homer;
 using UnityEngine;
 // ReSharper disable All
@@ -57,7 +58,7 @@ namespace Antura.Homer
         {
             if (Image != null)
             {
-                return Resources.Load<Sprite>("DiscoverAssets/" + Image);
+                return Resources.Load<Sprite>("DiscoverAssets/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image);
             }
             return null;
         }
