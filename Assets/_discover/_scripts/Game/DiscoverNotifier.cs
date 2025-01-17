@@ -24,7 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
             /// <summary>When an Agent's collider OnTriggerEnter is exited by the player</summary>
             public static readonly ActionEvent<EdAgent> OnAgentTriggerExitedByPlayer = new("DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer");
             /// <summary>When an infoPoint's collider OnTriggerEnter is entered by the player</summary>
-            public static readonly ActionEvent<InfoPoint, string> OnInfoPointTriggerEnteredByPlayer = new("DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer");
+            public static readonly ActionEvent<InfoPoint, string, string> OnInfoPointTriggerEnteredByPlayer = new("DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer");
             /// <summary>When an infoPoint's collider OnTriggerEnter is exited by the player</summary>
             public static readonly ActionEvent<InfoPoint> OnInfoPointTriggerExitedByPlayer = new("DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
@@ -34,13 +34,13 @@ namespace Antura.Minigames.DiscoverCountry
             /// <summary>When the map camera is activated or deactivated</summary>
             public static readonly ActionEvent<bool> OnMapCameraActivated = new("DiscoverNotifier.Game.OnMapCameraActivated");
         }
-        
+
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
         // ███ UTILITY METHODS █████████████████████████████████████████████████████████████████████████████████████████████████
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
         static readonly StringBuilder strb = new();
-        
+
         /// <summary>Unsubscribes all events (using Reflection)</summary>
         public static void UnsubscribeAll()
         {
@@ -51,9 +51,11 @@ namespace Antura.Minigames.DiscoverCountry
                 FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
                 foreach (FieldInfo field in fields)
                 {
-                    if (!field.FieldType.IsSubclassOf(actionEventBaseType)) continue;
+                    if (!field.FieldType.IsSubclassOf(actionEventBaseType))
+                        continue;
                     MethodInfo mInfo = field.FieldType.GetMethod("UnsubscribeAll", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                    if (mInfo == null) continue;
+                    if (mInfo == null)
+                        continue;
                     mInfo.Invoke(field.GetValue(null), null);
                 }
             }
@@ -72,10 +74,12 @@ namespace Antura.Minigames.DiscoverCountry
                 FieldInfo[] fields = type.GetFields(BindingFlags.Public | BindingFlags.Static);
                 foreach (FieldInfo field in fields)
                 {
-                    if (!field.FieldType.IsSubclassOf(actionEventBaseType)) continue;
+                    if (!field.FieldType.IsSubclassOf(actionEventBaseType))
+                        continue;
                     ActionEventBase actionEvent = (ActionEventBase)field.GetValue(null);
                     int subscribed = (int)pTotSubscribed.GetValue(actionEvent);
-                    if (subscribed <= 0) continue;
+                    if (subscribed <= 0)
+                        continue;
                     strb.Append('\n').Append(pName.GetValue(actionEvent)).Append(" - tot subscribed: ").Append(subscribed);
                 }
             }

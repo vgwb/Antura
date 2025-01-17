@@ -13,16 +13,16 @@ namespace Antura.Homer
     {
         void Start()
         {
-            HomerAnturaManager.I.Setup();
+            // HomerAnturaManager.I.Setup();
 
-            HomerAnturaManager.I.GetQuestNodeById(HomerFlowSlugs.FlowSlug.FR_01_PARIS,
-                "isolated_node_1");
+            // HomerAnturaManager.I.GetQuestNodeByPermalink(HomerFlowSlugs.FlowSlug.FR_01_PARIS,
+            //     "isolated_node_1");
 
-            ContentTest(true, "TALK_TEACHER");
-            DOVirtual.DelayedCall(1, () => ContentTest(true, "TALK_TEACHER"));
+            // ContentTest(true, "TALK_TEACHER");
+            // DOVirtual.DelayedCall(1, () => ContentTest(true, "TALK_TEACHER"));
 
-            DOVirtual.DelayedCall(2, () => ContentTest(true, "TALK_MAJOR"));
-            DOVirtual.DelayedCall(3, () => ContentTest(true, "TALK_MAJOR"));
+            // DOVirtual.DelayedCall(2, () => ContentTest(true, "TALK_MAJOR"));
+            // DOVirtual.DelayedCall(3, () => ContentTest(true, "TALK_MAJOR"));
 
         }
 

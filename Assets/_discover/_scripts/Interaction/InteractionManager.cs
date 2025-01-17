@@ -24,6 +24,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public EdAgent nearbyAgent { get; private set; }
         public InfoPoint nearbyInfoPoint { get; private set; }
         string nearbyInfoPointNodeId;
+        string nearbyInfoPointNodeCommand;
         int focusViewEnterFrame;
         Coroutine coChangeLayer, coStartDialogue;
 
@@ -147,13 +148,21 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (HasValidNearbyAgent)
             {
                 // Start dialogue with LL
-                QuestNode questNode = QuestManager.I.GetQuestNode(nearbyAgent);
+                string command = "TALK_" + nearbyAgent.ActorId.ToString();
+                if (nearbyAgent.SubCommand != "")
+                {
+                    command += "_" + nearbyAgent.SubCommand;
+                }
+                Debug.Log("command: " + command);
+                QuestNode questNode = QuestManager.I.GetQuestNodeByCommand(command);
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
             }
             else if (HasValidNearbyInfoPoint)
             {
                 // Start info dialogue
-                QuestNode questNode = QuestManager.I.GetQuestNode(nearbyInfoPoint, nearbyInfoPointNodeId);
+                //Debug.Log("nearbyInfoPointNodeId: " + nearbyInfoPointNodeId);
+                // QuestNode questNode = QuestManager.I.GetQuestNodeByPermalink(nearbyInfoPointNodeId);
+                QuestNode questNode = QuestManager.I.GetQuestNodeByCommand(nearbyInfoPointNodeCommand);
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInfoPoint));
             }
         }
@@ -176,13 +185,20 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             bool isInfoPointMode = infoPoint != null;
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
+
             if (!isInfoPointMode)
+            {
                 nearbyAgent.LookAt(player.transform);
+            }
+
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             CameraManager.I.FocusDialogueCamOn(isInfoPointMode ? infoPoint.transform : nearbyAgent.transform);
             UIManager.I.dialogues.HideSignal();
+
             if (questNode == null)
+            {
                 Debug.LogError("QuestNode is NULL, shouldn't happen");
+            }
             else
             {
                 yield return new WaitForSeconds(0.5f);
@@ -196,9 +212,13 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyAgent)
+            {
                 UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
+            }
             else if (HasValidNearbyInfoPoint)
+            {
                 UIManager.I.dialogues.ShowSignalFor(nearbyInfoPoint);
+            }
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
@@ -241,11 +261,12 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             }
         }
 
-        void OnInfoPointTriggerEnter(InfoPoint infoPoint, string nodeId)
+        void OnInfoPointTriggerEnter(InfoPoint infoPoint, string nodeId, string command)
         {
             //            Debug.Log($"Enter {infoPoint}", infoPoint);
             nearbyInfoPoint = infoPoint;
             nearbyInfoPointNodeId = nodeId;
+            nearbyInfoPointNodeCommand = command;
             UIManager.I.dialogues.ShowSignalFor(infoPoint);
         }
 
@@ -256,6 +277,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             {
                 nearbyInfoPoint = null;
                 nearbyInfoPointNodeId = null;
+                nearbyInfoPointNodeCommand = null;
                 UIManager.I.dialogues.HideSignal();
             }
         }

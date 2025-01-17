@@ -40,7 +40,6 @@ namespace Antura.Minigames.DiscoverCountry
             // GameObject levelInstance = Instantiate(CurrentQuest.GameLevel, spawnPosition, Quaternion.identity);
             // levelInstance.transform.SetParent(null);
 
-            HomerAnturaManager.I.Setup();
             total_coins = 0;
             if (coinsCounter == null)
             {
@@ -65,15 +64,8 @@ namespace Antura.Minigames.DiscoverCountry
                 LanguageCode = "FR";
             }
 
-            var answers = new List<QuestNode>();
-
-            HomerAnturaManager.I.GetContent(
-                            CurrentQuest.QuestId,
-                            "INIT",
-                            answers,
-                            true,
-                            LanguageCode
-                            );
+            HomerAnturaManager.I.Setup();
+            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId, LanguageCode);
 
             // foreach (QuestNode questNode in answers)
             // {
@@ -84,14 +76,9 @@ namespace Antura.Minigames.DiscoverCountry
         /// <summary>
         /// Returns the correct quest node for the given actorID
         /// </summary>
-        public QuestNode GetQuestNode(EdAgent agent)
+        public QuestNode GetQuestNodeByCommand(string command)
         {
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
-            string command = "TALK_" + agent.ActorId.ToString();
-            if (agent.SubCommand != "")
-            {
-                command += "_" + agent.SubCommand;
-            }
             tmpQuestNodes.Clear();
             HomerAnturaManager.I.GetContent(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
             return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
@@ -100,11 +87,15 @@ namespace Antura.Minigames.DiscoverCountry
         /// <summary>
         /// Returns the correct quest node for the given infoPoint
         /// </summary>
-        public QuestNode GetQuestNode(InfoPoint infoPoint, string nodeId)
+        public QuestNode GetQuestNodeByPermalink(string permalink)
         {
-            QuestNode questNode = HomerAnturaManager.I.GetQuestNodeById(CurrentQuest.QuestId, nodeId);
-            // DebugNodeInfo(questNode);
-            return questNode;
+            // QuestNode questNode = HomerAnturaManager.I.GetQuestNodeById(CurrentQuest.QuestId, nodeId);
+            // // DebugNodeInfo(questNode);
+            // return questNode;
+
+            tmpQuestNodes.Clear();
+            HomerAnturaManager.I.GetContentFromPermalink(permalink, CurrentQuest.QuestId, "", tmpQuestNodes, LanguageCode);
+            return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
         }
 
         public void OnInteract(EdAgent agent)

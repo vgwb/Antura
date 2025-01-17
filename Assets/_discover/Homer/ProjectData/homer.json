@@ -178,6 +178,66 @@
               "_ifNoMore": false,
               "_variations": [],
               "_permalink": null
+            },
+            {
+              "_id": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"ReadSign1\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_TEACHER\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-02443510-4962-4d62-8ce2-1737115336046",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-02443510-4962-4d62-8ce2-1737115336046",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"DOOR_a\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
             }
           ],
           "_jumpTo": {},
@@ -197,6 +257,30 @@
               "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
               "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4",
               "_type": "Condition"
+            },
+            {
+              "_id": "CONN-98e51a4e-94fb-42fe-b6cd-1737109921264",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_nodeElementId": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
+              "_to": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-29d56a06-cd1c-43ee-adbb-1737115206398",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_nodeElementId": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
+              "_to": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-4d9a1d41-973d-425a-a5c7-1737115351078",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
+              "_nodeElementId": "NODEL-02443510-4962-4d62-8ce2-1737115336046",
+              "_to": "NOD-f23327c4-960c-4153-abd2-1728494736516",
+              "_type": "Condition"
             }
           ],
           "_subFlow": null,
@@ -204,7 +288,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1728485148691,
-          "_height": 144,
+          "_height": 322,
           "_color": null
         },
         {
@@ -287,7 +371,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "the door opens"
+                  "_text": "the door open and closes"
                 }
               ],
               "_visited": false,
@@ -331,7 +415,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "Now you have $TOTAL_COINS coins!"
+                  "_text": "Now you have $TOTAL_COINS coins! and i close the door"
                 }
               ],
               "_visited": false,
@@ -349,15 +433,15 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1728494905481,
-          "_height": 97,
+          "_height": 115,
           "_color": null
         },
         {
           "_id": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
           "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
           "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_actorUID": "TEACHER",
           "_metadata": [
             "MTV-38f1bc00-2608-4d90-9130-1728504053196"
           ],
@@ -387,7 +471,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-6f2ebc12-25ee-4233-be84-1737105927816",
+              "_connectionLine": {},
+              "_from": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
+              "_to": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808",
+              "_type": "Text"
+            }
+          ],
           "_subFlow": null,
           "_permalink": "isolated_node_1",
           "_translatable": true,
@@ -784,6 +876,160 @@
           "_actorUID": "TUTOR",
           "_note": "",
           "_color": null
+        },
+        {
+          "_id": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Text",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_actorUID": "TEACHER",
+          "_metadata": [
+            "MTV-f90a0db9-0042-43a4-9096-1737109537948"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+              "_type": "Text",
+              "_nodeId": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "this is a sign, I open the door"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-04bfa261-2d12-411f-af88-1737109592154",
+              "_connectionLine": {},
+              "_from": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808",
+              "_to": "NOD-2cb0e166-4d80-4e22-a657-1737109570686",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737105927808,
+          "_height": 97
+        },
+        {
+          "_id": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MTV-61663ff7-6491-4436-ba92-1737109681386"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+              "_type": "Text",
+              "_nodeId": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "give you 100 coins"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-fbcce6d4-95a3-44a1-bc85-1737109604974",
+              "_connectionLine": {},
+              "_from": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821",
+              "_to": "NOD-8466d219-7083-4137-bf69-1728494905481",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737109547821,
+          "_height": 97
+        },
+        {
+          "_id": "NOD-2cb0e166-4d80-4e22-a657-1737109570686",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Variables",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
+              "_type": "Variables",
+              "_nodeId": "NOD-2cb0e166-4d80-4e22-a657-1737109570686",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$TOTAL_COINS = $TOTAL_COINS + 100"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-5cd36f89-15f3-4a38-b14f-1737109594013",
+              "_connectionLine": {},
+              "_from": "NOD-2cb0e166-4d80-4e22-a657-1737109570686",
+              "_to": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821",
+              "_type": "Variables"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1737109570686,
+          "_height": 57
         }
       ],
       "_selectedNodes": [],
@@ -18371,14 +18617,14 @@
       "title": "Tour Eiffel",
       "copyright": "CC"
     },
-    "venusmilo": {
-      "name": "venusmilo",
-      "title": "Venus Milo",
-      "copyright": ""
-    },
     "tutorial_1": {
       "name": "tutorial_1",
       "title": "",
+      "copyright": ""
+    },
+    "venusmilo": {
+      "name": "venusmilo",
+      "title": "Venus Milo",
       "copyright": ""
     }
   },
@@ -18602,6 +18848,13 @@
           "_value": "collect_item",
           "_uid": "unable_to_create_slug",
           "_icon": "⚔"
+        },
+        {
+          "_id": "MTV-f90a0db9-0042-43a4-9096-1737109537948",
+          "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
+          "_value": "open_door",
+          "_uid": "OPEN_DOOR",
+          "_icon": "⚔"
         }
       ],
       "_icon": "⚔",
@@ -18795,6 +19048,13 @@
           "_metadataId": "MTA-2c4dddad-66a1-49a7-823f-1711464241215",
           "_value": "area_bakery",
           "_uid": "unable_to_create_slug",
+          "_icon": "🛠"
+        },
+        {
+          "_id": "MTV-61663ff7-6491-4436-ba92-1737109681386",
+          "_metadataId": "MTA-2c4dddad-66a1-49a7-823f-1711464241215",
+          "_value": "UPDATE_COINS",
+          "_uid": "UPDATE_COINS",
           "_icon": "🛠"
         }
       ],

@@ -12,6 +12,7 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("Homer")]
         public bool IsInteractable;
         public string HomerNodeId;
+        public string Command;
         [Header("References")]
         public TextRender Label;
         [Header("Content")]
@@ -32,7 +33,7 @@ namespace Antura.Minigames.DiscoverCountry
                 // QuestManager.I.OnInfoPoint(this, HomerNodeId);
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
-                    DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId);
+                    DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId, Command);
                 }
             }
         }

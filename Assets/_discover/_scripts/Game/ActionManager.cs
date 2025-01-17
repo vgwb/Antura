@@ -121,6 +121,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ResolveAction(string action)
         {
+            action = action.ToLower();
             Debug.Log("ResolveAction: " + action);
 
             if (action.Substring(0, 5) == "area_")
@@ -136,6 +137,7 @@ namespace Antura.Minigames.DiscoverCountry
                 switch (action)
                 {
                     case "updatecoins":
+                    case "update_coins":
                         QuestManager.I.UpateCoinsCounter();
                         break;
                     case "game_end":
