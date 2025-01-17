@@ -102,26 +102,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OnInteract(EdAgent agent)
         {
-            // Debug.Log("ANTURA INTERACTS WITH LL " + ActorId);
-            string command = "TALK_" + agent.ActorId.ToString();
-            if (agent.SubCommand != "")
-            {
-                command += "_" + agent.SubCommand;
-            }
-
-            var answers = new List<QuestNode>();
-            HomerAnturaManager.I.GetContentByCommand(
-                            CurrentQuest.QuestId,
-                            command,
-                            answers,
-                            restart: true,
-                            LanguageCode
-                            );
-
-            // foreach (QuestNode questNode in answers)
-            // {
-            //     DebugNodeInfo(questNode);
-            // }
+            // Debug.Log("ANTURA INTERACTS WITH LL " + agent.ActorId);
         }
 
         public void OnCollectItem(GameObject go)
