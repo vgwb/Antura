@@ -159,9 +159,9 @@ namespace Antura.Scenes
 
             yield return AppManager.I.ReloadEdition();
 
-            bool hasAnswered = false;
             if (AppManager.I.AppSettingsManager.Settings.FirstRun)
             {
+                // bool hasAnswered = false;
                 // GlobalUI.ShowPrompt(LocalizationDataId.UI_PromptOnlineAnalytics,
                 //     () =>
                 //     {
