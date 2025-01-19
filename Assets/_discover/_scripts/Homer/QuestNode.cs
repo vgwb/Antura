@@ -58,7 +58,7 @@ namespace Antura.Homer
         {
             if (Image != null)
             {
-                return Resources.Load<Sprite>("DiscoverAssets/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image);
+                return Resources.Load<Sprite>("Discover_Photos/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image);
             }
             return null;
         }
