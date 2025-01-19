@@ -64,12 +64,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Sprite Thumbnail;
 
-        [Header("Scene")]
+        [Header("Quest Prefabs")]
         public string scene;
-
-        [Header("Level Prefabs")]
-        public GameObject Town;
-        public GameObject GameLevel;
+        public GameObject WorldPrefab;
+        public GameObject QuestPrefab;
 
         /// <summary>
         /// Gets the score (completeness) for this quest.
