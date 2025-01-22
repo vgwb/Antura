@@ -64,7 +64,13 @@ namespace Homer
              * */
             foreach (HomerActor actor in homerProject._actors)
             {
-                actors.Add(actor._name);
+                var p = $"";
+                foreach (var actorProperty in actor._properties)
+                {
+                    p += $"{actorProperty.Key} = {actorProperty.Value} ";
+                }
+                
+                actors.Add($"{actor._name}\nproperties: {p}\n");
             }
 
             ProjectContentText.text += $"{string.Join("<br>", actors)}<br>";

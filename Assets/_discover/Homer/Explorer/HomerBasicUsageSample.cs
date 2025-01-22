@@ -37,10 +37,12 @@ namespace Homer
 
             // Print all actors
             StringBuilder sb = new StringBuilder("Actors:");
-            foreach (HomerActors.Actors actor in Enum.GetValues(typeof(HomerActors.Actors)))
+            
+            //todo restore
+            /*foreach (HomerActors.Actors actor in Enum.GetValues(typeof(HomerActors.Actors)))
             {
                 sb.Append($" {actor},");
-            }
+            }*/
             Debug.Log(sb.ToString().TrimEnd(','));
 
             //More methods for metadata, labels in <see cref="HomerLoaderPrinter"/>
