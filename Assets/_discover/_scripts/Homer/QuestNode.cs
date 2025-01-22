@@ -21,6 +21,8 @@ namespace Antura.Homer
         // permalink
         public string Id;
 
+        public string HomerNodeId;
+
         // Text node
         public string Content;
 

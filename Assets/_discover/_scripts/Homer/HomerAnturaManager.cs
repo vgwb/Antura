@@ -140,6 +140,7 @@ namespace Antura.Homer
         {
             //MoveToPermalinkNode(permalink, flowSlug);
             GetContent(flowSlug, permalink, "", answers, false, language);
+            runningFlow._selectedNodeId = answers[0].HomerNodeId;
             Debug.Log("GetContentFromPermalink found" + answers.Count);
         }
 
@@ -317,6 +318,7 @@ namespace Antura.Homer
         {
             var node = new QuestNode();
             node.Id = homerNode._permalink;
+            node.HomerNodeId = homerNode._id;
             node.Type = homerNode.GetNodeType();
             node.Image = GetImage(homerNode._image);
             node.Action = GetMetadata("ACTION", homerNode._metadata);
