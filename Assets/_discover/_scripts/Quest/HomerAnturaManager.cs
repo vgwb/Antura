@@ -239,8 +239,7 @@ namespace Antura.Homer
             {
                 QuestNode questNode = getQuestNode(runningFlow.SelectedNode.Node);
                 HomerElement header = runningFlow.SelectedNode.Node._header;
-                string headerText = runningFlow.SelectedNode.GetParsedText(header);
-                questNode.Content = headerText;
+                questNode.Content = runningFlow.SelectedNode.GetParsedText(header);
                 questNode.Choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
 
                 return questNode;
@@ -295,8 +294,6 @@ namespace Antura.Homer
             node.Action = GetMetadata("ACTION", homerNode._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", homerNode._metadata);
             node.Mood = GetMetadata("MOOD", homerNode._metadata);
-            node.Native = GetMetadata("NATIVE", homerNode._metadata) == "native";
-            node.NextTarget = GetMetadata("NEXTTARGET", homerNode._metadata);
             node.Native = GetMetadata("NATIVE", homerNode._metadata) == "native";
             node.NextTarget = GetMetadata("NEXTTARGET", homerNode._metadata);
             node.IsDialogueNode = homerNode.GetNodeType() == HomerNode.NodeType.TEXT || homerNode.GetNodeType() == HomerNode.NodeType.START;
