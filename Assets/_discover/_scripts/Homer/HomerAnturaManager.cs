@@ -43,9 +43,7 @@ namespace Antura.Homer
 
         public void InitNode(HomerFlowSlugs.FlowSlug flowSlug, string language = "EN")
         {
-            var answers = new List<QuestNode>();
-            GetContent(flowSlug, "", "INIT",
-                            answers,
+            var node = GetContent(flowSlug, "", "INIT",
                             true,
                             language
                             );
@@ -110,48 +108,21 @@ namespace Antura.Homer
             return null;
         }
 
-        public void GetContentFromChoice(int choiceIndex, string permalink, HomerFlowSlugs.FlowSlug flowSlug,
-            string command, List<QuestNode> answers, string language = "EN")
-        {
-            MoveToPermalinkNode(permalink, flowSlug);
-            GetContentFromChoice(choiceIndex, flowSlug, command, answers, language);
-        }
-
-        public void GetContentFromChoice(int choiceIndex, HomerFlowSlugs.FlowSlug flowSlug,
-            string command, List<QuestNode> answers, string language = "EN")
-        {
-            currentLanguage = language;
-            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
-            {
-                List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
-                var chosenChoice = choices[choiceIndex];
-                //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
-                runningFlow.NextNode(chosenChoice._id);
-                GetContent(flowSlug, "", command, answers, false, language);
-            }
-            else
-            {
-                throw new Exception("Current node is not a choice!");
-            }
-        }
-
-        public void GetContentFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command,
-    List<QuestNode> answers, string language = "EN")
+        public QuestNode GetNodeFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command, string language = "EN")
         {
             //MoveToPermalinkNode(permalink, flowSlug);
-            GetContent(flowSlug, permalink, "", answers, false, language);
-            runningFlow._selectedNodeId = answers[0].HomerNodeId;
-            Debug.Log("GetContentFromPermalink found" + answers.Count);
+            var node = GetContent(flowSlug, permalink, "", false, language);
+            runningFlow._selectedNodeId = node.HomerNodeId;
+            return node;
         }
 
-        public void GetContentByCommand(HomerFlowSlugs.FlowSlug flowSlug, string command, List<QuestNode> answers,
+        public QuestNode GetContentByCommand(HomerFlowSlugs.FlowSlug flowSlug, string command,
     bool restart, string language = "EN")
         {
-            GetContent(flowSlug, "", command, answers, restart, language);
+            return GetContent(flowSlug, "", command, restart, language);
         }
 
-        private void GetContent(HomerFlowSlugs.FlowSlug flowSlug, string permalink, string command, List<QuestNode> answers,
-            bool restart, string language = "EN")
+        private QuestNode GetContent(HomerFlowSlugs.FlowSlug flowSlug, string permalink, string command, bool restart, string language = "EN")
         {
             // SETUP ::::::::::::::::::::::
             currentLanguage = language;
@@ -196,7 +167,7 @@ namespace Antura.Homer
             //END
             if (homerNode == null)
             {
-                return;
+                return null;
             }
 
             QuestNode questNode = getQuestNode(homerNode);
@@ -213,7 +184,7 @@ namespace Antura.Homer
                 questNode.Content = headerText;
                 questNode.Choices = choices;
 
-                answers.Add(questNode);
+                return questNode;
             }
 
             // TEXT
@@ -224,13 +195,13 @@ namespace Antura.Homer
                 string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, language);
                 questNode.Content = text;
 
-                answers.Add(questNode);
+                return questNode;
             }
 
-            // RECUR
+            // RECURRING
             else
             {
-                GetContent(currentFlowSlug, "", command, answers, false, language);
+                return GetContent(currentFlowSlug, "", command, false, language);
             }
         }
 
@@ -317,7 +288,7 @@ namespace Antura.Homer
         private QuestNode getQuestNode(HomerNode homerNode)
         {
             var node = new QuestNode();
-            node.Id = homerNode._permalink;
+            node.Permalink = homerNode._permalink;
             node.HomerNodeId = homerNode._id;
             node.Type = homerNode.GetNodeType();
             node.Image = GetImage(homerNode._image);
@@ -384,5 +355,31 @@ namespace Antura.Homer
         {
             return runningFlow.Project.GetMetadataValueById(metadataValueId);
         }
+
+        public void GetContentFromChoice(int choiceIndex, string permalink, HomerFlowSlugs.FlowSlug flowSlug,
+            string command, List<QuestNode> answers, string language = "EN")
+        {
+            MoveToPermalinkNode(permalink, flowSlug);
+            GetContentFromChoice(choiceIndex, flowSlug, command, language);
+        }
+
+        private void GetContentFromChoice(int choiceIndex, HomerFlowSlugs.FlowSlug flowSlug,
+            string command, string language = "EN")
+        {
+            currentLanguage = language;
+            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            {
+                List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
+                var chosenChoice = choices[choiceIndex];
+                //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
+                runningFlow.NextNode(chosenChoice._id);
+                GetContent(flowSlug, "", command, false, language);
+            }
+            else
+            {
+                throw new Exception("Current node is not a choice!");
+            }
+        }
+
     }
 }

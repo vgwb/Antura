@@ -76,28 +76,19 @@ namespace Antura.Minigames.DiscoverCountry
         /// <summary>
         /// Returns the correct quest node for the given actorID
         /// </summary>
-        public QuestNode GetQuestNodeByCommand(string command)
+        public QuestNode GetNodeByCommand(string command)
         {
-            Debug.Log("GetQuestNodeByCommand " + command);
+            //            Debug.Log("GetQuestNodeByCommand " + command);
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
-            tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, tmpQuestNodes, true, LanguageCode);
-            return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
+            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true, LanguageCode);
         }
 
         /// <summary>
         /// Returns the correct quest node for the given infoPoint
         /// </summary>
-        public QuestNode GetQuestNodeByPermalink(string nodeId)
+        public QuestNode GetNodeByPermalink(string nodeId)
         {
-            Debug.Log("GetQuestNodeByPermalink " + nodeId);
-            // QuestNode questNode = HomerAnturaManager.I.GetQuestNodeById(CurrentQuest.QuestId, nodeId);
-            // // DebugNodeInfo(questNode);
-            // return questNode;
-
-            tmpQuestNodes.Clear();
-            HomerAnturaManager.I.GetContentFromPermalink(nodeId, CurrentQuest.QuestId, "", tmpQuestNodes, LanguageCode);
-            return tmpQuestNodes.Count == 0 ? null : tmpQuestNodes[0];
+            return HomerAnturaManager.I.GetNodeFromPermalink(nodeId, CurrentQuest.QuestId, "", LanguageCode);
         }
 
         public void OnInteract(EdAgent agent)
@@ -149,7 +140,8 @@ namespace Antura.Minigames.DiscoverCountry
                 nodeInfo += "\nContent: " + questNode.Content;
             }
 
-            nodeInfo += "\nId: " + questNode.Id;
+            nodeInfo += "\nPermalink: " + questNode.Permalink;
+            nodeInfo += "\nHomerId: " + questNode.HomerNodeId;
             nodeInfo += "\nLocId: " + questNode.LocId;
             nodeInfo += "\nAction: " + questNode.Action;
             nodeInfo += "\nAction Post: " + questNode.ActionPost;

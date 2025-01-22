@@ -19,7 +19,7 @@ namespace Antura.Homer
         public HomerNode.NodeType Type;
         public string LocId;
         // permalink
-        public string Id;
+        public string Permalink;
 
         public string HomerNodeId;
 
