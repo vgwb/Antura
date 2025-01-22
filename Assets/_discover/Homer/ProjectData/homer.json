@@ -178,46 +178,6 @@
               "_ifNoMore": false,
               "_variations": [],
               "_permalink": null
-            },
-            {
-              "_id": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"ReadSign1\""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"TALK_TEACHER\""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
             }
           ],
           "_jumpTo": {},
@@ -237,22 +197,6 @@
               "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
               "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4",
               "_type": "Condition"
-            },
-            {
-              "_id": "CONN-98e51a4e-94fb-42fe-b6cd-1737109921264",
-              "_connectionLine": {},
-              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
-              "_nodeElementId": "NODEL-f340a064-79f1-4aa3-9071-1737109896632",
-              "_to": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
-              "_type": "Condition"
-            },
-            {
-              "_id": "CONN-29d56a06-cd1c-43ee-adbb-1737115206398",
-              "_connectionLine": {},
-              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691",
-              "_nodeElementId": "NODEL-33edb9c4-e55e-4e41-8e59-1737115103242",
-              "_to": "NOD-6643b912-cb7e-4e83-aae6-1728504030509",
-              "_type": "Condition"
             }
           ],
           "_subFlow": null,
@@ -260,7 +204,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1728485148691,
-          "_height": 263,
+          "_height": 144,
           "_color": null
         },
         {
@@ -387,7 +331,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "Now you have $TOTAL_COINS coins! and i close the door"
+                  "_text": "Now you have {$TOTAL_COINS} coins! and i close the door"
                 }
               ],
               "_visited": false,
@@ -925,7 +869,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "give you 100 coins"
+                  "_text": "I'll give you 100 coins."
                 }
               ],
               "_visited": false,
@@ -1002,6 +946,212 @@
           "_isMarked": false,
           "_date": 1737109570686,
           "_height": 57
+        },
+        {
+          "_id": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Choice",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [
+            "MTV-827baee4-d5ed-4db5-b756-1737550055577"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_header": {
+            "_id": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+            "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+            "_localizedContents": [
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "EN",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "QUIZ: calculate 3*2"
+              }
+            ]
+          },
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 4"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 6"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 8"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-1ddb9b4f-1e73-4952-a2e5-1737550113622",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+              "_to": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-caefc11b-0b04-459f-a36c-1737550123066",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-dfc8426a-06cf-4c4e-8d3a-1737550128600",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618",
+              "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064",
+              "_type": "Choice"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": "quiz_test",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737549888618,
+          "_height": 195
+        },
+        {
+          "_id": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Text",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+              "_type": "Text",
+              "_nodeId": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "YES!"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737550113617,
+          "_height": 90
+        },
+        {
+          "_id": "NOD-a790b529-4842-4fc8-8214-1737550123064",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Text",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+              "_type": "Text",
+              "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "No"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737550123064,
+          "_height": 90
         }
       ],
       "_selectedNodes": [],
@@ -13046,7 +13196,15 @@
           "_cycleType": "List",
           "_elements": [],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-96a51abd-4f6e-4998-b69a-1737125925569",
+              "_connectionLine": {},
+              "_from": "NOD-f5a37d65-faa8-435f-80fe-1711582478177",
+              "_to": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_type": "Start"
+            }
+          ],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": false,
@@ -13063,7 +13221,7 @@
           "_actorUID": "TUTOR",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-45f2b34c-f10d-4fd6-94c7-1730700373238",
+          "_image": "jules_verne_1",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -13112,7 +13270,7 @@
           "_actorUID": "TUTOR",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-d18e8f86-b989-4571-b997-1730701124390",
+          "_image": "jules_verne_house",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -13161,7 +13319,7 @@
           "_actorUID": "TUTOR",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-0db5ea71-718c-4a25-84fe-1730701185448",
+          "_image": "map_nantes",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -13461,7 +13619,7 @@
           "_isMarked": false,
           "_date": 1730701006089,
           "_height": 275,
-          "_image": "NOD-04c04a20-2ccd-4611-bce5-1730701006089"
+          "_image": "jules_verne_2"
         },
         {
           "_id": "NOD-f455b46c-3bf6-44f0-bc82-1710891244721-38-95-2b-a8-19-a8",
@@ -13590,7 +13748,7 @@
             "MTV-c18230c3-8f97-4f11-b520-1730788664856"
           ],
           "_note": "",
-          "_image": "NOD-422c2fd1-59be-4553-8ff6-1730700903283",
+          "_image": "train",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -13784,7 +13942,7 @@
           "_date": 1711465810762,
           "_height": 275,
           "_color": null,
-          "_image": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8"
+          "_image": "book_80days"
         },
         {
           "_id": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b",
@@ -13844,7 +14002,7 @@
             "MTV-f4b594db-acb6-45b3-853b-1730788651441"
           ],
           "_note": "",
-          "_image": "NOD-579f503d-c462-44fe-a1ea-1730700785355",
+          "_image": "rocket",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -14087,7 +14245,7 @@
           "_date": 1711465810762,
           "_height": 257,
           "_color": null,
-          "_image": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8-ba-b1"
+          "_image": "book_earthmoon"
         },
         {
           "_id": "NOD-720fce07-61aa-4608-b112-1730700720785",
@@ -14099,7 +14257,7 @@
             "MTV-5e85b2bd-4738-4e2b-a90a-1730788640675"
           ],
           "_note": "",
-          "_image": "NOD-720fce07-61aa-4608-b112-1730700720785",
+          "_image": "submarine",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -14113,7 +14271,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "THis is a submarine"
+                  "_text": "This is a submarine"
                 },
                 {
                   "_nodeElementId": "NODEL-8854e1ad-5575-4b2c-a175-1730700720785",
@@ -14293,7 +14451,7 @@
           "_date": 1711465835401,
           "_height": 275,
           "_color": null,
-          "_image": "NOD-03151590-0049-4bfe-9611-1711465835401-2b-a8-19-a8"
+          "_image": "book_underthesea"
         },
         {
           "_id": "NOD-326e5734-974f-4b2c-ae95-1730700614425",
@@ -14305,7 +14463,7 @@
             "MTV-cc810dc6-991a-48b7-ad9f-1730700680352"
           ],
           "_note": "",
-          "_image": "NOD-326e5734-974f-4b2c-ae95-1730700614425",
+          "_image": "balloon",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -14451,7 +14609,86 @@
           "_date": 1711465867579,
           "_height": 257,
           "_color": null,
-          "_image": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-19-a8"
+          "_image": "book_5weeksballoon"
+        },
+        {
+          "_id": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
+          "_type": "Condition",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-f8d97714-aad2-479b-9e70-1737125923505",
+              "_type": "Condition",
+              "_nodeId": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-f8d97714-aad2-479b-9e70-1737125923505",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"INIT\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-fc1c0894-3b84-4551-944d-1737125965093",
+              "_type": "Condition",
+              "_nodeId": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-fc1c0894-3b84-4551-944d-1737125965093",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_GUIDE\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-ed23411e-f5f6-403a-95cd-1737125954152",
+              "_connectionLine": {},
+              "_from": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_nodeElementId": "NODEL-f8d97714-aad2-479b-9e70-1737125923505",
+              "_to": "NOD-f455b46c-3bf6-44f0-bc82-1710891244721-38-95-2b-a8-19-a8",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-3b499eb8-6b34-4efc-bd33-1737125976257",
+              "_connectionLine": {},
+              "_from": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_nodeElementId": "NODEL-fc1c0894-3b84-4551-944d-1737125965093",
+              "_to": "NOD-b042b72b-c8e9-486c-b655-1730700976509",
+              "_type": "Condition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1737125923505,
+          "_height": 144
         }
       ],
       "_selectedNodes": [],
@@ -18174,11 +18411,6 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-03151590-0049-4bfe-9611-1711465835401-2b-a8-19-a8": {
-      "name": "NOD-03151590-0049-4bfe-9611-1711465835401-2b-a8-19-a8",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5": {
       "name": "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5",
       "title": "",
@@ -18189,11 +18421,6 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-04c04a20-2ccd-4611-bce5-1730701006089": {
-      "name": "NOD-04c04a20-2ccd-4611-bce5-1730701006089",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-04ea8248-01f1-4927-84cd-1730701753588": {
       "name": "NOD-04ea8248-01f1-4927-84cd-1730701753588",
       "title": "",
@@ -18201,11 +18428,6 @@
     },
     "NOD-0be533a1-2595-4a42-896c-1730701540291": {
       "name": "NOD-0be533a1-2595-4a42-896c-1730701540291",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-0db5ea71-718c-4a25-84fe-1730701185448": {
-      "name": "NOD-0db5ea71-718c-4a25-84fe-1730701185448",
       "title": "",
       "copyright": ""
     },
@@ -18234,38 +18456,13 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-326e5734-974f-4b2c-ae95-1730700614425": {
-      "name": "NOD-326e5734-974f-4b2c-ae95-1730700614425",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-3aaf022b-a62b-4ad1-834a-1730703332905": {
       "name": "NOD-3aaf022b-a62b-4ad1-834a-1730703332905",
       "title": "",
       "copyright": ""
     },
-    "NOD-422c2fd1-59be-4553-8ff6-1730700903283": {
-      "name": "NOD-422c2fd1-59be-4553-8ff6-1730700903283",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-45f2b34c-f10d-4fd6-94c7-1730700373238": {
-      "name": "NOD-45f2b34c-f10d-4fd6-94c7-1730700373238",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-46d277c2-bf0e-47db-9e90-1730702509657": {
       "name": "NOD-46d277c2-bf0e-47db-9e90-1730702509657",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8-ba-b1": {
-      "name": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8-ba-b1",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8": {
-      "name": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8",
       "title": "",
       "copyright": ""
     },
@@ -18286,11 +18483,6 @@
     },
     "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8": {
       "name": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-579f503d-c462-44fe-a1ea-1730700785355": {
-      "name": "NOD-579f503d-c462-44fe-a1ea-1730700785355",
       "title": "",
       "copyright": ""
     },
@@ -18316,11 +18508,6 @@
     },
     "NOD-718679d4-fa31-4692-a6bb-1730789741784-4a-9a": {
       "name": "NOD-718679d4-fa31-4692-a6bb-1730789741784-4a-9a",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-720fce07-61aa-4608-b112-1730700720785": {
-      "name": "NOD-720fce07-61aa-4608-b112-1730700720785",
       "title": "",
       "copyright": ""
     },
@@ -18384,11 +18571,6 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-19-a8": {
-      "name": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-19-a8",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-5b-91": {
       "name": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-5b-91",
       "title": "",
@@ -18406,11 +18588,6 @@
     },
     "NOD-c58ada4f-7ae5-42ba-b29b-1730703502717": {
       "name": "NOD-c58ada4f-7ae5-42ba-b29b-1730703502717",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-d18e8f86-b989-4571-b997-1730701124390": {
-      "name": "NOD-d18e8f86-b989-4571-b997-1730701124390",
       "title": "",
       "copyright": ""
     },
@@ -18539,8 +18716,48 @@
       "title": "",
       "copyright": ""
     },
+    "balloon": {
+      "name": "balloon",
+      "title": "",
+      "copyright": ""
+    },
+    "book_5weeksballoon": {
+      "name": "book_5weeksballoon",
+      "title": "",
+      "copyright": ""
+    },
+    "book_80days": {
+      "name": "book_80days",
+      "title": "",
+      "copyright": ""
+    },
+    "book_earthmoon": {
+      "name": "book_earthmoon",
+      "title": "",
+      "copyright": ""
+    },
+    "book_underthesea": {
+      "name": "book_underthesea",
+      "title": "",
+      "copyright": ""
+    },
     "iron": {
       "name": "iron",
+      "title": "",
+      "copyright": ""
+    },
+    "jules_verne_1": {
+      "name": "jules_verne_1",
+      "title": "",
+      "copyright": ""
+    },
+    "jules_verne_2": {
+      "name": "jules_verne_2",
+      "title": "",
+      "copyright": ""
+    },
+    "jules_verne_house": {
+      "name": "jules_verne_house",
       "title": "",
       "copyright": ""
     },
@@ -18564,6 +18781,11 @@
       "title": "",
       "copyright": ""
     },
+    "map_nantes": {
+      "name": "map_nantes",
+      "title": "",
+      "copyright": ""
+    },
     "monalisa": {
       "name": "monalisa",
       "title": "",
@@ -18584,10 +18806,25 @@
       "title": "",
       "copyright": ""
     },
+    "rocket": {
+      "name": "rocket",
+      "title": "",
+      "copyright": ""
+    },
+    "submarine": {
+      "name": "submarine",
+      "title": "",
+      "copyright": ""
+    },
     "toureiffel": {
       "name": "toureiffel",
       "title": "Tour Eiffel",
       "copyright": "CC"
+    },
+    "train": {
+      "name": "train",
+      "title": "",
+      "copyright": ""
     },
     "tutorial_1": {
       "name": "tutorial_1",
@@ -19153,6 +19390,13 @@
       ],
       "_values": [
         {
+          "_id": "MTV-827baee4-d5ed-4db5-b756-1737550055577",
+          "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
+          "_value": "quiz",
+          "_uid": "QUIZ",
+          "_icon": "📝"
+        },
+        {
           "_id": "9a0f580c-ccba-44ec-ae78-1652618909025",
           "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
           "_value": "speech",
@@ -19172,27 +19416,6 @@
           "_value": "thought",
           "_uid": "THOUGHT",
           "_icon": "💭"
-        },
-        {
-          "_id": "9bc62f42-5895-4093-b5c6-1652618909025",
-          "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
-          "_value": "scream",
-          "_uid": "SCREAM",
-          "_icon": "🗯"
-        },
-        {
-          "_id": "6b3242f5-3dee-4ce6-ac80-1652618909025",
-          "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
-          "_value": "sleep",
-          "_uid": "SLEEP",
-          "_icon": "💤"
-        },
-        {
-          "_id": "80a7535c-1add-4c45-b131-1652618909025",
-          "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
-          "_value": "sing song",
-          "_uid": "SING_SONG",
-          "_icon": "🎶"
         }
       ],
       "_icon": "💬",
