@@ -96,6 +96,20 @@ namespace Antura.Minigames.DiscoverCountry
             // Debug.Log("ANTURA INTERACTS WITH LL " + agent.ActorId);
         }
 
+        public void OnNodeStart(QuestNode node)
+        {
+            if (node.Action != null)
+                ActionManager.I.ResolveAction(node.Action);
+            }
+
+        public void OnNodeEnd(QuestNode node)
+        {
+            if (node.NextTarget != null)
+                ActionManager.I.CameraShowTarget(node.NextTarget);
+            if (node.ActionPost != null)
+                ActionManager.I.ResolveAction(node.ActionPost);
+            }
+
         public void OnCollectItem(GameObject go)
         {
             total_items++;

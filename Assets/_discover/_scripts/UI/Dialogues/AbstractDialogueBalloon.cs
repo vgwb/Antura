@@ -70,29 +70,27 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestNode node)
         {
-            if (IsOpen) return;
-            
+            if (IsOpen)
+                return;
+
             IsOpen = true;
             currNode = node;
             SetInteractable(false);
-            textRender.SetText(node.Content);
+            textRender.SetText(currNode.Content);
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);
-            if (node.IsDialogueNode)
-            {
+            if (currNode.IsDialogueNode)
                 btContinue.gameObject.SetActive(true);
-            }
             else
-            {
                 btContinue.gameObject.SetActive(false);
-            }
 
-            if (node.Native)
-            {
+            if (currNode.Native)
                 SpeechCycle = true;
-            }
-            Language.LanguageCode spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
+            else
+                SpeechCycle = false;
+
+            var spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
                 node.LocId,
                 spokenLang
@@ -100,32 +98,21 @@ namespace Antura.Minigames.DiscoverCountry
             // Debug.Log("Show Dialogue: LocId: " + node.LocId);
             SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
-            if (currNode.Action != null)
-            {
-                ActionManager.I.ResolveAction(currNode.Action);
-            }
+            QuestManager.I.OnNodeStart(currNode);
         }
 
         public void Hide()
         {
-            if (!IsOpen) return;
-            
+            if (!IsOpen)
+                return;
+
             IsOpen = false;
             SpeechCycle = false;
             SetInteractable(false);
             showTween.timeScale = 2;
             showTween.PlayBackwards();
             DiscoverNotifier.Game.OnCloseDialogueBalloon.Dispatch(currNode);
-            if (currNode.NextTarget != null)
-            {
-                ActionManager.I.CameraShowTarget(currNode.NextTarget);
-            }
-            //            Debug.Log("ACTION POST: " + currNode.ActionPost);
-            if (currNode.ActionPost != null)
-            {
-                ActionManager.I.ResolveAction(currNode.ActionPost);
-            }
-
+            QuestManager.I.OnNodeEnd(currNode);
         }
 
         #endregion
