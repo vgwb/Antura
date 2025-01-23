@@ -7,7 +7,7 @@ using UnityEngine.Serialization;
 
 namespace Antura.Core
 {
-    public enum LearnMethodID
+    public enum LearnMethod
     {
         LearnToRead,
         LearnLanguage,
@@ -17,7 +17,7 @@ namespace Antura.Core
     [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
     public class LearnMethodConfig : ScriptableObject
     {
-        public LearnMethodID ID;
+        public LearnMethod Method;
         public string TitleLocID;
 
         [Header("Settings - Language")]
@@ -64,13 +64,13 @@ namespace Antura.Core
 
         public string LearningContentButtonKey(LanguageCode lang)
         {
-            switch (ID)
+            switch (Method)
             {
-                case LearnMethodID.LearnToRead:
+                case LearnMethod.LearnToRead:
                     return "Learn_Read";
-                case LearnMethodID.LearnLanguage:
+                case LearnMethod.LearnLanguage:
                     return $"Learn_{lang}";
-                case LearnMethodID.DiscoverCountry:
+                case LearnMethod.DiscoverCountry:
                     return "Discover_Country";
                 default:
                     throw new ArgumentOutOfRangeException();

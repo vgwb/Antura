@@ -51,13 +51,14 @@ namespace Antura.UI
                 {
                     isSupported = contentEditionConfig.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy);
                 }
-                if (!isSupported) continue;
+                if (!isSupported)
+                    continue;
 
                 supportedConfigs.Add(contentEditionConfig);
             }
 
             // Place as first
-            var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.ID == LearnMethodID.LearnToRead);
+            var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.Method == LearnMethod.LearnToRead);
             if (learnToReadConfig != null)
             {
                 supportedConfigs.Remove(learnToReadConfig);
@@ -117,7 +118,7 @@ namespace Antura.UI
             HasPerformedSelection = true;
 
             Overlay.enabled = true;
-            Overlay.DOColor(new Color(1,1,1,1), 0.35f);
+            Overlay.DOColor(new Color(1, 1, 1, 1), 0.35f);
         }
 
         public void RefreshSelection()
@@ -143,7 +144,7 @@ namespace Antura.UI
             gameObject.SetActive(true);
             isOpen = true;
 
-            Overlay.color = new Color(1,1,1, 0);
+            Overlay.color = new Color(1, 1, 1, 0);
             Overlay.enabled = false;
 
             questionRectTr.gameObject.SetActive(true);
@@ -153,9 +154,11 @@ namespace Antura.UI
             scrollRectTr.anchoredPosition = new Vector2(2500, 0);
             scrollRectTr.DOAnchorPos(new Vector2(0, 0), 0.35f).SetDelay(0.5f).OnComplete(() =>
             {
-                if (scrollToLast) ScrollTo(PreferredContentID);
+                if (scrollToLast)
+                    ScrollTo(PreferredContentID);
             });
-            if (BGColor == default) BGColor = BG.color;
+            if (BGColor == default)
+                BGColor = BG.color;
             BG.color = new Color(BGColor.r, BGColor.g, BGColor.b, 0f);
             BG.DOColor(BGColor, 0.35f);
         }
@@ -179,7 +182,8 @@ namespace Antura.UI
             var dir = Vector3.zero;
             var xDelta = 0f;
             var btn = buttons.FirstOrDefault(x => x.ContentId == id);
-            if (btn == null) return;
+            if (btn == null)
+                return;
 
             if (btn.transform.position.x < 0)
             {

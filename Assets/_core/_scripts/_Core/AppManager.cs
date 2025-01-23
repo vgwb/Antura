@@ -195,7 +195,8 @@ namespace Antura.Core
                 // We need to make sure we also set the player profile again, as it needs to re-load the Dynamic DB
                 if (PlayerProfileManager != null && Player != null)
                 {
-                    if (VERBOSE_INVERSION) Debug.Log($"[Inversion] Reloading Player {Player.Uuid}");
+                    if (VERBOSE_INVERSION)
+                        Debug.Log($"[Inversion] Reloading Player {Player.Uuid}");
                     DB.LoadDatabaseForPlayer(Player.Uuid);
                 }
             }
@@ -357,9 +358,9 @@ namespace Antura.Core
 
         #region Learning Method Shortcuts
 
-        public static bool IsLearningMethod(LearnMethodID learnMethodID)
+        public static bool IsLearningMethod(LearnMethod learnMethodID)
         {
-            return AppManager.I.ContentEdition.LearnMethod.ID == learnMethodID;
+            return AppManager.I.ContentEdition.LearnMethod.Method == learnMethodID;
         }
 
         #endregion

@@ -303,7 +303,8 @@ namespace Antura.Profile
 
         public bool HasCompletedPhase(FirstContactPhase _phase)
         {
-            if (SIMULATE_FIRST_CONTACT && _phase < SIMULATE_FIRST_CONTACT_PHASE) return true;
+            if (SIMULATE_FIRST_CONTACT && _phase < SIMULATE_FIRST_CONTACT_PHASE)
+                return true;
             return GetPhaseState(_phase) == FirstContactPhaseState.Completed;
         }
 
@@ -463,7 +464,8 @@ namespace Antura.Profile
         public AppScene FilterNavigation(AppScene fromScene, AppScene toScene, out bool keepPrevAsBackable)
         {
             keepPrevAsBackable = false;
-            if (AppManager.IsLearningMethod(LearnMethodID.DiscoverCountry)) return toScene;
+            if (AppManager.IsLearningMethod(LearnMethod.DiscoverCountry))
+                return toScene;
 
             if (IsSequenceFinished())
                 return toScene;

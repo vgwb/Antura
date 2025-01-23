@@ -52,16 +52,26 @@ namespace Antura.UI
                 // Load the data tied to this, if exists
                 var contentID = editionConfig.ContentID;
                 var data = AppManager.I.DB.GetContentProfileData(contentID);
+
+                string LevelText = "";
                 if (data != null)
                 {
-                    if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[Inversion] Loaded MAX JP for {contentID} as {data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}");
-                    ContentJourneyLabel.text = $"{data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}";
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError($"[Inversion] Loaded MAX JP for {contentID} as {data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}");
+
+                    if (editionConfig.LearnMethod.Method != LearnMethod.DiscoverCountry)
+                    {
+                        LevelText = $"{data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}";
+                    }
                 }
                 else
                 {
-                    if (AppManager.VERBOSE_INVERSION) Debug.LogError($"[Inversion] No data for {contentID}, using initial JP");
-                    ContentJourneyLabel.text = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
+                    if (AppManager.VERBOSE_INVERSION)
+                        Debug.LogError($"[Inversion] No data for {contentID}, using initial JP");
+                    // LevelText = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
                 }
+
+                ContentJourneyLabel.text = LevelText;
             }
         }
 
