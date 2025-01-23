@@ -1,6 +1,7 @@
 ﻿using Antura.Database;
 using System;
 using UnityEngine;
+using Unity.Notifications;
 using NotificationSamples;
 
 namespace Antura.Core.Services.Notification
@@ -27,9 +28,7 @@ namespace Antura.Core.Services.Notification
                 if (DebugConfig.I.DebugLogEnabled)
                     Debug.Log("NotificationService Init");
                 NotificationsManager = myGameObject.AddComponent<GameNotificationsManager>();
-
-                var channel = new GameNotificationChannel(ChannelId, "Default Game Channel", "Generic notifications");
-                NotificationsManager.Initialize(channel);
+                NotificationsManager.Initialize();
                 inizialized = true;
             }
         }
@@ -84,14 +83,13 @@ namespace Antura.Core.Services.Notification
 
         public void ScheduleNotification(DateTime deliveryTime, string title, string message)
         {
-            IGameNotification notification = NotificationsManager.CreateNotification();
+            var notification = NotificationsManager.CreateNotification();
 
             notification.Title = title;
             notification.Body = message;
-            notification.Group = ChannelId;
-            notification.DeliveryTime = deliveryTime;
-            notification.LargeIcon = "icon_antura";
-            NotificationsManager.ScheduleNotification(notification);
+            // notification.Group = ChannelId;
+            // notification.LargeIcon = "icon_antura";
+            NotificationsManager.ScheduleNotification(notification, deliveryTime);
 
             Debug.Log("ScheduleNotification - " + deliveryTime);
         }
