@@ -8,4 +8,12 @@
         Map,
         Dialogue
     }
+
+    public enum InteractionType
+    {
+        None = 0,
+        HomerCommand = 1,
+        HomerNode = 2,
+        UnityAction = 3
+    }
 }

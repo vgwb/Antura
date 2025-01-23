@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using Antura.Homer;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -147,19 +146,23 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             }
             if (HasValidNearbyAgent)
             {
-                // Start dialogue with LL
                 string command = "TALK_" + nearbyAgent.ActorId.ToString();
                 if (nearbyAgent.SubCommand != "")
                 {
                     command += "_" + nearbyAgent.SubCommand;
                 }
-                Debug.Log("command: " + command);
                 QuestNode questNode = QuestManager.I.GetNodeByCommand(command);
+
+                if (QuestManager.I.DebugQuest)
+                {
+                    Debug.Log("command: " + command);
+                    questNode.Print();
+                }
+
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
             }
             else if (HasValidNearbyInfoPoint)
             {
-                // Start info dialogue
                 //Debug.Log("nearbyInfoPointNodeId: " + nearbyInfoPointNodeId);
                 // QuestNode questNode = QuestManager.I.GetQuestNodeByPermalink(nearbyInfoPointNodeId);
                 QuestNode questNode;
@@ -171,6 +174,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 {
                     questNode = QuestManager.I.GetNodeByCommand(nearbyInfoPointNodeCommand);
                 }
+
+                if (QuestManager.I.DebugQuest)
+                    questNode.Print();
 
                 this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInfoPoint));
             }
