@@ -50,7 +50,10 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             Target_AnturaLocation = null;
-            AnturaDog.SetActive(false);
+            if (AnturaDog != null)
+            {
+                AnturaDog.SetActive(false);
+            }
         }
 
         private ActionData GetActionData(string actionCode)

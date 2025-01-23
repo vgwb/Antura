@@ -66,13 +66,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show(List<HomerElement> choiceElements)
+        public void Show(List<NodeChoice> choiceElements)
         {
             this.gameObject.SetActive(true);
             this.RestartCoroutine(ref coShow, CO_Show(choiceElements));
         }
 
-        IEnumerator CO_Show(List<HomerElement> choiceElements)
+        IEnumerator CO_Show(List<NodeChoice> choiceElements)
         {
             IsOpen = IsOpening = true;
             IsHiding = false;

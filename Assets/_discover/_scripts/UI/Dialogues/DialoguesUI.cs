@@ -1,6 +1,5 @@
 ﻿using Antura.Audio;
 using Antura.Core;
-using Antura.Homer;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using Homer;
@@ -143,8 +142,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             switch (node.Type)
             {
-                case HomerNode.NodeType.START:
-                case HomerNode.NodeType.TEXT:
+                case QuestNodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
                     // yield return new WaitForSeconds(0.2f);
@@ -158,7 +156,8 @@ namespace Antura.Minigames.DiscoverCountry
                         postcard.Hide();
                     }
                     break;
-                case HomerNode.NodeType.CHOICE:
+                case QuestNodeType.CHOICE:
+                case QuestNodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                     {
@@ -229,7 +228,7 @@ namespace Antura.Minigames.DiscoverCountry
             // Play/repeat alternate audio here
             // Debug.Log($"► Should play audio for main balloon");
             AudioManager.I.PlayDiscoverDialogue(
-                 currNode.LocId,
+                 currNode.AudioId,
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;

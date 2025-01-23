@@ -1,11 +1,9 @@
 ﻿using Antura.Core;
 using Antura.Audio;
-using Antura.Homer;
 using Antura.UI;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
-using Homer;
 using UnityEngine;
 using UnityEngine.UI;
 using Antura.Minigames.DiscoverCountry.Interaction;
@@ -80,7 +78,7 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);
-            if (currNode.IsDialogueNode)
+            if (currNode.IsDialogueNode())
                 btContinue.gameObject.SetActive(true);
             else
                 btContinue.gameObject.SetActive(false);
@@ -92,7 +90,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             var spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
-                node.LocId,
+                node.AudioId,
                 spokenLang
             );
             // Debug.Log("Show Dialogue: LocId: " + node.LocId);

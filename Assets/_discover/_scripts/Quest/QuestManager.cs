@@ -5,11 +5,10 @@ using UnityEngine;
 using Homer;
 using Antura.Core;
 using Antura.Audio;
-using Antura.Homer;
-using Antura.Minigames.DiscoverCountry.Interaction;
 using Antura.Utilities;
 using Antura.UI;
 using Antura.Language;
+using System.Runtime.Remoting.Messaging;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -23,15 +22,18 @@ namespace Antura.Minigames.DiscoverCountry
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
 
-        public bool DebugEnglish = false;
         public Transform PlayerSpawnPoint;
-
         public string LanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
         public int total_bones = 0;
         public int total_items = 0;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
+
+        [Header("DEBUG")]
+        public bool DebugQuest = false;
+        public string DebugLanguage = "";
+
 
         void Start()
         {
@@ -55,22 +57,17 @@ namespace Antura.Minigames.DiscoverCountry
                 Player.transform.SetPositionAndRotation(PlayerSpawnPoint.position, PlayerSpawnPoint.rotation);
             }
 
-            if (DebugEnglish)
+            if (DebugQuest && DebugLanguage != "")
             {
-                LanguageCode = "EN";
+                LanguageCode = DebugLanguage;
             }
             else
             {
                 LanguageCode = "FR";
             }
 
-            HomerAnturaManager.I.Setup();
-            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId, LanguageCode);
-
-            // foreach (QuestNode questNode in answers)
-            // {
-            //     DebugNodeInfo(questNode);
-            // }
+            HomerAnturaManager.I.Setup(LanguageCode);
+            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
         }
 
         /// <summary>
@@ -80,15 +77,15 @@ namespace Antura.Minigames.DiscoverCountry
         {
             //            Debug.Log("GetQuestNodeByCommand " + command);
             // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
-            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true, LanguageCode);
+            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
         }
 
         /// <summary>
-        /// Returns the correct quest node for the given infoPoint
+        /// Returns the correct quest node for the given permalink
         /// </summary>
-        public QuestNode GetNodeByPermalink(string nodeId)
+        public QuestNode GetNodeByPermalink(string permalink)
         {
-            return HomerAnturaManager.I.GetNodeFromPermalink(nodeId, CurrentQuest.QuestId, "", LanguageCode);
+            return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
         }
 
         public void OnInteract(EdAgent agent)
@@ -100,7 +97,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (node.Action != null)
                 ActionManager.I.ResolveAction(node.Action);
-            }
+        }
 
         public void OnNodeEnd(QuestNode node)
         {
@@ -108,7 +105,7 @@ namespace Antura.Minigames.DiscoverCountry
                 ActionManager.I.CameraShowTarget(node.NextTarget);
             if (node.ActionPost != null)
                 ActionManager.I.ResolveAction(node.ActionPost);
-            }
+        }
 
         public void OnCollectItem(GameObject go)
         {
@@ -136,33 +133,6 @@ namespace Antura.Minigames.DiscoverCountry
             coinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
             Destroy(go);
-        }
-
-        private void DebugNodeInfo(QuestNode questNode)
-        {
-            string nodeInfo = "\nType: " + questNode.Type;
-            if (questNode.Type == HomerNode.NodeType.CHOICE)
-            {
-                nodeInfo += "\nContent: " + questNode.Content;
-                foreach (var choice in questNode.Choices)
-                {
-                    nodeInfo += "\nChoice: " + choice._localizedContents[0]._text;
-                }
-            }
-            else
-            {
-                nodeInfo += "\nContent: " + questNode.Content;
-            }
-
-            nodeInfo += "\nPermalink: " + questNode.Permalink;
-            nodeInfo += "\nHomerId: " + questNode.HomerNodeId;
-            nodeInfo += "\nLocId: " + questNode.LocId;
-            nodeInfo += "\nAction: " + questNode.Action;
-            nodeInfo += "\nAction Post: " + questNode.ActionPost;
-            nodeInfo += "\nMood: " + questNode.Mood;
-            nodeInfo += "\nNextTarget: " + questNode.NextTarget;
-
-            Debug.Log("QuestNode INFO: " + nodeInfo);
         }
 
     }

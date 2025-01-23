@@ -6,7 +6,7 @@ using System.Linq;
 using Homer;
 using UnityEngine;
 
-namespace Antura.Homer
+namespace Antura.Minigames.DiscoverCountry
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class HomerAnturaManager : MonoBehaviour
@@ -32,21 +32,19 @@ namespace Antura.Homer
             }
         }
 
-        public void Setup()
+        public void Setup(string language = "EN")
         {
             if (currentHomerProject == null)
             {
                 currentHomerProject = HomerJsonParser.LoadHomerProject();
                 HomerProjectRunning.SetUp(currentHomerProject);
+                currentHomerProject._locale = language;
             }
         }
 
-        public void InitNode(HomerFlowSlugs.FlowSlug flowSlug, string language = "EN")
+        public void InitNode(HomerFlowSlugs.FlowSlug flowSlug)
         {
-            var node = GetContent(flowSlug, "", "INIT",
-                            true,
-                            language
-                            );
+            GetContent(flowSlug, "", "INIT", true);
         }
 
         private string GetLocalizedContentFromElements(HomerLocalizedContent[] elements, string language)
@@ -85,60 +83,29 @@ namespace Antura.Homer
             }
         }
 
-        public QuestNode GetQuestNodeById(HomerFlowSlugs.FlowSlug flowSlug, string permalink,
-            string language = "EN")
-        {
-            currentLanguage = language;
-            if (currentFlowSlug != flowSlug)
-            {
-                SetupCurrentFlow(flowSlug);
-            }
-
-            foreach (HomerNode homerNode in runningFlow.Flow._nodes)
-            {
-                if (homerNode._permalink == permalink)
-                {
-                    QuestNode questNode = getQuestNode(homerNode);
-                    //we just take the first line
-                    questNode.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, language);
-                    return questNode;
-                }
-            }
-
-            return null;
-        }
-
-        public QuestNode GetNodeFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command, string language = "EN")
+        public QuestNode GetNodeFromPermalink(string permalink, HomerFlowSlugs.FlowSlug flowSlug, string command)
         {
             //MoveToPermalinkNode(permalink, flowSlug);
-            var node = GetContent(flowSlug, permalink, "", false, language);
+            var node = GetContent(flowSlug, permalink, "", false);
             runningFlow._selectedNodeId = node.HomerNodeId;
             return node;
         }
 
-        public QuestNode GetContentByCommand(HomerFlowSlugs.FlowSlug flowSlug, string command,
-    bool restart, string language = "EN")
+        public QuestNode GetContentByCommand(HomerFlowSlugs.FlowSlug flowSlug, string command, bool restart)
         {
-            return GetContent(flowSlug, "", command, restart, language);
+            return GetContent(flowSlug, "", command, restart);
         }
 
-        private QuestNode GetContent(HomerFlowSlugs.FlowSlug flowSlug, string permalink, string command, bool restart, string language = "EN")
+        private QuestNode GetContent(HomerFlowSlugs.FlowSlug flowSlug, string permalink, string command, bool restart)
         {
-            // SETUP ::::::::::::::::::::::
-            currentLanguage = language;
             HomerVars.CMD = command;
-
-            SetupCurrentFlow(flowSlug);
-
             HomerNode homerNode;
 
+            SetupCurrentFlow(flowSlug);
             if (restart)
-            {
                 runningFlow.Restart();
-            }
 
             // SEARCH CONTENT ::::::::::::::
-
             if (permalink != "")
             {
                 homerNode = null;
@@ -170,38 +137,16 @@ namespace Antura.Homer
                 return null;
             }
 
-            QuestNode questNode = getQuestNode(homerNode);
-
-            // CHOICE
-            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            if ((runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            || (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT))
             {
-                List<HomerElement> choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
-
-                HomerElement header = runningFlow.SelectedNode.Node._header;
-                string headerText = GetLocalizedContentFromElements(runningFlow.SelectedNode.Node._header._localizedContents, language);
-
-                questNode.LocId = homerNode._header._id;
-                questNode.Content = headerText;
-                questNode.Choices = choices;
-
-                return questNode;
+                return getQuestNode(runningFlow.SelectedNode);
             }
-
-            // TEXT
-            else if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT &&
-                     runningFlow.SelectedNode.Node._elements.Length > 0)
-            {
-                HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, language);
-                questNode.Content = text;
-
-                return questNode;
-            }
-
             // RECURRING
             else
             {
-                return GetContent(currentFlowSlug, "", command, false, language);
+                Debug.LogWarning("RECURRING");
+                return GetContent(currentFlowSlug, "", command, false);
             }
         }
 
@@ -226,32 +171,17 @@ namespace Antura.Homer
             }
 
             if (next == null)
-            {
                 return null;
-            }
 
             return NextNodeRecur();
         }
 
         private QuestNode NextNodeRecur()
         {
-            if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            if ((runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            || (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT))
             {
-                QuestNode questNode = getQuestNode(runningFlow.SelectedNode.Node);
-                HomerElement header = runningFlow.SelectedNode.Node._header;
-                questNode.Content = runningFlow.SelectedNode.GetParsedText(header);
-                questNode.Choices = runningFlow.SelectedNode.GetAvailableChoiceElements();
-
-                return questNode;
-            }
-            else if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT)
-            {
-                QuestNode questNode = getQuestNode(runningFlow.SelectedNode.Node);
-                HomerElement element = runningFlow.SelectedNode.GetTextElement();
-                string text = GetLocalizedContentFromElements(runningFlow.SelectedNode.ChosenElement._localizedContents, currentLanguage);
-
-                questNode.Content = text;
-                return questNode;
+                return getQuestNode(runningFlow.SelectedNode);
             }
             else
             {
@@ -284,31 +214,82 @@ namespace Antura.Homer
             }
         }
 
-        private QuestNode getQuestNode(HomerNode homerNode)
+        private QuestNode getQuestNode(HomerNodeRunning runner)
         {
             var node = new QuestNode();
-            node.Permalink = homerNode._permalink;
-            node.HomerNodeId = homerNode._id;
-            node.Type = homerNode.GetNodeType();
-            node.Image = GetImage(homerNode._image);
-            node.Action = GetMetadata("ACTION", homerNode._metadata);
-            node.ActionPost = GetMetadata("ACTION_POST", homerNode._metadata);
-            node.Mood = GetMetadata("MOOD", homerNode._metadata);
-            node.Native = GetMetadata("NATIVE", homerNode._metadata) == "native";
-            node.NextTarget = GetMetadata("NEXTTARGET", homerNode._metadata);
-            node.IsDialogueNode = homerNode.GetNodeType() == HomerNode.NodeType.TEXT || homerNode.GetNodeType() == HomerNode.NodeType.START;
-            node.IsChoiceNode = homerNode.GetNodeType() == HomerNode.NodeType.CHOICE;
+            node.Permalink = runner.Node._permalink;
+            node.HomerNodeId = runner.Node._id;
 
-            if (homerNode._elements.Count() > 0)
+            node.Image = GetImage(runner.Node._image);
+            node.Action = GetMetadata("ACTION", runner.Node._metadata);
+            node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);
+            node.BalloonType = GetMetadata("BALLOON_TYPE", runner.Node._metadata);
+            node.Mood = GetMetadata("MOOD", runner.Node._metadata);
+            node.Native = GetMetadata("NATIVE", runner.Node._metadata) == "native";
+            node.NextTarget = GetMetadata("NEXTTARGET", runner.Node._metadata);
+
+            switch (runner.Node.GetNodeType())
             {
-                node.LocId = homerNode._elements[0]._id;
+                case HomerNode.NodeType.CHOICE:
+                    node.Type = QuestNodeType.CHOICE;
+                    break;
+                case HomerNode.NodeType.TEXT:
+                case HomerNode.NodeType.START:
+                    node.Type = QuestNodeType.TEXT;
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+            if (node.BalloonType == "quiz")
+            {
+                node.Type = QuestNodeType.QUIZ;
+            }
+
+            if (runner.Node._elements.Count() > 0)
+            {
+                node.AudioId = runner.Node._elements[0]._id;
             }
             else
             {
-                node.LocId = homerNode._header._id;
+                node.AudioId = runner.Node._header._id;
+            }
+            var currentLocale = currentHomerProject._locale;
+
+            if (runner.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
+            {
+                HomerElement header = runner.Node._header;
+                node.Content = runner.GetParsedText(header);
+
+                currentHomerProject._locale = "EN";
+                node.ContentNative = runner.GetParsedText(header);
+                currentHomerProject._locale = currentLocale;
+
+                node.Choices = new List<NodeChoice>();
+                var HomerElements = runner.GetAvailableChoiceElements();
+                foreach (var element in HomerElements)
+                {
+                    var choice = new NodeChoice();
+                    choice.Content = runner.GetParsedText(element);
+
+                    currentHomerProject._locale = "EN";
+                    choice.ContentNative = runner.GetParsedText(element);
+                    currentHomerProject._locale = currentLocale;
+
+                    //choice.Image = GetImage(element._image);
+                    choice.AudioId = element._id;
+                    node.Choices.Add(choice);
+                }
             }
 
-            //node.Content = GetLocalizedContentFromElements(homerNode._elements[0]._localizedContents, currentLanguage);
+            if (runner.Node.GetNodeType() == HomerNode.NodeType.TEXT)
+            {
+                HomerElement element = runner.GetTextElement();
+                node.Content = runner.ParsedText(element);
+
+                currentHomerProject._locale = "EN";
+                node.ContentNative = runner.ParsedText(element);
+                currentHomerProject._locale = currentLocale;
+            }
 
             return node;
         }
@@ -370,7 +351,7 @@ namespace Antura.Homer
                 var chosenChoice = choices[choiceIndex];
                 //Debug.Log($"Auto chose {chosen+1}: {runningFlow.SelectedNode.GetParsedText(chosenChoice)}\n");
                 runningFlow.NextNode(chosenChoice._id);
-                GetContent(flowSlug, "", command, false, language);
+                GetContent(flowSlug, "", command, false);
             }
             else
             {

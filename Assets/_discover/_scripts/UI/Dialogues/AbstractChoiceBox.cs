@@ -40,7 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
-        public string LocId { get; private set; }
+        public string AudioId { get; private set; }
         private bool SpeechCycle = false;
 
         bool selected;
@@ -96,9 +96,9 @@ namespace Antura.Minigames.DiscoverCountry
             tfNumber.text = (Index + 1).ToString(CultureInfo.InvariantCulture);
         }
 
-        public void SetLocId(string homerLocId)
+        public void SetAudioId(string homerLocId)
         {
-            LocId = homerLocId;
+            AudioId = homerLocId;
         }
 
         public void SetInteractable(bool interactable)
@@ -171,7 +171,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Select()
         {
             AudioManager.I.PlayDiscoverDialogue(
-                 LocId,
+                 AudioId,
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SpeechCycle = !SpeechCycle;
