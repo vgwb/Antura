@@ -74,7 +74,7 @@ namespace Antura.UI
                 button.Setup(contentEditionConfig);
 
                 //checking if the lang name contains more than 2 words or if any word has more than 11 chars, in that case we decrease the font size so it fits in two lines
-                var words = button.nameText.text.Split(" ");
+                var words = button.Title.text.Split(" ");
                 var auxBtn = button.GetComponent<Button>();
                 if (words.Length > 2)
                     auxBtn.GetComponentInChildren<TMP_Text>().fontSize = 24;

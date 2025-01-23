@@ -11,13 +11,13 @@ namespace Antura.UI
 {
     public class SelectLearningContentButton : MonoBehaviour
     {
-        public TextRender nameText;
+        public TextRender Title;
         public UIButton button;
         public Image BookImage;
         public Image iconImage;
         public Image Flag;
 
-        public TextRender ContentJourneyLabel;
+        public TextRender LevelLabel;
 
         private ContentEditionConfig Content;
         public SelectLearningContentPanel parentPanel;
@@ -32,7 +32,7 @@ namespace Antura.UI
 
             iconImage.sprite = editionConfig.TransitionLogo;
 
-            nameText.SetOverridenLanguageText(parentPanel.SelectedNativeCode, LocKey);
+            Title.SetOverridenLanguageText(parentPanel.SelectedNativeCode, LocKey);
 
             Flag.sprite = editionConfig.LearningLanguageConfig.FlagIcon;
 
@@ -71,7 +71,7 @@ namespace Antura.UI
                     // LevelText = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
                 }
 
-                ContentJourneyLabel.text = LevelText;
+                LevelLabel.text = LevelText;
             }
         }
 

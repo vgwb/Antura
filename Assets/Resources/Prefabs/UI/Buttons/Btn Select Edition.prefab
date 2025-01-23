@@ -88,7 +88,7 @@ GameObject:
   - component: {fileID: 2594078583437551679}
   - component: {fileID: 2594078583437551678}
   m_Layer: 5
-  m_Name: Text
+  m_Name: Title
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -242,7 +242,7 @@ GameObject:
   - component: {fileID: 2594078584234979955}
   - component: {fileID: 2594078584234979954}
   m_Layer: 5
-  m_Name: Selection
+  m_Name: Book
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -339,8 +339,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2594078584234979957}
-  - {fileID: 7525037837645210737}
   - {fileID: 2594078583437551665}
+  - {fileID: 7525037837645210737}
   - {fileID: 2594078582924188447}
   - {fileID: 1859958952220965338}
   m_Father: {fileID: 0}
@@ -476,12 +476,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd95c7f5bbe040c79ba2603cde94b832, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nameText: {fileID: 2594078583437551678}
+  Title: {fileID: 2594078583437551678}
   button: {fileID: 2594078584388812700}
   BookImage: {fileID: 2594078584234979954}
   iconImage: {fileID: 2594078582924188444}
   Flag: {fileID: 6034551070112601469}
-  ContentJourneyLabel: {fileID: 4952435715265230337}
+  LevelLabel: {fileID: 4952435715265230337}
   parentPanel: {fileID: 0}
 --- !u!1 &5973454442134964939
 GameObject:
