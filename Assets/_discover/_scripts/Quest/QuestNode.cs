@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Antura.Minigames.DiscoverCountry
 {
 
-    public enum QuestNodeType
+    public enum NodeType
     {
         TEXT = 1,
         CHOICE = 2,
@@ -23,7 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
 
     public class QuestNode
     {
-        public QuestNodeType Type;
+        public NodeType Type;
 
         public string AudioId;
         public string Permalink;
@@ -48,7 +48,7 @@ namespace Antura.Minigames.DiscoverCountry
         // used to set QUIZ type
         public string BalloonType;
 
-        // well.. the mood
+        // well.. the mood of the avatar talking to the player
         public string Mood;
 
         // if we want to show the text in the native language first
@@ -59,18 +59,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         public bool IsDialogueNode()
         {
-            return Type == QuestNodeType.TEXT;
+            return Type == NodeType.TEXT;
         }
 
         public bool IsQuizNode()
         {
-            return Type == QuestNodeType.QUIZ;
-        }
-
-        //  This method assumes you have called SetupForNavigation(flowSlug) as flow setup.
-        public QuestNode NextNode(int choiceIndex = 0)
-        {
-            return HomerAnturaManager.I.NextNode(choiceIndex);
+            return Type == NodeType.QUIZ;
         }
 
         public Sprite GetImage()

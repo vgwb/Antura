@@ -31,7 +31,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             else
             {
-                Debug.Log("ActionManager DUPLICATED!");
+                Debug.LogError("ActionManager DUPLICATED!");
                 Destroy(gameObject);
             }
         }
@@ -68,11 +68,14 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void CameraShowTarget(string targetArea)
         {
-            Debug.Log("CameraShowTarget targetArea:" + targetArea);
+            if (QuestManager.I.DebugQuest)
+                Debug.Log("CameraShowTarget targetArea:" + targetArea);
 
             var actionData = GetActionData(ActionType.Area, targetArea);
 
-            Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
+            if (QuestManager.I.DebugQuest)
+                Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
+
             InteractionManager.I.FocusCameraOn(actionData.Target.transform);
             actionData.Beam.SetActive(true);
             Target_AnturaLocation = actionData.Target.transform;
@@ -88,7 +91,8 @@ namespace Antura.Minigames.DiscoverCountry
             var actionData = GetActionData(ActionType.Area, targetArea);
             if (actionData != null)
             {
-                Debug.Log("ActivateArea: " + actionData.ActionCode);
+                if (QuestManager.I.DebugQuest)
+                    Debug.Log("ActivateArea: " + actionData.ActionCode);
                 actionData.Area.SetActive(true);
             }
             else
@@ -113,19 +117,21 @@ namespace Antura.Minigames.DiscoverCountry
             var actionData = GetActionData(actionCode);
             if (actionData != null)
             {
-                Debug.Log("Trigger: " + actionData.ActionCode);
-                //actionData.Trigger();
+                if (QuestManager.I.DebugQuest)
+                    Debug.Log("Trigger: " + actionData.ActionCode);
+                actionData.mainObject.GetComponent<ActionAbstract>().Trigger();
             }
             else
             {
-                Debug.Log("Trigger: Could not find actionCode: " + actionCode);
+                Debug.LogError("Trigger: Could not find actionCode: " + actionCode);
             }
         }
 
         public void ResolveAction(string action)
         {
             action = action.ToLower();
-            Debug.Log("ResolveAction: " + action);
+            if (QuestManager.I.DebugQuest)
+                Debug.Log("ResolveAction: " + action);
 
             if (action.Substring(0, 5) == "area_")
             {

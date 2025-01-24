@@ -34,7 +34,6 @@ namespace Antura.Minigames.DiscoverCountry
         public bool DebugQuest = false;
         public string DebugLanguage = "";
 
-
         void Start()
         {
             // INSTATIATE LEVEL PREFAB
@@ -70,22 +69,19 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
         }
 
-        /// <summary>
-        /// Returns the correct quest node for the given actorID
-        /// </summary>
         public QuestNode GetNodeByCommand(string command)
         {
-            //            Debug.Log("GetQuestNodeByCommand " + command);
-            // TODO > At a certain point Homer shouldn't need to fill a list anymore and just return the first valid node?
             return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
         }
 
-        /// <summary>
-        /// Returns the correct quest node for the given permalink
-        /// </summary>
         public QuestNode GetNodeByPermalink(string permalink)
         {
             return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
+        }
+
+        public QuestNode GetNextNode(int choiceIndex = 0)
+        {
+            return HomerAnturaManager.I.NextNode(choiceIndex);
         }
 
         public void OnInteract(EdAgent agent)

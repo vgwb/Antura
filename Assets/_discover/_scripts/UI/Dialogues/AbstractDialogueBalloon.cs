@@ -7,6 +7,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Language;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -97,6 +98,14 @@ namespace Antura.Minigames.DiscoverCountry
             SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeStart(currNode);
+        }
+
+        public void LocalizeText(LanguageUse languageUse)
+        {
+            if (languageUse == LanguageUse.Learning)
+                textRender.SetText(currNode.Content);
+            else
+                textRender.SetText(currNode.ContentNative);
         }
 
         public void Hide()

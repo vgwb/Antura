@@ -166,7 +166,7 @@ Transform:
   m_GameObject: {fileID: 1520322828954653522}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.89999986, y: -0.01, z: -8}
+  m_LocalPosition: {x: -0.89999986, y: 0, z: -8}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -3900,7 +3900,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 4638
+  m_VersionIndex: 4641
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -4418,7 +4418,7 @@ Transform:
   m_GameObject: {fileID: 7268089557589076454}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 13.5, y: 0.03, z: -27.2}
+  m_LocalPosition: {x: 13.5, y: 0, z: -27.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6774,6 +6774,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: City Generic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5069051516954444199, guid: 8ab0fcf009cc57e4f802a1f63bd7d0de,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7370482817960969945, guid: 8ab0fcf009cc57e4f802a1f63bd7d0de,
         type: 3}

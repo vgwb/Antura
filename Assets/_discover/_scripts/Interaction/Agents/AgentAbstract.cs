@@ -1,18 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class InteractableAbstract : MonoBehaviour
+namespace Antura.Minigames.DiscoverCountry
 {
-    // Start is called before the first frame update
-    void Start()
+    public class InteractableAbstract : MonoBehaviour
     {
-        
-    }
+        [Header("Quest")]
+        public bool IsInteractable;
+        public string HomerNodeId;
+        public string Command;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

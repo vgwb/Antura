@@ -11,11 +11,5 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         public string HomerNodeId;
         public string Command;
 
-
-        void Start()
-        {
-
-        }
-
     }
 }

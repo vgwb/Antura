@@ -231,18 +231,18 @@ namespace Antura.Minigames.DiscoverCountry
             switch (runner.Node.GetNodeType())
             {
                 case HomerNode.NodeType.CHOICE:
-                    node.Type = QuestNodeType.CHOICE;
+                    node.Type = NodeType.CHOICE;
                     break;
                 case HomerNode.NodeType.TEXT:
                 case HomerNode.NodeType.START:
-                    node.Type = QuestNodeType.TEXT;
+                    node.Type = NodeType.TEXT;
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
             }
             if (node.BalloonType == "quiz")
             {
-                node.Type = QuestNodeType.QUIZ;
+                node.Type = NodeType.QUIZ;
             }
 
             if (runner.Node._elements.Count() > 0)

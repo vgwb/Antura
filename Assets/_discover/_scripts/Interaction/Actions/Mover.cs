@@ -1,11 +1,14 @@
-
 using System.Collections;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry.Interaction
 {
-    public class Mover : MonoBehaviour
+    public class Mover : ActionAbstract
     {
+
+        public bool AutoStart = false;
+
+        private bool isActive = false;
 
         [Tooltip("How far to move")]
         [SerializeField]
@@ -29,6 +32,10 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             start = transform.localPosition;
             end = start + offset;
+
+            if (AutoStart)
+                isActive = true;
+
             if (delay > 0f)
             {
                 wait = true;
@@ -36,9 +43,17 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             }
         }
 
+        public override void OnTrigger()
+        {
+            isActive = !isActive;
+        }
+
         //Moving platforms
         void FixedUpdate()
         {
+            if (!isActive)
+                return;
+
             if (!wait)
             {
                 if (move)

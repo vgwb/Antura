@@ -59,7 +59,7 @@ GameObject:
   - component: {fileID: 6937420662406837792}
   - component: {fileID: 4294298240500422975}
   - component: {fileID: 3744103283373756085}
-  m_Layer: 8
+  m_Layer: 0
   m_Name: Player_DiscoverCountry
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -133,7 +133,8 @@ MonoBehaviour:
   JumpTimeout: 0.3
   MidAirJumpTimeout: 0.5
   FallTimeout: 0.15
-  Grounded: 1
+  isGrounded: 1
+  isOnSlope: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.28
   GroundLayers:
@@ -298,6 +299,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7101564007038771914}
     m_Modifications:
+    - target: {fileID: 1540926570240930981, guid: c2f7449713269484693e87f5e289c351,
+        type: 3}
+      propertyPath: m_Layer
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1540926570240930981, guid: c2f7449713269484693e87f5e289c351,
         type: 3}
       propertyPath: m_IsActive

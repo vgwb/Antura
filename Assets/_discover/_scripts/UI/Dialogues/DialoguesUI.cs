@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
+using Antura.Language;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -43,7 +44,7 @@ namespace Antura.Minigames.DiscoverCountry
         QuestNode currNode;
         AbstractDialogueBalloon currBalloon;
         Coroutine coShowDialogue, coNext;
-        bool SpeechCycle = false;
+        bool UseLearningLanguage = true;
 
         #region Unity
 
@@ -133,16 +134,16 @@ namespace Antura.Minigames.DiscoverCountry
             Sprite image;
             if (node.Native)
             {
-                SpeechCycle = false;
+                UseLearningLanguage = false;
             }
             else
             {
-                SpeechCycle = true;
+                UseLearningLanguage = true;
 
             }
             switch (node.Type)
             {
-                case QuestNodeType.TEXT:
+                case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
                     // yield return new WaitForSeconds(0.2f);
@@ -156,8 +157,8 @@ namespace Antura.Minigames.DiscoverCountry
                         postcard.Hide();
                     }
                     break;
-                case QuestNodeType.CHOICE:
-                case QuestNodeType.QUIZ:
+                case NodeType.CHOICE:
+                case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                     {
@@ -187,7 +188,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Next(int choiceIndex = 0)
         {
-            // this.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
             CoroutineRunner.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
         }
 
@@ -195,6 +195,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (currBalloon != null && currBalloon.IsOpen)
                 currBalloon.Hide();
+
             if (choices.IsOpen)
             {
                 choices.Hide(choiceIndex);
@@ -203,11 +204,12 @@ namespace Antura.Minigames.DiscoverCountry
                 // yield return new WaitForSeconds(0.35f);
             }
 
-            QuestNode next = currNode.NextNode(choiceIndex);
+            QuestNode next = QuestManager.I.GetNextNode(choiceIndex);
             if (next == null)
                 CloseDialogue(choiceIndex);
             else
                 ShowDialogueFor(next);
+
             coNext = null;
         }
 
@@ -226,12 +228,20 @@ namespace Antura.Minigames.DiscoverCountry
         void OnBalloonClicked()
         {
             // Play/repeat alternate audio here
-            // Debug.Log($"► Should play audio for main balloon");
+            UseLearningLanguage = !UseLearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
                  currNode.AudioId,
-                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
+                 UseLearningLanguage ? AppManager.I.ContentEdition.LearningLanguage : AppManager.I.AppSettings.NativeLanguage
             );
-            SpeechCycle = !SpeechCycle;
+
+            if (UseLearningLanguage)
+            {
+                currBalloon.LocalizeText(LanguageUse.Learning);
+            }
+            else
+            {
+                currBalloon.LocalizeText(LanguageUse.Native);
+            }
         }
 
         void OnBalloonContinueClicked()
