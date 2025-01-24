@@ -11,8 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
     public class EdPlayer : MonoBehaviour
     {
         [Header("Player")]
-        public AnturaPetSwitcher anturaPetSwitcher;
-        private AnturaAnimationController anturaAnimation => anturaPetSwitcher.AnimController;
+        public AnturaAnimationController anturaAnimation;
 
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
