@@ -359,5 +359,16 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        /// <summary>
+        /// Retrieves a localized label based on the provided key and locale code.
+        /// </summary>
+        /// <param name="key">The key identifying the label to retrieve.</param>
+        /// <param name="localeCode">The locale code specifying the language of the label.</param>
+        /// <returns>The localized label corresponding to the given key and locale code.</returns>
+        public string GetLabel(string key, string localeCode)
+        {
+            return HomerProjectRunning.I.GetLabel(key, localeCode);
+        }
+
     }
 }
