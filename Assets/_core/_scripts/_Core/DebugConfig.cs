@@ -55,6 +55,7 @@ namespace Antura.Core
         public bool ForceAllRewardsUnlocked;
 
         [Header("Verbose")]
+        public bool VerboseAntura;
         public bool VerboseBook;
         public bool VerboseAudio;
         public bool VerboseAssetsManager;

@@ -56,17 +56,17 @@ namespace Antura.Dog
 
             // Skinned mesh renderer support
             SkinnedMeshRenderer targetRenderer = SkinnedMesh;
-            var boneMap = new Dictionary<string,Transform>();
-            foreach(var bone in targetRenderer.bones)
+            var boneMap = new Dictionary<string, Transform>();
+            foreach (var bone in targetRenderer.bones)
                 boneMap[bone.gameObject.name] = bone;
 
             foreach (SkinnedMeshRenderer additionalSmr in propSMRs)
             {
                 var newBones = new Transform[additionalSmr.bones.Length];
-                for( int i = 0; i < additionalSmr.bones.Length; ++i )
+                for (int i = 0; i < additionalSmr.bones.Length; ++i)
                 {
                     GameObject bone = additionalSmr.bones[i].gameObject;
-                    if(!boneMap.TryGetValue(bone.name, out newBones[i]))
+                    if (!boneMap.TryGetValue(bone.name, out newBones[i]))
                     {
                         Debug.Log($"Unable to map bone {bone.name} to target skeleton.");
                         break;
@@ -187,7 +187,7 @@ namespace Antura.Dog
 
         public void ClearLoadedRewardsWithoutDestroy()
         {
-            for(int i=0; i<LoadedModels.Count; i++)
+            for (int i = 0; i < LoadedModels.Count; i++)
             {
                 LoadedModels[i].GO.SetActive(false);
                 LoadedModels.RemoveAt(i);
@@ -257,17 +257,17 @@ namespace Antura.Dog
                     var rewardBase = new RewardProp
                     {
                         Category = "EAR_L",
-                        BoneAttach = prop.BoneAttach.Replace("Right","Left").Replace("_R_","_L_"),
+                        BoneAttach = prop.BoneAttach.Replace("Right", "Left").Replace("_R_", "_L_"),
                         Material1 = prop.Material1,
                         Material2 = prop.Material2,
-                        RewardName = prop.RewardName.Replace("_R","_L"),
+                        RewardName = prop.RewardName.Replace("_R", "_L"),
 
                         ID = id,
                         Cost = 0,
                         Enabled = true,
                         SharedID = ""
                     };
-                    var otherEarPack = AppManager.I.RewardSystemManager.BuildFakePack( id,rewardPack.RewardColor, rewardBase, RewardBaseType.Prop);
+                    var otherEarPack = AppManager.I.RewardSystemManager.BuildFakePack(id, rewardPack.RewardColor, rewardBase, RewardBaseType.Prop);
                     LoadRewardPropOnAntura(otherEarPack);
                 }
             }
@@ -316,7 +316,8 @@ namespace Antura.Dog
                 if (childTr.childCount > 0)
                 {
                     var found = RecursiveFind(childTr, childName);
-                    if (found != null) return found;
+                    if (found != null)
+                        return found;
                 }
             }
             return null;
