@@ -27,7 +27,7 @@ using Antlr.Runtime.Misc;
 namespace  HomerNCalc 
 {
 [System.CodeDom.Compiler.GeneratedCode("ANTLR", "3.5.0.2")]
-[System.CLSCompliant(false)]
+
 public partial class NCalcLexer : Antlr.Runtime.Lexer
 {
 	public const int EOF=-1;
