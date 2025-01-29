@@ -14,15 +14,11 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] bool animateIco;
         [Header("References")]
         [DeEmptyAlert]
-        [SerializeField] GameObject balloon_talk;
-        [DeEmptyAlert]
-        [SerializeField] GameObject balloon_info;
+        [SerializeField] GameObject balloon_talk, balloon_info_action;
         [DeEmptyAlert]
         [SerializeField] Transform iconContainer;
         [DeEmptyAlert]
-        [SerializeField] GameObject ico_talk;
-        [DeEmptyAlert]
-        [SerializeField] GameObject ico_info;
+        [SerializeField] GameObject ico_talk, ico_info, ico_action;
 
         #endregion
 
@@ -101,8 +97,9 @@ namespace Antura.Minigames.DiscoverCountry
             currOffset = isDialogue ? offsetFromLLAgentBase : offsetFromInfoPointBase;
             balloon_talk.gameObject.SetActive(isDialogue);
             ico_talk.gameObject.SetActive(isDialogue);
-            balloon_info.gameObject.SetActive(!isDialogue);
+            balloon_info_action.gameObject.SetActive(!isDialogue);
             ico_info.gameObject.SetActive(!isDialogue);
+            ico_action.gameObject.SetActive(false); // TODO implement when we have a distinction
         }
 
         #endregion
