@@ -1,7 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.DeInspektor.Attributes;
 using UnityEngine;
 using Homer;
+using UnityEngine.Events;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -30,6 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
         public bool FocusCameraOnInteract;
 
         public ReActionType Type;
+        [SerializeField] UnityEvent unityAction;
 
         [Header("Quest")]
         public string NodePermalink;
