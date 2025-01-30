@@ -28,7 +28,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Transform IconTransform { get; private set; }
 
-        public ActionType Type;
+        public ReActionType Type;
 
         [Header("Quest")]
         public string NodePermalink;
