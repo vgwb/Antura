@@ -160,7 +160,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 {
                     command += "_" + nearbyAgent.SubCommand;
                 }
-                QuestNode questNode = QuestManager.I.GetNodeByCommand(command);
+                QuestNode questNode = QuestManager.I.GetQuestNode("", command);
 
                 if (QuestManager.I.DebugQuest)
                 {
@@ -172,17 +172,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             }
             else if (HasValidNearbyInfoPoint)
             {
-                //Debug.Log("nearbyInfoPointNodeId: " + nearbyInfoPointNodeId);
-                // QuestNode questNode = QuestManager.I.GetQuestNodeByPermalink(nearbyInfoPointNodeId);
-                QuestNode questNode;
-                if (nearbyInfoPointNodeId != null)
-                {
-                    questNode = QuestManager.I.GetNodeByPermalink(nearbyInfoPointNodeId);
-                }
-                else
-                {
-                    questNode = QuestManager.I.GetNodeByCommand(nearbyInfoPointNodeCommand);
-                }
+                var questNode = QuestManager.I.GetQuestNode(nearbyInfoPointNodeId, nearbyInfoPointNodeCommand);
 
                 if (QuestManager.I.DebugQuest)
                     questNode.Print();

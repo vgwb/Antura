@@ -72,18 +72,14 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestNode GetQuestNode(string permalink, string command)
         {
             // TODO
-            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
-        }
-
-
-        public QuestNode GetNodeByCommand(string command)
-        {
-            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
-        }
-
-        public QuestNode GetNodeByPermalink(string permalink)
-        {
-            return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
+            if (permalink != "")
+            {
+                return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
+            }
+            else
+            {
+                return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
+            }
         }
 
         public QuestNode GetNextNode(int choiceIndex = 0)

@@ -2,12 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using Homer;
 using UnityEngine.Events;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public enum InteractionIcon
+    public enum InteractionType
     {
         None = 0,
         Look = 1,
@@ -15,34 +14,32 @@ namespace Antura.Minigames.DiscoverCountry
         Use = 4
     }
 
-    public enum ReActionType
-    {
-        None = 0,
-        NodeAction = 1,
-        UnityAction = 3
-    }
-
     public class Interactable : MonoBehaviour
     {
         [Header("Interaction")]
+        [Tooltip("Is it enaabled for interaction?")]
         public bool IsInteractable;
-        public InteractionIcon Icon;
-
+        [Tooltip("Icon to be shown")]
+        public InteractionType InteractionType;
+        [Tooltip("Where does the icon appear and camera focus?")]
         public Transform IconTransform;
+        [Tooltip("Should the icon be always shown?")]
+        public bool ShowIconAlways;
+        [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
-        public ReActionType Type;
-
-        [Header("Quest")]
+        [Header("Quest Node")]
+        public bool ActivateNode;
         public string NodePermalink;
         public string NodeCommand;
-        
-        [Header("UnityAction")]
+
+        [Header("Unity Action")]
+        public bool ActivateUnityAction;
         [SerializeField] UnityEvent unityAction;
+        public bool DisableAfterAction;
 
         void Start()
         {
-            // IconTransform = gameObject.transform.Find("icon");
             if (IconTransform == null)
             {
                 IconTransform = transform;
@@ -52,8 +49,9 @@ namespace Antura.Minigames.DiscoverCountry
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void LaunchUnityAction()
         {
-            if (unityAction != null) unityAction.Invoke();
+            if (unityAction != null)
+                unityAction.Invoke();
         }
-        
+
     }
 }
