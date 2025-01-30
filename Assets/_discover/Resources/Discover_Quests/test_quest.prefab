@@ -842,8 +842,43 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 2755831149816365795}
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
+--- !u!1 &7762119243340701256 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3011231249750364132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2755831149816365795
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7762119243340701256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInteractable: 1
+  InteractionType: 2
+  IconTransform: {fileID: 0}
+  ShowIconAlways: 1
+  FocusCameraOnInteract: 1
+  ActivateNode: 1
+  NodePermalink: 
+  NodeCommand: TALK_TUTOR
+  ActivateUnityAction: 0
+  unityAction:
+    m_PersistentCalls:
+      m_Calls: []
+  DisableAfterAction: 0
 --- !u!4 &7816113099767836654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
@@ -1784,7 +1819,11 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      insertIndex: 1
+      addedObject: {fileID: 6576062372245752065}
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
 --- !u!4 &3503521902607057223 stripped
 Transform:
@@ -1792,3 +1831,34 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8443511762315944269}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &3990186777893302497 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
+    type: 3}
+  m_PrefabInstance: {fileID: 8443511762315944269}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6576062372245752065
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3990186777893302497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInteractable: 1
+  InteractionType: 2
+  IconTransform: {fileID: 0}
+  ShowIconAlways: 1
+  FocusCameraOnInteract: 1
+  ActivateNode: 1
+  NodePermalink: 
+  NodeCommand: TALK_TEACHER
+  ActivateUnityAction: 0
+  unityAction:
+    m_PersistentCalls:
+      m_Calls: []
+  DisableAfterAction: 0
