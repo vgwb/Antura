@@ -83,6 +83,37 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!1 &1298720745575503508
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5492421929162057386}
+  m_Layer: 0
+  m_Name: icon
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5492421929162057386
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1298720745575503508}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.756, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 6110309604173993469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &5038365561796146602
 GameObject:
   m_ObjectHideFlags: 0
@@ -198,6 +229,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6110309604173993469}
   - component: {fileID: 2885106721892360654}
+  - component: {fileID: 4544625219501647751}
   - component: {fileID: 2626795165514183687}
   m_Layer: 0
   m_Name: Sign Arrow
@@ -222,6 +254,7 @@ Transform:
   - {fileID: 3538664954075531438}
   - {fileID: 5790405952946835165}
   - {fileID: 3405205305989244855}
+  - {fileID: 5492421929162057386}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!65 &2885106721892360654
@@ -245,6 +278,24 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.137538, y: 0.94598794, z: 0.9467926}
   m_Center: {x: 0.0020165443, y: 0.47299397, z: -0.06634903}
+--- !u!114 &4544625219501647751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6200834178807133525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsInteractable: 0
+  Icon: 0
+  IconTransform: {fileID: 5492421929162057386}
+  Type: 1
+  NodePermalink: 
+  NodeCommand: 
 --- !u!114 &2626795165514183687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -257,9 +308,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845f5833d4e1542a08092448bb9d5cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  IsInteractable: 0
   HomerNodeId: 
-  Text: 
+  Command: 
   Label: {fileID: 5189825221979134897}
+  Text: 
 --- !u!1 &6890635721809007454
 GameObject:
   m_ObjectHideFlags: 0

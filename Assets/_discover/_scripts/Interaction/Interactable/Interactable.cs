@@ -1,22 +1,47 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Homer;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public enum InteractionType
+    public enum InteractionIcon
     {
         None = 0,
-        HomerCommand = 1,
-        HomerNode = 2,
+        Look = 1,
+        Talk = 2,
+        Use = 4
+    }
+
+    public enum ReActionType
+    {
+        None = 0,
+        NodeAction = 1,
         UnityAction = 3
     }
-    public abstract class Interactable : MonoBehaviour
+
+    public class Interactable : MonoBehaviour
     {
         [Header("Interaction")]
         public bool IsInteractable;
-        public string HomerNodeId;
-        public string Command;
+        public InteractionIcon Icon;
+
+        public Transform IconTransform { get; private set; }
+
+        public ActionType Type;
+
+        [Header("Quest")]
+        public string NodePermalink;
+        public string NodeCommand;
+
+        void Start()
+        {
+            IconTransform = gameObject.transform.Find("Icon");
+            if (IconTransform == null)
+            {
+                IconTransform = transform;
+            }
+        }
 
     }
 }
