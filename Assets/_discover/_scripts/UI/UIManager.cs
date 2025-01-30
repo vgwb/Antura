@@ -55,8 +55,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Subscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Subscribe(OnAgentTriggerExit);
+            DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Subscribe(OnInteractableEnteredByPlayer);
+            DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnMapCameraActivated.Subscribe(OnMapCameraActivated);
@@ -67,8 +67,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (I == this)
                 I = null;
             this.StopAllCoroutines();
-            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
+            DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Unsubscribe(OnInteractableEnteredByPlayer);
+            DiscoverNotifier.Game.OnInteractableExitedByPlayer.Unsubscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnMapCameraActivated.Unsubscribe(OnMapCameraActivated);
@@ -99,12 +99,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Callbacks
 
-        void OnAgentTriggerEnter(EdAgent agent)
+        void OnInteractableEnteredByPlayer(Interactable interactable)
         {
             btAct.gameObject.SetActive(true);
         }
 
-        void OnAgentTriggerExit(EdAgent agent)
+        void OnInteractableExitedByPlayer(Interactable interactable)
         {
             btAct.gameObject.SetActive(false);
         }
@@ -118,7 +118,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnCloseDialogue()
         {
-            if (InteractionManager.I.nearbyAgent == null)
+            if (InteractionManager.I.nearbyInteractable == null)
                 btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);

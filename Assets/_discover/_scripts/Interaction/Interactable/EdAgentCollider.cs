@@ -1,8 +1,10 @@
+using System;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    [Obsolete("Use Interactable with a collider instead")]
     public class EdAgentCollider : MonoBehaviour
     {
         public EdAgent Agent;
@@ -10,14 +12,14 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnTriggerEnter(Collider other)
         {
             Agent.OnInteractionWith(other.gameObject);
-            if (other.gameObject == InteractionManager.I.player.gameObject)
-                DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Dispatch(Agent);
+            // if (other.gameObject == InteractionManager.I.player.gameObject)
+            //     DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Dispatch(Agent);
         }
 
         public void OnTriggerExit(Collider other)
         {
-            if (other.gameObject == InteractionManager.I.player.gameObject)
-                DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Dispatch(Agent);
+            // if (other.gameObject == InteractionManager.I.player.gameObject)
+            //     DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Dispatch(Agent);
         }
     }
 }

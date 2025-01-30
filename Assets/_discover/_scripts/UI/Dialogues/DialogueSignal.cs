@@ -9,8 +9,6 @@ namespace Antura.Minigames.DiscoverCountry
     {
         #region Serialized
 
-        [SerializeField] Vector3 offsetFromLLAgentBase = new Vector3(0, 1.2f, 0);
-        [SerializeField] Vector3 offsetFromInfoPointBase = new Vector3(0, 0.8f, 0);
         [SerializeField] bool animateIco;
         [Header("References")]
         [DeEmptyAlert]
@@ -22,7 +20,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
-        Vector3 currOffset;
         Transform trans;
         Transform targetTrans;
         Tween showTween, loopTween;
@@ -55,23 +52,18 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            trans.position = targetTrans.position + currOffset;
+            trans.position = targetTrans.position;
         }
 
         #endregion
 
         #region Public Methods
 
-        public void ShowFor(EdAgent agent)
+        public void ShowFor(Interactable interactable)
         {
-            SetAppearance(true);
-            Show(agent.transform);
+            SetAppearance(interactable);
+            Show(interactable.IconTransform);
 
-        }
-        public void ShowFor(InfoPoint infoPoint)
-        {
-            SetAppearance(false);
-            Show(infoPoint.transform);
         }
 
         public void Hide()
@@ -86,22 +78,36 @@ namespace Antura.Minigames.DiscoverCountry
         void Show(Transform target)
         {
             showTween.Restart();
-            if (animateIco)
-                loopTween.Restart();
+            if (animateIco) loopTween.Restart();
             this.gameObject.SetActive(true);
             targetTrans = target;
         }
 
-        void SetAppearance(bool isDialogue)
+        void SetAppearance(Interactable interactable)
         {
-            currOffset = isDialogue ? offsetFromLLAgentBase : offsetFromInfoPointBase;
-            balloon_talk.gameObject.SetActive(isDialogue);
-            ico_talk.gameObject.SetActive(isDialogue);
-            balloon_info_action.gameObject.SetActive(!isDialogue);
-            ico_info.gameObject.SetActive(!isDialogue);
-            ico_action.gameObject.SetActive(false); // TODO implement when we have a distinction
+            balloon_talk.gameObject.SetActive(false);
+            balloon_info_action.gameObject.SetActive(false);
+            ico_talk.gameObject.SetActive(false);
+            ico_info.gameObject.SetActive(false);
+            ico_action.gameObject.SetActive(false);
+            
+            switch (interactable.InteractionType)
+            {
+                case InteractionType.Talk:
+                    balloon_talk.gameObject.SetActive(true);
+                    ico_talk.gameObject.SetActive(true);
+                    break;
+                case InteractionType.Look:
+                    balloon_info_action.gameObject.SetActive(true);
+                    ico_info.gameObject.SetActive(true);
+                    break;
+                case InteractionType.Use:
+                    balloon_info_action.gameObject.SetActive(true);
+                    ico_action.gameObject.SetActive(true);
+                    break;
+            }
         }
-
+        
         #endregion
     }
 }

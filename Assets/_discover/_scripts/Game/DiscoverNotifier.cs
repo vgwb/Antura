@@ -18,14 +18,10 @@ namespace Antura.Minigames.DiscoverCountry
             public static readonly ActionEvent<QuestNode> OnShowDialogueBalloon = new("DialoguesUI.OnShowDialogueBalloon");
             /// <summary>Dispatched when a main dialogue balloon closes</summary>
             public static readonly ActionEvent<QuestNode> OnCloseDialogueBalloon = new("DialoguesUI.OnCloseDialogueBalloon");
-            /// <summary>When an Agent's collider OnTriggerEnter is entered by the player</summary>
-            public static readonly ActionEvent<EdAgent> OnAgentTriggerEnteredByPlayer = new("DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer");
-            /// <summary>When an Agent's collider OnTriggerEnter is exited by the player</summary>
-            public static readonly ActionEvent<EdAgent> OnAgentTriggerExitedByPlayer = new("DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer");
-            /// <summary>When an infoPoint's collider OnTriggerEnter is entered by the player</summary>
-            public static readonly ActionEvent<InfoPoint, string, string> OnInfoPointTriggerEnteredByPlayer = new("DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer");
-            /// <summary>When an infoPoint's collider OnTriggerEnter is exited by the player</summary>
-            public static readonly ActionEvent<InfoPoint> OnInfoPointTriggerExitedByPlayer = new("DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer");
+            /// <summary>When an Interactable collider OnTriggerEnter is entered by the player</summary>
+            public static readonly ActionEvent<Interactable> OnInteractableEnteredByPlayer = new("DiscoverNotifier.Game.OnInteractableEnteredByPlayer");
+            /// <summary>When an Interactable collider OnTriggerEnter is exited by the player</summary>
+            public static readonly ActionEvent<Interactable> OnInteractableExitedByPlayer = new("DiscoverNotifier.Game.OnInteractableExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
             public static readonly ActionEvent OnActClicked = new("DiscoverNotifier.Game.OnActClicked");
             /// <summary>When the map button is toggled on or off</summary>

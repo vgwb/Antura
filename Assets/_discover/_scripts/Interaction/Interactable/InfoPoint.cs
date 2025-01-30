@@ -7,6 +7,7 @@ using Antura.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    [Obsolete("Use Interactable instead")]
     public class InfoPoint : MonoBehaviour
     {
         [Header("Homer")]
@@ -33,7 +34,7 @@ namespace Antura.Minigames.DiscoverCountry
                 // QuestManager.I.OnInfoPoint(this, HomerNodeId);
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
-                    DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId, Command);
+                    // DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId, Command);
                 }
             }
         }
@@ -42,7 +43,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (other.gameObject == InteractionManager.I.player.gameObject)
             {
-                DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Dispatch(this);
+                // DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Dispatch(this);
             }
         }
     }

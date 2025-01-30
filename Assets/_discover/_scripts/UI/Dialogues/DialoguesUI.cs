@@ -79,13 +79,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void ShowSignalFor(EdAgent agent)
+        public void ShowSignalFor(Interactable interactable)
         {
-            signal.ShowFor(agent);
-        }
-        public void ShowSignalFor(InfoPoint infoPoint)
-        {
-            signal.ShowFor(infoPoint);
+            signal.ShowFor(interactable);
         }
 
         public void HideSignal()

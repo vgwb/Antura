@@ -18,21 +18,15 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         #region Serialized
 
         public EdPlayer player;
-        // [Header("Debug References")]
-        // [SerializeField] Transform debugFocusTarget;
 
         #endregion
 
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
         public bool IsUsingFocusView { get; private set; }
-        public bool HasValidNearbyAgent => nearbyAgent != null && nearbyAgent.gameObject.activeInHierarchy;
-        public bool HasValidNearbyInfoPoint => nearbyInfoPoint != null && nearbyInfoPoint.gameObject.activeInHierarchy;
+        public bool HasValidNearbyInteractable => nearbyInteractable != null && nearbyInteractable.gameObject.activeInHierarchy;
 
-        public EdAgent nearbyAgent { get; private set; }
-        public InfoPoint nearbyInfoPoint { get; private set; }
-        string nearbyInfoPointNodeId;
-        string nearbyInfoPointNodeCommand;
+        public Interactable nearbyInteractable { get; private set; }
         int focusViewEnterFrame;
         Coroutine coChangeLayer, coStartDialogue;
 
@@ -53,26 +47,19 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void Start()
         {
             Layer = InteractionLayer.World;
-            //            player = FindObjectOfType<EdAntura>(true);
-
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Subscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Subscribe(OnAgentTriggerExit);
-            DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Subscribe(OnInfoPointTriggerEnter);
-            DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Subscribe(OnInfoPointTriggerExit);
+            DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Subscribe(OnInteractableEnteredByPlayer);
+            DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
 
         void OnDestroy()
         {
-            if (I == this)
-                I = null;
+            if (I == this) I = null;
             this.StopAllCoroutines();
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnAgentTriggerEnteredByPlayer.Unsubscribe(OnAgentTriggerEnter);
-            DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Unsubscribe(OnAgentTriggerExit);
-            DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Unsubscribe(OnInfoPointTriggerEnter);
-            DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Unsubscribe(OnInfoPointTriggerExit);
+            DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Unsubscribe(OnInteractableEnteredByPlayer);
+            DiscoverNotifier.Game.OnInteractableExitedByPlayer.Unsubscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
 
@@ -91,20 +78,13 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                     UpdateDialogue();
                     break;
             }
-
-            // // DEBUG
-            // if (Input.GetKeyDown(KeyCode.Q)) FocusCameraOn(debugFocusTarget);
         }
 
         void UpdateWorld()
         {
-            if (nearbyAgent != null && !HasValidNearbyAgent)
+            if (nearbyInteractable != null && !HasValidNearbyInteractable)
             {
-                DiscoverNotifier.Game.OnAgentTriggerExitedByPlayer.Dispatch(nearbyAgent);
-            }
-            if (nearbyInfoPoint != null && !HasValidNearbyInfoPoint)
-            {
-                DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Dispatch(nearbyInfoPoint);
+                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(nearbyInteractable);
             }
         }
 
@@ -145,46 +125,24 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Act()
         {
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) UnfocusCam();
+            if (Layer != InteractionLayer.World) return;
+            
+            if (HasValidNearbyInteractable)
             {
-                UnfocusCam();
-            }
-            if (Layer != InteractionLayer.World)
-            {
-                return;
-            }
-            if (HasValidNearbyAgent)
-            {
-                string command = "TALK_" + nearbyAgent.ActorId.ToString();
-                if (nearbyAgent.SubCommand != "")
+                QuestNode questNode = nearbyInteractable.Activate();
+                if (questNode != null)
                 {
-                    command += "_" + nearbyAgent.SubCommand;
+                    if (QuestManager.I.DebugQuest) questNode.Print();
+                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
                 }
-                QuestNode questNode = QuestManager.I.GetQuestNode("", command);
-
-                if (QuestManager.I.DebugQuest)
-                {
-                    Debug.Log("command: " + command);
-                    questNode.Print();
-                }
-
-                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
-            }
-            else if (HasValidNearbyInfoPoint)
-            {
-                var questNode = QuestManager.I.GetQuestNode(nearbyInfoPointNodeId, nearbyInfoPointNodeCommand);
-
-                if (QuestManager.I.DebugQuest)
-                    questNode.Print();
-
-                this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInfoPoint));
             }
         }
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer)
-                return;
+            if (newLayer == Layer) return;
+            
             this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
         }
         IEnumerator CO_ChangeLayer(InteractionLayer newLayer)
@@ -194,19 +152,15 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             Layer = newLayer;
         }
 
-        IEnumerator CO_StartDialogue(QuestNode questNode, InfoPoint infoPoint = null)
+        IEnumerator CO_StartDialogue(QuestNode questNode)
         {
-            bool isInfoPointMode = infoPoint != null;
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (!isInfoPointMode)
-            {
-                nearbyAgent.LookAt(player.transform);
-            }
+            if (nearbyInteractable.IsLL) nearbyInteractable.LL.LookAt(player.transform);
 
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-            CameraManager.I.FocusDialogueCamOn(isInfoPointMode ? infoPoint.transform : nearbyAgent.transform);
+            if (nearbyInteractable.FocusCameraOnInteract) CameraManager.I.FocusDialogueCamOn(nearbyInteractable.IconTransform);
             UIManager.I.dialogues.HideSignal();
 
             if (questNode == null)
@@ -225,14 +179,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (HasValidNearbyAgent)
-            {
-                UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
-            }
-            else if (HasValidNearbyInfoPoint)
-            {
-                UIManager.I.dialogues.ShowSignalFor(nearbyInfoPoint);
-            }
+            if (HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
@@ -258,40 +205,17 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             Act();
         }
 
-        void OnAgentTriggerEnter(EdAgent ll)
+        void OnInteractableEnteredByPlayer(Interactable interactable)
         {
-            //            Debug.Log($"Enter {ll}", ll);
-            nearbyAgent = ll;
-            UIManager.I.dialogues.ShowSignalFor(nearbyAgent);
+            nearbyInteractable = interactable;
+            UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
         }
 
-        void OnAgentTriggerExit(EdAgent ll)
+        void OnInteractableExitedByPlayer(Interactable interactable)
         {
-            //            Debug.Log($"Exit {ll} ({ll == nearbyAgent})", ll);
-            if (nearbyAgent == ll)
+            if (nearbyInteractable == interactable)
             {
-                nearbyAgent = null;
-                UIManager.I.dialogues.HideSignal();
-            }
-        }
-
-        void OnInfoPointTriggerEnter(InfoPoint infoPoint, string nodeId, string command)
-        {
-            //            Debug.Log($"Enter {infoPoint}", infoPoint);
-            nearbyInfoPoint = infoPoint;
-            nearbyInfoPointNodeId = nodeId;
-            nearbyInfoPointNodeCommand = command;
-            UIManager.I.dialogues.ShowSignalFor(infoPoint);
-        }
-
-        void OnInfoPointTriggerExit(InfoPoint infoPoint)
-        {
-            //            Debug.Log($"Exit {infoPoint} ({infoPoint == nearbyInfoPoint})", infoPoint);
-            if (nearbyInfoPoint == infoPoint)
-            {
-                nearbyInfoPoint = null;
-                nearbyInfoPointNodeId = null;
-                nearbyInfoPointNodeCommand = null;
+                nearbyInteractable = null;
                 UIManager.I.dialogues.HideSignal();
             }
         }
