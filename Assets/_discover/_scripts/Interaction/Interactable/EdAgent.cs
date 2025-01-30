@@ -8,12 +8,6 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class EdAgent : MonoBehaviour
     {
-        [Header("Homer")]
-        public bool IsInteractable;
-        public HomerActors.Actors ActorId;
-        public string SubCommand = "";
-        public Action<GameObject> OnInteraction;
-
         [Header("AI")]
         public NavMeshAgent NavMeshAgent;
 
@@ -25,17 +19,6 @@ namespace Antura.Minigames.DiscoverCountry
             StartMovement();
         }
 
-        public void OnInteractionWith(GameObject otherGo)
-        {
-            if (IsInteractable)
-            {
-                OnInteraction?.Invoke(otherGo);
-                QuestManager.I?.OnInteract(this);
-            }
-            // TESTING
-            //if (!aiPaused) LookAt(otherGo.transform, stopWalking:true);
-            //else StopLookAt();
-        }
 
 
         public void StartMovement()

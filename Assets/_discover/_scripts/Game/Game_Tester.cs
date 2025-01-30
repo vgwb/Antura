@@ -18,18 +18,6 @@ namespace Antura.Minigames.DiscoverCountry
             LetterMAJOR.ShowImage("ball");
             LetterTEACHER.ShowImage("bread");
 
-            LetterMAJOR.OnInteraction += o =>
-            {
-                Debug.Log("Letter 1 interacted!");
-                LetterMAJOR.ShowImage("brain");
-            };
-
-            LetterTEACHER.OnInteraction += o =>
-            {
-                Debug.Log("Letter 2 interacted!");
-                LetterTEACHER.ShowImage("cloud");
-            };
-
             //StartCoroutine(AnimateCO());
         }
 

@@ -187,18 +187,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
-  InteractionType: 0
-  IconTransform: {fileID: 0}
-  ShowIconAlways: 0
+  InteractionType: 1
+  IconTransform: {fileID: 3165526689393668383}
+  ShowIconAlways: 1
   FocusCameraOnInteract: 0
-  ActivateNode: 0
-  NodePermalink: 
+  ActivateNode: 1
+  NodePermalink: quiz_test
   NodeCommand: 
   ActivateUnityAction: 0
+  disableAfterAction: 0
   unityAction:
     m_PersistentCalls:
       m_Calls: []
-  DisableAfterAction: 0
 --- !u!1 &6343713789433767422
 GameObject:
   m_ObjectHideFlags: 0
@@ -247,7 +247,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3165526689393668383}
   m_Layer: 0
-  m_Name: icon
+  m_Name: IconTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,7 +262,7 @@ Transform:
   m_GameObject: {fileID: 7839666983307963577}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.7, z: 0.57}
+  m_LocalPosition: {x: 0, y: 6.7, z: 2.05}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -374,6 +374,21 @@ PrefabInstance:
     - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
       propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: InteractionType
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: ActivateUnityAction
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
@@ -689,6 +704,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3102562681246376212}
     m_Modifications:
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: NodeCommand
+      value: TALK_TUTOR
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: ActivateNode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: InteractionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: FocusCameraOnInteract
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1255010923214976118, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_IsTrigger
@@ -842,43 +882,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 2755831149816365795}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
---- !u!1 &7762119243340701256 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-    type: 3}
-  m_PrefabInstance: {fileID: 3011231249750364132}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2755831149816365795
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7762119243340701256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsInteractable: 1
-  InteractionType: 2
-  IconTransform: {fileID: 0}
-  ShowIconAlways: 1
-  FocusCameraOnInteract: 1
-  ActivateNode: 1
-  NodePermalink: 
-  NodeCommand: TALK_TUTOR
-  ActivateUnityAction: 0
-  unityAction:
-    m_PersistentCalls:
-      m_Calls: []
-  DisableAfterAction: 0
 --- !u!4 &7816113099767836654 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
@@ -920,8 +925,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
+      propertyPath: ActivateNode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
       propertyPath: NodePermalink
       value: quiz_test
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6110309604173993469, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
@@ -1166,6 +1186,11 @@ PrefabInstance:
     - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
       propertyPath: Icon
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
+        type: 3}
+      propertyPath: ActivateNode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4544625219501647751, guid: 8ac394a4a6c19401b97e82c256e55b89,
@@ -1532,53 +1557,90 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Interactable
       objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: ActivateUnityAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5780187878288408116}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnTrigger
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Antura.Minigames.DiscoverCountry.Interaction.Rotator, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
+      propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 3673360233732712175, guid: 101eb881260384dcab74f6d55ec15aeb, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3249751084726950148, guid: 101eb881260384dcab74f6d55ec15aeb,
+    - targetCorrespondingSourceObject: {fileID: 3747834288281539422, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 3689079965853321477}
+      addedObject: {fileID: 5780187878288408116}
   m_SourcePrefab: {fileID: 100100000, guid: 101eb881260384dcab74f6d55ec15aeb, type: 3}
---- !u!1 &4784010664092525383 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3249751084726950148, guid: 101eb881260384dcab74f6d55ec15aeb,
-    type: 3}
-  m_PrefabInstance: {fileID: 8033673238116399683}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3689079965853321477
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4784010664092525383}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsInteractable: 1
-  InteractionType: 0
-  IconTransform: {fileID: 0}
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
-  ActivateNode: 0
-  NodePermalink: 
-  NodeCommand: 
-  ActivateUnityAction: 0
-  unityAction:
-    m_PersistentCalls:
-      m_Calls: []
-  DisableAfterAction: 0
 --- !u!4 &5273689834892442109 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2761480388842308542, guid: 101eb881260384dcab74f6d55ec15aeb,
     type: 3}
   m_PrefabInstance: {fileID: 8033673238116399683}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6593177853208144157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3747834288281539422, guid: 101eb881260384dcab74f6d55ec15aeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8033673238116399683}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5780187878288408116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6593177853208144157}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32e1b6abe0ac94c129ac460169335b01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoStart: 0
+  offset: {x: 0, y: 1, z: 0}
+  speed: 1
+  delay: 0
+  pause: 0
 --- !u!1001 &8043834273141936933
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1666,6 +1728,31 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3102562681246376212}
     m_Modifications:
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: NodeCommand
+      value: TALK_TEACHER
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: ActivateNode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: ShowIconAlways
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: InteractionType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: FocusCameraOnInteract
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1255010923214976118, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_IsTrigger
@@ -1819,11 +1906,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-        type: 3}
-      insertIndex: 1
-      addedObject: {fileID: 6576062372245752065}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5e19eafb340366c4590bcaaad511166c, type: 3}
 --- !u!4 &3503521902607057223 stripped
 Transform:
@@ -1831,34 +1914,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8443511762315944269}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &3990186777893302497 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
-    type: 3}
-  m_PrefabInstance: {fileID: 8443511762315944269}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &6576062372245752065
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3990186777893302497}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsInteractable: 1
-  InteractionType: 2
-  IconTransform: {fileID: 0}
-  ShowIconAlways: 1
-  FocusCameraOnInteract: 1
-  ActivateNode: 1
-  NodePermalink: 
-  NodeCommand: TALK_TEACHER
-  ActivateUnityAction: 0
-  unityAction:
-    m_PersistentCalls:
-      m_Calls: []
-  DisableAfterAction: 0

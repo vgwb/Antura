@@ -71,7 +71,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         public QuestNode GetQuestNode(string permalink, string command)
         {
-            // TODO
             if (permalink != "")
             {
                 return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");

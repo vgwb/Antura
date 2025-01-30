@@ -7,13 +7,8 @@ using Antura.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    [Obsolete("Use Interactable instead")]
     public class InfoPoint : MonoBehaviour
     {
-        [Header("Homer")]
-        public bool IsInteractable;
-        public string HomerNodeId;
-        public string Command;
         [Header("References")]
         public TextRender Label;
         [Header("Content")]
@@ -24,26 +19,6 @@ namespace Antura.Minigames.DiscoverCountry
             if (Text != "")
             {
                 Label.SetText(Text);
-            }
-        }
-
-        public void OnTriggerEnter(Collider other)
-        {
-            if (IsInteractable)
-            {
-                // QuestManager.I.OnInfoPoint(this, HomerNodeId);
-                if (other.gameObject == InteractionManager.I.player.gameObject)
-                {
-                    // DiscoverNotifier.Game.OnInfoPointTriggerEnteredByPlayer.Dispatch(this, HomerNodeId, Command);
-                }
-            }
-        }
-
-        void OnTriggerExit(Collider other)
-        {
-            if (other.gameObject == InteractionManager.I.player.gameObject)
-            {
-                // DiscoverNotifier.Game.OnInfoPointTriggerExitedByPlayer.Dispatch(this);
             }
         }
     }

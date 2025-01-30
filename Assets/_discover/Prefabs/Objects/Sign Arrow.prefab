@@ -93,7 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5492421929162057386}
   m_Layer: 0
-  m_Name: icon
+  m_Name: IconTarget
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -291,11 +291,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 0
-  Icon: 0
+  InteractionType: 1
   IconTransform: {fileID: 5492421929162057386}
-  Type: 1
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  ActivateNode: 0
   NodePermalink: 
   NodeCommand: 
+  ActivateUnityAction: 0
+  disableAfterAction: 0
+  unityAction:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &2626795165514183687
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -308,9 +315,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 845f5833d4e1542a08092448bb9d5cc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractable: 0
-  HomerNodeId: 
-  Command: 
   Label: {fileID: 5189825221979134897}
   Text: 
 --- !u!1 &6890635721809007454
