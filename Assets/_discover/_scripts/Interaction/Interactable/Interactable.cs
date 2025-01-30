@@ -36,7 +36,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            IconTransform = gameObject.transform.Find("Icon");
+            IconTransform = gameObject.transform.Find("icon");
             if (IconTransform == null)
             {
                 IconTransform = transform;

@@ -69,6 +69,13 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
         }
 
+        public QuestNode GetQuestNode(string permalink, string command)
+        {
+            // TODO
+            return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
+        }
+
+
         public QuestNode GetNodeByCommand(string command)
         {
             return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
