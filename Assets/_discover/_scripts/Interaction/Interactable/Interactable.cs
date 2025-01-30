@@ -26,7 +26,8 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsInteractable;
         public InteractionIcon Icon;
 
-        public Transform IconTransform { get; private set; }
+        public Transform IconTransform;
+        public bool FocusCameraOnInteract;
 
         public ReActionType Type;
 
@@ -36,7 +37,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            IconTransform = gameObject.transform.Find("icon");
+            // IconTransform = gameObject.transform.Find("icon");
             if (IconTransform == null)
             {
                 IconTransform = transform;
