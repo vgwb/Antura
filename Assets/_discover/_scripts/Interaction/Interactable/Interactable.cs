@@ -33,16 +33,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Header("Quest Node")]
         public bool ActivateNode;
-        [DeConditional("ActivateNode", true, behaviour:ConditionalBehaviour.Hide)]
         public string NodePermalink;
-        [DeConditional("ActivateNode", true, behaviour:ConditionalBehaviour.Hide)]
         public string NodeCommand;
 
         [Header("Unity Action")]
         public bool ActivateUnityAction;
-        [DeConditional("ActivateUnityAction", true, behaviour:ConditionalBehaviour.Hide)]
         [SerializeField] bool disableAfterAction;
-        [DeConditional("ActivateUnityAction", true, behaviour:ConditionalBehaviour.Hide)]
         [SerializeField] UnityEvent unityAction;
         
         #endregion
