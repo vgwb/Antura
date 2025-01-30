@@ -30,13 +30,17 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Header("Quest Node")]
         public bool ActivateNode;
+        [DeConditional("ActivateNode", true, behaviour:ConditionalBehaviour.Hide)]
         public string NodePermalink;
+        [DeConditional("ActivateNode", true, behaviour:ConditionalBehaviour.Hide)]
         public string NodeCommand;
 
         [Header("Unity Action")]
         public bool ActivateUnityAction;
+        [DeConditional("ActivateUnityAction", true, behaviour:ConditionalBehaviour.Hide)]
+        [SerializeField] bool disableAfterAction;
+        [DeConditional("ActivateUnityAction", true, behaviour:ConditionalBehaviour.Hide)]
         [SerializeField] UnityEvent unityAction;
-        public bool DisableAfterAction;
 
         void Start()
         {
@@ -44,6 +48,17 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 IconTransform = transform;
             }
+        }
+
+        /// <summary>
+        /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate 
+        /// </summary>
+        public QuestNode Activate()
+        {
+            QuestNode node = null;
+            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+            if (ActivateUnityAction) LaunchUnityAction();
+            return node;
         }
 
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
