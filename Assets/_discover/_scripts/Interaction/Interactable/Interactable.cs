@@ -32,11 +32,13 @@ namespace Antura.Minigames.DiscoverCountry
         public bool FocusCameraOnInteract;
 
         public ReActionType Type;
-        [SerializeField] UnityEvent unityAction;
 
         [Header("Quest")]
         public string NodePermalink;
         public string NodeCommand;
+        
+        [Header("UnityAction")]
+        [SerializeField] UnityEvent unityAction;
 
         void Start()
         {
@@ -47,5 +49,11 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
+        void LaunchUnityAction()
+        {
+            if (unityAction != null) unityAction.Invoke();
+        }
+        
     }
 }
