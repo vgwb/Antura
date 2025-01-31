@@ -222,7 +222,7 @@ namespace Antura.Profile
                     BtContinue.StopPulsing();
                     BtContinue.gameObject.SetActive(false);
                     if (!init)
-                        KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender);
+                        KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender, KeeperMode.NativeAndSubtitles);
                     break;
 
                 case UIState.AvatarCreation:
@@ -230,7 +230,7 @@ namespace Antura.Profile
                     BtContinue.StopPulsing();
                     BtContinue.gameObject.SetActive(false);
 
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor, KeeperMode.NativeAndSubtitles);
 
                     BgColorCategory.gameObject.SetActive(false);
                     GenderCategory.gameObject.SetActive(false);
@@ -284,7 +284,7 @@ namespace Antura.Profile
                     AgeCategory.gameObject.SetActive(false);
                     BtContinue.StopPulsing();
                     BtContinue.gameObject.SetActive(false);
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color, KeeperMode.NativeAndSubtitles);
                     break;
 
                 case UIState.AgeSelection:
@@ -298,7 +298,7 @@ namespace Antura.Profile
                     AgeCategory.gameObject.SetActive(true);
                     BtContinue.StopPulsing();
                     BtContinue.gameObject.SetActive(false);
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age, KeeperMode.NativeAndSubtitles);
                     break;
 
             }
@@ -310,25 +310,25 @@ namespace Antura.Profile
             switch (state)
             {
                 case UIState.GenderSelection:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Gender, KeeperMode.NativeAndSubtitles);
                     break;
                 case UIState.AgeSelection:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Age, KeeperMode.NativeAndSubtitles);
                     break;
                 case UIState.BgColorSelection:
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Color, KeeperMode.NativeAndSubtitles);
                     break;
                 case UIState.AvatarCreation:
                     switch (categoryIndex)
                     {
                         case CategoryIndex.SkinColor:
-                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor);
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_SkinColor, KeeperMode.NativeAndSubtitles);
                             break;
                         case CategoryIndex.Avatar:
-                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Avatar);
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_Avatar, KeeperMode.NativeAndSubtitles);
                             break;
                         case CategoryIndex.HairColor:
-                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_HairColor);
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Profile_HairColor, KeeperMode.NativeAndSubtitles);
                             break;
                     }
                     break;
@@ -419,7 +419,7 @@ namespace Antura.Profile
                     SelectGender(Array.IndexOf(GenderCategory.UIButtons, uiButton) == 0
                         ? PlayerGender.M
                         : PlayerGender.F);
-                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                    KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay, KeeperMode.NativeAndSubtitles);
                     break;
                 case UIState.AvatarCreation:
                     int catIndex = Array.IndexOf(Categories, category);
@@ -451,7 +451,7 @@ namespace Antura.Profile
                     {
                         BtContinue.gameObject.SetActive(true);
                         BtContinue.Pulse();
-                        KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                        KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay, KeeperMode.NativeAndSubtitles);
                     }
                     break;
                 case UIState.BgColorSelection:
@@ -462,7 +462,7 @@ namespace Antura.Profile
                             BtContinue.Pulse();
                             currBgColor = uiButton.Bt.image.color;
                             _avatars[currAvatarId].GetComponent<UIButton>().Bt.image.color = currBgColor;
-                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay, KeeperMode.NativeAndSubtitles);
                             break;
                         case CategoryType.Avatar:
                             BgColorCategory.Select(-1);
@@ -477,7 +477,7 @@ namespace Antura.Profile
                         case CategoryType.Age:
                             BtContinue.gameObject.SetActive(true);
                             BtContinue.Pulse();
-                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay);
+                            KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Action_PressPlay, KeeperMode.NativeAndSubtitles);
                             currAge = 4 + Array.IndexOf(AgeCategory.UIButtons, uiButton);
                             break;
                         case CategoryType.Avatar:

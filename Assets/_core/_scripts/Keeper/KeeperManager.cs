@@ -90,7 +90,7 @@ namespace Antura.Keeper
             var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", langCodeRequested, gendered: true);
             if (withSubtitles && AudioManager.I.Exists(sourcePath, langCodeRequested))
             {
-                WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper);
+                WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper, useNative:keeperMode == KeeperMode.NativeAndSubtitles);
             }
             else
             {

@@ -42,6 +42,10 @@ namespace Antura.Core
         {
             return GetLocalizationData(id).GetLearningText(CurrentPlayerGender);
         }
+        public static string GetNative(string id)
+        {
+            return GetLocalizationData(id).GetNativeText();
+        }
 
         public static string GetLocalizedAudioFileName(string id)
         {

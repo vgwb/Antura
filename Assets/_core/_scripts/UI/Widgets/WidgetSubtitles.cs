@@ -81,12 +81,13 @@ namespace Antura.UI
             var data = LocalizationManager.GetLocalizationData(_sentenceId);
             DisplayDialogue(data, fillPeriod, _isKeeper, _callback);
         }
-        public void DisplayDialogue(LocalizationData data, float fillPeriod = 2, bool _isKeeper = false, Action _callback = null)
+        public void DisplayDialogue(LocalizationData data, float fillPeriod = 2, bool _isKeeper = false, Action _callback = null, bool useNative = false)
         {
             ShownData = null;
-            var learningText = LocalizationManager.GetLearning(data.Id);
+            var text = LocalizationManager.GetLearning(data.Id);
+            if (useNative) text = LocalizationManager.GetNative(data.Id);
             var helpText = data.HelpText;
-            DisplayText(learningText, helpText, fillPeriod, _isKeeper, _callback);
+            DisplayText(text, helpText, fillPeriod, _isKeeper, _callback);
         }
 
         public void DisplayVocabularyData(ILivingLetterData data, float fillPeriod = 2, bool _isKeeper = false, Action _callback = null)

@@ -117,12 +117,17 @@ namespace Antura.Scenes
 
             GlobalUI.ShowPauseMenu(true);
 
-            if (languageChangeOnly)
+            if (languageChangeOnly || AppManager.PROFILE_INVERSION)
             {
                 SelectLearningContentPanel.ConfirmNativeLanguage(selectNativeLanguagePanel.SelectedCode, LearningContentID.None);
 
                 // Reload after changing
-                AppManager.I.NavigationManager.GoToHome(true);
+                if (languageChangeOnly) AppManager.I.NavigationManager.GoToHome(true);
+
+                if (AppManager.PROFILE_INVERSION)
+                {
+                    yield return AppManager.I.ResetLanguageSetup(selectNativeLanguagePanel.SelectedCode);
+                }
             }
         }
 
