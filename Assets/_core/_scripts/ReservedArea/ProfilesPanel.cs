@@ -165,13 +165,25 @@ namespace Antura.ReservedArea
             SelectedPlayerId = demoUserUiid;
 
             // Populate with complete data
-            var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
-            if (TEST_ALMOST_AT_END) maxJourneyPos = new JourneyPosition(6, 13, 100);
-            yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
+            // Find all content editions with the current native language
+            var allConfigs = new List<ContentEditionConfig>();
+            SelectLearningContentPanel.FindAllContentEditions(allConfigs, AppManager.I.AppSettings.NativeLanguage);
 
-            AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
+            foreach (ContentEditionConfig config in allConfigs)
+            {
+                var contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(config.ContentID);
+                AppManager.I.NavigationManager.NavData.CurrentContent = contentProfile;
+
+                yield return AppManager.I.ReloadEdition();
+
+                var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
+                if (TEST_ALMOST_AT_END) maxJourneyPos = new JourneyPosition(6, 13, 100);
+                yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
+
+                AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
+                AppManager.I.Player.ForcePreviousJourneyPosition(maxJourneyPos);
+            }
             AppManager.I.Player.AddBones(500);
-            AppManager.I.Player.ForcePreviousJourneyPosition(maxJourneyPos);
 
             if (!TEST_ALMOST_AT_END)
             {

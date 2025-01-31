@@ -184,11 +184,14 @@ namespace Antura.Core
             Loaded = true;
         }
 
-        public IEnumerator ReloadEdition()
+        public IEnumerator ReloadEdition(bool skipLanguages = false)
         {
-            LanguageSwitcher = new LanguageSwitcher();
-            yield return LanguageSwitcher.LoadAllLanguageData();
-            yield return LanguageSwitcher.LoadEditionData();
+            if (!skipLanguages)
+            {
+                LanguageSwitcher = new LanguageSwitcher();
+                yield return LanguageSwitcher.LoadAllLanguageData();
+                yield return LanguageSwitcher.LoadEditionData();
+            }
             DB = new DatabaseManager(ContentEdition);
             if (PROFILE_INVERSION)
             {

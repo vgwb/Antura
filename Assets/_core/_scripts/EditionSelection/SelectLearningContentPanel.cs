@@ -13,6 +13,35 @@ namespace Antura.UI
 {
     public class SelectLearningContentPanel : MonoBehaviour
     {
+        public static void FindAllContentEditions(List<ContentEditionConfig> supportedConfigs, LanguageCode nativeCode)
+        {
+            // Find all content editions with the current native language
+            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
+            {
+                var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
+
+                bool isSupported = contentEditionConfig.SupportsLanguage(nativeCode);
+
+                // HACK: For Arabic, we also show the Arabic_Legacy contents
+                if (!isSupported && nativeCode == LanguageCode.arabic)
+                {
+                    isSupported = contentEditionConfig.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy);
+                }
+                if (!isSupported)
+                    continue;
+
+                supportedConfigs.Add(contentEditionConfig);
+            }
+
+            // Place as first
+            var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.Method == LearnMethod.LearnToRead);
+            if (learnToReadConfig != null)
+            {
+                supportedConfigs.Remove(learnToReadConfig);
+                supportedConfigs.Insert(0, learnToReadConfig);
+            }
+        }
+
         public TextRender QuestionText;
         public SelectNativeLanguageButton SelectNativeLanguageButton;
 
@@ -37,33 +66,8 @@ namespace Antura.UI
 
             PreferredContentID = AppManager.I.AppSettings.ContentID;
 
-            List<ContentEditionConfig> supportedConfigs = new List<ContentEditionConfig>();
-
-            // Find all content editions with the current native language
-            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
-            {
-                var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
-
-                bool isSupported = contentEditionConfig.SupportsLanguage(SelectedNativeCode);
-
-                // HACK: For Arabic, we also show the Arabic_Legacy contents
-                if (!isSupported && SelectedNativeCode == LanguageCode.arabic)
-                {
-                    isSupported = contentEditionConfig.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy);
-                }
-                if (!isSupported)
-                    continue;
-
-                supportedConfigs.Add(contentEditionConfig);
-            }
-
-            // Place as first
-            var learnToReadConfig = supportedConfigs.FirstOrDefault(x => x.LearnMethod.Method == LearnMethod.LearnToRead);
-            if (learnToReadConfig != null)
-            {
-                supportedConfigs.Remove(learnToReadConfig);
-                supportedConfigs.Insert(0, learnToReadConfig);
-            }
+            var supportedConfigs = new List<ContentEditionConfig>();
+            FindAllContentEditions(supportedConfigs, SelectedNativeCode);
 
             foreach (ContentEditionConfig contentEditionConfig in supportedConfigs)
             {
