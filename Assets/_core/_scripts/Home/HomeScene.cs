@@ -55,7 +55,8 @@ namespace Antura.Scenes
             else
             {
                 GlobalUI.ShowPauseMenu(true, PauseMenuType.StartScreen);
-                KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.TitleLocID, false, true, TutorCreateProfile, KeeperMode.LearningNoSubtitles);
+                // Fix: [Home] a wrong audio is played #508
+                //KeeperManager.I.PlayDialogue(AppManager.I.ContentEdition.LearnMethod.TitleLocID, false, true, TutorCreateProfile, KeeperMode.LearningNoSubtitles);
                 PetSwitcher.AnimController.State = AnturaAnimation;
                 LLAnimController.State = LLAnimation;
             }
