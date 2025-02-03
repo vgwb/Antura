@@ -67,6 +67,11 @@ namespace Antura.Minigames.DiscoverCountry
 
             HomerAnturaManager.I.Setup(LanguageCode);
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
+
+            if (DebugQuest)
+            {
+                HomerVars.MET_MONALISA = true;
+            }
         }
 
         public QuestNode GetQuestNode(string permalink, string command)

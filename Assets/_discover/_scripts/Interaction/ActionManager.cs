@@ -12,6 +12,9 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static ActionManager I;
 
+        [Tooltip("The starting location of the player")]
+        public GameObject StartingLocation;
+
         public ActionData[] Actions;
 
         [Header("Specific")]
@@ -40,12 +43,15 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Player = GameObject.FindWithTag("Player");
 
-            foreach (var action in Actions)
+            if (!QuestManager.I.DebugQuest)
             {
-                if (action.Type == ActionType.Area)
+                foreach (var action in Actions)
                 {
-                    action.Area?.SetActive(false);
-                    action.Beam?.SetActive(false);
+                    if (action.Type == ActionType.Area)
+                    {
+                        action.Area?.SetActive(false);
+                        action.Beam?.SetActive(false);
+                    }
                 }
             }
 
@@ -53,6 +59,11 @@ namespace Antura.Minigames.DiscoverCountry
             if (AnturaDog != null)
             {
                 AnturaDog.SetActive(false);
+            }
+
+            if (StartingLocation != null)
+            {
+                Player.GetComponent<EdPlayer>().SpawnToNewLocation(StartingLocation.transform);
             }
         }
 

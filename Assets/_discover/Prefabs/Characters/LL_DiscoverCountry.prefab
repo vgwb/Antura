@@ -241,10 +241,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
-  InteractionType: 1
+  InteractionType: 2
   IconTransform: {fileID: 5396177026648878583}
-  ShowIconAlways: 0
-  FocusCameraOnInteract: 0
+  ShowIconAlways: 1
+  FocusCameraOnInteract: 1
   ActivateNode: 0
   NodePermalink: 
   NodeCommand: 
@@ -265,9 +265,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f53a3dc17d5c9e9489263d6d5c01f929, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractable: 0
-  ActorId: 0
-  SubCommand: 
   NavMeshAgent: {fileID: 4674336879015998024}
   Waypoints: []
   HeadProp: 0

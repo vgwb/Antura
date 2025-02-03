@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2761480388842308542}
   - component: {fileID: 4082293342846151844}
   - component: {fileID: 7448125120790419301}
+  - component: {fileID: 2385310610711910289}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -76,11 +77,38 @@ MonoBehaviour:
   ActivateNode: 0
   NodePermalink: 
   NodeCommand: 
-  ActivateUnityAction: 0
+  ActivateUnityAction: 1
   disableAfterAction: 0
   unityAction:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2385310610711910289}
+        m_TargetAssemblyTypeName: Antura.Minigames.DiscoverCountry.Interaction.Chest,
+          Assembly-CSharp
+        m_MethodName: Open
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &2385310610711910289
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3249751084726950148}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a663edfa7764102811ac23fa51c05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Lid: {fileID: 3747834288281539422}
+  rotationAngle: 90
 --- !u!1 &3747834288281539422
 GameObject:
   m_ObjectHideFlags: 0
@@ -176,6 +204,7 @@ GameObject:
   - component: {fileID: 6068948170546370762}
   - component: {fileID: 7176177737615497071}
   - component: {fileID: 4932023132517278629}
+  - component: {fileID: 2527846229145413709}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -250,6 +279,27 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!65 &2527846229145413709
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6877819719653261936}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.7915705, y: 0.80909693, z: 0.6332254}
+  m_Center: {x: -0.000046612702, y: 0.40454847, z: -0.0016125853}
 --- !u!1 &8513999817668715521
 GameObject:
   m_ObjectHideFlags: 0

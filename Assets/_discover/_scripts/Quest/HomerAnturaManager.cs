@@ -137,6 +137,11 @@ namespace Antura.Minigames.DiscoverCountry
                 return null;
             }
 
+            // if (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CONDITION)
+            // {
+            //     homerNode = runningFlow.NextNode();
+            // }
+
             if ((runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
             || (runningFlow.SelectedNode.Node.GetNodeType() == HomerNode.NodeType.TEXT))
             {
