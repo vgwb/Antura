@@ -1,8 +1,17 @@
-# Homer TTS
+# Discover TTS
 
-save the homer translations files into the csv directory.
+save the Homer translations files into the csv directory.
 then use
 `python homer_tts.py lang_code`
+
+where lang_code is
+- AR
+- FR
+- IT
+- PL
+- RO
+- RU
+- UK
 
 ## Tool
 **ElevenLabs**
@@ -10,8 +19,6 @@ then use
 https://elevenlabs.io/docs/introduction
 https://github.com/elevenlabs/elevenlabs-python
 https://elevenlabs.io/app/voice-library
-
-
 https://elevenlabs.io/app/speech-synthesis
 https://elevenlabs.io/docs/voices/premade-voices
 
