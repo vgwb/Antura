@@ -125,18 +125,10 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
-            while (InteractionManager.I.IsUsingFocusView)
-                yield return null;
+            while (InteractionManager.I.IsUsingFocusView) yield return null;
+            
             Sprite image;
-            if (node.Native)
-            {
-                UseLearningLanguage = false;
-            }
-            else
-            {
-                UseLearningLanguage = true;
-
-            }
+            UseLearningLanguage = !node.Native;
             switch (node.Type)
             {
                 case NodeType.TEXT:
