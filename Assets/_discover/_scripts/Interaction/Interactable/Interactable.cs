@@ -45,11 +45,13 @@ namespace Antura.Minigames.DiscoverCountry
         
         public bool IsLL { get; private set; }
         public EdLivingLetter LL { get; private set; }
+        public Transform LookAtTransform { get; private set; }
 
         void Awake()
         {
-            // Store IconTransform if missing
+            // Store IconTransform and LookAtTransform
             if (IconTransform == null) IconTransform = transform;
+            LookAtTransform = IconTransform;
             
             // Store EdLivingLetter if present (so its methods like LookAt can be called on Act)
             EdLivingLetter ll = this.GetComponent<EdLivingLetter>();

@@ -167,7 +167,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             if (nearbyInteractable.FocusCameraOnInteract)
-                CameraManager.I.FocusDialogueCamOn(nearbyInteractable.IconTransform);
+                CameraManager.I.FocusDialogueCamOn(nearbyInteractable.LookAtTransform);
             UIManager.I.dialogues.HideSignal();
 
             if (questNode == null)
