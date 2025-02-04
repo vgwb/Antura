@@ -10,16 +10,19 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         [SerializeField] bool animateIco;
+        [SerializeField] Color previewColor = Color.white;
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] GameObject balloon_talk, balloon_info_action;
         [DeEmptyAlert]
         [SerializeField] Transform iconContainer;
         [DeEmptyAlert]
-        [SerializeField] GameObject ico_talk, ico_info, ico_action;
+        [SerializeField] SpriteRenderer ico_talk, ico_info, ico_action;
 
         #endregion
 
+        bool wasSetup;
+        bool isPreviewSignal;
         Transform trans;
         Transform targetTrans;
         Tween showTween, loopTween;
@@ -29,18 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             trans = this.transform;
-
-            showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
-                .SetEase(Ease.OutCubic)
-                .OnRewind(() =>
-                {
-                    loopTween.Rewind();
-                    this.gameObject.SetActive(false);
-                    targetTrans = null;
-                });
-            loopTween = iconContainer.DOScale(1.1f, 0.45f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
-                .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
-
+            
             this.gameObject.SetActive(false);
         }
 
@@ -59,32 +51,60 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void ShowFor(Interactable interactable)
+        public void Setup(bool asPreviewSignal)
+        {
+            if (wasSetup)
+            {
+                Debug.LogError($"DialogueSignal \"{this.name}\" has already been setup", this);
+                return;
+            }
+            
+            isPreviewSignal = asPreviewSignal;
+            
+            showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
+                .SetEase(isPreviewSignal ? Ease.OutCubic : Ease.OutBounce)
+                .OnRewind(() => {
+                    if (loopTween != null) loopTween.Rewind();
+                    this.gameObject.SetActive(false);
+                    targetTrans = null;
+                });
+            
+            if (!isPreviewSignal)
+            {
+                loopTween = iconContainer.DOScale(1.1f, 0.45f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
+                    .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
+            }
+        }
+        
+        public void ShowFor(Interactable interactable, bool immediate = false)
         {
             SetAppearance(interactable);
-            Show(interactable.IconTransform);
-
+            Show(interactable.IconTransform, immediate);
         }
 
-        public void Hide()
+        public void Hide(bool immediate = false)
         {
-            showTween.PlayBackwards();
+            if (immediate) showTween.Rewind();
+            else showTween.PlayBackwards();
         }
 
         #endregion
 
         #region Methods
 
-        void Show(Transform target)
+        void Show(Transform target, bool immediate = false)
         {
-            showTween.Restart();
-            if (animateIco) loopTween.Restart();
+            if (immediate) showTween.Complete();
+            else showTween.Restart();
+            if (!isPreviewSignal && animateIco) loopTween.Restart();
             this.gameObject.SetActive(true);
             targetTrans = target;
         }
 
         void SetAppearance(Interactable interactable)
         {
+            GameObject balloon = null;
+            SpriteRenderer ico = null;
             balloon_talk.gameObject.SetActive(false);
             balloon_info_action.gameObject.SetActive(false);
             ico_talk.gameObject.SetActive(false);
@@ -94,17 +114,24 @@ namespace Antura.Minigames.DiscoverCountry
             switch (interactable.InteractionType)
             {
                 case InteractionType.Talk:
-                    balloon_talk.gameObject.SetActive(true);
-                    ico_talk.gameObject.SetActive(true);
+                    balloon = balloon_talk;
+                    ico = ico_talk;
                     break;
                 case InteractionType.Look:
-                    balloon_info_action.gameObject.SetActive(true);
-                    ico_info.gameObject.SetActive(true);
+                    balloon = balloon_info_action;
+                    ico = ico_info;
                     break;
                 case InteractionType.Use:
-                    balloon_info_action.gameObject.SetActive(true);
-                    ico_action.gameObject.SetActive(true);
+                    balloon = balloon_info_action;
+                    ico = ico_action;
                     break;
+            }
+            
+            if (!isPreviewSignal && balloon != null) balloon.SetActive(true);
+            if (ico != null)
+            {
+                if (isPreviewSignal) ico.color = previewColor;
+                ico.gameObject.SetActive(true);
             }
         }
         

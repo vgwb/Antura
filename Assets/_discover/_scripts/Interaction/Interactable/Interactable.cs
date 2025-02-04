@@ -47,6 +47,8 @@ namespace Antura.Minigames.DiscoverCountry
         public EdLivingLetter LL { get; private set; }
         public Transform LookAtTransform { get; private set; }
 
+        #region Unity
+
         void Awake()
         {
             // Store IconTransform and LookAtTransform
@@ -62,24 +64,16 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        /// <summary>
-        /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate 
-        /// </summary>
-        public QuestNode Activate()
+        void Start()
         {
-            QuestNode node = null;
-            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-            if (ActivateUnityAction) LaunchUnityAction();
-            return node;
+            if (ShowIconAlways) InteractionManager.I.ShowPreviewSignalFor(this, true);
         }
 
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        void LaunchUnityAction()
+        void OnDestroy()
         {
-            if (unityAction != null)
-                unityAction.Invoke();
+            if (InteractionManager.I != null) InteractionManager.I.ShowPreviewSignalFor(this, false);
         }
-
+        
         public void OnTriggerEnter(Collider other)
         {
             if (IsInteractable)
@@ -97,6 +91,26 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
             }
+        }
+        
+        #endregion
+
+        /// <summary>
+        /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate 
+        /// </summary>
+        public QuestNode Activate()
+        {
+            QuestNode node = null;
+            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+            if (ActivateUnityAction) LaunchUnityAction();
+            return node;
+        }
+
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
+        void LaunchUnityAction()
+        {
+            if (unityAction != null)
+                unityAction.Invoke();
         }
     }
 }

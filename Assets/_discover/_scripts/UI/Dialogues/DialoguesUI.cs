@@ -5,6 +5,7 @@ using DG.DeInspektor.Attributes;
 using Homer;
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
 using Antura.Language;
@@ -41,6 +42,8 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsOpen { get; private set; }
         public DialogueType CurrDialogueType { get; private set; }
 
+        DialogueSignal previewSignalPrefab;
+        readonly Dictionary<Interactable, DialogueSignal> previewSignalByInteractable = new();
         QuestNode currNode;
         AbstractDialogueBalloon currBalloon;
         Coroutine coShowDialogue, coNext;
@@ -53,6 +56,8 @@ namespace Antura.Minigames.DiscoverCountry
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
             postcardFocusView.Hide();
+            previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
+            signal.Setup(false);
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
@@ -81,12 +86,42 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ShowSignalFor(Interactable interactable)
         {
+            if (previewSignalByInteractable.ContainsKey(interactable)) previewSignalByInteractable[interactable].Hide(true);
             signal.ShowFor(interactable);
         }
 
-        public void HideSignal()
+        public void HideSignal(Interactable interactable)
         {
-            signal.Hide();
+            bool immediate = false;
+            if (previewSignalByInteractable.ContainsKey(interactable))
+            {
+                previewSignalByInteractable[interactable].ShowFor(interactable, true);
+                immediate = true;
+            }
+            signal.Hide(immediate);
+        }
+
+        public void ShowPreviewSignalFor(Interactable interactable, bool show)
+        {
+            if (show)
+            {
+                if (!previewSignalByInteractable.ContainsKey(interactable))
+                {
+                    DialogueSignal previewSignal = Instantiate(previewSignalPrefab, previewSignalPrefab.transform.parent, false);
+                    previewSignal.Setup(true);
+                    previewSignal.gameObject.SetActive(true);
+                    previewSignal.ShowFor(interactable);
+                    previewSignalByInteractable.Add(interactable, previewSignal);
+                }
+            }
+            else
+            {
+                if (previewSignalByInteractable.ContainsKey(interactable))
+                {
+                    Destroy(previewSignalByInteractable[interactable].gameObject);
+                    previewSignalByInteractable.Remove(interactable);
+                }
+            }
         }
 
         public void StartDialogue(QuestNode node)

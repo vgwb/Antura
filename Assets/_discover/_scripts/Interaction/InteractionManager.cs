@@ -120,6 +120,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             UIManager.I.ActivateWorldTargetMarker(activate, target);
         }
 
+        /// <summary>
+        /// Shows the preview icon signal (active even when far from the target) for the given interactable
+        /// </summary>
+        public void ShowPreviewSignalFor(Interactable interactable, bool show)
+        {
+            if (show || UIManager.I != null) UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
+        }
+
         #endregion
 
         #region Methods
@@ -138,7 +146,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 {
                     if (QuestManager.I.DebugQuest)
                         questNode.Print();
-                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode));
+                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
                 }
             }
         }
@@ -157,7 +165,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             Layer = newLayer;
         }
 
-        IEnumerator CO_StartDialogue(QuestNode questNode)
+        IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
         {
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
@@ -168,7 +176,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             if (nearbyInteractable.FocusCameraOnInteract)
                 CameraManager.I.FocusDialogueCamOn(nearbyInteractable.LookAtTransform);
-            UIManager.I.dialogues.HideSignal();
+            UIManager.I.dialogues.HideSignal(interactable);
 
             if (questNode == null)
             {
@@ -224,7 +232,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (nearbyInteractable == interactable)
             {
                 nearbyInteractable = null;
-                UIManager.I.dialogues.HideSignal();
+                UIManager.I.dialogues.HideSignal(interactable);
             }
         }
 
