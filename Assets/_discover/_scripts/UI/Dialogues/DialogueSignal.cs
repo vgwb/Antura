@@ -18,6 +18,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Transform iconContainer;
         [DeEmptyAlert]
         [SerializeField] SpriteRenderer ico_talk, ico_info, ico_action;
+        [DeEmptyAlert]
+        [SerializeField] Sprite ico_talk_alt, ico_info_alt, ico_action_alt;
 
         #endregion
 
@@ -105,6 +107,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             GameObject balloon = null;
             SpriteRenderer ico = null;
+            Sprite altSprite = null;
             balloon_talk.gameObject.SetActive(false);
             balloon_info_action.gameObject.SetActive(false);
             ico_talk.gameObject.SetActive(false);
@@ -116,21 +119,28 @@ namespace Antura.Minigames.DiscoverCountry
                 case InteractionType.Talk:
                     balloon = balloon_talk;
                     ico = ico_talk;
+                    altSprite = ico_talk_alt;
                     break;
                 case InteractionType.Look:
                     balloon = balloon_info_action;
                     ico = ico_info;
+                    altSprite = ico_info_alt;
                     break;
                 case InteractionType.Use:
                     balloon = balloon_info_action;
                     ico = ico_action;
+                    altSprite = ico_action_alt;
                     break;
             }
             
             if (!isPreviewSignal && balloon != null) balloon.SetActive(true);
             if (ico != null)
             {
-                if (isPreviewSignal) ico.color = previewColor;
+                if (isPreviewSignal)
+                {
+                    ico.color = previewColor;
+                    if (altSprite != null) ico.sprite = altSprite;
+                }
                 ico.gameObject.SetActive(true);
             }
         }
