@@ -74,7 +74,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void OpenManual()
         {
-            Application.OpenURL("https://docs.antura.org/manual/quests/" + currentQuestData.manualPage);
+            Application.OpenURL("https://antura.org/manual/quests/" + currentQuestData.manualPage);
         }
 
         public void Close()
