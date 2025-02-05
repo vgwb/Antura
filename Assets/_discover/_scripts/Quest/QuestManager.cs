@@ -21,8 +21,6 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestData CurrentQuest;
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
-
-        public Transform PlayerSpawnPoint;
         public string LanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
@@ -49,11 +47,6 @@ namespace Antura.Minigames.DiscoverCountry
             if (bonesCounter == null)
             {
                 bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
-            }
-
-            if (PlayerSpawnPoint != null)
-            {
-                Player.transform.SetPositionAndRotation(PlayerSpawnPoint.position, PlayerSpawnPoint.rotation);
             }
 
             if (DebugQuest && DebugLanguage != "")

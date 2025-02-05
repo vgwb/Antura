@@ -351,11 +351,10 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-
         public void SpawnToNewLocation(Transform newLocation)
         {
             // TODO MAYBE A TRANSITION?
-            transform.position = newLocation.position;
+            transform.SetPositionAndRotation(newLocation.position, newLocation.rotation);
         }
 
         private static float ClampAngle(float lfAngle, float lfMin, float lfMax)

@@ -13,7 +13,7 @@ namespace Antura.Minigames.DiscoverCountry
         public static ActionManager I;
 
         [Tooltip("The starting location of the player")]
-        public GameObject StartingLocation;
+        public GameObject PlayerSpawnPoint;
 
         public ActionData[] Actions;
 
@@ -61,9 +61,9 @@ namespace Antura.Minigames.DiscoverCountry
                 AnturaDog.SetActive(false);
             }
 
-            if (StartingLocation != null)
+            if (PlayerSpawnPoint != null)
             {
-                Player.GetComponent<EdPlayer>().SpawnToNewLocation(StartingLocation.transform);
+                Player.GetComponent<EdPlayer>().SpawnToNewLocation(PlayerSpawnPoint.transform);
             }
         }
 
