@@ -87,10 +87,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnTriggerExit(Collider other)
         {
-            if (other.gameObject == InteractionManager.I.player.gameObject)
-            {
-                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
-            }
+            if (other.gameObject == InteractionManager.I.player.gameObject) OnTriggerExitPlayer();
+        }
+
+        void OnTriggerExitPlayer()
+        {
+            DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
         }
         
         #endregion
@@ -103,14 +105,19 @@ namespace Antura.Minigames.DiscoverCountry
             QuestNode node = null;
             if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
             if (ActivateUnityAction) LaunchUnityAction();
+            if (disableAfterAction)
+            {
+                IsInteractable = false;
+                InteractionManager.I.ShowPreviewSignalFor(this, false);
+                OnTriggerExitPlayer();
+            }
             return node;
         }
 
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void LaunchUnityAction()
         {
-            if (unityAction != null)
-                unityAction.Invoke();
+            if (unityAction != null) unityAction.Invoke();
         }
     }
 }
