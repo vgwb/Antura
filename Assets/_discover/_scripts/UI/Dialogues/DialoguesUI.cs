@@ -263,14 +263,8 @@ namespace Antura.Minigames.DiscoverCountry
                  UseLearningLanguage ? AppManager.I.ContentEdition.LearningLanguage : AppManager.I.AppSettings.NativeLanguage
             );
 
-            if (UseLearningLanguage)
-            {
-                currBalloon.LocalizeText(LanguageUse.Learning);
-            }
-            else
-            {
-                currBalloon.LocalizeText(LanguageUse.Native);
-            }
+            // Localize text to correspond to audio language
+            currBalloon.LocalizeText(UseLearningLanguage ? LanguageUse.Learning : LanguageUse.Native);
         }
 
         void OnBalloonContinueClicked()
