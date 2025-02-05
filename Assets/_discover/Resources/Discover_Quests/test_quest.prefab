@@ -168,12 +168,12 @@ BoxCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 13.02, y: 16, z: 3.9}
-  m_Center: {x: -0.000030517578, y: 0, z: 0}
+  m_Size: {x: 13.02, y: 16, z: 5.0010853}
+  m_Center: {x: -0.000030456216, y: 0, z: 0.55054116}
 --- !u!114 &1283079045223817226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,6 +317,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3dfba2faef74182a5d832dca3f8f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSpawnPoint: {fileID: 0}
   Actions:
   - Type: 1
     ActionCode: open_door
@@ -1564,6 +1565,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
+      propertyPath: disableAfterAction
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
+        type: 3}
       propertyPath: ActivateUnityAction
       value: 1
       objectReference: {fileID: 0}
@@ -1581,7 +1587,7 @@ PrefabInstance:
         type: 3}
       propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 5780187878288408116}
+      objectReference: {fileID: 5649489077067148754}
     - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
       propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
@@ -1590,12 +1596,12 @@ PrefabInstance:
     - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
       propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnTrigger
+      value: Open
       objectReference: {fileID: 0}
     - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
       propertyPath: unityAction.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Antura.Minigames.DiscoverCountry.Interaction.Rotator, Assembly-CSharp
+      value: Antura.Minigames.DiscoverCountry.Interaction.Chest, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7448125120790419301, guid: 101eb881260384dcab74f6d55ec15aeb,
         type: 3}
@@ -1618,6 +1624,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 8033673238116399683}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5649489077067148754 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2385310610711910289, guid: 101eb881260384dcab74f6d55ec15aeb,
+    type: 3}
+  m_PrefabInstance: {fileID: 8033673238116399683}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3a663edfa7764102811ac23fa51c05b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6593177853208144157 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3747834288281539422, guid: 101eb881260384dcab74f6d55ec15aeb,
