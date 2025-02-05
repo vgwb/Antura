@@ -177,7 +177,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
                 CameraManager.I.FocusDialogueCamOn(nearbyInteractable.LookAtTransform);
             }
-            UIManager.I.dialogues.HideSignal(interactable);
+            UIManager.I.dialogues.HideSignal(interactable, false);
 
             if (questNode == null)
             {
@@ -195,8 +195,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (HasValidNearbyInteractable)
-                UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+            if (HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
@@ -233,7 +232,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (nearbyInteractable == interactable)
             {
                 nearbyInteractable = null;
-                UIManager.I.dialogues.HideSignal(interactable);
+                UIManager.I.dialogues.HideSignal(interactable, true);
             }
         }
 

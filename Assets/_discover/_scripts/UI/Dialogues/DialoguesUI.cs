@@ -90,10 +90,10 @@ namespace Antura.Minigames.DiscoverCountry
             signal.ShowFor(interactable);
         }
 
-        public void HideSignal(Interactable interactable)
+        public void HideSignal(Interactable interactable, bool showPreviewIfExists)
         {
             bool immediate = false;
-            if (previewSignalByInteractable.ContainsKey(interactable))
+            if (showPreviewIfExists && interactable.IsInteractable && previewSignalByInteractable.ContainsKey(interactable))
             {
                 previewSignalByInteractable[interactable].ShowFor(interactable, true);
                 immediate = true;
@@ -103,6 +103,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ShowPreviewSignalFor(Interactable interactable, bool show)
         {
+            if (interactable == null) return;
+            
             if (show)
             {
                 if (!previewSignalByInteractable.ContainsKey(interactable))
@@ -114,13 +116,16 @@ namespace Antura.Minigames.DiscoverCountry
                     previewSignal.ShowFor(interactable);
                     previewSignalByInteractable.Add(interactable, previewSignal);
                 }
+                else
+                {
+                    previewSignalByInteractable[interactable].ShowFor(interactable);
+                }
             }
             else
             {
                 if (previewSignalByInteractable.ContainsKey(interactable))
                 {
-                    Destroy(previewSignalByInteractable[interactable].gameObject);
-                    previewSignalByInteractable.Remove(interactable);
+                    previewSignalByInteractable[interactable].Hide();
                 }
             }
         }
