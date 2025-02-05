@@ -179,6 +179,7 @@ MonoBehaviour:
   mouseRotationSpeed: 3
   touchRotationSpeed: 12
   autoRotateMode: 1
+  resetRotationWhenStationary: 0
   resetRotationDelay: 1
   invertYAxis: 0
   minMaxVerticalRotation:
@@ -698,7 +699,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 886251e9a18ece04ea8e61686c173e1b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TargetOffset: {x: 0, y: 0.66, z: 0}
+  TargetOffset: {x: 0, y: 0, z: 0}
   Lookahead:
     Enabled: 0
     Time: 0
