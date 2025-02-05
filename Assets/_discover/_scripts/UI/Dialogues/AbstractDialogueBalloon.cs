@@ -102,10 +102,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void LocalizeText(LanguageUse languageUse)
         {
-            if (languageUse == LanguageUse.Learning)
-                textRender.SetText(currNode.Content);
-            else
-                textRender.SetText(currNode.ContentNative);
+            if (languageUse == LanguageUse.Learning) textRender.SetText(currNode.Content);
+            else textRender.SetText(currNode.ContentNative);
         }
 
         public void Hide()

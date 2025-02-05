@@ -41,8 +41,9 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsShowingOrHiding { get { return showTween != null && showTween.IsPlaying(); } }
         public int Index { get; private set; }
         public string AudioId { get; private set; }
-        private bool SpeechCycle = false;
 
+        protected NodeChoice currChoice;
+        bool SpeechCycle = false;
         bool selected;
         bool confirmedForThisRound;
         Sequence showTween, hoverTween, selectTween, confirmHoverTween, confirmTween;
@@ -107,12 +108,13 @@ namespace Antura.Minigames.DiscoverCountry
             btConfirm.interactable = interactable;
         }
 
-        public void Show(string text = null)
+        public void Show(NodeChoice choiceNode)
         {
+            currChoice = choiceNode;
             confirmedForThisRound = false;
             confirmTween.Rewind();
-            if (!string.IsNullOrEmpty(text))
-                SetText(text);
+            string text = currChoice.Content;
+            if (!string.IsNullOrEmpty(text)) SetText(text);
             showTween.Restart();
         }
 
@@ -127,8 +129,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Deselect(float timeScale = 2)
         {
-            if (!selected)
-                return;
+            if (!selected) return;
 
             selected = false;
             SetInteractable(false);
@@ -166,7 +167,7 @@ namespace Antura.Minigames.DiscoverCountry
         protected abstract Sequence CreateShowTween();
         protected abstract Sequence CreateSelectTween();
         protected abstract Sequence CreateHoverTween();
-        protected abstract void SetText(string text);
+        public abstract void SetText(string text);
 
         void Select()
         {
@@ -174,10 +175,10 @@ namespace Antura.Minigames.DiscoverCountry
                  AudioId,
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
+            SetText(SpeechCycle ? currChoice.ContentNative : currChoice.Content);
             SpeechCycle = !SpeechCycle;
 
-            if (selected)
-                return;
+            if (selected) return;
 
             selected = true;
             this.transform.SetAsLastSibling();

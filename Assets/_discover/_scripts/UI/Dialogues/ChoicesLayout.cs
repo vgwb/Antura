@@ -94,7 +94,7 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
                     choiceBoxes[i].SetAudioId(choiceElements[i].AudioId);
-                    choiceBoxes[i].Show(choiceElements[i].Content);
+                    choiceBoxes[i].Show(choiceElements[i]);
                     yield return new WaitForSeconds(i * 0.15f);
                 }
             }
@@ -149,8 +149,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             foreach (AbstractChoiceBox choiceBox in choiceBoxes)
             {
-                if (choiceBox != selectedChoiceBox)
-                    choiceBox.Deselect();
+                if (choiceBox != selectedChoiceBox) choiceBox.Deselect();
             }
         }
 

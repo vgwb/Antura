@@ -1,4 +1,5 @@
-﻿using Antura.UI;
+﻿using Antura.Language;
+using Antura.UI;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using TMPro;
@@ -15,6 +16,15 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] TextRender textRender;
         [DeEmptyAlert]
         [SerializeField] TMP_Text tf;
+
+        #endregion
+
+        #region Public Methods
+
+        public override void SetText(string text)
+        {
+            textRender.SetText(text);
+        }
 
         #endregion
 
@@ -49,11 +59,6 @@ namespace Antura.Minigames.DiscoverCountry
                 .Join(btConfirm.GetComponent<RectTransform>().DOAnchorPosX(160, duration).From(true).SetEase(Ease.OutBack))
                 .Join(numbox.DOAnchorPos(new Vector2(100, 32), duration).SetRelative().SetEase(Ease.OutBack))
                 .Join(icoTranslation.GetComponent<RectTransform>().DOAnchorPos(new Vector2(-100, -32), duration).SetRelative().SetEase(Ease.OutBack));
-        }
-
-        protected override void SetText(string text)
-        {
-            textRender.SetText(text);
         }
 
         #endregion
