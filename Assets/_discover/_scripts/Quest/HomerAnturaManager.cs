@@ -17,6 +17,7 @@ namespace Antura.Minigames.DiscoverCountry
         private HomerFlowSlugs.FlowSlug currentFlowSlug;
         private HomerFlowRunning runningFlow;
         private string currentLanguage;
+        private string nativeLanguage;
 
         void Awake()
         {
@@ -32,8 +33,10 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        public void Setup(string language = "EN")
+        public void Setup(string language = "EN", string native = "EN")
         {
+            currentLanguage = language;
+            nativeLanguage = native;
             if (currentHomerProject == null)
             {
                 currentHomerProject = HomerJsonParser.LoadHomerProject();
@@ -265,7 +268,7 @@ namespace Antura.Minigames.DiscoverCountry
                 HomerElement header = runner.Node._header;
                 node.Content = runner.GetParsedText(header);
 
-                currentHomerProject._locale = "EN";
+                currentHomerProject._locale = nativeLanguage;
                 node.ContentNative = runner.GetParsedText(header);
                 currentHomerProject._locale = currentLocale;
 
@@ -276,12 +279,13 @@ namespace Antura.Minigames.DiscoverCountry
                     var choice = new NodeChoice();
                     choice.Content = runner.GetParsedText(element);
 
-                    currentHomerProject._locale = "EN";
+                    currentHomerProject._locale = nativeLanguage;
                     choice.ContentNative = runner.GetParsedText(element);
                     currentHomerProject._locale = currentLocale;
 
                     //choice.Image = GetImage(element._image);
                     choice.AudioId = element._id;
+                    choice.Index = HomerElements.IndexOf(element);
                     node.Choices.Add(choice);
                 }
             }
@@ -291,7 +295,7 @@ namespace Antura.Minigames.DiscoverCountry
                 HomerElement element = runner.GetTextElement();
                 node.Content = runner.ParsedText(element);
 
-                currentHomerProject._locale = "EN";
+                currentHomerProject._locale = nativeLanguage;
                 node.ContentNative = runner.ParsedText(element);
                 currentHomerProject._locale = currentLocale;
             }

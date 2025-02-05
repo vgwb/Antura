@@ -58,7 +58,8 @@ namespace Antura.Minigames.DiscoverCountry
                 LanguageCode = "FR";
             }
 
-            HomerAnturaManager.I.Setup(LanguageCode);
+            // TODO inject native language code
+            HomerAnturaManager.I.Setup(LanguageCode, "EN");
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
 
             if (DebugQuest)

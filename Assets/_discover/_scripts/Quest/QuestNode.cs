@@ -15,10 +15,21 @@ namespace Antura.Minigames.DiscoverCountry
 
     public struct NodeChoice
     {
+        public int Index;
         public string Content;
         public string ContentNative;
         public string AudioId;
         public string Image;
+
+        public Sprite GetImage()
+        {
+            if (Image != null)
+            {
+                //return Resources.Load<Sprite>("Discover_Photos/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image + "_" + Index);
+                return Resources.Load<Sprite>("Discover_Photos/TUTORIAL/quiz_" + Index);
+            }
+            return null;
+        }
     }
 
     public class QuestNode
