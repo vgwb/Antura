@@ -62,7 +62,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             
             isPreviewSignal = asPreviewSignal;
-            
+
             showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
                 .SetEase(isPreviewSignal ? Ease.OutCubic : Ease.OutBounce)
                 .OnRewind(() => {

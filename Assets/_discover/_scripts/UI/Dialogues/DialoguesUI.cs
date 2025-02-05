@@ -107,7 +107,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 if (!previewSignalByInteractable.ContainsKey(interactable))
                 {
-                    DialogueSignal previewSignal = Instantiate(previewSignalPrefab, previewSignalPrefab.transform.parent, false);
+                    DialogueSignal previewSignal = Instantiate(previewSignalPrefab);
+                    previewSignal.transform.SetParent(interactable.transform); // Switch parent after instantiation so scale is kept consistent
                     previewSignal.Setup(true);
                     previewSignal.gameObject.SetActive(true);
                     previewSignal.ShowFor(interactable);
