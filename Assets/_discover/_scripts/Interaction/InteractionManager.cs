@@ -170,12 +170,13 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (nearbyInteractable.IsLL)
-                nearbyInteractable.LL.LookAt(player.transform);
+            if (nearbyInteractable.IsLL) nearbyInteractable.LL.LookAt(player.transform);
 
-            CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
             if (nearbyInteractable.FocusCameraOnInteract)
+            {
+                CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
                 CameraManager.I.FocusDialogueCamOn(nearbyInteractable.LookAtTransform);
+            }
             UIManager.I.dialogues.HideSignal(interactable);
 
             if (questNode == null)
