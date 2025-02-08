@@ -2,32 +2,40 @@
 
 ## Configuration
 to show current Evniroment Variables:
-env
+`env`
 
 to save a new environment variable:
-export ELEVEN_API_KEY=value
+`export ELEVEN_API_KEY=value`
 
 ## Create audio files
-save the Homer translations files into the csv directory.
+save the Homer translations files into the `csv` directory.
 then use `python homer_tts.py lang_code`
 
-where lang_code is
-- AR
-- FR
-- IT
-- PL
-- RO
-- RU
-- UK
+where lang_code is:
+
+- AR (arabic)
+- EN (english)
+- ES (spanish)
+- FR (french)
+- IT (italian)
+- PL (polish)
+- RO (romanian)
+- RU (russian)
+- UK (ukrainian)
 
 ## Tool
+
 **ElevenLabs**
 
-https://elevenlabs.io/docs/introduction
-https://github.com/elevenlabs/elevenlabs-python
-https://elevenlabs.io/app/voice-library
-https://elevenlabs.io/app/speech-synthesis
-https://elevenlabs.io/docs/voices/premade-voices
+- https://elevenlabs.io/docs/introduction
+- https://github.com/elevenlabs/elevenlabs-python
+- https://elevenlabs.io/app/voice-library
+- https://elevenlabs.io/app/speech-synthesis
+- https://elevenlabs.io/docs/voices/premade-voices
+
+## Install
+pip install elevenlabs
+pip install tqdm
 
 ## Test message
 
@@ -51,16 +59,4 @@ ceci est un message test pour entendre la qualité de cette voix synthétisée.
 
 Arabic
 هذه رسالة اختبارية لسماع جودة هذا الصوت المركب
-
-## Install
-pip install elevenlabs
-pip install tqdm
-
-
-## voices
-
-Arabic
-tutor:
-IES4nrmZdUBHByLBde0P
-
 
