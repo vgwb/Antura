@@ -1,8 +1,15 @@
 # Discover TTS
 
+## Configuration
+to show current Evniroment Variables:
+env
+
+to save a new environment variable:
+export ELEVEN_API_KEY=value
+
+## Create audio files
 save the Homer translations files into the csv directory.
-then use
-`python homer_tts.py lang_code`
+then use `python homer_tts.py lang_code`
 
 where lang_code is
 - AR
@@ -48,3 +55,12 @@ Arabic
 ## Install
 pip install elevenlabs
 pip install tqdm
+
+
+## voices
+
+Arabic
+tutor:
+IES4nrmZdUBHByLBde0P
+
+

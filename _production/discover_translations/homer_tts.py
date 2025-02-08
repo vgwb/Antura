@@ -7,27 +7,85 @@ from elevenlabs import play, save
 from elevenlabs.client import ElevenLabs
 
 client = ElevenLabs(
-  # api_key="", # Defaults to ELEVEN_API_KEY
-  # or use an environment variable!
-  api_key = os.getenv('ELEVEN_API_KEY')
+  api_key=os.getenv('ELEVEN_API_KEY')
 )
 
 def synthesize_speech(dialogue_text, language, actor, output_file):
-  if (dialogue_text == "--- to be translated ---"):
+  if dialogue_text == "--- to be translated ---":
     return
 
-  voice_mapping = {
-    "Major": ("Dave", "eleven_multilingual_v1"),
-    "Guide": ("Rachel", "eleven_multilingual_v2"),
-    "Museum Guide": ("Rachel", "eleven_multilingual_v2"),
-    "Teacher": ("Charlotte", "eleven_multilingual_v1"),
-    "Cook": ("Jessie", "eleven_multilingual_v1"),
-  }
-  voice, model = voice_mapping.get(actor, ("Adam", "eleven_multilingual_v2"))
-  # settings=VoiceSettings(stability=0.71, similarity_boost=0.5, style=0.0, use_speaker_boost=True)
+  # Default values
+  voice = "Alex Wright"
+  voice_id = "GzE4TcXfh9rYCU9gVgPp"
+  model = "eleven_multilingual_v2"
+
+  if language == "FR":
+    voice = "Louis Boutin"
+    voice_id = "j9RedbMRSNQ74PyikQwD"
+  elif language == "IT":
+    voice = "Francesco"
+    voice_id = "GOAZNavLupajyL3YafaD"
+  elif language == "RO":
+    voice = "Cristi Romana"
+    voice_id = "sGcPNcpR5PikknzyXcy7"
+  elif language == "AR":
+    voice = "Haytham - Conversation"
+    voice_id = "IES4nrmZdUBHByLBde0P"
+  elif language == "UK":
+    voice = "Alex Nekrasov"
+    voice_id = "9Sj8ugvpK1DmcAXyvi3a"
+  elif language == "RU":
+    voice = "Felix - calm, friendly"
+    voice_id = "sRk0zCqhS2Cmv0bzx5wA"    
+  elif language == "PL":
+    voice = "Alex - Professional Narration Polish"
+    voice_id = "H5xTcsAIeS5RAykjz57a"    
+
+  if actor == "man" or actor == "Museum Guide" or actor == "Guide":
+    if language == "EN":
+      voice = "Cody - Energetic Upbeat Educator"
+      voice_id = "9XfYMbJVZqPHaQtYnTAO"
+  elif actor == "woman" or actor == "kid_female" or actor == "teacher":
+    if language == "FR":
+      voice = "Mademoiselle - French "
+      voice_id = "dYjOkSQBPiH2igolJfeH"
+    elif language == "IT":
+      voice = "Sami - Italian female "
+      voice_id = "kAzI34nYjizE0zON6rXv"
+    elif language == "RO":
+      voice = "Corina Ioana"
+      voice_id = "gbLy9ep70G3JW53cTzFC"
+    elif language == "AR":
+      voice = "Mona"
+      voice_id = "tavIIPLplRB883FzWU0V"
+    elif language == "UK":
+      voice = "Yaroslava"
+      voice_id = "0ZQZuw8Sn4cU0rN1Tm2K"
+    elif language == "RU":
+      voice = "Soft Female Russian voice"
+      voice_id = "ymDCYd8puC7gYjxIamPt"    
+    elif language == "PL":
+      voice = "Maria"
+      voice_id = "d4Z5Fvjohw3zxGpV8XUV" 
+    elif language == "ES":
+      voice = "Ninoska - Pro Spanish Teacher"
+      voice_id = "zl1Ut8dvwcVSuQSB9XkG"
+    else:
+      voice = "Shelley - Clear and confident British female"
+      voice_id = "4CrZuIW9am7gYAxgo2Af";
+  elif actor == "kid_male":
+
+  elif actor == "kid_female":
+    
+  elif actor == "Cook":
 
   try:
-    audio = client.generate(text=dialogue_text, voice=voice, model=model)
+    audio = client.text_to_speech.convert(
+      voice_id=voice_id,
+      output_format="mp3_44100_64",
+      text=dialogue_text,
+      model_id=model,
+    )
     output_file.parent.mkdir(parents=True, exist_ok=True)
     save(audio, str(output_file))
   except Exception as e:
