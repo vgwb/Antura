@@ -10,7 +10,7 @@ client = ElevenLabs(
   api_key=os.getenv('ELEVEN_API_KEY')
 )
 
-def synthesize_speech(dialogue_text, language, actor, output_file):
+def synthesize_speech(dialogue_text, language, actor, output_file, preview=False):
   if dialogue_text == "--- to be translated ---":
     return
 
@@ -43,7 +43,7 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
 
   if actor == "man" or actor == "Museum Guide" or actor == "Guide":
     if language == "EN":
-      voice = "Cody - Energetic Upbeat Educator"
+      voice = "Cody"
       voice_id = "9XfYMbJVZqPHaQtYnTAO"
   elif actor == "woman" or actor == "kid_female" or actor == "teacher":
     if language == "FR":
@@ -68,10 +68,10 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
       voice = "Maria"
       voice_id = "d4Z5Fvjohw3zxGpV8XUV" 
     elif language == "ES":
-      voice = "Ninoska - Pro Spanish Teacher"
+      voice = "Ninoska"
       voice_id = "zl1Ut8dvwcVSuQSB9XkG"
     else:
-      voice = "Shelley - Clear and confident British female"
+      voice = "Shelley"
       voice_id = "4CrZuIW9am7gYAxgo2Af"
   elif actor == "kid_male":
       voice = "Kid Male Voice"
@@ -84,8 +84,10 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
 #        voice_id = "YourCookVoiceID"
 
   if preview:
-      print(f"Preview: Would generate audio for '{dialogue_text}' in {language} with actor {actor} to file {output_file}")
+      print(f"Preview: {language} {actor} ({voice}): '{dialogue_text}' to file {output_file}")
       return
+  else:
+      print(f"AUdio: {language} {actor} ({voice}): '{dialogue_text}' to file {output_file}")
 
   try:
     audio = client.text_to_speech.convert(
@@ -116,22 +118,42 @@ def process_csv(lang_code, quest=None, preview=False):
       dialogue_id = row['id']
       dialoge_actor = row['actor']
       output_filename = output_dir / f"{lang_code}_{dialogue_id}.mp3"
-      synthesize_speech(dialogue_text, lang_code, dialoge_actor, output_filename)
+      synthesize_speech(dialogue_text, lang_code, dialoge_actor, output_filename, preview)
+
+def parse_flows(lang_code):
+  file_langcode = "FR" if lang_code == "EN" else lang_code
+  csv_file = Path(f"csv/Antura-{file_langcode}.csv")
+  
+  flows = set()
+
+  with csv_file.open(newline='', encoding='utf-8') as csvfile:
+      reader = csv.DictReader(csvfile, delimiter=';')
+      for row in reader:
+          flows.add(row['flow'])
+  
+  print("Distinct flows found:")
+  for flow in sorted(flows):
+      print(flow)
 
 def parse_arguments():
   parser = argparse.ArgumentParser(description="Convert CSV file dialogues to audio.")
   parser.add_argument("lang_code", help="The language code, like FR, AR, RO, UK...")
   parser.add_argument("--quest", help="The quest parameter to filter dialogues.", required=False)
   parser.add_argument("--preview", action="store_true", help="Preview the dialogues to be processed without generating audio files.")
+  parser.add_argument("--flows", action="store_true", help="Output the distinct flows from the CSV.")
   args = parser.parse_args()
   if not args.lang_code:
       parser.print_help()
       exit("Error: You must provide the lang_code.")
-  return args.lang_code, args.quest, args.preview
+  return args
 
 # Main function to run the script
 if __name__ == "__main__":
-  lang_code, quest, preview = parse_arguments()
-  print("Please wait a few minutes...")
-  process_csv(lang_code, quest, preview)
-  print("DONE!")
+  args = parse_arguments()
+  if args.flows:
+      parse_flows(args.lang_code)
+  else:
+      print("Please wait a few minutes...")
+      process_csv(args.lang_code, args.quest, args.preview)
+      print("DONE!")
+
