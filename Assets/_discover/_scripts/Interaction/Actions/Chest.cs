@@ -10,23 +10,24 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public float rotationAngle = 90f;
 
+        public bool OpenJustOnce = true;
+
         private bool isOpen = false;
         void Start()
         {
-
+            OpenJustOnce = true;
         }
 
         public void Open()
         {
-            ToggleRotationAngle();
-
+            if (!OpenJustOnce || (OpenJustOnce && !isOpen))
+                ToggleRotationAngle();
         }
 
         void ToggleRotationAngle()
         {
             // Toggle the rotation state
             isOpen = !isOpen;
-
             // Calculate the new rotation
             float angle = isOpen ? rotationAngle : 0;
 

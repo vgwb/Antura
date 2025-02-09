@@ -21,6 +21,7 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestData CurrentQuest;
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
+        public ItemsCounter itemsCounter;
         public string LanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
@@ -48,6 +49,11 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
             }
+            if (itemsCounter == null)
+            {
+                itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
+                itemsCounter.gameObject.SetActive(false);
+            }
 
             if (DebugQuest && DebugLanguage != "")
             {
@@ -66,6 +72,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 HomerVars.MET_MONALISA = true;
             }
+
+            updateCounters();
         }
 
         public QuestNode GetQuestNode(string permalink, string command)
@@ -109,6 +117,7 @@ namespace Antura.Minigames.DiscoverCountry
             total_items++;
             HomerVars.TOTAL_ITEMS = total_items;
             Destroy(go);
+            UpateItemsCounter();
         }
 
         public void OnCollectBone(GameObject go)
@@ -119,6 +128,21 @@ namespace Antura.Minigames.DiscoverCountry
             Destroy(go);
         }
 
+        private void updateCounters()
+        {
+            UpateCoinsCounter();
+            UpateItemsCounter();
+        }
+
+        public void UpateItemsCounter()
+        {
+            if (HomerVars.QUEST_ITEMS > 0)
+            {
+                itemsCounter.gameObject.SetActive(true);
+                itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
+                itemsCounter.SetValue(HomerVars.TOTAL_ITEMS);
+            }
+        }
         public void UpateCoinsCounter()
         {
             coinsCounter.SetValue(HomerVars.TOTAL_COINS);

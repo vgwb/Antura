@@ -16,6 +16,7 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static int QUEST_ITEMS = 0;
     public static bool AGE = false; 
     public static int TOTAL_COINS = 0;
     public static string CMD = "";

@@ -10210,7 +10210,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS > 7"
+                  "_text": "$TOTAL_ITEMS >= $QUEST_ITEMS"
                 },
                 {
                   "_nodeElementId": "NODEL-dd5a6880-f089-42a3-8235-1710930984603",
@@ -10321,7 +10321,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1710930984603,
-          "_height": 145,
+          "_height": 163,
           "_color": null
         },
         {
@@ -10698,6 +10698,26 @@
               "_ifNoMore": false,
               "_variations": [],
               "_permalink": null
+            },
+            {
+              "_id": "NODEL-7b7dc1b1-dce7-42a8-a50c-1739127235415",
+              "_type": "Variables",
+              "_nodeId": "NOD-6eb488bc-f80b-432b-a54e-1730677381051",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-7b7dc1b1-dce7-42a8-a50c-1739127235415",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$QUEST_ITEMS = 9"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
             }
           ],
           "_jumpTo": {},
@@ -10707,7 +10727,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1730677381051,
-          "_height": 83
+          "_height": 127
         },
         {
           "_id": "NOD-07c6f96e-54d8-4f59-8c53-1730127623623-78-bb-b9-ba",
@@ -19515,6 +19535,14 @@
     }
   ],
   "_variables": [
+    {
+      "_id": "VAR-e3dd7366-a5b1-4db9-8b7e-1739127189143",
+      "_type": "int",
+      "_key": "QUEST_ITEMS",
+      "_value": 0,
+      "_color": "#690735",
+      "_group": null
+    },
     {
       "_id": "VAR-3b2d8d16-a4bc-458a-a31f-1730719145110",
       "_type": "bool",
