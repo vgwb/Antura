@@ -75,6 +75,7 @@ namespace Homer
             return flow._nodes
                 .Where(node => !string.IsNullOrEmpty(node._permalink))
                 .Select(node => node._permalink)
+                .OrderBy(permalink => permalink)
                 .ToArray();
         }
 
