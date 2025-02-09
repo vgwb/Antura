@@ -384,8 +384,16 @@ namespace Antura.AnturaSpace
 
         public void TriggerSceneExit()
         {
-            AnturaMain.PetSwitcher.ModelManager.SaveAnturaCustomization();
-            AppManager.I.Services.Analytics.TrackCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization, anturaSpacePlayTime);
+            try
+            {
+                AnturaMain.PetSwitcher.ModelManager.SaveAnturaCustomization();
+                AppManager.I.Services.Analytics.TrackCustomization(AppManager.I.Player.CurrentSingleAnturaCustomization,
+                    anturaSpacePlayTime);
+            }
+            catch (Exception)
+            {
+                // Ignore this exception, can happen sometimes when exiting antura space, but it does not seem to be an issue as the save is triggered earlier still
+            }
         }
     }
 }
