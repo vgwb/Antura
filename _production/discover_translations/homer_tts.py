@@ -72,12 +72,20 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
       voice_id = "zl1Ut8dvwcVSuQSB9XkG"
     else:
       voice = "Shelley - Clear and confident British female"
-      voice_id = "4CrZuIW9am7gYAxgo2Af";
+      voice_id = "4CrZuIW9am7gYAxgo2Af"
   elif actor == "kid_male":
-
+      voice = "Kid Male Voice"
+#        voice_id = "YourKidMaleVoiceID"
   elif actor == "kid_female":
-    
+      voice = "Kid Female Voice"
+#        voice_id = "YourKidFemaleVoiceID"
   elif actor == "Cook":
+      voice = "Cook Voice"
+#        voice_id = "YourCookVoiceID"
+
+  if preview:
+      print(f"Preview: Would generate audio for '{dialogue_text}' in {language} with actor {actor} to file {output_file}")
+      return
 
   try:
     audio = client.text_to_speech.convert(
@@ -91,7 +99,7 @@ def synthesize_speech(dialogue_text, language, actor, output_file):
   except Exception as e:
     print(f"Error generating audio for {output_file}: {e}")
 
-def process_csv(lang_code):
+def process_csv(lang_code, quest=None, preview=False):
   file_langcode = "FR" if lang_code == "EN" else lang_code
   csv_file = Path(f"csv/Antura-{file_langcode}.csv")
   output_dir = Path(f"audiofiles/{lang_code}")
@@ -102,6 +110,8 @@ def process_csv(lang_code):
     csvfile.seek(0)  # Reset file position to the beginning after counting
     reader = csv.DictReader(csvfile, delimiter=';')  # Reinitialize reader
     for row in tqdm(reader, total=total_lines, desc=f"Processing {lang_code}"):
+      if quest and row['flow'] != quest:
+        continue
       dialogue_text = row[lang_code]
       dialogue_id = row['id']
       dialoge_actor = row['actor']
@@ -111,15 +121,17 @@ def process_csv(lang_code):
 def parse_arguments():
   parser = argparse.ArgumentParser(description="Convert CSV file dialogues to audio.")
   parser.add_argument("lang_code", help="The language code, like FR, AR, RO, UK...")
+  parser.add_argument("--quest", help="The quest parameter to filter dialogues.", required=False)
+  parser.add_argument("--preview", action="store_true", help="Preview the dialogues to be processed without generating audio files.")
   args = parser.parse_args()
   if not args.lang_code:
       parser.print_help()
       exit("Error: You must provide the lang_code.")
-  return args.lang_code
+  return args.lang_code, args.quest, args.preview
 
 # Main function to run the script
 if __name__ == "__main__":
-    lang_code = parse_arguments()
-    print("Please wait a few minutes...")
-    process_csv(lang_code)
-    print("DONE!")
+  lang_code, quest, preview = parse_arguments()
+  print("Please wait a few minutes...")
+  process_csv(lang_code, quest, preview)
+  print("DONE!")

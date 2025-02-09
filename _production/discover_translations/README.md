@@ -9,7 +9,8 @@ to save a new environment variable:
 
 ## Create audio files
 save the Homer translations files into the `csv` directory.
-then use `python homer_tts.py lang_code`
+then use 
+`python homer_tts.py lang_code --quest=flow_name --preview`
 
 where lang_code is:
 
@@ -22,6 +23,10 @@ where lang_code is:
 - RO (romanian)
 - RU (russian)
 - UK (ukrainian)
+
+--quest parameters filters only the selected flow
+
+--preview doesn't generate the audio files
 
 ## Tool
 
