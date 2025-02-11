@@ -5,7 +5,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class Classroom : MonoBehaviour
+    public class ClassroomPanel : MonoBehaviour
     {
         #region Serialized
 
@@ -14,12 +14,19 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] ClassroomProfilesPanel profilesPanel;
         [DeEmptyAlert]
-        [SerializeField] ClassroomProfile profile;
-        [DeEmptyAlert]
         [SerializeField] ClassroomProfileDetailPanel detailPanel;
         
         [Header("Test stuff")]
-        [SerializeField] Sprite sampleProfilePic;
+        [SerializeField] Sprite sampleProfileSprite;
+
+        #endregion
+
+        #region Unity
+
+        void Start()
+        {
+            this.gameObject.SetActive(false);
+        }
 
         #endregion
 
@@ -27,26 +34,32 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Open(string classroomId, List<UserProfile> profiles)
         {
-            
+            profilesPanel.Fill(profiles);
+            this.gameObject.SetActive(true);
         }
         
         #endregion
 
         #region Methods
 
+        void Close()
+        {
+            this.gameObject.SetActive(false);
+        }
+
+        #endregion
+
+        #region Test
+
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void TestOpen()
         {
             List<UserProfile> testProfiles = new();
-            for (int i = 0; i < 10; i++)
+            for (int i = 0; i < 20; i++)
             {
-                UserProfile profile = new UserProfile("StubID", "User XXX", sampleProfilePic, DateTime.Now);
+                testProfiles.Add(new UserProfile("StubID", "User XXX", sampleProfileSprite, DateTime.Now));
             }
-        }
-        
-        void Close()
-        {
-            
+            Open("C", testProfiles);
         }
 
         #endregion

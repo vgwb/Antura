@@ -1,20 +1,17 @@
 ﻿using DG.DeInspektor.Attributes;
 using TMPro;
 using UnityEngine;
-using UnityEngine.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class ClassroomHeader : MonoBehaviour
+    public class ClassroomProfileLevelView : MonoBehaviour
     {
         #region Serialized
 
         [DeEmptyAlert]
-        public Button BtLanguage;
+        [SerializeField] TMP_Text tfTitle;
         [DeEmptyAlert]
-        public Button BtClose;
-        [DeEmptyAlert]
-        public TMP_Text TfClassId;
+        [SerializeField] ClassroomProfileLevelSectionView sectionPrefab;
 
         #endregion
     }

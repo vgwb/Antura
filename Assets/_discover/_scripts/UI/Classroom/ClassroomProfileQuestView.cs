@@ -5,16 +5,14 @@ using UnityEngine.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class ClassroomHeader : MonoBehaviour
+    public class ClassroomProfileQuestView : MonoBehaviour
     {
         #region Serialized
 
         [DeEmptyAlert]
-        public Button BtLanguage;
+        [SerializeField] TMP_Text tfTitle;
         [DeEmptyAlert]
-        public Button BtClose;
-        [DeEmptyAlert]
-        public TMP_Text TfClassId;
+        [SerializeField] Image[] stars;
 
         #endregion
     }
