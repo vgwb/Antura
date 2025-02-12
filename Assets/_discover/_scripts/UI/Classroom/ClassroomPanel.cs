@@ -58,6 +58,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (isOpen) return;
             
             isOpen = true;
+            header.TfClassId.text = classroomId;
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
             this.gameObject.SetActive(true);
@@ -69,6 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (!isOpen) return;
 
             isOpen = false;
+            SwitchState(State.Unset);
             this.gameObject.SetActive(false);
         }
         

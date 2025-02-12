@@ -70,6 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
             
             profileImg.sprite = profileDetail.ProfilePic;
             tfName.text = profileDetail.Name;
+            tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
             
             int totLevels = profileDetail.Levels.Count;
             while (levelViews.Count < totLevels)
