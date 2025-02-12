@@ -111,17 +111,22 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Test
 
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        void TestOpen()
+        public List<UserProfile> TestGenerateStubProfiles()
         {
-            if (isOpen) return;
-            
             List<UserProfile> testProfiles = new();
             for (int i = 0; i < 20; i++)
             {
                 testProfiles.Add(new UserProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
             }
-            Open("C", testProfiles);
+            return testProfiles;
+        }
+
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
+        void TestOpen()
+        {
+            if (isOpen) return;
+            
+            Open("C", TestGenerateStubProfiles());
         }
 
         #endregion

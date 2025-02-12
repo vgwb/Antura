@@ -4,7 +4,10 @@ using Antura.Debugging;
 using Antura.UI;
 using UnityEngine;
 using System;
+using System.Collections.Generic;
 using System.IO;
+using Antura.Minigames.DiscoverCountry;
+using Antura.Minigames.DiscoverCountry.Popups;
 
 namespace Antura.ReservedArea
 {
@@ -15,6 +18,7 @@ namespace Antura.ReservedArea
         public CheckIcon AnalyticsCheckIcon;
         public CheckIcon NotificationsCheckIcon;
         public CheckIcon ClassroomModeCheckIcon;
+        [SerializeField] ClassroomPanel classroomPanel;
 
         void Start()
         {
@@ -116,17 +120,24 @@ namespace Antura.ReservedArea
 
         public void OnBtnClassroomMode()
         {
-            if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
-            {
-                AppManager.I.AppSettingsManager.SetClassroomMode(0);
-                ClassroomModeCheckIcon.Set(false);
-            }
-            else
-            {
-                AppManager.I.AppSettingsManager.SetClassroomMode(1);
-                ClassroomModeCheckIcon.Set(true);
-            }
-
+            // NEW open classroom selector
+            // Stub data
+            List<string> classroomIDs = new List<string>() { "A", "B", "C", "D" };
+            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
+                classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
+            });
+            
+            // OLD SYSTEM where classroom mode button was a toggle
+            // if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
+            // {
+            //     AppManager.I.AppSettingsManager.SetClassroomMode(0);
+            //     ClassroomModeCheckIcon.Set(false);
+            // }
+            // else
+            // {
+            //     AppManager.I.AppSettingsManager.SetClassroomMode(1);
+            //     ClassroomModeCheckIcon.Set(true);
+            // }
         }
 
         public void OnOpenDonate()
