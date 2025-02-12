@@ -10,6 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         [DeEmptyAlert]
+        public Button BtClassroom;
+        [DeEmptyAlert]
         public Button BtLanguage;
         [DeEmptyAlert]
         public Button BtClose;

@@ -1,8 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using Antura.Minigames.DiscoverCountry.Popups;
+using Antura.ReservedArea;
 using Antura.UI;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -38,6 +41,14 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
+            // Stub data
+            List<string> classroomIDs = ReservedAreaManager.GetStubClassroomIDs();
+            
+            header.BtClassroom.onClick.AddListener(() => {
+                GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
+                    Open(classroomIDs[x], TestGenerateStubProfiles());
+                });
+            });
             header.BtClose.onClick.AddListener(Close);
             
             if (!isOpen) this.gameObject.SetActive(false);
@@ -58,7 +69,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Open(string classroomId, List<UserProfile> profiles)
         {
-            if (isOpen) return;
+            Close();
             
             isOpen = true;
             if (hideGlobalUIBackButton)
@@ -113,8 +124,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public List<UserProfile> TestGenerateStubProfiles()
         {
+            int tot = Random.Range(10, 31);
             List<UserProfile> testProfiles = new();
-            for (int i = 0; i < 20; i++)
+            for (int i = 0; i < tot; i++)
             {
                 testProfiles.Add(new UserProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
             }

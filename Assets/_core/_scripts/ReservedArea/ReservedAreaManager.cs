@@ -122,7 +122,7 @@ namespace Antura.ReservedArea
         {
             // NEW open classroom selector
             // Stub data
-            List<string> classroomIDs = new List<string>() { "A", "B", "C", "D" };
+            List<string> classroomIDs = GetStubClassroomIDs();
             GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
                 classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
             });
@@ -228,5 +228,14 @@ namespace Antura.ReservedArea
             AppManager.I.PlayerProfileManager.ImportAllPlayerProfiles();
             AppManager.I.NavigationManager.ReloadScene();
         }
+
+        #region Test
+
+        public static List<string> GetStubClassroomIDs()
+        {
+            return new List<string>() { "A", "B", "C", "D" };
+        }
+
+        #endregion
     }
 }
