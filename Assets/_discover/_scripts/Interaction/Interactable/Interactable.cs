@@ -31,18 +31,18 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
+        [Header("Unity Action")]
+        public bool ActivateUnityAction;
+        [SerializeField] bool disableAfterAction;
+        [SerializeField] UnityEvent unityAction;
+
         [Header("Quest Node")]
         public bool ActivateNode;
         public string NodePermalink;
         public string NodeCommand;
 
-        [Header("Unity Action")]
-        public bool ActivateUnityAction;
-        [SerializeField] bool disableAfterAction;
-        [SerializeField] UnityEvent unityAction;
-        
         #endregion
-        
+
         public bool IsLL { get; private set; }
         public EdLivingLetter LL { get; private set; }
         public Transform LookAtTransform { get; private set; }
@@ -52,9 +52,10 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             // Store IconTransform and LookAtTransform
-            if (IconTransform == null) IconTransform = transform;
+            if (IconTransform == null)
+                IconTransform = transform;
             LookAtTransform = IconTransform;
-            
+
             // Store EdLivingLetter if present (so its methods like LookAt can be called on Act)
             EdLivingLetter ll = this.GetComponent<EdLivingLetter>();
             if (ll != null)
@@ -66,14 +67,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            if (ShowIconAlways) InteractionManager.I.ShowPreviewSignalFor(this, true);
+            if (ShowIconAlways)
+                InteractionManager.I.ShowPreviewSignalFor(this, true);
         }
 
         void OnDestroy()
         {
-            if (InteractionManager.I != null) InteractionManager.I.ShowPreviewSignalFor(this, false);
+            if (InteractionManager.I != null)
+                InteractionManager.I.ShowPreviewSignalFor(this, false);
         }
-        
+
         public void OnTriggerEnter(Collider other)
         {
             if (IsInteractable)
@@ -87,18 +90,19 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnTriggerExit(Collider other)
         {
-            if (other.gameObject == InteractionManager.I.player.gameObject) OnTriggerExitPlayer();
+            if (other.gameObject == InteractionManager.I.player.gameObject)
+                OnTriggerExitPlayer();
         }
 
         void OnTriggerExitPlayer()
         {
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
         }
-        
+
         #endregion
 
         /// <summary>
-        /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate 
+        /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate
         /// </summary>
         public QuestNode Activate()
         {
@@ -117,7 +121,8 @@ namespace Antura.Minigames.DiscoverCountry
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void LaunchUnityAction()
         {
-            if (unityAction != null) unityAction.Invoke();
+            if (unityAction != null)
+                unityAction.Invoke();
         }
     }
 }
