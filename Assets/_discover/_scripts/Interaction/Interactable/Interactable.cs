@@ -26,6 +26,8 @@ namespace Antura.Minigames.DiscoverCountry
         public InteractionType InteractionType = InteractionType.Look;
         [Tooltip("Where does the icon appear and camera focus?")]
         public Transform IconTransform;
+        [Tooltip("Show on map (if active)")]
+        public bool ShowOnMap;
         [Tooltip("Should the icon be always shown?")]
         public bool ShowIconAlways;
         [Tooltip("Camera focus on icon on interaction?")]
@@ -107,8 +109,10 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestNode Activate()
         {
             QuestNode node = null;
-            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-            if (ActivateUnityAction) LaunchUnityAction();
+            if (ActivateNode)
+                node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+            if (ActivateUnityAction)
+                LaunchUnityAction();
             if (disableAfterAction)
             {
                 IsInteractable = false;
