@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Antura.UI;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
@@ -16,6 +17,7 @@ namespace Antura.Minigames.DiscoverCountry
         
         #region Serialized
 
+        [SerializeField] bool hideGlobalUIBackButton = true;
         [DeEmptyAlert]
         [SerializeField] ClassroomHeader header;
         [DeEmptyAlert]
@@ -29,6 +31,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         bool isOpen;
+        bool backButtonWasOn;
         State state = State.Unset;
 
         #region Unity
@@ -58,6 +61,11 @@ namespace Antura.Minigames.DiscoverCountry
             if (isOpen) return;
             
             isOpen = true;
+            if (hideGlobalUIBackButton)
+            {
+                backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
+                GlobalUI.I.BackButton.gameObject.SetActive(false);
+            }
             header.TfClassId.text = classroomId;
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
@@ -70,6 +78,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (!isOpen) return;
 
             isOpen = false;
+            if (hideGlobalUIBackButton && backButtonWasOn) GlobalUI.I.BackButton.gameObject.SetActive(true);
             SwitchState(State.Unset);
             this.gameObject.SetActive(false);
         }
