@@ -36,15 +36,15 @@ namespace Antura.Minigames.DiscoverCountry
                     new LanguageLevel(
                         "A language level",
                         new List<LanguageLevelSection>() {
-                            new LanguageLevelSection("A section", 40f),
-                            new LanguageLevelSection("Another section", 20f),
+                            new LanguageLevelSection("A section", 0.4f),
+                            new LanguageLevelSection("Another section", 0.2f),
                         }
                     ),
                     new LanguageLevel(
                         "Another language level",
                         new List<LanguageLevelSection>() {
-                            new LanguageLevelSection("A section", 80f),
-                            new LanguageLevelSection("Another section", 100f),
+                            new LanguageLevelSection("A section", 0.8f),
+                            new LanguageLevelSection("Another section", 1f),
                         }
                     )
                 },

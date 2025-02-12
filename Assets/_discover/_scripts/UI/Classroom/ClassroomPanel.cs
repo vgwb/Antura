@@ -7,6 +7,13 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class ClassroomPanel : MonoBehaviour
     {
+        enum State
+        {
+            Unset,
+            Profiles,
+            ProfileDetail
+        }
+        
         #region Serialized
 
         [DeEmptyAlert]
@@ -21,11 +28,25 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
+        bool isOpen;
+        State state = State.Unset;
+
         #region Unity
 
         void Start()
         {
-            this.gameObject.SetActive(false);
+            header.BtClose.onClick.AddListener(Close);
+            
+            if (!isOpen) this.gameObject.SetActive(false);
+
+            profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
+            detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
+        }
+
+        void OnDestroy()
+        {
+            profilesPanel.OnProfileClicked.Unsubscribe(OnProfileClicked);
+            detailPanel.OnBackClicked.Unsubscribe(OnBackFromProfileDetailsClicked);
         }
 
         #endregion
@@ -34,17 +55,45 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Open(string classroomId, List<UserProfile> profiles)
         {
+            if (isOpen) return;
+            
+            isOpen = true;
+            SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
             this.gameObject.SetActive(true);
+        }
+        
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
+        public void Close()
+        {
+            if (!isOpen) return;
+
+            isOpen = false;
+            this.gameObject.SetActive(false);
         }
         
         #endregion
 
         #region Methods
 
-        void Close()
+        void SwitchState(State toState, UserProfile profile = null)
         {
-            this.gameObject.SetActive(false);
+            if (state == toState) return;
+            if (toState == State.ProfileDetail && profile == null)
+            {
+                Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
+                return;
+            }
+            
+            state = toState;
+            profilesPanel.Open(toState == State.Profiles);
+            detailPanel.Open(toState == State.ProfileDetail);
+            switch (state)
+            {
+                case State.ProfileDetail:
+                    detailPanel.Fill(profile.GetProfileDetail());
+                    break;
+            }
         }
 
         #endregion
@@ -54,12 +103,28 @@ namespace Antura.Minigames.DiscoverCountry
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void TestOpen()
         {
+            if (isOpen) return;
+            
             List<UserProfile> testProfiles = new();
             for (int i = 0; i < 20; i++)
             {
-                testProfiles.Add(new UserProfile("StubID", "User XXX", sampleProfileSprite, DateTime.Now));
+                testProfiles.Add(new UserProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
             }
             Open("C", testProfiles);
+        }
+
+        #endregion
+
+        #region Callbacks
+
+        void OnProfileClicked(UserProfile profile)
+        {
+            SwitchState(State.ProfileDetail, profile);
+        }
+        
+        void OnBackFromProfileDetailsClicked()
+        {
+            SwitchState(State.Profiles);
         }
 
         #endregion

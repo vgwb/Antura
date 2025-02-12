@@ -1,15 +1,25 @@
 ﻿using System.Collections.Generic;
+using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
     public class ClassroomProfilesPanel : MonoBehaviour
     {
+        #region EVENTS
+
+        public ActionEvent<UserProfile> OnProfileClicked = new("ClassroomProfilesPanel.OnProfileClicked");
+
+        #endregion
+        
         #region Serialized
 
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileView profileViewPrefab;
+        [DeEmptyAlert]
+        [SerializeField] ScrollRect scrollRect;
 
         #endregion
 
@@ -25,6 +35,19 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Public Methods
+        
+        public void Open(bool doOpen)
+        {
+            if (doOpen)
+            {
+                this.gameObject.SetActive(true);
+                scrollRect.verticalNormalizedPosition = 1;
+            }
+            else
+            {
+                this.gameObject.SetActive(false);
+            }
+        }
 
         public void Fill(List<UserProfile> profiles)
         {
@@ -38,8 +61,10 @@ namespace Antura.Minigames.DiscoverCountry
             }
             for (int i = 0; i < tot; i++)
             {
-                profileViews[i].Fill(profiles[i]);
-                profileViews[i].gameObject.SetActive(true);
+                ClassroomProfileView view = profileViews[i];
+                view.Fill(profiles[i]);
+                view.BtMain.onClick.AddListener(() => OnProfileClicked.Dispatch(view.Profile));
+                view.gameObject.SetActive(true);
             }
         }
 
@@ -49,7 +74,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Clear()
         {
-            foreach (ClassroomProfileView profileView in profileViews) profileView.gameObject.SetActive(false);
+            foreach (ClassroomProfileView profileView in profileViews)
+            {
+                profileView.gameObject.SetActive(false);
+                profileView.BtMain.onClick.RemoveAllListeners();
+            }
         }
 
         #endregion

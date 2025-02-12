@@ -15,5 +15,15 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Slider slider;
 
         #endregion
+
+        #region Public Methods
+
+        public void Fill(UserProfileDetail.LanguageLevelSection section)
+        {
+            tfTitle.text = section.Name;
+            slider.value = section.CompletionPerc;
+        }
+
+        #endregion
     }
 }

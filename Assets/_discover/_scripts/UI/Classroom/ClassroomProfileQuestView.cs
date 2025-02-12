@@ -13,6 +13,21 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] TMP_Text tfTitle;
         [DeEmptyAlert]
         [SerializeField] Image[] stars;
+        [SerializeField] Color inactiveStarColor = Color.gray;
+        [SerializeField] Color activeStarColor = Color.yellow;
+
+        #endregion
+
+        #region Public Methods
+
+        public void Fill(UserProfileDetail.DiscoverQuest quest)
+        {
+            tfTitle.text = quest.Name;
+            for (int i = 0; i < stars.Length; i++)
+            {
+                stars[i].color = i < quest.Stars ? activeStarColor : inactiveStarColor;
+            }
+        }
 
         #endregion
     }
