@@ -6,12 +6,15 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public abstract class AbstractMapIcon : MonoBehaviour
     {
+        public abstract bool IsEnabled { get; }
+
+        protected Transform followTarget;
         float defY;
         Tween showTween;
         
         #region Unity
 
-        protected virtual void Start()
+        void Start()
         {
             defY = this.transform.position.y;
             
@@ -22,20 +25,14 @@ namespace Antura.Minigames.DiscoverCountry
             Hide(true);
         }
 
-        protected virtual void OnDestroy()
+        void OnDestroy()
         {
             showTween.Kill();
         }
-
-        void Update()
+        
+        public void UpdatePosition()
         {
-            Vector3 pos = InteractionManager.I.player.transform.position;
-            pos.y = defY;
-            this.transform.position = pos;
-        }
-
-        protected void UpdatePosition(Vector3 position)
-        {
+            Vector3 position = followTarget != null ? followTarget.position : GetPosition();
             position.y = defY;
             this.transform.position = position;
         }
@@ -44,7 +41,19 @@ namespace Antura.Minigames.DiscoverCountry
         
         #region Public Methods
 
-        public abstract void Show();
+        public void Show()
+        {
+            if (IsEnabled)
+            {
+                showTween.timeScale = 1f;
+                showTween.Restart();
+                this.gameObject.SetActive(true);
+            }
+            else
+            {
+                Hide(true);
+            }
+        }
 
         public void Hide(bool immediate = false)
         {
@@ -60,16 +69,17 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        public void AssignFollowTarget(Transform target)
+        {
+            followTarget = target;
+        }
+        
         #endregion
 
         #region Methods
 
-        protected void DoShow()
-        {
-            showTween.timeScale = 1f;
-            showTween.Restart();
-            this.gameObject.SetActive(true);
-        }
+        // Only used if followTarget is NULL
+        protected abstract Vector3 GetPosition();
 
         #endregion
     }

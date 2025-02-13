@@ -6,6 +6,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
+    [RequireComponent(typeof(MapIconsManager))]
     public class UIManager : MonoBehaviour
     {
         #region Serialized
@@ -15,10 +16,6 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Canvas canvas;
         [DeEmptyAlert]
         [SerializeField] UIVirtualButton btAct;
-        [DeEmptyAlert]
-        [SerializeField] PlayerMapIcon playerMapIco;
-        [DeEmptyAlert]
-        [SerializeField] AnturaMapIcon anturaMapIco;
         [DeEmptyAlert]
         [SerializeField] TargetMarker targetMarker;
         [DeEmptyAlert]
@@ -47,8 +44,6 @@ namespace Antura.Minigames.DiscoverCountry
             canvas.gameObject.SetActive(true);
             dialogues.gameObject.SetActive(true);
             btAct.gameObject.SetActive(false);
-            playerMapIco.gameObject.SetActive(true);
-            anturaMapIco.gameObject.SetActive(true);
             targetMarker.gameObject.SetActive(true);
             targetIndicator.gameObject.SetActive(true);
         }
@@ -59,7 +54,6 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnMapCameraActivated.Subscribe(OnMapCameraActivated);
         }
 
         void OnDestroy()
@@ -71,7 +65,6 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Unsubscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
-            DiscoverNotifier.Game.OnMapCameraActivated.Unsubscribe(OnMapCameraActivated);
         }
 
         void LateUpdate()
@@ -122,20 +115,6 @@ namespace Antura.Minigames.DiscoverCountry
                 btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);
-        }
-
-        void OnMapCameraActivated(bool activated)
-        {
-            if (activated)
-            {
-                playerMapIco.Show();
-                anturaMapIco.Show();
-            }
-            else
-            {
-                playerMapIco.Hide();
-                anturaMapIco.Hide();
-            }
         }
 
         #endregion
