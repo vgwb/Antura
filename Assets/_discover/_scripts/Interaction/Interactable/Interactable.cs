@@ -48,14 +48,14 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsLL { get; private set; }
         public EdLivingLetter LL { get; private set; }
         public Transform LookAtTransform { get; private set; }
+        Coroutine coDisableAfterAction;
 
         #region Unity
 
         void Awake()
         {
             // Store IconTransform and LookAtTransform
-            if (IconTransform == null)
-                IconTransform = transform;
+            if (IconTransform == null) IconTransform = transform;
             LookAtTransform = IconTransform;
 
             // Store EdLivingLetter if present (so its methods like LookAt can be called on Act)
@@ -75,6 +75,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDestroy()
         {
+            this.StopAllCoroutines();
             if (InteractionManager.I != null)
                 InteractionManager.I.ShowPreviewSignalFor(this, false);
         }
@@ -103,24 +104,23 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
+        #region Public Methods
+
         /// <summary>
         /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate
         /// </summary>
         public QuestNode Activate()
         {
             QuestNode node = null;
-            if (ActivateNode)
-                node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-            if (ActivateUnityAction)
-                LaunchUnityAction();
-            if (disableAfterAction)
-            {
-                IsInteractable = false;
-                InteractionManager.I.ShowPreviewSignalFor(this, false);
-                OnTriggerExitPlayer();
-            }
+            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+            if (ActivateUnityAction) LaunchUnityAction();
+            if (disableAfterAction) this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
             return node;
         }
+
+        #endregion
+
+        #region Methods
 
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void LaunchUnityAction()
@@ -128,5 +128,16 @@ namespace Antura.Minigames.DiscoverCountry
             if (unityAction != null)
                 unityAction.Invoke();
         }
+
+        // Coroutine to disable interactable after one frame, so it doesn't interfere with multiple actions being called in the same frame
+        IEnumerator CO_DisableAfterAction()
+        {
+            yield return null;
+            IsInteractable = false;
+            InteractionManager.I.ShowPreviewSignalFor(this, false);
+            OnTriggerExitPlayer();
+        }
+
+        #endregion
     }
 }

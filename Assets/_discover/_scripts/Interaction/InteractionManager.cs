@@ -144,8 +144,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 QuestNode questNode = nearbyInteractable.Activate();
                 if (questNode != null)
                 {
-                    if (QuestManager.I.DebugQuest)
-                        questNode.Print();
+                    if (QuestManager.I.DebugQuest) questNode.Print();
                     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
                 }
             }
