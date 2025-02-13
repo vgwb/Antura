@@ -16,6 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         bool mapIconsActivated;
         readonly List<AbstractMapIcon> interactableIcons = new();
+        readonly Dictionary<AbstractMapIcon, Interactable> interactableByIcon = new();
         
         #region Unity
 
@@ -30,6 +31,15 @@ namespace Antura.Minigames.DiscoverCountry
         {
             // Find all Interactables and mark the ones that should appear on the map
             Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (Interactable interactable in allInteractables)
+            {
+                if (!interactable.ShowOnMap) continue;
+                AbstractMapIcon icon = Instantiate(defaultInteractableIconPrefab, defaultInteractableIconPrefab.transform.parent);
+                icon.gameObject.SetActive(true);
+                icon.AssignFollowTarget(interactable.transform);
+                interactableIcons.Add(icon);
+                interactableByIcon.Add(icon, interactable);
+            }
             
             DiscoverNotifier.Game.OnMapCameraActivated.Subscribe(OnMapCameraActivated);
         }
@@ -47,7 +57,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (anturaMapIco.IsEnabled) anturaMapIco.UpdatePosition();
             foreach (AbstractMapIcon icon in interactableIcons)
             {
-                if (icon.IsEnabled) icon.UpdatePosition();
+                if (!interactableByIcon.TryGetValue(icon, out Interactable interactable)) continue;
+                if (interactable.IsInteractable && icon.IsEnabled) icon.UpdatePosition();
             }
         }
 
@@ -62,12 +73,20 @@ namespace Antura.Minigames.DiscoverCountry
                 mapIconsActivated = true;
                 playerMapIco.Show();
                 anturaMapIco.Show();
+                foreach (AbstractMapIcon icon in interactableIcons)
+                {
+                    if (interactableByIcon.TryGetValue(icon, out Interactable interactable))
+                    {
+                        if (interactable.IsInteractable && icon.IsEnabled) icon.Show();
+                    }
+                }
             }
             else
             {
                 mapIconsActivated = false;
                 playerMapIco.Hide();
                 anturaMapIco.Hide();
+                foreach (AbstractMapIcon icon in interactableIcons) icon.Hide();
             }
         }
 
