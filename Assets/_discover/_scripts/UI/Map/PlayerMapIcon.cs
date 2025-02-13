@@ -10,7 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            if (ActionManager.I.Target_AnturaLocation != null) UpdatePosition(InteractionManager.I.player.transform.position);
+            UpdatePosition(InteractionManager.I.player.transform.position);
         }
 
         #endregion
