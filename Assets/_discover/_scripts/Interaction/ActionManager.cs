@@ -183,6 +183,7 @@ namespace Antura.Minigames.DiscoverCountry
                     case "update_coins":
                         QuestManager.I.UpateCoinsCounter();
                         break;
+                    case "win":
                     case "game_end":
                         WinFx.SetActive(true);
                         WinFx.GetComponent<ParticleSystem>().Play();
