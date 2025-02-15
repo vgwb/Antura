@@ -55,7 +55,8 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             // Store IconTransform and LookAtTransform
-            if (IconTransform == null) IconTransform = transform;
+            if (IconTransform == null)
+                IconTransform = transform;
             LookAtTransform = IconTransform;
 
             // Store EdLivingLetter if present (so its methods like LookAt can be called on Act)
@@ -102,6 +103,17 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
         }
 
+        public void OnCollected()
+        {
+            IsInteractable = false;
+            Debug.Log("ITEM " + NodePermalink + " COLLECTED");
+            // if (permalink == NodePermalink)
+            // {
+            //     Debug.Log("ITEM " + permalink + " COLLECTED");
+
+            // }
+        }
+
         #endregion
 
         #region Public Methods
@@ -112,9 +124,12 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestNode Activate()
         {
             QuestNode node = null;
-            if (ActivateNode) node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-            if (ActivateUnityAction) LaunchUnityAction();
-            if (disableAfterAction) this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
+            if (ActivateNode)
+                node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+            if (ActivateUnityAction)
+                LaunchUnityAction();
+            if (disableAfterAction)
+                this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
             return node;
         }
 

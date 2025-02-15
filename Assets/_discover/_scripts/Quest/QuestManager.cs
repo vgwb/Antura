@@ -27,6 +27,8 @@ namespace Antura.Minigames.DiscoverCountry
         public int total_coins = 0;
         public int total_bones = 0;
         public int total_items = 0;
+
+        private Inventory inventory;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         [Header("DEBUG")]
@@ -41,6 +43,7 @@ namespace Antura.Minigames.DiscoverCountry
             // levelInstance.transform.SetParent(null);
 
             total_coins = 0;
+            inventory = new Inventory();
             if (coinsCounter == null)
             {
                 coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
@@ -72,7 +75,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 HomerVars.MET_MONALISA = true;
             }
-
+            inventory.Init(HomerVars.QUEST_ITEMS);
             updateCounters();
         }
 
@@ -101,7 +104,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnNodeStart(QuestNode node)
         {
             if (node.Action != null)
-                ActionManager.I.ResolveAction(node.Action);
+                ActionManager.I.ResolveAction(node.Action, node.Permalink);
         }
 
         public void OnNodeEnd(QuestNode node)
@@ -109,7 +112,19 @@ namespace Antura.Minigames.DiscoverCountry
             if (node.NextTarget != null)
                 ActionManager.I.CameraShowTarget(node.NextTarget);
             if (node.ActionPost != null)
-                ActionManager.I.ResolveAction(node.ActionPost);
+                ActionManager.I.ResolveAction(node.ActionPost, node.Permalink);
+        }
+
+        public void OnCollectItemCode(string itemCode)
+        {
+            if (inventory.CollectItem(itemCode))
+            {
+                Debug.Log("Collect item " + itemCode);
+
+                total_items++;
+                HomerVars.TOTAL_ITEMS = total_items;
+                UpateItemsCounter();
+            }
         }
 
         public void OnCollectItem(GameObject go)

@@ -123,6 +123,18 @@ namespace Antura.Minigames.DiscoverCountry
             Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
         }
 
+        private void Collect(string collectCode)
+        {
+            //var actionData = GetActionData(ActionType.Spawn, spawnCode);
+            // Debug.Log("Spawn spawnCode: " + spawnCode);
+            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
+            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
+            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
+
+            //Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
+            QuestManager.I.OnCollectItemCode(collectCode);
+        }
+
         private void Trigger(string actionCode)
         {
             var actionData = GetActionData(actionCode);
@@ -138,7 +150,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        public void ResolveAction(string action)
+        public void ResolveAction(string action, string permalink = "")
         {
             action = action.ToLower();
             if (QuestManager.I.DebugQuest)
@@ -147,6 +159,17 @@ namespace Antura.Minigames.DiscoverCountry
             if (action.Substring(0, 5) == "area_")
             {
                 ActivateArea(action.Substring(5));
+            }
+            else if (action.Substring(0, 8) == "collect_")
+            {
+                if (permalink != "")
+                {
+                    Collect(permalink);
+                }
+                else
+                {
+                    Collect(action.Substring(8));
+                }
             }
             else if (action.Substring(0, 6) == "spawn_")
             {

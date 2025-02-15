@@ -8,7 +8,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         Trigger = 1,
         Area = 2,
-        Spawn = 3
+        Spawn = 3,
+        Collect = 4
     }
 
     [System.Serializable]
