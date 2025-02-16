@@ -8,35 +8,35 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class Progress
     {
-        private HashSet<string> visitedNodes;
-        private int total_progress;
-        private int current_progress;
+        private HashSet<string> visitedSteps;
+        private int total_steps;
+        private int current_steps;
 
         public Progress()
         {
-            visitedNodes = new HashSet<string>();
+            visitedSteps = new HashSet<string>();
         }
 
-        public void Init(int maxNodes)
+        public void Init(int maxSteps)
         {
-            total_progress = maxNodes;
-            current_progress = 0;
+            total_steps = maxSteps;
+            current_steps = 0;
         }
 
-        public bool VisitNode(string nodePermalink)
+        public bool VisitNode(string stepName)
         {
 
-            if (visitedNodes.Contains(nodePermalink))
+            if (visitedSteps.Contains(stepName))
             {
                 //Debug.Log($"Node {nodePermalink} already collected.");
                 return false;
             }
             else
             {
-                visitedNodes.Add(nodePermalink);
-                current_progress++;
-                Debug.Log("VISITING NODE " + nodePermalink + " - " + current_progress + " / " + total_progress);
-                QuestManager.I.UpateProgressCounter(current_progress, total_progress);
+                visitedSteps.Add(stepName);
+                current_steps++;
+                Debug.Log("VISITING NODE " + stepName + " - " + current_steps + " / " + total_steps);
+                QuestManager.I.UpateProgressCounter(current_steps, total_steps);
                 //Debug.Log($"Node {nodePermalink} collected successfully.");
                 return true;
             }
