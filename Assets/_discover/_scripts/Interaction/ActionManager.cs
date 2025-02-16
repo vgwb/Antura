@@ -179,6 +179,9 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 switch (action)
                 {
+                    case "update_items":
+                        QuestManager.I.UpateItemsCounter();
+                        break;
                     case "updatecoins":
                     case "update_coins":
                         QuestManager.I.UpateCoinsCounter();

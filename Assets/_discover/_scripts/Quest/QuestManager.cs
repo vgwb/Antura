@@ -9,6 +9,7 @@ using Antura.Utilities;
 using Antura.UI;
 using Antura.Language;
 using System.Runtime.Remoting.Messaging;
+using UnityEditor;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -22,6 +23,8 @@ namespace Antura.Minigames.DiscoverCountry
         public BonesCounter bonesCounter;
         public BonesCounter coinsCounter;
         public ItemsCounter itemsCounter;
+
+        public ProgressCounter progressCounter;
         public string LanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
@@ -29,6 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
         public int total_items = 0;
 
         private Inventory inventory;
+        private Progress progress;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         [Header("DEBUG")]
@@ -44,6 +48,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             total_coins = 0;
             inventory = new Inventory();
+            progress = new Progress();
             if (coinsCounter == null)
             {
                 coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
@@ -56,6 +61,11 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
                 itemsCounter.gameObject.SetActive(false);
+            }
+
+            if (progressCounter == null)
+            {
+                progressCounter = GameObject.Find("ProgressCounter").GetComponent<ProgressCounter>();
             }
 
             if (DebugQuest && DebugLanguage != "")
@@ -76,6 +86,7 @@ namespace Antura.Minigames.DiscoverCountry
                 HomerVars.MET_MONALISA = true;
             }
             inventory.Init(HomerVars.QUEST_ITEMS);
+            progress.Init(CurrentQuest.TotalProgress);
             updateCounters();
         }
 
@@ -105,6 +116,9 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (node.Action != null)
                 ActionManager.I.ResolveAction(node.Action, node.Permalink);
+
+            if (node.Permalink != "")
+                progress.VisitNode(node.Permalink);
         }
 
         public void OnNodeEnd(QuestNode node)
@@ -147,8 +161,12 @@ namespace Antura.Minigames.DiscoverCountry
         {
             UpateCoinsCounter();
             UpateItemsCounter();
+            //UpateProgressCounter();
         }
-
+        public void UpateProgressCounter(int counter, int maxSteps)
+        {
+            progressCounter.UpdateProgress(counter, maxSteps);
+        }
         public void UpateItemsCounter()
         {
             if (HomerVars.QUEST_ITEMS > 0)

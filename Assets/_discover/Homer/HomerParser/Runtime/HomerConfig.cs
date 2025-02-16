@@ -39,6 +39,8 @@ namespace Homer
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
 
+            Debug.Log("TOTAL: " + permalinks.Count() + "\n");
+
             foreach (string permalink in permalinks)
             {
                 Debug.Log(permalink + "\n");

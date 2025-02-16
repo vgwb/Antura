@@ -10,6 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         private HashSet<string> collectedItems;
 
+        private int total_items;
+
         public Inventory()
         {
             collectedItems = new HashSet<string>();
@@ -17,7 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Init(int maxItems)
         {
-
+            total_items = maxItems;
         }
 
         public bool CollectItem(string itemCode)

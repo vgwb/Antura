@@ -50,6 +50,9 @@ namespace Antura.Minigames.DiscoverCountry
         public string Categories;
         public int Duration;
 
+        [Tooltip("how many nodes have to be visited for 100% score")]
+        public int TotalProgress;
+
         [TextArea(3, 10)]
         public string Description;
 
