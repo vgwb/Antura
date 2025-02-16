@@ -12587,7 +12587,7 @@
           "_date": 1711465835401,
           "_height": 275,
           "_color": null,
-          "_image": "NOD-03151590-0049-4bfe-9611-1711465835401"
+          "_image": "school_hischool"
         },
         {
           "_id": "NOD-94c3189e-763f-4b83-a72b-1728494807998",
@@ -12823,7 +12823,7 @@
           "_date": 1711465835401,
           "_height": 275,
           "_color": null,
-          "_image": "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5"
+          "_image": "school_college"
         },
         {
           "_id": "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5-1b-bd",
@@ -12970,7 +12970,7 @@
           "_isMarked": false,
           "_date": 1730699764129,
           "_height": 257,
-          "_image": "NOD-d86e1f59-36e3-450a-8b3d-1730699764129"
+          "_image": "school_classroom"
         },
         {
           "_id": "NOD-d86e1f59-36e3-450a-8b3d-1730699764129-8a-a7",
@@ -13829,7 +13829,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "we watch a movie about celtics with Aterix and Obelix: do you know them?"
+                  "_text": "we watch a movie about celtics with Asterix and Obelix: do you know them?"
                 },
                 {
                   "_nodeElementId": "NODEL-f95e283e-768f-4823-affa-1730787977571",
@@ -13954,7 +13954,7 @@
           "_date": 1728494807998,
           "_height": 275,
           "_color": null,
-          "_image": "NOD-94c3189e-763f-4b83-a72b-1728494807998-5b-90"
+          "_image": "school_poster"
         },
         {
           "_id": "NOD-8c862522-2d06-4222-8eea-1730801462783",
@@ -13964,7 +13964,7 @@
           "_actorUID": "TEACHER",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-8c862522-2d06-4222-8eea-1730801462783",
+          "_image": "schoool_bag",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -13978,7 +13978,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "Now you are old enopughF. rom no on you have to bring your schoolbag"
+                  "_text": "Now you are old enough. From now on you have to bring your schoolbag"
                 },
                 {
                   "_nodeElementId": "NODEL-ab654cf9-beef-44d9-acbc-1730801462783",
@@ -14035,7 +14035,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$CMD = \"INIT\""
+                  "_text": "$CMD == \"INIT\""
                 },
                 {
                   "_nodeElementId": "NODEL-0561a278-f77e-4830-adbc-1738802522459",
@@ -14043,6 +14043,46 @@
                   "_isDraft": false,
                   "_toBeTranslated": false,
                   "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-12d6573f-5a12-47ee-99d6-1739719065581",
+              "_type": "Condition",
+              "_nodeId": "NOD-0277bc28-4c34-4943-8bd6-1738802522459",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-12d6573f-5a12-47ee-99d6-1739719065581",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_TUTOR\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-53580561-fe72-4448-a521-1739719161858",
+              "_type": "Condition",
+              "_nodeId": "NOD-0277bc28-4c34-4943-8bd6-1738802522459",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-53580561-fe72-4448-a521-1739719161858",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_TEACHER_5\""
                 }
               ],
               "_visited": false,
@@ -14062,6 +14102,22 @@
               "_nodeElementId": "NODEL-0561a278-f77e-4830-adbc-1738802522459",
               "_to": "NOD-6eb488bc-f80b-432b-a54e-1730677381051-5a-86",
               "_type": "Condition"
+            },
+            {
+              "_id": "CONN-a057e406-3127-4af0-ad08-1739719082691",
+              "_connectionLine": {},
+              "_from": "NOD-0277bc28-4c34-4943-8bd6-1738802522459",
+              "_nodeElementId": "NODEL-12d6573f-5a12-47ee-99d6-1739719065581",
+              "_to": "NOD-5e221711-ed2b-44e3-9d36-1730787575037",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-1e20475a-d1ff-43fd-aca9-1739719175320",
+              "_connectionLine": {},
+              "_from": "NOD-0277bc28-4c34-4943-8bd6-1738802522459",
+              "_nodeElementId": "NODEL-53580561-fe72-4448-a521-1739719161858",
+              "_to": "NOD-5e221711-ed2b-44e3-9d36-1730787575037-a9-90",
+              "_type": "Condition"
             }
           ],
           "_subFlow": null,
@@ -14069,7 +14125,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1738802522459,
-          "_height": 84
+          "_height": 203
         }
       ],
       "_selectedNodes": [],
@@ -16877,7 +16933,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-1bb24135-47ef-4e01-b545-1739705515050",
+              "_connectionLine": {},
+              "_from": "NOD-864b9426-ff6e-49fa-89ca-1730702040108",
+              "_to": "NOD-f1594f5b-0813-44a2-a435-1739705477350",
+              "_type": "Text"
+            }
+          ],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": true,
@@ -16925,7 +16989,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-58f970c7-0727-4ec5-9cd0-1739705485189",
+              "_connectionLine": {},
+              "_from": "NOD-87df16e5-c9e0-4bce-b5ae-1730702082173",
+              "_to": "NOD-f1594f5b-0813-44a2-a435-1739705477350",
+              "_type": "Text"
+            }
+          ],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": true,
@@ -17051,7 +17123,9 @@
           "_type": "Text",
           "_actorId": "ACT-da0076b7-1095-4bc9-966f-1719131980159",
           "_actorUID": "MUSEUM_GUIDE",
-          "_metadata": [],
+          "_metadata": [
+            "MTV-d9e0e3ee-f1e9-4098-81de-1739705333080"
+          ],
           "_note": "",
           "_image": "map",
           "_cycleType": "List",
@@ -17605,7 +17679,8 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730702040108,
-          "_height": 90
+          "_height": 257,
+          "_image": "chinon_defence"
         },
         {
           "_id": "NOD-864b9426-ff6e-49fa-89ca-1730702040108-89-98-0a-8d",
@@ -17718,7 +17793,8 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730791139071,
-          "_height": 126
+          "_height": 293,
+          "_image": "chambord_ball"
         },
         {
           "_id": "NOD-718679d4-fa31-4692-a6bb-1730789741784-c9-83",
@@ -18045,6 +18121,26 @@
               "_ifNoMore": false,
               "_variations": [],
               "_permalink": null
+            },
+            {
+              "_id": "NODEL-ae67ee6b-8826-4138-bc7d-1739705295308",
+              "_type": "Condition",
+              "_nodeId": "NOD-89a63726-ece5-43c1-95c1-1738776147418",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-ae67ee6b-8826-4138-bc7d-1739705295308",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_GUIDE\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
             }
           ],
           "_jumpTo": {},
@@ -18056,6 +18152,14 @@
               "_nodeElementId": "NODEL-f12d6864-4c45-4d15-a7fa-1738776147418",
               "_to": "NOD-5f886671-04e3-4bbe-8ed2-1738776168703",
               "_type": "Condition"
+            },
+            {
+              "_id": "CONN-50239d92-9300-40f6-9047-1739705307510",
+              "_connectionLine": {},
+              "_from": "NOD-89a63726-ece5-43c1-95c1-1738776147418",
+              "_nodeElementId": "NODEL-ae67ee6b-8826-4138-bc7d-1739705295308",
+              "_to": "NOD-492c8e18-c720-4b00-a56f-1730789789013",
+              "_type": "Condition"
             }
           ],
           "_subFlow": null,
@@ -18063,7 +18167,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1738776147418,
-          "_height": 84
+          "_height": 144
         },
         {
           "_id": "NOD-5f886671-04e3-4bbe-8ed2-1738776168703",
@@ -18105,7 +18209,49 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1738776168703,
-          "_height": 27
+          "_height": 39
+        },
+        {
+          "_id": "NOD-f1594f5b-0813-44a2-a435-1739705477350",
+          "_flowId": "FL-07b8d15d-4dfb-4053-b21b-1730560636238",
+          "_type": "Variables",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-affa62c7-ee18-41e0-ba79-1739705477350",
+              "_type": "Variables",
+              "_nodeId": "NOD-f1594f5b-0813-44a2-a435-1739705477350",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-affa62c7-ee18-41e0-ba79-1739705477350",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$QUEST_ITEMS = 8"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1739705477350,
+          "_height": 39
         }
       ],
       "_selectedNodes": [],
@@ -18320,7 +18466,8 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730703652888,
-          "_height": 108
+          "_height": 275,
+          "_image": "mont_blanc"
         },
         {
           "_id": "NOD-b5901697-0120-46ea-8486-1730703681398",
@@ -18652,7 +18799,7 @@
           "_actorUID": "GUIDE",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-9ff7bd47-8497-435e-96f2-1730702630595",
+          "_image": "_09_overview",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -18701,7 +18848,7 @@
           "_actorUID": "MAN",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-d824c831-20a3-49b8-b4bb-1730702654507",
+          "_image": "_09_cheesemonger",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -19264,7 +19411,7 @@
           "_actorUID": "MAN",
           "_metadata": [],
           "_note": "",
-          "_image": "NOD-aee12f4b-1c86-42ad-9f0e-1730703586181",
+          "_image": "french_coastlines",
           "_cycleType": "List",
           "_color": null,
           "_elements": [
@@ -19482,16 +19629,6 @@
   ],
   "_localVariables": [],
   "_assets": {
-    "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5": {
-      "name": "NOD-03151590-0049-4bfe-9611-1711465835401-d8-b5",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-03151590-0049-4bfe-9611-1711465835401": {
-      "name": "NOD-03151590-0049-4bfe-9611-1711465835401",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-04ea8248-01f1-4927-84cd-1730701753588": {
       "name": "NOD-04ea8248-01f1-4927-84cd-1730701753588",
       "title": "",
@@ -19552,21 +19689,6 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-8c862522-2d06-4222-8eea-1730801462783": {
-      "name": "NOD-8c862522-2d06-4222-8eea-1730801462783",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-94c3189e-763f-4b83-a72b-1728494807998-5b-90": {
-      "name": "NOD-94c3189e-763f-4b83-a72b-1728494807998-5b-90",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-9ff7bd47-8497-435e-96f2-1730702630595": {
-      "name": "NOD-9ff7bd47-8497-435e-96f2-1730702630595",
-      "title": "",
-      "copyright": ""
-    },
     "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-5b-91": {
       "name": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-5b-91",
       "title": "",
@@ -19574,11 +19696,6 @@
     },
     "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8": {
       "name": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8",
-      "title": "",
-      "copyright": ""
-    },
-    "NOD-aee12f4b-1c86-42ad-9f0e-1730703586181": {
-      "name": "NOD-aee12f4b-1c86-42ad-9f0e-1730703586181",
       "title": "",
       "copyright": ""
     },
@@ -19622,13 +19739,13 @@
       "title": "",
       "copyright": ""
     },
-    "NOD-d824c831-20a3-49b8-b4bb-1730702654507": {
-      "name": "NOD-d824c831-20a3-49b8-b4bb-1730702654507",
+    "_09_cheesemonger": {
+      "name": "_09_cheesemonger",
       "title": "",
       "copyright": ""
     },
-    "NOD-d86e1f59-36e3-450a-8b3d-1730699764129": {
-      "name": "NOD-d86e1f59-36e3-450a-8b3d-1730699764129",
+    "_09_overview": {
+      "name": "_09_overview",
       "title": "",
       "copyright": ""
     },
@@ -19722,6 +19839,11 @@
       "title": "",
       "copyright": ""
     },
+    "chambord_ball": {
+      "name": "chambord_ball",
+      "title": "",
+      "copyright": ""
+    },
     "chambord_interior": {
       "name": "chambord_interior",
       "title": "",
@@ -19742,6 +19864,11 @@
       "title": "",
       "copyright": ""
     },
+    "chinon_defence": {
+      "name": "chinon_defence",
+      "title": "",
+      "copyright": ""
+    },
     "chinon_old": {
       "name": "chinon_old",
       "title": "",
@@ -19759,6 +19886,11 @@
     },
     "flag_swiss": {
       "name": "flag_swiss",
+      "title": "",
+      "copyright": ""
+    },
+    "french_coastlines": {
+      "name": "french_coastlines",
       "title": "",
       "copyright": ""
     },
@@ -19832,6 +19964,11 @@
       "title": "",
       "copyright": ""
     },
+    "mont_blanc": {
+      "name": "mont_blanc",
+      "title": "",
+      "copyright": ""
+    },
     "mr_eiffel": {
       "name": "mr_eiffel",
       "title": "",
@@ -19894,6 +20031,26 @@
     },
     "rocket": {
       "name": "rocket",
+      "title": "",
+      "copyright": ""
+    },
+    "school_college": {
+      "name": "school_college",
+      "title": "",
+      "copyright": ""
+    },
+    "school_hischool": {
+      "name": "school_hischool",
+      "title": "",
+      "copyright": ""
+    },
+    "school_poster": {
+      "name": "school_poster",
+      "title": "",
+      "copyright": ""
+    },
+    "schoool_bag": {
+      "name": "schoool_bag",
       "title": "",
       "copyright": ""
     },
@@ -19965,6 +20122,11 @@
     "venusmilo": {
       "name": "venusmilo",
       "title": "Venus Milo",
+      "copyright": ""
+    },
+    "school_classroom": {
+      "name": "school_classroom",
+      "title": "",
       "copyright": ""
     }
   },
@@ -20284,6 +20446,13 @@
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
           "_value": "update_items",
           "_uid": "UPDATE_ITEMS",
+          "_icon": "⚔"
+        },
+        {
+          "_id": "MTV-d9e0e3ee-f1e9-4098-81de-1739705333080",
+          "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
+          "_value": "WIN",
+          "_uid": "WIN",
           "_icon": "⚔"
         }
       ],
