@@ -14156,7 +14156,7 @@
           "_jumpTo": {},
           "_connections": [],
           "_subFlow": null,
-          "_permalink": "statue_verne",
+          "_permalink": "verne_painting",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700373238,
@@ -14205,7 +14205,7 @@
           "_jumpTo": {},
           "_connections": [],
           "_subFlow": null,
-          "_permalink": "painting",
+          "_permalink": "verne_house",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730701124390,
@@ -14280,7 +14280,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "So you want to know who Jules Verne was, right?"
+                  "_text": "Welcome to the house of Jules Verne!"
                 },
                 {
                   "_nodeElementId": "NODEL-c1cda02f-fdc1-4372-a1a3-1711465867579",
@@ -14351,11 +14351,11 @@
             }
           ],
           "_subFlow": null,
-          "_permalink": null,
+          "_permalink": "talk_guide",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1711465867579,
-          "_height": 275,
+          "_height": 257,
           "_color": null,
           "_image": "jules_verne_1"
         },
@@ -14382,7 +14382,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "Find the 4 books and collect the 4 pieces of the map, then come back to me"
+                  "_text": "Explore the house and find FOUR of his books!"
                 },
                 {
                   "_nodeElementId": "NODEL-d89ee8eb-e5bd-4c99-84c1-1730700360352",
@@ -14407,7 +14407,8 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700360352,
-          "_height": 133
+          "_height": 275,
+          "_image": "jverne_mission_overview"
         },
         {
           "_id": "NOD-b042b72b-c8e9-486c-b655-1730700976509",
@@ -14459,15 +14460,15 @@
               "_type": "Condition"
             },
             {
-              "_id": "CONN-9ca76a83-8500-4ce2-9aa7-1730701082916",
+              "_id": "CONN-8c726a46-183d-45a0-adff-1739702858749",
               "_connectionLine": {},
               "_from": "NOD-b042b72b-c8e9-486c-b655-1730700976509",
-              "_to": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-2b-a8-19-a8",
+              "_to": "NOD-f50ee9cd-c2d8-4f47-87d8-1730700360352",
               "_type": "FailCondition"
             }
           ],
           "_subFlow": null,
-          "_permalink": "talk_museum_guide",
+          "_permalink": "open_chest",
           "_translatable": false,
           "_isMarked": false,
           "_date": 1730700976509,
@@ -14658,7 +14659,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1710891244721,
-          "_height": 83,
+          "_height": 127,
           "_color": null
         },
         {
@@ -14685,7 +14686,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "<br>This is an old train"
+                  "_text": "This is an old train"
                 },
                 {
                   "_nodeElementId": "NODEL-6c9acdb3-fb1f-4a91-ba54-1730700903283",
@@ -14704,69 +14705,13 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-d8f4d766-9334-42a7-8760-1730701273981",
-              "_connectionLine": {},
-              "_from": "NOD-422c2fd1-59be-4553-8ff6-1730700903283",
-              "_to": "NOD-615163f4-53da-4ef4-bbda-1730701260539",
-              "_type": "Text"
-            }
-          ],
+          "_connections": [],
           "_subFlow": null,
-          "_permalink": null,
+          "_permalink": "paint_80days",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700903283,
-          "_height": 275
-        },
-        {
-          "_id": "NOD-615163f4-53da-4ef4-bbda-1730701260539",
-          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-              "_type": "Variables",
-              "_nodeId": "NOD-615163f4-53da-4ef4-bbda-1730701260539",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = $TOTAL_ITEMS + 1"
-                },
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1730701260539,
-          "_height": 57
+          "_height": 257
         },
         {
           "_id": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8",
@@ -14851,10 +14796,10 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "CONN-fa1d4cd7-6259-4c13-84fb-1730800987569",
+              "_id": "CONN-52c699de-1e2c-45f8-b193-1739685232617",
               "_connectionLine": {},
               "_from": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8",
-              "_to": "NOD-f6ad959b-c1ff-4d94-8c31-1730800987564",
+              "_to": "NOD-422c2fd1-59be-4553-8ff6-1730700903283",
               "_type": "Text"
             }
           ],
@@ -14866,54 +14811,6 @@
           "_height": 275,
           "_color": null,
           "_image": "book_80days"
-        },
-        {
-          "_id": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b",
-          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b",
-              "_type": "Variables",
-              "_nodeId": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = $TOTAL_ITEMS + 1"
-                },
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1730701260539,
-          "_height": 57
         },
         {
           "_id": "NOD-579f503d-c462-44fe-a1ea-1730700785355",
@@ -14958,125 +14855,13 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-646c6dd7-3692-4376-a440-1730701277492",
-              "_connectionLine": {},
-              "_from": "NOD-579f503d-c462-44fe-a1ea-1730700785355",
-              "_to": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b",
-              "_type": "Text"
-            }
-          ],
+          "_connections": [],
           "_subFlow": null,
-          "_permalink": null,
+          "_permalink": "paint_moon",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700785355,
           "_height": 257
-        },
-        {
-          "_id": "NOD-f6ad959b-c1ff-4d94-8c31-1730800987564",
-          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-c7efccfc-1529-4058-9a67-1730800987564",
-              "_type": "Text",
-              "_nodeId": "NOD-f6ad959b-c1ff-4d94-8c31-1730800987564",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-c7efccfc-1529-4058-9a67-1730800987564",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "THISBOOK IS ABOUT"
-                },
-                {
-                  "_nodeElementId": "NODEL-c7efccfc-1529-4058-9a67-1730800987564",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "CE LIVRE PARLE DE"
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-8f412be4-7ab9-4bb1-871e-1730800995101",
-              "_connectionLine": {},
-              "_from": "NOD-f6ad959b-c1ff-4d94-8c31-1730800987564",
-              "_to": "NOD-422c2fd1-59be-4553-8ff6-1730700903283",
-              "_type": "Text"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1730800987564,
-          "_height": 90
-        },
-        {
-          "_id": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94",
-          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b-a9-94",
-              "_type": "Variables",
-              "_nodeId": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = $TOTAL_ITEMS + 1"
-                },
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b-a9-94",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1730701260539,
-          "_height": 57
         },
         {
           "_id": "NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-19-a8-ba-b1",
@@ -15220,69 +15005,13 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-d672eb0f-0f41-45b4-8ab3-1730701281630",
-              "_connectionLine": {},
-              "_from": "NOD-720fce07-61aa-4608-b112-1730700720785",
-              "_to": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94",
-              "_type": "Text"
-            }
-          ],
+          "_connections": [],
           "_subFlow": null,
-          "_permalink": null,
+          "_permalink": "paint_20000",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700720785,
           "_height": 257
-        },
-        {
-          "_id": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94-b9-99",
-          "_flowId": "FL-0b08e854-eb24-4347-abb5-1711582476113",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b-a9-94-b9-99",
-              "_type": "Variables",
-              "_nodeId": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94-b9-99",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = $TOTAL_ITEMS + 1"
-                },
-                {
-                  "_nodeElementId": "NODEL-627bb6fb-652f-43dc-80ec-1730701260539-a8-8b-a9-94-b9-99",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1730701260539,
-          "_height": 57
         },
         {
           "_id": "NOD-03151590-0049-4bfe-9611-1711465835401-2b-a8-19-a8",
@@ -15407,7 +15136,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": ""
+                  "_text": "This is a Balloon. It flies by hot air."
                 },
                 {
                   "_nodeElementId": "NODEL-a7e6a44d-60f3-4106-a4b3-1730700614425",
@@ -15426,21 +15155,13 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-da776dc3-3b70-4b81-867a-1730701284299",
-              "_connectionLine": {},
-              "_from": "NOD-326e5734-974f-4b2c-ae95-1730700614425",
-              "_to": "NOD-615163f4-53da-4ef4-bbda-1730701260539-a8-8b-a9-94-b9-99",
-              "_type": "Text"
-            }
-          ],
+          "_connections": [],
           "_subFlow": null,
-          "_permalink": null,
+          "_permalink": "paint_5weeks",
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730700614425,
-          "_height": 257
+          "_height": 275
         },
         {
           "_id": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-19-a8",
@@ -15606,6 +15327,26 @@
               "_ifNoMore": false,
               "_variations": [],
               "_permalink": null
+            },
+            {
+              "_id": "NODEL-4f58b13a-514e-4589-87de-1739702791108",
+              "_type": "Condition",
+              "_nodeId": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-4f58b13a-514e-4589-87de-1739702791108",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"OPEN_CHEST\""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
             }
           ],
           "_jumpTo": {},
@@ -15619,10 +15360,18 @@
               "_type": "Condition"
             },
             {
-              "_id": "CONN-3b499eb8-6b34-4efc-bd33-1737125976257",
+              "_id": "CONN-d5c894d1-5385-4986-9169-1739702771009",
               "_connectionLine": {},
               "_from": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
               "_nodeElementId": "NODEL-fc1c0894-3b84-4551-944d-1737125965093",
+              "_to": "NOD-ab5c8955-35eb-449b-a9cf-1711465867579-2b-a8-19-a8",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-69684131-7c47-4231-864b-1739702805902",
+              "_connectionLine": {},
+              "_from": "NOD-fb6f5994-9d6f-4974-88f2-1737125923505",
+              "_nodeElementId": "NODEL-4f58b13a-514e-4589-87de-1739702791108",
               "_to": "NOD-b042b72b-c8e9-486c-b655-1730700976509",
               "_type": "Condition"
             }
@@ -15632,7 +15381,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1737125923505,
-          "_height": 144
+          "_height": 203
         },
         {
           "_id": "NOD-8f1735c1-b194-4075-aac9-1739684789441",
@@ -20038,6 +19787,11 @@
       "title": "",
       "copyright": ""
     },
+    "jverne_mission_overview": {
+      "name": "jverne_mission_overview",
+      "title": "",
+      "copyright": ""
+    },
     "leaonardodavinci": {
       "name": "leaonardodavinci",
       "title": "",
@@ -20388,8 +20142,8 @@
         {
           "_id": "MTV-cc810dc6-991a-48b7-ad9f-1730700680352",
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
-          "_value": "object_baloon",
-          "_uid": "unable_to_create_slug",
+          "_value": "collect_baloon",
+          "_uid": "COLLECT_BALOON",
           "_icon": "⚔"
         },
         {
@@ -20423,22 +20177,22 @@
         {
           "_id": "MTV-5e85b2bd-4738-4e2b-a90a-1730788640675",
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
-          "_value": "object_submarine",
-          "_uid": "unable_to_create_slug",
+          "_value": "collect_submarine",
+          "_uid": "COLLECT_SUBMARINE",
           "_icon": "⚔"
         },
         {
           "_id": "MTV-f4b594db-acb6-45b3-853b-1730788651441",
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
-          "_value": "object_rocket",
-          "_uid": "unable_to_create_slug",
+          "_value": "collect_rocket",
+          "_uid": "COLLECT_ROCKET",
           "_icon": "⚔"
         },
         {
           "_id": "MTV-c18230c3-8f97-4f11-b520-1730788664856",
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
-          "_value": "object_train",
-          "_uid": "unable_to_create_slug",
+          "_value": "collect_train",
+          "_uid": "COLLECT_TRAIN",
           "_icon": "⚔"
         },
         {

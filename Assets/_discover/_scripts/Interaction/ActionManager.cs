@@ -60,6 +60,10 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 AnturaDog.SetActive(false);
             }
+            if (WinFx != null)
+            {
+                WinFx.SetActive(false);
+            }
 
             if (PlayerSpawnPoint != null)
             {
