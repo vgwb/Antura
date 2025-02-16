@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2519344455256515021}
   - component: {fileID: 4303202994655088533}
   m_Layer: 0
-  m_Name: fr_04 - lemans
+  m_Name: fr_05 - castles
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3dfba2faef74182a5d832dca3f8f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  PlayerSpawnPoint: {fileID: 0}
   Actions: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
@@ -132,7 +133,7 @@ PrefabInstance:
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 18.28
+      value: -0.8599987
       objectReference: {fileID: 0}
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -142,7 +143,7 @@ PrefabInstance:
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -47.75
+      value: -1.8079987
       objectReference: {fileID: 0}
     - target: {fileID: 5022186133214027786, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -226,7 +227,7 @@ PrefabInstance:
     - target: {fileID: 6419855491173520309, guid: e3e0294f9177747c69d53878d71c2f7e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2
+      value: -21.14
       objectReference: {fileID: 0}
     - target: {fileID: 6419855491173520309, guid: e3e0294f9177747c69d53878d71c2f7e,
         type: 3}
@@ -236,7 +237,7 @@ PrefabInstance:
     - target: {fileID: 6419855491173520309, guid: e3e0294f9177747c69d53878d71c2f7e,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -37.01
+      value: 8.932003
       objectReference: {fileID: 0}
     - target: {fileID: 6419855491173520309, guid: e3e0294f9177747c69d53878d71c2f7e,
         type: 3}
@@ -277,6 +278,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Light Beam Tutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7886705574692731320, guid: e3e0294f9177747c69d53878d71c2f7e,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -325,7 +331,7 @@ PrefabInstance:
     - target: {fileID: 6110309604173993469, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 19.84
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 6110309604173993469, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
@@ -335,7 +341,7 @@ PrefabInstance:
     - target: {fileID: 6110309604173993469, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -52.442
+      value: -6.5
       objectReference: {fileID: 0}
     - target: {fileID: 6110309604173993469, guid: 8ac394a4a6c19401b97e82c256e55b89,
         type: 3}
