@@ -11,7 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         [DeEmptyAlert]
-        [SerializeField] AbstractMapIcon playerMapIco, anturaMapIco, defaultInteractableIconPrefab;
+        [SerializeField] AbstractMapIcon playerIco, navigatorIco, defaultInteractableIconPrefab;
 
         #endregion
 
@@ -23,8 +23,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Awake()
         {
-            playerMapIco.gameObject.SetActive(true);
-            anturaMapIco.gameObject.SetActive(true);
+            playerIco.gameObject.SetActive(true);
+            navigatorIco.gameObject.SetActive(true);
             defaultInteractableIconPrefab.gameObject.SetActive(false);
         }
 
@@ -45,11 +45,11 @@ namespace Antura.Minigames.DiscoverCountry
             if (!mapIconsActivated)
                 return;
 
-            if (playerMapIco.IsEnabled)
-                playerMapIco.UpdatePosition();
+            if (playerIco.IsEnabled)
+                playerIco.UpdatePosition();
 
-            if (anturaMapIco.IsEnabled)
-                anturaMapIco.UpdatePosition();
+            if (navigatorIco.IsEnabled)
+                navigatorIco.UpdatePosition();
 
             foreach (AbstractMapIcon icon in interactableIcons)
             {
@@ -102,8 +102,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (activated)
             {
                 mapIconsActivated = true;
-                playerMapIco.Show();
-                anturaMapIco.Show();
+                playerIco.Show();
+                navigatorIco.Show();
                 foreach (AbstractMapIcon icon in interactableIcons)
                 {
                     if (interactableByIcon.TryGetValue(icon, out Interactable interactable))
@@ -116,8 +116,8 @@ namespace Antura.Minigames.DiscoverCountry
             else
             {
                 mapIconsActivated = false;
-                playerMapIco.Hide();
-                anturaMapIco.Hide();
+                playerIco.Hide();
+                navigatorIco.Hide();
                 foreach (AbstractMapIcon icon in interactableIcons) icon.Hide();
             }
         }
