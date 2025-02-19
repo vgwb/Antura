@@ -30,19 +30,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            // Find all Interactables and mark the ones that should appear on the map
-            Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
-            foreach (Interactable interactable in allInteractables)
-            {
-                if (!interactable.ShowOnMap)
-                    continue;
-                AbstractMapIcon icon = Instantiate(defaultInteractableIconPrefab, defaultInteractableIconPrefab.transform.parent);
-                icon.gameObject.SetActive(true);
-                icon.AssignFollowTarget(interactable.transform);
-                interactableIcons.Add(icon);
-                interactableByIcon.Add(icon, interactable);
-            }
-
+            Refresh();
+            
             DiscoverNotifier.Game.OnMapCameraActivated.Subscribe(OnMapCameraActivated);
         }
 
@@ -69,6 +58,39 @@ namespace Antura.Minigames.DiscoverCountry
                 if (interactable.IsInteractable && icon.IsEnabled)
                     icon.UpdatePosition();
             }
+        }
+
+        #endregion
+
+        #region Public Methods
+
+        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
+        public void Refresh()
+        {
+            Clear();
+            
+            // Find all Interactables and mark the ones that should appear on the map
+            Interactable[] allInteractables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (Interactable interactable in allInteractables)
+            {
+                if (!interactable.ShowOnMap) continue;
+                AbstractMapIcon icon = Instantiate(defaultInteractableIconPrefab, defaultInteractableIconPrefab.transform.parent);
+                icon.gameObject.SetActive(true);
+                icon.AssignFollowTarget(interactable.transform);
+                interactableIcons.Add(icon);
+                interactableByIcon.Add(icon, interactable);
+            }
+        }
+
+        #endregion
+
+        #region Methods
+
+        void Clear()
+        {
+            foreach (AbstractMapIcon icon in interactableIcons) Destroy(icon.gameObject);
+            interactableIcons.Clear();
+            interactableByIcon.Clear();
         }
 
         #endregion
