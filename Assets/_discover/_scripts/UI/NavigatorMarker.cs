@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class TargetMarker : MonoBehaviour
+    public class NavigatorMarker : MonoBehaviour
     {
         #region Serialized
 
@@ -30,7 +30,7 @@ namespace Antura.Minigames.DiscoverCountry
         
         Transform trans;
         Transform target;
-        Tween showTween, rotateTween, barkTween;
+        Tween showTween, rotateTween, loopTween;
 
         #region Unity
 
@@ -44,7 +44,7 @@ namespace Antura.Minigames.DiscoverCountry
                 .OnRewind(() => {
                     this.gameObject.SetActive(false);
                     rotateTween.Rewind();
-                    barkTween.Rewind();
+                    loopTween.Rewind();
                 });
 
             rotateTween = bg.transform.DOLocalRotate(new Vector3(0, 0, 360), bgRotationDuration, RotateMode.FastBeyond360).SetAutoKill(false).Pause()
@@ -52,11 +52,8 @@ namespace Antura.Minigames.DiscoverCountry
                 .SetLoops(-1, LoopType.Restart);
 
             float barkDuration = 0.5f;
-            barkTween = DOTween.Sequence().SetAutoKill(false).Pause().SetLoops(-1, LoopType.Restart)
-                .Join(ico.transform.DOPunchScale(Vector3.one * 0.1f, barkDuration))
-                .Join(ico.transform.DOPunchRotation(new Vector3(0, 0, -16), barkDuration, 8))
-                .Join(ico.transform.DOLocalMove(new Vector3(-0.05f, 0.05f, 0), barkDuration * 0.5f).SetRelative().SetLoops(2, LoopType.Yoyo).SetEase(Ease.InOutSine))
-                .AppendInterval(intervalBetweenBarks);
+            loopTween = DOTween.Sequence().SetAutoKill(false).Pause().SetLoops(-1, LoopType.Restart)
+                .Join(ico.transform.DOScale(ico.transform.localScale * 0.85f, 0.75f).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo));
 
             Hide(true);
         }
@@ -65,7 +62,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             showTween.Kill();
             rotateTween.Kill();
-            barkTween.Kill();
+            loopTween.Kill();
         }
 
         void Update()
@@ -106,7 +103,7 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.timeScale = 1f;
             showTween.Restart();
             rotateTween.PlayForward();
-            barkTween.PlayForward();
+            loopTween.Restart();
             this.gameObject.SetActive(true);
             SetTransparency();
         }

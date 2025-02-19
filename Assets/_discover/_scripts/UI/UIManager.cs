@@ -17,9 +17,9 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] UIVirtualButton btAct;
         [DeEmptyAlert]
-        [SerializeField] TargetMarker targetMarker;
+        [SerializeField] NavigatorMarker navigatorMarker;
         [DeEmptyAlert]
-        [SerializeField] TargetIndicator targetIndicator;
+        [SerializeField] Navigator navigator;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -46,8 +46,8 @@ namespace Antura.Minigames.DiscoverCountry
             canvas.gameObject.SetActive(true);
             dialogues.gameObject.SetActive(true);
             btAct.gameObject.SetActive(false);
-            targetMarker.gameObject.SetActive(true);
-            targetIndicator.gameObject.SetActive(true);
+            navigatorMarker.gameObject.SetActive(true);
+            navigator.gameObject.SetActive(true);
         }
 
         void Start()
@@ -71,7 +71,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void LateUpdate()
         {
-            if (targetMarker.IsShown) targetIndicator.SetIndicators(targetMarker.OutHor, targetMarker.OutVert);
+            if (navigatorMarker.IsShown) navigator.SetIndicators(navigatorMarker.OutHor, navigatorMarker.OutVert);
         }
 
         #endregion
@@ -86,8 +86,8 @@ namespace Antura.Minigames.DiscoverCountry
                 return;
             }
             
-            if (activate) targetMarker.Show(target);
-            else targetMarker.Hide();
+            if (activate) navigatorMarker.Show(target);
+            else navigatorMarker.Hide();
         }
 
         #endregion
