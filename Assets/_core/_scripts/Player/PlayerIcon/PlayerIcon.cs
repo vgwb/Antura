@@ -3,6 +3,7 @@ using Antura.Database;
 using Antura.UI;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -24,6 +25,8 @@ namespace Antura.Profile
         [DeComment("Level is auto-hidden if the player has the hat", style = DeCommentStyle.WrapNextLine, marginBottom = -1)]
         public bool HideLevel;
         public float LevelLabelHatShift = 40;
+        public Color SelectedPlayerNameColor = Color.white;
+        public Color SelectedTfNameColor = Color.white;
 
         [Header("References")]
         public Image Background;
@@ -33,6 +36,8 @@ namespace Antura.Profile
         public Image HatImage;
         public Image FaceImg, HairImg;
         public TextRender LevelLabel;
+        public TMP_Text TfName;
+        public Image PlayerNameBox;
         public string Uuid { get; private set; }
 
         public UIButton UIButton
@@ -47,6 +52,8 @@ namespace Antura.Profile
             }
         }
 
+        Color defTfNameColor;
+        Color defPlayerNameBoxColor;
         UIButton fooUIButton;
         RectTransform levelLabelRT;
         Vector2 orLevelLabelPosition;
@@ -54,6 +61,12 @@ namespace Antura.Profile
         Color defFaceColor, defHairColor;
 
         #region Unity
+
+        void Awake()
+        {
+            defTfNameColor = TfName.color;
+            defPlayerNameBoxColor = PlayerNameBox.color;
+        }
 
         void Start()
         {
@@ -91,9 +104,12 @@ namespace Antura.Profile
         public void Select(string _uuid)
         {
             bool isOn = Uuid == _uuid;
-            UIButton.Toggle(Uuid == _uuid);
+            UIButton.Toggle(isOn);
             if (isOn)
             {
+                TfName.color = SelectedTfNameColor;
+                PlayerNameBox.color = SelectedPlayerNameColor;
+                PlayerNameBox.color.SetAlpha(1f);
                 if (FaceImg != null)
                     FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(1f) : defFaceColor;
                 if (HairImg != null)
@@ -104,6 +120,9 @@ namespace Antura.Profile
             }
             else
             {
+                TfName.color = defTfNameColor;
+                PlayerNameBox.color = defPlayerNameBoxColor;
+                PlayerNameBox.SetAlpha(0.65f);
                 if (FaceImg != null)
                     FaceImg.color = isDemoUser ? FaceImg.color.SetAlpha(0.5f) : FaceImg.color.ChangeSaturation(0.35f);
                 if (HairImg != null)
@@ -181,6 +200,8 @@ namespace Antura.Profile
             //     LevelLabel.text = "";
             // }
             LevelLabel.text = playerIconData.PlayerName;
+
+            TfName.text = playerIconData.PlayerName.IsNullOrEmpty() ? "-" : playerIconData.PlayerName;
 
             // Debug.Log("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
             //HighlightImage.SetActive(playerIconData.HasMaxStarsInCurrentPlaySessions);
