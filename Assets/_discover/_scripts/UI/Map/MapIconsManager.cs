@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -76,7 +77,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnMapCameraActivated(bool activated)
         {
-            // Debug.Log("OnMapCameraActivated");
             if (activated)
             {
                 mapIconsActivated = true;
@@ -96,8 +96,7 @@ namespace Antura.Minigames.DiscoverCountry
                 mapIconsActivated = false;
                 playerMapIco.Hide();
                 anturaMapIco.Hide();
-                foreach (AbstractMapIcon icon in interactableIcons)
-                    icon.Hide();
+                foreach (AbstractMapIcon icon in interactableIcons) icon.Hide();
             }
         }
 
