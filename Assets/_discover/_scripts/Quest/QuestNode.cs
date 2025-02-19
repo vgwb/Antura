@@ -78,6 +78,12 @@ namespace Antura.Minigames.DiscoverCountry
             return Type == NodeType.QUIZ;
         }
 
+        // shoudl we auto open the image?
+        public bool ImageAutoOpen()
+        {
+            return Image != null && Image.Contains("map");
+        }
+
         public Sprite GetImage()
         {
             if (Image != null)
