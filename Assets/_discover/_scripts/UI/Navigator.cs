@@ -4,7 +4,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class TargetIndicator : MonoBehaviour
+    public class Navigator : MonoBehaviour
     {
         #region Serialized
 
