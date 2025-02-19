@@ -33,19 +33,20 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        void ListAllPermalinks()
+        public void ListAllPermalinks()
         {
-            Debug.Log("Permalinks of Quest " + SelectedFlow);
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
 
-            Debug.Log("TOTAL: " + permalinks.Count() + "\n");
-
+            var output = "";
             foreach (string permalink in permalinks)
             {
-                Debug.Log(permalink + "\n");
+                output += permalink + "\n";
             }
+            Debug.Log("TOTAL: " + permalinks.Count() + " permalinks in Quest " + SelectedFlow + "\n\n" + output);
+
         }
+
         [DeMethodButton(mode = DeButtonMode.Default)]
         public void CheckNotUsedPermalinks()
         {
@@ -56,7 +57,7 @@ namespace Homer
             Interactable[] interactables = FindObjectsOfType<Interactable>();
 
             // Check if any NodePermalink in Interactable matches the permalinks
-            var usedPermalinks = interactables.Select(i => i.NodePermalink).ToHashSet();
+            var usedPermalinks = interactables.Where(i => !string.IsNullOrEmpty(i.NodePermalink)).Select(i => i.NodePermalink).ToHashSet();
             var notUsedPermalinks = permalinks.Where(p => !usedPermalinks.Contains(p)).ToArray();
 
             var output = "";
@@ -65,6 +66,27 @@ namespace Homer
                 output += permalink + "\n";
             }
             Debug.Log(notUsedPermalinks.Count() + " not used permalinks of Quest " + SelectedFlow + "\n\n" + output);
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void VerifyUsedPermalinks()
+        {
+            Debug.Log("Verify Used Permalinks of Quest " + SelectedFlow);
+            HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
+            var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
+
+            // Find all Interactable components in the scene
+            Interactable[] interactables = FindObjectsOfType<Interactable>();
+
+            // Check if all used NodePermalink in Interactable exist in the permalinks
+            var permalinkSet = permalinks.ToHashSet();
+            foreach (var interactable in interactables)
+            {
+                if (!string.IsNullOrEmpty(interactable.NodePermalink) && !permalinkSet.Contains(interactable.NodePermalink))
+                {
+                    Debug.LogError($"WRONG permalink: {interactable.NodePermalink} in {interactable.gameObject.name}");
+                }
+            }
         }
 
         private string[] GetPermalinksBySlug(HomerFlow[] _flows, string slug)
@@ -80,8 +102,6 @@ namespace Homer
                 .OrderBy(permalink => permalink)
                 .ToArray();
         }
-
-
 
     }
 }
