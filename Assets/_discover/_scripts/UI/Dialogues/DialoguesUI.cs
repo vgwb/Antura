@@ -180,6 +180,7 @@ namespace Antura.Minigames.DiscoverCountry
                     if (image != null)
                     {
                         postcard.Show(image);
+                        if (node.ImageAutoOpen) postcardFocusView.Show(image);
                     }
                     else
                     {
@@ -198,6 +199,7 @@ namespace Antura.Minigames.DiscoverCountry
                     if (image != null)
                     {
                         postcard.Show(image);
+                        if (node.ImageAutoOpen) postcardFocusView.Show(image);
                     }
                     else
                     {

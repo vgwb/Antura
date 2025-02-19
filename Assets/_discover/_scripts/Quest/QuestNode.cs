@@ -68,6 +68,9 @@ namespace Antura.Minigames.DiscoverCountry
         // if a pin / direction should be higlighted in scene / minimap
         public string NextTarget;
 
+        // shoudl we auto open the image?
+        public bool ImageAutoOpen => Image != null && Image.Contains("map");
+
         public bool IsDialogueNode()
         {
             return Type == NodeType.TEXT;
@@ -76,12 +79,6 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsQuizNode()
         {
             return Type == NodeType.QUIZ;
-        }
-
-        // shoudl we auto open the image?
-        public bool ImageAutoOpen()
-        {
-            return Image != null && Image.Contains("map");
         }
 
         public Sprite GetImage()
