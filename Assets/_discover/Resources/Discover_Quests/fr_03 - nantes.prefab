@@ -1345,6 +1345,7 @@ GameObject:
   - component: {fileID: 5525828260509191390}
   - component: {fileID: 3155998309245056513}
   - component: {fileID: 516415121507893526}
+  - component: {fileID: 4071902401436848606}
   m_Layer: 0
   m_Name: Walls
   m_TagString: Untagged
@@ -1579,7 +1580,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 2217
+  m_VersionIndex: 2220
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1612,7 +1613,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6458438307459328683}
-  m_Enabled: 0
+  m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -1625,7 +1626,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: c22777d6e868e4f2fb421913386b154e, type: 2}
+  - {fileID: 2100000, guid: 205b20837fd664435892510e79fcfb7a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1677,6 +1678,21 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
+--- !u!114 &4071902401436848606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6458438307459328683}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bac1d362fe1646d9b8fd15e415a9814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  proximityMaterial: {fileID: 2100000, guid: 205b20837fd664435892510e79fcfb7a, type: 2}
+  Player: {fileID: 0}
+  radius: 2
 --- !u!1 &7455029207302198345
 GameObject:
   m_ObjectHideFlags: 0
