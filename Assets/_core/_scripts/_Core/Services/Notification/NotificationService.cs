@@ -23,8 +23,12 @@ namespace Antura.Core.Services.Notification
 
         public void Init()
         {
+            if (!AppManager.I.AppEdition.EnableNotifications)
+                return;
+
             if (!inizialized)
             {
+
                 if (DebugConfig.I.DebugLogEnabled)
                     Debug.Log("NotificationService Init");
                 NotificationsManager = myGameObject.AddComponent<GameNotificationsManager>();
