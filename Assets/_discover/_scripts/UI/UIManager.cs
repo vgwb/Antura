@@ -27,6 +27,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public static UIManager I { get; private set; }
         public DialoguesUI dialogues { get; private set; }
+        public MapIconsManager MapIcons { get; private set; }
 
         #region Unity
 
@@ -41,6 +42,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             I = this;
             dialogues = this.GetComponentInChildren<DialoguesUI>(true);
+            MapIcons = this.GetComponent<MapIconsManager>();
             canvas.gameObject.SetActive(true);
             dialogues.gameObject.SetActive(true);
             btAct.gameObject.SetActive(false);

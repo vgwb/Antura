@@ -142,7 +142,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (HasValidNearbyInteractable)
             {
                 QuestNode questNode = nearbyInteractable.Activate();
-                if (questNode != null)
+                if (questNode == null)
+                {
+                    Debug.LogError($"QuestNode is NULL, ignoring interaction");
+                }
+                else
                 {
                     if (QuestManager.I.DebugQuest) questNode.Print();
                     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
