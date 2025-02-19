@@ -23,12 +23,12 @@ namespace Homer
             if (I == null)
             {
                 I = this;
-                DontDestroyOnLoad(gameObject);
+                //                DontDestroyOnLoad(gameObject);
             }
             else
             {
                 //Debug.Log("HomerConfig DUPLICATED!");
-                Destroy(gameObject);
+                //                Destroy(gameObject);
             }
         }
 
