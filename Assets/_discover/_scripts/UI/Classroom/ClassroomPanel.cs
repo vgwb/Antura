@@ -82,6 +82,7 @@ namespace Antura.Minigames.DiscoverCountry
             
             isOpen = true;
             isValidClassroom = classroomId != UserProfile.NoClassroomId;
+            this.gameObject.SetActive(true);
             AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
             if (hideGlobalUIBackButton)
             {
@@ -91,7 +92,6 @@ namespace Antura.Minigames.DiscoverCountry
             header.SetTitle(classroomId != UserProfile.NoClassroomId, classroomId);
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
-            this.gameObject.SetActive(true);
         }
         
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]

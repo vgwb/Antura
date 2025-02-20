@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
@@ -20,16 +21,31 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] ClassroomProfileView profileViewPrefab;
         [DeEmptyAlert]
         [SerializeField] ScrollRect scrollRect;
+        [DeEmptyAlert]
+        [SerializeField] GameObject content;
 
         #endregion
 
+        RectTransform rt;
+        RectTransform[] layoutGroupsRTs;
         readonly List<ClassroomProfileView> profileViews = new();
+        Coroutine coRebuildLayout;
 
         #region Unity
 
         void Awake()
         {
+            rt = this.GetComponent<RectTransform>();
+            LayoutGroup[] layoutGroups = this.GetComponentsInChildren<LayoutGroup>(true);
+            layoutGroupsRTs = new RectTransform[layoutGroups.Length];
+            for (int i = 0; i < layoutGroups.Length; i++) layoutGroupsRTs[i] = layoutGroups[i].GetComponent<RectTransform>();
+            
             profileViewPrefab.gameObject.SetActive(false);
+        }
+
+        void OnDestroy()
+        {
+            this.StopAllCoroutines();
         }
 
         #endregion
@@ -66,6 +82,9 @@ namespace Antura.Minigames.DiscoverCountry
                 view.BtMain.onClick.AddListener(() => OnProfileClicked.Dispatch(view.Profile));
                 view.gameObject.SetActive(true);
             }
+            
+            content.SetActive(false);
+            this.RestartCoroutine(ref coRebuildLayout, CO_RebuildLayout());
         }
 
         #endregion
@@ -79,6 +98,15 @@ namespace Antura.Minigames.DiscoverCountry
                 profileView.gameObject.SetActive(false);
                 profileView.BtMain.onClick.RemoveAllListeners();
             }
+        }
+
+        // Fix for longtime Unity bug: layout requires a frame to be forced to rebuild correctly
+        IEnumerator CO_RebuildLayout()
+        {
+            yield return null;
+            content.SetActive(true);
+            foreach (RectTransform r in layoutGroupsRTs) LayoutRebuilder.ForceRebuildLayoutImmediate(r);
+            coRebuildLayout = null;
         }
 
         #endregion
