@@ -12,7 +12,7 @@ namespace Antura.ReservedArea
             base.Start();
 
             GlobalUI.ShowPauseMenu(false);
-            GlobalUI.ShowBackButton(true);
+            GlobalUI.ShowBackButton(false);
 
         }
     }

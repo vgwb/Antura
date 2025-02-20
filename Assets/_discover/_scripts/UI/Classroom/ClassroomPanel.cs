@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.Minigames.DiscoverCountry.Popups;
 using Antura.ReservedArea;
 using Antura.UI;
@@ -49,7 +50,14 @@ namespace Antura.Minigames.DiscoverCountry
                     Open(classroomIDs[x], TestGenerateStubProfiles());
                 });
             });
-            header.BtClose.onClick.AddListener(Close);
+            header.BtClose.onClick.AddListener(() => {
+                switch (state)
+                {
+                    case State.Profiles:
+                        AppManager.I.NavigationManager.GoBack();
+                        break;
+                }
+            });
             
             if (!isOpen) this.gameObject.SetActive(false);
 
@@ -77,7 +85,7 @@ namespace Antura.Minigames.DiscoverCountry
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
                 GlobalUI.I.BackButton.gameObject.SetActive(false);
             }
-            header.TfClassId.text = classroomId;
+            header.SetTitle(classroomId != "0", classroomId);
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
             this.gameObject.SetActive(true);
@@ -108,6 +116,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
             
             state = toState;
+            header.ShowExtraButtons(toState == State.Profiles);
             profilesPanel.Open(toState == State.Profiles);
             detailPanel.Open(toState == State.ProfileDetail);
             switch (state)

@@ -51,11 +51,11 @@ namespace Antura.Minigames.DiscoverCountry.Popups
 
         #region Public Methods
 
-        public static void OpenSelector(string title, List<string> values, Action<int> onSelected)
+        public static void OpenSelector(string title, List<string> values, Action<int> onSelected, bool hasCloseButton = true)
         {
             Init();
             I.Show();
-            I.selectorPopup.Open(title, values, onSelected);
+            I.selectorPopup.Open(title, values, onSelected, hasCloseButton);
         }
 
         #endregion

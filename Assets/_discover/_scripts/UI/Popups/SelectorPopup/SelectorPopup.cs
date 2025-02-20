@@ -69,12 +69,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Open(string title, List<string> values, Action<int> onSelected)
+        public void Open(string title, List<string> values, Action<int> onSelected, bool hasCloseButton)
         {
             Clear();
 
             tfTitle.text = title;
             onSelect = onSelected;
+            btClose.gameObject.SetActive(hasCloseButton);
 
             cg.interactable = false;
             int btWidth = GetMaxValuesLen(values) < 3 ? shortBtWidth : defaultBtWidth;

@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.IO;
 using Antura.Minigames.DiscoverCountry;
 using Antura.Minigames.DiscoverCountry.Popups;
+using DG.DeInspektor.Attributes;
 
 namespace Antura.ReservedArea
 {
@@ -17,14 +18,32 @@ namespace Antura.ReservedArea
         [Header("References")]
         public CheckIcon AnalyticsCheckIcon;
         public CheckIcon NotificationsCheckIcon;
+        [DeEmptyAlert]
         public CheckIcon ClassroomModeCheckIcon;
+        [DeEmptyAlert]
         [SerializeField] ClassroomPanel classroomPanel;
+        [DeEmptyAlert]
+        [SerializeField] GameObject oldUI, newUI;
 
+        void Awake()
+        {
+            oldUI.SetActive(false);
+            newUI.SetActive(true);
+        }
+        
         void Start()
         {
             AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled);
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
             ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
+            
+            // Open classroom selector
+            // Generate stub data (replace with real data)
+            List<string> classroomIDs = GetStubClassroomIDs();
+            //
+            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
+                classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
+            }, false);
         }
 
         #region Buttons
@@ -120,12 +139,12 @@ namespace Antura.ReservedArea
 
         public void OnBtnClassroomMode()
         {
-            // NEW open classroom selector
-            // Stub data
-            List<string> classroomIDs = GetStubClassroomIDs();
-            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
-                classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
-            });
+            // // NEW open classroom selector
+            // // Stub data
+            // List<string> classroomIDs = GetStubClassroomIDs();
+            // GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
+            //     classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
+            // });
             
             // OLD SYSTEM where classroom mode button was a toggle
             // if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
