@@ -43,12 +43,15 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsPostcardOpen => IsOpen && postcardFocusView.IsOpen;
         public DialogueType CurrDialogueType { get; private set; }
 
+        int currChoiceIndex;
+        bool currPostcardWasZoomed;
+        bool gotoNextWhenPostcardFocusViewCloses;
+        bool UseLearningLanguage = true;
+        QuestNode currNode;
         DialogueSignal previewSignalPrefab;
         readonly Dictionary<Interactable, DialogueSignal> previewSignalByInteractable = new();
-        QuestNode currNode;
         AbstractDialogueBalloon currBalloon;
         Coroutine coShowDialogue, coNext;
-        bool UseLearningLanguage = true;
 
         #region Unity
 
@@ -63,7 +66,7 @@ namespace Antura.Minigames.DiscoverCountry
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Subscribe(OnPostcardClicked);
+            postcard.OnClicked.Subscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
@@ -76,7 +79,7 @@ namespace Antura.Minigames.DiscoverCountry
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Unsubscribe(OnPostcardClicked);
+            postcard.OnClicked.Unsubscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
@@ -157,7 +160,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void ShowDialogueFor(QuestNode node)
         {
-            //Debug.Log("TOTAL ECONS " + HomerVars.TOTAL_COINS);
+            currChoiceIndex = 0;
+            currPostcardWasZoomed = gotoNextWhenPostcardFocusViewCloses = false;
             CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }
 
@@ -205,6 +209,27 @@ namespace Antura.Minigames.DiscoverCountry
 
         IEnumerator CO_Next(int choiceIndex)
         {
+            currChoiceIndex = choiceIndex;
+            if (gotoNextWhenPostcardFocusViewCloses)
+            {
+                // Close postcard zoom and move onward
+                if (postcardFocusView.IsOpen)
+                {
+                    HidePostcardFocusView();
+                    yield return new WaitForSeconds(0.15f);
+                }
+            }
+            else
+            {
+                if (currNode.ImageAutoOpen && postcard.IsActive && !currPostcardWasZoomed)
+                {
+                    // Zoom into postcard and wait for next action
+                    ShowPostcardFocusView(postcard.CurrSprite);
+                    gotoNextWhenPostcardFocusViewCloses = true;
+                    yield break;
+                }
+            }
+            
             if (currBalloon != null && currBalloon.IsOpen) currBalloon.Hide();
 
             if (choices.IsOpen)
@@ -220,22 +245,32 @@ namespace Antura.Minigames.DiscoverCountry
             coNext = null;
         }
 
+        void ShowPostcardFocusView(Sprite sprite)
+        {
+            currPostcardWasZoomed = true;
+            postcardFocusView.Show(sprite);
+        }
+
+        void HidePostcardFocusView()
+        {
+            postcardFocusView.Hide();
+        }
+
         #endregion
 
         #region Callbacks
 
         void OnActClicked()
         {
-            if (postcardFocusView.IsOpen) postcardFocusView.Hide();
+            if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses) postcardFocusView.Hide();
             else if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
             {
-                Next();
+                Next(currChoiceIndex);
             }
         }
 
         void OnBalloonClicked()
         {
-            Debug.Log("BALLOON CLICKED");
             // Play/repeat alternate audio here
             UseLearningLanguage = !UseLearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
@@ -257,14 +292,10 @@ namespace Antura.Minigames.DiscoverCountry
             Next(choiceIndex);
         }
 
-        void OnPostcardClicked(Sprite sprite)
-        {
-            postcardFocusView.Show(sprite);
-        }
-
         void OnPostcardFocusViewClicked()
         {
-            postcardFocusView.Hide();
+            if (gotoNextWhenPostcardFocusViewCloses) Next(currChoiceIndex);
+            else HidePostcardFocusView();
         }
 
         #endregion

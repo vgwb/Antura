@@ -22,10 +22,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
         
-        public bool active { get; private set; }
+        public bool IsActive { get; private set; }
+        public Sprite CurrSprite { get; private set; }
 
         Button bt;
-        Sprite currSprite;
         Tween showTween, hideTween;
         
         #region Unity
@@ -38,7 +38,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector3 defRot = this.transform.localEulerAngles;
             Vector2 defAnchoredP = rt.anchoredPosition;
             
-            bt.onClick.AddListener(() => OnClicked.Dispatch(currSprite));
+            bt.onClick.AddListener(() => OnClicked.Dispatch(CurrSprite));
             
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Append(rt.DOAnchorPos(defAnchoredP, 0.5f).From(defAnchoredP + new Vector2(-380, -960)).SetEase(Ease.OutCubic))
@@ -65,21 +65,21 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(Sprite sprite)
         {
-            active = true;
+            IsActive = true;
             img.sprite = sprite;
-            if (currSprite != sprite)
+            if (CurrSprite != sprite)
             {
                 hideTween.Complete();
                 showTween.Restart();
             }
             this.gameObject.SetActive(true);
-            currSprite = sprite;
+            CurrSprite = sprite;
         }
 
         public void Hide()
         {
-            active = false;
-            currSprite = null;
+            IsActive = false;
+            CurrSprite = null;
             showTween.Complete();
             hideTween.Restart();
         }
