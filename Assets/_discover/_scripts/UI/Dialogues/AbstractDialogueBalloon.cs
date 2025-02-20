@@ -8,6 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using Antura.Language;
+using UnityEngine.EventSystems;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -59,8 +60,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            if (bt.interactable && Input.GetKeyDown(KeyCode.E))
+            if (Input.GetKeyDown(KeyCode.E) && bt.IsInteractable() && !UIManager.I.dialogues.IsPostcardOpen && InteractionManager.I.LastActionFrame != Time.frameCount)
+            {
                 OnBalloonClicked.Dispatch();
+            }
         }
 
         #endregion

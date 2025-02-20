@@ -22,6 +22,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Image img;
 
         #endregion
+        
+        public bool IsOpen { get; private set; }
 
         bool initialized;
         Button bt;
@@ -57,6 +59,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void Show(Sprite sprite)
         {
             Init();
+            IsOpen = true;
             img.sprite = sprite;
             showTween.timeScale = 1;
             showTween.Restart();
@@ -66,6 +69,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void Hide(bool immediate = false)
         {
             Init();
+            IsOpen = false;
             if (immediate)
             {
                 this.gameObject.SetActive(false);

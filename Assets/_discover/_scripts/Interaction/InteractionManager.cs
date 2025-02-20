@@ -23,6 +23,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public static InteractionManager I { get; private set; }
         public InteractionLayer Layer { get; private set; }
+        public int LastActionFrame { get; private set; }
         public bool IsUsingFocusView { get; private set; }
         public bool HasValidNearbyInteractable => nearbyInteractable != null && nearbyInteractable.gameObject.activeInHierarchy;
 
@@ -134,10 +135,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Act()
         {
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
-                UnfocusCam();
-            if (Layer != InteractionLayer.World)
-                return;
+            LastActionFrame = Time.frameCount;
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) UnfocusCam();
+            if (Layer != InteractionLayer.World) return;
 
             if (HasValidNearbyInteractable)
             {
@@ -156,8 +156,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer)
-                return;
+            if (newLayer == Layer) return;
 
             this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
         }

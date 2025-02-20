@@ -40,6 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         public bool IsOpen { get; private set; }
+        public bool IsPostcardOpen => IsOpen && postcardFocusView.IsOpen;
         public DialogueType CurrDialogueType { get; private set; }
 
         DialogueSignal previewSignalPrefab;
@@ -225,7 +226,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnActClicked()
         {
-            if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
+            if (postcardFocusView.IsOpen) postcardFocusView.Hide();
+            else if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
             {
                 Next();
             }
@@ -233,6 +235,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnBalloonClicked()
         {
+            Debug.Log("BALLOON CLICKED");
             // Play/repeat alternate audio here
             UseLearningLanguage = !UseLearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(

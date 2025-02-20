@@ -333,9 +333,9 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 5344119577100709770}
   - {fileID: 8266208870029208419}
   - {fileID: 7838845978075205419}
+  - {fileID: 5344119577100709770}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3589269372304878814
@@ -5560,6 +5560,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: UI_Canvas_TouchZones
+      objectReference: {fileID: 0}
+    - target: {fileID: 9157539467335068625, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
