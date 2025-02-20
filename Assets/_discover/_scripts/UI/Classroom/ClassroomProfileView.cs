@@ -16,14 +16,11 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] TMP_Text tfName;
         [DeEmptyAlert]
         [SerializeField] Button btMain;
-        [DeEmptyAlert]
-        [SerializeField] Button btEdit;
 
         #endregion
 
         public UserProfile Profile { get; private set; }
         public Button BtMain => btMain;
-        public Button BtEdit => btEdit;
 
         #region Public Methods
 
