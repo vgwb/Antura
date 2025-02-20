@@ -55,7 +55,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
-            postcardFocusView.Hide();
+            postcardFocusView.Hide(true);
             previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
             signal.Setup(false);
 
@@ -157,7 +157,6 @@ namespace Antura.Minigames.DiscoverCountry
         void ShowDialogueFor(QuestNode node)
         {
             //Debug.Log("TOTAL ECONS " + HomerVars.TOTAL_COINS);
-            // this.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
             CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }
 
@@ -175,36 +174,17 @@ namespace Antura.Minigames.DiscoverCountry
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
-                    // yield return new WaitForSeconds(0.2f);
                     image = node.GetImage();
-                    if (image != null)
-                    {
-                        postcard.Show(image);
-                        if (node.ImageAutoOpen) postcardFocusView.Show(image);
-                    }
-                    else
-                    {
-                        postcard.Hide();
-                    }
+                    if (image != null) postcard.Show(image);
+                    else postcard.Hide();
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
-                    if (!string.IsNullOrEmpty(node.Content))
-                    {
-                        currBalloon.Show(node);
-                        // yield return new WaitForSeconds(0.2f);
-                    }
+                    if (!string.IsNullOrEmpty(node.Content)) currBalloon.Show(node);
                     image = node.GetImage();
-                    if (image != null)
-                    {
-                        postcard.Show(image);
-                        if (node.ImageAutoOpen) postcardFocusView.Show(image);
-                    }
-                    else
-                    {
-                        postcard.Hide();
-                    }
+                    if (image != null) postcard.Show(image);
+                    else postcard.Hide();
                     yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
@@ -224,22 +204,17 @@ namespace Antura.Minigames.DiscoverCountry
 
         IEnumerator CO_Next(int choiceIndex)
         {
-            if (currBalloon != null && currBalloon.IsOpen)
-                currBalloon.Hide();
+            if (currBalloon != null && currBalloon.IsOpen) currBalloon.Hide();
 
             if (choices.IsOpen)
             {
                 choices.Hide(choiceIndex);
-                while (choices.IsHiding)
-                    yield return null;
-                // yield return new WaitForSeconds(0.35f);
+                while (choices.IsHiding) yield return null;
             }
 
             QuestNode next = QuestManager.I.GetNextNode(choiceIndex);
-            if (next == null)
-                CloseDialogue(choiceIndex);
-            else
-                ShowDialogueFor(next);
+            if (next == null) CloseDialogue(choiceIndex);
+            else ShowDialogueFor(next);
 
             coNext = null;
         }

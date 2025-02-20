@@ -1,5 +1,6 @@
 ﻿using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,19 +17,37 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         [DeEmptyAlert]
+        [SerializeField] RectTransform bg;
+        [DeEmptyAlert]
         [SerializeField] Image img;
 
         #endregion
 
+        bool initialized;
         Button bt;
+        Tween showTween;
 
-        #region Unity
+        #region Unity + INIT
 
-        void Awake()
+        void Init()
         {
+            if (initialized) return;
+
+            initialized = true;
+            
             bt = this.GetComponent<Button>();
             
             bt.onClick.AddListener(OnClicked.Dispatch);
+
+            const float tweenDuration = 0.6f;
+            showTween = DOTween.Sequence().SetAutoKill(false).Pause()
+                .Join(bg.DOAnchorPosY(1440, tweenDuration).From(true).SetEase(Ease.OutQuint))
+                .OnRewind(() => this.gameObject.SetActive(false));
+        }
+
+        void OnDestroy()
+        {
+            showTween.Kill();
         }
 
         #endregion
@@ -37,13 +56,25 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(Sprite sprite)
         {
+            Init();
             img.sprite = sprite;
+            showTween.timeScale = 1;
+            showTween.Restart();
             this.gameObject.SetActive(true);
         }
 
-        public void Hide()
+        public void Hide(bool immediate = false)
         {
-            this.gameObject.SetActive(false);
+            Init();
+            if (immediate)
+            {
+                this.gameObject.SetActive(false);
+            }
+            else
+            {
+                showTween.timeScale = 2;
+                showTween.PlayBackwards();
+            }
         }
 
         #endregion
