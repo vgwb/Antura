@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Antura.Minigames.DiscoverCountry.Popups;
 using Demigiant.DemiTools;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using TMPro;
@@ -24,6 +25,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         [SerializeField] int shortBtWidth = 130;
         [SerializeField] int defaultBtWidth = 342;
+        [SerializeField] Color specialItemsColor = Color.red;
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] TMP_Text tfTitle;
@@ -38,6 +40,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         #endregion
 
+        ColorBlock defItemsColorBlock;
+        ColorBlock specialItemsColorBlock;
         Action<int> onSelect;
         CanvasGroup cg;
         readonly List<Button> bts = new();
@@ -47,6 +51,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Awake()
         {
+            defItemsColorBlock = btPrefab.colors;
+            specialItemsColorBlock = ColorBlock.defaultColorBlock;
+            specialItemsColorBlock.normalColor = specialItemsColorBlock.selectedColor = specialItemsColorBlock.disabledColor = specialItemsColor;
+            specialItemsColorBlock.highlightedColor = specialItemsColor.ChangeBrightness(1.2f);
+            specialItemsColorBlock.pressedColor = specialItemsColor.ChangeBrightness(1.3f);
+            
             cg = this.GetComponent<CanvasGroup>();
             
             openTween = this.transform.DOScale(0, GlobalPopups.ShowTime).From().SetAutoKill(false).Pause().SetUpdate(true)
@@ -69,7 +79,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Open(string title, List<string> values, Action<int> onSelected, bool hasCloseButton)
+        public void Open(string title, List<string> values, Action<int> onSelected, bool hasCloseButton, params int[] specialItemsIndexes)
         {
             Clear();
 
@@ -89,6 +99,8 @@ namespace Antura.Minigames.DiscoverCountry
             for (int i = 0; i < tot; i++)
             {
                 Button bt = bts[i];
+                bool isSpecial = Array.IndexOf(specialItemsIndexes, i) != -1;
+                bt.colors = isSpecial ? specialItemsColorBlock : defItemsColorBlock;
                 int index = i;
                 Vector2 size = gridLayoutGroup.cellSize;
                 size.x = btWidth;

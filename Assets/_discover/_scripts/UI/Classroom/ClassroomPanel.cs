@@ -48,7 +48,7 @@ namespace Antura.Minigames.DiscoverCountry
             header.BtClassroom.onClick.AddListener(() => {
                 GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
                     Open(classroomIDs[x], TestGenerateStubProfiles());
-                });
+                }, true, 0);
             });
             header.BtClose.onClick.AddListener(() => {
                 switch (state)
@@ -85,7 +85,7 @@ namespace Antura.Minigames.DiscoverCountry
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
                 GlobalUI.I.BackButton.gameObject.SetActive(false);
             }
-            header.SetTitle(classroomId != "0", classroomId);
+            header.SetTitle(classroomId != UserProfile.NoClassroomId, classroomId);
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
             this.gameObject.SetActive(true);

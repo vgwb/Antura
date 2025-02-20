@@ -43,7 +43,7 @@ namespace Antura.ReservedArea
             //
             GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
                 classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
-            }, false);
+            }, false, 0);
         }
 
         #region Buttons
@@ -252,7 +252,7 @@ namespace Antura.ReservedArea
 
         public static List<string> GetStubClassroomIDs()
         {
-            return new List<string>() { "A", "B", "C", "D" };
+            return new List<string>() { UserProfile.NoClassroomId, "A", "B", "C", "D" };
         }
 
         #endregion

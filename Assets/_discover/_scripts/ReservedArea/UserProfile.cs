@@ -5,6 +5,7 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class UserProfile
     {
+        public const string NoClassroomId = "-";
         public readonly string Id; // Used to get UserProfileDetail
         public readonly string Name;
         public readonly Sprite ProfilePic;
