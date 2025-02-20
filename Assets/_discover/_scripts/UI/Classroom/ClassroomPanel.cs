@@ -35,6 +35,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         bool isOpen;
+        bool isValidClassroom;
         bool backButtonWasOn;
         State state = State.Unset;
 
@@ -80,6 +81,8 @@ namespace Antura.Minigames.DiscoverCountry
             Close();
             
             isOpen = true;
+            isValidClassroom = classroomId != UserProfile.NoClassroomId;
+            AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
             if (hideGlobalUIBackButton)
             {
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
