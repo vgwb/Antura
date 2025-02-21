@@ -65,6 +65,11 @@ namespace Antura.Minigames.DiscoverCountry
                 WinFx.SetActive(false);
             }
 
+            RespawnPlayer();
+        }
+
+        public void RespawnPlayer()
+        {
             if (PlayerSpawnPoint != null)
             {
                 Player.GetComponent<EdPlayer>().SpawnToNewLocation(PlayerSpawnPoint.transform);

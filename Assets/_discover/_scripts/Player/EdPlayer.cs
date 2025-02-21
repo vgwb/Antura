@@ -132,6 +132,12 @@ namespace Antura.Minigames.DiscoverCountry
                 isOnSlope = false;
             }
 
+            // if we accidently fall in the void
+            if (transform.position.y < -30)
+            {
+                ActionManager.I.RespawnPlayer();
+            }
+
         }
 
         private void Move()
