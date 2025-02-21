@@ -95,7 +95,7 @@ namespace Antura.UI
             currClassroomIndex = classroomIndex;
             isValidClassroom = classroomIndex > 0;
             this.gameObject.SetActive(true);
-            AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
+            AppManager.I.AppSettingsManager.SetClassroomMode(classroomIndex);
             if (hideGlobalUIBackButton)
             {
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;

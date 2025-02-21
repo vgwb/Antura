@@ -2,6 +2,7 @@ using System;
 using Antura.Core;
 using Antura.Debugging;
 using Antura.Profile;
+using Antura.ReservedArea;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
@@ -20,19 +21,15 @@ namespace Antura.Scenes
         [DeEmptyAlert]
         [SerializeField] AudioListener audioListener;
 
-        static bool isOverlayMode; // TRUE when this scene is loaded in overlay (by ReservedArea's Classroom)
+        static bool isClassroomMode; // TRUE when this scene is loaded in overlay by ReservedArea's Classroom
 
         protected override void Awake()
         {
-            AudioListener[] audioListeners = FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
-            if (audioListeners.Length > 1)
-            {
-                isOverlayMode = true;
-                Destroy(audioListener);
-            }
+            isClassroomMode = FindObjectsByType<ReservedAreaScene>(FindObjectsSortMode.None) != null;
+            if (isClassroomMode) Destroy(audioListener);
             
             // Skip base Awake if in overlay mode otherwise this Component will be destroyed
-            if (!isOverlayMode) base.Awake();
+            if (!isClassroomMode) base.Awake();
         }
 
         protected override void Start()
@@ -56,13 +53,13 @@ namespace Antura.Scenes
         public static void CreatePlayer(int avatarID, PlayerGender gender, Color skinColor, Color hairColor, Color bgColor, int age)
         {
             Debug.Log(string.Format("Will create player of with avatarID {0}, skin color {1}, hair color {2}, bg color {3}, age {4}, gender {5},", avatarID, skinColor, hairColor, bgColor, age, gender));
-            AppManager.I.PlayerProfileManager.CreatePlayerProfile(true, avatarID, gender, PlayerTint.None, skinColor, hairColor, bgColor, age,
+            AppManager.I.PlayerProfileManager.CreatePlayerProfile(AppManager.I.AppSettings.ClassRoomMode, true, avatarID, gender, PlayerTint.None, skinColor, hairColor, bgColor, age,
                                 AppManager.I.AppEdition.editionID,
                                 AppManager.I.ContentEdition.ContentID,
                                 AppManager.I.AppEdition.AppVersion);
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
 
-            if (isOverlayMode)
+            if (isClassroomMode)
             {
                 // Just dispatch the completion event, ClassroomPanel will take care of the rest
                 OnCreationComplete.Dispatch();

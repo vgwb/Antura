@@ -68,6 +68,8 @@ namespace Antura.Core
                     return "D";
                 case 5:
                     return "E";
+                case 6:
+                    return "F";
                 default:
                     return "";
             }

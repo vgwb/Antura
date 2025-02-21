@@ -226,11 +226,12 @@ namespace Antura.Profile
         /// <summary>
         /// Creates the player profile.
         /// </summary>
-        public string CreatePlayerProfile(bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, AppEditionID editionID, LearningContentID contentID, string appVersion, bool isDemoUser = false)
+        public string CreatePlayerProfile(int classroom, bool isNewAvatar, int avatarID, PlayerGender gender, PlayerTint tint, Color skinColor, Color hairColor, Color bgColor, int age, AppEditionID editionID, LearningContentID contentID, string appVersion, bool isDemoUser = false)
         {
             PlayerProfile returnProfile = new PlayerProfile();
             // Data
             returnProfile.Uuid = System.Guid.NewGuid().ToString();
+            returnProfile.Classroom = classroom;
             if (isNewAvatar)
                 avatarID += NEW_AVATAR_ID_START;
             returnProfile.AvatarId = avatarID;
