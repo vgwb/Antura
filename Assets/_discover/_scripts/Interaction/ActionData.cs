@@ -23,6 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject Area;
         public GameObject Beam;
         public GameObject Target;
+        public GameObject SpawnPlayer;
         public GameObject DebugSpawn;
     }
 }

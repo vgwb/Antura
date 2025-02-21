@@ -150,6 +150,10 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
                 }
+                else
+                {
+                    InteractionManager.I.ActivateWorldTargetIcon(false);
+                }
 
                 if (actionData.Walls != null)
                 {
@@ -160,6 +164,12 @@ namespace Antura.Minigames.DiscoverCountry
                     currentInvisibleWalls = actionData.Walls;
                     currentInvisibleWalls.SetActive(true);
                 }
+
+                if (actionData.SpawnPlayer != null)
+                {
+                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
+                }
+
             }
             else
             {
@@ -175,7 +185,7 @@ namespace Antura.Minigames.DiscoverCountry
             // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
             // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
 
-            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.mainObject.transform);
+            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
         }
 
         private void Collect(string collectCode)
