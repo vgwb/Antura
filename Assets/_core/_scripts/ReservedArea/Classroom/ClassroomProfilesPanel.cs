@@ -1,9 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Antura.Core;
 using Antura.Profile;
+using Antura.Scenes;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 namespace Antura.UI
@@ -20,6 +23,8 @@ namespace Antura.UI
 
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileView profileViewPrefab;
+        [DeEmptyAlert]
+        public Button BtCreateProfile;
         [DeEmptyAlert]
         [SerializeField] ScrollRect scrollRect;
         [DeEmptyAlert]

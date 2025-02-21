@@ -68,9 +68,9 @@ namespace Antura.Core
         /// Load scene. Call just once, otherwise transition will be reset and not triggered.
         /// </summary>
         /// <param name="_sceneToLoad">The name of the scene to load</param>
-        public void LoadSceneWithTransition(string _sceneToLoad)
+        public void LoadSceneWithTransition(string _sceneToLoad, LoadSceneMode mode = LoadSceneMode.Single)
         {
-            LoadSceneWithTransition(_sceneToLoad, TransitionSettings);
+            LoadSceneWithTransition(_sceneToLoad, TransitionSettings, mode);
         }
 
         /// <summary>
@@ -78,7 +78,8 @@ namespace Antura.Core
         /// </summary>
         /// <param name="_sceneToLoad">The name of the scene to load</param>
         /// <param name="_transitionSettings">Custom transition settings</param>
-        public void LoadSceneWithTransition(string _sceneToLoad, SceneTransitionSettings _transitionSettings)
+        /// <param name="mode">How to load the scene (single or additive)</param>
+        public void LoadSceneWithTransition(string _sceneToLoad, SceneTransitionSettings _transitionSettings, LoadSceneMode mode = LoadSceneMode.Single)
         {
             _isTransitioning = true;
             if (OnSceneStartTransition != null)
@@ -87,12 +88,12 @@ namespace Antura.Core
             }
 
             SceneTransitioner.Show(true, delegate
-            { OnSceneTransitionComplete(_sceneToLoad); });
+            { OnSceneTransitionComplete(_sceneToLoad, mode); });
         }
 
-        void OnSceneTransitionComplete(string _sceneToLoad)
+        void OnSceneTransitionComplete(string _sceneToLoad, LoadSceneMode mode)
         {
-            SceneManager.LoadScene(_sceneToLoad);
+            SceneManager.LoadScene(_sceneToLoad, mode);
             AppManager.I.OnSceneChanged();
         }
 

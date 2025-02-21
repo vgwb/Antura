@@ -2,15 +2,43 @@ using System;
 using Antura.Core;
 using Antura.Debugging;
 using Antura.Profile;
+using Demigiant.DemiTools;
+using DG.DeInspektor.Attributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Antura.Scenes
 {
     public class PlayerCreationScene : SceneBase
     {
+        #region EVENTS
+
+        public static ActionEvent OnCreationComplete = new("PlayerCreationScene.OnCreationComplete");
+
+        #endregion
+        
+        [DeEmptyAlert]
+        [SerializeField] AudioListener audioListener;
+
+        static bool isOverlayMode; // TRUE when this scene is loaded in overlay (by ReservedArea's Classroom)
+
+        protected override void Awake()
+        {
+            AudioListener[] audioListeners = FindObjectsByType<AudioListener>(FindObjectsSortMode.None);
+            if (audioListeners.Length > 1)
+            {
+                isOverlayMode = true;
+                Destroy(audioListener);
+            }
+            
+            // Skip base Awake if in overlay mode otherwise this Component will be destroyed
+            if (!isOverlayMode) base.Awake();
+        }
+
         protected override void Start()
         {
             base.Start();
+
             DebugManager.OnSkipCurrentScene += HandleSkipScene;
         }
 
@@ -34,7 +62,12 @@ namespace Antura.Scenes
                                 AppManager.I.AppEdition.AppVersion);
             LogManager.I.LogInfo(InfoEvent.AppPlay, JsonUtility.ToJson(new DeviceInfo()));
 
-            if (AppManager.PROFILE_INVERSION)
+            if (isOverlayMode)
+            {
+                // Just dispatch the completion event, ClassroomPanel will take care of the rest
+                OnCreationComplete.Dispatch();
+            }
+            else if (AppManager.PROFILE_INVERSION)
             {
                 // For now, we go back home, then we'll get to the content selection screen
                 AppManager.I.NavigationManager.GoToHome(debugMode:true); // debug mode to force transition

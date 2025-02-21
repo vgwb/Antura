@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Profile;
+using Antura.Scenes;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Antura.UI
 {
@@ -25,20 +28,21 @@ namespace Antura.UI
         [SerializeField] ClassroomProfilesPanel profilesPanel;
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileDetailPanel detailPanel;
+        [DeEmptyAlert]
+        [SerializeField] GameObject createProfileBgBlocker;
         
-        [Header("Test stuff")]
-        [SerializeField] Sprite sampleProfileSprite;
-
         #endregion
 
         public const string NoClassroomId = "-";
         readonly List<string> classroomIDs = new() {NoClassroomId, "A", "B", "C", "D", "E", "F"};
         State state = State.Unset;
         bool isOpen;
+        int currClassroomIndex;
         bool isValidClassroom;
         bool backButtonWasOn;
         List<PlayerIconData> allProfiles;
         readonly Dictionary<int, List<PlayerIconData>> profilesByClassroomIndex = new();
+        Coroutine coCreateProfile;
 
         #region Unity
 
@@ -55,7 +59,9 @@ namespace Antura.UI
                         break;
                 }
             });
+            profilesPanel.BtCreateProfile.onClick.AddListener(CreateProfile);
             
+            createProfileBgBlocker.gameObject.SetActive(false);
             if (!isOpen) this.gameObject.SetActive(false);
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
@@ -64,8 +70,10 @@ namespace Antura.UI
 
         void OnDestroy()
         {
+            this.StopAllCoroutines();
             profilesPanel.OnProfileClicked.Unsubscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Unsubscribe(OnBackFromProfileDetailsClicked);
+            PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
         }
 
         #endregion
@@ -82,6 +90,7 @@ namespace Antura.UI
             Close();
             
             isOpen = true;
+            currClassroomIndex = classroomIndex;
             isValidClassroom = classroomIndex > 0;
             this.gameObject.SetActive(true);
             AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
@@ -148,6 +157,23 @@ namespace Antura.UI
                     break;
             }
         }
+        
+        void CreateProfile()
+        {
+            this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile());
+        }
+
+        IEnumerator CO_CreateProfile()
+        {
+            createProfileBgBlocker.gameObject.SetActive(true);
+            yield return null;
+            
+            AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
+            PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
+            PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
+            
+            coCreateProfile = null;
+        }
 
         #endregion
 
@@ -161,6 +187,14 @@ namespace Antura.UI
         void OnBackFromProfileDetailsClicked()
         {
             SwitchState(State.Profiles);
+        }
+
+        void OnPlayerCreationComplete()
+        {
+            SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
+            createProfileBgBlocker.SetActive(false);
+            Refresh();
+            Open(currClassroomIndex);
         }
 
         #endregion

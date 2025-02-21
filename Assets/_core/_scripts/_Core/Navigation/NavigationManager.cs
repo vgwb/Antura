@@ -11,6 +11,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Antura.Core
 {
@@ -307,7 +308,7 @@ namespace Antura.Core
             GoToSceneByName(SceneHelper.GetSceneName(filteredNewScene, minigameData));
         }
 
-        public void GoToSceneByName(string sceneName)
+        public void GoToSceneByName(string sceneName, LoadSceneMode mode = LoadSceneMode.Single, bool noTransition = false)
         {
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
@@ -315,7 +316,9 @@ namespace Antura.Core
             {
                 Debug.LogFormat(" ==== Loading scene {0} ====", sceneName);
             }
-            SceneTransitionManager.LoadSceneWithTransition(sceneName);
+
+            if (noTransition) SceneManager.LoadScene(sceneName, mode);
+            else SceneTransitionManager.LoadSceneWithTransition(sceneName, mode);
 
             AppManager.I.Services.Analytics.TrackScene(sceneName);
             LogManager.I.LogInfo(InfoEvent.EnterScene, "{\"Scene\":\"" + sceneName + "\"}");
