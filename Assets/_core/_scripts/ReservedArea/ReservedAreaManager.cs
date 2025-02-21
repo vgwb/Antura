@@ -1,7 +1,6 @@
 using Antura.Core;
 using Antura.Database;
 using Antura.Debugging;
-using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 using System;
@@ -36,13 +35,7 @@ namespace Antura.ReservedArea
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
             ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
             
-            // Open classroom selector
-            // Generate stub data (replace with real data)
-            List<string> classroomIDs = GetStubClassroomIDs();
-            //
-            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
-                classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
-            }, false, 0);
+            classroomPanel.OpenSelectClassroomPopup(false);
         }
 
         #region Buttons
@@ -246,14 +239,5 @@ namespace Antura.ReservedArea
             AppManager.I.PlayerProfileManager.ImportAllPlayerProfiles();
             AppManager.I.NavigationManager.ReloadScene();
         }
-
-        #region Test
-
-        public static List<string> GetStubClassroomIDs()
-        {
-            return new List<string>() { ClassroomProfile.NoClassroomId, "A", "B", "C", "D" };
-        }
-
-        #endregion
     }
 }

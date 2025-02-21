@@ -25,6 +25,8 @@ namespace Antura.Profile
         [DeComment("Level is auto-hidden if the player has the hat", style = DeCommentStyle.WrapNextLine, marginBottom = -1)]
         public bool HideLevel;
         public bool HideName;
+        public bool HideBackground;
+        public bool HideHighlight;
         public float LevelLabelHatShift = 40;
         public Color SelectedPlayerNameColor = Color.white;
         public Color SelectedTfNameColor = Color.white;
@@ -33,6 +35,7 @@ namespace Antura.Profile
         public Image Background;
         public Sprite EndgameHat;
         public Sprite EndgameHatWStars;
+        public GameObject Highlight;
         public GameObject HighlightImage;
         public Image HatImage;
         public Image FaceImg, HairImg;
@@ -69,6 +72,8 @@ namespace Antura.Profile
             defPlayerNameBoxColor = PlayerNameBox.color;
             
             PlayerNameBox.gameObject.SetActive(!HideName);
+            Background.gameObject.SetActive(!HideBackground);
+            Highlight.SetActive(!HideHighlight);
         }
 
         void Start()
