@@ -41,7 +41,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        void Start()
+        IEnumerator Start()
         {
             Player = GameObject.FindWithTag("Player");
 
@@ -70,7 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             RespawnPlayer();
-
+            yield return null;
             ResolveAction("area_init");
         }
 
