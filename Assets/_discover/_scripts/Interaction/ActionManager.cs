@@ -103,12 +103,15 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
 
             InteractionManager.I.FocusCameraOn(actionData.Target.transform);
-            actionData.Beam.SetActive(true);
-            Target_AnturaLocation = actionData.Target.transform;
 
-            if (Target_AnturaLocation != null)
+            if (actionData.Beam != null)
             {
-                InteractionManager.I.ActivateWorldTargetIcon(true, Target_AnturaLocation);
+                actionData.Beam.SetActive(true);
+            }
+
+            if (actionData.Target.transform != null)
+            {
+                InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
             }
         }
 
@@ -125,17 +128,22 @@ namespace Antura.Minigames.DiscoverCountry
                     actionData.Area.SetActive(true);
                 }
 
+                if (actionData.Beam != null)
+                {
+                    actionData.Beam.SetActive(true);
+                }
+
                 if (actionData.Target != null)
                 {
                     InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
                 }
 
-                if (currentInvisibleWalls != null)
-                {
-                    currentInvisibleWalls.SetActive(false);
-                }
                 if (actionData.Walls != null)
                 {
+                    if (currentInvisibleWalls != null)
+                    {
+                        currentInvisibleWalls.SetActive(false);
+                    }
                     currentInvisibleWalls = actionData.Walls;
                     currentInvisibleWalls.SetActive(true);
                 }
