@@ -30,7 +30,7 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Fill(UserProfileDetail.LanguageLevel level)
+        public void Fill(ClassroomProfileDetail.LanguageLevel level)
         {
             tfTitle.text = level.Name;
             

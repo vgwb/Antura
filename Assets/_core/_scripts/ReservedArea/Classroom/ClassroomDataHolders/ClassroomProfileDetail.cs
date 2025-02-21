@@ -4,7 +4,10 @@ using UnityEngine;
 
 namespace Antura.Profile
 {
-    public class UserProfileDetail
+    /// <summary>
+    /// Detail profile of player formatted for Classroom
+    /// </summary>
+    public class ClassroomProfileDetail
     {
         public readonly string Id; // Used to get UserProfileDetail
         public readonly string Name;
@@ -13,7 +16,7 @@ namespace Antura.Profile
         public readonly List<LanguageLevel> Levels;
         public readonly List<DiscoverQuest> Quests;
 
-        public UserProfileDetail(string id, string name, Sprite profilePic, DateTime lastAccess, List<LanguageLevel> levels, List<DiscoverQuest> quests)
+        public ClassroomProfileDetail(string id, string name, Sprite profilePic, DateTime lastAccess, List<LanguageLevel> levels, List<DiscoverQuest> quests)
         {
             Id = id;
             Name = name;
@@ -25,9 +28,9 @@ namespace Antura.Profile
 
         #region Test
 
-        public static UserProfileDetail GenerateStub(string id, string name, Sprite profilePic, DateTime lastAccess)
+        public static ClassroomProfileDetail GenerateStub(string id, string name, Sprite profilePic, DateTime lastAccess)
         {
-            return new UserProfileDetail(
+            return new ClassroomProfileDetail(
                 id,
                 name,
                 profilePic,

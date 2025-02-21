@@ -21,7 +21,7 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Fill(UserProfileDetail.DiscoverQuest quest)
+        public void Fill(ClassroomProfileDetail.DiscoverQuest quest)
         {
             tfTitle.text = quest.Name;
             for (int i = 0; i < stars.Length; i++)

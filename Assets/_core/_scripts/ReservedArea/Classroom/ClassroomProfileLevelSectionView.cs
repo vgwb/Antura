@@ -19,7 +19,7 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Fill(UserProfileDetail.LanguageLevelSection section)
+        public void Fill(ClassroomProfileDetail.LanguageLevelSection section)
         {
             tfTitle.text = section.Name;
             slider.value = section.CompletionPerc;

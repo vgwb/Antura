@@ -65,7 +65,7 @@ namespace Antura.UI
             }
         }
 
-        public void Fill(UserProfileDetail profileDetail)
+        public void Fill(ClassroomProfileDetail profileDetail)
         {
             Clear();
             

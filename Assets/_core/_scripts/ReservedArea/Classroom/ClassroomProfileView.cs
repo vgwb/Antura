@@ -20,12 +20,12 @@ namespace Antura.UI
 
         #endregion
 
-        public UserProfile Profile { get; private set; }
+        public ClassroomProfile Profile { get; private set; }
         public Button BtMain => btMain;
 
         #region Public Methods
 
-        public void Fill(UserProfile profile)
+        public void Fill(ClassroomProfile profile)
         {
             Profile = profile;
             profileImg.sprite = profile.ProfilePic;

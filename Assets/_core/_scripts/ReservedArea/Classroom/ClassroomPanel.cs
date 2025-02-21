@@ -75,12 +75,12 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Open(string classroomId, List<UserProfile> profiles)
+        public void Open(string classroomId, List<ClassroomProfile> profiles)
         {
             Close();
             
             isOpen = true;
-            isValidClassroom = classroomId != UserProfile.NoClassroomId;
+            isValidClassroom = classroomId != ClassroomProfile.NoClassroomId;
             this.gameObject.SetActive(true);
             AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
             if (hideGlobalUIBackButton)
@@ -88,7 +88,7 @@ namespace Antura.UI
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
                 GlobalUI.I.BackButton.gameObject.SetActive(false);
             }
-            header.SetTitle(classroomId != UserProfile.NoClassroomId, classroomId);
+            header.SetTitle(classroomId != ClassroomProfile.NoClassroomId, classroomId);
             SwitchState(State.Profiles);
             profilesPanel.Fill(profiles);
         }
@@ -108,7 +108,7 @@ namespace Antura.UI
 
         #region Methods
 
-        void SwitchState(State toState, UserProfile profile = null)
+        void SwitchState(State toState, ClassroomProfile profile = null)
         {
             if (state == toState) return;
             if (toState == State.ProfileDetail && profile == null)
@@ -133,13 +133,13 @@ namespace Antura.UI
 
         #region Test
 
-        public List<UserProfile> TestGenerateStubProfiles()
+        public List<ClassroomProfile> TestGenerateStubProfiles()
         {
             int tot = Random.Range(10, 31);
-            List<UserProfile> testProfiles = new();
+            List<ClassroomProfile> testProfiles = new();
             for (int i = 0; i < tot; i++)
             {
-                testProfiles.Add(new UserProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
+                testProfiles.Add(new ClassroomProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
             }
             return testProfiles;
         }
@@ -156,7 +156,7 @@ namespace Antura.UI
 
         #region Callbacks
 
-        void OnProfileClicked(UserProfile profile)
+        void OnProfileClicked(ClassroomProfile profile)
         {
             SwitchState(State.ProfileDetail, profile);
         }

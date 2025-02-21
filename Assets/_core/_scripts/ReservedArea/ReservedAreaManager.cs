@@ -251,7 +251,7 @@ namespace Antura.ReservedArea
 
         public static List<string> GetStubClassroomIDs()
         {
-            return new List<string>() { UserProfile.NoClassroomId, "A", "B", "C", "D" };
+            return new List<string>() { ClassroomProfile.NoClassroomId, "A", "B", "C", "D" };
         }
 
         #endregion

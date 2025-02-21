@@ -3,7 +3,10 @@ using UnityEngine;
 
 namespace Antura.Profile
 {
-    public class UserProfile
+    /// <summary>
+    /// Profile of player formatted for Classroom
+    /// </summary>
+    public class ClassroomProfile
     {
         public const string NoClassroomId = "-";
         public readonly string Id; // Used to get UserProfileDetail
@@ -11,7 +14,7 @@ namespace Antura.Profile
         public readonly Sprite ProfilePic;
         public readonly DateTime LastAccess;
 
-        public UserProfile(string id, string name, Sprite profilePic, DateTime lastAccess)
+        public ClassroomProfile(string id, string name, Sprite profilePic, DateTime lastAccess)
         {
             Id = id;
             ProfilePic = profilePic;
@@ -21,10 +24,10 @@ namespace Antura.Profile
 
         #region Public Methods
 
-        public UserProfileDetail GetProfileDetail()
+        public ClassroomProfileDetail GetProfileDetail()
         {
             // TODO: Method to get UserProfileDetail from an ID - For now returns a stub UserProfileDetail
-            return UserProfileDetail.GenerateStub(Id, Name, ProfilePic, LastAccess);
+            return ClassroomProfileDetail.GenerateStub(Id, Name, ProfilePic, LastAccess);
         }
 
         #endregion

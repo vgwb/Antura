@@ -12,7 +12,7 @@ namespace Antura.UI
     {
         #region EVENTS
 
-        public ActionEvent<UserProfile> OnProfileClicked = new("ClassroomProfilesPanel.OnProfileClicked");
+        public ActionEvent<ClassroomProfile> OnProfileClicked = new("ClassroomProfilesPanel.OnProfileClicked");
 
         #endregion
         
@@ -66,7 +66,7 @@ namespace Antura.UI
             }
         }
 
-        public void Fill(List<UserProfile> profiles)
+        public void Fill(List<ClassroomProfile> profiles)
         {
             Clear();
             
