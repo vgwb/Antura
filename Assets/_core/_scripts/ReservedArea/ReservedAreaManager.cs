@@ -39,7 +39,7 @@ namespace Antura.ReservedArea
             
             // If "no classroom" open popup to choose classroom, otherwise select current classroom
             int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
-            if (currClassroomIndex > 0) classroomPanel.Open(currClassroomIndex);
+            if (currClassroomIndex >= 0) classroomPanel.Open(currClassroomIndex);
             else classroomPanel.OpenSelectClassroomPopup(false);
         }
 
