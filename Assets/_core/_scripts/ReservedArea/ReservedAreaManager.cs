@@ -4,6 +4,7 @@ using Antura.Debugging;
 using Antura.UI;
 using UnityEngine;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using DG.DeInspektor.Attributes;
@@ -29,13 +30,17 @@ namespace Antura.ReservedArea
             newUI.SetActive(true);
         }
         
-        void Start()
+        IEnumerator Start()
         {
             AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled);
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
             ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
+            yield return null;
             
-            classroomPanel.OpenSelectClassroomPopup(false);
+            // If "no classroom" open popup to choose classroom, otherwise select current classroom
+            int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
+            if (currClassroomIndex > 0) classroomPanel.Open(currClassroomIndex);
+            else classroomPanel.OpenSelectClassroomPopup(false);
         }
 
         #region Buttons
