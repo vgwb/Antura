@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using Demigiant.DemiTools;
 using Antura.Profile;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using TMPro;
 using UnityEngine;
@@ -19,7 +20,7 @@ namespace Antura.UI
         #region Serialized
 
         [DeEmptyAlert]
-        [SerializeField] Image profileImg;
+        [SerializeField] PlayerIcon playerIcon;
         [DeEmptyAlert]
         [SerializeField] TMP_Text tfName;
         [DeEmptyAlert]
@@ -69,8 +70,8 @@ namespace Antura.UI
         {
             Clear();
             
-            profileImg.sprite = profileDetail.ProfilePic;
-            tfName.text = profileDetail.Name;
+            playerIcon.Init(profileDetail.Profile);
+            tfName.text = profileDetail.Profile.PlayerName.IsNullOrEmpty() ? "- - -" : profileDetail.Profile.PlayerName;
             tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
             
             int totLevels = profileDetail.Levels.Count;

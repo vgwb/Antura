@@ -5,57 +5,53 @@ using UnityEngine;
 namespace Antura.Profile
 {
     /// <summary>
-    /// Detail profile of player formatted for Classroom
+    /// Detail profile of player formatted for Classroom.
+    /// Used as a stub for now and to represent the required data,
+    /// which in the future will be added (I guess?) to ContentProfile,
+    /// at which point ContentProfile will be able to replace this class
     /// </summary>
     public class ClassroomProfileDetail
     {
-        public readonly string Id; // Used to get UserProfileDetail
-        public readonly string Name;
-        public readonly Sprite ProfilePic;
+        public readonly PlayerIconData Profile;
         public readonly DateTime LastAccess;
         public readonly List<LanguageLevel> Levels;
         public readonly List<DiscoverQuest> Quests;
 
-        public ClassroomProfileDetail(string id, string name, Sprite profilePic, DateTime lastAccess, List<LanguageLevel> levels, List<DiscoverQuest> quests)
+        public ClassroomProfileDetail(PlayerIconData profile)
         {
-            Id = id;
-            Name = name;
-            ProfilePic = profilePic;
-            LastAccess = lastAccess;
-            Levels = levels;
-            Quests = quests;
+            Profile = profile;
+            
+            // Generate STUB last access
+            LastAccess = DateTime.Now;
+            
+            // Generate STUB levels and quests until they will be implemented correctly
+            Levels = new List<LanguageLevel>() {
+                new LanguageLevel(
+                    "A language level",
+                    new List<LanguageLevelSection>() {
+                        new LanguageLevelSection("A section", 0.4f),
+                        new LanguageLevelSection("Another section", 0.2f),
+                    }
+                ),
+                new LanguageLevel(
+                    "Another language level",
+                    new List<LanguageLevelSection>() {
+                        new LanguageLevelSection("A section", 0.8f),
+                        new LanguageLevelSection("Another section", 1f),
+                    }
+                )
+            };
+            Quests = new List<DiscoverQuest>() {
+                new DiscoverQuest("Quest A", 2),
+                new DiscoverQuest("Quest B", 3)
+            };
         }
 
         #region Test
 
-        public static ClassroomProfileDetail GenerateStub(string id, string name, Sprite profilePic, DateTime lastAccess)
+        public static ClassroomProfileDetail GenerateStub(PlayerIconData profile)
         {
-            return new ClassroomProfileDetail(
-                id,
-                name,
-                profilePic,
-                lastAccess,
-                new List<LanguageLevel>() {
-                    new LanguageLevel(
-                        "A language level",
-                        new List<LanguageLevelSection>() {
-                            new LanguageLevelSection("A section", 0.4f),
-                            new LanguageLevelSection("Another section", 0.2f),
-                        }
-                    ),
-                    new LanguageLevel(
-                        "Another language level",
-                        new List<LanguageLevelSection>() {
-                            new LanguageLevelSection("A section", 0.8f),
-                            new LanguageLevelSection("Another section", 1f),
-                        }
-                    )
-                },
-                new List<DiscoverQuest>() {
-                    new DiscoverQuest("Quest A", 2),
-                    new DiscoverQuest("Quest B", 3)
-                }
-            );
+            return new ClassroomProfileDetail(profile);
         }
 
         #endregion

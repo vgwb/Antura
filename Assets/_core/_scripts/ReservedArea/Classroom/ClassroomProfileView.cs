@@ -1,5 +1,6 @@
 ﻿using System;
 using Antura.Profile;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using TMPro;
 using UnityEngine;
@@ -12,7 +13,7 @@ namespace Antura.UI
         #region Serialized
 
         [DeEmptyAlert]
-        [SerializeField] Image profileImg;
+        [SerializeField] PlayerIcon playerIcon;
         [DeEmptyAlert]
         [SerializeField] TMP_Text tfName;
         [DeEmptyAlert]
@@ -20,16 +21,16 @@ namespace Antura.UI
 
         #endregion
 
-        public ClassroomProfile Profile { get; private set; }
+        public PlayerIconData Profile { get; private set; }
         public Button BtMain => btMain;
 
         #region Public Methods
 
-        public void Fill(ClassroomProfile profile)
+        public void Fill(PlayerIconData profile)
         {
             Profile = profile;
-            profileImg.sprite = profile.ProfilePic;
-            tfName.text = profile.Name;
+            playerIcon.Init(profile);
+            tfName.text = profile.PlayerName.IsNullOrEmpty() ? "- - -" : profile.PlayerName;
         }
 
         #endregion

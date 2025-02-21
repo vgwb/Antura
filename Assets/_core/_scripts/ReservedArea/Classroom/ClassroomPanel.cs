@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using Antura.Core;
 using Antura.Profile;
-using Antura.ReservedArea;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
-using Random = UnityEngine.Random;
 
 namespace Antura.UI
 {
@@ -33,23 +31,22 @@ namespace Antura.UI
 
         #endregion
 
+        public const string NoClassroomId = "-";
+        readonly List<string> classroomIDs = new() {NoClassroomId, "A", "B", "C", "D", "E", "F"};
+        State state = State.Unset;
         bool isOpen;
         bool isValidClassroom;
         bool backButtonWasOn;
-        State state = State.Unset;
+        List<PlayerIconData> allProfiles;
+        readonly Dictionary<int, List<PlayerIconData>> profilesByClassroomIndex = new();
 
         #region Unity
 
         void Start()
         {
-            // Stub data
-            List<string> classroomIDs = ReservedAreaManager.GetStubClassroomIDs();
+            Refresh();
             
-            header.BtClassroom.onClick.AddListener(() => {
-                GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
-                    Open(classroomIDs[x], TestGenerateStubProfiles());
-                }, true, 0);
-            });
+            header.BtClassroom.onClick.AddListener(() => OpenSelectClassroomPopup());
             header.BtClose.onClick.AddListener(() => {
                 switch (state)
                 {
@@ -75,12 +72,17 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Open(string classroomId, List<ClassroomProfile> profiles)
+        public void OpenSelectClassroomPopup(bool showCloseButton = true)
+        {
+            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, Open, showCloseButton, 0);
+        }
+
+        public void Open(int classroomIndex)
         {
             Close();
             
             isOpen = true;
-            isValidClassroom = classroomId != ClassroomProfile.NoClassroomId;
+            isValidClassroom = classroomIndex > 0;
             this.gameObject.SetActive(true);
             AppManager.I.AppSettingsManager.SetClassroomMode(isValidClassroom ? 1 : 0);
             if (hideGlobalUIBackButton)
@@ -88,9 +90,11 @@ namespace Antura.UI
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
                 GlobalUI.I.BackButton.gameObject.SetActive(false);
             }
-            header.SetTitle(classroomId != ClassroomProfile.NoClassroomId, classroomId);
+            header.SetTitle(isValidClassroom, classroomIDs[classroomIndex]);
             SwitchState(State.Profiles);
-            profilesPanel.Fill(profiles);
+            bool hasProfiles = profilesByClassroomIndex.ContainsKey(classroomIndex);
+            if (hasProfiles) profilesPanel.Fill(profilesByClassroomIndex[classroomIndex]);
+            else profilesPanel.Fill(new List<PlayerIconData>());
         }
         
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
@@ -108,7 +112,23 @@ namespace Antura.UI
 
         #region Methods
 
-        void SwitchState(State toState, ClassroomProfile profile = null)
+        void Refresh()
+        {
+            allProfiles = AppManager.I.PlayerProfileManager.GetPlayersIconData();
+            profilesByClassroomIndex.Clear();
+            foreach (PlayerIconData profile in allProfiles)
+            {
+                if (profile.Classroom >= classroomIDs.Count)
+                {
+                    Debug.LogError($"Player \"{profile.PlayerName}\" has an invalid Classroom ID ({profile.Classroom}): should be between 0 and {classroomIDs.Count - 1}. Ignoring it");
+                    continue;
+                }
+                if (!profilesByClassroomIndex.ContainsKey(profile.Classroom)) profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
+                profilesByClassroomIndex[profile.Classroom].Add(profile);
+            }
+        }
+
+        void SwitchState(State toState, PlayerIconData? profile = null)
         {
             if (state == toState) return;
             if (toState == State.ProfileDetail && profile == null)
@@ -124,39 +144,16 @@ namespace Antura.UI
             switch (state)
             {
                 case State.ProfileDetail:
-                    detailPanel.Fill(profile.GetProfileDetail());
+                    detailPanel.Fill(new ClassroomProfileDetail((PlayerIconData)profile));
                     break;
             }
         }
 
         #endregion
 
-        #region Test
-
-        public List<ClassroomProfile> TestGenerateStubProfiles()
-        {
-            int tot = Random.Range(10, 31);
-            List<ClassroomProfile> testProfiles = new();
-            for (int i = 0; i < tot; i++)
-            {
-                testProfiles.Add(new ClassroomProfile("StubID", $"User [{i}]", sampleProfileSprite, DateTime.Now));
-            }
-            return testProfiles;
-        }
-
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        void TestOpen()
-        {
-            if (isOpen) return;
-            
-            Open("C", TestGenerateStubProfiles());
-        }
-
-        #endregion
-
         #region Callbacks
 
-        void OnProfileClicked(ClassroomProfile profile)
+        void OnProfileClicked(PlayerIconData profile)
         {
             SwitchState(State.ProfileDetail, profile);
         }
