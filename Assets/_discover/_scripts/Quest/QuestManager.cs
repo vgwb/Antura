@@ -29,7 +29,7 @@ namespace Antura.Minigames.DiscoverCountry
         private GameObject currentNPC;
         public int total_coins = 0;
         public int total_bones = 0;
-        public int total_items = 0;
+        public int collected_items = 0;
 
         private Inventory inventory;
         private Progress progress;
@@ -135,16 +135,16 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 Debug.Log("Collect item " + itemCode);
 
-                total_items++;
-                HomerVars.TOTAL_ITEMS = total_items;
+                collected_items++;
+                HomerVars.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();
             }
         }
 
         public void OnCollectItem(GameObject go)
         {
-            total_items++;
-            HomerVars.TOTAL_ITEMS = total_items;
+            collected_items++;
+            HomerVars.COLLECTED_ITEMS = collected_items;
             Destroy(go);
             UpateItemsCounter();
         }
@@ -173,7 +173,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 itemsCounter.gameObject.SetActive(true);
                 itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
-                itemsCounter.SetValue(HomerVars.TOTAL_ITEMS);
+                itemsCounter.SetValue(HomerVars.COLLECTED_ITEMS);
             }
         }
         public void UpateCoinsCounter()

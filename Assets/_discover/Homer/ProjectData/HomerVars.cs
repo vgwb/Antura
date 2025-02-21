@@ -20,7 +20,7 @@ public static class HomerVars {
     public static bool AGE = false; 
     public static int TOTAL_COINS = 0;
     public static string CMD = "";
-    public static int TOTAL_ITEMS = 0;
+    public static int COLLECTED_ITEMS = 0;
     public static bool MET_GUIDE = false; 
     public static bool MET_MAJOR = false; 
     public static bool MET_MONALISA = false; 

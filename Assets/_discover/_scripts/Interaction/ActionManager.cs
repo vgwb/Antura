@@ -12,6 +12,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public static ActionManager I;
 
+        public string DebugArea;
+
         [Tooltip("The starting location of the player")]
         public GameObject PlayerSpawnPoint;
 
@@ -55,6 +57,8 @@ namespace Antura.Minigames.DiscoverCountry
                             action.Area?.SetActive(false);
                         if (action.Beam != null)
                             action.Beam.SetActive(false);
+                        if (action.Walls != null)
+                            action.Walls.SetActive(false);
                     }
                 }
             }
@@ -71,7 +75,16 @@ namespace Antura.Minigames.DiscoverCountry
 
             RespawnPlayer();
             yield return null;
-            ResolveAction("area_init");
+
+            if (DebugArea != "")
+            {
+                ResolveAction(DebugArea);
+                Player.GetComponent<EdPlayer>().SpawnToNewLocation(GetActionData(ActionType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
+            }
+            else
+            {
+                ResolveAction("area_init");
+            }
         }
 
         public void RespawnPlayer()
@@ -162,7 +175,7 @@ namespace Antura.Minigames.DiscoverCountry
             // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
             // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
 
-            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
+            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.mainObject.transform);
         }
 
         private void Collect(string collectCode)

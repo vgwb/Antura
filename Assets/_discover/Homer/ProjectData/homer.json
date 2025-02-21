@@ -2628,7 +2628,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 },
                 {
                   "_nodeElementId": "NODEL-a08f362b-92c6-4bfe-9602-1718885180187",
@@ -4999,10 +4999,10 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "CONN-d469d497-ad0b-4a31-a511-1719050246096",
+              "_id": "CONN-12194a2b-ab9a-47b6-a007-1740160989995",
               "_connectionLine": {},
               "_from": "NOD-0f340bcb-089c-48cb-8784-1718640711652",
-              "_to": "NOD-0f340bcb-089c-48cb-8784-1718640711652-2b-a9",
+              "_to": "NOD-3ebfad11-faa8-4898-8643-1740160972502",
               "_type": "Text"
             }
           ],
@@ -5523,7 +5523,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS >= 4"
+                  "_text": "$COLLECTED_ITEMS >= 4"
                 },
                 {
                   "_nodeElementId": "NODEL-dd5a6880-f089-42a3-8235-1710930984603",
@@ -5578,7 +5578,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS == 0"
+                  "_text": "$COLLECTED_ITEMS == 0"
                 },
                 {
                   "_nodeElementId": "NODEL-1700c52a-255f-491d-87e1-1718885258084",
@@ -8116,15 +8116,7 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-2bd0eb13-cf27-4660-ae96-1719063125281",
-              "_connectionLine": {},
-              "_from": "NOD-d3998f1b-c80e-4d89-b05b-1719050313176",
-              "_to": "NOD-a02352a1-f6aa-4328-afdc-1719063125268",
-              "_type": "Text"
-            }
-          ],
+          "_connections": [],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": true,
@@ -8405,96 +8397,6 @@
           "_height": 257,
           "_color": null,
           "_image": "baguette_yeast"
-        },
-        {
-          "_id": "NOD-a02352a1-f6aa-4328-afdc-1719063125268",
-          "_flowId": "3ae58033-9b8a-4b97-8b8e-1652618909210",
-          "_type": "Text",
-          "_actorId": "ACT-3306696b-4eeb-4754-884f-1718640599175",
-          "_actorUID": "COOK",
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_elements": [
-            {
-              "_id": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-              "_type": "Text",
-              "_nodeId": "NOD-a02352a1-f6aa-4328-afdc-1719063125268",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "THE END"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "LA FIN"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "FINE"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "النهاية"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "КІНЕЦЬ"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "SFÂRȘITUL"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "KONIEC"
-                },
-                {
-                  "_nodeElementId": "NODEL-818f8fc1-2127-40bd-bb05-1719063125268",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "КОНЕЦ"
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1719063125268,
-          "_height": 90,
-          "_color": null
         },
         {
           "_id": "NOD-502438e2-eb9f-41a3-810e-1719100015746",
@@ -10199,6 +10101,56 @@
           "_isMarked": false,
           "_date": 1740139400084,
           "_height": 97
+        },
+        {
+          "_id": "NOD-3ebfad11-faa8-4898-8643-1740160972502",
+          "_flowId": "3ae58033-9b8a-4b97-8b8e-1652618909210",
+          "_type": "Variables",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-1a3d3853-4968-47e3-a0d3-1740160972502",
+              "_type": "Variables",
+              "_nodeId": "NOD-3ebfad11-faa8-4898-8643-1740160972502",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-1a3d3853-4968-47e3-a0d3-1740160972502",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$QUEST_ITEMS = 4"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-e4063520-13b3-4b65-8b6b-1740160993072",
+              "_connectionLine": {},
+              "_from": "NOD-3ebfad11-faa8-4898-8643-1740160972502",
+              "_to": "NOD-0f340bcb-089c-48cb-8784-1718640711652-2b-a9",
+              "_type": "Variables"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1740160972502,
+          "_height": 39
         }
       ],
       "_selectedNodes": [],
@@ -10262,7 +10214,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS >= $QUEST_ITEMS"
+                  "_text": "$COLLECTED_ITEMS >= $QUEST_ITEMS"
                 },
                 {
                   "_nodeElementId": "NODEL-dd5a6880-f089-42a3-8235-1710930984603",
@@ -10317,7 +10269,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS > 0"
+                  "_text": "$COLLECTED_ITEMS > 0"
                 },
                 {
                   "_nodeElementId": "NODEL-d2c06552-2d90-423e-b556-1730677416242",
@@ -10736,7 +10688,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 },
                 {
                   "_nodeElementId": "NODEL-6afff2a4-bde3-424d-85be-1738776041539",
@@ -13561,7 +13513,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 },
                 {
                   "_nodeElementId": "NODEL-d874ef3c-ca4b-429b-9ed4-1730787227622",
@@ -13657,7 +13609,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS < 5"
+                  "_text": "$COLLECTED_ITEMS < 5"
                 },
                 {
                   "_nodeElementId": "NODEL-91926bf7-6f3c-4d47-a277-1730787575037",
@@ -13721,7 +13673,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS < 5"
+                  "_text": "$COLLECTED_ITEMS < 5"
                 },
                 {
                   "_nodeElementId": "NODEL-91926bf7-6f3c-4d47-a277-1730787575037-a9-90",
@@ -14539,7 +14491,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS >= 4"
+                  "_text": "$COLLECTED_ITEMS >= 4"
                 },
                 {
                   "_nodeElementId": "NODEL-3f39bae2-d271-440d-8be9-1730700976509",
@@ -14708,7 +14660,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 },
                 {
                   "_nodeElementId": "NODEL-a08f362b-92c6-4bfe-9602-1718885180187",
@@ -15699,7 +15651,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 },
                 {
                   "_nodeElementId": "NODEL-a08f362b-92c6-4bfe-9602-1718885180187",
@@ -17439,7 +17391,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS > 8"
+                  "_text": "$COLLECTED_ITEMS > 8"
                 }
               ],
               "_visited": false,
@@ -18243,7 +18195,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 }
               ],
               "_visited": false,
@@ -18789,7 +18741,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "$TOTAL_ITEMS = 0"
+                  "_text": "$COLLECTED_ITEMS = 0"
                 }
               ],
               "_visited": false,
@@ -19649,7 +19601,7 @@
     {
       "_id": "VAR-718abe4e-85a9-426c-8a2f-1718885097015",
       "_type": "int",
-      "_key": "TOTAL_ITEMS",
+      "_key": "COLLECTED_ITEMS",
       "_value": 0,
       "_color": "#10012d",
       "_group": null
@@ -20286,8 +20238,8 @@
         {
           "_id": "MTV-70a4c819-8352-4e05-b5af-1719100473319",
           "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
-          "_value": "area_notredame2",
-          "_uid": "AREA_NOTREDAME2",
+          "_value": "area_notredame_roof",
+          "_uid": "AREA_NOTREDAME_ROOF",
           "_icon": "⚔"
         },
         {
