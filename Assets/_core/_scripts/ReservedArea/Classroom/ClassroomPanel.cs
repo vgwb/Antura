@@ -66,6 +66,7 @@ namespace Antura.UI
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
+            detailPanel.OnDeleteProfileRequested.Subscribe(OnDeleteProfileRequested);
         }
 
         void OnDestroy()
@@ -73,6 +74,7 @@ namespace Antura.UI
             this.StopAllCoroutines();
             profilesPanel.OnProfileClicked.Unsubscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Unsubscribe(OnBackFromProfileDetailsClicked);
+            detailPanel.OnDeleteProfileRequested.Unsubscribe(OnDeleteProfileRequested);
             PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
         }
 
@@ -153,7 +155,7 @@ namespace Antura.UI
             switch (state)
             {
                 case State.ProfileDetail:
-                    detailPanel.Fill(new ClassroomProfileDetail((PlayerIconData)profile));
+                    detailPanel.Fill((PlayerIconData)profile);
                     break;
             }
         }
@@ -175,6 +177,14 @@ namespace Antura.UI
             coCreateProfile = null;
         }
 
+        void DeleteProfile(string profileUuid)
+        {
+            AppManager.I.PlayerProfileManager.DeletePlayerProfile(profileUuid);
+            Refresh();
+            SwitchState(State.Profiles);
+            Open(currClassroomIndex);
+        }
+
         #endregion
 
         #region Callbacks
@@ -187,6 +197,11 @@ namespace Antura.UI
         void OnBackFromProfileDetailsClicked()
         {
             SwitchState(State.Profiles);
+        }
+        
+        void OnDeleteProfileRequested(PlayerIconData profile)
+        {
+            GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: () => DeleteProfile(profile.Uuid), _onNoCallback: () => {});
         }
 
         void OnPlayerCreationComplete()

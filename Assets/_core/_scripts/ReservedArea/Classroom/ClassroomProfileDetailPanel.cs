@@ -14,6 +14,7 @@ namespace Antura.UI
         #region EVENTS
 
         public ActionEvent OnBackClicked = new("ClassroomProfileDetailPanel.OnBackClicked");
+        public ActionEvent<PlayerIconData> OnDeleteProfileRequested = new("ClassroomProfileDetailPanel.OnDeleteProfileRequested");
 
         #endregion
         
@@ -30,12 +31,17 @@ namespace Antura.UI
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileQuestView questViewPrefab;
         [DeEmptyAlert]
+        [SerializeField] Button btEditProfileName;
+        [DeEmptyAlert]
+        [SerializeField] Button btDeleteProfile;
+        [DeEmptyAlert]
         [SerializeField] Button btBack;
         [DeEmptyAlert]
         [SerializeField] ScrollRect scrollRect;
 
         #endregion
 
+        PlayerIconData currProfile;
         readonly List<ClassroomProfileLevelView> levelViews = new();
         readonly List<ClassroomProfileQuestView> questViews = new();
         
@@ -47,6 +53,7 @@ namespace Antura.UI
             questViewPrefab.gameObject.SetActive(false);
             
             btBack.onClick.AddListener(OnBackClicked.Dispatch);
+            btDeleteProfile.onClick.AddListener(() => OnDeleteProfileRequested.Dispatch(currProfile));
         }
 
         #endregion
@@ -66,9 +73,12 @@ namespace Antura.UI
             }
         }
 
-        public void Fill(ClassroomProfileDetail profileDetail)
+        public void Fill(PlayerIconData profile)
         {
             Clear();
+
+            currProfile = profile;
+            ClassroomProfileDetail profileDetail = new ClassroomProfileDetail(profile);
             
             playerIcon.Init(profileDetail.Profile);
             tfName.text = profileDetail.Profile.PlayerName.IsNullOrEmpty() ? "- - -" : profileDetail.Profile.PlayerName;
