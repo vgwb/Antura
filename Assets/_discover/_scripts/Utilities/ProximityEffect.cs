@@ -24,7 +24,6 @@ namespace Antura.Minigames.DiscoverCountry
             if (proximityMaterial != null && Player != null)
             {
                 proximityMaterial.SetVector("_PlayerPosition", Player.position);
-                //                proximityMaterial.SetFloat("_Radius", radius);
             }
         }
     }

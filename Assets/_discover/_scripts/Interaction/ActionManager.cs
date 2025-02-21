@@ -26,6 +26,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public GameObject Player;
 
+        private GameObject currentInvisibleWalls;
+
         void Awake()
         {
             if (I == null)
@@ -49,8 +51,10 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     if (action.Type == ActionType.Area)
                     {
-                        action.Area?.SetActive(false);
-                        action.Beam?.SetActive(false);
+                        if (action.Area != null)
+                            action.Area?.SetActive(false);
+                        if (action.Beam != null)
+                            action.Beam.SetActive(false);
                     }
                 }
             }
@@ -66,6 +70,8 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             RespawnPlayer();
+
+            ResolveAction("area_init");
         }
 
         public void RespawnPlayer()
@@ -113,7 +119,26 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 if (QuestManager.I.DebugQuest)
                     Debug.Log("ActivateArea: " + actionData.ActionCode);
-                actionData.Area.SetActive(true);
+
+                if (actionData.Area != null)
+                {
+                    actionData.Area.SetActive(true);
+                }
+
+                if (actionData.Target != null)
+                {
+                    InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
+                }
+
+                if (currentInvisibleWalls != null)
+                {
+                    currentInvisibleWalls.SetActive(false);
+                }
+                if (actionData.Walls != null)
+                {
+                    currentInvisibleWalls = actionData.Walls;
+                    currentInvisibleWalls.SetActive(true);
+                }
             }
             else
             {

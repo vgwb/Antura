@@ -9,7 +9,8 @@ namespace Antura.Minigames.DiscoverCountry
         Trigger = 1,
         Area = 2,
         Spawn = 3,
-        Collect = 4
+        Collect = 4,
+        Target = 5
     }
 
     [System.Serializable]
@@ -18,6 +19,7 @@ namespace Antura.Minigames.DiscoverCountry
         public ActionType Type;
         public string ActionCode;
         public GameObject mainObject;
+        public GameObject Walls;
         public GameObject Area;
         public GameObject Beam;
         public GameObject Target;

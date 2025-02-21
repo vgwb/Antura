@@ -2840,7 +2840,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-51bdda03-f96d-4a25-bc05-1740139401883",
+              "_connectionLine": {},
+              "_from": "NOD-f455b46c-3bf6-44f0-bc82-1710891244721",
+              "_to": "NOD-4d8a964c-5894-4160-b338-1740139400084",
+              "_type": "Variables"
+            }
+          ],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": false,
@@ -10147,6 +10155,50 @@
           "_isMarked": false,
           "_date": 1738554505395,
           "_height": 122
+        },
+        {
+          "_id": "NOD-4d8a964c-5894-4160-b338-1740139400084",
+          "_flowId": "3ae58033-9b8a-4b97-8b8e-1652618909210",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MTV-d931c85a-ca9e-4b4d-8023-1740139415307"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-38c4f096-46fe-4c17-ba13-1740139400084",
+              "_type": "Text",
+              "_nodeId": "NOD-4d8a964c-5894-4160-b338-1740139400084",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-38c4f096-46fe-4c17-ba13-1740139400084",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Welcome to Paris"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1740139400084,
+          "_height": 97
         }
       ],
       "_selectedNodes": [],
@@ -14130,7 +14182,7 @@
       ],
       "_selectedNodes": [],
       "_group": "3244503f-5f8d-4848-ac14-1652618909210",
-      "_state": "draft",
+      "_state": "editor",
       "_modified_by": "203"
     },
     {
@@ -18256,7 +18308,7 @@
       ],
       "_selectedNodes": [],
       "_group": "3244503f-5f8d-4848-ac14-1652618909210",
-      "_state": "draft",
+      "_state": "editor",
       "_modified_by": "203"
     },
     {
@@ -20034,6 +20086,11 @@
       "title": "",
       "copyright": ""
     },
+    "school_classroom": {
+      "name": "school_classroom",
+      "title": "",
+      "copyright": ""
+    },
     "school_college": {
       "name": "school_college",
       "title": "",
@@ -20122,11 +20179,6 @@
     "venusmilo": {
       "name": "venusmilo",
       "title": "Venus Milo",
-      "copyright": ""
-    },
-    "school_classroom": {
-      "name": "school_classroom",
-      "title": "",
       "copyright": ""
     }
   },
@@ -20566,6 +20618,13 @@
           "_metadataId": "MTA-65637b1a-1cc0-4060-894f-1711699556027",
           "_value": "tutorial",
           "_uid": "",
+          "_icon": "📍"
+        },
+        {
+          "_id": "MTV-d931c85a-ca9e-4b4d-8023-1740139415307",
+          "_metadataId": "MTA-65637b1a-1cc0-4060-894f-1711699556027",
+          "_value": "tutor",
+          "_uid": "TUTOR",
           "_icon": "📍"
         }
       ],
