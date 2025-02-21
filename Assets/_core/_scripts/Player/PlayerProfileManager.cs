@@ -193,10 +193,22 @@ namespace Antura.Profile
         /// <summary>
         /// Return the list of existing player profiles.
         /// </summary>
-        /// <returns></returns>
         public List<PlayerIconData> GetPlayersIconData()
         {
             return FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
+        }
+        
+        /// <summary>
+        /// Return the list of existing player profiles filtered by the given classroom (where 0 is no classroom).
+        /// </summary>
+        public List<PlayerIconData> GetPlayersIconDataForClassroom(int classroomIndex)
+        {
+            List<PlayerIconData> result = FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
+            for (int i = result.Count - 1; i >= 0; i--)
+            {
+                if (result[i].Classroom != classroomIndex) result.RemoveAt(i);
+            }
+            return result;
         }
 
         public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)

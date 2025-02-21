@@ -39,7 +39,7 @@ namespace Antura.UI
         }
 
         int maxProfiles;
-        List<PlayerIconData> playerIconDatas;
+        List<PlayerIconData> profiles;
         PlayerIcon[] playerIcons;
         Tween btAddTween, btPlayTween;
 
@@ -125,11 +125,12 @@ namespace Antura.UI
         void Setup()
         {
             ActivatePlayerIcons(true);
-            if (playerIconDatas == null)
+            if (profiles == null)
             {
-                playerIconDatas = ProfileManager.GetPlayersIconData();
+                int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
+                profiles = ProfileManager.GetPlayersIconDataForClassroom(currClassroomIndex);
             }
-            int totProfiles = playerIconDatas == null ? 0 : playerIconDatas.Count;
+            int totProfiles = profiles == null ? 0 : profiles.Count;
             int len = playerIcons.Length;
             for (int i = 0; i < len; ++i)
             {
@@ -140,7 +141,7 @@ namespace Antura.UI
                 }
                 else
                 {
-                    PlayerIconData iconData = playerIconDatas[i];
+                    PlayerIconData iconData = profiles[i];
                     playerIcon.gameObject.SetActive(true);
                     playerIcon.Init(iconData);
 
@@ -233,7 +234,7 @@ namespace Antura.UI
         void OnSelectProfile(PlayerIcon playerIcon)
         {
             int index = Array.IndexOf(playerIcons, playerIcon);
-            PlayerIconData playerIconData = playerIconDatas[index];
+            PlayerIconData playerIconData = profiles[index];
             SelectProfile(playerIconData);
         }
 
