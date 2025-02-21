@@ -1,7 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Profile
 {
     public class UserProfile
     {

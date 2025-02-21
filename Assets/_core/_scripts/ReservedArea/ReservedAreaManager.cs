@@ -1,13 +1,12 @@
 using Antura.Core;
 using Antura.Database;
 using Antura.Debugging;
+using Antura.Profile;
 using Antura.UI;
 using UnityEngine;
 using System;
 using System.Collections.Generic;
 using System.IO;
-using Antura.Minigames.DiscoverCountry;
-using Antura.Minigames.DiscoverCountry.Popups;
 using DG.DeInspektor.Attributes;
 
 namespace Antura.ReservedArea

@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using Antura.Minigames.DiscoverCountry.Popups;
 using Demigiant.DemiTools;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
@@ -8,9 +7,8 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using Action = Antlr.Runtime.Misc.Action;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.UI
 {
     [RequireComponent(typeof(CanvasGroup))]
     public class SelectorPopup : MonoBehaviour

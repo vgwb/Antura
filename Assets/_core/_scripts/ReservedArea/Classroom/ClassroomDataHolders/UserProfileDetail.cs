@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Profile
 {
     public class UserProfileDetail
     {

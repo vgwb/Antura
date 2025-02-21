@@ -1,11 +1,12 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using Antura.Profile;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.UI
 {
     public class ClassroomProfilesPanel : MonoBehaviour
     {

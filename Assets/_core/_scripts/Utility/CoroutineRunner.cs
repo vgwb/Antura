@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura
 {
     /// <summary>
     /// Independent coroutine runner, accessed by MonoBehaviourExtensions in case we request an independent coroutine

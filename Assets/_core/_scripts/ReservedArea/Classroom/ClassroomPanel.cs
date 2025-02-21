@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using Antura.Core;
-using Antura.Minigames.DiscoverCountry.Popups;
+using Antura.Profile;
 using Antura.ReservedArea;
-using Antura.UI;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.UI
 {
     public class ClassroomPanel : MonoBehaviour
     {

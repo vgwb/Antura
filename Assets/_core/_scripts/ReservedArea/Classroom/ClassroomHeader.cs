@@ -3,7 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.UI
 {
     public class ClassroomHeader : MonoBehaviour
     {

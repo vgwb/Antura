@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura
 {
     public static class MonoBehaviourExtensions
     {

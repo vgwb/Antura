@@ -5,7 +5,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry.Popups
+namespace Antura.UI
 {
     public class GlobalPopups : MonoBehaviour
     {
