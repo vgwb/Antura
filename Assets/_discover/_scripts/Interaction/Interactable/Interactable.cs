@@ -22,6 +22,8 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("Interaction")]
         [Tooltip("Is it enabled for interaction?")]
         public bool IsInteractable = true;
+        [Tooltip("Autorun when player gets nerby")]
+        public bool AutoActivate;
         [Tooltip("Icon to be shown")]
         public InteractionType InteractionType = InteractionType.Look;
         [Tooltip("Where does the icon appear and camera focus?")]
@@ -88,6 +90,10 @@ namespace Antura.Minigames.DiscoverCountry
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
                     DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
+                    if (AutoActivate)
+                    {
+                        DiscoverNotifier.Game.OnActClicked.Dispatch();
+                    }
                 }
             }
         }
