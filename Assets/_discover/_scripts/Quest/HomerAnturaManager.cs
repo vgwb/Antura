@@ -227,8 +227,10 @@ namespace Antura.Minigames.DiscoverCountry
             var node = new QuestNode();
             node.Permalink = runner.Node._permalink;
             node.HomerNodeId = runner.Node._id;
+            node.Color = runner.Node._color;
 
             node.Image = GetImage(runner.Node._image);
+            node.ImageTitle = ""; // TODO
             node.Action = GetMetadata("ACTION", runner.Node._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);
             node.BalloonType = GetMetadata("BALLOON_TYPE", runner.Node._metadata);

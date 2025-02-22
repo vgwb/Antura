@@ -51,6 +51,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         // image to be loaded from resources
         public string Image;
+        public string ImageTitle;
+
+        public string Color;
 
         // if a special method needs to be triggered in the scene
         public string Action;
@@ -71,7 +74,7 @@ namespace Antura.Minigames.DiscoverCountry
         public string NextTarget;
 
         // shoudl we auto open the image?
-        public bool ImageAutoOpen => Image != null && Image.Contains("map");
+        public bool ImageAutoOpen => Image != null && Color != "";
 
         public bool IsDialogueNode()
         {

@@ -14,7 +14,7 @@ namespace Homer
         public string _actorId;
         public string[] _metadata;
         public string _cycleType;
-
+        public string _color;
         public string _permalink;
         public string _image;
 
