@@ -1,7 +1,9 @@
 ﻿using System;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -20,11 +22,14 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] SpriteRenderer ico_talk, ico_info, ico_action;
         [DeEmptyAlert]
         [SerializeField] Sprite ico_talk_alt, ico_info_alt, ico_action_alt;
+        [DeEmptyAlert]
+        [SerializeField] new Collider2D collider;
 
         #endregion
 
         bool wasSetup;
         bool isPreviewSignal;
+        Interactable targetInteractable;
         Transform trans;
         Transform targetTrans;
         Tween showTween, loopTween;
@@ -49,6 +54,14 @@ namespace Antura.Minigames.DiscoverCountry
             trans.position = targetTrans.position;
         }
 
+        void OnMouseDown()
+        {
+            if (EventSystem.current.IsPointerOverGameObject() || targetInteractable == null) return;
+            
+            InteractionManager.I.ForceNearbyInteractableTo(targetInteractable);
+            DiscoverNotifier.Game.OnActClicked.Dispatch();
+        }
+
         #endregion
 
         #region Public Methods
@@ -60,7 +73,7 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.LogError($"DialogueSignal \"{this.name}\" has already been setup", this);
                 return;
             }
-            
+
             isPreviewSignal = asPreviewSignal;
 
             showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
@@ -80,12 +93,15 @@ namespace Antura.Minigames.DiscoverCountry
         
         public void ShowFor(Interactable interactable, bool immediate = false)
         {
+            targetInteractable = interactable;
+            collider.enabled = !isPreviewSignal;
             SetAppearance(interactable);
             Show(interactable.IconTransform, immediate);
         }
 
         public void Hide(bool immediate = false)
         {
+            collider.enabled = false;
             if (immediate) showTween.Rewind();
             else showTween.PlayBackwards();
         }

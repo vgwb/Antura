@@ -2386,6 +2386,7 @@ GameObject:
   - component: {fileID: 1644194937176093388}
   - component: {fileID: 8105233139787687700}
   - component: {fileID: 95859529071848107}
+  - component: {fileID: 550389791032375861}
   m_Layer: 0
   m_Name: DialogueSignal
   m_TagString: Untagged
@@ -2436,6 +2437,7 @@ MonoBehaviour:
   ico_talk_alt: {fileID: 21300000, guid: 5218083fd2ebbcc488c253ed4c304cc3, type: 3}
   ico_info_alt: {fileID: 21300000, guid: 9aeaf71851addb7409d76a3c51eaf667, type: 3}
   ico_action_alt: {fileID: 21300000, guid: a65e9b541299ef14bafb5f80596fbc4a, type: 3}
+  collider: {fileID: 550389791032375861}
 --- !u!114 &95859529071848107
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2450,6 +2452,41 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   keepConstantSize: 0
   constantSizeFactor: 0.005
+--- !u!58 &550389791032375861
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4551336233732393537}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 1.37}
+  serializedVersion: 2
+  m_Radius: 1.1
 --- !u!1 &4557211421298672694
 GameObject:
   m_ObjectHideFlags: 0

@@ -129,6 +129,11 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (show || UIManager.I != null) UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
         }
 
+        public void ForceNearbyInteractableTo(Interactable interactable)
+        {
+            if (nearbyInteractable != interactable) SetNearbyInteractableTo(interactable);
+        }
+
         #endregion
 
         #region Methods
@@ -209,6 +214,12 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             UIManager.I.gameObject.SetActive(true);
         }
 
+        void SetNearbyInteractableTo(Interactable interactable)
+        {
+            nearbyInteractable = interactable;
+            UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+        }
+
         #endregion
 
         #region Callbacks
@@ -225,8 +236,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnInteractableEnteredByPlayer(Interactable interactable)
         {
-            nearbyInteractable = interactable;
-            UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+            SetNearbyInteractableTo(interactable);
         }
 
         void OnInteractableExitedByPlayer(Interactable interactable)
