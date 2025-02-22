@@ -1,4 +1,5 @@
 using Antura.Audio;
+using Antura.Helpers;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using System.Collections;
 using System.Collections.Generic;
@@ -221,11 +222,11 @@ namespace Antura.Minigames.DiscoverCountry
             if (QuestManager.I.DebugQuest)
                 Debug.Log("ResolveAction: " + action);
 
-            if (action.Substring(0, 5) == "area_")
+            if (action.SafeSubstring(0, 5) == "area_")
             {
                 ActivateArea(action.Substring(5));
             }
-            else if (action.Substring(0, 8) == "collect_")
+            else if (action.SafeSubstring(0, 8) == "collect_")
             {
                 if (permalink != "")
                 {
@@ -236,7 +237,7 @@ namespace Antura.Minigames.DiscoverCountry
                     Collect(action.Substring(8));
                 }
             }
-            else if (action.Substring(0, 6) == "spawn_")
+            else if (action.SafeSubstring(0, 6) == "spawn_")
             {
                 Spawn(action.Substring(6));
             }

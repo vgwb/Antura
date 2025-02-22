@@ -26,6 +26,17 @@ namespace Antura.Helpers
 
         #region Text
 
+        /// <summary>
+        /// Safely extracts a substring from the given string, starting at the specified index and with
+        /// </summary>
+        public static string SafeSubstring(this string text, int startIndex, int length)
+        {
+            if (string.IsNullOrEmpty(text) || startIndex >= text.Length)
+                return "";
+            length = Mathf.Min(length, text.Length - startIndex);
+            return text.Substring(startIndex, length);
+        }
+
         public static string ReverseText(string _source)
         {
             if (_source.Contains('\n'))
