@@ -32,9 +32,9 @@ namespace Antura.Debugging
         // This returns error in discover mode because NavData.CurrentMiniGameData is null, comment for now and enable when it's working
         // bool activateDiscoverCountriesCheats { get { return AppManager.I.NavigationManager.CurrentMiniGameData.Code == MiniGameCode.Discover_Country; } }
         bool activateDiscoverCountriesCheats { get { return true; } }
-        
+
         #region Commands
-        
+
         // TOOLS
         readonly DebugCommand[] _tools = new[] {
             new DebugCommand("Show this panel", CommandCondition.WhilePressed, KeyCode.C, KeyModifier.Shift, on => {
@@ -86,14 +86,17 @@ namespace Antura.Debugging
                 LightBeam beam = FindObjectOfType<LightBeam>(true);
                 if (beam == null) Debug.LogWarning("Couldn't find a target beam");
                 else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
+            }),
+            new DebugCommand("Action END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
+                ActionManager.I.DebugActionEnd();
             })
         };
-        
+
         #endregion
 
         static DebugControlsManager _I;
         bool _isShiftDown, _isCtrlDown, _isAltDown, _isAppleDown, _isCommandDown;
-        
+
         #region Unity
 
         void Awake()
@@ -103,7 +106,7 @@ namespace Antura.Debugging
                 Debug.LogError("DebugControlsManager already exists, destroying duplicate");
                 Destroy(this.gameObject);
             }
-            
+
             _I = this;
         }
 
@@ -117,7 +120,8 @@ namespace Antura.Debugging
 
         void OnDestroy()
         {
-            if (_I == this) _I = null;
+            if (_I == this)
+                _I = null;
             SceneManager.sceneLoaded -= OnSceneLoaded;
         }
 
@@ -129,12 +133,15 @@ namespace Antura.Debugging
             _isAppleDown = Input.GetKey(KeyCode.LeftApple) || Input.GetKey(KeyCode.RightApple);
             _isCommandDown = Input.GetKey(KeyCode.LeftCommand) || Input.GetKey(KeyCode.RightCommand);
 
-            if (DebugManager.I.DebugPanelOpened) return;
-            
+            if (DebugManager.I.DebugPanelOpened)
+                return;
+
             UpdateCommandList(_tools);
             UpdateCommandList(_globalCheats);
-            if (activateLearnLanguageCheats) UpdateCommandList(_learnLanguageCheats);
-            if (activateDiscoverCountriesCheats) UpdateCommandList(_discoverCountriesCheats);
+            if (activateLearnLanguageCheats)
+                UpdateCommandList(_learnLanguageCheats);
+            if (activateDiscoverCountriesCheats)
+                UpdateCommandList(_discoverCountriesCheats);
         }
 
         void UpdateCommandList(DebugCommand[] commands)
@@ -142,7 +149,8 @@ namespace Antura.Debugging
             foreach (DebugCommand command in commands)
             {
                 CommandResult commandResult = GetCommandResult(command);
-                if (commandResult == CommandResult.Ignore) continue;
+                if (commandResult == CommandResult.Ignore)
+                    continue;
                 command.onTick(commandResult == CommandResult.Activate);
             }
         }
@@ -155,18 +163,22 @@ namespace Antura.Debugging
         {
             _Strb.Length = 0;
             _Strb.Append("<b><size=120%>TOOLS</size></b>");
-            foreach (DebugCommand command in _tools) AppendCommandInfo(_Strb, command);
+            foreach (DebugCommand command in _tools)
+                AppendCommandInfo(_Strb, command);
             _Strb.Append("\n\n<b><size=120%>GLOBAL CHEATS</size></b>");
-            foreach (DebugCommand command in _globalCheats) AppendCommandInfo(_Strb, command);
+            foreach (DebugCommand command in _globalCheats)
+                AppendCommandInfo(_Strb, command);
             if (activateLearnLanguageCheats)
             {
                 _Strb.Append("\n\n<b><size=120%>LEARN LANGUAGE CHEATS</size></b>");
-                foreach (DebugCommand command in _learnLanguageCheats) AppendCommandInfo(_Strb, command);
+                foreach (DebugCommand command in _learnLanguageCheats)
+                    AppendCommandInfo(_Strb, command);
             }
             if (activateDiscoverCountriesCheats)
             {
                 _Strb.Append("\n\n<b><size=120%>DISCOVER COUNTRIES CHEATS</size></b>");
-                foreach (DebugCommand command in _discoverCountriesCheats) AppendCommandInfo(_Strb, command);
+                foreach (DebugCommand command in _discoverCountriesCheats)
+                    AppendCommandInfo(_Strb, command);
             }
             _tfControlKeys.text = _Strb.ToString();
             _Strb.Length = 0;
@@ -216,12 +228,18 @@ namespace Antura.Debugging
         {
             switch (keyModifier)
             {
-                case KeyModifier.Shift: return _isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
-                case KeyModifier.Ctrl: return !_isShiftDown && _isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
-                case KeyModifier.Alt: return !_isShiftDown && !_isCtrlDown && _isAltDown && !_isAppleDown && !_isCommandDown;
-                case KeyModifier.Apple: return !_isShiftDown && !_isCtrlDown && !_isAltDown && _isAppleDown && !_isCommandDown;
-                case KeyModifier.Command: return !_isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && _isCommandDown;
-                default: return !_isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
+                case KeyModifier.Shift:
+                    return _isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
+                case KeyModifier.Ctrl:
+                    return !_isShiftDown && _isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
+                case KeyModifier.Alt:
+                    return !_isShiftDown && !_isCtrlDown && _isAltDown && !_isAppleDown && !_isCommandDown;
+                case KeyModifier.Apple:
+                    return !_isShiftDown && !_isCtrlDown && !_isAltDown && _isAppleDown && !_isCommandDown;
+                case KeyModifier.Command:
+                    return !_isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && _isCommandDown;
+                default:
+                    return !_isShiftDown && !_isCtrlDown && !_isAltDown && !_isAppleDown && !_isCommandDown;
             }
         }
 
@@ -244,12 +262,12 @@ namespace Antura.Debugging
         {
             None, Shift, Alt, Ctrl, Apple, Command
         }
-        
+
         enum CommandCondition
         {
             OnPress, OnRelease, WhilePressed, RepeatWhilePressed
         }
-        
+
         enum CommandResult
         {
             Activate, Deactivate, Ignore
@@ -269,7 +287,7 @@ namespace Antura.Debugging
             public bool isActive;
 
             public DebugCommand(string label, CommandCondition condition, KeyCode key, Action<bool> onTick)
-                : this(label, condition, key, KeyModifier.None, onTick) {}
+                : this(label, condition, key, KeyModifier.None, onTick) { }
 
             public DebugCommand(string label, CommandCondition condition, KeyCode key, KeyModifier keyModifier, Action<bool> onTick)
             {

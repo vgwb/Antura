@@ -266,5 +266,13 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        #region DEBUG
+        public void DebugActionEnd()
+        {
+            ResolveAction("win");
+        }
+
+        #endregion
+
     }
 }
