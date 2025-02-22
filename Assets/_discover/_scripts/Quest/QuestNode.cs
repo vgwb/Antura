@@ -21,6 +21,8 @@ namespace Antura.Minigames.DiscoverCountry
         public string AudioId;
         public string Image;
 
+        public bool Highlight;
+
         public Sprite GetImage()
         {
             if (Image != null)
