@@ -10,6 +10,9 @@ client = ElevenLabs(
   api_key=os.getenv('ELEVEN_API_KEY')
 )
 
+# Define supported language codes
+SUPPORTED_LANGUAGES = ["EN", "FR", "IT", "RO", "AR", "UK", "RU", "PL"]
+
 def synthesize_speech(dialogue_text, language, actor, output_file, preview=False):
   if dialogue_text == "--- to be translated ---":
     return
@@ -17,7 +20,8 @@ def synthesize_speech(dialogue_text, language, actor, output_file, preview=False
   # Default values
   voice = "Alex Wright"
   voice_id = "GzE4TcXfh9rYCU9gVgPp"
-  model = "eleven_multilingual_v2"
+  model = "eleven_flash_v2_5"
+  # model = "eleven_multilingual_v2"
 
   if language == "FR":
     voice = "Louis Boutin"
@@ -101,16 +105,17 @@ def synthesize_speech(dialogue_text, language, actor, output_file, preview=False
   except Exception as e:
     print(f"Error generating audio for {output_file}: {e}")
 
-def process_csv(lang_code, quest=None, preview=False):
+def process_csv(lang_code, quest=None, preview=False, flow_dir=None):
   file_langcode = "FR" if lang_code == "EN" else lang_code
   csv_file = Path(f"csv/Antura-{file_langcode}.csv")
-  output_dir = Path(f"audiofiles/{lang_code}")
-
+  base_output_dir = Path(f"audiofiles/{lang_code}")
+  output_dir = base_output_dir / flow_dir if flow_dir else base_output_dir
+  
   with csv_file.open(newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
     total_lines = sum(1 for row in csv.DictReader(open(csv_file)))
-    csvfile.seek(0)  # Reset file position to the beginning after counting
-    reader = csv.DictReader(csvfile, delimiter=';')  # Reinitialize reader
+    csvfile.seek(0)
+    reader = csv.DictReader(csvfile, delimiter=';')
     for row in tqdm(reader, total=total_lines, desc=f"Processing {lang_code}"):
       if quest and row['flow'] != quest:
         continue
@@ -137,23 +142,30 @@ def parse_flows(lang_code):
 
 def parse_arguments():
   parser = argparse.ArgumentParser(description="Convert CSV file dialogues to audio.")
-  parser.add_argument("lang_code", help="The language code, like FR, AR, RO, UK...")
+  parser.add_argument("lang_code", nargs='?', default=None, help="The language code, like FR, AR, RO, UK... (optional, processes all if omitted)")
   parser.add_argument("--quest", help="The quest parameter to filter dialogues.", required=False)
   parser.add_argument("--preview", action="store_true", help="Preview the dialogues to be processed without generating audio files.")
   parser.add_argument("--flows", action="store_true", help="Output the distinct flows from the CSV.")
-  args = parser.parse_args()
-  if not args.lang_code:
-      parser.print_help()
-      exit("Error: You must provide the lang_code.")
-  return args
+  parser.add_argument("--flow_dir", help="Subdirectory to save audio files into.", required=False)
+  return parser.parse_args()
 
 # Main function to run the script
 if __name__ == "__main__":
-  args = parse_arguments()
-  if args.flows:
-      parse_flows(args.lang_code)
-  else:
-      print("Please wait a few minutes...")
-      process_csv(args.lang_code, args.quest, args.preview)
-      print("DONE!")
-
+    args = parse_arguments()
+    
+    if args.flows:
+        if args.lang_code:
+            parse_flows(args.lang_code)
+        else:
+            for lang in SUPPORTED_LANGUAGES:
+                parse_flows(lang)
+    else:
+        print("Please wait a few minutes...")
+        if args.lang_code:
+            # Process single language
+            process_csv(args.lang_code, args.quest, args.preview, args.flow_dir)
+        else:
+            # Process all supported languages
+            for lang in SUPPORTED_LANGUAGES:
+                process_csv(lang, args.quest, args.preview, args.flow_dir)
+        print("DONE!")
