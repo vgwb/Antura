@@ -129,7 +129,8 @@ public enum FlowSlug {
               FR_06B_PIRATES___MONEY = 9, 
               FR_07_NORMANDIE = 10, 
               FR_08_MONT_BLANC___MOUNTAINS = 11, 
-              FR_09_COTES_DAZUR = 12
+              FR_09_COTES_DAZUR = 12, 
+              DEV = 13
 }
 }
 
