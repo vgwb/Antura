@@ -1,5 +1,6 @@
 ﻿using Antura.Audio;
 using Antura.Dog;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -142,6 +143,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Move()
         {
+            if (InteractionManager.I.Layer == InteractionLayer.Dialogue)
+                return;
+
             bool isSprinting = _input.sprint;
 
             // set target speed based on move speed, sprint speed and if sprint is pressed

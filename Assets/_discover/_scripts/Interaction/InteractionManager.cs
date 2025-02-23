@@ -126,12 +126,14 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         /// </summary>
         public void ShowPreviewSignalFor(Interactable interactable, bool show)
         {
-            if (show || UIManager.I != null) UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
+            if (show || UIManager.I != null)
+                UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
         }
 
         public void ForceNearbyInteractableTo(Interactable interactable)
         {
-            if (nearbyInteractable != interactable) SetNearbyInteractableTo(interactable);
+            if (nearbyInteractable != interactable)
+                SetNearbyInteractableTo(interactable);
         }
 
         #endregion
@@ -141,8 +143,10 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         void Act()
         {
             LastActionFrame = Time.frameCount;
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) UnfocusCam();
-            if (Layer != InteractionLayer.World) return;
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
+                UnfocusCam();
+            if (Layer != InteractionLayer.World)
+                return;
 
             if (HasValidNearbyInteractable)
             {
@@ -153,7 +157,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
                 }
                 else
                 {
-                    if (QuestManager.I.DebugQuest) questNode.Print();
+                    if (QuestManager.I.DebugQuest)
+                        questNode.Print();
                     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
                 }
             }
@@ -161,7 +166,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ChangeLayer(InteractionLayer newLayer)
         {
-            if (newLayer == Layer) return;
+            if (newLayer == Layer)
+                return;
 
             this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
         }
@@ -177,7 +183,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             ChangeLayer(InteractionLayer.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (nearbyInteractable.IsLL) nearbyInteractable.LL.LookAt(player.transform);
+            if (nearbyInteractable.IsLL)
+                nearbyInteractable.LL.LookAt(player.transform);
 
             if (nearbyInteractable.FocusCameraOnInteract)
             {
@@ -202,7 +209,8 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         {
             ChangeLayer(InteractionLayer.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            if (HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+            if (HasValidNearbyInteractable)
+                UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }

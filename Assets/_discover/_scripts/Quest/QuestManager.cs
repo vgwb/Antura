@@ -16,7 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        public GameObject Player;
+        public EdPlayer PlayerController;
 
         public Quests Quests;
         public QuestData CurrentQuest;
@@ -47,6 +47,7 @@ namespace Antura.Minigames.DiscoverCountry
             // GameObject levelInstance = Instantiate(CurrentQuest.GameLevel, spawnPosition, Quaternion.identity);
             // levelInstance.transform.SetParent(null);
 
+            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
             total_coins = 0;
             inventory = new Inventory();
             progress = new Progress();

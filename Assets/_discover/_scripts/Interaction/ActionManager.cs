@@ -27,7 +27,7 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject WinFx;
         public GameObject AnturaDog;
 
-        private GameObject Player;
+        private EdPlayer PlayerController;
 
         private GameObject currentInvisibleWalls;
 
@@ -46,7 +46,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         IEnumerator Start()
         {
-            Player = GameObject.FindWithTag("Player");
+            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
 
             if (!QuestManager.I.DebugQuest)
             {
@@ -80,7 +80,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (DebugArea != "")
             {
                 ResolveAction(DebugArea);
-                Player.GetComponent<EdPlayer>().SpawnToNewLocation(GetActionData(ActionType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
+                PlayerController.SpawnToNewLocation(GetActionData(ActionType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
             }
             else
             {
@@ -92,7 +92,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (PlayerSpawnPoint != null)
             {
-                Player.GetComponent<EdPlayer>().SpawnToNewLocation(PlayerSpawnPoint.transform);
+                PlayerController.SpawnToNewLocation(PlayerSpawnPoint.transform);
             }
         }
 
@@ -168,7 +168,7 @@ namespace Antura.Minigames.DiscoverCountry
 
                 if (actionData.SpawnPlayer != null)
                 {
-                    Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
+                    PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
                 }
 
             }
@@ -186,7 +186,7 @@ namespace Antura.Minigames.DiscoverCountry
             // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
             // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
 
-            Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
+            PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
         }
 
         private void Collect(string collectCode)
