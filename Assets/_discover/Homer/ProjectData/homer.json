@@ -1298,7 +1298,7 @@
                   "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-6a-9d",
                   "_localeCode": "EN",
                   "_toBeTranslated": false,
-                  "_text": "Use this button to to go.",
+                  "_text": "Use this button to advance the dialog.",
                   "_isDraft": false
                 },
                 {
@@ -1361,21 +1361,71 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "CONN-7b7f76aa-5a0d-4b0d-bd2c-1740273976267",
+              "_id": "CONN-c1fff05f-52a8-4238-b59c-1740322034777",
               "_connectionLine": {},
               "_from": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-6a-9d",
-              "_to": "NOD-6100a9b9-bb41-4336-9ef6-1740245910456",
+              "_to": "NOD-48eda460-06c7-4d4a-bdeb-1740322032875",
               "_type": "Text"
             }
           ],
           "_isMarked": false,
           "_date": 1652618922208,
-          "_height": 97,
+          "_height": 115,
           "_translatable": true,
           "_actorUID": "TUTOR",
           "_note": "",
           "_color": null,
           "_permalink": "tutor_goon"
+        },
+        {
+          "_id": "NOD-48eda460-06c7-4d4a-bdeb-1740322032875",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-6c9e66a0-3468-4abc-b08e-1740322032875",
+              "_type": "Text",
+              "_nodeId": "NOD-48eda460-06c7-4d4a-bdeb-1740322032875",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-6c9e66a0-3468-4abc-b08e-1740322032875",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Use this button to view the photo"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-37d3f773-2daf-4adc-8089-1740322036352",
+              "_connectionLine": {},
+              "_from": "NOD-48eda460-06c7-4d4a-bdeb-1740322032875",
+              "_to": "NOD-6100a9b9-bb41-4336-9ef6-1740245910456",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": "tutor_photo",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1740322032875,
+          "_height": 90
         }
       ],
       "_selectedNodes": [],
@@ -10800,26 +10850,26 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "CONN-4685f12b-6f44-47a0-b850-1730680459173",
-              "_connectionLine": {},
-              "_from": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
-              "_nodeElementId": "NODEL-ab459983-32e0-439e-8210-1730680394261",
-              "_to": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166",
-              "_type": "Choice"
-            },
-            {
-              "_id": "CONN-fc2f4832-f09f-4e9d-8d7c-1730680544506",
-              "_connectionLine": {},
-              "_from": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
-              "_nodeElementId": "NODEL-740cd7f3-a305-4045-ac16-1730680430456",
-              "_to": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166-19-ae",
-              "_type": "Choice"
-            },
-            {
               "_id": "CONN-44bec082-f040-448b-a6d3-1739119042806",
               "_connectionLine": {},
               "_from": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
               "_nodeElementId": "NODEL-cff4a20e-fbbe-4818-add4-1739119029895",
+              "_to": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166-19-ae",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-6eadf1db-43ab-405a-be7c-1740329468682",
+              "_connectionLine": {},
+              "_from": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
+              "_nodeElementId": "NODEL-740cd7f3-a305-4045-ac16-1730680430456",
+              "_to": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-681073f2-1bb0-4260-ac48-1740329471526",
+              "_connectionLine": {},
+              "_from": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
+              "_nodeElementId": "NODEL-ab459983-32e0-439e-8210-1730680394261",
               "_to": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166-19-ae",
               "_type": "Choice"
             }
@@ -10829,7 +10879,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1730680394261,
-          "_height": 204
+          "_height": 200
         },
         {
           "_id": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166",
@@ -11013,10 +11063,10 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "CONN-90c5067b-54e0-4b45-925f-1739119046414",
+              "_id": "CONN-a2e127d3-eeb4-4809-8d76-1740329516016",
               "_connectionLine": {},
               "_from": "NOD-b0c1cfb7-266c-49b0-a2ea-1730680459166-19-ae",
-              "_to": "NOD-1c3c2c3c-0bb6-48ea-bd82-1730680394261",
+              "_to": "NOD-01f50ba3-1537-4ad9-b645-1730680306658",
               "_type": "Text"
             }
           ],
