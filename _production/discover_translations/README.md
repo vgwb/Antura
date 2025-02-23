@@ -15,6 +15,7 @@ then use:
 examples:
 ### generate single language
 python homer_tts.py FR --quest "Tutorial"
+python homer_tts.py FR --quest "FR-01b Paris - Seine"
 
 ### generate all languages for a single quest
 python homer_tts.py --quest "Tutorial"
