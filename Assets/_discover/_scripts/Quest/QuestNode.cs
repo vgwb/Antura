@@ -28,7 +28,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (Image != null)
             {
                 //return Resources.Load<Sprite>("Discover_Photos/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image + "_" + Index);
-                return Resources.Load<Sprite>("Discover_Photos/TUTORIAL/quiz_" + Index);
+                //return Resources.Load<Sprite>("Discover/TUTORIAL/quiz_" + Index);
+                return null;
             }
             return null;
         }
@@ -90,7 +91,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (Image != null)
             {
-                return Resources.Load<Sprite>("Discover_Photos/" + QuestManager.I.CurrentQuest.assetsFolder + "/" + Image);
+                return Resources.Load<Sprite>("Discover/" + QuestManager.I.CurrentQuest.assetsFolder + "/_img/" + Image);
             }
             return null;
         }
