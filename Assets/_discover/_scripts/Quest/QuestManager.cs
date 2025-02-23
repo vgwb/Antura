@@ -26,6 +26,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public ProgressCounter progressCounter;
         public string LanguageCode = "";
+        public string NativeLanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
         public int total_bones = 0;
@@ -77,8 +78,9 @@ namespace Antura.Minigames.DiscoverCountry
                 LanguageCode = "FR";
             }
 
-            // TODO inject native language code
-            HomerAnturaManager.I.Setup(LanguageCode, "EN");
+            NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
+            //            Debug.Log("native = " + AppManager.I.AppSettings.NativeLanguage + " / " + NativeLangCode);
+            HomerAnturaManager.I.Setup(LanguageCode, NativeLanguageCode);
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
 
             if (DebugQuest)
