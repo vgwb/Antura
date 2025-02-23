@@ -1,29 +1,30 @@
 ---
 title: Install
 ---
-## Download
 
-### Android
+The game is compatible with iOS and Android devices, and Windows PC.
 
-[![download googleplay](../assets/img/download_googleplay.png)](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
+> We suggest tablets as the easiest device to be used in the classroom.
 
-_requirement: Android 4.1_
+Once installed, Internet is NOT required when playing the game.
 
-- **Google Play**: [Antura Google Play](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)  
-- **Direct download** (1.2.0 - feb 2018): [download APK](http://www.antura.org/assets/antura-android-v1.2.0.apk)
+## iOS devices
 
-### iOS
+Ensure that the tablets have the latest version of iOS (minimal iOS 12.0).  
 
-[![download applestore](../assets/img/download_appstore.png)](https://apps.apple.com/us/app/antura-and-the-letters/id1210334699)
+Download the app using from this url from the device: [https://testflight.apple.com/join/Qm77iXFA](https://testflight.apple.com/join/Qm77iXFA)
 
-_requirement: iOS 12.0_
+!!! note
+    if you can't download the app, please send an email to Stefano or Francesco or get into the community [https://vgwb.discourse.group/](https://vgwb.discourse.group/c/antura/5)
 
-- **AppStore**: [Antura on iOS AppStore](https://itunes.apple.com/us/app/antura-and-the-letters/id1210334699?ls=1&amp;mt=8)
+(Testflight is a service to test application that are in development)
 
-### Windows
-_requirement: Windows 7_
+## Android devices
+In this beta-test period, Android is not supported.
 
-1. [Download the .zip file](http://www.antura.org/assets/antura-win32-v1.2.0.zip)
-2. Save the File at the desired location
-3. Right click to extract the File with WinRar or 7zip
-4. Double click the Antura .exe and enjoy the game!
+Then it’ll be available from Google Play [here](https://play.google.com/store/apps/details?id=org.eduapp4syria.antura)
+
+## Windows PC
+The Windows build can be downloaded from https://github.com/vgwb/Antura/releases
+Linux and macOS PC
+Since the game is open source and the engine used to create this game is multiplatform, Linux and macOS versions could be built if really necessary.
