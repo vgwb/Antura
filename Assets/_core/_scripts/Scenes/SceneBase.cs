@@ -12,6 +12,8 @@ namespace Antura.Core
 
         protected virtual void Start()
         {
+            if (AppManager.I.AppSettings.ClassRoomMode > 0)
+                return;
             if (SceneMusic != Music.DontChange)
             {
                 AudioManager.I.PlayMusic(SceneMusic);

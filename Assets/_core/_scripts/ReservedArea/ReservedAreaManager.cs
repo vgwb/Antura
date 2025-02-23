@@ -29,18 +29,20 @@ namespace Antura.ReservedArea
             oldUI.SetActive(false);
             newUI.SetActive(true);
         }
-        
+
         IEnumerator Start()
         {
             AnalyticsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ShareAnalyticsEnabled);
             NotificationsCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.NotificationsEnabled);
             ClassroomModeCheckIcon.Set(AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0);
             yield return null;
-            
+
             // If "no classroom" open popup to choose classroom, otherwise select current classroom
             int currClassroomIndex = AppManager.I.AppSettings.ClassRoomMode;
-            if (currClassroomIndex >= 0) classroomPanel.Open(currClassroomIndex);
-            else classroomPanel.OpenSelectClassroomPopup(false);
+            if (currClassroomIndex >= 0)
+                classroomPanel.OpenClass(currClassroomIndex);
+            else
+                classroomPanel.OpenSelectClassroomPopup(false);
         }
 
         #region Buttons
@@ -142,7 +144,7 @@ namespace Antura.ReservedArea
             // GlobalPopups.OpenSelector("Choose classroom", classroomIDs, x => {
             //     classroomPanel.Open(classroomIDs[x], classroomPanel.TestGenerateStubProfiles());
             // });
-            
+
             // OLD SYSTEM where classroom mode button was a toggle
             // if (AppManager.I.AppSettingsManager.Settings.ClassRoomMode > 0)
             // {

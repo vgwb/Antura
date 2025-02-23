@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Antura.Audio;
 using Antura.Core;
 using Antura.Profile;
 using Antura.Scenes;
@@ -88,16 +89,22 @@ namespace Antura.UI
 
         public void OpenSelectClassroomPopup(bool showCloseButton = true)
         {
-            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, Open, showCloseButton, 0);
+            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, OpenClass, showCloseButton, 0);
         }
 
-        public void Open(int classroomIndex)
+        public void OpenClass(int classroomIndex)
         {
             Close();
 
             isOpen = true;
             currClassroomIndex = classroomIndex;
-            isValidClassroom = classroomIndex > 0;
+            if (classroomIndex > 0)
+            {
+                isValidClassroom = true;
+                AudioManager.I.StopMusic();
+                AppManager.I.AppSettingsManager.SaveMusicSetting(false);
+            }
+
             this.gameObject.SetActive(true);
             AppManager.I.AppSettingsManager.SetClassroomMode(classroomIndex);
             if (hideGlobalUIBackButton)
@@ -192,7 +199,7 @@ namespace Antura.UI
             AppManager.I.PlayerProfileManager.DeletePlayerProfile(profileUuid);
             Refresh();
             SwitchState(State.Profiles);
-            Open(currClassroomIndex);
+            OpenClass(currClassroomIndex);
         }
 
         #endregion
@@ -219,7 +226,7 @@ namespace Antura.UI
             SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
             createProfileBgBlocker.SetActive(false);
             Refresh();
-            Open(currClassroomIndex);
+            OpenClass(currClassroomIndex);
         }
 
         #endregion
