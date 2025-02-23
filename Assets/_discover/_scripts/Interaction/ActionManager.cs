@@ -27,7 +27,7 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject WinFx;
         public GameObject AnturaDog;
 
-        public GameObject Player;
+        private GameObject Player;
 
         private GameObject currentInvisibleWalls;
 
