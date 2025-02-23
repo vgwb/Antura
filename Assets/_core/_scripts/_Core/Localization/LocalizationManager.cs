@@ -81,44 +81,50 @@ namespace Antura.Core
 
         public static string PrefixHomerNodeWithLangCode(string node_id, LanguageCode langCode)
         {
-            string prefix = "";
+            string prefix = IsoLangFromLangCode(langCode);
+            return prefix + "_" + node_id;
+        }
+
+        public static string IsoLangFromLangCode(LanguageCode langCode)
+        {
+            string iso2lang = "";
             switch (langCode)
             {
                 case LanguageCode.english:
-                    prefix = "EN";
+                    iso2lang = "EN";
                     break;
                 case LanguageCode.arabic:
-                    prefix = "AR";
+                    iso2lang = "AR";
                     break;
                 case LanguageCode.spanish:
-                    prefix = "ES";
+                    iso2lang = "ES";
                     break;
                 case LanguageCode.italian:
-                    prefix = "IT";
+                    iso2lang = "IT";
                     break;
                 case LanguageCode.french:
-                    prefix = "FR";
+                    iso2lang = "FR";
                     break;
                 case LanguageCode.polish:
-                    prefix = "PL";
+                    iso2lang = "PL";
                     break;
                 case LanguageCode.ukrainian:
-                    prefix = "UK";
+                    iso2lang = "UK";
                     break;
                 case LanguageCode.russian:
-                    prefix = "RU";
+                    iso2lang = "RU";
                     break;
                 case LanguageCode.romanian:
-                    prefix = "RO";
+                    iso2lang = "RO";
                     break;
                 case LanguageCode.hungarian:
-                    prefix = "HU";
+                    iso2lang = "HU";
                     break;
                 case LanguageCode.german:
-                    prefix = "DE";
+                    iso2lang = "DE";
                     break;
             }
-            return prefix + "_" + node_id + ".mp3";
+            return iso2lang;
         }
     }
 }

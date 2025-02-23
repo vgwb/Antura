@@ -456,8 +456,12 @@ namespace Antura.Audio
                 return null;
             }
             var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
-            var sourcePath = new SourcePath(audio_id, "/Audio/Discover/" + flow_dir, langCode);
-            var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this);
+            var sourcePath = new SourcePath(
+                audio_id,
+                "Discover/" + flow_dir + "/" + LocalizationManager.IsoLangFromLangCode(langCode),
+                langCode
+                );
+            var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this, true);
             //            Debug.Log("PlayDiscoverDialogue " + wrapper.Path.ToString());
             if (callback != null)
             {
@@ -540,10 +544,24 @@ namespace Antura.Audio
         {
             //Debug.Log($"Start loading {source.Path.id}");
             var clip = new Ref<AudioClip>();
-            yield return LoadAudioClip(source.Path, clip);
+            if (source.LoadFromResources)
+            {
+                yield return LoadAudioClipFromResources(source.Path, clip);
+            }
+            else
+            {
+                yield return LoadAudioClip(source.Path, clip);
+            }
             source.Loaded = true;
             if (clip.item != null)
                 source.ApplyClip(clip.item);
+        }
+
+        public IEnumerator LoadAudioClipFromResources(SourcePath path, Ref<AudioClip> result)
+        {
+            //            Debug.Log("LoadAudioClipFromResources " + path.folder + "/" + path.id);
+            result.item = Resources.Load<AudioClip>(path.folder + "/" + path.id);
+            yield break;
         }
 
         public IEnumerator LoadAudioClip(SourcePath path, Ref<AudioClip> result)

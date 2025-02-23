@@ -10,6 +10,8 @@ namespace Antura.Audio
 {
     public class AudioSourceWrapper : IAudioSource
     {
+        public bool LoadFromResources = false;
+
         public DeAudioGroup Group { get; private set; }
         public DeAudioSource CurrentSource;
 
@@ -179,7 +181,7 @@ namespace Antura.Audio
         }
 
         // Synch loading
-        public AudioSourceWrapper(DeAudioSource source, DeAudioGroup group, AudioManager manager)
+        public AudioSourceWrapper(DeAudioSource source, DeAudioGroup group, AudioManager manager, bool fromResources = false)
         {
             this.CurrentSource = source;
             this.Group = group;
@@ -189,18 +191,20 @@ namespace Antura.Audio
             loop = source.loop;
             volume = source.volume;
             pitch = source.pitch;
+            LoadFromResources = fromResources;
 
             manager.OnAudioStarted(this);
         }
 
         // Asynch loading
-        public AudioSourceWrapper(SourcePath path, DeAudioGroup group, AudioManager manager)
+        public AudioSourceWrapper(SourcePath path, DeAudioGroup group, AudioManager manager, bool fromResources = false)
         {
             this.Path = path;
             this.Group = group;
             this.manager = manager;
             this.Asynch = true;
             this.Loaded = false;
+            LoadFromResources = fromResources;
             manager.OnAudioStarted(this);
         }
 
