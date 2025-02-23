@@ -7,6 +7,11 @@ to show current Evniroment Variables:
 to save a new environment variable:
 `export ELEVEN_API_KEY=value`
 
+## Compare diff files
+
+python homer_compare-csv.py
+python homer_compare-csv.py --preview
+
 ## Create audio files
 save the Homer translations files into the `csv` directory.
 then use:  

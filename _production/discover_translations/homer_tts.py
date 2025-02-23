@@ -104,21 +104,23 @@ def synthesize_speech(dialogue_text, language, actor, output_file, preview=False
 def process_csv(lang_code, quest=None, preview=False, sourcedir="csv"):
     file_langcode = "FR" if lang_code == "EN" else lang_code
     csv_file = Path(f"{sourcedir}/Antura-{file_langcode}.csv")
-    # Changed to audiofiles/{quest}/{lang_code} when quest is provided
     base_output_dir = Path("audiofiles")
-    output_dir = base_output_dir / quest / lang_code if quest else base_output_dir / lang_code
     
     with csv_file.open(newline='', encoding='utf-8') as csvfile:
         reader = csv.DictReader(csvfile, delimiter=';')
         total_lines = sum(1 for row in csv.DictReader(open(csv_file)))
         csvfile.seek(0)
         reader = csv.DictReader(csvfile, delimiter=';')
+        
         for row in tqdm(reader, total=total_lines, desc=f"Processing {lang_code}"):
             if quest and row['flow'] != quest:
                 continue
             dialogue_text = row[lang_code]
             dialogue_id = row['id']
             dialoge_actor = row['actor']
+            # Use quest if provided, otherwise use row['flow']
+            flow_dir = quest if quest else row['flow']
+            output_dir = base_output_dir / flow_dir / lang_code
             output_filename = output_dir / f"{lang_code}_{dialogue_id}.mp3"
             synthesize_speech(dialogue_text, lang_code, dialoge_actor, output_filename, preview)
 
@@ -140,7 +142,7 @@ def parse_arguments():
     parser = argparse.ArgumentParser(description="Convert CSV file dialogues to audio.")
     parser.add_argument("lang_code", nargs='?', default=None, 
                         help="The language code, like FR, AR, RO, UK... (optional, processes all if omitted)")
-    parser.add_argument("--quest", help="The quest parameter to filter dialogues and use as top-level directory.", 
+    parser.add_argument("--quest", help="The quest to filter dialogues and use as top-level directory (optional).", 
                         required=False)
     parser.add_argument("--preview", action="store_true", 
                         help="Preview the dialogues to be processed without generating audio files.")
