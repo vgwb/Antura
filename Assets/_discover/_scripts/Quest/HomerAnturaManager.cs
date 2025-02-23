@@ -255,18 +255,12 @@ namespace Antura.Minigames.DiscoverCountry
                 node.Type = NodeType.QUIZ;
             }
 
-            if (runner.Node._elements.Count() > 0)
-            {
-                node.AudioId = runner.Node._elements[0]._id;
-            }
-            else
-            {
-                node.AudioId = runner.Node._header._id;
-            }
             var currentLocale = currentHomerProject._locale;
 
             if (runner.Node.GetNodeType() == HomerNode.NodeType.CHOICE)
             {
+                node.AudioId = runner.Node._header._id;
+
                 HomerElement header = runner.Node._header;
                 node.Content = runner.GetParsedText(header);
 
@@ -294,6 +288,8 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (runner.Node.GetNodeType() == HomerNode.NodeType.TEXT)
             {
+                node.AudioId = runner.Node._elements[0]._id;
+
                 HomerElement element = runner.GetTextElement();
                 node.Content = runner.ParsedText(element);
 

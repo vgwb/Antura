@@ -49,8 +49,6 @@ namespace Antura.Minigames.DiscoverCountry
         public string ContentNative;
 
         public List<NodeChoice> Choices;
-
-        // image to be loaded from resources
         public string Image;
         public string ImageTitle;
 

@@ -82,6 +82,7 @@ namespace Antura.Minigames.DiscoverCountry
             this.gameObject.SetActive(true);
             this.RestartCoroutine(ref coShow, CO_Show(choiceElements));
         }
+
         IEnumerator CO_Show(List<NodeChoice> choiceElements)
         {
             SetInteractable(false);
@@ -104,11 +105,11 @@ namespace Antura.Minigames.DiscoverCountry
             coShow = null;
         }
 
-
         public void Hide(int confirmedChoiceIndex)
         {
             this.RestartCoroutine(ref coHide, CO_Hide(confirmedChoiceIndex));
         }
+
         IEnumerator CO_Hide(int confirmedChoiceIndex)
         {
             SetInteractable(false);
@@ -149,7 +150,8 @@ namespace Antura.Minigames.DiscoverCountry
         {
             foreach (AbstractChoiceBox choiceBox in choiceBoxes)
             {
-                if (choiceBox != selectedChoiceBox) choiceBox.Deselect();
+                if (choiceBox != selectedChoiceBox)
+                    choiceBox.Deselect();
             }
         }
 
