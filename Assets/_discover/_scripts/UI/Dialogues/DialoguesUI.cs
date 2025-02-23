@@ -90,7 +90,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ShowSignalFor(Interactable interactable)
         {
-            if (previewSignalByInteractable.ContainsKey(interactable)) previewSignalByInteractable[interactable].Hide(true);
+            if (previewSignalByInteractable.ContainsKey(interactable))
+                previewSignalByInteractable[interactable].Hide(true);
             signal.ShowFor(interactable);
         }
 
@@ -107,8 +108,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ShowPreviewSignalFor(Interactable interactable, bool show)
         {
-            if (interactable == null) return;
-            
+            if (interactable == null)
+                return;
+
             if (show)
             {
                 if (!previewSignalByInteractable.ContainsKey(interactable))
@@ -170,8 +172,9 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // TODO : Assign correct balloon
-            while (InteractionManager.I.IsUsingFocusView) yield return null;
-            
+            while (InteractionManager.I.IsUsingFocusView)
+                yield return null;
+
             Sprite image;
             UseLearningLanguage = !node.Native;
             switch (node.Type)
@@ -180,16 +183,21 @@ namespace Antura.Minigames.DiscoverCountry
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node);
                     image = node.GetImage();
-                    if (image != null) postcard.Show(image);
-                    else postcard.Hide();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
-                    if (!string.IsNullOrEmpty(node.Content)) currBalloon.Show(node);
+                    if (!string.IsNullOrEmpty(node.Content))
+                        currBalloon.Show(node);
                     image = node.GetImage();
-                    if (image != null) postcard.Show(image);
-                    else postcard.Hide();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
                     yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices);
                     break;
@@ -229,18 +237,22 @@ namespace Antura.Minigames.DiscoverCountry
                     yield break;
                 }
             }
-            
-            if (currBalloon != null && currBalloon.IsOpen) currBalloon.Hide();
+
+            if (currBalloon != null && currBalloon.IsOpen)
+                currBalloon.Hide();
 
             if (choices.IsOpen)
             {
                 choices.Hide(choiceIndex);
-                while (choices.IsHiding) yield return null;
+                while (choices.IsHiding)
+                    yield return null;
             }
 
             QuestNode next = QuestManager.I.GetNextNode(choiceIndex);
-            if (next == null) CloseDialogue(choiceIndex);
-            else ShowDialogueFor(next);
+            if (next == null)
+                CloseDialogue(choiceIndex);
+            else
+                ShowDialogueFor(next);
 
             coNext = null;
         }
@@ -262,7 +274,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnActClicked()
         {
-            if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses) postcardFocusView.Hide();
+            if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses)
+                postcardFocusView.Hide();
             else if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
             {
                 Next(currChoiceIndex);
@@ -275,6 +288,7 @@ namespace Antura.Minigames.DiscoverCountry
             UseLearningLanguage = !UseLearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
                  currNode.AudioId,
+                 QuestManager.I.CurrentQuest.assetsFolder,
                  UseLearningLanguage ? AppManager.I.ContentEdition.LearningLanguage : AppManager.I.AppSettings.NativeLanguage
             );
 
@@ -294,8 +308,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnPostcardFocusViewClicked()
         {
-            if (gotoNextWhenPostcardFocusViewCloses) Next(currChoiceIndex);
-            else HidePostcardFocusView();
+            if (gotoNextWhenPostcardFocusViewCloses)
+                Next(currChoiceIndex);
+            else
+                HidePostcardFocusView();
         }
 
         #endregion

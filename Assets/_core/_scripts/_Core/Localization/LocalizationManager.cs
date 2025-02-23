@@ -118,7 +118,7 @@ namespace Antura.Core
                     prefix = "DE";
                     break;
             }
-            return prefix + "_" + node_id;
+            return prefix + "_" + node_id + ".mp3";
         }
     }
 }

@@ -95,6 +95,7 @@ namespace Antura.Minigames.DiscoverCountry
             var spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
             AudioManager.I.PlayDiscoverDialogue(
                 node.AudioId,
+                QuestManager.I.CurrentQuest.assetsFolder,
                 spokenLang
             );
             // Debug.Log("Show Dialogue: LocId: " + node.LocId);
@@ -105,8 +106,10 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void LocalizeText(LanguageUse languageUse)
         {
-            if (languageUse == LanguageUse.Learning) textRender.SetText(currNode.Content);
-            else textRender.SetText(currNode.ContentNative);
+            if (languageUse == LanguageUse.Learning)
+                textRender.SetText(currNode.Content);
+            else
+                textRender.SetText(currNode.ContentNative);
         }
 
         public void Hide()

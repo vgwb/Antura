@@ -114,7 +114,8 @@ namespace Antura.Minigames.DiscoverCountry
             confirmedForThisRound = false;
             confirmTween.Rewind();
             string text = currChoice.Content;
-            if (!string.IsNullOrEmpty(text)) SetText(text);
+            if (!string.IsNullOrEmpty(text))
+                SetText(text);
             showTween.Restart();
         }
 
@@ -129,7 +130,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Deselect(float timeScale = 2)
         {
-            if (!selected) return;
+            if (!selected)
+                return;
 
             selected = false;
             SetInteractable(false);
@@ -173,12 +175,14 @@ namespace Antura.Minigames.DiscoverCountry
         {
             AudioManager.I.PlayDiscoverDialogue(
                  AudioId,
+                 QuestManager.I.CurrentQuest.assetsFolder,
                  SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
             );
             SetText(SpeechCycle ? currChoice.ContentNative : currChoice.Content);
             SpeechCycle = !SpeechCycle;
 
-            if (selected) return;
+            if (selected)
+                return;
 
             selected = true;
             this.transform.SetAsLastSibling();
