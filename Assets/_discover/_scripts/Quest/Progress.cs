@@ -35,7 +35,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 visitedSteps.Add(stepName);
                 current_steps++;
-                Debug.Log("VISITING NODE " + stepName + " - " + current_steps + " / " + total_steps);
+                //                Debug.Log("VISITING NODE " + stepName + " - " + current_steps + " / " + total_steps);
                 QuestManager.I.UpateProgressCounter(current_steps, total_steps);
                 //Debug.Log($"Node {nodePermalink} collected successfully.");
                 return true;
