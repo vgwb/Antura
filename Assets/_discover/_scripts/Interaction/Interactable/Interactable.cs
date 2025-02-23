@@ -92,6 +92,7 @@ namespace Antura.Minigames.DiscoverCountry
                     DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
                     if (AutoActivate)
                     {
+                        AutoActivate = false;
                         DiscoverNotifier.Game.OnActClicked.Dispatch();
                     }
                 }
@@ -112,7 +113,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnCollected()
         {
             IsInteractable = false;
-            Debug.Log("ITEM " + NodePermalink + " COLLECTED");
+            //Debug.Log("ITEM " + NodePermalink + " COLLECTED");
             // if (permalink == NodePermalink)
             // {
             //     Debug.Log("ITEM " + permalink + " COLLECTED");
