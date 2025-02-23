@@ -13,12 +13,14 @@ then use:
 `python homer_tts.py lang_code --quest=flow_name --preview --flows`
 
 examples:
-python homer_tts.py EN --quest "Tutorial"
+### generate single language
+python homer_tts.py FR --quest "Tutorial"
 
-python homer_tts.py --flow_dir TUTORIAL --quest "Tutorial"
-python homer_tts.py --flow_dir FR_01 --quest "FR-01 Paris"
-python homer_tts.py --flow_dir FR_01B --quest "FR-01b Paris - Seine"
-python homer_tts.py --flow_dir FR_03 --quest "FR-03 Nantes"
+### generate all languages for a single quest
+python homer_tts.py --quest "Tutorial"
+python homer_tts.py --quest "FR-01 Paris"
+python homer_tts.py --quest "FR-01b Paris - Seine"
+python homer_tts.py --quest "FR-03 Nantes"
 
 
 where lang_code is:

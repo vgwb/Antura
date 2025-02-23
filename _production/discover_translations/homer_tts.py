@@ -20,8 +20,8 @@ def synthesize_speech(dialogue_text, language, actor, output_file, preview=False
   # Default values
   voice = "Alex Wright"
   voice_id = "GzE4TcXfh9rYCU9gVgPp"
-  model = "eleven_flash_v2_5"
-  # model = "eleven_multilingual_v2"
+  #model = "eleven_flash_v2_5"
+  model = "eleven_multilingual_v2"
 
   if language == "FR":
     voice = "Louis Boutin"
@@ -105,11 +105,11 @@ def synthesize_speech(dialogue_text, language, actor, output_file, preview=False
   except Exception as e:
     print(f"Error generating audio for {output_file}: {e}")
 
-def process_csv(lang_code, quest=None, preview=False, flow_dir=None):
+def process_csv(lang_code, quest=None, preview=False):
   file_langcode = "FR" if lang_code == "EN" else lang_code
   csv_file = Path(f"csv/Antura-{file_langcode}.csv")
   base_output_dir = Path(f"audiofiles/{lang_code}")
-  output_dir = base_output_dir / flow_dir if flow_dir else base_output_dir
+  output_dir = base_output_dir / quest if quest else base_output_dir
   
   with csv_file.open(newline='', encoding='utf-8') as csvfile:
     reader = csv.DictReader(csvfile, delimiter=';')
@@ -146,7 +146,6 @@ def parse_arguments():
   parser.add_argument("--quest", help="The quest parameter to filter dialogues.", required=False)
   parser.add_argument("--preview", action="store_true", help="Preview the dialogues to be processed without generating audio files.")
   parser.add_argument("--flows", action="store_true", help="Output the distinct flows from the CSV.")
-  parser.add_argument("--flow_dir", help="Subdirectory to save audio files into.", required=False)
   return parser.parse_args()
 
 # Main function to run the script
@@ -163,9 +162,9 @@ if __name__ == "__main__":
         print("Please wait a few minutes...")
         if args.lang_code:
             # Process single language
-            process_csv(args.lang_code, args.quest, args.preview, args.flow_dir)
+            process_csv(args.lang_code, args.quest, args.preview)
         else:
             # Process all supported languages
             for lang in SUPPORTED_LANGUAGES:
-                process_csv(lang, args.quest, args.preview, args.flow_dir)
+                process_csv(lang, args.quest, args.preview)
         print("DONE!")
