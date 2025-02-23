@@ -17,7 +17,7 @@ namespace Antura.Scenes
         public static ActionEvent OnCreationComplete = new("PlayerCreationScene.OnCreationComplete");
 
         #endregion
-        
+
         [DeEmptyAlert]
         [SerializeField] AudioListener audioListener;
 
@@ -25,11 +25,13 @@ namespace Antura.Scenes
 
         protected override void Awake()
         {
-            isClassroomMode = FindObjectsByType<ReservedAreaScene>(FindObjectsSortMode.None) != null;
-            if (isClassroomMode) Destroy(audioListener);
-            
+            isClassroomMode = FindObjectOfType<ReservedAreaScene>() != null;
+            if (isClassroomMode)
+                Destroy(audioListener);
+
             // Skip base Awake if in overlay mode otherwise this Component will be destroyed
-            if (!isClassroomMode) base.Awake();
+            if (!isClassroomMode)
+                base.Awake();
         }
 
         protected override void Start()
@@ -67,7 +69,7 @@ namespace Antura.Scenes
             else if (AppManager.PROFILE_INVERSION)
             {
                 // For now, we go back home, then we'll get to the content selection screen
-                AppManager.I.NavigationManager.GoToHome(debugMode:true); // debug mode to force transition
+                AppManager.I.NavigationManager.GoToHome(debugMode: true); // debug mode to force transition
             }
             else
             {
