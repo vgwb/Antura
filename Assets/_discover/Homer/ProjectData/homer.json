@@ -270,100 +270,6 @@
           "_color": null
         },
         {
-          "_id": "NOD-f23327c4-960c-4153-abd2-1728494736516",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [
-            "MTV-d337812d-650b-4fa7-8ebc-1728494769285",
-            "MTV-7ebfbef2-e2e9-42d7-967f-1736435624121"
-          ],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-              "_type": "Text",
-              "_nodeId": "NOD-f23327c4-960c-4153-abd2-1728494736516",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "the door open and closes"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "la porta si apre e si chiude"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "la porte s'ouvre et se ferme"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "дверь открывается и закрывается"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "drzwi otwierają się i zamykają"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "ușa se deschide și se închide"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "двері відчиняються і зачиняються"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "فتح الباب وإغلاقه"
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": "door_a",
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1728494736516,
-          "_height": 97,
-          "_color": null
-        },
-        {
           "_id": "NOD-f1b218ad-15bb-4fec-aea9-1718630464116-e9-a4",
           "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399",
           "_type": "Text",
@@ -462,7 +368,8 @@
           "_type": "Text",
           "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
           "_metadata": [
-            "MTV-8d36ac14-ab20-402d-9230-1719244308910"
+            "MTV-8d36ac14-ab20-402d-9230-1719244308910",
+            "MTV-3f39e9ea-14f3-47de-a520-1740274348566"
           ],
           "_cycleType": "List",
           "_elements": [
@@ -536,7 +443,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-ed0cdbaf-1fd4-4735-8f70-1740273974445",
+              "_connectionLine": {},
+              "_from": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4",
+              "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-6a-9d",
+              "_type": "Text"
+            }
+          ],
           "_isMarked": false,
           "_date": 1652618922208,
           "_height": 115,
@@ -1444,7 +1359,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "CONN-7b7f76aa-5a0d-4b0d-bd2c-1740273976267",
+              "_connectionLine": {},
+              "_from": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-6a-9d",
+              "_to": "NOD-6100a9b9-bb41-4336-9ef6-1740245910456",
+              "_type": "Text"
+            }
+          ],
           "_isMarked": false,
           "_date": 1652618922208,
           "_height": 97,
@@ -26171,6 +26094,13 @@
           "_metadataId": "MTA-2c4dddad-66a1-49a7-823f-1711464241215",
           "_value": "UPDATE_COINS",
           "_uid": "UPDATE_COINS",
+          "_icon": "🛠"
+        },
+        {
+          "_id": "MTV-3f39e9ea-14f3-47de-a520-1740274348566",
+          "_metadataId": "MTA-2c4dddad-66a1-49a7-823f-1711464241215",
+          "_value": "area_intro",
+          "_uid": "AREA_INTRO",
           "_icon": "🛠"
         }
       ],
