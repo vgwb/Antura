@@ -1,3 +1,7 @@
+---
+title: About the Antura Project
+---
+
 ## Our Team
 
 This original Arabic project was developed by the Cologne Game Lab – TH Köln (German university of Applied Sciences),  Video Games Without Borders (a nonprofit organization registered in Spain) and Wixel Studios (a Lebanese development studio).[![](https://www.antura.org/wp-content/uploads/2017/01/CGL-TH_Logo-300x51.png)](http://www.colognegamelab.de/)[![](https://www.antura.org/wp-content/uploads/2017/03/VGWB_Logo_Horiz-300x65.jpg)](http://vgwb.org/)![](https://www.antura.org/wp-content/uploads/2017/01/WixelLogo_HiRes-300x180.png)

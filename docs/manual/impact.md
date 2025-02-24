@@ -1,4 +1,4 @@
-# Independently tested and verified
+# Impact evaluation
 
 ## An impact evaluation in Jordan organised by All Children Reading
 
