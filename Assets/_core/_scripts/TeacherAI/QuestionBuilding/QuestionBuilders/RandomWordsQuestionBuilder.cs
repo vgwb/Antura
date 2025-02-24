@@ -72,8 +72,6 @@ namespace Antura.Teacher
             selectionParams1.AssignJourney(parameters.insideJourney);
             var correctWords = teacher.VocabularyAi.SelectData(() => words_cache, selectionParams1);
 
-            correctWords[0] = AppManager.I.DB.GetWordDataById("number_03");
-
             wrongWords_cache.Clear();
             wrongWords_cache.AddRange(vocabularyHelper.GetWordsNotInOptimized(parameters.wordFilters, correctWords));
 
