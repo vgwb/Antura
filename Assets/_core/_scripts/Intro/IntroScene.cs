@@ -150,7 +150,7 @@ namespace Antura.Intro
             yield return new WaitUntil(CheckIfCompleted);
             yield return new WaitForSeconds(m_StateDelay);
 
-            Debug.Log("Start Spawning");
+            //            Debug.Log("Start Spawning");
             factory.StartSpawning = true;
 
             KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Intro_Letters_1, true, true, OnCompleted);
@@ -158,14 +158,14 @@ namespace Antura.Intro
             yield return new WaitUntil(CheckIfCompleted);
             yield return new WaitForSeconds(m_StateDelay);
 
-            Debug.Log("Second Intro Letter");
+            //            Debug.Log("Second Intro Letter");
             KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Intro_Letters_2, true, true, OnCompleted);
 
             yield return new WaitUntil(CheckIfCompleted);
             yield return new WaitForSeconds(m_StateDelay);
 
             factory.antura.SetAnturaTime(true);
-            Debug.Log("Antura is enable");
+            //            Debug.Log("Antura is enable");
             KeeperManager.I.PlayDialogue(Database.LocalizationDataId.Intro_Dog, true, true, OnCompleted);
 
             yield return new WaitUntil(CheckIfCompleted);
