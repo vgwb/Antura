@@ -105,10 +105,10 @@ namespace Antura.UI
             // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
             // TODO: check this! Is it needed anymore?
             var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
-            if (nativeCode == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
-            {
-                AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
-            }
+            // if (nativeCode == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
+            // {
+            //     AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);
+            // }
         }
 
         public bool HasPerformedSelection;
