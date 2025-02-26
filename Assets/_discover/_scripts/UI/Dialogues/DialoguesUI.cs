@@ -181,7 +181,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
-                    currBalloon.Show(node);
+                    currBalloon.Show(node, UseLearningLanguage);
                     image = node.GetImage();
                     if (image != null)
                         postcard.Show(image);
@@ -192,14 +192,14 @@ namespace Antura.Minigames.DiscoverCountry
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
-                        currBalloon.Show(node);
+                        currBalloon.Show(node, UseLearningLanguage);
                     image = node.GetImage();
                     if (image != null)
                         postcard.Show(image);
                     else
                         postcard.Hide();
                     yield return new WaitForSeconds(0.3f);
-                    choices.Show(node.Choices);
+                    choices.Show(node.Choices, UseLearningLanguage);
                     break;
                 default:
                     IsOpen = false;
@@ -284,16 +284,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnBalloonClicked()
         {
-            // Play/repeat alternate audio here
             UseLearningLanguage = !UseLearningLanguage;
-            AudioManager.I.PlayDiscoverDialogue(
-                 currNode.AudioId,
-                 QuestManager.I.CurrentQuest.assetsFolder,
-                 UseLearningLanguage ? AppManager.I.ContentEdition.LearningLanguage : AppManager.I.AppSettings.NativeLanguage
-            );
-
-            // Localize text to correspond to audio language
-            currBalloon.LocalizeText(UseLearningLanguage ? LanguageUse.Learning : LanguageUse.Native);
+            currBalloon.DisplayText(UseLearningLanguage);
         }
 
         void OnBalloonContinueClicked()

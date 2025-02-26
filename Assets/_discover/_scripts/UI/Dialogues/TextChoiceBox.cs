@@ -1,6 +1,4 @@
-﻿using Antura.Language;
-using Antura.UI;
-using DG.DeInspektor.Attributes;
+﻿using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -13,18 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Header("References - Specific")]
         [DeEmptyAlert]
-        [SerializeField] TextRender textRender;
-        [DeEmptyAlert]
         [SerializeField] TMP_Text tf;
-
-        #endregion
-
-        #region Public Methods
-
-        public override void SetText(string text)
-        {
-            textRender.SetText(text);
-        }
 
         #endregion
 
@@ -40,7 +27,7 @@ namespace Antura.Minigames.DiscoverCountry
                 .Insert(duration * 0.4f, numbox.DOScale(0, duration * 0.8f).From().SetEase(Ease.OutBounce))
                 .Insert(duration * 0.4f, icoTranslation.transform.DOScale(0, duration * 0.8f).From().SetEase(Ease.OutBounce));
         }
-        
+
         protected override Sequence CreateHoverTween()
         {
             const float duration = 0.35f;

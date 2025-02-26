@@ -77,13 +77,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show(List<NodeChoice> choiceElements)
+        public void Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
         {
             this.gameObject.SetActive(true);
-            this.RestartCoroutine(ref coShow, CO_Show(choiceElements));
+            this.RestartCoroutine(ref coShow, CO_Show(choiceElements, UseLearningLanguage));
         }
 
-        IEnumerator CO_Show(List<NodeChoice> choiceElements)
+        IEnumerator CO_Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
         {
             SetInteractable(false);
             int totChoices = choiceElements.Count;
@@ -94,8 +94,7 @@ namespace Antura.Minigames.DiscoverCountry
                 else
                 {
                     choiceBoxes[i].gameObject.SetActive(true);
-                    choiceBoxes[i].SetAudioId(choiceElements[i].AudioId);
-                    choiceBoxes[i].Show(choiceElements[i]);
+                    choiceBoxes[i].Show(choiceElements[i], UseLearningLanguage);
                     yield return new WaitForSeconds(i * 0.15f);
                 }
             }

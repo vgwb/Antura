@@ -66,18 +66,18 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show(List<NodeChoice> choiceElements)
+        public void Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
         {
             this.gameObject.SetActive(true);
-            this.RestartCoroutine(ref coShow, CO_Show(choiceElements));
+            this.RestartCoroutine(ref coShow, CO_Show(choiceElements, UseLearningLanguage));
         }
 
-        IEnumerator CO_Show(List<NodeChoice> choiceElements)
+        IEnumerator CO_Show(List<NodeChoice> choiceElements, bool UseLearningLanguage)
         {
             IsOpen = IsOpening = true;
             IsHiding = false;
             currLayout = textChoicesLayout; // TODO > use correct layout when we have a system to distinguish it
-            currLayout.Show(choiceElements);
+            currLayout.Show(choiceElements, UseLearningLanguage);
             while (currLayout.IsShowingOrHidingElements)
                 yield return null;
             IsOpening = false;

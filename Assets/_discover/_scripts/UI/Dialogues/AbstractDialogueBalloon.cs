@@ -1,14 +1,13 @@
-﻿using Antura.Core;
-using Antura.Audio;
+﻿using Antura.Audio;
+using Antura.Core;
+using Antura.Language;
 using Antura.UI;
+using Antura.Minigames.DiscoverCountry.Interaction;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
-using Antura.Minigames.DiscoverCountry.Interaction;
-using Antura.Language;
-using UnityEngine.EventSystems;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -70,7 +69,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show(QuestNode node)
+        public void Show(QuestNode node, bool UseLearningLanguage)
         {
             if (IsOpen)
                 return;
@@ -78,7 +77,6 @@ namespace Antura.Minigames.DiscoverCountry
             IsOpen = true;
             currNode = node;
             SetInteractable(false);
-            textRender.SetText(currNode.Content);
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);
@@ -87,29 +85,30 @@ namespace Antura.Minigames.DiscoverCountry
             else
                 btContinue.gameObject.SetActive(false);
 
-            if (currNode.Native)
-                SpeechCycle = true;
-            else
-                SpeechCycle = false;
+            DisplayText(UseLearningLanguage);
 
-            var spokenLang = SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage;
-            AudioManager.I.PlayDiscoverDialogue(
-                node.AudioId,
-                QuestManager.I.CurrentQuest.assetsFolder,
-                spokenLang
-            );
-            // Debug.Log("Show Dialogue: LocId: " + node.LocId);
-            SpeechCycle = !SpeechCycle;
             DiscoverNotifier.Game.OnShowDialogueBalloon.Dispatch(currNode);
             QuestManager.I.OnNodeStart(currNode);
         }
 
-        public void LocalizeText(LanguageUse languageUse)
+        public void DisplayText(bool UseLearningLanguage)
         {
-            if (languageUse == LanguageUse.Learning)
-                textRender.SetText(currNode.Content);
+            LanguageCode spokenLang;
+            if (UseLearningLanguage)
+            {
+                textRender.SetText(currNode.Content, LanguageUse.Learning, Font2Use.UI);
+                spokenLang = AppManager.I.ContentEdition.LearningLanguage;
+            }
             else
-                textRender.SetText(currNode.ContentNative);
+            {
+                textRender.SetText(currNode.ContentNative, LanguageUse.Native, Font2Use.Default);
+                spokenLang = AppManager.I.AppSettings.NativeLanguage;
+            }
+            AudioManager.I.PlayDiscoverDialogue(
+                currNode.AudioId,
+                QuestManager.I.CurrentQuest.assetsFolder,
+                spokenLang
+            );
         }
 
         public void Hide()

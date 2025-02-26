@@ -1,5 +1,7 @@
-﻿using Antura.Core;
-using Antura.Audio;
+﻿using Antura.Audio;
+using Antura.Core;
+using Antura.Language;
+using Antura.UI;
 using System.Globalization;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
@@ -34,6 +36,9 @@ namespace Antura.Minigames.DiscoverCountry
         [DeEmptyAlert]
         [SerializeField] TMP_Text tfNumber;
         [DeEmptyAlert]
+        [SerializeField] TextRender textRender;
+
+        [DeEmptyAlert]
         [SerializeField] protected RectTransform bg, box, confirmBg, confirmArrow;
 
         #endregion
@@ -43,7 +48,7 @@ namespace Antura.Minigames.DiscoverCountry
         public string AudioId { get; private set; }
 
         protected NodeChoice currChoice;
-        bool SpeechCycle = false;
+        bool UseLearningLanguage = true;
         bool selected;
         bool confirmedForThisRound;
         Sequence showTween, hoverTween, selectTween, confirmHoverTween, confirmTween;
@@ -75,7 +80,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             btMain.onClick.AddListener(Select);
             btConfirm.onClick.AddListener(Confirm);
-            SpeechCycle = false;
+            UseLearningLanguage = true;
         }
 
         void OnDestroy()
@@ -97,25 +102,19 @@ namespace Antura.Minigames.DiscoverCountry
             tfNumber.text = (Index + 1).ToString(CultureInfo.InvariantCulture);
         }
 
-        public void SetAudioId(string homerLocId)
-        {
-            AudioId = homerLocId;
-        }
-
         public void SetInteractable(bool interactable)
         {
             btMain.interactable = interactable;
             btConfirm.interactable = interactable;
         }
 
-        public void Show(NodeChoice choiceNode)
+        public void Show(NodeChoice choiceNode, bool UseLearningLanguage)
         {
             currChoice = choiceNode;
             confirmedForThisRound = false;
             confirmTween.Rewind();
             string text = currChoice.Content;
-            if (!string.IsNullOrEmpty(text))
-                SetText(text);
+            DisplayText(UseLearningLanguage);
             showTween.Restart();
         }
 
@@ -125,7 +124,7 @@ namespace Antura.Minigames.DiscoverCountry
             hoverTween.PlayBackwards();
             confirmHoverTween.PlayBackwards();
             showTween.PlayBackwards();
-            SpeechCycle = false;
+            UseLearningLanguage = true;
         }
 
         public void Deselect(float timeScale = 2)
@@ -169,17 +168,11 @@ namespace Antura.Minigames.DiscoverCountry
         protected abstract Sequence CreateShowTween();
         protected abstract Sequence CreateSelectTween();
         protected abstract Sequence CreateHoverTween();
-        public abstract void SetText(string text);
 
-        void Select()
+        private void Select()
         {
-            AudioManager.I.PlayDiscoverDialogue(
-                 AudioId,
-                 QuestManager.I.CurrentQuest.assetsFolder,
-                 SpeechCycle ? AppManager.I.AppSettings.NativeLanguage : AppManager.I.ContentEdition.LearningLanguage
-            );
-            SetText(SpeechCycle ? currChoice.ContentNative : currChoice.Content);
-            SpeechCycle = !SpeechCycle;
+            UseLearningLanguage = !UseLearningLanguage;
+            DisplayText(UseLearningLanguage);
 
             if (selected)
                 return;
@@ -191,6 +184,27 @@ namespace Antura.Minigames.DiscoverCountry
             selectTween.Restart();
             btConfirm.gameObject.SetActive(true);
             OnSelect.Dispatch(this);
+        }
+
+        private void DisplayText(bool UseLearningLanguage)
+        {
+
+            LanguageCode spokenLang;
+            if (UseLearningLanguage)
+            {
+                textRender.SetText(currChoice.Content, LanguageUse.Learning, Font2Use.UI);
+                spokenLang = AppManager.I.ContentEdition.LearningLanguage;
+            }
+            else
+            {
+                textRender.SetText(currChoice.ContentNative, LanguageUse.Native, Font2Use.Default);
+                spokenLang = AppManager.I.AppSettings.NativeLanguage;
+            }
+            AudioManager.I.PlayDiscoverDialogue(
+                currChoice.AudioId,
+                QuestManager.I.CurrentQuest.assetsFolder,
+                spokenLang
+            );
         }
 
         void Confirm()
