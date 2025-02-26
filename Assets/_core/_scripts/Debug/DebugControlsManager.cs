@@ -82,6 +82,9 @@ namespace Antura.Debugging
         };
         // ANTURA DISCOVER CHEATS
         readonly DebugCommand[] _discoverCountriesCheats = new[] {
+            new DebugCommand("Print Quest Info", CommandCondition.OnPress, KeyCode.I, KeyModifier.Shift, on => {
+                QuestManager.I.PrintDebugInfo();
+            }),
             new DebugCommand("Activate Target Marker on random light beam", CommandCondition.OnPress, KeyCode.T, KeyModifier.Shift, on => {
                 LightBeam beam = FindFirstObjectByType<LightBeam>(FindObjectsInactive.Include);
                 if (beam == null) Debug.LogWarning("Couldn't find a target beam");
@@ -108,6 +111,7 @@ namespace Antura.Debugging
             }
 
             _I = this;
+            Debug.Log("DEBUG SHORTCUTS Activated: press SHIFT + C");
         }
 
         void Start()

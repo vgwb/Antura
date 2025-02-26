@@ -192,5 +192,18 @@ namespace Antura.Minigames.DiscoverCountry
             Destroy(go);
         }
 
+        #region Debug
+        public void PrintDebugInfo()
+        {
+            var output = "";
+            output += "DEBUG INFO";
+            output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
+            output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
+            //config = LanguageSwitcher.I.GetLangConfig(languageUse);
+
+            Debug.Log(output);
+        }
+        #endregion
+
     }
 }
