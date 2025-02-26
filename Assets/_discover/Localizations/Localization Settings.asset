@@ -23,7 +23,8 @@ MonoBehaviour:
   m_StringDatabase:
     rid: 7210509533973577733
   m_Metadata:
-    m_Items: []
+    m_Items:
+    - rid: 1365796348765667584
   m_ProjectLocaleIdentifier:
     m_Code: en
   m_PreloadBehavior: 1
@@ -33,6 +34,63 @@ MonoBehaviour:
     RefIds:
     - rid: -2
       type: {class: , ns: , asm: }
+    - rid: 1365796348765667584
+      type: {class: AppInfo, ns: UnityEngine.Localization.Platform.iOS, asm: Unity.Localization}
+      data:
+        m_ShortName:
+          m_TableReference:
+            m_TableCollectionName: GUID:a5992c97124f94f0ea86a56dd5b1f3bd
+          m_TableEntryReference:
+            m_KeyId: 116632663039664128
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_DisplayName:
+          m_TableReference:
+            m_TableCollectionName: GUID:a5992c97124f94f0ea86a56dd5b1f3bd
+          m_TableEntryReference:
+            m_KeyId: 116632663039664128
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_CameraUsageDescription:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_MicrophoneUsageDescription:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_LocationUsageDescription:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
+        m_UserTrackingUsageDescription:
+          m_TableReference:
+            m_TableCollectionName: 
+          m_TableEntryReference:
+            m_KeyId: 0
+            m_Key: 
+          m_FallbackState: 0
+          m_WaitForCompletion: 0
+          m_LocalVariables: []
     - rid: 7210509533973577728
       type: {class: CommandLineLocaleSelector, ns: UnityEngine.Localization.Settings,
         asm: Unity.Localization}
@@ -60,6 +118,7 @@ MonoBehaviour:
           rid: -2
         m_CustomTablePostprocessor:
           rid: -2
+        m_AsynchronousBehaviour: 0
         m_UseFallback: 0
     - rid: 7210509533973577733
       type: {class: LocalizedStringDatabase, ns: UnityEngine.Localization.Settings,
@@ -71,6 +130,7 @@ MonoBehaviour:
           rid: -2
         m_CustomTablePostprocessor:
           rid: -2
+        m_AsynchronousBehaviour: 0
         m_UseFallback: 0
         m_MissingTranslationState: 1
         m_NoTranslationFoundMessage: No translation found for '{key}' in {table.TableCollectionName}
