@@ -83,7 +83,7 @@ namespace Antura.Minigames.Tobogan
                 {
                     rigidBodies[i].isKinematic = false;
                     rigidBodies[i].useGravity = true;
-                    rigidBodies[i].velocity = initialVelocity;
+                    rigidBodies[i].linearVelocity = initialVelocity;
                 }
             }
 

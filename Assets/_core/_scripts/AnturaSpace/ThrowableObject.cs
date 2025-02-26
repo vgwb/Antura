@@ -186,7 +186,7 @@ namespace Antura.AnturaSpace
                     {
                         var planeNormal = planes[i].normal;
 
-                        m_oRigidbody.velocity -= 1.2f * Vector3.Dot(m_oRigidbody.velocity, planeNormal) * planeNormal;
+                        m_oRigidbody.linearVelocity -= 1.2f * Vector3.Dot(m_oRigidbody.linearVelocity, planeNormal) * planeNormal;
 
                         newPos = newPos - distance * planeNormal;
                     }

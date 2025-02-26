@@ -100,7 +100,7 @@ namespace Antura.Minigames.DiscoverCountry
                 wallDistance = hitInfo.distance;
                 wallNormal = hitInfo.normal;
                 attachedToWall = true;
-                rb.velocity = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
                 actualMoveDir = Vector3.zero;
                 //Debug.LogError("WALL HIT");
             }
@@ -115,7 +115,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (isInAir)
             {
                 if ((groundDistance <= GroundTouchedThreshold || tr.position.y <= 0)
-                    && (rb.velocity.y <= 0f))
+                    && (rb.linearVelocity.y <= 0f))
                 {
                     if (tr.position.y < 0)
                         tr.position = new Vector3(tr.position.x, 0f, tr.position.z);
@@ -183,7 +183,7 @@ namespace Antura.Minigames.DiscoverCountry
                         Debug.LogError("WALL JUMP");
                         var wallJumpDir = Vector3.Lerp(Vector3.up, wallNormal, 0.5f);
                         Debug.DrawLine(tr.position, tr.position + wallJumpDir, Color.green, 10f);
-                        rb.velocity = Vector3.zero;
+                        rb.linearVelocity = Vector3.zero;
                         rb.AddForce(wallJumpDir * WallJumpStrength, ForceMode.Impulse);
                     }
                     else if (MultiJumpCooldownTimer <= 0f)
@@ -235,7 +235,7 @@ namespace Antura.Minigames.DiscoverCountry
                 if (accelerationMagnitude > 0f)
                 {
                     anturaAnimation.State = AnturaAnimationStates.walking;
-                    anturaAnimation.WalkingSpeed = Mathf.Lerp(0, 1, rb.velocity.magnitude / (MaxSpeed * 0.2f));
+                    anturaAnimation.WalkingSpeed = Mathf.Lerp(0, 1, rb.linearVelocity.magnitude / (MaxSpeed * 0.2f));
                 }
                 else
                 {
@@ -245,13 +245,13 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (isInAir)
             {
-                rb.velocity = new Vector3(rb.velocity.x - rb.velocity.x * airDrag * Time.fixedDeltaTime,
-                    rb.velocity.y,
-                    rb.velocity.z - rb.velocity.z * airDrag * Time.fixedDeltaTime);
+                rb.linearVelocity = new Vector3(rb.linearVelocity.x - rb.linearVelocity.x * airDrag * Time.fixedDeltaTime,
+                    rb.linearVelocity.y,
+                    rb.linearVelocity.z - rb.linearVelocity.z * airDrag * Time.fixedDeltaTime);
             }
             else
             {
-                rb.velocity = rb.velocity - rb.velocity * groundDrag * Time.fixedDeltaTime;
+                rb.linearVelocity = rb.linearVelocity - rb.linearVelocity * groundDrag * Time.fixedDeltaTime;
             }
 
         }

@@ -192,7 +192,7 @@ namespace Antura.Minigames.ThrowBalls
         public void Reset()
         {
             velocity = Vector3.zero;
-            rigidBody.velocity = Vector3.zero;
+            rigidBody.linearVelocity = Vector3.zero;
             rigidBody.angularVelocity = Vector3.zero;
             transform.localRotation = Quaternion.Euler(0, 0, 0);
             ballGrabbed = false;

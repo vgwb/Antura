@@ -117,7 +117,7 @@ namespace Antura.Minigames.ThrowBalls
 
             rigidBody.isKinematic = true;
             rigidBody.angularVelocity = new Vector3(0, 0, 0);
-            rigidBody.velocity = new Vector3(0, 0, 0);
+            rigidBody.linearVelocity = new Vector3(0, 0, 0);
             rigidBody.isKinematic = false;
             rigidBody.useGravity = false;
             transform.rotation = Quaternion.Euler(new Vector3(-90f, 0f, 0f));
@@ -244,7 +244,7 @@ namespace Antura.Minigames.ThrowBalls
                 initialVelocity.y = (REBOUND_DESTINATION.y - transform.position.y) / REBOUND_TIME;
                 initialVelocity.z = (REBOUND_DESTINATION.z - transform.position.z) / REBOUND_TIME;
 
-                rigidBody.velocity = new Vector3(0, 0, 0);
+                rigidBody.linearVelocity = new Vector3(0, 0, 0);
                 rigidBody.AddForce(initialVelocity, ForceMode.VelocityChange);
             }
         }
@@ -270,7 +270,7 @@ namespace Antura.Minigames.ThrowBalls
             }
             else if (state == State.Rebounding)
             {
-                if (transform.position.z + rigidBody.velocity.z * Time.fixedDeltaTime <= REBOUND_DESTINATION.z)
+                if (transform.position.z + rigidBody.linearVelocity.z * Time.fixedDeltaTime <= REBOUND_DESTINATION.z)
                 {
                     transform.position = REBOUND_DESTINATION;
                     UIController.instance.OnScreenCracked();
@@ -305,7 +305,7 @@ namespace Antura.Minigames.ThrowBalls
 
         public void DampenVelocity()
         {
-            rigidBody.velocity = rigidBody.velocity * 0.5f;
+            rigidBody.linearVelocity = rigidBody.linearVelocity * 0.5f;
             rigidBody.angularVelocity = rigidBody.angularVelocity * 0.5f;
 
             stateTime = BALL_RESPAWN_TIME - 0.75f;

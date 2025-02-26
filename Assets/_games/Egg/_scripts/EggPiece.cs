@@ -34,7 +34,7 @@ namespace Antura.Minigames.Egg
         {
             meshCollider.enabled = false;
             eggRigidbody.useGravity = false;
-            eggRigidbody.velocity = Vector3.zero;
+            eggRigidbody.linearVelocity = Vector3.zero;
             eggRigidbody.isKinematic = true;
 
             gameObject.SetActive(true);
@@ -87,7 +87,7 @@ namespace Antura.Minigames.Egg
             meshCollider.enabled = true;
             eggRigidbody.useGravity = true;
 
-            eggRigidbody.velocity = poofDirRight ? poofRight : poofLeft;
+            eggRigidbody.linearVelocity = poofDirRight ? poofRight : poofLeft;
 
             landed = false;
             landedTimer = landedTime;

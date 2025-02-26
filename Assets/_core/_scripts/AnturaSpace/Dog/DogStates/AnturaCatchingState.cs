@@ -46,7 +46,7 @@ namespace Antura.AnturaSpace
             if (!objectInteracted && !controller.AnturaMain.IsJumping &&
                 (controller.AnturaMain.HasReachedTarget || controller.AnturaMain.PlanarDistanceFromTarget < 5))
             {
-                if ((controller.AnturaMain.TargetHeight >= 2 && objectRigidBody != null && objectRigidBody.velocity.y > 10))
+                if ((controller.AnturaMain.TargetHeight >= 2 && objectRigidBody != null && objectRigidBody.linearVelocity.y > 10))
                 {
                     objectInteracted = true;
 

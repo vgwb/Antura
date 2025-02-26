@@ -217,8 +217,8 @@ namespace Antura.Minigames.Balloons
         {
             // Float using Rigidbody velocity
             //floatVelocity = floatDirection * floatDistance * Mathf.Sin(floatSpeed * Time.time + randomOffset) * Vector3.up;
-            floatVelocity.Set(body.velocity.x, floatDirection * floatDistance * Mathf.Sin(floatSpeed * Time.time + randomOffset), body.velocity.z);
-            body.velocity = floatVelocity;
+            floatVelocity.Set(body.linearVelocity.x, floatDirection * floatDistance * Mathf.Sin(floatSpeed * Time.time + randomOffset), body.linearVelocity.z);
+            body.linearVelocity = floatVelocity;
 
             // Float using Transform position
             //transform.position = basePosition + floatDirection * floatDistance * Mathf.Sin(floatSpeed * Time.time + randomOffset) * Vector3.up;
@@ -226,9 +226,9 @@ namespace Antura.Minigames.Balloons
 
         public void Waft()
         {
-            waftVelocity.Set(waftDirection * waftSpeed, body.velocity.y, body.velocity.z);
+            waftVelocity.Set(waftDirection * waftSpeed, body.linearVelocity.y, body.linearVelocity.z);
 
-            body.velocity = waftVelocity;
+            body.linearVelocity = waftVelocity;
             if (body.transform.position.x > BalloonsGame.instance.maxX - stageMargin)
             {
                 waftDirection = -1;

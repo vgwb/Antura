@@ -124,7 +124,7 @@ namespace Antura.Minigames.Balloons
 
         public void FloatByRigidbodyVelocity()
         {
-            body.velocity = floatDistance * Mathf.Sin(floatSpeed * Time.time) * Vector3.up;
+            body.linearVelocity = floatDistance * Mathf.Sin(floatSpeed * Time.time) * Vector3.up;
         }
 
 
@@ -132,7 +132,7 @@ namespace Antura.Minigames.Balloons
 
         public void Waft()
         {
-            body.velocity = Vector3.right * 1f;
+            body.linearVelocity = Vector3.right * 1f;
             if (body.transform.position.x > 20f)
             {
                 body.transform.position = new Vector3(-20f, body.transform.position.y, body.transform.position.z);

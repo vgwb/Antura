@@ -62,7 +62,7 @@ namespace Antura.Minigames.Maze
                     switch (_state)
                     {
                         case LLState.Ragdolling:
-                            ragdoll.SetRagdoll(true, rocket.GetComponent<Rigidbody>().velocity);
+                            ragdoll.SetRagdoll(true, rocket.GetComponent<Rigidbody>().linearVelocity);
 
                             foreach (Collider collider in ragdoll.GetComponentsInChildren<Collider>())
                             {
@@ -209,7 +209,7 @@ namespace Antura.Minigames.Maze
             var rocketRigidBody = rocket.GetComponent<Rigidbody>();
             rocketRigidBody.isKinematic = true;
             rocketRigidBody.useGravity = false;
-            rocketRigidBody.velocity = Vector3.zero;
+            rocketRigidBody.linearVelocity = Vector3.zero;
             rocketRigidBody.angularVelocity = Vector3.zero;
             rocket.transform.localPosition = Vector3.zero;
             rocket.transform.localRotation = Quaternion.Euler(Vector3.zero);
@@ -718,7 +718,7 @@ namespace Antura.Minigames.Maze
             velocity *= 10f;
             velocity.y = 20f;
 
-            rocketRigidBody.velocity = Vector3.zero;
+            rocketRigidBody.linearVelocity = Vector3.zero;
             rocketRigidBody.angularVelocity = Vector3.zero;
 
             rocketRigidBody.AddForce(velocity, ForceMode.VelocityChange);

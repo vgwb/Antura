@@ -14,7 +14,7 @@ public class UserReportingXRExtensions : MonoBehaviour
     private static bool XRIsPresent()
     {
         var xrDisplaySubsystems = new List<XRDisplaySubsystem>();
-        SubsystemManager.GetInstances<XRDisplaySubsystem>(xrDisplaySubsystems);
+        SubsystemManager.GetSubsystems<XRDisplaySubsystem>(xrDisplaySubsystems);
         foreach (var xrDisplay in xrDisplaySubsystems)
         {
             if (xrDisplay.running)

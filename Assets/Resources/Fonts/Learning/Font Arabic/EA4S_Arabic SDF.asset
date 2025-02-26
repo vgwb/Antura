@@ -12,22 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: EA4S_Arabic SDF
   m_EditorClassIdentifier: 
-  hashCode: 1221361303
-  material: {fileID: 21863560639530978}
-  materialHashCode: -582741801
   m_Version: 1.1.0
-  m_SourceFontFileGUID: 62ef9a14f1de4459e9d8f1846ff7eeb8
-  m_SourceFontFile_EditorRef: {fileID: 12800000, guid: 62ef9a14f1de4459e9d8f1846ff7eeb8,
-    type: 3}
-  m_SourceFontFile: {fileID: 12800000, guid: 62ef9a14f1de4459e9d8f1846ff7eeb8, type: 3}
-  m_AtlasPopulationMode: 1
   m_FaceInfo:
     m_FaceIndex: 0
     m_FamilyName: Arial
     m_StyleName: Regular
     m_PointSize: 63
     m_Scale: 1
-    m_UnitsPerEM: 0
+    m_UnitsPerEM: 2048
     m_LineHeight: 72.44384
     m_AscentLine: 57.032223
     m_CapLine: 45
@@ -43,6 +35,31 @@ MonoBehaviour:
     m_StrikethroughOffset: 13.2
     m_StrikethroughThickness: 4.6142573
     m_TabWidth: 18
+  m_Material: {fileID: 21863560639530978}
+  m_SourceFontFileGUID: 62ef9a14f1de4459e9d8f1846ff7eeb8
+  m_CreationSettings:
+    sourceFontFileName: 
+    sourceFontFileGUID: 62ef9a14f1de4459e9d8f1846ff7eeb8
+    faceIndex: 0
+    pointSizeSamplingMode: 0
+    pointSize: 63
+    padding: 5
+    paddingMode: 0
+    packingMode: 4
+    atlasWidth: 1024
+    atlasHeight: 1024
+    characterSetSelectionMode: 6
+    characterSequence: 20-7E,600-603,60B-615,61B,61E-61F,621-63A,640-65E,660-6DC,6DF-6E8,6EA-6FF,750-76D,FB50-FBB1,FBD3-FBE9,FBFC-FBFF,FC5E-FC62,FD3E-FD3F,FDF2,FDFC,FE80-FEFC
+    referencedFontAssetGUID: 3f38f1a4cf5f9428a98fa3723b88978a
+    referencedTextAssetGUID: 
+    fontStyle: 0
+    fontStyleModifier: 0
+    renderMode: 16422
+    includeFontFeatures: 1
+  m_SourceFontFile: {fileID: 12800000, guid: 62ef9a14f1de4459e9d8f1846ff7eeb8, type: 3}
+  m_SourceFontFilePath: 
+  m_AtlasPopulationMode: 1
+  InternalDynamicOS: 0
   m_GlyphTable:
   - m_Index: 3
     m_Metrics:
@@ -10343,7 +10360,12 @@ MonoBehaviour:
   - {fileID: 28387705860345464}
   m_AtlasTextureIndex: 0
   m_IsMultiAtlasTexturesEnabled: 0
+  m_GetFontFeatures: 1
   m_ClearDynamicDataOnBuild: 0
+  m_AtlasWidth: 1024
+  m_AtlasHeight: 1024
+  m_AtlasPadding: 5
+  m_AtlasRenderMode: 16422
   m_UsedGlyphRects:
   - m_X: 0
     m_Y: 0
@@ -13430,37 +13452,9 @@ MonoBehaviour:
     m_Y: 1016
     m_Width: 21
     m_Height: 7
-  m_fontInfo:
-    Name: Arial
-    PointSize: 55
-    Scale: 1
-    CharacterCount: 616
-    LineHeight: 63.25
-    Baseline: 0
-    Ascender: 49.8125
-    CapHeight: 39.375
-    Descender: -11.625
-    CenterLine: 0
-    SuperscriptOffset: 49.8125
-    SubscriptOffset: -7.841797
-    SubSize: 0.5
-    Underline: -7.841797
-    UnderlineThickness: 4.0283203
-    strikethrough: 13.886364
-    strikethroughThickness: 4.0283203
-    TabWidth: 153.125
-    Padding: 5
-    AtlasWidth: 1024
-    AtlasHeight: 1024
-  atlas: {fileID: 28387705860345464}
-  m_AtlasWidth: 1024
-  m_AtlasHeight: 1024
-  m_AtlasPadding: 5
-  m_AtlasRenderMode: 16422
-  m_glyphInfoList: []
-  m_KerningTable:
-    kerningPairs: []
   m_FontFeatureTable:
+    m_MultipleSubstitutionRecords: []
+    m_LigatureSubstitutionRecords: []
     m_GlyphPairAdjustmentRecords:
     - m_FirstAdjustmentRecord:
         m_GlyphIndex: 3
@@ -14902,26 +14896,11 @@ MonoBehaviour:
           m_XAdvance: 0
           m_YAdvance: 0
       m_FeatureLookupFlags: 0
-  fallbackFontAssets: []
+    m_MarkToBaseAdjustmentRecords: []
+    m_MarkToMarkAdjustmentRecords: []
+  m_ShouldReimportFontFeatures: 0
   m_FallbackFontAssetTable:
   - {fileID: 11400000, guid: c3f6f721d34bc44f8a98d226f1d661aa, type: 2}
-  m_CreationSettings:
-    sourceFontFileName: 
-    sourceFontFileGUID: 62ef9a14f1de4459e9d8f1846ff7eeb8
-    pointSizeSamplingMode: 0
-    pointSize: 63
-    padding: 5
-    packingMode: 4
-    atlasWidth: 1024
-    atlasHeight: 1024
-    characterSetSelectionMode: 6
-    characterSequence: 20-7E,600-603,60B-615,61B,61E-61F,621-63A,640-65E,660-6DC,6DF-6E8,6EA-6FF,750-76D,FB50-FBB1,FBD3-FBE9,FBFC-FBFF,FC5E-FC62,FD3E-FD3F,FDF2,FDFC,FE80-FEFC
-    referencedFontAssetGUID: 3f38f1a4cf5f9428a98fa3723b88978a
-    referencedTextAssetGUID: 
-    fontStyle: 0
-    fontStyleModifier: 0
-    renderMode: 16422
-    includeFontFeatures: 1
   m_FontWeightTable:
   - regularTypeface: {fileID: 0}
     italicTypeface: {fileID: 0}
@@ -14970,6 +14949,33 @@ MonoBehaviour:
   boldSpacing: 7
   italicStyle: 35
   tabSize: 10
+  m_fontInfo:
+    Name: Arial
+    PointSize: 55
+    Scale: 1
+    CharacterCount: 616
+    LineHeight: 63.25
+    Baseline: 0
+    Ascender: 49.8125
+    CapHeight: 39.375
+    Descender: -11.625
+    CenterLine: 0
+    SuperscriptOffset: 49.8125
+    SubscriptOffset: -7.841797
+    SubSize: 0.5
+    Underline: -7.841797
+    UnderlineThickness: 4.0283203
+    strikethrough: 13.886364
+    strikethroughThickness: 4.0283203
+    TabWidth: 153.125
+    Padding: 5
+    AtlasWidth: 1024
+    AtlasHeight: 1024
+  m_glyphInfoList: []
+  m_KerningTable:
+    kerningPairs: []
+  fallbackFontAssets: []
+  atlas: {fileID: 28387705860345464}
 --- !u!21 &21863560639530978
 Material:
   serializedVersion: 8
@@ -15078,6 +15084,7 @@ Material:
     - _SpecularColor: {r: 1, g: 1, b: 1, a: 1}
     - _UnderlayColor: {r: 0, g: 0, b: 0, a: 0.5}
   m_BuildTextureStacks: []
+  m_AllowLocking: 1
 --- !u!28 &28387705860345464
 Texture2D:
   m_ObjectHideFlags: 0
@@ -15088,10 +15095,8 @@ Texture2D:
   m_ImageContentsHash:
     serializedVersion: 2
     Hash: 00000000000000000000000000000000
-  m_ForcedFallbackFormat: 4
-  m_DownscaleFallback: 0
   m_IsAlphaChannelOptional: 0
-  serializedVersion: 2
+  serializedVersion: 3
   m_Width: 1024
   m_Height: 1024
   m_CompleteImageSize: 1048576

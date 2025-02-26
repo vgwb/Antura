@@ -42,7 +42,7 @@ namespace Antura.Rewards
                 spawnedGo.transform.position = this.transform.position + Span * i + Random.insideUnitSphere * 0.1f;
                 spawnedGo.transform.localEulerAngles = Random.insideUnitSphere.normalized * 90;
                 spawnedGo.transform.localScale = Vector3.one * (scale + Random.Range(-0.1f, 0.1f));
-                spawnedGo.GetComponent<Rigidbody>().velocity = speed;
+                spawnedGo.GetComponent<Rigidbody>().linearVelocity = speed;
                 spawnedGo.GetComponent<Bone3D>().Switch();
             }
             originalGo.SetActive(false);
