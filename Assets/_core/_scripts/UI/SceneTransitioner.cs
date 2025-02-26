@@ -21,8 +21,6 @@ namespace Antura.UI
         public Image MaskCover;
 
         public Image Icon, Logo;
-        public UIMinigameVariationBadge Badge;
-
         public static bool IsShown { get; private set; }
         public static bool IsPlaying { get; private set; }
 
@@ -32,31 +30,18 @@ namespace Antura.UI
 
         #region Unity
 
-        private void OnEnable()
-        {
-            if (EditionSelectionManager.MustChooseContentEditions)
-            {
-                Logo.enabled = false;
-            }
-            else
-            {
-                Logo.enabled = true;
-                Logo.sprite = AppManager.I.ContentEdition.TransitionLogo;
-            }
-        }
-
         void Awake()
         {
             defIcon = Icon.sprite;
 
-            if (AppManager.I.RootConfig.DebugConfig.SpeedUpAnimations) AnimationDuration = 0.01f;
+            if (AppManager.I.RootConfig.DebugConfig.SpeedUpAnimations)
+                AnimationDuration = 0.01f;
 
             tween = DOTween.Sequence().SetUpdate(true).SetAutoKill(false).Pause()
                 .Append(MaskCover.DOFillAmount(0, AnimationDuration).From())
                 .Join(Icon.transform.DOScale(0.01f, AnimationDuration * 0.6f).From())
                 .Join(Icon.transform.DOPunchRotation(new Vector3(0, 0, 90), AnimationDuration * 0.9f, 6))
                 .Insert(AnimationDuration * 0.4f, Logo.transform.DOScale(0.01f, AnimationDuration * 0.5f).From().SetEase(Ease.OutBack))
-                .Join(Badge.transform.DOScale(0.01f, AnimationDuration * 0.5f).From().SetEase(Ease.OutBack))
                 .OnPlay(() => this.gameObject.SetActive(true))
                 .OnRewind(OnRewind)
                 .OnComplete(OnComplete);
@@ -81,8 +66,6 @@ namespace Antura.UI
         public static void Show(bool _doShow, Action _onComplete = null)
         {
             GlobalUI.Init();
-
-            GlobalUI.SceneTransitioner.SetContent();
             GlobalUI.SceneTransitioner.DoShow(_doShow, _onComplete);
         }
 
@@ -125,25 +108,6 @@ namespace Antura.UI
         #endregion
 
         #region Methods
-
-        void SetContent()
-        {
-            //if (AppConstants.VerboseLogging) Debug.Log(AppManager.I.NavigationManager.IsLoadingMinigame + " > " + AppManager.I.NavigationManager.CurrentMiniGameData);
-            bool isLoadingMinigame = AppManager.I.NavigationManager.IsLoadingMinigame;
-            Logo.gameObject.SetActive(!isLoadingMinigame);
-            if (isLoadingMinigame)
-            {
-                MiniGameData mgData = AppManager.I.NavigationManager.CurrentMiniGameData;
-                Icon.sprite = AppManager.I.AssetManager.GetMainIcon(mgData);
-                Badge.Assign(mgData);
-                Badge.gameObject.SetActive(mgData.HasBadge);
-            }
-            else
-            {
-                Badge.gameObject.SetActive(isLoadingMinigame);
-                Icon.sprite = defIcon;
-            }
-        }
 
         void OnRewind()
         {
