@@ -404,9 +404,9 @@ namespace Antura.Dog
         public void ChangeTo(int target)
         {
             if (RewardUI == null)
-                RewardUI = FindObjectOfType<RewardsUI>().gameObject;
+                RewardUI = FindFirstObjectByType<RewardsUI>().gameObject;
             if (AnimatUI == null)
-                AnimatUI = FindObjectOfType<AnturaAnimationTester>().gameObject;
+                AnimatUI = FindFirstObjectByType<AnturaAnimationTester>().gameObject;
 
             switch (target)
             {

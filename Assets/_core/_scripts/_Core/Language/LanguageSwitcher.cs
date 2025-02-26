@@ -109,7 +109,6 @@ namespace Antura.Language
 
         public IEnumerator PreloadLocalizedDataCO()
         {
-            yield return AudioManager.I.PreloadDataCO();
             yield return AppManager.I.AssetManager.PreloadDataCO();
         }
 

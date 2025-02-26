@@ -43,7 +43,7 @@ namespace Antura.Database.Management
 
         void Awake()
         {
-            inputContent = FindObjectOfType<EditorContentHolder>().InputContent;
+            inputContent = FindFirstObjectByType<EditorContentHolder>().InputContent;
             var langCode = inputContent.LearningLanguage;
 
             dbLoader = GetComponent<DatabaseLoader>();

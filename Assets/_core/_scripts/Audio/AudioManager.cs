@@ -1,4 +1,3 @@
-//#define PRELOAD_DATA
 using Antura.Core;
 using Antura.Database;
 using Antura.Helpers;
@@ -176,29 +175,6 @@ namespace Antura.Audio
             dialogueGroup = DeAudioManager.GetAudioGroup(DeAudioGroupId.Custom1);
 
             musicEnabled = true;
-        }
-
-        public IEnumerator PreloadDataCO()
-        {
-            // Optional pre-loading of all data
-#if PRELOAD_DATA
-            var opDialog =
-                Addressables.LoadAssetsAsync<AudioClip>("audio_dialog", obj =>
-                {
-                    // Debug.Log(obj.name);
-                    //audioCache[obj.name] = obj;
-                });
-            yield return opDialog;
-
-            var opData =
-                Addressables.LoadAssetsAsync<AudioClip>("audio_data", obj =>
-                {
-                    // Debug.Log(obj.name);
-                    // audioCache[obj.name] = obj;
-                });
-            yield return opData;
-#endif
-            yield break;
         }
 
         /// <summary>

@@ -83,7 +83,7 @@ namespace Antura.Debugging
         // ANTURA DISCOVER CHEATS
         readonly DebugCommand[] _discoverCountriesCheats = new[] {
             new DebugCommand("Activate Target Marker on random light beam", CommandCondition.OnPress, KeyCode.T, KeyModifier.Shift, on => {
-                LightBeam beam = FindObjectOfType<LightBeam>(true);
+                LightBeam beam = FindFirstObjectByType<LightBeam>(FindObjectsInactive.Include);
                 if (beam == null) Debug.LogWarning("Couldn't find a target beam");
                 else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
             }),

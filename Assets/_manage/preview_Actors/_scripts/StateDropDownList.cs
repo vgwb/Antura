@@ -1,32 +1,39 @@
-﻿using UnityEngine.UI;
+﻿using UnityEngine;
+using UnityEngine.UI;
 using System;
 using System.Collections.Generic;
 using Antura.LivingLetters;
 
 namespace Antura.Test
 {
-    public class StateDropDownList : Dropdown {
+    public class StateDropDownList : Dropdown
+    {
 
-        new void Start() {
+        new void Start()
+        {
             options.Clear();
             options.AddRange(addOptionsFromEnum<LLAnimationStates>());
-            onValueChanged.AddListener(delegate {
-                foreach (var l in FindObjectsOfType<LivingLetterController>()) {
+            onValueChanged.AddListener(delegate
+            {
+                foreach (var l in FindObjectsByType<LivingLetterController>(FindObjectsSortMode.None))
+                {
                     l.SetState((LLAnimationStates)Enum.Parse(typeof(LLAnimationStates), options[value].text));
                 }
             });
-
         }
 
-        List<OptionData> addOptionsFromEnum<T>() {
+        List<OptionData> addOptionsFromEnum<T>()
+        {
             List<OptionData> optionsToAdd = new List<OptionData>();
-            foreach (var val in Enum.GetValues(typeof(T))) {
+            foreach (var val in Enum.GetValues(typeof(T)))
+            {
                 optionsToAdd.Add(new OptionData() { text = val.ToString() });
             }
             return optionsToAdd;
         }
 
-        protected override void OnDisable() {
+        protected override void OnDisable()
+        {
             base.OnDisable();
 
             onValueChanged.RemoveAllListeners();

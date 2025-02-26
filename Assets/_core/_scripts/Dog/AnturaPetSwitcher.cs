@@ -15,7 +15,8 @@ namespace Antura.Dog
     {
         public bool UseForcedPetType;
         public AnturaPetType ForcedPetType = AnturaPetType.Dog;
-        private AnturaPetType PetType {
+        private AnturaPetType PetType
+        {
             get
             {
                 if (UseForcedPetType)
@@ -68,8 +69,10 @@ namespace Antura.Dog
 
         public void Awake()
         {
-            if (AutoSpawn) LoadPet(PetType);
-            if (StartingModelManager != null) currentModelManager = StartingModelManager;
+            if (AutoSpawn)
+                LoadPet(PetType);
+            if (StartingModelManager != null)
+                currentModelManager = StartingModelManager;
         }
 
         public void LoadPet(AnturaPetType petType)
@@ -88,19 +91,22 @@ namespace Antura.Dog
 
         public void Update()
         {
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             if (Input.GetKeyDown(KeyCode.A))
             {
-                if (UseForcedPetType) return;
-                SwitchPet(alsoLoadInScene:true);
+                if (UseForcedPetType)
+                    return;
+                SwitchPet(alsoLoadInScene: true);
             }
-            #endif
+#endif
         }
 
         public void SwitchPet(bool alsoLoadInScene)
         {
-            if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog) AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
-            else AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
+            if (AppManager.I.Player.PetData.SelectedPet == AnturaPetType.Dog)
+                AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Cat;
+            else
+                AppManager.I.Player.PetData.SelectedPet = AnturaPetType.Dog;
 
             if (alsoLoadInScene)
             {
@@ -109,15 +115,15 @@ namespace Antura.Dog
 
             AppManager.I.Player.Save();
 
-            foreach (var bone3D in FindObjectsOfType<Bone3D>())
+            foreach (var bone3D in FindObjectsByType<Bone3D>(FindObjectsSortMode.None))
             {
                 bone3D.Switch();
             }
-            foreach (var uiBone in FindObjectsOfType<UIBone>())
+            foreach (var uiBone in FindObjectsByType<UIBone>(FindObjectsSortMode.None))
             {
                 uiBone.Switch();
             }
-            foreach (var shopActionUI in FindObjectsOfType<ShopActionUI>())
+            foreach (var shopActionUI in FindObjectsByType<ShopActionUI>(FindObjectsSortMode.None))
             {
                 shopActionUI.RetriggerRender();
             }

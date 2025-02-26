@@ -26,13 +26,13 @@ namespace Antura.AnturaSpace
 
         void Start()
         {
-            var debugPanel = FindObjectOfType<DebugPanel>();
+            var debugPanel = FindFirstObjectByType<DebugPanel>();
             if (debugPanel != null)
             {
                 gameObjectsToHide.Add(debugPanel.gameObject);
             }
 
-            gameObjectsToHide.Add(FindObjectOfType<GlobalUI>().gameObject);
+            gameObjectsToHide.Add(FindFirstObjectByType<GlobalUI>().gameObject);
         }
 
         public void TakePhoto()

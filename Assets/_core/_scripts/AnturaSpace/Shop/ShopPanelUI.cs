@@ -66,7 +66,7 @@ namespace Antura.AnturaSpace
         public void Initialise()
         {
             if (!scene)
-                scene = FindObjectOfType<AnturaSpaceScene>();
+                scene = FindFirstObjectByType<AnturaSpaceScene>();
 
             const float duration = 0.3f;
             showShopPanelTween = DOTween.Sequence().SetAutoKill(false).Pause()
@@ -95,7 +95,7 @@ namespace Antura.AnturaSpace
         private void OnEnable()
         {
             if (!scene)
-                scene = FindObjectOfType<AnturaSpaceScene>();
+                scene = FindFirstObjectByType<AnturaSpaceScene>();
             HandleContextChange(ShopContext.Purchase);
             scrollShowTween.Restart();
         }
@@ -166,7 +166,7 @@ namespace Antura.AnturaSpace
         public void HandleCustomizationShopPurchaseConfirmationRequested(Action confirmPurchase, Action cancelPurchase)
         {
             confirmationPanelUI.SetupForPurchase();
-            AskForConfirmation( () => confirmPurchase(), () => cancelPurchase());
+            AskForConfirmation(() => confirmPurchase(), () => cancelPurchase());
         }
 
         private void HandlePurchaseConfirmationRequested()

@@ -96,7 +96,7 @@ namespace Antura.Assessment
         void Awake()
         {
             instance = this;
-            antura = FindObjectOfType<AnturaView>();
+            antura = FindFirstObjectByType<AnturaView>();
         }
 
         static ItemFactory instance;

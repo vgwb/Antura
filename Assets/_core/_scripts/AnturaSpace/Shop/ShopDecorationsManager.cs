@@ -170,7 +170,7 @@ namespace Antura.AnturaSpace
             // TEST
             if (testDecorationFilling)
             {
-                var allPrefabDecorations = FindObjectsOfType<ShopAction_UnlockDecoration>().ToList().ConvertAll(x => x.UnlockableDecorationObject).ToList();
+                var allPrefabDecorations = FindObjectsByType<ShopAction_UnlockDecoration>(FindObjectsSortMode.None).ToList().ConvertAll(x => x.UnlockableDecorationObject).ToList();
                 foreach (var slot in allShopDecorationSlots)
                 {
                     var prefab = allPrefabDecorations.FirstOrDefault(x => x.slotType == slot.slotType);

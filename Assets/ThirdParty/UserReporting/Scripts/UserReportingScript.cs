@@ -304,7 +304,7 @@ public class UserReportingScript : MonoBehaviour
         // Set Up Event System
         if (Application.isPlaying)
         {
-            EventSystem sceneEventSystem = UnityEngine.Object.FindObjectOfType<EventSystem>();
+            EventSystem sceneEventSystem = UnityEngine.Object.FindFirstObjectByType<EventSystem>();
             if (sceneEventSystem == null)
             {
                 GameObject eventSystem = new GameObject("EventSystem");

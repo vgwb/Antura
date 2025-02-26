@@ -21,13 +21,14 @@ namespace Antura.Collectible
         void Start()
         {
             bonesCounter.Hide();
-            spawnPivots = FindObjectsOfType<CollectibleBoneSpawnPivot>().ToList();
+            spawnPivots = FindObjectsByType<CollectibleBoneSpawnPivot>(FindObjectsSortMode.None).ToList();
             InvokeRepeating("SpawnNewBone", delay, delay);
         }
 
         private void SpawnNewBone()
         {
-            if (spawnPivots.Count == 0) {
+            if (spawnPivots.Count == 0)
+            {
                 // No more spawn pivots left
                 CancelInvoke("SpawnNewBone");
                 return;
@@ -48,7 +49,8 @@ namespace Antura.Collectible
         private bool _isHandlingBone = false;
         private void HandlePickUpBone()
         {
-            if (_isHandlingBone) {
+            if (_isHandlingBone)
+            {
                 StopAllCoroutines();
                 bonesCounter.IncreaseByOne();
                 AppManager.I.Player.AddBones(1);

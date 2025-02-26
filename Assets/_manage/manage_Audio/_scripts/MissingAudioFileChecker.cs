@@ -66,7 +66,7 @@ namespace Antura.Test
                 int missing_count = 0;
                 string missing_keys = "";
                 string langPath = Application.dataPath + "/_lang_bundles/" + lang + "/Audio/Dialogs/";
-                if(CheckDialogs)
+                if (CheckDialogs)
                 {
                     if (Directory.Exists(langPath))
                     {
@@ -296,7 +296,7 @@ namespace Antura.Test
 
                         foreach (LetterData data in letters)
                         {
-                            if(data.NameSound != "")
+                            if (data.NameSound != "")
                             {
                                 var targetFiles = root.GetFiles(data.NameSound + ".*").Where(x =>
                                 {
@@ -311,7 +311,7 @@ namespace Antura.Test
                                     missing_count++;
                                 }
                             }
-                            if(data.PhonemeSound != "")
+                            if (data.PhonemeSound != "")
                             {
                                 var targetFiles = root.GetFiles(data.PhonemeSound + ".*").Where(x =>
                                 {
@@ -417,7 +417,7 @@ namespace Antura.Test
 
         public bool PreValidateAssets()
         {
-            ContentTarget = FindObjectOfType<EditorContentHolder>()?.InputContent;
+            ContentTarget = FindFirstObjectByType<EditorContentHolder>()?.InputContent;
             if (ContentTarget == null) //if its not present in the script (attachable in the inspector), we shut down the call
             {
                 Debug.LogWarning("WARNING: There's no Content - Learn... asset attached to run the task");

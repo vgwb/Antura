@@ -17,14 +17,17 @@ namespace Antura.LivingLetters
 
         void Awake()
         {
-            EditionSelectionManager = FindObjectOfType<EditionSelectionManager>();
+            EditionSelectionManager = FindFirstObjectByType<EditionSelectionManager>();
         }
 
         public void OnMouseDown()
         {
-            if (GlobalUI.PauseMenu.IsMenuOpen) return;
-            if (EditionSelectionManager.selectNativeLanguagePanel.isActiveAndEnabled) return;
-            if (EditionSelectionManager.selectLearningContentPanel.isActiveAndEnabled) return;
+            if (GlobalUI.PauseMenu.IsMenuOpen)
+                return;
+            if (EditionSelectionManager.selectNativeLanguagePanel.isActiveAndEnabled)
+                return;
+            if (EditionSelectionManager.selectLearningContentPanel.isActiveAndEnabled)
+                return;
 
             LivingLetter = GetComponent<LivingLetterController>();
             LivingLetter.ToggleDance();

@@ -52,18 +52,19 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             CamController = this.GetComponent<PlayerCameraController>();
-            StarterInput = FindObjectOfType<StarterAssetsInputs>();
+            StarterInput = FindFirstObjectByType<StarterAssetsInputs>();
             dialogueCam = this.GetComponent<DialogueCamera>();
             mapCam = this.GetComponent<MapCamera>();
             focusCam = this.GetComponent<FocusCamera>();
             ChangeCameraMode(CameraMode.Player);
-            
+
             DiscoverNotifier.Game.OnMapButtonToggled.Subscribe(OnMapButtonToggled);
         }
 
         void OnDestroy()
         {
-            if (I == this) I = null;
+            if (I == this)
+                I = null;
             DiscoverNotifier.Game.OnMapButtonToggled.Unsubscribe(OnMapButtonToggled);
         }
 
@@ -143,11 +144,13 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (toggleOn)
             {
-                if (cameraMode == CameraMode.Player) ChangeCameraMode(CameraMode.Map);
+                if (cameraMode == CameraMode.Player)
+                    ChangeCameraMode(CameraMode.Map);
             }
             else
             {
-                if (cameraMode == CameraMode.Map) ChangeCameraMode(CameraMode.Player);
+                if (cameraMode == CameraMode.Map)
+                    ChangeCameraMode(CameraMode.Player);
             }
         }
 

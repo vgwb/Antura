@@ -54,7 +54,7 @@ namespace Homer
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
 
             // Find all Interactable components in the scene
-            Interactable[] interactables = FindObjectsOfType<Interactable>();
+            Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
 
             // Check if any NodePermalink in Interactable matches the permalinks
             var usedPermalinks = interactables.Where(i => !string.IsNullOrEmpty(i.NodePermalink)).Select(i => i.NodePermalink).ToHashSet();
@@ -76,7 +76,7 @@ namespace Homer
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
 
             // Find all Interactable components in the scene
-            Interactable[] interactables = FindObjectsOfType<Interactable>();
+            Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
 
             // Check if all used NodePermalink in Interactable exist in the permalinks
             var permalinkSet = permalinks.ToHashSet();

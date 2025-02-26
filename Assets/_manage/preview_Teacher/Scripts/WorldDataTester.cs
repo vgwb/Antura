@@ -28,7 +28,7 @@ namespace Antura.Teacher.Test
 
         IEnumerator Start()
         {
-            var edition = FindObjectOfType<Database.Management.EditorContentHolder>().InputContent;
+            var edition = FindFirstObjectByType<Database.Management.EditorContentHolder>().InputContent;
             AppManager.I.AppSettingsManager.SetLearningContentID(edition.ContentID);
             yield return AppManager.I.ReloadEdition();
 
@@ -61,7 +61,8 @@ namespace Antura.Teacher.Test
                 var desiredLetters = new List<LetterData>();
                 foreach (string l in query.Split(","))
                 {
-                    if (l.IsNullOrEmpty()) continue;
+                    if (l.IsNullOrEmpty())
+                        continue;
                     var data = _databaseManager.GetLetterDataById(l.Trim());
                     desiredLetters.Add(data);
                 }
@@ -93,8 +94,10 @@ namespace Antura.Teacher.Test
                         }
                     }
 
-                    if (isCorrect) correctWords.Add(wordData);
-                    else wrongWords.Add(wordData);
+                    if (isCorrect)
+                        correctWords.Add(wordData);
+                    else
+                        wrongWords.Add(wordData);
 
                     if (isCorrect)
                     {
@@ -104,17 +107,19 @@ namespace Antura.Teacher.Test
                             if (lettersInWord.Any(x => x.IsSameLetterAs(desiredLetter, LetterEqualityStrictness.Letter)))
                             {
                                 //Debug.LogError($"Word {wordData.Id} has letter {desiredLetter} we want.");
-                                if (!letterCount.ContainsKey(desiredLetter)) letterCount[desiredLetter] = 0;
+                                if (!letterCount.ContainsKey(desiredLetter))
+                                    letterCount[desiredLetter] = 0;
                                 letterCount[desiredLetter]++;
                             }
                         }
                     }
                 }
 
-                s = $"Group {(iGroup+1)} Letters:\n";
+                s = $"Group {(iGroup + 1)} Letters:\n";
                 foreach (var desiredLetter in desiredLetters)
                 {
-                    if (previousLetters.Contains(desiredLetter)) continue;
+                    if (previousLetters.Contains(desiredLetter))
+                        continue;
                     s += $"{desiredLetter.Id} ({desiredLetter.Isolated}) ({(letterCount.ContainsKey(desiredLetter) ? letterCount[desiredLetter].ToString() : "0")})\n";
 
                     if (!letterCount.ContainsKey(desiredLetter))
@@ -130,14 +135,15 @@ namespace Antura.Teacher.Test
 
                 int totCorrectWords = correctWords.Count;
                 correctWords = correctWords.Where(x => !previousWords.Contains(x)).ToList();
-                s = $"Words for group {iGroup+1}: <b>{correctWords.Count}</b> (tot {totCorrectWords}/{_wordDatas.Count}):\n";
+                s = $"Words for group {iGroup + 1}: <b>{correctWords.Count}</b> (tot {totCorrectWords}/{_wordDatas.Count}):\n";
                 int nWithDrawings = correctWords.Count(x => x.HasDrawing());
                 s += $"(With drawings: {nWithDrawings}/{correctWords.Count}):\n";
                 foreach (var correctWord in correctWords)
                 {
-                    wordToGroup[correctWord.Id] = $"WordGroup{iGroup+1}";
+                    wordToGroup[correctWord.Id] = $"WordGroup{iGroup + 1}";
                     s += $"{correctWord.Id} ({correctWord.Text})";
-                    if (correctWord.HasDrawing()) s += " D";
+                    if (correctWord.HasDrawing())
+                        s += " D";
                     s += "\n";
                 }
                 report += "\n" + s;
@@ -149,7 +155,8 @@ namespace Antura.Teacher.Test
             s = "\nUNUSED WORDS:\n";
             foreach (var word in _vocabularyHelper.GetAllWords(new WordFilters()))
             {
-                if (previousWords.Contains(word)) continue;
+                if (previousWords.Contains(word))
+                    continue;
                 s += $"{word.Id} ({word.Text} {_vocabularyHelper.GetLettersInWord(word).Select(x => x.Isolated).ToJoinedString()})\n";
             }
             report += "\n" + s;
@@ -157,7 +164,8 @@ namespace Antura.Teacher.Test
             s = "\nUNUSED LETTERS:\n";
             foreach (var letter in _vocabularyHelper.GetAllLetters(new LetterFilters()))
             {
-                if (previousLetters.Contains(letter)) continue;
+                if (previousLetters.Contains(letter))
+                    continue;
                 s += $"{letter.Id} ({letter.Isolated})\n";
             }
             report += "\n" + s;

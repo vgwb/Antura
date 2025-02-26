@@ -99,7 +99,7 @@ namespace Antura.Debugging
             {
                 if (AppManager.I.RootConfig.LoadedAppEdition.OpenBugReportOnHiddenButton)
                 {
-                    FindObjectOfType<UserReportingScript>().CreateUserReport();
+                    FindFirstObjectByType<UserReportingScript>().CreateUserReport();
                     clickCounter = 0;
                 }
                 else
@@ -209,7 +209,7 @@ namespace Antura.Debugging
         public void ResetAll()
         {
             Close();
-            DebugManager.I.ResetAll(clearOnly:false);
+            DebugManager.I.ResetAll(clearOnly: false);
         }
 
         public void OnCreateTestProfile()
@@ -259,12 +259,12 @@ namespace Antura.Debugging
 
         #region UI
 
-        #if !UNITY_EDITOR
+#if !UNITY_EDITOR
         private void Update()
         {
             BotTester.I.Config.StopBeforeJP = GetCurrentJourneyPositionInUI();
         }
-        #endif
+#endif
 
         private void BuildUI()
         {
@@ -286,11 +286,11 @@ namespace Antura.Debugging
             BotEnabledToggle.onValueChanged.RemoveAllListeners();
             BotEnabledToggle.onValueChanged.AddListener(v => BotTester.I.Config.BotEnabled = v);
 
-            #if UNITY_EDITOR
+#if UNITY_EDITOR
             BotStopAtJPToggle.gameObject.SetActive(false);
-            #else
+#else
             BotStopAtJPToggle.gameObject.SetActive(true);
-            #endif
+#endif
 
             BotStopAtJPToggle.isOn = BotTester.I.Config.EnableStopBeforeJP;
             BotStopAtJPToggle.onValueChanged.RemoveAllListeners();
@@ -461,7 +461,7 @@ namespace Antura.Debugging
         {
             Close();
             yield return new WaitForEndOfFrame();
-            FindObjectOfType<UserReportingScript>().CreateUserReport();
+            FindFirstObjectByType<UserReportingScript>().CreateUserReport();
         }
     }
 }

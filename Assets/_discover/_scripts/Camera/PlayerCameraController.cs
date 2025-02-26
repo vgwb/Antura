@@ -85,7 +85,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             interactionLayer = InteractionLayer.Movement;
-            camTarget = FindObjectOfType<PlayerCameraTarget>(true).transform;
+            camTarget = FindFirstObjectByType<PlayerCameraTarget>(FindObjectsInactive.Include).transform;
             cineMain.Target.TrackingTarget = camTarget;
             cineMainFollow = cineMain.GetComponent<CinemachineThirdPersonFollow>();
             camTargetOriginalParent = camTarget.parent;
@@ -203,10 +203,10 @@ namespace Antura.Minigames.DiscoverCountry
                 camAngle.x = minMaxVerticalRotation.max;
             else if (camAngle.x < 180 && camAngle.x > minMaxVerticalRotation.min)
                 camAngle.x = minMaxVerticalRotation.min;
-            
+
             GetDataForCamAngle(camAngle, out bool isLookingDown, out float currLookUpPerc, out float currLookDownPerc, out float lookZoomFactor, out float currArmLengthFactor);
             currLookZoomFactor = lookZoomFactor;
-            
+
             // float currArmLengthFactor = isLookingDown ? lookDownArmLengthFactor * currLookDownPerc : lookUpArmLengthFactor * currLookUpPerc;
             cineMainFollow.CameraDistance = baseCamDistance - currLookZoomFactor;
             cineMainFollow.VerticalArmLength = defCamArmLength + currArmLengthFactor;
@@ -230,7 +230,8 @@ namespace Antura.Minigames.DiscoverCountry
             if (isPlayerMoving)
             {
                 float turnAngle = Vector2.Angle(new Vector2(0, 1), new Vector2(InputManager.CurrMovementVector.x, InputManager.CurrMovementVector.z));
-                if (turnAngle > 135) return; // Don't re-adapt camera if moving backwards
+                if (turnAngle > 135)
+                    return; // Don't re-adapt camera if moving backwards
                 speed = 0.25f + (1 - turnAngle / 180) * 2f;
             }
             currPivotEuler.y = camTargetOriginalParent.eulerAngles.y;

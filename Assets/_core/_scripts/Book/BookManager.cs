@@ -31,7 +31,7 @@ namespace Antura.Book
             {
                 var mainMiniGamesList = MiniGamesUtilities.GetMainMiniGameList();
                 var mainMiniGame = mainMiniGamesList.FirstOrDefault(game => game.MainId == directMiniGameData.Main);
-                var gamesPanel = FindObjectOfType<GamesPanel>();
+                var gamesPanel = FindFirstObjectByType<GamesPanel>();
                 gamesPanel.DetailMainMiniGame(mainMiniGame);
                 gamesPanel.DetailMiniGame(mainMiniGame.variations.FirstOrDefault(var => var.data == directMiniGameData));
                 gamesPanel.ScrollTo(mainMiniGame.MainId);

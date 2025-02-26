@@ -23,7 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Awake()
         {
-            camTarget = FindObjectOfType<PlayerCameraTarget>(true).transform;
+            camTarget = FindFirstObjectByType<PlayerCameraTarget>().transform;
             cineMain.Target.TrackingTarget = camTarget;
             playerCamT = this.GetComponent<PlayerCameraController>().CineMain.transform;
             cineComposer = CineMain.GetComponent<CinemachinePositionComposer>();
