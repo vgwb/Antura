@@ -53,7 +53,7 @@ namespace Antura.Core.Services.OnlineAnalytics
         async void Awake()
         {
             var options = new InitializationOptions();
-            if (DebugConfig.I.DeveloperMode)
+            if (DebugConfig.I.DevEnvironment)
             {
                 options.SetEnvironmentName("dev");
                 Debug.LogWarning("Analytics in DEV environment");

@@ -7,13 +7,14 @@ namespace Antura.Core
     {
         public static DebugConfig I => AppManager.I.RootConfig.DebugConfig;
 
+        [Header("Dev Mode (set all to FALSE for release)")]
+
         /// <summary>
-        /// generic settings (for analytics environment, for example)
+        /// Unity Services environment
         /// Set to FALSE for release.
         /// </summary>
-        public bool DeveloperMode = false;
+        public bool DevEnvironment = false;
 
-        [Header("Dev Mode (set all to FALSE for release)")]
         /// <summary>
         /// Enables the Advanced Debug Panel (click bottom right corner of the screen to activate)
         /// Set to FALSE for production.
@@ -27,7 +28,7 @@ namespace Antura.Core
         public bool BypassDialogs = false;
 
         /// <summary>
-        /// Enable shortcuts
+        /// Enable shortcuts (DebugControlsManager)
         /// Set to FALSE for production.
         /// </summary>
         public bool CheatCodesEnabled = false;
