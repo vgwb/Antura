@@ -136,19 +136,15 @@ namespace Antura.Core
         /// </summary>
         public void GoToNextScene()
         {
-            if (DebugConfig.I.DebugLogEnabled)
-            {
+            if (DebugConfig.I.VerboseAntura)
                 Debug.LogFormat(" ---- NAV MANAGER ({1}) scene {0} ---- ", NavData.CurrentScene, "GoToNextScene");
-            }
+
             switch (NavData.CurrentScene)
             {
                 case AppScene.Home:
                     if (AppManager.IsLearningMethod(LearnMethod.DiscoverCountry))
                     {
                         GoToScene(AppScene.DiscoverCountry);
-                        // AppManager.I.Player.SetCurrentJourneyPosition(AppManager.I.Player.MaxJourneyPosition, false, true);
-                        // var config = new MinigameLaunchConfiguration(0, 1, tutorialEnabled: true, directGame: true);
-                        // AppManager.I.GameLauncher.LaunchGame(MiniGameCode.Discover_Country, config);
                     }
                     else
                     {
@@ -252,10 +248,9 @@ namespace Antura.Core
             if (NavData.PrevSceneStack.Count > 0)
             {
                 var prevScene = NavData.PrevSceneStack.Pop();
-                if (DebugConfig.I.DebugLogEnabled)
-                {
+                if (DebugConfig.I.VerboseAntura)
                     Debug.LogFormat(" ---- NAV MANAGER ({0}) from scene {1} to {2} ---- ", "GoBack", NavData.CurrentScene, prevScene);
-                }
+
                 GoToScene(prevScene);
             }
         }
@@ -312,13 +307,13 @@ namespace Antura.Core
         {
             IsLoadingMinigame = sceneName.Substring(0, 5) == "game_";
 
-            if (DebugConfig.I.DebugLogEnabled)
-            {
+            if (DebugConfig.I.VerboseAntura)
                 Debug.LogFormat(" ==== Loading scene {0} ====", sceneName);
-            }
 
-            if (noTransition) SceneManager.LoadScene(sceneName, mode);
-            else SceneTransitionManager.LoadSceneWithTransition(sceneName, mode);
+            if (noTransition)
+                SceneManager.LoadScene(sceneName, mode);
+            else
+                SceneTransitionManager.LoadSceneWithTransition(sceneName, mode);
 
             AppManager.I.Services.Analytics.TrackScene(sceneName);
             LogManager.I.LogInfo(InfoEvent.EnterScene, "{\"Scene\":\"" + sceneName + "\"}");
@@ -331,10 +326,9 @@ namespace Antura.Core
             {
                 if (NavData.PrevSceneStack.Count == 0 || NavData.PrevSceneStack.Peek() != NavData.CurrentScene)
                 {
-                    if (DebugConfig.I.DebugLogEnabled)
-                    {
+                    if (DebugConfig.I.VerboseAntura)
                         Debug.Log("Added BACKABLE transition " + NavData.CurrentScene + " to " + newScene);
-                    }
+
                     NavData.PrevSceneStack.Push(NavData.CurrentScene);
                 }
             }

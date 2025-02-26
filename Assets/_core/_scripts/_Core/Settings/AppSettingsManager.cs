@@ -117,14 +117,16 @@ namespace Antura.Core
             {
                 AppVersionPrevious = new Version(Settings.AppVersion);
             }
-            Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
+            if (DebugConfig.I.VerboseAntura)
+                Debug.Log("AppVersion is: " + AppManager.I.AppEdition.AppVersion + " (previous:" + AppVersionPrevious + ")");
             Settings.SetAppVersion(AppManager.I.AppEdition.AppVersion);
             SaveSettings();
         }
 
         public void EnableShareAnalytics(bool status)
         {
-            Debug.Log("EnableShareAnalytics " + status);
+            if (DebugConfig.I.VerboseAntura)
+                Debug.Log("EnableShareAnalytics " + status);
             Settings.ShareAnalyticsEnabled = status;
             SaveSettings();
         }

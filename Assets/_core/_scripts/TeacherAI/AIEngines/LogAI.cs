@@ -322,8 +322,8 @@ namespace Antura.Teacher
 
         public void LogMiniGameScore(int appSession, JourneyPosition pos, MiniGameCode miniGameCode, int score, float playTime)
         {
-            if (DebugConfig.I.DebugLogEnabled)
-            { Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score); }
+            if (DebugConfig.I.VerboseAntura)
+                Debug.Log("LogMiniGameScore " + miniGameCode + " / " + score);
 
             // Log for history
             var data = new LogMiniGameScoreData(appSession, pos, miniGameCode, score, playTime);
@@ -350,7 +350,8 @@ namespace Antura.Teacher
 
         public void LogMiniGameScores(int appSession, List<LogMiniGameScoreParams> logMiniGameScoreParams, bool demoUser = false)
         {
-            //if (AppConstants.VerboseLogging) Debug.Log("LogMiniGameScore " + logMiniGameScoreParams.MiniGameCode + " / " + logMiniGameScoreParams.Score);
+            // if (DebugConfig.I.VerboseAntura)
+            //     Debug.Log("LogMiniGameScore " + logMiniGameScoreParams. + " / " + logMiniGameScoreParams.Score);
 
             // Retrieve previous scores
             string query = string.Format("SELECT * FROM " + nameof(MiniGameScoreData));
@@ -390,14 +391,15 @@ namespace Antura.Teacher
                 }
             }
 
-            if (!demoUser) db.InsertAll(logDataList);
+            if (!demoUser)
+                db.InsertAll(logDataList);
             db.InsertOrReplaceAll(scoreDataList);
         }
 
         public void LogPlaySessionScore(int appSession, JourneyPosition pos, int score, float playTime)
         {
-            if (DebugConfig.I.DebugLogEnabled)
-            { Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score); }
+            if (DebugConfig.I.VerboseAntura)
+                Debug.Log("LogPlaySessionScore " + pos.Id + " / " + score);
 
             // Log for history
             var data = new LogPlaySessionScoreData(appSession, pos, score, playTime);
@@ -444,7 +446,8 @@ namespace Antura.Teacher
                 }
             }
 
-            if (!demoUser) db.InsertAll(logDataList);
+            if (!demoUser)
+                db.InsertAll(logDataList);
             db.InsertOrReplaceAll(scoreDataList);
         }
         #endregion

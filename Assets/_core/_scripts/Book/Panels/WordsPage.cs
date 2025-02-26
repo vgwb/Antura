@@ -241,7 +241,7 @@ namespace Antura.Book
                 WordDrawingText.text = "";
             }
 
-            if (DebugConfig.I.DebugLogEnabled)
+            if (DebugConfig.I.VerboseBook)
             {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
                 Debug.Log("drawing code: " + currentWordInfo.data.DrawingId);

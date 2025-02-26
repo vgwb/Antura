@@ -49,16 +49,16 @@ namespace Antura.Core
         /// </summary>
         public bool AddressablesBlockingLoad => Application.isEditor;  // @note: always forced to false when out of the editor, or it hides slowdowns, but true in editor so play is fast
 
-        [Header("Tutorial")]
-        public bool SimulateFirstContact;
-        public FirstContactPhase SimulateFirstContactPhase;
-        public bool ForceAllRewardsUnlocked;
-
         [Header("Verbose")]
         public bool VerboseAntura;
         public bool VerboseBook;
         public bool VerboseAudio;
         public bool VerboseAssetsManager;
+
+        [Header("Tutorial")]
+        public bool SimulateFirstContact;
+        public FirstContactPhase SimulateFirstContactPhase;
+        public bool ForceAllRewardsUnlocked;
 
         [Header("AI")]
         public bool VerboseTeacher;
