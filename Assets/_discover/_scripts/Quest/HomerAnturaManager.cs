@@ -285,8 +285,8 @@ namespace Antura.Minigames.DiscoverCountry
                     choice.AudioId = element._id;
                     choice.Index = HomerElements.IndexOf(element);
 
-                    // if we are in the last elements and color is blue then we higlight this!
-                    if (elementsIndex == elementsCount - 1)
+                    // if we are in the last element and the node color is blue then we higlight this!
+                    if ((elementsIndex == elementsCount - 1) && (node.Color == "Blue"))
                     {
                         choice.Highlight = true;
                     }
