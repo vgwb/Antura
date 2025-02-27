@@ -22,6 +22,7 @@ namespace Antura.Profile
         [Header("Settings")]
         [Tooltip("If TRUE automatically initializes to the current player")]
         public bool AutoInit;
+        public bool NonInteractable;
         [DeComment("Level is auto-hidden if the player has the hat", style = DeCommentStyle.WrapNextLine, marginBottom = -1)]
         public bool HideLevel;
         public bool HideName;
@@ -74,6 +75,14 @@ namespace Antura.Profile
             PlayerNameBox.gameObject.SetActive(!HideName);
             Background.gameObject.SetActive(!HideBackground);
             Highlight.SetActive(!HideHighlight);
+
+            if (NonInteractable)
+            {
+                this.GetComponent<Button>().enabled = false;
+                UIButton.enabled = false;
+                Image[] raycastBlockers = this.GetComponentsInChildren<Image>(true);
+                foreach (Image img in raycastBlockers) img.raycastTarget = false;
+            }
         }
 
         void Start()
