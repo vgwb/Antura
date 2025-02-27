@@ -12,8 +12,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         [Range(1, 10)]
         [SerializeField] float bgRotationDuration = 1;
-        [Range(1, 30)]
-        [SerializeField] int intervalBetweenBarks = 6;
         [SerializeField] Ease transparencyCurve = Ease.InSine;
         [Range(0, 1f)]
         [SerializeField] float fullTransparencyMinPerc = 0.1f;
@@ -51,7 +49,6 @@ namespace Antura.Minigames.DiscoverCountry
                 .SetEase(Ease.Linear)
                 .SetLoops(-1, LoopType.Restart);
 
-            float barkDuration = 0.5f;
             loopTween = DOTween.Sequence().SetAutoKill(false).Pause().SetLoops(-1, LoopType.Restart)
                 .Join(ico.transform.DOScale(ico.transform.localScale * 0.85f, 0.75f).SetEase(Ease.InOutSine).SetLoops(2, LoopType.Yoyo));
 
