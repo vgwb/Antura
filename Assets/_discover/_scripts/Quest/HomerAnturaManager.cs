@@ -270,6 +270,8 @@ namespace Antura.Minigames.DiscoverCountry
 
                 node.Choices = new List<NodeChoice>();
                 var HomerElements = runner.GetAvailableChoiceElements();
+                int elementsIndex = 0;
+                int elementsCount = HomerElements.Count();
                 foreach (var element in HomerElements)
                 {
                     var choice = new NodeChoice();
@@ -282,7 +284,15 @@ namespace Antura.Minigames.DiscoverCountry
                     //choice.Image = GetImage(element._image);
                     choice.AudioId = element._id;
                     choice.Index = HomerElements.IndexOf(element);
+
+                    // if we are in the last elements and color is blue then we higlight this!
+                    if (elementsIndex == elementsCount - 1)
+                    {
+                        choice.Highlight = true;
+                    }
+
                     node.Choices.Add(choice);
+                    elementsIndex++;
                 }
             }
 
