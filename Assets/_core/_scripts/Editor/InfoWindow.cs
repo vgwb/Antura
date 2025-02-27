@@ -6,58 +6,23 @@ namespace Antura.Editor
 {
     public class InfoView : EditorWindow
     {
-        [MenuItem("Antura/Info", false, 300)]
-        static void ShowWindow()
+
+        [MenuItem("Antura/Info/GitHub repository", false, 300)]
+        static void OpenGitHub()
         {
-            EditorWindow.GetWindow(typeof(InfoView));
+            Application.OpenURL(AppConfig.UrlGithubRepository);
         }
 
-        void OnGUI()
+        [MenuItem("Antura/Info/GitHub Project", false, 300)]
+        static void OpenGitHubProject()
         {
-            this.titleContent.text = "Antura";
-            // EditorGUILayout.LabelField("Version " + AppManager.I.Edition.AppVersion);
-
-            DrawFooterLayout(Screen.width);
+            Application.OpenURL(AppConfig.UrlGithubProject);
         }
 
-
-        public void DrawFooterLayout(float width)
+        [MenuItem("Antura/Info/antura.org", false, 300)]
+        static void OpenAnturaWebsite()
         {
-            EditorGUILayout.BeginVertical();
-
-            var margin = (EditorStyles.miniButton.padding.left) / 2f;
-            width = width - margin * 2;
-
-            if (GUILayout.Button("Developer docs"))
-            {
-                Application.OpenURL(AppConfig.UrlDeveloperDocs);
-            }
-
-            if (GUILayout.Button("Source Code (GitHub project)"))
-            {
-                Application.OpenURL(AppConfig.UrlGithubRepository);
-            }
-
-            if (GUILayout.Button("GitHub issues"))
-            {
-                Application.OpenURL(AppConfig.UrlGithubRepository + "/issues");
-            }
-
-            if (GUILayout.Button("antura.org"))
-            {
-                Application.OpenURL(AppConfig.UrlWebsite);
-            }
-
-            if (GUILayout.Button("Homer Antura"))
-            {
-                Application.OpenURL(AppConfig.UrlHomer);
-            }
-
-            //if (GUILayout.Button("Trello", GUILayout.Width(width / 2f - margin))) {
-            //    Application.OpenURL(AppConstants.UrlTrello);
-            //}
-
-            EditorGUILayout.EndVertical();
+            Application.OpenURL(AppConfig.UrlWebsite);
         }
     }
 }
