@@ -20,7 +20,7 @@ namespace Antura.UI
         [DeEmptyAlert]
         public Button BtClose;
         [DeEmptyAlert]
-        [SerializeField] Button btCreateTeacher;
+        public Button BtCreateTeacher;
         [DeEmptyAlert]
         [SerializeField] Button btOptions;
         [DeEmptyAlert]
@@ -39,7 +39,7 @@ namespace Antura.UI
 
         public void ShowExtraButtons(bool doShow)
         {
-            btCreateTeacher.gameObject.SetActive(doShow);
+            BtCreateTeacher.gameObject.SetActive(doShow);
             btOptions.gameObject.SetActive(doShow);
             btInfo.gameObject.SetActive(doShow);
             BtClose.gameObject.SetActive(doShow);

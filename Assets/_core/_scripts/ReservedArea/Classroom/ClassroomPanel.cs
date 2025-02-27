@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Antura.Audio;
 using Antura.Core;
+using Antura.Database;
 using Antura.Profile;
 using Antura.Scenes;
 using Antura.Teacher;
@@ -63,7 +64,8 @@ namespace Antura.UI
                         break;
                 }
             });
-            profilesPanel.BtCreateProfile.onClick.AddListener(CreateProfile);
+            profilesPanel.BtCreateProfile.onClick.AddListener(() => CreateProfile(false));
+            header.BtCreateTeacher.onClick.AddListener(() => CreateProfile(true));
 
             createProfileBgBlocker.gameObject.SetActive(false);
             if (!isOpen)
@@ -177,19 +179,32 @@ namespace Antura.UI
             }
         }
 
-        void CreateProfile()
+        // Demo player also means teacher
+        void CreateProfile(bool isDemoPlayer)
         {
-            this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile());
+            this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile(isDemoPlayer));
         }
 
-        IEnumerator CO_CreateProfile()
+        IEnumerator CO_CreateProfile(bool isDemoPlayer)
         {
             createProfileBgBlocker.gameObject.SetActive(true);
             yield return null;
-
-            AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
-            PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
-            PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
+            
+            if (isDemoPlayer)
+            {
+                if (AppManager.I.PlayerProfileManager.IsDemoUserExisting()) GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
+                else
+                {
+                    yield return StartCoroutine(CreateDemoPlayer());
+                    OnPlayerCreationComplete();
+                }
+            }
+            else
+            {
+                AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
+                PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
+                PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
+            }
 
             coCreateProfile = null;
         }
@@ -223,7 +238,12 @@ namespace Antura.UI
 
         void OnPlayerCreationComplete()
         {
-            SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
+            Scene creationScene = SceneManager.GetSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation));
+            if (SceneManager.GetActiveScene() == creationScene)
+            {
+                // Normal player creation
+                SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
+            }
             createProfileBgBlocker.SetActive(false);
             Refresh();
             OpenClass(currClassroomIndex);
@@ -231,36 +251,18 @@ namespace Antura.UI
 
         #endregion
 
-
-        public void OnCreateDemoPlayer()
-        {
-            if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
-            {
-                GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
-            }
-            else
-            {
-                //GlobalUI.ShowPrompt(Database.LocalizationDataId.UI_AreYouSure, DoCreateDemoPlayer, DoNothing, Keeper.KeeperMode.NativeNoSubtitles);
-                DoCreateDemoPlayer();
-            }
-        }
-
-        void DoCreateDemoPlayer()
-        {
-            StartCoroutine(CreateDemoPlayer());
-        }
-
         #region Demo User Helpers
 
-        private static bool TEST_ALMOST_AT_END = false;
+        // This is never updated so it's useless. Leaving it here only for safety because it refers to old Antura code
+        static bool testAlmostAtEnd = false;
 
-        public IEnumerator CreateDemoPlayer()
+        IEnumerator CreateDemoPlayer()
         {
             //Debug.Log("creating DEMO USER ");
             yield return null;
-            activateWaitingScreen(true);
+            ActivateWaitingScreen(true);
             yield return null;
-            var demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(0, true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
+            string demoUserUiid = AppManager.I.PlayerProfileManager.CreatePlayerProfile(0, true, 1, PlayerGender.M, PlayerTint.Purple, Color.yellow, Color.red, Color.magenta, 4,
                         AppManager.I.AppEdition.editionID,
                         AppManager.I.ContentEdition.ContentID,
                         AppManager.I.AppEdition.AppVersion,
@@ -269,19 +271,18 @@ namespace Antura.UI
 
             // Populate with complete data
             // Find all content editions with the current native language
-            var allConfigs = new List<ContentEditionConfig>();
+            List<ContentEditionConfig> allConfigs = new List<ContentEditionConfig>();
             SelectLearningContentPanel.FindAllContentEditions(allConfigs, AppManager.I.AppSettings.NativeLanguage);
 
             foreach (ContentEditionConfig config in allConfigs)
             {
-                var contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(config.ContentID);
+                ContentProfile contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(config.ContentID);
                 AppManager.I.NavigationManager.NavData.CurrentContent = contentProfile;
 
                 yield return AppManager.I.ReloadEdition();
 
-                var maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
-                if (TEST_ALMOST_AT_END)
-                    maxJourneyPos = new JourneyPosition(6, 13, 100);
+                JourneyPosition maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
+                if (testAlmostAtEnd) maxJourneyPos = new JourneyPosition(6, 13, 100); // Never TRUE
                 yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
 
                 AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);
@@ -289,7 +290,7 @@ namespace Antura.UI
             }
             AppManager.I.Player.AddBones(500);
 
-            if (!TEST_ALMOST_AT_END)
+            if (!testAlmostAtEnd) // Always FALSE
             {
                 AppManager.I.Player.SetFinalShown(isInitialising: true);
                 AppManager.I.Player.HasFinishedTheGame = true;
@@ -300,11 +301,11 @@ namespace Antura.UI
             AppManager.I.FirstContactManager.ForceAllCompleted();
             AppManager.I.RewardSystemManager.UnlockAllPacks();
 
-            activateWaitingScreen(false);
+            ActivateWaitingScreen(false);
             Refresh();
         }
 
-        void activateWaitingScreen(bool status)
+        void ActivateWaitingScreen(bool status)
         {
             pleaseWaitPanel.gameObject.SetActive(status);
             // GlobalUI.I.BackButton.gameObject.SetActive(!status);
@@ -314,7 +315,7 @@ namespace Antura.UI
         {
             bool useBestScores = true;
 
-            var logAi = AppManager.I.Teacher.logAI;
+            LogAI logAi = AppManager.I.Teacher.logAI;
 
             // Add some mood data
             Debug.Log("Start adding mood scores");
@@ -329,8 +330,8 @@ namespace Antura.UI
             // Add scores for all play sessions
             Debug.Log("Start adding PS scores");
             yield return null;
-            var logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
-            var allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(targetPosition);
+            List<LogPlaySessionScoreParams> logPlaySessionScoreParamsList = new List<LogPlaySessionScoreParams>();
+            IEnumerable<JourneyPosition> allJPs = AppManager.I.JourneyHelper.GetAllJourneyPositionsUpTo(targetPosition);
             foreach (var jp in allJPs)
             {
                 if (jp.Stage <= targetPosition.Stage)
@@ -345,8 +346,8 @@ namespace Antura.UI
             // Add scores for all minigames
             Debug.Log("Start adding MiniGame scores");
             yield return null;
-            var logMiniGameScoreParamses = new List<LogMiniGameScoreParams>();
-            var allMiniGameInfo = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
+            List<LogMiniGameScoreParams> logMiniGameScoreParamses = new List<LogMiniGameScoreParams>();
+            List<MiniGameInfo> allMiniGameInfo = AppManager.I.ScoreHelper.GetAllMiniGameInfo();
             for (int i = 0; i < allMiniGameInfo.Count; i++)
             {
                 int score = useBestScores
