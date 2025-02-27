@@ -33,10 +33,17 @@ namespace Antura.LivingLetters
 
         public SkinnedMeshRenderer[] Internal, External, Cinetic;
 
+        Tween scaleTween;
+
         void Awake()
         {
             transform.DOScale(0, 0);
             SetEmoticon(Icon, false);
+        }
+
+        void OnDestroy()
+        {
+            scaleTween.Kill();
         }
 
         void CleanEmoticonIcons()
@@ -108,16 +115,18 @@ namespace Antura.LivingLetters
 
         public void Open(bool _isOpen)
         {
+            scaleTween.Kill();
+            
             if (_isOpen)
             {
-                transform.DOScale(1, 0.1f);
+                scaleTween = transform.DOScale(1, 0.1f);
             }
 
             anim.SetBool("IsOpen", _isOpen);
 
             if (!_isOpen)
             {
-                transform.DOScale(0, 0.1f);
+                scaleTween = transform.DOScale(0, 0.1f);
             }
         }
 

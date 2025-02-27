@@ -130,7 +130,14 @@ namespace Antura.Minigames
 
         public void DestroyRunLetter()
         {
+            Clear();
             UnityEngine.Object.Destroy(letterObject.gameObject);
+        }
+
+        public void Clear()
+        {
+            moveTweener.Kill();
+            rotationTweener.Kill();
         }
 
         void CalcNextRotationAndPosition()

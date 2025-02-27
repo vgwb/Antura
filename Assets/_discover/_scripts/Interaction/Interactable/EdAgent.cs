@@ -1,5 +1,6 @@
 using System;
 using DG.Tweening;
+// using DG.Tweening;
 using Homer;
 using UnityEngine;
 using UnityEngine.AI;
@@ -13,13 +14,17 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Transform[] Waypoints;
         private int sequentialWaypointIndex;
+        Tween lookTween;
 
         public virtual void Start()
         {
             StartMovement();
         }
 
-
+        void OnDestroy()
+        {
+            lookTween.Kill();
+        }
 
         public void StartMovement()
         {
@@ -44,7 +49,9 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (aiPaused)
             {
-                transform.DOLookAt(currentTarget.position, 0.5f).Play();
+                // FIXME: this SHOULD NOT be a tween (I'm Daniele so I know :D)
+                lookTween.Kill();
+                lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
             }
         }
 

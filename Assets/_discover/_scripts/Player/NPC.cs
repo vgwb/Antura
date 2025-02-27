@@ -11,12 +11,18 @@ namespace Antura.Minigames.DiscoverCountry
         {
             StartMovement();
         }
+        
+        void OnDestroy()
+        {
+            lookTween.Kill();
+        }
 
         [Header("AI")]
         public NavMeshAgent NavMeshAgent;
 
         public Transform[] Waypoints;
         private int sequentialWaypointIndex;
+        Tween lookTween;
 
         public void StartMovement()
         {
@@ -41,7 +47,9 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (aiPaused)
             {
-                transform.DOLookAt(currentTarget.position, 0.5f).Play();
+                // FIXME: this SHOULD NOT be a tween (I'm Daniele so I know :D)
+                lookTween.Kill();
+                lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
             }
         }
 

@@ -9,7 +9,7 @@ namespace Antura.Minigames
         public Transform[] leftOutPositions;
         public Transform[] rightOutPositions;
 
-        private List<RunLetter> runLetters = new List<RunLetter>();
+        readonly List<RunLetter> runLetters = new List<RunLetter>();
 
         private GameObject letterObjectPrefab;
         private GameObject shadowPrefab;
@@ -18,6 +18,11 @@ namespace Antura.Minigames
         {
             this.letterObjectPrefab = letterObjectPrefab;
             this.shadowPrefab = shadowPrefab;
+        }
+
+        void OnDestroy()
+        {
+            for (int i = 0; i < runLetters.Count; i++) runLetters[i].Clear();
         }
 
         public RunLetter AddRunLetter(ILivingLetterData letterData, Vector3 scale = default)

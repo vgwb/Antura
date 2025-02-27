@@ -9,6 +9,13 @@ namespace Antura.Animation
         private Tweener scaleTweener;
 
         private bool _pulsing;
+
+        void OnDestroy()
+        {
+            rotateTweener.Kill();
+            scaleTweener.Kill();
+        }
+        
         public void SetPulsing(bool choice)
         {
             _pulsing = choice;
