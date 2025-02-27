@@ -21,7 +21,7 @@ namespace Antura.UI
             Profiles,
             ProfileDetail
         }
-
+        
         #region Serialized
 
         [SerializeField] bool hideGlobalUIBackButton = true;
@@ -44,6 +44,7 @@ namespace Antura.UI
         int currClassroomIndex;
         bool isValidClassroom;
         bool backButtonWasOn;
+        bool isCreatingDemoProfile;
         List<PlayerIconData> allProfiles;
         readonly Dictionary<int, List<PlayerIconData>> profilesByClassroomIndex = new();
         Coroutine coCreateProfile;
@@ -182,25 +183,27 @@ namespace Antura.UI
         // Demo player also means teacher
         void CreateProfile(bool isDemoPlayer)
         {
+            isCreatingDemoProfile = isDemoPlayer;
             this.RestartCoroutine(ref coCreateProfile, CO_CreateProfile(isDemoPlayer));
         }
 
         IEnumerator CO_CreateProfile(bool isDemoPlayer)
         {
-            createProfileBgBlocker.gameObject.SetActive(true);
-            yield return null;
-            
             if (isDemoPlayer)
             {
                 if (AppManager.I.PlayerProfileManager.IsDemoUserExisting()) GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
                 else
                 {
+                    createProfileBgBlocker.gameObject.SetActive(true);
+                    yield return null;
                     yield return StartCoroutine(CreateDemoPlayer());
                     OnPlayerCreationComplete();
                 }
             }
             else
             {
+                createProfileBgBlocker.gameObject.SetActive(true);
+                yield return null;
                 AppManager.I.NavigationManager.GoToSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation), LoadSceneMode.Additive, true);
                 PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
                 PlayerCreationScene.OnCreationComplete.Subscribe(OnPlayerCreationComplete);
@@ -238,8 +241,7 @@ namespace Antura.UI
 
         void OnPlayerCreationComplete()
         {
-            Scene creationScene = SceneManager.GetSceneByName(SceneHelper.GetSceneName(AppScene.PlayerCreation));
-            if (SceneManager.GetActiveScene() == creationScene)
+            if (!isCreatingDemoProfile)
             {
                 // Normal player creation
                 SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
