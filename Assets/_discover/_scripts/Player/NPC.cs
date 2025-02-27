@@ -47,9 +47,16 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (aiPaused)
             {
-                // FIXME: this SHOULD NOT be a tween (I'm Daniele so I know :D)
-                lookTween.Kill();
-                lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
+                // This SHOULD NOT be a tween (I'm Daniele so I know :D)
+                // lookTween.Kill();
+                // lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
+                
+                // FIXED
+                Quaternion orRot = transform.localRotation;
+                transform.LookAt(currentTarget.position);
+                Quaternion targetRot = transform.localRotation;
+                transform.localRotation = orRot;
+                transform.localRotation = Quaternion.Slerp(orRot, targetRot, 0.5f);
             }
         }
 
