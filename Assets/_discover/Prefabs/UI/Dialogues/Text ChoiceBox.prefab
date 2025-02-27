@@ -334,15 +334,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 0
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 0
   m_isOrthographic: 1
   m_isCullingEnabled: 0
@@ -415,19 +417,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b84ddc7b05c42b79479f87b86d2bedd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedNumberColor: {r: 0.35686275, g: 0.6784314, b: 0.21960786, a: 1}
   selectedScale: 1.2
   selectedShift: 0
+  selectedNumberColor: {r: 0.35686275, g: 0.6784314, b: 0.21960786, a: 1}
+  exitChoiceColors:
+    m_NormalColor: {r: 0.79215693, g: 0.23137257, b: 0.26666668, a: 1}
+    m_HighlightedColor: {r: 0.9150943, g: 0.15970986, b: 0.20725168, a: 1}
+    m_PressedColor: {r: 0.91372555, g: 0.16078432, b: 0.20784315, a: 1}
+    m_SelectedColor: {r: 0.79215693, g: 0.23137257, b: 0.26666668, a: 1}
+    m_DisabledColor: {r: 0.79215693, g: 0.23137257, b: 0.26666668, a: 1}
+    m_ColorMultiplier: 1
+    m_FadeDuration: 0.1
   btMain: {fileID: 4944782924134865447}
   btConfirm: {fileID: 8990706877451043484}
   numbox: {fileID: 5583109089877758554}
   icoTranslation: {fileID: 7789663069291330821}
   tfNumber: {fileID: 380077697730679327}
+  textRender: {fileID: 7998382904976296016}
   bg: {fileID: 4754800406728382784}
   box: {fileID: 5616531349353686726}
   confirmBg: {fileID: 5456411956862779667}
   confirmArrow: {fileID: 956837561641571760}
-  textRender: {fileID: 7998382904976296016}
   tf: {fileID: 2059863642764171461}
 --- !u!114 &4944782924134865447
 MonoBehaviour:
@@ -828,15 +838,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 1
+  m_TextWrappingMode: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 0
   m_isOrthographic: 1
   m_isCullingEnabled: 0

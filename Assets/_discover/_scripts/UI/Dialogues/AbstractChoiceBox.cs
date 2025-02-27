@@ -23,9 +23,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Serialized
 
-        [SerializeField] Color selectedNumberColor = Color.green;
         [SerializeField] protected float selectedScale = 1.2f;
         [SerializeField] protected float selectedShift = 0; // Used by children
+        [SerializeField] Color selectedNumberColor = Color.green;
+        [Header("Exit Choice ColorBlock")]
+        [SerializeField] ColorBlock exitChoiceColors = ColorBlock.defaultColorBlock;
         [Header("References")]
         [DeEmptyAlert]
         [SerializeField] protected Button btMain, btConfirm;
@@ -48,15 +50,18 @@ namespace Antura.Minigames.DiscoverCountry
         public string AudioId { get; private set; }
 
         protected NodeChoice currChoice;
-        bool UseLearningLanguage = true;
+        bool useLearningLanguage = true;
         bool selected;
         bool confirmedForThisRound;
+        ColorBlock defMainColorBlock;
         Sequence showTween, hoverTween, selectTween, confirmHoverTween, confirmTween;
 
         #region Unity
 
         void Awake()
         {
+            defMainColorBlock = btMain.colors;
+            
             showTween = CreateShowTween().SetAutoKill(false).Pause();
             hoverTween = CreateHoverTween().SetAutoKill(false).Pause();
             selectTween = CreateSelectTween().SetAutoKill(false).Pause()
@@ -80,7 +85,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             btMain.onClick.AddListener(Select);
             btConfirm.onClick.AddListener(Confirm);
-            UseLearningLanguage = true;
+            useLearningLanguage = true;
         }
 
         void OnDestroy()
@@ -108,13 +113,14 @@ namespace Antura.Minigames.DiscoverCountry
             btConfirm.interactable = interactable;
         }
 
-        public void Show(NodeChoice choiceNode, bool UseLearningLanguage)
+        public void Show(NodeChoice choiceNode, bool doUseLearningLanguage)
         {
+            btMain.colors = choiceNode.Highlight ? exitChoiceColors : defMainColorBlock;
             currChoice = choiceNode;
             confirmedForThisRound = false;
             confirmTween.Rewind();
             string text = currChoice.Content;
-            DisplayText(UseLearningLanguage);
+            DisplayText(doUseLearningLanguage);
             showTween.Restart();
         }
 
@@ -124,7 +130,7 @@ namespace Antura.Minigames.DiscoverCountry
             hoverTween.PlayBackwards();
             confirmHoverTween.PlayBackwards();
             showTween.PlayBackwards();
-            UseLearningLanguage = true;
+            useLearningLanguage = true;
         }
 
         public void Deselect(float timeScale = 2)
@@ -171,8 +177,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Select()
         {
-            UseLearningLanguage = !UseLearningLanguage;
-            DisplayText(UseLearningLanguage);
+            useLearningLanguage = !useLearningLanguage;
+            DisplayText(useLearningLanguage);
 
             if (selected)
                 return;
