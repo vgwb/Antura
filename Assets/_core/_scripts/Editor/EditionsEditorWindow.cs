@@ -64,7 +64,7 @@ namespace Antura.Tools
             window.selectedNativeLanguageIndex = languages.IndexOf(appSettings.NativeLanguage);
         }
 
-        [MenuItem("Antura/Edition selector", false, 300)]
+        [MenuItem("Antura/Overview", false, 10)]
         public static void ShowWindow()
         {
             Rebuild();
@@ -75,7 +75,7 @@ namespace Antura.Tools
         public int selectedNativeLanguageIndex;
         void OnGUI()
         {
-            this.titleContent.text = "Antura - Editions & Profiles";
+            this.titleContent.text = "Antura - Overview";
 
             if (FindFirstObjectByType<AppManager>() == null)
                 return;
@@ -97,7 +97,7 @@ namespace Antura.Tools
             }*/
 
             EditorGUI.BeginChangeCheck();
-            var newContentEditionIndex = EditorGUILayout.Popup("Content Edition", selectedContentEditionIndex, learningContentNames.ToArray());
+            var newContentEditionIndex = EditorGUILayout.Popup("Content Module", selectedContentEditionIndex, learningContentNames.ToArray());
             if (EditorGUI.EndChangeCheck())
             {
                 if (newContentEditionIndex != selectedContentEditionIndex)
