@@ -37,7 +37,10 @@ namespace Antura.UI
             
             openTween = this.transform.DOScale(0, GlobalPopups.ShowTime).From().SetAutoKill(false).Pause().SetUpdate(true)
                 .SetEase(Ease.OutBack)
-                .OnComplete(() => cg.interactable = true)
+                .OnComplete(() => {
+                    cg.interactable = true;
+                    BaseOpened();
+                })
                 .OnRewind(() => this.gameObject.SetActive(false));
             
             if (btClose != null) btClose.onClick.AddListener(Close);
@@ -64,6 +67,8 @@ namespace Antura.UI
             openTween.Restart();
             this.gameObject.SetActive(true);
         }
+
+        protected virtual void BaseOpened() {}
         
         protected void Close()
         {

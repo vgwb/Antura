@@ -47,6 +47,17 @@ namespace Antura.UI
 
         #endregion
 
+        #region Methods
+
+        protected override void BaseOpened()
+        {
+            base.BaseOpened();
+            
+            textInput.Select();
+        }
+
+        #endregion
+
         #region Callbacks
 
         void OnSubmit()

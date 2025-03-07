@@ -43,7 +43,6 @@ namespace Antura.UI
         #endregion
 
         PlayerIconData currProfile;
-        ClassroomProfileDetail currProfileDetail;
         readonly List<ClassroomProfileLevelView> levelViews = new();
         readonly List<ClassroomProfileQuestView> questViews = new();
         
@@ -81,13 +80,13 @@ namespace Antura.UI
             Clear();
 
             currProfile = profile;
-            currProfileDetail = new ClassroomProfileDetail(profile);
+            ClassroomProfileDetail profileDetail = new ClassroomProfileDetail(profile);
             
-            playerIcon.Init(currProfileDetail.Profile);
+            playerIcon.Init(profileDetail.Profile);
             RefreshProfileName();
-            tfLastAccess.text = $"Last access: {currProfileDetail.LastAccess.Day:00}/{currProfileDetail.LastAccess.Month:00}/{currProfileDetail.LastAccess.Year} - {currProfileDetail.LastAccess.Hour:00}:{currProfileDetail.LastAccess.Minute:00}";
+            tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
             
-            int totLevels = currProfileDetail.Levels.Count;
+            int totLevels = profileDetail.Levels.Count;
             while (levelViews.Count < totLevels)
             {
                 ClassroomProfileLevelView view = Instantiate(levelViewPrefab, levelViewPrefab.transform.parent);
@@ -97,11 +96,11 @@ namespace Antura.UI
             for (int i = 0; i < totLevels; i++)
             {
                 ClassroomProfileLevelView view = levelViews[i];
-                view.Fill(currProfileDetail.Levels[i]);
+                view.Fill(profileDetail.Levels[i]);
                 view.gameObject.SetActive(true);
             }
             
-            int totQuests = currProfileDetail.Quests.Count;
+            int totQuests = profileDetail.Quests.Count;
             while (questViews.Count < totQuests)
             {
                 ClassroomProfileQuestView view = Instantiate(questViewPrefab, questViewPrefab.transform.parent);
@@ -111,7 +110,7 @@ namespace Antura.UI
             for (int i = 0; i < totQuests; i++)
             {
                 ClassroomProfileQuestView view = questViews[i];
-                view.Fill(currProfileDetail.Quests[i]);
+                view.Fill(profileDetail.Quests[i]);
                 view.gameObject.SetActive(true);
             }
         }
@@ -119,7 +118,6 @@ namespace Antura.UI
         public void AssignNewProfileName(string newName)
         {
             currProfile.PlayerName = newName;
-            currProfileDetail = new ClassroomProfileDetail(currProfile);
             RefreshProfileName();
         }
 
@@ -135,7 +133,8 @@ namespace Antura.UI
         
         void RefreshProfileName()
         {
-            tfName.text = currProfileDetail.Profile.PlayerName.IsNullOrEmpty() ? "- - -" : currProfileDetail.Profile.PlayerName;
+            tfName.text = currProfile.PlayerName.IsNullOrEmpty() ? "- - -" : currProfile.PlayerName;
+            playerIcon.Init(currProfile);
         }
 
         #endregion
