@@ -15,13 +15,15 @@ namespace Antura.UI
         [SerializeField] Image bgBlocker;
         [DeEmptyAlert]
         [SerializeField] SelectorPopup selectorPopup;
+        [DeEmptyAlert]
+        [SerializeField] TextInputPopup textInputPopup;
 
         #endregion
 
         public const float ShowTime = 0.35f;
         
         static GlobalPopups I;
-        const string ResourcesPath = "UI/UI Global Popups";
+        const string ResourcesPath = "Prefabs/UI/GlobalPopupsUI";
         Tween showBlockerTween;
 
         #region Unity + INIT
@@ -37,14 +39,21 @@ namespace Antura.UI
                 .SetEase(Ease.Linear)
                 .OnRewind(() => I.gameObject.SetActive(false));
             
-            I.selectorPopup.OnClosing.Subscribe(I.OnClosingSelector);
+            I.selectorPopup.OnClosing.Subscribe(I.OnClosingPopup);
+            I.textInputPopup.OnClosing.Subscribe(I.OnClosingPopup);
+        }
+
+        void Start()
+        {
+            if (I == null) this.gameObject.SetActive(false);
         }
 
         void OnDestroy()
         {
             if (I == this) I = null;
             showBlockerTween.Kill();
-            selectorPopup.OnClosing.Unsubscribe(OnClosingSelector);
+            selectorPopup.OnClosing.Unsubscribe(OnClosingPopup);
+            textInputPopup.OnClosing.Unsubscribe(OnClosingPopup);
         }
 
         #endregion
@@ -56,6 +65,14 @@ namespace Antura.UI
             Init();
             I.Show();
             I.selectorPopup.Open(title, values, onSelected, hasCloseButton, specialItemsIndexes);
+        }
+
+        [DeMethodButton]
+        public static void OpenTextInput(string title, string existingText = "Enter text", Action<string> onSubmit = null)
+        {
+            Init();
+            I.Show();
+            I.textInputPopup.Open(title, existingText, onSubmit);
         }
 
         #endregion
@@ -77,7 +94,7 @@ namespace Antura.UI
 
         #region Callbacks
 
-        void OnClosingSelector()
+        void OnClosingPopup()
         {
             Hide();
         }

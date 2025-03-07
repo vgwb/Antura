@@ -75,6 +75,7 @@ namespace Antura.UI
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
             detailPanel.OnDeleteProfileRequested.Subscribe(OnDeleteProfileRequested);
+            detailPanel.OnEditProfileRequested.Subscribe(OnEditProfileRequested);
         }
 
         void OnDestroy()
@@ -83,6 +84,7 @@ namespace Antura.UI
             profilesPanel.OnProfileClicked.Unsubscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Unsubscribe(OnBackFromProfileDetailsClicked);
             detailPanel.OnDeleteProfileRequested.Unsubscribe(OnDeleteProfileRequested);
+            detailPanel.OnEditProfileRequested.Unsubscribe(OnEditProfileRequested);
             PlayerCreationScene.OnCreationComplete.Unsubscribe(OnPlayerCreationComplete);
         }
 
@@ -237,6 +239,11 @@ namespace Antura.UI
         void OnDeleteProfileRequested(PlayerIconData profile)
         {
             GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: () => DeleteProfile(profile.Uuid), _onNoCallback: () => { });
+        }
+        
+        void OnEditProfileRequested(PlayerIconData profile)
+        {
+            GlobalPopups.OpenTextInput("Edit profile name", profile.PlayerName, detailPanel.AssignNewProfileName);
         }
 
         void OnPlayerCreationComplete()

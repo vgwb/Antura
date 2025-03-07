@@ -15,6 +15,7 @@ namespace Antura.UI
 
         public ActionEvent OnBackClicked = new("ClassroomProfileDetailPanel.OnBackClicked");
         public ActionEvent<PlayerIconData> OnDeleteProfileRequested = new("ClassroomProfileDetailPanel.OnDeleteProfileRequested");
+        public ActionEvent<PlayerIconData> OnEditProfileRequested = new("ClassroomProfileDetailPanel.OnEditProfileRequested");
 
         #endregion
         
@@ -42,6 +43,7 @@ namespace Antura.UI
         #endregion
 
         PlayerIconData currProfile;
+        ClassroomProfileDetail currProfileDetail;
         readonly List<ClassroomProfileLevelView> levelViews = new();
         readonly List<ClassroomProfileQuestView> questViews = new();
         
@@ -51,9 +53,10 @@ namespace Antura.UI
         {
             levelViewPrefab.gameObject.SetActive(false);
             questViewPrefab.gameObject.SetActive(false);
-            
+
             btBack.onClick.AddListener(OnBackClicked.Dispatch);
             btDeleteProfile.onClick.AddListener(() => OnDeleteProfileRequested.Dispatch(currProfile));
+            btEditProfileName.onClick.AddListener(() => OnEditProfileRequested.Dispatch(currProfile));
         }
 
         #endregion
@@ -78,13 +81,13 @@ namespace Antura.UI
             Clear();
 
             currProfile = profile;
-            ClassroomProfileDetail profileDetail = new ClassroomProfileDetail(profile);
+            currProfileDetail = new ClassroomProfileDetail(profile);
             
-            playerIcon.Init(profileDetail.Profile);
-            tfName.text = profileDetail.Profile.PlayerName.IsNullOrEmpty() ? "- - -" : profileDetail.Profile.PlayerName;
-            tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
+            playerIcon.Init(currProfileDetail.Profile);
+            RefreshProfileName();
+            tfLastAccess.text = $"Last access: {currProfileDetail.LastAccess.Day:00}/{currProfileDetail.LastAccess.Month:00}/{currProfileDetail.LastAccess.Year} - {currProfileDetail.LastAccess.Hour:00}:{currProfileDetail.LastAccess.Minute:00}";
             
-            int totLevels = profileDetail.Levels.Count;
+            int totLevels = currProfileDetail.Levels.Count;
             while (levelViews.Count < totLevels)
             {
                 ClassroomProfileLevelView view = Instantiate(levelViewPrefab, levelViewPrefab.transform.parent);
@@ -94,11 +97,11 @@ namespace Antura.UI
             for (int i = 0; i < totLevels; i++)
             {
                 ClassroomProfileLevelView view = levelViews[i];
-                view.Fill(profileDetail.Levels[i]);
+                view.Fill(currProfileDetail.Levels[i]);
                 view.gameObject.SetActive(true);
             }
             
-            int totQuests = profileDetail.Quests.Count;
+            int totQuests = currProfileDetail.Quests.Count;
             while (questViews.Count < totQuests)
             {
                 ClassroomProfileQuestView view = Instantiate(questViewPrefab, questViewPrefab.transform.parent);
@@ -108,9 +111,16 @@ namespace Antura.UI
             for (int i = 0; i < totQuests; i++)
             {
                 ClassroomProfileQuestView view = questViews[i];
-                view.Fill(profileDetail.Quests[i]);
+                view.Fill(currProfileDetail.Quests[i]);
                 view.gameObject.SetActive(true);
             }
+        }
+
+        public void AssignNewProfileName(string newName)
+        {
+            currProfile.PlayerName = newName;
+            currProfileDetail = new ClassroomProfileDetail(currProfile);
+            RefreshProfileName();
         }
 
         #endregion
@@ -121,6 +131,11 @@ namespace Antura.UI
         {
             foreach (ClassroomProfileLevelView view in levelViews) view.gameObject.SetActive(false);
             foreach (ClassroomProfileQuestView view in questViews) view.gameObject.SetActive(false);
+        }
+        
+        void RefreshProfileName()
+        {
+            tfName.text = currProfileDetail.Profile.PlayerName.IsNullOrEmpty() ? "- - -" : currProfileDetail.Profile.PlayerName;
         }
 
         #endregion
