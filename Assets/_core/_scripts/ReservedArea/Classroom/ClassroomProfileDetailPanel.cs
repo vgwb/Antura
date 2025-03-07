@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using Antura.Core;
 using Demigiant.DemiTools;
 using Antura.Profile;
 using DG.DeExtensions;
@@ -118,6 +119,9 @@ namespace Antura.UI
         public void AssignNewProfileName(string newName)
         {
             currProfile.PlayerName = newName;
+            PlayerProfile playerProfile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(currProfile.Uuid);
+            AppManager.I.PlayerProfileManager.SavePlayerProfile(playerProfile);
+            AppManager.I.PlayerProfileManager.UpdatePlayerIconDataInSettings(currProfile);
             RefreshProfileName();
         }
 

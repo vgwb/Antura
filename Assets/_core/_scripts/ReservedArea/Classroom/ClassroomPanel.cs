@@ -103,7 +103,7 @@ namespace Antura.UI
 
             isOpen = true;
             currClassroomIndex = classroomIndex;
-            if (classroomIndex > 0)
+            if (currClassroomIndex > 0)
             {
                 isValidClassroom = true;
                 AudioManager.I.StopMusic();
@@ -111,19 +111,14 @@ namespace Antura.UI
             }
 
             this.gameObject.SetActive(true);
-            AppManager.I.AppSettingsManager.SetClassroomMode(classroomIndex);
+            AppManager.I.AppSettingsManager.SetClassroomMode(currClassroomIndex);
             if (hideGlobalUIBackButton)
             {
                 backButtonWasOn = GlobalUI.I.BackButton.gameObject.activeSelf;
                 GlobalUI.I.BackButton.gameObject.SetActive(false);
             }
-            header.SetTitle(isValidClassroom, classroomIDs[classroomIndex]);
+            header.SetTitle(isValidClassroom, classroomIDs[currClassroomIndex]);
             SwitchState(State.Profiles);
-            bool hasProfiles = profilesByClassroomIndex.ContainsKey(classroomIndex);
-            if (hasProfiles)
-                profilesPanel.Fill(profilesByClassroomIndex[classroomIndex]);
-            else
-                profilesPanel.Fill(new List<PlayerIconData>());
         }
 
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
@@ -154,20 +149,18 @@ namespace Antura.UI
                     Debug.LogError($"Player \"{profile.PlayerName}\" has an invalid Classroom ID ({profile.Classroom}): should be between 0 and {classroomIDs.Count - 1}. Ignoring it");
                     continue;
                 }
-                if (!profilesByClassroomIndex.ContainsKey(profile.Classroom))
-                    profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
+                if (!profilesByClassroomIndex.ContainsKey(profile.Classroom)) profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
                 profilesByClassroomIndex[profile.Classroom].Add(profile);
             }
         }
 
         void SwitchState(State toState, PlayerIconData? profile = null)
         {
-            if (state == toState)
-                return;
+            if (state == toState) return;
             if (toState == State.ProfileDetail && profile == null)
             {
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
-                return;
+                return;  
             }
 
             state = toState;
@@ -176,6 +169,12 @@ namespace Antura.UI
             detailPanel.Open(toState == State.ProfileDetail);
             switch (state)
             {
+                case State.Profiles:
+                    Refresh();
+                    bool hasProfiles = profilesByClassroomIndex.ContainsKey(currClassroomIndex);
+                    if (hasProfiles) profilesPanel.Fill(profilesByClassroomIndex[currClassroomIndex]);
+                    else profilesPanel.Fill(new List<PlayerIconData>());
+                    break;
                 case State.ProfileDetail:
                     detailPanel.Fill((PlayerIconData)profile);
                     break;
@@ -217,7 +216,6 @@ namespace Antura.UI
         void DeleteProfile(string profileUuid)
         {
             AppManager.I.PlayerProfileManager.DeletePlayerProfile(profileUuid);
-            Refresh();
             SwitchState(State.Profiles);
             OpenClass(currClassroomIndex);
         }
@@ -254,7 +252,6 @@ namespace Antura.UI
                 SceneManager.UnloadSceneAsync(SceneHelper.GetSceneName(AppScene.PlayerCreation));
             }
             createProfileBgBlocker.SetActive(false);
-            Refresh();
             OpenClass(currClassroomIndex);
         }
 
@@ -311,7 +308,6 @@ namespace Antura.UI
             AppManager.I.RewardSystemManager.UnlockAllPacks();
 
             ActivateWaitingScreen(false);
-            Refresh();
         }
 
         void ActivateWaitingScreen(bool status)

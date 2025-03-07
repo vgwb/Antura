@@ -231,6 +231,23 @@ namespace Antura.Profile
             }
             AppManager.I.AppSettingsManager.SaveSettings();
         }
+        
+        /// <summary>
+        /// Updates the PlayerIconData for the given player in list of PlayersIconData in GameSettings.
+        /// </summary>
+        public void UpdatePlayerIconDataInSettings(PlayerIconData iconData)
+        {
+            for (int i = 0; i < AppManager.I.AppSettings.SavedPlayers.Count; i++)
+            {
+                if (AppManager.I.AppSettings.SavedPlayers[i].Uuid == iconData.Uuid)
+                {
+                    Debug.Log("SAVED " + iconData.PlayerName);
+                    AppManager.I.AppSettings.SavedPlayers[i] = iconData;
+                }
+            }
+            AppManager.I.AppSettingsManager.SaveSettings();
+        }
+        
         #endregion
 
         #region Player Profile Creation
