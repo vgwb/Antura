@@ -119,9 +119,7 @@ namespace Antura.UI
         public void AssignNewProfileName(string newName)
         {
             currProfile.PlayerName = newName;
-            PlayerProfile playerProfile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(currProfile.Uuid);
-            AppManager.I.PlayerProfileManager.SavePlayerProfile(playerProfile);
-            AppManager.I.PlayerProfileManager.UpdatePlayerIconDataInSettings(currProfile);
+            ClassroomHelper.SaveProfile(currProfile);
             RefreshProfileName();
         }
 
