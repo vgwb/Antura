@@ -10,6 +10,9 @@ namespace Antura.UI
         public static void SaveProfile(PlayerIconData profile)
         {
             PlayerProfile playerProfile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(profile.Uuid);
+            playerProfile.PlayerName = profile.PlayerName;
+            playerProfile.Classroom = profile.Classroom;
+            playerProfile.TalkToPlayerStyle = profile.TalkToPlayerStyle;
             AppManager.I.PlayerProfileManager.SavePlayerProfile(playerProfile);
             AppManager.I.PlayerProfileManager.UpdatePlayerIconDataInSettings(profile);
         }
