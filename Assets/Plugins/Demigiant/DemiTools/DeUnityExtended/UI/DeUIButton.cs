@@ -16,6 +16,13 @@ namespace Demigiant.DemiTools.DeUnityExtended
     /// </summary>
     public class DeUIButton : Button
     {
+        enum ToggleMode
+        {
+            ManualOnOff, // Can always be manually toggled both ON and OFF
+            NoManualOff, // Can only be manually toggled ON
+            ManualOffIfNoGroup // Can be manually toggled OFF only if not in a group
+        }
+        
         /// <summary>Dispatched globally when a button is clicked or submitted</summary>
         public static event Handler_OnClickOrSubmit OnClickOrSubmit;
         public delegate void Handler_OnClickOrSubmit(DeUIButton bt);
@@ -25,7 +32,7 @@ namespace Demigiant.DemiTools.DeUnityExtended
 #pragma warning disable 0649
 
         // Hidden in Inspector since it uses regular Button.interactable value to be set
-        // (required to leave toggled group button non-interactable even if set to interactable
+        // (required to leave toggled button non-interactable even if set to interactable)
         [SerializeField] bool _isInteractable = true;
         [SerializeField] bool _keepSelected = true; // If TRUE keeps the button selected even after it becomes non-interactable
         [SerializeField] DeUIUtils.Direction _selectOtherOnDisable = DeUIUtils.Direction.None; // If set and this is disabled, tries to select another selectable in the given direction
@@ -38,13 +45,14 @@ namespace Demigiant.DemiTools.DeUnityExtended
         [SerializeField] bool _borderOnlyWhenOff = false; // If TRUE only shows border of image if toggled (must be set to Sliced and have a border)
         [SerializeField] bool _isToggleGroup;
         [SerializeField] string _groupId = "";
+        [SerializeField] ToggleMode _toggleMode = ToggleMode.ManualOffIfNoGroup;
         [SerializeField] Graphic _toggle_secondaryTarget; // If not NULL, uses this as a target for the following _toggle_[...] options when toggled ON
         [SerializeField] bool _toggle_activateIfToggled;
         [SerializeField] bool _toggle_changeColor;
         [SerializeField] Color _toggle_color = Color.white;
         [SerializeField] Sprite _toggle_sprite;
         [SerializeField] string _toggle_text;
-        public ColorBlock toggledColors;
+        public ColorBlock toggledColors = ColorBlock.defaultColorBlock;
         public UnityEvent<bool> onToggle; // Sent both when toggle is toggled ON and OFF
         public UnityEvent onToggleOn; // Only sent when toggle is toggled ON
         public UnityEvent onPress;
@@ -59,16 +67,24 @@ namespace Demigiant.DemiTools.DeUnityExtended
         public bool isPressed { get; private set; }
         public bool isSelected { get { return EventSystem.current != null && EventSystem.current.currentSelectedGameObject == this.gameObject; } }
         public new bool interactable {
-            get { return _isInteractable; }
+            get => _isInteractable;
             set {
+                Init();
                 bool wasSelected = isSelected;
-                _isInteractable = base.interactable = _isToggle && _isToggleGroup && _isOn && !string.IsNullOrEmpty(_groupId) ? false : value;
+                // Commented to replace new version when I introduced _toggleMode
+                // _isInteractable = base.interactable = _isToggle && _isToggleGroup && _isOn && !string.IsNullOrEmpty(_groupId) ? false : value;
+                _isInteractable = base.interactable
+                    = _isToggle && _isOn && (_toggleMode == ToggleMode.NoManualOff || _isValidToggleGroup && _toggleMode != ToggleMode.ManualOnOff)
+                        ? false
+                        : value;
                 if (_keepSelected && wasSelected) Select();
             }
         }
-
+        
+        bool _initialized;
         static readonly Dictionary<string,List<DeUIButton>> _toggleGroupToButtons = new Dictionary<string, List<DeUIButton>>();
-        bool _defsSet;
+        bool _isValidToggleGroup;
+        // bool _defsSet;
         ColorBlock _defColors;
         string _defText;
         bool _hasSecondaryTargetGraphic, _hasHoverTargetGraphic;
@@ -77,14 +93,37 @@ namespace Demigiant.DemiTools.DeUnityExtended
         TMP_Text _toggleTargetTextField;
         Color _hoverTargetDefaultColor, _toggleTargetDefaultColor;
 
-        #region Unity
+        #region Unity + INIT
+
+        void Init()
+        {
+            if (_initialized) return;
+
+            _initialized = true;
+
+            _isValidToggleGroup = _isToggle && _isToggleGroup && !string.IsNullOrEmpty(_groupId);
+            
+            _defColors = this.colors;
+            _hasToggleBorderTargetImage = (_borderTargetImage = targetGraphic as Image) != null;
+            _hasToggleTargetGraphic = _toggle_secondaryTarget != null;
+            _hasToggleTargetImage = _hasToggleTargetGraphic && (_toggleTargetImage = _toggle_secondaryTarget as Image) != null;
+            _hasToggleTargetText = _hasToggleTargetGraphic && (_toggleTargetTextField = _toggle_secondaryTarget as TMP_Text) != null;
+            if (_hasToggleTargetText) _defText = _toggleTargetTextField.text;
+            if (_hasToggleTargetGraphic) _toggleTargetDefaultColor = _toggle_secondaryTarget.color;
+            
+            _hasSecondaryTargetGraphic = _secondaryTargetGraphic != null;
+            _hasHoverTargetGraphic = _hoverTargetGraphic != null;
+            if (_hasSecondaryTargetGraphic) _secondaryTargetGraphic.color = targetGraphic.color;
+            if (_hasHoverTargetGraphic) _hoverTargetDefaultColor = _hoverTargetGraphic.color;
+        }
 
         protected override void Awake()
         {
             base.Awake();
             if (!Application.isPlaying) return;
 
-            if (_isToggle && _isToggleGroup && !string.IsNullOrEmpty(_groupId)) AddToToggleGroup();
+            Init();
+            if (_isValidToggleGroup) AddToToggleGroup();
             if (_showOnSelected != null && !isSelected) _showOnSelected.SetActive(false);
         }
 
@@ -93,10 +132,6 @@ namespace Demigiant.DemiTools.DeUnityExtended
             base.Start();
             if (!Application.isPlaying) return;
 
-            _hasSecondaryTargetGraphic = _secondaryTargetGraphic != null;
-            _hasHoverTargetGraphic = _hoverTargetGraphic != null;
-            if (_hasSecondaryTargetGraphic) _secondaryTargetGraphic.color = targetGraphic.color;
-            if (_hasHoverTargetGraphic) _hoverTargetDefaultColor = _hoverTargetGraphic.color;
             if (_isToggle) DoToggle(_isOn, false, false, true);
         }
 
@@ -134,7 +169,7 @@ namespace Demigiant.DemiTools.DeUnityExtended
         {
             base.OnDestroy();
             this.onClick.RemoveAllListeners();
-            if (_isToggle && _isToggleGroup && !string.IsNullOrEmpty(_groupId)) RemoveFromToggleGroup();
+            if (_isValidToggleGroup) RemoveFromToggleGroup();
         }
 
         void LateUpdate()
@@ -268,9 +303,11 @@ namespace Demigiant.DemiTools.DeUnityExtended
         {
             if (!forceRefresh && _isOn == toggleOn) return; // Already set
 
+            Init();
+            
             // Group management
-            // (disable ON button and enable OFF ones)
-            if (toggleOn && !ignoreGroup && _isToggleGroup && !string.IsNullOrEmpty(_groupId)) {
+            // (disable ON button if toggleMode requests it and enable OFF ones)
+            if (toggleOn && !ignoreGroup && _isValidToggleGroup) {
                 List<DeUIButton> others = _toggleGroupToButtons[_groupId];
                 for (int i = 0; i < others.Count; ++i) {
                     DeUIButton bt = others[i];
@@ -278,20 +315,14 @@ namespace Demigiant.DemiTools.DeUnityExtended
                     bt.DoToggle(false, true, dispatchEvents);
                     bt.interactable = true;
                 }
-                interactable = false;
+                interactable = interactable && _toggleMode == ToggleMode.ManualOnOff;
             }
+            // Non-group
+            // Disable if ON and toggleMode requests it
+            if (toggleOn && _toggleMode == ToggleMode.NoManualOff) interactable = false;
+            
             // Toggle
             _isOn = toggleOn;
-            if (!_defsSet) {
-                _defsSet = true;
-                _defColors = this.colors;
-                _hasToggleBorderTargetImage = (_borderTargetImage = targetGraphic as Image) != null;
-                _hasToggleTargetGraphic = _toggle_secondaryTarget != null;
-                _hasToggleTargetImage = _hasToggleTargetGraphic && (_toggleTargetImage = _toggle_secondaryTarget as Image) != null;
-                _hasToggleTargetText = _hasToggleTargetGraphic && (_toggleTargetTextField = _toggle_secondaryTarget as TMP_Text) != null;
-                if (_hasToggleTargetText) _defText = _toggleTargetTextField.text;
-                if (_hasToggleTargetGraphic) _toggleTargetDefaultColor = _toggle_secondaryTarget.color;
-            }
             this.colors = toggleOn ? toggledColors : _defColors;
             if (_borderOnlyWhenOff && _hasToggleBorderTargetImage) {
                 if (!toggleOn) _borderTargetImage.type = Image.Type.Sliced;
