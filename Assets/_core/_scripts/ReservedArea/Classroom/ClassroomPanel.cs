@@ -32,13 +32,20 @@ namespace Antura.UI
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileDetailPanel detailPanel;
         [DeEmptyAlert]
+        [SerializeField] ClassroomSubmenuPanel optionsPanel;
+        [DeEmptyAlert]
+        [SerializeField] ClassroomSubmenuPanel infoPanel;
+        [DeEmptyAlert]
         [SerializeField] GameObject createProfileBgBlocker;
+        [DeEmptyAlert]
+        [SerializeField] GameObject submenuBgBlocker;
+        [DeEmptyAlert]
         [SerializeField] GameObject pleaseWaitPanel;
 
         #endregion
 
-        public const string NoClassroomId = "-";
-        readonly List<string> classroomIDs = new() { NoClassroomId, "A", "B", "C", "D", "E", "F" };
+        const string noClassroomId = "-";
+        readonly List<string> classroomIDs = new() { noClassroomId, "A", "B", "C", "D", "E", "F" };
         State state = State.Unset;
         bool isOpen;
         int currClassroomIndex;
@@ -65,12 +72,24 @@ namespace Antura.UI
                         break;
                 }
             });
-            profilesPanel.BtCreateProfile.onClick.AddListener(() => CreateProfile(false));
             header.BtCreateTeacher.onClick.AddListener(() => CreateProfile(true));
-
+            header.BtOptions.onToggle.AddListener(isOn => {
+                submenuBgBlocker.SetActive(isOn);
+                header.ActivateSubmenuMode(isOn);
+                optionsPanel.gameObject.SetActive(isOn);
+            });
+            header.BtInfo.onToggle.AddListener(isOn => {
+                submenuBgBlocker.SetActive(isOn);
+                header.ActivateSubmenuMode(isOn);
+                infoPanel.gameObject.SetActive(isOn);
+            });
+            profilesPanel.BtCreateProfile.onClick.AddListener(() => CreateProfile(false));
+            
+            optionsPanel.gameObject.SetActive(false);
+            infoPanel.gameObject.SetActive(false);
             createProfileBgBlocker.gameObject.SetActive(false);
-            if (!isOpen)
-                this.gameObject.SetActive(false);
+            submenuBgBlocker.gameObject.SetActive(false);
+            if (!isOpen) this.gameObject.SetActive(false);
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
@@ -121,19 +140,6 @@ namespace Antura.UI
             SwitchState(State.Profiles);
         }
 
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        public void Close()
-        {
-            if (!isOpen)
-                return;
-
-            isOpen = false;
-            if (hideGlobalUIBackButton && backButtonWasOn)
-                GlobalUI.I.BackButton.gameObject.SetActive(true);
-            SwitchState(State.Unset);
-            this.gameObject.SetActive(false);
-        }
-
         #endregion
 
         #region Methods
@@ -179,6 +185,18 @@ namespace Antura.UI
                     detailPanel.Fill((PlayerIconData)profile);
                     break;
             }
+        }
+        
+        void Close()
+        {
+            if (!isOpen)
+                return;
+
+            isOpen = false;
+            if (hideGlobalUIBackButton && backButtonWasOn)
+                GlobalUI.I.BackButton.gameObject.SetActive(true);
+            SwitchState(State.Unset);
+            this.gameObject.SetActive(false);
         }
 
         // Demo player also means teacher
