@@ -27,12 +27,15 @@ namespace Demigiant.DemiTools.DeUnityExtended.Editor
         readonly GUIContent _gcHoverTargetColor = new GUIContent("└ Hover Target Color",
             "Eventual color to assign on hover/select to Hover Target Graphic");
         readonly GUIContent _gcBorderOnlyWhenOff = new GUIContent("OFF = Border Only",
-            "If toggled will only show the outline of the button image when it's toggled off (image must be set as sliced and have a border)");
+            "If selected will only show the outline of the button image when it's toggled off (image must be set as sliced and have a border)");
         readonly GUIContent _gcToggleGroup = new GUIContent("Group",
             "Eventual group this toggle is part of (all toggles in the same group will be toggled off when another is toggled on)");
+        readonly GUIContent _gcToggleMode = new GUIContent("",
+            "- Manual ON OFF:  Can always be manually toggled both ON and OFF\n- No Manual OFF:  Can only be manually toggled ON\n- Manual OFF If No Group: Can be manually toggled OFF only if not in a group");
         readonly GUIContent _gcToggleColors = new GUIContent("Toggled Colors", "Colors activated when this toggle is on");
         readonly GUIContent _gcToggle_secondaryTarget = new GUIContent("ON Secondary Target", "Used as eventual target for extra options");
-        readonly GUIContent _gcToggle_activateIfToggled = new GUIContent("└ ON Conditional Activation", "If selected deactivates the chosen secondary target when the toggle is OFF, activates it when ON");
+        readonly GUIContent _gcToggle_activateIfToggled = new GUIContent("└ ON Conditional Activation",
+            "If selected deactivates the chosen secondary target when the toggle is OFF, activates it when ON");
         readonly GUIContent _gcToggle_changeColor = new GUIContent("└ ON Change Color", "If selected changes the color of the chosen secondary target when the toggle is ON");
         readonly GUIContent _gcToggle_sprite = new GUIContent("└ ON Sprite", "Used as eventual replacement for the chosen secondary target when the toggle is ON");
         readonly GUIContent _gcToggle_text = new GUIContent("└ ON Text", "Used as eventual replacement for for the chosen secondary target when the toggle is ON");
@@ -50,6 +53,7 @@ namespace Demigiant.DemiTools.DeUnityExtended.Editor
         SerializedProperty _p_hoverTargetColor;
         SerializedProperty _p_isToggleGroup;
         SerializedProperty _p_groupId;
+        SerializedProperty _p_toggleMode;
         SerializedProperty _p_toggle_secondaryTarget;
         SerializedProperty _p_toggle_activateIfToggled;
         SerializedProperty _p_toggle_changeColor;
@@ -77,6 +81,7 @@ namespace Demigiant.DemiTools.DeUnityExtended.Editor
             _p_borderOnlyWhenOff = serializedObject.FindProperty("_borderOnlyWhenOff");
             _p_isToggleGroup = serializedObject.FindProperty("_isToggleGroup");
             _p_groupId = serializedObject.FindProperty("_groupId");
+            _p_toggleMode = serializedObject.FindProperty("_toggleMode");
             _p_toggle_secondaryTarget = serializedObject.FindProperty("_toggle_secondaryTarget");
             _p_toggle_activateIfToggled = serializedObject.FindProperty("_toggle_activateIfToggled");
             _p_toggle_changeColor = serializedObject.FindProperty("_toggle_changeColor");
@@ -96,14 +101,17 @@ namespace Demigiant.DemiTools.DeUnityExtended.Editor
             using (new DeGUI.ColorScope(null, null, new DeSkinColor(0.7f, 0.3f)))
             using (new GUILayout.VerticalScope(DeGUI.styles.box.roundOutline02)) {
                 DeGUI.ResetGUIColors();
-                GUILayout.BeginHorizontal();
-                ToggleButton(_p_isToggle, _gcIsToggle, GUILayout.Width(64));
-                if (!_p_isToggle.boolValue) GUILayout.EndHorizontal();
-                else {
+                using (new GUILayout.HorizontalScope()) {
+                    ToggleButton(_p_isToggle, _gcIsToggle, GUILayout.Width(64));
+                }
+                if (_p_isToggle.boolValue) {
                     // Is Toggle
-                    ToggleButton(_p_isOn, _gcIsOn, GUILayout.Width(30));
-                    ToggleButton(_p_borderOnlyWhenOff, _gcBorderOnlyWhenOff, GUILayout.Width(114));
-                    GUILayout.EndHorizontal();
+                    // GUILayout.EndHorizontal();
+                    using (new GUILayout.HorizontalScope()) {
+                        EditorGUILayout.PropertyField(_p_toggleMode, _gcToggleMode, GUILayout.Width(150));
+                        ToggleButton(_p_isOn, _gcIsOn, GUILayout.Width(30));
+                        ToggleButton(_p_borderOnlyWhenOff, _gcBorderOnlyWhenOff, GUILayout.Width(114));
+                    }
                     using (new GUILayout.HorizontalScope()) {
                         ToggleButton(_p_isToggleGroup, _gcToggleGroup, GUILayout.Width(64));
                         if (_p_isToggleGroup.boolValue) {

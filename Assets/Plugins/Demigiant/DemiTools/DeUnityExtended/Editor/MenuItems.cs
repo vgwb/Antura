@@ -57,12 +57,13 @@ namespace Demigiant.DemiTools.DeUnityExtended.Editor
             // Setup button colors and navigation
             Image img = go.AddComponent<Image>();
             DeUIButton bt = go.AddComponent<DeUIButton>();
-            bt.toggledColors.colorMultiplier = 1;
-            bt.toggledColors.fadeDuration = 0.1f;
-            bt.toggledColors.normalColor = Color.white;
-            bt.toggledColors.highlightedColor = Color.white;
-            bt.toggledColors.pressedColor = Color.white;
-            bt.toggledColors.disabledColor = Color.white;
+            // bt.toggledColors = ColorBlock.defaultColorBlock;
+            // bt.toggledColors.colorMultiplier = 1;
+            // bt.toggledColors.fadeDuration = 0.1f;
+            // bt.toggledColors.normalColor = Color.white;
+            // bt.toggledColors.highlightedColor = Color.white;
+            // bt.toggledColors.pressedColor = Color.white;
+            // bt.toggledColors.disabledColor = Color.white;
             Navigation nav = bt.navigation;
             nav.mode = Navigation.Mode.None;
             bt.navigation = nav;
