@@ -2,6 +2,7 @@ using System;
 using Antura.Database;
 using Antura.Language;
 using Antura.Profile;
+using UnityEngine.Localization;
 
 namespace Antura.Core
 {
@@ -10,6 +11,12 @@ namespace Antura.Core
     /// </summary>
     public class LocalizationManager
     {
+
+        public static string GetNewLocalized(string id)
+        {
+            var str = new LocalizedString("Common", id);
+            return str.GetLocalizedString();
+        }
 
         public static PlayerGender CurrentPlayerGender
         {
