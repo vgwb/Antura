@@ -5,7 +5,27 @@ namespace Antura.UI
 {
     public static class ClassroomHelper
     {
-        #region Public Methods
+
+        public static string GetClassroomName(int classRoomIndex)
+        {
+            switch (classRoomIndex)
+            {
+                case 1:
+                    return "A";
+                case 2:
+                    return "B";
+                case 3:
+                    return "C";
+                case 4:
+                    return "D";
+                case 5:
+                    return "E";
+                case 6:
+                    return "F";
+                default:
+                    return "";
+            }
+        }
 
         public static void SaveProfile(PlayerIconData profile)
         {
@@ -17,6 +37,5 @@ namespace Antura.UI
             AppManager.I.PlayerProfileManager.UpdatePlayerIconDataInSettings(profile);
         }
 
-        #endregion
     }
 }

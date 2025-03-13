@@ -169,10 +169,10 @@ namespace Antura.Scenes
 
         private void updateClassroomName()
         {
-            var classroom = AppManager.I.AppSettingsManager.Settings.GetClassroom();
-            if (classroom != "")
+            var classroomName = ClassroomHelper.GetClassroomName(AppManager.I.AppSettingsManager.Settings.ClassRoomMode);
+            if (classroomName != "")
             {
-                ClassroomName.text = "Class " + classroom;
+                ClassroomName.text = "Class " + classroomName;
             }
             else
             {
