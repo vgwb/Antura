@@ -43,7 +43,7 @@ namespace Antura.LivingLetters
         /// </summary>
         public string TextForLivingLetter
         {
-            get { return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); }
+            get { return LanguageManager.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text); }
         }
 
         public string DrawingCharForLivingLetter

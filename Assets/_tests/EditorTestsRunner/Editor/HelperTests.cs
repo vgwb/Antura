@@ -33,7 +33,7 @@ namespace Antura.Tests
         [Test]
         public void ArabicHelper()
         {
-            var HexCode = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar('A');
+            var HexCode = LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar('A');
             UnityEngine.Debug.Log("ArabicHelper hexcode is: " + HexCode);
             Assert.Pass();
         }

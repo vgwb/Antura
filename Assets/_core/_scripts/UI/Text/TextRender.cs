@@ -137,7 +137,7 @@ namespace Antura.UI
             LangConfig config;
             try
             {
-                config = LanguageSwitcher.I.GetLangConfig(languageUse);
+                config = LanguageManager.I.GetLangConfig(languageUse);
             }
             catch (Exception)
             {
@@ -146,7 +146,7 @@ namespace Antura.UI
 
             if (OverridenLanguageCode != LanguageCode.NONE)
             {
-                config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
+                config = LanguageManager.I.GetLangConfig(OverridenLanguageCode);
             }
             switch (fontUse)
             {
@@ -165,7 +165,7 @@ namespace Antura.UI
 
         private void UpdateText()
         {
-            if (LanguageSwitcher.I == null || !AppManager.I.Loaded)
+            if (LanguageManager.I == null || !AppManager.I.Loaded)
                 return;
 
             if (!isLetter && !isNumber)
@@ -177,11 +177,11 @@ namespace Antura.UI
             {
                 if (OverridenLanguageCode != LanguageCode.NONE)
                 {
-                    TMPText.text = LanguageSwitcher.I.GetHelper(OverridenLanguageCode).ProcessString(m_text);
+                    TMPText.text = LanguageManager.I.GetHelper(OverridenLanguageCode).ProcessString(m_text);
                 }
                 else
                 {
-                    TMPText.text = LanguageSwitcher.I.GetHelper(languageUse).ProcessString(m_text);
+                    TMPText.text = LanguageManager.I.GetHelper(languageUse).ProcessString(m_text);
                 }
             }
             else if (isLetter)
@@ -207,9 +207,9 @@ namespace Antura.UI
 
         void CheckRTL()
         {
-            var config = LanguageSwitcher.I.GetLangConfig(languageUse);
+            var config = LanguageManager.I.GetLangConfig(languageUse);
             if (OverridenLanguageCode != LanguageCode.NONE)
-                config = LanguageSwitcher.I.GetLangConfig(OverridenLanguageCode);
+                config = LanguageManager.I.GetLangConfig(OverridenLanguageCode);
             TMPText.isRightToLeftText = !isNumber && config.IsRightToLeft();
         }
 
@@ -239,10 +239,10 @@ namespace Antura.UI
                 LL_ImageData imageData = (LL_ImageData)livingLetterData;
                 color = imageData.Data.Category == Database.WordDataCategory.Colors ? GenericHelper.GetColorFromString(imageData.Data.GetDrawingColor()) : Color.black;
 
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).DrawingsFont;
+                TMPText.font = LanguageManager.I.GetLangConfig(languageUse).DrawingsFont;
                 if (outlined)
                 {
-                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineDrawingFontMaterial;
+                    TMPText.fontSharedMaterial = LanguageManager.LearningConfig.OutlineDrawingFontMaterial;
                 }
 
                 if (drawingLabelText != null)
@@ -267,9 +267,9 @@ namespace Antura.UI
 
                 text = livingLetterData.TextForLivingLetter;
 
-                TMPText.font = LanguageSwitcher.I.GetLangConfig(languageUse).LanguageFont;
+                TMPText.font = LanguageManager.I.GetLangConfig(languageUse).LanguageFont;
                 if (outlined)
-                    TMPText.fontSharedMaterial = LanguageSwitcher.LearningConfig.OutlineLanguageFontMaterial;
+                    TMPText.fontSharedMaterial = LanguageManager.LearningConfig.OutlineLanguageFontMaterial;
             }
         }
 
@@ -284,12 +284,12 @@ namespace Antura.UI
         private IEnumerator flashingTextCoroutine;
         public void SetFlashingText(WordData word, LL_LetterData letterToFlash, bool markPrecedingLetters, int sequentialIndex = 0)
         {
-            var letterPartToFlash = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, LetterEqualityStrictness.Letter)[sequentialIndex];
+            var letterPartToFlash = LanguageManager.LearningHelper.FindLetter(AppManager.I.DB, word, letterToFlash.Data, LetterEqualityStrictness.Letter)[sequentialIndex];
 
             int toCharIndex = letterPartToFlash.toCharacterIndex;
             if (letterPartToFlash.fromCharacterIndex != letterPartToFlash.toCharacterIndex)
             {
-                var hexCode = LanguageSwitcher.LearningHelper.GetHexUnicodeFromChar(word.Text[letterPartToFlash.toCharacterIndex]);
+                var hexCode = LanguageManager.LearningHelper.GetHexUnicodeFromChar(word.Text[letterPartToFlash.toCharacterIndex]);
                 if (hexCode == "0651")   // Shaddah
                 {
                     toCharIndex -= 1;
@@ -300,7 +300,7 @@ namespace Antura.UI
             {
                 StopCoroutine(flashingTextCoroutine);
             }
-            flashingTextCoroutine = LanguageSwitcher.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
+            flashingTextCoroutine = LanguageManager.LearningHelper.GetWordWithFlashingText(word, letterPartToFlash.fromCharacterIndex, toCharIndex, Color.green, FLASHING_TEXT_CYCLE_DURATION, int.MaxValue,
                 s => { text = s; }, markPrecedingLetters);
             StartCoroutine(flashingTextCoroutine);
         }

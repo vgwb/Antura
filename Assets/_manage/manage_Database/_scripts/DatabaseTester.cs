@@ -292,13 +292,13 @@ namespace Antura.Database.Management
 
             foreach (var w in dbManager.StaticDatabase.GetWordTable().GetValuesTyped())
             {
-                LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, w);
+                LanguageManager.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, w);
             }
 
 
             foreach (var w in dbManager.StaticDatabase.GetPhraseTable().GetValuesTyped())
             {
-                LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitPhrase(dbManager, w);
+                LanguageManager.I.GetHelper(LanguageUse.Learning).SplitPhrase(dbManager, w);
             }
 
             /*

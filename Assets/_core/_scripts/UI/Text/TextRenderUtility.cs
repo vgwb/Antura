@@ -25,20 +25,20 @@ namespace Antura.UI
                 int newYOffset = 0;
                 int charPosition = 1;
 
-                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0627"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B")
+                if (LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0627"
+                    && LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064B")
                 {
                     newYOffset = 10;
                 }
 
-                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0623"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E")
+                if (LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0623"
+                    && LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "064E")
                 {
                     newYOffset = 16;
                 }
 
-                if (LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0639"
-                    && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650")
+                if (LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[0].character) == "0639"
+                    && LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[1].character) == "0650")
                 {
                     newYOffset = -25;
                 }
@@ -106,7 +106,7 @@ namespace Antura.UI
                     Debug.Log("CHAR: " + i
                               + "index: " + textInfo.characterInfo[i].index
                               + "char: " + textInfo.characterInfo[i].character.ToString()
-                              + "UNICODE: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[i].character)
+                              + "UNICODE: " + LanguageManager.I.GetHelper(LanguageUse.Learning).GetHexUnicodeFromChar(textInfo.characterInfo[i].character)
                     );
                 }
                 //textInfo.characterInfo[1].textElement.yOffset += yOffset;

@@ -1,7 +1,6 @@
 using Antura.Audio;
 using Antura.Book;
 using Antura.Core.Services;
-using Antura.Core.Services.OnlineAnalytics;
 using Antura.Database;
 using Antura.Helpers;
 using Antura.Keeper;
@@ -33,7 +32,7 @@ namespace Antura.Core
         public ContentConfig ContentEdition => RootConfig.ContentEdition;
 
         public RootConfig RootConfig;
-        public LanguageSwitcher LanguageSwitcher;
+        public LanguageManager LanguageManager;
 
         public AppSettingsManager AppSettingsManager;
         public TeacherAI Teacher;
@@ -188,9 +187,9 @@ namespace Antura.Core
         {
             if (!skipLanguages)
             {
-                LanguageSwitcher = new LanguageSwitcher();
-                yield return LanguageSwitcher.LoadAllLanguageData();
-                yield return LanguageSwitcher.LoadEditionData();
+                LanguageManager = new LanguageManager();
+                yield return LanguageManager.LoadAllLanguageData();
+                yield return LanguageManager.LoadEditionData();
             }
             DB = new DatabaseManager(ContentEdition);
             if (PROFILE_INVERSION)
@@ -203,7 +202,7 @@ namespace Antura.Core
                     DB.LoadDatabaseForPlayer(Player.Uuid);
                 }
             }
-            yield return LanguageSwitcher.PreloadLocalizedDataCO();
+            yield return LanguageManager.PreloadLocalizedDataCO();
 
             // TODO refactor: standardize initialisation of managers
             VocabularyHelper = new VocabularyHelper(DB);
@@ -224,8 +223,9 @@ namespace Antura.Core
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)
         {
+            Debug.Log("ResetLanguageSetup " + langCode);
             AppSettingsManager.SetNativeLanguage(langCode);
-            yield return LanguageSwitcher.ReloadNativeLanguage();
+            yield return LanguageManager.ReloadNativeLanguage();
         }
 
         #endregion
@@ -352,7 +352,7 @@ namespace Antura.Core
         void On_TMPro_Text_Changed(Object obj)
         {
             var tmpText = obj as TMPro.TMP_Text;
-            if (tmpText != null && LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo))
+            if (tmpText != null && LanguageManager.I.GetHelper(LanguageUse.Learning).FixTMProDiacriticPositions(tmpText.textInfo))
             {
                 tmpText.UpdateVertexData();
             }

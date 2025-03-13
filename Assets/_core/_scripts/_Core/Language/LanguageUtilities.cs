@@ -11,8 +11,8 @@ namespace Antura.Language
         */
         public static string GetISO3Code(LanguageCode lang)
         {
-            var langConfig = LanguageSwitcher.I.GetLangConfig(lang);
-            return langConfig.Iso3;
+            var langConfig = LanguageManager.I.GetLangConfig(lang);
+            return langConfig.Iso2;
         }
     }
 }

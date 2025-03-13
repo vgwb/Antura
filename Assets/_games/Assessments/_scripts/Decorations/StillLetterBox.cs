@@ -72,12 +72,12 @@ namespace Antura.Assessment
             var wordInner = word as LL_WordData;
             var letterInner = letter as LL_LetterData;
 
-            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, LetterEqualityStrictness.Letter);
+            var parts = LanguageManager.LearningHelper.FindLetter(AppManager.I.DB, wordInner.Data, letterInner.Data, LetterEqualityStrictness.Letter);
 
             var partToRemove = parts[0];
 
             // .. and voil�! Thank you Davide! :)
-            LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(
+            LabelRender.text = LanguageManager.LearningHelper.GetWordWithMarkedLetterText(
                 wordInner.Data, partToRemove, SpecialGreen, MarkType.SingleLetter
             );
         }

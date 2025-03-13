@@ -22,7 +22,7 @@ namespace Antura.Assessment
             instance = new AssessmentOptions();
         }
 
-        public TextDirection LocaleTextDirection => LanguageSwitcher.LearningConfig.TextDirection;
+        public TextDirection LocaleTextDirection => LanguageManager.LearningConfig.TextDirection;
         public bool PronunceQuestionWhenClicked { get; set; }
         public bool PronunceAnswerWhenClicked { get; set; }
         public bool ShowQuestionAsImage { get; set; }

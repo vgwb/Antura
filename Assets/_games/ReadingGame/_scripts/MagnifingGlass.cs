@@ -45,7 +45,7 @@ namespace Antura.Minigames.ReadingGame
                 startShinesAlpha[i] = shines[i].color.a;
             }
 
-            int rtlDir = LanguageSwitcher.I.IsLearningLanguageRTL() ? 1 : -1;
+            int rtlDir = LanguageManager.I.IsLearningLanguageRTL() ? 1 : -1;
 
             for (int i = 0; i < leftArrows.Length; ++i)
             {

@@ -21,8 +21,8 @@ namespace Antura.UI
         {
             this.langCode = langCode;
 
-            flagImage.sprite = LanguageSwitcher.I.GetLangConfig(langCode).FlagIcon;
-            nameText.text = LanguageSwitcher.I.GetLangConfig(langCode).LocalizedName;
+            flagImage.sprite = LanguageManager.I.GetLangConfig(langCode).FlagIcon;
+            nameText.text = LanguageManager.I.GetLangConfig(langCode).LocalizedName;
         }
 
         public void OnClick()

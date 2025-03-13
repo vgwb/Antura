@@ -198,7 +198,7 @@ namespace Antura.Minigames.MixedLetters
 
                 Vector3 dropZonePosition = dropZoneController.transform.position;
                 dropZonePosition.x = dropZoneXStart - i * dropZoneWidthWithSpace;
-                if (!LanguageSwitcher.LearningRTL)
+                if (!LanguageManager.LearningRTL)
                     dropZonePosition.x *= -1;
                 dropZoneController.SetPosition(dropZonePosition);
             }

@@ -27,13 +27,20 @@ namespace Antura.Database
 
         public bool CheckFilters(LetterFilters filters, LetterData data)
         {
-            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo)) { return false; }
-            if (!FilterByDiacritics(filters.excludeDiacritics, data)) { return false; }
-            if (!FilterByLetterVariations(filters.excludeLetterVariations, data)) { return false; }
-            if (!FilterByDipthongs(filters.excludeDiphthongs, data)) { return false; }
-            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter)) { return false; }
-            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar)) { return false; }
-            if (filters.excludeMultiCharacterLetters && data.Isolated.Length > 1) { return false; }
+            if (filters.requireDiacritics && !data.IsOfKindCategory(LetterKindCategory.DiacriticCombo))
+            { return false; }
+            if (!FilterByDiacritics(filters.excludeDiacritics, data))
+            { return false; }
+            if (!FilterByLetterVariations(filters.excludeLetterVariations, data))
+            { return false; }
+            if (!FilterByDipthongs(filters.excludeDiphthongs, data))
+            { return false; }
+            if (!FilterByKind(!filters.includeAccentedLetters, data, LetterDataKind.AccentedLetter))
+            { return false; }
+            if (!FilterByKind(!filters.includeSpecialCharacters, data, LetterDataKind.SpecialChar))
+            { return false; }
+            if (filters.excludeMultiCharacterLetters && data.Isolated.Length > 1)
+            { return false; }
 
             // always skip symbols
             if (data.IsOfKindCategory(LetterKindCategory.Symbol))
@@ -312,7 +319,7 @@ namespace Antura.Database
             var dictCache = wordsToLetterCache;
             if (!dictCache.ContainsKey(wordData.Id))
             {
-                var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, wordData);
+                var parts = LanguageManager.I.GetHelper(LanguageUse.Learning).SplitWord(dbManager, wordData);
                 letters = parts.ConvertAll(x => ConvertToLetterWithForcedForm(x.letter, x.letterForm));
                 dictCache[wordData.Id] = letters;
             }
@@ -769,7 +776,8 @@ namespace Antura.Database
             for (int i = 0; i < input.Length; i++)
             {
                 // If with apostrophes, this is in all probability an article
-                if (input[i] == '\'') return false;
+                if (input[i] == '\'')
+                    return false;
 
                 // @note: this does not consider non-letter chars
                 if (Char.IsLetter(input[i]) && !Char.IsUpper(input[i]))
@@ -795,7 +803,7 @@ namespace Antura.Database
             for (int iWord = wordsInString.Count - 1; iWord >= 0; iWord--)
             {
                 // Separate apostrophes and place them on the first word
-                var splits = wordsInString[iWord].Split(new[] { '\''}, StringSplitOptions.None).ToList();
+                var splits = wordsInString[iWord].Split(new[] { '\'' }, StringSplitOptions.None).ToList();
                 if (splits.Count >= 2)
                 {
                     wordsInString.RemoveAt(iWord);
@@ -806,7 +814,8 @@ namespace Antura.Database
             var uppercaseWords = wordsInString.Where(s => s.Length >= 2 && IsAllUpperCase(s));
 
             var uppercaseText = "";
-            foreach (string uppercaseWord in uppercaseWords) uppercaseText += uppercaseWord + " ";
+            foreach (string uppercaseWord in uppercaseWords)
+                uppercaseText += uppercaseWord + " ";
             uppercaseText = uppercaseText.Trim();
             uppercaseText = new string(uppercaseText.Where(c => !char.IsPunctuation(c) || c is '-').ToArray());
 
@@ -820,7 +829,8 @@ namespace Antura.Database
 
                 if (strippedWordText.Length >= 2 && IsAllUpperCase(strippedWordText))
                 {
-                    if (foundUppercase) continue;
+                    if (foundUppercase)
+                        continue;
                     foundUppercase = true;
                     strippedWordText = uppercaseText;
                     wordText = uppercaseText;

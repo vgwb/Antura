@@ -273,7 +273,8 @@ namespace Antura.Minigames.ThrowBalls
                 canAdvance = false;
                 game.PlayTutorial(() => { canAdvance = true; });
             }
-            while (!canAdvance) yield return null;
+            while (!canAdvance)
+                yield return null;
 
             SayQuestion();
 
@@ -383,7 +384,8 @@ namespace Antura.Minigames.ThrowBalls
                 canAdvance = false;
                 game.PlayTutorial(() => { canAdvance = true; });
             }
-            while (!canAdvance) yield return null;
+            while (!canAdvance)
+                yield return null;
 
 
             question = newQuestionPack.GetQuestion();
@@ -580,7 +582,7 @@ namespace Antura.Minigames.ThrowBalls
 
                 if (numLettersRemaining == 0)
                 {
-                    string markedText = LanguageSwitcher.LearningHelper.GetWordWithMarkedText(word, Color.green);
+                    string markedText = LanguageManager.LearningHelper.GetWordWithMarkedText(word, Color.green);
                     UIController.instance.SetText(markedText);
                 }
                 else

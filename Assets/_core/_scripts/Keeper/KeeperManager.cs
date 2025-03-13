@@ -80,17 +80,17 @@ namespace Antura.Keeper
             {
                 case KeeperMode.LearningThenNativeAndSubtitles:
                 case KeeperMode.LearningAndSubtitles:
-                    langCodeRequested = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).Code;
+                    langCodeRequested = AppManager.I.LanguageManager.GetLangConfig(LanguageUse.Learning).Code;
                     break;
                 case KeeperMode.NativeAndSubtitles:
-                    langCodeRequested = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Native).Code;
+                    langCodeRequested = AppManager.I.LanguageManager.GetLangConfig(LanguageUse.Native).Code;
                     break;
             }
 
             var sourcePath = new SourcePath(data.Id, "/Audio/Dialogs", langCodeRequested, gendered: true);
             if (withSubtitles && AudioManager.I.Exists(sourcePath, langCodeRequested))
             {
-                WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper, useNative:keeperMode == KeeperMode.NativeAndSubtitles);
+                WidgetSubtitles.I.DisplayDialogue(data, 2, isKeeper, useNative: keeperMode == KeeperMode.NativeAndSubtitles);
             }
             else
             {

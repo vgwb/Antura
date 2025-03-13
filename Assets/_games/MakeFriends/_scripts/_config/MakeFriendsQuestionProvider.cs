@@ -42,7 +42,7 @@ namespace Antura.Minigames.MakeFriends
                     uncommonLetters.Clear();
 
                     newWordData1 = AppManager.I.Teacher.GetRandomTestWordDataLL();
-                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData1.Data))
+                    foreach (var letterData in LanguageManager.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData1.Data))
                     {
                         wordLetters1.Add(new LL_LetterData(letterData.letter));
                     }
@@ -59,7 +59,7 @@ namespace Antura.Minigames.MakeFriends
                         UnityEngine.Debug.LogError("MakeFriends QuestionProvider Could not find 2 different words!");
                     }
 
-                    foreach (var letterData in LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData2.Data))
+                    foreach (var letterData in LanguageManager.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, newWordData2.Data))
                     {
                         wordLetters2.Add(new LL_LetterData(letterData.letter));
                     }

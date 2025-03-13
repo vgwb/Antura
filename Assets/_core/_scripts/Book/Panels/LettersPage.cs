@@ -44,7 +44,7 @@ namespace Antura.Book
 
         private void LettersPanel()
         {
-            if (LanguageSwitcher.I.IsLearningLanguageRTL())
+            if (LanguageManager.I.IsLearningLanguageRTL())
             {
                 ListPanel = ListPanelRTL;
                 ListContainer = ListContainerRTL;
@@ -83,7 +83,7 @@ namespace Antura.Book
 
                 btnGO = Instantiate(LetterItemPrefab);
                 btnGO.transform.SetParent(ListContainer.transform, false);
-                if (LanguageSwitcher.I.IsLearningLanguageRTL())
+                if (LanguageManager.I.IsLearningLanguageRTL())
                 {
                     btnGO.transform.SetAsFirstSibling();
                 }

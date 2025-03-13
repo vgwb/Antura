@@ -34,7 +34,7 @@ namespace Antura.Minigames.FastCrowd
             Data = _data;
 
             NumberLabel.font = numbersFont;
-            NumberLabel.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(text.ToString());
+            NumberLabel.text = LanguageManager.I.GetHelper(LanguageUse.Learning).ProcessString(text.ToString());
             LetterText.gameObject.SetActive(false);
 
             AreaState = State.disabled;

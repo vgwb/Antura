@@ -89,7 +89,7 @@ namespace Antura.Minigames.ColorTickle
 
         void BuildTutorialLetter()
         {
-            var tutorialLetterId = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).TutorialLetterId;
+            var tutorialLetterId = LanguageManager.I.GetLangConfig(LanguageUse.Learning).TutorialLetterId;
             var data = AppManager.I.DB.GetLetterDataById(tutorialLetterId);
 
             LL_LetterData LLdata = new LL_LetterData(data);

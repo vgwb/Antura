@@ -128,7 +128,7 @@ namespace Antura.Rewards
 
             // Start from the left
             bool withTranslation = nCurrentConsecutiveDaysOfPlaying != 1;
-            int rtlDir = LanguageSwitcher.LearningRTL ? 1 : -1;
+            int rtlDir = LanguageManager.LearningRTL ? 1 : -1;
             float targetX = dailyRewardUIPivot.transform.localPosition.x;
             if (withTranslation)
             {

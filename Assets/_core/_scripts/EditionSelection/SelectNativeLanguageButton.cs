@@ -25,7 +25,7 @@ namespace Antura.UI
             this.languageCode = languageCode;
             nameText.SetOverridenLanguageText(languageCode, LocalizationDataId.Language_Name);
             Label.SetText(languageCode.ToString());
-            var langConfig = AppManager.I.LanguageSwitcher.GetLangConfig(languageCode);
+            var langConfig = AppManager.I.LanguageManager.GetLangConfig(languageCode);
             Flag.sprite = langConfig.FlagIcon;
         }
 

@@ -351,7 +351,7 @@ namespace Antura.Audio
 
         public IAudioSource PlayDialogue(LocalizationData data, LanguageUse use = LanguageUse.Learning, Action callback = null, bool clearPreviousCallback = false)
         {
-            return PlayDialogue(data, AppManager.I.LanguageSwitcher.GetLangConfig(use).Code, callback, clearPreviousCallback);
+            return PlayDialogue(data, AppManager.I.LanguageManager.GetLangConfig(use).Code, callback, clearPreviousCallback);
         }
 
         private LanguageCode currentLangCode;
@@ -738,7 +738,7 @@ namespace Antura.Audio
         {
             this.id = id;
             this.folder = folder;
-            this.code = AppManager.I.LanguageSwitcher.GetLangConfig(use).Code;
+            this.code = AppManager.I.LanguageManager.GetLangConfig(use).Code;
             this.gendered = gendered;
         }
 

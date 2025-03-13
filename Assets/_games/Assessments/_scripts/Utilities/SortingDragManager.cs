@@ -110,7 +110,7 @@ namespace Antura.Assessment
 
             //Answers like are actually sorted
             var sorted = sortables.OrderByDescending(x => x.transform.position.x).ToArray();
-            if (!LanguageSwitcher.LearningRTL)
+            if (!LanguageManager.LearningRTL)
                 sorted = sorted.Reverse().ToArray();
 
             int index = 0;

@@ -548,7 +548,7 @@ namespace Antura.Minigames.Egg
             for (int i = 0; i < questionDataCount; i++)
             {
                 float l = 1f - (positionLerp * (i + 1));
-                if (!LanguageSwitcher.LearningRTL)
+                if (!LanguageManager.LearningRTL)
                     l = 1 - l;
 
                 lettersEndPositions[i] = Vector3.Lerp(maxLeft, maxRight, l);

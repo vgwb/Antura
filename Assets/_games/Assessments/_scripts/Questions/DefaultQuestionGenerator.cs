@@ -294,10 +294,10 @@ namespace Antura.Assessment
             LL_WordData word = question as LL_WordData;
             var wordGO = ItemFactory.Instance.SpawnQuestion(word);
 
-            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, LetterEqualityStrictness.Letter);
+            var partsToRemove = LanguageManager.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, correctLetter.Data, LetterEqualityStrictness.Letter);
             partsToRemove.Shuffle(); //pick a random letter
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
+            string text = LanguageManager.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
                 word.Data, partsToRemove[0], removedLetterColor: "#000000");
 
             if (config == DefaultQuestionType.MissingForm)

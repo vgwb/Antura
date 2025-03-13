@@ -26,7 +26,7 @@ namespace Antura.Core
             bool supportsAnyLanguage = OverridenNativeLanguages.Length == 0;
             if (supportsAnyLanguage)
             {
-                var langConfig = AppManager.I.LanguageSwitcher.GetLangConfig(code);
+                var langConfig = AppManager.I.LanguageManager.GetLangConfig(code);
                 if (langConfig.ExtraLanguage)
                 {
                     return false;

@@ -448,11 +448,11 @@ namespace Antura.LivingLetters
             List<StringPart> parts = new List<StringPart>();
 
             foreach (var markedLetter in toMark)
-                parts.AddRange(LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, (markedLetter as LL_LetterData).Data, LetterEqualityStrictness.WithVisualForm));
+                parts.AddRange(LanguageManager.LearningHelper.FindLetter(AppManager.I.DB, word.Data, (markedLetter as LL_LetterData).Data, LetterEqualityStrictness.WithVisualForm));
 
             if (parts.Count > 0)
             {
-                LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
+                LabelRender.text = LanguageManager.LearningHelper.GetWordWithMarkedLettersText(word.Data, parts, color);
             }
         }
 

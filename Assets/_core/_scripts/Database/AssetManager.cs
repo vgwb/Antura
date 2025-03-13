@@ -101,7 +101,7 @@ namespace Antura
             {
                 bool loadFromResources = true;
                 var sideKeys = new HashSet<string>();
-                var learningFont = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
+                var learningFont = AppManager.I.LanguageManager.GetLangConfig(LanguageUse.Learning).LanguageFont;
                 var fontName = learningFont.name.Split(" ").First().Split('_').Last();
                 foreach (var letterData in AppManager.I.DB.GetAllLetterData())
                 {
@@ -116,8 +116,8 @@ namespace Antura
 
         public IEnumerator LoadSongData()
         {
-            var learningLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Learning).Code;
-            var nativeLanguageCode = LanguageSwitcher.I.GetLangConfig(LanguageUse.Native).Code;
+            var learningLanguageCode = LanguageManager.I.GetLangConfig(LanguageUse.Learning).Code;
+            var nativeLanguageCode = LanguageManager.I.GetLangConfig(LanguageUse.Native).Code;
 
             //var stopwatch = new Stopwatch();
             //stopwatch.Start();

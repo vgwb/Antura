@@ -256,7 +256,7 @@ namespace Antura.GamesSelector
 
             for (int i = 0; i < totBubbles; ++i)
             {
-                int iRTL = LanguageSwitcher.LearningRTL ? totBubbles - i - 1 : i;
+                int iRTL = LanguageManager.LearningRTL ? totBubbles - i - 1 : i;
 
                 MiniGameData mgData = games[iRTL];
                 GamesSelectorBubble bubble = i == 0 ? mainBubble : (GamesSelectorBubble)Instantiate(mainBubble, this.transform);

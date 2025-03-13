@@ -70,14 +70,14 @@ public class ShapeManager : MonoBehaviour
         el.name = $"Data_{letterData.GetCompleteUnicodes()}_{letterData.Id}";
         Debug.Log($"Loading shape for {letterData}");
 
-        el.LetterTextMesh.font = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont;
-        el.LetterTextMesh.text = letterData.GetStringForDisplay(forceShowAccent:true);
+        el.LetterTextMesh.font = AppManager.I.LanguageManager.GetLangConfig(LanguageUse.Learning).LanguageFont;
+        el.LetterTextMesh.text = letterData.GetStringForDisplay(forceShowAccent: true);
 
         var shapeData = AppManager.I.AssetManager.GetShapeLetterData(letterData);
 #if UNITY_EDITOR && GENERATE_IF_NOT_FOUND
         if (shapeData == null)
         {
-            var fontName = AppManager.I.LanguageSwitcher.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First().Split('_').Last();
+            var fontName = AppManager.I.LanguageManager.GetLangConfig(LanguageUse.Learning).LanguageFont.name.Split(' ').First().Split('_').Last();
             var assetPath = $"Assets/Resources/Fonts/Learning/Font {fontName}/ShapeData/shapedata_{letterData.GetCompleteUnicodes()}.asset";
 
             shapeData = AssetDatabase.LoadAssetAtPath<ShapeLetterData>(assetPath);
@@ -152,7 +152,7 @@ public class ShapeManager : MonoBehaviour
         }
         for (int i = 0; i < nStrokes; i++)
         {
-            controllers[i].name = $"Stroke_{i.ToString().PadLeft(2,'0')}";
+            controllers[i].name = $"Stroke_{i.ToString().PadLeft(2, '0')}";
             controllers[i].gameObject.SetActive(true);
             CopySpline(strokes[i].Spline, controllers[i].spline);
         }

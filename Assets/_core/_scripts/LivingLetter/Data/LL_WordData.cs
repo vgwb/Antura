@@ -45,7 +45,7 @@ namespace Antura.LivingLetters
         {
             get
             {
-                return LanguageSwitcher.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text);
+                return LanguageManager.I.GetHelper(LanguageUse.Learning).ProcessString(Data.Text);
             }
         }
 

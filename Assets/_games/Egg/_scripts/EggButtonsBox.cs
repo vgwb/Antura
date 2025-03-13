@@ -415,7 +415,7 @@ namespace Antura.Minigames.Egg
 
             for (int i = 0; i < buttons.Count; i++)
             {
-                int iRTL = LanguageSwitcher.I.IsLearningLanguageRTL() ? i : buttons.Count - 1 - i;
+                int iRTL = LanguageManager.I.IsLearningLanguageRTL() ? i : buttons.Count - 1 - i;
                 if (EggConfiguration.Instance.IsSequence())
                     iRTL = i;
 

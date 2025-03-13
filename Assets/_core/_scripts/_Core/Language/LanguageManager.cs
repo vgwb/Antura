@@ -6,18 +6,19 @@ using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using Debug = UnityEngine.Debug;
+using UnityEngine.Localization.Settings;
 
 namespace Antura.Language
 {
-    public class LanguageSwitcher
+    public class LanguageManager
     {
-        public static LanguageSwitcher I
+        public static LanguageManager I
         {
             get
             {
                 if (AppManager.I == null)
                     return null;
-                return AppManager.I.LanguageSwitcher;
+                return AppManager.I.LanguageManager;
             }
         }
 
@@ -31,7 +32,7 @@ namespace Antura.Language
         private Dictionary<LanguageUse, LanguageCode> useMapping;
         private Dictionary<LanguageCode, LanguageData> loadedLanguageData;
 
-        public LanguageSwitcher()
+        public LanguageManager()
         {
             useMapping = new Dictionary<LanguageUse, LanguageCode>();
             loadedLanguageData = new Dictionary<LanguageCode, LanguageData>();
@@ -73,6 +74,23 @@ namespace Antura.Language
         public IEnumerator ReloadNativeLanguage()
         {
             yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
+            yield return SetLocalizationLanguage(loadedLanguageData[AppManager.I.AppSettings.NativeLanguage].config.Iso2);
+        }
+
+        private IEnumerator SetLocalizationLanguage(string iso2Code)
+        {
+            // Get all available locales
+            var locales = LocalizationSettings.AvailableLocales.Locales;
+
+            // Find the locale matching the ISO2 code
+            var targetLocale = locales.FirstOrDefault(locale => locale.Identifier.Code.ToLower() == iso2Code.ToLower());
+
+            if (targetLocale != null)
+            {
+                yield return LocalizationSettings.InitializationOperation;
+                LocalizationSettings.SelectedLocale = targetLocale;
+                Debug.Log($"Language switched to: {targetLocale.Identifier.Code}");
+            }
         }
 
         private IEnumerator LoadLanguage(LanguageUse use, LanguageCode language)

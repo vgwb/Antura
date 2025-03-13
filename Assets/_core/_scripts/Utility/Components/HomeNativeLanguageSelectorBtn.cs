@@ -19,7 +19,7 @@ namespace Antura.Utilities
         void Start()
         {
             var languageCode = AppManager.I.AppSettings.NativeLanguage;
-            var langConfig = AppManager.I.LanguageSwitcher.GetLangConfig(languageCode);
+            var langConfig = AppManager.I.LanguageManager.GetLangConfig(languageCode);
             Flag.sprite = langConfig.FlagIcon;
             if (EditionSelectionManager.MustChooseContentEditions)
             {

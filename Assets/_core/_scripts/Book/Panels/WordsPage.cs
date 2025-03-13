@@ -55,7 +55,7 @@ namespace Antura.Book
             };
             WordsPanel(cat);
 
-            if (AppManager.I.LanguageSwitcher.IsLearningLanguageRTL())
+            if (AppManager.I.LanguageManager.IsLearningLanguageRTL())
             {
                 for (int i = 0; i < SubPanels.Length; i++)
                 {
@@ -218,12 +218,12 @@ namespace Antura.Book
             {
                 Destroy(t.gameObject);
             }
-            var splittedLetters = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false);
+            var splittedLetters = LanguageManager.I.GetHelper(LanguageUse.Learning).SplitWord(AppManager.I.DB, currentWordInfo.data, false);
             foreach (var letter in splittedLetters)
             {
                 btnGO = Instantiate(SpellingLetterItemPrefab);
                 btnGO.transform.SetParent(SpellingContainer.transform, false);
-                if (LanguageSwitcher.I.IsLearningLanguageRTL())
+                if (LanguageManager.I.IsLearningLanguageRTL())
                 {
                     btnGO.transform.SetAsFirstSibling();
                 }
@@ -245,8 +245,8 @@ namespace Antura.Book
             {
                 Debug.Log("Detail Word(): " + currentWordInfo.data.Id);
                 Debug.Log("drawing code: " + currentWordInfo.data.DrawingId);
-                Debug.Log("word unicodes: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
-                Debug.Log("word unicodes forms: " + LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordTitleText.RenderedText));
+                Debug.Log("word unicodes: " + LanguageManager.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(currentWordInfo.data.Text));
+                Debug.Log("word unicodes forms: " + LanguageManager.I.GetHelper(LanguageUse.Learning).GetStringUnicodes(WordTitleText.RenderedText));
             }
             //ScoreText.text = "Score: " + currentWord.score;
         }

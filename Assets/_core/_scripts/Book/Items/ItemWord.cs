@@ -40,7 +40,7 @@ namespace Antura.Book
             }
 
             Title.SetText(myWordInfo.data.Text, Font2Use.Learning);
-            Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
+            Title.SetTextAlign(LanguageManager.I.IsLearningLanguageRTL());
             SubTitle.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? myWordInfo.data.Id : "";
 
             if (myWordInfo.data.DrawingId != "")

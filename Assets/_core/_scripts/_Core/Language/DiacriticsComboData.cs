@@ -85,7 +85,7 @@ namespace Antura.Language
             if (GUILayout.Button("Rebuild Diacritics Combo"))
             {
                 ArabicLanguageHelper.REFRESH_DIACRITIC_ENTRY_TABLE_FROM_LETTERS_DB = true;
-                (AppManager.I.LanguageSwitcher.GetHelper(LanguageUse.Learning) as ArabicLanguageHelper).RebuildDiacriticCombos();
+                (AppManager.I.LanguageManager.GetHelper(LanguageUse.Learning) as ArabicLanguageHelper).RebuildDiacriticCombos();
             }
             EditorGUILayout.EndFadeGroup();
             GUILayout.EndHorizontal();
@@ -99,28 +99,28 @@ namespace Antura.Language
                 var maxPage = data.Keys.Max(x => x.letter1.page);
                 if (data.page < 0)
                     data.page += maxPage;
-            };
+            }
             if (GUILayout.Button("<"))
             {
                 data.page -= 1;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
                 if (data.page < 0)
                     data.page = maxPage;
-            };
+            }
             if (GUILayout.Button(">"))
             {
                 data.page += 1;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
                 if (data.page > maxPage)
                     data.page = 0;
-            };
+            }
             if (GUILayout.Button("> 10"))
             {
                 data.page += 10;
                 var maxPage = data.Keys.Max(x => x.letter1.page);
                 if (data.page > maxPage)
                     data.page -= maxPage;
-            };
+            }
 
             GUILayout.EndHorizontal();
 

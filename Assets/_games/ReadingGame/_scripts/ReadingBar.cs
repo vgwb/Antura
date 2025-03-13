@@ -114,8 +114,8 @@ namespace Antura.Minigames.ReadingGame
             if (alpha > 0)
                 size = lastSize = text.TMPText.GetPreferredValues();
 
-            int rtlDir = LanguageSwitcher.I.IsLearningLanguageRTL() ? 1 : -1;
-            text.TMPText.isRightToLeftText = LanguageSwitcher.I.IsLearningLanguageRTL();
+            int rtlDir = LanguageManager.I.IsLearningLanguageRTL() ? 1 : -1;
+            text.TMPText.isRightToLeftText = LanguageManager.I.IsLearningLanguageRTL();
 
             var oldStartPos = start.localPosition;
             oldStartPos.x = rtlDir * (size.x * 0.5f + startOffset);

@@ -280,8 +280,8 @@ namespace Antura.Minigames.MissingLetter
         {
             m_oCurrQuestionPack = MissingLetterConfiguration.Instance.Questions.GetNextQuestion();
 
-            var phraseWords =  AppManager.I.VocabularyHelper.GetWordsFromPhraseText(((LL_PhraseData)m_oCurrQuestionPack.GetQuestion()).Data);
-            if (LanguageSwitcher.I.IsLearningLanguageRTL())
+            var phraseWords = AppManager.I.VocabularyHelper.GetWordsFromPhraseText(((LL_PhraseData)m_oCurrQuestionPack.GetQuestion()).Data);
+            if (LanguageManager.I.IsLearningLanguageRTL())
                 phraseWords.Reverse();
 
             var _correctAnswer = (LL_WordData)m_oCurrQuestionPack.GetCorrectAnswers().ToList()[0];
@@ -355,11 +355,11 @@ namespace Antura.Minigames.MissingLetter
             LivingLetterController letterView = m_aoCurrentQuestionScene[0].GetComponent<LetterBehaviour>().mLetter;
 
             bool findSameForm = MissingLetterConfiguration.Instance.Variation == MissingLetterVariation.LetterForm;
-            var parts = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm ? LetterEqualityStrictness.WithActualForm : LetterEqualityStrictness.Letter);
+            var parts = LanguageManager.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, findSameForm ? LetterEqualityStrictness.WithActualForm : LetterEqualityStrictness.Letter);
             //Debug.LogWarning("Looking for letter " + letter.Id + " into word " + word.Id);
 
             var partToRemove = parts[0];
-            letterView.LabelRender.text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove);
+            letterView.LabelRender.text = LanguageManager.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(word.Data, partToRemove);
             return partToRemove;
         }
 
@@ -399,7 +399,7 @@ namespace Antura.Minigames.MissingLetter
                 case MissingLetterVariation.LetterForm:
                 case MissingLetterVariation.LetterInWord:
                     var word = (LL_WordData)m_oCurrQuestionPack.GetQuestion();
-                    letterView.LabelRender.text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
+                    letterView.LabelRender.text = LanguageManager.LearningHelper.GetWordWithMarkedLetterText(word.Data, m_oRemovedLetter, markColor, MarkType.SingleLetter);
                     break;
                 case MissingLetterVariation.Image:
                     break;

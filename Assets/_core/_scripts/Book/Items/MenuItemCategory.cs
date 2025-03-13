@@ -27,7 +27,7 @@ namespace Antura.Book
             myManager = _manager;
 
             Title.text = categoryData.TitleLearning;
-            Title.SetTextAlign(LanguageSwitcher.I.IsLearningLanguageRTL());
+            Title.SetTextAlign(LanguageManager.I.IsLearningLanguageRTL());
             //           SubTitle.text = AppManager.I.ContentEdition.LearnMethod.ShowHelpText ? categoryData.TitleHelp : "";
 
             if (categoryData.Stage > 0)

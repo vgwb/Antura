@@ -233,10 +233,10 @@ namespace Antura.Assessment
 
             cacheCompleteWord = word.TextForLivingLetter;
 
-            var partsToRemove = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, LetterEqualityStrictness.Letter);
+            var partsToRemove = LanguageManager.I.GetHelper(LanguageUse.Learning).FindLetter(AppManager.I.DB, word.Data, letter.Data, LetterEqualityStrictness.Letter);
             partsToRemove.Shuffle(); //pick a random letter
 
-            string text = LanguageSwitcher.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
+            string text = LanguageManager.I.GetHelper(LanguageUse.Learning).GetWordWithMissingLetterText(
                 word.Data, partsToRemove[0], removedLetterColor: "#000000");
 
             //Spawn word, then replace text with text with missing letter

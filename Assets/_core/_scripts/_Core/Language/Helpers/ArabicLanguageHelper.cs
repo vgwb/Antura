@@ -351,7 +351,7 @@ namespace Antura.Language
 
             DiacriticCombos2Fix = new Dictionary<DiacriticComboEntry, Vector2>();
 
-            var diacriticsComboData = LanguageSwitcher.I.GetDiacriticsComboData(LanguageUse.Learning);
+            var diacriticsComboData = LanguageManager.I.GetDiacriticsComboData(LanguageUse.Learning);
 
             void RefreshEntrySorting(DiacriticEntryKey.Letter entryLetter, LetterData letterData)
             {
@@ -549,7 +549,7 @@ namespace Antura.Language
             }
 
             Vector2 newDelta = new Vector2(0, 0);
-            var diacriticsComboData = LanguageSwitcher.I.GetDiacriticsComboData(LanguageUse.Learning);
+            var diacriticsComboData = LanguageManager.I.GetDiacriticsComboData(LanguageUse.Learning);
             var combo = diacriticsComboData.Keys.FirstOrDefault(x => x.letter1.unicode == Unicode1
                                                                      && x.letter2.unicode == Unicode2);
             if (combo != null)

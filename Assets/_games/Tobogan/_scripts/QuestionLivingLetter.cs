@@ -129,23 +129,23 @@ namespace Antura.Minigames.Tobogan
 
         public void SetQuestionText(LL_WordData word, LL_LetterData markedLetter, Color color)
         {
-            string text = LanguageSwitcher.LearningHelper.ProcessString(word.Data.Text);
-            var parts = LanguageSwitcher.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, LetterEqualityStrictness.Letter);
+            string text = LanguageManager.LearningHelper.ProcessString(word.Data.Text);
+            var parts = LanguageManager.LearningHelper.FindLetter(AppManager.I.DB, word.Data, markedLetter.Data, LetterEqualityStrictness.Letter);
             if (parts.Count > 0)
             {
-                text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[0], color, MarkType.SingleLetter);
+                text = LanguageManager.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[0], color, MarkType.SingleLetter);
             }
             letter.Init(word, text, 1.3f);
         }
 
         public void SetQuestionText(LL_WordData word, int letterToMark, Color color)
         {
-            string text = LanguageSwitcher.LearningHelper.ProcessString(word.Data.Text);
+            string text = LanguageManager.LearningHelper.ProcessString(word.Data.Text);
 
-            var parts = LanguageSwitcher.LearningHelper.SplitWord(AppManager.I.DB, word.Data);
+            var parts = LanguageManager.LearningHelper.SplitWord(AppManager.I.DB, word.Data);
             if (parts.Count > letterToMark)
             {
-                text = LanguageSwitcher.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[letterToMark], color, MarkType.SingleLetter);
+                text = LanguageManager.LearningHelper.GetWordWithMarkedLetterText(word.Data, parts[letterToMark], color, MarkType.SingleLetter);
             }
             letter.Init(word, text, 1.3f);
         }

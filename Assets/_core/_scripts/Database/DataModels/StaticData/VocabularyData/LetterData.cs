@@ -625,8 +625,10 @@ namespace Antura.Database
                     var id2 = other._Id;
                     if (!AppManager.I.ContentEdition.ShowAccentsOnSeparatedLivingLetters)
                     {
-                        if (HasAccent) id1 = Base._Id;
-                        if (other.HasAccent) id2 = Base._Id;
+                        if (HasAccent)
+                            id1 = Base._Id;
+                        if (other.HasAccent)
+                            id2 = Base._Id;
                     }
                     isEqual = string.Equals(id1, id2) && FormsLookTheSame(Form, other.Form);
                     break;
@@ -669,18 +671,18 @@ namespace Antura.Database
             if (Symbol_Unicode != "")
             {
                 output = "// " + Id + "\n";
-                output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Isolated_Unicode, Symbol_Unicode) + "\n";
+                output += LanguageManager.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Isolated_Unicode, Symbol_Unicode) + "\n";
                 if (Initial_Unicode != Isolated_Unicode)
                 {
-                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Initial_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageManager.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Initial_Unicode, Symbol_Unicode) + "\n";
                 }
                 if (Medial_Unicode != Isolated_Unicode && Medial_Unicode != Initial_Unicode)
                 {
-                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Medial_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageManager.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Medial_Unicode, Symbol_Unicode) + "\n";
                 }
                 if (Final_Unicode != Medial_Unicode && Final_Unicode != Initial_Unicode && Final_Unicode != Isolated_Unicode)
                 {
-                    output += LanguageSwitcher.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Final_Unicode, Symbol_Unicode) + "\n";
+                    output += LanguageManager.I.GetHelper(LanguageUse.Learning).DebugShowDiacriticFix(Final_Unicode, Symbol_Unicode) + "\n";
                 }
                 //Debug.Log(output);
             }
