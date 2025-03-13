@@ -7,6 +7,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
+using Demigiant.DemiTools.DeUnityExtended;
 using DG.DeInspektor.Attributes;
 
 namespace Antura.ReservedArea

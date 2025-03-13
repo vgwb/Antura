@@ -32,9 +32,9 @@ namespace Antura.UI
         [DeEmptyAlert]
         [SerializeField] ClassroomProfileDetailPanel detailPanel;
         [DeEmptyAlert]
-        [SerializeField] ClassroomSubmenuPanel optionsPanel;
+        [SerializeField] ClassroomOptionsPanel optionsPanel;
         [DeEmptyAlert]
-        [SerializeField] ClassroomSubmenuPanel infoPanel;
+        [SerializeField] ClassroomInfoPanel infoPanel;
         [DeEmptyAlert]
         [SerializeField] GameObject createProfileBgBlocker;
         [DeEmptyAlert]

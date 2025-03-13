@@ -2,7 +2,7 @@
 
 namespace Antura.UI
 {
-    public class ClassroomSubmenuPanel : MonoBehaviour
+    public class ClassroomInfoPanel : MonoBehaviour
     {
         
     }
