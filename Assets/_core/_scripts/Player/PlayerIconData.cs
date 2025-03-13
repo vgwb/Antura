@@ -11,6 +11,7 @@ namespace Antura.Profile
 
     /// <summary>
     /// Contains the data to generate a saved player profile (icon in the main menu)
+    /// it is saved in PlayerPrefs as List in AppSettings.SavedPlayers
     /// </summary>
     [Serializable]
     public struct PlayerIconData

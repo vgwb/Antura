@@ -20,6 +20,10 @@ namespace Antura.Database
 
     public class PlayerProfileAdditionalData
     {
+        public string PlayerName;
+        public int Classroom;
+        public TalkToPlayerStyle TalkToPlayerStyle;
+
         /// <summary>
         /// Number of consecutive days of playin
         /// </summary>
@@ -35,14 +39,23 @@ namespace Antura.Database
         /// </summary>
         public string CurrentCustomizationShopStateJSON;
 
-        public PlayerProfileAdditionalData(int _ConsecutivePlayDays, string currentShopStateJSON, string currentCustomizationShopStateJSON)
+        public PlayerProfileAdditionalData(
+            string _PlayerName,
+            int _Classroom,
+            TalkToPlayerStyle _TalkToPlayerStyle,
+            int _ConsecutivePlayDays,
+            string currentShopStateJSON,
+            string currentCustomizationShopStateJSON
+            )
         {
+            PlayerName = _PlayerName;
+            Classroom = _Classroom;
+            TalkToPlayerStyle = _TalkToPlayerStyle;
             ConsecutivePlayDays = _ConsecutivePlayDays;
             CurrentShopStateJSON = currentShopStateJSON;
             CurrentCustomizationShopStateJSON = currentCustomizationShopStateJSON;
         }
     }
-
 
     /// <summary>
     /// Serialized information about the player. Used by the Player Profile.
@@ -216,6 +229,9 @@ namespace Antura.Database
 
         public PlayerProfileData(
                 string _Uuid,
+                string _PlayerName,
+                int _Classroom,
+                TalkToPlayerStyle _TalkToPlayerStyle,
                 int _AvatarId,
                 PlayerGender _Gender,
                 PlayerTint _Tint,
@@ -262,7 +278,7 @@ namespace Antura.Database
             SetCurrentJourneyPosition(JourneyPosition.InitialJourneyPosition);
             Timestamp = GenericHelper.GetTimestampForNow();
             CurrentAnturaCustomization = currentAnturaCustomization;
-            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
+            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_PlayerName, _Classroom, _TalkToPlayerStyle, comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
 
             SelectedPet = petData.SelectedPet;
@@ -299,7 +315,7 @@ namespace Antura.Database
             }
             else
             {
-                return new PlayerProfileAdditionalData(0, "", currentCustomizationShopStateJSON:"");
+                return new PlayerProfileAdditionalData("", 0, TalkToPlayerStyle.LearningThenNative, 0, "", currentCustomizationShopStateJSON: "");
             }
         }
 

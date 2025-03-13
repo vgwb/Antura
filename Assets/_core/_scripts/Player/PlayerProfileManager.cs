@@ -3,8 +3,6 @@ using Antura.Database;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Antura.Language;
-using DG.DeExtensions;
 using UnityEngine;
 
 namespace Antura.Profile
@@ -50,7 +48,7 @@ namespace Antura.Profile
                         AppManager.I.FirstContactManager.InitialiseForCurrentPlayer(_currentPlayer.FirstContactState);
 
                         _currentPlayer.LoadRewardPackUnlockDataList(); // refresh list of unlocked rewards
-                        _currentPlayer.SetCurrentJourneyPosition(_currentPlayer.MaxJourneyPosition, _save:false);
+                        _currentPlayer.SetCurrentJourneyPosition(_currentPlayer.MaxJourneyPosition, _save: false);
                         if (OnProfileChanged != null)
                         {
                             OnProfileChanged();
@@ -197,7 +195,7 @@ namespace Antura.Profile
         {
             return FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
         }
-        
+
         /// <summary>
         /// Return the list of existing player profiles filtered by the given classroom (where 0 is no classroom).
         /// </summary>
@@ -206,7 +204,8 @@ namespace Antura.Profile
             List<PlayerIconData> result = FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
             for (int i = result.Count - 1; i >= 0; i--)
             {
-                if (result[i].Classroom != classroomIndex) result.RemoveAt(i);
+                if (result[i].Classroom != classroomIndex)
+                    result.RemoveAt(i);
             }
             return result;
         }
@@ -231,7 +230,7 @@ namespace Antura.Profile
             }
             AppManager.I.AppSettingsManager.SaveSettings();
         }
-        
+
         /// <summary>
         /// Updates the PlayerIconData for the given player in list of PlayersIconData in GameSettings.
         /// </summary>
@@ -247,7 +246,7 @@ namespace Antura.Profile
             }
             AppManager.I.AppSettingsManager.SaveSettings();
         }
-        
+
         #endregion
 
         #region Player Profile Creation
