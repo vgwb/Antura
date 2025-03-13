@@ -217,7 +217,7 @@ namespace Antura.Profile
             // }
             LevelLabel.text = playerIconData.PlayerName;
 
-            TfName.text = playerIconData.PlayerName.IsNullOrEmpty() ? "-" : playerIconData.PlayerName;
+            TfName.text = playerIconData.PlayerName.IsNullOrEmpty() ? "-" : playerIconData.PlayerName.ToUpper();
 
             // Debug.Log("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
             //HighlightImage.SetActive(playerIconData.HasMaxStarsInCurrentPlaySessions);
