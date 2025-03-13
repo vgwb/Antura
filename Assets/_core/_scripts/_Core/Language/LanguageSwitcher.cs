@@ -54,7 +54,7 @@ namespace Antura.Language
                 languagesToLoad.Add(nativeLanguage);
             }
 
-            foreach (var contentEdition in AppManager.I.AppEdition.ContentEditions)
+            foreach (var contentEdition in AppManager.I.AppEdition.ContentConfigs)
             {
                 languagesToLoad.Add(contentEdition.LearningLanguage);
                 languagesToLoad.Add(contentEdition.HelpLanguage);

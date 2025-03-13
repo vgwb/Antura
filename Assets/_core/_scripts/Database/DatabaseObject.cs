@@ -25,7 +25,7 @@ namespace Antura.Database
 
         #region Creation
 
-        public static DatabaseObject LoadDB(ContentEditionConfig fromEdition, LanguageCode language, string staticDbNameToLoad)
+        public static DatabaseObject LoadDB(ContentConfig fromEdition, LanguageCode language, string staticDbNameToLoad)
         {
             var db = new DatabaseObject();
             if (fromEdition != null)
@@ -80,7 +80,7 @@ namespace Antura.Database
             return true;
         }
 
-        public void LoadTablesFromEdition(ContentEditionConfig edition)
+        public void LoadTablesFromEdition(ContentConfig edition)
         {
             //            Debug.Log("LoadTablesFromEdition " + edition.ContentID.ToString());
             stageDb = edition.StageDB;

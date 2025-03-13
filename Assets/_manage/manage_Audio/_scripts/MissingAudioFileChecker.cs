@@ -22,7 +22,7 @@ namespace Antura.Test
         public LanguageCode LanguageToCheck;
         List<string> folders;
 
-        private ContentEditionConfig ContentTarget;
+        private ContentConfig ContentTarget;
         public DatabaseManager dbManager;
         public bool CheckDialogs;
         public bool CheckLetters;

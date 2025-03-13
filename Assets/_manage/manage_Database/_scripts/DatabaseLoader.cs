@@ -27,7 +27,7 @@ namespace Antura.Database.Management
         [HideInInspector]
         public LanguageCode langCode;
         [HideInInspector]
-        public ContentEditionConfig InputContent;
+        public ContentConfig InputContent;
 
         public void RecreateDatabase()
         {
@@ -114,9 +114,9 @@ namespace Antura.Database.Management
         /// <param name="edition">The current loaded version. (Except for Localization, for the rest importTypes must be selected the same that you're trying to load to the db)</param>
         /// <param name="importType">Indicates if the coming json to load into de db is Vocabulary, PlaySession or Localization</param>
         /// <param name="dataType">Not mandatory: this param indicates the sheet name from which the json was generated (only necessary for Vocabulary)</param>
-        public void DirectLoadData(string DBInputData, string fileName, ContentEditionConfig edition, ContentType importType, string dataType = null, string currentLangCode = null)
+        public void DirectLoadData(string DBInputData, string fileName, ContentConfig edition, ContentType importType, string dataType = null, string currentLangCode = null)
         {
-            if(currentLangCode != null && Enum.IsDefined(typeof(LanguageCode), currentLangCode.ToLower()))
+            if (currentLangCode != null && Enum.IsDefined(typeof(LanguageCode), currentLangCode.ToLower()))
                 langCode = (LanguageCode)Enum.Parse(typeof(LanguageCode), currentLangCode.ToLower());
 
             this._databaseObject = DatabaseObject.LoadDB(edition, langCode, DatabaseManager.STATIC_DATABASE_NAME);

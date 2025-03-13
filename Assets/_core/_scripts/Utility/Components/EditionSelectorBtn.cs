@@ -20,7 +20,7 @@ namespace Antura.Utilities
 
         void Start()
         {
-            ContentEditionConfig editionConfig = AppManager.I.ContentEdition;
+            ContentConfig editionConfig = AppManager.I.ContentEdition;
             var languageCode = AppManager.I.ContentEdition.LearningLanguage;
             if (languageCode == LanguageCode.arabic_legacy)
                 languageCode = LanguageCode.arabic;

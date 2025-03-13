@@ -1,6 +1,5 @@
 ﻿using Antura.Database;
 using Antura.Language;
-using Antura.Database.Management;
 using Antura.GoogleSheets;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -9,8 +8,8 @@ using System.Collections.Generic;
 
 namespace Antura.Core
 {
-    [CreateAssetMenu(menuName = "Antura/Config Content Edition")]
-    public class ContentEditionConfig : ScriptableObject
+    [CreateAssetMenu(menuName = "Antura/Content Config")]
+    public class ContentConfig : ScriptableObject
     {
         public LearningContentID ContentID;
         public string Title;

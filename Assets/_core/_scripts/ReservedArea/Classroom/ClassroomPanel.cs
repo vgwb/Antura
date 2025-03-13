@@ -21,7 +21,7 @@ namespace Antura.UI
             Profiles,
             ProfileDetail
         }
-        
+
         #region Serialized
 
         [SerializeField] bool hideGlobalUIBackButton = true;
@@ -149,18 +149,20 @@ namespace Antura.UI
                     Debug.LogError($"Player \"{profile.PlayerName}\" has an invalid Classroom ID ({profile.Classroom}): should be between 0 and {classroomIDs.Count - 1}. Ignoring it");
                     continue;
                 }
-                if (!profilesByClassroomIndex.ContainsKey(profile.Classroom)) profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
+                if (!profilesByClassroomIndex.ContainsKey(profile.Classroom))
+                    profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
                 profilesByClassroomIndex[profile.Classroom].Add(profile);
             }
         }
 
         void SwitchState(State toState, PlayerIconData? profile = null)
         {
-            if (state == toState) return;
+            if (state == toState)
+                return;
             if (toState == State.ProfileDetail && profile == null)
             {
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
-                return;  
+                return;
             }
 
             state = toState;
@@ -172,8 +174,10 @@ namespace Antura.UI
                 case State.Profiles:
                     Refresh();
                     bool hasProfiles = profilesByClassroomIndex.ContainsKey(currClassroomIndex);
-                    if (hasProfiles) profilesPanel.Fill(profilesByClassroomIndex[currClassroomIndex]);
-                    else profilesPanel.Fill(new List<PlayerIconData>());
+                    if (hasProfiles)
+                        profilesPanel.Fill(profilesByClassroomIndex[currClassroomIndex]);
+                    else
+                        profilesPanel.Fill(new List<PlayerIconData>());
                     break;
                 case State.ProfileDetail:
                     detailPanel.Fill((PlayerIconData)profile);
@@ -192,7 +196,8 @@ namespace Antura.UI
         {
             if (isDemoPlayer)
             {
-                if (AppManager.I.PlayerProfileManager.IsDemoUserExisting()) GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
+                if (AppManager.I.PlayerProfileManager.IsDemoUserExisting())
+                    GlobalUI.ShowPrompt(id: Database.LocalizationDataId.ReservedArea_DemoUserAlreadyExists);
                 else
                 {
                     createProfileBgBlocker.gameObject.SetActive(true);
@@ -238,7 +243,7 @@ namespace Antura.UI
         {
             GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: () => DeleteProfile(profile.Uuid), _onNoCallback: () => { });
         }
-        
+
         void OnEditProfileRequested(PlayerIconData profile)
         {
             GlobalPopups.OpenTextInput("Edit profile name", profile.PlayerName, detailPanel.AssignNewProfileName);
@@ -277,10 +282,10 @@ namespace Antura.UI
 
             // Populate with complete data
             // Find all content editions with the current native language
-            List<ContentEditionConfig> allConfigs = new List<ContentEditionConfig>();
+            List<ContentConfig> allConfigs = new List<ContentConfig>();
             SelectLearningContentPanel.FindAllContentEditions(allConfigs, AppManager.I.AppSettings.NativeLanguage);
 
-            foreach (ContentEditionConfig config in allConfigs)
+            foreach (ContentConfig config in allConfigs)
             {
                 ContentProfile contentProfile = AppManager.I.PlayerProfileManager.GetContentProfile(config.ContentID);
                 AppManager.I.NavigationManager.NavData.CurrentContent = contentProfile;
@@ -288,7 +293,8 @@ namespace Antura.UI
                 yield return AppManager.I.ReloadEdition();
 
                 JourneyPosition maxJourneyPos = AppManager.I.JourneyHelper.GetFinalJourneyPosition(considerEndSceneToo: true);
-                if (testAlmostAtEnd) maxJourneyPos = new JourneyPosition(6, 13, 100); // Never TRUE
+                if (testAlmostAtEnd)
+                    maxJourneyPos = new JourneyPosition(6, 13, 100); // Never TRUE
                 yield return StartCoroutine(PopulateDatabaseWithUsefulDataCO(maxJourneyPos));
 
                 AppManager.I.Player.SetMaxJourneyPosition(maxJourneyPos, true, true);

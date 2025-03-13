@@ -19,13 +19,13 @@ namespace Antura.UI
 
         public TextRender LevelLabel;
 
-        private ContentEditionConfig Content;
+        private ContentConfig Content;
         public SelectLearningContentPanel parentPanel;
 
         private LearningContentID contentId;
         public LearningContentID ContentId => contentId;
 
-        public void Setup(ContentEditionConfig editionConfig)
+        public void Setup(ContentConfig editionConfig)
         {
             Content = editionConfig;
             this.contentId = editionConfig.ContentID;

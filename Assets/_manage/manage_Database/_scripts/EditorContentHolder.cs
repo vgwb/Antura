@@ -5,6 +5,6 @@ namespace Antura.Database.Management
 {
     public class EditorContentHolder : MonoBehaviour
     {
-        public ContentEditionConfig InputContent => AppManager.I.ContentEdition;
+        public ContentConfig InputContent => AppManager.I.ContentEdition;
     }
 }

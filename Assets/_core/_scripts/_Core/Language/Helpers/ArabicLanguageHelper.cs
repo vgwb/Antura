@@ -305,14 +305,15 @@ namespace Antura.Language
         private static bool hasSetupMappings = false;
         private static void SetupMappings()
         {
-            if (hasSetupMappings) return;
+            if (hasSetupMappings)
+                return;
             hasSetupMappings = true;
 
             var db = AppManager.I.DB;
             var mappings = new HashSet<ArabicMapping>();
 
             // Get all letter DBs from all editions
-            foreach (ContentEditionConfig contentEditionConfig in AppManager.I.RootConfig.LoadedAppEdition.ContentEditions)
+            foreach (ContentConfig contentEditionConfig in AppManager.I.RootConfig.LoadedAppEdition.ContentConfigs)
             {
                 foreach (var ld in contentEditionConfig.LetterDB.table.GetValuesTyped())
                 {

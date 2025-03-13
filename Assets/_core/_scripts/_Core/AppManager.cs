@@ -30,7 +30,7 @@ namespace Antura.Core
         public static bool VERBOSE_INVERSION = false;
 
         public AppEditionConfig AppEdition => RootConfig.LoadedAppEdition;
-        public ContentEditionConfig ContentEdition => RootConfig.ContentEdition;
+        public ContentConfig ContentEdition => RootConfig.ContentEdition;
 
         public RootConfig RootConfig;
         public LanguageSwitcher LanguageSwitcher;

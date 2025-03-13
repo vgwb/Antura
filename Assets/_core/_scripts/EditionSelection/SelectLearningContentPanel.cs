@@ -13,12 +13,12 @@ namespace Antura.UI
 {
     public class SelectLearningContentPanel : MonoBehaviour
     {
-        public static void FindAllContentEditions(List<ContentEditionConfig> supportedConfigs, LanguageCode nativeCode)
+        public static void FindAllContentEditions(List<ContentConfig> supportedConfigs, LanguageCode nativeCode)
         {
             // Find all content editions with the current native language
-            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
+            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentConfigs.Length; iContentEdition++)
             {
-                var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
+                var contentEditionConfig = AppManager.I.AppEdition.ContentConfigs[iContentEdition];
 
                 bool isSupported = contentEditionConfig.SupportsLanguage(nativeCode);
 
@@ -66,10 +66,10 @@ namespace Antura.UI
 
             PreferredContentID = AppManager.I.AppSettings.ContentID;
 
-            var supportedConfigs = new List<ContentEditionConfig>();
+            var supportedConfigs = new List<ContentConfig>();
             FindAllContentEditions(supportedConfigs, SelectedNativeCode);
 
-            foreach (ContentEditionConfig contentEditionConfig in supportedConfigs)
+            foreach (ContentConfig contentEditionConfig in supportedConfigs)
             {
                 var buttonGO = Instantiate(prefabButton.gameObject, prefabButton.transform.parent, true);
                 buttonGO.transform.localScale = Vector3.one;
@@ -104,7 +104,7 @@ namespace Antura.UI
 
             // HACK: if we are looking for arabic, but we need to actually use arabic_legacy, do so now
             // TODO: check this! Is it needed anymore?
-            var content = AppManager.I.AppEdition.ContentEditions.FirstOrDefault(x => x.ContentID == contentId);
+            var content = AppManager.I.AppEdition.ContentConfigs.FirstOrDefault(x => x.ContentID == contentId);
             // if (nativeCode == LanguageCode.arabic && content.OverridenNativeLanguages.Contains(LanguageCode.arabic_legacy))
             // {
             //     AppManager.I.AppSettingsManager.SetNativeLanguage(LanguageCode.arabic_legacy);

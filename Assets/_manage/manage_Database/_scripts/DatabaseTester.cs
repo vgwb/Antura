@@ -23,7 +23,7 @@ namespace Antura.Database.Management
     [RequireComponent(typeof(EditorContentHolder))]
     public class DatabaseTester : MonoBehaviour
     {
-        private ContentEditionConfig inputContent;
+        private ContentConfig inputContent;
 
         [Header("Config")]
         public Text OutputText;
@@ -92,7 +92,7 @@ namespace Antura.Database.Management
 
         #region Main Actions
 
-        public ContentEditionConfig GetInputContent()
+        public ContentConfig GetInputContent()
         {
             return inputContent;
         }

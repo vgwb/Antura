@@ -75,9 +75,9 @@ namespace Antura.UI
                 AvailableNativeCodes.Add(l);
             }
 
-            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentEditions.Length; iContentEdition++)
+            for (var iContentEdition = 0; iContentEdition < AppManager.I.AppEdition.ContentConfigs.Length; iContentEdition++)
             {
-                var contentEditionConfig = AppManager.I.AppEdition.ContentEditions[iContentEdition];
+                var contentEditionConfig = AppManager.I.AppEdition.ContentConfigs[iContentEdition];
                 for (var index = 0; index < contentEditionConfig.OverridenNativeLanguages.Length; index++)
                 {
                     var lang = contentEditionConfig.OverridenNativeLanguages[index];

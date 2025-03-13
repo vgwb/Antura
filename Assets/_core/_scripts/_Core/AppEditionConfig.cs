@@ -24,9 +24,9 @@ namespace Antura.Core
     {
         [Header("Edition")]
         public AppEditionID editionID;
-        public ContentEditionConfig[] ContentEditions;
+        public ContentConfig[] ContentConfigs;
         public LanguageCode[] SupportedNativeLanguages;
-        public bool HasMultipleContentEditions => ContentEditions != null && ContentEditions.Length > 1;
+        public bool HasMultipleContentEditions => ContentConfigs != null && ContentConfigs.Length > 1;
 
         [Header("Settings - Application")]
         /// <summary>
@@ -135,9 +135,9 @@ namespace Antura.Core
             //         PlayerSettings.SplashScreen.logos[i].logo = SplashLogos[i];
             //     }
             // }
-            var learningConfigsToUse = new List<ContentEditionConfig>();
+            var learningConfigsToUse = new List<ContentConfig>();
 
-            foreach (var edition in ContentEditions)
+            foreach (var edition in ContentConfigs)
             {
                 learningConfigsToUse.Add(edition);
             }
@@ -217,7 +217,8 @@ namespace Antura.Core
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
-                if (path.Contains("Resources/")) continue;
+                if (path.Contains("Resources/"))
+                    continue;
                 var entry = AddressableAssetSettingsDefaultObject.Settings.CreateOrMoveEntry(guid, group);
                 var removedPathLength = "Assets/_lang_bundles/".Length;
                 var splits = path.Split('.');
