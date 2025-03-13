@@ -700,9 +700,9 @@ namespace Antura.Profile
             return newProfileData;
         }
 
-        public PlayerIconData GetPlayerIconData()
+        public PlayerProfilePreview GetPlayerIconData()
         {
-            PlayerIconData returnIconData = new PlayerIconData
+            PlayerProfilePreview returnIconData = new PlayerProfilePreview
             {
                 Uuid = this.Uuid,
                 PlayerName = this.PlayerName,

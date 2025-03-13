@@ -27,7 +27,7 @@ namespace Antura.UI
             }
         }
 
-        public static void SaveProfile(PlayerIconData profile)
+        public static void SaveProfile(PlayerProfilePreview profile)
         {
             PlayerProfile playerProfile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(profile.Uuid);
             playerProfile.PlayerName = profile.PlayerName;

@@ -15,10 +15,10 @@ namespace Antura.UI
     {
         #region EVENTS
 
-        public ActionEvent<PlayerIconData> OnProfileClicked = new("ClassroomProfilesPanel.OnProfileClicked");
+        public ActionEvent<PlayerProfilePreview> OnProfileClicked = new("ClassroomProfilesPanel.OnProfileClicked");
 
         #endregion
-        
+
         #region Serialized
 
         [DeEmptyAlert]
@@ -44,8 +44,9 @@ namespace Antura.UI
             rt = this.GetComponent<RectTransform>();
             LayoutGroup[] layoutGroups = this.GetComponentsInChildren<LayoutGroup>(true);
             layoutGroupsRTs = new RectTransform[layoutGroups.Length];
-            for (int i = 0; i < layoutGroups.Length; i++) layoutGroupsRTs[i] = layoutGroups[i].GetComponent<RectTransform>();
-            
+            for (int i = 0; i < layoutGroups.Length; i++)
+                layoutGroupsRTs[i] = layoutGroups[i].GetComponent<RectTransform>();
+
             profileViewPrefab.gameObject.SetActive(false);
         }
 
@@ -57,7 +58,7 @@ namespace Antura.UI
         #endregion
 
         #region Public Methods
-        
+
         public void Open(bool doOpen)
         {
             if (doOpen)
@@ -71,10 +72,10 @@ namespace Antura.UI
             }
         }
 
-        public void Fill(List<PlayerIconData> profiles)
+        public void Fill(List<PlayerProfilePreview> profiles)
         {
             Clear();
-            
+
             int tot = profiles.Count;
             while (profileViews.Count < tot)
             {
@@ -88,7 +89,7 @@ namespace Antura.UI
                 view.BtMain.onClick.AddListener(() => OnProfileClicked.Dispatch(view.Profile));
                 view.gameObject.SetActive(true);
             }
-            
+
             content.SetActive(false);
             this.RestartCoroutine(ref coRebuildLayout, CO_RebuildLayout());
         }
@@ -111,7 +112,8 @@ namespace Antura.UI
         {
             yield return null;
             content.SetActive(true);
-            foreach (RectTransform r in layoutGroupsRTs) LayoutRebuilder.ForceRebuildLayoutImmediate(r);
+            foreach (RectTransform r in layoutGroupsRTs)
+                LayoutRebuilder.ForceRebuildLayoutImmediate(r);
             coRebuildLayout = null;
         }
 

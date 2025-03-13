@@ -52,8 +52,8 @@ namespace Antura.UI
         bool isValidClassroom;
         bool backButtonWasOn;
         bool isCreatingDemoProfile;
-        List<PlayerIconData> allProfiles;
-        readonly Dictionary<int, List<PlayerIconData>> profilesByClassroomIndex = new();
+        List<PlayerProfilePreview> allProfiles;
+        readonly Dictionary<int, List<PlayerProfilePreview>> profilesByClassroomIndex = new();
         Coroutine coCreateProfile;
 
         #region Unity
@@ -73,23 +73,26 @@ namespace Antura.UI
                 }
             });
             header.BtCreateTeacher.onClick.AddListener(() => CreateProfile(true));
-            header.BtOptions.onToggle.AddListener(isOn => {
+            header.BtOptions.onToggle.AddListener(isOn =>
+            {
                 submenuBgBlocker.SetActive(isOn);
                 header.ActivateSubmenuMode(isOn);
                 optionsPanel.gameObject.SetActive(isOn);
             });
-            header.BtInfo.onToggle.AddListener(isOn => {
+            header.BtInfo.onToggle.AddListener(isOn =>
+            {
                 submenuBgBlocker.SetActive(isOn);
                 header.ActivateSubmenuMode(isOn);
                 infoPanel.gameObject.SetActive(isOn);
             });
             profilesPanel.BtCreateProfile.onClick.AddListener(() => CreateProfile(false));
-            
+
             optionsPanel.gameObject.SetActive(false);
             infoPanel.gameObject.SetActive(false);
             createProfileBgBlocker.gameObject.SetActive(false);
             submenuBgBlocker.gameObject.SetActive(false);
-            if (!isOpen) this.gameObject.SetActive(false);
+            if (!isOpen)
+                this.gameObject.SetActive(false);
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
@@ -148,7 +151,7 @@ namespace Antura.UI
         {
             allProfiles = AppManager.I.PlayerProfileManager.GetPlayersIconData();
             profilesByClassroomIndex.Clear();
-            foreach (PlayerIconData profile in allProfiles)
+            foreach (PlayerProfilePreview profile in allProfiles)
             {
                 if (profile.Classroom >= classroomIDs.Count)
                 {
@@ -156,12 +159,12 @@ namespace Antura.UI
                     continue;
                 }
                 if (!profilesByClassroomIndex.ContainsKey(profile.Classroom))
-                    profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerIconData>());
+                    profilesByClassroomIndex.Add(profile.Classroom, new List<PlayerProfilePreview>());
                 profilesByClassroomIndex[profile.Classroom].Add(profile);
             }
         }
 
-        void SwitchState(State toState, PlayerIconData? profile = null)
+        void SwitchState(State toState, PlayerProfilePreview? profile = null)
         {
             if (state == toState)
                 return;
@@ -183,14 +186,14 @@ namespace Antura.UI
                     if (hasProfiles)
                         profilesPanel.Fill(profilesByClassroomIndex[currClassroomIndex]);
                     else
-                        profilesPanel.Fill(new List<PlayerIconData>());
+                        profilesPanel.Fill(new List<PlayerProfilePreview>());
                     break;
                 case State.ProfileDetail:
-                    detailPanel.Fill((PlayerIconData)profile);
+                    detailPanel.Fill((PlayerProfilePreview)profile);
                     break;
             }
         }
-        
+
         void Close()
         {
             if (!isOpen)
@@ -247,7 +250,7 @@ namespace Antura.UI
 
         #region Callbacks
 
-        void OnProfileClicked(PlayerIconData profile)
+        void OnProfileClicked(PlayerProfilePreview profile)
         {
             SwitchState(State.ProfileDetail, profile);
         }
@@ -257,12 +260,12 @@ namespace Antura.UI
             SwitchState(State.Profiles);
         }
 
-        void OnDeleteProfileRequested(PlayerIconData profile)
+        void OnDeleteProfileRequested(PlayerProfilePreview profile)
         {
             GlobalUI.ShowPrompt(id: Database.LocalizationDataId.UI_AreYouSure, _onYesCallback: () => DeleteProfile(profile.Uuid), _onNoCallback: () => { });
         }
 
-        void OnEditProfileRequested(PlayerIconData profile)
+        void OnEditProfileRequested(PlayerProfilePreview profile)
         {
             GlobalPopups.OpenTextInput("Edit profile name", profile.PlayerName, detailPanel.AssignNewProfileName);
         }

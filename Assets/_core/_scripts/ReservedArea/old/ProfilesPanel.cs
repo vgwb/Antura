@@ -40,7 +40,7 @@ namespace Antura.ReservedArea
                 Destroy(t.gameObject);
             }
 
-            List<PlayerIconData> players = AppManager.I.PlayerProfileManager.GetPlayersIconData();
+            List<PlayerProfilePreview> players = AppManager.I.PlayerProfileManager.GetPlayersIconData();
 
             foreach (var player in players)
             {

@@ -39,7 +39,7 @@ namespace Antura.UI
         }
 
         int maxProfiles;
-        List<PlayerIconData> profiles;
+        List<PlayerProfilePreview> profiles;
         PlayerIcon[] playerIcons;
         Tween btAddTween, btPlayTween;
 
@@ -109,7 +109,7 @@ namespace Antura.UI
         /// <summary>
         /// Selects the profile.
         /// </summary>
-        internal void SelectProfile(PlayerIconData playerIconData)
+        internal void SelectProfile(PlayerProfilePreview playerIconData)
         {
             ProfileManager.SetPlayerAsCurrentByUUID(playerIconData.Uuid);
             AudioManager.I.PlaySound(SfxSelectProfile);
@@ -141,7 +141,7 @@ namespace Antura.UI
                 }
                 else
                 {
-                    PlayerIconData iconData = profiles[i];
+                    PlayerProfilePreview iconData = profiles[i];
                     playerIcon.gameObject.SetActive(true);
                     playerIcon.Init(iconData);
 
@@ -234,7 +234,7 @@ namespace Antura.UI
         void OnSelectProfile(PlayerIcon playerIcon)
         {
             int index = Array.IndexOf(playerIcons, playerIcon);
-            PlayerIconData playerIconData = profiles[index];
+            PlayerProfilePreview playerIconData = profiles[index];
             SelectProfile(playerIconData);
         }
 

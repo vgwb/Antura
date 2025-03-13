@@ -71,7 +71,7 @@ namespace Antura.Profile
         {
             defTfNameColor = TfName.color;
             defPlayerNameBoxColor = PlayerNameBox.color;
-            
+
             PlayerNameBox.gameObject.SetActive(!HideName);
             Background.gameObject.SetActive(!HideBackground);
             Highlight.SetActive(!HideHighlight);
@@ -81,13 +81,15 @@ namespace Antura.Profile
                 this.GetComponent<Button>().enabled = false;
                 UIButton.enabled = false;
                 Image[] raycastBlockers = this.GetComponentsInChildren<Image>(true);
-                foreach (Image img in raycastBlockers) img.raycastTarget = false;
+                foreach (Image img in raycastBlockers)
+                    img.raycastTarget = false;
             }
         }
 
         void Start()
         {
-            if (!AutoInit) return;
+            if (!AutoInit)
+                return;
 
             if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
             {
@@ -99,7 +101,7 @@ namespace Antura.Profile
 
         #region Public
 
-        public void Init(PlayerIconData playerIconData)
+        public void Init(PlayerProfilePreview playerIconData)
         {
             if (levelLabelRT == null)
             {
@@ -156,7 +158,7 @@ namespace Antura.Profile
 
         #endregion
 
-        void SetAppearance(PlayerIconData playerIconData, EndgameState endgameState)
+        void SetAppearance(PlayerProfilePreview playerIconData, EndgameState endgameState)
         {
             //            if (playerIconData.Gender == PlayerGender.None) {
             //                Debug.LogWarning("Player gender set to NONE");
@@ -261,7 +263,7 @@ namespace Antura.Profile
             float rnd1 = UnityEngine.Random.value;
             float rnd2 = UnityEngine.Random.value;
             float rnd3 = UnityEngine.Random.value;
-            var rndPlayerIconData = new PlayerIconData(Uuid = "",
+            var rndPlayerIconData = new PlayerProfilePreview(Uuid = "",
                                                         "",
                                                         0,
                                                        UnityEngine.Random.Range(0, 7),

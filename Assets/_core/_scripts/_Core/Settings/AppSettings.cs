@@ -41,7 +41,7 @@ namespace Antura.Core
         public string AppVersion;
 
         // the list of saved players
-        public List<PlayerIconData> SavedPlayers = new List<PlayerIconData>();
+        public List<PlayerProfilePreview> SavedPlayers = new List<PlayerProfilePreview>();
 
         public void SetAppVersion(string _version)
         {
@@ -50,7 +50,7 @@ namespace Antura.Core
 
         public void DeletePlayers()
         {
-            SavedPlayers = new List<PlayerIconData>();
+            SavedPlayers = new List<PlayerProfilePreview>();
             LastActivePlayerUUID = "";
         }
     }

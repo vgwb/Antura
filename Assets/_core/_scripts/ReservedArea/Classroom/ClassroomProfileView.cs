@@ -21,12 +21,12 @@ namespace Antura.UI
 
         #endregion
 
-        public PlayerIconData Profile { get; private set; }
+        public PlayerProfilePreview Profile { get; private set; }
         public Button BtMain => btMain;
 
         #region Public Methods
 
-        public void Fill(PlayerIconData profile)
+        public void Fill(PlayerProfilePreview profile)
         {
             Profile = profile;
             playerIcon.Init(profile);

@@ -12,18 +12,18 @@ namespace Antura.Profile
     /// </summary>
     public class ClassroomProfileDetail
     {
-        public readonly PlayerIconData Profile;
+        public readonly PlayerProfilePreview Profile;
         public readonly DateTime LastAccess;
         public readonly List<LanguageLevel> Levels;
         public readonly List<DiscoverQuest> Quests;
 
-        public ClassroomProfileDetail(PlayerIconData profile)
+        public ClassroomProfileDetail(PlayerProfilePreview profile)
         {
             Profile = profile;
-            
+
             // Generate STUB last access
             LastAccess = DateTime.Now;
-            
+
             // Generate STUB levels and quests until they will be implemented correctly
             Levels = new List<LanguageLevel>() {
                 new LanguageLevel(
@@ -49,7 +49,7 @@ namespace Antura.Profile
 
         #region Test
 
-        public static ClassroomProfileDetail GenerateStub(PlayerIconData profile)
+        public static ClassroomProfileDetail GenerateStub(PlayerProfilePreview profile)
         {
             return new ClassroomProfileDetail(profile);
         }
@@ -71,7 +71,7 @@ namespace Antura.Profile
                 Sections = sections;
             }
         }
-        
+
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
         public class LanguageLevelSection
@@ -85,7 +85,7 @@ namespace Antura.Profile
                 CompletionPerc = completionPerc;
             }
         }
-        
+
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
 
         public class DiscoverQuest

@@ -14,7 +14,7 @@ namespace Antura.Profile
     /// it is saved in PlayerPrefs as List in AppSettings.SavedPlayers
     /// </summary>
     [Serializable]
-    public struct PlayerIconData
+    public struct PlayerProfilePreview
     {
         public string Uuid;
         public string PlayerName;
@@ -32,7 +32,7 @@ namespace Antura.Profile
         public string AppVersion;
         public PetData PetData;
 
-        public PlayerIconData(
+        public PlayerProfilePreview(
             string _Uuid,
             string _PlayerName,
             int _Classroom,

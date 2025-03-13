@@ -191,7 +191,7 @@ namespace Antura.Profile
         /// <summary>
         /// Return the list of existing player profiles.
         /// </summary>
-        public List<PlayerIconData> GetPlayersIconData()
+        public List<PlayerProfilePreview> GetPlayersIconData()
         {
             return FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
         }
@@ -199,9 +199,9 @@ namespace Antura.Profile
         /// <summary>
         /// Return the list of existing player profiles filtered by the given classroom (where 0 is no classroom).
         /// </summary>
-        public List<PlayerIconData> GetPlayersIconDataForClassroom(int classroomIndex)
+        public List<PlayerProfilePreview> GetPlayersIconDataForClassroom(int classroomIndex)
         {
-            List<PlayerIconData> result = FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
+            List<PlayerProfilePreview> result = FilterPlayerIconData(AppManager.I.AppSettings, AppManager.I.AppEdition.editionID, AppManager.I.ContentEdition.ContentID);
             for (int i = result.Count - 1; i >= 0; i--)
             {
                 if (result[i].Classroom != classroomIndex)
@@ -210,7 +210,7 @@ namespace Antura.Profile
             return result;
         }
 
-        public static List<PlayerIconData> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
+        public static List<PlayerProfilePreview> FilterPlayerIconData(AppSettings appSettings, AppEditionID appEditionID, LearningContentID contentID)
         {
             // With inverted profiles, the saved players are taken regardless of the content ID
             return appSettings.SavedPlayers.Where(pl => (pl.editionID == appEditionID || pl.editionID == AppEditionID.Multi)).ToList();
@@ -234,7 +234,7 @@ namespace Antura.Profile
         /// <summary>
         /// Updates the PlayerIconData for the given player in list of PlayersIconData in GameSettings.
         /// </summary>
-        public void UpdatePlayerIconDataInSettings(PlayerIconData iconData)
+        public void UpdatePlayerIconDataInSettings(PlayerProfilePreview iconData)
         {
             for (int i = 0; i < AppManager.I.AppSettings.SavedPlayers.Count; i++)
             {
@@ -365,7 +365,7 @@ namespace Antura.Profile
             // it prevents errors if rewards unlock coroutine is still running
             AppManager.I.StopAllCoroutines();
             // TODO: check if is necessary to hard delete DB
-            PlayerIconData playerIconData = GetPlayersIconData().Find(p => p.Uuid == playerUUID);
+            PlayerProfilePreview playerIconData = GetPlayersIconData().Find(p => p.Uuid == playerUUID);
             if (playerIconData.Uuid == string.Empty)
             {
                 return null;
@@ -374,7 +374,7 @@ namespace Antura.Profile
             if (playerIconData.Uuid == AppManager.I.AppSettings.LastActivePlayerUUID)
             {
                 // if possible set the first available player...
-                PlayerIconData newActivePlayerIcon = GetPlayersIconData().Find(p => p.Uuid != playerUUID);
+                PlayerProfilePreview newActivePlayerIcon = GetPlayersIconData().Find(p => p.Uuid != playerUUID);
                 if (newActivePlayerIcon.Uuid != null)
                 {
                     AppManager.I.PlayerProfileManager.SetPlayerAsCurrentByUUID(newActivePlayerIcon.Uuid);
@@ -399,7 +399,7 @@ namespace Antura.Profile
             // Reset all the Databases
             if (AppManager.I.AppSettings.SavedPlayers != null)
             {
-                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers)
+                foreach (PlayerProfilePreview pp in AppManager.I.AppSettings.SavedPlayers)
                 {
                     AppManager.I.DB.LoadDatabaseForPlayer(pp.Uuid);
                     AppManager.I.DB.DropProfile();
@@ -422,7 +422,7 @@ namespace Antura.Profile
             // Reset all the Databases
             if (AppManager.I.AppSettings.SavedPlayers != null)
             {
-                foreach (PlayerIconData pp in AppManager.I.AppSettings.SavedPlayers)
+                foreach (PlayerProfilePreview pp in AppManager.I.AppSettings.SavedPlayers)
                 {
                     AppManager.I.DB.LoadDatabaseForPlayer(pp.Uuid);
                     AppManager.I.DB.DropProfile();
