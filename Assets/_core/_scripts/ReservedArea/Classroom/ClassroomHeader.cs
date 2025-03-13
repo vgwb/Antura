@@ -1,4 +1,5 @@
-﻿using DG.DeInspektor.Attributes;
+﻿using Demigiant.DemiTools.DeUnityExtended;
+using DG.DeInspektor.Attributes;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -22,9 +23,9 @@ namespace Antura.UI
         [DeEmptyAlert]
         public Button BtCreateTeacher;
         [DeEmptyAlert]
-        [SerializeField] Button btOptions;
+        public DeUIButton BtOptions;
         [DeEmptyAlert]
-        [SerializeField] Button btInfo;
+        public DeUIButton BtInfo;
         [DeEmptyAlert]
         [SerializeField] TMP_Text tfTitle;
 
@@ -40,9 +41,14 @@ namespace Antura.UI
         public void ShowExtraButtons(bool doShow)
         {
             BtCreateTeacher.gameObject.SetActive(doShow);
-            btOptions.gameObject.SetActive(doShow);
-            btInfo.gameObject.SetActive(doShow);
+            BtOptions.gameObject.SetActive(doShow);
+            BtInfo.gameObject.SetActive(doShow);
             BtClose.gameObject.SetActive(doShow);
+        }
+
+        public void ActivateSubmenuMode(bool activate)
+        {
+            BtClassroom.interactable = BtCreateTeacher.interactable = !activate;
         }
 
         #endregion
