@@ -95,18 +95,6 @@ namespace Antura.Core
         }
         #endregion
 
-        public bool IsAppJustUpdatedFromOldVersion()
-        {
-            if (!isFirstIstall && AppVersionPrevious != null && AppVersionPrevious <= new Version(1, 0, 0, 0))
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
-        }
-
         public void UpdateAppVersion()
         {
             if (Settings.AppVersion != null && Settings.AppVersion == "")
@@ -131,21 +119,11 @@ namespace Antura.Core
             SaveSettings();
         }
 
-        public void ToggleShareAnalytics()
-        {
-            EnableShareAnalytics(!Settings.ShareAnalyticsEnabled);
-        }
-
         public void EnableNotifications(bool status)
         {
             Debug.Log("EnableNotifications " + status);
             Settings.NotificationsEnabled = status;
             SaveSettings();
-        }
-
-        public void ToggleNotifications()
-        {
-            EnableNotifications(!Settings.NotificationsEnabled);
         }
 
         public void SetClassroomMode(int classroomMode)
