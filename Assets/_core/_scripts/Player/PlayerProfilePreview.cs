@@ -62,7 +62,6 @@ namespace Antura.Profile
             this.editionID = editionID;
             AppVersion = _AppVersion;
             PetData = _petData;
-            Debug.Log("CREATE PLAYER ICON DATA > " + SkinColor + " > " + HairColor);
         }
 
         public int NewAvatarId => AvatarId - PlayerProfileManager.NEW_AVATAR_ID_START;
