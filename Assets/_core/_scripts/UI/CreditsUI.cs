@@ -21,6 +21,7 @@ namespace Antura.UI
         public int Level0FontPerc = 140;
         public Color Level1Color = Color.yellow;
         public int Level1FontPerc = 110;
+        [SerializeField] bool showBackButton = true;
 
         [Header("References")]
 
@@ -46,6 +47,7 @@ namespace Antura.UI
                 .OnRewind(() => this.gameObject.SetActive(false));
 
             this.gameObject.SetActive(false);
+            BtBack.gameObject.SetActive(showBackButton);
 
             // Listeners
             BtBack.Bt.onClick.AddListener(OnClick);
@@ -80,7 +82,7 @@ namespace Antura.UI
 
         #region Public Methods
 
-        public void Show(bool _doShow)
+        public void Show(bool _doShow, bool immediate = false)
         {
             scrollTween.Kill();
             this.StopAllCoroutines();
@@ -88,13 +90,15 @@ namespace Antura.UI
             {
                 this.gameObject.SetActive(true);
                 CreditsContainer.anchoredPosition = defCreditsContainerPos;
-                showTween.PlayForward();
+                if (immediate) showTween.Complete();
+                else showTween.PlayForward();
                 StartScrollLoop();
                 AppManager.I.Services.Analytics.TrackGenericAction("credits");
             }
             else
             {
-                showTween.PlayBackwards();
+                if (immediate) showTween.Rewind();
+                else showTween.PlayBackwards();
             }
         }
 
