@@ -74,11 +74,14 @@ namespace Antura.Language
         public IEnumerator ReloadNativeLanguage()
         {
             yield return LoadLanguage(LanguageUse.Native, AppManager.I.AppSettings.NativeLanguage);
-            yield return SetLocalizationLanguage(loadedLanguageData[AppManager.I.AppSettings.NativeLanguage].config.Iso2);
+            // yield return SetLocalizationLanguage(loadedLanguageData[AppManager.I.AppSettings.NativeLanguage].config.Iso2);
         }
 
         private IEnumerator SetLocalizationLanguage(string iso2Code)
         {
+            // Wait for the localization system to initialize if needed
+            // TODO yield return LocalizationSettings.InitializationOperation;
+
             // Get all available locales
             var locales = LocalizationSettings.AvailableLocales.Locales;
 
