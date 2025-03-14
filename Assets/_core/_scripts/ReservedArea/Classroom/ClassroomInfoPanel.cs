@@ -18,6 +18,11 @@ namespace Antura.UI
         {
             credits.Show(true, true);
         }
+
+        void Start()
+        {
+            credits.Show(true, true);
+        }
         
         void OnDisable()
         {

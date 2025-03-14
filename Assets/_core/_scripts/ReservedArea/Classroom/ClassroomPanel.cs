@@ -10,6 +10,7 @@ using Antura.Teacher;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace Antura.UI
 {
@@ -19,7 +20,9 @@ namespace Antura.UI
         {
             Unset,
             Profiles,
-            ProfileDetail
+            ProfileDetail,
+            Options,
+            Info
         }
 
         #region Serialized
@@ -36,9 +39,11 @@ namespace Antura.UI
         [DeEmptyAlert]
         [SerializeField] ClassroomInfoPanel infoPanel;
         [DeEmptyAlert]
-        [SerializeField] GameObject createProfileBgBlocker;
+        [SerializeField] Button btChangeClass;
         [DeEmptyAlert]
-        [SerializeField] GameObject submenuBgBlocker;
+        [SerializeField] Button btCreateTeacher;
+        [DeEmptyAlert]
+        [SerializeField] GameObject createProfileBgBlocker;
         [DeEmptyAlert]
         [SerializeField] GameObject pleaseWaitPanel;
 
@@ -62,7 +67,7 @@ namespace Antura.UI
         {
             Refresh();
 
-            header.BtClassroom.onClick.AddListener(() => OpenSelectClassroomPopup());
+            btChangeClass.onClick.AddListener(() => OpenSelectClassroomPopup());
             header.BtClose.onClick.AddListener(() =>
             {
                 switch (state)
@@ -72,27 +77,16 @@ namespace Antura.UI
                         break;
                 }
             });
-            header.BtCreateTeacher.onClick.AddListener(() => CreateProfile(true));
-            header.BtOptions.onToggle.AddListener(isOn =>
-            {
-                submenuBgBlocker.SetActive(isOn);
-                header.ActivateSubmenuMode(isOn);
-                optionsPanel.gameObject.SetActive(isOn);
-            });
-            header.BtInfo.onToggle.AddListener(isOn =>
-            {
-                submenuBgBlocker.SetActive(isOn);
-                header.ActivateSubmenuMode(isOn);
-                infoPanel.gameObject.SetActive(isOn);
-            });
+            btCreateTeacher.onClick.AddListener(() => CreateProfile(true));
+            header.BtClass.onToggleOn.AddListener(() => SwitchState(State.Profiles));
+            header.BtOptions.onToggleOn.AddListener(() => SwitchState(State.Options));
+            header.BtInfo.onToggleOn.AddListener(() => SwitchState(State.Info));
             profilesPanel.BtCreateProfile.onClick.AddListener(() => CreateProfile(false));
 
             optionsPanel.gameObject.SetActive(false);
             infoPanel.gameObject.SetActive(false);
             createProfileBgBlocker.gameObject.SetActive(false);
-            submenuBgBlocker.gameObject.SetActive(false);
-            if (!isOpen)
-                this.gameObject.SetActive(false);
+            if (!isOpen) this.gameObject.SetActive(false);
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
@@ -166,8 +160,7 @@ namespace Antura.UI
 
         void SwitchState(State toState, PlayerProfilePreview? profile = null)
         {
-            if (state == toState)
-                return;
+            if (state == toState) return;
             if (toState == State.ProfileDetail && profile == null)
             {
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
@@ -175,13 +168,15 @@ namespace Antura.UI
             }
 
             state = toState;
-            header.ShowExtraButtons(toState == State.Profiles);
             profilesPanel.Open(toState == State.Profiles);
             detailPanel.Open(toState == State.ProfileDetail);
+            optionsPanel.gameObject.SetActive(toState == State.Options);
+            infoPanel.gameObject.SetActive(toState == State.Info);
             switch (state)
             {
                 case State.Profiles:
                     Refresh();
+                    header.BtClass.Toggle(true);
                     bool hasProfiles = profilesByClassroomIndex.ContainsKey(currClassroomIndex);
                     if (hasProfiles)
                         profilesPanel.Fill(profilesByClassroomIndex[currClassroomIndex]);
@@ -189,6 +184,7 @@ namespace Antura.UI
                         profilesPanel.Fill(new List<PlayerProfilePreview>());
                     break;
                 case State.ProfileDetail:
+                    header.BtClass.Toggle(true);
                     detailPanel.Fill((PlayerProfilePreview)profile);
                     break;
             }

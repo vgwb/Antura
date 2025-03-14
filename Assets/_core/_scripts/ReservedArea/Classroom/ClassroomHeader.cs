@@ -17,11 +17,9 @@ namespace Antura.UI
         
         [Header("References")]
         [DeEmptyAlert]
-        public Button BtClassroom;
-        [DeEmptyAlert]
         public Button BtClose;
         [DeEmptyAlert]
-        public Button BtCreateTeacher;
+        public DeUIButton BtClass;
         [DeEmptyAlert]
         public DeUIButton BtOptions;
         [DeEmptyAlert]
@@ -36,19 +34,6 @@ namespace Antura.UI
         public void SetTitle(bool validClassroom, string id)
         {
             tfTitle.text = validClassroom ? $"{classroomTitle} {idPrefix}{id}{idSuffix}" : noClassroomTitle;
-        }
-
-        public void ShowExtraButtons(bool doShow)
-        {
-            BtCreateTeacher.gameObject.SetActive(doShow);
-            BtOptions.gameObject.SetActive(doShow);
-            BtInfo.gameObject.SetActive(doShow);
-            BtClose.gameObject.SetActive(doShow);
-        }
-
-        public void ActivateSubmenuMode(bool activate)
-        {
-            BtClassroom.interactable = BtCreateTeacher.interactable = !activate;
         }
 
         #endregion
