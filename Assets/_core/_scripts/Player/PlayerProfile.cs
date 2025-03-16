@@ -11,6 +11,20 @@ using UnityEngine.Serialization;
 
 namespace Antura.Profile
 {
+
+    [Serializable]
+    public struct DiscoverQuestSaved
+    {
+        public string QuestCode;
+        public int Score;
+
+        public DiscoverQuestSaved(string questCode, int score)
+        {
+            QuestCode = questCode;
+            Score = score;
+        }
+    }
+
     public enum TalkToPlayerStyle
     {
         DontTalk = 0,
@@ -18,13 +32,6 @@ namespace Antura.Profile
         LearningLanguageOnly = 2,
         LearningThenNative = 3,
         NativeThenLearning = 4
-    }
-
-    [Serializable]
-    public class DiscoverQuestSaved
-    {
-        public string QuestCode;
-        public int Score;
     }
 
     /// <summary>
@@ -52,6 +59,7 @@ namespace Antura.Profile
         public LearningContentID ContentID; // @note: This will be updated with the selected content, so we know what to load / save
         public string AppVersion;
         public PetData PetData = new PetData();
+        public List<DiscoverQuestSaved> Quests = new List<DiscoverQuestSaved>();
 
         public bool hasFinishedTheGame;
         public bool HasFinishedTheGame
@@ -226,6 +234,13 @@ namespace Antura.Profile
                 AppManager.I.NavigationManager.NavData.CurrentContent.PreviousJourneyPosition = value;
             }
         }
+
+        #region Discover
+        public void SaveQuest(DiscoverQuestSaved questStatus)
+        {
+
+        }
+        #endregion
 
         #region First Contact State
 
@@ -700,9 +715,9 @@ namespace Antura.Profile
             return newProfileData;
         }
 
-        public PlayerProfilePreview GetPlayerIconData()
+        public PlayerProfilePreview GetPlayerPreview()
         {
-            PlayerProfilePreview returnIconData = new PlayerProfilePreview
+            PlayerProfilePreview returnPlayerPreview = new PlayerProfilePreview
             {
                 Uuid = this.Uuid,
                 PlayerName = this.PlayerName,
@@ -718,7 +733,7 @@ namespace Antura.Profile
                 AppVersion = this.AppVersion,
                 PetData = this.PetData
             };
-            return returnIconData;
+            return returnPlayerPreview;
         }
 
         public string ToJsonData()

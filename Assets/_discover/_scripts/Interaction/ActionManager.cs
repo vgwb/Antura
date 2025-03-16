@@ -258,6 +258,7 @@ namespace Antura.Minigames.DiscoverCountry
                         WinFx.GetComponent<ParticleSystem>().Play();
                         AudioManager.I.PlaySound(Sfx.Win);
                         AnturaDog.SetActive(true);
+                        QuestManager.I.OnQuestEnd();
                         break;
                     default:
                         Trigger(action);

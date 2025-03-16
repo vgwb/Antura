@@ -4,6 +4,8 @@ using Antura.UI;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using TMPro;
+using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -93,7 +95,7 @@ namespace Antura.Profile
 
             if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
             {
-                Init(AppManager.I.PlayerProfileManager.CurrentPlayer.GetPlayerIconData());
+                Init(AppManager.I.PlayerProfileManager.CurrentPlayer.GetPlayerPreview());
             }
         }
 

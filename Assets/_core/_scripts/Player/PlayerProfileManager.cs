@@ -225,7 +225,7 @@ namespace Antura.Profile
             {
                 if (AppManager.I.AppSettings.SavedPlayers[i].Uuid == _currentPlayer.Uuid)
                 {
-                    AppManager.I.AppSettings.SavedPlayers[i] = CurrentPlayer.GetPlayerIconData();
+                    AppManager.I.AppSettings.SavedPlayers[i] = CurrentPlayer.GetPlayerPreview();
                 }
             }
             AppManager.I.AppSettingsManager.SaveSettings();
@@ -280,7 +280,7 @@ namespace Antura.Profile
             // DB Creation
             AppManager.I.DB.CreateDatabaseForPlayer(returnProfile.ToData());
             // Added to list
-            AppManager.I.AppSettings.SavedPlayers.Add(returnProfile.GetPlayerIconData());
+            AppManager.I.AppSettings.SavedPlayers.Add(returnProfile.GetPlayerPreview());
             // Set player profile as current player
             AppManager.I.PlayerProfileManager.CurrentPlayer = returnProfile;
             // Unlock the first Antura rewards
@@ -461,7 +461,7 @@ namespace Antura.Profile
             if (importedPlayerProfileData != null)
             {
                 PlayerProfile importedPlayerProfile = new PlayerProfile().FromData(importedPlayerProfileData);
-                AppManager.I.AppSettings.SavedPlayers.Add(importedPlayerProfile.GetPlayerIconData());
+                AppManager.I.AppSettings.SavedPlayers.Add(importedPlayerProfile.GetPlayerPreview());
             }
         }
 

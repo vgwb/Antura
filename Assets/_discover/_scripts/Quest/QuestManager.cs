@@ -10,6 +10,7 @@ using Antura.UI;
 using Antura.Language;
 using System.Runtime.Remoting.Messaging;
 using UnityEditor;
+using Antura.Profile;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -91,6 +92,18 @@ namespace Antura.Minigames.DiscoverCountry
             inventory.Init(HomerVars.QUEST_ITEMS);
             progress.Init(CurrentQuest.TotalProgress);
             updateCounters();
+        }
+
+        public void OnQuestEnd()
+        {
+            if (DebugConfig.I.VerboseAntura)
+                Debug.Log("OnQuestEnd");
+
+            DiscoverQuestSaved questStatus = new DiscoverQuestSaved();
+            questStatus.QuestCode = CurrentQuest.Code;
+            questStatus.Score = 1;
+
+            AppManager.I.Player.SaveQuest(questStatus);
         }
 
         public QuestNode GetQuestNode(string permalink, string command)
