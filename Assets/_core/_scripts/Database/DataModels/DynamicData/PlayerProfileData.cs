@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Antura.Core;
 using Antura.Dog;
 using Antura.Helpers;
@@ -23,6 +24,7 @@ namespace Antura.Database
         public string PlayerName;
         public int Classroom;
         public TalkToPlayerStyle TalkToPlayerStyle;
+        public List<DiscoverQuestSaved> Quests = new List<DiscoverQuestSaved>();
 
         /// <summary>
         /// Number of consecutive days of playin
@@ -43,6 +45,7 @@ namespace Antura.Database
             string _PlayerName,
             int _Classroom,
             TalkToPlayerStyle _TalkToPlayerStyle,
+            List<DiscoverQuestSaved> _SavedQuests,
             int _ConsecutivePlayDays,
             string currentShopStateJSON,
             string currentCustomizationShopStateJSON
@@ -51,6 +54,7 @@ namespace Antura.Database
             PlayerName = _PlayerName;
             Classroom = _Classroom;
             TalkToPlayerStyle = _TalkToPlayerStyle;
+            Quests = _SavedQuests;
             ConsecutivePlayDays = _ConsecutivePlayDays;
             CurrentShopStateJSON = currentShopStateJSON;
             CurrentCustomizationShopStateJSON = currentCustomizationShopStateJSON;
@@ -253,7 +257,8 @@ namespace Antura.Database
                 AppEditionID editionID,
                 LearningContentID contentID,
                 string appVersion,
-                PetData petData
+                PetData petData,
+                List<DiscoverQuestSaved> _quests
                 )
         {
             Id = UNIQUE_ID;  // Only one record
@@ -278,7 +283,7 @@ namespace Antura.Database
             SetCurrentJourneyPosition(JourneyPosition.InitialJourneyPosition);
             Timestamp = GenericHelper.GetTimestampForNow();
             CurrentAnturaCustomization = currentAnturaCustomization;
-            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_PlayerName, _Classroom, _TalkToPlayerStyle, comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
+            AdditionalData = JsonUtility.ToJson(new PlayerProfileAdditionalData(_PlayerName, _Classroom, _TalkToPlayerStyle, _quests, comboPlayDays, currentShopState.ToJson(), currentCustomizationShopState.ToJson()));
             FirstContactStateJSON = JsonUtility.ToJson(currentFirstContactState);
 
             SelectedPet = petData.SelectedPet;
@@ -315,7 +320,7 @@ namespace Antura.Database
             }
             else
             {
-                return new PlayerProfileAdditionalData("", 0, TalkToPlayerStyle.LearningThenNative, 0, "", currentCustomizationShopStateJSON: "");
+                return new PlayerProfileAdditionalData("", 0, TalkToPlayerStyle.LearningThenNative, new List<DiscoverQuestSaved>(), 0, "", currentCustomizationShopStateJSON: "");
             }
         }
 

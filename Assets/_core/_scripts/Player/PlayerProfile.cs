@@ -60,7 +60,6 @@ namespace Antura.Profile
         public string AppVersion;
         public PetData PetData = new PetData();
         public List<DiscoverQuestSaved> Quests = new List<DiscoverQuestSaved>();
-
         public bool hasFinishedTheGame;
         public bool HasFinishedTheGame
         {
@@ -235,11 +234,53 @@ namespace Antura.Profile
             }
         }
 
-        #region Discover
+        #region Discover quests
+
+        public DiscoverQuestSaved GetQuestStatus(string questCode)
+        {
+            return Quests.Find(q => q.QuestCode == questCode);
+        }
+
         public void SaveQuest(DiscoverQuestSaved questStatus)
         {
+            Debug.Log("Save Quest");
 
         }
+
+        /// <summary>
+        /// Adds or updates a quest in the Quests list, ensuring QuestCode uniqueness.
+        /// </summary>
+        /// <param name="newQuest">The quest to save</param>
+        /// <returns>A new PlayerProfilePreview with the updated Quests list</returns>
+        // public PlayerProfilePreview SaveQuest(DiscoverQuestSaved newQuest)
+        // {
+        //     if (string.IsNullOrEmpty(newQuest.QuestCode))
+        //     {
+        //         Debug.LogWarning("QuestCode cannot be null or empty!");
+        //         return this; // Return unchanged struct
+        //     }
+
+        //     // Create a new list to avoid modifying the original (struct immutability)
+        //     List<DiscoverQuestSaved> updatedQuests = new List<DiscoverQuestSaved>(Quests);
+
+        //     // Check if the QuestCode already exists
+        //     int existingIndex = updatedQuests.FindIndex(q => q.QuestCode == newQuest.QuestCode);
+        //     if (existingIndex >= 0)
+        //     {
+        //         // QuestCode exists, update the existing entry
+        //         updatedQuests[existingIndex] = newQuest;
+        //     }
+        //     else
+        //     {
+        //         updatedQuests.Add(newQuest);
+        //     }
+
+        //     // Create a new instance with the updated Quests list
+        //     PlayerProfilePreview updatedProfile = this;
+        //     //updatedProfile.Quests = updatedQuests;
+        //     return updatedProfile;
+        // }
+
         #endregion
 
         #region First Contact State
@@ -687,6 +728,8 @@ namespace Antura.Profile
             PetData.SelectedPet = _data.SelectedPet;
             PetData.CatUnlocked = _data.CatUnlocked;
 
+            Quests = _data.GetAdditionalData().Quests;
+
             // DEPRECATED - SetCurrentJourneyPosition(_data.GetCurrentJourneyPosition(), false);
             // DEPRECATED - SetMaxJourneyPosition(_data.GetMaxJourneyPosition(), false);
             // Antura customization save only customization data
@@ -708,7 +751,7 @@ namespace Antura.Profile
             PlayerProfileData newProfileData = new PlayerProfileData(
                     Uuid, PlayerName, Classroom, TalkToPlayerStyle, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, _currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState, CustomizationShopState,
-                    FirstContactState, editionID, ContentID, AppVersion, PetData
+                    FirstContactState, editionID, ContentID, AppVersion, PetData, Quests
             );
             newProfileData.SetCurrentJourneyPosition(CurrentJourneyPosition);
             newProfileData.SetMaxJourneyPosition(MaxJourneyPosition);

@@ -210,6 +210,8 @@ namespace Antura.Minigames.DiscoverCountry
         {
             var output = "";
             output += "DEBUG INFO";
+            output += "\nQuest: " + CurrentQuest.Code;
+            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Code).Score;
             output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
             output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
             //config = LanguageSwitcher.I.GetLangConfig(languageUse);
