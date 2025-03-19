@@ -164,7 +164,6 @@ namespace Antura.Core
                 yield return ReloadEdition();
             }
 
-            //            Debug.Log("AppManager Init(): UIDirector.Init()");
             UIDirector.Init(); // Must be called after NavigationManager has been initialized
 
             // Debugger setup
@@ -175,7 +174,6 @@ namespace Antura.Core
             Debug.unityLogger.logEnabled = DebugConfig.I.DebugLogEnabled;
             gameObject.AddComponent<Debugging.DebugManager>();
 
-            // Debug.Log("AppManager Init(): UpdateAppVersion");
             // Update settings
             AppSettingsManager.UpdateAppVersion();
 
