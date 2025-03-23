@@ -44,6 +44,7 @@ namespace Antura.Minigames.DiscoverCountry
         public HomerFlowSlugs.FlowSlug QuestId;
         public Countries Country;
         public string Code;
+        public string NumberCode;
 
         public string Title;
         public string Location;

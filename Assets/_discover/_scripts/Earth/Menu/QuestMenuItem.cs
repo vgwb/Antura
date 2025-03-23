@@ -17,16 +17,16 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] GameObject[] stars;
 
         QuestData questData;
-        CanvasGroup cg;
+        CanvasGroup canvasGroup;
 
         public void Init(QuestData _questData)
         {
-            cg = this.gameObject.AddComponent<CanvasGroup>();
-            
+            canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
+
             questData = _questData;
             SelectBtn.interactable = questData.Active;
-            cg.alpha = SelectBtn.interactable ? 1 : 0.7f;
-            Code.text = _questData.Code;
+            canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
+            Code.text = _questData.NumberCode;
             Title.text = _questData.Title;
             Location.text = _questData.Location;
             SetStars(questData.GetScore());
