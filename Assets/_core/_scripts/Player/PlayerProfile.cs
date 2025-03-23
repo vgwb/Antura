@@ -799,6 +799,21 @@ namespace Antura.Profile
             );
         }
 
+        public void PrintDebugInfo()
+        {
+            var output = "";
+            output += "DEBUG INFO Current Player Profile";
+            output += "\nName: " + PlayerName;
+            output += "\nNative Language: " + NativeLanguage;
+            output += "\nQuests: ";
+            foreach (var savedQuest in Quests)
+            {
+                output += "\n  Quest: " + savedQuest.QuestCode + " Score: " + savedQuest.Score;
+            }
+
+            Debug.Log(output);
+        }
+
         #endregion
 
     }

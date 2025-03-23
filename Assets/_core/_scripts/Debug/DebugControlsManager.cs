@@ -43,6 +43,9 @@ namespace Antura.Debugging
         };
         // GLOBAL CHEATS
         readonly DebugCommand[] _globalCheats = new[] {
+            new DebugCommand("Print Player Profile Info", CommandCondition.OnPress, KeyCode.P, KeyModifier.Shift, on => {
+                AppManager.I.Player.PrintDebugInfo();
+            }),
             new DebugCommand("Reload current scene", CommandCondition.OnPress, KeyCode.F5, on => {
                 SceneManager.LoadScene(SceneManager.GetActiveScene().name);
             }),
