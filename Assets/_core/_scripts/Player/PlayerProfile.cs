@@ -241,45 +241,29 @@ namespace Antura.Profile
             return Quests.Find(q => q.QuestCode == questCode);
         }
 
-        public void SaveQuest(DiscoverQuestSaved questStatus)
-        {
-            Debug.Log("Save Quest");
-
-        }
-
         /// <summary>
         /// Adds or updates a quest in the Quests list, ensuring QuestCode uniqueness.
         /// </summary>
-        /// <param name="newQuest">The quest to save</param>
-        /// <returns>A new PlayerProfilePreview with the updated Quests list</returns>
-        // public PlayerProfilePreview SaveQuest(DiscoverQuestSaved newQuest)
-        // {
-        //     if (string.IsNullOrEmpty(newQuest.QuestCode))
-        //     {
-        //         Debug.LogWarning("QuestCode cannot be null or empty!");
-        //         return this; // Return unchanged struct
-        //     }
+        /// <param name="questToSave">The quest to save</param>
+        public void SaveQuest(DiscoverQuestSaved questToSave)
+        {
+            var updatedQuests = new List<DiscoverQuestSaved>(Quests);
 
-        //     // Create a new list to avoid modifying the original (struct immutability)
-        //     List<DiscoverQuestSaved> updatedQuests = new List<DiscoverQuestSaved>(Quests);
+            // Check if the QuestCode already exists
+            int existingIndex = updatedQuests.FindIndex(q => q.QuestCode == questToSave.QuestCode);
+            if (existingIndex >= 0)
+            {
+                // QuestCode exists, update the existing entry
+                updatedQuests[existingIndex] = questToSave;
+            }
+            else
+            {
+                updatedQuests.Add(questToSave);
+            }
 
-        //     // Check if the QuestCode already exists
-        //     int existingIndex = updatedQuests.FindIndex(q => q.QuestCode == newQuest.QuestCode);
-        //     if (existingIndex >= 0)
-        //     {
-        //         // QuestCode exists, update the existing entry
-        //         updatedQuests[existingIndex] = newQuest;
-        //     }
-        //     else
-        //     {
-        //         updatedQuests.Add(newQuest);
-        //     }
-
-        //     // Create a new instance with the updated Quests list
-        //     PlayerProfilePreview updatedProfile = this;
-        //     //updatedProfile.Quests = updatedQuests;
-        //     return updatedProfile;
-        // }
+            Quests = updatedQuests;
+            Save();
+        }
 
         #endregion
 
@@ -437,7 +421,6 @@ namespace Antura.Profile
             }
         }
 
-
         /// <summary>
         /// Check whether the game has finished and update the player icon.
         /// Called only when we actually finish the game.
@@ -453,7 +436,6 @@ namespace Antura.Profile
                 }
             }
         }
-
 
         /// <summary>
         /// Check whether the game has finished with all stars and update the player icon.
