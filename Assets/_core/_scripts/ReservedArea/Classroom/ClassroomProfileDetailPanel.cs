@@ -83,7 +83,7 @@ namespace Antura.UI
             currProfile = profile;
             ClassroomProfileDetail profileDetail = new ClassroomProfileDetail(profile);
 
-            playerIcon.Init(profileDetail.Profile);
+            playerIcon.Init(profileDetail.ProfilePreview);
             RefreshProfileName();
             tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
 

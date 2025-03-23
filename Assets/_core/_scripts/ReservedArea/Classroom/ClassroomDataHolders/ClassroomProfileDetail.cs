@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using Antura.Core;
 using UnityEngine;
 
 namespace Antura.Profile
@@ -12,39 +13,45 @@ namespace Antura.Profile
     /// </summary>
     public class ClassroomProfileDetail
     {
-        public readonly PlayerProfilePreview Profile;
+        public readonly PlayerProfilePreview ProfilePreview;
         public readonly DateTime LastAccess;
         public readonly List<LanguageLevel> Levels;
         public readonly List<DiscoverQuest> Quests;
 
-        public ClassroomProfileDetail(PlayerProfilePreview profile)
+        public ClassroomProfileDetail(PlayerProfilePreview playerProfilePreview)
         {
-            Profile = profile;
+            ProfilePreview = playerProfilePreview;
+
+            var Profile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(ProfilePreview.Uuid);
 
             // Generate STUB last access
             LastAccess = DateTime.Now;
 
             // Generate STUB levels and quests until they will be implemented correctly
-            Levels = new List<LanguageLevel>() {
-                new LanguageLevel(
-                    "A language level",
-                    new List<LanguageLevelSection>() {
-                        new LanguageLevelSection("A section", 0.4f),
-                        new LanguageLevelSection("Another section", 0.2f),
-                    }
-                ),
-                new LanguageLevel(
-                    "Another language level",
-                    new List<LanguageLevelSection>() {
-                        new LanguageLevelSection("A section", 0.8f),
-                        new LanguageLevelSection("Another section", 1f),
-                    }
-                )
+            Levels = new List<LanguageLevel>()
+            {
+                // new LanguageLevel(
+                //     "A language level",
+                //     new List<LanguageLevelSection>() {
+                //         new LanguageLevelSection("A section", 0.4f),
+                //         new LanguageLevelSection("Another section", 0.2f),
+                //     }
+                // ),
+                // new LanguageLevel(
+                //     "Another language level",
+                //     new List<LanguageLevelSection>() {
+                //         new LanguageLevelSection("A section", 0.8f),
+                //         new LanguageLevelSection("Another section", 1f),
+                //     }
+                // )
             };
-            Quests = new List<DiscoverQuest>() {
-                new DiscoverQuest("Quest A", 2),
-                new DiscoverQuest("Quest B", 3)
-            };
+            Quests = new List<DiscoverQuest>();
+
+            foreach (var savedQuest in Profile.Quests)
+            {
+                Quests.Add(new DiscoverQuest(savedQuest.QuestCode, savedQuest.Score));
+            }
+
         }
 
         #region Test
