@@ -11,6 +11,7 @@
 * Homer project: Antura*
 * -------------------------------------------------------------------------------------
 */
+using UnityEngine;
 
 namespace Homer {
 
@@ -106,6 +107,17 @@ public enum Tag {
 }
 
 public static class HomerColors {
+
+//0db0dd
+public static Color32 Blue = new Color32(13, 176, 221, 255);
+//f89501
+public static Color32 Orange = new Color32(248, 149, 1, 255);
+//eb89c8
+public static Color32 Pink = new Color32(235, 137, 200, 255);
+//d63762
+public static Color32 Red = new Color32(214, 55, 98, 255);
+//47b58b
+public static Color32 Green = new Color32(71, 181, 139, 255);
 
 public enum color { 
               Blue = 1, 
