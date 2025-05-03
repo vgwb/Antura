@@ -13,6 +13,12 @@ namespace Antura.Editor
             Application.OpenURL(AppConfig.UrlGithubRepository);
         }
 
+        [MenuItem("Antura/Info/Translations Sheet", false, 300)]
+        static void OpenLocalizationGoogleSheet()
+        {
+            Application.OpenURL(AppConfig.UrlTranslationsSheet);
+        }
+
         [MenuItem("Antura/Info/GitHub Project", false, 300)]
         static void OpenGitHubProject()
         {

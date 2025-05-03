@@ -59,6 +59,7 @@ namespace Antura.Core
         public const string UrlCommunityInstagram = "https://www.instagram.com/anturagame/";
         public const string UrlSupportForm = "https://docs.google.com/forms/d/e/1FAIpQLScWxs5I0w-k8GlIgPFKoWBitMVJ9gxxJlKvGKOXzZsnAA0qNw/viewform";
         public const string UrlGithubRepository = "https://github.com/vgwb/Antura";
+        public const string UrlTranslationsSheet = "https://docs.google.com/spreadsheets/d/1M3uOeqkbE4uyDs5us5vO-nAFT8Aq0LGBxjjT_CSScWw/edit";
         public const string UrlGithubProject = "https://github.com/orgs/vgwb/projects/2";
         public const string UrlHomer = "https://homer.open-lab.com/?project_uid=0474c008-e8e9-4e69-a24e-1652618909210";
 

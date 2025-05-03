@@ -1,4 +1,7 @@
+# How to localize
+
 ## New Localization System
+
 (Unity Localization package)
 
 we put all UI / common strings in the Common sheet
