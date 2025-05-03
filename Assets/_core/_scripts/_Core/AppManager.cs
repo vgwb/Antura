@@ -16,6 +16,8 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
 
 namespace Antura.Core
 {
@@ -135,6 +137,9 @@ namespace Antura.Core
 
         private IEnumerator InitCO()
         {
+            // // Init localization
+            // yield return LocalizationSettings.InitializationOperation;
+
             AppSettingsManager = new AppSettingsManager();
             AssetManager = new AssetManager();
 
