@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using Antura.Audio;
+﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
 using Antura.Profile;
 using Antura.Scenes;
 using Antura.Teacher;
+using System;
+using System.Collections;
+using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -86,7 +86,8 @@ namespace Antura.UI
             optionsPanel.gameObject.SetActive(false);
             infoPanel.gameObject.SetActive(false);
             createProfileBgBlocker.gameObject.SetActive(false);
-            if (!isOpen) this.gameObject.SetActive(false);
+            if (!isOpen)
+                this.gameObject.SetActive(false);
 
             profilesPanel.OnProfileClicked.Subscribe(OnProfileClicked);
             detailPanel.OnBackClicked.Subscribe(OnBackFromProfileDetailsClicked);
@@ -110,7 +111,8 @@ namespace Antura.UI
 
         public void OpenSelectClassroomPopup(bool showCloseButton = true)
         {
-            GlobalPopups.OpenSelector("Choose classroom", classroomIDs, OpenClass, showCloseButton, 0);
+            var popup_title = LocalizationManager.GetNewLocalized("profile.chooseclasse");
+            GlobalPopups.OpenSelector(popup_title, classroomIDs, OpenClass, showCloseButton, 0);
         }
 
         public void OpenClass(int classroomIndex)
@@ -160,7 +162,8 @@ namespace Antura.UI
 
         void SwitchState(State toState, PlayerProfilePreview? profile = null)
         {
-            if (state == toState) return;
+            if (state == toState)
+                return;
             if (toState == State.ProfileDetail && profile == null)
             {
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
