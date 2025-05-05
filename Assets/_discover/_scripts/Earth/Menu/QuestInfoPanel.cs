@@ -52,7 +52,7 @@ namespace Antura.Minigames.DiscoverCountry
                 slideshow.SetImages(null);
             }
 
-            if (currentQuestData.Active)
+            if (currentQuestData.Status != QuestStatus.Inactive)
             {
                 PlayBtn.interactable = true;
             }

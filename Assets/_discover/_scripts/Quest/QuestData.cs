@@ -37,10 +37,18 @@ namespace Antura.Minigames.DiscoverCountry
         Story
     }
 
+    public enum QuestStatus
+    {
+        Inactive = 0,
+        Development = 1,
+        Testing = 2,
+        Ready = 3
+    }
+
     [CreateAssetMenu(menuName = "Antura/Quest Data")]
     public class QuestData : ScriptableObject
     {
-        public bool Active;
+        public QuestStatus Status;
         public HomerFlowSlugs.FlowSlug QuestId;
         public Countries Country;
         public string Code;
@@ -58,6 +66,8 @@ namespace Antura.Minigames.DiscoverCountry
         public string Description;
 
         public string Gameplay;
+
+        public string Credits;
 
         [TextArea(3, 10)]
         public string Content;

@@ -24,7 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
             canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
 
             questData = _questData;
-            SelectBtn.interactable = questData.Active;
+            SelectBtn.interactable = questData.Status != QuestStatus.Inactive;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
             Code.text = _questData.NumberCode;
             Title.text = _questData.Title;
