@@ -8,7 +8,7 @@
 *
 * -------------------------------------------------------------------------------------
 * C# Variables, Actors, Metadata, Labels, Colors, Tags and Flows Slug.
-* Homer project: Antura*
+* Homer project: Antura DEV*
 * -------------------------------------------------------------------------------------
 */
 using UnityEngine;
@@ -17,6 +17,7 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static bool LookedBothWays = false; 
     public static int QUEST_ITEMS = 0;
     public static bool AGE = false; 
     public static int TOTAL_COINS = 0;
@@ -28,6 +29,12 @@ public static class HomerVars {
 
 //------- ACTORS PROPERTIES
 
+
+//ELDERLY_MAN
+    public static int ELDERLY_MAN_LEVEL = 0;
+
+//INF_SIGN
+    public static int INF_SIGN_LEVEL = 0;
 
 //KID_FEMALE
     public static int KID_FEMALE_LEVEL = 0;
@@ -63,6 +70,8 @@ public static class HomerVars {
 
 public static class HomerActors {
     public enum Actors {
+              ELDERLY_MAN = 11, 
+              INF_SIGN = 10, 
               KID_FEMALE = 9, 
               KID_MALE = 8, 
               MUSEUM_GUIDE = 7, 
@@ -143,7 +152,17 @@ public enum FlowSlug {
               FR_07_NORMANDIE = 10, 
               FR_08_MONT_BLANC___MOUNTAINS = 11, 
               FR_09_COTES_DAZUR = 12, 
-              DEV = 13
+              DEV = 13, 
+              STEFANO = 14, 
+              TOMMASO = 15, 
+              NOEMI = 16, 
+              GIULIA = 17, 
+              LORENZO = 18, 
+              EDOARDO = 19, 
+              FRANCO = 20, 
+              GABRIELE = 21, 
+              DAVIDE = 22, 
+              MATTEO = 23
 }
 }
 
