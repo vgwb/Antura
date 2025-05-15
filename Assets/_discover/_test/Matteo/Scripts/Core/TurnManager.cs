@@ -10,8 +10,8 @@ namespace PetanqueGame.Core
     {
         [SerializeField] private List<PlayerController> _players;
         [SerializeField] private List<Transform> _playerPositions;
-
         [SerializeField] private Transform _turnPosition;
+        [SerializeField] private FocusCamera _focusCamera;
 
         private int _currentPlayerIndex = 0;
         private bool _gameStarted = false;
@@ -45,23 +45,22 @@ namespace PetanqueGame.Core
 
         private void StartCurrentPlayerTurn()
         {
-            MovePlayerToPosition(_players[_currentPlayerIndex], _turnPosition);
-            _players[_currentPlayerIndex].StartTurn(OnPlayerTurnEnded);
+            var currentPlayer = _players[_currentPlayerIndex];
+            MovePlayerToPosition(currentPlayer, _turnPosition);
 
-            if (_currentPlayerIndex == 0)
-            {
-                CameraManager.I.FocusCamOn(_players[_currentPlayerIndex].transform);
-                CameraManager.I.ChangeCameraMode(CameraMode.Focus);
-            }
-            else
-            {
-                CameraManager.I.ChangeCameraMode(CameraMode.Player);
-            }
+            if (_focusCamera != null)
+                _focusCamera.SetTarget(currentPlayer.transform);
+
+            HandlePlayerTurnStart(currentPlayer);
+            currentPlayer.StartTurn(OnPlayerTurnEnded);
         }
 
         private void OnPlayerTurnEnded()
         {
-            MovePlayerToPosition(_players[_currentPlayerIndex], _playerPositions[_currentPlayerIndex]);
+            var currentPlayer = _players[_currentPlayerIndex];
+
+            HandlePlayerTurnEnd(currentPlayer);
+            MovePlayerToPosition(currentPlayer, _playerPositions[_currentPlayerIndex]);
 
             _currentPlayerIndex = (_currentPlayerIndex + 1) % _players.Count;
             StartCurrentPlayerTurn();
@@ -69,15 +68,37 @@ namespace PetanqueGame.Core
 
         private void MovePlayerToPosition(PlayerController player, Transform targetPosition)
         {
-            if (targetPosition != null)
-            {
-                player.transform.position = targetPosition.position;
-                player.transform.rotation = targetPosition.rotation;
-            }
-            else
-            {
-                Debug.LogWarning("Target position is not set for a player in TurnManager.");
-            }
+            if (targetPosition == null)
+                return;
+
+            player.transform.SetPositionAndRotation(targetPosition.position, targetPosition.rotation);
         }
+
+        private void HandlePlayerTurnStart(PlayerController player)
+        {
+            if (_currentPlayerIndex == 0)
+                StartCoroutine(DisableModelAndCameraNextFrame(player));
+        }
+
+        private System.Collections.IEnumerator DisableModelAndCameraNextFrame(PlayerController player)
+        {
+            yield return null;
+
+            if (player.Model != null)
+                player.Model.SetActive(false);
+
+            //if (player.ScriptToDisable != null)
+            //    player.ScriptToDisable.enabled = false;
+        }
+
+        private void HandlePlayerTurnEnd(PlayerController player)
+        {
+            if (player.Model != null)
+                player.Model.SetActive(false);
+
+            if (player.ScriptToDisable != null)
+                player.ScriptToDisable.enabled = false;
+        }
+
     }
 }
