@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using DG.DeInspektor.Attributes;
 
 namespace PetanqueGame.Physics
 {
@@ -11,10 +12,11 @@ namespace PetanqueGame.Physics
 
         private void Start()
         {
-            ThrowJack();
+            //ThrowJack();
         }
 
-        private void ThrowJack()
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void ThrowJack()
         {
             if (_hasThrown) return;
 

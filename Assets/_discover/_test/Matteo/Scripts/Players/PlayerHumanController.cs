@@ -1,4 +1,3 @@
-
 using UnityEngine;
 using UnityEngine.EventSystems;
 using PetanqueGame.Utils;
@@ -13,6 +12,7 @@ namespace PetanqueGame.Players
         private GameObject _currentBall;
         private Vector2 _startTouch, _endTouch;
         private bool _isDragging;
+        private bool _usingMouse;
 
         public override void StartTurn(System.Action onEndTurn)
         {
@@ -27,30 +27,59 @@ namespace PetanqueGame.Players
 
         private void Update()
         {
-            if (_currentBall == null || Input.touchCount == 0) return;
+            if (_currentBall == null)
+                return;
 
-            Touch touch = Input.GetTouch(0);
-            if (EventSystem.current.IsPointerOverGameObject(touch.fingerId)) return;
-
-            if (touch.phase == TouchPhase.Began)
+            // TOUCH input
+            if (Input.touchCount > 0)
             {
-                _startTouch = touch.position;
+                Touch touch = Input.GetTouch(0);
+                if (EventSystem.current.IsPointerOverGameObject(touch.fingerId))
+                    return;
+
+                if (touch.phase == TouchPhase.Began)
+                {
+                    _startTouch = touch.position;
+                    _isDragging = true;
+                    _usingMouse = false;
+                }
+                else if (touch.phase == TouchPhase.Ended && _isDragging && !_usingMouse)
+                {
+                    _endTouch = touch.position;
+                    ThrowBall();
+                }
+            }
+
+            // MOUSE input
+            else if (Input.GetMouseButtonDown(0))
+            {
+                if (EventSystem.current.IsPointerOverGameObject())
+                    return;
+
+                _startTouch = Input.mousePosition;
                 _isDragging = true;
+                _usingMouse = true;
             }
-            else if (touch.phase == TouchPhase.Ended && _isDragging)
+            else if (Input.GetMouseButtonUp(0) && _isDragging && _usingMouse)
             {
-                _endTouch = touch.position;
-                Vector2 drag = _startTouch - _endTouch;
-                Vector3 force = new Vector3(drag.x, drag.y * 1.5f, drag.y) * 0.02f;
-
-                Rigidbody rb = _currentBall.GetComponent<Rigidbody>();
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
-                rb.AddForce(force, ForceMode.Impulse);
-                _currentBall = null;
-                _isDragging = false;
-                _endTurnCallback?.Invoke();
+                _endTouch = Input.mousePosition;
+                ThrowBall();
             }
+        }
+
+        private void ThrowBall()
+        {
+            Vector2 drag = _startTouch - _endTouch;
+            Vector3 force = new Vector3(drag.x, drag.y * 1.5f, drag.y) * 0.02f;
+
+            Rigidbody rb = _currentBall.GetComponent<Rigidbody>();
+            rb.linearVelocity = Vector3.zero;
+            rb.angularVelocity = Vector3.zero;
+            rb.AddForce(force, ForceMode.Impulse);
+
+            _currentBall = null;
+            _isDragging = false;
+            _endTurnCallback?.Invoke();
         }
     }
 }

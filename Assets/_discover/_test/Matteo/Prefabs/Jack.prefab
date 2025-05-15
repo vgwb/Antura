@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 9165279403695977529}
+  - component: {fileID: 7009451975256990220}
   - component: {fileID: 6626880880124930854}
   - component: {fileID: 5694388656554822901}
   - component: {fileID: 9090930564101642326}
@@ -35,6 +36,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7009451975256990220
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 864813289879727537}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f014f6ab08c46a4faf5280b0344907a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!33 &6626880880124930854
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -66,7 +79,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: -8067726398312463513, guid: 31a979d3e994447bda5e31aa458c7746, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -118,7 +131,7 @@ Rigidbody:
   m_GameObject: {fileID: 864813289879727537}
   serializedVersion: 4
   m_Mass: 1
-  m_Drag: 0
+  m_Drag: 0.5
   m_AngularDrag: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
