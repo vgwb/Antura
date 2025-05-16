@@ -1,8 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using PetanqueGame.Players;
 using DG.DeInspektor.Attributes;
-using Antura.Minigames.DiscoverCountry;
 
 namespace PetanqueGame.Core
 {
@@ -11,10 +11,18 @@ namespace PetanqueGame.Core
         [SerializeField] private List<PlayerController> _players;
         [SerializeField] private List<Transform> _playerPositions;
         [SerializeField] private Transform _turnPosition;
-        [SerializeField] private FocusCamera _focusCamera;
+        [SerializeField] private Transform _gameCameraPoint;
 
+        [Header("Jack Throw Settings")]
+        [SerializeField] private GameObject _jackPrefab;
+        [SerializeField] private Transform _jackThrowPoint;
+        [SerializeField] private float _jackCurveHeight = 1.5f;
+        [SerializeField] private float _jackTravelTime = 1f;
+
+        private Transform _cameraFocusTarget;
         private int _currentPlayerIndex = 0;
         private bool _gameStarted = false;
+        private bool _jackThrown = false;
 
         [DeMethodButton(mode = DeButtonMode.Default)]
         public void StartGame()
@@ -48,17 +56,57 @@ namespace PetanqueGame.Core
             var currentPlayer = _players[_currentPlayerIndex];
             MovePlayerToPosition(currentPlayer, _turnPosition);
 
-            if (_focusCamera != null)
-                _focusCamera.SetTarget(currentPlayer.transform);
-
             HandlePlayerTurnStart(currentPlayer);
+
+            // Se è il primo turno del primo player, lancia il jack prima
+            if (!_jackThrown && _currentPlayerIndex == 0 && currentPlayer is PlayerHumanController)
+            {
+                StartCoroutine(ThrowJackThenStartTurn(currentPlayer));
+            }
+            else
+            {
+                currentPlayer.StartTurn(OnPlayerTurnEnded);
+            }
+        }
+
+        private IEnumerator ThrowJackThenStartTurn(PlayerController currentPlayer)
+        {
+            _jackThrown = true;
+
+            GameObject jack = Instantiate(_jackPrefab, _jackThrowPoint.position, Quaternion.identity);
+
+            Vector3 randomOffset = new Vector3(Random.Range(-1f, 1f), 0f, Random.Range(2f, 4f));
+            Vector3 targetPosition = jack.transform.position + randomOffset;
+
+            yield return StartCoroutine(ThrowWithCurve(jack.transform, targetPosition, _jackCurveHeight, _jackTravelTime));
+
             currentPlayer.StartTurn(OnPlayerTurnEnded);
+        }
+
+        private IEnumerator ThrowWithCurve(Transform obj, Vector3 target, float height, float duration)
+        {
+            Vector3 startPos = obj.position;
+            float elapsed = 0f;
+
+            Rigidbody rb = obj.GetComponent<Rigidbody>();
+            rb.isKinematic = true;
+
+            while (elapsed < duration)
+            {
+                float t = elapsed / duration;
+                float curvedY = Mathf.Sin(Mathf.PI * t) * height;
+                obj.position = Vector3.Lerp(startPos, target, t) + Vector3.up * curvedY;
+                elapsed += Time.deltaTime;
+                yield return null;
+            }
+
+            obj.position = target;
+            rb.isKinematic = false;
         }
 
         private void OnPlayerTurnEnded()
         {
             var currentPlayer = _players[_currentPlayerIndex];
-
             HandlePlayerTurnEnd(currentPlayer);
             MovePlayerToPosition(currentPlayer, _playerPositions[_currentPlayerIndex]);
 
@@ -71,7 +119,15 @@ namespace PetanqueGame.Core
             if (targetPosition == null)
                 return;
 
-            player.transform.SetPositionAndRotation(targetPosition.position, targetPosition.rotation);
+            Quaternion targetRotation = targetPosition.rotation;
+
+            int playerIndex = _players.IndexOf(player);
+            if (playerIndex != 0)
+            {
+                targetRotation *= Quaternion.Euler(0f, 180f, 0f);
+            }
+
+            player.transform.SetPositionAndRotation(targetPosition.position, targetRotation);
         }
 
         private void HandlePlayerTurnStart(PlayerController player)
@@ -80,25 +136,18 @@ namespace PetanqueGame.Core
                 StartCoroutine(DisableModelAndCameraNextFrame(player));
         }
 
-        private System.Collections.IEnumerator DisableModelAndCameraNextFrame(PlayerController player)
+        private IEnumerator DisableModelAndCameraNextFrame(PlayerController player)
         {
             yield return null;
-
-            if (player.Model != null)
-                player.Model.SetActive(false);
-
-            //if (player.ScriptToDisable != null)
-            //    player.ScriptToDisable.enabled = false;
-        }
-
-        private void HandlePlayerTurnEnd(PlayerController player)
-        {
-            if (player.Model != null)
-                player.Model.SetActive(false);
 
             if (player.ScriptToDisable != null)
                 player.ScriptToDisable.enabled = false;
         }
 
+        private void HandlePlayerTurnEnd(PlayerController player)
+        {
+            if (player.ScriptToDisable != null)
+                player.ScriptToDisable.enabled = false;
+        }
     }
 }

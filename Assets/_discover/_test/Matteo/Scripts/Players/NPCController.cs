@@ -1,29 +1,25 @@
 using UnityEngine;
-using PetanqueGame.Utils;
+using PetanqueGame.Physics;
 
 namespace PetanqueGame.Players
 {
     public class NPCController : PlayerController
     {
         [SerializeField] private Transform _throwPoint;
-        [SerializeField] private ObjectPooler _ballPool;
+        [SerializeField] private Transform _bouldsPlayedContainer;
 
         private JackIdentifier _jackIdentifier;
         private Transform _jack;
 
         public override void StartTurn(System.Action onEndTurn)
         {
-            _endTurnCallback = onEndTurn;
+            base.StartTurn(onEndTurn);
 
-            // Cerca JackIdentifier se non � gi� trovato
             if (_jackIdentifier == null)
             {
                 _jackIdentifier = FindAnyObjectByType<JackIdentifier>();
-
                 if (_jackIdentifier != null)
-                {
                     _jack = _jackIdentifier.transform;
-                }
                 else
                 {
                     Debug.LogWarning("JackIdentifier non trovato nella scena!");
@@ -36,12 +32,28 @@ namespace PetanqueGame.Players
 
         private void ThrowBall()
         {
-            Vector3 dir = (_jack.position - _throwPoint.position).normalized;
-            GameObject ball = _ballPool.GetFromPool(_throwPoint.position, Quaternion.identity);
-            Rigidbody rb = ball.GetComponent<Rigidbody>();
-            rb.linearVelocity = Vector3.zero;
-            rb.angularVelocity = Vector3.zero;
-            rb.AddForce(dir * Random.Range(4f, 7f), ForceMode.Impulse);
+            foreach (Transform child in BouldsToPlayHolder)
+            {
+                if (child.TryGetComponent<BallPhysicsController>(out _))
+                {
+                    GameObject ball = child.gameObject;
+                    ball.transform.SetParent(null);
+                    ball.transform.position = _throwPoint.position;
+                    ball.transform.rotation = Quaternion.identity;
+
+                    Rigidbody rb = ball.GetComponent<Rigidbody>();
+                    rb.isKinematic = false;
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+
+                    Vector3 direction = (_jack.position - _throwPoint.position).normalized;
+                    rb.AddForce(direction * Random.Range(4f, 7f), ForceMode.Impulse);
+
+                    ball.transform.SetParent(_bouldsPlayedContainer);
+                    break;
+                }
+            }
+
             _endTurnCallback?.Invoke();
         }
     }

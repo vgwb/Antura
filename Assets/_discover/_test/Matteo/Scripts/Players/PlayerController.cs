@@ -5,13 +5,13 @@ namespace PetanqueGame.Players
     public class PlayerController : MonoBehaviour
     {
         [Header("Turn Manager Settings")]
-        [SerializeField] private GameObject model;
         [SerializeField] private MonoBehaviour scriptToDisableDuringTurn;
+        [SerializeField] private Transform _bouldsToPlayHolder;
 
         protected System.Action _endTurnCallback;
 
-        public GameObject Model => model;
         public MonoBehaviour ScriptToDisable => scriptToDisableDuringTurn;
+        public Transform BouldsToPlayHolder => _bouldsToPlayHolder;
 
         public virtual void StartTurn(System.Action onEndTurn)
         {
