@@ -1,4 +1,3 @@
-
 using TMPro;
 using UnityEngine;
 
@@ -8,9 +7,9 @@ namespace PetanqueGame.UI
     {
         [SerializeField] private TMP_Text _scoreText;
 
-        public void UpdateScore(string team, int score)
+        public void UpdateScore(int redScore, int blueScore)
         {
-            _scoreText.text = $"Punti {team}: {score}";
+            _scoreText.text = $"Team Rosso: {redScore} - Team Blu: {blueScore}";
         }
     }
 }

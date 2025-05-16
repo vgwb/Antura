@@ -11,7 +11,7 @@ namespace PetanqueGame.Players
         [SerializeField] private Transform _bouldsPlayedContainer;
         [SerializeField] private float _throwStrength = 0.02f;
         [SerializeField] private float _curveHeight = 2f;
-        [SerializeField] private float _travelTime = 1.0f;
+        [SerializeField] private float _travelTime = 1f;
 
         private GameObject _currentBall;
         private Vector2 _startTouch, _endTouch;
@@ -26,11 +26,12 @@ namespace PetanqueGame.Players
 
         private void TakeTheBall()
         {
-            foreach (Transform child in BouldsToPlayHolder)
+            _currentBall = null;
+            foreach (Transform boule in BouldsToPlayHolder)
             {
-                if (child.TryGetComponent<BallPhysicsController>(out _))
+                if (boule.TryGetComponent<BallPhysicsController>(out _))
                 {
-                    _currentBall = child.gameObject;
+                    _currentBall = boule.gameObject;
                     _currentBall.transform.SetParent(null);
                     _currentBall.transform.position = _throwPoint.position;
                     _currentBall.transform.rotation = Quaternion.identity;
@@ -39,9 +40,7 @@ namespace PetanqueGame.Players
             }
 
             if (_currentBall == null)
-            {
-                Debug.LogWarning("Nessuna palla disponibile nel bouldsToPlayHolder!");
-            }
+                Debug.LogWarning("Nessuna palla disponibile nel BouldsToPlayHolder!");
         }
 
         private void Update()
@@ -88,33 +87,21 @@ namespace PetanqueGame.Players
             Vector3 targetOffset = new Vector3(swipe.x, 0, swipe.y);
             Vector3 targetPosition = _currentBall.transform.position + targetOffset;
 
-            StartCoroutine(ThrowWithCurve(_currentBall.transform, targetPosition, _curveHeight, _travelTime));
+            StartCoroutine(ThrowHelper.ThrowWithCurve(
+                _currentBall.transform,
+                targetPosition,
+                _curveHeight,
+                _travelTime,
+                _bouldsPlayedContainer,
+                () =>
+                {
+                    _currentBall = null;
+                    _endTurnCallback?.Invoke();
+                }
+            ));
+
             _isDragging = false;
             _usingMouse = false;
-        }
-
-        private IEnumerator ThrowWithCurve(Transform obj, Vector3 target, float height, float duration)
-        {
-            Vector3 startPos = obj.position;
-            float elapsed = 0f;
-            Rigidbody rb = obj.GetComponent<Rigidbody>();
-            rb.isKinematic = true;
-
-            while (elapsed < duration)
-            {
-                float t = elapsed / duration;
-                float curvedY = Mathf.Sin(Mathf.PI * t) * height;
-                obj.position = Vector3.Lerp(startPos, target, t) + Vector3.up * curvedY;
-                elapsed += Time.deltaTime;
-                yield return null;
-            }
-
-            obj.position = target;
-            rb.isKinematic = false;
-
-            obj.SetParent(_bouldsPlayedContainer);
-            _currentBall = null;
-            _endTurnCallback?.Invoke();
         }
     }
 }

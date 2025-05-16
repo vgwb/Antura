@@ -1,5 +1,5 @@
-using UnityEngine;
 using PetanqueGame.Physics;
+using UnityEngine;
 
 namespace PetanqueGame.Players
 {
@@ -32,29 +32,37 @@ namespace PetanqueGame.Players
 
         private void ThrowBall()
         {
-            foreach (Transform child in BouldsToPlayHolder)
+            foreach (Transform boule in BouldsToPlayHolder)
             {
-                if (child.TryGetComponent<BallPhysicsController>(out _))
+                if (boule.TryGetComponent<BallPhysicsController>(out _))
                 {
-                    GameObject ball = child.gameObject;
+                    GameObject ball = boule.gameObject;
                     ball.transform.SetParent(null);
                     ball.transform.position = _throwPoint.position;
                     ball.transform.rotation = Quaternion.identity;
 
-                    Rigidbody rb = ball.GetComponent<Rigidbody>();
-                    rb.isKinematic = false;
-                    rb.linearVelocity = Vector3.zero;
-                    rb.angularVelocity = Vector3.zero;
+                    Vector3 jackPos = _jack.position;
+                    jackPos.y = _throwPoint.position.y;
 
-                    Vector3 direction = (_jack.position - _throwPoint.position).normalized;
-                    rb.AddForce(direction * Random.Range(4f, 7f), ForceMode.Impulse);
+                    Vector3 randomOffset = Random.insideUnitSphere * 2f;
+                    if (randomOffset.y < 0)
+                        randomOffset.y = 0f;
 
-                    ball.transform.SetParent(_bouldsPlayedContainer);
+                    Vector3 targetPos = jackPos + randomOffset;
+
+                    StartCoroutine(ThrowHelper.ThrowWithCurve(
+                        ball.transform,
+                        targetPos,
+                        height: 2f,
+                        duration: 1f,
+                        parentAfterThrow: _bouldsPlayedContainer,
+                        onComplete: () => _endTurnCallback?.Invoke()
+                    ));
+
                     break;
                 }
             }
-
-            _endTurnCallback?.Invoke();
         }
+
     }
 }

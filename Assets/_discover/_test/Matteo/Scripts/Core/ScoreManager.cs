@@ -2,22 +2,29 @@ using UnityEngine;
 using System.Collections.Generic;
 using System.Linq;
 using PetanqueGame.UI;
+using PetanqueGame.Physics;
 
 namespace PetanqueGame.Core
 {
     public class ScoreManager : MonoBehaviour
     {
-        [SerializeField] private List<GameObject> _balls;
         [SerializeField] private ScoreUI _scoreUI;
+        [SerializeField] private int winningScore = 5;
 
         private JackIdentifier _jackIdentifier;
+        private int _redTotalScore = 0;
+        private int _blueTotalScore = 0;
+
+        public bool TeamRedWin { get; private set; } = false;
+        public bool TeamBlueWin { get; private set; } = false;
+
+        public System.Action OnGameOver;
+        public System.Action OnRoundEnd;
 
         public void CalculateScores()
         {
             if (_jackIdentifier == null)
-            {
                 _jackIdentifier = FindAnyObjectByType<JackIdentifier>();
-            }
 
             if (_jackIdentifier == null)
             {
@@ -26,27 +33,62 @@ namespace PetanqueGame.Core
             }
 
             GameObject jack = _jackIdentifier.gameObject;
+            List<(GameObject ball, BallPhysicsController controller)> balls = new();
 
-            var distances = _balls
-                .Where(b => b != null)
-                .Select(b => new
+            foreach (Transform child in transform)
+            {
+                BallPhysicsController controller = child.GetComponent<BallPhysicsController>();
+                if (controller != null && (controller.IsBlueTeam || controller.IsRedTeam))
                 {
-                    Ball = b,
-                    Distance = Vector3.Distance(jack.transform.position, b.transform.position)
-                })
-                .OrderBy(d => d.Distance)
-                .ToList();
+                    balls.Add((child.gameObject, controller));
+                }
+            }
 
-            if (distances.Count == 0)
+            if (balls.Count == 0)
             {
                 Debug.LogWarning("Nessuna palla valida trovata per il calcolo del punteggio.");
                 return;
             }
 
-            string leadingTeam = distances[0].Ball.tag;
-            int score = distances.TakeWhile(d => d.Ball.tag == leadingTeam).Count();
+            var distances = balls
+                .Select(b => new
+                {
+                    Ball = b.ball,
+                    Controller = b.controller,
+                    Distance = Vector3.SqrMagnitude(jack.transform.position - b.ball.transform.position)
+                })
+                .OrderBy(d => d.Distance)
+                .ToList();
 
-            _scoreUI?.UpdateScore(leadingTeam, score);
+            var leadingController = distances[0].Controller;
+            bool isRed = leadingController.IsRedTeam;
+            int score = distances.TakeWhile(d =>
+                d.Controller.IsRedTeam == isRed &&
+                d.Controller.IsBlueTeam == !isRed
+            ).Count();
+
+            int redScore = isRed ? score : 0;
+            int blueScore = !isRed ? score : 0;
+
+            _redTotalScore += redScore;
+            _blueTotalScore += blueScore;
+
+            _scoreUI?.UpdateScore(_redTotalScore, _blueTotalScore);
+
+            if (_redTotalScore >= winningScore)
+            {
+                TeamRedWin = true;
+                OnGameOver?.Invoke();
+            }
+            else if (_blueTotalScore >= winningScore)
+            {
+                TeamBlueWin = true;
+                OnGameOver?.Invoke();
+            }
+            else
+            {
+                OnRoundEnd?.Invoke();
+            }
         }
     }
 }
