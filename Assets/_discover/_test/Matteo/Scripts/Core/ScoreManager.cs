@@ -21,6 +21,11 @@ namespace PetanqueGame.Core
         public System.Action OnGameOver;
         public System.Action OnRoundEnd;
 
+        private void Start()
+        {
+            _scoreUI?.UpdateScore(_redTotalScore, _blueTotalScore);
+        }
+
         public void CalculateScores()
         {
             if (_jackIdentifier == null)
