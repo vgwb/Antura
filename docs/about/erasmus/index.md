@@ -2,6 +2,9 @@
 
 ![Erasmus+](../../assets/img/blog/Co-fundedbytheEU.webp)
 
+!!! note
+    more informations about Antura and Erasmus+ are here: [https://anturainschools.blogspot.com](https://anturainschools.blogspot.com)
+
 ## Project Overview
 
 **Project Title:** Interactive Learning Game for Refugee and Migrant Children's Inclusion and Integration  

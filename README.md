@@ -33,20 +33,16 @@ all docs are in directory `/docs` and rendered to [antura.org](http://antura.org
 
 To render the docs locally:
 
-- `mkdocs new [dir-name]` - Create a new project.
 - `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
 - `mkdocs -h` - Print help message and exit.
 
 **Install**
 
-pip3 install mkdocs-material mkdocs-minify-plugin pillow cairosvg mkdocs-table-reader-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-exclude mkdocs-glightbox
+`pip3 install mkdocs-material mkdocs-minify-plugin pillow cairosvg mkdocs-table-reader-plugin mkdocs-awesome-pages-plugin mkdocs-git-revision-date-localized-plugin mkdocs-exclude mkdocs-glightbox`
 
-upgrade:  
-`pip3 install --upgrade mkdocs-material`
+upgrade: `pip3 install --upgrade mkdocs-material`  
 
-check version:  
-`pip3 show mkdocs-material`
+check version: `pip3 show mkdocs-material`  
 
 ## Licensing
 

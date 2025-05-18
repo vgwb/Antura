@@ -1,4 +1,4 @@
-# AdventurED Module: Discover Countries in Antura
+# Discover Countries in Antura
 
 ## Mission
 Introduce kids to the cultural elements of a country with a flexible tool to allow any style of teaching.

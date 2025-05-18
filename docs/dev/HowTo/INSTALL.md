@@ -8,11 +8,12 @@ nav_order: 0
 
 ## Requirements
 
-- Unity latest 2020, Mac or Windows computer
+- Unity latest 6 LTS, Mac or Windows computer
+- On Windows install Git: <https://git-scm.com>
 
 ## Fetch the Project
 
-1. Get Unity latest 2020 stable (Win or Mac) from <https://unity3d.com/get-unity/download/archive>
+1. Get Unity from <https://unity3d.com/get-unity/download/archive>
 2. Download the project. There are two ways:
     A) the **simple** is to download the zipped package (from Clone or Download green button)
     B) the **advanced** is to use a Git client to track the changes and update the project as it gets developed:
@@ -22,6 +23,5 @@ nav_order: 0
 
 ## Editor Setup
 
-set the Build Setup to Desktop, iOS or Android platform.
-
-then set the Game window to **16:9** (under iOS there is a preset called iPhone 5 Wide (16:9))
+Set the Build Setup to Desktop, iOS or Android platform.  
+Set the Game window to **16:9** (under iOS there is a preset called iPhone 5 Wide (16:9))  
