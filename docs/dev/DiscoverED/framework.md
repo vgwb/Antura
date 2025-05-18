@@ -7,7 +7,7 @@ This framework aims to democratize educational game development, providing intui
 
 ## Core Idea: Learn by Playing, Create with Ease
 
-The fundamental idea is to bridge the gap between educational theory and engaging gameplay. The framework will provide a structured yet flexible environment where:
+The fundamental idea is to bridge the gap between educational theory and engaging gameplay. The framework provides a structured yet flexible environment where:
 
 - **Educators** can easily input their subject matter, learning objectives, and assessment criteria.
 - **Game Designers** can then use these inputs to design compelling game mechanics, narratives, and level designs.
@@ -44,21 +44,21 @@ The fundamental idea is to bridge the gap between educational theory and engagin
 ### Unity-Powered core engine
 
 - **foundation:** leverages the power and versatility of the Unity 3D engine, known for its cross-platform capabilities and extensive asset store.
-- **open-source nature:** the framework itself will be open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
+- **open-source nature:** the framework itself is be open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
 - **modular design:** built with modularity in mind, allowing for the easy integration of new features, educational mechanics, and custom assets.
-- **pre-built templates & assets:** will include a library of common 3D environments (e.g., historical sites, science labs, abstract worlds), character controllers, interaction systems, and puzzle templates to accelerate development.
+- **pre-built templates & assets:** includes a library of common 3D environments, character controllers, interaction systems, and puzzle templates to accelerate development.
 
 **Componenents**
 
 **3D World Engine:**  
-leveraging unity's powerful rendering capabilities, the framework will support the creation of rich and explorable 3D environments. this includes tools and templates for:
+leveraging unity's powerful rendering capabilities, the framework supports the creation of rich and explorable 3D environments. This includes tools and templates for:
 
 - **scene management:** easy setup of different game locations.
 - **character control:** pre-configured player controllers for navigation (walking, running, interacting).
 - **interaction system:** a straightforward way to define interactive objects within the game world (e.g., items to pick up, levers to pull, information points).
 
 **quest management system:**  
-this system will interpret the quest data structured in "Homer" and manage the player's progress. it will handle:
+this system interprets the quest data structured in "Homer" and manage the player's progress. it handles:
 
 - **quest activation & tracking:** triggering quests, displaying objectives, and monitoring completion.
 - **conditional logic:** implementing prerequisites for quests or specific quest steps (e.g., "talk to character a before item b can be found").
@@ -83,7 +83,7 @@ a library of adaptable puzzle templates or a system for easily integrating custo
 specific functionalities to tie game events and achievements directly to learning outcomes. this might include in-game encyclopedias, quizzes triggered by discoveries, or summaries of learned concepts.
 
 **modularity & extensibility:**  
-being open-source, the framework will be designed for easy customization. developers can add new features, integrate different asset packs, or tailor the system to specific educational needs.
+being open-source, the framework is be designed for easy customization. developers can add new features, integrate different asset packs, or tailor the system to specific educational needs.
   
 ### External node-based dialogue and quest editor
 
@@ -91,7 +91,7 @@ being open-source, the framework will be designed for easy customization. develo
 - **dialogue management:** supports features crucial for rich storytelling, such as character-specific dialogue, emotional tone indicators, and conditional branching based on player choices or in-game events.
 - **quest creation:** facilitates the design of quests by linking dialogue nodes with in-game objectives, item requirements, npc interactions, and puzzle triggers. educators can directly translate learning steps into quest objectives.
 - **translation support:** a key feature of "Homer" is its integrated translation capabilities, making it easier to adapt educational adventures for different languages and regions.
-- **seamless Unity integration:** the framework will include robust tools and apis to import data from "Homer" directly into Unity, automatically generating the corresponding dialogue trees, quest logic, and npc behaviors within the 3D game environment. "Homer" itself offers direct download links for Unity, streamlining this process.
+- **seamless Unity integration:** the framework includes robust tools and apis to import data from "Homer" directly into Unity, automatically generating the corresponding dialogue trees, quest logic, and npc behaviors within the 3D game environment. "Homer" itself offers direct download links for Unity, streamlining this process.
 
 **Components**
 
@@ -113,7 +113,7 @@ being open-source, the framework will be designed for easy customization. develo
 
 **Data export for Unity:**
 
-- **standardized format:** "Homer" will export dialogue, quest data, and translations in a format specifically designed to be easily parsed by the Unity framework. this ensures a smooth pipeline from content creation to in-game implementation.
+- **standardized format:** "Homer" exports dialogue, quest data, and translations in a format specifically designed to be easily parsed by the Unity framework. this ensures a smooth pipeline from content creation to in-game implementation.
 - **version control & collaboration:** (potentially) features to support multiple users working on the same project and managing different versions of the narrative.
 
 ## Why this framework: benefits and impact
@@ -125,4 +125,4 @@ being open-source, the framework will be designed for easy customization. develo
 - **flexible & adaptable:** the open-source nature and modular design allow for customization across various subjects and learning levels.
 - **collaborative potential:** facilitates collaboration between educators with subject matter expertise and game designers skilled in creating engaging experiences.
 - **power of visual scripting:** "Homer" provides an intuitive way to manage complex narrative and quest structures.
-- **open-source community potential:** the open nature will encourage contributions, improvements, and a supportive community of users and developers.
+- **open-source community potential:** the open nature encourages contributions, improvements, and a supportive community of users and developers.

@@ -14,6 +14,24 @@ The repository of this project is: <https://github.com/vgwb/Antura>
 ## DiscoverED Quests
 To create a new Quest [DesignQuests](DiscoverED/index.md)  
 
+## HowTo
+**User and Tester guides**
+
+- [Debug Shortcuts](HowTo/DebugShortcuts.md) cheats and keyboard shortcuts
+- [Export Database](HowTo/ExportPlayerDatabase.md) how to export player databases
+
+**Developer guides**
+
+- [Install](HowTo/INSTALL.md) how to install and configure the Unity project
+- [Build](HowTo/Build.md) how to build the app for mobile devices
+- [Create Edition](HowTo/CreateEdition.md)
+- [Collaborator](HowTo/Collaborator.md) how to collaborate
+- [Developer Guidelines and Tips](HowTo/DeveloperGuidelines.md) general guidelines for developers that want to contribute to the project
+- [Refactoring Guidelines](HowTo/RefactoringGuidelines.md)
+- [Export Google Sheet Data](HowTo/ExportGoogleSheetData.md) as JSON files
+- [Drawing Font](HowTo/DrawingsFont.md) how to create the drawings font Atlas with TextMeshPro
+- [How To regenerate DoxyGen docs](HowTo/APIDocsGeneration.md)
+
 ## Core Modules / Architecture
 
 - [Project Structure](Modules/ProjectStructure.md) the structure of the Unity project.
@@ -33,26 +51,7 @@ To create a new Quest [DesignQuests](DiscoverED/index.md)
 - [Teacher AI](Modules/Teacher.md) how the Teacher System works. This subsystem is responsible for providing learning content data to the minigames.
 - [Analytics](Modules/Analytics.md) the implementation and use of the Logging System.
 
-
-## HowTo
-**User and Tester guides**
-
-- [Debug Shortcuts](HowTo/DebugShortcuts.md) cheats and keyboard shortcuts
-- [Export Database](HowTo/ExportPlayerDatabase.md) how to export player databases
-
-**Developer guides**
-
-- [Install](HowTo/INSTALL.md) how to install and configure the Unity project
-- [Build](HowTo/Build.md) how to build the app for mobile devices
-- [Create Edition](HowTo/CreateEdition.md)
-- [Collaborator](HowTo/Collaborator.md) how to collaborate
-- [Developer Guidelines and Tips](HowTo/DeveloperGuidelines.md) general guidelines for developers that want to contribute to the project
-- [Refactoring Guidelines](HowTo/RefactoringGuidelines.md)
-- [Export Google Sheet Data](HowTo/ExportGoogleSheetData.md) as JSON files
-- [Drawing Font](HowTo/DrawingsFont.md) how to create the drawings font Atlas with TextMeshPro
-- [How To regenerate DoxyGen docs](HowTo/APIDocsGeneration.md)
-
-### MiniGames Design and Dev docs
+## MiniGames docs
 
 - [Assessments](Minigames/Assessments.md)
 - [Balloons](Minigames/Balloons.md)
