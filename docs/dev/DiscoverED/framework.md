@@ -1,64 +1,56 @@
 # DiscoverED Framework
 _A Unity-based framework for educational games creation_
 
-Imagine a world where educators and game designers can seamlessly collaborate to transform any didactical content into captivating 3D adventure games. This is the vision behind a new, open-source videogame framework built on the robust Unity engine, designed to empower creators to craft immersive learning experiences filled with exploration, dialogue, interactive puzzles, and engaging quests. At the heart of its accessible design is "Homer," an external node-based dialogue editor, simplifying the creation and translation of rich narrative content.
+Imagine if educators and game designers could seamlessly collaborate to transform any didactical content into 3D adventure games. This is the vision behind a new, open-source videogame framework designed to empower creators to craft immersive learning experiences mixing exploration, dialogues, interactive puzzles and engaging quests. At the heart of its accessible design is an external node-based dialogue editor, simplifying the creation and translation of the narrative content.
 
-This framework aims to democratize educational game development, providing intuitive tools for users who may not have extensive programming backgrounds. The goal is to enable educators to bring their curricula to life and for game designers to lend their expertise in crafting experiences that are not only fun but also deeply impactful for learning.
+This framework aims to democratize educational game development, providing intuitive tools for educators to bring their curricula to life and for game designers to lend their expertise in crafting experiences that are not only fun but also deeply impactful for learning.
 
 ## Core Idea: Learn by Playing, Create with Ease
 
-The fundamental idea is to bridge the gap between educational theory and engaging gameplay. The framework provides a structured yet flexible environment where:
+The fundamental idea is to bridge the gap between educational theory and engaging gameplay. The framework provides an environment where:
 
-- **Educators** can easily input their subject matter, learning objectives, and assessment criteria.
-- **Game Designers** can then use these inputs to design compelling game mechanics, narratives, and level designs.
-- **Players (Students)** embark on 3D adventures where they actively explore environments, interact with characters and objects, solve puzzles that reinforce learning concepts, and complete quests that guide them through the educational material. The process of playing becomes the process of learning.
+- **Educators** can easily input their subject matter, learning objectives and assessment criteria.
+- **Game Designers** can then use these inputs to design compelling game mechanics, narratives and level designs.
+- **Players (Students)** embark on 3D adventures where they actively explore environments, interact with characters and objects, solve puzzles that reinforce learning concepts and complete quests that guide them through the educational material.
 
 ## Key Goals
 
 - **empower educators & designers:** provide tools that are accessible and user-friendly, regardless of extensive programming knowledge.
 - **transform learning:** convert traditional educational material into interactive quests and narratives.
-- **foster engagement:** leverage the inherent appeal of 3D adventure games – exploration, storytelling, and puzzle-solving – to motivate learners.
+- **foster engagement:** leverage the inherent appeal of 3D adventure games – exploration, storytelling and puzzle-solving – to motivate learners.
 - **promote collaboration:** facilitate a smooth workflow between content experts and game designers.
 - **open & extensible:** offer an open-source foundation that can be adapted and expanded by the community.
 
 ## Workflow: from concept to playable adventure
 
-1. **content definition (educator/designer):** the educator or designer starts by outlining the learning goals and gameplay. they use "Homer" to write the dialogues, define the characters, and structure the overarching quests that will guide the learning journey.
-2. **narrative & quest design (educator/designer with Homer):** the game designer takes the educational content and crafts engaging narratives, branching dialogues, and multi-step quests. they focus on making the learning objectives feel like natural parts of an unfolding story.
-    - write the dialogues and narrative script.
-    - design the quests and link them to the educational content.
-    - structure the branching choices and potential outcomes.
-    - (optional) prepare text for translation.
-3. **world building & gameplay implementation (designer/developer in Unity):** the "Homer" data is imported into the Unity framework. designers then use the framework's tools to build the 3D world, place characters and interactive elements, customize puzzles, and link the narrative components to in-game actions and environments.
-    - construct the 3D scenes.
-    - place characters, interactive objects, and puzzle elements.
-    - utilize the framework's tools to define interactions.
+1. **content definition (educator/designer):** the educator or designer starts by outlining the learning goals and gameplay. They use "Homer" to write the dialogues, define the characters and structure the quests that will guide the learning journey.
+2. **narrative & quest design (educator/designer with Homer):** the game designer takes the educational content and crafts engaging narratives, branching dialogues, and multi-step quests. They focus on making the learning objectives feel like natural parts of an unfolding story.  
+3. **world building & gameplay implementation (designer/developer in Unity):** the "Homer" data is imported into the Unity framework. Designers then use the framework's tools to build the 3D world, place characters and interactive elements, customize puzzles and link the narrative components to in-game actions and environments.  
 4. **iteration & testing (educator & designer):** educators and designers can easily playtest the adventure, identify areas for improvement in both gameplay and educational clarity, and make quick revisions using "Homer" and the Unity framework.
 5. **testing & iteration (beta players / educators):**  
     - playtest the adventure to ensure it's engaging, the educational goals are met, and the game mechanics are sound.
     - refine content in "Homer" and game elements in Unity based on feedback.
-6. **deployment & learning (player):** the final Quest is deployed for players (students) to explore, interact with, and learn from in an engaging and immersive way.
+6. **deployment & learning (players / students):** the final Quest is deployed for players (students) to explore, interact with, and learn from in an engaging and immersive way.
 
 ## Key Components of the Framework
 
 ### Unity-Powered core engine
 
-- **foundation:** leverages the power and versatility of the Unity 3D engine, known for its cross-platform capabilities and extensive asset store.
-- **open-source nature:** the framework itself is be open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
+- **open-source nature:** the framework itself is open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
 - **modular design:** built with modularity in mind, allowing for the easy integration of new features, educational mechanics, and custom assets.
-- **pre-built templates & assets:** includes a library of common 3D environments, character controllers, interaction systems, and puzzle templates to accelerate development.
+- **pre-built templates & assets:** includes a library of common 3D environments, characters, interaction systems and puzzle templates to accelerate development.
 
 **Componenents**
 
 **3D World Engine:**  
-leveraging unity's powerful rendering capabilities, the framework supports the creation of rich and explorable 3D environments. This includes tools and templates for:
+The framework supports the creation of rich and explorable 3D environments. This includes tools and templates for:
 
 - **scene management:** easy setup of different game locations.
 - **character control:** pre-configured player controllers for navigation (walking, running, interacting).
 - **interaction system:** a straightforward way to define interactive objects within the game world (e.g., items to pick up, levers to pull, information points).
 
 **quest management system:**  
-this system interprets the quest data structured in "Homer" and manage the player's progress. it handles:
+this system interprets the Quest Data structured in "Homer" and manage the player's progress. it handles:
 
 - **quest activation & tracking:** triggering quests, displaying objectives, and monitoring completion.
 - **conditional logic:** implementing prerequisites for quests or specific quest steps (e.g., "talk to character a before item b can be found").
@@ -67,7 +59,7 @@ this system interprets the quest data structured in "Homer" and manage the playe
 **dialogue engine integration:**  
 seamlessly imports and processes the dialogue and narrative structures created in "Homer." this includes:
 
-- **displaying conversations:** presenting text, character portraits, and potentially voice-over.
+- **displaying conversations:** presenting text and audio voice-overs.
 - **player choices:** enabling branching dialogues based on player input.
 - **event triggering:** allowing dialogues to trigger in-game events (e.g., starting a puzzle, updating a quest).
 
@@ -80,18 +72,18 @@ a library of adaptable puzzle templates or a system for easily integrating custo
 - simple physics-based interactions
 
 **educational content hooks:**  
-specific functionalities to tie game events and achievements directly to learning outcomes. this might include in-game encyclopedias, quizzes triggered by discoveries, or summaries of learned concepts.
+specific functionalities to tie game events and achievements directly to learning outcomes. This might include in-game encyclopedias, quizzes triggered by discoveries, or summaries of learned concepts.
 
 **modularity & extensibility:**  
-being open-source, the framework is be designed for easy customization. developers can add new features, integrate different asset packs, or tailor the system to specific educational needs.
+being open-source, the framework is designed for easy customization. Developers can add new features, integrate different asset packs, or tailor the system to specific educational needs.
   
 ### External node-based dialogue and quest editor
 
-- **intuitive visual scripting:** "Homer" is a dedicated external platform designed for writing and structuring game narratives. its node-based interface allows creators to visually map out conversations, branching dialogues, and quest progressions without needing to write complex code.
+- **intuitive visual scripting:** "Homer" is a dedicated external free platform designed for writing and structuring game narratives. Its node-based interface allows creators to visually map out conversations, branching dialogues, and quest progressions without needing to write complex code.
 - **dialogue management:** supports features crucial for rich storytelling, such as character-specific dialogue, emotional tone indicators, and conditional branching based on player choices or in-game events.
 - **quest creation:** facilitates the design of quests by linking dialogue nodes with in-game objectives, item requirements, npc interactions, and puzzle triggers. educators can directly translate learning steps into quest objectives.
-- **translation support:** a key feature of "Homer" is its integrated translation capabilities, making it easier to adapt educational adventures for different languages and regions.
-- **seamless Unity integration:** the framework includes robust tools and apis to import data from "Homer" directly into Unity, automatically generating the corresponding dialogue trees, quest logic, and npc behaviors within the 3D game environment. "Homer" itself offers direct download links for Unity, streamlining this process.
+- **translation support:** a key feature of "Homer" is its integrated translation capabilities, making it easier to adapt educational adventures for different languages.
+- **seamless Unity integration:** the framework includes robust tools to import data from "Homer" directly into Unity, automatically generating the corresponding dialogue trees, quest logic, and NPC behaviors within the 3D game environment. 
 
 **Components**
 
@@ -108,13 +100,13 @@ being open-source, the framework is be designed for easy customization. develope
 
 **Translation management:**
 
-- **built-in translation tools:** facilitate the translation of all dialogue and quest text into multiple languages, making adventures accessible to a broader audience.
+- **built-in translation tools:** facilitate the translation of all dialogue and quest text into multiple languages that can be voice synthetized via AI and specific scripts.
 - **export/import functionality:** easy export of text for external translation and import of translated content back into "Homer."
 
 **Data export for Unity:**
 
 - **standardized format:** "Homer" exports dialogue, quest data, and translations in a format specifically designed to be easily parsed by the Unity framework. this ensures a smooth pipeline from content creation to in-game implementation.
-- **version control & collaboration:** (potentially) features to support multiple users working on the same project and managing different versions of the narrative.
+- **version control & collaboration:** features to support multiple users working on the same project and managing different versions of the narrative.
 
 ## Why this framework: benefits and impact
 
