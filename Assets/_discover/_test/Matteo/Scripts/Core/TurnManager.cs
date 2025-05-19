@@ -246,7 +246,12 @@ namespace PetanqueGame.Core
             else if (_scoreManager.TeamBlueWin)
                 Debug.Log("TEAM BLUE WINS!");
 
-            // Qui puoi aggiungere UI di fine partita
+            _roundInProgress = false;
+            _gameStarted = false;
+
+            // Riporta i giocatori alle posizioni iniziali
+            PositionAllPlayers();
+            StopAllCoroutines();
         }
 
         private void ResetRound()

@@ -3,13 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using PetanqueGame.UI;
 using PetanqueGame.Physics;
+using System;
 
 namespace PetanqueGame.Core
 {
     public class ScoreManager : MonoBehaviour
     {
         [SerializeField] private ScoreUI _scoreUI;
-        [SerializeField] private int winningScore = 5;
+
+        [Header("Winning Settings")]
+        [SerializeField] private int _winningScore = 5;
+        [SerializeField] private GameObject _winPrefab;
+        [SerializeField] private Transform _winSpawnPoint;
 
         private JackIdentifier _jackIdentifier;
         private int _redTotalScore = 0;
@@ -23,7 +28,7 @@ namespace PetanqueGame.Core
 
         private void Start()
         {
-            _scoreUI?.UpdateScore(_redTotalScore, _blueTotalScore);
+            //_scoreUI?.UpdateScore(_redTotalScore, _blueTotalScore);
         }
 
         public void CalculateScores()
@@ -80,14 +85,20 @@ namespace PetanqueGame.Core
 
             _scoreUI?.UpdateScore(_redTotalScore, _blueTotalScore);
 
-            if (_redTotalScore >= winningScore)
+            if (_redTotalScore >= _winningScore)
             {
                 TeamRedWin = true;
                 OnGameOver?.Invoke();
             }
-            else if (_blueTotalScore >= winningScore)
+            else if (_blueTotalScore >= _winningScore)
             {
                 TeamBlueWin = true;
+
+                if (_winPrefab != null && _winSpawnPoint != null)
+                {
+                    Instantiate(_winPrefab, _winSpawnPoint.position, Quaternion.identity);
+                }
+
                 OnGameOver?.Invoke();
             }
             else
