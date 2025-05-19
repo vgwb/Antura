@@ -3,7 +3,16 @@
 Any Quest of the Discover Module is composed of a Unity Scene and an Homer flow.
 
 ## Design Doc
-We always start with a Design Doc (usually Google Doc) 
+We always start with a Design Doc (usually Google Doc) with these important content:
+
+- **Title**:
+- **Description**: short introduction 
+- **Knowledge Content**: what will the player learn / what answers will be able to give?
+- **Mission**: what the player must do finish the quest (gameplay / objective)
+- **Characters**: who will we talk to?
+- **Assets**: what 3D / images / sound do we need for this quest?
+- **Environment**: where does the play take place?
+- **Story / Flow**: detailed description of the gamplay
 
 ## Homer
 
@@ -44,13 +53,12 @@ Choices are:
 - whisper
 - thought
 
-
 ## Unity
 
-### QuestData
+### QuestData
 `QuestData` must be added to the `/Discover/Data/` folder and then to the QuestsList (to be listed)
 
-### Scene
+### Scene
 A scene has all the standard prefabs and these two main Game Objects:
 
 **World**  
