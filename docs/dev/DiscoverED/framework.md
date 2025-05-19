@@ -1,16 +1,15 @@
 # DiscoverED Framework
-_A Unity-based framework for educational games creation_
 
-Imagine if educators and game designers could seamlessly collaborate to transform any didactical content into 3D adventure games. This is the vision behind a new, open-source videogame framework designed to empower creators to craft immersive learning experiences mixing exploration, dialogues, interactive puzzles and engaging quests. At the heart of its accessible design is an external node-based dialogue editor, simplifying the creation and translation of the narrative content.
+DiscoverED is our Unity-based framework for educational games creation where educators and game designers can collaborate to transform any didactical content into 3D adventure games.
 
-This framework aims to democratize educational game development, providing intuitive tools for educators to bring their curricula to life and for game designers to lend their expertise in crafting experiences that are not only fun but also deeply impactful for learning.
+An open-source videogame framework designed to empower creators to craft learning experiences mixing exploration, dialogues, interactive puzzles and engaging quests created using an external node-based dialogue editor, simplifying the creation and translation of the narrative content.
 
-## Core Idea: Learn by Playing, Create with Ease
+## Core idea: learn by playing, create with ease
 
-The fundamental idea is to bridge the gap between educational theory and engaging gameplay. The framework provides an environment where:
+The framework provides an environment where:
 
 - **Educators** can easily input their subject matter, learning objectives and assessment criteria.
-- **Game Designers** can then use these inputs to design compelling game mechanics, narratives and level designs.
+- **Game Designers** can then use these inputs to design game mechanics, narratives and level designs.
 - **Players (Students)** embark on 3D adventures where they actively explore environments, interact with characters and objects, solve puzzles that reinforce learning concepts and complete quests that guide them through the educational material.
 
 ## Key Goals
@@ -23,27 +22,25 @@ The fundamental idea is to bridge the gap between educational theory and engagin
 
 ## Workflow: from concept to playable adventure
 
-1. **content definition (educator/designer):** the educator or designer starts by outlining the learning goals and gameplay. They use "Homer" to write the dialogues, define the characters and structure the quests that will guide the learning journey.
+1. **content definition (educator/designer):** the educator or designer starts by outlining the learning goals and gameplay in a shared doc, then they use a web based Node Editor (Homer) to write the dialogues, define the characters and structure the quests that will guide the learning journey.
 2. **narrative & quest design (educator/designer with Homer):** the game designer takes the educational content and crafts engaging narratives, branching dialogues, and multi-step quests. They focus on making the learning objectives feel like natural parts of an unfolding story.  
 3. **world building & gameplay implementation (designer/developer in Unity):** the "Homer" data is imported into the Unity framework. Designers then use the framework's tools to build the 3D world, place characters and interactive elements, customize puzzles and link the narrative components to in-game actions and environments.  
-4. **iteration & testing (educator & designer):** educators and designers can easily playtest the adventure, identify areas for improvement in both gameplay and educational clarity, and make quick revisions using "Homer" and the Unity framework.
-5. **testing & iteration (beta players / educators):**  
-    - playtest the adventure to ensure it's engaging, the educational goals are met, and the game mechanics are sound.
-    - refine content in "Homer" and game elements in Unity based on feedback.
-6. **deployment & learning (players / students):** the final Quest is deployed for players (students) to explore, interact with, and learn from in an engaging and immersive way.
+4. **iteration & testing (educator & designer):** educators and designers can easily playtest the adventure, identify areas for improvement in both gameplay and educational clarity, and make quick revisions using the node editor and the Unity framework.
+5. **testing & iteration (beta players / educators):**  playtest the adventure to ensure it's engaging, the educational goals are met, and the game mechanics are sound, and refine content based on feedback.
+6. **deployment & learning (players / students):** the final Quest is deployed for players (students).
 
 ## Key Components of the Framework
 
 ### Unity-Powered core engine
 
-- **open-source nature:** the framework itself is open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
+- **open-source nature:** the framework is open-source, fostering a community of developers and educators who can contribute to its growth, share resources, and adapt it to specific needs.
 - **modular design:** built with modularity in mind, allowing for the easy integration of new features, educational mechanics, and custom assets.
-- **pre-built templates & assets:** includes a library of common 3D environments, characters, interaction systems and puzzle templates to accelerate development.
+- **pre-built templates & assets:** includes a library of common 3D environments, props, characters, interaction systems and puzzle templates to accelerate development.
 
 **Componenents**
 
 **3D World Engine:**  
-The framework supports the creation of rich and explorable 3D environments. This includes tools and templates for:
+The framework includes tools and templates for:
 
 - **scene management:** easy setup of different game locations.
 - **character control:** pre-configured player controllers for navigation (walking, running, interacting).
@@ -79,8 +76,8 @@ being open-source, the framework is designed for easy customization. Developers 
   
 ### External node-based dialogue and quest editor
 
-- **intuitive visual scripting:** "Homer" is a dedicated external free platform designed for writing and structuring game narratives. Its node-based interface allows creators to visually map out conversations, branching dialogues, and quest progressions without needing to write complex code.
-- **dialogue management:** supports features crucial for rich storytelling, such as character-specific dialogue, emotional tone indicators, and conditional branching based on player choices or in-game events.
+- **intuitive visual scripting:** "Homer" is a dedicated web free platform designed for writing and structuring game narratives. Its node-based interface allows creators to visually map out conversations, branching dialogues, and quest progressions without needing to write complex code.
+- **dialogue management:** supports features for rich storytelling, such as character-specific dialogue, emotional tone indicators, and conditional branching based on player choices or in-game events.
 - **quest creation:** facilitates the design of quests by linking dialogue nodes with in-game objectives, item requirements, npc interactions, and puzzle triggers. educators can directly translate learning steps into quest objectives.
 - **translation support:** a key feature of "Homer" is its integrated translation capabilities, making it easier to adapt educational adventures for different languages.
 - **seamless Unity integration:** the framework includes robust tools to import data from "Homer" directly into Unity, automatically generating the corresponding dialogue trees, quest logic, and NPC behaviors within the 3D game environment. 

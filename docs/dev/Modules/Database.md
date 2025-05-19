@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Database Management
 
-* TOC
-{:toc}
-
 The application uses two different databases for learning data and logging data.
 
 ## Learning Data (static database)

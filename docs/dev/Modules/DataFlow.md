@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Data Flow
 
-* TOC
-{:toc}
-
 This document describes how vocabulary data flows from the database, through the Teacher System, to the specific MiniGames.
 
 `@todo: add a diagram for the data flow`

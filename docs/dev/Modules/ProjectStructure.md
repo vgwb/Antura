@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Project Structure
 
-* TOC
-{:toc}
-
 This document describes the organization of the project folders.
 
 ## Folders
