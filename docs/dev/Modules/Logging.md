@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Logging System
 
-* TOC
-{:toc}
-
 This document describes the Logging System implemented in Antura.
 Logging allows the application to gather information on the player's progression and save it to the database (see [Database](Database.md)).
 

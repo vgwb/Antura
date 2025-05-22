@@ -3,7 +3,7 @@ title: Credits
 ---
 # Credits
 
-Based on the original game **Antura and the Letters - Arabic**
+This project started in 2016 as the original v1 game **Antura and the Letters - Arabic** (see credits) and evolved in the years. Many people have gived contributions.
 
 **DEVELOPED BY**
 
@@ -20,35 +20,41 @@ Based on the original game **Antura and the Letters - Arabic**
 - Code To Inspire  
 - Amerike: Instituto de Estudios Universitarios  
 
-## DEV TEAM
+## Dev Team
 
-**PROJECT LEAD AND PRODUCER**  
+**PROJECT LEAD AND PRODUCTION**  
 Francesco Cavallari
 
 **BRAND & RESEARCH DIRECTOR**  
-Prof. Dr. Emmanuel Guardiola (Cologne Game Lab)
+Prof. Dr. Emmanuel Guardiola (CGL)
 
 **R&D, PRODUCTION AND ADDITIONAL GAME DESIGN**  
 Stefano Cecere
 
 **PROGRAMMING**  
 Michele Pirovano  
-Stefano Cecere
+Stefano Cecere  
 Daniele Giardini
+Paolo Bragonzi (v1)  
+Davide Barbieri (v1)  
 
 **ADDITIONAL PROGRAMMING**  
 Alejandro J. Zbrun  
 Giacomo “Sugni” Salvadori  
+Armando Teora (v1)  
+Elena Blanes (v1)  
+Dario Oliveri (v1)  
+
+**ART & GRAPHIC DESIGN**  
+Gaetano Leonardi (v1)  
+Daniele Giardini  
+Yadira Marin
 
 **UI/UX DESIGN**  
 Daniele Giardini
 
-**ART & GRAPHIC DESIGN**  
-Daniele Giardini
-Yadira Marin
-
 **2D DRAWINGS**  
-Cristina Segura Toro (Margarito Estudio)  
+Cristina Segura Toro (Margarito Estudio)   
 Pierre Schlömp
 
 **MUSIC, AUDIO DESIGN & FRENCH TRANSLATION**  
@@ -160,7 +166,7 @@ Anouchka Kerouas (Institut Français du Maroc)
 **SCIENTIFIC TRANSLATION COORDINATOR INSPECTOR**  
 Amina Alaoui (AREF de la région Casablanca-Settat)
 
-## SPECIAL THANKS
+## Special thanks
 
 - Kateryna Holubinka  
 - Pauline Müller  
@@ -193,12 +199,11 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 - Techfugees  
 - UNHCR NGO Innovation Award Team  
 
-**A VERY SPECIAL THANKS TO**  
-**UBISOFT** for their support of this game!
+**A VERY SPECIAL THANKS TO UBISOFT** for their support of this game!
 
 ---
 
-## ORIGINAL GAME ANTURA AND THE LETTERS - ARABIC
+## Original Antura v1 (Arabic) Credits
 
 **DEVELOPED BY**
 
@@ -206,7 +211,7 @@ Amina Alaoui (AREF de la région Casablanca-Settat)
 - [Video Games Without Borders](https://vgwb.org)
 - [Wixel Studios](https://www.wixelstudios.com)
 
-### CORE TEAM
+**CORE TEAM**
 
 **PROJECT LEAD AND CREATIVE DIRECTOR**  
 Prof. Dr. Emmanuel Guardiola (TH Köln / Cologne Game Lab)
@@ -234,8 +239,9 @@ Ziad Feghali
 **PRODUCER AND ADDITIONAL GAME DESIGN**  
 Francesco Cavallari
 
+---
 
-### TH KÖLN / COLOGNE GAME LAB
+**TH KÖLN / COLOGNE GAME LAB**
 
 **PROJECT LEAD AND CREATIVE DIRECTOR**  
 Prof. Dr. Emmanuel Guardiola
@@ -278,7 +284,8 @@ Pierre Schlömp
 **PROMOTIONAL ART AND DESIGN**  
 Karen Barbosa
 
-### VIDEO GAMES WITHOUT BORDERS
+---
+**VIDEO GAMES WITHOUT BORDERS**
 
 **PRODUCER AND ADDITIONAL GAME DESIGN**  
 Francesco Cavallari
@@ -323,8 +330,9 @@ Mar Mas
 **ADMINISTRATION**  
 Montse Villar
 
+---
 
-### WIXEL STUDIOS
+**WIXEL STUDIOS**
 
 **ASSOCIATE PRODUCER AND ADDITIONAL GAME DESIGN**  
 Ziad Feghali
@@ -346,7 +354,9 @@ Remi Abdel Rassoul
 Pamela Al Alam  
 Rami Bordokani  
 
-### UNIVERSITY OF VERONA
+---
+
+**UNIVERSITY OF VERONA**
 MASTER IN COMPUTER GAMES DEVELOPMENT
 
 **LAB SUPERVISOR**  
@@ -363,7 +373,9 @@ Edoardo Tosatti
 **MASTER COORDINATOR**  
 Umberto Castellani
 
-### VOICES
+---
+
+**VOICES**
 
 **THE KEEPER**  
 Fares Al-Helou
@@ -371,8 +383,9 @@ Fares Al-Helou
 **VOCABULARY, TUTORIAL & SONGS**  
 Ibtissam Shakar
 
+---
 
-### MARKETING AND COMMUNICATION CONTRIBUTORS
+**MARKETING AND COMMUNICATION CONTRIBUTORS**
 
 **SENIOR MARKETING AND PR SPECIALIST (ELECTRONIC ARTS)**  
 Martin Lorber
@@ -396,7 +409,9 @@ Konstantin Ewald
 **MENA MARKETING AND PR SPECIALIST  (ABDULLAH AND EBTISAM’S CHARITABLE ASSOCIATION)**  
 Zaina Alyemni
 
-### OTHER CONTRIBUTORS
+---
+
+**OTHER CONTRIBUTORS**
 
 **PRODUCER (ALPHA VERSION)**  
 Coline Pannier 
@@ -416,7 +431,8 @@ Delphine Soriano
 **DEVELOPER (CONCEPT PHASE)**  
 Dr. Zahen Malla Osman
 
-### SCIENTIFIC BOARD
+---
+**SCIENTIFIC BOARD**
 
 **UNHCR**  
 Jackie Strecker
@@ -427,7 +443,8 @@ Prof. Stephane Natkin
 **UNIVERSITY OF TAMPERE**  
 Dr. Juho Hamari
 	
-### SPECIAL THANKS TO
+---
+**SPECIAL THANKS TO**
 
 - Gaby Gehlen (Wiku Köln)  
 - Sultana Denise Marquardt (Wiku Köln)  

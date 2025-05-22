@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Player Profile
 
-* TOC
-{:toc}
-
 A Player Profile contains data on a given player, allowing multiple players to use the application and to keep updates on their progression.
 
 ## Contents

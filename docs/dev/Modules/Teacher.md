@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Teacher AI System
 
-* TOC
-{:toc}
-
 The Teacher AI is the System that controls the learning progression of the player based on:
 
 - Player journey progression

@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Antura MiniGames Interface
 
-* TOC
-{:toc}
-
 In this document, we describe the programming interface that is used
 by all the MiniGames in the Antura project.
 
@@ -35,21 +32,21 @@ Instead of starting your own MiniGame from scratch, you can use the provided gam
 
 ***note: MiniGame namespaces may change***
 
-
-# Making a MiniGame accessible from the core application
+## Making a MiniGame accessible from the core application
 
 A MiniGame does not exist in a vacuum. The core app needs to know of its existance and how to handle it.
 For this purpose, the following should be performed:
+
 - a new entry named *MyNewMasterpiece* should be added to the `MiniGameCode` enumerator
 - the database should be updated to support the new MiniGame. (refer to the [Database](Database.md) doc). This requires:
-  - adding a new **MiniGameData** entry
-  - updating the table of **PlaySessionData** to support the new MiniGame at a given learning block
+    - adding a new **MiniGameData** entry
+    - updating the table of **PlaySessionData** to support the new MiniGame at a given learning block
 - `MiniGameAPI.ConfigureMiniGame()` should be updated to provide the correct configuration for the new MiniGame code.
 - `LogAI.GetLearnRules(MiniGameCode code)` should be updated to provide the correct logging rules for the new MiniGame.
 
 ***note: the above requirements are bound to change as it couples MiniGames with the core codebase***
 
-# Game Structure
+## Game Structure
 
 Here we describe the software architecture that should be followed by your MiniGames.
 If you copied the MiniGame template, the main classes are already partially implemented to be compliant with such architecture.
@@ -70,7 +67,6 @@ Such list is just an example of what states a game could have, it’s up to the 
 
 At a given time, only one state is active and running. When it’s running, `Update()` and `UpdatePhysics()` are called on the state in each frame. UpdatePhysics is the equivalent of Unity3D’s FixedUpdate.
 
-
 All state objects are instanced in the game class, which exposes them as public fields.
 Each state must have a reference to the MiniGame main class, that you could pass through the constructor.
 
@@ -84,7 +80,7 @@ each time a state transition is completed, the `ExitState()` method is called on
 
 The purpose of these methods is to process things like setting up the scene graphics, resetting timers, showing/hiding panels, etc.
 
-# Ending the Game
+## Ending the Game
 
 When the game is over, call the method EndGame of the {GameName}Game class:
 
@@ -98,9 +94,7 @@ game.EndGame(howMuchStars, gameScore);
 
 In this way, the game will automatically switch to a special OutcomeState, and show how many stars were obtained, then quit the game.
 
-
-
-# Game Configuration
+## Game Configuration
 
 Each game folder should have two main folders for scripts:
 
@@ -116,9 +110,7 @@ If you want to see how a configuration class is made, you could just copy it fro
 
 The {GameName}Configuration.cs defines how a MiniGame is configured by the app, and provides the MiniGame some useful interfaces.
 
-
-
-# Minigame Variations
+## Minigame Variations
 
 Each MiniGame is created inside its own scene and namespace.
 Usually, the core application refers to the MiniGame using a 1-to-1 relationship, detailed by the **MiniGameCode** that represents the MiniGame in the core application.
@@ -129,7 +121,7 @@ Variations are transparent to the core application (they are considered differen
 
 Variations are specified in the specific MiniGame's configuration code, if needed.
 
-## Game Difficulty
+### Game Difficulty
 
 The game configuration provides a difficulty level.
 This difficulty value is provided by the Teacher and can be accessed as:
@@ -177,7 +169,7 @@ In this case, please configure a set of at least 5 different configurations (**v
 **Note that this difficulty must however be related to playskill, not to the learning content.**
 This is because learning difficulty is already taken care of by the Teacher generating suitable Question Packs.
 
-## Accessing core functionalities
+### Accessing core functionalities
 
 When you need to access a core feature in any part of your game {GameName}, you do it through the **game context**:
 
@@ -203,7 +195,7 @@ context.GetAudioManager().PlayMusic(Music.MainTheme);
 
 To have a list of all the possible functionalities that you could use, take a look into the `IGameContext` source.
 
-## Audio Manager
+### Audio Manager
 
 The Audio Manager provides some simple methods to play in-game audio, for example:
 
@@ -215,12 +207,12 @@ IAudioSource PlayLetterData(ILivingLetterData id);
 It behaves in a similar way to Unity’s AudioSource.
 It exposes some properties and methods like:
 
-* Pitch
-* Volume
-* IsPlaying()
-* Pause() / Stop() / Play()
+- Pitch
+- Volume
+- IsPlaying()
+- Pause() / Stop() / Play()
 
-## Working with the UI
+### Working with the UI
 
 When you are working on your MiniGame, you do not need to know what prefab are used for the UI or how it is implemented.
 The game context `IGameContext` will provide you a set of interfaces to widgets that you can call from your game code.
@@ -234,7 +226,7 @@ IPopupWidget GetPopupWidget();
 ICheckmarkWidget GetCheckmarkWidget();
 ```
 
-## Retrieving dictionary content from Core
+### Retrieving dictionary content from Core
 
 Usually, a MiniGame needs vocabulary content to be passed directly from the core code.
 For instance, some MiniGames need a set of words, that are chosen by the core based on the current game world, or depending on past play history.
@@ -243,8 +235,8 @@ Such content is passed to the game using the {GameName}Configuration.cs class by
 
 The `IQuestionProvider` interface exposes the following methods:
 
-* `IQuestionPack GetNextQuestion();`
-* `string GetDescription();`
+- `IQuestionPack GetNextQuestion();`
+- `string GetDescription();`
 
 Its purpose is to provide a stream of objects that implements the interface `IQuestionPack`, a very general abstraction for a learning question which includes letters, words and images as fundamental parts.
 
@@ -267,23 +259,23 @@ What follows is a list of possible examples:
 
 - The game shows a word, you must select only the letters which are part of that word
 
-   - The question is the word;
-   - The correct answers are the set of letters which constitutes the word;
-   - The wrong answers are a set of random letters not included in the correct set;
+    - The question is the word;
+    - The correct answers are the set of letters which constitutes the word;
+    - The wrong answers are a set of random letters not included in the correct set;
 
 - The game shows a image, you must select the word W representing that image
 
-   - The question is the image
-   - The correct answers is a set with only one element, that’s the word W
-   - The wrong answers is a set of random words, different from W
+    - The question is the image
+    - The correct answers is a set with only one element, that’s the word W
+    - The wrong answers is a set of random words, different from W
 
 - The game shows a letter with its dots/signs hidden, the player hear its sound and should understand which is the correct sign that should be placed on the letter.
 
-   - The question is the letter (the game should understand how to hide its signs/dots)
-   - The correct answers is the set made just by the correct sign/dot
-   - The wrong answers are all the other possible signs/dots
+    - The question is the letter (the game should understand how to hide its signs/dots)
+    - The correct answers is the set made just by the correct sign/dot
+    - The wrong answers are all the other possible signs/dots
 
-# Question Builder
+## Question Builder
 
 Each MiniGame (or MiniGame variation) requires question packs in different forms and this is defined by implementing the method `SetupBuilder()` inside the Game Configuration, which returns an object implementing the `IQuestionBuilder` interface.
 
@@ -292,7 +284,7 @@ The Question Builder will generate the correct **Question Packs** for a given Mi
 
 The MiniGame developer can choose from a set of question builders that the Teacher can support. Refer to the Teacher documentation for further details.
 
-# Generating content for test purposes
+## Generating content for test purposes
 
 When developing a MiniGame, test dictionary data, like letters or words, is needed to test the gameplay.
 To do so, just define a default **Question Provider** in your **Game Configuration** class as a custom provider, in the Game Configuration constructor.
@@ -335,41 +327,41 @@ The default Question Provider is used when you launch the game's scene directly.
 Note that when playing the game through the core application, the Question Provider will be the one defined by the core system to provide meaningful learning data as selected by the Teacher.
 Make sure that the test Question Provider content matches real content, otherwise your game may not work when launched through the core application.
 
-# Using the Living Letter prefab
+## Using the Living Letter prefab
 
 see [Antura and Living Letters doc](AnturaLivingLetters.md)
 
 
-# Using the Antura prefab
+## Using the Antura prefab
 
 see [Antura and Living Letters doc](AnturaLivingLetters.md)
 
-# Adding Environment Assets
+## Adding Environment Assets
 
 Environment graphics, like trees, are selected in the scene in order to match the current world of the MiniGame (there are 6 worlds).
 To do so, you must use the following auto-switching component: **AutoWorldPrefab**.
 
-* Create an empy game object
-* Add the "**AutoWorldPrefab**" component on it
-* Select the **Prefab Set**, using the inspector
-* In the **assets** tab you will find a list of possible assets, e.g.
-   - Tree1
-   - Tree2
-   - Foreground1
+- Create an empy game object
+- Add the "**AutoWorldPrefab**" component on it
+- Select the **Prefab Set**, using the inspector
+- In the **assets** tab you will find a list of possible assets, e.g.
+    - Tree1
+    - Tree2
+    - Foreground1
 
-* From the "Test World" drop-down in the inspector you can preview how the piece will look like when instanced in each world
+- From the "Test World" drop-down in the inspector you can preview how the piece will look like when instanced in each world
 
-* You can scale the gameobject you created; the scale will be applied to any world prefab is instanced;
+- You can scale the gameobject you created; the scale will be applied to any world prefab is instanced;
 
-* **WARNING:** the AutoWorldPrefab component will delete any gameobject that is child of the gameobject it is attached; so, be careful when you add the component to an existing gameobject (you cannot undo).
+- **WARNING:** the AutoWorldPrefab component will delete any gameobject that is child of the gameobject it is attached; so, be careful when you add the component to an existing gameobject (you cannot undo).
 
 Another requisite of each MiniGame scene is that the camera that will render your environment has the following scripts:
 
-* **CameraFog** (if the scene must have fog)
+- **CameraFog** (if the scene must have fog)
 
-* **AutoWorldCameraColor**, that will change the camera background color and the fog color in CameraFog, according to the current world
+- **AutoWorldCameraColor**, that will change the camera background color and the fog color in CameraFog, according to the current world
 
 The AutoWorldCameraColor, as in AutoWorldPrefab, needs that a field is configured by inspector. The name of the field is **Backgroung Color Set**, and currently you will find just an asset called "**CameraColors**" to be selected.
 
-#### Refactoring Notes
-- variations are not actually enforced by the codebase, but it would be a good idea to make all games use them, as currently the core app reasons in terms of 'MiniGameCode', but a MiniGame is actually identified by the 'game scene' and the 'variation'
+## Refactoring Notes
+variations are not actually enforced by the codebase, but it would be a good idea to make all games use them, as currently the core app reasons in terms of 'MiniGameCode', but a MiniGame is actually identified by the 'game scene' and the 'variation'

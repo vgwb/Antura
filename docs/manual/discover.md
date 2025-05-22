@@ -4,7 +4,7 @@
 
 ![Alt text](../assets/img/docs_antura_home.jpg)
 
-Learn with Antura is a game for the introduction to English (and mamny other languages) as a second language, aimed at children between 5 and 8 years old; equivalent to the contents of PreA1 according to the Common European Framework of Reference for Languages. Throughout the game, children learn the entire English alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
+Learn with Antura is a game for the introduction to English (and many other languages) as a second language, aimed at children between 5 and 8 years old; equivalent to the contents of PreA1 according to the Common European Framework of Reference for Languages. Throughout the game, children learn the entire English alphabet, more than 250 words and a series of phrases and expressions. words and a series of simple phrases and expressions in a playful way.
 
 The game is organized in 6 different worlds each world includes between 15 and 20 didactic 20 didactic units, each one with a specific pedagogical specific pedagogical objective that is learned learning thanks to a series of mini-games and a final and concludes with a final test to reinforce the learning process.
 

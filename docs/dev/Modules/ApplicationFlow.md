@@ -6,9 +6,6 @@ nav_order: 0
 ---
 # Application Flow
 
-* TOC
-{:toc}
-
 `@todo: make sure to add a summary to all the main managers so to generate the docs.`
 `@todo: add an app flow diagram too?`
 
