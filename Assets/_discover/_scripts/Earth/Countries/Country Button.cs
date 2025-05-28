@@ -8,6 +8,8 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class CountryButton : MonoBehaviour
     {
+        public Countries country;
+
         void Start()
         {
         }
@@ -31,7 +33,7 @@ namespace Antura.Minigames.DiscoverCountry
         private void OnCubeClicked()
         {
             // Debug.Log("Cube was clicked or tapped!");
-            EarthManager.I.SelectFrance();
+            EarthManager.I.SelectCountry(country);
         }
     }
 }

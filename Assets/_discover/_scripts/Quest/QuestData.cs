@@ -7,6 +7,7 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public enum Countries
     {
+        None = 0,
         Tutorial = 1,
         France = 2,
         Poland = 3

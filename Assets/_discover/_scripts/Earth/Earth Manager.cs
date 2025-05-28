@@ -23,12 +23,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            SelectFrance();
+            SelectCountry(Countries.France);
         }
 
-        public void SelectFrance()
+        public void SelectCountry(Countries country)
         {
-            EarthUIManager.I.ShowCountry("france");
+            EarthUIManager.I.ShowCountry(country);
         }
 
         public void SelectQuest(QuestData questData)
