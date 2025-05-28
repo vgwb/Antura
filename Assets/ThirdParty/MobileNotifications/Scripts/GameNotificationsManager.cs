@@ -1,3 +1,4 @@
+#if UNITY_ANDROID || UNITY_IOS
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -548,3 +549,4 @@ namespace NotificationSamples
         }
     }
 }
+#endif

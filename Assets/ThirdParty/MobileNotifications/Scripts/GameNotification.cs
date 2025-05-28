@@ -1,3 +1,4 @@
+#if UNITY_ANDROID || UNITY_IOS
 using Unity.Notifications;
 
 namespace NotificationSamples
@@ -75,3 +76,4 @@ namespace NotificationSamples
         }
     }
 }
+#endif

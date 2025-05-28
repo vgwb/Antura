@@ -1,15 +1,18 @@
 ﻿using Antura.Database;
 using System;
 using UnityEngine;
+#if UNITY_ANDROID || UNITY_IOS
 using Unity.Notifications;
 using NotificationSamples;
+#endif
 
 namespace Antura.Core.Services.Notification
 {
     public class NotificationService
     {
+#if UNITY_ANDROID || UNITY_IOS
         public GameNotificationsManager NotificationsManager;
-
+#endif
         public const string ChannelId = "game_channel0";
         private bool inizialized = false;
         private GameObject myGameObject;
@@ -23,6 +26,7 @@ namespace Antura.Core.Services.Notification
 
         public void Init()
         {
+#if UNITY_ANDROID || UNITY_IOS
             if (!AppManager.I.AppEdition.EnableNotifications)
                 return;
 
@@ -35,6 +39,7 @@ namespace Antura.Core.Services.Notification
                 NotificationsManager.Initialize();
                 inizialized = true;
             }
+#endif
         }
 
         #region main
@@ -54,6 +59,7 @@ namespace Antura.Core.Services.Notification
         /// </summary>
         public void AppResumed()
         {
+#if UNITY_ANDROID || UNITY_IOS
             // if (!NotificationsManager.Initialized)
             // {
             //     Init();
@@ -62,6 +68,7 @@ namespace Antura.Core.Services.Notification
             {
                 NotificationsManager.DismissAllNotifications();
             }
+#endif
         }
         #endregion
 
@@ -87,6 +94,7 @@ namespace Antura.Core.Services.Notification
 
         public void ScheduleNotification(DateTime deliveryTime, string title, string message)
         {
+#if UNITY_ANDROID || UNITY_IOS
             var notification = NotificationsManager.CreateNotification();
 
             notification.Title = title;
@@ -96,6 +104,7 @@ namespace Antura.Core.Services.Notification
             NotificationsManager.ScheduleNotification(notification, deliveryTime);
 
             Debug.Log("ScheduleNotification - " + deliveryTime);
+#endif
         }
 
         public void DeleteAllLocalNotifications()
