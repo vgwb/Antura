@@ -28,7 +28,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             None,
             LMB,
-            RMB
+            RMB_or_MMB
         }
 
         #region Serialized
@@ -43,7 +43,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] int startupInclination = 10;
         
         [DeHeader("Options")]
-        [SerializeField] MouseRotationMode mouseRotationMode = MouseRotationMode.RMB;
+        [SerializeField] MouseRotationMode mouseRotationMode = MouseRotationMode.RMB_or_MMB;
         [Range(1, 20)]
         [SerializeField] int mouseRotationSpeed = 3;
         [Range(1, 20)]
@@ -127,7 +127,10 @@ namespace Antura.Minigames.DiscoverCountry
                     if (mouseRotationMode != MouseRotationMode.None && (Application.isEditor || AppConfig.IsDesktopPlatform()))
                     {
                         mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        mouseLookActive = (mouseRotationMode == MouseRotationMode.RMB ? Input.GetMouseButton(1) : Input.GetMouseButton(0)) && mouseOffset != Vector2.zero;
+                        bool hasValidLookInput = mouseRotationMode == MouseRotationMode.RMB_or_MMB
+                            ? Input.GetMouseButton(1) || Input.GetMouseButton(2)
+                            : Input.GetMouseButton(0);
+                        mouseLookActive = hasValidLookInput && mouseOffset != Vector2.zero;
                     }
                     touchLookActive = false;
                     if (AppConfig.IsMobilePlatform())
