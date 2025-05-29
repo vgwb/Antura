@@ -11,13 +11,6 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class PlayerCameraController : AbstractCineCamera
     {
-        enum Mode
-        {
-            Unset,
-            Desktop,
-            Mobile
-        }
-
         enum InteractionLayer
         {
             Unset,
@@ -31,11 +24,26 @@ namespace Antura.Minigames.DiscoverCountry
             YAxis
         }
 
+        enum MouseRotationMode
+        {
+            None,
+            LMB,
+            RMB_or_MMB
+        }
+
         #region Serialized
 
         [DeEmptyAlert]
         [SerializeField] Camera cam;
+        
+        [DeHeader("Startup Options")]
+        [Range(-2, 0)]
+        [SerializeField] float startupZoomLevel = -0.5f;
+        [Range(0, 45)]
+        [SerializeField] int startupInclination = 10;
+        
         [DeHeader("Options")]
+        [SerializeField] MouseRotationMode mouseRotationMode = MouseRotationMode.RMB_or_MMB;
         [Range(1, 20)]
         [SerializeField] int mouseRotationSpeed = 3;
         [Range(1, 20)]
@@ -58,6 +66,7 @@ namespace Antura.Minigames.DiscoverCountry
         [DeRange(0, -3f)]
         [SerializeField] float lookDownShoulderZFactor = -1.9f;
         [SerializeField] Ease lookDownShoulderZFactorEase = Ease.InQuad;
+        
         [Header("Debug")]
         [SerializeField] bool drawGizmos = false;
 
@@ -92,7 +101,9 @@ namespace Antura.Minigames.DiscoverCountry
             camTargetOffset = camTarget.localPosition;
             camTarget.SetParent(this.transform);
             RefreshCinemachineSetup();
-            UpdateManualRotation(Vector2.zero, 1);
+            SetZoomLevel(startupZoomLevel, true);
+            // UpdateManualRotation(Vector2.zero, 1);
+            UpdateManualRotation(new Vector2(0, startupInclination), 1);
         }
 
         void OnDestroy()
@@ -113,13 +124,13 @@ namespace Antura.Minigames.DiscoverCountry
                 if (interactionLayer == InteractionLayer.Movement)
                 {
                     mouseLookActive = false;
-                    if (Application.isEditor || AppConfig.IsDesktopPlatform())
+                    if (mouseRotationMode != MouseRotationMode.None && (Application.isEditor || AppConfig.IsDesktopPlatform()))
                     {
                         mouseOffset = new Vector2(Input.GetAxis("Mouse X"), -Input.GetAxis("Mouse Y"));
-                        // if (Input.mousePosition.y > Screen.height / 2f)
-                        // {
-                        mouseLookActive = Input.GetMouseButton(0) && mouseOffset != Vector2.zero;
-                        // }
+                        bool hasValidLookInput = mouseRotationMode == MouseRotationMode.RMB_or_MMB
+                            ? Input.GetMouseButton(1) || Input.GetMouseButton(2)
+                            : Input.GetMouseButton(0);
+                        mouseLookActive = hasValidLookInput && mouseOffset != Vector2.zero;
                     }
                     touchLookActive = false;
                     if (AppConfig.IsMobilePlatform())
@@ -136,13 +147,8 @@ namespace Antura.Minigames.DiscoverCountry
                     {
                         UpdateAutoRotation();
                     }
-                    // UpdateMovementVector();
                 }
             }
-            // else
-            // {
-            //     InputManager.SetCurrMovementVector(Vector3.zero);
-            // }
         }
 
         void LateUpdate()

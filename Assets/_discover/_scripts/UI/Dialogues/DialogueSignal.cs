@@ -1,5 +1,6 @@
 ﻿using System;
 using Antura.Minigames.DiscoverCountry.Interaction;
+using DG.De2D;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
@@ -13,7 +14,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         [SerializeField] bool animateIco;
         [SerializeField] Color previewColor = Color.white;
-        [Header("References")]
+        [DeHeader("References")]
         [DeEmptyAlert]
         [SerializeField] GameObject balloon_talk, balloon_info_action;
         [DeEmptyAlert]
