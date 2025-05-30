@@ -363,7 +363,7 @@ MonoBehaviour:
   navigatorMarker: {fileID: 8306524567034084689}
   navigator: {fileID: 2645204051142898228}
   hideDuringDialogue:
-  - {fileID: 8964087873882054376}
+  - {fileID: 7494069112133982043}
   - {fileID: 1294620189610968048}
   - {fileID: 796769647144568355}
   - {fileID: 8197994497892561185}
@@ -5789,10 +5789,6 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 1845145781368689682, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 8485576988585270104}
     - targetCorrespondingSourceObject: {fileID: 8361770633040054538, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
         type: 3}
       insertIndex: -1
@@ -5851,35 +5847,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 448cd6d8e2f2cb04096e777d99974bc4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &7494069112133982043 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1008199405130735009, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
+    type: 3}
+  m_PrefabInstance: {fileID: 7349188645249272570}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &8197994497892561185 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1457108736632224731, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
     type: 3}
   m_PrefabInstance: {fileID: 7349188645249272570}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &8964087873882054376 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1845145781368689682, guid: 7484ce6f8ca3d81408c606b5ae8b9ff3,
-    type: 3}
-  m_PrefabInstance: {fileID: 7349188645249272570}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &8485576988585270104
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8964087873882054376}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6bb6db7edc04c4f3e8853a276ceb9949, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ConditionSetting: 0
-  MobileOnly: 1
-  AndroidOnly: 0
-  DesktopOnly: 0
-  editionIDOnly: 0
 --- !u!1001 &7734745185865120919
 PrefabInstance:
   m_ObjectHideFlags: 0
