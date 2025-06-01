@@ -51,6 +51,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -120,6 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -184,6 +188,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -253,6 +260,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -317,6 +325,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -386,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -450,6 +462,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -519,6 +534,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -617,6 +633,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -710,15 +729,17 @@ MonoBehaviour:
   m_lineSpacingMax: 0
   m_paragraphSpacing: 0
   m_charWidthMaxAdj: 0
-  m_enableWordWrapping: 0
+  m_TextWrappingMode: 0
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
   m_linkedTextComponent: {fileID: 0}
   parentLinkedComponent: {fileID: 0}
   m_enableKerning: 1
+  m_ActiveFontFeatures: 6e72656b
   m_enableExtraPadding: 0
   checkPaddingRequired: 0
   m_isRichText: 1
+  m_EmojiFallbackSupport: 1
   m_parseCtrlCharacters: 1
   m_isOrthographic: 0
   m_isCullingEnabled: 0
@@ -821,6 +842,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -890,6 +914,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -987,6 +1012,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1056,6 +1084,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -1117,6 +1146,7 @@ Transform:
   - {fileID: 3279700882313162907}
   - {fileID: 6659669433777420188}
   - {fileID: 9216027079411669907}
+  - {fileID: 8050421518848392694}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8287823628172593208
@@ -1145,7 +1175,6 @@ MonoBehaviour:
     DebugSpawn: {fileID: 0}
   WinFx: {fileID: 5839514316803033015}
   AnturaDog: {fileID: 6658112919577872180}
-  Player: {fileID: 0}
 --- !u!1 &4094367475098176735
 GameObject:
   m_ObjectHideFlags: 0
@@ -1228,6 +1257,9 @@ SpriteRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1297,6 +1329,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 0}
   ShowOnMap: 0
@@ -1435,6 +1468,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -1700,6 +1736,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 7972116439085513562}
   ShowOnMap: 1
@@ -1867,6 +1904,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 797038697447008577}
   ShowOnMap: 1
@@ -2068,6 +2106,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2796729766880396201}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4764214649733081658
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 2519344455256515021}
+    m_Modifications:
+    - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_Name
+      value: NPC woman
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -5.53
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -38.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: b50a02c7e1b0747998fbc2713d17d219, type: 3}
+--- !u!4 &8050421518848392694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
+    type: 3}
+  m_PrefabInstance: {fileID: 4764214649733081658}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4984320971931362908
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2240,6 +2352,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7483540027585908369, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: 'm_ActiveFontFeatures.Array.data[0]'
+      value: 1801810542
       objectReference: {fileID: 0}
     - target: {fileID: 7820592965097164843, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
@@ -2715,6 +2832,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 1475593431658892640}
   ShowOnMap: 1
@@ -2955,6 +3073,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
+  AutoActivate: 0
   InteractionType: 1
   IconTransform: {fileID: 242946242358461129}
   ShowOnMap: 1
