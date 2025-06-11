@@ -4,7 +4,7 @@ using UnityEngine.InputSystem;
 
 namespace Antura.Minigames.DiscoverCountry.Interaction
 {
-    public enum InteractionLayer
+    public enum InteractionState
     {
         None,
         Changing, // Layer takes a frame to change, this indicates it's in the frame
@@ -22,7 +22,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
         #endregion
 
         public static InteractionManager I { get; private set; }
-        public InteractionLayer Layer { get; private set; }
+        public InteractionState State { get; private set; }
         public int LastActionFrame { get; private set; }
         public bool IsUsingFocusView { get; private set; }
         public bool HasValidNearbyInteractable => nearbyInteractable != null && nearbyInteractable.gameObject.activeInHierarchy;
@@ -47,7 +47,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Start()
         {
-            Layer = InteractionLayer.World;
+            State = InteractionState.World;
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Subscribe(OnInteractableEnteredByPlayer);
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
@@ -71,12 +71,12 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Update()
         {
-            switch (Layer)
+            switch (State)
             {
-                case InteractionLayer.World:
+                case InteractionState.World:
                     UpdateWorld();
                     break;
-                case InteractionLayer.Dialogue:
+                case InteractionState.Dialogue:
                     UpdateDialogue();
                     break;
             }
@@ -145,7 +145,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             LastActionFrame = Time.frameCount;
             if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
                 UnfocusCam();
-            if (Layer != InteractionLayer.World)
+            if (State != InteractionState.World)
                 return;
 
             if (HasValidNearbyInteractable)
@@ -164,23 +164,23 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             }
         }
 
-        void ChangeLayer(InteractionLayer newLayer)
+        void ChangeState(InteractionState newState)
         {
-            if (newLayer == Layer)
+            if (newState == State)
                 return;
 
-            this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
+            this.RestartCoroutine(ref coChangeLayer, CO_ChangeState(newState));
         }
-        IEnumerator CO_ChangeLayer(InteractionLayer newLayer)
+        IEnumerator CO_ChangeState(InteractionState newState)
         {
-            Layer = InteractionLayer.Changing;
+            State = InteractionState.Changing;
             yield return null;
-            Layer = newLayer;
+            State = newState;
         }
 
         IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
         {
-            ChangeLayer(InteractionLayer.Dialogue);
+            ChangeState(InteractionState.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
             if (nearbyInteractable.IsLL)
@@ -207,7 +207,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ExitDialogue()
         {
-            ChangeLayer(InteractionLayer.World);
+            ChangeState(InteractionState.World);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyInteractable)
                 UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
