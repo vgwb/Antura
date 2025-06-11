@@ -70,6 +70,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void JumpInput(bool newJumpState)
         {
+            if (DiscoverGameManager.I.State != GameplayState.Play3D || InteractionManager.I.HasValidNearbyInteractable) return;
             jump = newJumpState;
         }
 
