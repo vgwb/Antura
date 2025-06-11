@@ -11,8 +11,8 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         /// <summary>After reaching min zoom level it switches to map view</summary>
-        [DeRange(-50, 10)]
-        [SerializeField] IntRange minMaxPlayerZoomLevel = new IntRange(-10, 0);
+        [DeRange(-5, 0)]
+        [SerializeField] Range minMaxPlayerZoomLevel = new Range(-10, 0);
         [Range(0.1f, 10)]
         [SerializeField] float zoomTick = 2;
         [Range(0, 0.5f)]
