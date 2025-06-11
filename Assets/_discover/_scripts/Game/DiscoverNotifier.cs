@@ -24,8 +24,8 @@ namespace Antura.Minigames.DiscoverCountry
             public static readonly ActionEvent<Interactable> OnInteractableExitedByPlayer = new("DiscoverNotifier.Game.OnInteractableExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
             public static readonly ActionEvent OnActClicked = new("DiscoverNotifier.Game.OnActClicked");
-            /// <summary>When the map button is toggled on or off</summary>
-            public static readonly ActionEvent<bool> OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
+            /// <summary>When the map button is toggled</summary>
+            public static readonly ActionEvent OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
             /// <summary>When the map camera is activated or deactivated</summary>
             public static readonly ActionEvent<bool> OnMapCameraActivated = new("DiscoverNotifier.Game.OnMapCameraActivated");
         }

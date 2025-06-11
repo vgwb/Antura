@@ -140,17 +140,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Callbacks
 
-        void OnMapButtonToggled(bool toggleOn)
+        void OnMapButtonToggled()
         {
-            if (toggleOn)
+            switch (cameraMode)
             {
-                if (cameraMode == CameraMode.Player)
+                case CameraMode.Player:
                     ChangeCameraMode(CameraMode.Map);
-            }
-            else
-            {
-                if (cameraMode == CameraMode.Map)
+                    break;
+                case CameraMode.Map:
                     ChangeCameraMode(CameraMode.Player);
+                    break;
             }
         }
 
