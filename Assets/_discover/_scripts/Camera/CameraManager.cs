@@ -89,7 +89,8 @@ namespace Antura.Minigames.DiscoverCountry
                             }
                             else
                             {
-                                ChangeCameraMode(CameraMode.Map);
+                                // Go-to map via scroll wheel is not allowed anymore
+                                // ChangeCameraMode(CameraMode.Map);
                             }
                         }
                         break;
