@@ -36,6 +36,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialoguePostcard postcard;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcardFocusView postcardFocusView;
+        [DeEmptyAlert]
+        [SerializeField] StartEndPanel startEndPanel;
 
         #endregion
 
@@ -59,12 +61,14 @@ namespace Antura.Minigames.DiscoverCountry
         {
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
+            startEndPanel.gameObject.SetActive(true);
             postcardFocusView.Hide(true);
             previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
             signal.Setup(false);
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Subscribe(OnBalloonClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
             postcard.OnClicked.Subscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
@@ -78,6 +82,7 @@ namespace Antura.Minigames.DiscoverCountry
             this.CancelCoroutine(ref coNext);
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
             postcard.OnClicked.Unsubscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
