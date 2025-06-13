@@ -145,8 +145,7 @@ namespace Antura.Minigames.DiscoverCountry
                 }
                 else
                 {
-                    if (QuestManager.I.DebugQuest)
-                        questNode.Print();
+                    if (QuestManager.I.DebugQuest) questNode.Print();
                     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
                 }
             }
@@ -157,8 +156,7 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (nearbyInteractable.IsLL)
-                nearbyInteractable.LL.LookAt(player.transform);
+            if (nearbyInteractable.IsLL) nearbyInteractable.LL.LookAt(player.transform);
 
             if (nearbyInteractable.FocusCameraOnInteract)
             {

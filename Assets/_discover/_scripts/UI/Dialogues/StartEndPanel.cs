@@ -1,4 +1,5 @@
-﻿using DG.DeInspektor.Attributes;
+﻿using System;
+using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,7 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public new void Show(QuestNode node, bool UseLearningLanguage, bool isStartPanel = true, int totStars = 0)
+        public new void Show(QuestNode node, bool UseLearningLanguage, bool isStartPanel, int totStars)
         {
             if (isStartPanel)
             {
@@ -54,9 +55,11 @@ namespace Antura.Minigames.DiscoverCountry
             const float duration = 0.6f;
             showTween = DOTween.Sequence().SetAutoKill(false).Pause()
                 .Join(bg.DOFade(0, duration).From().SetEase(Ease.Linear))
-                .Join(content.transform.DOScale(0, duration).From().SetEase(Ease.OutBack))
-                .Join(content.DOAnchorPosY(-100, duration).From(true).SetEase(Ease.OutBack))
-                .Join(mascots.DOAnchorPosY(-440, duration).From(true).SetEase(Ease.OutBack))
+                .Join(content.DOPunchRotation(new Vector3(0, 0, 18), duration, 8))
+                .Join(content.DOScale(0, duration).From().SetEase(Ease.OutBack))
+                .Join(content.DOAnchorPosY(100, duration).From(true).SetEase(Ease.OutBack))
+                .Join(mascots.DOAnchorPosX(800, duration).From(true).SetEase(Ease.OutBack))
+                .Join(mascots.DOAnchorPosY(-200, duration).From(true).SetEase(Ease.OutSine))
                 .OnComplete(() => SetInteractable(true))
                 .OnRewind(() => this.gameObject.SetActive(false));
         }
