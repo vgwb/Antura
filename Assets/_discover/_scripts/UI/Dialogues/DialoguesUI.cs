@@ -36,6 +36,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialoguePostcard postcard;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcardFocusView postcardFocusView;
+        [DeEmptyAlert]
+        [SerializeField] StartEndPanel startEndPanel;
 
         #endregion
 
@@ -59,12 +61,15 @@ namespace Antura.Minigames.DiscoverCountry
         {
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
+            startEndPanel.gameObject.SetActive(true);
             postcardFocusView.Hide(true);
             previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
             signal.Setup(false);
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Subscribe(OnBalloonClicked);
+            startEndPanel.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
             postcard.OnClicked.Subscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
@@ -78,6 +83,8 @@ namespace Antura.Minigames.DiscoverCountry
             this.CancelCoroutine(ref coNext);
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
+            startEndPanel.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
             postcard.OnClicked.Unsubscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
@@ -87,6 +94,18 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Public Methods
+
+        public void ShowStartPanel(QuestNode node)
+        {
+            UseLearningLanguage = !node.Native;
+            startEndPanel.Show(node, UseLearningLanguage, true, 0);
+        }
+
+        public void ShowEndPanel(QuestNode node, int totStarsAchieved)
+        {
+            UseLearningLanguage = !node.Native;
+            startEndPanel.Show(node, UseLearningLanguage, false, totStarsAchieved);
+        }
 
         public void ShowSignalFor(Interactable interactable)
         {
