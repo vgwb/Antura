@@ -17,6 +17,7 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static bool IS_DESKTOP = false; 
     public static int QUEST_ITEMS = 0;
     public static bool AGE = false; 
     public static int TOTAL_COINS = 0;
@@ -95,8 +96,6 @@ public static class HomerMeta {
 
 public static class HomerLabels {
 public enum Label { 
-              A_TEACHER = 0, 
-              A_MAJOR = 1
 }
 }
 
