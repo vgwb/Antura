@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -11,6 +12,12 @@ namespace Antura.Minigames.DiscoverCountry
         Tutorial = 1,
         France = 2,
         Poland = 3
+    }
+    [Serializable]
+    public class CountrySpriteMapping
+    {
+        public Countries country;
+        public SpriteRenderer spriteRenderer;
     }
 
     [System.Flags]
