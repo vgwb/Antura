@@ -76,7 +76,15 @@ namespace Antura.UI
         {
             get
             {
-                var locKeyText = Content.LearnMethod.LearningContentButtonKey(Content.LearningLanguage);
+                var locKeyText = "";
+                if (Content.LearnMethod.Method == LearnMethod.DiscoverCountry)
+                {
+                    locKeyText = Content.Title;
+                }
+                else
+                {
+                    locKeyText = Content.LearnMethod.LearningContentButtonKey(Content.LearningLanguage);
+                }
                 var locKey = Enum.Parse<LocalizationDataId>(locKeyText, true);
                 return locKey;
             }

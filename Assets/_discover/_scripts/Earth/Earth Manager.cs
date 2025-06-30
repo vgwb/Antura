@@ -27,7 +27,15 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            SelectCountry(Countries.France);
+            // Debug.Log("Current contet: " + AppManager.I.ContentEdition.ContentID);
+            if (AppManager.I.ContentEdition.ContentID == LearningContentID.Discover_Poland)
+            {
+                SelectCountry(Countries.Poland);
+            }
+            else
+            {
+                SelectCountry(Countries.France);
+            }
         }
 
         public void SelectCountry(Countries selectedCountry)
