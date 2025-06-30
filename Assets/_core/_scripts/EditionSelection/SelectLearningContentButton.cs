@@ -47,32 +47,29 @@ namespace Antura.UI
                 // BookImage.color = Color.white;
             }
 
-            if (AppManager.PROFILE_INVERSION)
+            // Load the data tied to this, if exists
+            var contentID = editionConfig.ContentID;
+            var data = AppManager.I.DB.GetContentProfileData(contentID);
+
+            string LevelText = "";
+            if (data != null)
             {
-                // Load the data tied to this, if exists
-                var contentID = editionConfig.ContentID;
-                var data = AppManager.I.DB.GetContentProfileData(contentID);
+                if (AppManager.VERBOSE_INVERSION)
+                    Debug.LogError($"[Inversion] Loaded MAX JP for {contentID} as {data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}");
 
-                string LevelText = "";
-                if (data != null)
+                if (editionConfig.LearnMethod.Method != LearnMethod.DiscoverCountry)
                 {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError($"[Inversion] Loaded MAX JP for {contentID} as {data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}");
-
-                    if (editionConfig.LearnMethod.Method != LearnMethod.DiscoverCountry)
-                    {
-                        LevelText = $"{data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}";
-                    }
+                    LevelText = $"{data.MaxStage}-{data.MaxLearningBlock}-{data.MaxPlaySession}";
                 }
-                else
-                {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError($"[Inversion] No data for {contentID}, using initial JP");
-                    // LevelText = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
-                }
-
-                LevelLabel.text = LevelText;
             }
+            else
+            {
+                if (AppManager.VERBOSE_INVERSION)
+                    Debug.LogError($"[Inversion] No data for {contentID}, using initial JP");
+                // LevelText = JourneyPosition.InitialJourneyPosition.ToDisplayedString(withPlaySession:true);
+            }
+
+            LevelLabel.text = LevelText;
         }
 
         public LocalizationDataId LocKey

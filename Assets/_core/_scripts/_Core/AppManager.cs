@@ -27,7 +27,6 @@ namespace Antura.Core
     /// </summary>
     public class AppManager : SingletonMonoBehaviour<AppManager>
     {
-        public static bool PROFILE_INVERSION = true;
         public static bool VERBOSE_INVERSION = false;
 
         public AppEditionConfig AppEdition => RootConfig.LoadedAppEdition;
@@ -195,16 +194,15 @@ namespace Antura.Core
                 yield return LanguageManager.LoadEditionData();
             }
             DB = new DatabaseManager(ContentEdition);
-            if (PROFILE_INVERSION)
+
+            // We need to make sure we also set the player profile again, as it needs to re-load the Dynamic DB
+            if (PlayerProfileManager != null && Player != null)
             {
-                // We need to make sure we also set the player profile again, as it needs to re-load the Dynamic DB
-                if (PlayerProfileManager != null && Player != null)
-                {
-                    if (VERBOSE_INVERSION)
-                        Debug.Log($"[Inversion] Reloading Player {Player.Uuid}");
-                    DB.LoadDatabaseForPlayer(Player.Uuid);
-                }
+                if (VERBOSE_INVERSION)
+                    Debug.Log($"[Inversion] Reloading Player {Player.Uuid}");
+                DB.LoadDatabaseForPlayer(Player.Uuid);
             }
+
             yield return LanguageManager.PreloadLocalizedDataCO();
 
             // TODO refactor: standardize initialisation of managers
@@ -215,13 +213,11 @@ namespace Antura.Core
             LogManager = new LogManager();
             GameLauncher = new MiniGameLauncher(Teacher);
 
-            if (PROFILE_INVERSION)
+            if (PlayerProfileManager != null && Player != null)
             {
-                if (PlayerProfileManager != null && Player != null)
-                {
-                    Teacher.SetPlayerProfile(Player);
-                }
+                Teacher.SetPlayerProfile(Player);
             }
+
         }
 
         public IEnumerator ResetLanguageSetup(LanguageCode langCode)

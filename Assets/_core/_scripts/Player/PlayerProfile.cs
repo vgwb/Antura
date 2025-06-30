@@ -320,18 +320,14 @@ namespace Antura.Profile
         /// </summary>
         public void Save()
         {
-            if (AppManager.PROFILE_INVERSION)
+
+            if (AppManager.VERBOSE_INVERSION && AppManager.I.NavigationManager.NavData.CurrentContent != null)
             {
-                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
-                {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
-                }
-                else
-                {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError("[Inversion] Saving current data (profile only)");
-                }
+                Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
+            }
+            else
+            {
+                Debug.LogError("[Inversion] Saving current data (profile only)");
             }
 
             AppManager.I.PlayerProfileManager.UpdateCurrentPlayerIconDataInSettings();
