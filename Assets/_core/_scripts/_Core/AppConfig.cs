@@ -116,22 +116,23 @@ namespace Antura.Core
 
         public static bool IsDesktopPlatform()
         {
-            return (Application.platform == RuntimePlatform.WindowsPlayer ||
+            return Application.platform == RuntimePlatform.WebGLPlayer ||
+                    Application.platform == RuntimePlatform.WindowsPlayer ||
                     Application.platform == RuntimePlatform.OSXPlayer ||
-                    Application.platform == RuntimePlatform.LinuxPlayer);
+                    Application.platform == RuntimePlatform.LinuxPlayer;
         }
 
         public static bool IsMobilePlatform()
         {
-            return (Application.platform == RuntimePlatform.Android ||
-                    Application.platform == RuntimePlatform.IPhonePlayer);
+            return Application.platform == RuntimePlatform.Android ||
+                    Application.platform == RuntimePlatform.IPhonePlayer;
         }
 
         public static bool IsMobileTablet()
         {
             if (IsMobilePlatform())
             {
-                return (DeviceDiagonalSizeInInches() > 6.5f);
+                return DeviceDiagonalSizeInInches() > 6.5f;
             }
             return false;
         }
@@ -140,7 +141,7 @@ namespace Antura.Core
         {
             if (IsMobilePlatform())
             {
-                return (DeviceDiagonalSizeInInches() <= 6.5f);
+                return DeviceDiagonalSizeInInches() <= 6.5f;
             }
             return false;
         }

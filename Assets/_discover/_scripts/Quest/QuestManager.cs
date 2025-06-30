@@ -89,6 +89,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 HomerVars.MET_MONALISA = true;
             }
+
+            HomerVars.IS_DESKTOP = AppConfig.IsDesktopPlatform();
             inventory.Init(HomerVars.QUEST_ITEMS);
             progress.Init(CurrentQuest.TotalProgress);
             updateCounters();
