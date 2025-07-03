@@ -142,7 +142,13 @@ public enum FlowSlug {
               FR_07_NORMANDIE = 10, 
               FR_08_MONT_BLANC___MOUNTAINS = 11, 
               FR_09_COTES_DAZUR = 12, 
-              DEV = 13
+              DEV = 13, 
+              PL_01B = 14, 
+              PL_01C = 15, 
+              PL_02 = 16, 
+              FR_100_GEOGRAPHY = 17, 
+              FR_101_MUSIC = 18, 
+              PL_100_GEOGRAPHY = 19
 }
 }
 

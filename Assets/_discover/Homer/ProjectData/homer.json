@@ -1988,7 +1988,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1751212623170,
-          "_height": 84.5
+          "_height": 84
         },
         {
           "_id": "N-JP5BRB0Q-MCHUUC4N",
@@ -2090,7 +2090,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1751212623170,
-          "_height": 84.5
+          "_height": 84
         },
         {
           "_id": "N-JP5BRB0Q-MCHUUC4N-H9M",
@@ -2192,7 +2192,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1751212623170,
-          "_height": 84.5
+          "_height": 84
         },
         {
           "_id": "N-JP5BRB0Q-MCHUUC4N-H9M-WT2",
@@ -2235,6 +2235,2105 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1751212727015,
+          "_height": 90
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "FLGR-8c66249e-475a-4093-b568-1711698413840",
+      "_state": "draft",
+      "_modified_by": "203"
+    },
+    {
+      "_id": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+      "_prog": 13,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "dev",
+      "_slug": "DEV",
+      "_date": 1711698366399,
+      "_nodes": [
+        {
+          "_id": "NOD-f279a19f-2e74-4234-b4ca-1711698368495-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_cycleType": "List",
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-e566004b-e4dc-47d8-b4d7-1728485166592-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-f279a19f-2e74-4234-b4ca-1711698368495-f8-b5",
+              "_to": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_type": "Start"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1711698368495,
+          "_height": 85,
+          "_color": null
+        },
+        {
+          "_id": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Condition",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_cycleType": "List",
+          "_header_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-c5a17120-b035-42c0-9801-1728485148691-f8-b5",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"INIT\""
+                },
+                {
+                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611-f8-b5",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_TUTOR\""
+                },
+                {
+                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663-f8-b5",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_TEACHER\""
+                },
+                {
+                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510-f8-b5",
+              "_type": "Condition",
+              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CMD == \"TALK_GUIDE\""
+                },
+                {
+                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-4851244d-e500-4d31-8811-1728485868663-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691-f8-b5",
+              "_to": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-ebba2ecf-28ef-4540-a5c9-1737557161822-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663-f8-b5",
+              "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+              "_type": "Condition"
+            },
+            {
+              "_id": "CONN-de2d0f5e-0cd4-481b-9ed8-1737567947904-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
+              "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510-f8-b5",
+              "_to": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_type": "Condition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1728485148691,
+          "_height": 263,
+          "_color": null
+        },
+        {
+          "_id": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Variables",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_cycleType": "List",
+          "_header_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-07294821-36e4-46dd-a30f-1728485867102-f8-b5",
+              "_type": "Variables",
+              "_nodeId": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$TOTAL_COINS = 0"
+                },
+                {
+                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1728485867102,
+          "_height": 39,
+          "_color": null
+        },
+        {
+          "_id": "NOD-f23327c4-960c-4153-abd2-1728494736516-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MTV-d337812d-650b-4fa7-8ebc-1728494769285",
+            "MTV-7ebfbef2-e2e9-42d7-967f-1736435624121"
+          ],
+          "_note": "",
+          "_cycleType": "List",
+          "_header_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-77392788-1d8b-4070-be9f-1728494736516-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-f23327c4-960c-4153-abd2-1728494736516-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "the door open and closes"
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "apri e chiudi la porta"
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "la porte s'ouvre et se ferme"
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": "door_a",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1728494736516,
+          "_height": 97,
+          "_color": null
+        },
+        {
+          "_id": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MTV-9fa2fc33-b34e-4f93-9793-1728494954875"
+          ],
+          "_note": "",
+          "_cycleType": "List",
+          "_header_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-bb310a96-0d34-4456-a89e-1728494905481-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Now you have {$TOTAL_COINS} coins! and i close the door"
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ora hai {$TOTAL_COINS} monete! e chiudo la porta."
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Maintenant vous avez {$TOTAL_COINS} pièces ! et je ferme la porte"
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1728494905481,
+          "_height": 115,
+          "_color": null
+        },
+        {
+          "_id": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_actorUID": "TEACHER",
+          "_metadata": [
+            "MTV-38f1bc00-2608-4d90-9130-1728504053196"
+          ],
+          "_note": "",
+          "_cycleType": "List",
+          "_header_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Tutorial Isolated Node"
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Un bel nodo isolato"
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Didacticiel Nœud isolé"
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-6f2ebc12-25ee-4233-be84-1737105927816-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
+              "_to": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": "isolated_node_1",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1728504030509,
+          "_height": 97,
+          "_color": null,
+          "_image": null
+        },
+        {
+          "_id": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_actorUID": "TEACHER",
+          "_metadata": [
+            "MTV-f90a0db9-0042-43a4-9096-1737109537948"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "this is a sign, I open the door"
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Questo è un cartello. e ora apro la porta"
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ceci est un signe, j'ouvre la porte"
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-04bfa261-2d12-411f-af88-1737109592154-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
+              "_to": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737105927808,
+          "_height": 97
+        },
+        {
+          "_id": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MTV-61663ff7-6491-4436-ba92-1737109681386"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "I'll give you 100 coins."
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ti darò 100 monete"
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Je te donne 100 pièces."
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-fbcce6d4-95a3-44a1-bc85-1737109604974-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
+              "_to": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737109547821,
+          "_height": 97
+        },
+        {
+          "_id": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Variables",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686-f8-b5",
+              "_type": "Variables",
+              "_nodeId": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$TOTAL_COINS = $TOTAL_COINS + 100"
+                },
+                {
+                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-5cd36f89-15f3-4a38-b14f-1737109594013-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
+              "_to": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
+              "_type": "Variables"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1737109570686,
+          "_height": 57
+        },
+        {
+          "_id": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Choice",
+          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
+          "_actorUID": "GUIDE",
+          "_metadata": [
+            "MTV-827baee4-d5ed-4db5-b756-1737550055577"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_header": {
+            "_id": "NODHD-4e24b0b3-0934-4259-b464-1737549888618-f8-b5",
+            "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+            "_localizedContents": [
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "EN",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "QUIZ: calculate 3*2"
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "IT",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "QUIZ: calcola 3*2"
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "FR",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "QUIZ : calculer 3*2"
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "RU",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "PL",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "RO",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "UK",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
+                "_localeCode": "AR",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              }
+            ]
+          },
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 4"
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Fa 4"
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "C'est 4"
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-df537116-c1c0-42b7-88f6-1737549925972-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 6"
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Fa 6"
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "C'est 6"
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-13d80335-6c8b-4d22-8253-1737549928281-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "It's 8"
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Fa 8"
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "C'est 8"
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-1ddb9b4f-1e73-4952-a2e5-1737550113622-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972-f8-b5",
+              "_to": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-caefc11b-0b04-459f-a36c-1737550123066-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618-f8-b5",
+              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-dfc8426a-06cf-4c4e-8d3a-1737550128600-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281-f8-b5",
+              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_type": "Choice"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": "quiz_test",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737549888618,
+          "_height": 195
+        },
+        {
+          "_id": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
+          "_actorUID": "GUIDE",
+          "_metadata": [
+            "7471320a-881c-4d25-899c-1652618909025"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-261190c7-1cab-4f42-af1e-1737550113617-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "YES!"
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ottimo"
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "OUI !"
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-8fa85c90-3234-468b-8aa2-1737641193070-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
+              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737550113617,
+          "_height": 97
+        },
+        {
+          "_id": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Choice",
+          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
+          "_actorUID": "GUIDE",
+          "_metadata": [
+            "9841c253-53f6-45fa-8fac-1652618909025"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-e888838c-8df4-4916-ac62-1737550123064-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Yes"
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Si"
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Oui"
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "No"
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Non"
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-0d460705-16ad-44ba-8ba0-1737641201036-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714-f8-b5",
+              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-dd42743f-44a5-448c-8c1c-1737641203381-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064-f8-b5",
+              "_to": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
+              "_type": "Choice"
+            },
+            {
+              "_id": "CONN-9cd098c3-9778-4b8b-9c45-1737641209784-f8-b5",
+              "_connectionLine": {},
+              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
+              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
+              "_type": "FailCondition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737550123064,
+          "_height": 163,
+          "_header": {
+            "_id": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184-f8-b5",
+            "_localizedContents": [
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "EN",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "No. Do you want to try again?"
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "IT",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "No. Vuoi riprovare?"
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "FR",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": "Non. Voulez-vous réessayer ?"
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "RU",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "PL",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "RO",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "UK",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              },
+              {
+                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
+                "_localeCode": "AR",
+                "_isDraft": false,
+                "_toBeTranslated": false,
+                "_text": ""
+              }
+            ],
+            "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5"
+          }
+        },
+        {
+          "_id": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_metadata": [
+            "MTV-8d36ac14-ab20-402d-9230-1719244308910"
+          ],
+          "_cycleType": "Loop",
+          "_elements": [
+            {
+              "_id": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "EN",
+                  "_toBeTranslated": false,
+                  "_text": "Sequence Line 1",
+                  "_isDraft": false
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ligne de séquence 1"
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_toBeTranslated": false,
+              "_visited": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": []
+            },
+            {
+              "_id": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-f8-b5",
+              "_type": "Text",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Sequence Line 2"
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ligne de séquence 2"
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-f8-b5",
+              "_type": "Text",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Sequence Line 3"
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Séquence ligne 3"
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "CONN-61a1fbba-905a-41ca-afef-1737557188244-f8-b5",
+              "_connectionLine": {},
+              "_from": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
+              "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+              "_type": "Text"
+            }
+          ],
+          "_isMarked": false,
+          "_date": 1652618922208,
+          "_height": 161,
+          "_translatable": true,
+          "_actorUID": "TEACHER",
+          "_note": "",
+          "_color": null
+        },
+        {
+          "_id": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
+          "_metadata": [
+            "MTV-8d36ac14-ab20-402d-9230-1719244308910"
+          ],
+          "_cycleType": "Smart Random",
+          "_elements": [
+            {
+              "_id": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+              "_type": "Choice",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "EN",
+                  "_toBeTranslated": false,
+                  "_text": "Smart random Line 1",
+                  "_isDraft": false
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ligne 1 aléatoire intelligente"
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_toBeTranslated": false,
+              "_visited": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": []
+            },
+            {
+              "_id": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94-f8-b5",
+              "_type": "Text",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Smart random Line 2"
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ligne 2 aléatoire intelligente"
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            },
+            {
+              "_id": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94-f8-b5",
+              "_type": "Text",
+              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Smart random Line 3"
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Ligne 3 aléatoire intelligente"
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_isMarked": false,
+          "_date": 1652618922208,
+          "_height": 161,
+          "_translatable": true,
+          "_actorUID": "TEACHER",
+          "_note": "",
+          "_color": null
+        },
+        {
+          "_id": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
+          "_actorUID": "GUIDE",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014-f8-b5",
+              "_type": "Text",
+              "_nodeId": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Goodbye"
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "IT",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Arrivederci"
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "FR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Au revoir"
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "RU",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "PL",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "RO",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "UK",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                },
+                {
+                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
+                  "_localeCode": "AR",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1737641114014,
+          "_height": 90
+        },
+        {
+          "_id": "N-V9FAA4FH-MACF6S6K",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-Q2XBBVQZ-MACF6S6K",
+              "_type": "Text",
+              "_nodeId": "N-V9FAA4FH-MACF6S6K",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-Q2XBBVQZ-MACF6S6K",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": ""
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1746530538284,
           "_height": 90
         }
       ],
@@ -22284,6 +24383,40 @@
       "_modified_by": "1"
     },
     {
+      "_id": "FL-79e57bb9-bbf6-4337-938a-1730560729648",
+      "_prog": 10,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "FR-07 Normandie",
+      "_slug": "FR_07_NORMANDIE",
+      "_date": 1730560729648,
+      "_nodes": [
+        {
+          "_id": "NOD-cb470005-b454-4e12-8902-1730560731873",
+          "_flowId": "FL-79e57bb9-bbf6-4337-938a-1730560729648",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1730560731873,
+          "_height": 85
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "3244503f-5f8d-4848-ac14-1652618909210",
+      "_state": "idea",
+      "_modified_by": "203"
+    },
+    {
       "_id": "FL-4346fe9c-3e75-4d9c-b969-1730560782712",
       "_prog": 11,
       "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
@@ -24122,21 +26255,22 @@
       "_modified_by": "203"
     },
     {
-      "_id": "FL-79e57bb9-bbf6-4337-938a-1730560729648",
-      "_prog": 10,
+      "_id": "F-XRYAIRQD-MCNIBOWD",
+      "_prog": 17,
       "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
-      "_name": "FR-07 Normandie",
-      "_slug": "FR_07_NORMANDIE",
-      "_date": 1730560729648,
+      "_name": "FR-100 geography",
+      "_slug": "FR_100_GEOGRAPHY",
+      "_date": 1751554498766,
       "_nodes": [
         {
-          "_id": "NOD-cb470005-b454-4e12-8902-1730560731873",
-          "_flowId": "FL-79e57bb9-bbf6-4337-938a-1730560729648",
+          "_id": "N-6GI9F98R-MCNIBQDE",
+          "_flowId": "F-XRYAIRQD-MCNIBOWD",
           "_type": "Start",
           "_actorId": null,
           "_actorUID": null,
           "_metadata": [],
           "_note": "",
+          "_image": null,
           "_cycleType": "List",
           "_color": null,
           "_elements": [],
@@ -24146,13 +26280,48 @@
           "_permalink": null,
           "_translatable": false,
           "_isMarked": false,
-          "_date": 1730560731873,
+          "_date": 1751554500674,
           "_height": 85
         }
       ],
       "_selectedNodes": [],
       "_group": "3244503f-5f8d-4848-ac14-1652618909210",
-      "_state": "idea",
+      "_state": "draft",
+      "_modified_by": "203"
+    },
+    {
+      "_id": "F-Y7TALSJ7-MCNIC5OB",
+      "_prog": 18,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "FR-101 music",
+      "_slug": "FR_101_MUSIC",
+      "_date": 1751554520507,
+      "_nodes": [
+        {
+          "_id": "N-B1P81P28-MCNIC70U",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1751554522254,
+          "_height": 85
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "3244503f-5f8d-4848-ac14-1652618909210",
+      "_state": "draft",
       "_modified_by": "203"
     },
     {
@@ -24188,2101 +26357,142 @@
       "_modified_by": "203"
     },
     {
-      "_id": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-      "_prog": 13,
+      "_id": "F-VZ98SFDR-MCNIAU9C",
+      "_prog": 14,
       "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
-      "_name": "dev",
-      "_slug": "DEV",
-      "_date": 1711698366399,
+      "_name": "PL-01b",
+      "_slug": "PL_01B",
+      "_date": 1751554459056,
       "_nodes": [
         {
-          "_id": "NOD-f279a19f-2e74-4234-b4ca-1711698368495-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_id": "N-TC4B5SEN-MCNIAVTI",
+          "_flowId": "F-VZ98SFDR-MCNIAU9C",
           "_type": "Start",
           "_actorId": null,
           "_actorUID": null,
           "_metadata": [],
           "_note": "",
+          "_image": null,
           "_cycleType": "List",
+          "_color": null,
           "_elements": [],
           "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-e566004b-e4dc-47d8-b4d7-1728485166592-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-f279a19f-2e74-4234-b4ca-1711698368495-f8-b5",
-              "_to": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_type": "Start"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1711698368495,
-          "_height": 85,
-          "_color": null
-        },
-        {
-          "_id": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Condition",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-c5a17120-b035-42c0-9801-1728485148691-f8-b5",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"INIT\""
-                },
-                {
-                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611-f8-b5",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"TALK_TUTOR\""
-                },
-                {
-                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-4e67a7c1-7917-41f0-9a86-1728485843611",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663-f8-b5",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"TALK_TEACHER\""
-                },
-                {
-                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510-f8-b5",
-              "_type": "Condition",
-              "_nodeId": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$CMD == \"TALK_GUIDE\""
-                },
-                {
-                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-4851244d-e500-4d31-8811-1728485868663-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_nodeElementId": "NODEL-c5a17120-b035-42c0-9801-1728485148691-f8-b5",
-              "_to": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
-              "_type": "Condition"
-            },
-            {
-              "_id": "CONN-ebba2ecf-28ef-4540-a5c9-1737557161822-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_nodeElementId": "NODEL-7a55a24b-a4f5-4bae-8452-1737557140663-f8-b5",
-              "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-              "_type": "Condition"
-            },
-            {
-              "_id": "CONN-de2d0f5e-0cd4-481b-9ed8-1737567947904-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-c70f46bf-beb3-4aaa-9b5c-1728485148691-f8-b5",
-              "_nodeElementId": "NODEL-2622c0b4-7c2d-40d9-adcd-1737567920510-f8-b5",
-              "_to": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_type": "Condition"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1728485148691,
-          "_height": 263,
-          "_color": null
-        },
-        {
-          "_id": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-07294821-36e4-46dd-a30f-1728485867102-f8-b5",
-              "_type": "Variables",
-              "_nodeId": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_COINS = 0"
-                },
-                {
-                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-07294821-36e4-46dd-a30f-1728485867102",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
           "_connections": [],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": false,
           "_isMarked": false,
-          "_date": 1728485867102,
-          "_height": 39,
-          "_color": null
-        },
-        {
-          "_id": "NOD-f23327c4-960c-4153-abd2-1728494736516-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [
-            "MTV-d337812d-650b-4fa7-8ebc-1728494769285",
-            "MTV-7ebfbef2-e2e9-42d7-967f-1736435624121"
-          ],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-77392788-1d8b-4070-be9f-1728494736516-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-f23327c4-960c-4153-abd2-1728494736516-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "the door open and closes"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "apri e chiudi la porta"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "la porte s'ouvre et se ferme"
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-77392788-1d8b-4070-be9f-1728494736516",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": "door_a",
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1728494736516,
-          "_height": 97,
-          "_color": null
-        },
-        {
-          "_id": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [
-            "MTV-9fa2fc33-b34e-4f93-9793-1728494954875"
-          ],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-bb310a96-0d34-4456-a89e-1728494905481-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Now you have {$TOTAL_COINS} coins! and i close the door"
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ora hai {$TOTAL_COINS} monete! e chiudo la porta."
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Maintenant vous avez {$TOTAL_COINS} pièces ! et je ferme la porte"
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-bb310a96-0d34-4456-a89e-1728494905481",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1728494905481,
-          "_height": 115,
-          "_color": null
-        },
-        {
-          "_id": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
-          "_actorUID": "TEACHER",
-          "_metadata": [
-            "MTV-38f1bc00-2608-4d90-9130-1728504053196"
-          ],
-          "_note": "",
-          "_cycleType": "List",
-          "_header_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Tutorial Isolated Node"
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Un bel nodo isolato"
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Didacticiel Nœud isolé"
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dab0f50e-8802-4415-ba6f-1728504030509",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-6f2ebc12-25ee-4233-be84-1737105927816-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-6643b912-cb7e-4e83-aae6-1728504030509-f8-b5",
-              "_to": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
-              "_type": "Text"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": "isolated_node_1",
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1728504030509,
-          "_height": 97,
-          "_color": null,
-          "_image": null
-        },
-        {
-          "_id": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
-          "_actorUID": "TEACHER",
-          "_metadata": [
-            "MTV-f90a0db9-0042-43a4-9096-1737109537948"
-          ],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "this is a sign, I open the door"
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Questo è un cartello. e ora apro la porta"
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ceci est un signe, j'ouvre la porte"
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-80faedc9-81a9-4476-b9fd-1737105927808",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-04bfa261-2d12-411f-af88-1737109592154-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-f46bd4ae-70e4-4cf1-997a-1737105927808-f8-b5",
-              "_to": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
-              "_type": "Text"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737105927808,
-          "_height": 97
-        },
-        {
-          "_id": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [
-            "MTV-61663ff7-6491-4436-ba92-1737109681386"
-          ],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "I'll give you 100 coins."
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ti darò 100 monete"
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Je te donne 100 pièces."
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e8309dba-17fe-4c91-b4cb-1737109547821",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-fbcce6d4-95a3-44a1-bc85-1737109604974-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
-              "_to": "NOD-8466d219-7083-4137-bf69-1728494905481-f8-b5",
-              "_type": "Text"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737109547821,
-          "_height": 97
-        },
-        {
-          "_id": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Variables",
-          "_actorId": null,
-          "_actorUID": null,
-          "_metadata": [],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686-f8-b5",
-              "_type": "Variables",
-              "_nodeId": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "$TOTAL_COINS = $TOTAL_COINS + 100"
-                },
-                {
-                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-cbf4ed54-9beb-4f7d-8081-1737109570686",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-5cd36f89-15f3-4a38-b14f-1737109594013-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-2cb0e166-4d80-4e22-a657-1737109570686-f8-b5",
-              "_to": "NOD-e0405dbe-4e31-40e5-94d1-1737109547821-f8-b5",
-              "_type": "Variables"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": false,
-          "_isMarked": false,
-          "_date": 1737109570686,
-          "_height": 57
-        },
-        {
-          "_id": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Choice",
-          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
-          "_actorUID": "GUIDE",
-          "_metadata": [
-            "MTV-827baee4-d5ed-4db5-b756-1737550055577"
-          ],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_header": {
-            "_id": "NODHD-4e24b0b3-0934-4259-b464-1737549888618-f8-b5",
-            "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-            "_localizedContents": [
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "EN",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "QUIZ: calculate 3*2"
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "IT",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "QUIZ: calcola 3*2"
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "FR",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "QUIZ : calculer 3*2"
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "RU",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "PL",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "RO",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "UK",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-4e24b0b3-0934-4259-b464-1737549888618",
-                "_localeCode": "AR",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              }
-            ]
-          },
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "It's 4"
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Fa 4"
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "C'est 4"
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-df537116-c1c0-42b7-88f6-1737549925972-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "It's 6"
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Fa 6"
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "C'est 6"
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-13d80335-6c8b-4d22-8253-1737549928281-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "It's 8"
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Fa 8"
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "C'est 8"
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-1ddb9b4f-1e73-4952-a2e5-1737550113622-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_nodeElementId": "NODEL-df537116-c1c0-42b7-88f6-1737549925972-f8-b5",
-              "_to": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
-              "_type": "Choice"
-            },
-            {
-              "_id": "CONN-caefc11b-0b04-459f-a36c-1737550123066-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_nodeElementId": "NODEL-58b56a4b-c15b-4825-8f51-1737549888618-f8-b5",
-              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_type": "Choice"
-            },
-            {
-              "_id": "CONN-dfc8426a-06cf-4c4e-8d3a-1737550128600-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_nodeElementId": "NODEL-13d80335-6c8b-4d22-8253-1737549928281-f8-b5",
-              "_to": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_type": "Choice"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": "quiz_test",
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737549888618,
-          "_height": 195
-        },
-        {
-          "_id": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
-          "_actorUID": "GUIDE",
-          "_metadata": [
-            "7471320a-881c-4d25-899c-1652618909025"
-          ],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-261190c7-1cab-4f42-af1e-1737550113617-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "YES!"
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ottimo"
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "OUI !"
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-261190c7-1cab-4f42-af1e-1737550113617",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-8fa85c90-3234-468b-8aa2-1737641193070-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-fbaf2211-dc67-4b6c-83bb-1737550113617-f8-b5",
-              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
-              "_type": "Text"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737550113617,
-          "_height": 97
-        },
-        {
-          "_id": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Choice",
-          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
-          "_actorUID": "GUIDE",
-          "_metadata": [
-            "9841c253-53f6-45fa-8fac-1652618909025"
-          ],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-e888838c-8df4-4916-ac62-1737550123064-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Yes"
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Si"
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Oui"
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "No"
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Non"
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-0d460705-16ad-44ba-8ba0-1737641201036-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_nodeElementId": "NODEL-ba87b95b-779a-48fb-afa0-1737641182714-f8-b5",
-              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
-              "_type": "Choice"
-            },
-            {
-              "_id": "CONN-dd42743f-44a5-448c-8c1c-1737641203381-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_nodeElementId": "NODEL-e888838c-8df4-4916-ac62-1737550123064-f8-b5",
-              "_to": "NOD-aeb9aa16-421a-4527-93e0-1737549888618-f8-b5",
-              "_type": "Choice"
-            },
-            {
-              "_id": "CONN-9cd098c3-9778-4b8b-9c45-1737641209784-f8-b5",
-              "_connectionLine": {},
-              "_from": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5",
-              "_to": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
-              "_type": "FailCondition"
-            }
-          ],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737550123064,
-          "_height": 163,
-          "_header": {
-            "_id": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184-f8-b5",
-            "_localizedContents": [
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "EN",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "No. Do you want to try again?"
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "IT",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "No. Vuoi riprovare?"
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "FR",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": "Non. Voulez-vous réessayer ?"
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "RU",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "PL",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "RO",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "UK",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              },
-              {
-                "_nodeElementId": "NODHD-6fd15267-9e28-4bbb-ab59-1737641167184",
-                "_localeCode": "AR",
-                "_isDraft": false,
-                "_toBeTranslated": false,
-                "_text": ""
-              }
-            ],
-            "_nodeId": "NOD-a790b529-4842-4fc8-8214-1737550123064-f8-b5"
-          }
-        },
-        {
-          "_id": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
-          "_metadata": [
-            "MTV-8d36ac14-ab20-402d-9230-1719244308910"
-          ],
-          "_cycleType": "Loop",
-          "_elements": [
-            {
-              "_id": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "EN",
-                  "_toBeTranslated": false,
-                  "_text": "Sequence Line 1",
-                  "_isDraft": false
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ligne de séquence 1"
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_toBeTranslated": false,
-              "_visited": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": []
-            },
-            {
-              "_id": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-f8-b5",
-              "_type": "Text",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Sequence Line 2"
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ligne de séquence 2"
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-f8-b5",
-              "_type": "Text",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Sequence Line 3"
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Séquence ligne 3"
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [
-            {
-              "_id": "CONN-61a1fbba-905a-41ca-afef-1737557188244-f8-b5",
-              "_connectionLine": {},
-              "_from": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-f8-b5",
-              "_to": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-              "_type": "Text"
-            }
-          ],
-          "_isMarked": false,
-          "_date": 1652618922208,
-          "_height": 161,
-          "_translatable": true,
-          "_actorUID": "TEACHER",
-          "_note": "",
-          "_color": null
-        },
-        {
-          "_id": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-62c1d198-85d0-47c9-98b4-1710929252328",
-          "_metadata": [
-            "MTV-8d36ac14-ab20-402d-9230-1719244308910"
-          ],
-          "_cycleType": "Smart Random",
-          "_elements": [
-            {
-              "_id": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-              "_type": "Choice",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "EN",
-                  "_toBeTranslated": false,
-                  "_text": "Smart random Line 1",
-                  "_isDraft": false
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ligne 1 aléatoire intelligente"
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "1ad6a268-a08a-44a8-a7ae-1652618922208-e9-a4-69-b6-49-94",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_toBeTranslated": false,
-              "_visited": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": []
-            },
-            {
-              "_id": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94-f8-b5",
-              "_type": "Text",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Smart random Line 2"
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ligne 2 aléatoire intelligente"
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-a0181381-b53d-4126-8d9c-1737557093303-69-b6-49-94",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            },
-            {
-              "_id": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94-f8-b5",
-              "_type": "Text",
-              "_nodeId": "80bb1124-64c3-4a8b-ba3f-1652618922208-e9-a4-69-b6-49-94-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Smart random Line 3"
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Ligne 3 aléatoire intelligente"
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-dfc91972-762e-47e2-b545-1737557106087-69-b6-49-94",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_isMarked": false,
-          "_date": 1652618922208,
-          "_height": 161,
-          "_translatable": true,
-          "_actorUID": "TEACHER",
-          "_note": "",
-          "_color": null
-        },
-        {
-          "_id": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-c491baff-6ac5-43ed-82f7-1710929262628",
-          "_actorUID": "GUIDE",
-          "_metadata": [],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014-f8-b5",
-              "_type": "Text",
-              "_nodeId": "NOD-74a93de2-8c7d-4ac6-8d22-1737641114014-f8-b5",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Goodbye"
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "IT",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Arrivederci"
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "FR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": "Au revoir"
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "RU",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "PL",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "RO",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "UK",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                },
-                {
-                  "_nodeElementId": "NODEL-6fc43837-e32d-4f7c-8922-1737641114014",
-                  "_localeCode": "AR",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1737641114014,
-          "_height": 90
-        },
-        {
-          "_id": "N-V9FAA4FH-MACF6S6K",
-          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
-          "_type": "Text",
-          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
-          "_actorUID": "TUTOR",
-          "_metadata": [],
-          "_note": "",
-          "_image": null,
-          "_cycleType": "List",
-          "_color": null,
-          "_elements": [
-            {
-              "_id": "NE-Q2XBBVQZ-MACF6S6K",
-              "_type": "Text",
-              "_nodeId": "N-V9FAA4FH-MACF6S6K",
-              "_localizedContents": [
-                {
-                  "_nodeElementId": "NE-Q2XBBVQZ-MACF6S6K",
-                  "_localeCode": "EN",
-                  "_isDraft": false,
-                  "_toBeTranslated": false,
-                  "_text": ""
-                }
-              ],
-              "_visited": false,
-              "_wasHiddenBecauseEmpty": false,
-              "_onlyOnce": false,
-              "_ifNoMore": false,
-              "_variations": [],
-              "_permalink": null,
-              "_color": null
-            }
-          ],
-          "_jumpTo": {},
-          "_connections": [],
-          "_subFlow": null,
-          "_permalink": null,
-          "_translatable": true,
-          "_isMarked": false,
-          "_date": 1746530538284,
-          "_height": 90
+          "_date": 1751554461078,
+          "_height": 85
         }
       ],
       "_selectedNodes": [],
-      "_group": "FLGR-8c66249e-475a-4093-b568-1711698413840",
+      "_group": "FLGR-a6facfde-a73e-4c9c-bc2b-1708697080568",
+      "_state": "draft",
+      "_modified_by": "203"
+    },
+    {
+      "_id": "F-28B9VF0L-MCNIB4VC",
+      "_prog": 15,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "PL-01c",
+      "_slug": "PL_01C",
+      "_date": 1751554472808,
+      "_nodes": [
+        {
+          "_id": "N-422AYGP8-MCNIB688",
+          "_flowId": "F-28B9VF0L-MCNIB4VC",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1751554474568,
+          "_height": 85
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "FLGR-a6facfde-a73e-4c9c-bc2b-1708697080568",
+      "_state": "draft",
+      "_modified_by": "203"
+    },
+    {
+      "_id": "F-N9QABO6C-MCNIBEAS",
+      "_prog": 16,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "PL-02",
+      "_slug": "PL_02",
+      "_date": 1751554485028,
+      "_nodes": [
+        {
+          "_id": "N-U878JE1R-MCNIBFNI",
+          "_flowId": "F-N9QABO6C-MCNIBEAS",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1751554486782,
+          "_height": 85
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "FLGR-a6facfde-a73e-4c9c-bc2b-1708697080568",
+      "_state": "draft",
+      "_modified_by": "203"
+    },
+    {
+      "_id": "F-KXZB734A-MCNICXST",
+      "_prog": 19,
+      "_projectId": "0474c008-e8e9-4e69-a24e-1652618909210",
+      "_name": "PL-100 geography",
+      "_slug": "PL_100_GEOGRAPHY",
+      "_date": 1751554556958,
+      "_nodes": [
+        {
+          "_id": "N-Y66AYSVW-MCNICZ6I",
+          "_flowId": "F-KXZB734A-MCNICXST",
+          "_type": "Start",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1751554558746,
+          "_height": 85
+        }
+      ],
+      "_selectedNodes": [],
+      "_group": "FLGR-a6facfde-a73e-4c9c-bc2b-1708697080568",
       "_state": "draft",
       "_modified_by": "203"
     }
@@ -26310,9 +26520,11 @@
         "FL-07b8d15d-4dfb-4053-b21b-1730560636238",
         "FL-8a42b720-bf78-4db3-92dc-1730560670574",
         "FL-51bd577c-5ab3-4050-857c-1730560702488",
+        "FL-79e57bb9-bbf6-4337-938a-1730560729648",
         "FL-4346fe9c-3e75-4d9c-b969-1730560782712",
         "FL-b9976306-f3a3-4b84-ac4a-1730560794200",
-        "FL-79e57bb9-bbf6-4337-938a-1730560729648"
+        "F-XRYAIRQD-MCNIBOWD",
+        "F-Y7TALSJ7-MCNIC5OB"
       ],
       "_collapsed": false,
       "_slug": "FRANCE"
@@ -26321,7 +26533,11 @@
       "_id": "FLGR-a6facfde-a73e-4c9c-bc2b-1708697080568",
       "_name": "Poland",
       "_flowIds": [
-        "FL-bfe40fe6-a221-41bc-b16a-1709223555942"
+        "FL-bfe40fe6-a221-41bc-b16a-1709223555942",
+        "F-VZ98SFDR-MCNIAU9C",
+        "F-28B9VF0L-MCNIB4VC",
+        "F-N9QABO6C-MCNIBEAS",
+        "F-KXZB734A-MCNICXST"
       ],
       "_collapsed": false,
       "_slug": "POLAND"
