@@ -148,7 +148,10 @@ public enum FlowSlug {
               PL_02 = 16, 
               FR_100_GEOGRAPHY = 17, 
               FR_101_MUSIC = 18, 
-              PL_100_GEOGRAPHY = 19
+              PL_100_GEOGRAPHY = 19, 
+              DEV_VIERI = 20, 
+              DEV_VALERIA = 21, 
+              DEV_LORENZO = 22
 }
 }
 
