@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
   m_Name: FR_8 - Mont Blanc & Mountains
   m_EditorClassIdentifier: 
-  Active: 0
   Status: 0
   QuestId: 11
   Country: 2
@@ -33,6 +32,8 @@ MonoBehaviour:
     coat, trousers, jumper, sunglasses, flag\n- Vocabulary of mountain activities:
     skiing, climbing, hiking, walking\n- Vocabulary for getting around: going up,
     going down, up/down"
+  Dependencies:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   LanguageRef: 
   manualPage: fr_8
   assetsFolder: FR_08

@@ -80,6 +80,8 @@ namespace Antura.Minigames.DiscoverCountry
         [TextArea(3, 10)]
         public string Content;
 
+        public List<QuestData> Dependencies;
+
         public string LanguageRef;
         public string manualPage;
         public string assetsFolder;
