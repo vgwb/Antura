@@ -10,7 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
         Area = 2,
         Spawn = 3,
         Collect = 4,
-        Target = 5
+        Target = 5,
+        Activity = 6
     }
 
     [System.Serializable]
