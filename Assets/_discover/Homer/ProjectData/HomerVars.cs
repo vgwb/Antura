@@ -36,8 +36,8 @@ public static class HomerVars {
 //KID_MALE
     public static int KID_MALE_LEVEL = 0;
 
-//MUSEUM_GUIDE
-    public static int MUSEUM_GUIDE_LEVEL = 0;
+//CRAZY_WOMAN
+    public static int CRAZY_WOMAN_LEVEL = 0;
 
 //WOMAN
     public static int WOMAN_LEVEL = 0;
@@ -45,20 +45,20 @@ public static class HomerVars {
 //MAN
     public static int MAN_LEVEL = 0;
 
-//COOK
-    public static int COOK_LEVEL = 0;
+//CRAZY_MAN
+    public static int CRAZY_MAN_LEVEL = 0;
 
 //GUIDE
     public static int GUIDE_LEVEL = 0;
 
-//TEACHER
-    public static int TEACHER_LEVEL = 0;
+//OLD_WOMAN
+    public static int OLD_WOMAN_LEVEL = 0;
 
 //TUTOR
     public static int TUTOR_LEVEL = 0;
 
-//MAJOR
-    public static int MAJOR_LEVEL = 0;
+//OLD_MAN
+    public static int OLD_MAN_LEVEL = 0;
 
 }
 
@@ -66,14 +66,14 @@ public static class HomerActors {
     public enum Actors {
               KID_FEMALE = 9, 
               KID_MALE = 8, 
-              MUSEUM_GUIDE = 7, 
+              CRAZY_WOMAN = 7, 
               WOMAN = 6, 
               MAN = 5, 
-              COOK = 4, 
+              CRAZY_MAN = 4, 
               GUIDE = 0, 
-              TEACHER = 1, 
+              OLD_WOMAN = 1, 
               TUTOR = 2, 
-              MAJOR = 3
+              OLD_MAN = 3
 }
 
 }
@@ -107,23 +107,23 @@ public enum Tag {
 
 public static class HomerColors {
 
-//0db0dd
-public static Color32 Blue = new Color32(13, 176, 221, 255);
-//f89501
-public static Color32 Orange = new Color32(248, 149, 1, 255);
-//eb89c8
-public static Color32 Pink = new Color32(235, 137, 200, 255);
-//d63762
-public static Color32 Red = new Color32(214, 55, 98, 255);
-//47b58b
-public static Color32 Green = new Color32(71, 181, 139, 255);
+//0DB0DD
+public static Color32 blue = new Color32(13, 176, 221, 255);
+//F89501
+public static Color32 orange = new Color32(248, 149, 1, 255);
+//EB89C8
+public static Color32 pink = new Color32(235, 137, 200, 255);
+//D63762
+public static Color32 red = new Color32(214, 55, 98, 255);
+//47B58B
+public static Color32 green = new Color32(71, 181, 139, 255);
 
 public enum color { 
-              Blue = 1, 
-              Orange = 2, 
-              Pink = 3, 
-              Red = 4, 
-              Green = 5
+              blue = 1, 
+              orange = 2, 
+              pink = 3, 
+              red = 4, 
+              green = 5
 }
 }
 
