@@ -1,18 +1,19 @@
 # Learn with Antura project
 
+![Made with Unity](https://img.shields.io/badge/Made%20with-Unity-57b9d3.svg?style=for-the-badge&logo=unity)
+
 ![antura_gametitle](docs/assets/img/antura_gametitle.jpg)
 
-The open source project for the multiple awards winning game "Learn with Antura" to learn:
+The open source project for the multiple awards winning game "Learn with Antura" to learn languages and culture:
 
 - Arabic
 - Darija
 - English
 - French
-- Dari & Pashto (Afghanistan)
 - Polish
 - and many others under development.
 
-This project is a multi edition evolution of the original [Antura Edu App 4 Syria](https://github.com/vgwb/Antura_arabic) game.
+This project is an evolution of the original [Antura Edu App 4 Syria](https://github.com/vgwb/Antura_arabic) game.
 
 ## Project references
 
