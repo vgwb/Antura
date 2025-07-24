@@ -20,7 +20,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public ActionData[] Actions;
 
-        public ActionNewData[] ActionsNew;
+        public QuestActionData[] QuestActions;
 
         [Header("Specific")]
         private Transform target_AnturaLocation;
@@ -54,7 +54,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 foreach (var action in Actions)
                 {
-                    if (action.Type == ActionType.Area)
+                    if (action.Type == CommandType.Area)
                     {
                         if (action.Area != null)
                             action.Area?.SetActive(false);
@@ -82,7 +82,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (DebugArea != "")
             {
                 ResolveAction(DebugArea);
-                PlayerController.SpawnToNewLocation(GetActionData(ActionType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
+                PlayerController.SpawnToNewLocation(GetActionData(CommandType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
             }
             else
             {
@@ -103,7 +103,7 @@ namespace Antura.Minigames.DiscoverCountry
             return Actions.FirstOrDefault(action => action.ActionCode == actionCode);
         }
 
-        private ActionData GetActionData(ActionType type, string actionCode)
+        private ActionData GetActionData(CommandType type, string actionCode)
         {
             return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
         }
@@ -113,7 +113,7 @@ namespace Antura.Minigames.DiscoverCountry
             if (QuestManager.I.DebugQuest)
                 Debug.Log("CameraShowTarget targetArea:" + targetArea);
 
-            var actionData = GetActionData(ActionType.Area, targetArea);
+            var actionData = GetActionData(CommandType.Area, targetArea);
 
             if (QuestManager.I.DebugQuest)
                 Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
@@ -133,7 +133,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void ActivateArea(string targetArea)
         {
-            var actionData = GetActionData(ActionType.Area, targetArea);
+            var actionData = GetActionData(CommandType.Area, targetArea);
             if (actionData != null)
             {
                 if (QuestManager.I.DebugQuest)
@@ -182,7 +182,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Spawn(string spawnCode)
         {
-            var actionData = GetActionData(ActionType.PlayerSpawn, spawnCode);
+            var actionData = GetActionData(CommandType.PlayerSpawn, spawnCode);
             // Debug.Log("Spawn spawnCode: " + spawnCode);
             // Debug.Log("Spawn actionData: " + actionData.ActionCode);
             // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);

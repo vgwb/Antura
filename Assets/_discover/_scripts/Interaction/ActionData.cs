@@ -5,12 +5,13 @@ using UnityEngine.Events;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public enum ActionType
+    public enum CommandType
     {
         Trigger = 1,
         UnityAction = 7,
         Area = 2,
         PlayerSpawn = 3,
+        SetRespawn = 11,
         Collect = 4,
         Target = 5,
         Activity = 6,
@@ -22,7 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
     [System.Serializable]
     public class ActionData
     {
-        public ActionType Type;
+        public CommandType Type;
         public string ActionCode;
         public GameObject mainObject;
         public GameObject Walls;
@@ -36,13 +37,13 @@ namespace Antura.Minigames.DiscoverCountry
     [System.Serializable]
     public class CommandData
     {
-        public ActionType Command;
+        public CommandType Command;
         public GameObject mainObject;
         public UnityEvent unityAction;
     }
 
     [System.Serializable]
-    public class ActionNewData
+    public class QuestActionData
     {
         public string ActionCode;
         public List<CommandData> Commands;
