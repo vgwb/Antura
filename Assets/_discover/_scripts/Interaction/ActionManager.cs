@@ -20,6 +20,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public ActionData[] Actions;
 
+        public ActionNewData[] ActionsNew;
+
         [Header("Specific")]
         private Transform target_AnturaLocation;
         public Transform Target_AnturaLocation { get => target_AnturaLocation; set => target_AnturaLocation = value; }
@@ -180,7 +182,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Spawn(string spawnCode)
         {
-            var actionData = GetActionData(ActionType.Spawn, spawnCode);
+            var actionData = GetActionData(ActionType.PlayerSpawn, spawnCode);
             // Debug.Log("Spawn spawnCode: " + spawnCode);
             // Debug.Log("Spawn actionData: " + actionData.ActionCode);
             // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
