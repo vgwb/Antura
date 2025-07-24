@@ -19,10 +19,11 @@ public static class HomerVars {
 
     public static bool IS_DESKTOP = false; 
     public static int QUEST_ITEMS = 0;
-    public static bool AGE = false; 
+    public static bool EASY_MODE = false; 
     public static int TOTAL_COINS = 0;
     public static string CMD = "";
     public static int COLLECTED_ITEMS = 0;
+    public static string CURRENT_ITEM = "";
     public static bool MET_GUIDE = false; 
     public static bool MET_MAJOR = false; 
     public static bool MET_MONALISA = false; 
