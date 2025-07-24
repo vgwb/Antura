@@ -35,10 +35,13 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
-        [Header("Unity Action")]
+        [Header("Unity Actions")]
         public bool ActivateUnityAction;
         [SerializeField] bool disableAfterAction;
         [SerializeField] UnityEvent unityAction;
+
+        [Header("Quest Actions")]
+        [SerializeField] QuestActionData QuestAction;
 
         [Header("Quest Node")]
         public bool ActivateNode;
