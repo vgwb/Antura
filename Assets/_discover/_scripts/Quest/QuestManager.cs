@@ -21,11 +21,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Quests Quests;
         public QuestData CurrentQuest;
-        public BonesCounter bonesCounter;
-        public BonesCounter coinsCounter;
-        public ItemsCounter itemsCounter;
-
-        public ProgressCounter progressCounter;
         public string LanguageCode = "";
         public string NativeLanguageCode = "";
         private GameObject currentNPC;
@@ -52,24 +47,6 @@ namespace Antura.Minigames.DiscoverCountry
             total_coins = 0;
             inventory = new Inventory();
             progress = new Progress();
-            if (coinsCounter == null)
-            {
-                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
-            }
-            if (bonesCounter == null)
-            {
-                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
-            }
-            if (itemsCounter == null)
-            {
-                itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
-                itemsCounter.gameObject.SetActive(false);
-            }
-
-            if (progressCounter == null)
-            {
-                progressCounter = GameObject.Find("ProgressCounter").GetComponent<ProgressCounter>();
-            }
 
             if (DebugQuest && DebugLanguage != "")
             {
@@ -170,7 +147,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnCollectBone(GameObject go)
         {
             total_bones++;
-            bonesCounter.IncreaseByOne();
+            UIManager.I.bonesCounter.IncreaseByOne();
             AppManager.I.Player.AddBones(1);
             Destroy(go);
         }
@@ -183,26 +160,26 @@ namespace Antura.Minigames.DiscoverCountry
         }
         public void UpateProgressCounter(int counter, int maxSteps)
         {
-            progressCounter.UpdateProgress(counter, maxSteps);
+            UIManager.I.progressCounter.UpdateProgress(counter, maxSteps);
         }
         public void UpateItemsCounter()
         {
             if (HomerVars.QUEST_ITEMS > 0)
             {
-                itemsCounter.gameObject.SetActive(true);
-                itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
-                itemsCounter.SetValue(HomerVars.COLLECTED_ITEMS);
+                UIManager.I.itemsCounter.gameObject.SetActive(true);
+                UIManager.I.itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
+                UIManager.I.itemsCounter.SetValue(HomerVars.COLLECTED_ITEMS);
             }
         }
         public void UpateCoinsCounter()
         {
-            coinsCounter.SetValue(HomerVars.TOTAL_COINS);
+            UIManager.I.coinsCounter.SetValue(HomerVars.TOTAL_COINS);
         }
         public void OnCollectCoin(GameObject go)
         {
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
-            coinsCounter.IncreaseByOne();
+            UIManager.I.coinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
             Destroy(go);
         }

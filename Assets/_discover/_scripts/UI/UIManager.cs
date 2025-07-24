@@ -3,6 +3,7 @@ using System.Collections;
 using Antura.Minigames.DiscoverCountry.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using Antura.UI;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -22,6 +23,14 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Navigator navigator;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
+
+        [Header("UI Elements")]
+        public BonesCounter bonesCounter;
+        public BonesCounter coinsCounter;
+        public ItemsCounter itemsCounter;
+        public ProgressCounter progressCounter;
+        public GameObject QuestObjective;
+        public GameObject InventoryItem;
 
         #endregion
 
@@ -56,6 +65,27 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
+
+            // init widgets
+            if (coinsCounter == null)
+            {
+                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
+            }
+            if (bonesCounter == null)
+            {
+                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
+            }
+            if (itemsCounter == null)
+            {
+                itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
+                itemsCounter.gameObject.SetActive(false);
+            }
+
+            if (progressCounter == null)
+            {
+                progressCounter = GameObject.Find("ProgressCounter").GetComponent<ProgressCounter>();
+            }
+
         }
 
         void OnDestroy()
@@ -71,7 +101,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void LateUpdate()
         {
-            if (navigatorMarker.IsShown) navigator.SetIndicators(navigatorMarker.OutHor, navigatorMarker.OutVert);
+            if (navigatorMarker.IsShown)
+                navigator.SetIndicators(navigatorMarker.OutHor, navigatorMarker.OutVert);
         }
 
         #endregion
@@ -85,9 +116,11 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.LogError("UIManager: you can't call ActivateWorldTargetIcon(TRUE) without passing a Transform");
                 return;
             }
-            
-            if (activate) navigatorMarker.Show(target);
-            else navigatorMarker.Hide();
+
+            if (activate)
+                navigatorMarker.Show(target);
+            else
+                navigatorMarker.Hide();
         }
 
         #endregion
