@@ -1605,7 +1605,8 @@ PrefabInstance:
       value: 7
       objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 559548867109005352, guid: cbbdddcdfdeb146409e3de6fafb3ae38, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 3102562681246376212, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
@@ -1652,20 +1653,35 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI Game
       objectReference: {fileID: 0}
-    - target: {fileID: 2713905604344944375, guid: e39f710d285d38544bc283f5e522411a,
+    - target: {fileID: 723856432770148397, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
-      propertyPath: TfCount
-      value: 
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3315989802304308986, guid: e39f710d285d38544bc283f5e522411a,
+        type: 3}
+      propertyPath: m_margin.w
+      value: 0.0000001182707
+      objectReference: {fileID: 0}
+    - target: {fileID: 3637631861650302314, guid: e39f710d285d38544bc283f5e522411a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -192
       objectReference: {fileID: 0}
     - target: {fileID: 4782876390662214510, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
       propertyPath: starterAssetsInputs
       value: 
       objectReference: {fileID: 6982812147441340503}
-    - target: {fileID: 5210432995265936615, guid: e39f710d285d38544bc283f5e522411a,
+    - target: {fileID: 5044983906383570126, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
-      propertyPath: TfCount
-      value: 
+      propertyPath: m_AnchoredPosition.x
+      value: -1199
+      objectReference: {fileID: 0}
+    - target: {fileID: 5044983906383570126, guid: e39f710d285d38544bc283f5e522411a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1259
       objectReference: {fileID: 0}
     - target: {fileID: 9168589735945033429, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
