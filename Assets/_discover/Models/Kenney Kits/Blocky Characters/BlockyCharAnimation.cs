@@ -80,19 +80,12 @@ namespace Antura.Animation
             if (npcAnimator == null)
                 return;
 
-            if (state == AnimationState.None)
-            {
-                npcAnimator.speed = 0f; // Pause the animator
-                return;
-            }
-            else
-            {
-                npcAnimator.speed = 1f; // Resume the animator
-            }
-
             string stateName = null;
             switch (state)
             {
+                case AnimationState.None:
+                    stateName = "static";
+                    break;
                 case AnimationState.Idle:
                     stateName = "idle";
                     break;
