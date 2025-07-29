@@ -24,7 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public new void Show(QuestNode node, bool UseLearningLanguage, bool isStartPanel, int totStars)
+        public void Show(QuestNode node, bool UseLearningLanguage, bool isStartPanel, int totStars)
         {
             if (isStartPanel)
             {
