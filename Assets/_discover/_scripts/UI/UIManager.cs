@@ -31,6 +31,7 @@ namespace Antura.Minigames.DiscoverCountry
         public ProgressCounter progressCounter;
         public GameObject QuestObjective;
         public GameObject InventoryItem;
+        public GameObject ActivityContainer;
 
         #endregion
 
