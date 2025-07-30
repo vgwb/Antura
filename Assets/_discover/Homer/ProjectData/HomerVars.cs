@@ -80,6 +80,7 @@ public static class HomerActors {
 }
 
 public static class HomerMeta {
+          public enum OBJECTIVE {}
           public enum NATIVE {}
           public enum ACTION_POST {}
           public enum IMAGE {}
@@ -150,9 +151,7 @@ public enum FlowSlug {
               FR_100_GEOGRAPHY = 17, 
               FR_101_MUSIC = 18, 
               PL_100_GEOGRAPHY = 19, 
-              DEV_VIERI = 20, 
-              DEV_VALERIA = 21, 
-              DEV_LORENZO = 22
+              DEV_VIERI = 20
 }
 }
 
