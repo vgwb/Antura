@@ -147,7 +147,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnCollectBone(GameObject go)
         {
             total_bones++;
-            UIManager.I.bonesCounter.IncreaseByOne();
+            UIManager.I.BonesCounter.IncreaseByOne();
             AppManager.I.Player.AddBones(1);
             Destroy(go);
         }
@@ -160,26 +160,26 @@ namespace Antura.Minigames.DiscoverCountry
         }
         public void UpateProgressCounter(int counter, int maxSteps)
         {
-            UIManager.I.progressCounter.UpdateProgress(counter, maxSteps);
+            UIManager.I.ProgressDisplay.UpdateProgress(counter, maxSteps);
         }
         public void UpateItemsCounter()
         {
             if (HomerVars.QUEST_ITEMS > 0)
             {
-                UIManager.I.itemsCounter.gameObject.SetActive(true);
-                UIManager.I.itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
-                UIManager.I.itemsCounter.SetValue(HomerVars.COLLECTED_ITEMS);
+                UIManager.I.ObjectiveDisplay.gameObject.SetActive(true);
+                UIManager.I.ObjectiveDisplay.SetMax(HomerVars.QUEST_ITEMS);
+                UIManager.I.ObjectiveDisplay.SetValue(HomerVars.COLLECTED_ITEMS);
             }
         }
         public void UpateCoinsCounter()
         {
-            UIManager.I.coinsCounter.SetValue(HomerVars.TOTAL_COINS);
+            UIManager.I.CoinsCounter.SetValue(HomerVars.TOTAL_COINS);
         }
         public void OnCollectCoin(GameObject go)
         {
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
-            UIManager.I.coinsCounter.IncreaseByOne();
+            UIManager.I.CoinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
             Destroy(go);
         }

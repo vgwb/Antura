@@ -1,5 +1,6 @@
-﻿using Antura.Audio;
+using Antura.Audio;
 using Antura.Core;
+using Antura.UI;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
@@ -10,25 +11,26 @@ namespace Antura.Minigames.DiscoverCountry
     /// Shows the number of bones obtained.
     /// Used in the GameResultUI.
     /// </summary>
-    public class ItemsCounter : MonoBehaviour
+    public class ObjectiveDisplay : MonoBehaviour
     {
-        [Header("Setup")]
-        public bool AutoSetup;
 
         [Header("References")]
+        public TextRender ObjectiveText;
+        public GameObject CounterGO;
         public TextMeshProUGUI TfCount;
         public RectTransform BoneImg;
 
-        int totBones
+        int totItems
         {
             get { return fooTotBones; }
             set
             {
                 fooTotBones = value;
-                TfCount.text = value.ToString();
+                TfCount.text = value.ToString() + "/" + maxItems;
             }
         }
 
+        int maxItems;
         int fooTotBones;
         bool setupDone;
         Tween showTween, increaseTween;
@@ -37,15 +39,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            if (AutoSetup)
-            {
-                Show(true);
-            }
-            else
-            {
-                // this should be called.. left here for rtetrocompatibility
-                Setup();
-            }
+            Setup();
+
         }
 
         void Setup()
@@ -60,6 +55,8 @@ namespace Antura.Minigames.DiscoverCountry
                 .OnRewind(() => this.gameObject.SetActive(false));
             showTween.Complete();
             increaseTween = BoneImg.transform.DOPunchScale(Vector3.one * 0.15f, 0.35f).SetAutoKill(false).Pause();
+
+            this.gameObject.SetActive(false);
         }
 
         void OnDestroy()
@@ -75,8 +72,6 @@ namespace Antura.Minigames.DiscoverCountry
         public void Show(bool _setValueAuto = true)
         {
             Setup();
-            if (_setValueAuto)
-            { SetValueAuto(); }
             this.gameObject.SetActive(true);
             showTween.PlayForward();
         }
@@ -89,26 +84,25 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.Rewind();
         }
 
-        public void SetValueAuto()
+        public void SetMax(int _bones)
         {
-            totBones = AppManager.I.Player.GetTotalNumberOfBones();
+            maxItems = _bones;
         }
-
         public void SetValue(int _bones)
         {
-            totBones = _bones;
+            totItems = _bones;
         }
 
         public void DecreaseBy(int _by)
         {
-            totBones -= _by;
+            totItems -= _by;
         }
 
         public void IncreaseByOne(bool _animate = true)
         {
             increaseTween.Restart();
             AudioManager.I.PlaySound(Sfx.Blip);
-            totBones++;
+            totItems++;
         }
 
         //        public void AnimateIncreaseToCurrent(int _by)
@@ -118,6 +112,13 @@ namespace Antura.Minigames.DiscoverCountry
         //            }).SetEase(Ease.Linear).OnKill(()=> increaseTween = null);
         //        }
 
+
+        public void OnClick()
+        {
+            Debug.Log("ObjectiveDisplay OnClick called");
+            // This method can be used to handle click events on the ObjectiveDisplay.
+            // For example, it could open a detailed view of the objectives or show a tooltip.
+        }
         #endregion
     }
 }

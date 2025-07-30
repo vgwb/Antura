@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
-    public class ProgressCounter : MonoBehaviour
+    public class ProgressDisplay : MonoBehaviour
     {
 
         [Header("References")]

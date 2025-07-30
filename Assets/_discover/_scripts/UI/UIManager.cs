@@ -25,13 +25,11 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] GameObject[] hideDuringDialogue;
 
         [Header("UI Elements")]
-        public BonesCounter bonesCounter;
-        public BonesCounter coinsCounter;
-        public ItemsCounter itemsCounter;
-        public ProgressCounter progressCounter;
-        public GameObject QuestObjective;
-        public GameObject InventoryItem;
-        public GameObject ActivityContainer;
+        public ItemsCounter BonesCounter;
+        public ItemsCounter CoinsCounter;
+        public ObjectiveDisplay ObjectiveDisplay;
+        public ProgressDisplay ProgressDisplay;
+        public InventoryDisplay InventoryDisplay;
 
         #endregion
 
@@ -68,23 +66,23 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
 
             // init widgets
-            if (coinsCounter == null)
+            if (CoinsCounter == null)
             {
-                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
+                CoinsCounter = GameObject.Find("CoinsCounter").GetComponent<ItemsCounter>();
             }
-            if (bonesCounter == null)
+            if (BonesCounter == null)
             {
-                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
+                BonesCounter = GameObject.Find("BonesCounter").GetComponent<ItemsCounter>();
             }
-            if (itemsCounter == null)
+            if (ObjectiveDisplay == null)
             {
-                itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
-                itemsCounter.gameObject.SetActive(false);
+                ObjectiveDisplay = GameObject.Find("ItemsCounter").GetComponent<ObjectiveDisplay>();
+                ObjectiveDisplay.gameObject.SetActive(false);
             }
 
-            if (progressCounter == null)
+            if (ProgressDisplay == null)
             {
-                progressCounter = GameObject.Find("ProgressCounter").GetComponent<ProgressCounter>();
+                ProgressDisplay = GameObject.Find("ProgressCounter").GetComponent<ProgressDisplay>();
             }
 
         }
