@@ -1,6 +1,7 @@
 using Antura.Audio;
 using Antura.Core;
 using Antura.Keeper;
+using Demigiant.DemiTools;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,13 @@ namespace Antura.UI
     /// </summary>
     public class PauseMenu : MonoBehaviour
     {
+        #region EVENTS
+
+        /// <summary>Param: TRUE when pauses, FALSE when unpaused</summary>
+        public ActionEvent<bool> OnPauseToggled = new("PauseMenu.OnPauseToggle");
+
+        #endregion
+        
         public static PauseMenu I;
 
         [Header("Buttons")]
@@ -153,6 +161,8 @@ namespace Antura.UI
                 openMenuTween.PlayBackwards();
                 AudioManager.I.PlaySound(Sfx.UIPauseOut);
             }
+            
+            OnPauseToggled.Dispatch(_open);
         }
 
         public void SetType(PauseMenuType _type)
