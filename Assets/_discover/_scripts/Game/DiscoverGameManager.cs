@@ -11,7 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
         Setup, // setup here we set things useful for gameplay
         Intro, // intro state
         Play3D, // here we play in the world
-        Play2D, // here we play a 2D game
+        PlayActivity, // here we play a 2D activity
         Map, // here if we're in the world map
         Dialogue, // all dialogues magic dialogs are here
         End, // end the game, show results
@@ -32,7 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
             State = GameplayState.None;
 
             yield return new WaitForSeconds(0.5f);
-            
+
             // TODO > Set to Play3D at the right time, after eventual Intro etc.
             DiscoverGameManager.I.ChangeState(GameplayState.Play3D, true);
         }
@@ -45,7 +45,8 @@ namespace Antura.Minigames.DiscoverCountry
         /// <summary>Changing state takes one frame unless forced to be immediate</summary>
         public void ChangeState(GameplayState newState, bool immediate = false)
         {
-            if (newState == State) return;
+            if (newState == State)
+                return;
 
             this.RestartCoroutine(ref coChangeState, CO_ChangeState(newState, immediate));
         }
@@ -56,25 +57,25 @@ namespace Antura.Minigames.DiscoverCountry
                 State = GameplayState.Changing;
                 yield return null;
             }
-            
+
             // Store last play state
             switch (newState)
             {
                 case GameplayState.Play3D:
-                case GameplayState.Play2D:
+                case GameplayState.PlayActivity:
                     LastPlayState = newState;
                     break;
                 default:
                     switch (State)
                     {
                         case GameplayState.Play3D:
-                        case GameplayState.Play2D:
+                        case GameplayState.PlayActivity:
                             LastPlayState = State;
                             break;
                     }
                     break;
             }
-            
+
             State = newState;
         }
     }
