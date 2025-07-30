@@ -231,12 +231,13 @@ namespace Antura.Minigames.DiscoverCountry
 
             node.Image = GetImage(runner.Node._image);
             node.ImageTitle = ""; // TODO
+            node.Objective = GetMetadata("OBJECTIVE", runner.Node._metadata);
+            node.NextTarget = GetMetadata("NEXTTARGET", runner.Node._metadata);
             node.Action = GetMetadata("ACTION", runner.Node._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);
             node.BalloonType = GetMetadata("BALLOON_TYPE", runner.Node._metadata);
             node.Mood = GetMetadata("MOOD", runner.Node._metadata);
             node.Native = GetMetadata("NATIVE", runner.Node._metadata) == "native";
-            node.NextTarget = GetMetadata("NEXTTARGET", runner.Node._metadata);
 
             switch (runner.Node.GetNodeType())
             {
