@@ -5,6 +5,7 @@ using System.Linq;
 using UnityEngine;
 using DG.DeInspektor.Attributes;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using Antura.Minigames.DiscoverCountry;
 
 namespace Homer
@@ -33,7 +34,7 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        public void ListAllPermalinks()
+        public void PermalinkListAll()
         {
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
@@ -48,7 +49,7 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        public void CheckNotUsedPermalinks()
+        public void PermalinkCheckNotUsed()
         {
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
@@ -69,7 +70,7 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        public void VerifyUsedPermalinks()
+        public void PermalinkVerifyUsed()
         {
             Debug.Log("Verify Used Permalinks of Quest " + SelectedFlow);
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
@@ -86,6 +87,129 @@ namespace Homer
                 {
                     Debug.LogError($"WRONG permalink: {interactable.NodePermalink} in {interactable.gameObject.name}");
                 }
+            }
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void ObjectivesList()
+        {
+            var project = JObject.Parse(Homer.text);
+
+            // Find the selected flow by slug
+            var flows = project["_flows"] as JArray;
+            var flow = flows?.FirstOrDefault(f => (string)f["_slug"] == SelectedFlow.ToString());
+            if (flow == null)
+            {
+                Debug.LogWarning("Flow not found: " + SelectedFlow);
+                return;
+            }
+
+            // Build a dictionary of Objective metadata values by ID
+            var metaDict = new Dictionary<string, JObject>();
+            foreach (var meta in project["_metadata"] as JArray)
+            {
+                if ((string)meta["_uid"] == "OBJECTIVE")
+                {
+                    foreach (var val in meta["_values"] as JArray)
+                    {
+                        metaDict[(string)val["_id"]] = (JObject)val;
+                    }
+                }
+            }
+
+            // Find all objective IDs in nodes
+            var objectives = new HashSet<string>();
+            foreach (var node in flow["_nodes"] as JArray)
+            {
+                var metadata = node["_metadata"] as JArray;
+                if (metadata == null)
+                    continue;
+                foreach (var metaId in metadata)
+                {
+                    var id = (string)metaId;
+                    if (id.StartsWith("MV-") && metaDict.ContainsKey(id))
+                    {
+                        objectives.Add(id);
+                    }
+                }
+            }
+
+            // Output resolved objectives
+            if (objectives.Count == 0)
+            {
+                Debug.Log("No Objectives found in flow: " + SelectedFlow);
+            }
+            else
+            {
+                var output = "TOTAL: " + objectives.Count() + " Objectives in Quest " + SelectedFlow + ":\n";
+                foreach (var id in objectives)
+                {
+                    var meta = metaDict[id];
+                    output += $"- {meta["_value"]}\n";// ({meta["_uid"]}) [{id}]\n";
+                }
+                Debug.Log(output);
+            }
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void ActionsList()
+        {
+            var project = JObject.Parse(Homer.text);
+
+            // Find the selected flow by slug
+            var flows = project["_flows"] as JArray;
+            var flow = flows?.FirstOrDefault(f => (string)f["_slug"] == SelectedFlow.ToString());
+            if (flow == null)
+            {
+                Debug.LogWarning("Flow not found: " + SelectedFlow);
+                return;
+            }
+
+            // Build a dictionary of Action metadata values by ID (ACTION and ACTION_POST)
+            var actionDict = new Dictionary<string, JObject>();
+            foreach (var meta in project["_metadata"] as JArray)
+            {
+                if ((string)meta["_uid"] == "ACTION" || (string)meta["_uid"] == "ACTION_POST")
+                {
+                    foreach (var val in meta["_values"] as JArray)
+                    {
+                        actionDict[(string)val["_id"]] = (JObject)val;
+                    }
+                }
+            }
+
+            // Find all action IDs in nodes
+            var actions = new HashSet<string>();
+            foreach (var node in flow["_nodes"] as JArray)
+            {
+                var metadata = node["_metadata"] as JArray;
+                if (metadata == null)
+                    continue;
+                foreach (var metaId in metadata)
+                {
+                    var id = (string)metaId;
+                    if ((id.StartsWith("MTV-") || id.StartsWith("MV-")) && actionDict.ContainsKey(id))
+                    {
+                        actions.Add(id);
+                    }
+                }
+            }
+
+            // Output resolved actions
+            if (actions.Count == 0)
+            {
+                Debug.Log("No Actions found in flow: " + SelectedFlow);
+            }
+            else
+            {
+                var output = "TOTAL: " + actions.Count() + " Actions in Quest " + SelectedFlow + ":\n";
+
+                foreach (var id in actions)
+                {
+                    var meta = actionDict[id];
+                    output += $"- {meta["_value"]}\n"; // ({meta["_uid"]}) [{id}]\n";
+                }
+                Debug.Log(output);
             }
         }
 
