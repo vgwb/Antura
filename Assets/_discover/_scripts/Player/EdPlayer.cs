@@ -143,7 +143,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Move()
         {
-            if (DiscoverGameManager.I.State == GameplayState.Dialogue) return;
+            if (DiscoverGameManager.I.State != GameplayState.Play3D) return;
 
             bool isSprinting = _input.sprint;
 

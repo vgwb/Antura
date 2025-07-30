@@ -118,7 +118,7 @@ namespace Antura.Minigames.DiscoverCountry
         bool manualRotate;
         void Update()
         {
-            if (Active)
+            if (Active && DiscoverGameManager.I.State == GameplayState.Play3D)
             {
                 camTarget.position = camTargetOriginalParent.position + camTargetOffset;
                 if (interactionLayer == InteractionLayer.Movement)
