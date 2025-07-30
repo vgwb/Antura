@@ -878,12 +878,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Asset: {fileID: -944628639613478452, guid: 8c34bd7253a2a4f71bace394c767e9f9, type: 3}
   m_ActionId: dad70c86-b58c-4b17-88ad-f5e53adf419e
---- !u!1 &1815106107 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3375604260498320782, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
-    type: 3}
-  m_PrefabInstance: {fileID: 1506024627799980340}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1919941584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1223,21 +1217,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 6252049910574395314, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
-        type: 3}
-      propertyPath: QuestActions.Array.data[0].Commands.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252049910574395314, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
-        type: 3}
-      propertyPath: QuestActions.Array.data[0].Commands.Array.data[1].Command
-      value: 6
-      objectReference: {fileID: 0}
-    - target: {fileID: 6252049910574395314, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
-        type: 3}
-      propertyPath: QuestActions.Array.data[0].Commands.Array.data[1].mainObject
-      value: 
-      objectReference: {fileID: 1815106107}
     - target: {fileID: 7852336736997035817, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: m_Name
@@ -1247,6 +1226,14 @@ PrefabInstance:
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 8153878103852804287, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 2049336759922689999, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 1498796291274551470, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       insertIndex: -1
