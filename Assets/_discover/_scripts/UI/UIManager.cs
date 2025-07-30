@@ -65,25 +65,6 @@ namespace Antura.Minigames.DiscoverCountry
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
 
-            // init widgets
-            if (CoinsCounter == null)
-            {
-                CoinsCounter = GameObject.Find("CoinsCounter").GetComponent<ItemsCounter>();
-            }
-            if (BonesCounter == null)
-            {
-                BonesCounter = GameObject.Find("BonesCounter").GetComponent<ItemsCounter>();
-            }
-            if (ObjectiveDisplay == null)
-            {
-                ObjectiveDisplay = GameObject.Find("ItemsCounter").GetComponent<ObjectiveDisplay>();
-                ObjectiveDisplay.gameObject.SetActive(false);
-            }
-
-            if (ProgressDisplay == null)
-            {
-                ProgressDisplay = GameObject.Find("ProgressCounter").GetComponent<ProgressDisplay>();
-            }
 
         }
 
