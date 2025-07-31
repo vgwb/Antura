@@ -19,9 +19,9 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("The starting location of the player")]
         public GameObject PlayerSpawnPoint;
 
-        public ActionData[] Actions;
-
         public QuestActionData[] QuestActions;
+
+        public ActionData[] Actions;
 
         [Header("Specific")]
         private Transform target_AnturaLocation;
@@ -87,10 +87,14 @@ namespace Antura.Minigames.DiscoverCountry
             }
             else
             {
-                ResolveAction("area_init");
+                ResolveQuestAction("init");
             }
         }
 
+        private void SetPlayerSpawnPoint(GameObject spawnPoint)
+        {
+            PlayerSpawnPoint = spawnPoint;
+        }
         public void RespawnPlayer()
         {
             if (PlayerSpawnPoint != null)
@@ -109,11 +113,11 @@ namespace Antura.Minigames.DiscoverCountry
             return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
         }
 
-        public void ResolveQuestAction(string action, QuestNode node)
+        public void ResolveQuestAction(string action, QuestNode node = null)
         {
             action = action.ToLower();
 
-            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode == action);
+            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
             if (actionData == null)
             {
                 Debug.LogError("Action not found: " + action);
@@ -121,14 +125,21 @@ namespace Antura.Minigames.DiscoverCountry
             }
 
             if (QuestManager.I.DebugQuest)
-                Debug.Log("Resolve Quest Action Data: " + actionData.ActionCode);
+                Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
 
             foreach (var command in actionData.Commands)
             {
+                if (command.Disabled)
+                {
+                    if (QuestManager.I.DebugQuest)
+                        Debug.Log("Command is disabled: " + command.Command);
+                    continue;
+                }
                 switch (command.Command)
                 {
                     case CommandType.UnityAction:
-                        command.unityAction.Invoke();
+                        if (command.unityAction != null)
+                            command.unityAction.Invoke();
                         break;
                     case CommandType.InventoryAdd:
                         QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
@@ -140,16 +151,22 @@ namespace Antura.Minigames.DiscoverCountry
                         QuestManager.I.OnCollectBones(1);
                         break;
                     case CommandType.Trigger:
-                        Trigger(command.mainObject.name);
+                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
                         break;
                     case CommandType.Area:
                         ActivateArea(command.mainObject.name);
                         break;
+                    case CommandType.SetRespawn:
+                        SetPlayerSpawnPoint(command.mainObject);
+                        break;
                     case CommandType.PlayerSpawn:
-                        Spawn(command.mainObject.name);
+                        RespawnPlayer();
                         break;
                     case CommandType.Collect:
                         Collect(command.mainObject.name);
+                        break;
+                    case CommandType.Activity:
+                        command.mainObject.GetComponent<ActivityPanel>().Open();
                         break;
                     default:
                         Debug.LogError("Unknown command type: " + command.Command);
@@ -161,10 +178,11 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void ResolveObjective(QuestNode node)
         {
-            if (node.Objective == null)
-                return;
             if (QuestManager.I.DebugQuest)
                 Debug.Log("Resolve Objective: " + node.Objective);
+
+            if (node.Objective == null)
+                return;
 
             UIManager.I.ObjectiveDisplay.Show(node.Objective, 0);
 
@@ -245,23 +263,12 @@ namespace Antura.Minigames.DiscoverCountry
         private void Spawn(string spawnCode)
         {
             var actionData = GetActionData(CommandType.PlayerSpawn, spawnCode);
-            // Debug.Log("Spawn spawnCode: " + spawnCode);
-            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
-            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
-            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
 
             PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
         }
 
         private void Collect(string collectCode)
         {
-            //var actionData = GetActionData(ActionType.Spawn, spawnCode);
-            // Debug.Log("Spawn spawnCode: " + spawnCode);
-            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
-            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
-            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
-
-            //Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
             QuestManager.I.OnCollectItemCode(collectCode);
         }
 

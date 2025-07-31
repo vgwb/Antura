@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using DG.DeInspektor.Attributes;
 
 namespace Antura.Minigames.DiscoverCountry
 {
@@ -39,6 +40,9 @@ namespace Antura.Minigames.DiscoverCountry
     {
         public CommandType Command;
         public GameObject mainObject;
+        [Tooltip("Do not execute this command")]
+        public bool Disabled = false;
+        [Tooltip("Executes only if Commant = UnityAction")]
         public UnityEvent unityAction;
     }
 

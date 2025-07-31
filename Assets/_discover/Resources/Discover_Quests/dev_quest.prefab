@@ -201,9 +201,7 @@ MonoBehaviour:
   unityAction:
     m_PersistentCalls:
       m_Calls: []
-  QuestAction:
-    ActionCode: 
-    Commands: []
+  QuestAction: 
   ActivateNode: 1
   NodePermalink: quiz_test
   NodeCommand: 
@@ -396,7 +394,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da3dfba2faef74182a5d832dca3f8f5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugArea: 
+  DebugAction: 
   PlayerSpawnPoint: {fileID: 0}
   Actions:
   - Type: 1
@@ -425,11 +423,13 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+      Disabled: 0
     - Command: 6
       mainObject: {fileID: 3375604260498320782}
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+      Disabled: 1
   - ActionCode: OPEN_DOOR
     Commands:
     - Command: 7
@@ -437,6 +437,7 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+      Disabled: 0
   - ActionCode: CLOSE_DOOR
     Commands:
     - Command: 7
@@ -444,6 +445,63 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+      Disabled: 0
+  - ActionCode: pre_actions
+    Commands:
+    - Command: 10
+      mainObject: {fileID: 0}
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+      Disabled: 0
+    - Command: 1
+      mainObject: {fileID: 6393334369503146110}
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+      Disabled: 0
+  - ActionCode: post_actions
+    Commands:
+    - Command: 7
+      mainObject: {fileID: 6393334369503146110}
+      unityAction:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6457999427540476035}
+            m_TargetAssemblyTypeName: Antura.Minigames.DiscoverCountry.Interaction.ActionAbstract,
+              Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Disabled: 0
+  - ActionCode: activity_test
+    Commands:
+    - Command: 7
+      mainObject: {fileID: 6393334369503146110}
+      unityAction:
+        m_PersistentCalls:
+          m_Calls:
+          - m_Target: {fileID: 6457999427540476035}
+            m_TargetAssemblyTypeName: Antura.Minigames.DiscoverCountry.Interaction.ActionAbstract,
+              Assembly-CSharp
+            m_MethodName: Trigger
+            m_Mode: 1
+            m_Arguments:
+              m_ObjectArgument: {fileID: 0}
+              m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+              m_IntArgument: 0
+              m_FloatArgument: 0
+              m_StringArgument: 
+              m_BoolArgument: 0
+            m_CallState: 2
+      Disabled: 0
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
 --- !u!1001 &2125360786987024156

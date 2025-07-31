@@ -28,17 +28,18 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Init()
         {
-            if (initialized) return;
+            if (initialized)
+                return;
 
             initialized = true;
-            
+
             activityBase = this.GetComponentInChildren<ActivityBase>();
             if (activityBase == null)
             {
                 Debug.LogError($"ActivityPanel: couldn't find ActivityBase child");
                 return;
             }
-            
+
             overlay = this.GetComponentInChildren<ActivityOverlay>();
             if (overlay == null)
             {
@@ -57,7 +58,7 @@ namespace Antura.Minigames.DiscoverCountry
             overlay.BtClose.onClick.AddListener(Hide);
             overlay.BtHelp.onClick.AddListener(activityBase.ToggleHelp);
             overlay.BtValidate.onClick.AddListener(activityBase.Validate);
-            
+
             GlobalUI.PauseMenu.OnPauseToggled.Subscribe(OnGlobalPauseToggled);
             overlay.Timer.OnTimerElapsed.Subscribe(OnTimerElapsed);
         }
@@ -71,6 +72,11 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Public Methods
+
+        public void Open()
+        {
+            Show();
+        }
 
         /// <summary>
         /// Shows the activity panel and uses the timer options set via Inspector
@@ -105,7 +111,7 @@ namespace Antura.Minigames.DiscoverCountry
             overlay.Timer.CancelTimer();
             DoShow(false);
         }
-        
+
         /// <summary>
         /// Enables/disables the validate button in the Overlay
         /// </summary>
@@ -144,25 +150,29 @@ namespace Antura.Minigames.DiscoverCountry
         {
             this.gameObject.SetActive(show);
             EnableValidateButton(false);
-            
+
             // TODO: Animate in/out
         }
 
         #endregion
 
         #region Callbacks
-        
+
         void OnGlobalPauseToggled(bool paused)
         {
-            if (!currHasTimer) return;
-            
-            if (paused) PauseTimer();
-            else ResumeTimer();
+            if (!currHasTimer)
+                return;
+
+            if (paused)
+                PauseTimer();
+            else
+                ResumeTimer();
         }
 
         void OnTimerElapsed()
         {
-            if (activityBase != null) activityBase.TimerElapsed();
+            if (activityBase != null)
+                activityBase.TimerElapsed();
         }
 
         #endregion

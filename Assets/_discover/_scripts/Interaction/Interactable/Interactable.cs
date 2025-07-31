@@ -41,7 +41,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] UnityEvent unityAction;
 
         [Header("Quest Actions")]
-        [SerializeField] QuestActionData QuestAction;
+        [SerializeField] string QuestAction;
 
         [Header("Quest Node")]
         public bool ActivateNode;
@@ -136,8 +136,15 @@ namespace Antura.Minigames.DiscoverCountry
             QuestNode node = null;
             if (ActivateNode)
                 node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
+
             if (ActivateUnityAction)
                 LaunchUnityAction();
+
+            if (QuestAction != "")
+            {
+                ActionManager.I.ResolveAction(QuestAction);
+            }
+
             if (disableAfterAction)
                 this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
             return node;
