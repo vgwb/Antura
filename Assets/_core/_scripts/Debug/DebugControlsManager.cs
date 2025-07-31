@@ -114,7 +114,7 @@ namespace Antura.Debugging
             }
 
             _I = this;
-            Debug.Log("<size=20><color=#d8249c>DEBUG SHORTCUTS enabled:</color> press <b>SHIFT + C</b></size>");
+            Debug.Log("<color=#d8249c>DEBUG SHORTCUTS enabled:</color> press <b>SHIFT + C</b>");
         }
 
         void Start()
