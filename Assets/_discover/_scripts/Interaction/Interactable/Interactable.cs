@@ -142,7 +142,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (QuestAction != "")
             {
-                ActionManager.I.ResolveAction(QuestAction);
+                ActionManager.I.ResolveQuestAction(QuestAction);
             }
 
             if (disableAfterAction)
