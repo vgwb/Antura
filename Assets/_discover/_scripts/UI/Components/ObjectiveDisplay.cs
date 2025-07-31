@@ -69,9 +69,21 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
-        public void Show(bool _setValueAuto = true)
+        public void Show(string objectiveText, int _maxItems)
         {
             Setup();
+
+            ObjectiveText.text = objectiveText;
+            maxItems = _maxItems;
+            totItems = 0;
+            if (maxItems <= 0)
+            {
+                CounterGO.SetActive(false);
+            }
+            else
+            {
+                CounterGO.SetActive(true);
+            }
             this.gameObject.SetActive(true);
             showTween.PlayForward();
         }
@@ -104,14 +116,6 @@ namespace Antura.Minigames.DiscoverCountry
             AudioManager.I.PlaySound(Sfx.Blip);
             totItems++;
         }
-
-        //        public void AnimateIncreaseToCurrent(int _by)
-        //        {
-        //            increaseTween = DOVirtual.Float(totBones, totBones + _by, 0.35f, x => {
-        //                totBones = Mathf.RoundToInt(x);
-        //            }).SetEase(Ease.Linear).OnKill(()=> increaseTween = null);
-        //        }
-
 
         public void OnClick()
         {

@@ -36,5 +36,20 @@ namespace Antura.Minigames.DiscoverCountry
                 return true;
             }
         }
+
+        public bool RemoveItem(string itemCode)
+        {
+            if (collectedItems.Contains(itemCode))
+            {
+                collectedItems.Remove(itemCode);
+                Debug.Log($"Item {itemCode} removed successfully.");
+                return true;
+            }
+            else
+            {
+                Debug.LogWarning($"Item {itemCode} not found in inventory.");
+                return false;
+            }
+        }
     }
 }

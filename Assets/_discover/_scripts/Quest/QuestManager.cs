@@ -110,7 +110,7 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnNodeStart(QuestNode node)
         {
             if (node.Action != null)
-                ActionManager.I.ResolveAction(node.Action, node.Permalink);
+                ActionManager.I.ResolveQuestAction(node.Action, node);
 
             if (node.Permalink != "")
                 progress.VisitNode(node.Permalink);
@@ -119,9 +119,11 @@ namespace Antura.Minigames.DiscoverCountry
         public void OnNodeEnd(QuestNode node)
         {
             if (node.NextTarget != null)
-                ActionManager.I.CameraShowTarget(node.NextTarget);
+                ActionManager.I.ResolveNextTarget(node.NextTarget);
+            if (node.Objective != null)
+                ActionManager.I.ResolveObjective(node);
             if (node.ActionPost != null)
-                ActionManager.I.ResolveAction(node.ActionPost, node.Permalink);
+                ActionManager.I.ResolveQuestAction(node.ActionPost, node);
         }
 
         public void OnCollectItemCode(string itemCode)
@@ -131,6 +133,17 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.Log("Collect item " + itemCode);
 
                 collected_items++;
+                HomerVars.COLLECTED_ITEMS = collected_items;
+                UpateItemsCounter();
+            }
+        }
+
+        public void RemoveItemCode(string itemCode)
+        {
+            if (inventory != null && inventory.RemoveItem(itemCode))
+            {
+                Debug.Log("Remove item " + itemCode);
+                collected_items--;
                 HomerVars.COLLECTED_ITEMS = collected_items;
                 UpateItemsCounter();
             }
@@ -150,6 +163,13 @@ namespace Antura.Minigames.DiscoverCountry
             UIManager.I.BonesCounter.IncreaseByOne();
             AppManager.I.Player.AddBones(1);
             Destroy(go);
+        }
+
+        public void OnCollectBones(int bones)
+        {
+            total_bones = total_bones + bones;
+            UIManager.I.BonesCounter.SetValue(total_bones);
+            AppManager.I.Player.AddBones(bones);
         }
 
         private void updateCounters()
