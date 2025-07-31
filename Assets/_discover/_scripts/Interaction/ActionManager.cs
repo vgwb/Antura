@@ -101,13 +101,9 @@ namespace Antura.Minigames.DiscoverCountry
         {
             action = action.ToLower();
 
-            if (action == "update_items")
+            if (action == "update_ui")
             {
                 QuestManager.I.UpateItemsCounter();
-                return;
-            }
-            else if (action == "update_coins")
-            {
                 QuestManager.I.UpateCoinsCounter();
                 return;
             }

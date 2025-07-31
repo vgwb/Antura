@@ -6,7 +6,6 @@ namespace Antura.Minigames.DiscoverCountry
     {
         void Start()
         {
-
         }
 
         #region Public Methods
