@@ -16,7 +16,6 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] bool hasTimer;
         [Range(1, 600)]
         [SerializeField] int timerSeconds = 60;
-
         #endregion
 
         bool initialized;

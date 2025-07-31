@@ -1,9 +1,16 @@
+using DG.DeInspektor.Attributes;
 using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
     public class ActivityBase : MonoBehaviour
     {
+        [Header("Common properties")]
+        [Range(1, 600)]
+        [SerializeField] int timerSeconds = 60;
+
+        [SerializeField] GameObject HelpPanel;
+
         void Start()
         {
         }
@@ -16,8 +23,7 @@ namespace Antura.Minigames.DiscoverCountry
         /// </summary>
         public void ToggleHelp()
         {
-            // TODO: Toggle customized help
-            Debug.LogWarning("ActivityBase: should toggle help");
+
         }
 
         /// <summary>
