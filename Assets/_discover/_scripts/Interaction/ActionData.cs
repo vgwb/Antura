@@ -20,6 +20,7 @@ namespace Antura.Minigames.DiscoverCountry
         InventoryRemove = 9,
         Bones = 10,
         End = 12,
+        PlaySfx = 13,
 
     }
 

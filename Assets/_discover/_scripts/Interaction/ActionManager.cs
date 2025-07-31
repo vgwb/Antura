@@ -32,7 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private EdPlayer PlayerController;
 
-        private GameObject currentInvisibleWalls;
+        private GameObject currentArea;
 
         void Awake()
         {
@@ -50,22 +50,6 @@ namespace Antura.Minigames.DiscoverCountry
         IEnumerator Start()
         {
             PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
-
-            // if (!QuestManager.I.DebugQuest)
-            // {
-            //     foreach (var action in Actions)
-            //     {
-            //         if (action.Type == CommandType.Area)
-            //         {
-            //             if (action.Area != null)
-            //                 action.Area?.SetActive(false);
-            //             if (action.Beam != null)
-            //                 action.Beam.SetActive(false);
-            //             if (action.Walls != null)
-            //                 action.Walls.SetActive(false);
-            //         }
-            //     }
-            // }
 
             Target_AnturaLocation = null;
             if (AnturaDog != null)
@@ -171,7 +155,7 @@ namespace Antura.Minigames.DiscoverCountry
                             command.mainObject.GetComponent<ActionAbstract>().Trigger();
                             break;
                         case CommandType.Area:
-                            ActivateArea(command.mainObject.name);
+                            ChangeArea(command.mainObject);
                             break;
                         case CommandType.SetRespawn:
                             SetPlayerSpawnPoint(command.mainObject);
@@ -184,6 +168,9 @@ namespace Antura.Minigames.DiscoverCountry
                             break;
                         case CommandType.Activity:
                             command.mainObject.GetComponent<ActivityPanel>().Open();
+                            break;
+                        case CommandType.PlaySfx:
+                            command.mainObject.GetComponent<ActionAbstract>().Trigger();
                             break;
                         case CommandType.End:
                             command.mainObject.GetComponent<ActivityPanel>().Open();
@@ -205,7 +192,6 @@ namespace Antura.Minigames.DiscoverCountry
                 return;
 
             UIManager.I.ObjectiveDisplay.Show(node.Objective, 0);
-
         }
 
         public void ResolveNextTarget(string targetArea)
@@ -229,6 +215,16 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
             }
+        }
+
+        private void ChangeArea(GameObject area)
+        {
+            if (currentArea != null)
+            {
+                currentArea.SetActive(false);
+            }
+            currentArea = area;
+            currentArea.SetActive(true);
         }
 
         private void ActivateArea(string targetArea)
@@ -260,12 +256,7 @@ namespace Antura.Minigames.DiscoverCountry
 
                 if (actionData.Walls != null)
                 {
-                    if (currentInvisibleWalls != null)
-                    {
-                        currentInvisibleWalls.SetActive(false);
-                    }
-                    currentInvisibleWalls = actionData.Walls;
-                    currentInvisibleWalls.SetActive(true);
+
                 }
 
                 if (actionData.SpawnPlayer != null)
