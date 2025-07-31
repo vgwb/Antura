@@ -134,6 +134,7 @@ namespace Antura.Minigames.DiscoverCountry
 
                 collected_items++;
                 HomerVars.COLLECTED_ITEMS = collected_items;
+                HomerVars.CURRENT_ITEM = itemCode;
                 UpateItemsCounter();
             }
         }
@@ -145,6 +146,7 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.Log("Remove item " + itemCode);
                 collected_items--;
                 HomerVars.COLLECTED_ITEMS = collected_items;
+                HomerVars.CURRENT_ITEM = "";
                 UpateItemsCounter();
             }
         }
