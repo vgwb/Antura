@@ -126,6 +126,7 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     SetupCurrentFlow(flowSlug);
                     runningFlow.SelectedNode = HomerNodeRunning.Instantiate(homerNode, runningFlow);
+                    runningFlow._selectedNodeId = runningFlow.SelectedNode.Node._id;
                 }
                 //homerNode = runningFlow.GetNode();
                 // Debug.Log("searching and found for " + homerNode._permalink);
