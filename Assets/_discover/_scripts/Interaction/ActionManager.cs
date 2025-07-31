@@ -82,8 +82,8 @@ namespace Antura.Minigames.DiscoverCountry
 
             if (DebugAction != "")
             {
-                ResolveAction(DebugAction);
-                PlayerController.SpawnToNewLocation(GetActionData(CommandType.Area, DebugAction.Substring(5)).DebugSpawn.transform);
+                ResolveQuestAction(DebugAction);
+                //PlayerController.SpawnToNewLocation(GetActionData(CommandType.Area, DebugAction.Substring(5)).DebugSpawn.transform);
             }
             else
             {
@@ -117,65 +117,82 @@ namespace Antura.Minigames.DiscoverCountry
         {
             action = action.ToLower();
 
-            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
-            if (actionData == null)
+            if (action == "update_items")
             {
-                Debug.LogError("Action not found: " + action);
+                QuestManager.I.UpateItemsCounter();
                 return;
             }
-
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
-
-            foreach (var command in actionData.Commands)
+            else if (action == "update_coins")
             {
-                if (command.Disabled)
+                QuestManager.I.UpateCoinsCounter();
+                return;
+            }
+            else if (action == "game_end" || action == "win")
+            {
+                QuestEnd();
+                return;
+            }
+            else
+            {
+                var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
+                if (actionData == null)
                 {
-                    if (QuestManager.I.DebugQuest)
-                        Debug.Log("Command is disabled: " + command.Command);
-                    continue;
-                }
-                switch (command.Command)
-                {
-                    case CommandType.UnityAction:
-                        if (command.unityAction != null)
-                            command.unityAction.Invoke();
-                        break;
-                    case CommandType.InventoryAdd:
-                        QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
-                        break;
-                    case CommandType.InventoryRemove:
-                        QuestManager.I.RemoveItemCode(command.mainObject.ToString());
-                        break;
-                    case CommandType.Bones:
-                        QuestManager.I.OnCollectBones(1);
-                        break;
-                    case CommandType.Trigger:
-                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
-                        break;
-                    case CommandType.Area:
-                        ActivateArea(command.mainObject.name);
-                        break;
-                    case CommandType.SetRespawn:
-                        SetPlayerSpawnPoint(command.mainObject);
-                        break;
-                    case CommandType.PlayerSpawn:
-                        RespawnPlayer();
-                        break;
-                    case CommandType.Collect:
-                        Collect(command.mainObject.name);
-                        break;
-                    case CommandType.Activity:
-                        command.mainObject.GetComponent<ActivityPanel>().Open();
-                        break;
-                    case CommandType.End:
-                        command.mainObject.GetComponent<ActivityPanel>().Open();
-                        break;
-                    default:
-                        Debug.LogError("Unknown command type: " + command.Command);
-                        break;
+                    Debug.LogError("Action not found: " + action);
+                    return;
                 }
 
+                if (QuestManager.I.DebugQuest)
+                    Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
+
+                foreach (var command in actionData.Commands)
+                {
+                    if (command.Disabled)
+                    {
+                        if (QuestManager.I.DebugQuest)
+                            Debug.Log("Command is disabled: " + command.Command);
+                        continue;
+                    }
+                    switch (command.Command)
+                    {
+                        case CommandType.UnityAction:
+                            if (command.unityAction != null)
+                                command.unityAction.Invoke();
+                            break;
+                        case CommandType.InventoryAdd:
+                            QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
+                            break;
+                        case CommandType.InventoryRemove:
+                            QuestManager.I.RemoveItemCode(command.mainObject.ToString());
+                            break;
+                        case CommandType.Bones:
+                            QuestManager.I.OnCollectBones(1);
+                            break;
+                        case CommandType.Trigger:
+                            command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                            break;
+                        case CommandType.Area:
+                            ActivateArea(command.mainObject.name);
+                            break;
+                        case CommandType.SetRespawn:
+                            SetPlayerSpawnPoint(command.mainObject);
+                            break;
+                        case CommandType.PlayerSpawn:
+                            RespawnPlayer();
+                            break;
+                        case CommandType.Collect:
+                            Collect(command.mainObject.name);
+                            break;
+                        case CommandType.Activity:
+                            command.mainObject.GetComponent<ActivityPanel>().Open();
+                            break;
+                        case CommandType.End:
+                            command.mainObject.GetComponent<ActivityPanel>().Open();
+                            break;
+                        default:
+                            Debug.LogError("Unknown command type: " + command.Command);
+                            break;
+                    }
+                }
             }
         }
 
