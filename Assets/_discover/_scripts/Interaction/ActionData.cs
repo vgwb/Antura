@@ -19,6 +19,8 @@ namespace Antura.Minigames.DiscoverCountry
         InventoryAdd = 8,
         InventoryRemove = 9,
         Bones = 10,
+        End = 12,
+
     }
 
     [System.Serializable]

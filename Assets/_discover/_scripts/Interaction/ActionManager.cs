@@ -168,6 +168,9 @@ namespace Antura.Minigames.DiscoverCountry
                     case CommandType.Activity:
                         command.mainObject.GetComponent<ActivityPanel>().Open();
                         break;
+                    case CommandType.End:
+                        command.mainObject.GetComponent<ActivityPanel>().Open();
+                        break;
                     default:
                         Debug.LogError("Unknown command type: " + command.Command);
                         break;
@@ -325,17 +328,22 @@ namespace Antura.Minigames.DiscoverCountry
                         break;
                     case "win":
                     case "game_end":
-                        WinFx.SetActive(true);
-                        WinFx.GetComponent<ParticleSystem>().Play();
-                        AudioManager.I.PlaySound(Sfx.Win);
-                        AnturaDog.SetActive(true);
-                        QuestManager.I.OnQuestEnd();
+                        QuestEnd();
                         break;
                     default:
                         Trigger(action);
                         break;
                 }
             }
+        }
+
+        private void QuestEnd()
+        {
+            WinFx.SetActive(true);
+            WinFx.GetComponent<ParticleSystem>().Play();
+            AudioManager.I.PlaySound(Sfx.Win);
+            AnturaDog.SetActive(true);
+            QuestManager.I.OnQuestEnd();
         }
 
         #region DEBUG
