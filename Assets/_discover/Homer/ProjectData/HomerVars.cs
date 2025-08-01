@@ -17,6 +17,8 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static int MAX_PROGRESS = 0;
+    public static int CURRENT_PROGRESS = 0;
     public static bool IS_DESKTOP = false; 
     public static int QUEST_ITEMS = 0;
     public static bool EASY_MODE = false; 
@@ -133,9 +135,9 @@ public static class HomerFlowSlugs {
 public enum FlowSlug { 
               TUTORIAL = 0, 
               FR_01_PARIS = 1, 
-              FR_02_ANGERS = 2, 
+              FR_02_ANGERS___SCHOOL = 2, 
               FR_03_NANTES = 3, 
-              PL_01_QUEST_ = 4, 
+              PL_01_WARSAW___CHOPIN = 4, 
               FR_04_LE_MANS = 5, 
               FR_01B_PARIS___SEINE = 6, 
               FR_05_CASTLES = 7, 
@@ -145,13 +147,13 @@ public enum FlowSlug {
               FR_08_MONT_BLANC___MOUNTAINS = 11, 
               FR_09_COTES_DAZUR = 12, 
               DEV = 13, 
-              PL_01B = 14, 
-              PL_01C = 15, 
-              PL_02 = 16, 
+              PL_03_WROCLAW_RIVER = 14, 
+              PL_04_ZOO = 15, 
+              PL_02_WROCLAW_DWARVES = 16, 
               FR_100_GEOGRAPHY = 17, 
               FR_101_MUSIC = 18, 
               PL_100_GEOGRAPHY = 19, 
-              DEV_VIERI = 20
+              PL_05_BALTIC_SEA = 20
 }
 }
 
