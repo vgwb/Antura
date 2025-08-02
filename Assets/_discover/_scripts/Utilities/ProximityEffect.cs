@@ -26,5 +26,16 @@ namespace Antura.Minigames.DiscoverCountry
                 proximityMaterial.SetVector("_PlayerPosition", Player.position);
             }
         }
+
+        private void OnDisable()
+        {
+#if UNITY_EDITOR
+            if (proximityMaterial != null)
+            {
+                // Reset to zero so it doesn't get saved in the asset
+                proximityMaterial.SetVector("_PlayerPosition", Vector3.zero);
+            }
+#endif
+        }
     }
 }
