@@ -55,7 +55,7 @@ namespace Antura.Minigames.DiscoverCountry
         public string Color;
 
         // if this node is an objective
-        public string Objective;
+        public string Task;
 
         // if a special method needs to be triggered in the scene
         public string Action;

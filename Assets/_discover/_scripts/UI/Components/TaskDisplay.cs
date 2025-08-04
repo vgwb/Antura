@@ -11,11 +11,11 @@ namespace Antura.Minigames.DiscoverCountry
     /// Shows the number of bones obtained.
     /// Used in the GameResultUI.
     /// </summary>
-    public class ObjectiveDisplay : MonoBehaviour
+    public class TaskDisplay : MonoBehaviour
     {
 
         [Header("References")]
-        public TextRender ObjectiveText;
+        public TextRender TaskText;
         public GameObject CounterGO;
         public TextMeshProUGUI TfCount;
         public RectTransform BoneImg;
@@ -73,7 +73,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             Setup();
 
-            ObjectiveText.text = objectiveText;
+            TaskText.text = objectiveText;
             maxItems = _maxItems;
             totItems = 0;
             if (maxItems <= 0)

@@ -434,7 +434,7 @@ namespace Antura.Audio
             var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
             var sourcePath = new SourcePath(
                 audio_id,
-                "Discover/" + flow_dir + "/" + LocalizationManager.IsoLangFromLangCode(langCode),
+                "Discover/" + flow_dir + "/audio/" + LocalizationManager.IsoLangFromLangCode(langCode),
                 langCode
                 );
             var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this, true);

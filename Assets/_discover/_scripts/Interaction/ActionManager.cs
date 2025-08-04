@@ -179,15 +179,15 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
-        public void ResolveObjective(QuestNode node)
+        public void ResolveTask(QuestNode node)
         {
             if (QuestManager.I.DebugQuest)
-                Debug.Log("Resolve Objective: " + node.Objective);
+                Debug.Log("Resolve Task: " + node.Task);
 
-            if (node.Objective == null)
+            if (node.Task == null)
                 return;
 
-            UIManager.I.ObjectiveDisplay.Show(node.Objective, 0);
+            UIManager.I.TaskDisplay.Show(node.Task, 0);
         }
 
         public void ResolveNextTarget(string targetArea)

@@ -15,6 +15,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public CollectableType Type;
 
+        public string ItemTag; // Used to identify the item in the inventory
+
         void Start()
         {
 

@@ -82,7 +82,7 @@ public static class HomerActors {
 }
 
 public static class HomerMeta {
-          public enum OBJECTIVE {}
+          public enum TASK {}
           public enum NATIVE {}
           public enum ACTION_POST {}
           public enum IMAGE {}
@@ -100,6 +100,7 @@ public static class HomerMeta {
 
 public static class HomerLabels {
 public enum Label { 
+//            GENERIC 
 }
 }
 
@@ -111,22 +112,22 @@ public enum Tag {
 
 public static class HomerColors {
 
+//D63762
+public static Color32 book = new Color32(214, 55, 98, 255);
 //0DB0DD
 public static Color32 blue = new Color32(13, 176, 221, 255);
 //F89501
 public static Color32 orange = new Color32(248, 149, 1, 255);
 //EB89C8
 public static Color32 pink = new Color32(235, 137, 200, 255);
-//D63762
-public static Color32 red = new Color32(214, 55, 98, 255);
 //47B58B
 public static Color32 green = new Color32(71, 181, 139, 255);
 
 public enum color { 
-              blue = 1, 
-              orange = 2, 
-              pink = 3, 
-              red = 4, 
+              book = 1, 
+              blue = 2, 
+              orange = 3, 
+              pink = 4, 
               green = 5
 }
 }
@@ -153,7 +154,8 @@ public enum FlowSlug {
               FR_100_GEOGRAPHY = 17, 
               FR_101_MUSIC = 18, 
               PL_100_GEOGRAPHY = 19, 
-              PL_05_BALTIC_SEA = 20
+              PL_05_BALTIC_SEA = 20, 
+              PL_06_TORUN_MARKET = 21
 }
 }
 

@@ -27,7 +27,7 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("UI Elements")]
         public ItemsCounter BonesCounter;
         public ItemsCounter CoinsCounter;
-        public ObjectiveDisplay ObjectiveDisplay;
+        public TaskDisplay TaskDisplay;
         public ProgressDisplay ProgressDisplay;
         public InventoryDisplay InventoryDisplay;
 

@@ -154,7 +154,7 @@ namespace Antura.Minigames.DiscoverCountry
             // RECURRING
             else
             {
-                Debug.LogWarning("RECURRING");
+                // Debug.LogWarning("RECURRING");
                 return GetContent(currentFlowSlug, "", command, false);
             }
         }
@@ -232,7 +232,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             node.Image = GetImage(runner.Node._image);
             node.ImageTitle = ""; // TODO
-            node.Objective = GetMetadata("OBJECTIVE", runner.Node._metadata);
+            node.Task = GetMetadata("OBJECTIVE", runner.Node._metadata);
             node.NextTarget = GetMetadata("NEXTTARGET", runner.Node._metadata);
             node.Action = GetMetadata("ACTION", runner.Node._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);

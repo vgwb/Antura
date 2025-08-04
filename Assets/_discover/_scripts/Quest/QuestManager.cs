@@ -17,7 +17,7 @@ namespace Antura.Minigames.DiscoverCountry
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        public EdPlayer PlayerController;
+        private EdPlayer PlayerController;
 
         public Quests Quests;
         public QuestData CurrentQuest;
@@ -27,6 +27,9 @@ namespace Antura.Minigames.DiscoverCountry
         public int total_coins = 0;
         public int total_bones = 0;
         public int collected_items = 0;
+
+        public TaskData[] QuestTasks;
+        private TaskData CurrentTask;
 
         private Inventory inventory;
         private Progress progress;
@@ -69,7 +72,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             HomerVars.IS_DESKTOP = AppConfig.IsDesktopPlatform();
             inventory.Init(HomerVars.QUEST_ITEMS);
-            progress.Init(CurrentQuest.TotalProgress);
+            progress.Init(10); // TODO: get from QuestData
             updateCounters();
         }
 
@@ -120,8 +123,8 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (node.NextTarget != null)
                 ActionManager.I.ResolveNextTarget(node.NextTarget);
-            if (node.Objective != null)
-                ActionManager.I.ResolveObjective(node);
+            if (node.Task != null)
+                ActionManager.I.ResolveTask(node);
             if (node.ActionPost != null)
                 ActionManager.I.ResolveQuestAction(node.ActionPost, node);
         }
@@ -188,9 +191,9 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (HomerVars.QUEST_ITEMS > 0)
             {
-                UIManager.I.ObjectiveDisplay.gameObject.SetActive(true);
-                UIManager.I.ObjectiveDisplay.SetMax(HomerVars.QUEST_ITEMS);
-                UIManager.I.ObjectiveDisplay.SetValue(HomerVars.COLLECTED_ITEMS);
+                UIManager.I.TaskDisplay.gameObject.SetActive(true);
+                UIManager.I.TaskDisplay.SetMax(HomerVars.QUEST_ITEMS);
+                UIManager.I.TaskDisplay.SetValue(HomerVars.COLLECTED_ITEMS);
             }
         }
         public void UpateCoinsCounter()
