@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6104633436223330679}
   - component: {fileID: 3265454570424409887}
-  - component: {fileID: 6944573106740736744}
   - component: {fileID: 9211593971407944635}
-  - component: {fileID: 5322339741773580954}
   m_Layer: 0
   m_Name: DiscoverGameManager
   m_TagString: Untagged
@@ -47,30 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71d0b79193ce834eb8bd1db8a65804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &6944573106740736744
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736206750971171309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Player: {fileID: 0}
-  Quests: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
-  CurrentQuest: {fileID: 11400000, guid: 2f080d355007a4c9bb2242db14ada97c, type: 2}
-  bonesCounter: {fileID: 0}
-  coinsCounter: {fileID: 0}
-  PlayerSpawnPoint: {fileID: 0}
-  LanguageCode: 
-  total_coins: 0
-  total_bones: 0
-  total_items: 0
-  DebugQuest: 0
-  DebugLanguage: 
+  isPaused: 0
 --- !u!114 &9211593971407944635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -83,16 +58,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ed25bcd1a73da4498549a3aeaa756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &5322339741773580954
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736206750971171309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a1cd7da8e91a42a41b4bf6665238ac24, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Homer: {fileID: 4900000, guid: 6f45f9d7c6c81bf499c2a0a85fb196e6, type: 3}
