@@ -412,6 +412,37 @@ Transform:
   - {fileID: 8418917643046481122}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &7123718091194598139
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5040623212367158136}
+  m_Layer: 7
+  m_Name: target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5040623212367158136
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7123718091194598139}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 7.85, z: 2.057}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 4391189367057337598}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8171678098601976674
 GameObject:
   m_ObjectHideFlags: 0
@@ -4215,7 +4246,7 @@ PrefabInstance:
     - target: {fileID: 3084501355619621170, guid: b17fd8a916c3345608a06c2100390844,
         type: 3}
       propertyPath: m_Name
-      value: Moving Platform (1)
+      value: Moving Platform with target
       objectReference: {fileID: 0}
     - target: {fileID: 6794352862778985677, guid: b17fd8a916c3345608a06c2100390844,
         type: 3}
@@ -4284,7 +4315,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
-    m_AddedGameObjects: []
+    m_AddedGameObjects:
+    - targetCorrespondingSourceObject: {fileID: 6794352862778985677, guid: b17fd8a916c3345608a06c2100390844,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 5040623212367158136}
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 3084501355619621170, guid: b17fd8a916c3345608a06c2100390844,
         type: 3}
@@ -4316,10 +4351,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsActivated: 1
-  MoveAxis: 1
   speed: 1
-  distance: 3.5
   pauseDelay: 1
+  movementType: 1
+  MoveAxis: 1
+  distance: 3.5
+  targetPoint: {fileID: 5040623212367158136}
 --- !u!1001 &7209041719606640945
 PrefabInstance:
   m_ObjectHideFlags: 0
