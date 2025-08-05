@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.987793
+      value: -8.97289
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 29.994627
+      value: 29.953875
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -1376,7 +1376,7 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   'm_MeshMetrics[0]': 1
-  'm_MeshMetrics[1]': 208.74695
+  'm_MeshMetrics[1]': 208.74701
   m_MeshOptimizationFlags: 1
   m_StreamData:
     serializedVersion: 2
@@ -1740,15 +1740,15 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1617973488}
+    - target: {fileID: 6252551331726119426, guid: 197fc822d45f141bbbe07018e81f7f8d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6945215965495843337, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
       propertyPath: m_Name
       value: tutorial_town
-      objectReference: {fileID: 0}
-    - target: {fileID: 6945215965495843337, guid: 197fc822d45f141bbbe07018e81f7f8d,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7042686429415778104, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
@@ -1813,12 +1813,16 @@ PrefabInstance:
     - target: {fileID: 8745309092176260195, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 4689
+      value: 4704
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1590518534508280382, guid: 197fc822d45f141bbbe07018e81f7f8d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 197fc822d45f141bbbe07018e81f7f8d, type: 3}
 --- !u!1001 &5008298639856646348
 PrefabInstance:
