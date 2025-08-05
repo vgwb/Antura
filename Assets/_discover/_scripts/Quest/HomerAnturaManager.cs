@@ -47,7 +47,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void InitNode(HomerFlowSlugs.FlowSlug flowSlug)
         {
-            GetContent(flowSlug, "", "INIT", true);
+            GetContent(flowSlug, "init", "", true);
         }
 
         private string GetLocalizedContentFromElements(HomerLocalizedContent[] elements, string language)
