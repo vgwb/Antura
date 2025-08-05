@@ -7,14 +7,18 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public class MovingPlatform : MonoBehaviour
     {
+        public enum Axis { X, Y, Z }
+        [Header("Movement Axis")]
         public bool IsActivated;
+
+        public Axis MoveAxis = Axis.Y;
         public float speed;
         public float distance = 2.0f;
         public float pauseDelay = 1f;
 
         private float currentPause = 0f;
         private Vector3 startingPosition;
-        private bool movingUp = true;
+        private bool movingPositive = true;
 
         void Start()
         {
@@ -31,17 +35,45 @@ namespace Antura.Minigames.DiscoverCountry
                     return;
                 }
 
-                float direction = movingUp ? 1f : -1f;
-                transform.position += Vector3.up * direction * speed * Time.deltaTime;
-
-                if (movingUp && transform.position.y >= startingPosition.y + distance)
+                Vector3 direction = Vector3.zero;
+                switch (MoveAxis)
                 {
-                    movingUp = false;
+                    case Axis.X:
+                        direction = Vector3.right;
+                        break;
+                    case Axis.Y:
+                        direction = Vector3.up;
+                        break;
+                    case Axis.Z:
+                        direction = Vector3.forward;
+                        break;
+                }
+
+                float sign = movingPositive ? 1f : -1f;
+                transform.position += direction * sign * speed * Time.deltaTime;
+
+                float moved = 0f;
+                switch (MoveAxis)
+                {
+                    case Axis.X:
+                        moved = transform.position.x - startingPosition.x;
+                        break;
+                    case Axis.Y:
+                        moved = transform.position.y - startingPosition.y;
+                        break;
+                    case Axis.Z:
+                        moved = transform.position.z - startingPosition.z;
+                        break;
+                }
+
+                if (movingPositive && moved >= distance)
+                {
+                    movingPositive = false;
                     currentPause = pauseDelay;
                 }
-                else if (!movingUp && transform.position.y <= startingPosition.y)
+                else if (!movingPositive && moved <= 0f)
                 {
-                    movingUp = true;
+                    movingPositive = true;
                     currentPause = pauseDelay;
                 }
             }
@@ -51,6 +83,5 @@ namespace Antura.Minigames.DiscoverCountry
         {
             IsActivated = status;
         }
-
     }
 }
