@@ -131,6 +131,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 817914415181357534}
+  - {fileID: 1678504389201359817}
   m_Father: {fileID: 1080677326222247679}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3672197584172904062
@@ -3717,7 +3718,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 15238
+      value: 15250
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -9393,6 +9394,95 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6032887373213974871, guid: e174e2762598e46ce87f0f1bfaa13109,
     type: 3}
   m_PrefabInstance: {fileID: 6905993547908283245}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &7079026056192700892
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 3500695546206595958}
+    m_Modifications:
+    - target: {fileID: 522725971530274227, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_Radius
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 542379343900929545, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_Name
+      value: PlaySound3D
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 14.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -14.32
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9003037636062688747, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: SoundFx
+      value: 
+      objectReference: {fileID: 8300000, guid: 3ccca68a1465dd447b9d4b559f844b87, type: 3}
+    - target: {fileID: 9003037636062688747, guid: 1e078b1e7c6774de1a5df79571d98157,
+        type: 3}
+      propertyPath: scaleAmount
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 1e078b1e7c6774de1a5df79571d98157, type: 3}
+--- !u!4 &1678504389201359817 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8464232273583948309, guid: 1e078b1e7c6774de1a5df79571d98157,
+    type: 3}
+  m_PrefabInstance: {fileID: 7079026056192700892}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7712295288030322405
 PrefabInstance:
