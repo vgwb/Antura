@@ -1,7 +1,7 @@
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ActivityBase : MonoBehaviour
     {

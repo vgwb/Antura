@@ -3,7 +3,7 @@ using Antura.LivingLetters;
 using DG.DeExtensions;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum HeadPropID
     {

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Homer;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum Countries
     {

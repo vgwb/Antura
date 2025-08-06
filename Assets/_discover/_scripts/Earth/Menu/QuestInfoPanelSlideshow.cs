@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class QuestInfoPanelSlideshow : MonoBehaviour
     {
@@ -19,15 +19,19 @@ namespace Antura.Minigames.DiscoverCountry
         {
             btPrevCG = btPrev.gameObject.AddComponent<CanvasGroup>();
             btNextCG = btNext.gameObject.AddComponent<CanvasGroup>();
-            
-            btPrev.onClick.AddListener(() => {
-                if (imgIndex == 0) return;
+
+            btPrev.onClick.AddListener(() =>
+            {
+                if (imgIndex == 0)
+                    return;
                 imgIndex--;
                 ShowImage(sprites[imgIndex]);
                 RefreshButtons();
             });
-            btNext.onClick.AddListener(() => {
-                if (imgIndex < sprites.Count - 1) return;
+            btNext.onClick.AddListener(() =>
+            {
+                if (imgIndex < sprites.Count - 1)
+                    return;
                 imgIndex++;
                 ShowImage(sprites[imgIndex]);
                 RefreshButtons();
@@ -41,7 +45,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             showImgTween.Kill();
         }
-        
+
         public void SetImages(List<Sprite> imgSprites)
         {
             imgIndex = 0;

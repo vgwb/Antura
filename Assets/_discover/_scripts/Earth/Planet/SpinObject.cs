@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     /// <summary>
     /// Spin the object at a specified speed

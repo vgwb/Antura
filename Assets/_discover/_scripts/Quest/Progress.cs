@@ -4,7 +4,7 @@ using UnityEngine;
 using Antura.Core;
 using Antura.Utilities;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class Progress
     {

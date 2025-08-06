@@ -2,7 +2,7 @@
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     /// <summary>
     /// Main container/canvas and controller for the activities, which has ActivityOverlay and the specific Activity as children.

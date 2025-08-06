@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class DialoguePostcardFocusView : MonoBehaviour
     {
@@ -22,7 +22,7 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Image img;
 
         #endregion
-        
+
         public bool IsOpen { get; private set; }
 
         bool initialized;
@@ -33,12 +33,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Init()
         {
-            if (initialized) return;
+            if (initialized)
+                return;
 
             initialized = true;
-            
+
             bt = this.GetComponent<Button>();
-            
+
             bt.onClick.AddListener(OnClicked.Dispatch);
 
             const float tweenDuration = 0.6f;

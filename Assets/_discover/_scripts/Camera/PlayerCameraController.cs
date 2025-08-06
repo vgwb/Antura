@@ -7,7 +7,7 @@ using UnityEngine;
 using UnityEngine.InputSystem.EnhancedTouch;
 using Unity.Cinemachine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class PlayerCameraController : AbstractCineCamera
     {
@@ -35,13 +35,13 @@ namespace Antura.Minigames.DiscoverCountry
 
         [DeEmptyAlert]
         [SerializeField] Camera cam;
-        
+
         [DeHeader("Startup Options")]
         [Range(-2, 0)]
         [SerializeField] float startupZoomLevel = -0.5f;
         [Range(0, 45)]
         [SerializeField] int startupInclination = 10;
-        
+
         [DeHeader("Options")]
         [SerializeField] MouseRotationMode mouseRotationMode = MouseRotationMode.RMB_or_MMB;
         [Range(1, 20)]
@@ -66,7 +66,7 @@ namespace Antura.Minigames.DiscoverCountry
         [DeRange(0, -3f)]
         [SerializeField] float lookDownShoulderZFactor = -1.9f;
         [SerializeField] Ease lookDownShoulderZFactorEase = Ease.InQuad;
-        
+
         [Header("Debug")]
         [SerializeField] bool drawGizmos = false;
 

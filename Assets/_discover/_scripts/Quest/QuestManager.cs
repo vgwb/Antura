@@ -12,7 +12,7 @@ using System.Runtime.Remoting.Messaging;
 using UnityEditor;
 using Antura.Profile;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>

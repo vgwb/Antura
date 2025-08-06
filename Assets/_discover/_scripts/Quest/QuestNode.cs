@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 // ReSharper disable All
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
 
     public enum NodeType

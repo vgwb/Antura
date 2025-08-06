@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class InteractionManager : MonoBehaviour
     {

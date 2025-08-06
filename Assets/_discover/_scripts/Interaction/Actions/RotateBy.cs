@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-namespace Antura.Minigames.DiscoverCountry.Interaction
+namespace Antura.Discover.Interaction
 {
     public class RotateBy : MonoBehaviour
     {

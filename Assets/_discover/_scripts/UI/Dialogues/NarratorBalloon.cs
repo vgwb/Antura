@@ -2,7 +2,7 @@
 using Homer;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class NarratorBalloon : AbstractDialogueBalloon
     {

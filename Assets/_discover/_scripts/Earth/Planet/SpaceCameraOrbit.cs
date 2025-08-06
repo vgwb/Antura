@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class SpaceCameraOrbit : MonoBehaviour
     {

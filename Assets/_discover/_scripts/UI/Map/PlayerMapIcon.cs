@@ -1,7 +1,7 @@
-﻿using Antura.Minigames.DiscoverCountry.Interaction;
+﻿using Antura.Discover.Interaction;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class PlayerMapIcon : AbstractMapIcon
     {

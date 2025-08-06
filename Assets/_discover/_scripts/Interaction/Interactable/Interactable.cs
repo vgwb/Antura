@@ -1,11 +1,11 @@
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum InteractionType
     {

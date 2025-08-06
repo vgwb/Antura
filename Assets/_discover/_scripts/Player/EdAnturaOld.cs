@@ -4,7 +4,7 @@ using System;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     // @note: DEPRECATED
     public class EdAnturaOld : MonoBehaviour

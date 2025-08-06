@@ -2,7 +2,7 @@
 using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public abstract class AbstractCineCamera : MonoBehaviour
     {

@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.DeInspektor.Attributes;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
 
     public enum TaskType

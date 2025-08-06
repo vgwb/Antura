@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class Billboard : MonoBehaviour
     {
@@ -12,7 +12,7 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         Transform trans;
-        
+
         #region Unity
 
         void Awake()
@@ -23,7 +23,8 @@ namespace Antura.Minigames.DiscoverCountry
         void LateUpdate()
         {
             trans.rotation = CameraManager.I.MainCamTrans.rotation;
-            if (keepConstantSize) trans.localScale = GetProjectedScale(CameraManager.I.MainCam);
+            if (keepConstantSize)
+                trans.localScale = GetProjectedScale(CameraManager.I.MainCam);
         }
 
         #endregion

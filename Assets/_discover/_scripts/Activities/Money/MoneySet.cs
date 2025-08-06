@@ -1,7 +1,7 @@
 using UnityEngine;
 using System.Collections.Generic;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [CreateAssetMenu(fileName = "MoneySet", menuName = "Antura/Activity/MoneySet")]
     public class MoneySet : ScriptableObject

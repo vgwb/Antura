@@ -1,10 +1,10 @@
 ﻿using Antura.Audio;
 using Antura.Dog;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInput))]
@@ -143,7 +143,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Move()
         {
-            if (DiscoverGameManager.I.State != GameplayState.Play3D) return;
+            if (DiscoverGameManager.I.State != GameplayState.Play3D)
+                return;
 
             bool isSprinting = _input.sprint;
 

@@ -1,13 +1,13 @@
 using Antura.Audio;
 using Antura.Helpers;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ActionManager : MonoBehaviour
     {

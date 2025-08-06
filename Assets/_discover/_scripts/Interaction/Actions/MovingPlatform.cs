@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Serialization;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class MovingPlatform : MonoBehaviour
     {

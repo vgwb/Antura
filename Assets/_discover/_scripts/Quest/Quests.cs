@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Homer;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [CreateAssetMenu(menuName = "Antura/Quests")]
     public class Quests : ScriptableObject

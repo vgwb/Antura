@@ -4,7 +4,7 @@ using System.Text;
 using Demigiant.DemiTools;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public static class DiscoverNotifier
     {

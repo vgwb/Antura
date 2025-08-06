@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class StarterAssetsInputs : MonoBehaviour
     {
@@ -70,7 +70,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void JumpInput(bool newJumpState)
         {
-            if (DiscoverGameManager.I.State != GameplayState.Play3D || InteractionManager.I.HasValidNearbyInteractable) return;
+            if (DiscoverGameManager.I.State != GameplayState.Play3D || InteractionManager.I.HasValidNearbyInteractable)
+                return;
             jump = newJumpState;
         }
 
@@ -86,7 +87,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void MapInput(bool justPressed)
         {
-            if (justPressed) DiscoverNotifier.Game.OnMapButtonToggled.Dispatch();
+            if (justPressed)
+                DiscoverNotifier.Game.OnMapButtonToggled.Dispatch();
         }
 
         private void OnApplicationFocus(bool hasFocus)

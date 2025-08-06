@@ -6,7 +6,7 @@ using UnityEngine;
 using DG.DeInspektor.Attributes;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
-using Antura.Minigames.DiscoverCountry;
+using Antura.Discover;
 
 namespace Homer
 {

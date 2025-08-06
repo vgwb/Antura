@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class GeoJsonParser : MonoBehaviour
     {

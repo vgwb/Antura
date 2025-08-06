@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Collections;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using Antura.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [RequireComponent(typeof(MapIconsManager))]
     public class UIManager : MonoBehaviour

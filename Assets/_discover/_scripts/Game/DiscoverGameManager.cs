@@ -2,7 +2,7 @@ using System.Collections;
 using Antura.Utilities;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum GameplayState
     {

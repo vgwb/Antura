@@ -4,8 +4,8 @@
 using System;
 using System.Text;
 using Antura.Core;
-using Antura.Minigames.DiscoverCountry;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover;
+using Antura.Discover.Interaction;
 using DG.DeExtensions;
 using TMPro;
 using UnityEngine;

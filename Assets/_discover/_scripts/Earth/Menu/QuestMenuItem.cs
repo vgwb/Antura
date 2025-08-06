@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class QuestMenuItem : MonoBehaviour
     {

@@ -3,7 +3,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class NPC : MonoBehaviour
     {
@@ -11,7 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             StartMovement();
         }
-        
+
         void OnDestroy()
         {
             lookTween.Kill();
@@ -50,7 +50,7 @@ namespace Antura.Minigames.DiscoverCountry
                 // This SHOULD NOT be a tween (I'm Daniele so I know :D)
                 // lookTween.Kill();
                 // lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
-                
+
                 // FIXED
                 Quaternion orRot = transform.localRotation;
                 transform.LookAt(currentTarget.position);

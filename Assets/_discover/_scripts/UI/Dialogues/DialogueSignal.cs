@@ -1,12 +1,12 @@
 ﻿using System;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using DG.De2D;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class DialogueSignal : MonoBehaviour
     {

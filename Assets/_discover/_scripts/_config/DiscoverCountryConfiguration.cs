@@ -1,8 +1,9 @@
+using Antura.Minigames;
+using Antura.LivingLetters.Sample;
 using Antura.Teacher;
 using System;
-using Antura.LivingLetters.Sample;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum DiscoverCountryVariation
     {

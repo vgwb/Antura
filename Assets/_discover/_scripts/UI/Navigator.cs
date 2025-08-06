@@ -2,7 +2,7 @@
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class Navigator : MonoBehaviour
     {
@@ -29,13 +29,17 @@ namespace Antura.Minigames.DiscoverCountry
             HideAll();
             if (outHor != OutOfBoundsHor.None)
             {
-                if (outHor == OutOfBoundsHor.Left) indicatorL.SetActive(true);
-                else indicatorR.SetActive(true);
+                if (outHor == OutOfBoundsHor.Left)
+                    indicatorL.SetActive(true);
+                else
+                    indicatorR.SetActive(true);
             }
             else if (outVert != OutOfBoundsVert.None)
             {
-                if (outVert == OutOfBoundsVert.Top) indicatorT.SetActive(true);
-                else indicatorB.SetActive(true);
+                if (outVert == OutOfBoundsVert.Top)
+                    indicatorT.SetActive(true);
+                else
+                    indicatorB.SetActive(true);
             }
         }
 

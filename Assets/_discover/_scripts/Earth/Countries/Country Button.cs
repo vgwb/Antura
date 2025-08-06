@@ -4,7 +4,7 @@ using UnityEngine;
 
 using Antura.Core;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class CountryButton : MonoBehaviour
     {

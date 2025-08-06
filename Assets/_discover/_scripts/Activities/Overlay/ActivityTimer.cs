@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ActivityTimer : MonoBehaviour
     {
@@ -17,7 +17,7 @@ namespace Antura.Minigames.DiscoverCountry
         public ActionEvent OnTimerElapsed = new("ActivityTimer.OnTimerElapsed");
 
         #endregion
-        
+
         #region Serialized
 
         [DeEmptyAlert]
@@ -39,7 +39,7 @@ namespace Antura.Minigames.DiscoverCountry
         }
 
         #endregion
-        
+
         #region Public Methods
 
         public void RestartTimer(int fromSeconds)

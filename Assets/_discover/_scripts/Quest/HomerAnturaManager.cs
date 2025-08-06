@@ -6,7 +6,7 @@ using System.Linq;
 using Homer;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class HomerAnturaManager : MonoBehaviour

@@ -4,7 +4,7 @@ using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class StartEndPanel : AbstractDialogueBalloon
     {
@@ -30,7 +30,8 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 startMascot.SetActive(true);
                 endMascot.SetActive(false);
-                for (int i = 0; i < stars.Length; i++) stars[i].gameObject.SetActive(false);
+                for (int i = 0; i < stars.Length; i++)
+                    stars[i].gameObject.SetActive(false);
             }
             else
             {
@@ -42,12 +43,12 @@ namespace Antura.Minigames.DiscoverCountry
                     stars[i].TurnOn(i < totStars);
                 }
             }
-            
+
             base.Show(node, UseLearningLanguage);
         }
 
         #endregion
-        
+
         #region Methods
 
         protected override void CreateShowTween()

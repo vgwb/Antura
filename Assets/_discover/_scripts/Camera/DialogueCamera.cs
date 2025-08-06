@@ -1,7 +1,7 @@
 ﻿using Unity.Cinemachine;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class DialogueCamera : AbstractCineCamera
     {

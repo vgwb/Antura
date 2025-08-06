@@ -6,7 +6,7 @@ using Homer;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ChoicesLayout : MonoBehaviour
     {

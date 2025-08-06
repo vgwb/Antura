@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry.Interaction
+namespace Antura.Discover.Interaction
 {
     [RequireComponent(typeof(AudioSource))]
     public class PlaySound : ActionAbstract

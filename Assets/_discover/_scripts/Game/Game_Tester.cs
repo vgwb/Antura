@@ -3,7 +3,7 @@ using Antura.Dog;
 using Antura.LivingLetters;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class Game_Tester : MonoBehaviour
     {

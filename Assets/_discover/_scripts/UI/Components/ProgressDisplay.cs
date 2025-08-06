@@ -5,7 +5,7 @@ using System;
 using Antura.Audio;
 using Antura.Core;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ProgressDisplay : MonoBehaviour
     {

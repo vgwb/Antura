@@ -4,7 +4,7 @@ using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class NavigatorMarker : MonoBehaviour
     {
@@ -21,11 +21,11 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] SpriteRenderer ico;
 
         #endregion
-        
+
         public bool IsShown { get; private set; }
-        public OutOfBoundsHor OutHor { get; private set; } 
-        public OutOfBoundsVert OutVert { get; private set; } 
-        
+        public OutOfBoundsHor OutHor { get; private set; }
+        public OutOfBoundsVert OutVert { get; private set; }
+
         Transform trans;
         Transform target;
         Tween showTween, rotateTween, loopTween;
@@ -35,11 +35,12 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             trans = this.transform;
-            
+
             showTween = trans.DOScale(1, 0.45f).From(0).SetAutoKill(false).Pause()
                 .SetDelay(0.3f)
                 .SetEase(Ease.Linear)
-                .OnRewind(() => {
+                .OnRewind(() =>
+                {
                     this.gameObject.SetActive(false);
                     rotateTween.Rewind();
                     loopTween.Rewind();
@@ -54,7 +55,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             Hide(true);
         }
-        
+
         void OnDestroy()
         {
             showTween.Kill();
@@ -64,17 +65,18 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Update()
         {
-            if (!IsShown) return;
-            
+            if (!IsShown)
+                return;
+
             if (target == null)
             {
                 Hide();
                 return;
             }
-            
+
             trans.position = target.position;
             SetTransparency();
-            
+
             // Check out of bounds
             Vector3 viewportP = CameraManager.I.MainCam.WorldToViewportPoint(trans.position);
             OutHor = viewportP.x < 0 && viewportP.z > 0 || viewportP.x > 1 && viewportP.z < 0
@@ -90,7 +92,7 @@ namespace Antura.Minigames.DiscoverCountry
         }
 
         #endregion
-        
+
         #region Public Methods
 
         public void Show(Transform newTarget)
@@ -132,7 +134,7 @@ namespace Antura.Minigames.DiscoverCountry
             Vector2 screenP = CameraManager.I.MainCam.WorldToScreenPoint(trans.position);
             Vector2 screenSizeHalf = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
             screenP -= screenSizeHalf;
-            Vector2 screenPercentOffsetClamped = new(screenP.x / screenSizeHalf.x,  screenP.y / screenSizeHalf.y);
+            Vector2 screenPercentOffsetClamped = new(screenP.x / screenSizeHalf.x, screenP.y / screenSizeHalf.y);
             float dist = screenPercentOffsetClamped.magnitude;
             float alpha = 0;
             if (dist > fullTransparencyMinPerc)

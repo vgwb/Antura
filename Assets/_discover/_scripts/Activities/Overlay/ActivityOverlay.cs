@@ -3,7 +3,7 @@ using Demigiant.DemiTools.DeUnityExtended;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ActivityOverlay : MonoBehaviour
     {
@@ -25,17 +25,19 @@ namespace Antura.Minigames.DiscoverCountry
         public DeUIButton BtClose => btClose;
         public DeUIButton BtHelp => btHelp;
         public DeUIButton BtValidate => btValidate;
-        
+
         #region Public Methods
-        
+
         /// <summary>
         /// Set the timer with custom options 
         /// </summary>
         public void SetTimer(bool hasTimer, int seconds)
         {
             timer.gameObject.SetActive(hasTimer);
-            if (hasTimer) timer.RestartTimer(seconds);
-            else timer.CancelTimer();
+            if (hasTimer)
+                timer.RestartTimer(seconds);
+            else
+                timer.CancelTimer();
         }
 
         #endregion

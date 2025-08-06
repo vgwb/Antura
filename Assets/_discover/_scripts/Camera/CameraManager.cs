@@ -3,7 +3,7 @@ using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [RequireComponent(typeof(PlayerCameraController), typeof(DialogueCamera), typeof(MapCamera))]
     public class CameraManager : MonoBehaviour

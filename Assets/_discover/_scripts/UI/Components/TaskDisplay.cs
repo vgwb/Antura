@@ -5,7 +5,7 @@ using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     /// <summary>
     /// Shows the number of bones obtained.

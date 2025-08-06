@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class DiscoveryBookPanel : MonoBehaviour
     {

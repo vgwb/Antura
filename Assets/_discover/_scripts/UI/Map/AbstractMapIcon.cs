@@ -1,8 +1,8 @@
-﻿using Antura.Minigames.DiscoverCountry.Interaction;
+﻿using Antura.Discover.Interaction;
 using DG.Tweening;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public abstract class AbstractMapIcon : MonoBehaviour
     {
@@ -11,13 +11,13 @@ namespace Antura.Minigames.DiscoverCountry
         protected Transform followTarget;
         float defY;
         Tween showTween;
-        
+
         #region Unity
 
         void Awake()
         {
             defY = this.transform.position.y;
-            
+
             showTween = this.GetComponentInChildren<SpriteRenderer>().DOFade(1, 0.45f).From(0).SetAutoKill(false).Pause()
                 .SetDelay(0.3f)
                 .SetEase(Ease.Linear);
@@ -32,7 +32,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             showTween.Kill();
         }
-        
+
         public void UpdatePosition()
         {
             Vector3 position = followTarget != null ? followTarget.position : GetPosition();
@@ -41,7 +41,7 @@ namespace Antura.Minigames.DiscoverCountry
         }
 
         #endregion
-        
+
         #region Public Methods
 
         public void Show()
@@ -76,7 +76,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             followTarget = target;
         }
-        
+
         #endregion
 
         #region Methods

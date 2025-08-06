@@ -2,14 +2,14 @@
 using Antura.Core;
 using Antura.Language;
 using Antura.UI;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public abstract class AbstractDialogueBalloon : MonoBehaviour
     {
@@ -71,7 +71,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void Show(QuestNode node, bool UseLearningLanguage)
         {
-            if (IsOpen) return;
+            if (IsOpen)
+                return;
 
             IsOpen = true;
             currNode = node;
