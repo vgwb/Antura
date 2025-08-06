@@ -232,7 +232,7 @@ namespace Antura.Minigames.DiscoverCountry
 
             node.Image = GetImage(runner.Node._image);
             node.ImageTitle = ""; // TODO
-            node.Task = GetMetadata("OBJECTIVE", runner.Node._metadata);
+            node.Task = GetMetadata("TASK", runner.Node._metadata);
             node.NextTarget = GetMetadata("NEXTTARGET", runner.Node._metadata);
             node.Action = GetMetadata("ACTION", runner.Node._metadata);
             node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);
@@ -255,6 +255,11 @@ namespace Antura.Minigames.DiscoverCountry
             if (node.BalloonType == "quiz")
             {
                 node.Type = NodeType.QUIZ;
+            }
+
+            if (node.BalloonType == "panel")
+            {
+                node.Type = NodeType.PANEL;
             }
 
             var currentLocale = currentHomerProject._locale;

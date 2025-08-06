@@ -25,7 +25,7 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Autorun when player gets nerby")]
         public bool AutoActivate;
         [Tooltip("Icon to be shown")]
-        public InteractionType InteractionType = InteractionType.Look;
+        public InteractionType IconType = InteractionType.Look;
         [Tooltip("Where does the icon appear and camera focus?")]
         public Transform IconTransform;
         [Tooltip("Show on map (if active)")]
@@ -128,10 +128,26 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
+        public void SetActivated(bool status)
+        {
+            IsInteractable = status;
+            if (status)
+            {
+                if (ShowIconAlways)
+                    InteractionManager.I.ShowPreviewSignalFor(this, true);
+                DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
+            }
+            else
+            {
+                InteractionManager.I.ShowPreviewSignalFor(this, false);
+                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
+            }
+        }
+
         /// <summary>
         /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate
         /// </summary>
-        public QuestNode Activate()
+        public QuestNode Execute()
         {
             QuestNode node = null;
             if (NodePermalink != "")

@@ -27,8 +27,11 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Optional permalink of the Node with the mission")]
         public string NodeDescription;
 
-        [Tooltip("Optional permalink of the Node activated at the end of the task")]
+        [Tooltip("Optional permalink of the Node activated if success task")]
         public string NodeSuccess;
+
+        [Tooltip("Optional permalink of the Node activated if fail task")]
+        public string NodeFail;
 
         [Tooltip("If Collect, how many items to collect?")]
         public int ItemCount;

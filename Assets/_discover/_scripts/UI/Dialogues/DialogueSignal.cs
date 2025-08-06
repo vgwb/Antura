@@ -40,7 +40,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             trans = this.transform;
-            
+
             this.gameObject.SetActive(false);
         }
 
@@ -57,8 +57,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnMouseDown()
         {
-            if (EventSystem.current.IsPointerOverGameObject() || targetInteractable == null) return;
-            
+            if (EventSystem.current.IsPointerOverGameObject() || targetInteractable == null)
+                return;
+
             InteractionManager.I.ForceNearbyInteractableTo(targetInteractable);
             DiscoverNotifier.Game.OnActClicked.Dispatch();
         }
@@ -79,19 +80,21 @@ namespace Antura.Minigames.DiscoverCountry
 
             showTween = this.transform.DOScale(0, 0.35f).From().SetAutoKill(false).Pause()
                 .SetEase(isPreviewSignal ? Ease.OutCubic : Ease.OutBounce)
-                .OnRewind(() => {
-                    if (loopTween != null) loopTween.Rewind();
+                .OnRewind(() =>
+                {
+                    if (loopTween != null)
+                        loopTween.Rewind();
                     this.gameObject.SetActive(false);
                     targetTrans = null;
                 });
-            
+
             if (!isPreviewSignal)
             {
                 loopTween = iconContainer.DOScale(1.1f, 0.45f).From(Vector3.one * 0.9f).SetAutoKill(false).Pause()
                     .SetEase(Ease.InOutSine).SetLoops(-1, LoopType.Yoyo);
             }
         }
-        
+
         public void ShowFor(Interactable interactable, bool immediate = false)
         {
             targetInteractable = interactable;
@@ -103,8 +106,10 @@ namespace Antura.Minigames.DiscoverCountry
         public void Hide(bool immediate = false)
         {
             collider.enabled = false;
-            if (immediate) showTween.Rewind();
-            else showTween.PlayBackwards();
+            if (immediate)
+                showTween.Rewind();
+            else
+                showTween.PlayBackwards();
         }
 
         #endregion
@@ -113,9 +118,12 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Show(Transform target, bool immediate = false)
         {
-            if (immediate) showTween.Complete();
-            else showTween.Restart();
-            if (!isPreviewSignal && animateIco) loopTween.Restart();
+            if (immediate)
+                showTween.Complete();
+            else
+                showTween.Restart();
+            if (!isPreviewSignal && animateIco)
+                loopTween.Restart();
             this.gameObject.SetActive(true);
             targetTrans = target;
         }
@@ -130,8 +138,8 @@ namespace Antura.Minigames.DiscoverCountry
             ico_talk.gameObject.SetActive(false);
             ico_info.gameObject.SetActive(false);
             ico_action.gameObject.SetActive(false);
-            
-            switch (interactable.InteractionType)
+
+            switch (interactable.IconType)
             {
                 case InteractionType.Talk:
                     balloon = balloon_talk;
@@ -149,19 +157,21 @@ namespace Antura.Minigames.DiscoverCountry
                     altSprite = ico_action_alt;
                     break;
             }
-            
-            if (!isPreviewSignal && balloon != null) balloon.SetActive(true);
+
+            if (!isPreviewSignal && balloon != null)
+                balloon.SetActive(true);
             if (ico != null)
             {
                 if (isPreviewSignal)
                 {
                     ico.color = previewColor;
-                    if (altSprite != null) ico.sprite = altSprite;
+                    if (altSprite != null)
+                        ico.sprite = altSprite;
                 }
                 ico.gameObject.SetActive(true);
             }
         }
-        
+
         #endregion
     }
 }

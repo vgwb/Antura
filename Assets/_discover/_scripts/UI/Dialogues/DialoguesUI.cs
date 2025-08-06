@@ -198,6 +198,7 @@ namespace Antura.Minigames.DiscoverCountry
             UseLearningLanguage = !node.Native;
             switch (node.Type)
             {
+                case NodeType.PANEL:
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node, UseLearningLanguage);
@@ -207,6 +208,10 @@ namespace Antura.Minigames.DiscoverCountry
                     else
                         postcard.Hide();
                     break;
+                // case NodeType.PANEL:
+                //     CurrDialogueType = DialogueType.Text;
+                //     ShowStartPanel(node);
+                //     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;

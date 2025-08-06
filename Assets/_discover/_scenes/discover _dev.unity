@@ -1485,6 +1485,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 391770743338456585, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: QuestTasks.Array.data[0].Code
+      value: reach_platform
+      objectReference: {fileID: 0}
     - target: {fileID: 1080677326222247679, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1570,11 +1575,25 @@ PrefabInstance:
       propertyPath: m_Name
       value: dev_quest
       objectReference: {fileID: 0}
+    - target: {fileID: 9167637582977521584, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: NodeCommand
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 9167637582977521584, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      propertyPath: NodePermalink
+      value: talk_teacher
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 8153878103852804287, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6369984603110791826, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1630,6 +1649,14 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6222463060535808213, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7011228243425955063, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
     - targetCorrespondingSourceObject: {fileID: 7738969130054328668, guid: cbbdddcdfdeb146409e3de6fafb3ae38,
         type: 3}
       insertIndex: -1
@@ -1675,6 +1702,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 36551741574112588, guid: e39f710d285d38544bc283f5e522411a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 3.2001953
+      objectReference: {fileID: 0}
     - target: {fileID: 491243860857979572, guid: e39f710d285d38544bc283f5e522411a,
         type: 3}
       propertyPath: m_Name
@@ -1909,12 +1941,16 @@ PrefabInstance:
     - target: {fileID: 8745309092176260195, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 4689
+      value: 4710
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1590518534508280382, guid: 197fc822d45f141bbbe07018e81f7f8d,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
   m_SourcePrefab: {fileID: 100100000, guid: 197fc822d45f141bbbe07018e81f7f8d, type: 3}
 --- !u!114 &6982812147441340503 stripped
 MonoBehaviour:

@@ -10,7 +10,8 @@ namespace Antura.Minigames.DiscoverCountry
     {
         TEXT = 1,
         CHOICE = 2,
-        QUIZ = 3
+        QUIZ = 3,
+        PANEL = 4
     }
 
     public struct NodeChoice
@@ -88,6 +89,11 @@ namespace Antura.Minigames.DiscoverCountry
             return Type == NodeType.QUIZ;
         }
 
+        public bool IsPanel()
+        {
+            return Type == NodeType.PANEL;
+        }
+
         public Sprite GetImage()
         {
             if (Image != null)
@@ -118,6 +124,7 @@ namespace Antura.Minigames.DiscoverCountry
             nodeInfo += "AudioId: " + AudioId + "\n";
             nodeInfo += "Action: " + Action + "\n";
             nodeInfo += "Action Post: " + ActionPost + "\n";
+            nodeInfo += "Task: " + Task + "\n";
             nodeInfo += "BalloonType: " + BalloonType + "\n";
             nodeInfo += "Mood: " + Mood + "\n";
             nodeInfo += "NextTarget: " + NextTarget + "\n";

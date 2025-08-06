@@ -33,7 +33,8 @@ namespace Antura.Minigames.DiscoverCountry
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         [Header("Quest Settings")]
-        public bool EASY_MODE = false;
+        [Tooltip("Force the EASY_MODE var")]
+        public bool EasyMode = false;
         public string LanguageCode = "";
         public string NativeLanguageCode = "";
         private GameObject currentNPC;
@@ -71,7 +72,7 @@ namespace Antura.Minigames.DiscoverCountry
             HomerAnturaManager.I.Setup(LanguageCode, NativeLanguageCode);
 
             HomerVars.IS_DESKTOP = AppConfig.IsDesktopPlatform();
-            HomerVars.EASY_MODE = EASY_MODE;
+            HomerVars.EASY_MODE = EasyMode;
             inventory.Init(HomerVars.QUEST_ITEMS);
             progress.Init(10); // TODO: get from QuestData
             updateCounters();
@@ -84,9 +85,13 @@ namespace Antura.Minigames.DiscoverCountry
             if (DebugConfig.I.VerboseAntura)
                 Debug.Log("OnQuestEnd");
 
+            int score = 3;
+
+            UIManager.I.dialogues.ShowEndPanel(GetQuestNode("quest_end"), score);
+
             DiscoverQuestSaved questStatus = new DiscoverQuestSaved();
             questStatus.QuestCode = CurrentQuest.Code;
-            questStatus.Score = 1;
+            questStatus.Score = score;
 
             AppManager.I.Player.SaveQuest(questStatus);
         }
@@ -103,34 +108,38 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void TaskStart(string taskCode)
         {
-            if (QuestTasks != null)
+            Debug.Log("TaskStart: " + taskCode);
+            foreach (var task in QuestTasks)
             {
-                foreach (var task in QuestTasks)
+                if (task.Code == taskCode)
                 {
-                    if (task.Code == taskCode)
-                    {
-                        CurrentTask = task;
-                        UIManager.I.TaskDisplay.Show(task.Code, 0);
-                        return;
-                    }
+                    CurrentTask = task;
+                    UIManager.I.TaskDisplay.Show(task.Code, 0);
+                    task.InteractGO.SetActive(true);
+                    task.InteractGO.GetComponent<Interactable>().SetActivated(true);
+                    return;
                 }
             }
         }
 
-        public void TaskSuccess(string taskCode)
+        public void TaskSuccess(string taskCode = "")
         {
-            if (CurrentTask != null && CurrentTask.Code == taskCode)
+            if (CurrentTask != null)
             {
-                UIManager.I.TaskDisplay.IncreaseByOne();
+                UIManager.I.TaskDisplay.Hide();
+                if (CurrentTask.NodeSuccess != null)
+                    InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode(CurrentTask.NodeSuccess));
                 CurrentTask = null;
             }
         }
 
-        public void TaskFail(string taskCode)
+        public void TaskFail(string taskCode = "")
         {
-            if (CurrentTask != null && CurrentTask.Code == taskCode)
+            if (CurrentTask != null)
             {
-                UIManager.I.TaskDisplay.DecreaseBy(1);
+                UIManager.I.TaskDisplay.Hide();
+                if (CurrentTask.NodeFail != null)
+                    InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode(CurrentTask.NodeFail));
                 CurrentTask = null;
             }
         }
@@ -148,8 +157,10 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (node.NextTarget != null)
                 ActionManager.I.ResolveNextTarget(node.NextTarget);
+
             if (node.Task != null)
-                ActionManager.I.ResolveTask(node);
+                TaskStart(node.Task);
+
             if (node.ActionPost != null)
                 ActionManager.I.ResolveQuestAction(node.ActionPost, node);
         }

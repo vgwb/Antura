@@ -9,8 +9,8 @@ namespace Antura.Minigames.DiscoverCountry
     public enum CommandType
     {
         Activity = 6,
-        Bones = 10,
         Area = 2,
+        Bones = 10,
         Collect = 4,
         InventoryAdd = 8,
         InventoryRemove = 9,
