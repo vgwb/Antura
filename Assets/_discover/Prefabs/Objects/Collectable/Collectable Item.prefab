@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6239444127202871911}
   - component: {fileID: 2103079042307875094}
-  - component: {fileID: 5008585612928231732}
   - component: {fileID: 4821056719454768642}
   m_Layer: 0
   m_Name: Collectable Item
@@ -49,19 +48,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Type: 3
   ItemTag: apple
---- !u!114 &5008585612928231732
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5531432262981336687}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7869f888c2488409eb28ebe39f0bcb79, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 20
+  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+    type: 3}
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
 --- !u!65 &4821056719454768642
 BoxCollider:
   m_ObjectHideFlags: 0

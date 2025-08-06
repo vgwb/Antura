@@ -197,22 +197,20 @@ namespace Antura.Discover
             }
         }
 
-        public void OnCollectItem(GameObject go)
+        public void OnCollectItem(string tag)
         {
             collected_items++;
             HomerVars.COLLECTED_ITEMS = collected_items;
-            Destroy(go);
             //UpateItemsCounter();
             CurrentTask.ItemCollected();
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 
-        public void OnCollectBone(GameObject go)
+        public void OnCollectBone()
         {
             total_bones++;
             UIManager.I.BonesCounter.IncreaseByOne();
             AppManager.I.Player.AddBones(1);
-            Destroy(go);
         }
 
         public void OnCollectBones(int bones)
@@ -245,13 +243,12 @@ namespace Antura.Discover
         {
             UIManager.I.CoinsCounter.SetValue(HomerVars.TOTAL_COINS);
         }
-        public void OnCollectCoin(GameObject go)
+        public void OnCollectCoin()
         {
             total_coins++;
             HomerVars.TOTAL_COINS = total_coins;
             UIManager.I.CoinsCounter.IncreaseByOne();
             Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
-            Destroy(go);
         }
 
         #region Debug
