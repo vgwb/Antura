@@ -34,7 +34,7 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        public void PermalinkListAll()
+        public void PermalinkList()
         {
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
@@ -49,7 +49,7 @@ namespace Homer
         }
 
         [DeMethodButton(mode = DeButtonMode.Default)]
-        public void PermalinkCheckNotUsed()
+        public void PermalinkCheck()
         {
             HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
             var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
@@ -66,18 +66,7 @@ namespace Homer
             {
                 output += permalink + "\n";
             }
-            Debug.Log(notUsedPermalinks.Count() + " not used permalinks of Quest " + SelectedFlow + "\n\n" + output);
-        }
-
-        [DeMethodButton(mode = DeButtonMode.Default)]
-        public void PermalinkVerifyUsed()
-        {
-            Debug.Log("Verify Used Permalinks of Quest " + SelectedFlow);
-            HomerProject project = JsonConvert.DeserializeObject<HomerProject>(Homer.text);
-            var permalinks = GetPermalinksBySlug(project._flows, SelectedFlow.ToString());
-
-            // Find all Interactable components in the scene
-            Interactable[] interactables = FindObjectsByType<Interactable>(FindObjectsSortMode.None);
+            Debug.Log(notUsedPermalinks.Count() + " not used permalinks" + "\n\n" + output);
 
             // Check if all used NodePermalink in Interactable exist in the permalinks
             var permalinkSet = permalinks.ToHashSet();
@@ -85,15 +74,32 @@ namespace Homer
             {
                 if (!string.IsNullOrEmpty(interactable.NodePermalink) && !permalinkSet.Contains(interactable.NodePermalink))
                 {
-                    Debug.LogError($"WRONG permalink: {interactable.NodePermalink} in {interactable.gameObject.name}");
+                    Debug.LogError($"\nWRONG permalink: {interactable.NodePermalink} in {interactable.gameObject.name}");
                 }
             }
         }
 
-        [DeMethodButton(mode = DeButtonMode.Default)]
-        public void ObjectivesList()
+        /// <summary>
+        /// Returns a dictionary of task metadata and a HashSet of task IDs for the selected flow.
+        /// </summary>
+        private void GetTaskMetaDictAndIds(out Dictionary<string, JObject> metaDict, out HashSet<string> taskIds)
         {
+            metaDict = new Dictionary<string, JObject>();
+            taskIds = new HashSet<string>();
+
             var project = JObject.Parse(Homer.text);
+
+            // Build a dictionary of Objective metadata values by ID
+            foreach (var meta in project["_metadata"] as JArray)
+            {
+                if ((string)meta["_uid"] == "TASK")
+                {
+                    foreach (var val in meta["_values"] as JArray)
+                    {
+                        metaDict[(string)val["_id"]] = (JObject)val;
+                    }
+                }
+            }
 
             // Find the selected flow by slug
             var flows = project["_flows"] as JArray;
@@ -104,21 +110,7 @@ namespace Homer
                 return;
             }
 
-            // Build a dictionary of Objective metadata values by ID
-            var metaDict = new Dictionary<string, JObject>();
-            foreach (var meta in project["_metadata"] as JArray)
-            {
-                if ((string)meta["_uid"] == "OBJECTIVE")
-                {
-                    foreach (var val in meta["_values"] as JArray)
-                    {
-                        metaDict[(string)val["_id"]] = (JObject)val;
-                    }
-                }
-            }
-
             // Find all objective IDs in nodes
-            var objectives = new HashSet<string>();
             foreach (var node in flow["_nodes"] as JArray)
             {
                 var metadata = node["_metadata"] as JArray;
@@ -129,25 +121,88 @@ namespace Homer
                     var id = (string)metaId;
                     if (id.StartsWith("MV-") && metaDict.ContainsKey(id))
                     {
-                        objectives.Add(id);
+                        taskIds.Add(id);
                     }
                 }
             }
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void TaskList()
+        {
+            GetTaskMetaDictAndIds(out var metaDict, out var tasks);
 
             // Output resolved objectives
-            if (objectives.Count == 0)
+            if (tasks.Count == 0)
             {
                 Debug.Log("No Objectives found in flow: " + SelectedFlow);
             }
             else
             {
-                var output = "TOTAL: " + objectives.Count() + " Objectives in Quest " + SelectedFlow + ":\n";
-                foreach (var id in objectives)
+                var output = "TOTAL: " + tasks.Count() + " Objectives in Quest " + SelectedFlow + ":\n";
+                foreach (var id in tasks)
                 {
                     var meta = metaDict[id];
                     output += $"- {meta["_value"]}\n";// ({meta["_uid"]}) [{id}]\n";
                 }
                 Debug.Log(output);
+            }
+        }
+
+        [DeMethodButton(mode = DeButtonMode.Default)]
+        public void TaskCheck()
+        {
+            GetTaskMetaDictAndIds(out var metaDict, out var tasks);
+
+            // Find QuestManager in the scene
+            var questManagers = FindObjectsByType<QuestManager>(FindObjectsSortMode.None);
+            var questManager = questManagers.Length > 0 ? questManagers[0] : null;
+            if (questManager == null || questManager.QuestTasks == null)
+            {
+                Debug.LogError("QuestManager or QuestTasks not found in the scene!");
+                return;
+            }
+
+            var usedCodes = new HashSet<string>();
+            var missingCodes = new List<string>();
+
+            // Check for codes used but not defined
+            foreach (var task in questManager.QuestTasks)
+            {
+                if (task == null || string.IsNullOrEmpty(task.Code))
+                    continue;
+                usedCodes.Add(task.Code);
+                if (!metaDict.ContainsKey(task.Code))
+                {
+                    missingCodes.Add(task.Code);
+                }
+            }
+
+            // Check for codes defined but not used
+            var unusedCodes = new List<string>();
+            foreach (var code in metaDict.Keys)
+            {
+                if (!usedCodes.Contains(code))
+                {
+                    unusedCodes.Add(code);
+                }
+            }
+
+            // Output results
+            if (missingCodes.Count == 0 && unusedCodes.Count == 0)
+            {
+                Debug.Log("All QuestTasks codes are valid and all defined codes are used.");
+            }
+            else
+            {
+                if (missingCodes.Count > 0)
+                {
+                    Debug.LogWarning("QuestTask codes used but NOT defined in JSON:\n" + string.Join("\n", missingCodes));
+                }
+                if (unusedCodes.Count > 0)
+                {
+                    Debug.LogWarning("Task codes defined in JSON but NOT used in QuestTasks:\n" + string.Join("\n", unusedCodes));
+                }
             }
         }
 

@@ -153,6 +153,19 @@ namespace Antura.Minigames.DiscoverCountry
             }
         }
 
+        public void DisplayNode(QuestNode node)
+        {
+            if (node == null)
+            {
+                Debug.LogError("QuestNode is NULL, shouldn't happen");
+                return;
+            }
+
+            DiscoverNotifier.Game.OnStartDialogue.Dispatch();
+            UIManager.I.dialogues.StartDialogue(node);
+
+        }
+
         IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
         {
             DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);

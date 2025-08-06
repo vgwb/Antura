@@ -8,20 +8,22 @@ namespace Antura.Minigames.DiscoverCountry
 {
     public enum CommandType
     {
-        Trigger = 1,
-        UnityAction = 7,
-        Area = 2,
-        PlayerSpawn = 3,
-        SetRespawn = 11,
-        Collect = 4,
-        Target = 5,
         Activity = 6,
+        Bones = 10,
+        Area = 2,
+        Collect = 4,
         InventoryAdd = 8,
         InventoryRemove = 9,
-        Bones = 10,
-        End = 12,
         PlaySfx = 13,
-
+        QuestEnd = 12,
+        SpawnPlayer = 3,
+        SpawnSet = 11,
+        Target = 5,
+        TaskStart = 14,
+        TaskSuccess = 15,
+        TaskFail = 16,
+        Trigger = 1,
+        UnityAction = 7,
     }
 
     [System.Serializable]
@@ -42,10 +44,13 @@ namespace Antura.Minigames.DiscoverCountry
     public class CommandData
     {
         public CommandType Command;
+        [Tooltip("Optional GameObject for the command")]
         public GameObject mainObject;
-        [Tooltip("Do not execute this command")]
-        public bool Disabled = false;
-        [Tooltip("Executes only if Commant = UnityAction")]
+        [Tooltip("Optional parameter for the command")]
+        public string Parameter;
+        [Tooltip("Bypass this command")]
+        public bool Bypass = false;
+        [Tooltip("Executes only if Command = UnityAction")]
         public UnityEvent unityAction;
     }
 

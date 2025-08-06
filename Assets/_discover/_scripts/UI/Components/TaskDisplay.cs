@@ -40,7 +40,6 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             Setup();
-
         }
 
         void Setup()

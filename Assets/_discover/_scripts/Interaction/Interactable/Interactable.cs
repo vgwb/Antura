@@ -35,19 +35,19 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
-        [Header("Unity Actions")]
-        public bool ActivateUnityAction;
-        [SerializeField] bool disableAfterAction;
-        [SerializeField] UnityEvent unityAction;
-
-        [Header("Quest Actions")]
-        [SerializeField] string QuestAction;
-
         [Header("Quest Node")]
-        public bool ActivateNode;
         public string NodePermalink;
+        [Tooltip("deprecated")]
         public string NodeCommand;
 
+        [Header("Quest Actions")]
+        [SerializeField] bool disableAfterAction;
+        [Tooltip("Execute a quest action of ActionManager")]
+        [SerializeField] string QuestAction;
+        [Tooltip("Executes these commands")]
+        [SerializeField] List<CommandData> Commands;
+        [Tooltip("deprecated")]
+        [SerializeField] UnityEvent unityAction;
         #endregion
 
         public bool IsLL { get; private set; }
@@ -134,15 +134,17 @@ namespace Antura.Minigames.DiscoverCountry
         public QuestNode Activate()
         {
             QuestNode node = null;
-            if (ActivateNode)
-                node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-
-            if (ActivateUnityAction)
-                LaunchUnityAction();
+            if (NodePermalink != "")
+                node = QuestManager.I.GetQuestNode(NodePermalink);
 
             if (QuestAction != "")
             {
                 ActionManager.I.ResolveQuestAction(QuestAction);
+            }
+
+            if (Commands != null && Commands.Count > 0)
+            {
+                ActionManager.I.ResolveCommands(Commands);
             }
 
             if (disableAfterAction)
@@ -153,13 +155,6 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Methods
-
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        void LaunchUnityAction()
-        {
-            if (unityAction != null)
-                unityAction.Invoke();
-        }
 
         // Coroutine to disable interactable after one frame, so it doesn't interfere with multiple actions being called in the same frame
         IEnumerator CO_DisableAfterAction()

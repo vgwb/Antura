@@ -125,7 +125,7 @@ namespace Antura.Minigames.DiscoverCountry
             itemUIs[toIdx].GetComponent<DragHandler>().Index = toIdx;
         }
 
-        void Validate()
+        new void Validate()
         {
             bool correct = true;
             for (int i = 0; i < currentOrder.Count; i++)

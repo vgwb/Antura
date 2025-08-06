@@ -73,6 +73,7 @@ namespace Antura.Minigames.DiscoverCountry
             {
                 ResolveQuestAction("init");
             }
+            InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode("init"));
         }
 
         private void SetPlayerSpawnPoint(GameObject spawnPoint)
@@ -124,60 +125,81 @@ namespace Antura.Minigames.DiscoverCountry
                 if (QuestManager.I.DebugQuest)
                     Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
 
-                foreach (var command in actionData.Commands)
+                if (actionData.Commands == null || actionData.Commands.Count == 0)
                 {
-                    if (command.Disabled)
-                    {
-                        if (QuestManager.I.DebugQuest)
-                            Debug.Log("Command is disabled: " + command.Command);
-                        continue;
-                    }
-                    switch (command.Command)
-                    {
-                        case CommandType.UnityAction:
-                            if (command.unityAction != null)
-                                command.unityAction.Invoke();
-                            break;
-                        case CommandType.InventoryAdd:
-                            QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
-                            break;
-                        case CommandType.InventoryRemove:
-                            QuestManager.I.RemoveItemCode(command.mainObject.ToString());
-                            break;
-                        case CommandType.Bones:
-                            QuestManager.I.OnCollectBones(1);
-                            break;
-                        case CommandType.Trigger:
-                            command.mainObject.GetComponent<ActionAbstract>().Trigger();
-                            break;
-                        case CommandType.Area:
-                            ChangeArea(command.mainObject);
-                            break;
-                        case CommandType.SetRespawn:
-                            SetPlayerSpawnPoint(command.mainObject);
-                            break;
-                        case CommandType.PlayerSpawn:
-                            RespawnPlayer();
-                            break;
-                        case CommandType.Collect:
-                            Collect(command.mainObject.name);
-                            break;
-                        case CommandType.Activity:
-                            command.mainObject.GetComponent<ActivityPanel>().Open();
-                            break;
-                        case CommandType.PlaySfx:
-                            command.mainObject.GetComponent<ActionAbstract>().Trigger();
-                            break;
-                        case CommandType.End:
-                            command.mainObject.GetComponent<ActivityPanel>().Open();
-                            break;
-                        default:
-                            Debug.LogError("Unknown command type: " + command.Command);
-                            break;
-                    }
+                    Debug.LogError("No commands found for action: " + actionData.ActionCode);
+                    return;
+                }
+                ResolveCommands(actionData.Commands);
+
+            }
+        }
+
+        public void ResolveCommands(List<CommandData> commands)
+        {
+            foreach (var command in commands)
+            {
+                if (command.Bypass)
+                {
+                    if (QuestManager.I.DebugQuest)
+                        Debug.Log("Command is disabled: " + command.Command);
+                    continue;
+                }
+                switch (command.Command)
+                {
+                    case CommandType.UnityAction:
+                        if (command.unityAction != null)
+                            command.unityAction.Invoke();
+                        break;
+                    case CommandType.InventoryAdd:
+                        QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
+                        break;
+                    case CommandType.InventoryRemove:
+                        QuestManager.I.RemoveItemCode(command.mainObject.ToString());
+                        break;
+                    case CommandType.Bones:
+                        QuestManager.I.OnCollectBones(1);
+                        break;
+                    case CommandType.Trigger:
+                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        break;
+                    case CommandType.Area:
+                        ChangeArea(command.mainObject);
+                        break;
+                    case CommandType.SpawnSet:
+                        SetPlayerSpawnPoint(command.mainObject);
+                        break;
+                    case CommandType.SpawnPlayer:
+                        RespawnPlayer();
+                        break;
+                    case CommandType.Collect:
+                        Collect(command.mainObject.name);
+                        break;
+                    case CommandType.Activity:
+                        command.mainObject.GetComponent<ActivityPanel>().Open();
+                        break;
+                    case CommandType.PlaySfx:
+                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        break;
+                    case CommandType.QuestEnd:
+                        command.mainObject.GetComponent<ActivityPanel>().Open();
+                        break;
+                    case CommandType.TaskStart:
+                        QuestManager.I.TaskStart(command.Parameter);
+                        break;
+                    case CommandType.TaskSuccess:
+                        QuestManager.I.TaskSuccess(command.Parameter);
+                        break;
+                    case CommandType.TaskFail:
+                        QuestManager.I.TaskFail(command.Parameter);
+                        break;
+                    default:
+                        Debug.LogError("Unknown command type: " + command.Command);
+                        break;
                 }
             }
         }
+
 
         public void ResolveTask(QuestNode node)
         {
@@ -269,7 +291,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         private void Spawn(string spawnCode)
         {
-            var actionData = GetActionData(CommandType.PlayerSpawn, spawnCode);
+            var actionData = GetActionData(CommandType.SpawnPlayer, spawnCode);
 
             PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
         }

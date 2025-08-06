@@ -198,7 +198,15 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "C-K4MBGQ4Y-MDYPIXU5",
+              "_connectionLine": {},
+              "_from": "NOD-8de6037c-3376-4c1f-b8e6-1728485867102-f8-b5",
+              "_to": "N-C158F0A4-MDYPIXTX",
+              "_type": "Variables"
+            }
+          ],
           "_subFlow": null,
           "_permalink": "init",
           "_translatable": false,
@@ -2201,10 +2209,10 @@
           "_jumpTo": {},
           "_connections": [
             {
-              "_id": "C-1PDB0TEY-MDQ543Y4",
+              "_id": "C-WH3B3UOO-MDYQ199O",
               "_connectionLine": {},
               "_from": "N-OZ9AN5FU-MDQ536IX",
-              "_to": "N-MGR86WI7-MDQ543Y1",
+              "_to": "N-HGMB2ATS-MDYQ0Z0U",
               "_type": "Text"
             }
           ],
@@ -2222,7 +2230,7 @@
           "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
           "_actorUID": "KID_FEMALE",
           "_metadata": [
-            "MV-4ILAWADL-MDQ56AJR"
+            "MV-P1RAWD0X-MDZG05XK"
           ],
           "_note": "",
           "_image": null,
@@ -2239,7 +2247,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "Play Do Re Mi on the Piano!"
+                  "_text": "Play this Normal Test Activity!"
                 }
               ],
               "_visited": false,
@@ -2721,7 +2729,9 @@
           "_type": "Text",
           "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
           "_actorUID": "KID_FEMALE",
-          "_metadata": [],
+          "_metadata": [
+            "MV-6WN9EK6F-MDYPB153"
+          ],
           "_note": "",
           "_image": null,
           "_cycleType": "List",
@@ -2756,7 +2766,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1754329259131,
-          "_height": 90
+          "_height": 97
         },
         {
           "_id": "N-HE2ACN5W-MDXECFP7-LM5",
@@ -2802,6 +2812,329 @@
           "_isMarked": false,
           "_date": 1754329259131,
           "_height": 115
+        },
+        {
+          "_id": "N-T4Q8ICU0-MDYPA8Z6",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MV-KUTBPFLW-MDYPT0W7"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-WLFBYYV9-MDYPA8Z6",
+              "_type": "Text",
+              "_nodeId": "N-T4Q8ICU0-MDYPA8Z6",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-WLFBYYV9-MDYPA8Z6",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "TASK: Reach that platform"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": "task_reach",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754408099058,
+          "_height": 97
+        },
+        {
+          "_id": "N-T4Q8ICU0-MDYPA8Z6-HSC",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-WLFBYYV9-MDYPA8Z6-HSC",
+              "_type": "Text",
+              "_nodeId": "N-T4Q8ICU0-MDYPA8Z6-HSC",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-WLFBYYV9-MDYPA8Z6-HSC",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "TASK: Reach that platform"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": "task_reach_done",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754408099058,
+          "_height": 90
+        },
+        {
+          "_id": "N-C158F0A4-MDYPIXTX",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-22c075d9-0939-42f8-a0d0-1708696834884",
+          "_actorUID": "TUTOR",
+          "_metadata": [
+            "MV-L3J8DIMI-MDYPKTFC"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-0KC9DR5X-MDYPIXTX",
+              "_type": "Text",
+              "_nodeId": "N-C158F0A4-MDYPIXTX",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-0KC9DR5X-MDYPIXTX",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Welcome to the Dev scene"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754408504517,
+          "_height": 97
+        },
+        {
+          "_id": "N-HGMB2ATS-MDYQ0Z0U",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Condition",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-AY78LYIO-MDYQ0Z0U",
+              "_type": "Condition",
+              "_nodeId": "N-HGMB2ATS-MDYQ0Z0U",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-AY78LYIO-MDYQ0Z0U",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$EASY_MODE"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "C-ZJX8J16F-MDYQ17PB",
+              "_connectionLine": {},
+              "_from": "N-HGMB2ATS-MDYQ0Z0U",
+              "_to": "N-MGR86WI7-MDQ543Y1",
+              "_type": "FailCondition"
+            },
+            {
+              "_id": "C-JR4BVUR8-MDYQ1HSU",
+              "_connectionLine": {},
+              "_from": "N-HGMB2ATS-MDYQ0Z0U",
+              "_nodeElementId": "NE-AY78LYIO-MDYQ0Z0U",
+              "_to": "N-MGR86WI7-MDQ543Y1-TD4",
+              "_type": "Condition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1754409345870,
+          "_height": 84
+        },
+        {
+          "_id": "N-MGR86WI7-MDQ543Y1-TD4",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [
+            "MV-9A0BV2DL-MDZFY20H"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-97LAUESS-MDQ543Y1-TD4",
+              "_type": "Text",
+              "_nodeId": "N-MGR86WI7-MDQ543Y1-TD4",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-97LAUESS-MDQ543Y1-TD4",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Play this Easy Test Activity!"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1753890490873,
+          "_height": 97
+        },
+        {
+          "_id": "N-MGR86WI7-MDQ543Y1-TD4-0MM",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-97LAUESS-MDQ543Y1-TD4-0MM",
+              "_type": "Text",
+              "_nodeId": "N-MGR86WI7-MDQ543Y1-TD4-0MM",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-97LAUESS-MDQ543Y1-TD4-0MM",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Well done. You can go on!"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": "activity_test_done",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1753890490873,
+          "_height": 90
+        },
+        {
+          "_id": "N-MGR86WI7-MDQ543Y1-TD4-0MM-MFJ",
+          "_flowId": "FL-3628f919-ebbd-499e-b5ab-1711698366399-f8-b5",
+          "_type": "Text",
+          "_actorId": "ACT-6b21a1ef-4431-48ea-a1e5-1730786856824",
+          "_actorUID": "KID_FEMALE",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-97LAUESS-MDQ543Y1-TD4-0MM-MFJ",
+              "_type": "Text",
+              "_nodeId": "N-MGR86WI7-MDQ543Y1-TD4-0MM-MFJ",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-97LAUESS-MDQ543Y1-TD4-0MM-MFJ",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Maybe you whould try again"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": "activity_test_fail",
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1753890490873,
+          "_height": 90
         }
       ],
       "_selectedNodes": [],
@@ -28483,7 +28816,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1751554500674,
-          "_height": 85
+          "_height": 82
         },
         {
           "_id": "N-4DHA5OQZ-MDEIVI7S",
@@ -28541,7 +28874,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753188009976,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-SCL8FOJC-MDEIYIZ0",
@@ -28599,7 +28932,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753188150924,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-SCL8FOJC-MDEIYIZ0-26N",
@@ -28657,7 +28990,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753188150924,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-SCL8FOJC-MDEIYIZ0-26N-9N1",
@@ -28709,7 +29042,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753188150924,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-SRYAD8M2-MDHELXU5",
@@ -28759,7 +29092,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753362243725,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-KI0BIDOQ-MDHEYLSV",
@@ -28819,7 +29152,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753362834655,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-NN2APKVA-MDHF5SJP",
@@ -28871,7 +29204,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753363169989,
-          "_height": 115
+          "_height": 140
         },
         {
           "_id": "N-N6QBT2W3-MDHGH7Z5",
@@ -28929,7 +29262,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365382817,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-N6QBT2W3-MDHGH7Z5-8QW",
@@ -28987,7 +29320,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365382817,
-          "_height": 108
+          "_height": 134
         },
         {
           "_id": "N-N6QBT2W3-MDHGH7Z5-QBZ-ILE",
@@ -29039,7 +29372,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365382817,
-          "_height": 115
+          "_height": 119
         },
         {
           "_id": "N-F2E8O0GY-MDHGR78M",
@@ -29097,7 +29430,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365848422,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-F2E8O0GY-MDHGR78M-1IC",
@@ -29155,7 +29488,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365848422,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-F2E8O0GY-MDHGR78M-1IC-1BR",
@@ -29207,7 +29540,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753365848422,
-          "_height": 115
+          "_height": 119
         },
         {
           "_id": "N-OC4BG7EU-MDHHALBX",
@@ -29259,7 +29592,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753366753149,
-          "_height": 133
+          "_height": 140
         },
         {
           "_id": "N-XK49KJA3-MDHHCUWD",
@@ -29317,7 +29650,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753366858861,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-7448W1HP-MDHHE31A",
@@ -29375,7 +29708,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753366916062,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-7448W1HP-MDHHE31A-MVJ",
@@ -29433,7 +29766,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753366916062,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-7448W1HP-MDHHE31A-MVJ-V4A",
@@ -29485,7 +29818,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753366916062,
-          "_height": 115
+          "_height": 119
         },
         {
           "_id": "N-ESL8XV50-MDHHRPPV",
@@ -29543,7 +29876,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753367551987,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-I8EBMKLS-MDHHZ2WO",
@@ -29601,7 +29934,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753367895672,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-5R9BOVAV-MDHHZRUZ",
@@ -29653,7 +29986,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753367928011,
-          "_height": 115
+          "_height": 119
         },
         {
           "_id": "N-PPVBWUFW-MDHI0AHO",
@@ -29711,7 +30044,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753367952156,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-FBD9IKW8-MDHI1JQJ",
@@ -29769,7 +30102,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368010795,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-U4A8HT2F-MDHI1UFI",
@@ -29821,7 +30154,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368024654,
-          "_height": 115
+          "_height": 119
         },
         {
           "_id": "N-Q2891E30-MDHI29A1",
@@ -29879,7 +30212,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368043897,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-Q0QA73GW-MDHI2UQX",
@@ -29937,7 +30270,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368071721,
-          "_height": 108
+          "_height": 134
         },
         {
           "_id": "N-FD0ANMV4-MDHI3B1O",
@@ -29987,7 +30320,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368092845,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-XX09UUJ5-MDHI3YIX",
@@ -30045,7 +30378,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368123273,
-          "_height": 90
+          "_height": 113
         },
         {
           "_id": "N-96N8ET79-MDHI5HK7",
@@ -30103,7 +30436,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368194599,
-          "_height": 90
+          "_height": 113
         },
         {
           "_id": "N-XMCAGSNR-MDHI60K7",
@@ -30153,7 +30486,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753368219223,
-          "_height": 90
+          "_height": 113
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR",
@@ -30291,7 +30624,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 239
+          "_height": 255
         },
         {
           "_id": "N-1HV9GDJM-MDHJ81VB",
@@ -30357,7 +30690,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369993847,
-          "_height": 84
+          "_height": 87
         },
         {
           "_id": "N-4348YX4I-MDN5R0S6",
@@ -30407,7 +30740,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753710161334,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-BUHA59AJ-MDN5USSH",
@@ -30459,7 +30792,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753710337602,
-          "_height": 257
+          "_height": 260
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7",
@@ -30561,7 +30894,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-B658B18H-MDN6A4VZ",
@@ -30614,7 +30947,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753711053119,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-4WRB1AFF-MDN6ABZP",
@@ -30664,7 +30997,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753711062325,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7-93K",
@@ -30766,7 +31099,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-GNIAQS7W-MDRA95EQ",
@@ -30819,7 +31152,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753959590306,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-DXCAAAIQ-MDRABJVJ",
@@ -30869,7 +31202,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753959702367,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7-93K-BNO",
@@ -30971,7 +31304,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-TM8AJDD2-MDRAFUPW",
@@ -31024,7 +31357,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753959903044,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-GIL81YCX-MDRAXKX4",
@@ -31074,7 +31407,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753960730152,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7-93K-BNO-STC",
@@ -31176,7 +31509,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-J3L8N3WY-MDRB609F",
@@ -31229,7 +31562,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753961123283,
-          "_height": 97
+          "_height": 119
         },
         {
           "_id": "N-2PC928R9-MDRBGXYG",
@@ -31279,7 +31612,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753961633512,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7-93K-BNO-STC-S3U",
@@ -31381,7 +31714,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-EX78AL4Q-MDRC2CFN",
@@ -31434,7 +31767,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753962632052,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-J3598Z41-MDHJ47CR-0F7-93K-BNO-STC-S3U-JWO",
@@ -31536,7 +31869,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753369814331,
-          "_height": 162
+          "_height": 171
         },
         {
           "_id": "N-LH6AMWOP-MDREKH2B",
@@ -31589,7 +31922,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753966837091,
-          "_height": 97
+          "_height": 119
         },
         {
           "_id": "N-X8G8X0AB-MDREKJH6",
@@ -31639,7 +31972,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753966840219,
-          "_height": 108
+          "_height": 113
         },
         {
           "_id": "N-P3QADFBJ-MDRGS6R5",
@@ -31717,7 +32050,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753970556209,
-          "_height": 83
+          "_height": 90
         },
         {
           "_id": "N-7ZP9Z2UD-MDRGTQJ0",
@@ -31775,7 +32108,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1753970628492,
-          "_height": 39
+          "_height": 42
         },
         {
           "_id": "N-YOJAZZB3-MDRH1SB4",
@@ -31827,7 +32160,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753971004048,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-1XL895QV-MDRH9NEI",
@@ -31879,7 +32212,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753971370938,
-          "_height": 97
+          "_height": 100
         },
         {
           "_id": "N-0HE9AB72-MDRHKRIP",
@@ -31937,7 +32270,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753971889489,
-          "_height": 90
+          "_height": 93
         },
         {
           "_id": "N-5R9BOVAV-MDHHZRUZ-FQQ",
@@ -31987,13 +32320,13 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753367928011,
-          "_height": 108
+          "_height": 113
         }
       ],
       "_selectedNodes": [],
       "_group": "3244503f-5f8d-4848-ac14-1652618909210",
       "_state": "editor",
-      "_modified_by": "203"
+      "_modified_by": "574"
     },
     {
       "_id": "F-Y7TALSJ7-MCNIC5OB",
@@ -32022,7 +32355,7 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1751554522254,
-          "_height": 85
+          "_height": 82
         },
         {
           "_id": "N-90LA0ZHA-MDRFGDYW",
@@ -32073,7 +32406,7 @@
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753968326072,
-          "_height": 108.5
+          "_height": 113
         },
         {
           "_id": "N-JUMBUXSD-MDRFM3RW",
@@ -32097,7 +32430,7 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": "We wanted tp èòa"
+                  "_text": "We wanted to play the French Anthem, but we cannot!"
                 }
               ],
               "_visited": false,
@@ -32110,13 +32443,21 @@
             }
           ],
           "_jumpTo": {},
-          "_connections": [],
+          "_connections": [
+            {
+              "_id": "C-MCNBH6M7-MDYIGYCT",
+              "_connectionLine": {},
+              "_from": "N-JUMBUXSD-MDRFM3RW",
+              "_to": "N-C40BQ271-MDYIGHYS",
+              "_type": "Text"
+            }
+          ],
           "_subFlow": null,
           "_permalink": null,
           "_translatable": true,
           "_isMarked": false,
           "_date": 1753968592796,
-          "_height": 90
+          "_height": 113
         },
         {
           "_id": "N-X7NAZL6M-MDY9NRFO",
@@ -32140,7 +32481,28 @@
                   "_localeCode": "EN",
                   "_isDraft": false,
                   "_toBeTranslated": false,
-                  "_text": ""
+                  "_text": "$MAX_PROGRESS = 4"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            },
+            {
+              "_id": "NE-HGH8Y6IH-MDYIRITZ",
+              "_type": "Variables",
+              "_nodeId": "N-X7NAZL6M-MDY9NRFO",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-HGH8Y6IH-MDYIRITZ",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CURRENT_PROGRESS = 0"
                 }
               ],
               "_visited": false,
@@ -32159,13 +32521,393 @@
           "_translatable": false,
           "_isMarked": false,
           "_date": 1754381855652,
-          "_height": 27
+          "_height": 90
+        },
+        {
+          "_id": "N-C40BQ271-MDYIGHYS",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Text",
+          "_actorId": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
+          "_actorUID": "MAN",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-0Z99PPCW-MDYIGHYS",
+              "_type": "Text",
+              "_nodeId": "N-C40BQ271-MDYIGHYS",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-0Z99PPCW-MDYIGHYS",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Antura has mixed up the musical script."
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "C-QJXBPXIW-MDYIH9FX",
+              "_connectionLine": {},
+              "_from": "N-C40BQ271-MDYIGHYS",
+              "_to": "N-DVT8TM4O-MDYIH29O",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754396633332,
+          "_height": 113
+        },
+        {
+          "_id": "N-DVT8TM4O-MDYIH29O",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Text",
+          "_actorId": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
+          "_actorUID": "MAN",
+          "_metadata": [
+            "MV-NTS9IOIO-MDYIIPQJ"
+          ],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-M9CB3UFJ-MDYIH29O",
+              "_type": "Text",
+              "_nodeId": "N-DVT8TM4O-MDYIH29O",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-M9CB3UFJ-MDYIH29O",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Can you help us find them?"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754396659644,
+          "_height": 100
+        },
+        {
+          "_id": "N-DXFB6LPK-MDYIMQF6",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Text",
+          "_actorId": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
+          "_actorUID": "MAN",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-3TE9WVPK-MDYIMQF7",
+              "_type": "Text",
+              "_nodeId": "N-DXFB6LPK-MDYIMQF6",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-3TE9WVPK-MDYIMQF7",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Thank you"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754396924226,
+          "_height": 93
+        },
+        {
+          "_id": "N-5XPBZJNR-MDYIP6GX",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Condition",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-WVHAGI2X-MDYIP6GX",
+              "_type": "Condition",
+              "_nodeId": "N-5XPBZJNR-MDYIP6GX",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-WVHAGI2X-MDYIP6GX",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CURRENT_PROGRESS = 0"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            },
+            {
+              "_id": "NE-GBE9CXI9-MDYIW6OQ",
+              "_type": "Condition",
+              "_nodeId": "N-5XPBZJNR-MDYIP6GX",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-GBE9CXI9-MDYIW6OQ",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CURRENT_PROGRESS = 1"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "C-9J88SXGC-MDYISFNP",
+              "_connectionLine": {},
+              "_from": "N-5XPBZJNR-MDYIP6GX",
+              "_to": "N-90LA0ZHA-MDRFGDYW",
+              "_type": "FailCondition"
+            },
+            {
+              "_id": "C-NMZASUJ5-MDYIZAD1",
+              "_connectionLine": {},
+              "_from": "N-5XPBZJNR-MDYIP6GX",
+              "_nodeElementId": "NE-GBE9CXI9-MDYIW6OQ",
+              "_to": "N-DXFB6LPK-MDYIMQF6",
+              "_type": "Condition"
+            },
+            {
+              "_id": "C-VFRAKB6S-MDYJ95AL",
+              "_connectionLine": {},
+              "_from": "N-5XPBZJNR-MDYIP6GX",
+              "_nodeElementId": "NE-WVHAGI2X-MDYIP6GX",
+              "_to": "N-7O1AV9PE-MDYJ1BL3",
+              "_type": "Condition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1754397038337,
+          "_height": 150
+        },
+        {
+          "_id": "N-7O1AV9PE-MDYJ1BL3",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Condition",
+          "_actorId": null,
+          "_actorUID": null,
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-HR3835Y6-MDYJ1BL3",
+              "_type": "Condition",
+              "_nodeId": "N-7O1AV9PE-MDYJ1BL3",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-HR3835Y6-MDYJ1BL3",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "$CURRENT_ITEM = final_script"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "C-QVRBMJ10-MDYJ97MD",
+              "_connectionLine": {},
+              "_from": "N-7O1AV9PE-MDYJ1BL3",
+              "_to": "N-90LA0ZHA-MDRFGDYW",
+              "_type": "FailCondition"
+            },
+            {
+              "_id": "C-D0181YM9-MDYJRV1P",
+              "_connectionLine": {},
+              "_from": "N-7O1AV9PE-MDYJ1BL3",
+              "_nodeElementId": "NE-HR3835Y6-MDYJ1BL3",
+              "_to": "N-HVIB2CJC-MDYJRUCM",
+              "_type": "Condition"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": false,
+          "_isMarked": false,
+          "_date": 1754397604839,
+          "_height": 130
+        },
+        {
+          "_id": "N-HVIB2CJC-MDYJRUCM",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Text",
+          "_actorId": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
+          "_actorUID": "MAN",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-FO7AI8E3-MDYJRUCM",
+              "_type": "Text",
+              "_nodeId": "N-HVIB2CJC-MDYJRUCM",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-FO7AI8E3-MDYJRUCM",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Thank you for helping us!"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [
+            {
+              "_id": "C-O00AG7Y7-MDYJW225",
+              "_connectionLine": {},
+              "_from": "N-HVIB2CJC-MDYJRUCM",
+              "_to": "N-MOJ8J71I-MDYJW0Z4",
+              "_type": "Text"
+            }
+          ],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754398842214,
+          "_height": 93
+        },
+        {
+          "_id": "N-MOJ8J71I-MDYJW0Z4",
+          "_flowId": "F-Y7TALSJ7-MCNIC5OB",
+          "_type": "Text",
+          "_actorId": "ACT-ab715219-146e-4cd5-9ec3-1718875186786",
+          "_actorUID": "MAN",
+          "_metadata": [],
+          "_note": "",
+          "_image": null,
+          "_cycleType": "List",
+          "_color": null,
+          "_elements": [
+            {
+              "_id": "NE-XL58OQTT-MDYJW0Z4",
+              "_type": "Text",
+              "_nodeId": "N-MOJ8J71I-MDYJW0Z4",
+              "_localizedContents": [
+                {
+                  "_nodeElementId": "NE-XL58OQTT-MDYJW0Z4",
+                  "_localeCode": "EN",
+                  "_isDraft": false,
+                  "_toBeTranslated": false,
+                  "_text": "Can you put it together?"
+                }
+              ],
+              "_visited": false,
+              "_wasHiddenBecauseEmpty": false,
+              "_onlyOnce": false,
+              "_ifNoMore": false,
+              "_variations": [],
+              "_permalink": null,
+              "_color": null
+            }
+          ],
+          "_jumpTo": {},
+          "_connections": [],
+          "_subFlow": null,
+          "_permalink": null,
+          "_translatable": true,
+          "_isMarked": false,
+          "_date": 1754399037424,
+          "_height": 93
         }
       ],
       "_selectedNodes": [],
       "_group": "3244503f-5f8d-4848-ac14-1652618909210",
       "_state": "editor",
-      "_modified_by": "203"
+      "_modified_by": "574"
     },
     {
       "_id": "FL-bfe40fe6-a221-41bc-b16a-1709223555942",
@@ -36311,13 +37053,6 @@
       "_scope": "node",
       "_values": [
         {
-          "_id": "MV-4ILAWADL-MDQ56AJR",
-          "_metadataId": "M-CZ1BNSVD-MDQ55AFV",
-          "_value": "Activity_test",
-          "_uid": "ACTIVITY_TEST",
-          "_icon": "🎯"
-        },
-        {
           "_id": "MV-B1FBD4PQ-MDRHJ9JL",
           "_metadataId": "M-CZ1BNSVD-MDQ55AFV",
           "_value": "find_french_flag",
@@ -36448,6 +37183,20 @@
           "_metadataId": "M-CZ1BNSVD-MDQ55AFV",
           "_value": "seine",
           "_uid": "SEINE",
+          "_icon": "🎯"
+        },
+        {
+          "_id": "MV-6WN9EK6F-MDYPB153",
+          "_metadataId": "M-CZ1BNSVD-MDQ55AFV",
+          "_value": "collect_flowers",
+          "_uid": "COLLECT_FLOWERS",
+          "_icon": "🎯"
+        },
+        {
+          "_id": "MV-KUTBPFLW-MDYPT0W7",
+          "_metadataId": "M-CZ1BNSVD-MDQ55AFV",
+          "_value": "reach_platform",
+          "_uid": "REACH_PLATFORM",
           "_icon": "🎯"
         }
       ],
@@ -36905,6 +37654,20 @@
           "_value": "remove_swiss_flag",
           "_uid": "REMOVE_SWISS_FLAG",
           "_icon": "⚔"
+        },
+        {
+          "_id": "MV-9A0BV2DL-MDZFY20H",
+          "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
+          "_value": "activity_test_easy",
+          "_uid": "ACTIVITY_TEST_EASY",
+          "_icon": "⚔"
+        },
+        {
+          "_id": "MV-P1RAWD0X-MDZG05XK",
+          "_metadataId": "MTA-c52bac68-2766-43a1-bd2c-1718892766244",
+          "_value": "activity_test",
+          "_uid": "ACTIVITY_TEST",
+          "_icon": "⚔"
         }
       ],
       "_icon": "⚔",
@@ -37031,6 +37794,13 @@
           "_metadataId": "MTA-65637b1a-1cc0-4060-894f-1711699556027",
           "_value": "kid",
           "_uid": "KID",
+          "_icon": "📍"
+        },
+        {
+          "_id": "MV-NTS9IOIO-MDYIIPQJ",
+          "_metadataId": "MTA-65637b1a-1cc0-4060-894f-1711699556027",
+          "_value": "find_the_script_parts",
+          "_uid": "FIND_THE_SCRIPT_PARTS",
           "_icon": "📍"
         }
       ],
@@ -37229,6 +37999,13 @@
         "node"
       ],
       "_values": [
+        {
+          "_id": "MV-L3J8DIMI-MDYPKTFC",
+          "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",
+          "_value": "panel",
+          "_uid": "PANEL",
+          "_icon": "🗒"
+        },
         {
           "_id": "MTV-827baee4-d5ed-4db5-b756-1737550055577",
           "_metadataId": "8d99636a-b0bf-44e9-be49-1652618909025",

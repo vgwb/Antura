@@ -21,19 +21,25 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Quests Quests;
         public QuestData CurrentQuest;
+
+        public TaskData[] QuestTasks;
+        private TaskData CurrentTask;
+
+        public ActivityData[] QuestActivities;
+        private ActivityData CurrentActivity;
+
+        private Inventory inventory;
+        private Progress progress;
+        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
+
+        [Header("Quest Settings")]
+        public bool EASY_MODE = false;
         public string LanguageCode = "";
         public string NativeLanguageCode = "";
         private GameObject currentNPC;
         public int total_coins = 0;
         public int total_bones = 0;
         public int collected_items = 0;
-
-        public TaskData[] QuestTasks;
-        private TaskData CurrentTask;
-
-        private Inventory inventory;
-        private Progress progress;
-        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
 
         [Header("DEBUG")]
         public bool DebugQuest = false;
@@ -63,17 +69,14 @@ namespace Antura.Minigames.DiscoverCountry
             NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
             //            Debug.Log("native = " + AppManager.I.AppSettings.NativeLanguage + " / " + NativeLangCode);
             HomerAnturaManager.I.Setup(LanguageCode, NativeLanguageCode);
-            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
-
-            if (DebugQuest)
-            {
-                HomerVars.MET_MONALISA = true;
-            }
 
             HomerVars.IS_DESKTOP = AppConfig.IsDesktopPlatform();
+            HomerVars.EASY_MODE = EASY_MODE;
             inventory.Init(HomerVars.QUEST_ITEMS);
             progress.Init(10); // TODO: get from QuestData
             updateCounters();
+            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
+            //InteractionManager.I.DisplayNode(GetQuestNode("init"));
         }
 
         public void OnQuestEnd()
@@ -88,16 +91,9 @@ namespace Antura.Minigames.DiscoverCountry
             AppManager.I.Player.SaveQuest(questStatus);
         }
 
-        public QuestNode GetQuestNode(string permalink, string command)
+        public QuestNode GetQuestNode(string permalink, string command = "")
         {
-            if (permalink != "")
-            {
-                return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
-            }
-            else
-            {
-                return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
-            }
+            return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
         }
 
         public QuestNode GetNextNode(int choiceIndex = 0)
@@ -105,9 +101,38 @@ namespace Antura.Minigames.DiscoverCountry
             return HomerAnturaManager.I.NextNode(choiceIndex);
         }
 
-        public void OnInteract(EdAgent agent)
+        public void TaskStart(string taskCode)
         {
-            // Debug.Log("ANTURA INTERACTS WITH LL " + agent.ActorId);
+            if (QuestTasks != null)
+            {
+                foreach (var task in QuestTasks)
+                {
+                    if (task.Code == taskCode)
+                    {
+                        CurrentTask = task;
+                        UIManager.I.TaskDisplay.Show(task.Code, 0);
+                        return;
+                    }
+                }
+            }
+        }
+
+        public void TaskSuccess(string taskCode)
+        {
+            if (CurrentTask != null && CurrentTask.Code == taskCode)
+            {
+                UIManager.I.TaskDisplay.IncreaseByOne();
+                CurrentTask = null;
+            }
+        }
+
+        public void TaskFail(string taskCode)
+        {
+            if (CurrentTask != null && CurrentTask.Code == taskCode)
+            {
+                UIManager.I.TaskDisplay.DecreaseBy(1);
+                CurrentTask = null;
+            }
         }
 
         public void OnNodeStart(QuestNode node)
