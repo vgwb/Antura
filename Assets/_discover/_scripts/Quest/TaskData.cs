@@ -23,7 +23,7 @@ namespace Antura.Discover
         public TaskType Type;
         [Tooltip("Optional for reach and interact tasks")]
         public GameObject InteractGO;
-
+        [Tooltip("Total or per item is collect Task")]
         public int ProgressPoints;
 
         [Tooltip("Optional permalink of the Node with the mission")]
@@ -35,6 +35,7 @@ namespace Antura.Discover
         [Tooltip("Optional permalink of the Node activated if fail task")]
         public string NodeFail;
 
+        public GameObject ItemsContainer;
         [Tooltip("If Collect, how many items to collect?")]
         public int ItemCount;
         [Tooltip("If Collect, what tag to count?")]
@@ -47,6 +48,77 @@ namespace Antura.Discover
         public GameObject TargetPoint;
         [Tooltip("Optional area to activate.")]
         public GameObject Area;
+
+        private int itemsCollected = 0;
+
+        public void Setup()
+        {
+            if (ItemsContainer != null)
+            {
+                ItemsContainer.SetActive(false);
+            }
+
+            // count items in the container
+            if (ItemCount <= 0 && ItemsContainer != null)
+            {
+                ItemCount = ItemsContainer.transform.childCount;
+            }
+            itemsCollected = 0;
+        }
+
+        public void Activate()
+        {
+            // Debug.Log($"Activating Task: {Code}, Type: {Type}, ProgressPoints: {ProgressPoints}");
+            if (Type == TaskType.Interact || Type == TaskType.Reach)
+            {
+                if (InteractGO != null)
+                {
+                    InteractGO.SetActive(false);
+                    Interactable interactable = InteractGO.GetComponent<Interactable>();
+                    if (interactable != null)
+                    {
+                        interactable.SetActivated(false);
+                    }
+                }
+                UIManager.I.TaskDisplay.Show(Code, 0);
+            }
+            else if (Type == TaskType.Collect)
+            {
+                if (ItemsContainer != null)
+                {
+                    ItemsContainer.SetActive(true);
+                }
+                UIManager.I.TaskDisplay.Show(Code, ItemCount);
+            }
+
+        }
+
+        public void ItemCollected()
+        {
+            if (Type == TaskType.Collect && ItemsContainer != null)
+            {
+                itemsCollected++;
+                if (itemsCollected >= ItemCount)
+                {
+                    // Task completed
+                    QuestManager.I.TaskSuccess(Code);
+                }
+                else
+                {
+                    UIManager.I.TaskDisplay.SetValue(itemsCollected);
+                }
+            }
+        }
+
+        public int GetProgressPoints()
+        {
+            if (Type == TaskType.Collect && ItemsContainer != null)
+            {
+                // If it's a collect task, return the number of items to collect
+                return ItemCount * ProgressPoints;
+            }
+            return ProgressPoints;
+        }
 
     }
 }

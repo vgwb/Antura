@@ -43,8 +43,6 @@ namespace Antura.Discover
         public bool DebugQuest = false;
         public string DebugLanguage = "";
 
-        private int total_progress = 0;
-
         void Start()
         {
             // INSTATIATE LEVEL PREFAB
@@ -54,6 +52,11 @@ namespace Antura.Discover
 
             PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
             total_coins = 0;
+            foreach (var task in QuestTasks)
+            {
+                task.Setup();
+            }
+
             inventory = new Inventory();
             progress = new Progress();
 
@@ -77,17 +80,6 @@ namespace Antura.Discover
             updateCounters();
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
             //InteractionManager.I.DisplayNode(GetQuestNode("init"));
-
-            // Initialize total_progress with the sum of TaskData.ProgressPoints
-            total_progress = 0;
-            if (QuestTasks != null)
-            {
-                foreach (var task in QuestTasks)
-                {
-                    if (task != null)
-                        total_progress += task.ProgressPoints;
-                }
-            }
         }
 
         public void OnQuestEnd()
@@ -124,9 +116,7 @@ namespace Antura.Discover
                 if (task.Code == taskCode)
                 {
                     CurrentTask = task;
-                    UIManager.I.TaskDisplay.Show(task.Code, 0);
-                    task.InteractGO.SetActive(true);
-                    task.InteractGO.GetComponent<Interactable>().SetActivated(true);
+                    CurrentTask.Activate();
                     return;
                 }
             }
@@ -212,7 +202,9 @@ namespace Antura.Discover
             collected_items++;
             HomerVars.COLLECTED_ITEMS = collected_items;
             Destroy(go);
-            UpateItemsCounter();
+            //UpateItemsCounter();
+            CurrentTask.ItemCollected();
+            AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 
         public void OnCollectBone(GameObject go)

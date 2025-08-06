@@ -20,18 +20,18 @@ namespace Antura.Discover
         public TextMeshProUGUI TfCount;
         public RectTransform BoneImg;
 
-        int totItems
+        int collected
         {
-            get { return fooTotBones; }
+            get { return itemsCollected; }
             set
             {
-                fooTotBones = value;
+                itemsCollected = value;
                 TfCount.text = value.ToString() + "/" + maxItems;
             }
         }
 
         int maxItems;
-        int fooTotBones;
+        int itemsCollected;
         bool setupDone;
         Tween showTween, increaseTween;
 
@@ -74,7 +74,7 @@ namespace Antura.Discover
 
             TaskText.text = objectiveText;
             maxItems = _maxItems;
-            totItems = 0;
+            collected = 0;
             if (maxItems <= 0)
             {
                 CounterGO.SetActive(false);
@@ -101,19 +101,19 @@ namespace Antura.Discover
         }
         public void SetValue(int _bones)
         {
-            totItems = _bones;
+            collected = _bones;
         }
 
         public void DecreaseBy(int _by)
         {
-            totItems -= _by;
+            collected -= _by;
         }
 
         public void IncreaseByOne(bool _animate = true)
         {
             increaseTween.Restart();
             AudioManager.I.PlaySound(Sfx.Blip);
-            totItems++;
+            collected++;
         }
 
         public void OnClick()

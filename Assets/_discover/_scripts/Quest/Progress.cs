@@ -27,7 +27,7 @@ namespace Antura.Discover
                 foreach (var task in questTasks)
                 {
                     if (task != null)
-                        total_progress += task.ProgressPoints;
+                        total_progress += task.GetProgressPoints();
                 }
             }
             UpdateUI();
