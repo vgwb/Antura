@@ -18,6 +18,7 @@ namespace Antura.Minigames.DiscoverCountry
         public int DifficultyLevel = 1;
         [Tooltip("Kind of money to use in the activity")]
         public MoneyKind Kind = MoneyKind.Both;
+        public MoneySet MoneySet;
 
         void Awake()
         {
