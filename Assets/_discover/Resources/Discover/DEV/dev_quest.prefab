@@ -1134,9 +1134,9 @@ MonoBehaviour:
           m_Calls: []
   - ActionCode: take_flag_french
     Commands:
-    - Command: 8
-      mainObject: {fileID: 7200556538342471120}
-      Parameter: 
+    - Command: 4
+      mainObject: {fileID: 0}
+      Parameter: franch_flag
       Bypass: 0
       unityAction:
         m_PersistentCalls:
@@ -2042,7 +2042,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 25.163471
+      value: 24.94
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
         type: 3}
@@ -2052,7 +2052,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -39.839066
+      value: -39.53
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
         type: 3}
@@ -2107,7 +2107,7 @@ PrefabInstance:
     - target: {fileID: 7755771273288260497, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
         type: 3}
       propertyPath: m_Name
-      value: flag_germany
+      value: flag_french
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -2117,12 +2117,6 @@ PrefabInstance:
 --- !u!4 &5463719114907947852 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
-    type: 3}
-  m_PrefabInstance: {fileID: 598852190278413889}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &7200556538342471120 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 7755771273288260497, guid: f18c5412fb9fa4cff9ba8d3b4f51af60,
     type: 3}
   m_PrefabInstance: {fileID: 598852190278413889}
   m_PrefabAsset: {fileID: 0}
@@ -4482,7 +4476,12 @@ PrefabInstance:
     - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_Name
-      value: NPC woman
+      value: NPC french_flag
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: IconType
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -4492,7 +4491,7 @@ PrefabInstance:
     - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: NodePermalink
-      value: door_a
+      value: talk_franch_flag
       objectReference: {fileID: 0}
     - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -4502,7 +4501,7 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 24.14
+      value: 25.38
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -4512,12 +4511,12 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -38.22
+      value: -41.24
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.48449683
+      value: 0.92239124
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -4527,7 +4526,7 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.8747931
+      value: 0.3862571
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -4542,7 +4541,7 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 122.041
+      value: 45.444
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}

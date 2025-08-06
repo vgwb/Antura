@@ -157,7 +157,7 @@ namespace Antura.Minigames.DiscoverCountry
                         QuestManager.I.OnCollectBones(1);
                         break;
                     case CommandType.Collect:
-                        Collect(command.mainObject.name);
+                        QuestManager.I.OnCollectItemCode(command.Parameter);
                         break;
                     case CommandType.InventoryAdd:
                         QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
