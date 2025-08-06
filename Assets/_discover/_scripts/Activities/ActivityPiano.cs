@@ -14,6 +14,7 @@ namespace Antura.Minigames.DiscoverCountry
             Expert = 4, // Difficult (just sound)
         }
 
+        [Header("Activity Piano Settings")]
         public PlayMode Mode = PlayMode.Free;
 
 

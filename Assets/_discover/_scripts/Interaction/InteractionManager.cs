@@ -137,19 +137,13 @@ namespace Antura.Minigames.DiscoverCountry
             if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
 
+            Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable);
+
             if (HasValidNearbyInteractable)
             {
                 QuestNode questNode = nearbyInteractable.Execute();
-                if (questNode == null)
-                {
-                    Debug.LogError($"QuestNode is NULL, ignoring interaction");
-                }
-                else
-                {
-                    if (QuestManager.I.DebugQuest)
-                        questNode.Print();
+                if (questNode != null)
                     this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
-                }
             }
         }
 

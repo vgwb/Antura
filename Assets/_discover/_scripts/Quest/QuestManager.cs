@@ -24,9 +24,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public TaskData[] QuestTasks;
         private TaskData CurrentTask;
-
-        public ActivityData[] QuestActivities;
-        private ActivityData CurrentActivity;
+        private string CurrentActivity;
 
         private Inventory inventory;
         private Progress progress;
@@ -142,6 +140,16 @@ namespace Antura.Minigames.DiscoverCountry
                     InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode(CurrentTask.NodeFail));
                 CurrentTask = null;
             }
+        }
+
+        public void ActivityStart(GameObject activityObject)
+        {
+            Debug.Log("ActivityStart: " + activityObject.name);
+
+            CurrentActivity = activityObject.GetComponent<ActivityBase>().ActivityCode;
+
+            activityObject.GetComponent<ActivityPanel>().Open();
+
         }
 
         public void OnNodeStart(QuestNode node)

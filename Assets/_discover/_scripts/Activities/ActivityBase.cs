@@ -6,10 +6,20 @@ namespace Antura.Minigames.DiscoverCountry
     public class ActivityBase : MonoBehaviour
     {
         [Header("Common properties")]
+        public string ActivityCode;
         [Range(1, 600)]
         [SerializeField] int timerSeconds = 60;
 
         [SerializeField] GameObject HelpPanel;
+
+        [Tooltip("Optional permalink of the Node with the mission")]
+        public string NodeDescription;
+
+        [Tooltip("Optional permalink of the Node when success")]
+        public string NodeSuccess;
+
+        [Tooltip("Optional permalink of the Node when fail")]
+        public string NodeFail;
 
         void Start()
         {

@@ -148,7 +148,7 @@ namespace Antura.Minigames.DiscoverCountry
                 switch (command.Command)
                 {
                     case CommandType.Activity:
-                        command.mainObject.GetComponent<ActivityPanel>().Open();
+                        QuestManager.I.ActivityStart(command.mainObject);
                         break;
                     case CommandType.Area:
                         ChangeArea(command.mainObject);

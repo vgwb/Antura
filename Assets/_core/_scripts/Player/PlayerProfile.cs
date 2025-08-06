@@ -323,11 +323,11 @@ namespace Antura.Profile
 
             if (AppManager.VERBOSE_INVERSION && AppManager.I.NavigationManager.NavData.CurrentContent != null)
             {
-                Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
+                Debug.Log($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
             }
             else
             {
-                Debug.LogError("[Inversion] Saving current data (profile only)");
+                Debug.Log("[Inversion] Saving current data (profile only)");
             }
 
             AppManager.I.PlayerProfileManager.UpdateCurrentPlayerIconDataInSettings();

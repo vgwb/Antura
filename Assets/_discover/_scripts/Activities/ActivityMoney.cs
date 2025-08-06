@@ -11,7 +11,7 @@ namespace Antura.Minigames.DiscoverCountry
             BanknoteOnly = 2,
         }
 
-        [Header("Activity Money")]
+        [Header("Activity Money Settings")]
         [Tooltip("Target amount of money to collect")]
         public float MoneyTarget = 10f;
         [Tooltip("Difficulty: the number of coins to use.")]

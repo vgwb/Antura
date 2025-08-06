@@ -14,6 +14,8 @@ namespace Antura.Minigames.DiscoverCountry
             public AudioClip AudioClip;
         }
 
+        [Header("Activity Memory Settings")]
+
         [Tooltip("Items Textures to use in the activity")]
         public List<Item> Items;
         [Tooltip("Difficulty: the number of coins to use.")]
