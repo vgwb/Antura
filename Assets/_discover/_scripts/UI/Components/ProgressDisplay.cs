@@ -1,18 +1,20 @@
+using UnityEngine;
+using TMPro;
+using DG.Tweening;
 using System;
 using Antura.Audio;
 using Antura.Core;
-using DG.Tweening;
-using TMPro;
-using UnityEngine;
 
 namespace Antura.Minigames.DiscoverCountry
 {
     public class ProgressDisplay : MonoBehaviour
     {
-
         [Header("References")]
         public TextMeshProUGUI TfCount;
         public RectTransform BoneImg;
+
+        [SerializeField, ReadOnly] int total_progress;
+        [SerializeField, ReadOnly] int currentProgress;
 
         int progressValue
         {
@@ -20,12 +22,10 @@ namespace Antura.Minigames.DiscoverCountry
             set
             {
                 currentProgress = value;
-                TfCount.text = CalculateCompletenessPercentage(value, maxSteps) + "%";
+                TfCount.text = value + "/" + total_progress;
             }
         }
 
-        int maxSteps;
-        int currentProgress;
         bool setupDone;
         Tween showTween, increaseTween;
 
@@ -63,7 +63,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void UpdateProgress(int _counter, int _maxSteps)
         {
-            maxSteps = _maxSteps;
+            total_progress = _maxSteps;
             progressValue = _counter;
             //           Debug.Log("UpdateProgress " + progressValue + " " + maxSteps);
             //           TfCount.text = CalculateCompletenessPercentage(progressValue, maxSteps) + "c";
@@ -86,7 +86,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         public void SetMax(int _bones)
         {
-            maxSteps = _bones;
+            total_progress = _bones;
         }
         public void SetValue(int _bones)
         {

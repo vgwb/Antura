@@ -24,6 +24,8 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Optional for reach and interact tasks")]
         public GameObject InteractGO;
 
+        public int ProgressPoints;
+
         [Tooltip("Optional permalink of the Node with the mission")]
         public string NodeDescription;
 

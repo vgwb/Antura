@@ -21,7 +21,6 @@ namespace Antura.Minigames.DiscoverCountry
 
         public Quests Quests;
         public QuestData CurrentQuest;
-
         public TaskData[] QuestTasks;
         private TaskData CurrentTask;
         private string CurrentActivity;
@@ -43,6 +42,8 @@ namespace Antura.Minigames.DiscoverCountry
         [Header("DEBUG")]
         public bool DebugQuest = false;
         public string DebugLanguage = "";
+
+        private int total_progress = 0;
 
         void Start()
         {
@@ -72,10 +73,21 @@ namespace Antura.Minigames.DiscoverCountry
             HomerVars.IS_DESKTOP = AppConfig.IsDesktopPlatform();
             HomerVars.EASY_MODE = EasyMode;
             inventory.Init(HomerVars.QUEST_ITEMS);
-            progress.Init(10); // TODO: get from QuestData
+            progress.Init(QuestTasks);
             updateCounters();
             HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
             //InteractionManager.I.DisplayNode(GetQuestNode("init"));
+
+            // Initialize total_progress with the sum of TaskData.ProgressPoints
+            total_progress = 0;
+            if (QuestTasks != null)
+            {
+                foreach (var task in QuestTasks)
+                {
+                    if (task != null)
+                        total_progress += task.ProgressPoints;
+                }
+            }
         }
 
         public void OnQuestEnd()
@@ -156,9 +168,6 @@ namespace Antura.Minigames.DiscoverCountry
         {
             if (node.Action != null)
                 ActionManager.I.ResolveQuestAction(node.Action, node);
-
-            if (node.Permalink != "")
-                progress.VisitNode(node.Permalink);
         }
 
         public void OnNodeEnd(QuestNode node)

@@ -9,37 +9,50 @@ namespace Antura.Minigames.DiscoverCountry
     public class Progress
     {
         private HashSet<string> visitedSteps;
-        private int total_steps;
-        private int current_steps;
+        private int total_progress;
+        private int current_progress;
 
         public Progress()
         {
             visitedSteps = new HashSet<string>();
         }
 
-        public void Init(int maxSteps)
+        public void Init(TaskData[] questTasks)
         {
-            total_steps = maxSteps;
-            current_steps = 0;
+
+            current_progress = 0;
+            total_progress = 0;
+            if (questTasks != null)
+            {
+                foreach (var task in questTasks)
+                {
+                    if (task != null)
+                        total_progress += task.ProgressPoints;
+                }
+            }
+            UpdateUI();
         }
 
-        public bool VisitNode(string stepName)
+        private void UpdateUI()
         {
+            QuestManager.I.UpateProgressCounter(current_progress, total_progress);
+        }
 
-            if (visitedSteps.Contains(stepName))
+        public void AddProgress(int points, string stepName = "")
+        {
+            if (!string.IsNullOrEmpty(stepName) && visitedSteps.Contains(stepName))
             {
-                //Debug.Log($"Node {nodePermalink} already collected.");
-                return false;
+                //Debug.Log($"Step {stepName} already visited.");
+                return;
             }
-            else
+
+            if (stepName != "")
             {
                 visitedSteps.Add(stepName);
-                current_steps++;
-                //                Debug.Log("VISITING NODE " + stepName + " - " + current_steps + " / " + total_steps);
-                QuestManager.I.UpateProgressCounter(current_steps, total_steps);
-                //Debug.Log($"Node {nodePermalink} collected successfully.");
-                return true;
             }
+
+            current_progress += points;
+            UpdateUI();
         }
     }
 }
