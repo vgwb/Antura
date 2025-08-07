@@ -93,8 +93,8 @@ namespace Antura.Debugging
                 if (beam == null) Debug.LogWarning("Couldn't find a target beam");
                 else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
             }),
-            new DebugCommand("Action END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
-                ActionManager.I.DebugActionEnd();
+            new DebugCommand("Quest END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
+                ActionManager.I.TestQuestEnd();
             })
         };
 

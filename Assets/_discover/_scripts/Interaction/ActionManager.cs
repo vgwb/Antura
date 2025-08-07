@@ -177,6 +177,9 @@ namespace Antura.Discover
                     case CommandType.SpawnPlayer:
                         RespawnPlayer();
                         break;
+                    case CommandType.Target:
+                        FocusTarget(command.mainObject.transform);
+                        break;
                     case CommandType.Trigger:
                         command.mainObject.GetComponent<ActionAbstract>().Trigger();
                         break;
@@ -200,27 +203,15 @@ namespace Antura.Discover
             }
         }
 
-        public void ResolveNextTarget(string targetArea)
+        public void FocusTarget(Transform targetGO)
         {
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("CameraShowTarget targetArea:" + targetArea);
-
-            var actionData = GetActionData(CommandType.Area, targetArea);
-
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
-
-            InteractionManager.I.FocusCameraOn(actionData.Target.transform);
-
-            if (actionData.Beam != null)
+            if (targetGO == null)
             {
-                actionData.Beam.SetActive(true);
+                Debug.LogError("Target GameObject is null.");
+                return;
             }
-
-            if (actionData.Target.transform != null)
-            {
-                InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
-            }
+            InteractionManager.I.FocusCameraOn(targetGO);
+            InteractionManager.I.ActivateWorldTargetIcon(true, targetGO);
         }
 
         private void ChangeArea(GameObject area)
@@ -233,124 +224,6 @@ namespace Antura.Discover
             currentArea.SetActive(true);
         }
 
-        private void ActivateArea(string targetArea)
-        {
-            var actionData = GetActionData(CommandType.Area, targetArea);
-            if (actionData != null)
-            {
-                if (QuestManager.I.DebugQuest)
-                    Debug.Log("ActivateArea: " + actionData.ActionCode);
-
-                if (actionData.Area != null)
-                {
-                    actionData.Area.SetActive(true);
-                }
-
-                if (actionData.Beam != null)
-                {
-                    actionData.Beam.SetActive(true);
-                }
-
-                if (actionData.Target != null)
-                {
-                    InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
-                }
-                else
-                {
-                    InteractionManager.I.ActivateWorldTargetIcon(false);
-                }
-
-                if (actionData.Walls != null)
-                {
-
-                }
-
-                if (actionData.SpawnPlayer != null)
-                {
-                    PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
-                }
-
-            }
-            else
-            {
-                Debug.Log("ActivateArea: Could not find targetArea: " + targetArea);
-            }
-        }
-
-        private void Spawn(string spawnCode)
-        {
-            var actionData = GetActionData(CommandType.SpawnPlayer, spawnCode);
-
-            PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
-        }
-
-        private void Collect(string collectCode)
-        {
-            QuestManager.I.OnCollectItemCode(collectCode);
-        }
-
-        private void Trigger(string actionCode)
-        {
-            var actionData = GetActionData(actionCode);
-            if (actionData != null)
-            {
-                if (QuestManager.I.DebugQuest)
-                    Debug.Log("Trigger: " + actionData.ActionCode);
-                actionData.mainObject.GetComponent<ActionAbstract>().Trigger();
-            }
-            else
-            {
-                Debug.LogError("Trigger: Could not find actionCode: " + actionCode);
-            }
-        }
-
-        public void ResolveAction(string action, string permalink = "")
-        {
-            action = action.ToLower();
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("ResolveAction: " + action);
-
-            if (action.SafeSubstring(0, 5) == "area_")
-            {
-                ActivateArea(action.Substring(5));
-            }
-            else if (action.SafeSubstring(0, 8) == "collect_")
-            {
-                if (permalink != "")
-                {
-                    Collect(permalink);
-                }
-                else
-                {
-                    Collect(action.Substring(8));
-                }
-            }
-            else if (action.SafeSubstring(0, 6) == "spawn_")
-            {
-                Spawn(action.Substring(6));
-            }
-            else
-            {
-                switch (action)
-                {
-                    case "update_items":
-                        QuestManager.I.UpateItemsCounter();
-                        break;
-                    case "updatecoins":
-                    case "update_coins":
-                        QuestManager.I.UpateCoinsCounter();
-                        break;
-                    case "win":
-                    case "game_end":
-                        QuestEnd();
-                        break;
-                    default:
-                        Trigger(action);
-                        break;
-                }
-            }
-        }
-
         private void QuestEnd()
         {
             WinFx.SetActive(true);
@@ -360,13 +233,11 @@ namespace Antura.Discover
             QuestManager.I.OnQuestEnd();
         }
 
-        #region DEBUG
-        public void DebugActionEnd()
+        #region Debug Methods
+        public void TestQuestEnd()
         {
-            ResolveAction("win");
+            QuestEnd();
         }
-
         #endregion
-
     }
 }

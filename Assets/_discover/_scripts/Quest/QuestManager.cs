@@ -162,9 +162,6 @@ namespace Antura.Discover
 
         public void OnNodeEnd(QuestNode node)
         {
-            if (node.NextTarget != null)
-                ActionManager.I.ResolveNextTarget(node.NextTarget);
-
             if (node.Task != null)
                 TaskStart(node.Task);
 
@@ -202,7 +199,8 @@ namespace Antura.Discover
             collected_items++;
             HomerVars.COLLECTED_ITEMS = collected_items;
             //UpateItemsCounter();
-            CurrentTask.ItemCollected();
+            if (tag != "")
+                CurrentTask.ItemCollected();
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 

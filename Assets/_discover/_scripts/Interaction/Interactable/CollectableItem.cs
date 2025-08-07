@@ -13,14 +13,18 @@ namespace Antura.Discover
             item = 3
         }
 
+        public bool AutoCollect = true; // Automatically collect the item when the player collides with it
         public CollectableType Type;
 
         public string ItemTag; // Used to identify the item in the inventory
+
+        public ItemData ItemData; // Used to store item data for inventory
 
         [Header("Effects")]
         public GameObject particleEffectPrefab;
 
         [Header("Motion Settings")]
+        public bool enableRotation = true; // Enable or disable rotation
         public float rotationSpeed = 100f; // Rotation speed in degrees per second
         public float bobbingAmount = 0.1f; // Amplitude of bobbing motion
         public float bobbingSpeed = 1f; // Speed of bobbing motion
@@ -35,40 +39,51 @@ namespace Antura.Discover
 
         void Update()
         {
-            // Rotate the object around its up axis
-            transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.World);
+            if (enableRotation)
+            {
+                // Rotate the object around its up axis
+                transform.Rotate(Vector3.up, rotationSpeed * Time.deltaTime, Space.World);
 
-            // Create a bobbing motion up and down
-            timer += Time.deltaTime * bobbingSpeed;
-            float newY = startPosition.y + Mathf.Sin(timer) * bobbingAmount;
-            transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+                // Create a bobbing motion up and down
+                timer += Time.deltaTime * bobbingSpeed;
+                float newY = startPosition.y + Mathf.Sin(timer) * bobbingAmount;
+                transform.position = new Vector3(transform.position.x, newY, transform.position.z);
+            }
         }
 
         public void OnTriggerEnter(Collider other)
         {
-            if (other.CompareTag("Player"))
+            if (AutoCollect && other.CompareTag("Player"))
             {
-                if (particleEffectPrefab != null)
-                {
-                    Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
-                }
+                Collect();
+            }
+        }
 
-                if (Type == CollectableType.coin)
-                {
-                    QuestManager.I.OnCollectCoin();
-                }
-                if (Type == CollectableType.bone)
-                {
-                    QuestManager.I.OnCollectBone();
-                }
-                if (Type == CollectableType.item)
-                {
-                    QuestManager.I.OnCollectItem(ItemTag);
-                }
-
-                Destroy(gameObject);
+        public void Collect()
+        {
+            if (particleEffectPrefab != null)
+            {
+                Instantiate(particleEffectPrefab, transform.position, Quaternion.identity);
             }
 
+            if (Type == CollectableType.coin)
+            {
+                QuestManager.I.OnCollectCoin();
+                Destroy(gameObject);
+            }
+            if (Type == CollectableType.bone)
+            {
+                QuestManager.I.OnCollectBone();
+                Destroy(gameObject);
+            }
+            if (Type == CollectableType.item)
+            {
+                QuestManager.I.OnCollectItem(ItemTag);
+                gameObject.SetActive(false); // Disable the item instead of destroying it
+            }
+
+
         }
+
     }
 }
