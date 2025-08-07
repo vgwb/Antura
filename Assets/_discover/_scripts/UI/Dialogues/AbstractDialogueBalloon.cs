@@ -71,8 +71,7 @@ namespace Antura.Discover
 
         public void Show(QuestNode node, bool UseLearningLanguage)
         {
-            if (IsOpen)
-                return;
+            if (IsOpen) return;
 
             IsOpen = true;
             currNode = node;
@@ -80,7 +79,7 @@ namespace Antura.Discover
             showTween.timeScale = 1;
             showTween.Restart();
             this.gameObject.SetActive(true);
-            if (currNode.IsDialogueNode())
+            if (currNode.IsDialogueNode() || currNode.IsPanel())
                 btContinue.gameObject.SetActive(true);
             else
                 btContinue.gameObject.SetActive(false);

@@ -190,7 +190,7 @@ namespace Antura.Discover
         {
             IsOpen = true;
             currNode = node;
-            currBalloon = narratorBalloon; // TODO : Assign correct balloon
+            currBalloon = narratorBalloon; // Can be changed by switch below
             while (InteractionManager.I.IsUsingFocusView)
                 yield return null;
 
@@ -198,7 +198,6 @@ namespace Antura.Discover
             UseLearningLanguage = !node.Native;
             switch (node.Type)
             {
-                case NodeType.PANEL:
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node, UseLearningLanguage);
@@ -208,10 +207,11 @@ namespace Antura.Discover
                     else
                         postcard.Hide();
                     break;
-                // case NodeType.PANEL:
-                //     CurrDialogueType = DialogueType.Text;
-                //     ShowStartPanel(node);
-                //     break;
+                case NodeType.PANEL:
+                    currBalloon = startEndPanel;
+                    CurrDialogueType = DialogueType.Text;
+                    ShowStartPanel(node);
+                    break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
                     CurrDialogueType = DialogueType.Choice;
