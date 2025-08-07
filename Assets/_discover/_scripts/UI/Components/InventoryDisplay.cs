@@ -1,15 +1,31 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Antura.Discover
 {
     public class InventoryDisplay : MonoBehaviour
     {
-        public GameObject CurrentItem;
+
+        public ItemData CurrentItemData;
+
         void Start()
         {
-            CurrentItem.SetActive(false);
         }
 
+        public void AddItem(ItemData itemData)
+        {
+
+        }
+
+        public void RemoveItem(ItemData itemData)
+        {
+
+        }
+
+        public void SelectItem(ItemData itemData)
+        {
+
+        }
 
     }
 }

@@ -8,6 +8,11 @@ namespace Antura.Discover
 {
     public class Inventory
     {
+        static int MaxItemsInInventory = 5;
+
+        public List<ItemData> Items { get; private set; } = new List<ItemData>();
+
+
         private HashSet<string> collectedItems;
 
         private int total_items;
