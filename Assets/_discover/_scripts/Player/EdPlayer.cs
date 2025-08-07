@@ -237,6 +237,8 @@ namespace Antura.Discover
             {
                 anturaAnimation.State = AnturaAnimationStates.idle;
             }
+            
+            if (targetSpeed > 0) DiscoverNotifier.Game.OnPlayerMoved.Dispatch();
 
             // if (_hasAnimator)
             // {

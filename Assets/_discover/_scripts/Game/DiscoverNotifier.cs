@@ -28,6 +28,8 @@ namespace Antura.Discover
             public static readonly ActionEvent OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
             /// <summary>When the map camera is activated or deactivated</summary>
             public static readonly ActionEvent<bool> OnMapCameraActivated = new("DiscoverNotifier.Game.OnMapCameraActivated");
+            /// <summary>When the player has moved (jumps don't count)</summary>
+            public static readonly ActionEvent OnPlayerMoved = new("DiscoverNotifier.Game.OnPlayerMoved");
         }
 
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████
