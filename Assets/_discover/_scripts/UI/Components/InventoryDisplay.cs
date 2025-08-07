@@ -4,9 +4,10 @@ namespace Antura.Discover
 {
     public class InventoryDisplay : MonoBehaviour
     {
+        public GameObject CurrentItem;
         void Start()
         {
-            this.gameObject.SetActive(false);
+            CurrentItem.SetActive(false);
         }
 
 
