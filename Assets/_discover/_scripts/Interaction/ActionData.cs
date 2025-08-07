@@ -15,6 +15,7 @@ namespace Antura.Discover
         InventoryAdd = 8,
         InventoryRemove = 9,
         PlaySfx = 13,
+        ProgressPoints = 17,
         QuestEnd = 12,
         SpawnPlayer = 3,
         SpawnSet = 11,

@@ -110,7 +110,7 @@ namespace Antura.Discover
 
         public void TaskStart(string taskCode)
         {
-            Debug.Log("TaskStart: " + taskCode);
+            // Debug.Log("TaskStart: " + taskCode);
             foreach (var task in QuestTasks)
             {
                 if (task.Code == taskCode)
@@ -124,13 +124,28 @@ namespace Antura.Discover
 
         public void TaskSuccess(string taskCode = "")
         {
-            if (CurrentTask != null)
+            if (CurrentTask == null)
+                return;
+
+            if (taskCode != "" && CurrentTask.Code != taskCode)
             {
-                UIManager.I.TaskDisplay.Hide();
-                if (CurrentTask.NodeSuccess != null)
-                    InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode(CurrentTask.NodeSuccess));
-                CurrentTask = null;
+                Debug.LogError($"TaskSuccess called with taskCode {taskCode}, but current task is {CurrentTask.Code}");
+                return;
             }
+
+            UIManager.I.TaskDisplay.Hide();
+
+            progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
+
+            if (CurrentTask.NodeSuccess != null)
+                InteractionManager.I.DisplayNode(GetQuestNode(CurrentTask.NodeSuccess));
+
+            CurrentTask = null;
+        }
+
+        public void AddProgressPoints(int points)
+        {
+            progress.AddProgressPoints(points);
         }
 
         public void TaskFail(string taskCode = "")

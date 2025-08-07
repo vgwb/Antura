@@ -168,6 +168,9 @@ namespace Antura.Discover
                     case CommandType.PlaySfx:
                         command.mainObject.GetComponent<ActionAbstract>().Trigger();
                         break;
+                    case CommandType.ProgressPoints:
+                        QuestManager.I.AddProgressPoints(int.Parse(command.Parameter));
+                        break;
                     case CommandType.QuestEnd:
                         QuestManager.I.OnQuestEnd();
                         break;
