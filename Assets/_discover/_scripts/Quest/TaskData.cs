@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using DG.DeInspektor.Attributes;
+using System;
 
 namespace Antura.Discover
 {
@@ -35,6 +36,7 @@ namespace Antura.Discover
         [Tooltip("Optional permalink of the Node activated if fail task")]
         public string NodeFail;
 
+        [DeConditional("Type", (int)TaskType.Collect)]
         public GameObject ItemsContainer;
         [Tooltip("If Collect, how many items to collect?")]
         public int ItemCount;
