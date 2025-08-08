@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2761480388842308542}
   - component: {fileID: 4082293342846151844}
   - component: {fileID: 7448125120790419301}
-  - component: {fileID: 2385310610711910289}
+  - component: {fileID: 4570734939945273059}
   m_Layer: 0
   m_Name: Chest
   m_TagString: Untagged
@@ -69,33 +69,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsInteractable: 0
-  InteractionType: 4
+  IsInteractable: 1
+  AutoActivate: 0
+  IconType: 1
   IconTransform: {fileID: 1351922451071125516}
+  ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
-  ActivateNode: 0
   NodePermalink: 
   NodeCommand: 
-  ActivateUnityAction: 1
   disableAfterAction: 0
-  unityAction:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 2385310610711910289}
-        m_TargetAssemblyTypeName: Antura.Minigames.DiscoverCountry.Interaction.Chest,
-          Assembly-CSharp
-        m_MethodName: Open
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
---- !u!114 &2385310610711910289
+  QuestAction: 
+  Commands:
+  - Command: 7
+    mainObject: {fileID: 0}
+    Parameter: 
+    Bypass: 0
+    unityAction:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4570734939945273059}
+          m_TargetAssemblyTypeName: Antura.Discover.Interaction.RotateBy, Assembly-CSharp
+          m_MethodName: Trigger
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &4570734939945273059
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -104,11 +109,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3249751084726950148}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b3a663edfa7764102811ac23fa51c05b, type: 3}
+  m_Script: {fileID: 11500000, guid: 773a8e6f620334c91ad0d036fea15ee4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Lid: {fileID: 3747834288281539422}
+  ObjectToRotate: {fileID: 3747834288281539422}
+  rotationAxis: 0
   rotationAngle: 90
+  OpenJustOnce: 1
 --- !u!1 &3747834288281539422
 GameObject:
   m_ObjectHideFlags: 0
@@ -167,6 +174,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -253,6 +263,9 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
+  m_RayTracingAccelStructBuildFlagsOverride: 0
+  m_RayTracingAccelStructBuildFlags: 1
+  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
