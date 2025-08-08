@@ -68,8 +68,8 @@ namespace Antura.Discover.Activities
                 return;
             foreach (var ev in melody.sequence)
             {
-                if (!ev.Token.IsRest)
-                    targetNotes.Add(ev.Token.Note);
+                if (!ev.IsRest)
+                    targetNotes.Add(ev.Note);
             }
         }
 
@@ -99,14 +99,14 @@ namespace Antura.Discover.Activities
                 float durBeats = DurationToBeats(ev.Duration);
                 float seconds = durBeats * beatSeconds * 0.5f;
 
-                if (ev.Token.IsRest)
+                if (ev.IsRest)
                 {
                     yield return new WaitForSeconds(seconds);
                     continue;
                 }
 
-                var n = ev.Token.Note;
-                var key = keyboard.GetKey(n, ev.Token.Octave);
+                var n = ev.Note;
+                var key = keyboard.GetKey(n, ev.Octave);
                 if (key != null)
                 {
                     key.Play();

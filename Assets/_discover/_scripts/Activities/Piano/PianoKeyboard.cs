@@ -23,6 +23,29 @@ namespace Antura.Discover.Activities
 
         public AudioClip[] baseSemitoneClips = new AudioClip[12];
 
+        [Header("Visuals")]
+        [Tooltip("Color the 7 white keys (C D E F G A B) with rainbow colors")]
+        public bool useRainbowColors = true;
+
+        [Tooltip("Colors for white keys: C, D, E, F, G, A, B")]
+        public Color[] WhiteKeyColors = new Color[7]
+        {
+            new Color(1.00f, 0.20f, 0.20f),  // C - Red
+            new Color(1.00f, 0.60f, 0.00f),  // D - Orange
+            new Color(1.00f, 0.90f, 0.10f),  // E - Yellow
+            new Color(0.10f, 0.75f, 0.30f),  // F - Green
+            new Color(0.00f, 0.70f, 0.90f),  // G - Cyan
+            new Color(0.20f, 0.35f, 0.95f),  // A - Blue
+            new Color(0.65f, 0.45f, 0.25f)   // B - Warm Brown
+            // new Color(1.00f, 0.55f, 0.55f),  // C - Pastel Red
+            // new Color(1.00f, 0.75f, 0.50f),  // D - Pastel Orange
+            // new Color(1.00f, 0.98f, 0.60f),  // E - Pastel Yellow
+            // new Color(0.60f, 0.90f, 0.70f),  // F - Pastel Green
+            // new Color(0.60f, 0.90f, 1.00f),  // G - Pastel Cyan
+            // new Color(0.65f, 0.75f, 1.00f),  // A - Pastel Blue
+            // new Color(0.80f, 0.70f, 0.55f)   // B - Pastel Brown
+        };
+
         private readonly NoteName[] whiteOrder = new NoteName[] {
             NoteName.C, NoteName.D, NoteName.E, NoteName.F, NoteName.G, NoteName.A, NoteName.B
         };
@@ -93,13 +116,25 @@ namespace Antura.Discover.Activities
                 var key = go.GetComponent<PianoKey>();
                 key.noteName = note;
                 key.octave = octave;
-                key.baseSemitoneClips = baseSemitoneClips;
-                // If your PianoKey has a Configure method to avoid pitch, call it here.
-                // key.ConfigureNoPitch();
+                key.keyboard = this; // centralize audio in keyboard
+
+                // Always assign rainbow colors to white keys
+                if (useRainbowColors && key.background != null)
+                {
+                    int wi = WhiteIndex(note);
+                    if (wi >= 0 && wi < WhiteKeyColors.Length)
+                    {
+                        var baseCol = WhiteKeyColors[wi];
+                        key.normalColor = baseCol;
+                        key.highlightColor = Lighten(baseCol, 0.35f); // lighter for highlight
+                        key.background.color = key.normalColor;
+                    }
+                }
+
                 keys[(note, octave)] = key;
             }
 
-            // Create black keys (between neighboring whites)
+            // Create black keys
             for (int i = 0; i < seq.Count; i++)
             {
                 var (note, octave) = seq[i];
@@ -109,7 +144,6 @@ namespace Antura.Discover.Activities
                 bool hasPrevWhite = TryFindNearestWhiteX(whiteX, i, -1, out float prevWhiteX);
                 bool hasNextWhite = TryFindNearestWhiteX(whiteX, i, +1, out float nextWhiteX);
 
-                // Position: near the right side of the previous white (or near left of next white)
                 float xPos;
                 if (hasPrevWhite)
                     xPos = prevWhiteX + keySize.x * 0.75f;
@@ -128,10 +162,47 @@ namespace Antura.Discover.Activities
                 var key = go.GetComponent<PianoKey>();
                 key.noteName = note;
                 key.octave = octave;
-                key.baseSemitoneClips = baseSemitoneClips;
-                // key.ConfigureNoPitch();
+                key.keyboard = this; // centralize audio in keyboard
+
+                // Optional: ensure black keys have sensible visuals
+                if (key.background != null)
+                {
+                    key.normalColor = Color.black;
+                    key.highlightColor = Lighten(Color.black, 0.6f);
+                    key.background.color = key.normalColor;
+                }
+
                 keys[(note, octave)] = key;
             }
+        }
+
+        private int WhiteIndex(NoteName n)
+        {
+            switch (n)
+            {
+                case NoteName.C:
+                    return 0;
+                case NoteName.D:
+                    return 1;
+                case NoteName.E:
+                    return 2;
+                case NoteName.F:
+                    return 3;
+                case NoteName.G:
+                    return 4;
+                case NoteName.A:
+                    return 5;
+                case NoteName.B:
+                    return 6;
+                default:
+                    return -1;
+            }
+        }
+
+        private Color Lighten(Color c, float t)
+        {
+            // t in [0,1], 0=no change, 1=white
+            return Color.Lerp(c, Color.white, Mathf.Clamp01(t));
         }
 
         private static int SemitoneIndex(NoteName n) => Array.IndexOf(SemitoneOrder, n);

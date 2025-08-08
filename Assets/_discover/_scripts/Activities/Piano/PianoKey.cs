@@ -12,7 +12,9 @@ namespace Antura.Discover.Activities
         public NoteName noteName;
         public int octave;
 
-        public AudioClip[] baseSemitoneClips = new AudioClip[12];
+        // Removed per-key clips; each key queries the keyboard
+        public PianoKeyboard keyboard;
+
         public AudioSource audioSource;
         public int baseOctave = 4;
 
@@ -20,6 +22,9 @@ namespace Antura.Discover.Activities
         public Image background;
         public Color normalColor = Color.white;
         public Color highlightColor = new Color(1f, 0.95f, 0.3f, 1f);
+
+        [Tooltip("Seconds to flash highlightColor when pressed")]
+        public float pressFlashSeconds = 0.2f;
 
         private Button button;
 
@@ -43,6 +48,7 @@ namespace Antura.Discover.Activities
 
         public void OnPointerClick(PointerEventData eventData)
         {
+            Flash(pressFlashSeconds);
             Play();
         }
 
@@ -51,19 +57,16 @@ namespace Antura.Discover.Activities
             var clip = GetClipFor(noteName);
             if (clip == null)
                 return;
-            // float octaveShift = Mathf.Pow(2f, (octave - baseOctave));
-            // float semiShift = Mathf.Pow(2f, NoteUtils.SemitoneOf(noteName) / 12f);
-            audioSource.pitch = 1;
+            audioSource.pitch = 1f; // never change pitch
             audioSource.PlayOneShot(clip);
-            Debug.Log($"Playing note: {NoteUtils.DisplayName(noteName)} at octave {octave} with pitch {audioSource.pitch}");
         }
 
         private AudioClip GetClipFor(NoteName name)
         {
-            int idx = NoteUtils.SemitoneOf(name) % 12 + (octave - baseOctave) * 12;
-            if (baseSemitoneClips == null || baseSemitoneClips.Length < 12)
+            if (keyboard == null || keyboard.baseSemitoneClips == null || keyboard.baseSemitoneClips.Length == 0)
                 return null;
-            return baseSemitoneClips[idx];
+            int idx = NoteUtils.SemitoneOf(name) % keyboard.baseSemitoneClips.Length; // cycle if needed
+            return keyboard.baseSemitoneClips[idx];
         }
 
         public void Flash(float seconds = 0.25f)

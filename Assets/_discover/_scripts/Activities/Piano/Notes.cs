@@ -6,21 +6,6 @@ namespace Antura.Discover.Activities
     public enum NoteName { C, Cs, D, Ds, E, F, Fs, G, Gs, A, As, B }
     public enum NoteDuration { Eighth = 1, Quarter = 2, Half = 4, Whole = 8 }
 
-    [Serializable]
-    public struct NoteToken
-    {
-        public bool IsRest;
-        public NoteName Note;
-        public int Octave;
-    }
-
-    [Serializable]
-    public struct MelodyEvent
-    {
-        public NoteToken Token;
-        public NoteDuration Duration;
-    }
-
     public static class NoteUtils
     {
         public static int SemitoneOf(NoteName name)
