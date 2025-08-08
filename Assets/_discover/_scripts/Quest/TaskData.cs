@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.DeInspektor.Attributes;
 using System;
+using PixelPlay.OffScreenIndicator;
 
 namespace Antura.Discover
 {
@@ -83,6 +84,10 @@ namespace Antura.Discover
                     }
                 }
                 UIManager.I.TaskDisplay.Show(Code, 0);
+                if (TargetPoint != null)
+                {
+                    ActionManager.I.FocusTarget(TargetPoint.transform);
+                }
             }
             else if (Type == TaskType.Collect)
             {
@@ -112,7 +117,7 @@ namespace Antura.Discover
             }
         }
 
-        public int GetProgressPoints()
+        public int GetTaskTotalePoints()
         {
             if (Type == TaskType.Collect && ItemsContainer != null)
             {
@@ -120,6 +125,16 @@ namespace Antura.Discover
                 return ItemCount * ProgressPoints;
             }
             return ProgressPoints;
+        }
+
+        public int GetSuccessPoints()
+        {
+            if (Type != TaskType.Collect)
+            {
+                return ProgressPoints;
+            }
+            // collect points are collected during the task
+            return 0;
         }
 
     }

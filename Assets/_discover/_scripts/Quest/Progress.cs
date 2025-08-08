@@ -27,7 +27,7 @@ namespace Antura.Discover
                 foreach (var task in questTasks)
                 {
                     if (task != null)
-                        total_progress += task.GetProgressPoints();
+                        total_progress += task.GetTaskTotalePoints();
                 }
             }
             UpdateUI();
@@ -38,7 +38,7 @@ namespace Antura.Discover
             QuestManager.I.UpateProgressCounter(current_progress, total_progress);
         }
 
-        public void AddProgress(int points, string stepName = "")
+        public void AddProgressPoints(int points, string stepName = "")
         {
             if (!string.IsNullOrEmpty(stepName) && visitedSteps.Contains(stepName))
             {
