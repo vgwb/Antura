@@ -8,7 +8,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class ActivityTimer : MonoBehaviour
     {

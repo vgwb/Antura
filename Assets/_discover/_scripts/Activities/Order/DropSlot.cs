@@ -2,15 +2,15 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class DropSlot : MonoBehaviour, IDropHandler
     {
         public int slotIndex;
-        public ActivityOrder puzzleManager;
+        public ActivityOrder activityManager;
 
         [Header("Optional UI")]
-        public Image highlightImage; // assign an Image on the slot prefab if you want coloring
+        public Image highlightImage;
 
         public void OnDrop(PointerEventData eventData)
         {
@@ -18,7 +18,7 @@ namespace Antura.Discover
             if (tile == null)
                 return;
 
-            puzzleManager.PlaceTile(tile, slotIndex);
+            activityManager.PlaceTile(tile, slotIndex);
         }
 
         public void SetHighlight(Color c, float alpha = 0.35f)

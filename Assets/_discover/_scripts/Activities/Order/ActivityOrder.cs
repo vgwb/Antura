@@ -6,7 +6,7 @@ using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     [Serializable]
     public struct CardItem
@@ -32,12 +32,10 @@ namespace Antura.Discover
         public GameObject tilePrefab;         // has DraggableTile (+ CanvasGroup)
         public Button validateButton;
 
-        [Header("SFX")]
+        [Header("Sfx")]
         public AudioSource audioSource;
         public AudioClip dropSound;
 
-        [Header("Validation")]
-        [Tooltip("Minimum items in slots to enable the Validate button")]
         private int minItemsToValidate;
 
         private CardItem[] correctOrder;          // solution = original Items order
@@ -93,7 +91,7 @@ namespace Antura.Discover
             {
                 var slotGO = Instantiate(slotPrefab, slotsParent);
                 var drop = slotGO.GetComponent<DropSlot>();
-                drop.puzzleManager = this;
+                drop.activityManager = this;
                 drop.slotIndex = i;
                 slotViews.Add(drop);
             }
@@ -351,7 +349,6 @@ namespace Antura.Discover
             UpdateSlotHighlights();
         }
 
-        // SFX helper
         public void PlayItemSound(AudioClip clip)
         {
             if (clip == null)

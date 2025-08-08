@@ -3,7 +3,7 @@ using Demigiant.DemiTools.DeUnityExtended;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class ActivityOverlay : MonoBehaviour
     {
@@ -29,7 +29,7 @@ namespace Antura.Discover
         #region Public Methods
 
         /// <summary>
-        /// Set the timer with custom options 
+        /// Set the timer with custom options
         /// </summary>
         public void SetTimer(bool hasTimer, int seconds)
         {

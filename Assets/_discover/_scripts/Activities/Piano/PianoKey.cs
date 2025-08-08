@@ -1,16 +1,9 @@
 using UnityEngine;
 
-public class PianoKey : MonoBehaviour
+namespace Antura.Discover.Activities
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class PianoKey : MonoBehaviour
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

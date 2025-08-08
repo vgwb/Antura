@@ -3,7 +3,7 @@ using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     /// <summary>
     /// Main container/canvas and controller for the activities, which has ActivityOverlay and the specific Activity as children.

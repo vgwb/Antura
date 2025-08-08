@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class ActivityPiano : ActivityBase
     {

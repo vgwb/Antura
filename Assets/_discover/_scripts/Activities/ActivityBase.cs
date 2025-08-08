@@ -1,7 +1,7 @@
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class ActivityBase : MonoBehaviour
     {

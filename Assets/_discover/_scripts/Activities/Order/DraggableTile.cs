@@ -1,10 +1,9 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
-using UnityEngine.ProBuilder.Shapes;
 using UnityEngine.UI;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class DraggableTile : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerClickHandler
     {

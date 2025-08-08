@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Discover
+namespace Antura.Discover.Activities
 {
     public class ActivityJigsawPuzzle : ActivityBase
     {
