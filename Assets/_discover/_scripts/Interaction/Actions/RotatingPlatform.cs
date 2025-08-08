@@ -4,9 +4,10 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
+    public enum RotationAxis { X, Y, Z }
+
     public class RotatingPlatform : MonoBehaviour
     {
-        public enum RotationAxis { X, Y, Z }
         public bool IsActivated = true;
         [Tooltip("Speed in degrees per second")]
         public float speed = 90f; // degrees per second
