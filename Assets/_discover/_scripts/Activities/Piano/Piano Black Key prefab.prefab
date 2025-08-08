@@ -9,12 +9,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3400559420808947495}
-  - component: {fileID: 500178000839987668}
+  - component: {fileID: 1083850321912643055}
+  - component: {fileID: 2802209452041537309}
   - component: {fileID: 5055796379002199608}
   - component: {fileID: 1889771817902351638}
   - component: {fileID: 3484836013910087625}
   m_Layer: 5
-  m_Name: Piano Key
+  m_Name: Piano Black Key prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -40,7 +41,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 400}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &500178000839987668
+--- !u!114 &1083850321912643055
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -49,9 +50,44 @@ MonoBehaviour:
   m_GameObject: {fileID: 7479209501309667989}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7050ecdf08c4c45f988ecf63bd8c8736, type: 3}
+  m_Script: {fileID: 11500000, guid: 7a22934318c41454c95d196109e06260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  noteName: 0
+  octave: 0
+  baseSemitoneClips:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  audioSource: {fileID: 0}
+  baseOctave: 4
+  extraPitch: 0
+  label: {fileID: 8830544643970156688}
+  background: {fileID: 1889771817902351638}
+  normalColor: {r: 0, g: 0, b: 0, a: 1}
+  highlightColor: {r: 0.6886792, g: 0.6886792, b: 0.6886792, a: 1}
+--- !u!114 &2802209452041537309
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7479209501309667989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b777bee89e7c040deac72d7fd5c3c6c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  activity: {fileID: 0}
 --- !u!222 &5055796379002199608
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -73,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -146,7 +182,7 @@ GameObject:
   - component: {fileID: 1645387969164828172}
   - component: {fileID: 8830544643970156688}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Label
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -209,8 +245,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
