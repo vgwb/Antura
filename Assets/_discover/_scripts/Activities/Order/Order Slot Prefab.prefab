@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 412206971163053309}
+  - component: {fileID: 6295629619333558423}
   - component: {fileID: 3778226713016429720}
   - component: {fileID: 3486487968072001088}
   m_Layer: 5
@@ -37,6 +38,21 @@ RectTransform:
   m_AnchoredPosition: {x: -391, y: 0}
   m_SizeDelta: {x: 300, y: 300}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6295629619333558423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5107937167899436839}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 440f00bad27f641658692c9f8d8a4af4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slotIndex: 0
+  puzzleManager: {fileID: 0}
+  highlightImage: {fileID: 0}
 --- !u!222 &3778226713016429720
 CanvasRenderer:
   m_ObjectHideFlags: 0

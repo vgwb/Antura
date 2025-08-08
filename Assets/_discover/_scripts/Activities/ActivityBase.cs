@@ -21,9 +21,19 @@ namespace Antura.Discover
         [Tooltip("Optional permalink of the Node when fail")]
         public string NodeFail;
 
-        void Start()
+        private ActivityPanel activityPanel;
+
+        public void Open()
         {
+            activityPanel = GetComponentInParent<ActivityPanel>();
+            Init();
         }
+
+        public virtual void Init()
+        {
+
+        }
+
 
         #region Public Methods
 
@@ -50,7 +60,23 @@ namespace Antura.Discover
         /// </summary>
         public void Validate()
         {
-            Debug.LogWarning("ActivityBase: should validate the activity");
+            bool result = DoValidate();
+            if (result)
+            {
+                Debug.Log("ActivityBase: SUCCESS");
+                activityPanel.PauseTimer();
+                activityPanel.Hide();
+            }
+            else
+            {
+                Debug.Log("ActivityBase: FAIL");
+            }
+        }
+
+        public virtual bool DoValidate()
+        {
+            // Default implementation, should be overridden by derived classes
+            return false;
         }
 
         #endregion

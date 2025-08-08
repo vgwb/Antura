@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,255 +8,358 @@ using TMPro;
 
 namespace Antura.Discover
 {
+    [Serializable]
+    public struct CardItem
+    {
+        public string Name;
+        public Sprite Image;
+        public AudioClip AudioClip;
+    }
+
     public class ActivityOrder : ActivityBase
     {
-        [Serializable]
-        public struct Item
+        public enum Difficulty { Tutorial, Easy, Normal }
+
+        [Header("Data")]
+        [Tooltip("Between 2 and 10 items. The order here is the correct target order.")]
+        public List<CardItem> Items;              // 2..10
+        public Difficulty difficulty = Difficulty.Normal;
+
+        [Header("Scene Refs")]
+        public Transform tilesPoolParent;
+        public Transform slotsParent;
+        public GameObject slotPrefab;         // has DropSlot (+ optional Image ref for highlight)
+        public GameObject tilePrefab;         // has DraggableTile (+ CanvasGroup)
+        public Button validateButton;
+
+        [Header("SFX")]
+        public AudioSource audioSource;
+        public AudioClip dropSound;
+
+        [Header("Validation")]
+        [Tooltip("Minimum items in slots to enable the Validate button")]
+        private int minItemsToValidate;
+
+        private CardItem[] correctOrder;          // solution = original Items order
+        private DraggableTile[] slots;        // current occupants (null if empty)
+        private List<DropSlot> slotViews = new List<DropSlot>();
+
+        private void Awake()
         {
-            public string Name;
-            public Sprite Texture;
-            public AudioClip AudioClip;
-        }
-
-        [Header("Activity Order Settings")]
-        [Tooltip("Items Textures to use in the activity")]
-        public List<Item> Items;
-
-        [Header("UI References")]
-        public RectTransform ItemContainer; // Parent for draggable items
-        public RectTransform SlotContainer; // Parent for slots
-
-        [Header("UI Prefabs")]
-        public GameObject ItemUIPrefab; // Prefab with Image+CanvasGroup+EventTrigger
-        public GameObject SlotUIPrefab; // Prefab with Image (empty slot)
-        public Button ValidateButton;
-
-        private List<GameObject> itemUIs = new List<GameObject>();
-        private List<GameObject> slotUIs = new List<GameObject>();
-        private List<int> currentOrder = new List<int>();
-        private List<int> correctOrder = new List<int>();
-
-        private Canvas canvas;
-
-        // --- Add these variables ---
-        [Header("Layout Settings")]
-        [Tooltip("Horizontal spacing between slots/items")]
-        public float slotSpacing = 200f;
-        [Tooltip("Y position for slots (top of screen)")]
-        public float slotY = 300f;
-        [Tooltip("Y position for items (bottom of screen)")]
-        public float itemY = -300f;
-
-        void Start()
-        {
-            canvas = FindObjectOfType<Canvas>();
-            if (!canvas)
-            { Debug.LogError("No Canvas found in scene!"); return; }
+            if (Items == null)
+                Items = new List<CardItem>();
             if (Items.Count < 2)
-            { Debug.LogError("Add at least 2 items!"); return; }
-            if (!ItemUIPrefab || !SlotUIPrefab || !ValidateButton)
-            { Debug.LogError("Assign all UI Prefabs and Button!"); return; }
-
-            // Set correct order (0,1,2,...)
-            correctOrder.Clear();
-            for (int i = 0; i < Items.Count; i++)
-                correctOrder.Add(i);
-
-            // Shuffle for initial order
-            currentOrder = new List<int>(correctOrder);
-            Shuffle(currentOrder);
-
-            // Create slots (top of screen)
-            slotUIs.Clear();
-            float slotContainerWidth = SlotContainer.rect.width;
-            float slotStartX = -slotContainerWidth / 2 + slotSpacing / 2;
-            for (int i = 0; i < Items.Count; i++)
-            {
-                var slot = Instantiate(SlotUIPrefab, SlotContainer);
-                var slotRect = slot.GetComponent<RectTransform>();
-                slotRect.anchoredPosition = GetSlotPosition(i, Items.Count);
-                slotUIs.Add(slot);
-            }
-
-            // Create draggable items (bottom of screen)
-            itemUIs.Clear();
-            System.Random rng = new System.Random();
-            for (int i = 0; i < Items.Count; i++)
-            {
-                int itemIdx = currentOrder[i];
-                var item = Instantiate(ItemUIPrefab, ItemContainer);
-                var img = item.GetComponent<Image>();
-                img.sprite = Items[itemIdx].Texture;
-                item.GetComponentInChildren<TextMeshProUGUI>().text = Items[itemIdx].Name;
-                var itemRect = item.GetComponent<RectTransform>();
-
-                float containerWidth = ItemContainer.rect.width;
-                float containerHeight = ItemContainer.rect.height;
-                float x = UnityEngine.Random.Range(-containerWidth / 2 + 50, containerWidth / 2 - 50);
-                float y = UnityEngine.Random.Range(-containerHeight / 2 + 50, containerHeight / 2 - 50);
-                itemRect.anchoredPosition = new Vector2(x, y);
-
-                itemUIs.Add(item);
-
-                // Add drag handlers
-                var drag = item.AddComponent<DragHandler>();
-                drag.Init(this, i);
-            }
-
-            // Validate button
-            ValidateButton.onClick.AddListener(Validate);
-
-            UpdateValidateButtonState();
+                Debug.LogWarning("Puzzle needs at least 2 items.");
+            if (Items.Count > 10)
+                Debug.LogWarning("Puzzle supports max 10 items.");
         }
 
-        void Shuffle(List<int> list)
+        public override void Init()
         {
-            System.Random rng = new System.Random();
-            int n = list.Count;
-            while (n > 1)
+            BuildSlots(Items.Count);
+            SetValidateInteractable(false);
+
+            minItemsToValidate = Items.Count;
+
+            // Store solution order
+            correctOrder = Items.ToArray();
+
+            // Spawn shuffled tiles into pool
+            var shuffled = new List<CardItem>(Items);
+            Shuffle(shuffled);
+
+            foreach (var it in shuffled)
             {
-                n--;
-                int k = rng.Next(n + 1);
-                int value = list[k];
-                list[k] = list[n];
-                list[n] = value;
+                var go = Instantiate(tilePrefab, tilesPoolParent);
+                go.name = it.Name;
+
+                var tile = go.GetComponent<DraggableTile>();
+                tile.Init(this, it, this.transform);
+            }
+
+            UpdateSlotHighlights(); // clear/prepare highlights
+        }
+
+        private void BuildSlots(int count)
+        {
+            // Clear existing
+            for (int i = slotsParent.childCount - 1; i >= 0; i--)
+                Destroy(slotsParent.GetChild(i).gameObject);
+
+            slotViews.Clear();
+            slots = new DraggableTile[count];
+
+            for (int i = 0; i < count; i++)
+            {
+                var slotGO = Instantiate(slotPrefab, slotsParent);
+                var drop = slotGO.GetComponent<DropSlot>();
+                drop.puzzleManager = this;
+                drop.slotIndex = i;
+                slotViews.Add(drop);
             }
         }
 
-        // Called by DragHandler when an item is dropped on a slot
-        public void SwapItems(int fromIdx, int toIdx)
+        public void PlaceTile(DraggableTile tile, int slotIndex)
         {
-            if (fromIdx == toIdx)
-                return;
+            var targetOccupied = slots[slotIndex] != null;
+            var srcSlot = tile.OriginalParentSlotIndex;
 
-            // Swap in currentOrder
-            int tmp = currentOrder[fromIdx];
-            currentOrder[fromIdx] = currentOrder[toIdx];
-            currentOrder[toIdx] = tmp;
-
-            // Swap UI positions
-            itemUIs[fromIdx].GetComponent<RectTransform>().anchoredPosition = GetSlotPosition(fromIdx, Items.Count);
-            itemUIs[toIdx].GetComponent<RectTransform>().anchoredPosition = GetSlotPosition(toIdx, Items.Count);
-
-            // Swap UI list
-            var tempUI = itemUIs[fromIdx];
-            itemUIs[fromIdx] = itemUIs[toIdx];
-            itemUIs[toIdx] = tempUI;
-
-            // Update drag handler indices
-            itemUIs[fromIdx].GetComponent<DragHandler>().Index = fromIdx;
-            itemUIs[toIdx].GetComponent<DragHandler>().Index = toIdx;
-
-            UpdateValidateButtonState();
-        }
-
-        new void Validate()
-        {
-            bool correct = true;
-            for (int i = 0; i < currentOrder.Count; i++)
+            // If target occupied, handle swap or push to pool
+            if (targetOccupied)
             {
-                if (currentOrder[i] != correctOrder[i])
+                var other = slots[slotIndex];
+                if (srcSlot >= 0)
                 {
-                    correct = false;
-                    break;
-                }
-            }
-            if (correct)
-            {
-                Debug.Log("Correct order!");
-                // You can add win feedback here
-            }
-            else
-            {
-                Debug.Log("Wrong order, try again!");
-                // You can add fail feedback here
-            }
-        }
-
-        private Vector2 GetSlotPosition(int slotIndex, int totalSlots)
-        {
-            float containerWidth = SlotContainer.rect.width;
-            float spacing = containerWidth / (totalSlots + 1);
-            float x = -containerWidth / 2 + spacing * (slotIndex + 1);
-            float y = slotY;
-            return new Vector2(x, y);
-        }
-
-        private void UpdateValidateButtonState()
-        {
-            int itemsInSlots = 0;
-            foreach (var item in itemUIs)
-            {
-                if (item.transform.parent == SlotContainer)
-                    itemsInSlots++;
-            }
-            ValidateButton.interactable = (itemsInSlots == Items.Count);
-        }
-
-        // --- Drag Handler Inner Class ---
-        public class DragHandler : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
-        {
-            private ActivityOrder activity;
-            private RectTransform rectTransform;
-            private CanvasGroup canvasGroup;
-            private Vector2 originalPos;
-            private Transform originalParent;
-            public int Index;
-
-            public void Init(ActivityOrder activity, int index)
-            {
-                this.activity = activity;
-                this.Index = index;
-                rectTransform = GetComponent<RectTransform>();
-                canvasGroup = GetComponent<CanvasGroup>();
-            }
-
-            public void OnBeginDrag(PointerEventData eventData)
-            {
-                originalParent = rectTransform.parent;
-                originalPos = rectTransform.anchoredPosition;
-                rectTransform.SetParent(activity.canvas.transform, true); // Move to canvas
-                rectTransform.SetAsLastSibling(); // Ensure it's drawn above other UI
-                canvasGroup.blocksRaycasts = false;
-                rectTransform.position = eventData.position;
-            }
-
-            public void OnDrag(PointerEventData eventData)
-            {
-                rectTransform.position = eventData.position;
-            }
-
-            public void OnEndDrag(PointerEventData eventData)
-            {
-                canvasGroup.blocksRaycasts = true;
-                // Find closest slot
-                int closestSlot = -1;
-                float minDist = float.MaxValue;
-                for (int i = 0; i < activity.slotUIs.Count; i++)
-                {
-                    var slotRect = activity.slotUIs[i].GetComponent<RectTransform>();
-                    Vector2 slotWorldPos = slotRect.TransformPoint(slotRect.rect.center);
-                    float dist = Vector2.Distance(rectTransform.position, slotWorldPos);
-                    if (dist < minDist)
-                    {
-                        minDist = dist;
-                        closestSlot = i;
-                    }
-                }
-                // Snap to closest slot if close enough
-                if (minDist < 100f)
-                {
-                    rectTransform.SetParent(activity.SlotContainer, true);
-                    rectTransform.anchoredPosition = activity.GetSlotPosition(closestSlot, activity.Items.Count);
-                    activity.SwapItems(Index, closestSlot);
+                    // swap between two slots: move 'other' to tile's source slot
+                    slots[srcSlot] = other;
+                    other.transform.SetParent(other.transform.root);
+                    other.SnapTo(GetSlotTransform(srcSlot));
+                    other.OriginalParentSlotIndex = srcSlot;
                 }
                 else
                 {
-                    rectTransform.SetParent(activity.ItemContainer, true);
-                    rectTransform.anchoredPosition = originalPos;
+                    // from pool -> send existing to pool
+                    other.MoveToPool(tilesPoolParent);
+                    slots[slotIndex] = null;
                 }
-                activity.UpdateValidateButtonState(); // <-- Add this line
             }
+
+            // Clear previous source slot only if target wasn't occupied (i.e., we didn't swap into it)
+            if (srcSlot >= 0 && !targetOccupied)
+            {
+                slots[srcSlot] = null;
+            }
+
+            // Place into new slot
+            slots[slotIndex] = tile;
+            tile.MoveToSlot(GetSlotTransform(slotIndex), slotIndex);
+
+            if (audioSource && dropSound)
+                audioSource.PlayOneShot(dropSound);
+
+            UpdateValidateState();
+            UpdateSlotHighlights();
+        }
+
+        public void NotifyTileLiftedFromSlot(int slotIndex)
+        {
+            if (slotIndex < 0 || slots == null || slotIndex >= slots.Length)
+                return;
+            if (slots[slotIndex] != null)
+            {
+                slots[slotIndex] = null;
+            }
+            UpdateValidateState();
+            UpdateSlotHighlights();
+        }
+
+        public void NotifyTileReturnedToPool()
+        {
+            UpdateValidateState();
+            UpdateSlotHighlights();
+        }
+
+        private Transform GetSlotTransform(int slotIndex) => slotsParent.GetChild(slotIndex);
+
+        private void Shuffle(List<CardItem> list)
+        {
+            // Fisher–Yates shuffle
+            for (int i = list.Count - 1; i > 0; i--)
+            {
+                int j = UnityEngine.Random.Range(0, i + 1); // int max is exclusive, so i+1 yields [0..i]
+                (list[i], list[j]) = (list[j], list[i]);
+            }
+        }
+
+        private void UpdateValidateState()
+        {
+            int itemsInSlots = CountItemsInSlots();
+            SetValidateInteractable(itemsInSlots >= minItemsToValidate);
+        }
+
+        private int CountItemsInSlots()
+        {
+            if (slots == null || slots.Length == 0)
+                return 0;
+            int count = 0;
+            for (int i = 0; i < slots.Length; i++)
+                if (slots[i] != null)
+                    count++;
+            return count;
+        }
+
+        private bool AllSlotsFilled()
+        {
+            if (slots == null || slots.Length == 0)
+                return false;
+            for (int i = 0; i < slots.Length; i++)
+                if (slots[i] == null)
+                    return false;
+            return true;
+        }
+
+        private void SetValidateInteractable(bool status)
+        {
+            if (validateButton)
+                validateButton.interactable = status;
+        }
+
+        // Live visual hints
+        private void UpdateSlotHighlights()
+        {
+            if (slotViews.Count == 0)
+                return;
+
+            if (difficulty == Difficulty.Easy || difficulty == Difficulty.Tutorial)
+            {
+                for (int i = 0; i < slotViews.Count; i++)
+                {
+                    var view = slotViews[i];
+                    if (view == null)
+                        continue;
+
+                    if (slots[i] != null && slots[i].ItemData.Name == correctOrder[i].Name)
+                        view.SetHighlight(Color.green, 0.35f);
+                    else
+                        view.ClearHighlight();
+                }
+            }
+            else
+            {
+                for (int i = 0; i < slotViews.Count; i++)
+                    slotViews[i]?.ClearHighlight();
+            }
+        }
+
+        // Called by Validate button
+        public override bool DoValidate()
+        {
+            if (!AllSlotsFilled())
+            {
+                Debug.Log("Not all slots filled.");
+                return false;
+            }
+
+            List<int> wrongIndices = new List<int>();
+
+            for (int i = 0; i < slots.Length; i++)
+            {
+                var tile = slots[i];
+                if (tile == null)
+                { wrongIndices.Add(i); continue; }
+
+                var expected = correctOrder[i].Name;
+                if (tile.ItemData.Name != expected)
+                    wrongIndices.Add(i);
+            }
+
+            if (wrongIndices.Count == 0)
+            {
+                Debug.Log("✅ Correct order!");
+                // TODO: success animation / next level
+                return true;
+            }
+            else
+            {
+                StartCoroutine(ShakeWrongTiles(wrongIndices));
+                Debug.Log($"❌ Wrong order in {wrongIndices.Count} slot(s).");
+                return false;
+            }
+        }
+
+        private IEnumerator ShakeWrongTiles(List<int> indices)
+        {
+            float duration = 0.25f;
+            float strength = 10f;
+
+            var originals = new Dictionary<RectTransform, Vector2>();
+            foreach (var idx in indices)
+            {
+                var rt = slots[idx].Rect;
+                originals[rt] = rt.anchoredPosition;
+            }
+
+            float t = 0f;
+            while (t < duration)
+            {
+                t += Time.unscaledDeltaTime;
+                float phase = (t / duration) * Mathf.PI * 4f;
+                float offset = Mathf.Sin(phase) * strength;
+
+                foreach (var kv in originals)
+                {
+                    var rt = kv.Key;
+                    rt.anchoredPosition = kv.Value + new Vector2(offset, 0f);
+                }
+                yield return null;
+            }
+
+            foreach (var kv in originals)
+                kv.Key.anchoredPosition = kv.Value;
+        }
+
+        // ---- Tutorial hint ----
+        public void FlashCorrectSlot(CardItem item, DraggableTile tile)
+        {
+            if (difficulty != Difficulty.Tutorial)
+                return;
+
+            int correctIndex = -1;
+            for (int i = 0; i < correctOrder.Length; i++)
+            {
+                if (correctOrder[i].Name == item.Name)
+                {
+                    correctIndex = i;
+                    break;
+                }
+            }
+
+            if (correctIndex >= 0 && correctIndex < slotViews.Count)
+                StartCoroutine(FlashSlotAndBounce(slotViews[correctIndex], tile));
+        }
+
+        private IEnumerator FlashSlotAndBounce(DropSlot slotView, DraggableTile tile)
+        {
+            if (slotView == null || tile == null)
+                yield break;
+
+            slotView.SetHighlight(Color.yellow, 0.5f);
+
+            // world-space bounce there and back
+            Vector3 startPos = tile.transform.position;
+            Transform startParent = tile.transform.parent;
+            Vector3 targetPos = slotView.transform.position;
+
+            float duration = 0.4f;
+            float t = 0f;
+
+            while (t < duration)
+            {
+                t += Time.unscaledDeltaTime;
+                float p = t / duration;
+                float height = Mathf.Sin(p * Mathf.PI) * 20f;
+                Vector3 pos = Vector3.Lerp(startPos, targetPos, p) + Vector3.up * height;
+                tile.transform.position = pos;
+                yield return null;
+            }
+
+            // snap back
+            tile.transform.SetParent(startParent);
+            tile.transform.position = startPos;
+
+            yield return new WaitForSecondsRealtime(0.5f);
+            UpdateSlotHighlights();
+        }
+
+        // SFX helper
+        public void PlayItemSound(AudioClip clip)
+        {
+            if (clip == null)
+                return;
+            if (audioSource != null)
+                audioSource.PlayOneShot(clip);
+            else
+                AudioSource.PlayClipAtPoint(clip, Camera.main ? Camera.main.transform.position : Vector3.zero);
         }
     }
 }

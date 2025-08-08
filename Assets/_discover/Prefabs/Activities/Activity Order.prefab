@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 8448913730050000724}
   - component: {fileID: 5835805292646038911}
   - component: {fileID: 8620317744410106711}
+  - component: {fileID: 1928460646740186502}
   m_Layer: 5
-  m_Name: Top Panel
+  m_Name: SlotsParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,6 +77,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1928460646740186502
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3193509686185639584}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1 &3410492608849149956
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,16 +241,16 @@ MonoBehaviour:
   NodeSuccess: 
   NodeFail: 
   Items: []
-  ItemContainer: {fileID: 3729829768112403557}
-  SlotContainer: {fileID: 8448913730050000724}
-  ItemUIPrefab: {fileID: 9127632138236041138, guid: f316dfc893eed49819b136c461835b88,
+  difficulty: 2
+  tilesPoolParent: {fileID: 3729829768112403557}
+  slotsParent: {fileID: 8448913730050000724}
+  slotPrefab: {fileID: 5107937167899436839, guid: 1f2b94b08500744de9a489de7253333c,
     type: 3}
-  SlotUIPrefab: {fileID: 5107937167899436839, guid: 1f2b94b08500744de9a489de7253333c,
+  tilePrefab: {fileID: 9127632138236041138, guid: f316dfc893eed49819b136c461835b88,
     type: 3}
-  ValidateButton: {fileID: 8256153513693941237}
-  slotSpacing: 200
-  slotY: 300
-  itemY: -300
+  validateButton: {fileID: 8256153513693941237}
+  audioSource: {fileID: 0}
+  dropSound: {fileID: 0}
 --- !u!114 &8101630004106580834
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -312,8 +339,9 @@ GameObject:
   - component: {fileID: 3729829768112403557}
   - component: {fileID: 2876168490712320404}
   - component: {fileID: 6404114080327146481}
+  - component: {fileID: 7735523065921457589}
   m_Layer: 5
-  m_Name: 'Bottom Panel '
+  m_Name: TilesPoolParent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -377,6 +405,32 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7735523065921457589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6470534091387405114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 30649d3a9faa99c48a7b1166b86bf2a0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_Spacing: 20
+  m_ChildForceExpandWidth: 1
+  m_ChildForceExpandHeight: 1
+  m_ChildControlWidth: 0
+  m_ChildControlHeight: 0
+  m_ChildScaleWidth: 0
+  m_ChildScaleHeight: 0
+  m_ReverseArrangement: 0
 --- !u!1001 &393610494037731415
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -668,7 +722,7 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -678,7 +732,7 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -728,12 +782,12 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -260
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -754,11 +808,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Order Item Prefab
-      objectReference: {fileID: 0}
-    - target: {fileID: 9127632138236041138, guid: f316dfc893eed49819b136c461835b88,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

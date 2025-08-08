@@ -931,7 +931,7 @@ MonoBehaviour:
     ItemCount: 0
     ItemTag: 
     TimerSeconds: 0
-    TargetPoint: {fileID: 0}
+    TargetPoint: {fileID: 351682113048941008}
     Area: {fileID: 0}
   - Code: collect_flowers
     Type: 1
@@ -980,6 +980,13 @@ MonoBehaviour:
           m_Calls: []
     - Command: 2
       mainObject: {fileID: 3672197584172904062}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+    - Command: 6
+      mainObject: {fileID: 1638775215976107950}
       Parameter: 
       Bypass: 0
       unityAction:
@@ -1447,7 +1454,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 16156
+  m_VersionIndex: 16159
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -5560,8 +5567,13 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
         type: 3}
+      propertyPath: difficulty
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
       propertyPath: Items.Array.size
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
         type: 3}
@@ -5578,6 +5590,53 @@ PrefabInstance:
       propertyPath: Items.Array.data[2].Name
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[3].Name
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[0].Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f9356692fad74c39bd275b9f037047e,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[1].Image
+      value: 
+      objectReference: {fileID: 21300000, guid: c5f8bc13bcfef4925b6e39c72518f847,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[2].Image
+      value: 
+      objectReference: {fileID: 21300000, guid: e3c7c3c58a0844a4286081b2daed78b9,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[3].Image
+      value: 
+      objectReference: {fileID: 21300000, guid: 98a461fd5926f419382962121d794944,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[0].Texture
+      value: 
+      objectReference: {fileID: 21300000, guid: 2f9356692fad74c39bd275b9f037047e,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[1].Texture
+      value: 
+      objectReference: {fileID: 21300000, guid: c5f8bc13bcfef4925b6e39c72518f847,
+        type: 3}
+    - target: {fileID: -8603953391841034531, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: Items.Array.data[2].Texture
+      value: 
+      objectReference: {fileID: 21300000, guid: e3c7c3c58a0844a4286081b2daed78b9,
+        type: 3}
     - target: {fileID: 1709150003338170337, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
         type: 3}
       propertyPath: m_Pivot.x
@@ -5687,6 +5746,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6337386382773390606, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -7772,7 +7836,12 @@ PrefabInstance:
     - target: {fileID: 454706520882647660, guid: 4f257dda7611d47c0ba5cde1e572bc5d,
         type: 3}
       propertyPath: IsInteractable
-      value: 1
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 454706520882647660, guid: 4f257dda7611d47c0ba5cde1e572bc5d,
+        type: 3}
+      propertyPath: Commands.Array.data[0].Parameter
+      value: reach_platform
       objectReference: {fileID: 0}
     - target: {fileID: 1550559776946414939, guid: 4f257dda7611d47c0ba5cde1e572bc5d,
         type: 3}

@@ -1,4 +1,5 @@
 ﻿using Antura.UI;
+using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 
@@ -75,6 +76,7 @@ namespace Antura.Discover
         public void Open()
         {
             Show();
+            activityBase.Open();
         }
 
         /// <summary>
