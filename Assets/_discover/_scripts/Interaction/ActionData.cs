@@ -17,6 +17,7 @@ namespace Antura.Discover
         PlaySfx = 13,
         ProgressPoints = 17,
         QuestEnd = 12,
+        SetActive = 18,
         SpawnPlayer = 3,
         SpawnSet = 11,
         Target = 5,

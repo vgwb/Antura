@@ -174,6 +174,15 @@ namespace Antura.Discover
                     case CommandType.QuestEnd:
                         QuestManager.I.OnQuestEnd();
                         break;
+                    case CommandType.SetActive:
+                        if (command.mainObject != null)
+                        {
+                            if (command.Parameter == "0")
+                                command.mainObject.SetActive(false);
+                            else
+                                command.mainObject.SetActive(true);
+                        }
+                        break;
                     case CommandType.SpawnSet:
                         SetPlayerSpawnPoint(command.mainObject);
                         break;
