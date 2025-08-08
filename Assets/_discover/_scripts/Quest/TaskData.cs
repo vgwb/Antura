@@ -111,7 +111,7 @@ namespace Antura.Discover
                 }
                 else
                 {
-                    UIManager.I.TaskDisplay.SetValue(itemsCollected);
+                    UIManager.I.TaskDisplay.SetTotItemsCollected(itemsCollected);
                 }
             }
         }

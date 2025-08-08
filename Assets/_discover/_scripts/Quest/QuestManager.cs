@@ -248,8 +248,8 @@ namespace Antura.Discover
             if (HomerVars.QUEST_ITEMS > 0)
             {
                 UIManager.I.TaskDisplay.gameObject.SetActive(true);
-                UIManager.I.TaskDisplay.SetMax(HomerVars.QUEST_ITEMS);
-                UIManager.I.TaskDisplay.SetValue(HomerVars.COLLECTED_ITEMS);
+                UIManager.I.TaskDisplay.SetTargetItems(HomerVars.QUEST_ITEMS);
+                UIManager.I.TaskDisplay.SetTotItemsCollected(HomerVars.COLLECTED_ITEMS);
             }
         }
         public void UpateCoinsCounter()
