@@ -10,6 +10,9 @@ namespace Antura.Discover.Activities
         [Range(1, 600)]
         [SerializeField] int timerSeconds = 60;
 
+        [SerializeField] int PointsSuccess = 0;
+        [SerializeField] int PointsFail = -1;
+
         [SerializeField] GameObject HelpPanel;
 
         [Tooltip("Optional permalink of the Node with the mission")]
@@ -64,12 +67,15 @@ namespace Antura.Discover.Activities
             if (result)
             {
                 Debug.Log("ActivityBase: SUCCESS");
+                QuestManager.I.AddProgressPoints(PointsSuccess);
                 activityPanel.PauseTimer();
                 activityPanel.Hide();
             }
             else
             {
                 Debug.Log("ActivityBase: FAIL");
+                QuestManager.I.AddProgressPoints(PointsFail);
+                activityPanel.Hide();
             }
         }
 
