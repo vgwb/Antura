@@ -4,7 +4,6 @@ using UnityEngine;
 using UnityEngine.Events;
 using DG.DeInspektor.Attributes;
 using System;
-using PixelPlay.OffScreenIndicator;
 
 namespace Antura.Discover
 {
