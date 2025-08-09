@@ -146,10 +146,10 @@ namespace Antura.Discover
         public string LanguageRef;
         public string manualPage;
 
-        [Header("Authors")]
-        public List<AuthorDefinition> Content;
-        public List<AuthorDefinition> Design;
-        public List<AuthorDefinition> Development;
+        [Header("Credits")]
+        public List<AuthorDefinition> CreditsContent;
+        public List<AuthorDefinition> CreditsDesign;
+        public List<AuthorDefinition> CreditsDevelopment;
 
         [Header("Unity References and Prefabs")]
         public string assetsFolder;
