@@ -5,7 +5,7 @@ using Homer;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(menuName = "Antura/Quests")]
+    [CreateAssetMenu(menuName = "Antura/Discover/Quests List")]
     public class Quests : ScriptableObject
     {
         public QuestData[] AvailableQuests;
