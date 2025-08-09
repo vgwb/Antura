@@ -1,5 +1,74 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1443764213170308576
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5171069191688950208}
+  - component: {fileID: 1873023188525910384}
+  - component: {fileID: 5590775188782935050}
+  m_Layer: 5
+  m_Name: CardsPanel
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5171069191688950208
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443764213170308576}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 2912218449024472999}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!222 &1873023188525910384
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443764213170308576}
+  m_CullTransparentMesh: 1
+--- !u!114 &5590775188782935050
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443764213170308576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a8695521f0d02e499659fee002a26c2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Padding:
+    m_Left: 0
+    m_Right: 0
+    m_Top: 0
+    m_Bottom: 0
+  m_ChildAlignment: 4
+  m_StartCorner: 0
+  m_StartAxis: 0
+  m_CellSize: {x: 100, y: 100}
+  m_Spacing: {x: 0, y: 0}
+  m_Constraint: 0
+  m_ConstraintCount: 2
 --- !u!1 &3410492608849149956
 GameObject:
   m_ObjectHideFlags: 0
@@ -29,7 +98,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 5171069191688950208}
   m_Father: {fileID: 1709150003338170337}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -131,12 +201,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ActivityCode: 
   timerSeconds: 60
+  PointsSuccess: 0
+  PointsFail: -1
   HelpPanel: {fileID: 0}
   NodeDescription: 
   NodeSuccess: 
   NodeFail: 
-  Items: []
-  DifficultyLevel: 1
+  cardLibrary: {fileID: 11400000, guid: 366a1d6e06dfd447fb5b991eb35ca13e, type: 2}
+  commonBack: {fileID: 21300000, guid: 0a7beb18cbc79384da49d23fc4a400f1, type: 3}
+  difficulty: 1
+  gridParent: {fileID: 5171069191688950208}
+  cardPrefab: {fileID: 3194313532440454763, guid: c582ca0f50e9d482f84d6fd2ba42a359,
+    type: 3}
+  cellSize: {x: 180, y: 220}
+  spacing: {x: 18, y: 18}
+  tutorialIdleSeconds: 5
+  easyShakeInterval: 6
+  audioSource: {fileID: 0}
+  flipSfx: {fileID: 0}
+  matchSfx: {fileID: 0}
+  mismatchSfx: {fileID: 0}
 --- !u!114 &8101630004106580834
 MonoBehaviour:
   m_ObjectHideFlags: 0
