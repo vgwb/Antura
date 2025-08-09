@@ -11,8 +11,11 @@ namespace Antura.Discover
         None = 0,
         Tutorial = 1,
         France = 2,
-        Poland = 3
+        Poland = 3,
+        Italy = 4,
+        Spain = 5,
     }
+
     [Serializable]
     public class CountrySpriteMapping
     {
@@ -20,16 +23,19 @@ namespace Antura.Discover
         public SpriteRenderer spriteRenderer;
     }
 
-    [System.Flags]
-    public enum Categories
+    [Serializable]
+    public enum CardCategory
     {
         None = 0,
-        Place,
-        Character,
-        NaturalSite,
-        Food,
-        Art,
-        CultureElement
+        Place = 1,
+        Natural = 2,
+        Art = 3,
+        Food = 4,
+        Flora = 5,
+        Fauna = 6,
+        People = 7,
+        Object = 8,
+        Humanity = 9
     }
 
     public enum GameplayType
