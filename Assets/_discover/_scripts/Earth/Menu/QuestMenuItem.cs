@@ -28,6 +28,7 @@ namespace Antura.Discover
             SelectBtn.interactable = questData.Status != QuestStatus.Inactive;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
             Code.text = _questData.NumberCode;
+            // Debug.Log("QuestMenuItem Init: " + _questData.Code);
             Title.text = _questData.Title.GetLocalizedString();
             if (_questData.Location != null)
                 Location.text = _questData.Location.Name.GetLocalizedString();

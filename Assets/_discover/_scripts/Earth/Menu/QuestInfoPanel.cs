@@ -27,13 +27,14 @@ namespace Antura.Discover
 
         public void Show(QuestData questData)
         {
+            Description.text = "";
             gameObject.SetActive(true);
             currentQuestData = questData;
             Title.text = questData.Code + " | " + questData.Title.GetLocalizedString();
             if (questData.Location != null)
                 Title.text += " | " + questData.Location.Name.GetLocalizedString();
 
-            if (questData.Description != null)
+            if (questData.Description != null && !questData.Description.IsEmpty)
                 Description.text = questData.Description.GetLocalizedString();
 
             Description.text += "\n\n";
@@ -44,8 +45,8 @@ namespace Antura.Discover
                 Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
             if (questData.LanguageRef != "")
                 Description.text += "<b>References:</b> " + questData.LanguageRef + "\n";
-            if (questData.Gameplay != null)
-                Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
+            // if (questData.Gameplay != null)
+            //     Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
             // if (questData.Content != "")
             //     Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
 
