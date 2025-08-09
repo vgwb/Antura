@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Localization;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
@@ -27,8 +28,8 @@ namespace Antura.Discover
             SelectBtn.interactable = questData.Status != QuestStatus.Inactive;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
             Code.text = _questData.NumberCode;
-            Title.text = _questData.Title;
-            Location.text = _questData.Location;
+            Title.text = _questData.Title.GetLocalizedString();
+            Location.text = _questData.Location.Name.GetLocalizedString();
             SetStars(questData.GetScore());
         }
 

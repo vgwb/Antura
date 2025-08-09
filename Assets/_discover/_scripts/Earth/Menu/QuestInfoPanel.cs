@@ -32,16 +32,16 @@ namespace Antura.Discover
             Title.text = questData.Code + " | " + questData.Title;
             Description.text = questData.Description + "\n\n";
             Description.text += "<b>Location:</b> " + questData.Location + "\n";
-            if (questData.Categories != "")
-                Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
+            // if (questData.Cate != null)
+            //     Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
             if (questData.Duration > 0)
                 Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
             if (questData.LanguageRef != "")
                 Description.text += "<b>References:</b> " + questData.LanguageRef + "\n";
-            if (questData.Gameplay != "")
+            if (questData.Gameplay != null)
                 Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
-            if (questData.Content != "")
-                Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
+            // if (questData.Content != "")
+            //     Description.text += "<b>Didactical Content:</b>\n" + questData.Content + "\n\n";
 
             if (currentQuestData.Thumbnail != null)
             {

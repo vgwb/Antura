@@ -79,7 +79,7 @@ namespace Antura.Discover
             inventory.Init(HomerVars.QUEST_ITEMS);
             progress.Init(QuestTasks);
             updateCounters();
-            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
+            HomerAnturaManager.I.InitNode(CurrentQuest.FlowSlug);
             //InteractionManager.I.DisplayNode(GetQuestNode("init"));
         }
 
@@ -101,7 +101,7 @@ namespace Antura.Discover
 
         public QuestNode GetQuestNode(string permalink, string command = "")
         {
-            return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
+            return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.FlowSlug, "");
         }
 
         public QuestNode GetNextNode(int choiceIndex = 0)

@@ -12,31 +12,47 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
   m_Name: FR_2 - Angers - school
   m_EditorClassIdentifier: 
-  Status: 1
-  QuestId: 2
-  Country: 2
+  FlowSlug: 0
   Code: fr_2
   NumberCode: 2
-  Title: The school system
-  Location: Angers
-  Categories: place, system
-  Duration: 20
-  TotalProgress: 14
-  Description: Discover the French school system and find your school
+  Status: 1
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 231168008192
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: 3fddb5f202efc418aa753f695a6a283f, type: 2}
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Thumbnail: {fileID: 0}
+  Difficulty: 3
   Gameplay: 
-  Credits: VGWB
-  Content: '- School levels
-
-    - A typical day at school
-
-    - School levels '
+  Duration: 20
+  Cards: []
   Dependencies: []
   LanguageRef: 4.10 -> 4.17
   manualPage: 
+  Content: []
+  Design: []
+  Development: []
   assetsFolder: FR_02
-  Thumbnail: {fileID: 0}
   scene: discover_fr_angers
   WorldPrefab: {fileID: 5069051516954444199, guid: 8ab0fcf009cc57e4f802a1f63bd7d0de,
     type: 3}
   QuestPrefab: {fileID: 4017108264321078535, guid: d7af230202e924dcd9b1b774c46d84f6,
     type: 3}
+  references:
+    version: 2
+    RefIds: []
