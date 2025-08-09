@@ -75,11 +75,11 @@ namespace Antura.Discover
             {
                 if (InteractGO != null)
                 {
-                    InteractGO.SetActive(false);
+                    InteractGO.SetActive(true);
                     Interactable interactable = InteractGO.GetComponent<Interactable>();
                     if (interactable != null)
                     {
-                        interactable.SetActivated(false);
+                        interactable.SetActivated(true);
                     }
                 }
                 UIManager.I.TaskDisplay.Show(Code, 0);

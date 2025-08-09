@@ -931,7 +931,7 @@ MonoBehaviour:
     ItemCount: 0
     ItemTag: 
     TimerSeconds: 0
-    TargetPoint: {fileID: 351682113048941008}
+    TargetPoint: {fileID: 0}
     Area: {fileID: 0}
   - Code: collect_flowers
     Type: 1
@@ -988,7 +988,7 @@ MonoBehaviour:
     - Command: 6
       mainObject: {fileID: 2855985033479707397}
       Parameter: 
-      Bypass: 0
+      Bypass: 1
       unityAction:
         m_PersistentCalls:
           m_Calls: []
@@ -7846,7 +7846,7 @@ PrefabInstance:
     - target: {fileID: 454706520882647660, guid: 4f257dda7611d47c0ba5cde1e572bc5d,
         type: 3}
       propertyPath: IsInteractable
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 454706520882647660, guid: 4f257dda7611d47c0ba5cde1e572bc5d,
         type: 3}

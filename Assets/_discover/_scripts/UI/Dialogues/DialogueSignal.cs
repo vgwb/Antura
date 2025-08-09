@@ -1,6 +1,5 @@
 ﻿using System;
 using Antura.Discover.Interaction;
-using DG.De2D;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using UnityEngine;

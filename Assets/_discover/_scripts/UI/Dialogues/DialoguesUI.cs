@@ -6,9 +6,7 @@ using Homer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Discover.Interaction;
 using UnityEngine;
-using Antura.Language;
 
 namespace Antura.Discover
 {
