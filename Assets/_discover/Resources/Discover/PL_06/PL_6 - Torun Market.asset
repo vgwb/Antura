@@ -12,24 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
   m_Name: PL_6 - Torun Market
   m_EditorClassIdentifier: 
-  Status: 0
-  QuestId: 21
-  Country: 3
+  FlowSlug: 0
   Code: pl_6
   NumberCode: 6
-  Title: Market
-  Location: Torun
-  Categories: 
-  Duration: 10
-  Description: 
+  Status: 0
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5388265698877440
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 3
+  Location: {fileID: 0}
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Thumbnail: {fileID: 0}
+  Difficulty: 0
   Gameplay: 
-  Credits: VGWB
-  Content: 
+  Duration: 10
+  MainTopic: 0
+  Cards: []
   Dependencies: []
   LanguageRef: 
   manualPage: 
+  Content: []
+  Design: []
+  Development: []
   assetsFolder: PL_06
-  Thumbnail: {fileID: 0}
   scene: discover_edoardo
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []

@@ -29,9 +29,15 @@ namespace Antura.Discover
         {
             gameObject.SetActive(true);
             currentQuestData = questData;
-            Title.text = questData.Code + " | " + questData.Title;
-            Description.text = questData.Description + "\n\n";
-            Description.text += "<b>Location:</b> " + questData.Location + "\n";
+            Title.text = questData.Code + " | " + questData.Title.GetLocalizedString();
+            if (questData.Location != null)
+                Title.text += " | " + questData.Location.Name.GetLocalizedString();
+
+            if (questData.Description != null)
+                Description.text = questData.Description.GetLocalizedString();
+
+            Description.text += "\n\n";
+
             // if (questData.Cate != null)
             //     Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
             if (questData.Duration > 0)

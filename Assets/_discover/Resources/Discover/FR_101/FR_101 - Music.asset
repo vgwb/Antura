@@ -12,25 +12,46 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
   m_Name: FR_101 - Music
   m_EditorClassIdentifier: 
-  Status: 1
-  QuestId: 18
-  Country: 2
+  FlowSlug: 0
   Code: fr_101
   NumberCode: 101
-  Title: "L\u2019hymne fran\xE7ais"
-  Location: 
-  Categories: 
-  Duration: 15
-  TotalProgress: 0
-  Description: Find out ingredients on the market to make a typical dish
+  Status: 1
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5388115052060672
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 0}
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Thumbnail: {fileID: 0}
+  Difficulty: 0
   Gameplay: 
-  Credits: VGWB
-  Content: 
+  Duration: 15
+  MainTopic: 0
+  Cards: []
   Dependencies: []
   LanguageRef: 
   manualPage: 
+  Content: []
+  Design: []
+  Development: []
   assetsFolder: FR_101
-  Thumbnail: {fileID: 0}
   scene: 
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []

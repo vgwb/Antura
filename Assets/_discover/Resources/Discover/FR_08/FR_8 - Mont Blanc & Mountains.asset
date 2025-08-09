@@ -12,34 +12,49 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
   m_Name: FR_8 - Mont Blanc & Mountains
   m_EditorClassIdentifier: 
-  Status: 0
-  QuestId: 11
-  Country: 2
+  FlowSlug: 0
   Code: fr_8
   NumberCode: 8
-  Title: Mont Blanc & Mountains
-  Location: Rhones Alpes
-  Categories: nature, geography
-  Duration: 15
-  TotalProgress: 0
-  Description: Reach the Mont Blanc summit!
+  Status: 0
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5387971439091712
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 0}
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Thumbnail: {fileID: 0}
+  Difficulty: 0
   Gameplay: 
-  Credits: VGWB
-  Content: "- Find out Mont Blanc\u2019s height (4807m)\n- Know France's neighboring
-    countries : Switzerland and Italy\n- Know the name of the mountain range : The
-    Alps\n- Mountain vocabulary: mountain, volcano, peak, snow, ice\n- Weather vocabulary:
-    sun, wind, rain\n- Vocabulary of clothing: shoes, socks, gloves, scarf, hat,
-    coat, trousers, jumper, sunglasses, flag\n- Vocabulary of mountain activities:
-    skiing, climbing, hiking, walking\n- Vocabulary for getting around: going up,
-    going down, up/down"
+  Duration: 15
+  MainTopic: 0
+  Cards: []
   Dependencies:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   LanguageRef: 
   manualPage: fr_8
+  Content: []
+  Design: []
+  Development: []
   assetsFolder: FR_08
-  Thumbnail: {fileID: 0}
   scene: discover_fr_mountains
   WorldPrefab: {fileID: 2472158149371768941, guid: 77fe23e358ccc4085a44fcfed6bbd8cd,
     type: 3}
   QuestPrefab: {fileID: 4017108264321078535, guid: 2176006738dc54235b78190e6aab188b,
     type: 3}
+  references:
+    version: 2
+    RefIds: []

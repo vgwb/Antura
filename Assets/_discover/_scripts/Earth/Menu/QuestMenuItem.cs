@@ -29,7 +29,8 @@ namespace Antura.Discover
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
             Code.text = _questData.NumberCode;
             Title.text = _questData.Title.GetLocalizedString();
-            Location.text = _questData.Location.Name.GetLocalizedString();
+            if (_questData.Location != null)
+                Location.text = _questData.Location.Name.GetLocalizedString();
             SetStars(questData.GetScore());
         }
 
