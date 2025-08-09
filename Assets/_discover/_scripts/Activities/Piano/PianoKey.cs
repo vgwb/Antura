@@ -12,7 +12,6 @@ namespace Antura.Discover.Activities
         public NoteName noteName;
         public int octave;
 
-        // Removed per-key clips; each key queries the keyboard
         public PianoKeyboard keyboard;
 
         public AudioSource audioSource;

@@ -12,7 +12,7 @@ namespace Antura.Discover.Activities
         public bool IsRest;
     }
 
-    [CreateAssetMenu(fileName = "MelodySequence", menuName = "PianoActivity/Melody Sequence", order = 0)]
+    [CreateAssetMenu(fileName = "MelodySequence", menuName = "Antura/Activity/Piano Melody Sequence", order = 0)]
     public class MelodySequenceSO : ScriptableObject
     {
         public int tempoBPM = 100;

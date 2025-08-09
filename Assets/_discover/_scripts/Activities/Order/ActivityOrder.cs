@@ -8,14 +8,6 @@ using TMPro;
 
 namespace Antura.Discover.Activities
 {
-    [Serializable]
-    public struct CardItem
-    {
-        public string Name;
-        public Sprite Image;
-        public AudioClip AudioClip;
-    }
-
     public class ActivityOrder : ActivityBase
     {
         public enum Difficulty { Tutorial, Easy, Normal }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Antura.Discover.Activities
 {
-    [CreateAssetMenu(fileName = "MoneySet", menuName = "Antura/Activity/MoneySet")]
+    [CreateAssetMenu(fileName = "MoneySet", menuName = "Antura/Activity/Money MoneySet")]
     public class MoneySet : ScriptableObject
     {
         public enum MoneyType { Coin, Paper }
