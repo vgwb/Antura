@@ -17,6 +17,8 @@ namespace Homer {
 
 public static class HomerVars {
 
+    public static string INVENTORY = "";
+    public static bool ACTIVITY_SUCCESS = false; 
     public static int MAX_PROGRESS = 0;
     public static int CURRENT_PROGRESS = 0;
     public static bool IS_DESKTOP = false; 
@@ -82,8 +84,10 @@ public static class HomerActors {
 }
 
 public static class HomerMeta {
+          public enum CARD {}
+          public enum ITEM {}
           public enum TASK {}
-          public enum NATIVE {}
+          public enum LANGUAGE {}
           public enum ACTION_POST {}
           public enum IMAGE {}
           public enum NEXTTARGET {}
@@ -113,22 +117,28 @@ public enum Tag {
 public static class HomerColors {
 
 //D63762
-public static Color32 book = new Color32(214, 55, 98, 255);
+public static Color32 card = new Color32(214, 55, 98, 255);
+//FFB526FF
+public static Color32 activity = new Color32(255, 181, 38, 255);
+//FCFF00
+public static Color32 no_translate = new Color32(252, 255, 0, 255);
+//11FF00FF
+public static Color32 end_quest = new Color32(17, 255, 0, 255);
 //0DB0DD
 public static Color32 blue = new Color32(13, 176, 221, 255);
 //F89501
 public static Color32 orange = new Color32(248, 149, 1, 255);
-//EB89C8
-public static Color32 pink = new Color32(235, 137, 200, 255);
 //47B58B
 public static Color32 green = new Color32(71, 181, 139, 255);
 
 public enum color { 
-              book = 1, 
-              blue = 2, 
-              orange = 3, 
-              pink = 4, 
-              green = 5
+              card = 1, 
+              activity = 2, 
+              no_translate = 3, 
+              end_quest = 4, 
+              blue = 5, 
+              orange = 6, 
+              green = 7
 }
 }
 
@@ -140,7 +150,7 @@ public enum FlowSlug {
               FR_03_NANTES = 3, 
               PL_01_WARSAW___CHOPIN = 4, 
               FR_04_LE_MANS = 5, 
-              FR_01B_PARIS___SEINE = 6, 
+              FR_10_PARIS___SEINE = 6, 
               FR_05_CASTLES = 7, 
               FR_06A_CARNAC___MENHIRS = 8, 
               FR_06B_PIRATES___MONEY = 9, 
@@ -151,11 +161,12 @@ public enum FlowSlug {
               PL_03_WROCLAW_RIVER = 14, 
               PL_04_ZOO = 15, 
               PL_02_WROCLAW_DWARVES = 16, 
-              FR_100_GEOGRAPHY = 17, 
-              FR_101_MUSIC = 18, 
-              PL_100_GEOGRAPHY = 19, 
+              FR_00_GEOGRAPHY = 17, 
+              FR_11_MUSIC = 18, 
+              PL_00_GEOGRAPHY = 19, 
               PL_05_BALTIC_SEA = 20, 
-              PL_06_TORUN_MARKET = 21
+              PL_06_TORUN_MARKET = 21, 
+              PL_07_SOLAR_SYSTEM = 22
 }
 }
 

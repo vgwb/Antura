@@ -238,7 +238,7 @@ namespace Antura.Discover
             node.ActionPost = GetMetadata("ACTION_POST", runner.Node._metadata);
             node.BalloonType = GetMetadata("BALLOON_TYPE", runner.Node._metadata);
             node.Mood = GetMetadata("MOOD", runner.Node._metadata);
-            node.Native = GetMetadata("NATIVE", runner.Node._metadata) == "native";
+            node.Native = GetMetadata("LANGUAGE", runner.Node._metadata) == "native";
 
             switch (runner.Node.GetNodeType())
             {
