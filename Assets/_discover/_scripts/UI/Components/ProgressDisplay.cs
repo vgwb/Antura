@@ -80,22 +80,26 @@ namespace Antura.Discover
         {
             Setup();
             if (increaseTween != null)
-            { increaseTween.Complete(); }
+            {
+                increaseTween.Complete();
+            }
             showTween.Rewind();
         }
 
-        public void SetMax(int _bones)
+        public void SetMax(int _value)
         {
-            total_progress = _bones;
+            total_progress = _value;
         }
-        public void SetValue(int _bones)
+        public void SetValue(int _value)
         {
-            progressValue = _bones;
+            progressValue = _value;
         }
 
-        public void DecreaseBy(int _by)
+        public void IncreaseBy(int _value)
         {
-            progressValue -= _by;
+            increaseTween.Restart();
+            AudioManager.I.PlaySound(Sfx.Blip);
+            progressValue += _value;
         }
 
         public void IncreaseByOne(bool _animate = true)
