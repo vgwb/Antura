@@ -13,7 +13,7 @@ namespace Antura.Discover
         public Sprite Image;
 
         [Header("Credits")]
-        public List<AuthorDefinition> CreditsDesign;
-        public List<AuthorDefinition> CreditsDevelopment;
+        public List<AuthorData> CreditsDesign;
+        public List<AuthorData> CreditsDevelopment;
     }
 }

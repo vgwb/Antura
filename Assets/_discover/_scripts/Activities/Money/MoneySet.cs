@@ -18,6 +18,8 @@ namespace Antura.Discover.Activities
 
         public string SetName;
 
+        public bool ValuesInCents = true;
+
         public List<MoneyItem> items = new List<MoneyItem>();
     }
 }

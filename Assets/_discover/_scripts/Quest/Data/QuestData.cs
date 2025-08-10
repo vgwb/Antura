@@ -147,9 +147,9 @@ namespace Antura.Discover
         public string manualPage;
 
         [Header("Credits")]
-        public List<AuthorDefinition> CreditsContent;
-        public List<AuthorDefinition> CreditsDesign;
-        public List<AuthorDefinition> CreditsDevelopment;
+        public List<AuthorData> CreditsContent;
+        public List<AuthorData> CreditsDesign;
+        public List<AuthorData> CreditsDevelopment;
 
         [Header("Unity References and Prefabs")]
         public string assetsFolder;
