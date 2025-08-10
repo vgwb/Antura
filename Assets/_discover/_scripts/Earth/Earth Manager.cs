@@ -27,6 +27,7 @@ namespace Antura.Discover
 
         void Start()
         {
+            //            Debug.Log("EarthManager START");
             // Debug.Log("Current contet: " + AppManager.I.ContentEdition.ContentID);
             if (AppManager.I.ContentEdition.ContentID == LearningContentID.Discover_Poland)
             {
@@ -53,18 +54,8 @@ namespace Antura.Discover
                 }
             }
 
-            EarthUIManager.I.ShowCountry(selectedCountry);
+            UIQuestMenuManager.I.ShowCountry(selectedCountry);
         }
 
-        public void SelectQuest(QuestData questData)
-        {
-            EarthUIManager.I.SelectQuest(questData);
-        }
-
-        public void OpenQuest(QuestData questData)
-        {
-            //Debug.Log("Load scene " + questData.scene);
-            AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
-        }
     }
 }

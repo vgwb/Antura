@@ -81,7 +81,7 @@ namespace Antura.Discover
 
         public void Play()
         {
-            EarthManager.I.OpenQuest(currentQuestData);
+            UIQuestMenuManager.I.OpenQuest(currentQuestData);
         }
 
         public void OpenManual()

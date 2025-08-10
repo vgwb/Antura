@@ -406,7 +406,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &65562135
 RectTransform:
   m_ObjectHideFlags: 0
@@ -422,11 +422,11 @@ RectTransform:
   - {fileID: 1728331286}
   m_Father: {fileID: 1533060728}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 20, y: -200}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 50, y: 50}
   m_SizeDelta: {x: 90, y: 90}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &65562136
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3247,7 +3247,7 @@ GameObject:
   - component: {fileID: 1283381742}
   - component: {fileID: 1283381741}
   m_Layer: 5
-  m_Name: Levels Menu
+  m_Name: Quest List
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4151,7 +4151,7 @@ GameObject:
   - component: {fileID: 1533060730}
   - component: {fileID: 1533060729}
   m_Layer: 5
-  m_Name: Commands Panel
+  m_Name: HUD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4172,11 +4172,11 @@ RectTransform:
   - {fileID: 65562135}
   m_Father: {fileID: 1276314361}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 200, y: 1080}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: 0, y: 0}
 --- !u!114 &1533060729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4535,7 +4535,7 @@ GameObject:
   - component: {fileID: 1685516368}
   - component: {fileID: 1685516366}
   m_Layer: 5
-  m_Name: Level Info Panel
+  m_Name: Quest Detail Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5762,12 +5762,12 @@ PrefabInstance:
     - target: {fileID: 4488298558495230743, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 100.530975
+      value: 86.466
       objectReference: {fileID: 0}
     - target: {fileID: 4488298558495230743, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.8064995
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 6604990985047191976, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
@@ -5782,12 +5782,12 @@ PrefabInstance:
     - target: {fileID: 6604990985047191976, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 67.46297
+      value: 53.398
       objectReference: {fileID: 0}
     - target: {fileID: 6604990985047191976, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.8064995
+      value: -15
       objectReference: {fileID: 0}
     - target: {fileID: 6797425099787597552, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
@@ -5907,12 +5907,12 @@ PrefabInstance:
     - target: {fileID: 7649751403422279684, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 34.39497
+      value: 20.329998
       objectReference: {fileID: 0}
     - target: {fileID: 7649751403422279684, guid: 0626bb03a87f641fba3bdb3240f18ecb,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -14.8064995
+      value: -15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

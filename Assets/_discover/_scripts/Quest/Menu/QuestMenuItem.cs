@@ -2,9 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
-using UnityEngine.Localization;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
 
 namespace Antura.Discover
 {
@@ -15,6 +13,7 @@ namespace Antura.Discover
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Location;
         public Button SelectBtn;
+        public GameObject Lock;
         [SerializeField] GameObject[] stars;
 
         QuestData questData;
@@ -27,6 +26,7 @@ namespace Antura.Discover
             questData = _questData;
             SelectBtn.interactable = questData.Status != QuestStatus.Inactive;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
+            Lock.SetActive(questData.Status == QuestStatus.Inactive);
             Code.text = _questData.NumberCode;
             // Debug.Log("QuestMenuItem Init: " + _questData.Code);
             Title.text = _questData.Title.GetLocalizedString();
@@ -37,12 +37,12 @@ namespace Antura.Discover
 
         public void OnSelectQuest()
         {
-            EarthManager.I.SelectQuest(questData);
+            UIQuestMenuManager.I.SelectQuest(questData);
         }
 
         public void OnOpenQuest()
         {
-            EarthManager.I.OpenQuest(questData);
+            UIQuestMenuManager.I.OpenQuest(questData);
         }
 
         void SetStars(int totStars)
