@@ -10,7 +10,7 @@ namespace Antura.Discover.Activities
         [Header("Activity Memory Settings")]
 
         [Tooltip("ScriptableObject containing the available CardItems for this level.")]
-        public CardItemLibrarySO cardLibrary;
+        public MemorySettingData ActivitySettings;
         [Tooltip("Common sprite used for the back of all cards.")]
         public Sprite commonBack;
         public Button validateButton;
@@ -51,6 +51,7 @@ namespace Antura.Discover.Activities
         void Start()
         {
             BuildBoard();
+            difficulty = ActivitySettings.Difficulty;
             if (difficulty == Difficulty.Tutorial)
                 StartCoroutine(TutorialIdleHints());
             else if (difficulty == Difficulty.Easy)
@@ -62,7 +63,7 @@ namespace Antura.Discover.Activities
         /// </summary>
         public void BuildBoard()
         {
-            if (cardLibrary == null || cardLibrary.Items == null || cardLibrary.Items.Count == 0)
+            if (ActivitySettings == null || ActivitySettings.CardLibrary == null || ActivitySettings.CardLibrary.Items.Count == 0)
             {
                 Debug.LogError("No CardLibrary assigner");
                 return;
@@ -123,7 +124,7 @@ namespace Antura.Discover.Activities
         private List<CardItem> PickUniqueFaces(int count)
         {
             var result = new List<CardItem>(count);
-            var bag = new List<CardItem>(cardLibrary.Items);
+            var bag = new List<CardItem>(ActivitySettings.CardLibrary.Items);
             Shuffle(bag);
 
             for (int i = 0; i < count; i++)

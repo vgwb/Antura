@@ -1,14 +1,14 @@
-using DG.DeInspektor.Attributes;
 using UnityEngine;
 
 namespace Antura.Discover.Activities
 {
     public enum Difficulty
     {
-        Tutorial = 0,
-        Easy = 1,
-        Normal = 2,
-        Expert = 3
+        Default = 0,
+        Tutorial = 1,
+        Easy = 2,
+        Normal = 3,
+        Expert = 4
     }
 
 

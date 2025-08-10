@@ -2,8 +2,8 @@ using UnityEngine;
 
 namespace Antura.Discover.Activities
 {
-    [CreateAssetMenu(fileName = "CountMoneyDefinition", menuName = "Antura/Activity/Count Money Definition")]
-    public class CountMoneyDefinition : ScriptableObject
+    [CreateAssetMenu(fileName = "MoneySettingsData", menuName = "Antura/Activity/Money Settings")]
+    public class MoneySettingsData : ActivitySettingsAbstract
     {
         public MoneySet MoneySet;
 

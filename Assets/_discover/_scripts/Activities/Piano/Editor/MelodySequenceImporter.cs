@@ -184,7 +184,7 @@ sequence:
                 return;
             }
 
-            var so = ScriptableObject.CreateInstance<MelodySequenceSO>();
+            var so = ScriptableObject.CreateInstance<PianoSettingsData>();
             so.tempoBPM = Mathf.Max(1, overrideTempoBPM);
             so.sequence = new List<MelodyEvent>(previewEvents);
 

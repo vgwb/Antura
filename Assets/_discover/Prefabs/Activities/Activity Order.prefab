@@ -235,13 +235,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivityCode: 
+  hasTimer: 1
   timerSeconds: 60
+  PointsSuccess: 0
+  PointsFail: -1
   HelpPanel: {fileID: 0}
   NodeDescription: 
   NodeSuccess: 
   NodeFail: 
-  Items: []
-  difficulty: 2
+  Settings: {fileID: 0}
+  ActivityDifficulty: 0
   tilesPoolParent: {fileID: 3729829768112403557}
   slotsParent: {fileID: 8448913730050000724}
   slotPrefab: {fileID: 5107937167899436839, guid: 1f2b94b08500744de9a489de7253333c,
@@ -722,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -732,7 +735,7 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -782,12 +785,12 @@ PrefabInstance:
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -364.03256
       objectReference: {fileID: 0}
     - target: {fileID: 3227302981518743402, guid: f316dfc893eed49819b136c461835b88,
         type: 3}
@@ -808,6 +811,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Order Item Prefab
+      objectReference: {fileID: 0}
+    - target: {fileID: 9127632138236041138, guid: f316dfc893eed49819b136c461835b88,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

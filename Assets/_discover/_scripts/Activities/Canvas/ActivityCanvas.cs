@@ -7,12 +7,20 @@ namespace Antura.Discover.Activities
     public class ActivityCanvas : ActivityBase
     {
         [Header("Activity Canvas Settings")]
+        public CanvasSettingsData Settings;
+
+        [Header("Override Settings")]
         public Texture2D BackgroundImage;
 
+        [Tooltip("Optional override; if > 0 forces this brush radius instead of difficulty-based.")]
+        public int BrushSize = 0;
+        public Difficulty ActivityDifficulty = Difficulty.Default;
+        public int Bugs = 0;
+
         [Header("UI Refs")]
-        public RawImage BackgroundImageUI;      // shows BackgroundImage
-        public RawImage CoverImageUI;           // the opaque layer we scratch
-        public TextMeshProUGUI ProgressLabel;   // shows e.g. "73%"
+        public RawImage BackgroundImageUI;
+        public RawImage CoverImageUI;
+        public TextMeshProUGUI ProgressLabel;
 
         [Header("Cover Settings")]
         public Color coverColor = new Color(0, 0, 0, 1f);
@@ -20,32 +28,40 @@ namespace Antura.Discover.Activities
         public int coverTextureWidth = 1024;
         public int coverTextureHeight = 512;
 
-        [Header("Brush Sizes (radius in pixels)")]
-        public int brushSmall = 20;
-        public int brushMedium = 34;
-        public int brushLarge = 50;
-
-        [Tooltip("Optional override; if > 0 forces this brush radius instead of difficulty-based.")]
-        public int overrideBrushRadius = 0;
-
         [Header("Gameplay")]
         [Tooltip("Stop when fully cleared (100%).")]
         public bool endOnFullClear = true;
         [Tooltip("Percentage (0-100) considered complete. 100 = all.")]
-        public float completionThreshold = 99.8f;
+        private float completionThreshold = 99.8f;
 
         private Texture2D coverTex;
         private int totalMaskPixels;
         private int clearedPixels;
         private bool completed;
-        private int brushRadius;
 
         private RectTransform coverRect;
         private Camera uiCamera;   // if using Screen Space - Camera; left null for Overlay
 
         void Start()
         {
+            ResolveDifficulty();
             Setup();
+        }
+
+        private void ResolveDifficulty()
+        {
+            Settings.Resolve(out var difficulty, out var image, out var bugs, out var brushSize, out var compThreshold);
+            if (ActivityDifficulty == Difficulty.Default)
+                ActivityDifficulty = difficulty;
+            if (BackgroundImage == null)
+                BackgroundImage = image;
+            if (Bugs == 0)
+                Bugs = bugs;
+            if (BrushSize == 0)
+                BrushSize = brushSize;
+            BrushSize = Mathf.Max(2, BrushSize);
+
+            completionThreshold = compThreshold;
         }
 
         private void Setup()
@@ -54,7 +70,6 @@ namespace Antura.Discover.Activities
                 BackgroundImageUI.texture = BackgroundImage;
 
             CreateCoverTexture();
-            DetermineBrushRadius();
             UpdateProgressUI();
         }
 
@@ -83,35 +98,6 @@ namespace Antura.Discover.Activities
             totalMaskPixels = coverTextureWidth * coverTextureHeight;
             clearedPixels = 0;
             completed = false;
-        }
-
-        private void DetermineBrushRadius()
-        {
-            if (overrideBrushRadius > 0)
-            {
-                brushRadius = overrideBrushRadius;
-                return;
-            }
-
-            // Map (example) activity difficulty (if ActivityBase exposes something). Adjust as needed.
-            // Fallback: Normal -> Medium.
-            // Replace with your real difficulty retrieval.
-            var diffName = "Normal";
-            int r;
-            switch (diffName)
-            {
-                case "Tutorial":
-                case "Easy":
-                    r = brushSmall;
-                    break;
-                case "Hard":
-                    r = brushLarge;
-                    break;
-                default:
-                    r = brushMedium;
-                    break;
-            }
-            brushRadius = Mathf.Max(2, r);
         }
 
         void Update()
@@ -150,7 +136,7 @@ namespace Antura.Discover.Activities
             int cx = Mathf.RoundToInt(u * (coverTextureWidth - 1));
             int cy = Mathf.RoundToInt(v * (coverTextureHeight - 1));
 
-            int r = brushRadius;
+            int r = BrushSize;
             int r2 = r * r;
 
             bool anyCleared = false;

@@ -12,14 +12,14 @@ namespace Antura.Discover.Activities
     public class ActivityPiano : ActivityBase
     {
         [Header("Activity Piano Settings")]
+        public PianoSettingsData Settings;
+
+        [Header("Override Settings")]
+        public Difficulty ActivityDifficulty = Difficulty.Default;
         public PianoPlayMode playMode = PianoPlayMode.Freeplay;
-        public Difficulty Difficulty = Difficulty.Easy;
 
         [Header("References")]
-
         public PianoKeyboard keyboard;
-        public MelodySequenceSO melody;
-
         public Button playButton;
         public Button stopButton;
         public TextMeshProUGUI statusLabel;
@@ -30,7 +30,7 @@ namespace Antura.Discover.Activities
         private List<NoteName> targetNotes;
         private int inputIndex = 0;
         private bool acceptingInput = false;
-        private float beatSeconds => 60f / Mathf.Max(1, melody != null ? melody.tempoBPM : 100);
+        private float beatSeconds => 60f / Mathf.Max(1, Settings != null ? Settings.tempoBPM : 100);
 
         private void Start()
         {
@@ -63,9 +63,9 @@ namespace Antura.Discover.Activities
         private void BuildTargetNotes()
         {
             targetNotes = new List<NoteName>();
-            if (melody == null)
+            if (Settings == null)
                 return;
-            foreach (var ev in melody.sequence)
+            foreach (var ev in Settings.sequence)
             {
                 if (!ev.IsRest)
                     targetNotes.Add(ev.Note);
@@ -90,10 +90,10 @@ namespace Antura.Discover.Activities
             if (statusLabel)
                 statusLabel.text = "Listening...";
 
-            if (melody == null)
+            if (Settings == null)
                 yield break;
 
-            foreach (var ev in melody.sequence)
+            foreach (var ev in Settings.sequence)
             {
                 float durBeats = DurationToBeats(ev.Duration);
                 float seconds = durBeats * beatSeconds * 0.5f;
@@ -109,7 +109,7 @@ namespace Antura.Discover.Activities
                 if (key != null)
                 {
                     key.Play();
-                    if (Difficulty == Difficulty.Tutorial)
+                    if (ActivityDifficulty == Difficulty.Tutorial)
                         key.Flash(seconds);
                     yield return new WaitForSeconds(seconds);
                 }
@@ -119,7 +119,7 @@ namespace Antura.Discover.Activities
                     if (anyKey != null)
                     {
                         anyKey.Play();
-                        if (Difficulty == Difficulty.Tutorial)
+                        if (ActivityDifficulty == Difficulty.Tutorial)
                             anyKey.Flash(seconds);
                     }
                     yield return new WaitForSeconds(seconds);
@@ -163,9 +163,9 @@ namespace Antura.Discover.Activities
         {
             foreach (var key in keyboard.AllKeys())
             {
-                bool showLabel = (Difficulty == Difficulty.Tutorial) || (Difficulty == Difficulty.Easy) || (Difficulty == Difficulty.Normal);
+                bool showLabel = (ActivityDifficulty == Difficulty.Tutorial) || (ActivityDifficulty == Difficulty.Easy) || (ActivityDifficulty == Difficulty.Normal);
                 key.SetLabelActive(showLabel);
-                if (Difficulty == Difficulty.Expert)
+                if (ActivityDifficulty == Difficulty.Expert)
                     key.SetLabelActive(false);
             }
         }

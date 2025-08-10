@@ -21,8 +21,9 @@ namespace Antura.Discover.Activities
     /// </summary>
     public class ActivityMoney : ActivityBase
     {
-        [Header("Definition")]
-        public CountMoneyDefinition definition;
+        [Header("Activity Money Settings")]
+        public MoneySettingsData Settings;
+
         [Tooltip("Currency symbol to show with values (€, zł, etc.).")]
         public string currencySymbol = "€";
 
@@ -58,7 +59,7 @@ namespace Antura.Discover.Activities
         public int difficulty = 1;                 // 0..definition.MaxDifficulty
         public System.Random prng = new System.Random();
 
-        private CountMoneyData data;
+        private MoneyData data;
         private readonly List<DraggableMoney> placed = new();
         private readonly List<GameObject> spawned = new();
 
@@ -75,7 +76,7 @@ namespace Antura.Discover.Activities
 
         private void Update()
         {
-            if (definition.TimeLimit > 0 && data.TimeRemaining > 0)
+            if (Settings.TimeLimit > 0 && data.TimeRemaining > 0)
             {
                 data.TimeRemaining -= Time.deltaTime;
                 if (data.TimeRemaining < 0)
@@ -99,24 +100,24 @@ namespace Antura.Discover.Activities
         {
             CleanupSpawned();
 
-            data = new CountMoneyData
+            data = new MoneyData
             {
-                TimeRemaining = definition.TimeLimit
+                TimeRemaining = Settings.TimeLimit
             };
 
             // 1) Build candidate pool by difficulty gate
-            var all = definition.MoneySet.items
+            var all = Settings.MoneySet.items
                 .Where(it => (int)it.Difficulty <= difficulty)
                 .OrderBy(it => it.Value)
                 .ToList();
 
             // Fallback if none matched
             if (all.Count == 0)
-                all = definition.MoneySet.items.OrderBy(it => it.Value).ToList();
+                all = Settings.MoneySet.items.OrderBy(it => it.Value).ToList();
 
             // 2) Choose a solvable target: sum of 2-4 random items (with replacement)
-            data.TargetAmount = definition.UseFixedTarget
-                ? definition.FixedTargetAmount
+            data.TargetAmount = Settings.UseFixedTarget
+                ? Settings.FixedTargetAmount
                 : BuildSolvableTarget(all, 2, 4);
 
             if (targetText)

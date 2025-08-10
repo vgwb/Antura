@@ -3,13 +3,12 @@ using UnityEngine;
 namespace Antura.Discover.Activities
 {
     [CreateAssetMenu(fileName = "JigsawPuzzleSettings", menuName = "Antura/Activity/Jigsaw Settings")]
-    public class JigsawPuzzleSettingsData : ScriptableObject
+    public class JigsawPuzzleSettingsData : ActivitySettingsAbstract
     {
-        [Header("Puzzle")]
+        [Header("JigsawPuzzle Settings")]
         public Texture2D PuzzleImage;
 
-        public Difficulty Difficulty = Difficulty.Normal;
-
+        [Header("Overrides Difficulty Based Settings")]
         [Tooltip("If > 0 overrides difficulty-based horizontal pieces.")]
         public int HorizontalPieces = 0;
         [Tooltip("If > 0 overrides difficulty-based vertical pieces.")]

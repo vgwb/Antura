@@ -10,10 +10,11 @@ namespace Antura.Discover.Activities
 {
     public class ActivityOrder : ActivityBase
     {
-        [Header("Data")]
-        [Tooltip("Between 2 and 10 items. The order here is the correct target order.")]
-        public List<CardItem> Items;              // 2..10
-        public Difficulty difficulty = Difficulty.Normal;
+        [Header("Activity Order Settings")]
+        public OrderSettingsData Settings;
+
+        [Header("Override Settings")]
+        public Difficulty ActivityDifficulty = Difficulty.Default;
 
         [Header("Scene Refs")]
         public Transform tilesPoolParent;
@@ -34,26 +35,27 @@ namespace Antura.Discover.Activities
 
         private void Awake()
         {
-            if (Items == null)
-                Items = new List<CardItem>();
-            if (Items.Count < 2)
+            if (Settings.Items == null)
+                Settings.Items = new List<CardItem>();
+            if (Settings.Items.Count < 2)
                 Debug.LogWarning("Puzzle needs at least 2 items.");
-            if (Items.Count > 10)
+            if (Settings.Items.Count > 10)
                 Debug.LogWarning("Puzzle supports max 10 items.");
         }
 
         public override void Init()
         {
-            BuildSlots(Items.Count);
+            ActivityDifficulty = Settings.Difficulty;
+            BuildSlots(Settings.Items.Count);
             SetValidateInteractable(false);
 
-            minItemsToValidate = Items.Count;
+            minItemsToValidate = Settings.Items.Count;
 
             // Store solution order
-            correctOrder = Items.ToArray();
+            correctOrder = Settings.Items.ToArray();
 
             // Spawn shuffled tiles into pool
-            var shuffled = new List<CardItem>(Items);
+            var shuffled = new List<CardItem>(Settings.Items);
             Shuffle(shuffled);
 
             foreach (var it in shuffled)
@@ -198,7 +200,7 @@ namespace Antura.Discover.Activities
             if (slotViews.Count == 0)
                 return;
 
-            if (difficulty == Difficulty.Easy || difficulty == Difficulty.Tutorial)
+            if (ActivityDifficulty == Difficulty.Easy || ActivityDifficulty == Difficulty.Tutorial)
             {
                 for (int i = 0; i < slotViews.Count; i++)
                 {
@@ -289,7 +291,7 @@ namespace Antura.Discover.Activities
         // ---- Tutorial hint ----
         public void FlashCorrectSlot(CardItem item, DraggableTile tile)
         {
-            if (difficulty != Difficulty.Tutorial)
+            if (ActivityDifficulty != Difficulty.Tutorial)
                 return;
 
             int correctIndex = -1;

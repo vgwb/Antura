@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Antura.Discover.Activities
 {
-    public class CountMoneyData
+    public class MoneyData
     {
         public float TargetAmount;
         public float CurrentAmount;
