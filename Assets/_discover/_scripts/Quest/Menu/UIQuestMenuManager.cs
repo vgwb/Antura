@@ -4,6 +4,7 @@ using DG.DemiLib.Attributes;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 namespace Antura.Discover
@@ -31,9 +32,13 @@ namespace Antura.Discover
         public GameObject Container;
         public QuestListData QuestsData;
 
+        public TextMeshProUGUI ListTitleText; // Title for the list of quests
+        public QuestData TutorialQuest; // The tutorial quest, always available
+
         private Countries currentCountry;
         private GameObject btnGO;
         private LocationData currentLocation;
+        private LocationPin currentLocationPin;
 
         void Start()
         {
@@ -41,21 +46,30 @@ namespace Antura.Discover
             Container.SetActive(false);
             InfoPanel.Close();
             currentCountry = Countries.None;
+            ListTitleText.text = "";
         }
 
         private void LoadCountry(Countries country)
         {
             emptyContainer(Container);
+            addMenuItem(TutorialQuest);
+
             foreach (var questData in QuestsData.QuestList)
             {
                 if (questData.Country == country)
                 {
-                    btnGO = Instantiate(MenuItemPrefab);
-                    btnGO.transform.SetParent(Container.transform, false);
-                    btnGO.GetComponent<QuestMenuItem>().Init(questData);
+                    addMenuItem(questData);
                 }
             }
             currentCountry = country;
+            ListTitleText.text = country.ToString();
+        }
+
+        private void addMenuItem(QuestData questData)
+        {
+            btnGO = Instantiate(MenuItemPrefab);
+            btnGO.transform.SetParent(Container.transform, false);
+            btnGO.GetComponent<QuestMenuItem>().Init(questData);
         }
 
         private void LoadLocation(LocationData location)
@@ -65,12 +79,11 @@ namespace Antura.Discover
             {
                 if (questData.Location == location)
                 {
-                    btnGO = Instantiate(MenuItemPrefab);
-                    btnGO.transform.SetParent(Container.transform, false);
-                    btnGO.GetComponent<QuestMenuItem>().Init(questData);
+                    addMenuItem(questData);
                 }
             }
             currentLocation = location;
+            ListTitleText.text = location.Country.ToString() + " - " + location.Name.GetLocalizedString();
         }
 
         public void ShowCountry(Countries country)
@@ -78,16 +91,31 @@ namespace Antura.Discover
             if (country != currentCountry)
             {
                 LoadCountry(country);
+
             }
             Container.SetActive(true);
         }
 
-        public void ShowLocation(LocationData location)
+        public void ShowLocation(LocationData location, LocationPin locationPin = null)
         {
-            if (location != currentLocation)
+            if (location == null)
             {
-                LoadLocation(location);
+                Debug.LogWarning("UIQuestMenuManager: ShowLocation called with null location.");
+                return;
             }
+
+            if (currentLocationPin != null && currentLocation == location)
+            {
+                return; // Already showing this location
+            }
+
+            if (currentLocationPin != null)
+            {
+                currentLocationPin.DeSelect();
+            }
+
+            currentLocationPin = locationPin;
+            LoadLocation(location);
             Container.SetActive(true);
         }
 
