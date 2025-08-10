@@ -7,10 +7,16 @@ namespace Antura.Discover.Activities
     {
         [Header("Common properties")]
         public string ActivityCode;
+
+        [Tooltip("Timer for the activity, if enabled")]
+        [SerializeField] bool hasTimer = true;
         [Range(1, 600)]
         [SerializeField] int timerSeconds = 60;
 
+        [Tooltip("Points to add when the activity is successful")]
         [SerializeField] int PointsSuccess = 0;
+
+        [Tooltip("Points to add when the activity fails")]
         [SerializeField] int PointsFail = -1;
 
         [SerializeField] GameObject HelpPanel;
