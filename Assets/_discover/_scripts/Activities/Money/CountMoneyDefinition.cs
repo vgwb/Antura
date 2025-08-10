@@ -7,16 +7,18 @@ namespace Antura.Discover.Activities
     {
         public MoneySet MoneySet;
 
-        [Tooltip("If > 0, time in seconds to complete the game.")]
+        [Tooltip("If > 0, starts the timer.")]
         public float TimeLimit;
 
         [Tooltip("Difficulty levels: determines how many extra items appear in the tray.")]
         public int MaxDifficulty = 5;
 
-        [Tooltip("Minimum and maximum target amount for random generation.")]
-        public Vector2 TargetAmountRange = new Vector2(1f, 20f);
+        [Tooltip("Minimum target amount for random generation.")]
+        public float RangeMin = 1f;
+        [Tooltip("maximum target amount for random generation.")]
+        public float RangeMax = 20f;
 
-        [Tooltip("If true, target is fixed (e.g., a price). Otherwise, generated.")]
+        [Tooltip("If true, target is fixed . Otherwise, generated.")]
         public bool UseFixedTarget;
         public float FixedTargetAmount;
     }

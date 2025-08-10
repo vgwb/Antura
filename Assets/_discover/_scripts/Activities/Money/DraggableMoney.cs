@@ -5,14 +5,14 @@ using UnityEngine.UI;
 namespace Antura.Discover.Activities
 {
     /// <summary>
-    /// Drag & drop behaviour for money tokens.
+    /// Drag & drop behaviour for money tokens
     /// </summary>
     [RequireComponent(typeof(CanvasGroup))]
     public class DraggableMoney : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDragHandler
     {
         [Header("Wiring")]
-        public Canvas canvas;                    // Assign your UI canvas
-        public RectTransform dragRoot;           // Optional: a top-level "DragLayer" under the Canvas
+        public Canvas canvas;
+        public RectTransform dragRoot;
 
         [Header("State")]
         public Transform OriginalParent;
@@ -21,6 +21,7 @@ namespace Antura.Discover.Activities
         private CanvasGroup cg;
         private RectTransform rt;
         private Vector2 startPos;
+        private PointerEventData lastEvent;
 
         void Awake()
         {
@@ -30,6 +31,7 @@ namespace Antura.Discover.Activities
 
         public void OnBeginDrag(PointerEventData eventData)
         {
+            lastEvent = eventData;
             OriginalParent = transform.parent;
             startPos = rt.anchoredPosition;
             cg.blocksRaycasts = false;
@@ -43,6 +45,7 @@ namespace Antura.Discover.Activities
 
         public void OnDrag(PointerEventData eventData)
         {
+            lastEvent = eventData;
             RectTransformUtility.ScreenPointToLocalPointInRectangle(
                 canvas.transform as RectTransform, eventData.position, eventData.pressEventCamera, out var localPoint);
             rt.anchoredPosition = localPoint;
@@ -50,15 +53,25 @@ namespace Antura.Discover.Activities
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            lastEvent = eventData;
             cg.blocksRaycasts = true;
             cg.alpha = 1f;
 
-            // If not dropped on a valid DropZone, return home
-            if (transform.parent == dragRoot || transform.parent == canvas.transform)
+            // If dropped onto a zone convert pointer pos to that zone's local space
+            if (transform.parent != dragRoot && transform.parent != canvas.transform && transform.parent != OriginalParent)
             {
-                transform.SetParent(OriginalParent, true);
-                rt.anchoredPosition = startPos;
+                var zoneRT = transform.parent as RectTransform;
+                if (zoneRT &&
+                    RectTransformUtility.ScreenPointToLocalPointInRectangle(zoneRT, eventData.position, eventData.pressEventCamera, out var lp))
+                {
+                    rt.anchoredPosition = lp;
+                }
+                return;
             }
+
+            // Not on valid zone -> return
+            transform.SetParent(OriginalParent, true);
+            rt.anchoredPosition = startPos;
         }
     }
 }

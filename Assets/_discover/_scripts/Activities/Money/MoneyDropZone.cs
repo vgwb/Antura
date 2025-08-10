@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 namespace Antura.Discover.Activities
 {
     /// <summary>
-    /// Base class: a UI area that accepts money tokens.
+    /// Base class of UI area that accepts money tokens
     /// </summary>
     public abstract class MoneyDropZone : MonoBehaviour, IDropHandler
     {

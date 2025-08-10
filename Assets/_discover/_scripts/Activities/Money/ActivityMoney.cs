@@ -64,6 +64,10 @@ namespace Antura.Discover.Activities
 
         private const float EPS = 0.01f;
 
+        [Header("Layout")]
+        [Tooltip("Padding from edges when scattering in tray.")]
+        public float spawnScatterPadding = 20f;
+
         private void Start()
         {
             SetupGame();
@@ -143,6 +147,9 @@ namespace Antura.Discover.Activities
                     drag.canvas = canvas;
                     drag.dragRoot = dragLayer ? dragLayer : null;
                 }
+                // Scatter initial position in tray
+                var rt = go.GetComponent<RectTransform>();
+                ScatterInRect(rt, (RectTransform)trayParent);
             }
 
             // 5) Hint table: sorted unique denominations ascending
@@ -235,8 +242,13 @@ namespace Antura.Discover.Activities
             // TODO: fire event to AchievementsManager / progression
             Debug.Log("[CountMoney] WIN");
             // Lock input if you want:
-            if (confirmButton)
-                confirmButton.interactable = false;
+            DoValidate();
+
+        }
+
+        public override bool DoValidate()
+        {
+            return true;
         }
 
         private void Lose()
@@ -313,6 +325,21 @@ namespace Antura.Discover.Activities
             var min = pool.OrderBy(p => p.Value).First();
             lastComboForTarget.Add(min);
             return Mathf.Round(min.Value * 100f) / 100f;
+        }
+
+        private void ScatterInRect(RectTransform item, RectTransform area)
+        {
+            if (!item || !area)
+                return;
+            // Ensure center pivot for consistent positioning
+            item.anchorMin = item.anchorMax = new Vector2(0.5f, 0.5f);
+            item.pivot = new Vector2(0.5f, 0.5f);
+
+            var size = area.rect.size;
+            float pad = Mathf.Max(0f, spawnScatterPadding);
+            float x = Random.Range(-size.x * 0.5f + pad, size.x * 0.5f - pad);
+            float y = Random.Range(-size.y * 0.5f + pad, size.y * 0.5f - pad);
+            item.anchoredPosition = new Vector2(x, y);
         }
     }
 }

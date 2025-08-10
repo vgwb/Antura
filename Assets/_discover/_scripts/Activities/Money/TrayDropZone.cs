@@ -15,17 +15,20 @@ namespace Antura.Discover.Activities
             var drag = GetDraggable(eventData);
             if (drag == null)
                 return;
-
             var view = drag.GetComponent<MoneyItemView>();
             if (view == null)
                 return;
 
-            // Reparent into this zone
             drag.transform.SetParent(transform, true);
-            var rt = drag.GetComponent<RectTransform>();
-            rt.anchoredPosition = Vector2.zero;
 
-            // If it was on mat, remove its value
+            var rt = drag.GetComponent<RectTransform>();
+            var zoneRT = transform as RectTransform;
+            if (zoneRT &&
+                RectTransformUtility.ScreenPointToLocalPointInRectangle(zoneRT, eventData.position, eventData.pressEventCamera, out var lp))
+            {
+                rt.anchoredPosition = lp;
+            }
+
             if (drag.IsOnMat)
             {
                 drag.IsOnMat = false;
