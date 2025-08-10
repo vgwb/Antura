@@ -25,7 +25,7 @@ namespace Antura.Discover
 
         [Header("UI Elements")]
 
-        public DiscoveryBookPanel BookPanel;
+        public GameObject BookPanel;
         public QuestInfoPanel InfoPanel;
         public GameObject MenuItemPrefab;
         public GameObject Container;
@@ -93,7 +93,8 @@ namespace Antura.Discover
 
         public void OpenBook()
         {
-            BookPanel.Show();
+            //BookPanel.Show();
+            BookPanel.SetActive(true);
         }
 
         public void SelectQuest(QuestData questData)
