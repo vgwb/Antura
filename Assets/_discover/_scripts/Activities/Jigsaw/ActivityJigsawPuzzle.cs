@@ -8,11 +8,14 @@ namespace Antura.Discover.Activities
 {
     public class ActivityJigsawPuzzle : ActivityBase
     {
-        [Header("Puzzle Settings")]
-        public Texture2D PuzzeleImage;
-        public int HorizontalPieces = 4;
-        public int VerticalPieces = 4;
-        public Difficulty Difficulty = Difficulty.Normal;
+        [Header("Settings Asset")]
+        public JigsawPuzzleSettingsData settings;
+
+        // OLD FIELDS (optional fallback / can remove later)
+        private Texture2D PuzzleImage;
+        private int HorizontalPieces;
+        private int VerticalPieces;
+        private Difficulty Difficulty;
 
         [Header("Scene Refs")]
         public RectTransform gridParent;
@@ -23,12 +26,14 @@ namespace Antura.Discover.Activities
         public Button validateButton;
         public Image tutorialUnderlayImage;
 
+        private bool hasUnderlayImage;
+
         [Header("Layout")]
         public float slotSpacing = 8f;
         public float snapDistance = 60f;
 
         [Header("Visual")]
-        [Range(0f, 1f)] public float tutorialUnderlayAlpha = 0.35f;
+        [Range(0f, 1f)] public float hintUnderlayAlpha = 0.35f;
 
         private JigsawSlot[,] slots;
         private List<JigsawPiece> pieces = new List<JigsawPiece>();
@@ -48,35 +53,18 @@ namespace Antura.Discover.Activities
 
         private void ResolveDifficulty()
         {
-            switch (Difficulty)
-            {
-                case Difficulty.Tutorial:
-                case Difficulty.Easy:
-                    rows = cols = 3;
-                    break;
-                case Difficulty.Normal:
-                    rows = cols = 4;
-                    break;
-                case Difficulty.Expert:
-                    rows = cols = 5;
-                    break;
-                default:
-                    rows = VerticalPieces;
-                    cols = HorizontalPieces;
-                    break;
-            }
-            // Allow manual overrides if fields explicitly changed
-            if (HorizontalPieces > 0)
-                cols = HorizontalPieces;
-            if (VerticalPieces > 0)
-                rows = VerticalPieces;
+            settings.Resolve(out var img, out cols, out rows, out var difficulty, out var underlayAlpha);
+            PuzzleImage = img;
+            Difficulty = difficulty;
+            hintUnderlayAlpha = underlayAlpha;
+            hasUnderlayImage = Difficulty != Difficulty.Expert;
         }
 
         private void BuildPuzzle()
         {
-            if (!PuzzeleImage || !gridParent || !poolParent || !slotPrefab || !piecePrefab)
+            if (!PuzzleImage || !gridParent || !poolParent || !slotPrefab || !piecePrefab)
             {
-                Debug.LogWarning("Jigsaw: Missing references.");
+                Debug.LogWarning("Jigsaw: Missing references (image or prefabs).");
                 return;
             }
 
@@ -88,33 +76,64 @@ namespace Antura.Discover.Activities
             slots = new JigsawSlot[rows, cols];
             pieces.Clear();
 
-            // Underlay (tutorial)
-            if (tutorialUnderlayImage)
+            // Underlay
+            if (hasUnderlayImage)
             {
-                if (Difficulty == Difficulty.Tutorial)
-                {
-                    tutorialUnderlayImage.gameObject.SetActive(true);
-                    tutorialUnderlayImage.sprite = Sprite.Create(PuzzeleImage,
-                        new Rect(0, 0, PuzzeleImage.width, PuzzeleImage.height),
-                        new Vector2(0.5f, 0.5f), 100f);
-                    var c = tutorialUnderlayImage.color;
-                    c.a = tutorialUnderlayAlpha;
-                    tutorialUnderlayImage.color = c;
-                }
-                else
-                    tutorialUnderlayImage.gameObject.SetActive(false);
+                tutorialUnderlayImage.gameObject.SetActive(true);
+                tutorialUnderlayImage.sprite = Sprite.Create(PuzzleImage,
+                    new Rect(0, 0, PuzzleImage.width, PuzzleImage.height),
+                    new Vector2(0.5f, 0.5f), 100f);
+                var c = tutorialUnderlayImage.color;
+                c.a = hintUnderlayAlpha;
+                tutorialUnderlayImage.color = c;
             }
+            else
+            {
+                tutorialUnderlayImage.gameObject.SetActive(false);
+            }
+
 
             // Compute display scaling inside gridParent rect
             var gridRect = gridParent.rect;
-            float scale = Mathf.Min(gridRect.width / PuzzeleImage.width, gridRect.height / PuzzeleImage.height);
-            float pieceDisplayW = (PuzzeleImage.width / (float)cols) * scale;
-            float pieceDisplayH = (PuzzeleImage.height / (float)rows) * scale;
+            float scale = Mathf.Min(gridRect.width / PuzzleImage.width, gridRect.height / PuzzleImage.height);
+            float pieceDisplayW = (PuzzleImage.width / (float)cols) * scale;
+            float pieceDisplayH = (PuzzleImage.height / (float)rows) * scale;
 
             float totalW = cols * pieceDisplayW + (cols - 1) * slotSpacing;
             float totalH = rows * pieceDisplayH + (rows - 1) * slotSpacing;
             float originX = -totalW * 0.5f + pieceDisplayW * 0.5f;
             float originY = totalH * 0.5f - pieceDisplayH * 0.5f;
+
+            // Ensure tutorial underlay matches grid size & position
+            if (hasUnderlayImage)
+            {
+                var underRT = tutorialUnderlayImage.rectTransform;
+                underRT.anchorMin = underRT.anchorMax = new Vector2(0.5f, 0.5f);
+                underRT.pivot = new Vector2(0.5f, 0.5f);
+                underRT.sizeDelta = new Vector2(totalW, totalH);
+                underRT.anchoredPosition = Vector2.zero; // centered under grid
+
+
+                tutorialUnderlayImage.gameObject.SetActive(true);
+                if (tutorialUnderlayImage.sprite == null || tutorialUnderlayImage.sprite.texture != PuzzleImage)
+                {
+                    tutorialUnderlayImage.sprite = Sprite.Create(
+                        PuzzleImage,
+                        new Rect(0, 0, PuzzleImage.width, PuzzleImage.height),
+                        new Vector2(0.5f, 0.5f),
+                        100f);
+                }
+                // Disable preserveAspect so it fills exactly the grid area
+                tutorialUnderlayImage.preserveAspect = false;
+                var c2 = tutorialUnderlayImage.color;
+                c2.a = hintUnderlayAlpha;
+                tutorialUnderlayImage.color = c2;
+            }
+            else
+            {
+                tutorialUnderlayImage.gameObject.SetActive(false);
+            }
+
 
             // Create slots
             for (int r = 0; r < rows; r++)
@@ -128,8 +147,8 @@ namespace Antura.Discover.Activities
                     rt.sizeDelta = new Vector2(pieceDisplayW, pieceDisplayH);
                     rt.anchoredPosition = new Vector2(
                         originX + cIdx * (pieceDisplayW + slotSpacing),
-                        originY - r * (pieceDisplayH + slotSpacing)
-                    );
+                                    originY - r * (pieceDisplayH + slotSpacing)
+                                );
 
                     var slot = slotGO.GetComponent<JigsawSlot>();
                     slot.row = r;
@@ -139,9 +158,15 @@ namespace Antura.Discover.Activities
                 }
             }
 
+            // After slots are created, align the tutorial underlay exactly under them
+            if (hasUnderlayImage)
+            {
+                AdjustUnderlayToSlots();
+            }
+
             // Slice texture & create pieces (sprites)
-            var srcPW = PuzzeleImage.width / cols;
-            var srcPH = PuzzeleImage.height / rows;
+            var srcPW = PuzzleImage.width / cols;
+            var srcPH = PuzzleImage.height / rows;
 
             List<JigsawPiece> tempPieces = new List<JigsawPiece>();
             for (int r = 0; r < rows; r++)
@@ -149,7 +174,7 @@ namespace Antura.Discover.Activities
                 for (int cIdx = 0; cIdx < cols; cIdx++)
                 {
                     Rect rect = new Rect(cIdx * srcPW, (rows - 1 - r) * srcPH, srcPW, srcPH); // flip Y for Unity texture coords
-                    var sprite = Sprite.Create(PuzzeleImage, rect, new Vector2(0.5f, 0.5f), 100f);
+                    var sprite = Sprite.Create(PuzzleImage, rect, new Vector2(0.5f, 0.5f), 100f);
 
                     var pieceGO = Instantiate(piecePrefab, poolParent);
                     var pieceRt = pieceGO.GetComponent<RectTransform>();
@@ -324,6 +349,61 @@ namespace Antura.Discover.Activities
             }
             foreach (var kv in original)
                 kv.Key.anchoredPosition = kv.Value;
+        }
+
+        private void AdjustUnderlayToSlots()
+        {
+            if (slots == null || slots.Length == 0 || tutorialUnderlayImage == null)
+                return;
+
+            // Collect bounds in local space of gridParent
+            float minX = float.PositiveInfinity;
+            float maxX = float.NegativeInfinity;
+            float minY = float.PositiveInfinity;
+            float maxY = float.NegativeInfinity;
+
+            for (int r = 0; r < rows; r++)
+            {
+                for (int cIdx = 0; cIdx < cols; cIdx++)
+                {
+                    var rt = slots[r, cIdx].RectTransform;
+                    // Slot local center
+                    Vector2 center = rt.anchoredPosition;
+                    Vector2 half = rt.sizeDelta * 0.5f;
+                    if (center.x - half.x < minX)
+                        minX = center.x - half.x;
+                    if (center.x + half.x > maxX)
+                        maxX = center.x + half.x;
+                    if (center.y - half.y < minY)
+                        minY = center.y - half.y;
+                    if (center.y + half.y > maxY)
+                        maxY = center.y + half.y;
+                }
+            }
+
+            float width = maxX - minX;
+            float height = maxY - minY;
+            Vector2 mid = new Vector2(minX + width * 0.5f, minY + height * 0.5f);
+
+            var underRT = tutorialUnderlayImage.rectTransform;
+
+            // Ensure underlay is a child of the gridParent so local coordinates match
+            if (underRT.parent != gridParent)
+            {
+                underRT.SetParent(gridParent, false);
+            }
+
+            // Put it behind (lowest sibling)
+            underRT.SetSiblingIndex(0);
+
+            underRT.anchorMin = underRT.anchorMax = new Vector2(0.5f, 0.5f);
+            underRT.pivot = new Vector2(0.5f, 0.5f);
+            underRT.sizeDelta = new Vector2(width, height);
+            underRT.anchoredPosition = mid;
+
+            tutorialUnderlayImage.preserveAspect = false;
+
+            // Ensure correct sprite & alpha already set in BuildPuzzle; no need to recreate here
         }
     }
 }
