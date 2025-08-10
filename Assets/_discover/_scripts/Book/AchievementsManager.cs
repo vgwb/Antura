@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
-namespace Antura.Discover.Achievements
+namespace Antura.Discover
 {
     /// <summary>
     /// - Builds lookup dictionaries from CardDatabase
@@ -14,17 +14,17 @@ namespace Antura.Discover.Achievements
     public class AchievementsManager : MonoBehaviour
     {
         [Header("Content")]
-        public CardDatabase Database;
+        public CardDatabaseData Database;
         [Tooltip("Optional: all QuestData assets to help resolve and validate slugs.")]
-        public Quests AllQuests;
+        public QuestListData AllQuests;
 
         [Header("Save")]
         public string SaveFileName = "player_cards.json";
 
         private Dictionary<string, CardState> stateById = new();
 
-        public event Action<CardDefinition, CardState> OnCardUnlocked;
-        public event Action<CardDefinition, CardState> OnProgressChanged;
+        public event Action<CardData, CardState> OnCardUnlocked;
+        public event Action<CardData, CardState> OnProgressChanged;
 
         void Awake()
         {
@@ -50,7 +50,7 @@ namespace Antura.Discover.Achievements
                 if (col == null)
                     continue;
                 if (!Database.ByCountry.ContainsKey(col.Country))
-                    Database.ByCountry[col.Country] = new List<CardDefinition>();
+                    Database.ByCountry[col.Country] = new List<CardData>();
 
                 if (col.Cards == null)
                     continue;
@@ -108,18 +108,18 @@ namespace Antura.Discover.Achievements
 
         // ---------------- Accessors ----------------
 
-        public CardDefinition GetCard(string id) =>
+        public CardData GetCard(string id) =>
             Database != null && Database.ById != null && Database.ById.TryGetValue(id, out var c) ? c : null;
 
         public CardState GetState(string id) =>
             stateById.TryGetValue(id, out var s) ? s : null;
 
-        public IEnumerable<CardDefinition> GetCardsByCountry(Antura.Discover.Countries c) =>
-            Database != null && Database.ByCountry != null && Database.ByCountry.TryGetValue(c, out var list) ? list : Array.Empty<CardDefinition>();
+        public IEnumerable<CardData> GetCardsByCountry(Antura.Discover.Countries c) =>
+            Database != null && Database.ByCountry != null && Database.ByCountry.TryGetValue(c, out var list) ? list : Array.Empty<CardData>();
 
-        public IEnumerable<CardDefinition> GetCardsByCategory(Antura.Discover.CardCategory cat)
+        public IEnumerable<CardData> GetCardsByCategory(Antura.Discover.CardCategory cat)
         {
-            var result = new List<CardDefinition>();
+            var result = new List<CardData>();
             if (Database?.ById == null)
                 return result;
             foreach (var kv in Database.ById)
@@ -130,7 +130,7 @@ namespace Antura.Discover.Achievements
 
         // ---------------- Unlocking & progress ----------------
 
-        public void UnlockFromQuest(CardDefinition card, Antura.Discover.QuestData quest, DateTime whenUTC, bool countRepeat = true)
+        public void UnlockFromQuest(CardData card, Antura.Discover.QuestData quest, DateTime whenUTC, bool countRepeat = true)
         {
             if (card == null || quest == null)
                 return;
@@ -175,7 +175,7 @@ namespace Antura.Discover.Achievements
             SaveState();
         }
 
-        public void AddProgress(CardDefinition card, int delta)
+        public void AddProgress(CardData card, int delta)
         {
             if (card == null)
                 return;

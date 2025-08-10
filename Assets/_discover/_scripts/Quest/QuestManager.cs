@@ -20,7 +20,7 @@ namespace Antura.Discover
     {
         private EdPlayer PlayerController;
 
-        public Quests Quests;
+        public QuestListData Quests;
         public QuestData CurrentQuest;
         public TaskData[] QuestTasks;
         private TaskData CurrentTask;

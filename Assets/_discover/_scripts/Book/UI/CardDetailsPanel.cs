@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine.Localization;
 using UnityEngine.ResourceManagement.AsyncOperations;
 
-namespace Antura.Discover.Achievements.UI
+namespace Antura.Discover.UI
 {
     public class CardDetailsPanel : MonoBehaviour
     {
@@ -26,10 +26,10 @@ namespace Antura.Discover.Achievements.UI
         private AsyncOperationHandle<string>? titleHandle;
         private AsyncOperationHandle<string>? descHandle;
 
-        private CardDefinition def;
+        private CardData def;
         private CardState state;
 
-        public void Show(CardDefinition def, CardState state)
+        public void Show(CardData def, CardState state)
         {
             this.def = def;
             this.state = state;

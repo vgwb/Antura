@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-namespace Antura.Discover.Achievements.UI
+namespace Antura.Discover.UI
 {
     /// <summary>
     /// Displays all cards with dropdown filters for Country and Category (TextMeshPro).
@@ -71,9 +71,9 @@ namespace Antura.Discover.Achievements.UI
             var country = (Antura.Discover.Countries)countryDropdown.value;
             var category = (Antura.Discover.CardCategory)categoryDropdown.value;
 
-            IEnumerable<CardDefinition> pool =
+            IEnumerable<CardData> pool =
                 country == Antura.Discover.Countries.None
-                ? (IEnumerable<CardDefinition>)manager.Database.ById?.Values
+                ? (IEnumerable<CardData>)manager.Database.ById?.Values
                 : manager.GetCardsByCountry(country);
 
             if (pool == null)
@@ -93,7 +93,7 @@ namespace Antura.Discover.Achievements.UI
             }
         }
 
-        private void OnTileClicked(CardDefinition def)
+        private void OnTileClicked(CardData def)
         {
             var st = manager.GetState(def.Id);
             detailsPanel?.Show(def, st);

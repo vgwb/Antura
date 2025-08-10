@@ -3,7 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Antura.Discover.Achievements.UI
+namespace Antura.Discover.UI
 {
     /// <summary>
     /// Small tile showing a card in a grid. Handles lock overlay, greyscale, and sound icon.
@@ -19,11 +19,11 @@ namespace Antura.Discover.Achievements.UI
         [Header("Locked Greyscale")]
         public Material greyscaleMaterial;
 
-        private CardDefinition def;
+        private CardData def;
         private CardState state;
-        private Action<CardDefinition> onClick;
+        private Action<CardData> onClick;
 
-        public void Bind(CardDefinition def, CardState state, Action<CardDefinition> onClick)
+        public void Bind(CardData def, CardState state, Action<CardData> onClick)
         {
             this.def = def;
             this.state = state;

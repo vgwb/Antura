@@ -1,4 +1,3 @@
-using Antura.Discover.Achievements;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -129,7 +128,7 @@ namespace Antura.Discover
         [Header("Description")]
         public LocalizedString Title;
         public Countries Country;
-        public LocationDefinition Location;
+        public LocationData Location;
         public LocalizedString Description;
         public Sprite Thumbnail;
 
@@ -141,7 +140,7 @@ namespace Antura.Discover
 
         [Header("Content")]
         public Topic MainTopic;
-        public List<CardDefinition> Cards;
+        public List<CardData> Cards;
         public List<QuestData> Dependencies;
         public string LanguageRef;
         public string manualPage;

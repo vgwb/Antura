@@ -4,8 +4,8 @@ using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "LocationDefinition", menuName = "Antura/Discover/Location")]
-    public class LocationDefinition : ScriptableObject
+    [CreateAssetMenu(fileName = "LocationData", menuName = "Antura/Discover/Location")]
+    public class LocationData : ScriptableObject
     {
         public LocalizedString Name;
         public string Url;

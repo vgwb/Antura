@@ -10,7 +10,7 @@ namespace Antura.Discover
     public class DiscoveryBookPanel : MonoBehaviour
     {
         private int currentIndex = 0;
-        public Quests QData;
+        public QuestListData QData;
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
         public GameObject Thumbnail;
@@ -25,7 +25,7 @@ namespace Antura.Discover
 
         private void Display()
         {
-            questData = QData.AvailableQuests[currentIndex];
+            questData = QData.QuestList[currentIndex];
 
             Title.text = questData.Code + " | " + questData.Title;
             Description.text = questData.Description + "\n\n";
@@ -50,7 +50,7 @@ namespace Antura.Discover
         public void BtnNext()
         {
             currentIndex++;
-            if (currentIndex >= QData.AvailableQuests.Count())
+            if (currentIndex >= QData.QuestList.Count())
             {
                 currentIndex = 0;
             }
@@ -62,7 +62,7 @@ namespace Antura.Discover
             currentIndex--;
             if (currentIndex < 0)
             {
-                currentIndex = QData.AvailableQuests.Count() - 1;
+                currentIndex = QData.QuestList.Count() - 1;
             }
             Display();
         }

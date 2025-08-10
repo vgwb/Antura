@@ -4,21 +4,21 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Antura.Discover.Achievements.EditorTools
+namespace Antura.Discover.EditorTools
 {
     public static class AchievementsValidator
     {
         [MenuItem("Antura/Discover/Validate Card Database")]
         public static void ValidateDatabase()
         {
-            var db = Selection.activeObject as CardDatabase;
+            var db = Selection.activeObject as CardDatabaseData;
             if (db == null)
             {
                 // Try find one in project
                 var guids = AssetDatabase.FindAssets("t:CardDatabase");
                 if (guids.Length == 0)
                 { EditorUtility.DisplayDialog("Validator", "No CardDatabase found.", "OK"); return; }
-                db = AssetDatabase.LoadAssetAtPath<CardDatabase>(AssetDatabase.GUIDToAssetPath(guids[0]));
+                db = AssetDatabase.LoadAssetAtPath<CardDatabaseData>(AssetDatabase.GUIDToAssetPath(guids[0]));
             }
 
             if (db == null)

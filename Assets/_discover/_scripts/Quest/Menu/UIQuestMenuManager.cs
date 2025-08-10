@@ -29,11 +29,11 @@ namespace Antura.Discover
         public QuestInfoPanel InfoPanel;
         public GameObject MenuItemPrefab;
         public GameObject Container;
-        public Quests QuestsData;
+        public QuestListData QuestsData;
 
         private Countries currentCountry;
         private GameObject btnGO;
-        private LocationDefinition currentLocation;
+        private LocationData currentLocation;
 
         void Start()
         {
@@ -46,7 +46,7 @@ namespace Antura.Discover
         private void LoadCountry(Countries country)
         {
             emptyContainer(Container);
-            foreach (var questData in QuestsData.AvailableQuests)
+            foreach (var questData in QuestsData.QuestList)
             {
                 if (questData.Country == country)
                 {
@@ -58,10 +58,10 @@ namespace Antura.Discover
             currentCountry = country;
         }
 
-        private void LoadLocation(LocationDefinition location)
+        private void LoadLocation(LocationData location)
         {
             emptyContainer(Container);
-            foreach (var questData in QuestsData.AvailableQuests)
+            foreach (var questData in QuestsData.QuestList)
             {
                 if (questData.Location == location)
                 {
@@ -82,7 +82,7 @@ namespace Antura.Discover
             Container.SetActive(true);
         }
 
-        public void ShowLocation(LocationDefinition location)
+        public void ShowLocation(LocationData location)
         {
             if (location != currentLocation)
             {

@@ -2,13 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using DG.DeInspektor.Attributes;
 using System;
 
 namespace Antura.Discover
 {
-    [System.Serializable]
-    public class ItemData
+    [Serializable]
+    public class InventoryItem
     {
         public string Code;
         public Sprite Icon;

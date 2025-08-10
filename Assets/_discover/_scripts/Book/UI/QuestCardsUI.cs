@@ -1,7 +1,7 @@
 using System.Linq;
 using UnityEngine;
 
-namespace Antura.Discover.Achievements.UI
+namespace Antura.Discover.UI
 {
     /// <summary>
     /// Shows cards associated with a specific quest (those listed in CardDefinition.UnlockQuests).
@@ -35,7 +35,7 @@ namespace Antura.Discover.Achievements.UI
             }
         }
 
-        private void OnTileClicked(CardDefinition def)
+        private void OnTileClicked(CardData def)
         {
             var st = manager.GetState(def.Id);
             detailsPanel?.Show(def, st);

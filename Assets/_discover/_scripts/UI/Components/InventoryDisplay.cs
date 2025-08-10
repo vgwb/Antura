@@ -6,23 +6,23 @@ namespace Antura.Discover
     public class InventoryDisplay : MonoBehaviour
     {
 
-        public ItemData CurrentItemData;
+        public InventoryItem CurrentItemData;
 
         void Start()
         {
         }
 
-        public void AddItem(ItemData itemData)
+        public void AddItem(InventoryItem itemData)
         {
 
         }
 
-        public void RemoveItem(ItemData itemData)
+        public void RemoveItem(InventoryItem itemData)
         {
 
         }
 
-        public void SelectItem(ItemData itemData)
+        public void SelectItem(InventoryItem itemData)
         {
 
         }

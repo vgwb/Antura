@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Antura.Discover.Achievements
+namespace Antura.Discover
 {
     [Serializable]
     public class CardUnlockByQuest

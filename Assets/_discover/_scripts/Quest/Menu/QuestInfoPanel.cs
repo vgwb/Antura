@@ -10,7 +10,7 @@ namespace Antura.Discover
     public class QuestInfoPanel : MonoBehaviour
     {
         private int currentIndex = 0;
-        public Quests QData;
+        public QuestListData QData;
 
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
@@ -97,11 +97,11 @@ namespace Antura.Discover
         public void BtnNextQuest()
         {
             currentIndex++;
-            if (currentIndex >= QData.AvailableQuests.Count())
+            if (currentIndex >= QData.QuestList.Count())
             {
                 currentIndex = 0;
             }
-            Show(QData.AvailableQuests[currentIndex]);
+            Show(QData.QuestList[currentIndex]);
         }
 
         public void BtnPrevQuest()
@@ -109,9 +109,9 @@ namespace Antura.Discover
             currentIndex--;
             if (currentIndex < 0)
             {
-                currentIndex = QData.AvailableQuests.Count() - 1;
+                currentIndex = QData.QuestList.Count() - 1;
             }
-            Show(QData.AvailableQuests[currentIndex]);
+            Show(QData.QuestList[currentIndex]);
         }
 
     }

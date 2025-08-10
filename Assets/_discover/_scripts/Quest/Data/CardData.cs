@@ -2,14 +2,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 
-namespace Antura.Discover.Achievements
+namespace Antura.Discover
 {
-    /// <summary>
-    /// Immutable design-time data for a collectible card.
-    /// Runtime state (unlocked/progress/history) is saved separately.
-    /// </summary>
-    [CreateAssetMenu(fileName = "CardDefinition", menuName = "Antura/Discover/Card Definition")]
-    public class CardDefinition : ScriptableObject
+    [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
+    public class CardData : ScriptableObject
     {
         [Header("Identity")]
         [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]

@@ -18,7 +18,7 @@ namespace Antura.Discover
 
         public string ItemTag; // Used to identify the item in the inventory
 
-        public ItemData ItemData; // Used to store item data for inventory
+        public InventoryItem ItemData; // Used to store item data for inventory
 
         [Header("Effects")]
         public GameObject particleEffectPrefab;
