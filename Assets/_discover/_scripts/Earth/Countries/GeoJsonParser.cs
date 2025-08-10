@@ -114,7 +114,7 @@ namespace Antura.Discover
             meshFilter.mesh = mesh;
 
             // Attach the CountryData component and set properties
-            CountryData countryData = country.AddComponent<CountryData>();
+            CountryDataInfo countryData = country.AddComponent<CountryDataInfo>();
             countryData.countryName = countryName;
         }
     }

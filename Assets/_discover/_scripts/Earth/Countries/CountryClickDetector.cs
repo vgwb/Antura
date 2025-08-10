@@ -16,7 +16,7 @@ namespace Antura.Discover
                 if (Physics.Raycast(ray, out hit))
                 {
                     GameObject clickedObject = hit.collider.gameObject;
-                    CountryData countryData = clickedObject.GetComponent<CountryData>();
+                    CountryDataInfo countryData = clickedObject.GetComponent<CountryDataInfo>();
 
                     if (countryData != null)
                     {

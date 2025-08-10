@@ -16,6 +16,7 @@ namespace Antura.Discover
         Poland = 3,
         Italy = 4,
         Spain = 5,
+        Germany = 6,
     }
 
     [Serializable]

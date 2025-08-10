@@ -88,6 +88,7 @@ namespace Antura.Discover
 
         public void ShowCountry(Countries country)
         {
+            Debug.Log($"UIQuestMenuManager: ShowCountry called with {country}");
             if (country != currentCountry)
             {
                 LoadCountry(country);

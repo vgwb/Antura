@@ -16,6 +16,8 @@ namespace Antura.Discover.Activities
             public Sprite Image;
         }
 
+        public string SetName;
+
         public List<MoneyItem> items = new List<MoneyItem>();
     }
 }

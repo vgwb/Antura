@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    public class CountryData : MonoBehaviour
+    public class CountryDataInfo : MonoBehaviour
     {
         public string countryName;
         public string countryInfo;

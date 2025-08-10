@@ -41,6 +41,7 @@ namespace Antura.Discover
 
         public void SelectCountry(Countries selectedCountry)
         {
+            Debug.Log($"Selecting country: {selectedCountry}");
             foreach (var mapping in countrySprites)
             {
 
