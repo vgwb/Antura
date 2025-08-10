@@ -3,6 +3,15 @@ using UnityEngine;
 
 namespace Antura.Discover.Activities
 {
+    public enum Difficulty
+    {
+        Tutorial = 0,
+        Easy = 1,
+        Normal = 2,
+        Expert = 3
+    }
+
+
     public class ActivityBase : MonoBehaviour
     {
         [Header("Common properties")]

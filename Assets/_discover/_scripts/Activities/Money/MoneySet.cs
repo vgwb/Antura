@@ -1,5 +1,6 @@
 using UnityEngine;
 using System.Collections.Generic;
+using System;
 
 namespace Antura.Discover.Activities
 {
@@ -12,13 +13,13 @@ namespace Antura.Discover.Activities
         public class MoneyItem
         {
             public MoneyType Type;
-            public int ValueInCents;
+            public float Value;
+
+            public Difficulty Difficulty;
             public Sprite Image;
         }
 
         public string SetName;
-
-        public bool ValuesInCents = true;
 
         public List<MoneyItem> items = new List<MoneyItem>();
     }

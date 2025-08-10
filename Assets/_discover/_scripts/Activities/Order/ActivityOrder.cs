@@ -10,8 +10,6 @@ namespace Antura.Discover.Activities
 {
     public class ActivityOrder : ActivityBase
     {
-        public enum Difficulty { Tutorial, Easy, Normal }
-
         [Header("Data")]
         [Tooltip("Between 2 and 10 items. The order here is the correct target order.")]
         public List<CardItem> Items;              // 2..10

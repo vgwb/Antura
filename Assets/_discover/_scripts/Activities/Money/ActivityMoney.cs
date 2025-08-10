@@ -15,7 +15,7 @@ namespace Antura.Discover.Activities
         [Tooltip("Target amount of money to collect (in cents)")]
         public float MoneyTarget = 10f;
         [Tooltip("Difficulty: the number of coins to use.")]
-        public int DifficultyLevel = 1;
+        public Difficulty Difficulty = Difficulty.Easy;
         [Tooltip("Kind of money to use in the activity")]
         public MoneyKind Kind = MoneyKind.Both;
         public MoneySet MoneySet;

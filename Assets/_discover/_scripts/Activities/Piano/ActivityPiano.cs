@@ -6,7 +6,6 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public enum PianoPlayMode { Freeplay, Repeat }
-public enum RepeatDifficulty { Tutorial, Easy, Normal, Difficult }
 
 namespace Antura.Discover.Activities
 {
@@ -14,7 +13,7 @@ namespace Antura.Discover.Activities
     {
         [Header("Activity Piano Settings")]
         public PianoPlayMode playMode = PianoPlayMode.Freeplay;
-        public RepeatDifficulty repeatDifficulty = RepeatDifficulty.Easy;
+        public Difficulty Difficulty = Difficulty.Easy;
 
         [Header("References")]
 
@@ -110,7 +109,7 @@ namespace Antura.Discover.Activities
                 if (key != null)
                 {
                     key.Play();
-                    if (repeatDifficulty == RepeatDifficulty.Tutorial)
+                    if (Difficulty == Difficulty.Tutorial)
                         key.Flash(seconds);
                     yield return new WaitForSeconds(seconds);
                 }
@@ -120,7 +119,7 @@ namespace Antura.Discover.Activities
                     if (anyKey != null)
                     {
                         anyKey.Play();
-                        if (repeatDifficulty == RepeatDifficulty.Tutorial)
+                        if (Difficulty == Difficulty.Tutorial)
                             anyKey.Flash(seconds);
                     }
                     yield return new WaitForSeconds(seconds);
@@ -164,9 +163,9 @@ namespace Antura.Discover.Activities
         {
             foreach (var key in keyboard.AllKeys())
             {
-                bool showLabel = (repeatDifficulty == RepeatDifficulty.Tutorial) || (repeatDifficulty == RepeatDifficulty.Easy) || (repeatDifficulty == RepeatDifficulty.Normal);
+                bool showLabel = (Difficulty == Difficulty.Tutorial) || (Difficulty == Difficulty.Easy) || (Difficulty == Difficulty.Normal);
                 key.SetLabelActive(showLabel);
-                if (repeatDifficulty == RepeatDifficulty.Difficult)
+                if (Difficulty == Difficulty.Expert)
                     key.SetLabelActive(false);
             }
         }

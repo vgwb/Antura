@@ -7,8 +7,6 @@ namespace Antura.Discover.Activities
 {
     public class ActivityMemory : ActivityBase
     {
-        public enum MemoryDifficulty { Tutorial, Easy, Normal, Difficult }
-
         [Header("Activity Memory Settings")]
 
         [Tooltip("ScriptableObject containing the available CardItems for this level.")]
@@ -18,7 +16,7 @@ namespace Antura.Discover.Activities
         public Button validateButton;
 
         [Header("Difficulty & Grid")]
-        public MemoryDifficulty difficulty = MemoryDifficulty.Easy;
+        public Difficulty difficulty = Difficulty.Easy;
         public RectTransform gridParent;
         public GameObject cardPrefab;
         public Vector2 cellSize = new Vector2(180, 220);
@@ -53,9 +51,9 @@ namespace Antura.Discover.Activities
         void Start()
         {
             BuildBoard();
-            if (difficulty == MemoryDifficulty.Tutorial)
+            if (difficulty == Difficulty.Tutorial)
                 StartCoroutine(TutorialIdleHints());
-            else if (difficulty == MemoryDifficulty.Easy)
+            else if (difficulty == Difficulty.Easy)
                 StartCoroutine(EasyPeriodicShakes());
         }
 
@@ -82,9 +80,9 @@ namespace Antura.Discover.Activities
             // Set grid size based on difficulty
             (int rows, int cols) = difficulty switch
             {
-                MemoryDifficulty.Tutorial => (2, 2),
-                MemoryDifficulty.Easy => (2, 4),
-                MemoryDifficulty.Normal => (3, 4),
+                Difficulty.Tutorial => (2, 2),
+                Difficulty.Easy => (2, 4),
+                Difficulty.Normal => (3, 4),
                 _ => (3, 6),
             };
             int totalCards = rows * cols;
