@@ -22,7 +22,7 @@ namespace Antura.Discover
     {
         [Header("Starting Appearance")]
         public HeadPropID HeadProp = HeadPropID.None;
-        public string Word;
+        public WordData Word;
         public Color Color = Color.white;
         public LLAnimationStates Animation = LLAnimationStates.LL_idle;
 
@@ -44,7 +44,7 @@ namespace Antura.Discover
             base.Start();
             PlayAnimation(Animation);
 
-            if (!Word.IsNullOrEmpty())
+            if (Word != null)
             {
                 ShowImage(Word);
             }
@@ -104,9 +104,9 @@ namespace Antura.Discover
             }
         }
 
-        public void ShowImage(string id)
+        public void ShowImage(WordData word)
         {
-            letterData = new LL_ImageData(id);
+            letterData = new LL_ImageData(word.Id);
             letterObjectView.Init(letterData);
         }
 

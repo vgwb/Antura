@@ -143,7 +143,7 @@ namespace Antura.Discover
         public Topic MainTopic;
         public List<CardData> Cards;
         public List<QuestData> Dependencies;
-        public string LanguageRef;
+        public List<WordData> WordsUsed;
         public string manualPage;
 
         [Header("Credits")]

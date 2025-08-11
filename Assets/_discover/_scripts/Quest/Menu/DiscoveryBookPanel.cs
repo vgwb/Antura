@@ -32,7 +32,14 @@ namespace Antura.Discover
             Description.text += "<b>Location:</b> " + questData.Location + "\n";
             Description.text += "<b>Categories:</b> " + "" + "\n";
             Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
-            Description.text += "<b>References:</b> " + questData.LanguageRef + "\n";
+            if (questData.WordsUsed != null)
+            {
+                Description.text += "<b>Words used:</b> ";
+                foreach (var word in questData.WordsUsed)
+                {
+                    Description.text += "- " + word.GetLocalizedString() + "\n";
+                }
+            }
             Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
             Description.text += "<b>Didactical Content:</b>\n" + "" + "\n\n";
 

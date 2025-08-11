@@ -15,8 +15,8 @@ namespace Antura.Discover
         void Start()
         {
             //            Antura.Initialize();
-            LetterMAJOR.ShowImage("ball");
-            LetterTEACHER.ShowImage("bread");
+            //LetterMAJOR.ShowImage("ball");
+            //LetterTEACHER.ShowImage("bread");
 
             //StartCoroutine(AnimateCO());
         }

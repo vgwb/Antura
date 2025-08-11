@@ -7,13 +7,14 @@ using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
-    //[CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Words Library")]
     [Serializable]
-    public class WordData
+    [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Word Data")]
+    public class WordData : ScriptableObject
     {
         public string Id;
         public bool Active;
-        public string Text;
+        public LocalizedString TextLocalized;
+        public string TextEn;
         public WordDataKind Kind;
         public WordDataCategory Category;
         public WordDataForm Form;
@@ -23,7 +24,10 @@ namespace Antura.Discover
         public string DrawingUnicode; // drawing unicode
         public string DrawingValue; // used for display (like colours)
         public string DrawingAtlas;
+
+        public string GetLocalizedString()
+        {
+            return TextEn;
+        }
     }
-
-
 }
