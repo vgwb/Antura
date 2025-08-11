@@ -158,12 +158,7 @@ namespace Antura.Discover
         public GameObject WorldPrefab;
         public GameObject QuestPrefab;
 
-        /// <summary>
-        /// Gets the score (completeness) for this quest.
-        /// </summary>
-        /// <returns>
-        /// An integer representing the number of stars.. 0 -> 3.
-        /// </returns>
+        // TODO
         public int GetScore()
         {
             return 0;
