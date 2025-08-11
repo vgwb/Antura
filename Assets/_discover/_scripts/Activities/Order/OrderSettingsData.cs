@@ -8,8 +8,8 @@ namespace Antura.Discover.Activities
     public class OrderSettingsData : ActivitySettingsAbstract
     {
         [Header("Order Settings")]
-        [Tooltip("Between 2 and 10 items. The order here is the correct target order.")]
-        public List<CardItem> Items;              // 2..10
+        [Tooltip("Between 2 and 10 items. The order here is the correct solution")]
+        public List<CardItem> Items;
 
     }
 }
