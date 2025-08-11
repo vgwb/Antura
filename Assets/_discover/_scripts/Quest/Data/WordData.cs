@@ -11,9 +11,14 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Word Data")]
     public class WordData : ScriptableObject
     {
+        [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]
         public string Id;
         public bool Active;
+
+        public QuestStatus Status = QuestStatus.Development;
         public LocalizedString TextLocalized;
+
+        [Tooltip("English text, used for sorting and fallback.")]
         public string TextEn;
         public WordDataKind Kind;
         public WordDataCategory Category;
@@ -21,9 +26,12 @@ namespace Antura.Discover
         public string Value;
         public string SortValue;
 
+        [Tooltip("Options if the Font drawing is not available")]
+        public Sprite Drawing;
         public string DrawingUnicode; // drawing unicode
         public string DrawingValue; // used for display (like colours)
         public string DrawingAtlas;
+
 
         public string GetLocalizedString()
         {

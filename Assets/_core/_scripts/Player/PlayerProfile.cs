@@ -43,6 +43,7 @@ namespace Antura.Profile
         public string Uuid;
         public string PlayerName;
         public int Classroom;
+        public bool EasyMode = false;
         public TalkToPlayerStyle TalkToPlayerStyle;
         public LanguageCode NativeLanguage;
         public int AvatarId;
@@ -320,15 +321,7 @@ namespace Antura.Profile
         /// </summary>
         public void Save()
         {
-
-            if (AppManager.VERBOSE_INVERSION && AppManager.I.NavigationManager.NavData.CurrentContent != null)
-            {
-                Debug.Log($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
-            }
-            else
-            {
-                Debug.Log("[Inversion] Saving current data (profile only)");
-            }
+            Debug.Log("Saving Player Profile: " + PlayerName + " - " + Uuid);
 
             AppManager.I.PlayerProfileManager.UpdateCurrentPlayerIconDataInSettings();
             AppManager.I.PlayerProfileManager.SavePlayerProfile(this);
@@ -680,6 +673,7 @@ namespace Antura.Profile
             Uuid = _data.Uuid;
             PlayerName = _data.GetAdditionalData().PlayerName;
             Classroom = _data.GetAdditionalData().Classroom;
+            EasyMode = _data.GetAdditionalData().EasyMode;
             TalkToPlayerStyle = _data.GetAdditionalData().TalkToPlayerStyle;
             AvatarId = _data.AvatarId;
             Tint = _data.Tint;
@@ -727,7 +721,7 @@ namespace Antura.Profile
         public PlayerProfileData ToData()
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
-                    Uuid, PlayerName, Classroom, TalkToPlayerStyle, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
+                    Uuid, PlayerName, Classroom, EasyMode, TalkToPlayerStyle, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, _currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState, CustomizationShopState,
                     FirstContactState, editionID, ContentID, AppVersion, PetData, Quests
             );

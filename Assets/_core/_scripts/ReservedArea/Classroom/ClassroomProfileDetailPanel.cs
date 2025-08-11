@@ -4,6 +4,7 @@ using Demigiant.DemiTools;
 using Antura.Profile;
 using DG.DeExtensions;
 using DG.DeInspektor.Attributes;
+using Demigiant.DemiTools.DeUnityExtended;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -37,6 +38,9 @@ namespace Antura.UI
         [DeEmptyAlert]
         [SerializeField] Button btDeleteProfile;
         [DeEmptyAlert]
+        [SerializeField] DeUIButton btEasyMode;
+        [DeEmptyAlert]
+
         [SerializeField] Button btBack;
         [DeEmptyAlert]
         [SerializeField] ScrollRect scrollRect;
@@ -55,8 +59,21 @@ namespace Antura.UI
             questViewPrefab.gameObject.SetActive(false);
 
             btBack.onClick.AddListener(OnBackClicked.Dispatch);
-            btDeleteProfile.onClick.AddListener(() => OnDeleteProfileRequested.Dispatch(currProfile));
-            btEditProfileName.onClick.AddListener(() => OnEditProfileRequested.Dispatch(currProfile));
+            btDeleteProfile.onClick.AddListener(
+                () => OnDeleteProfileRequested.Dispatch(currProfile)
+                );
+            btEditProfileName.onClick.AddListener(
+                () => OnEditProfileRequested.Dispatch(currProfile)
+                );
+
+            btEasyMode.onClick.AddListener(() =>
+                        {
+                            Debug.Log($"Setting Easy Mode to {btEasyMode.isOn} for profile {currProfile.Uuid}");
+                            currProfile.EasyMode = !btEasyMode.isOn;
+                            ClassroomHelper.SaveProfile(currProfile);
+                            playerIcon.Init(currProfile);
+                        });
+
         }
 
         #endregion
@@ -86,6 +103,8 @@ namespace Antura.UI
             playerIcon.Init(profileDetail.ProfilePreview);
             RefreshProfileName();
             tfLastAccess.text = $"Last access: {profileDetail.LastAccess.Day:00}/{profileDetail.LastAccess.Month:00}/{profileDetail.LastAccess.Year} - {profileDetail.LastAccess.Hour:00}:{profileDetail.LastAccess.Minute:00}";
+
+            btEasyMode.Toggle(currProfile.EasyMode, false);
 
             int totLevels = profileDetail.Levels.Count;
             while (levelViews.Count < totLevels)

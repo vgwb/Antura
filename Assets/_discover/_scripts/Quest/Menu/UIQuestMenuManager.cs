@@ -45,7 +45,7 @@ namespace Antura.Discover
             //            Debug.Log("UIQuestMenuManager START");
             Container.SetActive(false);
             InfoPanel.Close();
-            currentCountry = Countries.None;
+            currentCountry = Countries.Global;
             ListTitleText.text = "";
         }
 

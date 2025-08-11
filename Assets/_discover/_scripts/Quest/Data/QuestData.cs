@@ -10,13 +10,14 @@ namespace Antura.Discover
 {
     public enum Countries
     {
-        None = 0,
-        Tutorial = 1,
+        Global = 0,
+        Italy = 1,
         France = 2,
         Poland = 3,
-        Italy = 4,
-        Spain = 5,
-        Germany = 6,
+        Spain = 4,
+        Germany = 5,
+        Portugal = 6,
+        Greece = 7,
     }
 
     [Serializable]

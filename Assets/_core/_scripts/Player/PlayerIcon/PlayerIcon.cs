@@ -40,6 +40,8 @@ namespace Antura.Profile
         public Sprite EndgameHatWStars;
         public GameObject Highlight;
         public GameObject HighlightImage;
+        public GameObject EasyModeIcon;
+
         public Image HatImage;
         public Image FaceImg, HairImg;
         public TextRender LevelLabel;
@@ -111,12 +113,6 @@ namespace Antura.Profile
                 orLevelLabelPosition = levelLabelRT.anchoredPosition;
             }
             Uuid = playerIconData.Uuid;
-            //Debug.Log("playerIconData " + playerIconData.Uuid + " " + playerIconData.Gender + " " + playerIconData.AvatarId + " " + playerIconData.Tint + " " + playerIconData.IsDemoUser + " > " + playerIconData.HasFinishedTheGame + "/" + playerIconData.HasFinishedTheGameWithAllStars);
-            // EndgameState endgameState = playerIconData.HasFinishedTheGameWithAllStars
-            //     ? EndgameState.FinishedWAllStars
-            //     : playerIconData.HasFinishedTheGame
-            //         ? EndgameState.Finished
-            //         : EndgameState.Unfinished;
             SetAppearance(playerIconData, EndgameState.Unfinished);
         }
 
@@ -200,6 +196,8 @@ namespace Antura.Profile
             HatImage.color = HatImage.color.SetAlpha(1);
             levelLabelRT.anchoredPosition = hasHat ? orLevelLabelPosition + new Vector2(0, LevelLabelHatShift) : orLevelLabelPosition;
 
+            EasyModeIcon.SetActive(playerIconData.EasyMode);
+
             switch (endgameState)
             {
                 case EndgameState.Finished:
@@ -268,6 +266,7 @@ namespace Antura.Profile
             var rndPlayerIconData = new PlayerProfilePreview(Uuid = "",
                                                         "",
                                                         0,
+                                                        false,
                                                        UnityEngine.Random.Range(0, 7),
                                                        PlayerGender.M,
                                                        PlayerTint.Blue,

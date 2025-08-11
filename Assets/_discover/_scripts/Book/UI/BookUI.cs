@@ -72,7 +72,7 @@ namespace Antura.Discover.UI
             var category = (Antura.Discover.CardCategory)categoryDropdown.value;
 
             IEnumerable<CardData> pool =
-                country == Antura.Discover.Countries.None
+                country == Countries.Global
                 ? (IEnumerable<CardData>)manager.Database.ById?.Values
                 : manager.GetCardsByCountry(country);
 
