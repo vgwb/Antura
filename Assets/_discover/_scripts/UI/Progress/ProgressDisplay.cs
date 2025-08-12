@@ -64,7 +64,7 @@ namespace Antura.Discover
         #region Public Methods
 
         /// <summary>
-        /// Cal this method to show and setup the progress bar
+        /// Call this method to show and setup the progress bar
         /// </summary>
         /// <param name="pMaxScore"></param>
         /// <param name="starsScore"></param>
