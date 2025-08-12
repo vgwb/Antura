@@ -156,13 +156,13 @@ namespace Antura.Profile
 
         #endregion
 
-        void SetAppearance(PlayerProfilePreview playerIconData, EndgameState endgameState)
+        void SetAppearance(PlayerProfilePreview playerPreviewData, EndgameState endgameState)
         {
             //            if (playerIconData.Gender == PlayerGender.None) {
             //                Debug.LogWarning("Player gender set to NONE");
             //            }
-            isDemoUser = playerIconData.IsDemoUser;
-            Color color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : playerIconData.BgColor;
+            isDemoUser = playerPreviewData.IsDemoUser;
+            Color color = isDemoUser ? new Color(0.4117647f, 0.9254903f, 1f, 1f) : playerPreviewData.BgColor;
             //            UIButton.Ico = FaceImg;   // forced icon
             //            UIButton.ChangeDefaultColors(color, color.SetAlpha(0.5f));
 
@@ -173,30 +173,30 @@ namespace Antura.Profile
             }
             else
             {
-                if (playerIconData.IsOldAvatar)
+                if (playerPreviewData.IsOldAvatar)
                 {
-                    color = PlayerTintConverter.ToColor(playerIconData.Tint);
-                    FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerIconData.Gender == PlayerGender.Undefined ? "M" : playerIconData.Gender.ToString()) + playerIconData.AvatarId);
+                    color = PlayerTintConverter.ToColor(playerPreviewData.Tint);
+                    FaceImg.sprite = Resources.Load<Sprite>(AppConfig.RESOURCES_DIR_AVATARS + (playerPreviewData.Gender == PlayerGender.Undefined ? "M" : playerPreviewData.Gender.ToString()) + playerPreviewData.AvatarId);
                 }
                 else
                 {
-                    FaceImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerIconData.NewAvatarId + 1)}_face");
-                    HairImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerIconData.NewAvatarId + 1)}_hair");
+                    FaceImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerPreviewData.NewAvatarId + 1)}_face");
+                    HairImg.sprite = Resources.Load<Sprite>($"{AppConfig.RESOURCES_DIR_AVATARS}AvatarV2_{(playerPreviewData.NewAvatarId + 1)}_hair");
                 }
             }
 
             UIButton.ChangeDefaultColors(color, color.ChangeSaturation(0.35f));
 
-            defFaceColor = FaceImg.color = (isDemoUser || playerIconData.IsOldAvatar) ? Color.white : playerIconData.SkinColor;
+            defFaceColor = FaceImg.color = (isDemoUser || playerPreviewData.IsOldAvatar) ? Color.white : playerPreviewData.SkinColor;
             if (HairImg.sprite != null)
-                defHairColor = HairImg.color = playerIconData.HairColor;
-            HairImg.gameObject.SetActive(!isDemoUser && !playerIconData.IsOldAvatar);
+                defHairColor = HairImg.color = playerPreviewData.HairColor;
+            HairImg.gameObject.SetActive(!isDemoUser && !playerPreviewData.IsOldAvatar);
             bool hasHat = endgameState != EndgameState.Unfinished;
             HatImage.gameObject.SetActive(hasHat);
             HatImage.color = HatImage.color.SetAlpha(1);
             levelLabelRT.anchoredPosition = hasHat ? orLevelLabelPosition + new Vector2(0, LevelLabelHatShift) : orLevelLabelPosition;
 
-            EasyModeIcon.SetActive(playerIconData.EasyMode);
+            EasyModeIcon.SetActive(playerPreviewData.EasyMode);
 
             switch (endgameState)
             {
@@ -217,9 +217,9 @@ namespace Antura.Profile
             //     // TODO
             //     LevelLabel.text = "";
             // }
-            LevelLabel.text = playerIconData.PlayerName;
+            LevelLabel.text = playerPreviewData.PlayerName;
 
-            TfName.text = playerIconData.PlayerName.IsNullOrEmpty() ? "-" : playerIconData.PlayerName.ToUpper();
+            TfName.text = playerPreviewData.PlayerName.IsNullOrEmpty() ? "-" : playerPreviewData.PlayerName.ToUpper();
 
             // Debug.Log("hasMaxStarsInCurrentPlaySessions: " + hasMaxStarsInCurrentPlaySessions);
             //HighlightImage.SetActive(playerIconData.HasMaxStarsInCurrentPlaySessions);

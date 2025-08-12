@@ -19,7 +19,7 @@ namespace Antura.Profile
         public string PlayerName;
         public int Classroom;
         public bool EasyMode;
-        public TalkToPlayerStyle TalkToPlayerStyle;
+        public TalkToPlayerMode TalkToPlayerStyle;
         public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
@@ -53,7 +53,7 @@ namespace Antura.Profile
             Classroom = _Classroom;
             EasyMode = _EasyMode;
             NativeLanguage = LanguageCode.english;
-            TalkToPlayerStyle = TalkToPlayerStyle.LearningThenNative;
+            TalkToPlayerStyle = TalkToPlayerMode.LearningThenNative;
             AvatarId = _AvatarId;
             SkinColor = _SkinColor;
             HairColor = _HairColor;

@@ -703,7 +703,7 @@ namespace Antura.Database.Management
         public void TestDynamicProfileData()
         {
             dbManager.UpdatePlayerProfileData(
-                new PlayerProfileData(DEBUG_PLAYER_UUID, "user name", 0, false, TalkToPlayerStyle.LearningLanguageOnly, 1, PlayerGender.M, PlayerTint.Blue, Color.yellow, Color.red, Color.magenta, 4, false, false, false, false,
+                new PlayerProfileData(DEBUG_PLAYER_UUID, "user name", 0, false, TalkToPlayerMode.LearningLanguageOnly, 1, PlayerGender.M, PlayerTint.Blue, Color.yellow, Color.red, Color.magenta, 4, false, false, false, false,
                                       8, 0, "", 0, new AnturaSpace.ShopState(), new CustomizationShopState(), new FirstContactState(), AppManager.I.AppEdition.editionID, AppManager.I.AppSettings.ContentID, AppManager.I.AppEdition.AppVersion, new PetData(), new List<DiscoverQuestSaved>())
             );
             var playerProfileData = dbManager.GetPlayerProfileData();

@@ -24,7 +24,7 @@ namespace Antura.Database
         public string PlayerName;
         public int Classroom;
         public bool EasyMode = false;
-        public TalkToPlayerStyle TalkToPlayerStyle;
+        public TalkToPlayerMode TalkToPlayerStyle;
         public List<DiscoverQuestSaved> Quests = new List<DiscoverQuestSaved>();
 
         /// <summary>
@@ -46,7 +46,7 @@ namespace Antura.Database
             string _PlayerName,
             int _Classroom,
             bool _EasyMode,
-            TalkToPlayerStyle _TalkToPlayerStyle,
+            TalkToPlayerMode _TalkToPlayerStyle,
             List<DiscoverQuestSaved> _SavedQuests,
             int _ConsecutivePlayDays,
             string currentShopStateJSON,
@@ -239,7 +239,7 @@ namespace Antura.Database
                 string _PlayerName,
                 int _Classroom,
                 bool _EasyMode,
-                TalkToPlayerStyle _TalkToPlayerStyle,
+                TalkToPlayerMode _TalkToPlayerStyle,
                 int _AvatarId,
                 PlayerGender _Gender,
                 PlayerTint _Tint,
@@ -324,7 +324,7 @@ namespace Antura.Database
             }
             else
             {
-                return new PlayerProfileAdditionalData("", 0, false, TalkToPlayerStyle.LearningThenNative, new List<DiscoverQuestSaved>(), 0, "", currentCustomizationShopStateJSON: "");
+                return new PlayerProfileAdditionalData("", 0, false, TalkToPlayerMode.LearningThenNative, new List<DiscoverQuestSaved>(), 0, "", currentCustomizationShopStateJSON: "");
             }
         }
 

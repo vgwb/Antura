@@ -13,16 +13,16 @@ namespace Antura.Profile
     /// </summary>
     public class ClassroomProfileDetail
     {
-        public readonly PlayerProfilePreview ProfilePreview;
+        public readonly PlayerProfilePreview PlayerPreviewData;
         public readonly DateTime LastAccess;
         public readonly List<LanguageLevel> Levels;
         public readonly List<DiscoverQuest> Quests;
 
         public ClassroomProfileDetail(PlayerProfilePreview playerProfilePreview)
         {
-            ProfilePreview = playerProfilePreview;
+            PlayerPreviewData = playerProfilePreview;
 
-            var Profile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(ProfilePreview.Uuid);
+            var PlayerProfile = AppManager.I.PlayerProfileManager.GetPlayerProfileByUUID(PlayerPreviewData.Uuid);
 
             // Generate STUB last access
             LastAccess = DateTime.Now;
@@ -47,7 +47,7 @@ namespace Antura.Profile
             };
             Quests = new List<DiscoverQuest>();
 
-            foreach (var savedQuest in Profile.Quests)
+            foreach (var savedQuest in PlayerProfile.Quests)
             {
                 Quests.Add(new DiscoverQuest(savedQuest.QuestCode, savedQuest.Score));
             }

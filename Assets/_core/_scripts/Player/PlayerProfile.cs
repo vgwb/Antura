@@ -25,7 +25,7 @@ namespace Antura.Profile
         }
     }
 
-    public enum TalkToPlayerStyle
+    public enum TalkToPlayerMode
     {
         DontTalk = 0,
         NativeOnly = 1,
@@ -44,7 +44,7 @@ namespace Antura.Profile
         public string PlayerName;
         public int Classroom;
         public bool EasyMode = false;
-        public TalkToPlayerStyle TalkToPlayerStyle;
+        public TalkToPlayerMode TalkToPlayerStyle;
         public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
