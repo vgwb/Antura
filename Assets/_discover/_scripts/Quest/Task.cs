@@ -8,16 +8,8 @@ using System;
 namespace Antura.Discover
 {
 
-    public enum TaskType
-    {
-        None = 0,
-        Collect = 1,
-        Reach = 2,
-        Interact = 3,
-    }
-
-    [System.Serializable]
-    public class TaskData
+    [Serializable]
+    public class Task
     {
         [Tooltip("Task Code used in a Node to activate it")]
         public string Code;

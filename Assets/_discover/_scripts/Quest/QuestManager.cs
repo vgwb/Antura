@@ -22,8 +22,8 @@ namespace Antura.Discover
 
         public QuestListData Quests;
         public QuestData CurrentQuest;
-        public TaskData[] QuestTasks;
-        private TaskData CurrentTask;
+        public Task[] QuestTasks;
+        private Task CurrentTask;
         private string CurrentActivity;
 
         private Inventory inventory;

@@ -8,6 +8,13 @@ using UnityEngine;
 namespace Antura.Discover
 {
 
+    [Serializable]
+    public class CountrySpriteMapping
+    {
+        public Countries country;
+        public SpriteRenderer spriteRenderer;
+    }
+
     public class EarthManager : MonoBehaviour
     {
         public static EarthManager I;

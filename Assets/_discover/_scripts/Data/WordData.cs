@@ -7,7 +7,6 @@ using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
-    [Serializable]
     [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Word Data")]
     public class WordData : ScriptableObject
     {
@@ -37,11 +36,5 @@ namespace Antura.Discover
         {
             return TextEn;
         }
-    }
-
-    [CreateAssetMenu(fileName = "WordsLibrary", menuName = "Antura/Discover/Words List")]
-    public class WordsListData : ScriptableObject
-    {
-        public List<WordData> Words = new List<WordData>();
     }
 }

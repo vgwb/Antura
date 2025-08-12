@@ -17,7 +17,7 @@ namespace Antura.Discover
             visitedSteps = new HashSet<string>();
         }
 
-        public void Init(TaskData[] questTasks)
+        public void Init(Task[] questTasks)
         {
 
             current_progress = 0;

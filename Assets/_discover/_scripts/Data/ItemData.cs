@@ -14,7 +14,7 @@ namespace Antura.Discover
         Ingredient = 4,
     }
 
-    [CreateAssetMenu(menuName = "Antura/Discover/Inventory Item")]
+    [CreateAssetMenu(fileName = "ItemData", menuName = "Antura/Discover/Inventory Item")]
     public class ItemData : ScriptableObject
     {
         [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]

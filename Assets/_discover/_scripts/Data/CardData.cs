@@ -24,7 +24,7 @@ namespace Antura.Discover
 
         [Header("Metadata")]
         public CardCategory Category;
-        public List<Topic> Topics;
+        public List<KnowledgeTopic> Topics;
         [Tooltip("Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
@@ -36,22 +36,4 @@ namespace Antura.Discover
         [Header("Progress")]
         [Range(1, 10)] public int MaxProgress = 10;
     }
-
-    [CreateAssetMenu(fileName = "CardDatabase", menuName = "Antura/Discover/Card Database (Master)")]
-    public class CardDatabaseData : ScriptableObject
-    {
-        public CardsByCountryData[] Collections;
-
-        // Built at runtime
-        [NonSerialized] public Dictionary<string, CardData> ById;
-        [NonSerialized] public Dictionary<Countries, List<CardData>> ByCountry;
-    }
-
-    [CreateAssetMenu(fileName = "CardsByCountryData", menuName = "Antura/Discover/Cards (by Country)")]
-    public class CardsByCountryData : ScriptableObject
-    {
-        public Countries Country;
-        public CardData[] Cards;
-    }
-
 }
