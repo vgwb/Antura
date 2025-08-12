@@ -93,7 +93,7 @@ namespace Antura.Discover
             UIManager.I.dialogues.ShowEndPanel(GetQuestNode("quest_end"), score);
 
             DiscoverQuestSaved questStatus = new DiscoverQuestSaved();
-            questStatus.QuestCode = CurrentQuest.Code;
+            questStatus.QuestCode = CurrentQuest.Id;
             questStatus.Score = score;
 
             AppManager.I.Player.SaveQuest(questStatus);
@@ -270,8 +270,8 @@ namespace Antura.Discover
         {
             var output = "";
             output += "DEBUG INFO";
-            output += "\nQuest: " + CurrentQuest.Code;
-            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Code).Score;
+            output += "\nQuest: " + CurrentQuest.Id;
+            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Id).Score;
             output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
             output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
             //config = LanguageSwitcher.I.GetLangConfig(languageUse);

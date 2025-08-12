@@ -1,9 +1,11 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
+    // this is the "Knowledge Atom" of the Discover module.
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
     public class CardData : ScriptableObject
     {
@@ -34,4 +36,22 @@ namespace Antura.Discover
         [Header("Progress")]
         [Range(1, 10)] public int MaxProgress = 10;
     }
+
+    [CreateAssetMenu(fileName = "CardDatabase", menuName = "Antura/Discover/Card Database (Master)")]
+    public class CardDatabaseData : ScriptableObject
+    {
+        public CardsByCountryData[] Collections;
+
+        // Built at runtime
+        [NonSerialized] public Dictionary<string, CardData> ById;
+        [NonSerialized] public Dictionary<Countries, List<CardData>> ByCountry;
+    }
+
+    [CreateAssetMenu(fileName = "CardsByCountryData", menuName = "Antura/Discover/Cards (by Country)")]
+    public class CardsByCountryData : ScriptableObject
+    {
+        public Countries Country;
+        public CardData[] Cards;
+    }
+
 }

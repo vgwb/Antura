@@ -27,7 +27,7 @@ namespace Antura.Discover
         {
             questData = QData.QuestList[currentIndex];
 
-            Title.text = questData.Code + " | " + questData.Title;
+            Title.text = questData.Id + " | " + questData.Title;
             Description.text = questData.Description + "\n\n";
             Description.text += "<b>Location:</b> " + questData.Location + "\n";
             Description.text += "<b>Categories:</b> " + "" + "\n";

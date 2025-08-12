@@ -30,7 +30,7 @@ namespace Antura.Discover
             Description.text = "";
             gameObject.SetActive(true);
             currentQuestData = questData;
-            Title.text = questData.Code + " | " + questData.Title.GetLocalizedString();
+            Title.text = questData.Id + " | " + questData.Title.GetLocalizedString();
             if (questData.Location != null)
                 Title.text += " | " + questData.Location.Name.GetLocalizedString();
 
@@ -65,7 +65,7 @@ namespace Antura.Discover
                 slideshow.SetImages(null);
             }
 
-            if (currentQuestData.Status != QuestStatus.Inactive)
+            if (currentQuestData.DevStatus != DevStatus.Inactive)
             {
                 PlayBtn.interactable = true;
             }

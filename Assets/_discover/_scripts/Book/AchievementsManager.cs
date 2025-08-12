@@ -197,7 +197,7 @@ namespace Antura.Discover
         {
             // Prefer explicit code if provided; fallback to QuestId.ToString().
             return quest != null
-                ? (!string.IsNullOrEmpty(quest.Code) ? quest.Code : quest.FlowSlug.ToString())
+                ? (!string.IsNullOrEmpty(quest.Id) ? quest.Id : quest.FlowSlug.ToString())
                 : string.Empty;
         }
     }

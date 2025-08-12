@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Localization;
 using System;
+using System.Collections.Generic;
 using System.Drawing;
 
 namespace Antura.Discover
@@ -35,5 +36,14 @@ namespace Antura.Discover
 
         [Tooltip("Progress points to apply (can be negative)")]
         public int ProgressPoints = 1;
+    }
+
+    /// <summary>
+    /// Project-wide list of Bonus/Malus definitions for indexing and validation.
+    /// </summary>
+    [CreateAssetMenu(fileName = "BonusMalusListData", menuName = "Antura/Discover/Bonus-Malus Library")]
+    public class BonusMalusListData : ScriptableObject
+    {
+        public List<BonusMalusData> Items = new();
     }
 }

@@ -106,7 +106,7 @@ namespace Antura.Discover
         Story
     }
 
-    public enum QuestStatus
+    public enum DevStatus
     {
         Inactive = 0,
         Development = 1,
@@ -119,13 +119,16 @@ namespace Antura.Discover
     public class QuestData : ScriptableObject
     {
         [Header("Identity")]
-        public HomerFlowSlugs.FlowSlug FlowSlug;
 
         [Tooltip("Unique, stable ID. lowercase")]
-        public string Code;
-        [Tooltip("Just for display")]
-        public string NumberCode;
-        public QuestStatus Status;
+        public string Id;
+        public HomerFlowSlugs.FlowSlug FlowSlug;
+
+        [Tooltip("Just for display in the UI. Not used in the game logic.")]
+        public string IdDisplay;
+
+        [Tooltip("Development status of this quest. Needed for internal testing and validation.")]
+        public DevStatus DevStatus;
 
         [Header("Description")]
         public LocalizedString Title;
@@ -164,5 +167,11 @@ namespace Antura.Discover
             return 0;
         }
 
+    }
+
+    [CreateAssetMenu(menuName = "Antura/Discover/Quests List")]
+    public class QuestListData : ScriptableObject
+    {
+        public QuestData[] QuestList;
     }
 }

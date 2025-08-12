@@ -15,7 +15,7 @@ namespace Antura.Discover
         public string Id;
         public bool Active;
 
-        public QuestStatus Status = QuestStatus.Development;
+        public DevStatus Status = DevStatus.Development;
         public LocalizedString TextLocalized;
 
         [Tooltip("English text, used for sorting and fallback.")]
@@ -37,5 +37,11 @@ namespace Antura.Discover
         {
             return TextEn;
         }
+    }
+
+    [CreateAssetMenu(fileName = "WordsLibrary", menuName = "Antura/Discover/Words List")]
+    public class WordsListData : ScriptableObject
+    {
+        public List<WordData> Words = new List<WordData>();
     }
 }
