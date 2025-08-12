@@ -35,6 +35,8 @@ namespace Antura.Discover
         public ProgressDisplay ProgressDisplay;
         [DeEmptyAlert]
         public InventoryDisplay InventoryDisplay;
+        [DeEmptyAlert]
+        public ToastDisplay ToastDisplay;
 
         #endregion
 
