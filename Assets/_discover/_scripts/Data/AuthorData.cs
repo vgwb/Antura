@@ -3,7 +3,7 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "AuthorData", menuName = "Antura/Discover/Author")]
+    [CreateAssetMenu(fileName = "AuthorData", menuName = "Antura/Discover/Author", order = 1)]
     public class AuthorData : ScriptableObject
     {
         public string Name;
