@@ -240,9 +240,9 @@ namespace Antura.Discover
             UpateItemsCounter();
             //UpateProgressCounter();
         }
-        public void UpateProgressCounter(int counter, int maxSteps)
+        public void UpdateProgressScore(int counter)
         {
-            UIManager.I.ProgressDisplay.UpdateProgress(counter, maxSteps);
+            UIManager.I.ProgressDisplay.SetCurrentScore(counter);
         }
         public void UpateItemsCounter()
         {

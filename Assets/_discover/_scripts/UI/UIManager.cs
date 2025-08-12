@@ -25,10 +25,15 @@ namespace Antura.Discover
         [SerializeField] GameObject[] hideDuringDialogue;
 
         [Header("UI Elements")]
+        [DeEmptyAlert]
         public ItemsCounter BonesCounter;
+        [DeEmptyAlert]
         public ItemsCounter CoinsCounter;
+        [DeEmptyAlert]
         public TaskDisplay TaskDisplay;
+        [DeEmptyAlert]
         public ProgressDisplay ProgressDisplay;
+        [DeEmptyAlert]
         public InventoryDisplay InventoryDisplay;
 
         #endregion

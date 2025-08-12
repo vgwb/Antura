@@ -35,7 +35,7 @@ namespace Antura.Discover
 
         private void UpdateUI()
         {
-            QuestManager.I.UpateProgressCounter(current_progress, total_progress);
+            QuestManager.I.UpdateProgressScore(current_progress);
         }
 
         public void AddProgressPoints(int points, string stepName = "")
