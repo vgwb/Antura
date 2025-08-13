@@ -4,12 +4,24 @@ using UnityEngine.InputSystem;
 
 namespace Antura.Discover
 {
+    public enum PlayerState
+    {
+        Idle,
+        Walking,
+        Running,
+        Jumping,
+        Falling,
+        Sliding,
+        Sitting,
+        Sleeping
+    }
+
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
         [Header("Player")]
-        public CatAnimationController anturaAnimation;
+        public CatAnimationController animationController;
 
         [Header("Idle Behavior")]
         [Tooltip("Time before sitting animation plays")]
@@ -23,7 +35,7 @@ namespace Antura.Discover
         public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 5.335f;
+        public float SprintSpeed = 4.0f;
 
         [Tooltip("Time of walking before auto-sprint kicks in")]
         public float TimeToAutoSprint = 3.0f;
@@ -89,19 +101,6 @@ namespace Antura.Discover
         [Range(0f, 1f)]
         public float slopeControlAmount = 0.3f;
 
-        // Player states enum
-        public enum PlayerState
-        {
-            Idle,
-            Walking,
-            Running,
-            Jumping,
-            Falling,
-            Sliding,
-            Sitting,
-            Sleeping
-        }
-
         // Public properties for external access
         public bool IsGrounded => isGrounded;
         public bool IsOnSlope => isOnSlope;
@@ -114,7 +113,6 @@ namespace Antura.Discover
         public Vector3 Velocity => new Vector3(_moveVelocity.x + _slideVelocity.x, _verticalVelocity, _moveVelocity.z + _slideVelocity.z);
         public float WalkingTime => _walkingTime;
 
-        // player
         private float _speed;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
@@ -181,11 +179,9 @@ namespace Antura.Discover
         {
             _wasGrounded = isGrounded;
 
-            // Sphere cast for ground detection - more reliable than CheckSphere
             Vector3 spherePosition = transform.position + (Vector3.up * GroundedRadius);
             float checkDistance = GroundedRadius + GroundedOffset + 0.1f;
 
-            // Use SphereCast for better ground detection
             isGrounded = Physics.SphereCast(
                 spherePosition,
                 GroundedRadius,
@@ -202,7 +198,6 @@ namespace Antura.Discover
                 isGrounded = true;
             }
 
-            // Slope detection with better raycast
             isOnSlope = false;
             _slopeAngle = 0f;
 
@@ -378,28 +373,28 @@ namespace Antura.Discover
             // Update animation
             if (_speed > 0f || _slideVelocity.magnitude > 0.1f)
             {
-                anturaAnimation.State = CatAnimationStates.walking;
+                animationController.State = CatAnimationStates.walking;
 
                 // Animation speed based on movement type
                 float animSpeed = 0f;
                 if (_slideVelocity.magnitude > 1f)
                 {
-                    animSpeed = 0.5f; // Sliding animation
+                    animSpeed = 0.4f; // Sliding animation
                 }
                 else if (isSprinting)
                 {
-                    animSpeed = Mathf.Lerp(0.3f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
+                    animSpeed = Mathf.Lerp(0.2f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
                 }
                 else
                 {
-                    animSpeed = Mathf.Lerp(0f, 0.3f, _speed / MoveSpeed);
+                    animSpeed = Mathf.Lerp(0f, 0.2f, _speed / MoveSpeed);
                 }
 
-                anturaAnimation.WalkingSpeed = animSpeed;
+                animationController.WalkingSpeed = animSpeed;
             }
             else
             {
-                anturaAnimation.State = CatAnimationStates.idle;
+                animationController.State = CatAnimationStates.idle;
             }
 
             if (targetSpeed > 0)
@@ -438,7 +433,7 @@ namespace Antura.Discover
 
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                     _hasJumped = true;
-                    anturaAnimation.OnJumpStart();
+                    animationController.OnJumpStart();
                     AudioManager.I.PlaySound(Sfx.CatMeow);
                 }
 
@@ -463,7 +458,7 @@ namespace Antura.Discover
                 _input.jump = false;
 
                 // Set animation speed for air
-                anturaAnimation.animator.speed = 2f;
+                animationController.animator.speed = 2f;
             }
 
             // Apply gravity - ALWAYS apply gravity, even when grounded
@@ -501,8 +496,8 @@ namespace Antura.Discover
             // Animation - only change if not sitting/sleeping
             if (!_isSitting && !_isSleeping)
             {
-                anturaAnimation.OnJumpEnded();
-                anturaAnimation.animator.speed = 1f;
+                animationController.OnJumpEnded();
+                animationController.animator.speed = 1f;
             }
 
             // Sound
@@ -540,7 +535,7 @@ namespace Antura.Discover
             _isSleeping = false;
 
             // Reset animation to idle
-            anturaAnimation.State = CatAnimationStates.idle;
+            animationController.State = CatAnimationStates.idle;
         }
 
         public void ForceJump(float? customHeight = null)
@@ -550,7 +545,7 @@ namespace Antura.Discover
                 float height = customHeight ?? JumpHeight;
                 _verticalVelocity = Mathf.Sqrt(height * -2f * Gravity);
                 _hasJumped = true;
-                anturaAnimation.OnJumpStart();
+                animationController.OnJumpStart();
             }
         }
 
@@ -638,28 +633,28 @@ namespace Antura.Discover
                 {
                     _isSleeping = true;
                     _isSitting = false;
-                    anturaAnimation.State = CatAnimationStates.sleeping;
+                    animationController.State = CatAnimationStates.sleeping;
                     Debug.Log("Cat is now sleeping!");
                 }
                 // Check for sitting (10 seconds)
                 else if (_idleTime >= TimeToSit && !_isSitting && !_isSleeping)
                 {
                     _isSitting = true;
-                    anturaAnimation.State = CatAnimationStates.sitting;
+                    animationController.State = CatAnimationStates.sitting;
                     Debug.Log("Cat is now sitting!");
                 }
                 // Maintain the sitting/sleeping state if already in it
                 else if (_isSleeping)
                 {
                     // Ensure sleeping animation continues
-                    if (anturaAnimation.State != CatAnimationStates.sleeping)
-                        anturaAnimation.State = CatAnimationStates.sleeping;
+                    if (animationController.State != CatAnimationStates.sleeping)
+                        animationController.State = CatAnimationStates.sleeping;
                 }
                 else if (_isSitting)
                 {
                     // Ensure sitting animation continues
-                    if (anturaAnimation.State != CatAnimationStates.sitting)
-                        anturaAnimation.State = CatAnimationStates.sitting;
+                    if (animationController.State != CatAnimationStates.sitting)
+                        animationController.State = CatAnimationStates.sitting;
                 }
             }
             else if (_input.move != Vector2.zero || _input.jump)
@@ -673,7 +668,7 @@ namespace Antura.Discover
                     Debug.Log("Cat woke up!");
 
                     // Return to idle before moving
-                    anturaAnimation.State = CatAnimationStates.idle;
+                    animationController.State = CatAnimationStates.idle;
                 }
                 else
                 {
