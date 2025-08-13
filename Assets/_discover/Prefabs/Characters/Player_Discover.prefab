@@ -161,16 +161,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   anturaAnimation: {fileID: 448008798303200391}
+  TimeToSit: 5
+  TimeToSleep: 20
   MoveSpeed: 2
   SprintSpeed: 5.335
+  TimeToAutoSprint: 3
+  SprintAcceleration: 2
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 1.2
-  MidAirJumpHeight: 1.2
-  MaxJumps: 2
   Gravity: -15
   JumpTimeout: 0.5
-  MidAirJumpTimeout: 0.5
   FallTimeout: 0.15
   isGrounded: 1
   isOnSlope: 0
@@ -178,8 +179,13 @@ MonoBehaviour:
   GroundedRadius: 0.28
   GroundLayers:
     serializedVersion: 2
-    m_Bits: 513
+    m_Bits: 129
   slideSpeed: 5
+  slideAcceleration: 10
+  maxSlideSpeed: 12
+  slopeForceDown: 5
+  allowSlopeControl: 1
+  slopeControlAmount: 0.3
 --- !u!114 &448008798303200391
 MonoBehaviour:
   m_ObjectHideFlags: 0

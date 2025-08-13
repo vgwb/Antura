@@ -11,6 +11,13 @@ namespace Antura.Discover
         [Header("Player")]
         public CatAnimationController anturaAnimation;
 
+        [Header("Idle Behavior")]
+        [Tooltip("Time before sitting animation plays")]
+        public float TimeToSit = 10.0f;
+
+        [Tooltip("Time before sleeping animation plays")]
+        public float TimeToSleep = 30.0f;
+
         [Header("Movement Settings")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
@@ -90,7 +97,9 @@ namespace Antura.Discover
             Running,
             Jumping,
             Falling,
-            Sliding
+            Sliding,
+            Sitting,
+            Sleeping
         }
 
         // Public properties for external access
@@ -117,6 +126,11 @@ namespace Antura.Discover
         // Auto-sprint
         private float _walkingTime = 0f;
         private bool _isAutoSprinting = false;
+
+        // Idle behavior
+        private float _idleTime = 0f;
+        private bool _isSitting = false;
+        private bool _isSleeping = false;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -159,6 +173,7 @@ namespace Antura.Discover
             Move();
             JumpAndGravity();
             ApplyMovement();
+            UpdateIdleBehavior();
             UpdatePlayerState();
         }
 
@@ -410,9 +425,17 @@ namespace Antura.Discover
                     }
                 }
 
-                // Jump
+                // Jump (wake up from sitting/sleeping if jumping)
                 if (_input.jump && _jumpTimeoutDelta <= 0.0f && !_hasJumped)
                 {
+                    // Wake up if sitting or sleeping
+                    if (_isSitting || _isSleeping)
+                    {
+                        _isSitting = false;
+                        _isSleeping = false;
+                        _idleTime = 0f;
+                    }
+
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
                     _hasJumped = true;
                     anturaAnimation.OnJumpStart();
@@ -475,9 +498,12 @@ namespace Antura.Discover
             // Reset jump flag
             _hasJumped = false;
 
-            // Animation
-            anturaAnimation.OnJumpEnded();
-            anturaAnimation.animator.speed = 1f;
+            // Animation - only change if not sitting/sleeping
+            if (!_isSitting && !_isSleeping)
+            {
+                anturaAnimation.OnJumpEnded();
+                anturaAnimation.animator.speed = 1f;
+            }
 
             // Sound
             AudioManager.I.PlaySound(Sfx.BushRustlingIn);
@@ -509,6 +535,12 @@ namespace Antura.Discover
             _slideVelocity = Vector3.zero;
             _walkingTime = 0f;
             _isAutoSprinting = false;
+            _idleTime = 0f;
+            _isSitting = false;
+            _isSleeping = false;
+
+            // Reset animation to idle
+            anturaAnimation.State = CatAnimationStates.idle;
         }
 
         public void ForceJump(float? customHeight = null)
@@ -529,6 +561,14 @@ namespace Antura.Discover
             if (!isGrounded)
             {
                 CurrentState = _verticalVelocity > 0 ? PlayerState.Jumping : PlayerState.Falling;
+            }
+            else if (_isSleeping)
+            {
+                CurrentState = PlayerState.Sleeping;
+            }
+            else if (_isSitting)
+            {
+                CurrentState = PlayerState.Sitting;
             }
             else if (isOnSlope && _slopeAngle > _controller.slopeLimit)
             {
@@ -570,11 +610,75 @@ namespace Antura.Discover
                     break;
                 case PlayerState.Walking:
                     break;
+                case PlayerState.Sitting:
+                    Debug.Log("Cat is sitting!");
+                    break;
+                case PlayerState.Sleeping:
+                    Debug.Log("Cat is sleeping!");
+                    break;
                 case PlayerState.Idle:
                     // Reset auto-sprint when stopping
                     _walkingTime = 0f;
                     _isAutoSprinting = false;
                     break;
+            }
+        }
+
+        private void UpdateIdleBehavior()
+        {
+            // Check if player is idle (no input and grounded, not sliding)
+            bool isIdle = _input.move == Vector2.zero && isGrounded && !isOnSlope && !_input.jump;
+
+            if (isIdle)
+            {
+                _idleTime += Time.deltaTime;
+
+                // Check for sleeping (30 seconds)
+                if (_idleTime >= TimeToSleep && !_isSleeping)
+                {
+                    _isSleeping = true;
+                    _isSitting = false;
+                    anturaAnimation.State = CatAnimationStates.sleeping;
+                    Debug.Log("Cat is now sleeping!");
+                }
+                // Check for sitting (10 seconds)
+                else if (_idleTime >= TimeToSit && !_isSitting && !_isSleeping)
+                {
+                    _isSitting = true;
+                    anturaAnimation.State = CatAnimationStates.sitting;
+                    Debug.Log("Cat is now sitting!");
+                }
+                // Maintain the sitting/sleeping state if already in it
+                else if (_isSleeping)
+                {
+                    // Ensure sleeping animation continues
+                    if (anturaAnimation.State != CatAnimationStates.sleeping)
+                        anturaAnimation.State = CatAnimationStates.sleeping;
+                }
+                else if (_isSitting)
+                {
+                    // Ensure sitting animation continues
+                    if (anturaAnimation.State != CatAnimationStates.sitting)
+                        anturaAnimation.State = CatAnimationStates.sitting;
+                }
+            }
+            else if (_input.move != Vector2.zero || _input.jump)
+            {
+                // Only reset when there's actual input (movement or jump)
+                if (_isSitting || _isSleeping)
+                {
+                    _idleTime = 0f;
+                    _isSitting = false;
+                    _isSleeping = false;
+                    Debug.Log("Cat woke up!");
+
+                    // Return to idle before moving
+                    anturaAnimation.State = CatAnimationStates.idle;
+                }
+                else
+                {
+                    _idleTime = 0f;
+                }
             }
         }
 
