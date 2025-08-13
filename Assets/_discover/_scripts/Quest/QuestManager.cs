@@ -18,7 +18,7 @@ namespace Antura.Discover
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        private EdPlayer PlayerController;
+        private PlayerController PlayerController;
 
         public QuestListData Quests;
         public QuestData CurrentQuest;
@@ -51,7 +51,7 @@ namespace Antura.Discover
             // GameObject levelInstance = Instantiate(CurrentQuest.GameLevel, spawnPosition, Quaternion.identity);
             // levelInstance.transform.SetParent(null);
 
-            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
+            PlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             total_coins = 0;
             foreach (var task in QuestTasks)
             {

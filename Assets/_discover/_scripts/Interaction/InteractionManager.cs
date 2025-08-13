@@ -10,7 +10,7 @@ namespace Antura.Discover
     {
         #region Serialized
 
-        public EdPlayer player;
+        public PlayerController player;
 
         #endregion
 
@@ -126,8 +126,10 @@ namespace Antura.Discover
 
         public void ForceNearbyInteractableTo(Interactable interactable)
         {
-            if (NearbyInteractable != interactable) SetNearbyInteractableTo(interactable);
-            if (!allNearbyInteractables.Contains(interactable)) allNearbyInteractables.Add(interactable);
+            if (NearbyInteractable != interactable)
+                SetNearbyInteractableTo(interactable);
+            if (!allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Add(interactable);
         }
 
         #endregion
@@ -216,16 +218,20 @@ namespace Antura.Discover
             float lastDistSqr = float.MaxValue;
             foreach (Interactable interactable in allNearbyInteractables)
             {
-                if (!interactable.gameObject.activeInHierarchy) continue;
+                if (!interactable.gameObject.activeInHierarchy)
+                    continue;
                 float distSqr = (interactable.transform.position - player.transform.position).sqrMagnitude;
-                if (distSqr >= lastDistSqr) continue;
+                if (distSqr >= lastDistSqr)
+                    continue;
                 lastDistSqr = distSqr;
                 NearbyInteractable = interactable;
             }
             if (NearbyInteractable != prev)
             {
-                if (prev != null) UIManager.I.dialogues.HideSignal(prev, true);
-                if (NearbyInteractable != null && HasValidNearbyInteractable) UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+                if (prev != null)
+                    UIManager.I.dialogues.HideSignal(prev, true);
+                if (NearbyInteractable != null && HasValidNearbyInteractable)
+                    UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
             }
         }
 
@@ -238,7 +244,7 @@ namespace Antura.Discover
         #endregion
 
         #region Callbacks
-        
+
         void OnPlayerMoved()
         {
             RefreshNearbyInteractable();
@@ -256,7 +262,8 @@ namespace Antura.Discover
 
         void OnInteractableEnteredByPlayer(Interactable interactable)
         {
-            if (!allNearbyInteractables.Contains(interactable)) allNearbyInteractables.Add(interactable);
+            if (!allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Add(interactable);
             RefreshNearbyInteractable();
         }
 
@@ -267,7 +274,8 @@ namespace Antura.Discover
                 NearbyInteractable = null;
                 UIManager.I.dialogues.HideSignal(interactable, true);
             }
-            if (allNearbyInteractables.Contains(interactable)) allNearbyInteractables.Remove(interactable);
+            if (allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Remove(interactable);
             RefreshNearbyInteractable();
         }
 

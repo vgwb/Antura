@@ -30,7 +30,7 @@ namespace Antura.Discover
         public GameObject WinFx;
         public GameObject AnturaDog;
 
-        private EdPlayer PlayerController;
+        private PlayerController PlayerController;
 
         private GameObject currentArea;
 
@@ -49,7 +49,7 @@ namespace Antura.Discover
 
         IEnumerator Start()
         {
-            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
+            PlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
             Target_AnturaLocation = null;
             if (AnturaDog != null)

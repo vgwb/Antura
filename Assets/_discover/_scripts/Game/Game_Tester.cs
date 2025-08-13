@@ -7,7 +7,7 @@ namespace Antura.Discover
 {
     public class Game_Tester : MonoBehaviour
     {
-        public EdPlayer Antura;
+        public PlayerController Antura;
         public EdLivingLetter LetterMAJOR;
         public EdLivingLetter LetterTEACHER;
         public EdLivingLetter LetterGUIDE;

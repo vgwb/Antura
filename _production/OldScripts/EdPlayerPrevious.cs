@@ -9,7 +9,7 @@ namespace Antura.Discover
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInput))]
 
-    public class EdPlayer : MonoBehaviour
+    public class EdPlayerPrevious : MonoBehaviour
     {
         [Header("Player")]
         public AnturaAnimationController anturaAnimation;
@@ -230,15 +230,16 @@ namespace Antura.Discover
             // update animator if using character
             if (_speed > 0f)
             {
-                anturaAnimation.State = AnturaAnimationStates.walking;
+                anturaAnimation.State = CatAnimationStates.walking;
                 anturaAnimation.WalkingSpeed = isSprinting ? Mathf.Lerp(0, 1, _speed * 1f) : 0f;
             }
             else
             {
-                anturaAnimation.State = AnturaAnimationStates.idle;
+                anturaAnimation.State = CatAnimationStates.idle;
             }
-            
-            if (targetSpeed > 0) DiscoverNotifier.Game.OnPlayerMoved.Dispatch();
+
+            if (targetSpeed > 0)
+                DiscoverNotifier.Game.OnPlayerMoved.Dispatch();
 
             // if (_hasAnimator)
             // {
