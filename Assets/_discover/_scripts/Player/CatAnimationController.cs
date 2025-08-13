@@ -320,7 +320,6 @@ namespace Antura.Discover
             animator.SetBool("sleeping", false);
             animator.SetBool("sheeping", false);
             animator.SetBool("sucking", false);
-
             animator.SetBool("bellyingUp", false);
             animator.SetBool("digging", false);
             animator.SetBool("dancing", false);

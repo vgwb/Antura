@@ -8,18 +8,25 @@ namespace Antura.Discover
     public class BreakableCrate : MonoBehaviour
     {
         [Header("Crate Settings")]
-        [Tooltip("Total health before the crate breaks")] public float health = 50f;
-        [Tooltip("Prefab spawned when crate is destroyed (broken pieces)")] public GameObject brokenPrefab;
+        [Tooltip("Total health before the crate breaks")]
+        public float health = 50f;
+        [Tooltip("Prefab spawned when crate is destroyed (broken pieces)")]
+        public GameObject brokenPrefab;
 
         [Header("Impact Feedback")]
-        [Tooltip("Particle prefab spawned on impact (optional)")] public GameObject hitParticlePrefab;
-        [Tooltip("Seconds before auto-destroying the hit particle (0 = don't auto destroy)")] public float particleLifetime = 2f;
-        [Tooltip("Optional sound played when crate breaks")] public AudioClip breakSound;
+        [Tooltip("Particle prefab spawned on impact (optional)")]
+        public GameObject hitParticlePrefab;
+        [Tooltip("Seconds before auto-destroying the hit particle (0 = don't auto destroy)")]
+        public float particleLifetime = 2f;
+        [Tooltip("Optional sound played when crate breaks")]
+        public AudioClip breakSound;
         [Range(0f, 1f)] public float breakSoundVolume = 0.9f;
-        [Tooltip("Minimum damage required to spawn impact particle if crate not yet broken")] public float minParticleDamage = 1f;
+        [Tooltip("Minimum damage required to spawn impact particle if crate not yet broken")]
+        public float minParticleDamage = 1f;
 
         [Header("Fall Impact Bonus")]
-        [Tooltip("Multiplier applied to fall damage coming from player (set via PlayerActions)")] public float fallDamageMultiplier = 1f;
+        [Tooltip("Multiplier applied to fall damage coming from player (set via PlayerActions)")]
+        public float fallDamageMultiplier = 1f;
 
         private bool _isBroken;
 

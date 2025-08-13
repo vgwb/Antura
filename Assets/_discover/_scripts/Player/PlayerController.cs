@@ -20,28 +20,33 @@ namespace Antura.Discover
     [RequireComponent(typeof(PlayerInput))]
     public class PlayerController : MonoBehaviour
     {
-        [Header("Player")]
-        public CatAnimationController animationController;
+        [Header("Player Status (debug)")]
+        [ReadOnly]
+        public PlayerState CurrentState = PlayerState.Idle;
+        [ReadOnly]
+        public bool isGrounded = true;
+        [ReadOnly]
+        public bool isOnSlope = false;
 
-        [Header("Idle Behavior")]
+        [Header("Idle")]
         [Tooltip("Time before sitting animation plays")]
         public float TimeToSit = 10.0f;
 
         [Tooltip("Time before sleeping animation plays")]
         public float TimeToSleep = 30.0f;
 
-        [Header("Movement Settings")]
-        [Tooltip("Move speed of the character in m/s")]
-        public float MoveSpeed = 2.0f;
+        [Header("Movement")]
+        [Tooltip("Walk speed of the character in m/s")]
+        public float WalkSpeed = 2.0f;
 
-        [Tooltip("Sprint speed of the character in m/s")]
-        public float SprintSpeed = 4.0f;
+        [Tooltip("Run speed of the character in m/s")]
+        public float RunSpeed = 4.0f;
 
-        [Tooltip("Time of walking before auto-sprint kicks in")]
-        public float TimeToAutoSprint = 3.0f;
+        [Tooltip("Time of walking before auto-run")]
+        public float TimeToAutoRun = 3.0f;
 
-        [Tooltip("How fast the character accelerates to sprint")]
-        public float SprintAcceleration = 2.0f;
+        [Tooltip("How fast the character accelerates to run")]
+        public float RunAcceleration = 2.0f;
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -54,24 +59,16 @@ namespace Antura.Discover
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
-        [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
-        public float Gravity = -15.0f;
-
-        [Space(10)]
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
+
+        [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
+        public float Gravity = -15.0f;
 
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
 
-        [Header("Player States")]
-        public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
-
-        [Header("Player Grounded")]
-        [Tooltip("If the character is grounded or not")]
-        public bool isGrounded = true;
-        public bool isOnSlope = false;
-
+        [Header("Grounded")]
         [Tooltip("Useful for rough ground")]
         public float GroundedOffset = -0.14f;
 
@@ -121,7 +118,10 @@ namespace Antura.Discover
         [Tooltip("Layer mask for destructible objects")]
         public LayerMask destructibleLayers;
 
-        // Events
+        [Header("References")]
+        public CatAnimationController animationController;
+
+
         public delegate void FallDamageEvent(float fallHeight, float damage, GameObject hitObject);
         public event FallDamageEvent OnFallDamage;
 
@@ -149,7 +149,7 @@ namespace Antura.Discover
         private Vector3 _moveVelocity;
         private Vector3 _slideVelocity; // Separate slide velocity for smooth sliding
 
-        // Auto-sprint
+        // Auto-run
         private float _walkingTime = 0f;
         private bool _isAutoSprinting = false;
 
@@ -290,7 +290,7 @@ namespace Antura.Discover
                 _walkingTime += Time.deltaTime;
 
                 // Start auto-sprint after walking for TimeToAutoSprint seconds
-                if (_walkingTime >= TimeToAutoSprint && !_isAutoSprinting)
+                if (_walkingTime >= TimeToAutoRun && !_isAutoSprinting)
                 {
                     _isAutoSprinting = true;
                     Debug.Log("Auto-sprint activated!");
@@ -310,17 +310,17 @@ namespace Antura.Discover
             {
                 if (isSprinting)
                 {
-                    targetSpeed = SprintSpeed;
+                    targetSpeed = RunSpeed;
                 }
                 else
                 {
-                    targetSpeed = MoveSpeed;
+                    targetSpeed = WalkSpeed;
 
                     // Gradual acceleration to sprint during auto-sprint transition
-                    if (_walkingTime > 0 && _walkingTime < TimeToAutoSprint)
+                    if (_walkingTime > 0 && _walkingTime < TimeToAutoRun)
                     {
-                        float sprintProgress = _walkingTime / TimeToAutoSprint;
-                        targetSpeed = Mathf.Lerp(MoveSpeed, SprintSpeed * 0.8f, sprintProgress * sprintProgress);
+                        float sprintProgress = _walkingTime / TimeToAutoRun;
+                        targetSpeed = Mathf.Lerp(WalkSpeed, RunSpeed * 0.8f, sprintProgress * sprintProgress);
                     }
                 }
 
@@ -333,8 +333,8 @@ namespace Antura.Discover
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
             // Use different acceleration rates for sprint
-            float currentSpeedChangeRate = isSprinting && _walkingTime > TimeToAutoSprint ?
-                SprintAcceleration : SpeedChangeRate;
+            float currentSpeedChangeRate = isSprinting && _walkingTime > TimeToAutoRun ?
+                RunAcceleration : SpeedChangeRate;
 
             // Accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
@@ -450,11 +450,11 @@ namespace Antura.Discover
                 }
                 else if (isSprinting)
                 {
-                    animSpeed = Mathf.Lerp(0.3f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
+                    animSpeed = Mathf.Lerp(0.3f, 1f, (_speed - WalkSpeed) / (RunSpeed - WalkSpeed));
                 }
                 else
                 {
-                    animSpeed = Mathf.Lerp(0f, 0.3f, _speed / MoveSpeed);
+                    animSpeed = Mathf.Lerp(0f, 0.3f, _speed / WalkSpeed);
                 }
 
                 animationController.WalkingSpeed = animSpeed;
@@ -672,7 +672,7 @@ namespace Antura.Discover
             }
             else if (_speed > 0.1f)
             {
-                bool isSprinting = _input.sprint || _isAutoSprinting || _speed > (MoveSpeed + 0.5f);
+                bool isSprinting = _input.sprint || _isAutoSprinting || _speed > (WalkSpeed + 0.5f);
                 CurrentState = isSprinting ? PlayerState.Running : PlayerState.Walking;
             }
             else
