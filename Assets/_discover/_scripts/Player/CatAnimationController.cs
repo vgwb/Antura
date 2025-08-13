@@ -308,7 +308,7 @@ namespace Antura.Discover
 
         void OnStateChanged(CatAnimationStates oldState, CatAnimationStates newState)
         {
-            Debug.Log($"CatAnimationController: OnStateChanged from {oldState} to {newState}");
+            //            Debug.Log($"CatAnimationController: OnStateChanged from {oldState} to {newState}");
             if (newState != CatAnimationStates.walking)
             {
                 animator.SetBool("slipping", false);

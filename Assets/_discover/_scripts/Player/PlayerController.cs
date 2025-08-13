@@ -101,6 +101,30 @@ namespace Antura.Discover
         [Range(0f, 1f)]
         public float slopeControlAmount = 0.3f;
 
+        [Tooltip("Speed multiplier when walking on slopes (not sliding)")]
+        [HideInInspector]
+        public AnimationCurve slopeSpeedCurve = AnimationCurve.Linear(0f, 1f, 45f, 1.2f); // Deprecated - kept hidden for backward serialization safety
+
+        [Header("Simplified Slope Movement Tuning")]
+        [Tooltip("Max fractional speed reduction at the slope limit when moving uphill (0 = none, 0.3 = up to 30% slower at limit)")]
+        [Range(0f, 0.6f)] public float uphillMaxSlowdown = 0.15f;
+        [Tooltip("Max fractional speed boost at the slope limit when moving downhill (0 = none, 0.3 = up to 30% faster at limit)")]
+        [Range(0f, 0.6f)] public float downhillMaxBoost = 0.08f;
+
+        [Header("Fall Damage")]
+        [Tooltip("Minimum fall height to trigger fall damage event (meters)")]
+        public float minFallHeight = 5f;
+
+        [Tooltip("Damage multiplier based on fall height")]
+        public float fallDamageMultiplier = 10f;
+
+        [Tooltip("Layer mask for destructible objects")]
+        public LayerMask destructibleLayers;
+
+        // Events
+        public delegate void FallDamageEvent(float fallHeight, float damage, GameObject hitObject);
+        public event FallDamageEvent OnFallDamage;
+
         // Public properties for external access
         public bool IsGrounded => isGrounded;
         public bool IsOnSlope => isOnSlope;
@@ -113,6 +137,10 @@ namespace Antura.Discover
         public Vector3 Velocity => new Vector3(_moveVelocity.x + _slideVelocity.x, _verticalVelocity, _moveVelocity.z + _slideVelocity.z);
         public float WalkingTime => _walkingTime;
 
+        public bool IsSitting => _isSitting;
+        public bool IsSleeping => _isSleeping;
+        public float IdleTime => _idleTime;
+        // player
         private float _speed;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
@@ -129,6 +157,11 @@ namespace Antura.Discover
         private float _idleTime = 0f;
         private bool _isSitting = false;
         private bool _isSleeping = false;
+
+        // Fall tracking
+        private float _fallStartHeight = 0f;
+        private bool _isTrackingFall = false;
+        private GameObject _landedOnObject = null;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
@@ -179,18 +212,27 @@ namespace Antura.Discover
         {
             _wasGrounded = isGrounded;
 
+            // Sphere cast for ground detection - more reliable than CheckSphere
             Vector3 spherePosition = transform.position + (Vector3.up * GroundedRadius);
             float checkDistance = GroundedRadius + GroundedOffset + 0.1f;
 
+            // Use SphereCast for better ground detection
+            RaycastHit groundHit;
             isGrounded = Physics.SphereCast(
                 spherePosition,
                 GroundedRadius,
                 Vector3.down,
-                out RaycastHit groundHit,
+                out groundHit,
                 checkDistance,
                 GroundLayers,
                 QueryTriggerInteraction.Ignore
             );
+
+            // Store the object we're standing on
+            if (isGrounded && groundHit.collider != null)
+            {
+                _landedOnObject = groundHit.collider.gameObject;
+            }
 
             // Also check CharacterController's grounded state as backup
             if (!isGrounded && _controller.isGrounded)
@@ -198,6 +240,7 @@ namespace Antura.Discover
                 isGrounded = true;
             }
 
+            // Slope detection with better raycast
             isOnSlope = false;
             _slopeAngle = 0f;
 
@@ -219,6 +262,11 @@ namespace Antura.Discover
             if (isGrounded && !_wasGrounded)
             {
                 OnLanded();
+            }
+            // Start tracking fall
+            else if (!isGrounded && _wasGrounded)
+            {
+                OnStartFalling();
             }
 
             // Void check
@@ -327,8 +375,10 @@ namespace Antura.Discover
                     // Calculate slide direction (down the slope)
                     Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, _slopeNormal).normalized;
 
-                    // Accelerate slide velocity up to max speed
-                    float targetSlideSpeed = Mathf.Min(slideSpeed + (_slopeAngle - _controller.slopeLimit) * 0.2f, maxSlideSpeed);
+                    // Accelerate slide velocity up to max speed (faster sliding with steeper angles)
+                    float angleMultiplier = (_slopeAngle - _controller.slopeLimit) / (90f - _controller.slopeLimit);
+                    float targetSlideSpeed = Mathf.Lerp(slideSpeed, maxSlideSpeed, angleMultiplier);
+
                     _slideVelocity = Vector3.Lerp(_slideVelocity, slideDirection * targetSlideSpeed,
                         Time.deltaTime * slideAcceleration);
 
@@ -350,12 +400,29 @@ namespace Antura.Discover
                 }
                 else
                 {
-                    // Normal slope movement (walkable slopes)
-                    targetDirection = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
-                    _moveVelocity = targetDirection * _speed;
+                    // Walkable slope movement (simplified): project movement onto slope plane
+                    Vector3 slopeDir = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
 
-                    // Gradually reduce slide velocity on walkable slopes
-                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 5f);
+                    // Determine if moving uphill (positive vertical component) or downhill (negative)
+                    bool movingUphill = slopeDir.y > 0.01f;
+                    bool movingDownhill = slopeDir.y < -0.01f;
+
+                    // Normalized angle factor (0 at flat, 1 at slope limit)
+                    float angleFactor = Mathf.Clamp01(_slopeAngle / Mathf.Max(1f, _controller.slopeLimit));
+                    float speedMultiplier = 1f;
+                    if (movingUphill)
+                    {
+                        speedMultiplier -= uphillMaxSlowdown * angleFactor; // up to X% slower near limit
+                    }
+                    else if (movingDownhill)
+                    {
+                        speedMultiplier += downhillMaxBoost * angleFactor; // small boost downhill
+                    }
+
+                    _moveVelocity = slopeDir * _speed * speedMultiplier;
+
+                    // Kill residual slide velocity quickly on walkable slopes
+                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 6f);
                 }
             }
             else
@@ -379,15 +446,15 @@ namespace Antura.Discover
                 float animSpeed = 0f;
                 if (_slideVelocity.magnitude > 1f)
                 {
-                    animSpeed = 0.4f; // Sliding animation
+                    animSpeed = 0.5f; // Sliding animation
                 }
                 else if (isSprinting)
                 {
-                    animSpeed = Mathf.Lerp(0.2f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
+                    animSpeed = Mathf.Lerp(0.3f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
                 }
                 else
                 {
-                    animSpeed = Mathf.Lerp(0f, 0.2f, _speed / MoveSpeed);
+                    animSpeed = Mathf.Lerp(0f, 0.3f, _speed / MoveSpeed);
                 }
 
                 animationController.WalkingSpeed = animSpeed;
@@ -505,6 +572,40 @@ namespace Antura.Discover
 
             // Reset vertical velocity
             _verticalVelocity = -2f;
+
+            // Fall damage evaluation
+            if (_isTrackingFall)
+            {
+                _isTrackingFall = false;
+                float fallHeight = _fallStartHeight - transform.position.y;
+                if (fallHeight >= minFallHeight)
+                {
+                    float damage = (fallHeight - minFallHeight) * fallDamageMultiplier;
+                    if (damage < 0)
+                        damage = 0;
+
+                    // Determine if landed on a destructible object (layer mask check)
+                    GameObject hitObject = _landedOnObject;
+                    if (hitObject != null)
+                    {
+                        int layerMask = 1 << hitObject.layer;
+                        if ((destructibleLayers.value & layerMask) == 0)
+                        {
+                            // Not destructible; keep object reference anyway
+                        }
+                    }
+
+                    OnFallDamage?.Invoke(fallHeight, damage, hitObject);
+                    //                    Debug.Log($"FallDamage: height={fallHeight:F2} damage={damage:F1}");
+                }
+            }
+        }
+
+        private void OnStartFalling()
+        {
+            // Start tracking only if we are beginning to descend
+            _fallStartHeight = transform.position.y;
+            _isTrackingFall = true;
         }
 
         public void SpawnToNewLocation(Transform newLocation)

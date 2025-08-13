@@ -105,6 +105,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7101564007038771914}
   - component: {fileID: 3744103283373756085}
+  - component: {fileID: 4062494910965071144}
   - component: {fileID: 3417226552754281088}
   - component: {fileID: 448008798303200391}
   - component: {fileID: 1064013541824964877}
@@ -148,6 +149,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 3417226552754281088}
+--- !u!114 &4062494910965071144
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502568018897201893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9dc0cb7539f0b45f9b08ed5146ab6500, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 3417226552754281088}
 --- !u!114 &3417226552754281088
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -171,8 +185,8 @@ MonoBehaviour:
   SpeedChangeRate: 10
   JumpHeight: 1.2
   Gravity: -15
-  JumpTimeout: 0.5
-  FallTimeout: 0.15
+  JumpTimeout: 0.1
+  FallTimeout: 1
   isGrounded: 1
   isOnSlope: 0
   GroundedOffset: -0.14
@@ -186,6 +200,37 @@ MonoBehaviour:
   slopeForceDown: 5
   allowSlopeControl: 1
   slopeControlAmount: 0.3
+  slopeSpeedCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: -11.625
+      value: 1.1214294
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 45
+      value: 1.2
+      inSlope: 0.0044444455
+      outSlope: 0.0044444455
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  uphillMaxSlowdown: 0.213
+  downhillMaxBoost: 0.08
+  minFallHeight: 4
+  fallDamageMultiplier: 10
+  destructibleLayers:
+    serializedVersion: 2
+    m_Bits: 1
 --- !u!114 &448008798303200391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -217,9 +262,9 @@ CharacterController:
   m_Enabled: 1
   serializedVersion: 3
   m_Height: 0.58
-  m_Radius: 0.3
-  m_SlopeLimit: 49
-  m_StepOffset: 0.25
+  m_Radius: 0.26
+  m_SlopeLimit: 60
+  m_StepOffset: 0.4
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.32, z: 0}
