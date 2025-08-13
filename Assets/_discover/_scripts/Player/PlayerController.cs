@@ -1,6 +1,4 @@
 using Antura.Audio;
-using Antura.Dog;
-using Antura.Discover.Interaction;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -8,17 +6,23 @@ namespace Antura.Discover
 {
     [RequireComponent(typeof(CharacterController))]
     [RequireComponent(typeof(PlayerInput))]
-
     public class PlayerController : MonoBehaviour
     {
         [Header("Player")]
         public CatAnimationController anturaAnimation;
 
+        [Header("Movement Settings")]
         [Tooltip("Move speed of the character in m/s")]
         public float MoveSpeed = 2.0f;
 
         [Tooltip("Sprint speed of the character in m/s")]
         public float SprintSpeed = 5.335f;
+
+        [Tooltip("Time of walking before auto-sprint kicks in")]
+        public float TimeToAutoSprint = 3.0f;
+
+        [Tooltip("How fast the character accelerates to sprint")]
+        public float SprintAcceleration = 2.0f;
 
         [Tooltip("How fast the character turns to face movement direction")]
         [Range(0.0f, 0.3f)]
@@ -31,13 +35,6 @@ namespace Antura.Discover
         [Tooltip("The height the player can jump")]
         public float JumpHeight = 1.2f;
 
-        [Space(10)]
-        [Tooltip("The height the player can jump mid air")]
-        public float MidAirJumpHeight = 1.2f;
-
-        [Tooltip("Number of jumps the player can perform before landing")]
-        public int MaxJumps = 2;
-
         [Tooltip("The character uses its own gravity value. The engine default is -9.81f")]
         public float Gravity = -15.0f;
 
@@ -45,14 +42,14 @@ namespace Antura.Discover
         [Tooltip("Time required to pass before being able to jump again. Set to 0f to instantly jump again")]
         public float JumpTimeout = 0.50f;
 
-        [Tooltip("Time required to pass before being able to jump again mid air. Set to 0f to instantly jump again")]
-        public float MidAirJumpTimeout = 0.50f;
-
         [Tooltip("Time required to pass before entering the fall state. Useful for walking down stairs")]
         public float FallTimeout = 0.15f;
 
+        [Header("Player States")]
+        public PlayerState CurrentState { get; private set; } = PlayerState.Idle;
+
         [Header("Player Grounded")]
-        [Tooltip("If the character is grounded or not. Not part of the CharacterController built in grounded check")]
+        [Tooltip("If the character is grounded or not")]
         public bool isGrounded = true;
         public bool isOnSlope = false;
 
@@ -65,25 +62,77 @@ namespace Antura.Discover
         [Tooltip("What layers the character uses as ground")]
         public LayerMask GroundLayers;
 
+        [Header("Slope Settings")]
+        [Tooltip("Speed of sliding down slopes")]
+        public float slideSpeed = 5f;
+
+        [Tooltip("Acceleration of sliding (makes it feel more natural)")]
+        public float slideAcceleration = 10f;
+
+        [Tooltip("Maximum slide speed")]
+        public float maxSlideSpeed = 12f;
+
+        [Tooltip("Extra downward force to keep grounded on slopes")]
+        public float slopeForceDown = 5f;
+
+        [Tooltip("Can the player control movement while sliding?")]
+        public bool allowSlopeControl = true;
+
+        [Tooltip("How much control player has while sliding (0-1)")]
+        [Range(0f, 1f)]
+        public float slopeControlAmount = 0.3f;
+
+        // Player states enum
+        public enum PlayerState
+        {
+            Idle,
+            Walking,
+            Running,
+            Jumping,
+            Falling,
+            Sliding
+        }
+
+        // Public properties for external access
+        public bool IsGrounded => isGrounded;
+        public bool IsOnSlope => isOnSlope;
+        public bool IsMoving => _speed > 0.1f || _slideVelocity.magnitude > 0.1f;
+        public bool IsJumping => _hasJumped && !isGrounded;
+        public bool IsSliding => isOnSlope && _slopeAngle > _controller.slopeLimit;
+        public bool IsAutoSprinting => _isAutoSprinting;
+        public Vector2 CurrentMoveInput => _input?.move ?? Vector2.zero;
+        public float CurrentSpeed => _speed;
+        public Vector3 Velocity => new Vector3(_moveVelocity.x + _slideVelocity.x, _verticalVelocity, _moveVelocity.z + _slideVelocity.z);
+        public float WalkingTime => _walkingTime;
+
         // player
         private float _speed;
-        private float _animationBlend;
         private float _targetRotation = 0.0f;
         private float _rotationVelocity;
         private float _verticalVelocity;
         private float _terminalVelocity = 53.0f;
-        public float slideSpeed = 5f;
+        private Vector3 _moveVelocity;
+        private Vector3 _slideVelocity; // Separate slide velocity for smooth sliding
+
+        // Auto-sprint
+        private float _walkingTime = 0f;
+        private bool _isAutoSprinting = false;
 
         // timeout deltatime
         private float _jumpTimeoutDelta;
-        private float _midAirJumpTimeoutDelta;
         private float _fallTimeoutDelta;
-        private int _nCurrentJump;
+        private bool _hasJumped;
+        private bool _wasGrounded;
 
         private PlayerInput _playerInput;
         private CharacterController _controller;
         private StarterAssetsInputs _input;
         private GameObject _mainCamera;
+
+        // Slope detection
+        private RaycastHit _slopeHit;
+        private Vector3 _slopeNormal;
+        private float _slopeAngle;
 
         private void Awake()
         {
@@ -101,44 +150,72 @@ namespace Antura.Discover
 
             // reset our timeouts on start
             _jumpTimeoutDelta = JumpTimeout;
-            _midAirJumpTimeoutDelta = MidAirJumpTimeout;
             _fallTimeoutDelta = FallTimeout;
         }
 
         private void Update()
         {
-            JumpAndGravity();
             GroundedCheck();
             Move();
+            JumpAndGravity();
+            ApplyMovement();
+            UpdatePlayerState();
         }
-
-        Vector3 spherePosition;
-        private RaycastHit SlopeHit;
 
         private void GroundedCheck()
         {
-            // set sphere position, with offset
-            spherePosition = new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z);
-            isGrounded = Physics.CheckSphere(spherePosition, GroundedRadius, GroundLayers, QueryTriggerInteraction.Ignore);
-            // why this custom methid instead of using native:
-            // Grounded = _controller.isGrounded;
+            _wasGrounded = isGrounded;
 
-            if (Physics.Raycast(transform.position, Vector3.down, out SlopeHit, _controller.height / 2 + 0.1f))
+            // Sphere cast for ground detection - more reliable than CheckSphere
+            Vector3 spherePosition = transform.position + (Vector3.up * GroundedRadius);
+            float checkDistance = GroundedRadius + GroundedOffset + 0.1f;
+
+            // Use SphereCast for better ground detection
+            isGrounded = Physics.SphereCast(
+                spherePosition,
+                GroundedRadius,
+                Vector3.down,
+                out RaycastHit groundHit,
+                checkDistance,
+                GroundLayers,
+                QueryTriggerInteraction.Ignore
+            );
+
+            // Also check CharacterController's grounded state as backup
+            if (!isGrounded && _controller.isGrounded)
             {
-                float slopeAngle = Vector3.Angle(SlopeHit.normal, Vector3.up);
-                isOnSlope = slopeAngle > _controller.slopeLimit;
-            }
-            else
-            {
-                isOnSlope = false;
+                isGrounded = true;
             }
 
-            // if we accidently fall in the void
+            // Slope detection with better raycast
+            isOnSlope = false;
+            _slopeAngle = 0f;
+
+            if (Physics.Raycast(
+                transform.position + (Vector3.up * 0.1f), // Start slightly above ground
+                Vector3.down,
+                out _slopeHit,
+                _controller.height / 2 + 0.5f,
+                GroundLayers))
+            {
+                _slopeNormal = _slopeHit.normal;
+                _slopeAngle = Vector3.Angle(_slopeNormal, Vector3.up);
+
+                // Check if we're on a slope (not flat ground, not a wall)
+                isOnSlope = _slopeAngle > 5f && _slopeAngle < 85f;
+            }
+
+            // Landing detection
+            if (isGrounded && !_wasGrounded)
+            {
+                OnLanded();
+            }
+
+            // Void check
             if (transform.position.y < -30)
             {
                 ActionManager.I.RespawnPlayer();
             }
-
         }
 
         private void Move()
@@ -146,53 +223,67 @@ namespace Antura.Discover
             if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
 
-            bool isSprinting = _input.sprint;
+            // Check for auto-sprint
+            bool isSprinting = _input.sprint || _isAutoSprinting;
 
-            // set target speed based on move speed, sprint speed and if sprint is pressed
-            float targetSpeed = isSprinting ? SprintSpeed : MoveSpeed;
-
-            // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
-
-            // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is no input, set the target speed to 0
-            if (_input.move == Vector2.zero)
+            // Update walking timer for auto-sprint
+            if (_input.move != Vector2.zero && isGrounded && !isOnSlope)
             {
-                targetSpeed = 0.0f;
-            }
-            else
-            {
-                targetSpeed *= _input.move.magnitude;
-                if (targetSpeed >= SprintSpeed)
+                _walkingTime += Time.deltaTime;
+
+                // Start auto-sprint after walking for TimeToAutoSprint seconds
+                if (_walkingTime >= TimeToAutoSprint && !_isAutoSprinting)
                 {
-                    targetSpeed = SprintSpeed;
-                    isSprinting = true;
+                    _isAutoSprinting = true;
+                    Debug.Log("Auto-sprint activated!");
                 }
             }
+            else if (_input.move == Vector2.zero)
+            {
+                // Reset auto-sprint when stopping
+                _walkingTime = 0f;
+                _isAutoSprinting = false;
+            }
 
-            // a reference to the players current horizontal velocity
-            float currentHorizontalSpeed = new Vector3(_controller.velocity.x, 0.0f, _controller.velocity.z).magnitude;
+            // Set target speed based on movement state
+            float targetSpeed = 0f;
 
+            if (_input.move != Vector2.zero)
+            {
+                if (isSprinting)
+                {
+                    targetSpeed = SprintSpeed;
+                }
+                else
+                {
+                    targetSpeed = MoveSpeed;
+
+                    // Gradual acceleration to sprint during auto-sprint transition
+                    if (_walkingTime > 0 && _walkingTime < TimeToAutoSprint)
+                    {
+                        float sprintProgress = _walkingTime / TimeToAutoSprint;
+                        targetSpeed = Mathf.Lerp(MoveSpeed, SprintSpeed * 0.8f, sprintProgress * sprintProgress);
+                    }
+                }
+
+                targetSpeed *= _input.move.magnitude;
+            }
+
+            // Current horizontal speed
+            float currentHorizontalSpeed = new Vector3(_moveVelocity.x, 0.0f, _moveVelocity.z).magnitude;
             float speedOffset = 0.1f;
             float inputMagnitude = _input.analogMovement ? _input.move.magnitude : 1f;
 
-            // Check if the character is on a steep slope
-            if (isGrounded && isOnSlope)
-            {
-                Vector3 slideDirection = new Vector3(SlopeHit.normal.x, -SlopeHit.normal.y, SlopeHit.normal.z);
-                currentHorizontalSpeed += slideDirection.x * slideSpeed;
-                _verticalVelocity += slideDirection.y * slideSpeed;
-            }
+            // Use different acceleration rates for sprint
+            float currentSpeedChangeRate = isSprinting && _walkingTime > TimeToAutoSprint ?
+                SprintAcceleration : SpeedChangeRate;
 
-            // accelerate or decelerate to target speed
+            // Accelerate or decelerate to target speed
             if (currentHorizontalSpeed < targetSpeed - speedOffset ||
                 currentHorizontalSpeed > targetSpeed + speedOffset)
             {
-                // creates curved result rather than a linear one giving a more organic speed change
-                // note T in Lerp is clamped, so we don't need to clamp our speed
                 _speed = Mathf.Lerp(currentHorizontalSpeed, targetSpeed * inputMagnitude,
-                    Time.deltaTime * SpeedChangeRate);
-
-                // round speed to 3 decimal places
+                    Time.deltaTime * currentSpeedChangeRate);
                 _speed = Mathf.Round(_speed * 1000f) / 1000f;
             }
             else
@@ -200,38 +291,96 @@ namespace Antura.Discover
                 _speed = targetSpeed;
             }
 
-            //_animationBlend = Mathf.Lerp(_animationBlend, targetSpeed, Time.deltaTime * SpeedChangeRate);
-            // if (_animationBlend < 0.01f)
-            // _animationBlend = 0f;
-
-            // normalise input direction
+            // Input direction
             Vector3 inputDirection = new Vector3(_input.move.x, 0.0f, _input.move.y).normalized;
-            InputManager.SetCurrMovementVector(inputDirection); // Very important since now it's set from here, so other elements can check the current movement vector from InputManager
+            InputManager.SetCurrMovementVector(inputDirection);
 
-            // note: Vector2's != operator uses approximation so is not floating point error prone, and is cheaper than magnitude
-            // if there is a move input rotate player when the player is moving
+            // Rotation
             if (_input.move != Vector2.zero)
             {
                 _targetRotation = Mathf.Atan2(inputDirection.x, inputDirection.z) * Mathf.Rad2Deg +
                                   _mainCamera.transform.eulerAngles.y;
                 float rotation = Mathf.SmoothDampAngle(transform.eulerAngles.y, _targetRotation, ref _rotationVelocity,
                     RotationSmoothTime);
-
-                // rotate to face input direction relative to camera position
                 transform.rotation = Quaternion.Euler(0.0f, rotation, 0.0f);
             }
 
+            // Calculate movement direction
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
-            // move the player
-            _controller.Move(targetDirection.normalized * (_speed * Time.deltaTime) +
-                             new Vector3(0.0f, _verticalVelocity, 0.0f) * Time.deltaTime);
+            // Handle slope movement
+            if (isGrounded && isOnSlope)
+            {
+                // Check if on a steep slope that should cause sliding
+                if (_slopeAngle > _controller.slopeLimit)
+                {
+                    // Calculate slide direction (down the slope)
+                    Vector3 slideDirection = Vector3.ProjectOnPlane(Vector3.down, _slopeNormal).normalized;
 
-            // update animator if using character
-            if (_speed > 0f)
+                    // Accelerate slide velocity up to max speed
+                    float targetSlideSpeed = Mathf.Min(slideSpeed + (_slopeAngle - _controller.slopeLimit) * 0.2f, maxSlideSpeed);
+                    _slideVelocity = Vector3.Lerp(_slideVelocity, slideDirection * targetSlideSpeed,
+                        Time.deltaTime * slideAcceleration);
+
+                    // Allow limited control while sliding
+                    if (allowSlopeControl && _input.move != Vector2.zero)
+                    {
+                        // Project input onto slope plane for some control
+                        Vector3 slopeMovement = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
+                        _moveVelocity = slopeMovement * _speed * slopeControlAmount;
+                    }
+                    else
+                    {
+                        _moveVelocity = Vector3.zero;
+                    }
+
+                    // Reset sprint timer while sliding
+                    _walkingTime = 0f;
+                    _isAutoSprinting = false;
+                }
+                else
+                {
+                    // Normal slope movement (walkable slopes)
+                    targetDirection = Vector3.ProjectOnPlane(targetDirection, _slopeNormal).normalized;
+                    _moveVelocity = targetDirection * _speed;
+
+                    // Gradually reduce slide velocity on walkable slopes
+                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 5f);
+                }
+            }
+            else
+            {
+                // Normal movement (flat ground or in air)
+                _moveVelocity = targetDirection * _speed;
+
+                // Gradually reduce slide velocity when not on slope
+                if (!isOnSlope)
+                {
+                    _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 3f);
+                }
+            }
+
+            // Update animation
+            if (_speed > 0f || _slideVelocity.magnitude > 0.1f)
             {
                 anturaAnimation.State = CatAnimationStates.walking;
-                anturaAnimation.WalkingSpeed = isSprinting ? Mathf.Lerp(0, 1, _speed * 1f) : 0f;
+
+                // Animation speed based on movement type
+                float animSpeed = 0f;
+                if (_slideVelocity.magnitude > 1f)
+                {
+                    animSpeed = 0.5f; // Sliding animation
+                }
+                else if (isSprinting)
+                {
+                    animSpeed = Mathf.Lerp(0.3f, 1f, (_speed - MoveSpeed) / (SprintSpeed - MoveSpeed));
+                }
+                else
+                {
+                    animSpeed = Mathf.Lerp(0f, 0.3f, _speed / MoveSpeed);
+                }
+
+                anturaAnimation.WalkingSpeed = animSpeed;
             }
             else
             {
@@ -240,143 +389,193 @@ namespace Antura.Discover
 
             if (targetSpeed > 0)
                 DiscoverNotifier.Game.OnPlayerMoved.Dispatch();
-
-            // if (_hasAnimator)
-            // {
-            //     _animator.SetFloat(_animIDSpeed, _animationBlend);
-            //     _animator.SetFloat(_animIDMotionSpeed, inputMagnitude);
-            // }
         }
 
-        bool inAir;
-        bool justJumped;
         private void JumpAndGravity()
         {
-            if (isGrounded && !isOnSlope)
+            if (isGrounded)
             {
-                anturaAnimation.animator.speed = 1f;
-                if (inAir)
-                {
-                    inAir = false;
-                    justJumped = false;
-                    AudioManager.I.PlaySound(Sfx.BushRustlingIn);
-                }
-            }
-            else
-            {
-                anturaAnimation.animator.speed = 2f;
-                inAir = true;
-            }
-
-            if (isGrounded && !isOnSlope)
-            {
-                if (_nCurrentJump > 0)
-                {
-                    _nCurrentJump = 0;
-                    anturaAnimation.OnJumpEnded();
-                }
-
-                // reset the fall timeout timer
+                // Reset fall timeout
                 _fallTimeoutDelta = FallTimeout;
 
-                // update animator if using character
-                // if (_hasAnimator)
-                // {
-                //     _animator.SetBool(_animIDJump, false);
-                //     _animator.SetBool(_animIDFreeFall, false);
-                // }
-
-                // stop our velocity dropping infinitely when grounded
+                // Keep a small downward force when grounded for better ground detection
                 if (_verticalVelocity < 0.0f)
                 {
                     _verticalVelocity = -2f;
+
+                    // Extra downward force on slopes to prevent bouncing
+                    if (isOnSlope && !_hasJumped)
+                    {
+                        _verticalVelocity = -slopeForceDown;
+                    }
                 }
 
-                // Jumps
-                if (_input.jump && _jumpTimeoutDelta <= 0.0f)
+                // Jump
+                if (_input.jump && _jumpTimeoutDelta <= 0.0f && !_hasJumped)
                 {
-                    // the square root of H * -2 * G = how much velocity needed to reach desired height
                     _verticalVelocity = Mathf.Sqrt(JumpHeight * -2f * Gravity);
-                    _nCurrentJump = 1;
-                    _midAirJumpTimeoutDelta = JumpTimeout;
+                    _hasJumped = true;
                     anturaAnimation.OnJumpStart();
-
-                    // update animator if using character
-                    // if (_hasAnimator)
-                    // {
-                    //     _animator.SetBool(_animIDJump, true);
-                    // }
+                    AudioManager.I.PlaySound(Sfx.CatMeow);
                 }
 
-                // jump timeout
+                // Jump timeout
                 if (_jumpTimeoutDelta >= 0.0f)
                 {
                     _jumpTimeoutDelta -= Time.deltaTime;
                 }
-
-                if (_verticalVelocity > 0.0f && !justJumped)
-                {
-                    justJumped = true;
-                    AudioManager.I.PlaySound(Sfx.CatMeow);
-                }
             }
             else
             {
-                // reset the jump timeout timer
+                // In air
                 _jumpTimeoutDelta = JumpTimeout;
 
-                // fall timeout
+                // Fall timeout
                 if (_fallTimeoutDelta >= 0.0f)
                 {
                     _fallTimeoutDelta -= Time.deltaTime;
                 }
-                else
-                {
-                    // update animator if using character
-                    // if (_hasAnimator)
-                    // {
-                    //     _animator.SetBool(_animIDFreeFall, true);
-                    // }
-                }
 
-                if (_nCurrentJump > 0 && _nCurrentJump < MaxJumps && _input.jump && _midAirJumpTimeoutDelta <= 0.0f)
-                {
-                    // Double-jump
-                    _verticalVelocity = Mathf.Sqrt(MidAirJumpHeight * -2f * Gravity);
-                    _nCurrentJump++;
-                }
-                else
-                {
-                    // if we are not grounded, do not jump
-                    _input.jump = false;
-                }
+                // Clear jump input when not grounded
+                _input.jump = false;
 
-                if (_midAirJumpTimeoutDelta >= 0.0f)
-                {
-                    _midAirJumpTimeoutDelta -= Time.deltaTime;
-                }
+                // Set animation speed for air
+                anturaAnimation.animator.speed = 2f;
             }
 
-            // apply gravity over time if under terminal (multiply by delta time twice to linearly speed up over time)
+            // Apply gravity - ALWAYS apply gravity, even when grounded
             if (_verticalVelocity < _terminalVelocity)
             {
                 _verticalVelocity += Gravity * Time.deltaTime;
             }
         }
 
-        public void SpawnToNewLocation(Transform newLocation)
+        private void ApplyMovement()
         {
-            // TODO MAYBE A TRANSITION?
-            transform.SetPositionAndRotation(newLocation.position, newLocation.rotation);
+            // Combine all movement components
+            Vector3 horizontalMovement = _moveVelocity + _slideVelocity;
+            Vector3 motion = horizontalMovement + Vector3.up * _verticalVelocity;
+
+            // Apply movement
+            _controller.Move(motion * Time.deltaTime);
+
+            // Update actual velocity after move (for external systems)
+            _moveVelocity.x = _controller.velocity.x;
+            _moveVelocity.z = _controller.velocity.z;
+
+            // If the controller says we're grounded after moving, we're grounded
+            if (_controller.isGrounded && _verticalVelocity < 0)
+            {
+                isGrounded = true;
+            }
         }
 
-        private static float ClampAngle(float lfAngle, float lfMin, float lfMax)
+        private void OnLanded()
         {
-            if (lfAngle < -360f)
-                lfAngle += 360f;
-            if (lfAngle > 360f)
-                lfAngle -= 360f;
-            return Mathf.Clamp(lfAngle, lfMin, lfMax);
+            // Reset jump flag
+            _hasJumped = false;
+
+            // Animation
+            anturaAnimation.OnJumpEnded();
+            anturaAnimation.animator.speed = 1f;
+
+            // Sound
+            AudioManager.I.PlaySound(Sfx.BushRustlingIn);
+
+            // Reset vertical velocity
+            _verticalVelocity = -2f;
+        }
+
+        public void SpawnToNewLocation(Transform newLocation)
+        {
+            SetPosition(newLocation.position, newLocation.rotation);
+        }
+
+        public void SetPosition(Vector3 position, Quaternion? rotation = null)
+        {
+            _controller.enabled = false;
+            transform.position = position;
+            if (rotation.HasValue)
+            {
+                transform.rotation = rotation.Value;
+            }
+            _controller.enabled = true;
+
+            // Reset velocities and states
+            _verticalVelocity = 0f;
+            _speed = 0f;
+            _hasJumped = false;
+            _moveVelocity = Vector3.zero;
+            _slideVelocity = Vector3.zero;
+            _walkingTime = 0f;
+            _isAutoSprinting = false;
+        }
+
+        public void ForceJump(float? customHeight = null)
+        {
+            if (isGrounded)
+            {
+                float height = customHeight ?? JumpHeight;
+                _verticalVelocity = Mathf.Sqrt(height * -2f * Gravity);
+                _hasJumped = true;
+                anturaAnimation.OnJumpStart();
+            }
+        }
+
+        private void UpdatePlayerState()
+        {
+            PlayerState previousState = CurrentState;
+
+            if (!isGrounded)
+            {
+                CurrentState = _verticalVelocity > 0 ? PlayerState.Jumping : PlayerState.Falling;
+            }
+            else if (isOnSlope && _slopeAngle > _controller.slopeLimit)
+            {
+                CurrentState = PlayerState.Sliding;
+            }
+            else if (_speed > 0.1f)
+            {
+                bool isSprinting = _input.sprint || _isAutoSprinting || _speed > (MoveSpeed + 0.5f);
+                CurrentState = isSprinting ? PlayerState.Running : PlayerState.Walking;
+            }
+            else
+            {
+                CurrentState = PlayerState.Idle;
+            }
+
+            if (CurrentState != previousState)
+            {
+                OnStateChanged(previousState, CurrentState);
+            }
+        }
+
+        private void OnStateChanged(PlayerState fromState, PlayerState toState)
+        {
+            // Handle state transitions
+            switch (toState)
+            {
+                case PlayerState.Jumping:
+                    break;
+                case PlayerState.Falling:
+                    break;
+                case PlayerState.Sliding:
+                    Debug.Log("Started sliding down slope!");
+                    break;
+                case PlayerState.Running:
+                    if (_isAutoSprinting && fromState == PlayerState.Walking)
+                    {
+                        Debug.Log("Transitioned to auto-sprint!");
+                    }
+                    break;
+                case PlayerState.Walking:
+                    break;
+                case PlayerState.Idle:
+                    // Reset auto-sprint when stopping
+                    _walkingTime = 0f;
+                    _isAutoSprinting = false;
+                    break;
+            }
         }
 
         private void OnDrawGizmosSelected()
@@ -389,11 +588,16 @@ namespace Antura.Discover
             else
                 Gizmos.color = transparentRed;
 
-            // when selected, draw a gizmo in the position of, and matching radius of, the grounded collider
-            Gizmos.DrawSphere(
-                new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
-                GroundedRadius);
-        }
+            // Draw ground check sphere
+            Vector3 spherePosition = transform.position + (Vector3.up * GroundedRadius);
+            Gizmos.DrawWireSphere(spherePosition, GroundedRadius);
 
+            // Draw slope normal
+            if (isOnSlope)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawRay(transform.position, _slopeNormal * 2f);
+            }
+        }
     }
 }
