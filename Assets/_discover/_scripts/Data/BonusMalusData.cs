@@ -16,11 +16,8 @@ namespace Antura.Discover
     /// a Bonus/Malus action that adds or removes progress points
     /// </summary>
     [CreateAssetMenu(fileName = "BonusMalusData", menuName = "Antura/Discover/Bonus-Malus")]
-    public class BonusMalusData : ScriptableObject
+    public class BonusMalusData : IdentifiedData
     {
-        [Tooltip("Unique and stable, used by gameplay and analytics")]
-        public string Id;
-
         [Tooltip("Just for debugging, not used in gameplay")]
         public BonusMalusType Type = BonusMalusType.Bonus;
 

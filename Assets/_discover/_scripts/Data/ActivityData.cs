@@ -5,7 +5,7 @@ using UnityEngine.Localization;
 namespace Antura.Discover
 {
     [CreateAssetMenu(fileName = "ActivityData", menuName = "Antura/Discover/Activity")]
-    public class ActivityData : ScriptableObject
+    public class ActivityData : IdentifiedData
     {
         public LocalizedString Name;
 

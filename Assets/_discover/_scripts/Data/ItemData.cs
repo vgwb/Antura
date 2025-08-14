@@ -15,10 +15,8 @@ namespace Antura.Discover
     }
 
     [CreateAssetMenu(fileName = "ItemData", menuName = "Antura/Discover/Inventory Item")]
-    public class ItemData : ScriptableObject
+    public class ItemData : IdentifiedData
     {
-        [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]
-        public string Id;
         public LocalizedString Name;
         public ItemTag Tag;
         [Tooltip("Optional tag if set to Custom.")]

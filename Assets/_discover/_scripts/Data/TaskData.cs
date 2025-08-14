@@ -16,11 +16,9 @@ namespace Antura.Discover
     }
 
     [CreateAssetMenu(fileName = "TaskData", menuName = "Antura/Discover/Task")]
-    public class TaskData : ScriptableObject
+    public class TaskData : IdentifiedData
     {
         [Header("Identity")]
-        [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]
-        public string Id;
 
         [Tooltip("Global or specific to a country?")]
         public Countries Country;

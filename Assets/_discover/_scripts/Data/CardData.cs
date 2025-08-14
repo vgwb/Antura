@@ -7,12 +7,8 @@ namespace Antura.Discover
 {
     // this is the "Knowledge Atom" of the Discover module.
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
-    public class CardData : ScriptableObject
+    public class CardData : IdentifiedData
     {
-        [Header("Identity")]
-        [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]
-        public string Id;
-
         [Header("Content")]
         public LocalizedString Title;
         public LocalizedString Description;

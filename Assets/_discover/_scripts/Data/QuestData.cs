@@ -8,12 +8,8 @@ using Yarn.Unity;
 namespace Antura.Discover
 {
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
-    public class QuestData : ScriptableObject
+    public class QuestData : IdentifiedData
     {
-        [Header("Identity")]
-
-        [Tooltip("Unique, stable ID. lowercase")]
-        public string Id;
         public YarnProject YarnProject;
 
         [Tooltip("Just for display in the UI. Not used in the game logic.")]

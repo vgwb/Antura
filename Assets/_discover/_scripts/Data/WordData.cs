@@ -8,10 +8,8 @@ using UnityEngine.Localization;
 namespace Antura.Discover
 {
     [CreateAssetMenu(fileName = "WordData", menuName = "Antura/Discover/Word Data")]
-    public class WordData : ScriptableObject
+    public class WordData : IdentifiedData
     {
-        [Tooltip("Unique, stable ID. lowercase, Never change after shipping.")]
-        public string Id;
         public bool Active;
 
         public DevStatus Status = DevStatus.Development;

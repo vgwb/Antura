@@ -10,6 +10,7 @@ namespace Antura.Discover
         Germany = 5,
         Portugal = 6,
         Greece = 7,
+        UnitedKingdom = 8
     }
 
     public enum Difficulty

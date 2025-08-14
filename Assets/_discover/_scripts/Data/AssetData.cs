@@ -19,7 +19,7 @@ namespace Antura.Discover
     }
 
     [CreateAssetMenu(fileName = "AssetData", menuName = "Antura/Discover/Asset", order = 1)]
-    public class AssetData : ScriptableObject
+    public class AssetData : IdentifiedData
     {
         public string Title;
         public AssetType Type = AssetType.Image;
