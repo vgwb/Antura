@@ -12,12 +12,17 @@ using System.Diagnostics.CodeAnalysis;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using UnityEditor;
+using Yarn.Unity;
 
 namespace Antura.Discover
 {
     [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
+        [Header("Yarn")]
+        [SerializeField] private YarnConversationController conversation;
+
+
         private PlayerController PlayerController;
 
         public QuestListData Quests;
@@ -97,6 +102,14 @@ namespace Antura.Discover
             questStatus.Score = score;
 
             AppManager.I.Player.SaveQuest(questStatus);
+        }
+
+        public void YarnGetQuestNode(string nodeName)
+        {
+            Debug.Log($"YarnGetQuestNode: {nodeName}");
+            conversation?.DebugMetadata(nodeName);
+
+            conversation?.StartDialogue(nodeName);
         }
 
         public QuestNode GetQuestNode(string permalink, string command = "")

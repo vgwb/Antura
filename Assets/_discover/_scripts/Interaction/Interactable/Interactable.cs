@@ -4,6 +4,9 @@ using Antura.Discover.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
+using Yarn;
+using Yarn.Unity;
+using Yarn.Unity.Attributes;
 
 namespace Antura.Discover
 {
@@ -36,9 +39,11 @@ namespace Antura.Discover
         public bool FocusCameraOnInteract;
 
         [Header("Quest Node")]
+        // public YarnProject yarnProject;
+        // [YarnNode(nameof(yarnProject))]
+        // public string StartNodeId;
+
         public string NodePermalink;
-        [Tooltip("deprecated")]
-        public string NodeCommand;
 
         [Header("Quest Actions")]
         [SerializeField] bool disableAfterAction;
@@ -151,7 +156,11 @@ namespace Antura.Discover
         {
             QuestNode node = null;
             if (NodePermalink != "")
-                node = QuestManager.I.GetQuestNode(NodePermalink);
+            {
+                Debug.Log($"Interactable: Execute - NodePermalink: {NodePermalink}");
+                QuestManager.I.YarnGetQuestNode(NodePermalink);
+
+            }
 
             if (QuestAction != "")
             {

@@ -1,0 +1,55 @@
+﻿title: INIT
+position: 0,0
+---
+<<declare $current_item = "">>
+<<declare $doorUnlocked = false>>
+<<declare $coins = 0>>
+===
+title: NPCGreeting
+position: 0,11
+---
+Narrator: Hallo #line:0386a35 
+Narrator: How are you? #line:09fdbcf 
+-> Good #line:0797c85 
+    Narrator: Good to hear that #line:0a45421 
+-> Bad #line:00b5b27 
+    Narrator: Oh, I am sorry to hear that #line:0ed242c 
+-> Neutral #line:0853be0 
+    Narrator: I see, I hope it gets better soon #line:018b313 
+Narrator: What do you want to do with  coins? #line:0d27ec5 
+===
+title: NPCGreeting2
+position: -252,-938
+tags: #camera2 background:conductor_cabin
+---
+
+Narrator: What do you want to do with {$coins} coins?  #line:02eb555 
+-> Open the door #line:07d1a6a 
+ <<set $doorUnlocked = true>>
+ Narrator: The door is open #line:0a986a0 
+-> Stay at home #line:018013f 
+ Narrator: You stay at home #line:067a482
+ <<set $coins = $coins + 10>>
+===
+title: Chest_01
+position: -309,-740
+---
+<<if $doorUnlocked>>
+Narrator: la porta è aperta #line:00cfcfb 
+<<jump EntroInCasa>>
+<<else>>
+Narrator: la porta è chiusa #line:060c519 
+<<endif>>
+===
+
+title: Node
+style: note
+position: -650,-949
+---
+note di questa zona #line:05ce203 
+===
+title: EntroInCasa
+position: -269,-552
+---
+
+===

@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// ReSharper disable All
+using Yarn.Unity;
 
 namespace Antura.Discover
 {
@@ -16,6 +16,10 @@ namespace Antura.Discover
 
     public struct NodeChoice
     {
+        public DialogueOption YarnOption;
+        public YarnTaskCompletionSource<DialogueOption?>? OnOptionSelected;
+        public System.Threading.CancellationToken completionToken;
+
         public int Index;
         public string Content;
         public string ContentNative;

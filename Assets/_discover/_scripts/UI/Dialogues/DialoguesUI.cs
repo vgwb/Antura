@@ -7,11 +7,15 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Yarn.Unity;
 
 namespace Antura.Discover
 {
     public class DialoguesUI : MonoBehaviour
     {
+
+        public YarnTaskCompletionSource<DialogueOption?>? OnOptionSelected;
+
         public enum DialogueType
         {
             None,
@@ -232,6 +236,54 @@ namespace Antura.Discover
             coShowDialogue = null;
         }
 
+        public void ShowDialogueLine(QuestNode node)
+        {
+            IsOpen = true;
+            currNode = node;
+            currBalloon = narratorBalloon; // Can be changed by switch below
+            // while (InteractionManager.I.IsUsingFocusView)
+            //     yield return null;
+
+            Sprite image;
+            UseLearningLanguage = !node.Native;
+            switch (node.Type)
+            {
+                case NodeType.TEXT:
+                    CurrDialogueType = DialogueType.Text;
+                    currBalloon.Show(node, UseLearningLanguage);
+                    image = node.GetImage();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
+                    break;
+                case NodeType.PANEL:
+                    currBalloon = startEndPanel;
+                    CurrDialogueType = DialogueType.Text;
+                    ShowStartPanel(node);
+                    break;
+                case NodeType.CHOICE:
+                case NodeType.QUIZ:
+                    CurrDialogueType = DialogueType.Choice;
+                    if (!string.IsNullOrEmpty(node.Content))
+                        currBalloon.Show(node, UseLearningLanguage);
+                    image = node.GetImage();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
+                    //yield return new WaitForSeconds(0.3f);
+                    choices.Show(node.Choices, UseLearningLanguage);
+                    break;
+                default:
+                    IsOpen = false;
+                    CurrDialogueType = DialogueType.None;
+                    Debug.LogError($"DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type ({node.Type})");
+                    break;
+            }
+            //coShowDialogue = null;
+        }
+
         void Next(int choiceIndex = 0)
         {
             CoroutineRunner.RestartCoroutine(ref coNext, CO_Next(choiceIndex));
@@ -270,11 +322,12 @@ namespace Antura.Discover
                     yield return null;
             }
 
-            QuestNode next = QuestManager.I.GetNextNode(choiceIndex);
-            if (next == null)
-                CloseDialogue(choiceIndex);
-            else
-                ShowDialogueFor(next);
+            if (currNode.Type == NodeType.CHOICE || currNode.Type == NodeType.QUIZ)
+            {
+                currNode.Choices[choiceIndex].OnOptionSelected?.TrySetResult(currNode.Choices[choiceIndex].YarnOption);
+            }
+
+            CloseDialogue(choiceIndex);
 
             coNext = null;
         }
