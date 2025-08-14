@@ -1,41 +1,42 @@
 ﻿//--------------------------------------------
 // Quest: The Amber Necklace of Gdańsk
 //
-// Activity Presets (you can rename):
-// - activity_cleancanvas brzezno_beach_clean 
-//   Background: Baltic beach (Brzeźno). Obstacles: crabs, driftwood, floating buoys.
-//   Treasures under sand: shell icons, tiny amber drops.
+// Activity Presets:
+// - <<activity cleancanvas brzezno_beach_clean>>
+//   Background: Baltic beach (Brzeźno).
+//   Obstacles: crabs, driftwood, buoys.
+//   Treasures: small shells + amber drops.
 //
-// - activity_jigsawpuzzle nowy_port_lighthouse 
-//   Image: Gdańsk Nowy Port Lighthouse (clean photo/illustration).
+// - <<activity jigsawpuzzle nowy_port_lighthouse>>
+//   Image: Gdańsk Nowy Port Lighthouse.
 //
-// - activity_order amber_shell_pattern 
-//   Items: [amber, shell, amber, shell, amber] (or 4 items if you prefer).
-//   Goal: Drag in the right order to make a pattern.
+// - <<activity order amber_shell_pattern>>
+//   Items: [amber, shell, amber, shell, amber].
 //
-// - activity_piano neptune_wave_song
-//   Simple 4–5 note motif (do–mi–sol–mi–do). Use sea/wave SFX mapping.
+// - <<activity piano neptune_wave_song>>
+//   Notes: do–mi–sol–mi–do (simple 4–5 tones).
 //
-// - activity_quiz baltic_basics
-//   4 picture questions: amber, fish, seal, beach.
-//
+// - <<activity quiz baltic_basics>>
+//   Pics: amber, fish, seal, beach.
+//--------------------------------------------
+
 
 //--------------------------------------------
 // GLOBAL STATE
 //--------------------------------------------
 title: START_GDANSK
 tags: start
-position: -164,-113
+position: 0,0
 group: Intro
 colorID: 0
 ---
-<<set $amber_needed = 5>>
-<<set $shell_needed = 5>>
-<<set $amber_count = 0>>
-<<set $shell_count = 0>>
-<<set $necklace_done = false>>
-<<set $lighthouse_on = false>>
-<<set $met_fisherman = false>>
+<<declare $amber_needed = 5>>
+<<declare $shell_needed = 5>>
+<<declare $amber_count = 0>>
+<<declare $shell_count = 0>>
+<<declare $necklace_done = false>>
+<<declare $lighthouse_on = false>>
+<<declare $met_fisherman = false>>
 
 [We are in Gdańsk. The lighthouse is dark.]
 Narrator: Oh no! Antura turned off the light!
@@ -45,7 +46,8 @@ Narrator: A necklace of Baltic treasures.
 Narrator: We need 5 amber and 5 shells.
 
 Narrator: Let’s go to the beach!
--> Beach_Intro
+-> Go to the beach
+    <<jump Beach_Intro>>
 ===
 
 
@@ -54,7 +56,7 @@ Narrator: Let’s go to the beach!
 //--------------------------------------------
 title: Beach_Intro
 tags:
-position: 340,-256
+position: 409,-447
 group: Beach
 colorID: 1
 ---
@@ -62,59 +64,54 @@ Narrator: This is the Baltic Sea. [SFX: waves, seagulls]
 Narrator: The sand is soft. Treasures hide!
 Narrator: First, let’s find shells.
 
-Narrator: Clean the sand. Find shells that glow.
-<<command activity_cleancanvas brzezno_beach_clean tutorial>>
+Narrator: Clean the sand. Find glowing shells.
+<<activity cleancanvas brzezno_beach_clean tutorial>>
 
--> Beach_Shells_Progress
+-> Check shells
+    <<jump Beach_Shells_Progress>>
 ===
 
 title: Beach_Shells_Progress
 tags:
-position: 677,-266
+position: 767,-415
 group: Beach
 colorID: 1
 ---
 <<if $shell_count < $shell_needed>>
 Narrator: Keep going. We need {$shell_needed - $shell_count} more shell(s).
--> Beach_Shells_Wait
-<<else>>
-Narrator: Great! 5 shells!
--> Fisherman_Intro
-<<endif>>
-===
-
-title: Beach_Shells_Wait
-tags:
-position: 658,-92
-group: Beach
-colorID: 1
----
 -> I found a shell!
     <<jump Beach_Shells_Found>>
 -> Not yet.
     <<jump Beach_Shells_KeepSearching>>
+<<else>>
+Narrator: Great! 5 shells!
+-> Meet the fisherman
+    <<jump Fisherman_Intro>>
+<<endif>>
 ===
 
 title: Beach_Shells_Found
 tags:
-position: 1056,-274
+position: 1251,-452
 group: Beach
 colorID: 1
 ---
 <<set $shell_count = $shell_count + 1>>
 Narrator: Nice! Shell {$shell_count} / {$shell_needed}.
--> Beach_Shells_Progress
+-> Keep searching
+    <<jump Beach_Shells_Progress>>
 ===
 
 title: Beach_Shells_KeepSearching
 tags:
-position: 1027,-68
+position: 1082,-711
 group: Beach
 colorID: 1
 ---
 Narrator: Try the next sand pile.
 Narrator: Rake, rake, rake!
--> Beach_Shells_Progress
+-> Check again
+    <<jump Beach_Shells_Progress>>
 ===
 
 
@@ -123,9 +120,10 @@ Narrator: Rake, rake, rake!
 //--------------------------------------------
 title: Fisherman_Intro
 tags:
-position: 965,266
+position: 800,-34
 group: Fisherman
 colorID: 2
+color: red
 ---
 [Near a cutter boat and a net.]
 Fisherman: Witaj! Hello!
@@ -140,56 +138,53 @@ Fisherman: Do you need amber? Amber is Baltic gold.
 Fisherman: Let’s find 5 pieces of amber!
 
 Narrator: Clean more sand. Look for shiny amber.
-<<command activity_cleancanvas brzezno_beach_clean easy>>
+<<activity cleancanvas brzezno_beach_clean easy>>
 
--> Amber_Progress
+-> Check amber
+    <<jump Amber_Progress>>
 ===
 
 title: Amber_Progress
 tags:
-position: 1315,266
+position: 832,180
 group: Fisherman
 colorID: 2
 ---
 <<if $amber_count < $amber_needed>>
 Fisherman: Keep going. {$amber_needed - $amber_count} more amber.
--> Amber_Wait
+-> I found amber!
+    <<jump Amber_Found>>
+-> Not yet.
+    <<jump Amber_KeepSearching>>
 <<else>>
 Fisherman: You did it! 5 amber pieces!
--> Lighthouse_Puzzle_Hook
+-> See the lighthouse picture
+    <<jump Lighthouse_Puzzle_Hook>>
 <<endif>>
-===
-
-title: Amber_Wait
-tags:
-position: 1315,406
-group: Fisherman
-colorID: 2
----
-[[I found amber!]] -> Amber_Found
-[[Not yet.]] -> Amber_KeepSearching
 ===
 
 title: Amber_Found
 tags:
-position: 1565,366
+position: 1202,183
 group: Fisherman
 colorID: 2
 ---
 <<set $amber_count = $amber_count + 1>>
 Fisherman: Shiny! Amber {$amber_count} / {$amber_needed}.
--> Amber_Progress
+-> Keep searching
+    <<jump Amber_Progress>>
 ===
 
 title: Amber_KeepSearching
 tags:
-position: 1565,466
+position: 437,123
 group: Fisherman
 colorID: 2
 ---
 Fisherman: Try another spot.
 Fisherman: Amber can be tiny. Look close!
--> Amber_Progress
+-> Check again
+    <<jump Amber_Progress>>
 ===
 
 
@@ -198,18 +193,19 @@ Fisherman: Amber can be tiny. Look close!
 //--------------------------------------------
 title: Lighthouse_Puzzle_Hook
 tags:
-position: -452,402
+position: 808,472
 group: Crafting
 colorID: 3
 ---
 Narrator: Let’s see the lighthouse up close.
 Narrator: Fix the picture!
 
-<<command activity_jigsawpuzzle nowy_port_lighthouse tutorial>>
+<<activity jigsawpuzzle nowy_port_lighthouse tutorial>>
 
 Narrator: Great! That is the Gdańsk Lighthouse.
 Narrator: Now, make the necklace pattern.
--> Crafting_Intro
+-> Start crafting
+    <<jump Crafting_Intro>>
 ===
 
 
@@ -218,64 +214,71 @@ Narrator: Now, make the necklace pattern.
 //--------------------------------------------
 title: Crafting_Intro
 tags:
-position: 100,334
+position: 803,647
 group: Crafting
 colorID: 3
 ---
 Narrator: We have 5 amber and 5 shells.
 Narrator: Make a pattern: amber, shell, amber, shell…
 
-<<command activity_order amber_shell_pattern tutorial>>
+<<activity order amber_shell_pattern tutorial>>
 
--> Crafting_Check
+-> Check necklace
+    <<jump Crafting_Check>>
 ===
 
 title: Crafting_Check
 tags:
-position: 461,531
+position: 814,834
 group: Crafting
 colorID: 3
+color: red
 ---
 <<if $necklace_done == false>>
 Narrator: Keep going. Follow the pattern.
-[[I finished!]] -> Crafting_Finished
-[[I need help.]] -> Crafting_Help
+-> I finished!
+    <<jump Crafting_Finished>>
+-> I need help.
+    <<jump Crafting_Help>>
 <<else>>
--> Crafting_Finished
+-> Necklace ready
+    <<jump Crafting_Finished>>
 <<endif>>
 ===
 
 title: Crafting_Help
 tags:
-position: -135,447
+position: 1178,818
 group: Crafting
 colorID: 3
 ---
 Narrator: Look: amber first, then shell.
 Narrator: Then amber again.
 Narrator: Make it neat and even.
--> Crafting_Check
+-> Try again
+    <<jump Crafting_Check>>
 ===
 
 title: Crafting_Finished
 tags:
-position: 229,526
+position: 796,1025
 group: Crafting
 colorID: 3
 ---
 <<set $necklace_done = true>>
 Narrator: Beautiful! The necklace is ready.
 Narrator: Let’s visit Neptune’s Fountain.
--> Neptune_Intro
+-> Go to Neptune
+    <<jump Neptune_Intro>>
 ===
 
 
 //--------------------------------------------
-// NEPTUNE CHAPTER (includes activity_piano as a fun gate)
+// NEPTUNE CHAPTER (uses activity_piano gate)
 //--------------------------------------------
 title: Neptune_Intro
 tags:
-position: -368,814
+position: 809,1329
 group: Neptune
 colorID: 4
 ---
@@ -283,18 +286,19 @@ colorID: 4
 Narrator: This is Neptune. The Sea King.
 Narrator: Play the wave song to wake him.
 
-<<command activity_piano neptune_wave_song tutorial>>
+<<activity piano neptune_wave_song tutorial>>
 
 Narrator: Great! Neptune is waking up!
 Narrator: Place the necklace on him.
 <<command PlaceOffering_Neptune>>
 
--> Neptune_Speaks
+-> Hear Neptune
+    <<jump Neptune_Speaks>>
 ===
  
 title: Neptune_Speaks
 tags:
-position: -18,854
+position: 755,1603
 group: Neptune
 colorID: 4
 ---
@@ -311,7 +315,8 @@ Neptune: I grant your wish.
 <<command TurnOn_Lighthouse>>
 
 Narrator: Look! The lighthouse shines!
--> Seals_Scene
+-> Go to the seals
+    <<jump Seals_Scene>>
 ===
 
 
@@ -320,7 +325,7 @@ Narrator: Look! The lighthouse shines!
 //--------------------------------------------
 title: Seals_Scene
 tags:
-position: 303,1070
+position: 535,1960
 group: Seals
 colorID: 5
 ---
@@ -336,34 +341,39 @@ Narrator: Antura runs there!
 Narrator: Reach Antura. Do not scare the seals.
 
 <<command StartChase_Antura "keep_distance_from_seals">>
--> Seals_Check
+
+-> Report what happened
+    <<jump Seals_Check>>
 ===
 
 title: Seals_Check
 tags:
-position: 613,1110
+position: 880,2025
 group: Seals
 colorID: 5
 ---
-[[I got too close.]] -> Seals_Warning
-[[I reached Antura safely.]] -> Antura_End
+-> I got too close.
+    <<jump Seals_Warning>>
+-> I reached Antura safely.
+    <<jump Antura_End>>
 ===
 
 title: Seals_Warning
 tags:
-position: 994,1107
+position: 845,2291
 group: Seals
 colorID: 5
 ---
 Narrator: Careful! Too close to seals.
 Narrator: Step back. Give them space.
 Narrator: Try again.
--> Seals_Scene
+-> Try the chase again
+    <<jump Seals_Scene>>
 ===
 
 title: Antura_End
 tags:
-position: 814,1289
+position: 1155,2032
 group: Seals
 colorID: 5
 ---
@@ -376,7 +386,8 @@ Fisherman: You helped the city.
 Fisherman: You respected the sea and the seals.
 
 Narrator: Time for a quick quiz!
--> Final_Assessment_Intro
+-> Start quiz
+    <<jump Final_Assessment_Intro>>
 ===
 
 
@@ -385,16 +396,17 @@ Narrator: Time for a quick quiz!
 //--------------------------------------------
 title: Final_Assessment_Intro
 tags:
-position: 688,1547
+position: 1220,2318
 group: Assessment
 colorID: 6
 ---
 Narrator: Tap the right picture word.
 Narrator: Four questions.
 
-<<command activity_quiz baltic_basics tutorial>>
+<<activity quiz baltic_basics tutorial>>
 
--> Quest_Complete
+-> Finish quest
+    <<jump Quest_Complete>>
 ===
 
 
@@ -403,7 +415,7 @@ Narrator: Four questions.
 //--------------------------------------------
 title: Quest_Complete
 tags:
-position: 1038,1587
+position: 1570,2358
 group: End
 colorID: 7
 ---
@@ -414,5 +426,5 @@ Narrator: New words: fisherman, cutter, net, shell, fish, seal, beach, sand.
 Fisherman: Come back to Gdańsk one day.
 Fisherman: Dziękuję! Thank you!
 
-<<command EndQuest "PL_02_Gdansk_Amber_Necklace">>
+<<EndQuest>>
 ===

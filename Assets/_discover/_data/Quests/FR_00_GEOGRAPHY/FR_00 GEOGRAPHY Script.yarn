@@ -1,7 +1,7 @@
 ﻿// FR-00 Geograpghy
 title: FR_00_INIT
-position: -569,-1235
-tags: type=Start
+position: -1211,-910
+tags: Start
 color: red
 ---
 <<set $CURRENT_PROGRESS = 0>>
@@ -9,66 +9,85 @@ color: red
 <<declare $france_completed = false>>
 <<declare $germany_met = false>>
 <<declare $germany_completed = false>>
-<<declare $met_italy = false>>
-<<declare $met_switz = false>>
-<<declare $met_lux = false>>
-<<declare $met_belgium = false>>
-<<declare $met_spain = false>>
+<<declare $italy_met = false>>
+<<declare $italy_completed = false>>
+<<declare $switz_met = false>>
+<<declare $switz_completed = false>>
+<<declare $lux_met = false>>
+<<declare $lux_completed = false>>
+<<declare $belgium_met = false>>
+<<declare $belgium_completed = false>>
+<<declare $spain_met = false>>
+<<declare $spain_completed = false>>
+
 ===
 
-title: FR_00_GEOGRAPHY_Text_MDEIVI7S
-position: 207,-241
-tags: actor=KID_FEMALE
+//--------------------------------------------
+// FRANCE
+//--------------------------------------------
+
+title: france_npc
+position: -216,-1772
+color: blue
+group: france
+tags: 
 ---
-KID_FEMALE: Salut! I am from France!
-<<jump FR_00_GEOGRAPHY_Text_MDEIYIZ0>>
+<<if $CURRENT_ITEM == "flag_france">>
+    Yes, that is my flag! Merci!
+    <<task completed>>
+    <<set $france_completed = true>>
+    <<set $CURRENT_ITEM = "">>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    Can you bring the other flags to their respective country? Thank you!
+    <<action_post area_bigger>>
+<<elseif $CURRENT_ITEM != "">>
+    That's not my flag, mine is blue, white and red.
+<<elseif $CURRENT_PROGRESS >= $MAX_PROGRESS>>
+    Good job! You did it!
+    <<end_quest>>
+<<else>>>
+    Hello! I am from France!
+    Antura made a mess and all the flags have been mixed up!
+    My flag, the French one, is blue, white, and red.
+    <<if $EASY_MODE == true>>
+        <<show_asset flag_france>>
+        Find the french flag
+        <<task FIND_FRENCH_FLAG>>
+    <<else>>
+        Can you help me?
+        Find the french flag
+        <<task FIND_FRENCH_FLAG>>
+    <<endif>>
+<<endif>>
 ===
 
-title: FR_00_GEOGRAPHY_Text_MDEIYIZ0
-position: 470,-239
-tags: actor=KID_FEMALE
+//--------------------------------------------
+// GERMANY
+//--------------------------------------------
+
+
+title: germany_npc
+position: -213,-1091
+color: blue
+group: germany
+tags:
 ---
-KID_FEMALE: Antura made a mess and all the flags have been mixed up!
-<<jump FR_00_GEOGRAPHY_Text_YIZ0_26N>>
+<<if $germany_completed>>
+    Thank you for helping me! Berling is the capital of Germany,
+<<elseif $germany_met>>
+    <<jump FR_00_germany_hallo>>
+<<else>>
+    <<if $CURRENT_ITEM == "flag_germany">>
+        Danke! That is my flage!
+        <<action REMOVE_GERMANY_FLAG>>
+        <<task_completed germany>>
+    <<elseif $CURRENT_ITEM != "">>
+    <<jump FR_00_germany_wrong_flag>>
+    <<else>>
+    <<jump FR_00_germany_mission>>
+    <<endif>>
+<<endif>>
 ===
-
-title: FR_00_GEOGRAPHY_Text_YIZ0_26N
-position: 660,0
-tags: actor=KID_FEMALE
----
-KID_FEMALE: My flag, the French one, is blue, white, and red.
-<<jump FR_00_GEOGRAPHY_Condition_MDHJ81VB>>
-===
-
-title: FR_00_GEOGRAPHY_Text__26N_9N1
-position: 880,0
-tags: actor=KID_FEMALE, meta_TASK=FIND_FRENCH_FLAG, meta=TASK:FIND_FRENCH_FLAG
----
-KID_FEMALE: Find the french flag
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHELXU5
-position: 1100,0
-tags: actor=KID_FEMALE
----
-KID_FEMALE: That's not my flag, mine is blue, white and red.
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHEYLSV
-position: 1320,0
-tags: actor=KID_FEMALE, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
----
-KID_FEMALE: Yes, that is my flag! Merci!
-<<jump FR_00_GEOGRAPHY_Variables_MDRGTQJ0>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHF5SJP
-position: 1540,0
-tags: actor=KID_FEMALE, meta_ACTION_POST=AREA_BIGGER, meta=ACTION_POST:AREA_BIGGER
----
-KID_FEMALE: Can you bring the other flags to their respective country? Thank you!
-===
-
 title: FR_00_germany_hallo
 position: 218,-1208
 group: germany
@@ -77,41 +96,30 @@ tags: actor=MAN
 <<set $met_germany = true>>
 Hallo! I'm from Germany!
 We're famous for castles, forests... and really cool trains!
-<<jump FR_00_germany_mission>>
-===
-title: FR_00_germany_mission
-position: 591,-1035
-group: germany
-tags: actor=MAN, meta_TASK=FIND_GERMAN_FLAG, asset=flag_of_germany
----
+<<show_asset flag_of_germany>>
 Find the german flag. It has horizontal stripes of black, red, and yellow.
+<<task FIND_GERMAN_FLAG>>
 ===
 
-title: FR_00_GEOGRAPHY_Text_MDHGR78M
-position: 2420,0
-tags: actor=WOMAN
----
-WOMAN: ¡Hola! I'm from Spain!
-<<jump FR_00_GEOGRAPHY_Text_R78M_1IC>>
-===
-
-title: FR_00_GEOGRAPHY_Text_R78M_1IC
-position: 0,140
-tags: actor=WOMAN
----
-WOMAN: We invented the flamenco dance!
-<<jump FR_00_GEOGRAPHY_Text__1IC_1BR>>
-===
+//--------------------------------------------
+// SPAIN
+//--------------------------------------------
 
 title: FR_00_GEOGRAPHY_Text__1IC_1BR
-position: 220,140
+position: 835,360
+group: spain
 tags: actor=WOMAN, meta_TASK=FIND_SPANISH_FLAG, meta=TASK:FIND_SPANISH_FLAG, asset=flag_of_spain
 ---
 WOMAN: Find the spanish flag.<br>It's red and yellow, like sun and peppers.
 ===
 
-title: FR_00_GEOGRAPHY_Text_MDHHALBX
-position: 440,140
+//--------------------------------------------
+// ITALY
+//--------------------------------------------
+
+title: italy_flag_description
+position: 81,-2840
+group: italy
 tags: actor=KID_MALE
 ---
 KID_MALE: Our flag is green, white, and red like basil, mozzarella, and tomato on a pizza!
@@ -119,15 +127,21 @@ KID_MALE: Our flag is green, white, and red like basil, mozzarella, and tomato o
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDHHCUWD
-position: 660,140
+position: 366,-3177
+group: italy
 tags: actor=KID_MALE
 ---
 KID_MALE: Ciao! I'm from Italy!
 <<jump FR_00_GEOGRAPHY_Text_MDHHALBX>>
 ===
 
+//--------------------------------------------
+// BELGIUM
+//--------------------------------------------
+
+
 title: FR_00_GEOGRAPHY_Text_MDHHE31A
-position: 880,140
+position: 3810,-120
 tags: actor=OLD_WOMAN
 ---
 OLD_WOMAN: Bonjour! I'm from Belgium!
@@ -135,7 +149,7 @@ OLD_WOMAN: Bonjour! I'm from Belgium!
 ===
 
 title: FR_00_GEOGRAPHY_Text_E31A_MVJ
-position: 1100,140
+position: 4030,-120
 tags: actor=OLD_WOMAN
 ---
 OLD_WOMAN: We also speak French!
@@ -143,37 +157,39 @@ OLD_WOMAN: We also speak French!
 ===
 
 title: FR_00_GEOGRAPHY_Text__MVJ_V4A
-position: 1320,140
+position: 4250,-120
 tags: actor=OLD_WOMAN, meta_TASK=FIND_BELGIAN_FLAG, meta=TASK:FIND_BELGIAN_FLAG, asset=flag_of_belgium__28civil_29
 ---
 OLD_WOMAN: Find the belgian flag.<br>It's black, yellow, and red with vertical stripes.
 ===
+//--------------------------------------------
+// LUXEMBURG
+//--------------------------------------------
 
 title: luxemburg
-position: 1540,140
+position: 4470,-120
 tags: actor=OLD_MAN
 ---
 OLD_MAN: Moien! I’m Luxembourg!
-<<jump FR_00_GEOGRAPHY_Text_MDHHZ2WO>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHHZ2WO
-position: 1760,140
-tags: actor=OLD_MAN
----
 OLD_MAN: We may be small, but we speak three languages!
-<<jump FR_00_GEOGRAPHY_Text_MDHHZRUZ>>
+<<jump luxemburg_mission>>
 ===
 
-title: FR_00_GEOGRAPHY_Text_MDHHZRUZ
-position: 1980,140
-tags: actor=OLD_MAN, meta_TASK=FIND_LUX_FLAG, meta=TASK:FIND_LUX_FLAG, asset=flag_of_luxembourg
+title: luxemburg_mission
+position: 2040,-384
+tags:  meta_TASK=FIND_LUX_FLAG,  asset=flag_of_luxembourg
 ---
+<<show_asset flag_of_luxembourg>>
 OLD_MAN: Find the flag of Luxembourg.<br>It is red, white, and light blue.
+<<task FIND_LUX_FLAG>>
 ===
+
+//--------------------------------------------
+// SWISS
+//--------------------------------------------
 
 title: FR_00_GEOGRAPHY_Text_MDHI0AHO
-position: 2200,140
+position: 5130,-120
 tags: actor=CRAZY_WOMAN
 ---
 CRAZY_WOMAN: Grüezi! I'm from Switzerland!
@@ -181,7 +197,7 @@ CRAZY_WOMAN: Grüezi! I'm from Switzerland!
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDHI1JQJ
-position: 2420,140
+position: 5350,-120
 tags: actor=CRAZY_WOMAN
 ---
 CRAZY_WOMAN: We're famous for snowy mountains and cheese.
@@ -189,94 +205,42 @@ CRAZY_WOMAN: We're famous for snowy mountains and cheese.
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDHI1UFI
-position: 0,280
+position: 2160,230
 tags: actor=CRAZY_WOMAN, meta_TASK=FIND_SWISS_FLAG, meta=TASK:FIND_SWISS_FLAG, asset=flag_swiss
 ---
 CRAZY_WOMAN: Find the swiss flag. It's red with a big white cross — like a first aid kit!
 ===
 
+//--------------------------------------------
+// MONACO
+//--------------------------------------------
+
 title: monaco
-position: 220,280
+position: 3150,20
+color: blue
 tags: actor=CRAZY_MAN
 ---
 CRAZY_MAN: Bonjour! I’m from Monaco!
-<<jump FR_00_GEOGRAPHY_Text_MDHI2UQX>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHI2UQX
-position: 440,280
-tags: actor=CRAZY_MAN
----
 CRAZY_MAN: We’re tiny but fancy — with race cars and royal palaces by the sea!
-<<jump FR_00_GEOGRAPHY_Text_MDHI3B1O>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHI3B1O
-position: 660,280
-tags: actor=CRAZY_MAN, asset=flag_of_monaco
----
+<<show_asset flag_of_mon>>
 CRAZY_MAN: My flag is red and white.
 ===
 
+//--------------------------------------------
+// ANDORRA
+//--------------------------------------------
+
+
 title: andorra
-position: 880,280
+position: 3393,1559
+group: andorra
 tags: actor=GUIDE
 ---
 GUIDE: Hola and Bonjour! I’m from Andorra!
-<<jump FR_00_GEOGRAPHY_Text_MDHI5HK7>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHI5HK7
-position: 1100,280
-tags: actor=GUIDE
----
 GUIDE: My flag is blue, yellow, and red.
-<<jump FR_00_GEOGRAPHY_Text_MDHI60K7>>
-===
-
-title: FR_00_GEOGRAPHY_Text_MDHI60K7
-position: 1320,280
-tags: actor=GUIDE, asset=flag_of_andorra
----
+<<show_asset flag_of_andorra>>
 GUIDE: My flag is blue, yellow, and red.
-===
 
-title: france_npc
-position: -216,-1772
-color: blue
-group: france
-tags: 
----
-Hello! I am from France!
-Antura made a mess and all the flags have been mixed up!
-My flag, the French one, is blue, white, and red.
-<<if $EASY_MODE == true>>
-    <<jump FR_00_france_mission_easy>>
-<<else>>
-    <<jump FR_00_france_mission>>
-<<endif>>
-===
-title: FR_00_france_mission_easy
-position: 234,-1753
-group: france
-tags: actor=KID_FEMALE, task=FIND_FRENCH_FLAG, asset=flag_france
----
-KID_FEMALE: Find the french flag
-===
-title: FR_00_france_mission
-position: 240,-1938
-group: france
-tags: actor=KID_FEMALE, task=FIND_FRENCH_FLAG
----
-Can you help me? Find the french flag
-===
-title: FR_00_germany_done
-position: 303,-736
-group: germany
-tags: actor=MAN, ACTION_POST=REMOVE_GERMANY_FLAG, TASK_COMPLETED=GERMANY
----
-<<set $germany_completed = true>>
-MAN: Danke! That is my flage!
 ===
 
 title: FR_00_germany_wrong_flag
@@ -288,7 +252,7 @@ MAN: Nein! Our flag is horizontal with black, red and yellow.
 ===
 
 title: FR_00_GEOGRAPHY_Condition__0F7_93K
-position: 459,377
+position: 3375,-801
 tags: type=Condition
 ---
 $CURRENT_ITEM == "flag_spain"
@@ -296,21 +260,22 @@ $CURRENT_ITEM != ""
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRA95EQ
-position: 671,379
+position: 3601,119
 tags: actor=WOMAN, meta_ACTION_POST=REMOVE_SPANISH_FLAG, meta=ACTION_POST:REMOVE_SPANISH_FLAG, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
 ---
 WOMAN: This is the flag of Spain
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRABJVJ
-position: 880,420
+position: 3402,757
 tags: actor=WOMAN
 ---
 WOMAN: That is not my flag. Mine is red and yellow.
 ===
 
 title: FR_00_GEOGRAPHY_Condition__93K_BNO
-position: 1100,420
+position: 1210,-2322
+group: italy
 tags: type=Condition
 ---
 $CURRENT_ITEM == "flag_italy"
@@ -318,21 +283,21 @@ $CURRENT_ITEM != ""
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRAFUPW
-position: 1320,420
+position: 4160,-1255
 tags: actor=KID_MALE, meta_ACTION=REMOVE_ITALIAN_FLAG, meta=ACTION:REMOVE_ITALIAN_FLAG, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
 ---
 KID_MALE: Grazie! That's my flag!
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRAXKX4
-position: 1540,420
+position: 4470,160
 tags: actor=KID_MALE
 ---
 KID_MALE: My flag is different! It's green, white and red.
 ===
 
 title: FR_00_GEOGRAPHY_Condition__BNO_STC
-position: 1760,420
+position: 4690,160
 tags: type=Condition
 ---
 $CURRENT_ITEM == "flag_belgium"
@@ -340,21 +305,21 @@ $CURRENT_ITEM != ""
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRB609F
-position: 1980,420
+position: 1685,-668
 tags: actor=OLD_WOMAN, meta_ACTION=REMOVE_BELGIAN_FLAG, meta=ACTION:REMOVE_BELGIAN_FLAG, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
 ---
 OLD_WOMAN: Thank you, my beautiful flag is back!
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRBGXYG
-position: 2200,420
+position: 1696,-574
 tags: actor=OLD_WOMAN
 ---
 OLD_WOMAN: Remember, my flag is vertical black, yellow and red.
 ===
 
 title: FR_00_GEOGRAPHY_Condition__STC_S3U
-position: 2420,420
+position: 2930,430
 tags: type=Condition
 ---
 $CURRENT_ITEM == "flag_luxembourg"
@@ -362,14 +327,14 @@ $CURRENT_ITEM != ""
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRC2CFN
-position: 0,560
+position: 2930,300
 tags: actor=OLD_MAN, meta_ACTION=REMOVE_LUX_FLAG, meta=ACTION:REMOVE_LUX_FLAG, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
 ---
 OLD_MAN: Thank you! That is my flag.
 ===
 
 title: FR_00_GEOGRAPHY_Condition__S3U_JWO
-position: 220,560
+position: 3150,300
 tags: type=Condition
 ---
 $CURRENT_ITEM == "flag_swiss"
@@ -377,21 +342,21 @@ $CURRENT_ITEM != ""
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDREKH2B
-position: 440,560
+position: 3370,300
 tags: actor=CRAZY_WOMAN, meta_ACTION_POST=REMOVE_SWISS_FLAG, meta=ACTION_POST:REMOVE_SWISS_FLAG, meta_TASK=unable_to_create_slug, meta=TASK:unable_to_create_slug
 ---
 CRAZY_WOMAN: Thank you for bringing my flag back!
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDREKJH6
-position: 660,560
+position: 3750,760
 tags: actor=CRAZY_WOMAN
 ---
 CRAZY_WOMAN: Not my flag. Our flag is red with a white cross.
 ===
 
 title: FR_00_GEOGRAPHY_Variables_MDRGTQJ0
-position: 1100,560
+position: 3940,-1115
 tags: type=Variables
 ---
 // Variables
@@ -399,14 +364,14 @@ tags: type=Variables
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRH9NEI
-position: 1320,560
+position: 4160,-1115
 tags: actor=KID_FEMALE, meta_ACTION_POST=WIN, meta=ACTION_POST:WIN
 ---
 KID_FEMALE: U made it
 ===
 
 title: FR_00_GEOGRAPHY_Text_MDRHKRIP
-position: 1540,560
+position: 598,-1797
 tags: actor=KID_FEMALE
 ---
 KID_FEMALE: Can you help me?
@@ -414,21 +379,21 @@ KID_FEMALE: Can you help me?
 ===
 
 title: FR_00_GEOGRAPHY_Text_ZRUZ_FQQ
-position: 1760,560
+position: 4690,300
 tags: actor=OLD_MAN
 ---
 OLD_MAN: Nope! Our flag is red, white, and light blue.
 ===
 
 title: FR_00_GEOGRAPHY_Text_ME1FTCL6
-position: 1980,560
+position: 4910,300
 tags: actor=KID_MALE, meta_TASK=FIND_ITALIAN_FLAG, meta=TASK:FIND_ITALIAN_FLAG, asset=flag_italy
 ---
 KID_MALE: Find the Italian flag.
 ===
 
 title: FR_00_GEOGRAPHY_Text_ME1HKA85
-position: 2200,560
+position: 5130,300
 tags: actor=KID_FEMALE
 ---
 KID_FEMALE: Gracias!
@@ -436,115 +401,73 @@ KID_FEMALE: Gracias!
 ===
 
 title: item_flag_spain
-position: 2420,560
+position: 5600,490
 tags: actor=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug, asset=flag_of_spain
 ---
 TUTOR: Flag of Spain
 ===
 
 title: spain_npc
-position: 0,700
-tags: type=Condition
----
-%met_spain
-===
-
-title: FR_00_GEOGRAPHY_Variables_ME1I12YO
-position: 220,700
-tags: type=Variables
----
-// Variables
-<<set $met_spain = true>>
-<<jump FR_00_GEOGRAPHY_Text_MDHGR78M>>
-===
-
-title: item_flag_germany
-position: 440,700
-tags: actor=TUTOR, asset=flag_of_germany
----
-TUTOR: Flag of Germany
-===
-
-title: item_flag_italy
-position: 660,700
-tags: actor=TUTOR, asset=flag_italy
----
-TUTOR: Flag of Italy
-===
-
-title: item_flag_belgium
-position: 880,700
-tags: actor=TUTOR, asset=flag_of_belgium__28civil_29
----
-TUTOR: Flag of Belgium
-===
-
-title: item_flag_lux
-position: 1100,700
-tags: actor=TUTOR, asset=flag_of_luxembourg
----
-TUTOR: Flag of Luxembourg
-===
-
-title: item_flag_switzerland
-position: 1320,700
-tags: actor=TUTOR, asset=flag_swiss
----
-TUTOR: Flag of Switzerland
-===
-
-title: item_flag_france_1
-position: 1540,700
-tags: actor=TUTOR, asset=flag_france
----
-TUTOR: Flag of France
-===
-
-title: FR_00_germany_npc
-position: -213,-1096
+position: -187,93
+group: spain
 color: blue
-group: germany
 tags:
 ---
-<<if $germany_completed>>
-    <<jump FR_00_germany_completed>>
-<<elseif $germany_met>>
-    <<jump FR_00_germany_hallo>>
+<<if $spain_met == false>>
+<<set $spain_met = true>>
+¡Hola! I'm from Spain!
+<<jump spain_npc_flamenco>>
 <<else>>
-    <<if $CURRENT_ITEM == "flag_germany">>
-    <<jump FR_00_germany_done>>
-    <<elseif $CURRENT_ITEM != "">>
-    <<jump FR_00_germany_wrong_flag>>
-    <<else>>
-    <<jump FR_00_germany_mission>>
-    <<endif>>
+
 <<endif>>
 ===
+
+title: spain_npc_flamenco
+position: 533,362
+group: spain
+tags: actor=WOMAN
+---
+WOMAN: We invented the flamenco dance!
+<<jump FR_00_GEOGRAPHY_Text__1IC_1BR>>
+
+===
 title: italy_npc
-position: 2200,700
+position: -223,-2974
+group: italy
+color: blue
 tags: type=Condition
 ---
-%met_italy
+<<if $met_italy>>
+<<set $met_italy = true>>
+Ciao! I'm from Italy!
+<<else>>
+
+<<endif>>
+
 ===
 
 title: FR_00_GEOGRAPHY_Variables_ME1ISIIP
-position: 2420,700
+position: 518,-2585
+group: italy
 tags: type=Variables
 ---
 // Variables
-<<set $met_italy = true>>
+
 <<jump FR_00_GEOGRAPHY_Text_MDHHCUWD>>
 ===
 
 title: belgium_npc
-position: 0,840
+position: 1336,-1570
+group: belgium
+color: blue
 tags: type=Condition
 ---
 %met_belgium
 ===
 
 title: FR_00_GEOGRAPHY_Variables_ME1LGK0Z
-position: 220,840
+position: 1603,-1127
+group: belgium
 tags: type=Variables
 ---
 // Variables
@@ -553,14 +476,17 @@ tags: type=Variables
 ===
 
 title: luxembourg_npc
-position: 440,840
+position: 984,1491
+group: lux
+color: blue
 tags: type=Condition
 ---
 %met_lux
 ===
 
 title: FR_00_GEOGRAPHY_Variables_ME1M5AC7
-position: 660,840
+position: 2059,1733
+group: lux
 tags: type=Variables
 ---
 // Variables
@@ -568,15 +494,18 @@ tags: type=Variables
 <<jump luxemburg>>
 ===
 
-title: switzerland_npc_1
-position: 880,840
+title: npc_swiss
+position: -423,1303
+group: swiss
+color: blue
 tags: type=Condition
 ---
 %met_switz
 ===
 
 title: FR_00_GEOGRAPHY_Variables_ME1M9IRH
-position: 1100,840
+position: 509,1209
+group: swiss
 tags: type=Variables
 ---
 // Variables
@@ -584,9 +513,68 @@ tags: type=Variables
 <<jump FR_00_GEOGRAPHY_Text_MDHI0AHO>>
 ===
 
-title: FR_00_germany_completed
-position: -210,-874
-group:germany
+title: Node
+style: note
+position: -316,-1194
 ---
-Thank you for helping me! Berling is the capital of Germany,
+GERMANY
+===
+title: Node1
+style: note
+position: -361,-1925
+---
+FRANCE
+===
+title: item_flag_germany
+position: 750,-691
+group: germany
+color: yellow
+tags: actor=TUTOR, asset=flag_of_germany
+---
+Flag of Germany
+===
+
+title: item_flag_italy
+position: 1055,-3039
+group: italy
+color: yellow
+tags: actor=TUTOR, asset=flag_italy
+---
+Flag of Italy
+===
+
+title: item_flag_belgium
+position: 2245,-1201
+group: belgium
+color: yellow
+tags: actor=TUTOR, asset=flag_of_belgium__28civil_29
+---
+TUTOR: Flag of Belgium
+===
+
+title: item_flag_lux
+position: 1402,1876
+group: lux
+color: yellow
+tags: actor=TUTOR, asset=flag_of_luxembourg
+---
+TUTOR: Flag of Luxembourg
+===
+
+title: item_flag_switzerland
+position: 322,1638
+group: swiss
+color: yellow
+tags: actor=TUTOR, asset=flag_swiss
+---
+TUTOR: Flag of Switzerland
+===
+
+title: item_flag_france
+position: 132,-1618
+group: france
+color: yellow
+tags: actor=TUTOR, asset=flag_france
+---
+TUTOR: Flag of France
 ===
