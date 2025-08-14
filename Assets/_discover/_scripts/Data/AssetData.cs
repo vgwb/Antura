@@ -1,5 +1,4 @@
-using System.Collections.Generic;
-using System.Drawing;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 namespace Antura.Discover
@@ -7,7 +6,8 @@ namespace Antura.Discover
     public enum AssetType
     {
         Image,
-        Audio
+        Audio,
+        Model3D
     }
 
     public enum LicenseType
@@ -23,10 +23,13 @@ namespace Antura.Discover
     {
         public string Title;
         public AssetType Type = AssetType.Image;
+        [Tooltip("Country prefix for localized assets. Use 'Global' for assets not specific to any country.")]
+        public Countries Country = Countries.Global; // Default to global if not specified
 
-        [Header("Asset References")]
+        [Header("Asset Reference")]
         public Sprite Image;
         public AudioClip Audio;
+        public GameObject Model3D;
 
         [Header("License Information")]
         public LicenseType License = LicenseType.CC0;
