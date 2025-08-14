@@ -1,0 +1,395 @@
+﻿title: DEV_init
+position: 0,0
+---
+<<declare $met_teacher_1 = false>>
+<<declare $got_hint = false>>
+<<declare $current_item = "">>
+<<declare $doorUnlocked = false>>
+<<declare $coins = 0>>
+===
+title: NPCGreeting
+position: 0,11
+---
+Narrator: Hallo #line:0386a35 
+Narrator: How are you? #line:09fdbcf 
+-> Good #line:0797c85 
+    Narrator: Good to hear that #line:0a45421 
+-> Bad #line:00b5b27 
+    Narrator: Oh, I am sorry to hear that #line:0ed242c 
+-> Neutral #line:0853be0 
+    Narrator: I see, I hope it gets better soon #line:018b313 
+Narrator: What do you want to do with  coins? #line:0d27ec5 
+===
+title: NPCGreeting2
+position: -252,-938
+tags: #camera2 background:conductor_cabin
+---
+
+Narrator: What do you want to do with {$coins} coins?  #line:02eb555 
+-> Open the door #line:07d1a6a 
+ <<set $doorUnlocked = true>>
+ Narrator: The door is open #line:0a986a0 
+-> Stay at home #line:018013f 
+ Narrator: You stay at home #line:067a482
+ <<set $coins = $coins + 10>>
+===
+title: Chest_01
+position: -309,-740
+---
+<<if $doorUnlocked>>
+Narrator: la porta è aperta #line:00cfcfb 
+<<jump EntroInCasa>>
+<<else>>
+Narrator: la porta è chiusa #line:060c519 
+<<endif>>
+===
+
+title: Node
+style: note
+position: -650,-949
+---
+note di questa zona #line:05ce203 
+===
+title: EntroInCasa
+position: -269,-552
+---
+entro in casa
+
+===
+
+title: door_a
+position: 440,0
+tags: actorUID=TUTOR, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
+---
+TUTOR: the door open PRE #line:01e5e5b 
+<<jump DEV_Text_MDQ5EL0V>>
+===
+
+title: DEV_Text_81_f8_b5
+position: 660,0
+tags: actorUID=TUTOR, meta_ACTION_POST=close_door
+---
+TUTOR: Now you have {$TOTAL_COINS} coins! and i close the door #line:0324065 
+===
+
+title: isolated_node_1
+position: 880,0
+tags: actorUID=OLD_WOMAN, meta_ACTION_POST=tutorial_action_post
+---
+OLD_WOMAN: I am your teacher #line:0abea40 
+<<jump DEV_Condition_MDHJDA1X>>
+===
+
+title: DEV_Text_08_f8_b5
+position: 1100,0
+tags: actorUID=OLD_WOMAN, meta_ACTION_POST=OPEN_DOOR, meta=ACTION_POST:OPEN_DOOR
+---
+OLD_WOMAN: YOu already met me #line:05a27b5 
+<<jump DEV_Variables_86_f8_b5>>
+===
+
+title: DEV_Text_21_f8_b5
+position: 1353,8
+tags: actorUID=TUTOR, meta_ACTION=UPDATE_COINS, meta=ACTION:UPDATE_COINS
+---
+TUTOR: I'll give you 100 coins. #line:0ee9419 
+<<jump DEV_Text_81_f8_b5>>
+===
+
+title: DEV_Variables_86_f8_b5
+position: 1540,0
+tags: type=Variables
+---
+// Variables
+<<set $TOTAL_COINS = $TOTAL_COINS + 100>>
+<<jump DEV_Text_21_f8_b5>>
+===
+
+title: quiz_test
+position: 1760,0
+tags: actorUID=GUIDE, type=Choice, meta_BALLOON_TYPE=QUIZ, meta=BALLOON_TYPE:QUIZ
+---
+GUIDE: QUIZ: calculate 3*2 #line:0a1278a 
+-> "It's 4": #line:0c2c777 
+    <<jump DEV_Text_17_f8_b5>>
+-> "It's 6": #line:070ba53 
+    <<jump DEV_Choice_64_f8_b5>>
+-> "It's 8": #line:04bc4a8 
+    <<jump DEV_Choice_64_f8_b5>>
+===
+
+title: DEV_Text_17_f8_b5
+position: 1980,0
+tags: actorUID=GUIDE, meta_MOOD=HAPPY, meta=MOOD:HAPPY
+---
+GUIDE: YES! #line:0fb5bba 
+<<jump DEV_Text_14_f8_b5>>
+===
+
+title: DEV_Choice_64_f8_b5
+position: 2200,0
+tags: actorUID=GUIDE, type=Choice, meta_MOOD=SAD, meta=MOOD:SAD
+---
+GUIDE: No. Do you want to try again? #line:0802477 
+-> "Yes": #line:0382af5 
+    <<jump DEV_Text_14_f8_b5>>
+-> "No": #line:08e27bb 
+    <<jump quiz_test>>
+===
+
+title: talk_teacher
+position: 2420,0
+tags: actorUID=OLD_WOMAN
+---
+OLD_WOMAN: Sequence Line 1 #line:0d11210 
+OLD_WOMAN: Sequence Line 2 #line:01985bd 
+OLD_WOMAN: Sequence Line 3 #line:0ec0199 
+<<jump DEV_Text_94_f8_b5>>
+===
+
+title: DEV_Text_94_f8_b5
+position: 0,140
+tags: actorUID=OLD_WOMAN, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+OLD_WOMAN: Smart random Line 1 #line:0b53d1c 
+OLD_WOMAN: Smart random Line 2 #line:0855983 
+OLD_WOMAN: Smart random Line 3 #line:0d0753f 
+===
+
+title: DEV_Text_14_f8_b5
+position: 220,140
+tags: actorUID=GUIDE
+---
+GUIDE: Goodbye #line:08ec773 
+===
+
+title: DEV_Condition_MDHJDA1X
+position: 440,140
+tags: type=Condition
+---
+%met_teacher_1 #line:05810ad 
+===
+
+title: DEV_Text_MDHJGXLJ
+position: 660,140
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: Welcome to your school #line:08aebee 
+===
+
+title: DEV_Variables_MDHJH9B9
+position: 880,140
+tags: type=Variables
+---
+// Variables
+<<set $met_teacher_1 = true>>
+<<jump DEV_Text_MDHJGXLJ>>
+===
+
+title: activity_test
+position: 1100,140
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: Are you ready for your Mission? #line:01eaf23 
+<<jump DEV_Condition_MDYQ0Z0U>>
+===
+
+title: DEV_Text_MDQ543Y1
+position: 1320,140
+tags: actorUID=KID_FEMALE, meta_ACTION_POST=ACTIVITY_TEST, meta=ACTION_POST:ACTIVITY_TEST
+---
+KID_FEMALE: Play this NORMAL Test Activity! #line:094725c 
+<<jump DEV_Condition_ME3U1A9W>>
+===
+
+title: actions_test
+position: 1540,140
+tags: actorUID=KID_FEMALE, meta_ACTION=PRE_ACTIONS, meta=ACTION:PRE_ACTIONS, meta_ACTION_POST=POST_ACTIONS, meta=ACTION_POST:POST_ACTIONS
+---
+KID_FEMALE: Action Pre "pre_actions" and action_post "post_actions" #line:0651d47 
+===
+
+title: test_condition
+position: 1760,140
+tags: type=Condition
+---
+%got_hint #line:0cc406b 
+===
+
+title: DEV_Text_MDQ5BT1L
+position: 1980,140
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: I alrady gave you an hint! #line:035160d 
+<<jump DEV_Variables_D1NB_Q85>>
+===
+
+title: DEV_Text_MDQ5BUGW
+position: 2200,140
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: This is Hint 1 #line:0cdd70d 
+KID_FEMALE: This is Hint 2 #line:0f8734f 
+<<jump DEV_Variables_MDQ5D1NB>>
+===
+
+title: DEV_Variables_MDQ5D1NB
+position: 2420,140
+tags: type=Variables
+---
+// Variables
+<<set $got_hint = true>>
+===
+
+title: DEV_Variables_D1NB_Q85
+position: 0,280
+tags: type=Variables
+---
+// Variables
+<<set $got_hint = false>>
+===
+
+title: DEV_Text_MDQ5EL0V
+position: 220,280
+tags: actorUID=TUTOR, meta_ACTION_POST=CLOSE_DOOR, meta=ACTION_POST:CLOSE_DOOR
+---
+TUTOR: and closes POST #line:0625e44 
+===
+
+title: chest_money
+position: 440,280
+tags: actorUID=TUTOR, meta_ACTION_POST=ACTIVITY_MONEY, meta=ACTION_POST:ACTIVITY_MONEY
+---
+TUTOR: Play with money #line:036dfa7 
+===
+
+title: task_collect
+position: 660,280
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: I ask you a favour... #line:05d6737 
+<<jump DEV_Text_MDXECFP7>>
+===
+
+title: DEV_Text_MDXECFP7
+position: 880,280
+tags: actorUID=KID_FEMALE, meta_TASK=COLLECT_FLOWERS, meta=TASK:COLLECT_FLOWERS
+---
+KID_FEMALE: Collect 5 flowers! #line:02d56dc 
+===
+
+title: task_collect_done
+position: 1100,280
+tags: actorUID=KID_FEMALE, meta_NEXTTARGET=KID, meta=NEXTTARGET:KID
+---
+KID_FEMALE: You collected all the flowers! Go back to the kid #line:0350c0c 
+===
+
+title: task_reach
+position: 1320,280
+tags: actorUID=TUTOR, meta_TASK=REACH_PLATFORM, meta=TASK:REACH_PLATFORM
+---
+TUTOR: TASK: Reach that platform #line:06a1bd9 
+===
+
+title: task_reach_done
+position: 1540,280
+tags: actorUID=TUTOR
+---
+TUTOR: TASK COMPLETED! YOU GOT HERE #line:0d18a18 
+===
+
+title: quest_start
+position: 1760,-399
+tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
+---
+TUTOR: Welcome to the Dev scene #line:02b5f92 
+===
+
+title: DEV_Condition_MDYQ0Z0U
+position: 2139,471
+tags: type=Condition
+---
+$EASY_MODE #line:08667cf 
+===
+
+title: DEV_Text_43Y1_TD4
+position: 1740,1203
+tags: actorUID=KID_FEMALE, meta_ACTION_POST=ACTIVITY_TEST_EASY, meta=ACTION_POST:ACTIVITY_TEST_EASY
+---
+KID_FEMALE: Play this EASY Test Activity! #line:0af6d1f 
+<<jump DEV_Condition_ME3U1A9W>>
+===
+
+title: activity_test_done
+position: 2575,569
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: Well done. You can go on! #line:006c1f8 
+===
+
+title: activity_test_fail
+position: 0,420
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: Maybe you whould try again #line:0a16c0b 
+===
+
+title: quest_end
+position: 220,420
+tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
+---
+TUTOR: CONGRATULATIONS! #line:0b269b6 
+===
+
+title: DEV_Text_MDZXW08E
+position: 440,420
+tags: actorUID=TUTOR
+---
+TUTOR: You have the flag of France! #line:0fd4a81 
+===
+
+title: talk_franch_flag
+position: 660,420
+tags: type=Condition
+---
+$CURRENT_ITEM == "french_flag" #line:0579968 
+"flag_italy" IN $INVENTORY #line:0c49601 
+===
+
+title: DEV_Text_W08E_8GK
+position: 880,420
+tags: actorUID=TUTOR
+---
+TUTOR: You don't have the french flag #line:021e3dd 
+===
+
+title: DEV_Text_ME3SQW26
+position: 1214,566
+tags: actorUID=TUTOR
+---
+TUTOR: Are you ready for an achievement? #line:019b763 
+<<jump DEV_Text_ME3SRQ46>>
+===
+
+title: DEV_Text_ME3SRQ46
+position: 1247,892
+tags: actorUID=TUTOR
+---
+TUTOR: Developer Hat #line:029badf 
+===
+
+title: DEV_Condition_ME3U1A9W
+position: 1756,973
+tags: type=Condition
+---
+$ACTIVITY_SUCCESS #line:0d28832 
+===
+
+title: DEV_Text_ME3UTRI4
+position: 2134,904
+tags: actorUID=TUTOR
+---
+TUTOR: But you have the italian... good! #line:0efb8dc 
+===
+

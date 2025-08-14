@@ -1,0 +1,637 @@
+﻿// FR-09 Cotes Dazur Market
+
+title: FR_09_INIT
+position: 943,-497
+tags: type=Start
+color: red
+---
+<<set $MAX_PROGRESS = 7>>
+<<declare $ingredients = 0>>
+<<jump FR_09_quest_start>>
+===
+title: FR_09_quest_start
+position: 940,-320
+tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
+---
+TUTOR: Welcome to FR-09: Côte d'Azur! It's a beautiful day on the coast.
+===
+title: FR_09_COTES_DAZUR_Text_02630595
+position: -164,-273
+tags: actorUID=GUIDE, asset=_09_overview
+---
+===
+title: market_cheesemonger
+position: 108,-298
+tags: actorUID=MAN, asset=_09_cheesemonger
+---
+MAN: I sell cheese and milk. I'm a cheesemonger
+===
+
+title: market_butcher
+position: 660,-222
+tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-9a-b7
+---
+MAN: I sell meat. I'm a butcher.
+===
+
+title: market_green
+position: -248,-477
+tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-9a-b7-f9-b7
+---
+MAN: I sell fruits and vegetables. I'm a greengrocer.
+===
+
+title: market_fish
+position: -463,-283
+tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-2a-9f-39-9b
+color: orange
+---
+MAN: I sell fish. I'm a fishmonger.
+===
+
+title: market_grocer
+position: -142,-124
+tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-2a-9f-6b-bb
+---
+MAN: I sell pepper, salt, huile and spices. I'm a grocer.
+===
+
+title: french_coastlines
+position: 89,-141
+tags: actorUID=MAN, asset=french_coastlines
+---
+MAN: FRENCH COASTLINES
+===
+
+title: FR_09_COTES_DAZUR_Text_MD8VDUP8
+position: 1323,-100
+tags: actorUID=MAN
+---
+MAN: Bonjour! Welcome to Marseille, on the coast of the beautiful Mediterranean Sea!
+<<jump FR_09_COTES_DAZUR_Text_DUP8_F9R>>
+===
+
+title: FR_09_COTES_DAZUR_Text_DUP8_F9R
+position: 1622,-106
+tags: actorUID=MAN, asset=bouillabaisse
+---
+MAN: I want to make a special dish for you, a bouillabaisse!
+<<jump task_ingredients_2>>
+===
+
+title: task_ingredients_2
+position: 1925,-91
+tags: actorUID=MAN, meta_TASK=COLLECT_THE_INGREDIENTS, meta=TASK:COLLECT_THE_INGREDIENTS
+---
+MAN: But I need some ingredients. Please go to the market and buy them for me.
+<<jump FR_09_COTES_DAZUR_Text__LK1_681>>
+===
+
+title: FR_09_COTES_DAZUR_Text__LK1_681
+position: 2239,-89
+tags: actorUID=MAN
+---
+MAN: And remember your manners! Always say 'Bonjour' to greet someone, and 'Merci' to thank them!
+===
+
+title: FR_09_baker_bonjour
+position: -32,86
+group: baker
+tags: actorUID=MAN
+---
+MAN: Bonjour! I sell fresh bread. I am a baker. Every day I wake up early to bake!
+<<jump FR_09_baker_question>>
+===
+
+title: FR_09_baker_pay_please
+position: 305,255
+group: baker
+tags: actorUID=MAN, meta_ACTION_POST=ACTIVITY_MONEY_1, meta=ACTION_POST:ACTIVITY_MONEY_1
+---
+MAN: Select enough money to pay for the items!
+<<jump FR_09_baker_payment_done>>
+===
+
+title: shop_baker
+position: -454,215
+group: baker
+tags: actorUID=BAKER, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+color: yellow
+---
+-> Bonjour!:
+    <<jump FR_09_baker_bonjour>>
+-> Merci!:
+    <<jump FR_09_baker_notunderstands>>
+-> Banana!:
+    <<jump FR_09_baker_notunderstands>>
+===
+
+title: FR_09_baker_question
+position: 305,57
+group: baker
+tags: actorUID=BAKER, type=Choice
+---
+What do you want to buy?
+-> "Bread":
+    <<jump FR_09_baker_pay_please>>
+-> "Fish and Crab":
+    <<jump FR_09_bakeer_sorry_dont_sell>>
+-> "Tomatoes, Oranges, and Lemons":
+    <<jump FR_09_bakeer_sorry_dont_sell>>
+-> "Salt, Pepper, and Oil":
+    <<jump FR_09_bakeer_sorry_dont_sell>>
+===
+
+title: FR_09_baker_payment_done
+position: 581,267
+group: baker
+tags: actorUID=MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
+-> "Bonne journée!":
+    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
+===
+
+title: FR_09_bakeer_sorry_dont_sell
+position: 608,55
+group: baker
+tags: actorUID=MAN
+---
+MAN: Sorry, I don't sell that.
+===
+
+title: FR_09_COTES_DAZUR_Choice__RNV_S5A
+position: 1058,1475
+tags: actorUID=OLD_MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Variables_8ILI_427>>
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Variables_8ILI_427>>
+-> "Bonne journée!":
+    <<jump FR_09_COTES_DAZUR_Variables_8ILI_427>>
+===
+
+title: FR_09_COTES_DAZUR_Text__B3T_S5A
+position: 769,1293
+tags: actorUID=OLD_MAN
+---
+OLD_MAN: Sorry, I don't sell that.
+===
+
+title: FR_09_COTES_DAZUR_Choice__3WI_S5A
+position: 421,1362
+tags: actorUID=OLD_MAN, type=Choice
+---
+OLD_MAN: What do you want to buy?
+-> "Fish & Crab":
+    <<jump FR_09_COTES_DAZUR_Text__B3T_S5A>>
+-> "Tomatoes, Oranges, and Lemons":
+    <<jump FR_09_COTES_DAZUR_Text__B3T_S5A>>
+-> "Bread":
+    <<jump FR_09_COTES_DAZUR_Text__B3T_S5A>>
+-> "Milk":
+    <<jump FR_09_COTES_DAZUR_Text__447_54Z>>
+===
+
+title: shop_fisher
+position: -358,1429
+tags: actorUID=OLD_MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Lycée!":
+    <<jump FR_09_COTES_DAZUR_Text_NNFP_S5A>>
+-> "Bonjour!":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_VOH>>
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_VOH>>
+===
+
+title: FR_09_COTES_DAZUR_Text_NNFP_S5A
+position: 119,1312
+tags: actorUID=OLD_MAN
+---
+OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger. All of my items come from the sea!
+<<jump FR_09_COTES_DAZUR_Choice__3WI_S5A>>
+===
+
+title: shop_cheesemonger
+position: -440,998
+tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_14N>>
+-> "Bonjour!":
+    <<jump FR_09_COTES_DAZUR_Text__14N_MN1>>
+-> "Chat!":
+    <<jump FR_09_COTES_DAZUR_Text__14N_MN1>>
+===
+
+title: FR_09_COTES_DAZUR_Choice__S5A_14N
+position: 168,1105
+tags: actorUID=WOMAN, type=Choice
+---
+WOMAN: What do you want to buy?
+-> "Milk":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_14N_1>>
+-> "Salt, Pepper, and Oil":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_14N_1>>
+-> "Bread":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_14N_1>>
+-> "Tomatoes, Oranges, and Lemons":
+    <<jump FR_09_COTES_DAZUR_Text__54Z_R5J>>
+===
+
+title: FR_09_COTES_DAZUR_Choice__S5A_14N_1
+position: 783,917
+tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Bonne journée!":
+    <<jump FR_09_COTES_DAZUR_Variables_MDER8ILI>>
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Variables_MDER8ILI>>
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Variables_MDER8ILI>>
+===
+
+title: FR_09_COTES_DAZUR_Text__S5A_14N
+position: -146,1113
+tags: actorUID=WOMAN
+---
+WOMAN: Hi! I sell cheese and milk. I am a cheesemonger. I use both cow milk and goat milk.
+<<jump FR_09_COTES_DAZUR_Choice__S5A_14N>>
+===
+
+title: FR_09_COTES_DAZUR_Text__S5A_14N_1
+position: 521,1119
+tags: actorUID=WOMAN
+---
+WOMAN: Sorry, I don't sell that.
+===
+
+title: FR_09_COTES_DAZUR_Text__S5A_HD9
+position: 604,1711
+tags: actorUID=MAN
+---
+MAN: Sorry, I don't sell that.
+===
+
+title: FR_09_COTES_DAZUR_Choice__S5A_HD9
+position: 907,1896
+tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Bonne journée!":
+    <<jump FR_09_COTES_DAZUR_Variables__G0B_S4R>>
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Variables__G0B_S4R>>
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Variables__G0B_S4R>>
+===
+
+title: FR_09_COTES_DAZUR_Choice__S5A_HD9_1
+position: 309,1875
+tags: actorUID=WOMAN, type=Choice
+---
+WOMAN: What do you want to buy?
+-> "Fish and crab":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_HD9>>
+-> "Bread":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_HD9>>
+-> "Tomatoes, Oranges, and Lemons":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_HD9>>
+-> "Milk":
+    <<jump FR_09_COTES_DAZUR_Text__MGN_PPN>>
+===
+
+title: shop_greengrocer
+position: -355,1687
+tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Text__S5A_HD9_1>>
+-> "Train!":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_6O1>>
+-> "Bonjour!":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_6O1>>
+===
+
+title: FR_09_COTES_DAZUR_Text__S5A_HD9_1
+position: -22,1866
+tags: actorUID=WOMAN
+---
+WOMAN: Hello! I sell fruits and vegetables. I'm a greengrocer. My items are always fresh!
+<<jump FR_09_COTES_DAZUR_Choice__S5A_HD9_1>>
+===
+
+title: FR_09_COTES_DAZUR_Choice__HD9_WO6
+position: 753,649
+group: grocer
+tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Au revoir!":
+    <<jump FR_09_COTES_DAZUR_Variables__427_DMX>>
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Variables__427_DMX>>
+-> "Bonne journée!":
+    <<jump FR_09_COTES_DAZUR_Variables__427_DMX>>
+===
+
+title: FR_09_COTES_DAZUR_Text__HD9_WO6
+position: 463,489
+group: grocer
+tags: actorUID=OLD_WOMAN
+---
+OLD_WOMAN: Sorry, I don't sell that.
+===
+
+title: FR_09_COTES_DAZUR_Choice__HD9_WO6_1
+position: 158,517
+group: grocer
+tags: actorUID=OLD_WOMAN, type=Choice
+---
+OLD_WOMAN: What do you want to buy?
+-> "Tomatoes, Oranges, and Lemons":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_WO6>>
+-> "Bread":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_WO6>>
+-> "Milk":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_WO6>>
+-> "Salt, Pepper, and Oil":
+    <<jump FR_09_COTES_DAZUR_Text__R5J_MGN>>
+===
+
+title: shop_grocer
+position: -462,567
+group: grocer
+tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+---
+-> "Merci!":
+    <<jump FR_09_COTES_DAZUR_Text__HD9_WO6_1>>
+-> "Bonjour!":
+    <<jump FR_09_COTES_DAZUR_Text__WO6_WBF>>
+-> "Livre!":
+    <<jump FR_09_COTES_DAZUR_Text__WO6_WBF>>
+===
+
+title: FR_09_COTES_DAZUR_Text__HD9_WO6_1
+position: -152,522
+group: grocer
+tags: actorUID=OLD_WOMAN
+---
+OLD_WOMAN: Hello! I sell spices and pantry goods. I am a grocer. You can use my items for many recipes.
+<<jump FR_09_COTES_DAZUR_Choice__HD9_WO6_1>>
+===
+
+title: FR_09_COTES_DAZUR_Text__LK1_0IT
+position: 644,2121
+tags: actorUID=CRAZY_MAN
+---
+CRAZY_MAN: In the past, we used to steal items from the enemies of the King, but those days are long gone.
+<<jump FR_09_COTES_DAZUR_Text__0IT_7YX>>
+===
+
+title: pirate
+position: -203,2125
+tags: actorUID=CRAZY_MAN
+---
+CRAZY_MAN: Ahoy there! Welcome aboard. We come from Saint-Malo and have sailed the seas to get here!
+<<jump FR_09_COTES_DAZUR_Text__0IT_SCX>>
+===
+
+title: FR_09_COTES_DAZUR_Text__0IT_SCX
+position: 90,2126
+tags: actorUID=CRAZY_MAN
+---
+CRAZY_MAN: People call us pirates, but actually, we are Corsaires—Privateers!
+<<jump FR_09_COTES_DAZUR_Text__SCX_I7P>>
+===
+
+title: FR_09_COTES_DAZUR_Text__0IT_7YX
+position: 927,2131
+tags: actorUID=CRAZY_MAN
+---
+CRAZY_MAN: You should pay for the items you need, so that the vendors can keep their shops open!
+<<jump FR_09_COTES_DAZUR_Variables_MDT1CA1G>>
+===
+
+title: task_ingredients_done
+position: 1295,-485
+tags: actorUID=MAN
+---
+MAN: Magnifique! You have everything! And I hear you were very polite.
+<<jump FR_09_COTES_DAZUR_Text__2VB_9U5>>
+===
+
+title: FR_09_COTES_DAZUR_Text__2VB_9U5
+position: 1595,-477
+tags: actorUID=MAN
+---
+MAN: You are a true connoisseur of the market. Now, let's prepare this feast!
+<<jump FR_09_COTES_DAZUR_Text__9U5_KF0>>
+===
+
+title: FR_09_COTES_DAZUR_Text__9U5_KF0
+position: 1878,-466
+tags: actorUID=MAN, meta_ACTION_POST=ACTIVITY_ORDER, meta=ACTION_POST:ACTIVITY_ORDER
+---
+MAN: Match the items to the sellers!
+<<jump FR_09_COTES_DAZUR_Variables_MDT1D7GS>>
+===
+
+title: chef
+position: 2132,1907
+tags: type=Condition
+---
+%ingredients == 5
+===
+
+title: FR_09_COTES_DAZUR_Variables_MDER8ILI
+position: 1059,903
+tags: type=Variables
+---
+// Variables
+<<set $ingredients = $ingredients + 1>>
+===
+
+title: FR_09_COTES_DAZUR_Variables_8ILI_427
+position: 1403,1471
+tags: type=Variables
+---
+// Variables
+<<set $ingredients= $ingredients + 1>>
+===
+
+title: FR_09_COTES_DAZUR_Variables__427_DMX
+position: 1113,645
+group: grocer
+tags: type=Variables
+---
+// Variables
+<<set $ingredients= $ingredients + 1>>
+===
+
+title: FR_09_COTES_DAZUR_Variables__DMX_G0B
+position: 872,258
+group: baker
+tags: type=Variables
+---
+// Variables
+<<set $ingredients = $ingredients + 1>>
+===
+
+title: FR_09_COTES_DAZUR_Variables__G0B_S4R
+position: 1264,1867
+tags: type=Variables
+---
+// Variables
+<<set $ingredients= $ingredients + 1>>
+===
+
+title: FR_09_COTES_DAZUR_Text__447_54Z
+position: 756,1486
+tags: actorUID=OLD_MAN, meta_ACTION_POST=ACTIVITY_MONEY_2, meta=ACTION_POST:ACTIVITY_MONEY_2
+---
+OLD_MAN: Select enough money to pay for the items!
+<<jump FR_09_COTES_DAZUR_Choice__RNV_S5A>>
+===
+
+title: FR_09_COTES_DAZUR_Text__54Z_R5J
+position: 485,920
+tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_3, meta=ACTION_POST:ACTIVITY_MONEY_3
+---
+WOMAN: Select enough money to pay for the items!
+<<jump FR_09_COTES_DAZUR_Choice__S5A_14N_1>>
+===
+
+title: FR_09_COTES_DAZUR_Text__R5J_MGN
+position: 444,656
+group: grocer
+tags: actorUID=OLD_WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_5, meta=ACTION_POST:ACTIVITY_MONEY_5
+---
+OLD_WOMAN: Select enough money to pay for the items!
+<<jump FR_09_COTES_DAZUR_Choice__HD9_WO6>>
+===
+
+title: FR_09_COTES_DAZUR_Text__MGN_PPN
+position: 590,1907
+tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_4, meta=ACTION_POST:ACTIVITY_MONEY_4
+---
+WOMAN: Select enough money to pay for the items!
+<<jump FR_09_COTES_DAZUR_Choice__S5A_HD9>>
+===
+title: FR_09_baker_notunderstands
+position: -26,253
+group: baker
+tags: actorUID=MAN
+---
+MAN: Sorry, I don't think I understand...
+===
+
+title: FR_09_COTES_DAZUR_Text__S5A_VOH
+position: 119,1474
+tags: actorUID=OLD_MAN
+---
+OLD_MAN: Sorry, I don't think I understand...
+===
+
+title: FR_09_COTES_DAZUR_Text__14N_MN1
+position: -150,970
+tags: actorUID=WOMAN
+---
+WOMAN: Sorry, I don't think I understand...
+===
+
+title: FR_09_COTES_DAZUR_Text__WO6_WBF
+position: -150,709
+group: grocer
+tags: actorUID=OLD_WOMAN
+---
+OLD_WOMAN: Sorry, I don't think I understand...
+===
+
+title: FR_09_COTES_DAZUR_Text__HD9_6O1
+position: -21,1681
+tags: actorUID=MAN
+---
+MAN: Sorry, I don't think I understand...
+===
+
+title: FR_09_COTES_DAZUR_Text__SCX_I7P
+position: 379,2124
+tags: actorUID=CRAZY_MAN
+---
+CRAZY_MAN: We were sailors working for the King of France.
+<<jump FR_09_COTES_DAZUR_Text__LK1_0IT>>
+===
+title: item_bread
+position: 2147,2056
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Bread
+===
+
+title: item_fish
+position: 2408,2067
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Fish
+===
+
+title: item_orange
+position: 2916,2053
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Orange
+===
+
+title: item_lemon
+position: 3136,2053
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Lemon
+===
+
+title: item_tomato
+position: 3356,2053
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Tomato
+===
+
+title: item_cheese
+position: 3576,2053
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Cheese
+===
+
+title: item_salt
+position: 2661,2049
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Salt
+===
+
+title: item_pepper
+position: 2370,1899
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Pepper
+===
+
+title: item_oil
+position: 2622,1879
+tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
+---
+TUTOR: Oil
+===
+
+title: Node
+group: baker
+style: note
+position: -440,98
+---
+SHOP BAKER
+===

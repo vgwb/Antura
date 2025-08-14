@@ -1,0 +1,176 @@
+﻿// Tutorial
+title: TUTORIAL_init
+position: 0,0
+tags: type=Start
+color: red
+---
+<<set $TOTAL_COINS = 0>>
+<<set $IS_DESKTOP = false>>
+===
+title: tutor_mission
+position: 440,0
+tags: actorUID=TUTOR, meta_ACTION_POST=AREA_TUTORIAL, meta=ACTION_POST:AREA_TUTORIAL
+---
+TUTOR: Let me see if you learned: climb the stairs and get that coin! #line:0fe9efe 
+===
+
+title: talk_tutor
+position: 660,0
+tags: actorUID=TUTOR, metaId=44308910, meta_ACTION=AREA_INTRO, meta=ACTION:AREA_INTRO
+---
+TUTOR: Welcome to the Tutorial. Touch this text to hear it in your language. #line:03dbfa7 
+<<jump tutor_goon>>
+===
+
+title: tutor_walk
+position: 880,0
+tags: actorUID=TUTOR, asset=tutorial_move
+---
+TUTOR: Use your left finger to walk. #line:0088bdf 
+===
+
+title: TUTORIAL_Text_56_da_9f
+position: 1100,0
+tags: actorUID=TUTOR, asset=tutorial_camera
+---
+TUTOR: Use your right finger to move the camera. #line:01ff006 
+===
+
+title: TUTORIAL_Text_9f_78_8e
+position: 1320,0
+tags: actorUID=TUTOR, asset=tutorial_jump
+---
+TUTOR: Use this button to jump. #line:0b9c1fa 
+===
+
+title: tutor_run
+position: 1540,0
+tags: actorUID=TUTOR, asset=tutorial_run
+---
+TUTOR: Use this button to run. #line:093726d 
+===
+
+title: tutor_interact
+position: 1760,0
+tags: actorUID=TUTOR, asset=tutorial_actions
+---
+TUTOR: Explore all objects that have this icon. #line:0139142 
+===
+
+title: tutor_map
+position: 1980,0
+tags: actorUID=TUTOR, asset=tutorial_map
+---
+TUTOR: This button opens the map! #line:01777e4 
+===
+
+title: tutor_biscuit
+position: 2200,0
+tags: actorUID=TUTOR, asset=tutorial_biscuits
+---
+TUTOR: Take all biscuits you find. They can be useful #line:0f50a6e 
+===
+
+title: tutor_pushball
+position: 2420,0
+tags: actorUID=TUTOR, asset=tutorial_ball
+---
+TUTOR: Try to push this ball. #line:02253ae 
+===
+
+title: tutor_follow
+position: 0,140
+tags: actorUID=TUTOR, meta_ACTION_POST=AREA_INTRO2, meta=ACTION_POST:AREA_INTRO2, asset=tutorial_follow
+---
+TUTOR: If you get lost, follow this icon. #line:06c117d 
+===
+
+title: tutor_goon
+position: 220,140
+tags: actorUID=TUTOR, metaId=44308910, asset=tutorial_goon
+---
+TUTOR: Use this button to advance the dialog. #line:0f4f069 
+<<jump tutor_photo>>
+===
+
+title: tutor_photo
+position: 440,140
+tags: actorUID=TUTOR, asset=tutorial_image
+---
+TUTOR: Use this button to view the photo #line:0784704 
+<<jump TUTORIAL_Condition_MCHUS402>>
+===
+
+title: TUTORIAL_Text_50493163
+position: 660,140
+tags: actorUID=TUTOR, asset=tutorial_act
+---
+TUTOR: Use this button to talk or interact #line:0e96663 
+===
+
+title: npc_hallo
+position: 880,140
+tags: actorUID=KID_FEMALE
+---
+KID_FEMALE: Ciao! #line:0c47c13 
+KID_FEMALE: Hallo! #line:022bd3f 
+KID_FEMALE: Salut! #line:00ad419 
+KID_FEMALE: чао #line:0591baf 
+===
+
+title: TUTORIAL_Condition_MCHUS402
+position: 1100,140
+tags: type=Condition
+---
+$IS_DESKTOP #line:066f637 
+===
+
+title: TUTORIAL_Text_MCHUSK00
+position: 1320,140
+tags: actorUID=TUTOR
+---
+TUTOR: Use these keys to walk. #line:047fba4 
+===
+
+title: tutor_camera
+position: 1540,140
+tags: type=Condition
+---
+$IS_DESKTOP #line:0c0a206 
+===
+
+title: TUTORIAL_Text_MCHUUC4N
+position: 1760,140
+tags: actorUID=TUTOR
+---
+TUTOR: Press right mouse button to move the camera. #line:02ed54d 
+===
+
+title: tutor_act
+position: 1980,140
+tags: type=Condition
+---
+$IS_DESKTOP #line:0d5ec63 
+===
+
+title: TUTORIAL_Text_UC4N_H9M
+position: 2200,140
+tags: actorUID=TUTOR
+---
+TUTOR: Press SPACE key to talk or interact. #line:0c9b346 
+===
+
+title: tutor_jump
+position: 2420,140
+tags: type=Condition
+---
+$IS_DESKTOP #line:0ed5b67 
+===
+
+title: TUTORIAL_Text__H9M_WT2
+position: 0,280
+tags: actorUID=TUTOR
+---
+TUTOR: Press SPACE key to jump. #line:0a5a6f7 
+===
+
