@@ -61,11 +61,7 @@ namespace Antura.Discover
             yarnManager = yarnManager ? yarnManager : YarnAnturaManager.I;
             if (yarnManager == null)
             {
-#if UNITY_2023_1_OR_NEWER
                 yarnManager = UnityEngine.Object.FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
-#else
-                yarnManager = UnityEngine.Object.FindObjectOfType<YarnAnturaManager>(true);
-#endif
             }
             yarnManager?.Setup(LanguageCode, NativeLanguageCode);
 

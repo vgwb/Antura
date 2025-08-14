@@ -1,0 +1,418 @@
+﻿//--------------------------------------------
+// Quest: The Amber Necklace of Gdańsk
+//
+// Activity Presets (you can rename):
+// - activity_cleancanvas brzezno_beach_clean 
+//   Background: Baltic beach (Brzeźno). Obstacles: crabs, driftwood, floating buoys.
+//   Treasures under sand: shell icons, tiny amber drops.
+//
+// - activity_jigsawpuzzle nowy_port_lighthouse 
+//   Image: Gdańsk Nowy Port Lighthouse (clean photo/illustration).
+//
+// - activity_order amber_shell_pattern 
+//   Items: [amber, shell, amber, shell, amber] (or 4 items if you prefer).
+//   Goal: Drag in the right order to make a pattern.
+//
+// - activity_piano neptune_wave_song
+//   Simple 4–5 note motif (do–mi–sol–mi–do). Use sea/wave SFX mapping.
+//
+// - activity_quiz baltic_basics
+//   4 picture questions: amber, fish, seal, beach.
+//
+
+//--------------------------------------------
+// GLOBAL STATE
+//--------------------------------------------
+title: START_GDANSK
+tags: start
+position: -164,-113
+group: Intro
+colorID: 0
+---
+<<set $amber_needed = 5>>
+<<set $shell_needed = 5>>
+<<set $amber_count = 0>>
+<<set $shell_count = 0>>
+<<set $necklace_done = false>>
+<<set $lighthouse_on = false>>
+<<set $met_fisherman = false>>
+
+[We are in Gdańsk. The lighthouse is dark.]
+Narrator: Oh no! Antura turned off the light!
+Narrator: Boats need the lighthouse.
+Narrator: The legend says: Make a gift for Neptune.
+Narrator: A necklace of Baltic treasures.
+Narrator: We need 5 amber and 5 shells.
+
+Narrator: Let’s go to the beach!
+-> Beach_Intro
+===
+
+
+//--------------------------------------------
+// BEACH CHAPTER
+//--------------------------------------------
+title: Beach_Intro
+tags:
+position: 340,-256
+group: Beach
+colorID: 1
+---
+Narrator: This is the Baltic Sea. [SFX: waves, seagulls]
+Narrator: The sand is soft. Treasures hide!
+Narrator: First, let’s find shells.
+
+Narrator: Clean the sand. Find shells that glow.
+<<command activity_cleancanvas brzezno_beach_clean tutorial>>
+
+-> Beach_Shells_Progress
+===
+
+title: Beach_Shells_Progress
+tags:
+position: 677,-266
+group: Beach
+colorID: 1
+---
+<<if $shell_count < $shell_needed>>
+Narrator: Keep going. We need {$shell_needed - $shell_count} more shell(s).
+-> Beach_Shells_Wait
+<<else>>
+Narrator: Great! 5 shells!
+-> Fisherman_Intro
+<<endif>>
+===
+
+title: Beach_Shells_Wait
+tags:
+position: 658,-92
+group: Beach
+colorID: 1
+---
+-> I found a shell!
+    <<jump Beach_Shells_Found>>
+-> Not yet.
+    <<jump Beach_Shells_KeepSearching>>
+===
+
+title: Beach_Shells_Found
+tags:
+position: 1056,-274
+group: Beach
+colorID: 1
+---
+<<set $shell_count = $shell_count + 1>>
+Narrator: Nice! Shell {$shell_count} / {$shell_needed}.
+-> Beach_Shells_Progress
+===
+
+title: Beach_Shells_KeepSearching
+tags:
+position: 1027,-68
+group: Beach
+colorID: 1
+---
+Narrator: Try the next sand pile.
+Narrator: Rake, rake, rake!
+-> Beach_Shells_Progress
+===
+
+
+//--------------------------------------------
+// FISHERMAN CHAPTER
+//--------------------------------------------
+title: Fisherman_Intro
+tags:
+position: 965,266
+group: Fisherman
+colorID: 2
+---
+[Near a cutter boat and a net.]
+Fisherman: Witaj! Hello!
+Fisherman: I am a fisherman.
+Fisherman: This is my cutter. This is my net.
+Fisherman: I fish in the Baltic Sea.
+Fisherman: Seals live here too. We keep a distance.
+
+<<set $met_fisherman = true>>
+
+Fisherman: Do you need amber? Amber is Baltic gold.
+Fisherman: Let’s find 5 pieces of amber!
+
+Narrator: Clean more sand. Look for shiny amber.
+<<command activity_cleancanvas brzezno_beach_clean easy>>
+
+-> Amber_Progress
+===
+
+title: Amber_Progress
+tags:
+position: 1315,266
+group: Fisherman
+colorID: 2
+---
+<<if $amber_count < $amber_needed>>
+Fisherman: Keep going. {$amber_needed - $amber_count} more amber.
+-> Amber_Wait
+<<else>>
+Fisherman: You did it! 5 amber pieces!
+-> Lighthouse_Puzzle_Hook
+<<endif>>
+===
+
+title: Amber_Wait
+tags:
+position: 1315,406
+group: Fisherman
+colorID: 2
+---
+[[I found amber!]] -> Amber_Found
+[[Not yet.]] -> Amber_KeepSearching
+===
+
+title: Amber_Found
+tags:
+position: 1565,366
+group: Fisherman
+colorID: 2
+---
+<<set $amber_count = $amber_count + 1>>
+Fisherman: Shiny! Amber {$amber_count} / {$amber_needed}.
+-> Amber_Progress
+===
+
+title: Amber_KeepSearching
+tags:
+position: 1565,466
+group: Fisherman
+colorID: 2
+---
+Fisherman: Try another spot.
+Fisherman: Amber can be tiny. Look close!
+-> Amber_Progress
+===
+
+
+//--------------------------------------------
+// LIGHTHOUSE VISUAL PRIMER (JIGSAW)
+//--------------------------------------------
+title: Lighthouse_Puzzle_Hook
+tags:
+position: -452,402
+group: Crafting
+colorID: 3
+---
+Narrator: Let’s see the lighthouse up close.
+Narrator: Fix the picture!
+
+<<command activity_jigsawpuzzle nowy_port_lighthouse tutorial>>
+
+Narrator: Great! That is the Gdańsk Lighthouse.
+Narrator: Now, make the necklace pattern.
+-> Crafting_Intro
+===
+
+
+//--------------------------------------------
+// CRAFTING CHAPTER (uses activity_order)
+//--------------------------------------------
+title: Crafting_Intro
+tags:
+position: 100,334
+group: Crafting
+colorID: 3
+---
+Narrator: We have 5 amber and 5 shells.
+Narrator: Make a pattern: amber, shell, amber, shell…
+
+<<command activity_order amber_shell_pattern tutorial>>
+
+-> Crafting_Check
+===
+
+title: Crafting_Check
+tags:
+position: 461,531
+group: Crafting
+colorID: 3
+---
+<<if $necklace_done == false>>
+Narrator: Keep going. Follow the pattern.
+[[I finished!]] -> Crafting_Finished
+[[I need help.]] -> Crafting_Help
+<<else>>
+-> Crafting_Finished
+<<endif>>
+===
+
+title: Crafting_Help
+tags:
+position: -135,447
+group: Crafting
+colorID: 3
+---
+Narrator: Look: amber first, then shell.
+Narrator: Then amber again.
+Narrator: Make it neat and even.
+-> Crafting_Check
+===
+
+title: Crafting_Finished
+tags:
+position: 229,526
+group: Crafting
+colorID: 3
+---
+<<set $necklace_done = true>>
+Narrator: Beautiful! The necklace is ready.
+Narrator: Let’s visit Neptune’s Fountain.
+-> Neptune_Intro
+===
+
+
+//--------------------------------------------
+// NEPTUNE CHAPTER (includes activity_piano as a fun gate)
+//--------------------------------------------
+title: Neptune_Intro
+tags:
+position: -368,814
+group: Neptune
+colorID: 4
+---
+[At Long Market, Neptune’s Fountain.]
+Narrator: This is Neptune. The Sea King.
+Narrator: Play the wave song to wake him.
+
+<<command activity_piano neptune_wave_song tutorial>>
+
+Narrator: Great! Neptune is waking up!
+Narrator: Place the necklace on him.
+<<command PlaceOffering_Neptune>>
+
+-> Neptune_Speaks
+===
+ 
+title: Neptune_Speaks
+tags:
+position: -18,854
+group: Neptune
+colorID: 4
+---
+[VFX: glow] [SFX: magic chime]
+Neptune: A fine gift!
+Neptune: Amber from the Baltic. Shells from the beach.
+Neptune: Long ago, there was the Amber Room. So bright. So grand.
+Neptune: You showed love for the sea.
+
+Neptune: I grant your wish.
+[VFX: trident flash] [SFX: whoosh]
+
+<<set $lighthouse_on = true>>
+<<command TurnOn_Lighthouse>>
+
+Narrator: Look! The lighthouse shines!
+-> Seals_Scene
+===
+
+
+//--------------------------------------------
+// SEALS & ANTURA CHAPTER
+//--------------------------------------------
+title: Seals_Scene
+tags:
+position: 303,1070
+group: Seals
+colorID: 5
+---
+[On the beach. Seals rest. Antura teases from far.]
+Narrator: See the seals? They are wild.
+Narrator: We keep a safe distance.
+
+Fisherman: Well done!
+Fisherman: The seals need space.
+Fisherman: We watch from far. We do not touch.
+
+Narrator: Antura runs there!
+Narrator: Reach Antura. Do not scare the seals.
+
+<<command StartChase_Antura "keep_distance_from_seals">>
+-> Seals_Check
+===
+
+title: Seals_Check
+tags:
+position: 613,1110
+group: Seals
+colorID: 5
+---
+[[I got too close.]] -> Seals_Warning
+[[I reached Antura safely.]] -> Antura_End
+===
+
+title: Seals_Warning
+tags:
+position: 994,1107
+group: Seals
+colorID: 5
+---
+Narrator: Careful! Too close to seals.
+Narrator: Step back. Give them space.
+Narrator: Try again.
+-> Seals_Scene
+===
+
+title: Antura_End
+tags:
+position: 814,1289
+group: Seals
+colorID: 5
+---
+Antura: Arf! Arf! You win!
+Antura: The lighthouse is on.
+Antura: No more tricks today!
+
+Fisherman: Great job.
+Fisherman: You helped the city.
+Fisherman: You respected the sea and the seals.
+
+Narrator: Time for a quick quiz!
+-> Final_Assessment_Intro
+===
+
+
+//--------------------------------------------
+// FINAL ASSESSMENT (uses activity_quiz)
+//--------------------------------------------
+title: Final_Assessment_Intro
+tags:
+position: 688,1547
+group: Assessment
+colorID: 6
+---
+Narrator: Tap the right picture word.
+Narrator: Four questions.
+
+<<command activity_quiz baltic_basics tutorial>>
+
+-> Quest_Complete
+===
+
+
+//--------------------------------------------
+// QUEST COMPLETE
+//--------------------------------------------
+title: Quest_Complete
+tags:
+position: 1038,1587
+group: End
+colorID: 7
+---
+Narrator: You did it!
+Narrator: Lighthouse on. City safe.
+Narrator: New words: fisherman, cutter, net, shell, fish, seal, beach, sand.
+
+Fisherman: Come back to Gdańsk one day.
+Fisherman: Dziękuję! Thank you!
+
+<<command EndQuest "PL_02_Gdansk_Amber_Necklace">>
+===
