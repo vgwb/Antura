@@ -1,6 +1,6 @@
 ﻿// FR-11 music
 
-title: FR_11_INIT
+title: FR_11_init
 position: 0,0
 tags: type=Start
 ---
@@ -9,123 +9,48 @@ tags: type=Start
 <<set $TOTAL_COINS = 0>>
 ===
 
-title: FR_11_MUSIC_Text_MDRFGDYW
-position: 220,0
-tags: actorUID=MAN
----
-MAN: Hello! We're part of a band. We're musicians.
-<<jump FR_11_MUSIC_Text_MDRFM3RW>>
-===
-
-title: FR_11_MUSIC_Text_MDRFM3RW
-position: 440,0
-tags: actorUID=MAN
----
-MAN: We wanted to play the French Anthem, but we cannot!
-<<jump FR_11_MUSIC_Text_MDYIGHYS>>
-===
-title: FR_11_MUSIC_Text_MDYIGHYS
-position: 880,0
-tags: actorUID=MAN
----
-MAN: Antura has mixed up the musical script.
-<<jump FR_11_MUSIC_Text_MDYIH29O>>
-===
-
-title: FR_11_MUSIC_Text_MDYIH29O
-position: 1100,0
-tags: actorUID=MAN, meta_NEXTTARGET=FIND_THE_SCRIPT_PARTS, meta=NEXTTARGET:FIND_THE_SCRIPT_PARTS
----
-MAN: Find the notes of the script.
-===
-
-title: FR_11_MUSIC_Text_MDYJRUCM
-position: 1320,0
-tags: actorUID=MAN
----
-MAN: Thank you for helping us!
-<<jump FR_11_MUSIC_Text_MDYJW0Z4>>
-===
-
-title: FR_11_MUSIC_Text_MDYJW0Z4
-position: 1540,0
-tags: actorUID=MAN, meta_ACTION_POST=ORDER_NOTES, meta=ACTION_POST:ORDER_NOTES
----
-MAN: Can you put it together?
-===
-
 title: band_member
-position: 1760,0
-tags: type=Condition
----
-$COLLECTED_ITEMS = 7
-===
-
-title: FR_11_MUSIC_Text_MDZZ49XR
-position: 1980,0
+position: 275,-57
 tags: actorUID=MAN
 ---
-MAN: Thank you! The words of the French Hymn are important.
-<<jump FR_11_MUSIC_Text_ME19OB5Q>>
+<<if $COLLECTED_ITEMS >= 7>>
+Thank you for helping us!
+Can you put it together?
+<<action order_notes>>
+<<else>>
+Hello! We're part of a band. We're musicians.
+We wanted to play the French Anthem, but we cannot!
+Antura has mixed up the musical script.
+Find the notes of the script.
+<<task_start find_the_script_parts>>
+<<endif>>
 ===
 
-title: jean_michelle_jarre_1
-position: 2200,0
-tags: type=Condition
+title: jean_michelle_jarre
+position: 279,122
+tags: 
 ---
-$COLLECTED_ITEMS = 11
-$COLLECTED_ITEMS = 7
+<<if $COLLECTED_ITEMS >= 11>>
+Thank you! The words of the French Hymn are important.
+The French National Anthem, "La Marseillaise" rapresents France and its people.
+Can you put the words in order?
+<<activity order_words>>
+<<elseif $COLLECTED_ITEMS >= 7>>
+Hello I'm Jean Michelle Jarre.
+I'm a french composer, and I'm helping the band play "La Marseillaise".
+Find the words of the anthem.
+They've been scattered around by Antura.
+<<task_start find_the_words>>
+<<else>>
+I'm busy right now, come talk to me later
+<<endif>>
+
 ===
 
-title: FR_11_MUSIC_Text_MDZZEBLS
-position: 2420,0
-tags: actorUID=MAN
+title: win_order
+position: 5,198
 ---
-MAN: Hello I'm Jean Michelle Jarre.
-<<jump FR_11_MUSIC_Text_ME18DH14>>
-===
-
-title: FR_11_MUSIC_Text_ME188P8G
-position: 0,140
-tags: actorUID=MAN
----
-MAN: I'm busy right now, come talk to me latet.
-===
-
-title: FR_11_MUSIC_Text_ME18DH14
-position: 220,140
-tags: actorUID=MAN
----
-MAN: I'm a french composer, and I'm helping the band play "La Marseillaise".
-<<jump FR_11_MUSIC_Text_ME19GEGK>>
-===
-
-title: FR_11_MUSIC_Text_ME19GEGK
-position: 440,140
-tags: actorUID=MAN, meta_NEXTTARGET=FIND_THE_WORDS, meta=NEXTTARGET:FIND_THE_WORDS
----
-MAN: Find the words of the anthem.<br>They've been scattered around by Antura.
-===
-
-title: FR_11_MUSIC_Text_ME19OB5Q
-position: 660,140
-tags: actorUID=MAN
----
-MAN: The French National Anthem, "La Marseillaise" is a symobl that rapresent France and its people.
-<<jump FR_11_MUSIC_Text_ME19PERW>>
-===
-
-title: FR_11_MUSIC_Text_ME19PERW
-position: 880,140
-tags: actorUID=MAN, meta_ACTION_POST=ORDER_WORDS, meta=ACTION_POST:ORDER_WORDS
----
-MAN: Can you put the words in order?
-===
-
-title: win_order2
-position: 1100,140
-tags: actorUID=TUTOR, meta_ACTION_POST=ACTIVITY_PIANO, meta=ACTION_POST:ACTIVITY_PIANO
----
-TUTOR: Now let's try to play the song!
+Now let's try to play the song!
+<<activity play_piano>>
 ===
 
