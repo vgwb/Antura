@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
 using DG.Tweening;
-using Homer;
 using UnityEngine;
 
 namespace Antura.Discover

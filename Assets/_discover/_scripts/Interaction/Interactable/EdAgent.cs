@@ -1,7 +1,5 @@
 using System;
 using DG.Tweening;
-// using DG.Tweening;
-using Homer;
 using UnityEngine;
 using UnityEngine.AI;
 

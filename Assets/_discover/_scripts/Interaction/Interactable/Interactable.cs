@@ -26,7 +26,7 @@ namespace Antura.Discover
         [Tooltip("Is it enabled for interaction?")]
         public bool IsInteractable = true;
         [Tooltip("Autorun when player gets nerby")]
-        public bool AutoActivate;
+        public bool NearbyAutoActivate;
         [Tooltip("Icon to be shown")]
         public InteractionType IconType = InteractionType.Look;
         [Tooltip("Where does the icon appear and camera focus?")]
@@ -38,21 +38,19 @@ namespace Antura.Discover
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
-        [Header("Quest Node")]
+        [Header("Execute Quest Node")]
         // public YarnProject yarnProject;
         // [YarnNode(nameof(yarnProject))]
         // public string StartNodeId;
 
         public string NodePermalink;
 
-        [Header("Quest Actions")]
+        [Header("Execute Quest Actions")]
         [SerializeField] bool disableAfterAction;
         [Tooltip("Execute a quest action of ActionManager")]
         [SerializeField] string QuestAction;
         [Tooltip("Executes these commands")]
         [SerializeField] List<CommandData> Commands;
-        [Tooltip("deprecated")]
-        [SerializeField] UnityEvent unityAction;
         #endregion
 
         public bool IsLL { get; private set; }
@@ -98,9 +96,9 @@ namespace Antura.Discover
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
                     DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
-                    if (AutoActivate)
+                    if (NearbyAutoActivate)
                     {
-                        AutoActivate = false;
+                        NearbyAutoActivate = false;
                         DiscoverNotifier.Game.OnActClicked.Dispatch();
                     }
                 }

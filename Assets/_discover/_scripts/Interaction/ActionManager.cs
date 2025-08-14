@@ -73,7 +73,8 @@ namespace Antura.Discover
             {
                 ResolveQuestAction("init");
             }
-            InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode("init"));
+            // TODO RUN INIT
+            //InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode("init"));
         }
 
         private void SetPlayerSpawnPoint(GameObject spawnPoint)

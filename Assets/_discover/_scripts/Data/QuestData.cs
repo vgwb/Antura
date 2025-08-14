@@ -3,8 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
-
-using Homer;
+using Yarn.Unity;
 
 namespace Antura.Discover
 {
@@ -15,7 +14,7 @@ namespace Antura.Discover
 
         [Tooltip("Unique, stable ID. lowercase")]
         public string Id;
-        public HomerFlowSlugs.FlowSlug FlowSlug;
+        public YarnProject YarnProject;
 
         [Tooltip("Just for display in the UI. Not used in the game logic.")]
         public string IdDisplay;

@@ -1,5 +1,4 @@
 ﻿using DG.Tweening;
-using Homer;
 using UnityEngine;
 
 namespace Antura.Discover

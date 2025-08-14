@@ -2,7 +2,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using Demigiant.DemiTools;
-using Homer;
 using UnityEngine;
 using UnityEngine.UI;
 
