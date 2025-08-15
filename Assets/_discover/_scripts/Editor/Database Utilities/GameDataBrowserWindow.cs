@@ -66,6 +66,13 @@ namespace Antura.Discover
         private const float ColQuests = 300f;
         private readonly Dictionary<CardData, string> _cardTitleCache = new Dictionary<CardData, string>();
 
+        // WordData specific
+        private const float ColWActive = 60f;
+        private const float ColWTitle = 220f;
+        private const float ColWCategory = 140f;
+        private const float ColWImage = 80f;
+        private const float ColWUnicode = 220f;
+
         // QuestData specific
         private const float ColTopic = 160f;
         private const float ColCards = 320f;
@@ -89,6 +96,11 @@ namespace Antura.Discover
             {
                 // DevStatus, Id(+IdDisplay), Location, Knowledge, Difficulty, MainTopic, LinkedCards, WordsUsed
                 width += ColQDevStatus + Gap + ColQId + Gap + ColQLocation + Gap + ColQKnowledge + Gap + ColDifficulty + Gap + ColTopic + Gap + ColCards + Gap + ColWords + Gap + ColExport;
+            }
+            else if (SelectedType == typeof(WordData))
+            {
+                // Active, Title (TextEn), Category, Drawing (preview), Drawing Unicode
+                width += ColWActive + Gap + ColWTitle + Gap + ColWCategory + Gap + ColWImage + Gap + ColWUnicode;
             }
             else if (SelectedType == typeof(CardData))
             {
@@ -172,6 +184,20 @@ namespace Antura.Discover
                 x += ColQuests + Gap;
                 xs.Add(x);
                 x += ColPath + Gap;
+                xs.Add(x);
+                return xs;
+            }
+            if (SelectedType == typeof(WordData))
+            {
+                x += ColWActive + Gap;
+                xs.Add(x);
+                x += ColWTitle + Gap;
+                xs.Add(x);
+                x += ColWCategory + Gap;
+                xs.Add(x);
+                x += ColWImage + Gap;
+                xs.Add(x);
+                x += ColWUnicode + Gap;
                 xs.Add(x);
                 return xs;
             }
@@ -301,12 +327,15 @@ namespace Antura.Discover
                 var questType = concreteTypes.FirstOrDefault(t => t.Name == nameof(QuestData));
                 var cardType = concreteTypes.FirstOrDefault(t => t.Name == nameof(CardData));
                 var assetType = concreteTypes.FirstOrDefault(t => t.Name == nameof(AssetData));
+                var wordType = concreteTypes.FirstOrDefault(t => t.Name == nameof(WordData));
                 if (questType != null)
                     topTypes.Add(questType);
                 if (cardType != null)
                     topTypes.Add(cardType);
                 if (assetType != null)
                     topTypes.Add(assetType);
+                if (wordType != null)
+                    topTypes.Add(wordType);
 
                 foreach (var t in topTypes)
                     _typeOptions.Add(new TypeOption { Label = NicifyTypeLabel(t), Type = t, IsAggregate = false, IsSeparator = false });
@@ -508,6 +537,19 @@ namespace Antura.Discover
                 GUI.Label(new Rect(x, y, ColExport, lineH), "Export", EditorStyles.boldLabel);
                 x += ColExport + Gap;
             }
+            else if (SelectedType == typeof(WordData))
+            {
+                HeaderLabelRect("Active", new Rect(x, y, ColWActive, lineH), "Active");
+                x += ColWActive + Gap;
+                HeaderLabelRect("Title", new Rect(x, y, ColWTitle, lineH), "TitleEn");
+                x += ColWTitle + Gap;
+                HeaderLabelRect("Category", new Rect(x, y, ColWCategory, lineH), "Category");
+                x += ColWCategory + Gap;
+                GUI.Label(new Rect(x, y, ColWImage, lineH), "Drawing", EditorStyles.boldLabel);
+                x += ColWImage + Gap;
+                HeaderLabelRect("Drawing Unicode", new Rect(x, y, ColWUnicode, lineH), "DrawingUnicode");
+                x += ColWUnicode + Gap;
+            }
             else if (SelectedType == typeof(CardData))
             {
                 GUI.Label(new Rect(x, y, ColImage, lineH), "Image", EditorStyles.boldLabel);
@@ -641,6 +683,10 @@ namespace Antura.Discover
                 else if (SelectedType == typeof(QuestData) && obj is QuestData qd)
                 {
                     DrawQuestDataRow(rowRect, qd);
+                }
+                else if (SelectedType == typeof(WordData) && obj is WordData wd)
+                {
+                    DrawWordDataRow(rowRect, wd);
                 }
                 else
                 {
@@ -926,6 +972,63 @@ namespace Antura.Discover
             }
         }
 
+        private void DrawWordDataRow(Rect rowRect, WordData w)
+        {
+            float x = MarginLeft;
+            float lineH = EditorGUIUtility.singleLineHeight;
+            float y = rowRect.y + (rowRect.height - lineH) * 0.5f;
+            // Open
+            var rOpen = new Rect(x, rowRect.y + (rowRect.height - 20f) * 0.5f, ColOpen - 12f, 20f);
+            if (GUI.Button(rOpen, "Open"))
+            { EditorGUIUtility.PingObject(w); Selection.activeObject = w; }
+            x += ColOpen + Gap;
+
+            // Active
+            var rActive = new Rect(x + 8f, y, ColWActive - 16f, lineH);
+            EditorGUI.BeginChangeCheck();
+            bool newActive = EditorGUI.Toggle(rActive, w.Active);
+            if (EditorGUI.EndChangeCheck())
+            { Undo.RecordObject(w, "Toggle Active"); w.Active = newActive; EditorUtility.SetDirty(w); }
+            x += ColWActive + Gap;
+
+            // Title (TextEn)
+            var rTitle = new Rect(x, y, ColWTitle, lineH);
+            EditorGUI.BeginChangeCheck();
+            string newTitle = EditorGUI.TextField(rTitle, w.TextEn ?? string.Empty);
+            if (EditorGUI.EndChangeCheck())
+            { Undo.RecordObject(w, "Edit Title"); w.TextEn = newTitle; EditorUtility.SetDirty(w); }
+            x += ColWTitle + Gap;
+
+            // Category (use SerializedObject to avoid hard dependency on enum type)
+            var rCat = new Rect(x, y, ColWCategory, lineH);
+            var so = new SerializedObject(w);
+            var spCat = so.FindProperty("Category");
+            EditorGUI.BeginChangeCheck();
+            EditorGUI.PropertyField(rCat, spCat, GUIContent.none);
+            if (EditorGUI.EndChangeCheck())
+            { so.ApplyModifiedProperties(); EditorUtility.SetDirty(w); }
+            x += ColWCategory + Gap;
+
+            // Drawing preview
+            var rImg = new Rect(x, rowRect.y + 2f, ColWImage, ColWImage);
+            if (w.Drawing != null)
+            {
+                var tex = AssetPreview.GetAssetPreview(w.Drawing) ?? AssetPreview.GetMiniThumbnail(w.Drawing) ?? w.Drawing.texture;
+                if (tex != null)
+                    GUI.DrawTexture(rImg, tex, ScaleMode.ScaleToFit);
+                else
+                    Repaint();
+            }
+            x += ColWImage + Gap;
+
+            // Drawing Unicode
+            var rU = new Rect(x, y, ColWUnicode, lineH);
+            EditorGUI.BeginChangeCheck();
+            string newU = EditorGUI.TextField(rU, w.DrawingUnicode ?? string.Empty);
+            if (EditorGUI.EndChangeCheck())
+            { Undo.RecordObject(w, "Edit Drawing Unicode"); w.DrawingUnicode = newU; EditorUtility.SetDirty(w); }
+        }
+
         private MemberInfo GetBestNameMember(Type t)
         {
             BindingFlags flags = BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance;
@@ -1043,7 +1146,16 @@ namespace Antura.Discover
                         keySelector = a => a is CardData cd ? (GetCardTitle(cd) ?? string.Empty) : string.Empty;
                         break;
                     case "Category":
-                        keySelector = a => a is CardData c1 ? c1.Category.ToString() : string.Empty;
+                        keySelector = a => a is WordData w3 ? w3.Category.ToString() : (a is CardData c1 ? c1.Category.ToString() : string.Empty);
+                        break;
+                    case "Active":
+                        keySelector = a => a is WordData w0 ? (w0.Active ? "1" : "0") : string.Empty;
+                        break;
+                    case "TitleEn":
+                        keySelector = a => a is WordData w1 ? (w1.TextEn ?? string.Empty) : string.Empty;
+                        break;
+                    case "DrawingUnicode":
+                        keySelector = a => a is WordData w2 ? (w2.DrawingUnicode ?? string.Empty) : string.Empty;
                         break;
                     case "Topics":
                         keySelector = a => a is CardData c2 ? string.Join(",", c2.Topics?.Select(t => t.ToString()) ?? Array.Empty<string>()) : string.Empty;

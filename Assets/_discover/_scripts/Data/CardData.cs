@@ -9,6 +9,8 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
     public class CardData : IdentifiedData
     {
+        public DevStatus DevStatus = DevStatus.Development;
+
         [Header("Knowledge Content")]
         public LocalizedString Title;
         public LocalizedString Description;
