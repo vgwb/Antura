@@ -21,7 +21,6 @@ namespace Antura.Discover.Activities
         public Transform slotsParent;
         public GameObject slotPrefab;         // has DropSlot (+ optional Image ref for highlight)
         public GameObject tilePrefab;         // has DraggableTile (+ CanvasGroup)
-        public Button validateButton;
 
         [Header("Sfx")]
         public AudioSource audioSource;
@@ -46,13 +45,25 @@ namespace Antura.Discover.Activities
         public override void Init()
         {
             ActivityDifficulty = Settings.Difficulty;
-            BuildSlots(Settings.Items.Count);
-            SetValidateInteractable(false);
-
             minItemsToValidate = Settings.Items.Count;
-
-            // Store solution order
             correctOrder = Settings.Items.ToArray();
+            BuildRound();
+        }
+
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
+
+        protected override void OnRoundAdvanced(bool lastRoundSuccess, int lastRoundPoints, float lastRoundSeconds, bool dueToTimeout)
+        {
+            // Rebuild a fresh round (same dataset for now)
+            BuildRound();
+        }
+
+        private void BuildRound()
+        {
+            // Prepare slots and tiles for a round
+            BuildSlots(Settings.Items.Count);
+            ClearChildren(tilesPoolParent);
+            SetValidateEnabled(false);
 
             // Spawn shuffled tiles into pool
             var shuffled = new List<CardItem>(Settings.Items);
@@ -67,7 +78,7 @@ namespace Antura.Discover.Activities
                 tile.Init(this, it, this.transform);
             }
 
-            UpdateSlotHighlights(); // clear/prepare highlights
+            UpdateSlotHighlights();
         }
 
         private void BuildSlots(int count)
@@ -188,11 +199,7 @@ namespace Antura.Discover.Activities
             return true;
         }
 
-        private void SetValidateInteractable(bool status)
-        {
-            if (validateButton)
-                validateButton.interactable = status;
-        }
+        private void SetValidateInteractable(bool status) => SetValidateEnabled(status);
 
         // Live visual hints
         private void UpdateSlotHighlights()
@@ -255,6 +262,14 @@ namespace Antura.Discover.Activities
                 Debug.Log($"❌ Wrong order in {wrongIndices.Count} slot(s).");
                 return false;
             }
+        }
+
+        private void ClearChildren(Transform parent)
+        {
+            if (parent == null)
+                return;
+            for (int i = parent.childCount - 1; i >= 0; i--)
+                Destroy(parent.GetChild(i).gameObject);
         }
 
         private IEnumerator ShakeWrongTiles(List<int> indices)
