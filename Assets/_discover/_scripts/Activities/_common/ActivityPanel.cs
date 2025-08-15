@@ -55,7 +55,7 @@ namespace Antura.Discover.Activities
 
         void Start()
         {
-            overlay.BtClose.onClick.AddListener(Hide);
+            overlay.BtClose.onClick.AddListener(activityBase.ExitWithoutPoints);
             overlay.BtHelp.onClick.AddListener(activityBase.ToggleHelp);
             overlay.BtValidate.onClick.AddListener(activityBase.Validate);
 
@@ -75,7 +75,9 @@ namespace Antura.Discover.Activities
 
         public void Open()
         {
-            Show();
+            Init();
+            // Use settings exposed by the concrete activity
+            Show(activityBase.HasTimer, activityBase.TimerSeconds);
             activityBase.Open();
         }
 
