@@ -29,20 +29,6 @@ namespace Antura.Discover
     }
 
     [System.Serializable]
-    public class ActionData
-    {
-        public CommandType Type;
-        public string ActionCode;
-        public GameObject mainObject;
-        public GameObject Walls;
-        public GameObject Area;
-        public GameObject Beam;
-        public GameObject Target;
-        public GameObject SpawnPlayer;
-        public GameObject DebugSpawn;
-    }
-
-    [System.Serializable]
     public class CommandData
     {
         public CommandType Command;

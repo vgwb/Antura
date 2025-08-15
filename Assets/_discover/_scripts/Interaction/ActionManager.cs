@@ -21,8 +21,6 @@ namespace Antura.Discover
 
         public QuestActionData[] QuestActions;
 
-        public ActionData[] Actions;
-
         [Header("Specific")]
         private Transform target_AnturaLocation;
         public Transform Target_AnturaLocation { get => target_AnturaLocation; set => target_AnturaLocation = value; }
@@ -87,16 +85,6 @@ namespace Antura.Discover
             {
                 PlayerController.SpawnToNewLocation(PlayerSpawnPoint.transform);
             }
-        }
-
-        private ActionData GetActionData(string actionCode)
-        {
-            return Actions.FirstOrDefault(action => action.ActionCode == actionCode);
-        }
-
-        private ActionData GetActionData(CommandType type, string actionCode)
-        {
-            return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
         }
 
         public void ResolveQuestAction(string action, QuestNode node = null)
