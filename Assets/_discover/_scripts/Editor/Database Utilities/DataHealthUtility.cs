@@ -142,15 +142,6 @@ namespace Antura.Discover
                 var fileBase = System.IO.Path.GetFileNameWithoutExtension(path);
                 bool dirty = false;
 
-                // Title fallback
-                if (string.IsNullOrWhiteSpace(a.Title))
-                {
-                    var fallback = a.Id ?? fileBase;
-                    logs?.Add($"[AssetData:{fileBase}] Title empty → '{fallback}'");
-                    if (applyChanges)
-                    { a.Title = fallback; dirty = true; }
-                }
-
                 // Type vs references
                 bool hasImg = a.Image != null;
                 bool hasAud = a.Audio != null;
@@ -192,18 +183,6 @@ namespace Antura.Discover
                 var path = AssetDatabase.GetAssetPath(it);
                 var fileBase = System.IO.Path.GetFileNameWithoutExtension(path);
                 bool dirty = false;
-
-                // Tag vs CustomTag
-                if (it.Tag != ItemTag.Custom && !string.IsNullOrEmpty(it.CustomTag))
-                {
-                    logs?.Add($"[ItemData:{fileBase}] Tag != Custom → clearing CustomTag.");
-                    if (applyChanges)
-                    { it.CustomTag = string.Empty; dirty = true; }
-                }
-                else if (it.Tag == ItemTag.Custom && string.IsNullOrWhiteSpace(it.CustomTag))
-                {
-                    logs?.Add($"[ItemData:{fileBase}] Tag=Custom but CustomTag empty. (Warning)");
-                }
 
                 if (it.Icon == null)
                     logs?.Add($"[ItemData:{fileBase}] Icon is missing. (Warning)");

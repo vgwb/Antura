@@ -33,7 +33,7 @@ namespace Antura.Discover.UI
         {
             this.def = def;
             this.state = state;
-
+            var c = def.Title.GetLocalizedString();
             gameObject.SetActive(true);
 
             bool isLocked = state == null || !state.Unlocked;
@@ -49,14 +49,14 @@ namespace Antura.Discover.UI
             }
 
             if (image)
-                image.sprite = def.Image;
+                image.sprite = def.ImageAsset.Image;
             if (image && greyscaleMaterial != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 
             if (lockedBadge)
                 lockedBadge.SetActive(isLocked);
             if (soundIcon)
-                soundIcon.enabled = def.Audio != null;
+                soundIcon.enabled = def.AudioAsset != null;
         }
 
         public void Hide()
@@ -66,9 +66,9 @@ namespace Antura.Discover.UI
 
         public void OnPlayAudio()
         {
-            if (def?.Audio == null || audioSource == null)
+            if (def?.AudioAsset == null || audioSource == null)
                 return;
-            audioSource.PlayOneShot(def.Audio);
+            audioSource.PlayOneShot(def.AudioAsset.Audio);
         }
 
         private void SetLocalized(TMP_Text label, LocalizedString localized, string fallback)

@@ -37,7 +37,7 @@ namespace Antura.Discover.UI
             if (lockOverlay)
                 lockOverlay.enabled = isLocked;
             if (soundIcon)
-                soundIcon.enabled = def.Audio != null;
+                soundIcon.enabled = def.AudioAsset != null;
 
             if (greyscaleMaterial != null && image != null)
                 image.material = isLocked ? greyscaleMaterial : null;

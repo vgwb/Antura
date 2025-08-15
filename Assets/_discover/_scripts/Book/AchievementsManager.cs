@@ -183,7 +183,7 @@ namespace Antura.Discover
             if (st == null)
                 return;
 
-            int max = Mathf.Max(1, card.MaxProgress);
+            int max = Mathf.Max(1, card.KnowledgeValue);
             int before = st.ProgressPoints;
             st.ProgressPoints = Mathf.Clamp(st.ProgressPoints + delta, 0, max);
             if (st.ProgressPoints != before)

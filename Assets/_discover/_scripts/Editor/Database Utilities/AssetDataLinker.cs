@@ -105,7 +105,6 @@ namespace Antura.Discover
                     if (data == null)
                     {
                         data = ScriptableObject.CreateInstance<AssetData>();
-                        data.Title = fileBase;
                         data.Type = AssetType.Image;
                         data.Image = sprite;
                         data.Country = country;
@@ -120,8 +119,6 @@ namespace Antura.Discover
                         { data.Image = sprite; dirty = true; }
                         if (data.Type != AssetType.Image)
                         { data.Type = AssetType.Image; dirty = true; }
-                        if (string.IsNullOrWhiteSpace(data.Title))
-                        { data.Title = fileBase; dirty = true; }
                         // Set country if still Global/default and context provides one
                         if (data.Country.Equals(Countries.Global) && !country.Equals(Countries.Global))
                         { data.Country = country; dirty = true; }

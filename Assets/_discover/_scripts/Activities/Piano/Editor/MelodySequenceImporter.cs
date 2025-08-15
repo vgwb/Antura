@@ -25,7 +25,7 @@ sequence:
         private int parsedCount = 0;
         private string parseStatus = "";
 
-        [MenuItem("Antura/PianoActivity/Import Melody From Text")]
+        [MenuItem("Antura/Discover/Activities/Import Melody From Text", priority = 100)]
         public static void Open()
         {
             var wnd = GetWindow<MelodySequenceImporter>("Melody Importer");

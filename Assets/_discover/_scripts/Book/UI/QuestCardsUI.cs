@@ -26,7 +26,7 @@ namespace Antura.Discover.UI
 
             foreach (var def in manager.Database.ById.Values.Where(d => d != null))
             {
-                if (def.UnlockQuests != null && def.UnlockQuests.Contains(quest))
+                if (def.LinkedQuests != null && def.LinkedQuests.Contains(quest))
                 {
                     var st = manager.GetState(def.Id);
                     var tile = Instantiate(tilePrefab, gridParent);

@@ -99,4 +99,20 @@ namespace Antura.Discover
         Ready = 3,
         Validated = 4,
     }
+
+    public enum AssetType
+    {
+        Image,
+        Audio,
+        Model3D
+    }
+
+    public enum LicenseType
+    {
+        CC0,        // Public Domain equivalent
+        CC_BY,      // Attribution required
+        CC_BY_SA,   // Attribution + Share Alike
+        Licensed    // Proprietary or custom license
+    }
+
 }

@@ -11,6 +11,7 @@ namespace Antura.Discover
     public class QuestData : IdentifiedData
     {
         public YarnProject YarnProject;
+        public TextAsset YarnScript;
 
         [Tooltip("Just for display in the UI. Not used in the game logic.")]
         public string IdDisplay;
@@ -37,6 +38,41 @@ namespace Antura.Discover
         public List<QuestData> Dependencies;
         public List<WordData> WordsUsed;
         public string manualPage;
+
+        public int KnowledgeValue
+        {
+            get
+            {
+                int value = 0;
+                foreach (var card in Cards)
+                {
+                    if (card != null)
+                        value += card.KnowledgeValue;
+                }
+                return value;
+            }
+        }
+
+        // Convenience localized fields
+        public string TitleText
+        {
+            get
+            {
+                try
+                { return Title.GetLocalizedString(); }
+                catch { return string.Empty; }
+            }
+        }
+
+        public string DescriptionText
+        {
+            get
+            {
+                try
+                { return Description.GetLocalizedString(); }
+                catch { return string.Empty; }
+            }
+        }
 
         [Header("Credits")]
         public List<AuthorData> CreditsContent;
