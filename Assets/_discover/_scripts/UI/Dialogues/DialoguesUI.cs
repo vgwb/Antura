@@ -323,12 +323,40 @@ namespace Antura.Discover
 
             if (currNode.Type == NodeType.CHOICE || currNode.Type == NodeType.QUIZ)
             {
+                // Resolve choice to Yarn; DialogueRunner will proceed
                 currNode.Choices[choiceIndex].OnOptionSelected?.TrySetResult(currNode.Choices[choiceIndex].YarnOption);
             }
-
-            CloseDialogue(choiceIndex);
+            else
+            {
+                // For text lines, request next line from Yarn
+                YarnAnturaManager.I?.Runner?.RequestNextLine();
+            }
 
             coNext = null;
+        }
+
+        public void ShowPostcardFromDialog(Sprite sprite, bool zoom = false)
+        {
+            //currPostcardWasZoomed = zoom;
+            //postcard.Show(sprite);
+            if (zoom)
+            {
+                ShowPostcardFocusView(sprite);
+                //gotoNextWhenPostcardFocusViewCloses = false;
+            }
+            else
+            {
+                postcard.Show(sprite);
+                //gotoNextWhenPostcardFocusViewCloses = false;
+            }
+        }
+
+        public void HidePostcardFromDialog()
+        {
+            currPostcardWasZoomed = false;
+            gotoNextWhenPostcardFocusViewCloses = false;
+            postcard.Hide();
+            HidePostcardFocusView();
         }
 
         void ShowPostcardFocusView(Sprite sprite)

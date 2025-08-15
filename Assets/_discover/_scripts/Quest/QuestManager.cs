@@ -100,8 +100,8 @@ namespace Antura.Discover
 
         public void YarnGetQuestNode(string nodeName)
         {
-            Debug.Log($"YarnGetQuestNode: {nodeName}");
-            conversation?.DebugMetadata(nodeName);
+            //Debug.Log($"YarnGetQuestNode: {nodeName}");
+            //conversation?.DebugMetadata(nodeName);
             conversation?.StartDialogue(nodeName);
         }
 

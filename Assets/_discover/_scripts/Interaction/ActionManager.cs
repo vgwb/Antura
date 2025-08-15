@@ -87,6 +87,92 @@ namespace Antura.Discover
             }
         }
 
+        public void ResolveNodeCommandAssetHide()
+        {
+            UIManager.I.dialogues.HidePostcardFromDialog();
+        }
+
+        public void ResolveNodeCommandAsset(string assetCode)
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
+            if (string.IsNullOrEmpty(assetCode))
+                return;
+            var db = DatabaseProvider.Instance;
+            //var assetImage = db.Get<ItemData>("assetCode");
+            if (db.TryGet<AssetData>(assetCode, out var assetImage))
+            {
+                UIManager.I.dialogues.ShowPostcardFromDialog(assetImage.Image);
+            }
+        }
+
+        public void ResolveNodeCommandTaskStart(string taskCode)
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+
+            //var task = QuestManager.I.GetTaskByCode(taskCode);
+            //if (task == null)
+            //{
+            //    Debug.LogError($"ActionManager: Task not found for command {taskCode}");
+            //    return;
+            //}
+
+            //QuestManager.I.TaskStart(task);
+            ResolveQuestAction(taskCode);
+        }
+
+        public void ResolveNodeCommandTaskEnd(string taskCode)
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
+            if (string.IsNullOrEmpty(taskCode))
+                return;
+
+            //var task = QuestManager.I.GetTaskByCode(taskCode);
+            //if (task == null)
+            //{
+            //    Debug.LogError($"ActionManager: Task not found for command {taskCode}");
+            //    return;
+            //}
+
+            //QuestManager.I.TaskEnd(task);
+            ResolveQuestAction(taskCode);
+        }
+
+        public void ResolveNodeCommandEndquest(string endquestCode = "")
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {endquestCode}");
+            // if (string.IsNullOrEmpty(endquestCode))
+            //     return;
+
+            //var endquest = QuestManager.I.GetEndquestByCode(endquestCode);
+            //if (endquest == null)
+            //{
+            //    Debug.LogError($"ActionManager: Endquest not found for command {endquestCode}");
+            //    return;
+            //}
+
+            //QuestManager.I.Endquest(endquest);
+            //ResolveQuestAction(endquestCode);
+        }
+
+        public void ResolveNodeCommandActivity(string activityCode, string difficulty = null)
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandActivity: {activityCode} {difficulty}");
+            if (string.IsNullOrEmpty(activityCode))
+                return;
+
+            //var activity = QuestManager.I.GetActivityByCode(command);
+            // if (activity == null)
+            //{
+            //    Debug.LogError($"ActionManager: Activity not found for command {command}");
+            //    return;
+            //}
+
+            //QuestManager.I.ActivityStart(activity);
+            ResolveQuestAction(activityCode);
+        }
+
         public void ResolveQuestAction(string action, QuestNode node = null)
         {
             action = action.ToLower();

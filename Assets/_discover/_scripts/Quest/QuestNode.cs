@@ -102,7 +102,7 @@ namespace Antura.Discover
         {
             if (Image != null)
             {
-                return Resources.Load<Sprite>("Discover/" + QuestManager.I.CurrentQuest.assetsFolder + "/_img/" + Image);
+                return Resources.Load<Sprite>("discover/" + Image);
             }
             return null;
         }

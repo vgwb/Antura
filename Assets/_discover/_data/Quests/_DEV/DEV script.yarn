@@ -1,16 +1,116 @@
-﻿title: DEV_init
-position: 0,0
+﻿//--------------------------------------------
+// DEV QUEST SCRIPT
+// This script is for the Creators of new scripts
+// It is not used in the game
+// It contains all docs, commands and options available in the game
+// It is a reference for the developers
+//--------------------------------------------
+// when writing a new script, please use this template
+// and follow the structure of the existing scripts
+// It will help you to create a consistent and easy to read script
+//--------------------------------------------
+// Country: Italy
+// City: Firenze
+// Language Learning: Italian (basic vocab emphasized in CAPS)
+// Vocabulary (focus): ITALIA, UNITY, QUEST_DESIGN, FUN
+//
+// Activities:
+// 1) <<activity order planets_order tutorial>>            — Put the 8 PLANETS in the correct order (from the SUN).
+// Spoken Lines (count): nn
+//--------------------------------------------
+
+//--------------------------------------------
+// INIT
+// every quest starts with an INIT node
+// used to inizialize existing variables
+// and to declare new variables
+//--------------------------------------------
+
+title: init
+// position is used to place the node in the Graph view in the Editor
+position: -32,-96
+// group is used to organize the nodes in the Graph view in the Editor
+group: Intro
+// tags are used to add metadata to the node
+tags: actor=Guide
+// assetimage is used to show an image in the Editor, it fetches from the AssetData
+assetimage: torun_street
 ---
+// these are the common variables, declared out of here and available:
+<<set $EASY_MODE = false>>
+<<set $IS_DESKTOP = false>>
+<<set $TOTAL_COINS = 0>>
+<<set $COLLECTED_ITEMS = 0>>
+<<set $MAX_PROGRESS = 0>>
+<<set $CURRENT_PROGRESS = 0>>
+<<set $CURRENT_ITEM = "">>
+// here we declare new variables for this script
 <<declare $met_teacher_1 = false>>
 <<declare $got_hint = false>>
-<<declare $current_item = "">>
 <<declare $doorUnlocked = false>>
-<<declare $coins = 0>>
 ===
+
+// this is the first node of the quest
+
 title: NPCGreeting
-position: 0,11
-image: ciccio
+position: 136,41
+assetimage: antura_hero
 ---
+<<asset food_tomato>>
+ciao, stefano
+ti piacciono le foto?
+<<asset food_fish>>
+-> vuoi arancia?
+    <<asset food_orange>>
+    <<action play_sfx>>
+-> vuoi olio?
+    <<asset food_oil>>
+    <<action play_sfx>>
+ora chiudo
+<<asset_hide>>
+-> Activity Order
+    <<activity activity_test>>
+    <<jump activity_done>>
+-> Suona sfx
+    <<action play_sfx>>
+-> Apri Baule
+    <<action open_chest>>
+
+===
+title: commands
+color: red
+position: 121,-125
+---
+// these are the commands available in the game
+
+// launches an activity
+<<activity id_activity_configuration>>
+// starts a task
+<<task_start id_task_configuration>>
+// end a task... if you say nothing, its a success
+<<task_end id_task_configuration>>
+<<task_end id_task_configuration fail>>
+// or even without the id to end current task
+<<task_end>>
+<<task_end fail>>
+// shows the image
+<<asset id_asset>> 
+// hides the current image
+<<asset_hide>>
+// configured in the actiosManager
+<<action action_id>>
+// called to end the current quest
+<<endquest>>
+// if the quest is not completed
+<<endquest fail>>
+
+===
+
+title: NPCGreeting2
+position: 92,-223
+assetimage: pirates
+---
+// <<activity activity_memory>>
 Narrator: Hallo #line:0386a35 
 Narrator: How are you? #line:09fdbcf 
 -> Good #line:0797c85 
@@ -21,7 +121,7 @@ Narrator: How are you? #line:09fdbcf
     Narrator: I see, I hope it gets better soon #line:018b313 
 Narrator: What do you want to do with  coins? #line:0d27ec5 
 ===
-title: NPCGreeting2
+title: NPCGreeting3
 position: -252,-938
 tags: #camera2 background:conductor_cabin
 ---

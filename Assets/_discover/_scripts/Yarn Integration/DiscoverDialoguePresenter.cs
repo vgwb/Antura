@@ -41,23 +41,15 @@ namespace Antura.Discover
 
         public override YarnTask OnDialogueStartedAsync()
         {
-            // Called by the Dialogue Runner to signal that dialogue has just
-            // started up.
-            //
-            // You can use this method to prepare for presenting dialogue, like
-            // changing the camera, fading up your on-screen UI, or other tasks.
-            //
-            // The Dialogue Runner will wait until every Dialogue View returns from
-            // this method before delivering any content.
+            // Signal UI that a dialogue session started (open once)
+            DiscoverNotifier.Game.OnStartDialogue.Dispatch();
             return YarnTask.CompletedTask;
         }
 
         public override YarnTask OnDialogueCompleteAsync()
         {
-            // Called by the Dialogue Runner to signal that dialogue has ended.
-            //
-            // You can use this method to clean up after running dialogue, like
-            // changing the camera back, fading away on-screen UI, or other tasks.
+            // Close the dialogue UI once at the end
+            UIManager.I.dialogues.CloseDialogue();
             return YarnTask.CompletedTask;
         }
 
@@ -96,12 +88,14 @@ namespace Antura.Discover
             // If your Dialogue View doesn't need to handle lines, simply return
             // from this method immediately.
 
+            var nodeImage = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "assetimage");
+
+
             var lineId = line.TextID;
             var CharacterName = line.CharacterName;
             var RawText = line.RawText;
             var TextWithoutCharacterName = line.TextWithoutCharacterName;
             var metadata = line.Metadata;
-            //var image = line.Metadata[0];
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
             var qn = new QuestNode
@@ -110,7 +104,7 @@ namespace Antura.Discover
                 Content = TextWithoutCharacterName.Text,
                 ContentNative = TextWithoutCharacterName.Text, // TODO: provide native via localization
                 AudioId = null,
-                Image = "",
+                Image = nodeImage,
                 Permalink = _currentNodeName
             };
 
