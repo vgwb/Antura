@@ -1,11 +1,11 @@
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class AnturaMapIcon : AbstractMapIcon
     {
         public override bool IsEnabled => ActionManager.I.Target_AnturaLocation != null;
-        
+
         #region Methods
 
         protected override Vector3 GetPosition()

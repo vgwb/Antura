@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class FocusCamera : AbstractCineCamera
     {
@@ -10,7 +10,7 @@ namespace Antura.Minigames.DiscoverCountry
         public int YOffset = 4;
 
         #endregion
-        
+
         #region Public Methods
 
         public void SetTarget(Transform target)

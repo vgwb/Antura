@@ -3,7 +3,7 @@ using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [RequireComponent(typeof(PlayerCameraController), typeof(DialogueCamera), typeof(MapCamera))]
     public class CameraManager : MonoBehaviour
@@ -11,8 +11,8 @@ namespace Antura.Minigames.DiscoverCountry
         #region Serialized
 
         /// <summary>After reaching min zoom level it switches to map view</summary>
-        [DeRange(-50, 10)]
-        [SerializeField] IntRange minMaxPlayerZoomLevel = new IntRange(-10, 0);
+        [DeRange(-5, 0)]
+        [SerializeField] Range minMaxPlayerZoomLevel = new Range(-2, 0);
         [Range(0.1f, 10)]
         [SerializeField] float zoomTick = 2;
         [Range(0, 0.5f)]
@@ -89,7 +89,8 @@ namespace Antura.Minigames.DiscoverCountry
                             }
                             else
                             {
-                                ChangeCameraMode(CameraMode.Map);
+                                // Go-to map via scroll wheel is not allowed anymore
+                                // ChangeCameraMode(CameraMode.Map);
                             }
                         }
                         break;
@@ -140,17 +141,16 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Callbacks
 
-        void OnMapButtonToggled(bool toggleOn)
+        void OnMapButtonToggled()
         {
-            if (toggleOn)
+            switch (cameraMode)
             {
-                if (cameraMode == CameraMode.Player)
+                case CameraMode.Player:
                     ChangeCameraMode(CameraMode.Map);
-            }
-            else
-            {
-                if (cameraMode == CameraMode.Map)
+                    break;
+                case CameraMode.Map:
                     ChangeCameraMode(CameraMode.Player);
+                    break;
             }
         }
 

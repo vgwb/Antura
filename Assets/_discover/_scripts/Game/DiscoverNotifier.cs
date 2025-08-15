@@ -4,7 +4,7 @@ using System.Text;
 using Demigiant.DemiTools;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public static class DiscoverNotifier
     {
@@ -24,10 +24,12 @@ namespace Antura.Minigames.DiscoverCountry
             public static readonly ActionEvent<Interactable> OnInteractableExitedByPlayer = new("DiscoverNotifier.Game.OnInteractableExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
             public static readonly ActionEvent OnActClicked = new("DiscoverNotifier.Game.OnActClicked");
-            /// <summary>When the map button is toggled on or off</summary>
-            public static readonly ActionEvent<bool> OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
+            /// <summary>When the map button is toggled</summary>
+            public static readonly ActionEvent OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
             /// <summary>When the map camera is activated or deactivated</summary>
             public static readonly ActionEvent<bool> OnMapCameraActivated = new("DiscoverNotifier.Game.OnMapCameraActivated");
+            /// <summary>When the player has moved (jumps don't count)</summary>
+            public static readonly ActionEvent OnPlayerMoved = new("DiscoverNotifier.Game.OnPlayerMoved");
         }
 
         // █████████████████████████████████████████████████████████████████████████████████████████████████████████████████████

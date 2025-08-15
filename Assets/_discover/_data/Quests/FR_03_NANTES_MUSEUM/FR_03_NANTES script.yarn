@@ -1,0 +1,139 @@
+﻿// FR-03 Nantes
+
+title: FR_03_INIT
+position: 2,-319
+tags: type=Start
+color: red
+---
+<<set $TOTAL_COINS = 0>>
+<<set $COLLECTED_ITEMS = 0>>
+<<set $QUEST_ITEMS = 4>>
+===
+title: FR_03_talk_guide
+position: 11,-109
+tags: actorUID=CRAZY_WOMAN, asset=jules_verne_1
+---
+<<if $COLLECTED_ITEMS == 0>>
+CRAZY_WOMAN: Welcome to the house of Jules Verne!
+<<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
+<<jump FR_04_Explore>>
+<<else>>
+<<jump FR_04_WIN>>
+<<endif>>
+===
+title: FR_04_WIN
+tags: win
+position: 363,-17
+---
+GREAT! You met Jules Verne, the most famous writer of sci-fiction!
+===
+title: FR_04_Explore
+position: 375,-157
+---
+Explore the house and find FOUR of his books!
+===
+title: verne_painting
+position: 351,-354
+tags: actorUID=TUTOR, asset=jules_verne_1
+---
+TUTOR: This is Jules Verne! He was a WRITER
+===
+
+title: verne_house
+position: 638,-360
+tags: actorUID=TUTOR, asset=jules_verne_house
+---
+TUTOR: He was born in Nantes in 1828
+===
+
+title: map_nantes
+position: 894,-362
+tags: actorUID=TUTOR, asset=map_nantes
+---
+TUTOR: This is the map on Nantes
+===
+
+
+
+title: FR_03_NANTES_Text_00360352
+position: 817,-72
+tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=UPDATE_ITEMS, meta=ACTION_POST:UPDATE_ITEMS, asset=jverne_mission_overview
+---
+CRAZY_WOMAN: Explore the house and find FOUR of his books!
+===
+
+title: open_chest
+position: 1174,-371
+tags: type=Condition
+---
+$COLLECTED_ITEMS >= 4
+===
+
+title: FR_03_NANTES_Text_01006089
+position: 1442,-373
+tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=jules_verne_2
+---
+CRAZY_WOMAN: GREAT! You met Jules Verne, the most famous writer of sci-fiction!
+===
+
+title: paint_80days
+position: 642,557
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_TRAIN, meta=ACTION_POST:COLLECT_TRAIN, asset=train
+---
+TUTOR: This is an old train
+===
+
+title: book_80days
+position: 325,552
+tags: actorUID=TUTOR, asset=book_80days
+---
+TUTOR: This book is "Around the World in 80 Days"
+<<jump paint_80days>>
+===
+
+title: paint_moon
+position: 652,724
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_ROCKET, meta=ACTION_POST:COLLECT_ROCKET, asset=rocket
+---
+TUTOR: This is a space rocket
+===
+
+title: book_moon
+position: 311,736
+tags: actorUID=TUTOR, asset=book_earthmoon
+---
+TUTOR: This book is "From earth to the Moon"
+<<jump paint_moon>>
+===
+
+title: paint_20000
+position: 638,378
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_SUBMARINE, meta=ACTION_POST:COLLECT_SUBMARINE, asset=submarine
+---
+TUTOR: This is a submarine
+===
+
+title: book_20000legues
+position: 313,349
+tags: actorUID=TUTOR, asset=book_underthesea
+---
+TUTOR: This book is Twenty Thousand Leagues Under the Seas
+<<jump paint_20000>>
+===
+
+title: paint_5weeks
+position: 624,169
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_BALOON, meta=ACTION_POST:COLLECT_BALOON, asset=balloon
+---
+TUTOR: This is a Balloon. It flies by hot air.
+===
+
+title: book_5weeks
+position: 330,159
+tags: actorUID=TUTOR, asset=book_5weeksballoon
+---
+TUTOR: this book is Five Weeks in a Balloon
+<<jump paint_5weeks>>
+===
+
+

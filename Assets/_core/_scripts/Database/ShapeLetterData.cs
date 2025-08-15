@@ -18,7 +18,7 @@ namespace Antura.Database
         public DirectionalSpline Spline = new DirectionalSpline();
     }
 
-    [CreateAssetMenu(menuName = "Antura/Shape LetterData")]
+    [CreateAssetMenu(menuName = "Antura/Minigames/Shape LetterData")]
     // Additional data partaining to a LetterData and not saved in the Static Database
     public class ShapeLetterData : ScriptableObject
     {

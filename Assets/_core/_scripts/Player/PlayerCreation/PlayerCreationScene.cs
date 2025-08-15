@@ -51,7 +51,6 @@ namespace Antura.Scenes
             CreatePlayer(0, PlayerGender.M, Color.yellow, Color.red, Color.magenta, 4);
         }
 
-
         public static void CreatePlayer(int avatarID, PlayerGender gender, Color skinColor, Color hairColor, Color bgColor, int age)
         {
             Debug.Log(string.Format("Will create player of with avatarID {0}, skin color {1}, hair color {2}, bg color {3}, age {4}, gender {5},", avatarID, skinColor, hairColor, bgColor, age, gender));
@@ -66,15 +65,12 @@ namespace Antura.Scenes
                 // Just dispatch the completion event, ClassroomPanel will take care of the rest
                 OnCreationComplete.Dispatch();
             }
-            else if (AppManager.PROFILE_INVERSION)
+            else
             {
                 // For now, we go back home, then we'll get to the content selection screen
                 AppManager.I.NavigationManager.GoToHome(debugMode: true); // debug mode to force transition
             }
-            else
-            {
-                AppManager.I.NavigationManager.GoToNextScene();
-            }
+
         }
 
     }

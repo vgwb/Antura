@@ -1,22 +1,25 @@
 using Antura.Audio;
 using Antura.Helpers;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class ActionManager : MonoBehaviour
     {
         public static ActionManager I;
 
-        public string DebugArea;
+        [Tooltip("if set, it will be resolved at the start of the game")]
+        public string DebugAction;
 
         [Tooltip("The starting location of the player")]
         public GameObject PlayerSpawnPoint;
+
+        public QuestActionData[] QuestActions;
 
         public ActionData[] Actions;
 
@@ -27,9 +30,9 @@ namespace Antura.Minigames.DiscoverCountry
         public GameObject WinFx;
         public GameObject AnturaDog;
 
-        private EdPlayer PlayerController;
+        private PlayerController PlayerController;
 
-        private GameObject currentInvisibleWalls;
+        private GameObject currentArea;
 
         void Awake()
         {
@@ -46,23 +49,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         IEnumerator Start()
         {
-            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
-
-            if (!QuestManager.I.DebugQuest)
-            {
-                foreach (var action in Actions)
-                {
-                    if (action.Type == ActionType.Area)
-                    {
-                        if (action.Area != null)
-                            action.Area?.SetActive(false);
-                        if (action.Beam != null)
-                            action.Beam.SetActive(false);
-                        if (action.Walls != null)
-                            action.Walls.SetActive(false);
-                    }
-                }
-            }
+            PlayerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
 
             Target_AnturaLocation = null;
             if (AnturaDog != null)
@@ -77,17 +64,23 @@ namespace Antura.Minigames.DiscoverCountry
             RespawnPlayer();
             yield return null;
 
-            if (DebugArea != "")
+            if (DebugAction != "")
             {
-                ResolveAction(DebugArea);
-                PlayerController.SpawnToNewLocation(GetActionData(ActionType.Area, DebugArea.Substring(5)).DebugSpawn.transform);
+                ResolveQuestAction(DebugAction);
+                //PlayerController.SpawnToNewLocation(GetActionData(CommandType.Area, DebugAction.Substring(5)).DebugSpawn.transform);
             }
             else
             {
-                ResolveAction("area_init");
+                ResolveQuestAction("init");
             }
+            // TODO RUN INIT
+            //InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode("init"));
         }
 
+        private void SetPlayerSpawnPoint(GameObject spawnPoint)
+        {
+            PlayerSpawnPoint = spawnPoint;
+        }
         public void RespawnPlayer()
         {
             if (PlayerSpawnPoint != null)
@@ -101,179 +94,163 @@ namespace Antura.Minigames.DiscoverCountry
             return Actions.FirstOrDefault(action => action.ActionCode == actionCode);
         }
 
-        private ActionData GetActionData(ActionType type, string actionCode)
+        private ActionData GetActionData(CommandType type, string actionCode)
         {
             return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
         }
 
-        public void CameraShowTarget(string targetArea)
-        {
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("CameraShowTarget targetArea:" + targetArea);
-
-            var actionData = GetActionData(ActionType.Area, targetArea);
-
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("CameraShowTarget ActionCode:" + actionData.ActionCode);
-
-            InteractionManager.I.FocusCameraOn(actionData.Target.transform);
-
-            if (actionData.Beam != null)
-            {
-                actionData.Beam.SetActive(true);
-            }
-
-            if (actionData.Target.transform != null)
-            {
-                InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
-            }
-        }
-
-        private void ActivateArea(string targetArea)
-        {
-            var actionData = GetActionData(ActionType.Area, targetArea);
-            if (actionData != null)
-            {
-                if (QuestManager.I.DebugQuest)
-                    Debug.Log("ActivateArea: " + actionData.ActionCode);
-
-                if (actionData.Area != null)
-                {
-                    actionData.Area.SetActive(true);
-                }
-
-                if (actionData.Beam != null)
-                {
-                    actionData.Beam.SetActive(true);
-                }
-
-                if (actionData.Target != null)
-                {
-                    InteractionManager.I.ActivateWorldTargetIcon(true, actionData.Target.transform);
-                }
-                else
-                {
-                    InteractionManager.I.ActivateWorldTargetIcon(false);
-                }
-
-                if (actionData.Walls != null)
-                {
-                    if (currentInvisibleWalls != null)
-                    {
-                        currentInvisibleWalls.SetActive(false);
-                    }
-                    currentInvisibleWalls = actionData.Walls;
-                    currentInvisibleWalls.SetActive(true);
-                }
-
-                if (actionData.SpawnPlayer != null)
-                {
-                    PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
-                }
-
-            }
-            else
-            {
-                Debug.Log("ActivateArea: Could not find targetArea: " + targetArea);
-            }
-        }
-
-        private void Spawn(string spawnCode)
-        {
-            var actionData = GetActionData(ActionType.Spawn, spawnCode);
-            // Debug.Log("Spawn spawnCode: " + spawnCode);
-            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
-            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
-            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
-
-            PlayerController.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.SpawnPlayer.transform);
-        }
-
-        private void Collect(string collectCode)
-        {
-            //var actionData = GetActionData(ActionType.Spawn, spawnCode);
-            // Debug.Log("Spawn spawnCode: " + spawnCode);
-            // Debug.Log("Spawn actionData: " + actionData.ActionCode);
-            // Debug.Log("Spawn EdPlayer: " + Player.GetComponent<EdPlayer>().name);
-            // Debug.Log("Spawn actionData.Target.transform: " + actionData.Target.name);
-
-            //Player.GetComponent<EdPlayer>().SpawnToNewLocation(actionData.Target.transform);
-            QuestManager.I.OnCollectItemCode(collectCode);
-        }
-
-        private void Trigger(string actionCode)
-        {
-            var actionData = GetActionData(actionCode);
-            if (actionData != null)
-            {
-                if (QuestManager.I.DebugQuest)
-                    Debug.Log("Trigger: " + actionData.ActionCode);
-                actionData.mainObject.GetComponent<ActionAbstract>().Trigger();
-            }
-            else
-            {
-                Debug.LogError("Trigger: Could not find actionCode: " + actionCode);
-            }
-        }
-
-        public void ResolveAction(string action, string permalink = "")
+        public void ResolveQuestAction(string action, QuestNode node = null)
         {
             action = action.ToLower();
-            if (QuestManager.I.DebugQuest)
-                Debug.Log("ResolveAction: " + action);
 
-            if (action.SafeSubstring(0, 5) == "area_")
+            if (action == "update_ui")
             {
-                ActivateArea(action.Substring(5));
+                QuestManager.I.UpateItemsCounter();
+                QuestManager.I.UpateCoinsCounter();
+                return;
             }
-            else if (action.SafeSubstring(0, 8) == "collect_")
+            else if (action == "game_end" || action == "win")
             {
-                if (permalink != "")
-                {
-                    Collect(permalink);
-                }
-                else
-                {
-                    Collect(action.Substring(8));
-                }
-            }
-            else if (action.SafeSubstring(0, 6) == "spawn_")
-            {
-                Spawn(action.Substring(6));
+                QuestEnd();
+                return;
             }
             else
             {
-                switch (action)
+                var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
+                if (actionData == null)
                 {
-                    case "update_items":
-                        QuestManager.I.UpateItemsCounter();
+                    Debug.LogError("Action not found: " + action);
+                    return;
+                }
+
+                if (QuestManager.I.DebugQuest)
+                    Debug.Log("Resolve QuestAction Data: " + actionData.ActionCode);
+
+                if (actionData.Commands == null || actionData.Commands.Count == 0)
+                {
+                    Debug.LogError("No commands found for action: " + actionData.ActionCode);
+                    return;
+                }
+                ResolveCommands(actionData.Commands);
+
+            }
+        }
+
+        public void ResolveCommands(List<CommandData> commands)
+        {
+            foreach (var command in commands)
+            {
+                if (command.Bypass)
+                {
+                    if (QuestManager.I.DebugQuest)
+                        Debug.Log("Command is disabled: " + command.Command);
+                    continue;
+                }
+                switch (command.Command)
+                {
+                    case CommandType.Activity:
+                        QuestManager.I.ActivityStart(command.mainObject);
                         break;
-                    case "updatecoins":
-                    case "update_coins":
-                        QuestManager.I.UpateCoinsCounter();
+                    case CommandType.Area:
+                        ChangeArea(command.mainObject);
                         break;
-                    case "win":
-                    case "game_end":
-                        WinFx.SetActive(true);
-                        WinFx.GetComponent<ParticleSystem>().Play();
-                        AudioManager.I.PlaySound(Sfx.Win);
-                        AnturaDog.SetActive(true);
+                    case CommandType.Bones:
+                        QuestManager.I.OnCollectBones(1);
+                        break;
+                    case CommandType.Collect:
+                        QuestManager.I.OnCollectItemCode(command.Parameter);
+                        break;
+                    case CommandType.InventoryAdd:
+                        QuestManager.I.OnCollectItemCode(command.mainObject.ToString());
+                        break;
+                    case CommandType.InventoryRemove:
+                        QuestManager.I.RemoveItemCode(command.mainObject.ToString());
+                        break;
+                    case CommandType.PlaySfx:
+                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        break;
+                    case CommandType.ProgressPoints:
+                        QuestManager.I.AddProgressPoints(int.Parse(command.Parameter));
+                        break;
+                    case CommandType.QuestEnd:
                         QuestManager.I.OnQuestEnd();
                         break;
+                    case CommandType.SetActive:
+                        if (command.mainObject != null)
+                        {
+                            if (command.Parameter == "0")
+                                command.mainObject.SetActive(false);
+                            else
+                                command.mainObject.SetActive(true);
+                        }
+                        break;
+                    case CommandType.SpawnSet:
+                        SetPlayerSpawnPoint(command.mainObject);
+                        break;
+                    case CommandType.SpawnPlayer:
+                        RespawnPlayer();
+                        break;
+                    case CommandType.Target:
+                        FocusTarget(command.mainObject.transform);
+                        break;
+                    case CommandType.Trigger:
+                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        break;
+                    case CommandType.TaskStart:
+                        QuestManager.I.TaskStart(command.Parameter);
+                        break;
+                    case CommandType.TaskSuccess:
+                        QuestManager.I.TaskSuccess(command.Parameter);
+                        break;
+                    case CommandType.TaskFail:
+                        QuestManager.I.TaskFail(command.Parameter);
+                        break;
+                    case CommandType.UnityAction:
+                        if (command.unityAction != null)
+                            command.unityAction.Invoke();
+                        break;
                     default:
-                        Trigger(action);
+                        Debug.LogError("Unknown command type: " + command.Command);
                         break;
                 }
             }
         }
 
-        #region DEBUG
-        public void DebugActionEnd()
+        public void FocusTarget(Transform targetGO)
         {
-            ResolveAction("win");
+            if (targetGO == null)
+            {
+                Debug.LogError("Target GameObject is null.");
+                return;
+            }
+            InteractionManager.I.FocusCameraOn(targetGO);
+            InteractionManager.I.ActivateWorldTargetIcon(true, targetGO);
         }
 
-        #endregion
+        private void ChangeArea(GameObject area)
+        {
+            if (currentArea != null)
+            {
+                currentArea.SetActive(false);
+            }
+            currentArea = area;
+            currentArea.SetActive(true);
+        }
 
+        private void QuestEnd()
+        {
+            WinFx.SetActive(true);
+            WinFx.GetComponent<ParticleSystem>().Play();
+            AudioManager.I.PlaySound(Sfx.Win);
+            AnturaDog.SetActive(true);
+            QuestManager.I.OnQuestEnd();
+        }
+
+        #region Debug Methods
+        public void TestQuestEnd()
+        {
+            QuestEnd();
+        }
+        #endregion
     }
 }

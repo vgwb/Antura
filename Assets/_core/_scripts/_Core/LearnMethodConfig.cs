@@ -14,7 +14,7 @@ namespace Antura.Core
         DiscoverCountry
     }
 
-    [CreateAssetMenu(menuName = "Antura/Config Learn Method")]
+    [CreateAssetMenu(menuName = "Antura/Core/Config Learn Method")]
     public class LearnMethodConfig : ScriptableObject
     {
         public LearnMethod Method;

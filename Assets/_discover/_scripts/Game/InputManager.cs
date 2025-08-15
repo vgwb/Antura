@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class InputManager : MonoBehaviour
     {
@@ -24,7 +24,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnDestroy()
         {
-            if (I != this) return;
+            if (I != this)
+                return;
 
             I = null;
             CurrMovementVector = CurrWorldMovementVector = Vector3.zero;
@@ -37,7 +38,7 @@ namespace Antura.Minigames.DiscoverCountry
         public static void SetCurrMovementVector(Vector3 relativeVector)
         {
             CurrMovementVector = relativeVector;
-            
+
             Quaternion camRot = CameraManager.I.CamController.transform.rotation;
             Vector3 camRotEuler = camRot.eulerAngles;
             camRotEuler.x = 0;

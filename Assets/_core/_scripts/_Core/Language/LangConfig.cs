@@ -6,7 +6,7 @@ using UnityEngine.Serialization;
 
 namespace Antura.Language
 {
-    [CreateAssetMenu(menuName = "Antura/Config Language")]
+    [CreateAssetMenu(menuName = "Antura/Core/Config Language")]
 
     public class LangConfig : ScriptableObject
     {

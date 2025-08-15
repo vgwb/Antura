@@ -8,7 +8,7 @@ using System.Collections.Generic;
 
 namespace Antura.Core
 {
-    [CreateAssetMenu(menuName = "Antura/Content Config")]
+    [CreateAssetMenu(menuName = "Antura/Core/Content Config")]
     public class ContentConfig : ScriptableObject
     {
         public LearningContentID ContentID;

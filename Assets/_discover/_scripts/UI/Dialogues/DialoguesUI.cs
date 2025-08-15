@@ -2,18 +2,19 @@
 using Antura.Core;
 using Demigiant.DemiTools;
 using DG.DeInspektor.Attributes;
-using Homer;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Minigames.DiscoverCountry.Interaction;
 using UnityEngine;
-using Antura.Language;
+using Yarn.Unity;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class DialoguesUI : MonoBehaviour
     {
+
+        public YarnTaskCompletionSource<DialogueOption?>? OnOptionSelected;
+
         public enum DialogueType
         {
             None,
@@ -36,6 +37,8 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] DialoguePostcard postcard;
         [DeEmptyAlert]
         [SerializeField] DialoguePostcardFocusView postcardFocusView;
+        [DeEmptyAlert]
+        [SerializeField] StartEndPanel startEndPanel;
 
         #endregion
 
@@ -59,12 +62,15 @@ namespace Antura.Minigames.DiscoverCountry
         {
             contentBox.SetActive(true);
             narratorBalloon.gameObject.SetActive(true);
+            startEndPanel.gameObject.SetActive(true);
             postcardFocusView.Hide(true);
             previewSignalPrefab = Instantiate(signal, signal.transform.parent, false);
             signal.Setup(false);
 
             narratorBalloon.OnBalloonClicked.Subscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Subscribe(OnBalloonClicked);
+            startEndPanel.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
             postcard.OnClicked.Subscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
@@ -78,6 +84,8 @@ namespace Antura.Minigames.DiscoverCountry
             this.CancelCoroutine(ref coNext);
             narratorBalloon.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             narratorBalloon.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
+            startEndPanel.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
+            startEndPanel.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
             postcard.OnClicked.Unsubscribe(ShowPostcardFocusView);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
@@ -87,6 +95,18 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Public Methods
+
+        public void ShowStartPanel(QuestNode node)
+        {
+            UseLearningLanguage = !node.Native;
+            startEndPanel.Show(node, UseLearningLanguage, true, 0);
+        }
+
+        public void ShowEndPanel(QuestNode node, int totStarsAchieved)
+        {
+            UseLearningLanguage = !node.Native;
+            startEndPanel.Show(node, UseLearningLanguage, false, totStarsAchieved);
+        }
 
         public void ShowSignalFor(Interactable interactable)
         {
@@ -171,7 +191,7 @@ namespace Antura.Minigames.DiscoverCountry
         {
             IsOpen = true;
             currNode = node;
-            currBalloon = narratorBalloon; // TODO : Assign correct balloon
+            currBalloon = narratorBalloon; // Can be changed by switch below
             while (InteractionManager.I.IsUsingFocusView)
                 yield return null;
 
@@ -187,6 +207,11 @@ namespace Antura.Minigames.DiscoverCountry
                         postcard.Show(image);
                     else
                         postcard.Hide();
+                    break;
+                case NodeType.PANEL:
+                    currBalloon = startEndPanel;
+                    CurrDialogueType = DialogueType.Text;
+                    ShowStartPanel(node);
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:
@@ -208,6 +233,54 @@ namespace Antura.Minigames.DiscoverCountry
                     break;
             }
             coShowDialogue = null;
+        }
+
+        public void ShowDialogueLine(QuestNode node)
+        {
+            IsOpen = true;
+            currNode = node;
+            currBalloon = narratorBalloon; // Can be changed by switch below
+            // while (InteractionManager.I.IsUsingFocusView)
+            //     yield return null;
+
+            Sprite image;
+            UseLearningLanguage = !node.Native;
+            switch (node.Type)
+            {
+                case NodeType.TEXT:
+                    CurrDialogueType = DialogueType.Text;
+                    currBalloon.Show(node, UseLearningLanguage);
+                    image = node.GetImage();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
+                    break;
+                case NodeType.PANEL:
+                    currBalloon = startEndPanel;
+                    CurrDialogueType = DialogueType.Text;
+                    ShowStartPanel(node);
+                    break;
+                case NodeType.CHOICE:
+                case NodeType.QUIZ:
+                    CurrDialogueType = DialogueType.Choice;
+                    if (!string.IsNullOrEmpty(node.Content))
+                        currBalloon.Show(node, UseLearningLanguage);
+                    image = node.GetImage();
+                    if (image != null)
+                        postcard.Show(image);
+                    else
+                        postcard.Hide();
+                    //yield return new WaitForSeconds(0.3f);
+                    choices.Show(node.Choices, UseLearningLanguage);
+                    break;
+                default:
+                    IsOpen = false;
+                    CurrDialogueType = DialogueType.None;
+                    Debug.LogError($"DialoguesUI.ShowDialogueNode ► QuestNode is of invalid type ({node.Type})");
+                    break;
+            }
+            //coShowDialogue = null;
         }
 
         void Next(int choiceIndex = 0)
@@ -248,11 +321,12 @@ namespace Antura.Minigames.DiscoverCountry
                     yield return null;
             }
 
-            QuestNode next = QuestManager.I.GetNextNode(choiceIndex);
-            if (next == null)
-                CloseDialogue(choiceIndex);
-            else
-                ShowDialogueFor(next);
+            if (currNode.Type == NodeType.CHOICE || currNode.Type == NodeType.QUIZ)
+            {
+                currNode.Choices[choiceIndex].OnOptionSelected?.TrySetResult(currNode.Choices[choiceIndex].YarnOption);
+            }
+
+            CloseDialogue(choiceIndex);
 
             coNext = null;
         }

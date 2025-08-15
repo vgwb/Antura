@@ -23,6 +23,7 @@
         Learn_Cherokee = 110,
 
 
-        Discover_France = 1000,
+        Discover_France = 1001,
+        Discover_Poland = 1002,
     }
 }

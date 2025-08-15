@@ -1,11 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.Events;
+using Yarn;
+using Yarn.Unity;
+using Yarn.Unity.Attributes;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public enum InteractionType
     {
@@ -23,9 +26,9 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Is it enabled for interaction?")]
         public bool IsInteractable = true;
         [Tooltip("Autorun when player gets nerby")]
-        public bool AutoActivate;
+        public bool NearbyAutoActivate;
         [Tooltip("Icon to be shown")]
-        public InteractionType InteractionType = InteractionType.Look;
+        public InteractionType IconType = InteractionType.Look;
         [Tooltip("Where does the icon appear and camera focus?")]
         public Transform IconTransform;
         [Tooltip("Show on map (if active)")]
@@ -35,16 +38,19 @@ namespace Antura.Minigames.DiscoverCountry
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
-        [Header("Unity Action")]
-        public bool ActivateUnityAction;
-        [SerializeField] bool disableAfterAction;
-        [SerializeField] UnityEvent unityAction;
+        [Header("Execute Quest Node")]
+        // public YarnProject yarnProject;
+        // [YarnNode(nameof(yarnProject))]
+        // public string StartNodeId;
 
-        [Header("Quest Node")]
-        public bool ActivateNode;
         public string NodePermalink;
-        public string NodeCommand;
 
+        [Header("Execute Quest Actions")]
+        [SerializeField] bool disableAfterAction;
+        [Tooltip("Execute a quest action of ActionManager")]
+        [SerializeField] string QuestAction;
+        [Tooltip("Executes these commands")]
+        [SerializeField] List<CommandData> Commands;
         #endregion
 
         public bool IsLL { get; private set; }
@@ -90,9 +96,9 @@ namespace Antura.Minigames.DiscoverCountry
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
                     DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
-                    if (AutoActivate)
+                    if (NearbyAutoActivate)
                     {
-                        AutoActivate = false;
+                        NearbyAutoActivate = false;
                         DiscoverNotifier.Game.OnActClicked.Dispatch();
                     }
                 }
@@ -125,16 +131,45 @@ namespace Antura.Minigames.DiscoverCountry
 
         #region Public Methods
 
+        public void SetActivated(bool status)
+        {
+            IsInteractable = status;
+            if (status)
+            {
+                if (ShowIconAlways)
+                    InteractionManager.I.ShowPreviewSignalFor(this, true);
+                DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
+            }
+            else
+            {
+                InteractionManager.I.ShowPreviewSignalFor(this, false);
+                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(this);
+            }
+        }
+
         /// <summary>
         /// Returns a <see cref="QuestNode"/> or NULL if there was no node to activate
         /// </summary>
-        public QuestNode Activate()
+        public QuestNode Execute()
         {
             QuestNode node = null;
-            if (ActivateNode)
-                node = QuestManager.I.GetQuestNode(NodePermalink, NodeCommand);
-            if (ActivateUnityAction)
-                LaunchUnityAction();
+            if (NodePermalink != "")
+            {
+                Debug.Log($"Interactable: Execute - NodePermalink: {NodePermalink}");
+                QuestManager.I.YarnGetQuestNode(NodePermalink);
+
+            }
+
+            if (QuestAction != "")
+            {
+                ActionManager.I.ResolveQuestAction(QuestAction);
+            }
+
+            if (Commands != null && Commands.Count > 0)
+            {
+                ActionManager.I.ResolveCommands(Commands);
+            }
+
             if (disableAfterAction)
                 this.RestartCoroutine(ref coDisableAfterAction, CO_DisableAfterAction());
             return node;
@@ -143,13 +178,6 @@ namespace Antura.Minigames.DiscoverCountry
         #endregion
 
         #region Methods
-
-        [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
-        void LaunchUnityAction()
-        {
-            if (unityAction != null)
-                unityAction.Invoke();
-        }
 
         // Coroutine to disable interactable after one frame, so it doesn't interfere with multiple actions being called in the same frame
         IEnumerator CO_DisableAfterAction()

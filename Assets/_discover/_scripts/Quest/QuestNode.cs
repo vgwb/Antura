@@ -1,20 +1,25 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-// ReSharper disable All
+using Yarn.Unity;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
 
     public enum NodeType
     {
         TEXT = 1,
         CHOICE = 2,
-        QUIZ = 3
+        QUIZ = 3,
+        PANEL = 4
     }
 
     public struct NodeChoice
     {
+        public DialogueOption YarnOption;
+        public YarnTaskCompletionSource<DialogueOption?>? OnOptionSelected;
+        public System.Threading.CancellationToken completionToken;
+
         public int Index;
         public string Content;
         public string ContentNative;
@@ -54,6 +59,9 @@ namespace Antura.Minigames.DiscoverCountry
 
         public string Color;
 
+        // if this node is an objective
+        public string Task;
+
         // if a special method needs to be triggered in the scene
         public string Action;
 
@@ -83,6 +91,11 @@ namespace Antura.Minigames.DiscoverCountry
         public bool IsQuizNode()
         {
             return Type == NodeType.QUIZ;
+        }
+
+        public bool IsPanel()
+        {
+            return Type == NodeType.PANEL;
         }
 
         public Sprite GetImage()
@@ -115,6 +128,7 @@ namespace Antura.Minigames.DiscoverCountry
             nodeInfo += "AudioId: " + AudioId + "\n";
             nodeInfo += "Action: " + Action + "\n";
             nodeInfo += "Action Post: " + ActionPost + "\n";
+            nodeInfo += "Task: " + Task + "\n";
             nodeInfo += "BalloonType: " + BalloonType + "\n";
             nodeInfo += "Mood: " + Mood + "\n";
             nodeInfo += "NextTarget: " + NextTarget + "\n";

@@ -14,7 +14,7 @@ namespace Antura.Database
         public String Atlas;
     }
 
-    [CreateAssetMenu(menuName = "Antura/Drawing Data")]
+    [CreateAssetMenu(menuName = "Antura/Minigames/Drawing Data")]
     public class DrawingsData : ScriptableObject
     {
         public List<DrawingData> Drawings = new List<DrawingData>();

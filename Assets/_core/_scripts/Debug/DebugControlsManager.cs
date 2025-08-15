@@ -4,8 +4,8 @@
 using System;
 using System.Text;
 using Antura.Core;
-using Antura.Minigames.DiscoverCountry;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover;
+using Antura.Discover.Interaction;
 using DG.DeExtensions;
 using TMPro;
 using UnityEngine;
@@ -93,8 +93,8 @@ namespace Antura.Debugging
                 if (beam == null) Debug.LogWarning("Couldn't find a target beam");
                 else InteractionManager.I.ActivateWorldTargetIcon(true, beam.transform);
             }),
-            new DebugCommand("Action END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
-                ActionManager.I.DebugActionEnd();
+            new DebugCommand("Quest END", CommandCondition.OnPress, KeyCode.E, KeyModifier.Shift, on => {
+                ActionManager.I.TestQuestEnd();
             })
         };
 
@@ -114,7 +114,7 @@ namespace Antura.Debugging
             }
 
             _I = this;
-            Debug.Log("DEBUG SHORTCUTS Activated: press SHIFT + C");
+            Debug.Log("<color=#d8249c>DEBUG SHORTCUTS enabled:</color> press <b>SHIFT + C</b>");
         }
 
         void Start()

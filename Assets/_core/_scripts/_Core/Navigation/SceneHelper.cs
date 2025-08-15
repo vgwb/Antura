@@ -43,7 +43,7 @@ namespace Antura.Core
                 case AppScene.Kiosk:
                     return "app_Kiosk";
                 case AppScene.DiscoverCountry:
-                    return "discover__menu";
+                    return "discover _menu";
                 case AppScene.DiscoverQuest:
                     return minigameData.Scene;
                 default:

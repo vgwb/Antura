@@ -1,0 +1,159 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5be51871efa6c3e4eae1703925c8f5ac, type: 3}
+  m_Name: Locations
+  m_EditorClassIdentifier: 
+  m_SharedTableData: {fileID: 11400000, guid: dfc6abae1767a4d33b46bb3545f21079, type: 2}
+  m_Tables:
+  - {fileID: 11400000, guid: 87692cff112c341eba3b7d205d9e66d9, type: 2}
+  - {fileID: 11400000, guid: c2bba6e991e0f404ea96a12410d8a8f1, type: 2}
+  - {fileID: 11400000, guid: 15b8dbbea6a1d42f28e1ca294ea7ceeb, type: 2}
+  - {fileID: 11400000, guid: adc1e1dd8d59b4f72a4fdb0bc4ec3d5a, type: 2}
+  - {fileID: 11400000, guid: b65988ab5fb064313b9f6589244855fa, type: 2}
+  - {fileID: 11400000, guid: 608f17c99adc84094ba851cff641608c, type: 2}
+  - {fileID: 11400000, guid: 006090390f78442f0bd92384a8a6c053, type: 2}
+  - {fileID: 11400000, guid: 5ff5fb352fe6742559918bb3ced368a7, type: 2}
+  - {fileID: 11400000, guid: 6849eea3903f4447a9a96f38f4a5353b, type: 2}
+  - {fileID: 11400000, guid: c7477013325b94b26bd55bf06281cd68, type: 2}
+  - {fileID: 11400000, guid: 47ecfabdb91dc47bbbc020b3f2e242bc, type: 2}
+  m_Extensions:
+  - rid: 8980595672919834737
+  m_Group: Discover
+  references:
+    version: 2
+    RefIds:
+    - rid: 8980595672919834737
+      type: {class: CsvExtension, ns: UnityEditor.Localization.Plugins.CSV, asm: Unity.Localization.Editor}
+      data:
+        m_Collection: {fileID: 11400000}
+        m_ColumnsList:
+        - rid: 8980595672919834738
+        - rid: 8980595672919834739
+        - rid: 8980595672919834740
+        - rid: 8980595672919834741
+        - rid: 8980595672919834742
+        - rid: 8980595672919834743
+        - rid: 8980595672919834744
+        - rid: 8980595672919834745
+        - rid: 8980595672919834746
+        - rid: 8980595672919834747
+        - rid: 8980595672919834748
+        - rid: 8980595672919834749
+        m_ConnectedFile: /Users/krur/Desktop/Locations.csv
+    - rid: 8980595672919834738
+      type: {class: KeyIdColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_IncludeId: 1
+        m_IncludeSharedComments: 0
+        m_KeyFieldName: Key
+        m_IdFieldName: Id
+        m_CommentFieldName: Shared Comments
+    - rid: 8980595672919834739
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: en
+        m_FieldName: English(en)
+        m_CommentFieldName: English(en) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834740
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: es
+        m_FieldName: Spanish(es)
+        m_CommentFieldName: Spanish(es) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834741
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: it
+        m_FieldName: Italian(it)
+        m_CommentFieldName: Italian(it) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834742
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: fr
+        m_FieldName: French(fr)
+        m_CommentFieldName: French(fr) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834743
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: pl
+        m_FieldName: Polish(pl)
+        m_CommentFieldName: Polish(pl) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834744
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: uk
+        m_FieldName: Ukrainian(uk)
+        m_CommentFieldName: Ukrainian(uk) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834745
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: ru
+        m_FieldName: Russian(ru)
+        m_CommentFieldName: Russian(ru) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834746
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: de
+        m_FieldName: German(de)
+        m_CommentFieldName: German(de) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834747
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: hu
+        m_FieldName: Hungarian(hu)
+        m_CommentFieldName: Hungarian(hu) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834748
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: ro
+        m_FieldName: Romanian(ro)
+        m_CommentFieldName: Romanian(ro) Comments
+        m_IncludeComments: 0
+    - rid: 8980595672919834749
+      type: {class: LocaleColumns, ns: UnityEditor.Localization.Plugins.CSV.Columns,
+        asm: Unity.Localization.Editor}
+      data:
+        m_LocaleIdentifier:
+          m_Code: ar
+        m_FieldName: Arabic(ar)
+        m_CommentFieldName: Arabic(ar) Comments
+        m_IncludeComments: 0

@@ -434,7 +434,7 @@ namespace Antura.Audio
             var audio_id = LocalizationManager.PrefixHomerNodeWithLangCode(node_id, langCode);
             var sourcePath = new SourcePath(
                 audio_id,
-                "Discover/" + flow_dir + "/" + LocalizationManager.IsoLangFromLangCode(langCode),
+                "Discover/" + flow_dir + "/audio/" + LocalizationManager.IsoLangFromLangCode(langCode),
                 langCode
                 );
             var wrapper = new AudioSourceWrapper(sourcePath, dialogueGroup, this, true);
@@ -624,7 +624,7 @@ namespace Antura.Audio
 
                     if (failed && source.Clip == null)
                     {
-                        Debug.LogError($"Missing audio '{source.Path.id}' for language '{source.Path.code}'");
+                        Debug.LogWarning($"Missing audio '{source.Path.id}' for language '{source.Path.code}'");
                     }
                     else
                     {

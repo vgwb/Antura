@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.DiscoverCountry
+﻿namespace Antura.Discover
 {
     public enum CameraMode
     {

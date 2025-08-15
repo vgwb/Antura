@@ -19,7 +19,7 @@ namespace Antura.Core
         Flag,
     }
 
-    [CreateAssetMenu(menuName = "Antura/Config App Edition")]
+    [CreateAssetMenu(menuName = "Antura/Core/Config App Edition")]
     public class AppEditionConfig : ScriptableObject
     {
         [Header("Edition")]

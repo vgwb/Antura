@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections;
-using Antura.Minigames.DiscoverCountry.Interaction;
+using Antura.Discover.Interaction;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
+using Antura.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     [RequireComponent(typeof(MapIconsManager))]
     public class UIManager : MonoBehaviour
@@ -22,6 +23,20 @@ namespace Antura.Minigames.DiscoverCountry
         [SerializeField] Navigator navigator;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
+
+        [Header("UI Elements")]
+        [DeEmptyAlert]
+        public ItemsCounter BonesCounter;
+        [DeEmptyAlert]
+        public ItemsCounter CoinsCounter;
+        [DeEmptyAlert]
+        public TaskDisplay TaskDisplay;
+        [DeEmptyAlert]
+        public ProgressDisplay ProgressDisplay;
+        [DeEmptyAlert]
+        public InventoryDisplay InventoryDisplay;
+        [DeEmptyAlert]
+        public ToastDisplay ToastDisplay;
 
         #endregion
 
@@ -71,7 +86,8 @@ namespace Antura.Minigames.DiscoverCountry
 
         void LateUpdate()
         {
-            if (navigatorMarker.IsShown) navigator.SetIndicators(navigatorMarker.OutHor, navigatorMarker.OutVert);
+            if (navigatorMarker.IsShown)
+                navigator.SetIndicators(navigatorMarker.OutHor, navigatorMarker.OutVert);
         }
 
         #endregion
@@ -85,9 +101,11 @@ namespace Antura.Minigames.DiscoverCountry
                 Debug.LogError("UIManager: you can't call ActivateWorldTargetIcon(TRUE) without passing a Transform");
                 return;
             }
-            
-            if (activate) navigatorMarker.Show(target);
-            else navigatorMarker.Hide();
+
+            if (activate)
+                navigatorMarker.Show(target);
+            else
+                navigatorMarker.Hide();
         }
 
         #endregion
@@ -113,7 +131,7 @@ namespace Antura.Minigames.DiscoverCountry
 
         void OnCloseDialogue()
         {
-            if (InteractionManager.I.nearbyInteractable == null)
+            if (InteractionManager.I.NearbyInteractable == null)
                 btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);

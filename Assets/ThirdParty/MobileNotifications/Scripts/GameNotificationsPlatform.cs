@@ -1,3 +1,4 @@
+#if UNITY_ANDROID || UNITY_IOS
 using System;
 using System.Collections;
 using Unity.Notifications;
@@ -142,5 +143,5 @@ namespace NotificationSamples
             NotificationReceived?.Invoke(new GameNotification(notification));
         }
     }
-
 }
+#endif

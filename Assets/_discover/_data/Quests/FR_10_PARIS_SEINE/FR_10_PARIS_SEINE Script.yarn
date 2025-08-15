@@ -1,0 +1,239 @@
+﻿// FR-10 Paris - Seine
+title: FR_10_INIT
+position: 0,0
+tags: type=Start
+---
+<<set $TOTAL_COINS = 0>>
+<<set $CURRENT_PROGRESS = 0>>
+<<set $MAX_PROGRESS = 8>>
+===
+
+title: FR_10_talk_tutor
+position: 220,0
+tags: type=Condition
+---
+$CURRENT_PROGRESS >= $MAX_PROGRESS
+$CURRENT_PROGRESS > 0
+===
+
+title: FR_10_PARIS___SEINE_Text_18_78_bb
+position: 440,0
+tags: actorUID=TUTOR, asset=seine_river_panoramic
+---
+TUTOR: This is the Sein River!
+<<jump FR_10_PARIS___SEINE_Text_85640110>>
+===
+
+title: FR_10_PARIS___SEINE_Text_86_78_bb
+position: 660,0
+tags: actorUID=TUTOR
+---
+TUTOR: Thank you!
+<<jump FR_10_PARIS___SEINE_Text_77236812>>
+===
+
+title: FR_10_PARIS___SEINE_Text_40_78_bb
+position: 880,0
+tags: actorUID=TUTOR, meta_TASK=SEINE, meta=TASK:SEINE
+---
+TUTOR: I lost 8 photos of the Sein. Can you find them all? Then come back to me!
+===
+
+title: sign_train_bridge
+position: 1100,0
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_1, meta=ACTION_POST:COLLECT_1, asset=sign_train_bridge
+---
+TUTOR: This is a bridge for trains!
+===
+
+title: FR_10_PARIS___SEINE_Text_77236812
+position: 1320,0
+tags: actorUID=TUTOR
+---
+TUTOR: Do you know that there are 37 bridges on the Seine?
+<<jump FR_10_PARIS___SEINE_Text_80306658>>
+===
+
+title: FR_10_PARIS___SEINE_Text_bb_b9_ba
+position: 1760,0
+tags: actorUID=TUTOR
+---
+TUTOR: Keep searching for the photos!
+===
+
+title: sign_car_bridge
+position: 1980,0
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_2, meta=ACTION_POST:COLLECT_2, asset=sign_car_bridge
+---
+TUTOR: This is a bridge for cars!
+===
+
+title: FR_10_PARIS___SEINE_Note_78072045
+position: 2200,0
+tags: type=Note
+---
+SIGNS
+===
+
+title: sign_people_bridge
+position: 2420,0
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_3, meta=ACTION_POST:COLLECT_3, asset=sign_people_bridge
+---
+TUTOR: This is a bridge for the people!
+===
+
+title: FR_10_PARIS___SEINE_Note_45_4a_8b
+position: 0,140
+tags: type=Note
+---
+PEOPLE ON BOATS
+===
+
+title: boat_people
+position: 220,140
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_5, meta=ACTION_POST:COLLECT_5, asset=boat_people
+---
+TUTOR: This boat has large windows, so tourista can see the city! it's a bâteaux mouches
+===
+
+title: boat_house
+position: 440,140
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_6, meta=ACTION_POST:COLLECT_6, asset=boat_house
+---
+TUTOR: <br>This boat is a house! People live here!
+===
+
+title: boat_goods
+position: 660,140
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_7, meta=ACTION_POST:COLLECT_7, asset=boat_goods
+---
+TUTOR: This boat transports goods
+===
+
+title: FR_10_PARIS___SEINE_Text_80306658
+position: 880,140
+tags: actorUID=TUTOR, asset=seine_france_map
+---
+TUTOR: Now look at this map or the Seine
+<<jump FR_10_PARIS___SEINE_Choice_80394261>>
+===
+
+title: FR_10_PARIS___SEINE_Choice_80394261
+position: 1100,140
+tags: actorUID=TUTOR, type=Choice
+---
+TUTOR: The Seine is a river which flows into a sea, which one?
+-> "The Mediterranean Sea":
+    <<jump FR_10_PARIS___SEINE_Text_66_19_ae>>
+-> "The English Channel":
+    <<jump FR_10_PARIS___SEINE_Text_80459166>>
+-> "The Atlantic Ocean":
+    <<jump FR_10_PARIS___SEINE_Text_66_19_ae>>
+===
+
+title: FR_10_PARIS___SEINE_Text_80459166
+position: 1320,140
+tags: actorUID=TUTOR
+---
+TUTOR: YES! The Seine flows into the English Channel, north of France
+<<jump FR_10_PARIS___SEINE_Text_19065536>>
+===
+
+title: FR_10_PARIS___SEINE_Text_66_19_ae
+position: 1540,140
+tags: actorUID=TUTOR
+---
+TUTOR: UHMMMM. not really. Look better at the map
+<<jump FR_10_PARIS___SEINE_Text_80306658>>
+===
+
+title: FR_10_PARIS___SEINE_Text_80551229
+position: 1760,140
+tags: actorUID=TUTOR, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
+---
+TUTOR: Great: you finished this level.
+===
+
+title: npc_train
+position: 1980,140
+tags: actorUID=MAN
+---
+MAN: I would love to ride a train!
+===
+
+title: FR_10_PARIS___SEINE_Note_8b_29_ab
+position: 2200,140
+tags: type=Note
+---
+NPC
+===
+
+title: npc_boat
+position: 2420,140
+tags: actorUID=MAN
+---
+MAN: No i didn't see your dog
+MAN: A dog? there are many dogs here...
+MAN: I saw a dog walking around, yes
+===
+
+title: FR_10_PARIS___SEINE_Text_85640110
+position: 0,280
+tags: actorUID=TUTOR, asset=seine_map
+---
+TUTOR: The river Seine flows through Paris.
+<<jump FR_10_PARIS___SEINE_Text_85871053>>
+===
+
+title: FR_10_PARIS___SEINE_Text_85871053
+position: 220,280
+tags: actorUID=TUTOR
+---
+TUTOR: Many people live by this river
+<<jump FR_10_PARIS___SEINE_Text_40_78_bb>>
+===
+
+title: boat_eiffel
+position: 440,280
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel
+---
+TUTOR: Look how nice!
+===
+
+title: boat_river
+position: 660,280
+tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
+---
+TUTOR: <br>There are many boats
+===
+
+title: talk_ile_de_france
+position: 880,280
+tags: actorUID=WOMAN, asset=ile_de_france
+---
+WOMAN: Look: there is an island. "île de la cité". It is the historic centre of Paris.
+===
+
+title: talk_pont_alexandre
+position: 1100,280
+tags: actorUID=WOMAN, asset=alexander_iii_bridge
+---
+WOMAN: This is Pont Alexandre III: an historic monument
+===
+
+title: FR_10_PARIS___SEINE_Text_19065536
+position: 1320,280
+tags: actorUID=TUTOR, asset=seine_map
+---
+TUTOR: In this map: name the monuments you recognized.
+<<jump FR_10_PARIS___SEINE_Text_19231994>>
+===
+
+title: FR_10_PARIS___SEINE_Text_19231994
+position: 1540,280
+tags: actorUID=TUTOR
+---
+TUTOR: Draw a bridge in your notebook! Do you remember the Pont Alexandre 3?
+<<jump FR_10_PARIS___SEINE_Text_80551229>>
+===
+

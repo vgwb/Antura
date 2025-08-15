@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     /// <summary>
     /// Used to retrieve camera target at runtime without having to assign it via Inspector

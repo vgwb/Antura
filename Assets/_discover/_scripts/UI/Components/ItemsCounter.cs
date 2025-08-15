@@ -1,10 +1,10 @@
-using Antura.Audio;
+﻿using Antura.Audio;
 using Antura.Core;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     /// <summary>
     /// Shows the number of bones obtained.
@@ -12,22 +12,23 @@ namespace Antura.Minigames.DiscoverCountry
     /// </summary>
     public class ItemsCounter : MonoBehaviour
     {
+        [Header("Setup")]
+        public bool AutoSetup;
 
         [Header("References")]
         public TextMeshProUGUI TfCount;
         public RectTransform BoneImg;
 
-        int totItems
+        int totBones
         {
             get { return fooTotBones; }
             set
             {
                 fooTotBones = value;
-                TfCount.text = value.ToString() + "/" + maxItems;
+                TfCount.text = value.ToString();
             }
         }
 
-        int maxItems;
         int fooTotBones;
         bool setupDone;
         Tween showTween, increaseTween;
@@ -36,8 +37,15 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            Setup();
-
+            if (AutoSetup)
+            {
+                Show(true);
+            }
+            else
+            {
+                // this should be called.. left here for rtetrocompatibility
+                Setup();
+            }
         }
 
         void Setup()
@@ -67,6 +75,8 @@ namespace Antura.Minigames.DiscoverCountry
         public void Show(bool _setValueAuto = true)
         {
             Setup();
+            if (_setValueAuto)
+            { SetValueAuto(); }
             this.gameObject.SetActive(true);
             showTween.PlayForward();
         }
@@ -79,25 +89,26 @@ namespace Antura.Minigames.DiscoverCountry
             showTween.Rewind();
         }
 
-        public void SetMax(int _bones)
+        public void SetValueAuto()
         {
-            maxItems = _bones;
+            totBones = AppManager.I.Player.GetTotalNumberOfBones();
         }
+
         public void SetValue(int _bones)
         {
-            totItems = _bones;
+            totBones = _bones;
         }
 
         public void DecreaseBy(int _by)
         {
-            totItems -= _by;
+            totBones -= _by;
         }
 
         public void IncreaseByOne(bool _animate = true)
         {
             increaseTween.Restart();
             AudioManager.I.PlaySound(Sfx.Blip);
-            totItems++;
+            totBones++;
         }
 
         //        public void AnimateIncreaseToCurrent(int _by)

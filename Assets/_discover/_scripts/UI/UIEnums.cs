@@ -1,4 +1,4 @@
-﻿namespace Antura.Minigames.DiscoverCountry
+﻿namespace Antura.Discover
 {
     public enum OutOfBoundsHor
     {
@@ -6,7 +6,7 @@
         Left,
         Right
     }
-        
+
     public enum OutOfBoundsVert
     {
         None,

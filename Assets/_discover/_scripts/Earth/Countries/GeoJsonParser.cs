@@ -2,7 +2,7 @@ using UnityEngine;
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class GeoJsonParser : MonoBehaviour
     {
@@ -114,7 +114,7 @@ namespace Antura.Minigames.DiscoverCountry
             meshFilter.mesh = mesh;
 
             // Attach the CountryData component and set properties
-            CountryData countryData = country.AddComponent<CountryData>();
+            CountryDataInfo countryData = country.AddComponent<CountryDataInfo>();
             countryData.countryName = countryName;
         }
     }

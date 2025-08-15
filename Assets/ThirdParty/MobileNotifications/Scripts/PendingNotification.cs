@@ -1,3 +1,4 @@
+#if UNITY_ANDROID || UNITY_IOS
 using System;
 
 namespace NotificationSamples
@@ -51,3 +52,4 @@ namespace NotificationSamples
         }
     }
 }
+#endif

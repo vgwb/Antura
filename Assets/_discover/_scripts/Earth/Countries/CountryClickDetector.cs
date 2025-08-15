@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class CountryClickDetector : MonoBehaviour
     {
@@ -16,7 +16,7 @@ namespace Antura.Minigames.DiscoverCountry
                 if (Physics.Raycast(ray, out hit))
                 {
                     GameObject clickedObject = hit.collider.gameObject;
-                    CountryData countryData = clickedObject.GetComponent<CountryData>();
+                    CountryDataInfo countryData = clickedObject.GetComponent<CountryDataInfo>();
 
                     if (countryData != null)
                     {

@@ -3,11 +3,11 @@ using Antura.Dog;
 using Antura.LivingLetters;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class Game_Tester : MonoBehaviour
     {
-        public EdPlayer Antura;
+        public PlayerController Antura;
         public EdLivingLetter LetterMAJOR;
         public EdLivingLetter LetterTEACHER;
         public EdLivingLetter LetterGUIDE;
@@ -15,8 +15,8 @@ namespace Antura.Minigames.DiscoverCountry
         void Start()
         {
             //            Antura.Initialize();
-            LetterMAJOR.ShowImage("ball");
-            LetterTEACHER.ShowImage("bread");
+            //LetterMAJOR.ShowImage("ball");
+            //LetterTEACHER.ShowImage("bread");
 
             //StartCoroutine(AnimateCO());
         }

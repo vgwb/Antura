@@ -1,13 +1,24 @@
 using Antura.Core;
+using DG.DeExtensions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
+
+    [Serializable]
+    public class CountrySpriteMapping
+    {
+        public Countries country;
+        public SpriteRenderer spriteRenderer;
+    }
+
     public class EarthManager : MonoBehaviour
     {
         public static EarthManager I;
+        public List<CountrySpriteMapping> countrySprites;
 
         void Awake()
         {
@@ -23,23 +34,36 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            SelectFrance();
+            //            Debug.Log("EarthManager START");
+            // Debug.Log("Current contet: " + AppManager.I.ContentEdition.ContentID);
+            if (AppManager.I.ContentEdition.ContentID == LearningContentID.Discover_Poland)
+            {
+                SelectCountry(Countries.Poland);
+            }
+            else
+            {
+                SelectCountry(Countries.France);
+            }
         }
 
-        public void SelectFrance()
+        public void SelectCountry(Countries selectedCountry)
         {
-            EarthUIManager.I.ShowCountry("france");
+            Debug.Log($"Selecting country: {selectedCountry}");
+            foreach (var mapping in countrySprites)
+            {
+
+                if (mapping.country == selectedCountry)
+                {
+                    mapping.spriteRenderer.SetAlpha(1f);
+                }
+                else
+                {
+                    mapping.spriteRenderer.SetAlpha(0.3f);
+                }
+            }
+
+            UIQuestMenuManager.I.ShowCountry(selectedCountry);
         }
 
-        public void SelectQuest(QuestData questData)
-        {
-            EarthUIManager.I.SelectQuest(questData);
-        }
-
-        public void OpenQuest(QuestData questData)
-        {
-            //Debug.Log("Load scene " + questData.scene);
-            AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
-        }
     }
 }

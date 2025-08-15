@@ -1,11 +1,9 @@
 using System;
 using DG.Tweening;
-// using DG.Tweening;
-using Homer;
 using UnityEngine;
 using UnityEngine.AI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class EdAgent : MonoBehaviour
     {
@@ -52,7 +50,7 @@ namespace Antura.Minigames.DiscoverCountry
                 // This SHOULD NOT be a tween (I'm Daniele so I know :D)
                 // lookTween.Kill();
                 // lookTween = transform.DOLookAt(currentTarget.position, 0.5f).Play();
-                
+
                 // FIXED
                 Quaternion orRot = transform.localRotation;
                 transform.LookAt(currentTarget.position);

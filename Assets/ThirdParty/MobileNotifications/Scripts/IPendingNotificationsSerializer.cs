@@ -1,3 +1,4 @@
+#if UNITY_ANDROID || UNITY_IOS
 using System.Collections.Generic;
 
 namespace NotificationSamples
@@ -22,3 +23,4 @@ namespace NotificationSamples
         IList<PendingNotification> Deserialize(GameNotificationsPlatform platform);
     }
 }
+#endif

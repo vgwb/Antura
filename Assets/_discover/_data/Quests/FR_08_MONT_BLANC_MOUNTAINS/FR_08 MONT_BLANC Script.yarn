@@ -1,0 +1,42 @@
+﻿// FR_08 Rhônes Alpes - Mont Blanc & Mountains
+
+title: FR_08_init
+position: 16,-214
+tags: type=Start
+color: red
+---
+<<set $COLLECTED_ITEMS = 0>>
+===
+title: FR_08_talk_tutor
+position: 193,62
+tags: actorUID=TUTOR, asset=mont_blanc
+---
+TUTOR: You have to go up the Mont Blanc, the highest mountain in Europe
+<<jump FR_08_MONT_BLANC___MOUNTAINS_Text_03681398>>
+===
+
+title: FR_08_MONT_BLANC___MOUNTAINS_Text_03681398
+position: 216,255
+tags: actorUID=TUTOR
+---
+TUTOR: and put the 3 flags correctly
+===
+
+title: flag_france
+position: 660,0
+tags: actorUID=TUTOR, asset=flag_france
+---
+===
+
+title: flag_italy
+position: 880,0
+tags: actorUID=TUTOR, asset=flag_italy
+---
+===
+
+title: flag_swiss
+position: 1100,0
+tags: actorUID=TUTOR, asset=flag_swiss
+---
+===
+

@@ -25,7 +25,7 @@ namespace Antura.Profile
         }
     }
 
-    public enum TalkToPlayerStyle
+    public enum TalkToPlayerMode
     {
         DontTalk = 0,
         NativeOnly = 1,
@@ -43,7 +43,8 @@ namespace Antura.Profile
         public string Uuid;
         public string PlayerName;
         public int Classroom;
-        public TalkToPlayerStyle TalkToPlayerStyle;
+        public bool EasyMode = false;
+        public TalkToPlayerMode TalkToPlayerStyle;
         public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
@@ -320,19 +321,7 @@ namespace Antura.Profile
         /// </summary>
         public void Save()
         {
-            if (AppManager.PROFILE_INVERSION)
-            {
-                if (AppManager.I.NavigationManager.NavData.CurrentContent != null)
-                {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError($"[Inversion] Saving current data (profile and content for {AppManager.I.NavigationManager.NavData.CurrentContent.ContentID})");
-                }
-                else
-                {
-                    if (AppManager.VERBOSE_INVERSION)
-                        Debug.LogError("[Inversion] Saving current data (profile only)");
-                }
-            }
+            Debug.Log("Saving Player Profile: " + PlayerName + " - " + Uuid);
 
             AppManager.I.PlayerProfileManager.UpdateCurrentPlayerIconDataInSettings();
             AppManager.I.PlayerProfileManager.SavePlayerProfile(this);
@@ -684,6 +673,7 @@ namespace Antura.Profile
             Uuid = _data.Uuid;
             PlayerName = _data.GetAdditionalData().PlayerName;
             Classroom = _data.GetAdditionalData().Classroom;
+            EasyMode = _data.GetAdditionalData().EasyMode;
             TalkToPlayerStyle = _data.GetAdditionalData().TalkToPlayerStyle;
             AvatarId = _data.AvatarId;
             Tint = _data.Tint;
@@ -731,7 +721,7 @@ namespace Antura.Profile
         public PlayerProfileData ToData()
         {
             PlayerProfileData newProfileData = new PlayerProfileData(
-                    Uuid, PlayerName, Classroom, TalkToPlayerStyle, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
+                    Uuid, PlayerName, Classroom, EasyMode, TalkToPlayerStyle, AvatarId, Gender, Tint, SkinColor, HairColor, BgColor, Age, IsDemoUser, HasFinishedTheGame, HasFinishedTheGameWithAllStars, HasMaxStarsInCurrentPlaySessions,
                     TotalNumberOfBones, ProfileCompletion, _currentAllPetsAnturaCustomization.GetJsonListOfIds(), ConsecutivePlayDays, CurrentShopState, CustomizationShopState,
                     FirstContactState, editionID, ContentID, AppVersion, PetData, Quests
             );

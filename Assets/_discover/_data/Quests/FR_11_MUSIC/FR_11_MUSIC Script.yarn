@@ -1,0 +1,56 @@
+﻿// FR-11 music
+
+title: FR_11_init
+position: 0,0
+tags: type=Start
+---
+<<set $MAX_PROGRESS = 4>>
+<<set $CURRENT_PROGRESS = 0>>
+<<set $TOTAL_COINS = 0>>
+===
+
+title: band_member
+position: 275,-57
+tags: actorUID=MAN
+---
+<<if $COLLECTED_ITEMS >= 7>>
+Thank you for helping us!
+Can you put it together?
+<<action order_notes>>
+<<else>>
+Hello! We're part of a band. We're musicians.
+We wanted to play the French Anthem, but we cannot!
+Antura has mixed up the musical script.
+Find the notes of the script.
+<<task_start find_the_script_parts>>
+<<endif>>
+===
+
+title: jean_michelle_jarre
+position: 279,122
+tags: 
+---
+<<if $COLLECTED_ITEMS >= 11>>
+Thank you! The words of the French Hymn are important.
+The French National Anthem, "La Marseillaise" rapresents France and its people.
+Can you put the words in order?
+<<activity order_words>>
+<<elseif $COLLECTED_ITEMS >= 7>>
+Hello I'm Jean Michelle Jarre.
+I'm a french composer, and I'm helping the band play "La Marseillaise".
+Find the words of the anthem.
+They've been scattered around by Antura.
+<<task_start find_the_words>>
+<<else>>
+I'm busy right now, come talk to me later
+<<endif>>
+
+===
+
+title: win_order
+position: 5,198
+---
+Now let's try to play the song!
+<<activity play_piano>>
+===
+

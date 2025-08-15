@@ -10,7 +10,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public abstract class AbstractChoiceBox : MonoBehaviour
     {
@@ -61,7 +61,7 @@ namespace Antura.Minigames.DiscoverCountry
         void Awake()
         {
             defMainColorBlock = btMain.colors;
-            
+
             showTween = CreateShowTween().SetAutoKill(false).Pause();
             hoverTween = CreateHoverTween().SetAutoKill(false).Pause();
             selectTween = CreateSelectTween().SetAutoKill(false).Pause()

@@ -1,41 +1,42 @@
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics.CodeAnalysis;
-using UnityEngine;
-using Homer;
 using Antura.Core;
 using Antura.Audio;
-using Antura.Utilities;
-using Antura.UI;
+using Antura.Discover.Activities;
 using Antura.Language;
-using System.Runtime.Remoting.Messaging;
-using UnityEditor;
 using Antura.Profile;
-
-namespace Antura.Minigames.DiscoverCountry
+using Antura.UI;
+using Antura.Utilities;
+using System.Collections.Generic;
+using UnityEngine;
+using Yarn;
+using Yarn.Unity;
+namespace Antura.Discover
 {
-    [SuppressMessage("ReSharper", "InconsistentNaming")]
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        public EdPlayer PlayerController;
+        [Header("Yarn")]
+        [SerializeField] private YarnConversationController conversation;
+        [SerializeField] private YarnAnturaManager yarnManager;
 
-        public Quests Quests;
+        public QuestListData Quests;
         public QuestData CurrentQuest;
-        public BonesCounter bonesCounter;
-        public BonesCounter coinsCounter;
-        public ItemsCounter itemsCounter;
-
-        public ProgressCounter progressCounter;
-        public string LanguageCode = "";
-        public string NativeLanguageCode = "";
-        private GameObject currentNPC;
-        public int total_coins = 0;
-        public int total_bones = 0;
-        public int collected_items = 0;
+        public Task[] QuestTasks;
+        private Task CurrentTask;
+        private string CurrentActivity;
 
         private Inventory inventory;
         private Progress progress;
-        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>(); // Used to get all QuestNodes with old system, and return a single one
+        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>();
+
+        [Header("Quest Settings")]
+        [Tooltip("Force the EASY_MODE var")]
+        public bool EasyMode = false;
+        public string LanguageCode = "";
+        public string NativeLanguageCode = "";
+        private GameObject currentNPC;
+        private PlayerController playerController;
+        public int total_coins = 0;
+        public int total_bones = 0;
+        public int collected_items = 0;
 
         [Header("DEBUG")]
         public bool DebugQuest = false;
@@ -43,55 +44,44 @@ namespace Antura.Minigames.DiscoverCountry
 
         void Start()
         {
-            // INSTATIATE LEVEL PREFAB
-            // Vector3 spawnPosition = new Vector3(0, 1, 0);
-            // GameObject levelInstance = Instantiate(CurrentQuest.GameLevel, spawnPosition, Quaternion.identity);
-            // levelInstance.transform.SetParent(null);
-
-            PlayerController = GameObject.FindWithTag("Player").GetComponent<EdPlayer>();
+            playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
             total_coins = 0;
+            if (QuestTasks != null)
+            {
+                foreach (var task in QuestTasks)
+                    task.Setup();
+            }
+
             inventory = new Inventory();
             progress = new Progress();
-            if (coinsCounter == null)
-            {
-                coinsCounter = GameObject.Find("CoinsCounter").GetComponent<BonesCounter>();
-            }
-            if (bonesCounter == null)
-            {
-                bonesCounter = GameObject.Find("BonesCounter").GetComponent<BonesCounter>();
-            }
-            if (itemsCounter == null)
-            {
-                itemsCounter = GameObject.Find("ItemsCounter").GetComponent<ItemsCounter>();
-                itemsCounter.gameObject.SetActive(false);
-            }
 
-            if (progressCounter == null)
-            {
-                progressCounter = GameObject.Find("ProgressCounter").GetComponent<ProgressCounter>();
-            }
-
-            if (DebugQuest && DebugLanguage != "")
-            {
-                LanguageCode = DebugLanguage;
-            }
-            else
-            {
-                LanguageCode = "FR";
-            }
-
+            LanguageCode = (DebugQuest && DebugLanguage != "") ? DebugLanguage : "FR";
             NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
-            //            Debug.Log("native = " + AppManager.I.AppSettings.NativeLanguage + " / " + NativeLangCode);
-            HomerAnturaManager.I.Setup(LanguageCode, NativeLanguageCode);
-            HomerAnturaManager.I.InitNode(CurrentQuest.QuestId);
 
-            if (DebugQuest)
+            yarnManager = yarnManager ? yarnManager : YarnAnturaManager.I;
+            if (yarnManager == null)
             {
-                HomerVars.MET_MONALISA = true;
+                yarnManager = UnityEngine.Object.FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             }
-            inventory.Init(HomerVars.QUEST_ITEMS);
-            progress.Init(CurrentQuest.TotalProgress);
+            yarnManager?.Setup(LanguageCode, NativeLanguageCode);
+
+            // Initialize inventory target from Yarn variables if present
+            int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
+            inventory.Init(questItemsTarget);
+            progress.Init(QuestTasks);
             updateCounters();
+
+            // Subscribe to Yarn manager events to run actions and show UI
+            if (yarnManager != null)
+            {
+                yarnManager.OnNodeStarted += OnYarnNodeStarted;
+                yarnManager.OnQuestNode += OnYarnQuestNode;
+                yarnManager.OnQuestOptions += OnYarnQuestOptions;
+                yarnManager.OnDialogueComplete += OnYarnDialogueComplete;
+            }
+
+            // Start the quest's starting node via Yarn (convention: "init")
+            yarnManager?.InitNode("init");
         }
 
         public void OnQuestEnd()
@@ -99,50 +89,92 @@ namespace Antura.Minigames.DiscoverCountry
             if (DebugConfig.I.VerboseAntura)
                 Debug.Log("OnQuestEnd");
 
-            DiscoverQuestSaved questStatus = new DiscoverQuestSaved();
-            questStatus.QuestCode = CurrentQuest.Code;
-            questStatus.Score = 1;
+            yarnManager?.StartDialogue("quest_end");
 
+            DiscoverQuestSaved questStatus = new DiscoverQuestSaved
+            {
+                QuestCode = CurrentQuest.Id
+            };
             AppManager.I.Player.SaveQuest(questStatus);
         }
 
-        public QuestNode GetQuestNode(string permalink, string command)
+        public void YarnGetQuestNode(string nodeName)
         {
-            if (permalink != "")
+            Debug.Log($"YarnGetQuestNode: {nodeName}");
+            conversation?.DebugMetadata(nodeName);
+            conversation?.StartDialogue(nodeName);
+        }
+
+        public void TaskStart(string taskCode)
+        {
+            if (QuestTasks == null)
+                return;
+            foreach (var task in QuestTasks)
             {
-                return HomerAnturaManager.I.GetNodeFromPermalink(permalink, CurrentQuest.QuestId, "");
-            }
-            else
-            {
-                return HomerAnturaManager.I.GetContentByCommand(CurrentQuest.QuestId, command, true);
+                if (task.Code == taskCode)
+                {
+                    CurrentTask = task;
+                    CurrentTask.Activate();
+                    return;
+                }
             }
         }
 
-        public QuestNode GetNextNode(int choiceIndex = 0)
+        public void TaskSuccess(string taskCode = "")
         {
-            return HomerAnturaManager.I.NextNode(choiceIndex);
+            if (CurrentTask == null)
+                return;
+
+            if (taskCode != "" && CurrentTask.Code != taskCode)
+            {
+                Debug.LogError($"TaskSuccess called with taskCode {taskCode}, but current task is {CurrentTask.Code}");
+                return;
+            }
+
+            UIManager.I.TaskDisplay.Hide();
+            progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
+
+            if (!string.IsNullOrEmpty(CurrentTask.NodeSuccess))
+                yarnManager?.StartDialogue(CurrentTask.NodeSuccess);
+
+            CurrentTask = null;
         }
 
-        public void OnInteract(EdAgent agent)
+        public void AddProgressPoints(int points)
         {
-            // Debug.Log("ANTURA INTERACTS WITH LL " + agent.ActorId);
+            progress.AddProgressPoints(points);
+        }
+
+        public void TaskFail(string taskCode = "")
+        {
+            if (CurrentTask != null)
+            {
+                UIManager.I.TaskDisplay.Hide();
+                if (!string.IsNullOrEmpty(CurrentTask.NodeFail))
+                    yarnManager?.StartDialogue(CurrentTask.NodeFail);
+                CurrentTask = null;
+            }
+        }
+
+        public void ActivityStart(GameObject activityObject)
+        {
+            Debug.Log("ActivityStart: " + activityObject.name);
+            CurrentActivity = activityObject.GetComponent<ActivityBase>().ActivityCode;
+            activityObject.GetComponent<ActivityPanel>().Open();
         }
 
         public void OnNodeStart(QuestNode node)
         {
-            if (node.Action != null)
-                ActionManager.I.ResolveAction(node.Action, node.Permalink);
-
-            if (node.Permalink != "")
-                progress.VisitNode(node.Permalink);
+            if (!string.IsNullOrEmpty(node.Action))
+                ActionManager.I.ResolveQuestAction(node.Action, node);
         }
 
         public void OnNodeEnd(QuestNode node)
         {
-            if (node.NextTarget != null)
-                ActionManager.I.CameraShowTarget(node.NextTarget);
-            if (node.ActionPost != null)
-                ActionManager.I.ResolveAction(node.ActionPost, node.Permalink);
+            if (!string.IsNullOrEmpty(node.Task))
+                TaskStart(node.Task);
+            if (!string.IsNullOrEmpty(node.ActionPost))
+                ActionManager.I.ResolveQuestAction(node.ActionPost, node);
         }
 
         public void OnCollectItemCode(string itemCode)
@@ -150,59 +182,122 @@ namespace Antura.Minigames.DiscoverCountry
             if (inventory.CollectItem(itemCode))
             {
                 Debug.Log("Collect item " + itemCode);
-
                 collected_items++;
-                HomerVars.COLLECTED_ITEMS = collected_items;
+                SetIntVar("$COLLECTED_ITEMS", collected_items);
                 UpateItemsCounter();
             }
         }
 
-        public void OnCollectItem(GameObject go)
+        public void RemoveItemCode(string itemCode)
         {
-            collected_items++;
-            HomerVars.COLLECTED_ITEMS = collected_items;
-            Destroy(go);
-            UpateItemsCounter();
+            if (inventory != null && inventory.RemoveItem(itemCode))
+            {
+                Debug.Log("Remove item " + itemCode);
+                collected_items--;
+                SetIntVar("$COLLECTED_ITEMS", collected_items);
+                UpateItemsCounter();
+            }
         }
 
-        public void OnCollectBone(GameObject go)
+        public void OnCollectItem(string tag)
+        {
+            collected_items++;
+            SetIntVar("$COLLECTED_ITEMS", collected_items);
+            if (!string.IsNullOrEmpty(tag) && CurrentTask != null)
+                CurrentTask.ItemCollected();
+            AudioManager.I.PlaySound(Sfx.ScaleUp);
+        }
+
+        public void OnCollectBone()
         {
             total_bones++;
-            bonesCounter.IncreaseByOne();
+            UIManager.I.BonesCounter.SetValue(total_bones);
             AppManager.I.Player.AddBones(1);
-            Destroy(go);
+        }
+
+        public void OnCollectBones(int bones)
+        {
+            total_bones += bones;
+            UIManager.I.BonesCounter.SetValue(total_bones);
+            AppManager.I.Player.AddBones(bones);
         }
 
         private void updateCounters()
         {
             UpateCoinsCounter();
             UpateItemsCounter();
-            //UpateProgressCounter();
         }
-        public void UpateProgressCounter(int counter, int maxSteps)
+
+        public void UpdateProgressScore(int counter)
         {
-            progressCounter.UpdateProgress(counter, maxSteps);
+            UIManager.I.ProgressDisplay.SetCurrentScore(counter);
         }
+
         public void UpateItemsCounter()
         {
-            if (HomerVars.QUEST_ITEMS > 0)
+            int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
+            if (questItemsTarget > 0)
             {
-                itemsCounter.gameObject.SetActive(true);
-                itemsCounter.SetMax(HomerVars.QUEST_ITEMS);
-                itemsCounter.SetValue(HomerVars.COLLECTED_ITEMS);
+                UIManager.I.TaskDisplay.gameObject.SetActive(true);
+                UIManager.I.TaskDisplay.SetTargetItems(questItemsTarget);
+                UIManager.I.TaskDisplay.SetTotItemsCollected(collected_items);
             }
         }
+
         public void UpateCoinsCounter()
         {
-            coinsCounter.SetValue(HomerVars.TOTAL_COINS);
+            total_coins = GetIntVar("$TOTAL_COINS", total_coins);
+            UIManager.I.CoinsCounter.SetValue(total_coins);
         }
-        public void OnCollectCoin(GameObject go)
+
+        public void OnCollectCoin()
         {
             total_coins++;
-            HomerVars.TOTAL_COINS = total_coins;
-            coinsCounter.IncreaseByOne();
-            Debug.Log("ANTURA COLLECTS coin nr " + HomerVars.TOTAL_COINS);
-            Destroy(go);
+            SetIntVar("$TOTAL_COINS", total_coins);
+            UIManager.I.CoinsCounter.IncreaseByOne();
+            Debug.Log("ANTURA COLLECTS coin nr " + total_coins);
+        }
+
+        // Yarn bindings
+        private QuestNode _lastYarnNode;
+        private void OnYarnNodeStarted(string nodeName)
+        {
+            if (DebugQuest)
+                Debug.Log($"[Yarn] Node started: {nodeName}");
+        }
+        private void OnYarnQuestNode(QuestNode node)
+        {
+            _lastYarnNode = node;
+            OnNodeStart(node);
+        }
+        private void OnYarnQuestOptions(QuestNode node)
+        {
+            _lastYarnNode = node;
+        }
+        private void OnYarnDialogueComplete()
+        {
+            if (_lastYarnNode != null)
+            {
+                OnNodeEnd(_lastYarnNode);
+                _lastYarnNode = null;
+            }
+        }
+
+        // Helpers for Yarn variable access
+        private int GetIntVar(string name, int fallback)
+        {
+            var storage = yarnManager?.Runner?.VariableStorage;
+            if (storage != null && storage.TryGetValue<float>(name, out var num))
+                return Mathf.RoundToInt(num);
+            return fallback;
+        }
+
+        private void SetIntVar(string name, int value)
+        {
+            var storage = yarnManager?.Runner?.VariableStorage;
+            if (storage == null)
+                return;
+            storage.SetValue(name, value);
         }
 
         #region Debug
@@ -210,12 +305,10 @@ namespace Antura.Minigames.DiscoverCountry
         {
             var output = "";
             output += "DEBUG INFO";
-            output += "\nQuest: " + CurrentQuest.Code;
-            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Code).Score;
+            output += "\nQuest: " + CurrentQuest.Id;
+            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Id).Score;
             output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
             output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
-            //config = LanguageSwitcher.I.GetLangConfig(languageUse);
-
             Debug.Log(output);
         }
         #endregion

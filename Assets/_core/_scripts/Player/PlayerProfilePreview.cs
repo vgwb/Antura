@@ -18,7 +18,8 @@ namespace Antura.Profile
         public string Uuid;
         public string PlayerName;
         public int Classroom;
-        public TalkToPlayerStyle TalkToPlayerStyle;
+        public bool EasyMode;
+        public TalkToPlayerMode TalkToPlayerStyle;
         public LanguageCode NativeLanguage;
         public int AvatarId;
         public PlayerGender Gender;
@@ -35,6 +36,7 @@ namespace Antura.Profile
             string _Uuid,
             string _PlayerName,
             int _Classroom,
+            bool _EasyMode,
             int _AvatarId,
             PlayerGender _Gender,
             PlayerTint _Tint,
@@ -49,8 +51,9 @@ namespace Antura.Profile
             Uuid = _Uuid;
             PlayerName = _PlayerName;
             Classroom = _Classroom;
+            EasyMode = _EasyMode;
             NativeLanguage = LanguageCode.english;
-            TalkToPlayerStyle = TalkToPlayerStyle.LearningThenNative;
+            TalkToPlayerStyle = TalkToPlayerMode.LearningThenNative;
             AvatarId = _AvatarId;
             SkinColor = _SkinColor;
             HairColor = _HairColor;

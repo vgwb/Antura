@@ -1,33 +1,26 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
+using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-namespace Antura.Minigames.DiscoverCountry.Interaction
+namespace Antura.Discover
 {
-    public enum InteractionLayer
-    {
-        None,
-        Changing, // Layer takes a frame to change, this indicates it's in the frame
-        World,
-        Map,
-        Dialogue
-    }
-
     public class InteractionManager : MonoBehaviour
     {
         #region Serialized
 
-        public EdPlayer player;
+        public PlayerController player;
 
         #endregion
 
         public static InteractionManager I { get; private set; }
-        public InteractionLayer Layer { get; private set; }
         public int LastActionFrame { get; private set; }
         public bool IsUsingFocusView { get; private set; }
-        public bool HasValidNearbyInteractable => nearbyInteractable != null && nearbyInteractable.gameObject.activeInHierarchy;
+        public bool HasValidNearbyInteractable => NearbyInteractable != null && NearbyInteractable.gameObject.activeInHierarchy;
+        public Interactable NearbyInteractable { get; private set; } // Closest interactable, if any
 
-        public Interactable nearbyInteractable { get; private set; }
+        readonly List<Interactable> allNearbyInteractables = new();
         int focusViewEnterFrame;
         Coroutine coChangeLayer, coStartDialogue;
 
@@ -47,7 +40,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Start()
         {
-            Layer = InteractionLayer.World;
+            DiscoverNotifier.Game.OnPlayerMoved.Subscribe(OnPlayerMoved);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Subscribe(OnInteractableEnteredByPlayer);
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
@@ -59,6 +52,7 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             if (I == this)
                 I = null;
             this.StopAllCoroutines();
+            DiscoverNotifier.Game.OnPlayerMoved.Unsubscribe(OnPlayerMoved);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
             DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Unsubscribe(OnInteractableEnteredByPlayer);
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Unsubscribe(OnInteractableExitedByPlayer);
@@ -71,12 +65,12 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void Update()
         {
-            switch (Layer)
+            switch (DiscoverGameManager.I.State)
             {
-                case InteractionLayer.World:
+                case GameplayState.Play3D:
                     UpdateWorld();
                     break;
-                case InteractionLayer.Dialogue:
+                case GameplayState.Dialogue:
                     UpdateDialogue();
                     break;
             }
@@ -84,9 +78,9 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void UpdateWorld()
         {
-            if (nearbyInteractable != null && !HasValidNearbyInteractable)
+            if (NearbyInteractable != null && !HasValidNearbyInteractable)
             {
-                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(nearbyInteractable);
+                DiscoverNotifier.Game.OnInteractableExitedByPlayer.Dispatch(NearbyInteractable);
             }
         }
 
@@ -132,8 +126,10 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         public void ForceNearbyInteractableTo(Interactable interactable)
         {
-            if (nearbyInteractable != interactable)
+            if (NearbyInteractable != interactable)
                 SetNearbyInteractableTo(interactable);
+            if (!allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Add(interactable);
         }
 
         #endregion
@@ -145,51 +141,44 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             LastActionFrame = Time.frameCount;
             if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
                 UnfocusCam();
-            if (Layer != InteractionLayer.World)
+            if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
+
+            Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable);
 
             if (HasValidNearbyInteractable)
             {
-                QuestNode questNode = nearbyInteractable.Activate();
-                if (questNode == null)
-                {
-                    Debug.LogError($"QuestNode is NULL, ignoring interaction");
-                }
-                else
-                {
-                    if (QuestManager.I.DebugQuest)
-                        questNode.Print();
-                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, nearbyInteractable));
-                }
+                QuestNode questNode = NearbyInteractable.Execute();
+                if (questNode != null)
+                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
             }
         }
 
-        void ChangeLayer(InteractionLayer newLayer)
+        public void DisplayNode(QuestNode node)
         {
-            if (newLayer == Layer)
+            if (node == null)
+            {
+                Debug.LogError("QuestNode is NULL, shouldn't happen");
                 return;
+            }
 
-            this.RestartCoroutine(ref coChangeLayer, CO_ChangeLayer(newLayer));
-        }
-        IEnumerator CO_ChangeLayer(InteractionLayer newLayer)
-        {
-            Layer = InteractionLayer.Changing;
-            yield return null;
-            Layer = newLayer;
+            DiscoverNotifier.Game.OnStartDialogue.Dispatch();
+            UIManager.I.dialogues.StartDialogue(node);
+
         }
 
         IEnumerator CO_StartDialogue(QuestNode questNode, Interactable interactable)
         {
-            ChangeLayer(InteractionLayer.Dialogue);
+            DiscoverGameManager.I.ChangeState(GameplayState.Dialogue);
             DiscoverNotifier.Game.OnStartDialogue.Dispatch();
 
-            if (nearbyInteractable.IsLL)
-                nearbyInteractable.LL.LookAt(player.transform);
+            if (NearbyInteractable.IsLL)
+                NearbyInteractable.LL.LookAt(player.transform);
 
-            if (nearbyInteractable.FocusCameraOnInteract)
+            if (NearbyInteractable.FocusCameraOnInteract)
             {
                 CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                CameraManager.I.FocusDialogueCamOn(nearbyInteractable.LookAtTransform);
+                CameraManager.I.FocusDialogueCamOn(NearbyInteractable.LookAtTransform);
             }
             UIManager.I.dialogues.HideSignal(interactable, false);
 
@@ -207,10 +196,10 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void ExitDialogue()
         {
-            ChangeLayer(InteractionLayer.World);
+            DiscoverGameManager.I.ChangeState(DiscoverGameManager.I.LastPlayState);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyInteractable)
-                UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+                UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
         }
@@ -222,15 +211,44 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
             UIManager.I.gameObject.SetActive(true);
         }
 
+        void RefreshNearbyInteractable()
+        {
+            Interactable prev = NearbyInteractable;
+            NearbyInteractable = null;
+            float lastDistSqr = float.MaxValue;
+            foreach (Interactable interactable in allNearbyInteractables)
+            {
+                if (!interactable.gameObject.activeInHierarchy)
+                    continue;
+                float distSqr = (interactable.transform.position - player.transform.position).sqrMagnitude;
+                if (distSqr >= lastDistSqr)
+                    continue;
+                lastDistSqr = distSqr;
+                NearbyInteractable = interactable;
+            }
+            if (NearbyInteractable != prev)
+            {
+                if (prev != null)
+                    UIManager.I.dialogues.HideSignal(prev, true);
+                if (NearbyInteractable != null && HasValidNearbyInteractable)
+                    UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
+            }
+        }
+
         void SetNearbyInteractableTo(Interactable interactable)
         {
-            nearbyInteractable = interactable;
-            UIManager.I.dialogues.ShowSignalFor(nearbyInteractable);
+            NearbyInteractable = interactable;
+            UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
         }
 
         #endregion
 
         #region Callbacks
+
+        void OnPlayerMoved()
+        {
+            RefreshNearbyInteractable();
+        }
 
         void OnCloseDialogue()
         {
@@ -244,16 +262,21 @@ namespace Antura.Minigames.DiscoverCountry.Interaction
 
         void OnInteractableEnteredByPlayer(Interactable interactable)
         {
-            SetNearbyInteractableTo(interactable);
+            if (!allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Add(interactable);
+            RefreshNearbyInteractable();
         }
 
         void OnInteractableExitedByPlayer(Interactable interactable)
         {
-            if (nearbyInteractable == interactable)
+            if (NearbyInteractable == interactable)
             {
-                nearbyInteractable = null;
+                NearbyInteractable = null;
                 UIManager.I.dialogues.HideSignal(interactable, true);
             }
+            if (allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Remove(interactable);
+            RefreshNearbyInteractable();
         }
 
         #endregion

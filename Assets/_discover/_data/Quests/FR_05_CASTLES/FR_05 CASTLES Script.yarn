@@ -1,0 +1,194 @@
+﻿// FR-05 Castles
+
+title: FR_05_INIT
+position: 0,0
+tags: type=Start
+---
+<<set $COLLECTED_ITEMS = 0>>
+===
+
+title: FR_05_CASTLES_Text_01983386
+position: 220,0
+tags: actorUID=GUIDE
+---
+GUIDE: Antura ran away and is hidden in a castle!
+===
+
+title: guide_defence
+position: 440,0
+tags: actorUID=CRAZY_WOMAN, asset=chinon
+---
+CRAZY_WOMAN: This is the castle of Chinon
+<<jump FR_05_CASTLES_Text_98_0a_8d>>
+===
+
+title: guide_living
+position: 660,0
+tags: actorUID=CRAZY_WOMAN, asset=chambord
+---
+CRAZY_WOMAN: Welcome to castle Chambord
+<<jump FR_05_CASTLES_Text_91139071>>
+===
+
+title: FR_05_CASTLES_Text_02040108
+position: 880,0
+tags: actorUID=CRAZY_WOMAN
+---
+CRAZY_WOMAN: Go find all the clothes of the knight: helmet, sword, bow, armor
+<<jump FR_05_CASTLES_Variables_05477350>>
+===
+
+title: FR_05_CASTLES_Text_02082173
+position: 1100,0
+tags: actorUID=CRAZY_WOMAN
+---
+CRAZY_WOMAN: Go find all the clothes of the Prince: hat, musical instrument, dance shoes, ball mask
+<<jump FR_05_CASTLES_Variables_05477350>>
+===
+
+title: FR_05_CASTLES_Choice_86_ba_9d
+position: 1320,0
+tags: actorUID=GUIDE, type=Choice
+---
+GUIDE: Did you find Antura?
+-> "YES":
+    <<jump FR_05_CASTLES_Text_02147104>>
+-> "NO":
+    <<jump FR_05_CASTLES_Text_02147104>>
+===
+
+title: FR_05_CASTLES_Text_02147104
+position: 1540,0
+tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=WIN, meta=ACTION_POST:WIN, asset=map
+---
+CRAZY_WOMAN: Did you like the castles? There are 200 castles like this here on the Loire!
+===
+
+title: view_bridge
+position: 1760,0
+tags: actorUID=CRAZY_WOMAN, asset=bridge
+---
+CRAZY_WOMAN: A draw-bridge is a type of moveable bridge used in castles
+===
+
+title: view_parapet
+position: 1980,0
+tags: actorUID=CRAZY_WOMAN, asset=parapet
+---
+CRAZY_WOMAN: A parapet with gaps or indentations used for defence
+===
+
+title: obg_helmet
+position: 2200,0
+tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL, asset=obj_helmet
+---
+TUTOR: an helmet
+===
+
+title: obj_hat
+position: 2420,0
+tags: actorUID=TUTOR, asset=obj_hat
+---
+TUTOR: hat
+===
+
+title: talk_guide_1
+position: 0,140
+tags: type=Condition
+---
+$COLLECTED_ITEMS > 8
+===
+
+title: obg_sword
+position: 220,140
+tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_sword
+---
+TUTOR: sword
+===
+
+title: obg_bow
+position: 440,140
+tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_bow
+---
+TUTOR: bows and arrow
+===
+
+title: obg_armor
+position: 660,140
+tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_armor
+---
+TUTOR: this
+===
+
+title: view_loopholes
+position: 880,140
+tags: actorUID=CRAZY_WOMAN, asset=loopholes
+---
+===
+
+title: FR_05_CASTLES_Text_08_89_98
+position: 1100,140
+tags: actorUID=CRAZY_WOMAN, asset=chinon_defence
+---
+CRAZY_WOMAN: This castle is used for defense.
+<<jump FR_05_CASTLES_Text_02040108>>
+===
+
+title: FR_05_CASTLES_Text_98_0a_8d
+position: 1320,140
+tags: actorUID=CRAZY_WOMAN, asset=chinon_old
+---
+CRAZY_WOMAN: It is very old
+<<jump FR_05_CASTLES_Text_08_89_98>>
+===
+
+title: FR_05_CASTLES_Text_91139071
+position: 1540,140
+tags: actorUID=CRAZY_WOMAN, asset=chambord_ball
+---
+CRAZY_WOMAN: This castle is a castle where kings and princes organize balls, plays, concerts and invite their friends
+<<jump FR_05_CASTLES_Text_02082173>>
+===
+
+title: obj_musical_intrument
+position: 1760,140
+tags: actorUID=TUTOR, asset=obj_musical_instruments
+---
+TUTOR: musical instrument
+===
+
+title: obj_shoes
+position: 1980,140
+tags: actorUID=TUTOR, asset=obj_dance_shoes
+---
+TUTOR: dance shoe
+===
+
+title: obj_ball_mask
+position: 2200,140
+tags: actorUID=TUTOR, asset=obj_ball_mask
+---
+TUTOR: ball mask
+===
+
+title: view_chambord_map
+position: 2420,140
+tags: actorUID=TUTOR, asset=chambord_map
+---
+TUTOR: this is the map of the castle
+===
+
+title: view_chambord_room
+position: 0,280
+tags: actorUID=TUTOR, asset=chambord_room
+---
+TUTOR: what a room!
+===
+
+title: view_interior
+position: 220,280
+tags: actorUID=TUTOR, asset=chambord_interior
+---
+TUTOR: it's very nice!
+===
+

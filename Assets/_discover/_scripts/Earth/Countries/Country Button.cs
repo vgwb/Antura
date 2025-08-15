@@ -3,13 +3,19 @@ using System.Collections.Generic;
 using UnityEngine;
 
 using Antura.Core;
+using TMPro;
 
-namespace Antura.Minigames.DiscoverCountry
+namespace Antura.Discover
 {
     public class CountryButton : MonoBehaviour
     {
+        public CountryData country;
+
+        public TMP_Text countryLabel;
+
         void Start()
         {
+            countryLabel.text = country.CountryName.GetLocalizedString();
         }
 
         void Update()
@@ -23,15 +29,15 @@ namespace Antura.Minigames.DiscoverCountry
                 {
                     if (hit.transform == transform)
                     {
-                        OnCubeClicked();
+                        OnCountryClicked();
                     }
                 }
             }
         }
-        private void OnCubeClicked()
+        private void OnCountryClicked()
         {
-            // Debug.Log("Cube was clicked or tapped!");
-            EarthManager.I.SelectFrance();
+            Debug.Log($"Country {country.CountryId} clicked.");
+            EarthManager.I.SelectCountry(country.CountryId);
         }
     }
 }
