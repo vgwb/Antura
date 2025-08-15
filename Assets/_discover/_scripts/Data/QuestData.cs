@@ -37,7 +37,14 @@ namespace Antura.Discover
         public List<CardData> Cards;
         public List<QuestData> Dependencies;
         public List<WordData> WordsUsed;
+
+        [Header("Public website docs")]
+        public bool IsPublic;
+        public bool IsScriptPublic;
         public string manualPage;
+
+        [Tooltip("for the Website. THis is a Markdown file that contains additional resources for the quest, such as links to videos, articles, etc.")]
+        public TextAsset AdditionalResources;
 
         public int KnowledgeValue
         {

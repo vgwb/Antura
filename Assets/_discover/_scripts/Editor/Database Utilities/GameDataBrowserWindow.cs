@@ -1380,7 +1380,7 @@ namespace Antura.Discover
             return s;
         }
 
-        private string GetQuestExportFileName(QuestData q)
+        private static string GetQuestExportFileName(QuestData q)
         {
             string code = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
             foreach (var ch in System.IO.Path.GetInvalidFileNameChars())
@@ -1389,13 +1389,20 @@ namespace Antura.Discover
             return $"Antura Quest - {code} - {dateStr}.md";
         }
 
-        private System.Text.StringBuilder BuildQuestMarkdown(QuestData q)
+        private static System.Text.StringBuilder BuildQuestMarkdown(QuestData q)
         {
             var sb = new System.Text.StringBuilder();
+            // YAML front matter with title
+            string title = !string.IsNullOrEmpty(q.TitleText) ? q.TitleText : (!string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
+            sb.AppendLine("---");
+            sb.AppendLine("title: Antura Discover Quest - " + title);
+            sb.AppendLine("---");
+            sb.AppendLine();
             // Heading per request
-            sb.AppendLine("# Antura Discover Quest - " + (q.Id ?? q.name));
+            sb.AppendLine("# Antura Discover Quest - " + title);
             // Second line: current date
             sb.AppendLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd"));
+            sb.AppendLine("Status: " + q.DevStatus);
             sb.AppendLine();
 
             // Description
@@ -1410,27 +1417,17 @@ namespace Antura.Discover
             }
 
             // Data section
-            sb.AppendLine("## Data");
+            sb.AppendLine("## Informations");
             sb.AppendLine();
             // Title and Description first
             sb.AppendLine("- Title: " + q.TitleText);
             sb.AppendLine("- Description: " + q.DescriptionText);
             string locId = q.Location != null ? (!string.IsNullOrEmpty(q.Location.Id) ? q.Location.Id : q.Location.name) : string.Empty;
-            sb.AppendLine("- Id: " + (q.Id ?? ""));
-            sb.AppendLine("- IdDisplay: " + (q.IdDisplay ?? ""));
-            sb.AppendLine("- DevStatus: " + q.DevStatus);
-            sb.AppendLine("- Country: " + q.Country);
-            sb.AppendLine("- Location: " + locId);
-            sb.AppendLine("- Knowledge: " + q.KnowledgeValue);
-            sb.AppendLine("- Difficulty: " + q.Difficulty);
-            sb.AppendLine("- Duration (min): " + q.Duration);
-            if (q.Gameplay != null && q.Gameplay.Count > 0)
-            {
-                sb.AppendLine("- Gameplay:");
-                foreach (var g in q.Gameplay)
-                    sb.AppendLine("  - " + g);
-            }
-            sb.AppendLine("- Main Topic: " + q.MainTopic);
+            sb.AppendLine("- Location: " + q.Country + " - " + locId);
+
+            sb.AppendLine("## Content");
+            sb.AppendLine("- Category: " + q.MainTopic);
+            sb.AppendLine("- Knowledge points: " + q.KnowledgeValue);
 
             // Topics (unique from cards)
             if (q.Cards != null && q.Cards.Count > 0)
@@ -1459,38 +1456,69 @@ namespace Antura.Discover
                 sb.AppendLine("- Words Used: " + string.Join(", ", q.WordsUsed.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
             }
 
+            sb.AppendLine("## Gameplay");
+
+            sb.AppendLine("- Difficulty: " + q.Difficulty);
+            sb.AppendLine("- Duration (min): " + q.Duration);
+            if (q.Gameplay != null && q.Gameplay.Count > 0)
+            {
+                sb.AppendLine("- Kind:");
+                foreach (var g in q.Gameplay)
+                    sb.AppendLine("  - " + g);
+            }
+
             // Credits
+            sb.AppendLine("## Credits");
             void AppendCredits(string titleLbl, List<AuthorData> list)
             {
                 if (list != null && list.Count > 0)
                 {
-                    sb.AppendLine("- " + titleLbl + ": " + string.Join(", ", list.Where(a => a != null).Select(FormatAuthor)));
+                    sb.AppendLine("" + titleLbl + ": " + string.Join(", ", list.Where(a => a != null).Select(FormatAuthor)));
                 }
             }
-            AppendCredits("Credits Content", q.CreditsContent);
-            AppendCredits("Credits Design", q.CreditsDesign);
-            AppendCredits("Credits Development", q.CreditsDevelopment);
+            AppendCredits("- Content", q.CreditsContent);
+            AppendCredits("- Design", q.CreditsDesign);
+            AppendCredits("- Development", q.CreditsDevelopment);
+
+            // Optional Additional Resources section between Data and Script
+            if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
+            {
+                sb.AppendLine();
+                sb.AppendLine("## Additional Resources");
+                sb.AppendLine();
+                sb.AppendLine(q.AdditionalResources.text);
+            }
 
             sb.AppendLine();
             sb.AppendLine("---");
             sb.AppendLine();
 
-            // Script section
-            sb.AppendLine("## Script");
-            sb.AppendLine();
-            // Append YarnScript contents
-            if (q.YarnScript != null)
+            // Script section (published only if IsScriptPublic)
+            if (q.IsScriptPublic)
             {
-                sb.AppendLine("```yarn");
-                sb.AppendLine(q.YarnScript.text);
-                sb.AppendLine("```");
-            }
-            else
-            {
-                sb.AppendLine("(No YarnScript attached)");
+                sb.AppendLine("## Script");
+                sb.AppendLine();
+                if (q.YarnScript != null)
+                {
+                    sb.AppendLine("```yarn");
+                    sb.AppendLine(q.YarnScript.text);
+                    sb.AppendLine("```");
+                }
+                else
+                {
+                    sb.AppendLine("(No YarnScript attached)");
+                }
             }
 
             return sb;
+        }
+
+        private static string GetQuestPublishFileName(QuestData q)
+        {
+            string code = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
+            foreach (var ch in System.IO.Path.GetInvalidFileNameChars())
+                code = code.Replace(ch, '-');
+            return code + ".md";
         }
 
         private void ExportSingleQuest(QuestData q)
@@ -1541,7 +1569,7 @@ namespace Antura.Discover
             EditorUtility.RevealInFinder(folder);
         }
 
-        private string FormatAuthor(AuthorData a)
+        private static string FormatAuthor(AuthorData a)
         {
             if (a == null)
                 return string.Empty;
@@ -1574,12 +1602,108 @@ namespace Antura.Discover
             }
             catch { }
 
-            var parts = new List<string>();
-            if (!string.IsNullOrEmpty(country))
-                parts.Add(country);
+            // Build display: link around the name if URL exists, and keep country in parentheses
+            string displayName = name;
             if (!string.IsNullOrEmpty(url))
-                parts.Add(url);
-            return parts.Count > 0 ? ($"{name} (" + string.Join(", ", parts) + ")") : name;
+            {
+                displayName = $"[{name}]({url})";
+            }
+            if (!string.IsNullOrEmpty(country))
+            {
+                return $"{displayName} ({country})";
+            }
+            return displayName;
+        }
+
+        [MenuItem("Antura/Discover/Publish Quests Website", priority = 300)]
+        public static void PublishQuestsToDocs()
+        {
+            try
+            {
+                string projectRoot = System.IO.Directory.GetParent(Application.dataPath).FullName;
+                string folder = System.IO.Path.Combine(projectRoot, "docs", "manual", "quests");
+                System.IO.Directory.CreateDirectory(folder);
+
+                var guids = AssetDatabase.FindAssets("t:QuestData");
+                int ok = 0, fail = 0;
+                var grouped = new Dictionary<Countries, List<KeyValuePair<string, string>>>();
+                foreach (var guid in guids)
+                {
+                    var assetPath = AssetDatabase.GUIDToAssetPath(guid);
+                    var q = AssetDatabase.LoadAssetAtPath<QuestData>(assetPath);
+                    if (q == null)
+                    { fail++; continue; }
+                    if (!q.IsPublic)
+                    { continue; }
+                    try
+                    {
+                        string fileName = GetQuestPublishFileName(q);
+                        string outPath = System.IO.Path.Combine(folder, fileName);
+                        var sb = BuildQuestMarkdown(q);
+                        System.IO.File.WriteAllText(outPath, sb.ToString());
+                        // add to grouped for index
+                        var title = q.TitleText;
+                        if (string.IsNullOrEmpty(title))
+                            title = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
+                        title = title?.Replace("\r", " ").Replace("\n", " ");
+                        if (!grouped.TryGetValue(q.Country, out var list))
+                        { list = new List<KeyValuePair<string, string>>(); grouped[q.Country] = list; }
+                        list.Add(new KeyValuePair<string, string>(title, fileName));
+                        ok++;
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.LogError($"[GameDataBrowser] Failed publishing '{q?.Id}': {ex.Message}");
+                        fail++;
+                    }
+                }
+                // write index.md grouped by country
+                try
+                {
+                    var indexSb = new System.Text.StringBuilder();
+                    indexSb.AppendLine("---");
+                    indexSb.AppendLine("title: Antura Discover Quests");
+                    indexSb.AppendLine("---");
+                    indexSb.AppendLine();
+
+                    Countries[] order = new[] {
+                        Countries.France, Countries.Poland, Countries.Germany, Countries.Greece,
+                        Countries.Italy, Countries.Portugal, Countries.Spain, Countries.UnitedKingdom,
+                        Countries.Global
+                    };
+                    Func<Countries, string> countryLabel = c =>
+                    {
+                        var s = c.ToString();
+                        if (s == nameof(Countries.UnitedKingdom))
+                            return "United Kingdom";
+                        return s;
+                    };
+                    foreach (var c in order)
+                    {
+                        if (!grouped.TryGetValue(c, out var list) || list == null || list.Count == 0)
+                            continue;
+                        indexSb.AppendLine($"## {countryLabel(c)}");
+                        indexSb.AppendLine();
+                        foreach (var kv in list.OrderBy(k => k.Key, StringComparer.OrdinalIgnoreCase))
+                        {
+                            indexSb.AppendLine($"- [{kv.Key}](./{kv.Value})");
+                        }
+                        indexSb.AppendLine();
+                    }
+                    string indexPath = System.IO.Path.Combine(folder, "index.md");
+                    System.IO.File.WriteAllText(indexPath, indexSb.ToString());
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[GameDataBrowser] Failed to write quests index.md: {ex.Message}");
+                }
+                Debug.Log($"[GameDataBrowser] Published {ok} quest files to {folder}. Failures: {fail}");
+                EditorUtility.RevealInFinder(folder);
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError($"[GameDataBrowser] Publish failed: {ex.Message}");
+            }
         }
     }
 }
