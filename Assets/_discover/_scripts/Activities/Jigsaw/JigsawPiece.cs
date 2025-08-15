@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
@@ -61,6 +62,10 @@ namespace Antura.Discover.Activities
             slot.currentPiece = this;
             RectTransform.SetParent(slot.transform, false);
             RectTransform.anchoredPosition = Vector2.zero;
+            // Pulse on placement
+            var ab = manager as ActivityBase;
+            if (ab != null)
+                ab.SendMessage("Pulse", transform, SendMessageOptions.DontRequireReceiver);
         }
 
         public void ReturnToPool()

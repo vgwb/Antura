@@ -1,6 +1,9 @@
 using UnityEngine;
 using UnityEngine.UI;
+using Antura; // for Sfx enum
+using Antura.Audio; // for AudioManager
 using TMPro;
+using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
@@ -8,6 +11,8 @@ namespace Antura.Discover.Activities
     {
         [Header("Activity Canvas Settings")]
         public CanvasSettingsData Settings;
+        [Tooltip("Optional bug prefab. If assigned, this prefab will be instantiated for each bug.")]
+        public CanvasBug BugPrefab;
 
         [Header("Override Settings")]
         public Texture2D BackgroundImage;
@@ -41,6 +46,10 @@ namespace Antura.Discover.Activities
 
         private RectTransform coverRect;
         private Camera uiCamera;   // if using Screen Space - Camera; left null for Overlay
+        private readonly System.Collections.Generic.List<RectTransform> bugsList = new System.Collections.Generic.List<RectTransform>();
+        public RectTransform bugsLayer; // optional separate layer for bugs over the cover
+        public float bugBaseSpeed = 120f; // px/sec at Normal
+        public Vector2 bugScaleRange = new Vector2(0.8f, 1.2f);
 
         void Start()
         {
@@ -71,6 +80,8 @@ namespace Antura.Discover.Activities
 
             CreateCoverTexture();
             UpdateProgressUI();
+
+            SpawnBugs();
         }
 
         private void CreateCoverTexture()
@@ -193,6 +204,96 @@ namespace Antura.Discover.Activities
             Debug.Log("DONE");
 
         }
+
+        #region Bugs
+
+        private void SpawnBugs()
+        {
+            if (Settings == null || Settings.BugSprite == null)
+                return;
+            int count = Mathf.Max(0, Bugs);
+            if (count <= 0)
+                return;
+
+            var parent = bugsLayer != null ? bugsLayer : (CoverImageUI != null ? CoverImageUI.rectTransform : null);
+            if (parent == null)
+                return;
+
+            var sprite = Settings.BugSprite;
+            for (int i = 0; i < count; i++)
+            {
+                CanvasBug bug;
+                RectTransform rt;
+                if (BugPrefab != null)
+                {
+                    bug = Instantiate(BugPrefab, parent);
+                    rt = bug.GetComponent<RectTransform>();
+                    rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+                    rt.pivot = new Vector2(0.5f, 0.5f);
+
+                    var img = bug.GetComponent<Image>();
+                    if (img && img.sprite == null && sprite)
+                        img.sprite = sprite;
+                    if (img)
+                        img.raycastTarget = true;
+                }
+                else
+                {
+                    var go = new GameObject($"Bug_{i}", typeof(RectTransform), typeof(Image), typeof(BoxCollider2D), typeof(CanvasBug));
+                    rt = go.GetComponent<RectTransform>();
+                    rt.SetParent(parent, false);
+                    rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+                    rt.pivot = new Vector2(0.5f, 0.5f);
+
+                    var img = go.GetComponent<Image>();
+                    img.sprite = sprite;
+                    img.raycastTarget = true;
+
+                    bug = go.GetComponent<CanvasBug>();
+                }
+
+                // Provide a slight speed multiplier based on uncovered percentage for rising tension
+                System.Func<float> multiplier = () =>
+                {
+                    if (totalMaskPixels <= 0)
+                        return 1f;
+                    float pct = Mathf.Clamp01((float)clearedPixels / totalMaskPixels);
+                    return 1f + pct * 0.6f; // up to +60% speed when almost cleared
+                };
+                bug.SpeedMultiplierProvider = multiplier;
+                bug.Init(parent, BugSpeed(), null, null, bugScaleRange, OnBugTouched);
+                bugsList.Add(rt);
+            }
+        }
+
+        private float BugSpeed()
+        {
+            // Map difficulty to a speed multiplier without a switch to satisfy strict analyzers
+            float mul = 1f;
+            if (ActivityDifficulty == Difficulty.Tutorial)
+                mul = 0.6f;
+            else if (ActivityDifficulty == Difficulty.Easy)
+                mul = 0.8f;
+            else if (ActivityDifficulty == Difficulty.Expert)
+                mul = 1.4f;
+            else /* Default, Normal or any unknown */
+                mul = 1f;
+            return bugBaseSpeed * mul;
+        }
+
+        // Movement handled by CanvasBug component
+
+        private void OnBugTouched()
+        {
+            // Treat as immediate fail
+            if (!completed)
+            {
+                AudioManager.I?.PlaySound(Sfx.Lose);
+                EndRound(false, 0f, false);
+            }
+        }
+
+        #endregion
     }
 }
 

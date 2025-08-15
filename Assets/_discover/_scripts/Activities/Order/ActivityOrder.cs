@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
@@ -21,10 +22,14 @@ namespace Antura.Discover.Activities
         public Transform slotsParent;
         public GameObject slotPrefab;         // has DropSlot (+ optional Image ref for highlight)
         public GameObject tilePrefab;         // has DraggableTile (+ CanvasGroup)
+        [Header("Tutorial Ghosts")]
+        public bool showGhostsInTutorial = true;
 
         [Header("Sfx")]
         public AudioSource audioSource;
         public AudioClip dropSound;
+        public AudioClip successSound;
+        public AudioClip failSound;
 
         private int minItemsToValidate;
 
@@ -97,6 +102,19 @@ namespace Antura.Discover.Activities
                 drop.activityManager = this;
                 drop.slotIndex = i;
                 slotViews.Add(drop);
+
+                // Optional: ghost image in Tutorial difficulty
+                if (showGhostsInTutorial && (ActivityDifficulty == Difficulty.Tutorial))
+                {
+                    var img = slotGO.GetComponentInChildren<Image>();
+                    if (img != null && i < correctOrder.Length && correctOrder[i].Image)
+                    {
+                        img.sprite = correctOrder[i].Image;
+                        var c = img.color;
+                        c.a = 0.25f;
+                        img.color = c;
+                    }
+                }
             }
         }
 
@@ -134,6 +152,9 @@ namespace Antura.Discover.Activities
             // Place into new slot
             slots[slotIndex] = tile;
             tile.MoveToSlot(GetSlotTransform(slotIndex), slotIndex);
+
+            // Pulse feedback
+            Pulse(tile.transform, 1.06f, 0.08f);
 
             if (audioSource && dropSound)
                 audioSource.PlayOneShot(dropSound);
@@ -253,12 +274,16 @@ namespace Antura.Discover.Activities
             if (wrongIndices.Count == 0)
             {
                 Debug.Log("✅ Correct order!");
-                // TODO: success animation / next level
+                // feedback
+                if (audioSource && successSound)
+                    audioSource.PlayOneShot(successSound);
                 return true;
             }
             else
             {
                 StartCoroutine(ShakeWrongTiles(wrongIndices));
+                if (audioSource && failSound)
+                    audioSource.PlayOneShot(failSound);
                 Debug.Log($"❌ Wrong order in {wrongIndices.Count} slot(s).");
                 return false;
             }
@@ -275,32 +300,13 @@ namespace Antura.Discover.Activities
         private IEnumerator ShakeWrongTiles(List<int> indices)
         {
             float duration = 0.25f;
-            float strength = 10f;
-
-            var originals = new Dictionary<RectTransform, Vector2>();
             foreach (var idx in indices)
             {
                 var rt = slots[idx].Rect;
-                originals[rt] = rt.anchoredPosition;
+                rt.DOKill();
+                rt.DOPunchAnchorPos(new Vector2(18f, 0f), duration, vibrato: 12, elasticity: 0.6f).SetUpdate(true);
             }
-
-            float t = 0f;
-            while (t < duration)
-            {
-                t += Time.unscaledDeltaTime;
-                float phase = (t / duration) * Mathf.PI * 4f;
-                float offset = Mathf.Sin(phase) * strength;
-
-                foreach (var kv in originals)
-                {
-                    var rt = kv.Key;
-                    rt.anchoredPosition = kv.Value + new Vector2(offset, 0f);
-                }
-                yield return null;
-            }
-
-            foreach (var kv in originals)
-                kv.Key.anchoredPosition = kv.Value;
+            yield return new WaitForSecondsRealtime(duration);
         }
 
         // ---- Tutorial hint ----

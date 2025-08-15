@@ -205,26 +205,56 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivityCode: 
-  timerSeconds: 60
-  PointsSuccess: 0
-  PointsFail: -1
   HelpPanel: {fileID: 0}
-  NodeDescription: 
-  NodeSuccess: 
-  NodeFail: 
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
+    m_TableEntryReference:
+      m_KeyId: 1803801295052800
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
+    m_TableEntryReference:
+      m_KeyId: 1803139203194880
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailMessage:
+    m_TableReference:
+      m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
+    m_TableEntryReference:
+      m_KeyId: 1803424776577024
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  roundsTarget: 1
+  masterTimeThreshold: 0
+  Settings: {fileID: 0}
+  BugPrefab: {fileID: 7292134696670690957, guid: fab2ba837e6ab46ec9d0b3626dffdf52,
+    type: 3}
   BackgroundImage: {fileID: 0}
+  BrushSize: 0
+  ActivityDifficulty: 0
+  Bugs: 0
   BackgroundImageUI: {fileID: 262311829993238256}
   CoverImageUI: {fileID: 4646340746907366346}
   ProgressLabel: {fileID: 2509060565568701824}
   coverColor: {r: 0, g: 0, b: 0, a: 1}
   coverTextureWidth: 1024
   coverTextureHeight: 512
-  brushSmall: 20
-  brushMedium: 34
-  brushLarge: 50
-  overrideBrushRadius: 0
   endOnFullClear: 1
-  completionThreshold: 100
+  bugsLayer: {fileID: 0}
+  bugBaseSpeed: 120
+  bugScaleRange: {x: 0.8, y: 1.2}
+  references:
+    version: 2
+    RefIds: []
 --- !u!114 &8101630004106580834
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
+using Antura.Discover.Activities;
 
 namespace Antura.Discover
 {
@@ -101,6 +102,9 @@ namespace Antura.Discover
     public class ActivityData : IdentifiedData
     {
         public LocalizedString Name;
+
+        [Header("Identification")]
+        public ActivityCode Code = ActivityCode.Unknown;
 
         [Header("Media")]
         public Sprite Image;

@@ -34,6 +34,10 @@ namespace Antura.Discover.Activities
             {
                 drag.IsOnMat = true;
                 game.OnItemPlaced(view.Model, drag);
+                // Pulse feedback
+                var mb = game as ActivityBase;
+                if (mb != null)
+                    mb.SendMessage("Pulse", drag.transform, SendMessageOptions.DontRequireReceiver);
             }
         }
     }

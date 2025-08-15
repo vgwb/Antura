@@ -82,6 +82,17 @@ namespace Antura.Discover.Activities
         }
 
         /// <summary>
+        /// Fully resets the underlying activity and opens it fresh (use this when relaunching an activity).
+        /// </summary>
+        public void OpenFresh()
+        {
+            Init();
+            activityBase?.ResetActivity();
+            Show(activityBase.HasTimer, activityBase.TimerSeconds);
+            activityBase.Open();
+        }
+
+        /// <summary>
         /// Shows the activity panel and uses the timer options set via Inspector
         /// </summary>
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]

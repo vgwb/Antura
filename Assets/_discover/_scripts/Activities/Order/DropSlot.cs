@@ -7,7 +7,7 @@ namespace Antura.Discover.Activities
     public class DropSlot : MonoBehaviour, IDropHandler
     {
         public int slotIndex;
-        public ActivityOrder activityManager;
+        public ActivityOrder activityManager; // used by ActivityOrder
 
         [Header("Optional UI")]
         public Image highlightImage;
@@ -18,7 +18,8 @@ namespace Antura.Discover.Activities
             if (tile == null)
                 return;
 
-            activityManager.PlaceTile(tile, slotIndex);
+            if (activityManager != null)
+                activityManager.PlaceTile(tile, slotIndex);
         }
 
         public void SetHighlight(Color c, float alpha = 0.35f)

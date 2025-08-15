@@ -33,6 +33,9 @@ namespace Antura.Discover.Activities
             {
                 drag.IsOnMat = false;
                 game.OnItemRemoved(view.Model, drag);
+                var mb = game as ActivityBase;
+                if (mb != null)
+                    mb.SendMessage("Pulse", drag.transform, SendMessageOptions.DontRequireReceiver);
             }
         }
     }

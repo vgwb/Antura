@@ -1,10 +1,13 @@
+using Antura.UI;
+using Antura.Database;
+using Antura.Language;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System;
-using Antura.UI;
-using Antura.Database;
-using Antura.Language;
+using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
@@ -45,6 +48,7 @@ namespace Antura.Discover.Activities
         private float roundStartTime;
         private bool validateEnabled;
         private bool descriptionShown;
+        private int startingRoundsTarget; // keep original target to decide replay prompt
 
         public enum ActivityPlayState { Idle, Playing, Paused, Finished, Exiting }
         private ActivityPlayState state = ActivityPlayState.Idle;
@@ -59,6 +63,7 @@ namespace Antura.Discover.Activities
             activityPanel = GetComponentInParent<ActivityPanel>();
             Init();
             SetupRoundsFromSettings();
+            startingRoundsTarget = roundsTarget;
             if (!descriptionShown && Description != null)
             {
                 ShowMessage(Description);
@@ -66,6 +71,30 @@ namespace Antura.Discover.Activities
             }
             BeginRound();
         }
+
+        /// <summary>
+        /// Reset the activity to a pristine state so it can be relaunched cleanly.
+        /// Derived classes should override <see cref="OnResetActivity"/> to clear custom state.
+        /// </summary>
+        public void ResetActivity()
+        {
+            StopAllCoroutines();
+            state = ActivityPlayState.Idle;
+            currentRound = 0;
+            roundStartTime = 0f;
+            validateEnabled = false;
+            descriptionShown = false;
+            // Reset DOTween on children to avoid stuck tweens
+            try
+            { DOTween.Kill(this, complete: false); }
+            catch { }
+            OnResetActivity();
+        }
+
+        /// <summary>
+        /// Hook for derived classes to reset their own state.
+        /// </summary>
+        protected virtual void OnResetActivity() { }
 
         public virtual void Init()
         {
@@ -81,7 +110,9 @@ namespace Antura.Discover.Activities
         /// </summary>
         public void ToggleHelp()
         {
-
+            if (HelpPanel == null)
+                return;
+            HelpPanel.SetActive(!HelpPanel.activeSelf);
         }
 
         /// <summary>
@@ -215,22 +246,87 @@ namespace Antura.Discover.Activities
             { QuestManager.I.AddProgressPoints(points); }
             catch { }
 
+            // Show result banner briefly if present
+            TryShowResultBanner(success);
+
             // Decide next
             if (currentRound < Mathf.Max(1, roundsTarget))
             {
-                // Prepare next round
-                BeginRound();
-                OnRoundAdvanced(success, points, elapsed, dueToTimeout);
+                StartCoroutine(ProceedNextRoundCO(success, points, elapsed, dueToTimeout));
             }
             else
             {
-                // Finished activity
-                OnActivityFinished(success, points, elapsed, dueToTimeout);
-                ShowEndMessage(success);
-                activityPanel?.PauseTimer();
-                activityPanel?.Hide();
-                state = ActivityPlayState.Finished;
+                StartCoroutine(CloseWithBannerCO(success, points, elapsed, dueToTimeout));
             }
+        }
+
+        private IEnumerator ProceedNextRoundCO(bool success, int points, float elapsed, bool dueToTimeout)
+        {
+            yield return new WaitForSecondsRealtime(0.65f);
+            BeginRound();
+            OnRoundAdvanced(success, points, elapsed, dueToTimeout);
+        }
+
+        private IEnumerator CloseWithBannerCO(bool success, int points, float elapsed, bool dueToTimeout)
+        {
+            yield return new WaitForSecondsRealtime(0.85f);
+            OnActivityFinished(success, points, elapsed, dueToTimeout);
+            ShowEndMessage(success);
+            activityPanel?.PauseTimer();
+
+            // If finished before reaching MaxRounds, offer a replay prompt
+            var s = GetSettings();
+            bool canReplay = (s != null && startingRoundsTarget < s.MaxRounds);
+            if (canReplay)
+            {
+                bool userChoseReplay = false;
+                bool decided = false;
+                RequestReplayConfirmation(
+                    onYes: () => { userChoseReplay = true; decided = true; },
+                    onNo: () => { userChoseReplay = false; decided = true; }
+                );
+                while (!decided)
+                    yield return null;
+
+                if (userChoseReplay)
+                {
+                    roundsTarget = Mathf.Clamp(startingRoundsTarget + 1, s.MinRounds, s.MaxRounds);
+                    ResetActivity();
+                    activityPanel?.Show(HasTimer, TimerSeconds);
+                    Open();
+                    yield break;
+                }
+            }
+
+            activityPanel?.Hide();
+            state = ActivityPlayState.Finished;
+        }
+
+        private void TryShowResultBanner(bool success)
+        {
+            try
+            {
+                var overlay = activityPanel != null ? activityPanel.GetComponentInChildren<ActivityOverlay>(true) : null;
+                if (overlay != null)
+                {
+                    var color = success ? new Color(0.1f, 0.7f, 0.2f) : new Color(0.85f, 0.25f, 0.25f);
+                    var text = success ? "Success" : "Try again";
+                    StartCoroutine(overlay.ShowResultBanner(text, color, 0.6f));
+                }
+            }
+            catch { }
+        }
+
+        // Simple pulse helper usable by derived classes
+        protected void Pulse(Transform target, float scale = 1.08f, float duration = 0.12f)
+        {
+            if (target == null)
+                return;
+            var s = target.localScale;
+            target.DOKill();
+            DOTween.Sequence()
+                .Append(target.DOScale(s * scale, duration).SetUpdate(true))
+                .Append(target.DOScale(s, duration).SetUpdate(true));
         }
 
         /// <summary>
@@ -315,7 +411,6 @@ namespace Antura.Discover.Activities
             }
             catch { }
         }
-
         private void ShowEndMessage(bool success)
         {
             if (success)
@@ -325,5 +420,13 @@ namespace Antura.Discover.Activities
         }
 
         #endregion
+        /// <summary>
+        /// Ask the user if they want to replay with more rounds when there are still rounds available (< MaxRounds).
+        /// Default uses the same GlobalUI prompt system.
+        /// </summary>
+        protected virtual void RequestReplayConfirmation(Action onYes, Action onNo)
+        {
+            GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, onYes, onNo, LanguageUse.Native);
+        }
     }
 }
