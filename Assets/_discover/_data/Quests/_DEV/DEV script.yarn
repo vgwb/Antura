@@ -133,6 +133,10 @@ position: 121,-125
 ---
 // these are the commands available in the game
 
+// adds the item = cardata to the inventory (needs to be collectable!)
+<<inventory id_cardata>> // same as add
+<<inventory id_cardata add>>
+<<inventory id_cardata remove>>
 // launches an activity
 <<activity id_activity_configuration>>
 // starts a task
@@ -151,6 +155,8 @@ position: 121,-125
 <<action action_id>>
 // called to end the current quest
 <<endquest>>
+// called to end the current quest with n (1,2,3) stars!
+<<endquest n>>
 // if the quest is not completed
 <<endquest fail>>
 
