@@ -19,7 +19,7 @@ namespace Antura.Discover.Activities
         public AudioSource audioSource;     // optional
         public AudioClip dropSound;         // optional
 
-        private Dictionary<int, string> expectedBySlot = new(); // slotIndex -> Right.Name
+        private Dictionary<int, string> expectedBySlot = new(); // slotIndex -> Right.Id
         private DraggableTile[] placed; // placed right tiles by left slot
         private readonly List<DropSlot> leftDropSlots = new();
 
@@ -42,8 +42,24 @@ namespace Antura.Discover.Activities
             SetValidateEnabled(false);
             leftDropSlots.Clear();
 
-            var pairs = Settings.Pairs;
-            if (pairs == null || pairs.Count == 0)
+            // Build simple pairs for the round by expanding GroupsData (supports 1:1 and 1:many)
+            var pairs = new List<(Antura.Discover.CardData Left, Antura.Discover.CardData Right)>();
+            if (Settings != null && Settings.GroupsData != null && Settings.GroupsData.Count > 0)
+            {
+                foreach (var g in Settings.GroupsData)
+                {
+                    if (g == null || g.Question == null || g.Answers == null)
+                        continue;
+                    var left = g.Question;
+                    foreach (var answer in g.Answers)
+                    {
+                        if (answer == null)
+                            continue;
+                        pairs.Add((left, answer));
+                    }
+                }
+            }
+            if (pairs.Count == 0)
                 return;
 
             placed = new DraggableTile[pairs.Count];
@@ -54,18 +70,22 @@ namespace Antura.Discover.Activities
             {
                 var pair = pairs[i];
                 var slotGO = Instantiate(leftSlotPrefab, leftSlotsParent);
-                var leftName = pair.Left.Name;
-                slotGO.name = $"LeftSlot_{i}_{leftName}";
+                var leftTitle = pair.Left.Title != null ? pair.Left.Title.GetLocalizedString() : pair.Left.name;
+                slotGO.name = $"LeftSlot_{i}_{leftTitle}";
 
                 // Optional: show prompt visuals from Left
                 var img = slotGO.GetComponentInChildren<Image>();
-                if (img && pair.Left.Image)
-                    img.sprite = pair.Left.Image;
+                if (img)
+                {
+                    var sprite = ResolveSprite(pair.Left);
+                    if (sprite != null)
+                        img.sprite = sprite;
+                }
 
                 // Optional: show prompt label
                 var label = slotGO.GetComponentInChildren<TextMeshProUGUI>();
                 if (label)
-                    label.text = leftName;
+                    label.text = leftTitle;
 
                 // Add a DropSlot overlay to accept answers
                 var dropGO = Instantiate(dropSlotPrefab, slotGO.transform);
@@ -78,11 +98,11 @@ namespace Antura.Discover.Activities
 
                 leftDropSlots.Add(drop);
 
-                expectedBySlot[i] = pair.Right.Name;
+                expectedBySlot[i] = pair.Right.Id;
             }
 
             // Spawn right tiles shuffled
-            var rightList = new List<CardItem>();
+            var rightList = new List<Antura.Discover.CardData>();
             foreach (var p in pairs)
                 rightList.Add(p.Right);
             Shuffle(rightList);
@@ -90,7 +110,7 @@ namespace Antura.Discover.Activities
             foreach (var it in rightList)
             {
                 var go = Instantiate(rightTilePrefab, rightTilesPool);
-                go.name = it.Name;
+                go.name = it.name;
                 var tile = go.GetComponent<DraggableTile>();
                 tile.InitGeneric(
                     it,
@@ -179,7 +199,7 @@ namespace Antura.Discover.Activities
                 if (drop == null)
                     continue;
                 var t = i < placed.Length ? placed[i] : null;
-                if (t != null && expectedBySlot.TryGetValue(i, out var expected) && t.ItemData.Name == expected)
+                if (t != null && expectedBySlot.TryGetValue(i, out var expected) && t.ItemData != null && t.ItemData.Id == expected)
                     drop.SetHighlight(Color.green, 0.35f);
                 else
                     drop.ClearHighlight();
@@ -194,7 +214,7 @@ namespace Antura.Discover.Activities
                 var t = placed[i];
                 if (t == null)
                     continue;
-                if (t.ItemData.Name == expectedBySlot[i])
+                if (t.ItemData != null && t.ItemData.Id == expectedBySlot[i])
                     correct++;
             }
 
@@ -217,7 +237,7 @@ namespace Antura.Discover.Activities
         }
 
         // Helpers
-        private void Shuffle(List<CardItem> list)
+        private void Shuffle<T>(List<T> list)
         {
             for (int i = list.Count - 1; i > 0; i--)
             {
@@ -232,6 +252,17 @@ namespace Antura.Discover.Activities
                 return;
             for (int i = parent.childCount - 1; i >= 0; i--)
                 Destroy(parent.GetChild(i).gameObject);
+        }
+
+        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null)
+                return data.Image;
+            if (data.ImageAsset != null)
+                return data.ImageAsset.Image;
+            return null;
         }
     }
 

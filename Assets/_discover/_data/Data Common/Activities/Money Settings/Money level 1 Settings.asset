@@ -10,14 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7789ac026656849e1b81b19306e853a6, type: 3}
-  m_Name: Money level 2
+  m_Name: Money level 1 Settings
   m_EditorClassIdentifier: 
-  Id: money_level_2
-  Difficulty: 3
+  Id: money_level_1_settings
+  Difficulty: 4
+  MinRounds: 1
+  MaxRounds: 3
+  HasTimer: 1
+  TimerSeconds: 60
+  PointsFail: -1
+  PointsEasy: 1
+  PointsNormal: 2
+  PointsExpert: 3
   MoneySet: {fileID: 11400000, guid: fc313f7b930d245ef8a2e6821f6e4395, type: 2}
   TimeLimit: 0
-  MaxDifficulty: 5
-  RangeMin: 1
-  RangeMax: 20
-  UseFixedTarget: 0
-  FixedTargetAmount: 0
+  MaxDifficulty: 3
+  RangeMin: 50
+  RangeMax: 150
+  UseFixedTarget: 1
+  FixedTargetAmount: 23.5

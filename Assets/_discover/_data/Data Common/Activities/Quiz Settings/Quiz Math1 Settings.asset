@@ -10,28 +10,24 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3fa4dd948fc94478e8cd6245a882f9b3, type: 3}
-  m_Name: Easy Quiz
+  m_Name: Quiz Math1 Settings
   m_EditorClassIdentifier: 
-  Id: easy_quiz
+  Id: quiz_math1_settings
   Difficulty: 3
+  MinRounds: 1
+  MaxRounds: 3
+  HasTimer: 1
+  TimerSeconds: 60
+  PointsFail: -1
+  PointsEasy: 1
+  PointsNormal: 2
+  PointsExpert: 3
   Question: Quanto fa 1+2?
   Answers:
-  - Item:
-      Name: 1
-      Image: {fileID: 0}
-      Description: 
-      AudioClip: {fileID: 0}
+  - Item: {fileID: 0}
     IsCorrect: 0
-  - Item:
-      Name: 2
-      Image: {fileID: 0}
-      Description: 
-      AudioClip: {fileID: 0}
+  - Item: {fileID: 0}
     IsCorrect: 0
-  - Item:
-      Name: 3
-      Image: {fileID: 0}
-      Description: 
-      AudioClip: {fileID: 0}
+  - Item: {fileID: 0}
     IsCorrect: 1
   Shuffle: 1

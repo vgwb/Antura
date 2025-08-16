@@ -6,7 +6,7 @@ using UnityEngine;
 namespace Antura.Discover.Activities
 {
     /// <summary>
-    /// Main container/canvas and controller for the activities, which has ActivityOverlay and the specific Activity as children.
+    /// Main  controller for the activities, which has ActivityOverlay and the specific Activity as children.
     /// Retrieves the required elements dynamically at runtime in order to prevent dependencies.
     /// Calls methods on ActivityBase when the eventual timer elapses or the validate button is pressed
     /// </summary>

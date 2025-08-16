@@ -87,8 +87,9 @@ namespace Antura.Discover.Activities
                     var label = toggle.GetComponentInChildren<TextMeshProUGUI>();
                     if (label != null)
                     {
-                        var item = Settings.Answers[i].Item; // CardItem is a struct
-                        label.text = string.IsNullOrEmpty(item.Name) ? "" : item.Name;
+                        var item = Settings.Answers[i].Item;
+                        var title = item != null && item.Title != null ? item.Title.GetLocalizedString() : (item != null ? item.name : "");
+                        label.text = title ?? "";
                     }
                     toggle.gameObject.SetActive(true);
                     toggle.isOn = false;

@@ -9,7 +9,7 @@ namespace Antura.Discover.Activities
     {
         public Image TileImage;
         public TextMeshProUGUI Label;
-        public CardItem ItemData { get; private set; }
+        public Antura.Discover.CardData ItemData { get; private set; }
         public int OriginalParentSlotIndex { get; set; } = -1;
         public RectTransform Rect => rectTransform;
 
@@ -17,7 +17,7 @@ namespace Antura.Discover.Activities
         private System.Action<int> onLiftedFromSlot;
         private System.Action onReturnedToPool;
         private System.Action<AudioClip> onPlayItemSound;
-        private System.Action<CardItem, DraggableTile> onFlashCorrectSlot;
+        private System.Action<Antura.Discover.CardData, DraggableTile> onFlashCorrectSlot;
         private System.Func<Transform> getPoolParent;
         private CanvasGroup canvasGroup;
         private RectTransform rectTransform;
@@ -31,17 +31,16 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, CardItem data, Transform activityRoot)
+        public void Init(ActivityOrder mgr, Antura.Discover.CardData data, Transform activityRoot)
         {
             manager = mgr;
             ItemData = data;
             if (Label != null)
-                Label.text = data.Name;
+                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
 
-            if (data.Image != null)
-            {
-                TileImage.sprite = data.Image;
-            }
+            var sprite = ResolveSprite(data);
+            if (sprite != null)
+                TileImage.sprite = sprite;
 
             // Set initial position
             rectTransform.anchoredPosition = Vector2.zero;
@@ -56,20 +55,21 @@ namespace Antura.Discover.Activities
         }
 
         // Generic initializer for other activities (e.g., match)
-        public void InitGeneric(CardItem data, Transform activityRoot,
+        public void InitGeneric(Antura.Discover.CardData data, Transform activityRoot,
             System.Func<Transform> poolGetter,
             System.Action<int> onLift,
             System.Action onReturn,
             System.Action<AudioClip> onPlay,
-            System.Action<CardItem, DraggableTile> onHint = null,
+            System.Action<Antura.Discover.CardData, DraggableTile> onHint = null,
             object owner = null)
         {
             manager = owner;
             ItemData = data;
             if (Label != null)
-                Label.text = data.Name;
-            if (data.Image != null)
-                TileImage.sprite = data.Image;
+                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+            var sprite = ResolveSprite(data);
+            if (sprite != null)
+                TileImage.sprite = sprite;
             rectTransform.anchoredPosition = Vector2.zero;
             activityTranform = activityRoot;
 
@@ -140,9 +140,10 @@ namespace Antura.Discover.Activities
             if (Time.unscaledTime - lastSoundTime < soundCooldown)
                 return;
 
-            if (ItemData.AudioClip != null)
+            var clip = ResolveAudio(ItemData);
+            if (clip != null)
             {
-                onPlayItemSound?.Invoke(ItemData.AudioClip);
+                onPlayItemSound?.Invoke(clip);
                 lastSoundTime = Time.unscaledTime;
             }
 
@@ -180,6 +181,26 @@ namespace Antura.Discover.Activities
             rectTransform.anchoredPosition = Vector2.zero;
             rectTransform.localRotation = Quaternion.identity;
             rectTransform.localScale = Vector3.one;
+        }
+
+        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null)
+                return data.Image;
+            if (data.ImageAsset != null)
+                return data.ImageAsset.Image;
+            return null;
+        }
+
+        private static AudioClip ResolveAudio(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.AudioAsset != null)
+                return data.AudioAsset.Audio;
+            return null;
         }
     }
 }

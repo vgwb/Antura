@@ -1,3 +1,4 @@
+using Antura.Discover;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,14 +9,16 @@ namespace Antura.Discover.Activities
     public class MatchSettingsData : ActivitySettingsAbstract
     {
         [Serializable]
-        public class MatchPair
+        public class MatchGroupData
         {
-            [Tooltip("Left/prompt item shown on slot")] public CardItem Left;
-            [Tooltip("Right/answer item to match by dragging")] public CardItem Right;
+            [Tooltip("Question/master CardData")]
+            public CardData Question;
+            [Tooltip("All valid CardData answers that should match this question")]
+            public List<CardData> Answers = new List<CardData>();
         }
 
-        [Header("Match Settings")]
-        [Tooltip("Pairs to match. Left is shown as prompt per slot; Right are tiles to drag.")]
-        public List<MatchPair> Pairs = new List<MatchPair>();
+        [Header("Groups using CardData (supports 1:1 and 1:many)")]
+        [Tooltip("Define each Question with one or more Answers; a 1:1 pair is just a group with a single Answer.")]
+        public List<MatchGroupData> GroupsData = new List<MatchGroupData>();
     }
 }

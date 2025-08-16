@@ -4,6 +4,7 @@ using Antura; // for Sfx enum
 using Antura.Audio; // for AudioManager
 using TMPro;
 using DG.Tweening;
+using System.Collections.Generic;
 
 namespace Antura.Discover.Activities
 {
@@ -26,6 +27,8 @@ namespace Antura.Discover.Activities
         public RawImage BackgroundImageUI;
         public RawImage CoverImageUI;
         public TextMeshProUGUI ProgressLabel;
+        [Tooltip("Optional parent for treasure icons (defaults to BackgroundImageUI)")]
+        public RectTransform TreasuresLayer;
 
         [Header("Cover Settings")]
         public Color coverColor = new Color(0, 0, 0, 1f);
@@ -43,6 +46,7 @@ namespace Antura.Discover.Activities
         private int totalMaskPixels;
         private int clearedPixels;
         private bool completed;
+        private bool treasuresSpawned;
 
         private RectTransform coverRect;
         private Camera uiCamera;   // if using Screen Space - Camera; left null for Overlay
@@ -50,6 +54,8 @@ namespace Antura.Discover.Activities
         public RectTransform bugsLayer; // optional separate layer for bugs over the cover
         public float bugBaseSpeed = 120f; // px/sec at Normal
         public Vector2 bugScaleRange = new Vector2(0.8f, 1.2f);
+
+        private readonly List<(CardData card, RectTransform rt, bool collected)> treasures = new();
 
         void Start()
         {
@@ -79,6 +85,7 @@ namespace Antura.Discover.Activities
                 BackgroundImageUI.texture = BackgroundImage;
 
             CreateCoverTexture();
+            SpawnTreasures();
             UpdateProgressUI();
 
             SpawnBugs();
@@ -109,6 +116,7 @@ namespace Antura.Discover.Activities
             totalMaskPixels = coverTextureWidth * coverTextureHeight;
             clearedPixels = 0;
             completed = false;
+            treasuresSpawned = false; // will respawn on Setup
         }
 
         void Update()
@@ -183,6 +191,7 @@ namespace Antura.Discover.Activities
             {
                 coverTex.Apply(false);
                 UpdateProgressUI();
+                RevealTreasuresUnderArea(cx, cy, r);
             }
         }
 
@@ -202,6 +211,16 @@ namespace Antura.Discover.Activities
         private void OnCanvasCleared()
         {
             Debug.Log("DONE");
+            // Auto-reveal any remaining uncollected treasures visually
+            foreach (var t in treasures)
+            {
+                if (!t.collected && t.rt != null)
+                {
+                    var img = t.rt.GetComponent<UnityEngine.UI.Image>();
+                    if (img)
+                        img.DOFade(1f, 0.3f).SetUpdate(true);
+                }
+            }
 
         }
 
@@ -291,6 +310,123 @@ namespace Antura.Discover.Activities
                 AudioManager.I?.PlaySound(Sfx.Lose);
                 EndRound(false, 0f, false);
             }
+        }
+
+        #endregion
+
+        #region Treasures
+
+        private void SpawnTreasures()
+        {
+            treasures.Clear();
+            var list = Settings != null ? Settings.HiddenTreasures : null;
+            if (list == null || list.Count == 0)
+                return;
+
+            var parent = TreasuresLayer != null ? TreasuresLayer : (BackgroundImageUI != null ? BackgroundImageUI.rectTransform : null);
+            if (parent == null)
+                return;
+
+            // Place treasures at random non-overlapping positions
+            var placed = new List<Rect>();
+            foreach (var card in list)
+            {
+                if (card == null || card.ItemIcon == null || card.ItemIcon.Icon == null)
+                    continue;
+
+                var go = new GameObject($"Treasure_{card.Id}", typeof(RectTransform), typeof(UnityEngine.UI.Image), typeof(UnityEngine.UI.Button));
+                var rt = go.GetComponent<RectTransform>();
+                rt.SetParent(parent, false);
+                rt.sizeDelta = new Vector2(80, 80);
+                rt.anchorMin = rt.anchorMax = new Vector2(0.5f, 0.5f);
+                rt.pivot = new Vector2(0.5f, 0.5f);
+
+                var img = go.GetComponent<UnityEngine.UI.Image>();
+                img.sprite = card.ItemIcon.Icon;
+                img.color = new Color(1, 1, 1, 0); // start hidden under cover
+                img.raycastTarget = true;
+
+                // Random position with simple rejection to avoid heavy overlap
+                Rect pr = parent.rect;
+                Vector2 pos;
+                int tries = 0;
+                Rect rect;
+                do
+                {
+                    pos = new Vector2(
+                        Random.Range(pr.xMin + 40, pr.xMax - 40),
+                        Random.Range(pr.yMin + 40, pr.yMax - 40));
+                    rect = new Rect(pos - rt.sizeDelta * 0.5f, rt.sizeDelta);
+                    tries++;
+                } while (tries < 20 && Overlaps(rect, placed));
+                placed.Add(rect);
+                rt.anchoredPosition = pos;
+
+                var btn = go.GetComponent<UnityEngine.UI.Button>();
+                btn.onClick.AddListener(() => OnTreasureClicked(card, rt));
+
+                treasures.Add((card, rt, false));
+            }
+
+            treasuresSpawned = true;
+        }
+
+        private bool Overlaps(Rect r, List<Rect> others)
+        {
+            for (int i = 0; i < others.Count; i++)
+                if (others[i].Overlaps(r))
+                    return true;
+            return false;
+        }
+
+        private void RevealTreasuresUnderArea(int cx, int cy, int radius)
+        {
+            if (!treasuresSpawned || treasures.Count == 0 || coverRect == null)
+                return;
+
+            // Convert cover pixel circle to coverRect local space box for rough test
+            float ux = cx / (float)(coverTextureWidth - 1);
+            float uy = cy / (float)(coverTextureHeight - 1);
+            Vector2 size = coverRect.rect.size;
+            Vector2 center = new Vector2(ux * size.x - size.x * 0.5f, uy * size.y - size.y * 0.5f);
+            float radPixels = radius;
+            float radLocal = radPixels / (coverTextureWidth - 1) * size.x; // approximate using width scale
+
+            for (int i = 0; i < treasures.Count; i++)
+            {
+                var t = treasures[i];
+                if (t.collected || t.rt == null)
+                    continue;
+                Vector2 pos = t.rt.anchoredPosition;
+                if ((pos - center).sqrMagnitude <= radLocal * radLocal)
+                {
+                    var img = t.rt.GetComponent<UnityEngine.UI.Image>();
+                    if (img && img.color.a < 1f)
+                        img.DOFade(1f, 0.2f).SetUpdate(true);
+                }
+            }
+        }
+
+        private void OnTreasureClicked(CardData card, RectTransform rt)
+        {
+            // Mark collected and play SFX
+            for (int i = 0; i < treasures.Count; i++)
+            {
+                if (treasures[i].card == card && treasures[i].rt == rt)
+                {
+                    treasures[i] = (card, rt, true);
+                    break;
+                }
+            }
+
+            // Feedback
+            AudioManager.I?.PlaySound(Sfx.Win);
+            rt.DOKill();
+            rt.DOPunchScale(Vector3.one * 0.2f, 0.25f, 6, 0.9f).SetUpdate(true);
+
+            // TODO: hook into AchievementsManager to mark unlocked if desired
+            // var ach = FindObjectOfType<AchievementsManager>();
+            // if (ach != null) ach.MarkFound(card);
         }
 
         #endregion
