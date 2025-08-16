@@ -11,6 +11,7 @@ using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Antura.Discover;
 
 namespace Antura.UI
 {
@@ -169,6 +170,12 @@ namespace Antura.UI
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
                 return;
             }
+
+            // DISCOVER INTEGRATION... we don't have any other method to check
+            // selection here in the reserved Area :(
+            Debug.Log("SwitchState profile.uuid " + (profile != null ? profile.Uuid : "null"));
+            Debug.Log("SwitchState DiscoverAppManager esists " + DiscoverAppManager.I != null);
+            //DiscoverAppManager.I.InitializeFromLegacyUuid(profile?.Uuid);
 
             state = toState;
             profilesPanel.Open(toState == State.Profiles);
