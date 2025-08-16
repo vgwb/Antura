@@ -41,7 +41,7 @@ namespace Antura.Discover
         public void SelectCountry(Countries selectedCountry)
         {
             Debug.Log($"Selecting country: {selectedCountry}");
-
+            CountryButton.SetSelectedCountry(selectedCountry);
 
             UIQuestMenuManager.I.ShowCountry(selectedCountry);
         }

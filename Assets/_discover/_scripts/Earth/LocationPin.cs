@@ -30,6 +30,13 @@ namespace Antura.Discover
         private void OnClicked()
         {
             //            Debug.Log($"LocationPin clicked: {Location?.Name}");
+            // Deselect all other pins, then select this one
+            var allPins = FindObjectsByType<LocationPin>(FindObjectsSortMode.None);
+            for (int i = 0; i < allPins.Length; i++)
+            {
+                if (allPins[i] != null && allPins[i] != this)
+                    allPins[i].DeSelect();
+            }
             Select();
             OpenQuest();
         }
