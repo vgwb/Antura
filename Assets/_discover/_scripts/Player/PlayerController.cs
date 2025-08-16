@@ -707,10 +707,10 @@ namespace Antura.Discover
                 case PlayerState.Walking:
                     break;
                 case PlayerState.Sitting:
-                    Debug.Log("Cat is sitting!");
+                    //                    Debug.Log("Cat is sitting!");
                     break;
                 case PlayerState.Sleeping:
-                    Debug.Log("Cat is sleeping!");
+                    //                    Debug.Log("Cat is sleeping!");
                     break;
                 case PlayerState.Idle:
                     // Reset auto-sprint when stopping
@@ -735,14 +735,14 @@ namespace Antura.Discover
                     _isSleeping = true;
                     _isSitting = false;
                     animationController.State = CatAnimationStates.sleeping;
-                    Debug.Log("Cat is now sleeping!");
+                    //                    Debug.Log("Cat is now sleeping!");
                 }
                 // Check for sitting (10 seconds)
                 else if (_idleTime >= TimeToSit && !_isSitting && !_isSleeping)
                 {
                     _isSitting = true;
                     animationController.State = CatAnimationStates.sitting;
-                    Debug.Log("Cat is now sitting!");
+                    //                    Debug.Log("Cat is now sitting!");
                 }
                 // Maintain the sitting/sleeping state if already in it
                 else if (_isSleeping)

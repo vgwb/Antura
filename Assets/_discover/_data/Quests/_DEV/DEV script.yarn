@@ -56,11 +56,17 @@ title: NPCinventory
 position: 136,41
 assetimage: 
 ---
-ho motla fame... hai qualcosa da mangiare?
-<<if $CURRENT_ITEM == "fr_baguette">>
-    HAI LA BAGUETTE!!!
+I am hungry. Haw about some food?
+<<if has_item_at_least("fr_baguette", 3)>>
+    I needed 3 baguettes!
+    <<inventory fr_baguette remove>>
+    <<inventory fr_baguette remove>>
+    <<inventory fr_baguette remove>>
 <<else>>
-  NON Hai la baguette!
+    You don't have enought baguettes!
+    <<if has_item("fr_fish")>>
+        but you have some fish!
+    <<endif>>
 <<endif>>
 
 ===
@@ -69,6 +75,13 @@ position: 136,41
 ---
 che buona!
 <<inventory fr_baguette add>>
+
+===
+title: got_fish
+position: 136,41
+---
+un pesce fresco!
+<<inventory fr_fish add>>
 
 ===
 title: NPCcard
@@ -161,7 +174,32 @@ position: 121,-125
 <<endquest fail>>
 
 ===
+title: functions
+color: red
+position: 121,-125
+---
+// these are the functions available in the game
 
+If count:
+<<if item_count("flag_france") >= 2>>
+    
+<<endif>>
+
+Simple check:
+<<if has_item("flag_france")>>
+    
+<<endif>>
+
+At least N:
+<<if has_item_at_least("flag_france", 3)>>
+    
+<<endif>>
+
+Before awarding:
+<<if can_collect("flag_france")>>
+<<endif>>
+
+===
 title: NPCGreeting2
 position: 92,-223
 assetimage: pirates

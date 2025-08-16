@@ -11,8 +11,12 @@ using Yarn;
 using Yarn.Unity;
 namespace Antura.Discover
 {
-    public class QuestManager : SingletonMonoBehaviour<QuestManager>
+
+    [DefaultExecutionOrder(-200)]
+    public class QuestManager : MonoBehaviour
     {
+        public static QuestManager I { get; private set; }
+
         [Header("Yarn")]
         [SerializeField] private YarnConversationController conversation;
         [SerializeField] private YarnAnturaManager yarnManager;
@@ -42,6 +46,14 @@ namespace Antura.Discover
         public bool DebugQuest = false;
         public string DebugLanguage = "";
 
+
+        void Awake()
+        {
+            I = this;
+            inventory = new InventoryManager();
+            progress = new Progress();
+
+        }
         void Start()
         {
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -51,9 +63,6 @@ namespace Antura.Discover
                 foreach (var task in QuestTasks)
                     task.Setup();
             }
-
-            inventory = new InventoryManager();
-            progress = new Progress();
 
             LanguageCode = (DebugQuest && DebugLanguage != "") ? DebugLanguage : "FR";
             NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);

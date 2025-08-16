@@ -237,8 +237,8 @@ namespace Antura.Discover
                 if (command.Bypass)
                 {
                     if (QuestManager.I.DebugQuest)
-                        Debug.Log("Command is disabled: " + command.Command);
-                    continue;
+                        //                        Debug.Log("Command is disabled: " + command.Command);
+                        continue;
                 }
                 switch (command.Command)
                 {

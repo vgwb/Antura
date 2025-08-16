@@ -36,6 +36,10 @@ namespace Antura.Discover
         [Header("Gameplay and Inventory Settings")]
         [Tooltip("Can the card be collected by the player?")]
         public bool IsCollectible = false;
+        [Tooltip("If true, multiple copies of this item can stack in one slot. If false, only one can be held.")]
+        public bool IsStackable = true;
+        [Tooltip("Maximum quantity per stack for this item (ignored if not stackable). Use 0 or negative for unlimited.")]
+        public int MaxStack = 99;
         public ItemData ItemIcon;
         public ItemTag Tag;
         [Tooltip("Optional tag if set to Custom.")]
