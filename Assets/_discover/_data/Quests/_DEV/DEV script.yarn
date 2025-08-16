@@ -52,18 +52,43 @@ assetimage: torun_street
 
 // this is the first node of the quest
 
-
-
-title: NPCGreeting
+title: NPCinventory
 position: 136,41
 assetimage: 
 ---
+ho motla fame... hai qualcosa da mangiare?
+<<if $CURRENT_ITEM == "fr_baguette">>
+    HAI LA BAGUETTE!!!
+<<else>>
+  NON Hai la baguette!
+<<endif>>
 
+===
+title: got_baguette
+position: 136,41
+---
+che buona!
+<<inventory fr_baguette add>>
+
+===
+title: NPCcard
+position: 136,41
+assetimage: 
+---
 ora sblocco una carta ok?
 <<card fr_fish>>
 torna al menù e guarda il book
 e ora la baguette
 <<card fr_baguette>>
+Buona vera?
+
+
+===
+title: NPCendgame
+position: 136,41
+assetimage: 
+---
+
 vuoi che ti sblocchi queta quest con...
 -> o stelle (fail)
     <<endquest 0>>
@@ -75,10 +100,9 @@ vuoi che ti sblocchi queta quest con...
     <<endquest 3>>
 FATTO! esci e controlla
 
-
 ===
 
-title: NPCGreeting4
+title: NPCGIoconda
 position: 136,41
 assetimage: antura_hero
 ---

@@ -29,6 +29,8 @@ namespace Antura.Discover
 
         public bool CollectItem(string itemCode)
         {
+            YarnAnturaManager.I.Runner.VariableStorage.SetValue("$CURRENT_ITEM", itemCode);
+
             if (collectedItems.Contains(itemCode))
             {
                 Debug.Log($"Item {itemCode} already collected.");
@@ -40,6 +42,8 @@ namespace Antura.Discover
                 Debug.Log($"Item {itemCode} collected successfully.");
                 return true;
             }
+
+
         }
 
         public bool RemoveItem(string itemCode)

@@ -23,7 +23,7 @@ namespace Antura.Discover
         private Task CurrentTask;
         private string CurrentActivity;
 
-        private Inventory inventory;
+        public Inventory inventory;
         private Progress progress;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>();
 

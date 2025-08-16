@@ -150,6 +150,26 @@ namespace Antura.Discover
             DiscoverAppManager.I.RecordQuestEnd(questResult);
         }
 
+        public void ResolveNodeCommandInventory(string itemCode, string action = "add")
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandInventory: {itemCode} {action}");
+            if (string.IsNullOrEmpty(itemCode))
+                return;
+
+            if (action == "add")
+            {
+                QuestManager.I.inventory.CollectItem(itemCode);
+            }
+            else if (action == "remove")
+            {
+                QuestManager.I.inventory.RemoveItem(itemCode);
+            }
+            else
+            {
+                Debug.LogError($"ActionManager: Unknown inventory action: {action}");
+            }
+        }
+
         public void ResolveNodeCommandCard(string cardId)
         {
             Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");

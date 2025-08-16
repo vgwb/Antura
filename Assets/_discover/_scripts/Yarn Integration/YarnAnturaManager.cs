@@ -58,6 +58,7 @@ namespace Antura.Discover
 
                 // Hook simple command(s) to ActionManager
                 runner.AddCommandHandler<string>("activity", (arg) => { ActionManager.I.ResolveNodeCommandActivity(arg); });
+                runner.AddCommandHandler<string, string>("inventory", (arg, arg2) => { ActionManager.I.ResolveNodeCommandInventory(arg, arg2); });
                 runner.AddCommandHandler<string>("card", (arg) => { ActionManager.I.ResolveNodeCommandCard(arg); });
                 runner.AddCommandHandler<string>("task_start", (arg) => { ActionManager.I.ResolveNodeCommandTaskStart(arg); });
                 runner.AddCommandHandler<string>("task_end", (arg) => { ActionManager.I.ResolveNodeCommandTaskEnd(arg); });
