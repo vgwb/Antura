@@ -32,7 +32,7 @@ namespace Antura.Discover.UI
             if (image)
                 image.sprite = def.Image;
 
-            bool isLocked = state == null || !state.Unlocked;
+            bool isLocked = state == null || !state.unlocked;
 
             if (lockOverlay)
                 lockOverlay.enabled = isLocked;

@@ -36,7 +36,7 @@ namespace Antura.Discover.UI
             var c = def.Title.GetLocalizedString();
             gameObject.SetActive(true);
 
-            bool isLocked = state == null || !state.Unlocked;
+            bool isLocked = state == null || !state.unlocked;
 
             SetLocalized(titleText, def.Title, fallback: def.Id);
             if (isLocked)

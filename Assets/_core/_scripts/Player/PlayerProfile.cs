@@ -1,5 +1,6 @@
 using Antura.Core;
 using Antura.Database;
+using Antura.Discover;
 using Antura.Dog;
 using Antura.Language;
 using System;
@@ -23,15 +24,6 @@ namespace Antura.Profile
             QuestCode = questCode;
             Score = score;
         }
-    }
-
-    public enum TalkToPlayerMode
-    {
-        DontTalk = 0,
-        NativeOnly = 1,
-        LearningLanguageOnly = 2,
-        LearningThenNative = 3,
-        NativeThenLearning = 4
     }
 
     /// <summary>

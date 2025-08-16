@@ -12,7 +12,6 @@ namespace Antura.Discover.UI
     public class BookUI : MonoBehaviour
     {
         [Header("Refs")]
-        public AchievementsManager manager;
         public Transform gridParent;             // parent with Grid/Vertical Layout
         public CardTile tilePrefab;
         public CardDetailsPanel detailsPanel;
@@ -60,43 +59,11 @@ namespace Antura.Discover.UI
 
         private void Refresh()
         {
-            foreach (var t in spawned)
-                if (t)
-                    Destroy(t.gameObject);
-            spawned.Clear();
-
-            if (manager == null || manager.Database == null)
-                return;
-
-            var country = (Antura.Discover.Countries)countryDropdown.value;
-            var category = (Antura.Discover.CardCategory)categoryDropdown.value;
-
-            IEnumerable<CardData> pool =
-                country == Countries.Global
-                ? (IEnumerable<CardData>)manager.Database.ById?.Values
-                : manager.GetCardsByCountry(country);
-
-            if (pool == null)
-                return;
-
-            foreach (var def in pool)
-            {
-                if (def == null)
-                    continue;
-                if (category != Antura.Discover.CardCategory.None && def.Category != category)
-                    continue;
-
-                var st = manager.GetState(def.Id);
-                var tile = Instantiate(tilePrefab, gridParent);
-                tile.Bind(def, st, OnTileClicked);
-                spawned.Add(tile);
-            }
         }
+
 
         private void OnTileClicked(CardData def)
         {
-            var st = manager.GetState(def.Id);
-            detailsPanel?.Show(def, st);
         }
     }
 }
