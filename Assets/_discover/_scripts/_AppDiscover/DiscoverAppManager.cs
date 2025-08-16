@@ -9,8 +9,12 @@ using UnityEngine;
 namespace Antura.Discover
 {
     //    [DefaultExecutionOrder(-300)]
-    public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
+    public class DiscoverAppManager : MonoBehaviour
     {
+
+        public static DiscoverAppManager I { get; private set; }
+
+
         private string storageSubdir = "discover_profiles";
 
         // Store for JSON files + tiny PlayerPrefs pointer
@@ -37,8 +41,12 @@ namespace Antura.Discover
         /// <summary>Raised when cookies/gems/points change (for HUD badges, etc.).</summary>
         public event Action OnCurrencyChanged;
 
-        protected override void Awake()
+        private void Awake()
         {
+            if (I != null && I != this)
+            { Destroy(gameObject); return; }
+            I = this;
+            DontDestroyOnLoad(gameObject);
             profilesManager = new DiscoverProfileManager(storageSubdir);
             PlayerProfileManager.OnProfileChanged += OldProfilePlayerChanged;
         }
@@ -204,35 +212,35 @@ namespace Antura.Discover
         /// <summary>
         /// Record a single interaction with a card
         /// </summary>
-        public void RecordCardInteraction(string cardId, bool unlocked, bool answeredCorrect)
+        public void RecordCardInteraction(string cardId, bool unlocked, bool answeredCorrect = true)
         {
             if (CurrentProfile == null)
                 return;
-            var now = DateTime.UtcNow.ToString("o");
+            var now = DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
 
-            if (!CurrentProfile.cards.TryGetValue(cardId, out var c))
+            if (!CurrentProfile.cards.TryGetValue(cardId, out var cardState))
             {
-                c = new CardState { firstSeenUtc = now, unlocked = unlocked };
-                CurrentProfile.cards[cardId] = c;
+                cardState = new CardState { firstSeenUtc = now, unlocked = unlocked };
+                CurrentProfile.cards[cardId] = cardState;
             }
 
-            c.unlocked = c.unlocked || unlocked;
-            c.lastSeenUtc = now;
-            c.interactions++;
+            cardState.unlocked = cardState.unlocked || unlocked;
+            cardState.lastSeenUtc = now;
+            cardState.interactions++;
             if (answeredCorrect)
-                c.answered.correct++;
+                cardState.answered.correct++;
             else
-                c.answered.wrong++;
+                cardState.answered.wrong++;
 
             // simple mastery heuristic: update towards 1 on correct, towards 0 on wrong
             var a = 0.15f;
             var target = answeredCorrect ? 1f : 0f;
-            c.mastery01 = Mathf.Clamp01(c.mastery01 + a * (target - c.mastery01));
+            cardState.mastery01 = Mathf.Clamp01(cardState.mastery01 + a * (target - cardState.mastery01));
 
             // streak logic
-            c.streakCorrect = answeredCorrect ? c.streakCorrect + 1 : 0;
+            cardState.streakCorrect = answeredCorrect ? cardState.streakCorrect + 1 : 0;
 
-            CurrentProfile.cards[cardId] = c;
+            CurrentProfile.cards[cardId] = cardState;
             MarkDirty();
         }
 
