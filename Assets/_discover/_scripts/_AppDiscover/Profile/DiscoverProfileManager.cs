@@ -81,7 +81,7 @@ namespace Antura.Discover
         /// <summary>Save a profile to disk (atomic write) and update lastUpdatedUtc.</summary>
         public void Save(DiscoverPlayerProfile p)
         {
-            p.metadata.lastUpdatedUtc = GetCurrentTime();
+            p.metadata.lastUpdatedUtc = DatetimeUtilities.GetNowUtcString();
             var jsonStr = JsonConvert.SerializeObject(p, Formatting.Indented, json);
             AtomicWrite(ProfilePath(p.profile.id), jsonStr);
         }
@@ -218,7 +218,7 @@ namespace Antura.Discover
             index.nextNumber++;
             index.profiles.Add(new DiscoverProfileHeader { id = id, uuid = legacyUuid, displayName = displayName });
 
-            var now = GetCurrentTime();
+            var now = DatetimeUtilities.GetNowUtcString();
             var p = new DiscoverPlayerProfile
             {
                 metadata = new Metadata
@@ -287,9 +287,5 @@ namespace Antura.Discover
             };
         }
 
-        public string GetCurrentTime()
-        {
-            return DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
-        }
     }
 }

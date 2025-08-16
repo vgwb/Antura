@@ -147,7 +147,7 @@ namespace Antura.Discover
             if (CurrentProfile == null)
             { Debug.LogWarning("DiscoverAppManager.RecordQuestEnd called with no profile loaded."); return; }
             var p = CurrentProfile;
-            var now = DateTime.UtcNow.ToString("o");
+            var now = DatetimeUtilities.GetNowUtcString();
 
             // --- Update quest stats ---
             if (!p.stats.quests.TryGetValue(end.questId, out var qs))
@@ -216,7 +216,7 @@ namespace Antura.Discover
         {
             if (CurrentProfile == null)
                 return;
-            var now = DateTime.UtcNow.ToString("yyyy-MM-dd'T'HH:mm:ss'Z'");
+            var now = DatetimeUtilities.GetNowUtcString();
 
             if (!CurrentProfile.cards.TryGetValue(cardId, out var cardState))
             {
@@ -284,7 +284,7 @@ namespace Antura.Discover
                 return;
 
             st.unlocked = true;
-            st.unlockedUtc = DateTime.UtcNow.ToString("o");
+            st.unlockedUtc = DatetimeUtilities.GetNowUtcString();
             CurrentProfile.achievements[achievementId] = st;
 
             // currency rewards (optional, driven by your code/definitions)
