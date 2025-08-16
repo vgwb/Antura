@@ -34,7 +34,7 @@ tags:
 ---
 <<if $CURRENT_ITEM == "flag_france">>
     Yes, that is my flag! Merci!
-    <<task completed>>
+    <<task_start completed>>
     <<set $france_completed = true>>
     <<set $CURRENT_ITEM = "">>
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
@@ -44,19 +44,19 @@ tags:
     That's not my flag, mine is blue, white and red.
 <<elseif $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     Good job! You did it!
-    <<end_quest>>
+    <<endquest>>
 <<else>>>
     Hello! I am from France!
     Antura made a mess and all the flags have been mixed up!
-    My flag, the French one, is blue, white, and red.
+    My flag, the French one, is blue, white, and red
     <<if $EASY_MODE == true>>
-        <<show_asset flag_france>>
+        <<asset flag_france>>
         Find the french flag
-        <<task FIND_FRENCH_FLAG>>
+        <<task_end FIND_FRENCH_FLAG>>
     <<else>>
         Can you help me?
         Find the french flag
-        <<task FIND_FRENCH_FLAG>>
+        <<task_end FIND_FRENCH_FLAG>>
     <<endif>>
 <<endif>>
 ===
@@ -80,7 +80,7 @@ tags:
     <<if $CURRENT_ITEM == "flag_germany">>
         Danke! That is my flage!
         <<action REMOVE_GERMANY_FLAG>>
-        <<task_completed germany>>
+        <<task_end germany>>
     <<elseif $CURRENT_ITEM != "">>
     <<jump FR_00_germany_wrong_flag>>
     <<else>>
