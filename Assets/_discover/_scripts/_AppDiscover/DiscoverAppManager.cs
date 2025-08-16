@@ -8,7 +8,7 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    [DefaultExecutionOrder(-300)]
+    //    [DefaultExecutionOrder(-300)]
     public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
         private string storageSubdir = "discover_profiles";
