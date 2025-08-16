@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
+using TMPro;
 
 namespace Antura.Discover
 {
@@ -139,21 +140,14 @@ namespace Antura.Discover
             ResolveQuestAction(taskCode);
         }
 
-        public void ResolveNodeCommandEndquest(string endquestCode = "")
+        public void ResolveNodeCommandEndquest(int finalStars = 0)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {endquestCode}");
-            // if (string.IsNullOrEmpty(endquestCode))
-            //     return;
+            Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {finalStars}");
 
-            //var endquest = QuestManager.I.GetEndquestByCode(endquestCode);
-            //if (endquest == null)
-            //{
-            //    Debug.LogError($"ActionManager: Endquest not found for command {endquestCode}");
-            //    return;
-            //}
-
-            //QuestManager.I.Endquest(endquest);
-            //ResolveQuestAction(endquestCode);
+            QuestEnd questResult = new QuestEnd();
+            questResult.questId = QuestManager.I.CurrentQuest.Id;
+            questResult.stars = finalStars;
+            DiscoverAppManager.I.RecordQuestEnd(questResult);
         }
 
         public void ResolveNodeCommandCard(string cardId)

@@ -65,7 +65,7 @@ namespace Antura.Discover
                 runner.AddCommandHandler("asset_hide", () => ActionManager.I.ResolveNodeCommandAssetHide());
                 runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
                 runner.AddCommandHandler<string>("action_post", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
-                runner.AddCommandHandler<string>("endquest", (arg) => { ActionManager.I.ResolveNodeCommandEndquest(arg); });
+                runner.AddCommandHandler<int>("endquest", (arg) => { ActionManager.I.ResolveNodeCommandEndquest(arg); });
             }
 
             if (presenter != null)

@@ -64,6 +64,17 @@ ora sblocco una carta ok?
 torna al menù e guarda il book
 e ora la baguette
 <<card fr_baguette>>
+vuoi che ti sblocchi queta quest con...
+-> o stelle (fail)
+    <<endquest 0>>
+-> una stella
+    <<endquest 1>>
+-> due stelle
+    <<endquest 2>>
+-> tre stelle
+    <<endquest 3>>
+FATTO! esci e controlla
+
 
 ===
 

@@ -8,6 +8,27 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
+
+    public struct ActivityEnd
+    {
+        public string activityId;
+        public int score;
+        public int durationSec;
+        public string topic;
+        public int attempts;
+        public int correct;
+        public Dictionary<string, int> wrongItems; // optional/sparse
+    }
+
+    public struct QuestEnd
+    {
+        public string questId;
+        public int score;
+        public int durationSec;
+        public int stars; // 0..3
+        public List<ActivityEnd> activities; // optional
+    }
+
     //    [DefaultExecutionOrder(-300)]
     public class DiscoverAppManager : MonoBehaviour
     {
@@ -115,29 +136,7 @@ namespace Antura.Discover
         //   QUEST FLOW
         // =========================================================
 
-        /// <summary>
-        /// Data payload for a finished quest. Call <see cref="RecordQuestEnd"/> at the end of a quest.
-        /// Keep aligned with what your minigames can report.
-        /// </summary>
-        public struct ActivityEnd
-        {
-            public string activityId;
-            public int score;
-            public int durationSec;
-            public string topic;
-            public int attempts;
-            public int correct;
-            public Dictionary<string, int> wrongItems; // optional/sparse
-        }
 
-        public struct QuestEnd
-        {
-            public string questId;
-            public int score;
-            public int durationSec;
-            public int stars; // 0..3
-            public List<ActivityEnd> activities; // optional
-        }
 
         /// <summary>
         /// update the current profile after a quest concludes
