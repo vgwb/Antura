@@ -23,7 +23,7 @@ namespace Antura.Discover
         private Task CurrentTask;
         private string CurrentActivity;
 
-        public Inventory inventory;
+        public InventoryManager inventory;
         private Progress progress;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>();
 
@@ -52,7 +52,7 @@ namespace Antura.Discover
                     task.Setup();
             }
 
-            inventory = new Inventory();
+            inventory = new InventoryManager();
             progress = new Progress();
 
             LanguageCode = (DebugQuest && DebugLanguage != "") ? DebugLanguage : "FR";

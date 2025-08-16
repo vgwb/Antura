@@ -6,7 +6,7 @@ using Antura.Utilities;
 
 namespace Antura.Discover
 {
-    public class Inventory
+    public class InventoryManager
     {
         static int MaxItemsInInventory = 5;
 
@@ -17,7 +17,7 @@ namespace Antura.Discover
 
         private int total_items;
 
-        public Inventory()
+        public InventoryManager()
         {
             collectedItems = new HashSet<string>();
         }
