@@ -56,7 +56,7 @@ namespace Antura.Discover
                 Debug.LogWarning($"LocationPin on {name}: LocationId not set.");
                 return;
             }
-            UIQuestMenuManager.I.ShowLocation(Location, this);
+            UIQuestMenuManager.I.ShowLocation(Location);
         }
     }
 }

@@ -32,7 +32,7 @@ namespace Antura.Discover
             Title.text = _questData.Title.GetLocalizedString();
             if (_questData.Location != null)
                 Location.text = _questData.Location.Name.GetLocalizedString();
-            SetStars(questData.GetScore());
+            SetStars(questData.GetBestStars());
         }
 
         public void OnSelectQuest()

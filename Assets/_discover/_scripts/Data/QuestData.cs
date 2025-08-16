@@ -92,9 +92,21 @@ namespace Antura.Discover
         public GameObject WorldPrefab;
         public GameObject QuestPrefab;
 
-        // TODO
-        public int GetScore()
+        // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
+        public int GetBestStars()
         {
+            try
+            {
+                var mgr = DiscoverAppManager.I;
+                var prof = mgr != null ? mgr.CurrentProfile : null;
+                var qs = prof != null ? prof.stats?.quests : null;
+                if (qs != null && !string.IsNullOrEmpty(this.Id))
+                {
+                    if (qs.TryGetValue(this.Id, out var s))
+                        return Mathf.Clamp(s.bestStars, 0, 3);
+                }
+            }
+            catch { }
             return 0;
         }
 

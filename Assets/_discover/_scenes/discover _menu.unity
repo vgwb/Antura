@@ -3767,7 +3767,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88.9447, y: -88.53003}
+  m_AnchoredPosition: {x: -88.944824, y: -88.53003}
   m_SizeDelta: {x: 602.91675, y: 497.7602}
   m_Pivot: {x: 1, y: 1}
 --- !u!1001 &950384431
@@ -4947,14 +4947,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2de6bc779225e49ed9fc5e8134bd9a5a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  QuestListPanel: {fileID: 1283381744}
   BookPanel: {fileID: 688078029}
   InfoPanel: {fileID: 1685516368}
-  MenuItemPrefab: {fileID: 7018029010785833623, guid: 0626bb03a87f641fba3bdb3240f18ecb,
-    type: 3}
-  Container: {fileID: 1499813681}
-  QuestsData: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
-  ListTitleText: {fileID: 1174712114}
-  TutorialQuest: {fileID: 11400000, guid: 2f080d355007a4c9bb2242db14ada97c, type: 2}
 --- !u!114 &1276314363
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4976,6 +4971,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1283381740}
+  - component: {fileID: 1283381744}
   - component: {fileID: 1283381743}
   - component: {fileID: 1283381742}
   - component: {fileID: 1283381741}
@@ -5076,6 +5072,23 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1283381744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283381739}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: abfdfc7d8e7d34da3bca0812b05dfc66, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::UIQuestListPanel
+  MenuItemPrefab: {fileID: 7018029010785833623, guid: 0626bb03a87f641fba3bdb3240f18ecb,
+    type: 3}
+  Container: {fileID: 1499813681}
+  QuestsData: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
+  ListTitleText: {fileID: 1174712114}
 --- !u!1 &1283789544
 GameObject:
   m_ObjectHideFlags: 0
@@ -9227,7 +9240,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -88.9447, y: -88.53003}
+  m_AnchoredPosition: {x: -88.944824, y: -88.53003}
   m_SizeDelta: {x: 602.91675, y: 497.7602}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &2025782906
