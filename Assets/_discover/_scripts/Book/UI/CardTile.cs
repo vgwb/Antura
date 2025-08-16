@@ -15,6 +15,7 @@ namespace Antura.Discover.UI
         public Image lockOverlay;
         public Image soundIcon;
         public TextMeshProUGUI titleText;
+        public TextMeshProUGUI categoryText;
 
         [Header("Locked Greyscale")]
         public Material greyscaleMaterial;
@@ -23,21 +24,24 @@ namespace Antura.Discover.UI
         private CardState state;
         private Action<CardData> onClick;
 
-        public void Bind(CardData def, CardState state, Action<CardData> onClick)
+        public void Init(CardData card, CardState state, Action<CardData> onClick)
         {
-            this.def = def;
+            this.def = card;
             this.state = state;
             this.onClick = onClick;
 
+            titleText.text = card.Title.GetLocalizedString();
+            categoryText.text = card.Category.ToString();
+
             if (image)
-                image.sprite = def.Image;
+                image.sprite = card.ImageAsset != null ? card.ImageAsset.Image : card.Image;
 
             bool isLocked = state == null || !state.unlocked;
 
             if (lockOverlay)
                 lockOverlay.enabled = isLocked;
             if (soundIcon)
-                soundIcon.enabled = def.AudioAsset != null;
+                soundIcon.enabled = card.AudioAsset != null && card.AudioAsset.Audio != null;
 
             if (greyscaleMaterial != null && image != null)
                 image.material = isLocked ? greyscaleMaterial : null;

@@ -49,14 +49,14 @@ namespace Antura.Discover.UI
             }
 
             if (image)
-                image.sprite = def.ImageAsset.Image;
+                image.sprite = def.ImageAsset != null ? def.ImageAsset.Image : def.Image;
             if (image && greyscaleMaterial != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 
             if (lockedBadge)
                 lockedBadge.SetActive(isLocked);
             if (soundIcon)
-                soundIcon.enabled = def.AudioAsset != null;
+                soundIcon.enabled = def.AudioAsset != null && def.AudioAsset.Audio != null;
         }
 
         public void Hide()

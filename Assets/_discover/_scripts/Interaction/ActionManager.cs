@@ -156,6 +156,12 @@ namespace Antura.Discover
             //ResolveQuestAction(endquestCode);
         }
 
+        public void ResolveNodeCommandCard(string cardId)
+        {
+            Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");
+            DiscoverAppManager.I.RecordCardInteraction(cardId, true);
+        }
+
         public void ResolveNodeCommandActivity(string activityCode, string difficulty = null)
         {
             Debug.Log($"ActionManager: ResolveNodeCommandActivity: {activityCode} {difficulty}");
