@@ -1,6 +1,7 @@
-# Design Discover Quests
+# Design Discover Quests (for designers)
 
 Any Quest of the Discover Module is composed of a Unity Scene and an Homer flow.
+
 
 ## Design Doc
 We always start with a Design Doc (usually Google Doc) with these important content:
