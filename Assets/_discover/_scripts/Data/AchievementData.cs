@@ -23,5 +23,13 @@ namespace Antura.Discover
         [Header("Content")]
         public LocalizedString Title;
 
+        [Header("Rewards")]
+        [Range(0, 3)]
+        [Tooltip("Number of gems given by this card, ONCE")]
+        public int Gems = 0;
+        [Range(0, 1000)]
+        [Tooltip("Points rewarded with positive interactions. cumulative")]
+        public int Points = 0;
+
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Greengrocer
   m_EditorClassIdentifier: 
   Id: fr_greengrocer
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -35,16 +36,20 @@ MonoBehaviour:
   Topics: 
   Year: 0
   Country: 2
-  KnowledgeValue: 10
+  Gems: 0
+  Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 93863138b2f574025a59cfcb9c677ab3, type: 2}
   Image: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
   ItemIcon: {fileID: 0}
   Tag: 0
   CustomTag: 
-  LinkedQuests: []
+  Quests:
+  - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   references:
     version: 2
     RefIds: []

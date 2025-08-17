@@ -36,16 +36,20 @@ MonoBehaviour:
   Topics: 
   Year: 0
   Country: 0
-  KnowledgeValue: 10
+  Gems: 0
+  Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: e778505d7e2e54fb08e7ab17a43acc71, type: 2}
   Image: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 1
+  IsStackable: 0
+  MaxStack: 99
   ItemIcon: {fileID: 11400000, guid: b31e07b0a7c3d42a3838d36ebb8eb0d3, type: 2}
   Tag: 0
   CustomTag: 
-  LinkedQuests: []
+  Quests:
+  - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   references:
     version: 2
     RefIds: []

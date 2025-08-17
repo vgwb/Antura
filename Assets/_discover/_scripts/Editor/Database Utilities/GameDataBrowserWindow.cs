@@ -41,7 +41,7 @@ namespace Antura.Discover
 
         // Layout sizes
         private const float ColOpen = 60f;
-        private const float ColId = 220f;
+        private const float ColId = 180f;
         private const float ColImage = 80f;
         private const float ColPath = 380f;
         private const float ColTag = 140f;
@@ -427,11 +427,18 @@ namespace Antura.Discover
         {
             using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar))
             {
-                // Left: Data selector
+                // First: Refresh button (requested to be first)
+                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
+                {
+                    RefreshList();
+                }
+                GUILayout.Space(8);
+
+                // Left: Data selector (narrower width)
                 GUILayout.Label("Data:", GUILayout.Width(40));
                 var labels = _typeOptions.Select(o => o.Label).ToArray();
                 var selIndex = Mathf.Clamp(_selectedTypeIndex, 0, Mathf.Max(0, _typeOptions.Count - 1));
-                var newIndex = EditorGUILayout.Popup(selIndex, labels, EditorStyles.toolbarPopup, GUILayout.MinWidth(200));
+                var newIndex = EditorGUILayout.Popup(selIndex, labels, EditorStyles.toolbarPopup, GUILayout.Width(140));
                 if (newIndex != _selectedTypeIndex)
                 {
                     // Prevent selecting separator
@@ -447,12 +454,12 @@ namespace Antura.Discover
                 }
 
                 GUILayout.Space(8);
-                // Country selector (custom order with separator; no-op for types without Country)
-                GUILayout.Label("Country:", GUILayout.Width(60));
+                // Country selector (custom order with separator; no-op for types without Country) - narrower
+                GUILayout.Label("Country:", GUILayout.Width(56));
                 var cOpts = GetCountryOptions();
                 var cLabels = cOpts.Select(o => o.Label).ToArray();
                 int cIndex = Mathf.Max(0, cOpts.FindIndex(o => !o.IsSeparator && o.Value.Equals(_countryFilter)));
-                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels, EditorStyles.toolbarPopup, GUILayout.Width(200));
+                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels, EditorStyles.toolbarPopup, GUILayout.Width(140));
                 if (newCIndex != cIndex)
                 {
                     if (!cOpts[newCIndex].IsSeparator)
@@ -465,7 +472,7 @@ namespace Antura.Discover
                 GUILayout.Space(12);
                 if (_searchField == null)
                     _searchField = new SearchField();
-                var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(220));
+                var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(160));
                 if (!string.Equals(newSearch, _search, StringComparison.Ordinal))
                 { _search = newSearch; Repaint(); }
 
@@ -488,10 +495,7 @@ namespace Antura.Discover
                         ExportFiles();
                     }
                 }
-                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
-                {
-                    RefreshList();
-                }
+                // Refresh button already placed at the start
             }
         }
 
@@ -858,8 +862,8 @@ namespace Antura.Discover
             x += ColYear + Gap;
             // KnowledgeValue as progress bar 0..10
             var rKv = new Rect(x, y, ColKnowledge, lineH);
-            float kv = Mathf.Clamp(c.KnowledgeValue, 0, 10);
-            EditorGUI.ProgressBar(rKv, kv / 10f, c.KnowledgeValue.ToString());
+            float kv = Mathf.Clamp(c.Points, 0, 10);
+            EditorGUI.ProgressBar(rKv, kv / 10f, c.Points.ToString());
             x += ColKnowledge + Gap;
             // Category
             var rCat = new Rect(x, y, ColCategory, lineH);
@@ -872,8 +876,8 @@ namespace Antura.Discover
             x += ColTopics + Gap;
             // Linked Quests
             string quests = string.Empty;
-            if (c.LinkedQuests != null && c.LinkedQuests.Count > 0)
-            { quests = string.Join(", ", c.LinkedQuests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)); }
+            if (c.Quests != null && c.Quests.Count > 0)
+            { quests = string.Join(", ", c.Quests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)); }
             var rQuests = new Rect(x, y, ColQuests, lineH);
             EditorGUI.LabelField(rQuests, quests);
             x += ColQuests + Gap;
@@ -924,7 +928,7 @@ namespace Antura.Discover
                 foreach (var cc in q.Cards)
                 {
                     if (cc != null)
-                        sumKv += Mathf.Clamp(cc.KnowledgeValue, 0, 10);
+                        sumKv += Mathf.Clamp(cc.Points, 0, 10);
                 }
             }
             var rQKv = new Rect(x, y, ColQKnowledge, lineH);
@@ -1167,7 +1171,7 @@ namespace Antura.Discover
                         keySelector = a => a is CardData c4 ? c4.Year.ToString("D4") : string.Empty;
                         break;
                     case "KnowledgeValue":
-                        keySelector = a => a is CardData c5 ? c5.KnowledgeValue.ToString("D2") : (a is QuestData q0 ? (q0.Cards != null ? q0.Cards.Where(cc => cc != null).Sum(cc => Mathf.Clamp(cc.KnowledgeValue, 0, 10)).ToString("D3") : "") : string.Empty);
+                        keySelector = a => a is CardData c5 ? c5.Points.ToString("D2") : (a is QuestData q0 ? (q0.Cards != null ? q0.Cards.Where(cc => cc != null).Sum(cc => Mathf.Clamp(cc.Points, 0, 10)).ToString("D3") : "") : string.Empty);
                         break;
                     case "MainTopic":
                         keySelector = a => a is QuestData q1 ? q1.MainTopic.ToString() : string.Empty;
@@ -1188,7 +1192,7 @@ namespace Antura.Discover
                         keySelector = a => a is QuestData q6 ? string.Join(";", q6.WordsUsed?.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id) ?? Array.Empty<string>()) : string.Empty;
                         break;
                     case "LinkedQuests":
-                        keySelector = a => a is CardData c6 ? string.Join(";", c6.LinkedQuests?.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id) ?? Array.Empty<string>()) : string.Empty;
+                        keySelector = a => a is CardData c6 ? string.Join(";", c6.Quests?.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id) ?? Array.Empty<string>()) : string.Empty;
                         break;
                     case "Tag":
                         keySelector = a => a is ItemData it ? it.Tag.ToString() : string.Empty;
@@ -1238,7 +1242,7 @@ namespace Antura.Discover
                     return true;
                 if (cd.Topics != null && cd.Topics.Any(t => t.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
                     return true;
-                if (cd.LinkedQuests != null && cd.LinkedQuests.Any(q => q != null && ((string.IsNullOrEmpty(q.Id) ? q.name : q.Id).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)))
+                if (cd.Quests != null && cd.Quests.Any(q => q != null && ((string.IsNullOrEmpty(q.Id) ? q.name : q.Id).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)))
                     return true;
                 if (cd.IsCollectible && ("collectible".IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0 || "true".IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
                     return true;
@@ -1436,7 +1440,7 @@ namespace Antura.Discover
                 foreach (var c in list.Cast<CardData>())
                 {
                     var topics = c.Topics != null ? string.Join("; ", c.Topics.Select(t => t.ToString())) : string.Empty;
-                    var quests = c.LinkedQuests != null ? string.Join("; ", c.LinkedQuests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)) : string.Empty;
+                    var quests = c.Quests != null ? string.Join("; ", c.Quests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)) : string.Empty;
                     sb.AppendLine(Escape("CardData") + "," + Escape(c.Id) + "," + Escape(FormatPath(AssetDatabase.GetAssetPath(c))) + "," + Escape(GetCardTitle(c)) + "," + Escape(c.IsCollectible ? "true" : "false") + "," + Escape(c.Year.ToString()) + "," + Escape(c.Category.ToString()) + "," + Escape(topics) + "," + Escape(quests));
                 }
             }

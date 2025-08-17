@@ -19,8 +19,14 @@ namespace Antura.Discover
         [Tooltip("Optional, Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
-        [Range(1, 10)]
-        public int KnowledgeValue = 10;
+
+        [Header("Rewards")]
+        [Range(0, 3)]
+        [Tooltip("Number of gems given by this card, ONCE")]
+        public int Gems = 0;
+        [Range(0, 10)]
+        [Tooltip("Points rewarded with positive interactions. cumulative")]
+        public int Points = 1;
 
         [Header("Media")]
         public AssetType MediaType = AssetType.Image;
@@ -37,7 +43,7 @@ namespace Antura.Discover
         [Tooltip("Can the card be collected by the player?")]
         public bool IsCollectible = false;
         [Tooltip("If true, multiple copies of this item can stack in one slot. If false, only one can be held.")]
-        public bool IsStackable = true;
+        public bool IsStackable = false;
         [Tooltip("Maximum quantity per stack for this item (ignored if not stackable). Use 0 or negative for unlimited.")]
         public int MaxStack = 99;
         public ItemData ItemIcon;
@@ -45,9 +51,9 @@ namespace Antura.Discover
         [Tooltip("Optional tag if set to Custom.")]
         public string CustomTag;
 
-        [Header("Linked Sources")]
+        [Header("Quests")]
         [Tooltip("Quests that can unlock this card. A card can be rewarded by multiple quests.")]
-        public List<QuestData> LinkedQuests;
+        public List<QuestData> Quests;
 
 
     }

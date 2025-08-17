@@ -34,9 +34,10 @@ namespace Antura.Discover
         [Header("Achievements")]
 
         [Tooltip("Total or per item is collect Task")]
-        public int ProgressPoints;
+        public int Points;
 
         [Tooltip("Gems gained")]
+        [Range(0, 1)]
         public int Gems;
 
 

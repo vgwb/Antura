@@ -32,6 +32,7 @@ namespace Antura.Discover
         public Image Icon;
 
         [Tooltip("Progress points to apply (can be negative)")]
-        public int ProgressPoints = 1;
+        [Range(-10, 10)]
+        public int Points = 1;
     }
 }

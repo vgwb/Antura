@@ -54,7 +54,7 @@ namespace Antura.Discover
                 foreach (var card in Cards)
                 {
                     if (card != null)
-                        value += card.KnowledgeValue;
+                        value += card.Points;
                 }
                 return value;
             }

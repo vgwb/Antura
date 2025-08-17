@@ -141,7 +141,7 @@ namespace Antura.Discover
                     string cCategory = GetCardCategoryString(card);
                     string cYear = GetCardYearString(card);
                     string cCountry = TryToString(() => card.Country.ToString());
-                    string cKV = TryToString(() => card.KnowledgeValue.ToString());
+                    string cKV = TryToString(() => card.Points.ToString());
                     string cImagePath = GetCardImageAssetPath(card);
 
                     sb.AppendLine($"### {cTitle}");
