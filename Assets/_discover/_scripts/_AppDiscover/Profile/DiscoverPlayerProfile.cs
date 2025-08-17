@@ -123,7 +123,9 @@ namespace Antura.Discover
     [Serializable]
     public class CardState
     {
+        public int masteryPoints;
         public bool unlocked;
+        public string unlockedUtc;
         public string firstSeenUtc, lastSeenUtc;
         public int interactions, streakCorrect;
         public AnswerCount answered = new();

@@ -20,7 +20,14 @@ namespace Antura.Discover
         public int Year;
         public Countries Country;
 
+        [Header("Mastery")]
+        [Tooltip("Mastery points needed to unlock this card.")]
+        [Min(1)]
+        public int MasteryPointsToUnlock = 1;
+
         [Header("Rewards")]
+        [Range(0, 20)]
+        public int Cookies = 0;
         [Range(0, 3)]
         [Tooltip("Number of gems given by this card, ONCE")]
         public int Gems = 0;

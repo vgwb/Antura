@@ -204,20 +204,24 @@ namespace Antura.Discover
         // =========================================================
 
         /// <summary>Record a single interaction with a card.</summary>
-        public void RecordCardInteraction(string cardId, bool unlocked, bool answeredCorrect = true)
+        public void RecordCardInteraction(CardData card, bool answeredCorrect = true)
         {
-            if (CurrentProfile == null || string.IsNullOrEmpty(cardId))
+            if (CurrentProfile == null || card == null)
                 return;
 
-            Svc.RecordCardSeen(cardId);
-            Svc.RecordCardAnswer(cardId, answeredCorrect);
+            Svc.RecordCardSeen(card.Id);
 
-            if (unlocked)
-            {
-                var st = CurrentProfile.cards[cardId];
-                st.unlocked = true;
-                CurrentProfile.cards[cardId] = st;
-            }
+            // KP per interaction (can trigger XP milestone gems)
+            var kpRes = Svc.RecordCardAnswerAndPoints(card.Id, answeredCorrect);
+
+            // MP per interaction + unlock gem once ready (no overrides)
+            var mpRes = Svc.ApplyCardMasteryAndUnlock(card, answeredCorrect);
+
+            OnCurrencyChanged?.Invoke();
+            if (kpRes.Any)
+                OnGemsAwarded?.Invoke(kpRes.gemsAdded, kpRes.newClaims);
+            if (mpRes.Any)
+                OnGemsAwarded?.Invoke(mpRes.gemsAdded, mpRes.newClaims);
 
             MarkDirty();
         }

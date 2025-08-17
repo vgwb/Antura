@@ -34,5 +34,7 @@ namespace Antura.Discover
         [Tooltip("Progress points to apply (can be negative)")]
         [Range(-10, 10)]
         public int Points = 1;
+
+        public int Cookies = 0;
     }
 }

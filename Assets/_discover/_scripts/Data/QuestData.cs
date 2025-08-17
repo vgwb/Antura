@@ -32,6 +32,10 @@ namespace Antura.Discover
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
 
+        [Header("Rewards")]
+        [Range(0, 20)]
+        public int cookies = 0;
+
         [Header("Content")]
         public KnowledgeTopic MainTopic;
         public List<CardData> Cards;

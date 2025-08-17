@@ -292,6 +292,96 @@ namespace Antura.Discover
             cs.lastSeenUtc = NowIso();
         }
 
+        // --- KP on every interaction (this may also mint gems via XP milestones) ---
+        public AwardResult RecordCardAnswerAndPoints(string cardId, bool correct, int? perCardPointsOverride = null)
+        {
+            if (string.IsNullOrEmpty(cardId))
+                return AwardResult.None;
+
+            // Stats: answers, streak, mastery01 (simple accuracy ratio)
+            RecordCardAnswer(cardId, correct);
+
+            // Compute Knowledge Points (global XP-like)
+            int pts = ComputeCardInteractionPoints(cardId, correct, perCardPointsOverride);
+
+            // Add points (can cross XP milestones → gem claims)
+            return AddPoints(pts);
+        }
+
+        int ComputeCardInteractionPoints(string cardId, bool correct, int? perCardPointsOverride)
+        {
+            // Base points from global economy (no per-card overrides for MP; KP override param is optional)
+            int basePts = perCardPointsOverride.HasValue
+                ? Mathf.Max(0, perCardPointsOverride.Value)
+                : (economy != null
+                    ? Mathf.Max(0, correct ? economy.cardPointsCorrect : economy.cardPointsWrong)
+                    : (correct ? 2 : 1));
+
+            // Fetch card state (mastery & interactions)
+            P.cards.TryGetValue(cardId, out var cs);
+            float mastery = cs != null ? Mathf.Clamp01(cs.mastery01) : 0f;
+            int interactions = cs != null ? Mathf.Max(0, cs.interactions) : 0;
+
+            // Mastery penalty (less KP as you master the card)
+            float penalty = 1f - (economy != null ? Mathf.Clamp01(economy.pointsMasteryPenalty) : 0.7f) * mastery;
+
+            // Optional gentle diminishing by interactions
+            float dimPerInter = economy != null ? Mathf.Clamp01(economy.pointsDiminishPerInteraction) : 0f;
+            float interactionFactor = Mathf.Max(0.2f, 1f - interactions * dimPerInter);  // never below 20%
+
+            int minPts = economy != null ? Mathf.Max(0, economy.minPointsPerInteraction) : 1;
+
+            int pts = Mathf.RoundToInt(basePts * penalty * interactionFactor);
+            return Mathf.Max(minPts, pts);
+        }
+
+        // --- MP on every interaction + unlock when target reached (no per-card overrides) ---
+        public AwardResult ApplyCardMasteryAndUnlock(CardData card, bool correct)
+        {
+            if (card == null || string.IsNullOrEmpty(card.Id))
+                return AwardResult.None;
+
+            var cs = GetOrCreateCard(card.Id);
+
+            // 1) Gain Mastery Points
+            int mpGain = ComputeCardMasteryGain(card.Id, correct);
+            if (mpGain > 0)
+            {
+                cs.masteryPoints += mpGain;
+                // Keep mastery01 aligned to MP progress toward unlock target
+                cs.mastery01 = Mathf.Clamp01(cs.masteryPoints / Mathf.Max(1f, (float)card.MasteryPointsToUnlock));
+                cs.lastSeenUtc = NowIso();
+                P.cards[card.Id] = cs;
+            }
+
+            // 2) Unlock + gem once (ledger prevents double-claim)
+            if (cs.masteryPoints >= card.MasteryPointsToUnlock && !HasExactToken($"card:{card.Id}"))
+            {
+                var claim = ClaimCardGem(card.Id, card.Gems);
+                cs.unlocked = true;
+                cs.unlockedUtc = NowIso();
+                P.cards[card.Id] = cs;
+                return claim; // may be gemsAdded=0 if gems=0
+            }
+
+            return AwardResult.None;
+        }
+
+        int ComputeCardMasteryGain(string cardId, bool correct)
+        {
+            int baseCorrect = (economy != null ? Mathf.Max(0, economy.cardMpCorrect) : 2);
+            int baseWrong = (economy != null ? Mathf.Max(0, economy.cardMpWrong) : 1);
+            int gain = correct ? baseCorrect : baseWrong;
+
+            // (Optional) tiny streak bonus feels good; remove if you prefer
+            var cs = GetOrCreateCard(cardId);
+            int streak = Mathf.Clamp(cs.streakCorrect, 0, 3);
+            if (correct && streak >= 2)
+                gain += 1;
+
+            return Mathf.Max(0, gain);
+        }
+
         // -----------------------------
         // Small helpers / internals
         // -----------------------------
