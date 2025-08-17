@@ -155,6 +155,13 @@ namespace Antura.Discover
             OnProfileLoaded?.Invoke(CurrentProfile);
         }
 
+
+        public CardData GetCardById(string cardId)
+        {
+            DatabaseProvider.TryGet<CardData>(cardId, out var c);
+            return c;
+        }
+
         // =========================================================
         //   QUEST FLOW
         // =========================================================

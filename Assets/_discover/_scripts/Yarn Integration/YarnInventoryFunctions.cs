@@ -1,10 +1,42 @@
 using UnityEngine;
+using Yarn;
 using Yarn.Unity;
 
 namespace Antura.Discover
 {
-    public static class YarnInventoryFunctions
+    /// <summary>
+    /// Static class containing Yarn functions for Discover.
+    /// These functions can be called from Yarn scripts to access Discover-specific data and functionality.
+    /// </summary>
+    public static class YarnDiscoverFunctions
     {
+        // --- Helpers ---
+        static DiscoverPlayerProfile P => DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
+        static CardData GetCard(string id) => DiscoverAppManager.I != null ? DiscoverAppManager.I.GetCardById(id) : null;
+        static CardState GetState(string id)
+        {
+            if (P == null || string.IsNullOrEmpty(id) || P.cards == null)
+                return null;
+            CardState st;
+            return P.cards.TryGetValue(id, out st) ? st : null;
+        }
+
+        /// ---- CARDS ----
+
+        /*
+        ///  EXAMPLE
+        /// <<if card_unlocked("CARD_FR_BAGUETTE") == false>>
+        ///      line: "Jouons pour débloquer la carte baguette !"
+        /// <<endif>>
+        */
+        [YarnFunction("card_unlocked")]
+        public static bool CardUnlocked(string cardId)
+        {
+            var st = GetState(cardId);
+            return st != null && st.unlocked;
+        }
+
+        /// ---- INVENTORY ----
         [YarnFunction("item_count")]
         public static float ItemCount(string itemCode)
         {
