@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Antura.Core;
 using TMPro;
+using UnityEngine.EventSystems;
 
 namespace Antura.Discover
 {
@@ -37,19 +38,53 @@ namespace Antura.Discover
 
         void Update()
         {
-            if (Input.GetMouseButtonDown(0))
+            // Detect press start (mouse or first touch)
+            Vector3 screenPos;
+            bool pressed = false;
+            if (Input.touchCount > 0 && Input.touches[0].phase == TouchPhase.Began)
             {
-                RaycastHit hit;
-                Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+                pressed = true;
+                screenPos = Input.touches[0].position;
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                pressed = true;
+                screenPos = Input.mousePosition;
+            }
+            else
+            {
+                return;
+            }
 
-                if (Physics.Raycast(ray, out hit))
+            // If press began over UI, ignore
+            if (IsPointerOverUI())
+                return;
+
+            RaycastHit hit;
+            Ray ray = Camera.main.ScreenPointToRay(screenPos);
+            if (Physics.Raycast(ray, out hit))
+            {
+                if (hit.transform == transform)
                 {
-                    if (hit.transform == transform)
-                    {
-                        OnCountryClicked();
-                    }
+                    OnCountryClicked();
                 }
             }
+        }
+
+        private bool IsPointerOverUI()
+        {
+            if (EventSystem.current == null)
+                return false;
+            if (Input.touchCount > 0)
+            {
+                for (int i = 0; i < Input.touchCount; i++)
+                {
+                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId))
+                        return true;
+                }
+                return false;
+            }
+            return EventSystem.current.IsPointerOverGameObject();
         }
         private void OnCountryClicked()
         {

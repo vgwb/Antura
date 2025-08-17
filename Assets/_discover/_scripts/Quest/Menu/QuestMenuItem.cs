@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.UI;
 
-namespace Antura.Discover
+namespace Antura.Discover.UI
 {
     public class QuestMenuItem : MonoBehaviour
     {

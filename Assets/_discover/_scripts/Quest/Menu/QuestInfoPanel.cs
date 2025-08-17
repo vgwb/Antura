@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Antura.Discover
+namespace Antura.Discover.UI
 {
     public class QuestInfoPanel : MonoBehaviour
     {
@@ -18,10 +18,11 @@ namespace Antura.Discover
         [SerializeField] QuestInfoPanelSlideshow slideshow;
 
         private QuestData currentQuestData;
+        public QuestCardsUI QuestCardsUI;
 
         void Start()
         {
-
+            QuestCardsUI = GetComponent<QuestCardsUI>();
         }
 
         public void Show(QuestData questData)
@@ -29,6 +30,10 @@ namespace Antura.Discover
             Description.text = "";
             gameObject.SetActive(true);
             currentQuestData = questData;
+
+            QuestCardsUI.Init(questData);
+
+
             Title.text = questData.Id + " | " + questData.Title.GetLocalizedString();
             if (questData.Location != null)
                 Title.text += " | " + questData.Location.Name.GetLocalizedString();

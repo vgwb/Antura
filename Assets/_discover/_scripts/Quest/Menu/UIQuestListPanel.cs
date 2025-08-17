@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.UI
 {
     public class UIQuestListPanel : MonoBehaviour
     {
