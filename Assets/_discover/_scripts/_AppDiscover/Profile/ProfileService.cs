@@ -3,9 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // HOT TO USE
-// create or load your profile (v7)
-// var profile = new DiscoverPlayerProfile { schemaVersion = 7 };
-// drag your EconomySettings asset in via inspector or Resources.Load
 // /* EconomySettings econ = /* ref to asset */ null;
 
 // var svc = new Antura.Discover.ProfileService(profile, econ);

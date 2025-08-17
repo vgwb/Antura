@@ -15,7 +15,6 @@ namespace Antura.Discover
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
         public Button PlayBtn;
-        public Button PlayManual;
         [SerializeField] QuestInfoPanelSlideshow slideshow;
 
         private QuestData currentQuestData;
@@ -58,7 +57,7 @@ namespace Antura.Discover
 
             if (currentQuestData.Thumbnail != null)
             {
-                slideshow.SetImages(new List<Sprite>() { currentQuestData.Thumbnail });
+                slideshow.SetImages(new List<Sprite>() { currentQuestData.Thumbnail.Image });
             }
             else
             {
@@ -72,15 +71,6 @@ namespace Antura.Discover
             else
             {
                 PlayBtn.interactable = false;
-            }
-
-            if (currentQuestData.manualPage != "")
-            {
-                PlayManual.gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayManual.gameObject.SetActive(false);
             }
 
         }

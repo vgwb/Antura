@@ -12,14 +12,13 @@ using UnityEngine.Localization.Metadata;
 using UnityEditor.Localization;
 using UnityEditor.Localization.Reporting;
 
-// Your data
 using Antura.Discover;
 namespace Antura.Discover.Editor
 {
     public static class AddCommentExample
     {
 
-        [MenuItem("Antura/Localization/Add Shared Comment (example)")]
+        [MenuItem("Antura/Experimental/Localization/Add Shared Comment", priority = 1000)]
         public static void AddSharedCommentExample()
         {
             AddSharedComment("Quests France", "line:0a24992", "Short context for translators.");

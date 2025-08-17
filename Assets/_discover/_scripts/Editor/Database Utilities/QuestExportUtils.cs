@@ -191,23 +191,6 @@ namespace Antura.Discover
                         set.Add("validation");
                 }
             }
-            else
-            {
-                void AddLegacy(List<AuthorData> list, string role)
-                {
-                    if (list == null)
-                        return;
-                    foreach (var a in list.Where(a => a != null))
-                    {
-                        if (!authorRoles.TryGetValue(a, out var set))
-                        { set = new HashSet<string>(StringComparer.OrdinalIgnoreCase); authorRoles[a] = set; }
-                        set.Add(role);
-                    }
-                }
-                AddLegacy(q.CreditsContent, "content");
-                AddLegacy(q.CreditsDesign, "design");
-                AddLegacy(q.CreditsDevelopment, "development");
-            }
             if (authorRoles.Count > 0)
             {
                 foreach (var kv in authorRoles.OrderBy(k => GetAuthorName(k.Key), StringComparer.OrdinalIgnoreCase))

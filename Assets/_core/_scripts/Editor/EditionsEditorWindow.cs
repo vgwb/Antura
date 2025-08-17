@@ -64,7 +64,7 @@ namespace Antura.Tools
             window.selectedNativeLanguageIndex = languages.IndexOf(appSettings.NativeLanguage);
         }
 
-        [MenuItem("Antura/Overview", false, 10)]
+        [MenuItem("Antura/Info/Overview Legacy", false, 10)]
         public static void ShowWindow()
         {
             Rebuild();

@@ -8,7 +8,7 @@ using Yarn.Unity;
 namespace Antura.Discover
 {
     [System.Serializable]
-    public class QuestCredit
+    public class AuthorCredit
     {
         public AuthorData Author;
         public bool Content;
@@ -34,7 +34,7 @@ namespace Antura.Discover
         public Countries Country;
         public LocationData Location;
         public LocalizedString Description;
-        public Sprite Thumbnail;
+        public AssetData Thumbnail;
 
         [Header("Content")]
         public KnowledgeTopic MainTopic;
@@ -97,12 +97,7 @@ namespace Antura.Discover
             }
         }
 
-        public List<QuestCredit> Credits;
-
-        // Deprecated: kept for backward compatibility and migration
-        public List<AuthorData> CreditsContent;
-        public List<AuthorData> CreditsDesign;
-        public List<AuthorData> CreditsDevelopment;
+        public List<AuthorCredit> Credits;
 
         [Header("Unity References and Prefabs")]
         public string assetsFolder;

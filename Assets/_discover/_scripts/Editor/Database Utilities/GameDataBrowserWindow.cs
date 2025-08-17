@@ -43,6 +43,8 @@ namespace Antura.Discover
         // WordData Active filter state
         private enum WordActiveFilter { All, ActiveOnly, InactiveOnly }
         private WordActiveFilter _wordActive = WordActiveFilter.All;
+        // QuestData DevStatus filter
+        private DevStatus? _devStatusFilter = null; // null => All
 
         // Layout sizes
         private const float ColOpen = 60f;
@@ -161,7 +163,7 @@ namespace Antura.Discover
             }
         }
 
-        [MenuItem("Antura/Discover/Game Data Browser", priority = 20)]
+        [MenuItem("Antura/Game Data Browser", priority = 10)]
         public static void ShowWindow()
         {
             var wnd = GetWindow<GameDataBrowserWindow>(false, "Game Data Browser", true);
@@ -255,7 +257,7 @@ namespace Antura.Discover
                     if (topTypes.Contains(t))
                         continue;
                     if (t.Name == nameof(AchievementData))
-                        continue; // requested to remove AchievementData from the list
+                        continue;
                     _typeOptions.Add(new TypeOption { Label = NicifyTypeLabel(t), Type = t, IsAggregate = false, IsSeparator = false });
                 }
             }
@@ -325,19 +327,11 @@ namespace Antura.Discover
         {
             using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar))
             {
-                // First: Refresh button (requested to be first)
-                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
-                {
-                    RefreshTypes();
-                    RefreshList();
-                }
-                GUILayout.Space(8);
-
                 // Left: Data selector (narrower width)
-                GUILayout.Label("Data:", GUILayout.Width(40));
+                // GUILayout.Label("Data:", GUILayout.Width(40));
                 var labels = _typeOptions.Select(o => o.Label).ToArray();
                 var selIndex = Mathf.Clamp(_selectedTypeIndex, 0, Mathf.Max(0, _typeOptions.Count - 1));
-                var newIndex = EditorGUILayout.Popup(selIndex, labels, EditorStyles.toolbarPopup, GUILayout.Width(140));
+                var newIndex = EditorGUILayout.Popup(selIndex, labels, EditorStyles.toolbarPopup, GUILayout.Width(120));
                 if (newIndex != _selectedTypeIndex)
                 {
                     // Prevent selecting separator
@@ -358,12 +352,29 @@ namespace Antura.Discover
                 var cOpts = GetCountryOptions();
                 var cLabels = cOpts.Select(o => o.Label).ToArray();
                 int cIndex = Mathf.Max(0, cOpts.FindIndex(o => !o.IsSeparator && o.Value.Equals(_countryFilter)));
-                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels, EditorStyles.toolbarPopup, GUILayout.Width(140));
+                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels, EditorStyles.toolbarPopup, GUILayout.Width(100));
                 if (newCIndex != cIndex)
                 {
                     if (!cOpts[newCIndex].IsSeparator)
                     {
                         _countryFilter = cOpts[newCIndex].Value;
+                        Repaint();
+                    }
+                }
+
+                // DevStatus selector (only when browsing quests)
+                if (SelectedType == typeof(QuestData))
+                {
+                    GUILayout.Space(8);
+                    GUILayout.Label("Status:", GUILayout.Width(48));
+                    var devValues = (DevStatus[])Enum.GetValues(typeof(DevStatus));
+                    var devLabels = new List<string> { "All" };
+                    devLabels.AddRange(devValues.Select(v => v.ToString()));
+                    int current = _devStatusFilter.HasValue ? (Array.IndexOf(devValues, _devStatusFilter.Value) + 1) : 0;
+                    int chosen = EditorGUILayout.Popup(current, devLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
+                    if (chosen != current)
+                    {
+                        _devStatusFilter = chosen <= 0 ? default(DevStatus?) : devValues[chosen - 1];
                         Repaint();
                     }
                 }
@@ -405,10 +416,10 @@ namespace Antura.Discover
                     { _wordActive = (WordActiveFilter)newAct; Repaint(); }
                 }
 
-                GUILayout.Space(12);
+                //GUILayout.Space(12);
                 if (_searchField == null)
                     _searchField = new SearchField();
-                var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(160));
+                var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(100));
                 if (!string.Equals(newSearch, _search, StringComparison.Ordinal))
                 { _search = newSearch; Repaint(); }
 
@@ -420,6 +431,14 @@ namespace Antura.Discover
                     GUILayout.Label($"{count} items", EditorStyles.miniLabel);
                 }
                 catch { }
+
+                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
+                {
+                    RefreshTypes();
+                    RefreshList();
+                }
+                //                GUILayout.Space(8);
+
                 if (GUILayout.Button("Export CSV", EditorStyles.toolbarButton))
                 {
                     ExportCsv();
@@ -568,38 +587,15 @@ namespace Antura.Discover
 
             float tableWidth = GetTableWidth();
             var outer = GUILayoutUtility.GetRect(position.width, position.height - 160, GUILayout.ExpandHeight(true));
-            // compute dynamic total height (Quest rows can grow based on topics)
-            float totalHeight = 0f;
-            var rowHeights = new List<float>(items.Count);
-            foreach (var obj in items)
-            {
-                float h = RowHeight;
-                if (SelectedType == typeof(QuestData) && obj is QuestData qh)
-                {
-                    // estimate extra lines from topics
-                    int n = 0;
-                    if (qh.Cards != null)
-                    {
-                        var set = new HashSet<string>();
-                        foreach (var cc in qh.Cards)
-                            if (cc != null && cc.Topics != null)
-                                foreach (var t in cc.Topics)
-                                    set.Add(t.ToString());
-                        n = set.Count;
-                    }
-                    if (n > 0)
-                        h = Mathf.Max(RowHeight, RowHeight + (n - 1) * (EditorGUIUtility.singleLineHeight + 2f));
-                }
-                rowHeights.Add(h);
-                totalHeight += h;
-            }
+            // Fixed-height rows for all types
+            float totalHeight = RowHeight * items.Count;
             var inner = new Rect(0, 0, tableWidth, totalHeight);
             _scroll = GUI.BeginScrollView(outer, _scroll, inner, true, true);
             int index = 0;
             float yCursor = 0f;
             foreach (var obj in items)
             {
-                float rowH = rowHeights[index];
+                float rowH = RowHeight;
                 var rowRect = new Rect(0, yCursor, tableWidth, rowH);
                 if ((index++ % 2) == 0)
                     EditorGUI.DrawRect(new Rect(0, rowRect.y, tableWidth, rowRect.height), new Color(0, 0, 0, 0.04f));
@@ -946,7 +942,7 @@ namespace Antura.Discover
             var rThumb = new Rect(x, rowRect.y + 2f, ColImage, ColImage);
             if (q.Thumbnail != null)
             {
-                var tex = AssetPreview.GetAssetPreview(q.Thumbnail) ?? AssetPreview.GetMiniThumbnail(q.Thumbnail) ?? q.Thumbnail.texture;
+                var tex = AssetPreview.GetAssetPreview(q.Thumbnail.Image) ?? AssetPreview.GetMiniThumbnail(q.Thumbnail.Image) ?? q.Thumbnail.Image.texture;
                 if (tex != null)
                     GUI.DrawTexture(rThumb, tex, ScaleMode.ScaleToFit);
                 else
@@ -1156,6 +1152,12 @@ namespace Antura.Discover
             if (SelectedType == typeof(WordData) && _wordActive != WordActiveFilter.All)
             {
                 set = set.Where(a => a is WordData w && (_wordActive == WordActiveFilter.ActiveOnly ? w.Active : !w.Active));
+            }
+            // QuestData DevStatus filter
+            if (SelectedType == typeof(QuestData) && _devStatusFilter.HasValue)
+            {
+                var status = _devStatusFilter.Value;
+                set = set.Where(a => a is QuestData q && q.DevStatus == status);
             }
 
             // Search filter across Id, Title/Name and for AssetData also Copyright/Source
@@ -1542,344 +1544,6 @@ namespace Antura.Discover
             return s;
         }
 
-        private static string GetQuestExportFileName(QuestData q)
-        {
-            string code = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
-            foreach (var ch in System.IO.Path.GetInvalidFileNameChars())
-                code = code.Replace(ch, '-');
-            var dateStr = DateTime.Now.ToString("yyyy-MM-dd");
-            return $"Antura Quest - {code} - {dateStr}.md";
-        }
-
-        private static System.Text.StringBuilder BuildQuestMarkdown(QuestData q)
-        {
-            var sb = new System.Text.StringBuilder();
-            // YAML front matter with title
-            string title = !string.IsNullOrEmpty(q.TitleText) ? q.TitleText : (!string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
-            sb.AppendLine("---");
-            sb.AppendLine("title: Antura Discover Quest - " + title);
-            sb.AppendLine("---");
-            sb.AppendLine();
-            // Heading per request
-            sb.AppendLine("# Antura Discover Quest - " + title);
-            // Second line: current date
-            sb.AppendLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd"));
-            sb.AppendLine("Status: " + q.DevStatus);
-            sb.AppendLine();
-
-            // Description
-            string desc = null;
-            try
-            { desc = q.Description.GetLocalizedString(); }
-            catch { }
-            if (!string.IsNullOrEmpty(desc))
-            {
-                sb.AppendLine(desc);
-                sb.AppendLine();
-            }
-
-            // Data section
-            sb.AppendLine("## Informations");
-            sb.AppendLine();
-            // Title and Description first
-            sb.AppendLine("- Title: " + q.TitleText);
-            sb.AppendLine("- Description: " + q.DescriptionText);
-            string locId = q.Location != null ? (!string.IsNullOrEmpty(q.Location.Id) ? q.Location.Id : q.Location.name) : string.Empty;
-            sb.AppendLine("- Location: " + q.Country + " - " + locId);
-
-            sb.AppendLine("## Content");
-            sb.AppendLine("- Category: " + q.MainTopic);
-            sb.AppendLine("- Knowledge points: " + q.KnowledgeValue);
-
-            // Topics (unique from cards)
-            if (q.Cards != null && q.Cards.Count > 0)
-            {
-                var set = new HashSet<string>();
-                foreach (var cc in q.Cards)
-                    if (cc != null && cc.Topics != null)
-                        foreach (var t in cc.Topics)
-                            set.Add(t.ToString());
-                if (set.Count > 0)
-                {
-                    sb.AppendLine("- Topics:");
-                    foreach (var t in set.OrderBy(s => s))
-                        sb.AppendLine("  - " + t);
-                }
-            }
-
-            // Linked cards
-            if (q.Cards != null && q.Cards.Count > 0)
-            {
-                sb.AppendLine("- Linked Cards: " + string.Join(", ", q.Cards.Where(c => c != null).Select(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id)));
-            }
-            // Words Used
-            if (q.Words != null && q.Words.Count > 0)
-            {
-                sb.AppendLine("- Words Used: " + string.Join(", ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
-            }
-
-            sb.AppendLine("## Gameplay");
-
-            sb.AppendLine("- Difficulty: " + q.Difficulty);
-            sb.AppendLine("- Duration (min): " + q.Duration);
-            if (q.Gameplay != null && q.Gameplay.Count > 0)
-            {
-                sb.AppendLine("- Kind:");
-                foreach (var g in q.Gameplay)
-                    sb.AppendLine("  - " + g);
-            }
-
-            // Credits
-            sb.AppendLine("## Credits");
-            // Build a map Author -> set of roles (lowercase)
-            var authorRoles = new Dictionary<AuthorData, HashSet<string>>();
-            if (q.Credits != null && q.Credits.Count > 0)
-            {
-                foreach (var qc in q.Credits.Where(c => c != null && c.Author != null))
-                {
-                    if (!authorRoles.TryGetValue(qc.Author, out var set))
-                    {
-                        set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-                        authorRoles[qc.Author] = set;
-                    }
-                    if (qc.Content)
-                        set.Add("content");
-                    if (qc.Design)
-                        set.Add("design");
-                    if (qc.Development)
-                        set.Add("development");
-                    if (qc.Validation)
-                        set.Add("validation");
-                }
-            }
-            else
-            {
-                void AddLegacy(List<AuthorData> list, string role)
-                {
-                    if (list == null)
-                        return;
-                    foreach (var a in list.Where(a => a != null))
-                    {
-                        if (!authorRoles.TryGetValue(a, out var set))
-                        {
-                            set = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-                            authorRoles[a] = set;
-                        }
-                        set.Add(role);
-                    }
-                }
-                AddLegacy(q.CreditsContent, "content");
-                AddLegacy(q.CreditsDesign, "design");
-                AddLegacy(q.CreditsDevelopment, "development");
-            }
-
-            if (authorRoles.Count > 0)
-            {
-                foreach (var kv in authorRoles
-                    .OrderBy(k => GetAuthorSortName(k.Key), StringComparer.OrdinalIgnoreCase))
-                {
-                    var author = kv.Key;
-                    var roles = kv.Value.OrderBy(r => r, StringComparer.OrdinalIgnoreCase).ToList();
-                    var rolesTxt = roles.Count > 0 ? " (" + string.Join(", ", roles) + ")" : string.Empty;
-                    sb.AppendLine("- " + FormatAuthor(author) + rolesTxt);
-                }
-            }
-
-            // Optional Additional Resources section between Data and Script
-            if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
-            {
-                sb.AppendLine();
-                sb.AppendLine("## Additional Resources");
-                sb.AppendLine();
-                sb.AppendLine(q.AdditionalResources.text);
-            }
-
-            sb.AppendLine();
-            sb.AppendLine("---");
-            sb.AppendLine();
-
-            // Script section (published only if IsScriptPublic)
-            if (q.IsScriptPublic)
-            {
-                sb.AppendLine("## Script");
-                sb.AppendLine();
-                if (q.YarnScript != null)
-                {
-                    sb.AppendLine("```yarn");
-                    sb.AppendLine(q.YarnScript.text);
-                    sb.AppendLine("```");
-                }
-                else
-                {
-                    sb.AppendLine("(No YarnScript attached)");
-                }
-            }
-
-            return sb;
-        }
-
-        // Export helpers removed; use QuestExporterWindow instead
-
-        private static string FormatAuthor(AuthorData a)
-        {
-            if (a == null)
-                return string.Empty;
-            string name = a.name;
-            string country = string.Empty;
-            string url = string.Empty;
-            try
-            {
-                var t = a.GetType();
-                var nameFi = t.GetField("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                var namePi = t.GetProperty("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                if (nameFi != null && nameFi.FieldType == typeof(string))
-                    name = nameFi.GetValue(a) as string ?? name;
-                else if (namePi != null && namePi.PropertyType == typeof(string) && namePi.CanRead)
-                    name = namePi.GetValue(a, null) as string ?? name;
-
-                var countryFi = t.GetField("Country", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                var countryPi = t.GetProperty("Country", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                if (countryFi != null && countryFi.FieldType == typeof(Countries))
-                    country = ((Countries)countryFi.GetValue(a)).ToString();
-                else if (countryPi != null && countryPi.PropertyType == typeof(Countries) && countryPi.CanRead)
-                    country = ((Countries)countryPi.GetValue(a, null)).ToString();
-
-                var urlFi = t.GetField("Url", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                var urlPi = t.GetProperty("Url", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                if (urlFi != null && urlFi.FieldType == typeof(string))
-                    url = urlFi.GetValue(a) as string ?? string.Empty;
-                else if (urlPi != null && urlPi.PropertyType == typeof(string) && urlPi.CanRead)
-                    url = urlPi.GetValue(a, null) as string ?? string.Empty;
-            }
-            catch { }
-
-            // Build display: link around the name if URL exists, and keep country in parentheses
-            string displayName = name;
-            if (!string.IsNullOrEmpty(url))
-            {
-                displayName = $"[{name}]({url})";
-            }
-            if (!string.IsNullOrEmpty(country))
-            {
-                return $"{displayName} ({country})";
-            }
-            return displayName;
-        }
-
-        private static string GetAuthorName(AuthorData a)
-        {
-            if (a == null)
-                return string.Empty;
-            string name = a.name;
-            try
-            {
-                var t = a.GetType();
-                var nameFi = t.GetField("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                var namePi = t.GetProperty("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                if (nameFi != null && nameFi.FieldType == typeof(string))
-                    name = nameFi.GetValue(a) as string ?? name;
-                else if (namePi != null && namePi.PropertyType == typeof(string) && namePi.CanRead)
-                    name = namePi.GetValue(a, null) as string ?? name;
-            }
-            catch { }
-            return name ?? string.Empty;
-        }
-
-        private static string GetAuthorSortName(AuthorData a)
-        {
-            return GetAuthorName(a);
-        }
-
-        [MenuItem("Antura/Discover/Publish Quests Website", priority = 300)]
-        public static void PublishQuestsToDocs()
-        {
-            try
-            {
-                string projectRoot = System.IO.Directory.GetParent(Application.dataPath).FullName;
-                string folder = System.IO.Path.Combine(projectRoot, "docs", "manual", "quests");
-                System.IO.Directory.CreateDirectory(folder);
-
-                var guids = AssetDatabase.FindAssets("t:QuestData");
-                int ok = 0, fail = 0;
-                var grouped = new Dictionary<Countries, List<KeyValuePair<string, string>>>();
-                foreach (var guid in guids)
-                {
-                    var assetPath = AssetDatabase.GUIDToAssetPath(guid);
-                    var q = AssetDatabase.LoadAssetAtPath<QuestData>(assetPath);
-                    if (q == null)
-                    { fail++; continue; }
-                    if (!q.IsPublic)
-                    { continue; }
-                    try
-                    {
-                        string fileName = QuestExportUtils.GetQuestPublishFileName(q);
-                        string outPath = System.IO.Path.Combine(folder, fileName);
-                        var md = QuestExportUtils.BuildQuestMarkdown(q);
-                        System.IO.File.WriteAllText(outPath, md);
-                        // add to grouped for index
-                        var title = q.TitleText;
-                        if (string.IsNullOrEmpty(title))
-                            title = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
-                        title = title?.Replace("\r", " ").Replace("\n", " ");
-                        if (!grouped.TryGetValue(q.Country, out var list))
-                        { list = new List<KeyValuePair<string, string>>(); grouped[q.Country] = list; }
-                        list.Add(new KeyValuePair<string, string>(title, fileName));
-                        ok++;
-                    }
-                    catch (Exception ex)
-                    {
-                        Debug.LogError($"[GameDataBrowser] Failed publishing '{q?.Id}': {ex.Message}");
-                        fail++;
-                    }
-                }
-                // write index.md grouped by country
-                try
-                {
-                    var indexSb = new System.Text.StringBuilder();
-                    indexSb.AppendLine("---");
-                    indexSb.AppendLine("title: Antura Discover Quests");
-                    indexSb.AppendLine("---");
-                    indexSb.AppendLine();
-
-                    Countries[] order = new[] {
-                        Countries.France, Countries.Poland, Countries.Germany, Countries.Greece,
-                        Countries.Italy, Countries.Portugal, Countries.Spain, Countries.UnitedKingdom,
-                        Countries.Global
-                    };
-                    Func<Countries, string> countryLabel = c =>
-                    {
-                        var s = c.ToString();
-                        if (s == nameof(Countries.UnitedKingdom))
-                            return "United Kingdom";
-                        return s;
-                    };
-                    foreach (var c in order)
-                    {
-                        if (!grouped.TryGetValue(c, out var list) || list == null || list.Count == 0)
-                            continue;
-                        indexSb.AppendLine($"## {countryLabel(c)}");
-                        indexSb.AppendLine();
-                        foreach (var kv in list.OrderBy(k => k.Key, StringComparer.OrdinalIgnoreCase))
-                        {
-                            indexSb.AppendLine($"- [{kv.Key}](./{kv.Value})");
-                        }
-                        indexSb.AppendLine();
-                    }
-                    string indexPath = System.IO.Path.Combine(folder, "index.md");
-                    System.IO.File.WriteAllText(indexPath, indexSb.ToString());
-                }
-                catch (Exception ex)
-                {
-                    Debug.LogError($"[GameDataBrowser] Failed to write quests index.md: {ex.Message}");
-                }
-                Debug.Log($"[GameDataBrowser] Published {ok} quest files to {folder}. Failures: {fail}");
-                EditorUtility.RevealInFinder(folder);
-            }
-            catch (Exception ex)
-            {
-                Debug.LogError($"[GameDataBrowser] Publish failed: {ex.Message}");
-            }
-        }
     }
 }
 #endif

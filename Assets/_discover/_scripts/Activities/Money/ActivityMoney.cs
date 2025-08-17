@@ -262,7 +262,7 @@ namespace Antura.Discover.Activities
 
         private void Skip()
         {
-            // TODO: apply -1 point via your BonusMalus or Score system
+            // TODO: apply -1 point via BonusMalus or Score system
             Debug.Log("[CountMoney] SKIP (apply penalty)");
             // Optionally immediately end:
             Lose();

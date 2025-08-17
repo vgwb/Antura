@@ -46,7 +46,7 @@ namespace Antura.Discover
             if (questData.Thumbnail != null)
             {
                 Thumbnail.SetActive(true);
-                Thumbnail.GetComponent<Image>().sprite = questData.Thumbnail;
+                Thumbnail.GetComponent<Image>().sprite = questData.Thumbnail.Image;
             }
             else
             {

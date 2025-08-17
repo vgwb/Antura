@@ -159,7 +159,7 @@ namespace Antura.Discover
         //   QUEST FLOW
         // =========================================================
 
-        /// <summary>Update the current profile after a quest concludes (v7 + ledger).</summary>
+        /// <summary>Update the current profile after a quest concludes</summary>
         public void RecordQuestEnd(QuestEnd end)
         {
             if (CurrentProfile == null)
@@ -167,10 +167,6 @@ namespace Antura.Discover
 
             // Record quest run (updates stats + awards star→gem delta if improved)
             var award = Svc.RecordQuestRun(end.questId, end.score, end.stars, end.durationSec);
-
-            // (Optional) To mirror your old behavior (count completion even with 0 stars), keep this:
-            if (end.stars <= 0 && CurrentProfile.stats.quests.TryGetValue(end.questId, out var qs) && qs != null)
-                qs.completions++;
 
             // Aggregate activities
             if (end.activities != null)

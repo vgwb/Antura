@@ -155,7 +155,7 @@ namespace Antura.Discover.Activities
         }
 
         /// <summary>
-        /// Override to expose your concrete settings to base scoring logic.
+        /// Override to expose concrete settings to base scoring logic.
         /// </summary>
         protected virtual ActivitySettingsAbstract GetSettings() => null;
 

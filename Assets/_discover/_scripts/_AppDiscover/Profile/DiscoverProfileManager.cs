@@ -323,9 +323,7 @@ namespace Antura.Discover
         {
             try
             {
-                // If your legacy profile exposes a dev flag, map it; otherwise default false.
-                // Adjust property name if different or remove try/catch once you know it.
-                return (bool)(legacy?.GetType().GetProperty("IsDevGodMode")?.GetValue(legacy) ?? false);
+                return (bool)(legacy?.GetType().GetProperty("IsDemoUser")?.GetValue(legacy) ?? false);
             }
             catch { return false; }
         }

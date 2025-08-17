@@ -35,7 +35,7 @@ sequence:
 
         private void OnGUI()
         {
-            EditorGUILayout.LabelField("Paste your melody text (YAML-like)", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField("Paste melody text (YAML-like)", EditorStyles.boldLabel);
             using (new EditorGUILayout.VerticalScope("box"))
             {
                 inputText = EditorGUILayout.TextArea(inputText, GUILayout.Height(220));
@@ -167,7 +167,7 @@ sequence:
             parsedCount = previewEvents.Count;
             parseStatus = parsedCount > 0
                 ? $"Parsed {parsedCount} events. Tempo = {overrideTempoBPM} BPM."
-                : "No events matched. Check your formatting: lines like { IsRest: 0, Note: 9, Octave: 3, Duration: 2 }";
+                : "No events matched. Check formatting: lines like { IsRest: 0, Note: 9, Octave: 3, Duration: 2 }";
         }
 
         private void CreateAsset()
