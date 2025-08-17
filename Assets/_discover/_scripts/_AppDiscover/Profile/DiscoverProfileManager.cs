@@ -221,6 +221,8 @@ namespace Antura.Discover
             var now = DatetimeUtilities.GetNowUtcString();
             var p = new DiscoverPlayerProfile
             {
+                schemaVersion = 2042,
+
                 metadata = new Metadata
                 {
                     createdUtc = now,
@@ -228,6 +230,7 @@ namespace Antura.Discover
                     platform = platform,
                     appVersion = appVersion
                 },
+
                 profile = new ProfileHeader
                 {
                     id = id,
@@ -237,29 +240,36 @@ namespace Antura.Discover
                     countryIso2 = "",
                     classroom = legacy?.Classroom ?? 0,
                     easyMode = legacy?.EasyMode ?? false,
-                    talkToPlayerStyle = legacy != null ? legacy.TalkToPlayerStyle : TalkToPlayerMode.LearningThenNative
+                    talkToPlayerStyle = SafeMapTalkStyle(legacy),
+                    godMode = SafeGetGodMode(legacy),
+                    playerIcon = MapLegacyPlayerIcon(legacy)
                 },
+
                 settings = new Settings
                 {
-                    audio = new AudioSettings
-                    {
-                        musicMuted = false, sfxMuted = false
-                    }
+                    audio = new AudioSettings { musicMuted = false, sfxMuted = false }
                 },
-                currency = new Currency
+
+                wallet = new Wallet { cookies = 0 },
+
+                level = new LevelProgress
                 {
                     points = 0,
                     gems = 0,
-                    cookies = 0
+                    gemClaims = new List<GemTokenClaim>(),
+                    xpMilestonesClaimed = new List<int>(),
+                    gemMilestonesClaimed = new List<int>()
                 },
-                avatar = new Avatar(), // defaults: cat species, no props
-                rewards = new Rewards(),
+
+                avatar = new Avatar(),     // defaults: cat species, no props
+                rewards = new Rewards(),   // empty ownership
                 stats = new ProfileStats
                 {
                     totals = new Totals(),
-                    quests = new(),
-                    activities = new()
+                    quests = new Dictionary<string, QuestStats>(),
+                    activities = new Dictionary<string, ActivityStats>()
                 },
+
                 cards = new Dictionary<string, CardState>(),
                 achievements = new Dictionary<string, AchievementState>()
             };
@@ -285,6 +295,65 @@ namespace Antura.Discover
                 "Arabic" => "ar",
                 _ => "en"
             };
+        }
+
+        // ----------------- helpers -----------------
+
+        private static TalkToPlayerMode SafeMapTalkStyle(Antura.Profile.PlayerProfile legacy)
+        {
+            if (legacy == null)
+                return TalkToPlayerMode.LearningThenNative;
+            try
+            {
+                // If legacy enum underlying value matches, this works:
+                var val = Convert.ToInt32(legacy.TalkToPlayerStyle);
+                if (Enum.IsDefined(typeof(TalkToPlayerMode), val))
+                    return (TalkToPlayerMode)val;
+
+                // Fallback by name
+                var name = legacy.TalkToPlayerStyle.ToString();
+                if (Enum.TryParse(name, out TalkToPlayerMode parsed))
+                    return parsed;
+            }
+            catch { }
+            return TalkToPlayerMode.LearningThenNative;
+        }
+
+        private static bool SafeGetGodMode(Antura.Profile.PlayerProfile legacy)
+        {
+            try
+            {
+                // If your legacy profile exposes a dev flag, map it; otherwise default false.
+                // Adjust property name if different or remove try/catch once you know it.
+                return (bool)(legacy?.GetType().GetProperty("IsDevGodMode")?.GetValue(legacy) ?? false);
+            }
+            catch { return false; }
+        }
+
+        private static DiscoverPlayerIcon MapLegacyPlayerIcon(Antura.Profile.PlayerProfile legacy)
+        {
+            var icon = new DiscoverPlayerIcon();
+            if (legacy == null)
+                return icon;
+
+            try
+            { icon.gender = Convert.ToInt32(legacy.Gender); }
+            catch { icon.gender = (int)Profile.PlayerGender.Undefined; }
+            try
+            { icon.tint = Convert.ToInt32(legacy.Tint); }
+            catch { icon.tint = (int)Profile.PlayerTint.None; }
+
+            try
+            { icon.skinColor = legacy.SkinColor; }
+            catch { }
+            try
+            { icon.hairColor = legacy.HairColor; }
+            catch { }
+            try
+            { icon.bgColor = legacy.BgColor; }
+            catch { }
+
+            return icon;
         }
 
     }

@@ -1,13 +1,10 @@
-## Discover Player Profile JSON scheme
-
-```json
 {
-  "schemaVersion": 5,
+  "schemaVersion": 1,
   "metadata": {
     "createdUtc": "2025-08-16T12:00:00Z",
-    "lastUpdatedUtc": "2025-08-16T12:00:00Z",
+    "lastUpdatedUtc": "2025-08-16T12:34:56Z",
     "platform": "mobile",
-    "appVersion": "3.0.0"
+    "appVersion": "3.1.0"
   },
   "profile": {
     "id": "player_01",
@@ -17,37 +14,53 @@
     "countryIso2": "PL",
     "classroom": 2,
     "easyMode": false,
-    "talkToPlayerStyle": 3
+    "talkToPlayerStyle": 3,
+    "godMode": false,
+    "playerIcon": {
+      "gender": 1,
+      "tint": 2,
+      "skinColor": { "r": 0.95, "g": 0.85, "b": 0.75, "a": 1 },
+      "hairColor": { "r": 0.1, "g": 0.05, "b": 0.02, "a": 1 },
+      "bgColor": { "r": 0.2, "g": 0.3, "b": 0.6, "a": 1 }
+    }
   },
-  "settings": {
-    "audio": { "musicMuted": false, "sfxMuted": false }
-  },
-  "currency": {
+  "settings": { "audio": { "musicMuted": false, "sfxMuted": false } },
+  "wallet": { "cookies": 4 },
+  "level": {
     "points": 150,
     "gems": 12,
-    "cookies": 4
+    "gemClaims": [
+      {
+        "id": "legacy:sv5",
+        "type": 7,
+        "sourceId": "system",
+        "amount": 12,
+        "claimedUtc": "2025-08-16T12:00:00Z",
+        "note": "carry-over"
+      },
+      {
+        "id": "card:CARD_APPLE",
+        "type": 1,
+        "sourceId": "CARD_APPLE",
+        "amount": 1,
+        "claimedUtc": "2025-08-16T12:01:00Z"
+      }
+    ],
+    "xpMilestonesClaimed": [1000],
+    "gemMilestonesClaimed": [10]
   },
   "avatar": {
     "activeSpecies": "cat",
     "species": {
       "cat": {
         "prefabId": "AvatarCatV1",
-        "equippedProps": [
-          "cat/head/hat_chef",
-          "cat/eyes/glasses_round"
-        ]
+        "equippedProps": ["cat/head/hat_chef", "cat/eyes/glasses_round"]
       }
     }
   },
   "rewards": {
-    "ownedItemIds": [
-      "cat/head/hat_chef",
-      "cat/eyes/glasses_round"
-    ],
-    "unlockedItemIds": [
-      "cat/body/scarf_blue",
-      "cat/head/cap_red"
-    ]
+    "ownedItemIds": ["cat/head/hat_chef", "cat/eyes/glasses_round"],
+    "unlockedItemIds": ["cat/body/scarf_blue", "cat/head/cap_red"]
   },
   "stats": {
     "totals": {
@@ -96,21 +109,14 @@
       "answered": { "correct": 17, "wrong": 6 },
       "streakCorrect": 4,
       "mastery01": 0.76
-    },
-    "CARD_FISH": {
-      "unlocked": true,
-      "firstSeenUtc": "2025-08-13T09:10:00Z",
-      "lastSeenUtc": "2025-08-16T11:20:00Z",
-      "interactions": 9,
-      "answered": { "correct": 6, "wrong": 3 },
-      "streakCorrect": 2,
-      "mastery01": 0.63
     }
   },
   "achievements": {
-    "ACH_FIRST_QUEST": { "unlocked": true,  "progress": 1, "unlockedUtc": "2025-08-12T10:25:00Z" },
-    "ACH_10_COMPLETIONS": { "unlocked": false, "progress": 6 },
-    "ACH_PIANO_BRONZE":  { "unlocked": true,  "progress": 1, "unlockedUtc": "2025-08-15T09:03:00Z" }
+    "ACH_FIRST_QUEST": {
+      "unlocked": true,
+      "progress": 1,
+      "unlockedUtc": "2025-08-12T10:25:00Z"
+    },
+    "ACH_10_COMPLETIONS": { "unlocked": false, "progress": 6 }
   }
 }
-```

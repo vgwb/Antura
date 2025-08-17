@@ -8,7 +8,6 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-
     public struct ActivityEnd
     {
         public string activityId;
@@ -29,14 +28,13 @@ namespace Antura.Discover
         public List<ActivityEnd> activities; // optional
     }
 
-    //    [DefaultExecutionOrder(-300)]
-    public class DiscoverAppManager : MonoBehaviour
+    public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
+        [Header("Economy (milestones & quest star caps)")]
+        [SerializeField] private EconomySettings economySettings;
 
-        public static DiscoverAppManager I { get; private set; }
-
-
-        private string storageSubdir = "discover_profiles";
+        [Header("Storage")]
+        [SerializeField] private string storageSubdir = "discover_profiles";
 
         // Store for JSON files + tiny PlayerPrefs pointer
         private DiscoverProfileManager profilesManager;
@@ -44,9 +42,20 @@ namespace Antura.Discover
         // Currently loaded Discover profile (null until Initialize... is called)
         public DiscoverPlayerProfile CurrentProfile { get; private set; }
 
-        // Auto-save delay after marking profile dirty (seconds).
-        private float saveDebounceSeconds = 60f;
+        // Profile service (v7 helpers)
+        private ProfileService _profileSvc;
+        private ProfileService Svc
+        {
+            get
+            {
+                if (_profileSvc == null && CurrentProfile != null)
+                    _profileSvc = new ProfileService(CurrentProfile, economySettings);
+                return _profileSvc;
+            }
+        }
 
+        // Auto-save debounce (seconds)
+        [SerializeField] private float saveDebounceSeconds = 60f;
         private bool dirty;
         private Coroutine saveCo;
 
@@ -62,27 +71,31 @@ namespace Antura.Discover
         /// <summary>Raised when cookies/gems/points change (for HUD badges, etc.).</summary>
         public event Action OnCurrencyChanged;
 
-        private void Awake()
+        /// <summary>Raised when gems are awarded through the ledger (delta, newly added tokens).</summary>
+        public event Action<int, GemTokenClaim[]> OnGemsAwarded;
+
+        // ------------------------------
+        // Lifecycle
+        // ------------------------------
+        protected override void Init()
         {
-            if (I != null && I != this)
-            { Destroy(gameObject); return; }
-            I = this;
-            DontDestroyOnLoad(gameObject);
+            DontDestroyOnLoad(this);
             profilesManager = new DiscoverProfileManager(storageSubdir);
             PlayerProfileManager.OnProfileChanged += OldProfilePlayerChanged;
         }
 
-        void OnDestroy()
+        private void OnDestroy()
         {
             PlayerProfileManager.OnProfileChanged -= OldProfilePlayerChanged;
         }
 
         private void Start()
         {
-            // Initialize with the current profile (if any)
+            // Initialize with the current legacy profile (if any)
             if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
             {
-                InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid, AppManager.I.PlayerProfileManager.CurrentPlayer);
+                InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid,
+                                         AppManager.I.PlayerProfileManager.CurrentPlayer);
             }
         }
 
@@ -100,23 +113,27 @@ namespace Antura.Discover
 
         private void OldProfilePlayerChanged()
         {
-            //            Debug.Log($"DiscoverAppManager.OldProfilePlayerChanged: {AppManager.I.PlayerProfileManager.CurrentPlayer?.Uuid})");
-            if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
+            var legacy = AppManager.I.PlayerProfileManager.CurrentPlayer;
+            if (legacy != null)
             {
-                InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid, AppManager.I.PlayerProfileManager.CurrentPlayer);
+                InitializeFromLegacyUuid(legacy.Uuid, legacy);
             }
             else
             {
-                CurrentProfile = null;
+                SetCurrentProfile(null);
             }
         }
+
+        // ------------------------------
+        // Profile load / switch
+        // ------------------------------
         public void InitializeFromLegacyUuid(string legacyUuid, PlayerProfile legacy = null)
         {
-            Debug.Log($"DiscoverAppManager.InitializeFromLegacyUuid: {legacyUuid})");
+            Debug.Log($"DiscoverAppManager.InitializeFromLegacyUuid: {legacyUuid}");
             var platform = IsMobile() ? "mobile" : "desktop";
-            CurrentProfile = profilesManager.LoadOrCreateByLegacyUuid(legacyUuid, legacy, platform, Application.version);
-            profilesManager.SetCurrent(CurrentProfile.profile.id);
-            OnProfileLoaded?.Invoke(CurrentProfile);
+            var p = profilesManager.LoadOrCreateByLegacyUuid(legacyUuid, legacy, platform, Application.version);
+            profilesManager.SetCurrent(p.profile.id);
+            SetCurrentProfile(p);
         }
 
         public bool SwitchProfile(string id)
@@ -124,81 +141,59 @@ namespace Antura.Discover
             var p = profilesManager.LoadById(id);
             if (p == null)
                 return false;
-            CurrentProfile = p;
             profilesManager.SetCurrent(id);
-            OnProfileLoaded?.Invoke(CurrentProfile);
+            SetCurrentProfile(p);
             return true;
         }
 
         public IReadOnlyList<DiscoverProfileHeader> ListProfiles() => profilesManager.ListProfiles();
 
+        private void SetCurrentProfile(DiscoverPlayerProfile p)
+        {
+            CurrentProfile = p;
+            _profileSvc = (p != null) ? new ProfileService(p, economySettings) : null;
+            OnProfileLoaded?.Invoke(CurrentProfile);
+        }
+
         // =========================================================
         //   QUEST FLOW
         // =========================================================
 
-
-
-        /// <summary>
-        /// update the current profile after a quest concludes
-        /// </summary>
+        /// <summary>Update the current profile after a quest concludes (v7 + ledger).</summary>
         public void RecordQuestEnd(QuestEnd end)
         {
             if (CurrentProfile == null)
             { Debug.LogWarning("DiscoverAppManager.RecordQuestEnd called with no profile loaded."); return; }
-            var p = CurrentProfile;
-            var now = DatetimeUtilities.GetNowUtcString();
 
-            // --- Update quest stats ---
-            if (!p.stats.quests.TryGetValue(end.questId, out var qs))
-            {
-                qs = new QuestStats { firstPlayedUtc = now };
-                p.stats.quests[end.questId] = qs;
-            }
-            qs.plays++;
-            qs.completions++;
-            qs.lastScore = end.score;
-            if (end.score > qs.bestScore)
-                qs.bestScore = end.score;
-            qs.sumScore += end.score;
-            qs.timeSec += end.durationSec;
-            qs.lastStars = Mathf.Clamp(end.stars, 0, 3);
-            if (qs.lastStars > qs.bestStars)
-                qs.bestStars = qs.lastStars;
-            qs.lastPlayedUtc = now;
+            // Record quest run (updates stats + awards star→gem delta if improved)
+            var award = Svc.RecordQuestRun(end.questId, end.score, end.stars, end.durationSec);
 
-            // --- Update activities (aggregated) ---
+            // (Optional) To mirror your old behavior (count completion even with 0 stars), keep this:
+            if (end.stars <= 0 && CurrentProfile.stats.quests.TryGetValue(end.questId, out var qs) && qs != null)
+                qs.completions++;
+
+            // Aggregate activities
             if (end.activities != null)
             {
                 foreach (var a in end.activities)
                 {
-                    if (!p.stats.activities.TryGetValue(a.activityId, out var asx))
-                    {
-                        asx = new ActivityStats();
-                        p.stats.activities[a.activityId] = asx;
-                    }
-                    asx.plays++;
-                    if (a.score >= 50)
-                        asx.wins++;
-                    asx.lastScore = a.score;
-                    if (a.score > asx.bestScore)
-                        asx.bestScore = a.score;
-                    asx.sumScore += a.score;
-                    asx.timeSec += a.durationSec;
-
-                    if (!string.IsNullOrEmpty(a.topic))
-                        asx.didactic.topic = a.topic;
-                    asx.didactic.attempts += a.attempts;
-                    asx.didactic.correct += a.correct;
-
-                    if (a.wrongItems != null)
-                    {
-                        foreach (var kv in a.wrongItems)
-                        {
-                            asx.didactic.wrongItems.TryGetValue(kv.Key, out var cur);
-                            asx.didactic.wrongItems[kv.Key] = cur + kv.Value;
-                        }
-                    }
+                    Svc.RecordActivityRun(
+                        activityId: a.activityId,
+                        win: a.score >= 50,
+                        score: a.score,
+                        timeSec: a.durationSec,
+                        topic: a.topic,
+                        attempts: a.attempts,
+                        correct: a.correct,
+                        wrongItems: a.wrongItems
+                    );
                 }
+            }
+
+            if (award.Any)
+            {
+                OnGemsAwarded?.Invoke(award.gemsAdded, award.newClaims);
+                OnCurrencyChanged?.Invoke();
             }
 
             MarkDirty();
@@ -208,38 +203,22 @@ namespace Antura.Discover
         //   CARD INTERACTIONS
         // =========================================================
 
-        /// <summary>
-        /// Record a single interaction with a card
-        /// </summary>
+        /// <summary>Record a single interaction with a card.</summary>
         public void RecordCardInteraction(string cardId, bool unlocked, bool answeredCorrect = true)
         {
-            if (CurrentProfile == null)
+            if (CurrentProfile == null || string.IsNullOrEmpty(cardId))
                 return;
-            var now = DatetimeUtilities.GetNowUtcString();
 
-            if (!CurrentProfile.cards.TryGetValue(cardId, out var cardState))
+            Svc.RecordCardSeen(cardId);
+            Svc.RecordCardAnswer(cardId, answeredCorrect);
+
+            if (unlocked)
             {
-                cardState = new CardState { firstSeenUtc = now, unlocked = unlocked };
-                CurrentProfile.cards[cardId] = cardState;
+                var st = CurrentProfile.cards[cardId];
+                st.unlocked = true;
+                CurrentProfile.cards[cardId] = st;
             }
 
-            cardState.unlocked = cardState.unlocked || unlocked;
-            cardState.lastSeenUtc = now;
-            cardState.interactions++;
-            if (answeredCorrect)
-                cardState.answered.correct++;
-            else
-                cardState.answered.wrong++;
-
-            // simple mastery heuristic: update towards 1 on correct, towards 0 on wrong
-            var a = 0.15f;
-            var target = answeredCorrect ? 1f : 0f;
-            cardState.mastery01 = Mathf.Clamp01(cardState.mastery01 + a * (target - cardState.mastery01));
-
-            // streak logic
-            cardState.streakCorrect = answeredCorrect ? cardState.streakCorrect + 1 : 0;
-
-            CurrentProfile.cards[cardId] = cardState;
             MarkDirty();
         }
 
@@ -247,20 +226,17 @@ namespace Antura.Discover
         //   ACHIEVEMENTS
         // =========================================================
 
-        /// <summary>
-        /// Increment an achievement's progress counter. If it's already unlocked, this is a no-op.
-        /// (Your code decides when to call this and what thresholds mean.)
-        /// </summary>
+        /// <summary>Increment an achievement's progress counter. If already unlocked, no-op.</summary>
         public void AddAchievementProgress(string achievementId, int delta)
         {
-            if (CurrentProfile == null || delta == 0)
+            if (CurrentProfile == null || string.IsNullOrEmpty(achievementId) || delta == 0)
                 return;
 
-            if (!CurrentProfile.achievements.TryGetValue(achievementId, out var st))
+            if (!CurrentProfile.achievements.TryGetValue(achievementId, out var st) || st == null)
                 st = new AchievementState();
 
             if (st.unlocked)
-                return; // already granted
+                return;
 
             st.progress += delta;
             CurrentProfile.achievements[achievementId] = st;
@@ -268,15 +244,14 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Unlocks an achievement (idempotent). Optionally grant currency here if desired.
-        /// Call this when your rule is satisfied (e.g., progress >= goal).
+        /// Unlocks an achievement (idempotent). Optionally grant points (XP), gems (ledger), and cookies.
         /// </summary>
         public void UnlockAchievementOnce(string achievementId, int rewardPoints = 0, int rewardGems = 0, int rewardCookies = 0)
         {
-            if (CurrentProfile == null)
+            if (CurrentProfile == null || string.IsNullOrEmpty(achievementId))
                 return;
 
-            if (!CurrentProfile.achievements.TryGetValue(achievementId, out var st))
+            if (!CurrentProfile.achievements.TryGetValue(achievementId, out var st) || st == null)
                 st = new AchievementState();
 
             if (st.unlocked)
@@ -286,19 +261,43 @@ namespace Antura.Discover
             st.unlockedUtc = DatetimeUtilities.GetNowUtcString();
             CurrentProfile.achievements[achievementId] = st;
 
-            // currency rewards (optional, driven by your code/definitions)
-            if (rewardPoints != 0 || rewardGems != 0 || rewardCookies != 0)
+            bool anyCurrencyChanged = false;
+
+            // Points (XP) — may trigger XP milestone gem claims via EconomySettings
+            if (rewardPoints != 0)
             {
-                CurrentProfile.currency.points += rewardPoints;
-                CurrentProfile.currency.gems += rewardGems;
-                CurrentProfile.currency.cookies += rewardCookies;
-                OnCurrencyChanged?.Invoke();
+                var xpAward = Svc.AddPoints(rewardPoints);
+                if (xpAward.Any)
+                {
+                    OnGemsAwarded?.Invoke(xpAward.gemsAdded, xpAward.newClaims);
+                    anyCurrencyChanged = true;
+                }
             }
 
+            // Gems via ledger (idempotent per achievement)
+            if (rewardGems > 0)
+            {
+                var gemAward = Svc.ClaimAchievementGem(achievementId, rewardGems);
+                if (gemAward.Any)
+                {
+                    OnGemsAwarded?.Invoke(gemAward.gemsAdded, gemAward.newClaims);
+                    anyCurrencyChanged = true;
+                }
+            }
+
+            // Cookies (spendable)
+            if (rewardCookies != 0)
+            {
+                CurrentProfile.wallet.cookies = Mathf.Max(0, CurrentProfile.wallet.cookies + rewardCookies);
+                anyCurrencyChanged = true;
+            }
+
+            if (anyCurrencyChanged)
+                OnCurrencyChanged?.Invoke();
             OnAchievementUnlocked?.Invoke(achievementId, st.unlockedUtc);
+
             MarkDirty();
         }
-
 
         // =========================================================
         //   SAVE PROFILE
