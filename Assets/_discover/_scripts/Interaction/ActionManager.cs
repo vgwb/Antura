@@ -172,8 +172,10 @@ namespace Antura.Discover
 
         public void ResolveNodeCommandCard(string cardId)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");
-            DiscoverAppManager.I.RecordCardInteraction(cardId, true);
+            // Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");
+            DatabaseProvider.TryGet<CardData>(cardId, out var c);
+            CardData card = c;
+            DiscoverAppManager.I.RecordCardInteraction(card, true);
         }
 
         public void ResolveNodeCommandActivity(string activityCode, string difficulty = null)

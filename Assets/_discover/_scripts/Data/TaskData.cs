@@ -9,8 +9,12 @@ namespace Antura.Discover
     public enum TaskScope
     {
         Global = 1,
-        Country = 2,
-        Quest = 3,
+        Quest = 2
+    }
+
+    public enum RepeatMode
+    {
+        Once, Repeatable
     }
 
     public enum TaskType

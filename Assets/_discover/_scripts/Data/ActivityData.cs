@@ -36,6 +36,8 @@ namespace Antura.Discover
         public List<ActivitySkill> Skills;
 
         [Header("Credits")]
+        public List<QuestCredit> Credits;
+
         public List<AuthorData> CreditsDesign;
         public List<AuthorData> CreditsDevelopment;
     }

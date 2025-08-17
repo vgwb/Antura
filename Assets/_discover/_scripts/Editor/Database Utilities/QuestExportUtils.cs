@@ -156,9 +156,9 @@ namespace Antura.Discover
             }
 
             // Words Used
-            if (q.WordsUsed != null && q.WordsUsed.Count > 0)
+            if (q.Words != null && q.Words.Count > 0)
             {
-                sb.AppendLine("- Words Used: " + string.Join(", ", q.WordsUsed.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
+                sb.AppendLine("- Words Used: " + string.Join(", ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
             }
 
             sb.AppendLine("## Gameplay");
@@ -173,16 +173,50 @@ namespace Antura.Discover
 
             // Credits
             sb.AppendLine("## Credits");
-            void AppendCredits(string titleLbl, List<AuthorData> list)
+            // Build Author -> roles map (lowercase)
+            var authorRoles = new Dictionary<AuthorData, HashSet<string>>();
+            if (q.Credits != null && q.Credits.Count > 0)
             {
-                if (list != null && list.Count > 0)
+                foreach (var qc in q.Credits.Where(c => c != null && c.Author != null))
                 {
-                    sb.AppendLine(titleLbl + ": " + string.Join(", ", list.Where(a => a != null).Select(FormatAuthor)));
+                    if (!authorRoles.TryGetValue(qc.Author, out var set))
+                    { set = new HashSet<string>(StringComparer.OrdinalIgnoreCase); authorRoles[qc.Author] = set; }
+                    if (qc.Content)
+                        set.Add("content");
+                    if (qc.Design)
+                        set.Add("design");
+                    if (qc.Development)
+                        set.Add("development");
+                    if (qc.Validation)
+                        set.Add("validation");
                 }
             }
-            AppendCredits("- Content", q.CreditsContent);
-            AppendCredits("- Design", q.CreditsDesign);
-            AppendCredits("- Development", q.CreditsDevelopment);
+            else
+            {
+                void AddLegacy(List<AuthorData> list, string role)
+                {
+                    if (list == null)
+                        return;
+                    foreach (var a in list.Where(a => a != null))
+                    {
+                        if (!authorRoles.TryGetValue(a, out var set))
+                        { set = new HashSet<string>(StringComparer.OrdinalIgnoreCase); authorRoles[a] = set; }
+                        set.Add(role);
+                    }
+                }
+                AddLegacy(q.CreditsContent, "content");
+                AddLegacy(q.CreditsDesign, "design");
+                AddLegacy(q.CreditsDevelopment, "development");
+            }
+            if (authorRoles.Count > 0)
+            {
+                foreach (var kv in authorRoles.OrderBy(k => GetAuthorName(k.Key), StringComparer.OrdinalIgnoreCase))
+                {
+                    var roles = kv.Value.OrderBy(r => r, StringComparer.OrdinalIgnoreCase).ToList();
+                    var suffix = roles.Count > 0 ? " (" + string.Join(", ", roles) + ")" : string.Empty;
+                    sb.AppendLine("- " + FormatAuthor(kv.Key) + suffix);
+                }
+            }
 
             // Optional Additional Resources section between Data and Script
             if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
@@ -305,6 +339,25 @@ namespace Antura.Discover
                 return $"{displayName} ({country})";
             }
             return displayName;
+        }
+
+        static string GetAuthorName(AuthorData a)
+        {
+            if (a == null)
+                return string.Empty;
+            string name = a.name;
+            try
+            {
+                var t = a.GetType();
+                var nameFi = t.GetField("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                var namePi = t.GetProperty("Name", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (nameFi != null && nameFi.FieldType == typeof(string))
+                    name = nameFi.GetValue(a) as string ?? name;
+                else if (namePi != null && namePi.PropertyType == typeof(string) && namePi.CanRead)
+                    name = namePi.GetValue(a, null) as string ?? name;
+            }
+            catch { }
+            return name ?? string.Empty;
         }
 
         static string SafeLocalized(LocalizedString ls, string fallback)

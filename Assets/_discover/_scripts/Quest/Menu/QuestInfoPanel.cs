@@ -43,10 +43,10 @@ namespace Antura.Discover
             //     Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
             if (questData.Duration > 0)
                 Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
-            if (questData.WordsUsed != null)
+            if (questData.Words != null)
             {
                 Description.text += "<b>Words used:</b> ";
-                foreach (var word in questData.WordsUsed)
+                foreach (var word in questData.Words)
                 {
                     Description.text += "- " + word.GetLocalizedString() + "\n";
                 }

@@ -19,6 +19,9 @@ namespace Antura.Discover
         [Tooltip("Optional, Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
+        [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
+        public List<WordData> Words;
+
 
         [Header("Mastery")]
         [Tooltip("Mastery points needed to unlock this card.")]

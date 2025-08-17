@@ -7,6 +7,16 @@ using Yarn.Unity;
 
 namespace Antura.Discover
 {
+    [System.Serializable]
+    public class QuestCredit
+    {
+        public AuthorData Author;
+        public bool Content;
+        public bool Design;
+        public bool Development;
+        public bool Validation;
+    }
+
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
     public class QuestData : IdentifiedData
     {
@@ -26,21 +36,23 @@ namespace Antura.Discover
         public LocalizedString Description;
         public Sprite Thumbnail;
 
+        [Header("Content")]
+        public KnowledgeTopic MainTopic;
+        public List<CardData> Cards;
+        public List<WordData> Words;
+
         [Header("Gameplay")]
         public Difficulty Difficulty;
         public List<GameplayType> Gameplay;
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
 
+        [Tooltip("Does this quest require any other quest to be completed first?")]
+        public List<QuestData> Dependencies;
+
         [Header("Rewards")]
         [Range(0, 20)]
         public int cookies = 0;
-
-        [Header("Content")]
-        public KnowledgeTopic MainTopic;
-        public List<CardData> Cards;
-        public List<QuestData> Dependencies;
-        public List<WordData> WordsUsed;
 
         [Header("Public website docs")]
         public bool IsPublic;
@@ -85,7 +97,9 @@ namespace Antura.Discover
             }
         }
 
-        [Header("Credits")]
+        public List<QuestCredit> Credits;
+
+        // Deprecated: kept for backward compatibility and migration
         public List<AuthorData> CreditsContent;
         public List<AuthorData> CreditsDesign;
         public List<AuthorData> CreditsDevelopment;

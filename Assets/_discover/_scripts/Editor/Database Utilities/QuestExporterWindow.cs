@@ -301,5 +301,142 @@ namespace Antura.Discover.EditorUI
             }
         }
     }
+
+    public static class QuestCreditsMigration
+    {
+        [MenuItem("Antura/Discover/Migrate Quest Credits (Legacy -> Unified)", priority = 295)]
+        public static void MigrateAll()
+        {
+            var guids = AssetDatabase.FindAssets("t:QuestData");
+            int changed = 0;
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var q = AssetDatabase.LoadAssetAtPath<QuestData>(path);
+                if (q == null)
+                    continue;
+
+                // Build a map of author -> flags
+                var map = new Dictionary<AuthorData, (bool content, bool design, bool development, bool validation)>();
+                void Flag(List<AuthorData> list, Func<(bool, bool, bool, bool), (bool, bool, bool, bool)> setter)
+                {
+                    if (list == null)
+                        return;
+                    foreach (var a in list.Where(a => a != null))
+                    {
+                        var flags = map.TryGetValue(a, out var f) ? f : (false, false, false, false);
+                        flags = setter(flags);
+                        map[a] = flags;
+                    }
+                }
+                Flag(q.CreditsContent, f => (true, f.Item2, f.Item3, f.Item4));
+                Flag(q.CreditsDesign, f => (f.Item1, true, f.Item3, f.Item4));
+                Flag(q.CreditsDevelopment, f => (f.Item1, f.Item2, true, f.Item4));
+
+                // If unified list already exists, merge/union
+                var list = q.Credits ?? new List<QuestCredit>();
+                foreach (var kv in map)
+                {
+                    var existing = list.FirstOrDefault(c => c != null && c.Author == kv.Key);
+                    if (existing == null)
+                    {
+                        list.Add(new QuestCredit
+                        {
+                            Author = kv.Key,
+                            Content = kv.Value.content,
+                            Design = kv.Value.design,
+                            Development = kv.Value.development,
+                            Validation = kv.Value.validation
+                        });
+                    }
+                    else
+                    {
+                        existing.Content |= kv.Value.content;
+                        existing.Design |= kv.Value.design;
+                        existing.Development |= kv.Value.development;
+                        existing.Validation |= kv.Value.validation;
+                    }
+                }
+                if (!ReferenceEquals(list, q.Credits))
+                    q.Credits = list;
+
+                if (map.Count > 0)
+                {
+                    Undo.RecordObject(q, "Migrate Quest Credits");
+                    EditorUtility.SetDirty(q);
+                    changed++;
+                }
+            }
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[QuestCreditsMigration] Migrated credits on {changed} quests.");
+        }
+    }
+
+    public static class ActivityCreditsMigration
+    {
+        [MenuItem("Antura/Discover/Migrate Activity Credits (Legacy -> Unified)", priority = 296)]
+        public static void MigrateAll()
+        {
+            var guids = AssetDatabase.FindAssets("t:ActivityData");
+            int changed = 0;
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var a = AssetDatabase.LoadAssetAtPath<ActivityData>(path);
+                if (a == null)
+                    continue;
+
+                // Build a map of author -> flags (only design/development exist on ActivityData legacy lists)
+                var map = new Dictionary<AuthorData, (bool design, bool development)>();
+                void Flag(List<AuthorData> list, Func<(bool, bool), (bool, bool)> setter)
+                {
+                    if (list == null)
+                        return;
+                    foreach (var author in list.Where(x => x != null))
+                    {
+                        var flags = map.TryGetValue(author, out var f) ? f : (false, false);
+                        flags = setter(flags);
+                        map[author] = flags;
+                    }
+                }
+                Flag(a.CreditsDesign, f => (true, f.Item2));
+                Flag(a.CreditsDevelopment, f => (f.Item1, true));
+
+                // Merge into unified list
+                var list = a.Credits ?? new List<QuestCredit>();
+                foreach (var kv in map)
+                {
+                    var existing = list.FirstOrDefault(c => c != null && c.Author == kv.Key);
+                    if (existing == null)
+                    {
+                        list.Add(new QuestCredit
+                        {
+                            Author = kv.Key,
+                            Content = false,
+                            Design = kv.Value.design,
+                            Development = kv.Value.development,
+                            Validation = false
+                        });
+                    }
+                    else
+                    {
+                        existing.Design |= kv.Value.design;
+                        existing.Development |= kv.Value.development;
+                    }
+                }
+                if (!ReferenceEquals(list, a.Credits))
+                    a.Credits = list;
+
+                if (map.Count > 0)
+                {
+                    Undo.RecordObject(a, "Migrate Activity Credits");
+                    EditorUtility.SetDirty(a);
+                    changed++;
+                }
+            }
+            AssetDatabase.SaveAssets();
+            Debug.Log($"[ActivityCreditsMigration] Migrated credits on {changed} activities.");
+        }
+    }
 }
 #endif
