@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: MontBlanc
   m_EditorClassIdentifier: 
   Id: fr_montblanc
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -31,14 +32,26 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Image: {fileID: 0}
-  Audio: {fileID: 0}
   Category: 1
-  Topics: 
+  Topics: 02000000
   Year: 0
   Country: 2
-  UnlockQuests: []
-  MaxProgress: 10
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: ef4fa5ce1fc90d54988564346e40fbaa, type: 2}
+  Image: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 0
+  CustomTag: 
+  Quests: []
   references:
     version: 2
     RefIds: []
