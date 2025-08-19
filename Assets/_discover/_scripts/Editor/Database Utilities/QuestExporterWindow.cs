@@ -211,8 +211,10 @@ namespace Antura.Discover.EditorUI
                             File.WriteAllText(outPath, md);
 
                             var title = q.TitleText;
-                            if (string.IsNullOrEmpty(title))
+                            if (string.IsNullOrEmpty(title) || string.IsNullOrWhiteSpace(title))
+                            {
                                 title = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
+                            }
                             title = title?.Replace("\r", " ").Replace("\n", " ");
                             var code = Antura.Discover.QuestExportUtils.GetQuestCode(q);
                             var linkText = string.IsNullOrEmpty(title) ? code : ($"{code} - {title}");
@@ -242,7 +244,16 @@ namespace Antura.Discover.EditorUI
 
                     // H1 and language menu on index
                     indexSb.AppendLine("# Antura Discover Quests");
-                    indexSb.AppendLine($"Language: [english](./index.md) - [french](./index.fr.md) - [polish](./index.pl.md) - [italian](./index.it.md)");
+                    // Disable link for the current language
+                    var langs = new (string code, string label)[] { ("en", "english"), ("fr", "french"), ("pl", "polish"), ("it", "italian") };
+                    var parts = new List<string>(langs.Length);
+                    foreach (var l in langs)
+                    {
+                        bool isCurrent = lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase);
+                        string file = l.code == "en" ? "index.md" : $"index.{l.code}.md";
+                        parts.Add(isCurrent ? l.label : $"[{l.label}](./{file})");
+                    }
+                    indexSb.AppendLine($"Language: {string.Join(" - ", parts)}");
                     indexSb.AppendLine();
 
                     foreach (var c in order)

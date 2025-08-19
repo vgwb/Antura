@@ -12,4 +12,4 @@ The full manual is [here](https://docs.google.com/document/d/1Yk8cvbJIE2IKIKsVDs
 
 - [Learn Language Module](./learnlanguage.md)
 - [Discover Module](./discover.md)
-- [Quests](./quests/index.md)
+- [Quests](../quest/index.md)

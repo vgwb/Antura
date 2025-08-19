@@ -5,7 +5,7 @@ hide:
 ---
 
 # Antura Discover Quests
-Language: [english](./index.md) - [french](./index.fr.md) - [polish](./index.pl.md) - [italian](./index.it.md)
+Language: english - [french](./index.fr.md) - [polish](./index.pl.md) - [italian](./index.it.md)
 
 ## France
 
