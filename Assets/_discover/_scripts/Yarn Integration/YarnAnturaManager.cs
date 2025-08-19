@@ -40,19 +40,12 @@ namespace Antura.Discover
         {
             if (!runner)
             {
-#if UNITY_2023_1_OR_NEWER
                 runner = UnityEngine.Object.FindFirstObjectByType<DialogueRunner>(FindObjectsInactive.Include);
-#else
-                runner = UnityEngine.Object.FindObjectOfType<DialogueRunner>(true);
-#endif
+
             }
             if (!presenter)
             {
-#if UNITY_2023_1_OR_NEWER
                 presenter = UnityEngine.Object.FindFirstObjectByType<DiscoverDialoguePresenter>(FindObjectsInactive.Include);
-#else
-                presenter = UnityEngine.Object.FindObjectOfType<DiscoverDialoguePresenter>(true);
-#endif
             }
         }
 
@@ -64,8 +57,7 @@ namespace Antura.Discover
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
 
                 // Hook simple command(s) to ActionManager
-                runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
-                runner.AddCommandHandler<string>("action_post", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
+                //                runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
             }
 
             if (presenter != null)
@@ -99,12 +91,6 @@ namespace Antura.Discover
             }
         }
 
-        public QuestNode GetNodeFromPermalink(string nodeName, string command)
-        {
-            StartDialogue(nodeName);
-            return null;
-        }
-
         internal void EmitQuestNode(QuestNode node)
         {
             OnQuestNode?.Invoke(node);
@@ -115,9 +101,5 @@ namespace Antura.Discover
             OnQuestOptions?.Invoke(node);
         }
 
-        public string GetLabel(string key, string localeCode)
-        {
-            return key;
-        }
     }
 }

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: NicolausCopernicus
   m_EditorClassIdentifier: 
   Id: pl_nicolauscopernicus
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:8988c161438d44143a87b48140d6a7d0
@@ -31,14 +32,26 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Image: {fileID: 0}
-  Audio: {fileID: 0}
   Category: 7
-  Topics: 04000000
+  Topics: 0400000001000000
   Year: 1850
   Country: 3
-  UnlockQuests: []
-  MaxProgress: 10
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: 9cf13dc019f09c24e996bf3b4ef0b108, type: 2}
+  Image: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 0
+  CustomTag: 
+  Quests: []
   references:
     version: 2
     RefIds: []

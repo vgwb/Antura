@@ -9,6 +9,8 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
     public class CardData : IdentifiedData
     {
+        public DevStatus DevStatus = DevStatus.Development;
+
         [Header("Knowledge Content")]
         public LocalizedString Title;
         public LocalizedString Description;
@@ -17,8 +19,24 @@ namespace Antura.Discover
         [Tooltip("Optional, Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
-        [Range(1, 10)]
-        public int KnowledgeValue = 10;
+        [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
+        public List<WordData> Words;
+
+
+        [Header("Mastery")]
+        [Tooltip("Mastery points needed to unlock this card.")]
+        [Min(1)]
+        public int MasteryPointsToUnlock = 1;
+
+        [Header("Rewards")]
+        [Range(0, 20)]
+        public int Cookies = 0;
+        [Range(0, 3)]
+        [Tooltip("Number of gems given by this card, ONCE")]
+        public int Gems = 0;
+        [Range(0, 10)]
+        [Tooltip("Points rewarded with positive interactions. cumulative")]
+        public int Points = 1;
 
         [Header("Media")]
         public AssetType MediaType = AssetType.Image;
@@ -34,14 +52,18 @@ namespace Antura.Discover
         [Header("Gameplay and Inventory Settings")]
         [Tooltip("Can the card be collected by the player?")]
         public bool IsCollectible = false;
+        [Tooltip("If true, multiple copies of this item can stack in one slot. If false, only one can be held.")]
+        public bool IsStackable = false;
+        [Tooltip("Maximum quantity per stack for this item (ignored if not stackable). Use 0 or negative for unlimited.")]
+        public int MaxStack = 99;
         public ItemData ItemIcon;
         public ItemTag Tag;
         [Tooltip("Optional tag if set to Custom.")]
         public string CustomTag;
 
-        [Header("Linked Sources")]
+        [Header("Quests")]
         [Tooltip("Quests that can unlock this card. A card can be rewarded by multiple quests.")]
-        public List<QuestData> LinkedQuests;
+        public List<QuestData> Quests;
 
 
     }

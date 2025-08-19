@@ -59,15 +59,12 @@ namespace Antura.Discover.Activities
         }
 
         /// <summary>
-        /// Builds the board from the external CardItemLibrarySO.
+        /// Builds the board using CardData only.
         /// </summary>
         public void BuildBoard()
         {
-            if (ActivitySettings == null || ActivitySettings.CardLibrary == null || ActivitySettings.CardLibrary.Items.Count == 0)
-            {
-                Debug.LogError("No CardLibrary assigner");
-                return;
-            }
+            if (ActivitySettings == null || ActivitySettings.CardsData == null || ActivitySettings.CardsData.Count == 0)
+            { Debug.LogError("Memory: missing CardsData"); return; }
 
             // Clear previous grid
             foreach (Transform c in gridParent)
@@ -78,14 +75,16 @@ namespace Antura.Discover.Activities
             first = second = null;
             lastActionTime = Time.unscaledTime;
 
-            // Set grid size based on difficulty
-            (int rows, int cols) = difficulty switch
-            {
-                Difficulty.Tutorial => (2, 2),
-                Difficulty.Easy => (2, 4),
-                Difficulty.Normal => (3, 4),
-                _ => (3, 6),
-            };
+            // Set grid size based on difficulty (avoid switch-expression to satisfy analyzers)
+            int rows, cols;
+            if (difficulty == Difficulty.Tutorial)
+            { rows = 2; cols = 2; }
+            else if (difficulty == Difficulty.Easy)
+            { rows = 2; cols = 4; }
+            else if (difficulty == Difficulty.Normal)
+            { rows = 3; cols = 4; }
+            else
+            { rows = 3; cols = 6; }
             int totalCards = rows * cols;
             totalPairs = totalCards / 2;
 
@@ -97,9 +96,9 @@ namespace Antura.Discover.Activities
             grid.constraintCount = cols;
             grid.childAlignment = TextAnchor.MiddleCenter;
 
-            // Pick unique faces from library
+            // Pick unique faces from CardData
             var selectedFaces = PickUniqueFaces(totalPairs);
-            var pool = new List<(int id, CardItem ci)>();
+            var pool = new List<(int id, Sprite face)>();
             for (int i = 0; i < selectedFaces.Count; i++)
             {
                 pool.Add((i, selectedFaces[i]));
@@ -112,25 +111,51 @@ namespace Antura.Discover.Activities
             {
                 var go = Instantiate(cardPrefab, gridParent);
                 var card = go.GetComponent<MemoryCard>();
-                card.Init(this, entry.id, entry.ci.Image, commonBack);
+                card.Init(this, entry.id, entry.face, commonBack);
                 cards.Add(card);
             }
         }
 
         /// <summary>
-        /// Picks a number of unique card faces from the library.
+        /// Picks a number of unique card faces from CardsData.
         /// Loops if there are not enough unique items.
         /// </summary>
-        private List<CardItem> PickUniqueFaces(int count)
+        private List<Sprite> PickUniqueFaces(int count)
         {
-            var result = new List<CardItem>(count);
-            var bag = new List<CardItem>(ActivitySettings.CardLibrary.Items);
-            Shuffle(bag);
+            var result = new List<Sprite>(count);
+            var cd = ActivitySettings.CardsData;
+            if (cd == null || cd.Count == 0)
+            {
+                Debug.LogError("Memory: no CardsData provided");
+                return result;
+            }
 
+            var bag = new List<Sprite>(cd.Count);
+            foreach (var data in cd)
+            {
+                if (data == null)
+                    continue;
+                var sprite = ResolveSprite(data);
+                if (sprite != null)
+                    bag.Add(sprite);
+            }
+
+            Shuffle(bag);
             for (int i = 0; i < count; i++)
                 result.Add(bag[i % bag.Count]);
 
             return result;
+        }
+
+        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null)
+                return data.Image;
+            if (data.ImageAsset != null)
+                return data.ImageAsset.Image;
+            return null;
         }
 
         /// <summary>
@@ -169,13 +194,6 @@ namespace Antura.Discover.Activities
                 matchedPairs++;
                 if (matchedPairs >= totalPairs)
                     OnWin();
-            }
-            else
-            {
-                PlaySfx(mismatchSfx);
-                yield return new WaitForSecondsRealtime(0.35f);
-                first.HideDown();
-                second.HideDown();
             }
 
             yield return new WaitForSecondsRealtime(0.05f);

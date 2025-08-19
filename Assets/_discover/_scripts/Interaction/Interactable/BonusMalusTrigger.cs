@@ -23,7 +23,7 @@ namespace Antura.Discover
                 Debug.LogWarning("BonusMalus is not set on " + gameObject.name);
                 return;
             }
-            Debug.Log($"Triggering Bonus/Malus: {BonusMalus.Title.GetLocalizedString()} ({BonusMalus.Type}) with {BonusMalus.ProgressPoints} points.");
+            Debug.Log($"Triggering Bonus/Malus: {BonusMalus.Title.GetLocalizedString()} ({BonusMalus.Type}) with {BonusMalus.Points} points.");
         }
     }
 }

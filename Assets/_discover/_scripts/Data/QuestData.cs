@@ -7,6 +7,16 @@ using Yarn.Unity;
 
 namespace Antura.Discover
 {
+    [System.Serializable]
+    public class AuthorCredit
+    {
+        public AuthorData Author;
+        public bool Content;
+        public bool Design;
+        public bool Development;
+        public bool Validation;
+    }
+
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
     public class QuestData : IdentifiedData
     {
@@ -24,7 +34,12 @@ namespace Antura.Discover
         public Countries Country;
         public LocationData Location;
         public LocalizedString Description;
-        public Sprite Thumbnail;
+        public AssetData Thumbnail;
+
+        [Header("Content")]
+        public KnowledgeTopic MainTopic;
+        public List<CardData> Cards;
+        public List<WordData> Words;
 
         [Header("Gameplay")]
         public Difficulty Difficulty;
@@ -32,11 +47,12 @@ namespace Antura.Discover
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
 
-        [Header("Content")]
-        public KnowledgeTopic MainTopic;
-        public List<CardData> Cards;
+        [Tooltip("Does this quest require any other quest to be completed first?")]
         public List<QuestData> Dependencies;
-        public List<WordData> WordsUsed;
+
+        [Header("Rewards")]
+        [Range(0, 20)]
+        public int cookies = 0;
 
         [Header("Public website docs")]
         public bool IsPublic;
@@ -54,7 +70,7 @@ namespace Antura.Discover
                 foreach (var card in Cards)
                 {
                     if (card != null)
-                        value += card.KnowledgeValue;
+                        value += card.Points;
                 }
                 return value;
             }
@@ -81,10 +97,7 @@ namespace Antura.Discover
             }
         }
 
-        [Header("Credits")]
-        public List<AuthorData> CreditsContent;
-        public List<AuthorData> CreditsDesign;
-        public List<AuthorData> CreditsDevelopment;
+        public List<AuthorCredit> Credits;
 
         [Header("Unity References and Prefabs")]
         public string assetsFolder;
@@ -92,9 +105,21 @@ namespace Antura.Discover
         public GameObject WorldPrefab;
         public GameObject QuestPrefab;
 
-        // TODO
-        public int GetScore()
+        // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
+        public int GetBestStars()
         {
+            try
+            {
+                var mgr = DiscoverAppManager.I;
+                var prof = mgr != null ? mgr.CurrentProfile : null;
+                var qs = prof != null ? prof.stats?.quests : null;
+                if (qs != null && !string.IsNullOrEmpty(this.Id))
+                {
+                    if (qs.TryGetValue(this.Id, out var s))
+                        return Mathf.Clamp(s.bestStars, 0, 3);
+                }
+            }
+            catch { }
             return 0;
         }
 

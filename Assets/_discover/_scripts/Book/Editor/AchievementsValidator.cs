@@ -51,9 +51,9 @@ namespace Antura.Discover.EditorTools
                     if (card.Country != col.Country)
                         problems.Add($"Card '{card.Id}' country ({card.Country}) != collection country ({col.Country}).");
 
-                    if (card.LinkedQuests != null)
+                    if (card.Quests != null)
                     {
-                        foreach (var q in card.LinkedQuests)
+                        foreach (var q in card.Quests)
                         {
                             if (q == null)
                                 problems.Add($"Card '{card.Id}' has a null Quest reference.");

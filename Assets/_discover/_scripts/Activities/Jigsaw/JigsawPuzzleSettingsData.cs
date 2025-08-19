@@ -1,12 +1,19 @@
+using Antura.Discover;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Discover.Activities
 {
     [CreateAssetMenu(fileName = "JigsawPuzzleSettings", menuName = "Antura/Activity/Jigsaw Settings")]
     public class JigsawPuzzleSettingsData : ActivitySettingsAbstract
     {
-        [Header("JigsawPuzzle Settings")]
-        public Texture2D PuzzleImage;
+        [Header("Activity JigsawPuzzle Settings")]
+        [Tooltip("CardData providing the image for the puzzle")]
+        public CardData PuzzleCard;
+
+        // Backward-compatibility: keep old serialized Texture2D so existing assets continue to work until migrated
+        [SerializeField, FormerlySerializedAs("PuzzleImage"), HideInInspector]
+        private Texture2D LegacyPuzzleImage;
 
         [Header("Overrides Difficulty Based Settings")]
         [Tooltip("If > 0 overrides difficulty-based horizontal pieces.")]
@@ -18,12 +25,17 @@ namespace Antura.Discover.Activities
         {
             // Default underlay alpha
             underlayAlpha = 0.2f;
-            image = PuzzleImage;
+            image = ResolveTexture(PuzzleCard);
+            if (image == null)
+                image = LegacyPuzzleImage;
             difficulty = Difficulty;
 
-            int baseSize;
+            int baseSize = 4;
             switch (Difficulty)
             {
+                case Difficulty.Default:
+                    baseSize = 4;
+                    break;
                 case Difficulty.Tutorial:
                     baseSize = 3;
                     underlayAlpha = 0.4f;
@@ -47,6 +59,17 @@ namespace Antura.Discover.Activities
 
             cols = HorizontalPieces > 0 ? HorizontalPieces : baseSize;
             rows = VerticalPieces > 0 ? VerticalPieces : baseSize;
+        }
+
+        private static Texture2D ResolveTexture(CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null && data.Image.texture != null)
+                return data.Image.texture;
+            if (data.ImageAsset != null && data.ImageAsset.Image != null && data.ImageAsset.Image.texture != null)
+                return data.ImageAsset.Image.texture;
+            return null;
         }
     }
 }

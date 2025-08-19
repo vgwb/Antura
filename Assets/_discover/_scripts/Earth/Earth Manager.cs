@@ -1,4 +1,5 @@
 using Antura.Core;
+using Antura.Discover.UI;
 using DG.DeExtensions;
 using System;
 using System.Collections;
@@ -8,17 +9,9 @@ using UnityEngine;
 namespace Antura.Discover
 {
 
-    [Serializable]
-    public class CountrySpriteMapping
-    {
-        public Countries country;
-        public SpriteRenderer spriteRenderer;
-    }
-
     public class EarthManager : MonoBehaviour
     {
         public static EarthManager I;
-        public List<CountrySpriteMapping> countrySprites;
 
         void Awake()
         {
@@ -49,18 +42,7 @@ namespace Antura.Discover
         public void SelectCountry(Countries selectedCountry)
         {
             Debug.Log($"Selecting country: {selectedCountry}");
-            foreach (var mapping in countrySprites)
-            {
-
-                if (mapping.country == selectedCountry)
-                {
-                    mapping.spriteRenderer.SetAlpha(1f);
-                }
-                else
-                {
-                    mapping.spriteRenderer.SetAlpha(0.3f);
-                }
-            }
+            CountryButton.SetSelectedCountry(selectedCountry);
 
             UIQuestMenuManager.I.ShowCountry(selectedCountry);
         }

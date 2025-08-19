@@ -23,7 +23,7 @@ namespace Antura.Discover
         private Task CurrentTask;
         private string CurrentActivity;
 
-        private Inventory inventory;
+        public InventoryManager inventory;
         private Progress progress;
         private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>();
 
@@ -42,6 +42,12 @@ namespace Antura.Discover
         public bool DebugQuest = false;
         public string DebugLanguage = "";
 
+        protected override void Init()
+        {
+            inventory = new InventoryManager();
+            progress = new Progress();
+        }
+
         void Start()
         {
             playerController = GameObject.FindWithTag("Player").GetComponent<PlayerController>();
@@ -51,9 +57,6 @@ namespace Antura.Discover
                 foreach (var task in QuestTasks)
                     task.Setup();
             }
-
-            inventory = new Inventory();
-            progress = new Progress();
 
             LanguageCode = (DebugQuest && DebugLanguage != "") ? DebugLanguage : "FR";
             NativeLanguageCode = LocalizationManager.IsoLangFromLangCode(AppManager.I.AppSettings.NativeLanguage);
@@ -100,8 +103,8 @@ namespace Antura.Discover
 
         public void YarnGetQuestNode(string nodeName)
         {
-            Debug.Log($"YarnGetQuestNode: {nodeName}");
-            conversation?.DebugMetadata(nodeName);
+            //Debug.Log($"YarnGetQuestNode: {nodeName}");
+            //conversation?.DebugMetadata(nodeName);
             conversation?.StartDialogue(nodeName);
         }
 

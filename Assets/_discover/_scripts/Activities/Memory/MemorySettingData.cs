@@ -1,3 +1,4 @@
+using Antura.Discover;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,6 +9,6 @@ namespace Antura.Discover.Activities
     public class MemorySettingData : ActivitySettingsAbstract
     {
         [Header("Memory Game Settings")]
-        public CardItemLibraryData CardLibrary;
+        public List<CardData> CardsData = new List<CardData>();
     }
 }

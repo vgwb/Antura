@@ -1,6 +1,7 @@
 #if UNITY_EDITOR
 
 using Antura.Core;
+using Antura.Discover;
 using Antura.Helpers;
 using Antura.Profile;
 using Antura.Rewards;

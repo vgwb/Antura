@@ -9,11 +9,16 @@ namespace Antura.Discover.Activities
     {
         public Image TileImage;
         public TextMeshProUGUI Label;
-        public CardItem ItemData { get; private set; }
+        public Antura.Discover.CardData ItemData { get; private set; }
         public int OriginalParentSlotIndex { get; set; } = -1;
         public RectTransform Rect => rectTransform;
 
-        private ActivityOrder manager;
+        private object manager;
+        private System.Action<int> onLiftedFromSlot;
+        private System.Action onReturnedToPool;
+        private System.Action<AudioClip> onPlayItemSound;
+        private System.Action<Antura.Discover.CardData, DraggableTile> onFlashCorrectSlot;
+        private System.Func<Transform> getPoolParent;
         private CanvasGroup canvasGroup;
         private RectTransform rectTransform;
         private Transform originalParent;
@@ -26,21 +31,53 @@ namespace Antura.Discover.Activities
         public float soundCooldown = 0.5f;
         private float lastSoundTime = -999f;
 
-        public void Init(ActivityOrder mgr, CardItem data, Transform activityRoot)
+        public void Init(ActivityOrder mgr, Antura.Discover.CardData data, Transform activityRoot)
         {
             manager = mgr;
             ItemData = data;
             if (Label != null)
-                Label.text = data.Name;
+                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
 
-            if (data.Image != null)
-            {
-                TileImage.sprite = data.Image;
-            }
+            var sprite = ResolveSprite(data);
+            if (sprite != null)
+                TileImage.sprite = sprite;
 
             // Set initial position
             rectTransform.anchoredPosition = Vector2.zero;
             activityTranform = activityRoot;
+
+            // Bind callbacks for ActivityOrder
+            onLiftedFromSlot = mgr.NotifyTileLiftedFromSlot;
+            onReturnedToPool = mgr.NotifyTileReturnedToPool;
+            onPlayItemSound = mgr.PlayItemSound;
+            onFlashCorrectSlot = (ci, dt) => mgr.FlashCorrectSlot(ci, dt);
+            getPoolParent = () => mgr.tilesPoolParent;
+        }
+
+        // Generic initializer for other activities (e.g., match)
+        public void InitGeneric(Antura.Discover.CardData data, Transform activityRoot,
+            System.Func<Transform> poolGetter,
+            System.Action<int> onLift,
+            System.Action onReturn,
+            System.Action<AudioClip> onPlay,
+            System.Action<Antura.Discover.CardData, DraggableTile> onHint = null,
+            object owner = null)
+        {
+            manager = owner;
+            ItemData = data;
+            if (Label != null)
+                Label.text = data.Title != null ? data.Title.GetLocalizedString() : data.name;
+            var sprite = ResolveSprite(data);
+            if (sprite != null)
+                TileImage.sprite = sprite;
+            rectTransform.anchoredPosition = Vector2.zero;
+            activityTranform = activityRoot;
+
+            getPoolParent = poolGetter;
+            onLiftedFromSlot = onLift;
+            onReturnedToPool = onReturn;
+            onPlayItemSound = onPlay;
+            onFlashCorrectSlot = onHint;
         }
 
         private void Awake()
@@ -61,7 +98,7 @@ namespace Antura.Discover.Activities
             if (slot != null)
             {
                 OriginalParentSlotIndex = slot.slotIndex;
-                manager.NotifyTileLiftedFromSlot(OriginalParentSlotIndex);
+                onLiftedFromSlot?.Invoke(OriginalParentSlotIndex);
             }
 
             canvasGroup.blocksRaycasts = false;
@@ -78,7 +115,8 @@ namespace Antura.Discover.Activities
             canvasGroup.blocksRaycasts = true;
             dragging = false;
 
-            if (transform.parent == transform.root)
+            // If it wasn't reparented by a DropSlot, it's still under the temp activity root
+            if (transform.parent == activityTranform)
             {
                 if (OriginalParentSlotIndex >= 0)
                 {
@@ -86,8 +124,10 @@ namespace Antura.Discover.Activities
                 }
                 else
                 {
-                    MoveToPool(manager.tilesPoolParent);
-                    manager.NotifyTileReturnedToPool();
+                    var pool = getPoolParent != null ? getPoolParent() : null;
+                    if (pool != null)
+                        MoveToPool(pool);
+                    onReturnedToPool?.Invoke();
                 }
             }
         }
@@ -100,14 +140,15 @@ namespace Antura.Discover.Activities
             if (Time.unscaledTime - lastSoundTime < soundCooldown)
                 return;
 
-            if (ItemData.AudioClip != null)
+            var clip = ResolveAudio(ItemData);
+            if (clip != null)
             {
-                manager.PlayItemSound(ItemData.AudioClip);
+                onPlayItemSound?.Invoke(clip);
                 lastSoundTime = Time.unscaledTime;
             }
 
             // Tutorial hint
-            manager.FlashCorrectSlot(ItemData, this);
+            onFlashCorrectSlot?.Invoke(ItemData, this);
         }
 
         public void MoveToSlot(Transform slotParent, int slotIndex)
@@ -140,6 +181,26 @@ namespace Antura.Discover.Activities
             rectTransform.anchoredPosition = Vector2.zero;
             rectTransform.localRotation = Quaternion.identity;
             rectTransform.localScale = Vector3.one;
+        }
+
+        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null)
+                return data.Image;
+            if (data.ImageAsset != null)
+                return data.ImageAsset.Image;
+            return null;
+        }
+
+        private static AudioClip ResolveAudio(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.AudioAsset != null)
+                return data.AudioAsset.Audio;
+            return null;
         }
     }
 }

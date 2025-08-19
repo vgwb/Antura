@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using TMPro;
+using DG.Tweening;
 
 namespace Antura.Discover.Activities
 {
@@ -21,53 +22,70 @@ namespace Antura.Discover.Activities
         public Transform slotsParent;
         public GameObject slotPrefab;         // has DropSlot (+ optional Image ref for highlight)
         public GameObject tilePrefab;         // has DraggableTile (+ CanvasGroup)
-        public Button validateButton;
+        [Header("Tutorial Ghosts")]
+        public bool showGhostsInTutorial = true;
 
         [Header("Sfx")]
         public AudioSource audioSource;
         public AudioClip dropSound;
+        public AudioClip successSound;
+        public AudioClip failSound;
 
         private int minItemsToValidate;
 
-        private CardItem[] correctOrder;          // solution = original Items order
+        private Antura.Discover.CardData[] correctOrder;          // solution = original Items order
         private DraggableTile[] slots;        // current occupants (null if empty)
         private List<DropSlot> slotViews = new List<DropSlot>();
 
         private void Awake()
         {
-            if (Settings.Items == null)
-                Settings.Items = new List<CardItem>();
-            if (Settings.Items.Count < 2)
+            if (Settings.ItemsData == null)
+                Settings.ItemsData = new List<Antura.Discover.CardData>();
+            if (Settings.ItemsData.Count < 2)
                 Debug.LogWarning("Puzzle needs at least 2 items.");
-            if (Settings.Items.Count > 10)
+            if (Settings.ItemsData.Count > 10)
                 Debug.LogWarning("Puzzle supports max 10 items.");
         }
 
         public override void Init()
         {
             ActivityDifficulty = Settings.Difficulty;
-            BuildSlots(Settings.Items.Count);
-            SetValidateInteractable(false);
+            var dataItems = BuildItemsFromSettings();
+            minItemsToValidate = dataItems.Count;
+            correctOrder = dataItems.ToArray();
+            BuildRound();
+        }
 
-            minItemsToValidate = Settings.Items.Count;
+        protected override ActivitySettingsAbstract GetSettings() => Settings;
 
-            // Store solution order
-            correctOrder = Settings.Items.ToArray();
+        protected override void OnRoundAdvanced(bool lastRoundSuccess, int lastRoundPoints, float lastRoundSeconds, bool dueToTimeout)
+        {
+            // Rebuild a fresh round (same dataset for now)
+            BuildRound();
+        }
+
+        private void BuildRound()
+        {
+            // Prepare slots and tiles for a round
+            var dataItems = BuildItemsFromSettings();
+            BuildSlots(dataItems.Count);
+            ClearChildren(tilesPoolParent);
+            SetValidateEnabled(false);
 
             // Spawn shuffled tiles into pool
-            var shuffled = new List<CardItem>(Settings.Items);
+            var shuffled = new List<Antura.Discover.CardData>(dataItems);
             Shuffle(shuffled);
 
             foreach (var it in shuffled)
             {
                 var go = Instantiate(tilePrefab, tilesPoolParent);
-                go.name = it.Name;
+                go.name = it.name;
 
                 var tile = go.GetComponent<DraggableTile>();
                 tile.Init(this, it, this.transform);
             }
 
-            UpdateSlotHighlights(); // clear/prepare highlights
+            UpdateSlotHighlights();
         }
 
         private void BuildSlots(int count)
@@ -86,8 +104,45 @@ namespace Antura.Discover.Activities
                 drop.activityManager = this;
                 drop.slotIndex = i;
                 slotViews.Add(drop);
+
+                // Optional: ghost image in Tutorial difficulty
+                if (showGhostsInTutorial && (ActivityDifficulty == Difficulty.Tutorial))
+                {
+                    var img = slotGO.GetComponentInChildren<Image>();
+                    if (img != null && i < correctOrder.Length)
+                    {
+                        var sprite = ResolveSprite(correctOrder[i]);
+                        if (sprite != null)
+                        {
+                            img.sprite = sprite;
+                            var c = img.color;
+                            c.a = 0.25f;
+                            img.color = c;
+                        }
+                    }
+                }
             }
         }
+
+        private List<Antura.Discover.CardData> BuildItemsFromSettings()
+        {
+            var result = new List<Antura.Discover.CardData>();
+            if (Settings.ItemsData != null && Settings.ItemsData.Count > 0)
+            {
+                foreach (var cd in Settings.ItemsData)
+                {
+                    if (cd == null)
+                        continue;
+                    result.Add(cd);
+                }
+            }
+            else
+            {
+                Debug.LogError("Order: ItemsData is empty");
+            }
+            return result;
+        }
+
 
         public void PlaceTile(DraggableTile tile, int slotIndex)
         {
@@ -124,6 +179,9 @@ namespace Antura.Discover.Activities
             slots[slotIndex] = tile;
             tile.MoveToSlot(GetSlotTransform(slotIndex), slotIndex);
 
+            // Pulse feedback
+            Pulse(tile.transform, 1.06f, 0.08f);
+
             if (audioSource && dropSound)
                 audioSource.PlayOneShot(dropSound);
 
@@ -151,7 +209,7 @@ namespace Antura.Discover.Activities
 
         private Transform GetSlotTransform(int slotIndex) => slotsParent.GetChild(slotIndex);
 
-        private void Shuffle(List<CardItem> list)
+        private void Shuffle<T>(List<T> list)
         {
             // Fisher–Yates shuffle
             for (int i = list.Count - 1; i > 0; i--)
@@ -188,11 +246,7 @@ namespace Antura.Discover.Activities
             return true;
         }
 
-        private void SetValidateInteractable(bool status)
-        {
-            if (validateButton)
-                validateButton.interactable = status;
-        }
+        private void SetValidateInteractable(bool status) => SetValidateEnabled(status);
 
         // Live visual hints
         private void UpdateSlotHighlights()
@@ -208,7 +262,7 @@ namespace Antura.Discover.Activities
                     if (view == null)
                         continue;
 
-                    if (slots[i] != null && slots[i].ItemData.Name == correctOrder[i].Name)
+                    if (slots[i] != null && slots[i].ItemData != null && slots[i].ItemData.Id == correctOrder[i].Id)
                         view.SetHighlight(Color.green, 0.35f);
                     else
                         view.ClearHighlight();
@@ -238,58 +292,51 @@ namespace Antura.Discover.Activities
                 if (tile == null)
                 { wrongIndices.Add(i); continue; }
 
-                var expected = correctOrder[i].Name;
-                if (tile.ItemData.Name != expected)
+                var expected = correctOrder[i].Id;
+                if (tile.ItemData == null || tile.ItemData.Id != expected)
                     wrongIndices.Add(i);
             }
 
             if (wrongIndices.Count == 0)
             {
                 Debug.Log("✅ Correct order!");
-                // TODO: success animation / next level
+                // feedback
+                if (audioSource && successSound)
+                    audioSource.PlayOneShot(successSound);
                 return true;
             }
             else
             {
                 StartCoroutine(ShakeWrongTiles(wrongIndices));
+                if (audioSource && failSound)
+                    audioSource.PlayOneShot(failSound);
                 Debug.Log($"❌ Wrong order in {wrongIndices.Count} slot(s).");
                 return false;
             }
         }
 
+        private void ClearChildren(Transform parent)
+        {
+            if (parent == null)
+                return;
+            for (int i = parent.childCount - 1; i >= 0; i--)
+                Destroy(parent.GetChild(i).gameObject);
+        }
+
         private IEnumerator ShakeWrongTiles(List<int> indices)
         {
             float duration = 0.25f;
-            float strength = 10f;
-
-            var originals = new Dictionary<RectTransform, Vector2>();
             foreach (var idx in indices)
             {
                 var rt = slots[idx].Rect;
-                originals[rt] = rt.anchoredPosition;
+                rt.DOKill();
+                rt.DOPunchAnchorPos(new Vector2(18f, 0f), duration, vibrato: 12, elasticity: 0.6f).SetUpdate(true);
             }
-
-            float t = 0f;
-            while (t < duration)
-            {
-                t += Time.unscaledDeltaTime;
-                float phase = (t / duration) * Mathf.PI * 4f;
-                float offset = Mathf.Sin(phase) * strength;
-
-                foreach (var kv in originals)
-                {
-                    var rt = kv.Key;
-                    rt.anchoredPosition = kv.Value + new Vector2(offset, 0f);
-                }
-                yield return null;
-            }
-
-            foreach (var kv in originals)
-                kv.Key.anchoredPosition = kv.Value;
+            yield return new WaitForSecondsRealtime(duration);
         }
 
         // ---- Tutorial hint ----
-        public void FlashCorrectSlot(CardItem item, DraggableTile tile)
+        public void FlashCorrectSlot(Antura.Discover.CardData item, DraggableTile tile)
         {
             if (ActivityDifficulty != Difficulty.Tutorial)
                 return;
@@ -297,7 +344,7 @@ namespace Antura.Discover.Activities
             int correctIndex = -1;
             for (int i = 0; i < correctOrder.Length; i++)
             {
-                if (correctOrder[i].Name == item.Name)
+                if (correctOrder[i].Id == item.Id)
                 {
                     correctIndex = i;
                     break;
@@ -349,6 +396,16 @@ namespace Antura.Discover.Activities
                 audioSource.PlayOneShot(clip);
             else
                 AudioSource.PlayClipAtPoint(clip, Camera.main ? Camera.main.transform.position : Vector3.zero);
+        }
+        private static Sprite ResolveSprite(Antura.Discover.CardData data)
+        {
+            if (data == null)
+                return null;
+            if (data.Image != null)
+                return data.Image;
+            if (data.ImageAsset != null)
+                return data.ImageAsset.Image;
+            return null;
         }
     }
 }

@@ -16,12 +16,6 @@ namespace Antura.Discover {
             set => this.SetValue<bool>("$got_hint", value);
         }
 
-        // Accessor for String $current_item
-        public string CurrentItem {
-            get => this.GetValueOrDefault<string>("$current_item");
-            set => this.SetValue<string>("$current_item", value);
-        }
-
         // Accessor for Bool $doorUnlocked
         public bool DoorUnlocked {
             get => this.GetValueOrDefault<bool>("$doorUnlocked");
@@ -29,6 +23,9 @@ namespace Antura.Discover {
         }
 
         // Accessor for Number $coins
+        /// <summary>
+        /// Implicitly declared in /Users/krur/Documents/Projects/VGWB/Antura_Unity/Assets/_discover/_data/Quests/_DEV/DEV script.yarn, node NPCGreeting3
+        /// </summary>
         public float Coins {
             get => this.GetValueOrDefault<float>("$coins");
             set => this.SetValue<float>("$coins", value);

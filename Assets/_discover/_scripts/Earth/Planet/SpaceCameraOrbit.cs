@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 namespace Antura.Discover
 {
@@ -30,16 +31,20 @@ namespace Antura.Discover
         bool down = false;
         void Update()
         {
+            bool overUI = IsPointerOverUI();
             if (Input.touchCount > 0)
             {
                 if (Input.touches[0].phase == TouchPhase.Began)
                 {
-                    down = true;
-                    mouseOnDown.x = Input.touches[0].position.x;
-                    mouseOnDown.y = -Input.touches[0].position.y;
+                    if (!overUI)
+                    {
+                        down = true;
+                        mouseOnDown.x = Input.touches[0].position.x;
+                        mouseOnDown.y = -Input.touches[0].position.y;
 
-                    targetOnDown.x = target.x;
-                    targetOnDown.y = target.y;
+                        targetOnDown.x = target.x;
+                        targetOnDown.y = target.y;
+                    }
                 }
                 else if (Input.touches[0].phase == TouchPhase.Canceled ||
                     Input.touches[0].phase == TouchPhase.Ended)
@@ -51,19 +56,22 @@ namespace Antura.Discover
             {
                 if (Input.GetMouseButtonDown(0))
                 {
-                    down = true;
-                    mouseOnDown.x = Input.mousePosition.x;
-                    mouseOnDown.y = -Input.mousePosition.y;
+                    if (!overUI)
+                    {
+                        down = true;
+                        mouseOnDown.x = Input.mousePosition.x;
+                        mouseOnDown.y = -Input.mousePosition.y;
 
-                    targetOnDown.x = target.x;
-                    targetOnDown.y = target.y;
+                        targetOnDown.x = target.x;
+                        targetOnDown.y = target.y;
+                    }
                 }
                 else if (Input.GetMouseButtonUp(0))
                 {
                     down = false;
                 }
             }
-            if (down)
+            if (down && !overUI)
             {
                 if (Input.touchCount > 0)
                 {
@@ -88,7 +96,10 @@ namespace Antura.Discover
                 return;
             }
 
-            distanceTarget -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            if (!overUI)
+            {
+                distanceTarget -= Input.GetAxis("Mouse ScrollWheel") * zoomSpeed;
+            }
             distanceTarget = Mathf.Clamp(distanceTarget, MinDistance, MaxDistance);
 
             rotation.x += (target.x - rotation.x) * amplify;
@@ -100,6 +111,23 @@ namespace Antura.Discover
             position.z = distance * Mathf.Cos(rotation.x) * Mathf.Cos(rotation.y);
             transform.position = position;
             transform.LookAt(Vector3.zero);
+        }
+
+        private bool IsPointerOverUI()
+        {
+            if (EventSystem.current == null)
+                return false;
+            if (Input.touchCount > 0)
+            {
+                // If any active touch is over UI, consider pointer over UI
+                for (int i = 0; i < Input.touchCount; i++)
+                {
+                    if (EventSystem.current.IsPointerOverGameObject(Input.touches[i].fingerId))
+                        return true;
+                }
+                return false;
+            }
+            return EventSystem.current.IsPointerOverGameObject();
         }
 
         private float ScreenToCanvasPosition(Vector2 screenPosition)

@@ -6,9 +6,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
+using TMPro;
+using Yarn.Unity;
 
 namespace Antura.Discover
 {
+
     public class ActionManager : MonoBehaviour
     {
         public static ActionManager I;
@@ -20,8 +23,6 @@ namespace Antura.Discover
         public GameObject PlayerSpawnPoint;
 
         public QuestActionData[] QuestActions;
-
-        public ActionData[] Actions;
 
         [Header("Specific")]
         private Transform target_AnturaLocation;
@@ -73,8 +74,6 @@ namespace Antura.Discover
             {
                 ResolveQuestAction("init");
             }
-            // TODO RUN INIT
-            //InteractionManager.I.DisplayNode(QuestManager.I.GetQuestNode("init"));
         }
 
         private void SetPlayerSpawnPoint(GameObject spawnPoint)
@@ -88,17 +87,6 @@ namespace Antura.Discover
                 PlayerController.SpawnToNewLocation(PlayerSpawnPoint.transform);
             }
         }
-
-        private ActionData GetActionData(string actionCode)
-        {
-            return Actions.FirstOrDefault(action => action.ActionCode == actionCode);
-        }
-
-        private ActionData GetActionData(CommandType type, string actionCode)
-        {
-            return Actions.FirstOrDefault(action => action.Type == type && action.ActionCode == actionCode);
-        }
-
         public void ResolveQuestAction(string action, QuestNode node = null)
         {
             action = action.ToLower();
@@ -143,8 +131,8 @@ namespace Antura.Discover
                 if (command.Bypass)
                 {
                     if (QuestManager.I.DebugQuest)
-                        Debug.Log("Command is disabled: " + command.Command);
-                    continue;
+                        //                        Debug.Log("Command is disabled: " + command.Command);
+                        continue;
                 }
                 switch (command.Command)
                 {

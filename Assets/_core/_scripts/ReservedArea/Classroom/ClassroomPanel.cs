@@ -1,6 +1,7 @@
 ﻿using Antura.Audio;
 using Antura.Core;
 using Antura.Database;
+using Antura.Discover;
 using Antura.Profile;
 using Antura.Scenes;
 using Antura.Teacher;
@@ -11,6 +12,7 @@ using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Antura.Discover;
 
 namespace Antura.UI
 {
@@ -168,6 +170,22 @@ namespace Antura.UI
             {
                 Debug.LogError($"ClassroomPanel: can't switch to {toState} state without passing profile parameter");
                 return;
+            }
+
+            // DISCOVER INTEGRATION... we don't have any other method to check
+            // selection here in the reserved Area :(
+            Debug.Log("SwitchState profile.uuid " + (profile != null ? profile?.Uuid : "null"));
+            Debug.Log("SwitchState DiscoverAppManager exists " + (DiscoverAppManager.I != null));
+            if (!string.IsNullOrEmpty(profile?.Uuid))
+            {
+                if (DiscoverAppManager.I != null)
+                {
+                    DiscoverAppManager.I.InitializeFromLegacyUuid(profile?.Uuid);
+                }
+                else
+                {
+                    Debug.LogWarning("DiscoverAppManager.I is null when attempting to initialize from legacy UUID.");
+                }
             }
 
             state = toState;

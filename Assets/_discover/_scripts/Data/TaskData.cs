@@ -6,6 +6,17 @@ using System;
 
 namespace Antura.Discover
 {
+    public enum TaskScope
+    {
+        Global = 1,
+        Quest = 2
+    }
+
+    public enum RepeatMode
+    {
+        Once, Repeatable
+    }
+
     public enum TaskType
     {
         None = 0,
@@ -24,6 +35,7 @@ namespace Antura.Discover
         public Countries Country;
 
         public TaskType Type;
+        public TaskScope Scope = TaskScope.Quest;
 
         [Header("Content")]
         public LocalizedString Title;
@@ -31,12 +43,15 @@ namespace Antura.Discover
         [Tooltip("Optional description")]
         public LocalizedString Description;
 
-        [Header("Achievements")]
-
-        [Tooltip("Total or per item is collect Task")]
-        public int ProgressPoints;
+        [Header("Rewards")]
+        [Tooltip("Cookies")]
+        [Range(0, 20)]
+        public int Cookies = 0;
+        [Tooltip("Knowledge points")]
+        public int Points;
 
         [Tooltip("Gems gained")]
+        [Range(0, 1)]
         public int Gems;
 
 

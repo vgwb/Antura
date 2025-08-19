@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-namespace Antura.Discover
+namespace Antura.Discover.UI
 {
     public class QuestInfoPanel : MonoBehaviour
     {
@@ -15,14 +15,14 @@ namespace Antura.Discover
         public TextMeshProUGUI Title;
         public TextMeshProUGUI Description;
         public Button PlayBtn;
-        public Button PlayManual;
         [SerializeField] QuestInfoPanelSlideshow slideshow;
 
         private QuestData currentQuestData;
+        public QuestCardsUI QuestCardsUI;
 
         void Start()
         {
-
+            QuestCardsUI = GetComponent<QuestCardsUI>();
         }
 
         public void Show(QuestData questData)
@@ -30,6 +30,10 @@ namespace Antura.Discover
             Description.text = "";
             gameObject.SetActive(true);
             currentQuestData = questData;
+
+            QuestCardsUI.Init(questData);
+
+
             Title.text = questData.Id + " | " + questData.Title.GetLocalizedString();
             if (questData.Location != null)
                 Title.text += " | " + questData.Location.Name.GetLocalizedString();
@@ -43,10 +47,10 @@ namespace Antura.Discover
             //     Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
             if (questData.Duration > 0)
                 Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
-            if (questData.WordsUsed != null)
+            if (questData.Words != null)
             {
                 Description.text += "<b>Words used:</b> ";
-                foreach (var word in questData.WordsUsed)
+                foreach (var word in questData.Words)
                 {
                     Description.text += "- " + word.GetLocalizedString() + "\n";
                 }
@@ -58,7 +62,7 @@ namespace Antura.Discover
 
             if (currentQuestData.Thumbnail != null)
             {
-                slideshow.SetImages(new List<Sprite>() { currentQuestData.Thumbnail });
+                slideshow.SetImages(new List<Sprite>() { currentQuestData.Thumbnail.Image });
             }
             else
             {
@@ -72,15 +76,6 @@ namespace Antura.Discover
             else
             {
                 PlayBtn.interactable = false;
-            }
-
-            if (currentQuestData.manualPage != "")
-            {
-                PlayManual.gameObject.SetActive(true);
-            }
-            else
-            {
-                PlayManual.gameObject.SetActive(false);
             }
 
         }

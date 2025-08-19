@@ -8,7 +8,7 @@ namespace Antura.Discover.Activities
     [Serializable]
     public class QuizEntry
     {
-        public CardItem Item;
+        public Antura.Discover.CardData Item;
         public bool IsCorrect;
     }
 

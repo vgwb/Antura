@@ -17,7 +17,7 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "Database", menuName = "Antura/Discover/Database")]
     public class DatabaseManager : ScriptableObject
     {
-        [Tooltip("Drop all your IdentifiedData here. The Editor 'Rebuild' can auto-populate this.")]
+        [Tooltip("Drop all IdentifiedData here. The Editor 'Rebuild' can auto-populate this.")]
         public List<IdentifiedData> AllData = new List<IdentifiedData>();
 
         // Runtime index
@@ -30,7 +30,8 @@ namespace Antura.Discover
             _index = new Dictionary<Type, Dictionary<string, IdentifiedData>>();
             foreach (var d in AllData)
             {
-                if (d == null || string.IsNullOrEmpty(d.Id)) continue;
+                if (d == null || string.IsNullOrEmpty(d.Id))
+                    continue;
                 var t = d.GetType();
                 if (!_index.TryGetValue(t, out var map))
                 {
@@ -46,19 +47,22 @@ namespace Antura.Discover
 
         public void RebuildIndexIfNeeded()
         {
-            if (_index == null) BuildIndex();
+            if (_index == null)
+                BuildIndex();
         }
 
         public T Get<T>(string id) where T : IdentifiedData
         {
-            if (TryGet(id, out T result)) return result;
+            if (TryGet(id, out T result))
+                return result;
             throw new KeyNotFoundException($"[Database] Not found: {typeof(T).Name} id='{id}'");
         }
 
         public bool TryGet<T>(string id, out T result) where T : IdentifiedData
         {
             result = null;
-            if (string.IsNullOrEmpty(id)) return false;
+            if (string.IsNullOrEmpty(id))
+                return false;
             if (_index != null && _index.TryGetValue(typeof(T), out var map) &&
                 map.TryGetValue(id, out var obj))
             {

@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
   m_Name: Louvre
   m_EditorClassIdentifier: 
-  Id: fr_toureiffell
+  Id: fr_louvre
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -31,14 +32,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Image: {fileID: 0}
-  Audio: {fileID: 0}
   Category: 1
   Topics: 0800000007000000
   Year: 1885
   Country: 2
-  UnlockQuests: []
-  MaxProgress: 10
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: 7e300c42f47364930914a749feeee35e, type: 2}
+  Image: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 0
+  CustomTag: 
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   references:
     version: 2
     RefIds: []

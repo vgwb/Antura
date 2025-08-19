@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Antura.Core;
+using Antura.Discover;
 using Antura.Dog;
 using Antura.Helpers;
 using Antura.Profile;
