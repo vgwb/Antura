@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: RiverWisla
   m_EditorClassIdentifier: 
   Id: pl_riverwisla
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:8988c161438d44143a87b48140d6a7d0
@@ -31,14 +32,26 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Image: {fileID: 0}
-  Audio: {fileID: 0}
   Category: 1
   Topics: 02000000
   Year: 0
   Country: 3
-  UnlockQuests: []
-  MaxProgress: 10
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: c7b6e41eb33e01f43a3e16c965b8d623, type: 2}
+  Image: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 0
+  CustomTag: 
+  Quests: []
   references:
     version: 2
     RefIds: []
