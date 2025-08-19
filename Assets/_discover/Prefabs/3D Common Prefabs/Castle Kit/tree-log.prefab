@@ -1,17 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2112464059831463723
+--- !u!1 &7050284035299066617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2287997827142170073}
+  - component: {fileID: 1853247731385731898}
+  m_Layer: 0
+  m_Name: tree-log
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2287997827142170073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050284035299066617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1956946871422641085}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1853247731385731898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050284035299066617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: castle-kit-tree-log
+  Source: Kenney Castle Kit
+  Category: 20
+  Tags: 82000000
+--- !u!1001 &2063424553124103254
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2287997827142170073}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
@@ -36,12 +85,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
@@ -70,21 +119,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: bdb200ee612da4be8945311e3b21edea,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7141863911693360511}
+      addedObject: {fileID: 7240091276336534381}
   m_SourcePrefab: {fileID: 100100000, guid: bdb200ee612da4be8945311e3b21edea, type: 3}
---- !u!1 &1265954664428704378 stripped
+--- !u!1 &1180972671291439367 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: bdb200ee612da4be8945311e3b21edea,
     type: 3}
-  m_PrefabInstance: {fileID: 2112464059831463723}
+  m_PrefabInstance: {fileID: 2063424553124103254}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &7141863911693360511
+--- !u!64 &7240091276336534381
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1265954664428704378}
+  m_GameObject: {fileID: 1180972671291439367}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -100,3 +149,9 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -2065538494883675387, guid: bdb200ee612da4be8945311e3b21edea, type: 3}
+--- !u!4 &1956946871422641085 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: bdb200ee612da4be8945311e3b21edea,
+    type: 3}
+  m_PrefabInstance: {fileID: 2063424553124103254}
+  m_PrefabAsset: {fileID: 0}

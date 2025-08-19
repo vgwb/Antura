@@ -1,17 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5368292231559842877
+--- !u!1 &7261603362990756451
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2890126830210443250}
+  - component: {fileID: 5312886158672458001}
+  m_Layer: 0
+  m_Name: siege-catapult-demolished
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2890126830210443250
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261603362990756451}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3862077412413203034}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5312886158672458001
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7261603362990756451}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: castle-kit-siege-catapult-demolished
+  Source: Kenney Castle Kit
+  Category: 20
+  Tags: 82000000
+--- !u!1001 &3608055707566310833
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 2890126830210443250}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
@@ -36,12 +85,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
@@ -70,21 +119,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 981fd139ade384c67912e578f3ff26d8,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4350211122178810238}
+      addedObject: {fileID: 6058442613053648816}
   m_SourcePrefab: {fileID: 100100000, guid: 981fd139ade384c67912e578f3ff26d8, type: 3}
---- !u!1 &5062442382965879148 stripped
+--- !u!4 &3862077412413203034 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 981fd139ade384c67912e578f3ff26d8,
+    type: 3}
+  m_PrefabInstance: {fileID: 3608055707566310833}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4526973446583924960 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 981fd139ade384c67912e578f3ff26d8,
     type: 3}
-  m_PrefabInstance: {fileID: 5368292231559842877}
+  m_PrefabInstance: {fileID: 3608055707566310833}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4350211122178810238
+--- !u!64 &6058442613053648816
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5062442382965879148}
+  m_GameObject: {fileID: 4526973446583924960}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

@@ -1,17 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &2874284658256916340
+--- !u!1 &4034176935809741160
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6455524499158803652}
+  - component: {fileID: 1597865307847485844}
+  m_Layer: 0
+  m_Name: tower-square-mid-door
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6455524499158803652
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4034176935809741160}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 3924653982732609403}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1597865307847485844
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4034176935809741160}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: castle-kit-tower-square-mid-door
+  Source: Kenney Castle Kit
+  Category: 20
+  Tags: 82000000
+--- !u!1001 &3602199643580268688
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 6455524499158803652}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
@@ -36,12 +85,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
@@ -70,21 +119,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: f78cd69252dbc40d984465e352de0db9,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2101335197439439095}
+      addedObject: {fileID: 7905698937295597310}
   m_SourcePrefab: {fileID: 100100000, guid: f78cd69252dbc40d984465e352de0db9, type: 3}
---- !u!1 &3108305605862822437 stripped
+--- !u!4 &3924653982732609403 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: f78cd69252dbc40d984465e352de0db9,
+    type: 3}
+  m_PrefabInstance: {fileID: 3602199643580268688}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &4412679552487734721 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: f78cd69252dbc40d984465e352de0db9,
     type: 3}
-  m_PrefabInstance: {fileID: 2874284658256916340}
+  m_PrefabInstance: {fileID: 3602199643580268688}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &2101335197439439095
+--- !u!64 &7905698937295597310
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3108305605862822437}
+  m_GameObject: {fileID: 4412679552487734721}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

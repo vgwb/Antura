@@ -1,17 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &3230266763538936620
+--- !u!1 &4832662723528380964
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3788094695449468636}
+  - component: {fileID: 7105891797379572725}
+  m_Layer: 0
+  m_Name: flag-banner-short
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3788094695449468636
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832662723528380964}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 91571709334100763}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7105891797379572725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4832662723528380964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: castle-kit-flag-banner-short
+  Source: Kenney Castle Kit
+  Category: 20
+  Tags: 82000000
+--- !u!1001 &490868726206889200
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 3788094695449468636}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
@@ -36,12 +85,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
@@ -70,21 +119,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: e51bb204ff49c48659214277dea7c43f,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 7006492945652954999}
+      addedObject: {fileID: 5436171473221744286}
   m_SourcePrefab: {fileID: 100100000, guid: e51bb204ff49c48659214277dea7c43f, type: 3}
---- !u!1 &2311858782511042173 stripped
+--- !u!4 &91571709334100763 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: e51bb204ff49c48659214277dea7c43f,
+    type: 3}
+  m_PrefabInstance: {fileID: 490868726206889200}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &724660972306153889 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: e51bb204ff49c48659214277dea7c43f,
     type: 3}
-  m_PrefabInstance: {fileID: 3230266763538936620}
+  m_PrefabInstance: {fileID: 490868726206889200}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &7006492945652954999
+--- !u!64 &5436171473221744286
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2311858782511042173}
+  m_GameObject: {fileID: 724660972306153889}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

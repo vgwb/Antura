@@ -1,17 +1,66 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1001 &5300121851009604762
+--- !u!1 &8145193382848745787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6382641994572547201}
+  - component: {fileID: 8293905646401805935}
+  m_Layer: 0
+  m_Name: tower-square-top-roof-rounded
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6382641994572547201
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145193382848745787}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 7004309347277631355}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8293905646401805935
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8145193382848745787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: castle-kit-tower-square-top-roof-rounded
+  Source: Kenney Castle Kit
+  Category: 20
+  Tags: 82000000
+--- !u!1001 &7403626695247464592
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 6382641994572547201}
     m_Modifications:
     - target: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
@@ -36,12 +85,12 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
@@ -70,21 +119,27 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
         type: 3}
       insertIndex: -1
-      addedObject: {fileID: 4295286795629572789}
+      addedObject: {fileID: 8550567591021738248}
   m_SourcePrefab: {fileID: 100100000, guid: fb8d63a3da7b646e290ae9ea1a3304ca, type: 3}
---- !u!1 &4993569977127379403 stripped
+--- !u!4 &7004309347277631355 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 7403626695247464592}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &7674026636607370689 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: fb8d63a3da7b646e290ae9ea1a3304ca,
     type: 3}
-  m_PrefabInstance: {fileID: 5300121851009604762}
+  m_PrefabInstance: {fileID: 7403626695247464592}
   m_PrefabAsset: {fileID: 0}
---- !u!64 &4295286795629572789
+--- !u!64 &8550567591021738248
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4993569977127379403}
+  m_GameObject: {fileID: 7674026636607370689}
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
