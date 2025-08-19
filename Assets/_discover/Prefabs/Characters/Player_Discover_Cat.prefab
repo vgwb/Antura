@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 829250532355678283}
   - component: {fileID: 6937420662406837792}
   - component: {fileID: 4294298240500422975}
+  - component: {fileID: 552005255099467279}
   m_Layer: 0
   m_Name: Player_Discover_Cat
   m_TagString: Player
@@ -174,21 +175,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4f219dad69a5f4804a4a118bb4ab1444, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animationController: {fileID: 448008798303200391}
+  CurrentState: 0
+  isGrounded: 1
+  isOnSlope: 0
   TimeToSit: 5
   TimeToSleep: 20
-  MoveSpeed: 2
-  SprintSpeed: 5.335
-  TimeToAutoSprint: 3
-  SprintAcceleration: 2
+  WalkSpeed: 2
+  RunSpeed: 4
+  TimeToAutoRun: 3
+  RunAcceleration: 2
   RotationSmoothTime: 0.12
   SpeedChangeRate: 10
   JumpHeight: 1.2
-  Gravity: -15
   JumpTimeout: 0.1
+  Gravity: -15
   FallTimeout: 1
-  isGrounded: 1
-  isOnSlope: 0
   GroundedOffset: -0.14
   GroundedRadius: 0.28
   GroundLayers:
@@ -231,6 +232,7 @@ MonoBehaviour:
   destructibleLayers:
     serializedVersion: 2
     m_Bits: 1
+  animationController: {fileID: 448008798303200391}
 --- !u!114 &448008798303200391
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -405,6 +407,23 @@ MonoBehaviour:
   analogMovement: 0
   cursorLocked: 0
   cursorInputForLook: 0
+--- !u!114 &552005255099467279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8502568018897201893}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: 
+  Kit: 1
+  Country: 0
+  Category: 50
+  Tags: 
 --- !u!1001 &4616306120691456199
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -235,6 +235,7 @@ GameObject:
   - component: {fileID: 2656310347846800054}
   - component: {fileID: 4674336879015998024}
   - component: {fileID: 213366315215552654}
+  - component: {fileID: 7290577221793618635}
   m_Layer: 0
   m_Name: LL_Discover
   m_TagString: Untagged
@@ -273,19 +274,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   IsInteractable: 1
-  InteractionType: 2
+  NearbyAutoActivate: 0
+  IconType: 1
   IconTransform: {fileID: 5396177026648878583}
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 1
-  ActivateUnityAction: 0
-  disableAfterAction: 0
-  unityAction:
-    m_PersistentCalls:
-      m_Calls: []
-  ActivateNode: 0
   NodePermalink: 
-  NodeCommand: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
 --- !u!114 &2656310347846800054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -301,7 +299,7 @@ MonoBehaviour:
   NavMeshAgent: {fileID: 4674336879015998024}
   Waypoints: []
   HeadProp: 0
-  Word: 
+  Word: {fileID: 0}
   Color: {r: 1, g: 1, b: 1, a: 1}
   Animation: 1
   letterObjectView: {fileID: 7482718829808241067}
@@ -356,6 +354,23 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 10
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &7290577221793618635
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788061485843009964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: 
+  Kit: 1
+  Country: 0
+  Category: 50
+  Tags: 
 --- !u!1 &5092105606933901799
 GameObject:
   m_ObjectHideFlags: 0
@@ -659,11 +674,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: dc74d181b346aa3449f239b1b4d8bc52, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 23711e54e8e8d1b4da96c14e18dc9741, type: 2}
     - target: {fileID: 2300006, guid: dc74d181b346aa3449f239b1b4d8bc52, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: f2aca7ef82bdd2a4a98511c2c17bd253, type: 2}
     m_RemovedComponents: []
@@ -916,11 +931,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2300004, guid: 7f5a540db4bf6f049bde188df283bb9f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 54799f3458e9e6c4abcdd353bf87e7dd, type: 2}
     - target: {fileID: 2300006, guid: 7f5a540db4bf6f049bde188df283bb9f, type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: a71fc6e57d78e08488ffc0478306b0d9, type: 2}
     m_RemovedComponents: []
@@ -2753,12 +2768,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2607306586641296482, guid: 3ea9196609752bc4ab8de5b1f88d60b3,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: 4b72291c15d69b44589dfbec175c65dc, type: 2}
     - target: {fileID: 4630916313522285363, guid: 3ea9196609752bc4ab8de5b1f88d60b3,
         type: 3}
-      propertyPath: m_Materials.Array.data[0]
+      propertyPath: 'm_Materials.Array.data[0]'
       value: 
       objectReference: {fileID: 2100000, guid: ecb913a1a75f1a341bfb066aa4b98cb6, type: 2}
     m_RemovedComponents: []

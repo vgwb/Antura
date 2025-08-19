@@ -81,7 +81,7 @@ PrefabInstance:
     - target: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_Name
-      value: npg-adventurer
+      value: NPC adventurer
       objectReference: {fileID: 0}
     - target: {fileID: 7628042235357773939, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -96,5 +96,32 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6464633112426251694}
   m_SourcePrefab: {fileID: 100100000, guid: b152e2fd2a59e48a98952de78476ba9a, type: 3}
+--- !u!1 &385730487815033985 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7808869614738119513}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6464633112426251694
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 385730487815033985}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: 
+  Kit: 36
+  Country: 0
+  Category: 50
+  Tags: 

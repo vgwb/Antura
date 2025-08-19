@@ -68,10 +68,12 @@ namespace Antura.Discover
         private const float ColKnowledge = 110f;
 
         // WorldPrefabData specific
-        private const float ColWPCategory = 140f;
-        private const float ColWPTags = 260f;
-        private WorldPrefabCategory? _wpCategoryFilter = null; // no All in UI; defaults to first enum
+        private const float ColWPCategory = 100f;
+        private const float ColWPTags = 100f;
+        private const float ColWPKit = 100f;
+        private WorldPrefabCategory? _wpCategoryFilter = null; // null => All categories
         private WorldPrefabTag? _wpTagFilter = null; // null => (Any)
+        private WorldPrefabKit? _wpKitFilter = null; // null => (Any)
 
         // CardData specific
         private const float ColTitle = 220f;
@@ -119,7 +121,7 @@ namespace Antura.Discover
             else if (SelectedType == typeof(WorldPrefabData))
             {
                 // Preview, Id, Category, Tags, Path
-                width += ColId + Gap + ColWPCategory + Gap + ColWPTags + Gap + ColPath;
+                width += ColId + Gap + ColWPCategory + Gap + ColWPTags + Gap + ColWPKit + Gap + ColPath;
             }
             else if (SelectedType == typeof(WordData))
             {
@@ -332,7 +334,7 @@ namespace Antura.Discover
                         _allData.Add(obj);
                 }
 
-                // Load all prefabs containing WorldPrefabData component
+                // Load all prefabs containing WorldPrefabData component on the ROOT only (not children)
                 var wpGuids = AssetDatabase.FindAssets("t:Prefab");
                 foreach (var guid in wpGuids)
                 {
@@ -340,7 +342,7 @@ namespace Antura.Discover
                     var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
                     if (go == null)
                         continue;
-                    var comp = go.GetComponentInChildren<WorldPrefabData>();
+                    var comp = go.GetComponent<WorldPrefabData>();
                     if (comp != null)
                         _worldPrefabs.Add(new WorldPrefabEntry { Comp = comp, Path = path });
                 }
@@ -384,7 +386,7 @@ namespace Antura.Discover
                 }
 
                 GUILayout.Space(8);
-                // Country selector (custom order with separator; no-op for types without Country) - narrower
+                // Country selector (applies to data types with a Countries member; also for WorldPrefabData)
                 GUILayout.Label("Country:", GUILayout.Width(56));
                 var cOpts = GetCountryOptions();
                 var cLabels = cOpts.Select(o => o.Label).ToArray();
@@ -416,33 +418,32 @@ namespace Antura.Discover
                     }
                 }
 
-                // WorldPrefabData Category + Tag filters
+                // WorldPrefabData Category + Tag + Kit filters
                 if (SelectedType == typeof(WorldPrefabData))
                 {
-                    GUILayout.Space(8);
-                    GUILayout.Label("Category:", GUILayout.Width(64));
+                    GUILayout.Label("Category:", GUILayout.Width(60));
                     var values = (WorldPrefabCategory[])Enum.GetValues(typeof(WorldPrefabCategory));
-                    if (!_wpCategoryFilter.HasValue && values.Length > 0)
-                        _wpCategoryFilter = values[0];
                     // Labels with All at the end
                     var catLabels = new List<string>(values.Select(v => v.ToString()));
                     catLabels.Add("All");
                     int curCat = _wpCategoryFilter.HasValue ? Array.IndexOf(values, _wpCategoryFilter.Value) : values.Length;
                     if (curCat < 0)
                         curCat = 0;
-                    int pickCat = EditorGUILayout.Popup(curCat, catLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(180));
+                    int pickCat = EditorGUILayout.Popup(curCat, catLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
                     if (pickCat != curCat && values.Length > 0)
                     {
                         _wpCategoryFilter = (pickCat >= values.Length) ? default(WorldPrefabCategory?) : values[pickCat];
                         _wpTagFilter = null; // reset tag when category changes
+                        _wpKitFilter = null; // keep Kit independent but reset to be safe when scope changes
                         Repaint();
                     }
 
-                    GUILayout.Space(8);
-                    GUILayout.Label("Tag:", GUILayout.Width(36));
+                    GUILayout.Label("Tag:", GUILayout.Width(30));
                     // Build tags actually present among prefabs in the selected category (or all when category is All)
                     var presentTags = _worldPrefabs
                         .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
+            .Where(e => CountryMatches(e.Comp, _countryFilter))
+            .Where(e => !_wpKitFilter.HasValue || GetWorldPrefabKit(e.Comp) == _wpKitFilter.Value)
                         .SelectMany(e => GetWorldPrefabTags(e.Comp) ?? new List<WorldPrefabTag>())
                         .Distinct()
                         .OrderBy(t => (int)t)
@@ -451,7 +452,7 @@ namespace Antura.Discover
                     {
                         using (new EditorGUI.DisabledScope(true))
                         {
-                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(180));
+                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(80));
                         }
                         _wpTagFilter = null;
                     }
@@ -464,10 +465,44 @@ namespace Antura.Discover
                         int curTag = _wpTagFilter.HasValue ? (presentTags.IndexOf(_wpTagFilter.Value) + 1) : 0;
                         if (curTag < 0)
                             curTag = 0;
-                        int pickTag = EditorGUILayout.Popup(curTag, tagLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(180));
+                        int pickTag = EditorGUILayout.Popup(curTag, tagLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
                         if (pickTag != curTag)
                         {
                             _wpTagFilter = pickTag <= 0 ? default(WorldPrefabTag?) : presentTags[pickTag - 1];
+                            Repaint();
+                        }
+                    }
+
+                    GUILayout.Label("Kit:", GUILayout.Width(24));
+                    // Build kits actually present in the current scope
+                    var presentKits = _worldPrefabs
+                        .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
+                        .Where(e => CountryMatches(e.Comp, _countryFilter))
+                        .Select(e => GetWorldPrefabKit(e.Comp))
+                        .Distinct()
+                        .OrderBy(k => (int)k)
+                        .ToList();
+                    if (presentKits.Count == 0)
+                    {
+                        using (new EditorGUI.DisabledScope(true))
+                        {
+                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(100));
+                        }
+                        _wpKitFilter = null;
+                    }
+                    else
+                    {
+                        if (_wpKitFilter.HasValue && !presentKits.Contains(_wpKitFilter.Value))
+                            _wpKitFilter = null;
+                        var kitLabels = new List<string> { "(Any)" };
+                        kitLabels.AddRange(presentKits.Select(v => v.ToString()));
+                        int curKit = _wpKitFilter.HasValue ? (presentKits.IndexOf(_wpKitFilter.Value) + 1) : 0;
+                        if (curKit < 0)
+                            curKit = 0;
+                        int pickKit = EditorGUILayout.Popup(curKit, kitLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(100));
+                        if (pickKit != curKit)
+                        {
+                            _wpKitFilter = pickKit <= 0 ? default(WorldPrefabKit?) : presentKits[pickKit - 1];
                             Repaint();
                         }
                     }
@@ -592,6 +627,8 @@ namespace Antura.Discover
                 x += ColWPCategory + Gap;
                 HeaderLabelRect("Tags", new Rect(x, y, ColWPTags, lineH), "WPTags");
                 x += ColWPTags + Gap;
+                HeaderLabelRect("Kit", new Rect(x, y, ColWPKit, lineH), "WPKit");
+                x += ColWPKit + Gap;
                 HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
                 x += ColPath + Gap;
             }
@@ -809,11 +846,19 @@ namespace Antura.Discover
                 EditorGUI.LabelField(rCat, GetWorldPrefabCategory(entry.Comp).ToString());
                 x += ColWPCategory + Gap;
 
-                // Tags
-                var rTags = new Rect(x, y, ColWPTags, lineH);
+                // Tags (one per line)
                 var tags = GetWorldPrefabTags(entry.Comp);
-                EditorGUI.LabelField(rTags, tags != null ? string.Join(", ", tags.Select(t => t.ToString())) : string.Empty);
+                string tagText = tags != null ? string.Join("\n", tags.Select(t => t.ToString())) : string.Empty;
+                float tagHeight = EditorStyles.label.CalcHeight(new GUIContent(tagText), ColWPTags);
+                float maxTagHeight = Mathf.Min(tagHeight, rowRect.height - 4f);
+                var rTags = new Rect(x, rowRect.y + (rowRect.height - maxTagHeight) * 0.5f, ColWPTags, maxTagHeight);
+                GUI.Label(rTags, tagText, EditorStyles.label);
                 x += ColWPTags + Gap;
+
+                // Kit
+                var rKit = new Rect(x, y, ColWPKit, lineH);
+                EditorGUI.LabelField(rKit, GetWorldPrefabKit(entry.Comp).ToString());
+                x += ColWPKit + Gap;
 
                 // Path
                 var rPath = new Rect(x, y, ColPath, lineH);
@@ -872,6 +917,8 @@ namespace Antura.Discover
                 x += ColWPCategory + Gap;
                 xs.Add(x);
                 x += ColWPTags + Gap;
+                xs.Add(x);
+                x += ColWPKit + Gap;
                 xs.Add(x);
                 x += ColPath + Gap;
                 xs.Add(x);
@@ -1477,6 +1524,9 @@ namespace Antura.Discover
                 set = set.Where(e => GetWorldPrefabCategory(e.Comp) == cat);
             }
 
+            // Country filter (reuse window-level country selector)
+            set = set.Where(e => CountryMatches(e.Comp, _countryFilter));
+
             // Tag filter (optional)
             if (_wpTagFilter.HasValue)
             {
@@ -1486,6 +1536,13 @@ namespace Antura.Discover
                     var tags = GetWorldPrefabTags(e.Comp);
                     return tags != null && tags.Contains(tag);
                 });
+            }
+
+            // Kit filter (optional)
+            if (_wpKitFilter.HasValue)
+            {
+                var kit = _wpKitFilter.Value;
+                set = set.Where(e => GetWorldPrefabKit(e.Comp) == kit);
             }
 
             // Search filter over Id, Category, Tags, Path
@@ -1519,6 +1576,9 @@ namespace Antura.Discover
                         break;
                     case "WPTags":
                         keySelector = e => string.Join(",", GetWorldPrefabTags(e.Comp)?.Select(t => t.ToString()) ?? Array.Empty<string>());
+                        break;
+                    case "WPKit":
+                        keySelector = e => GetWorldPrefabKit(e.Comp).ToString();
                         break;
                     case "Path":
                         keySelector = e => FormatPath(e.Path) ?? string.Empty;
@@ -1621,6 +1681,84 @@ namespace Antura.Discover
             }
 #endif
             return null;
+        }
+
+        // Read WorldPrefabData.Country and Kit with reflection and SerializedObject fallbacks
+        private static Countries GetWorldPrefabCountry(WorldPrefabData c)
+        {
+            if (c == null)
+                return Countries.Global;
+            var fi = typeof(WorldPrefabData).GetField("Country", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fi != null)
+            {
+                try
+                { return (Countries)fi.GetValue(c); }
+                catch { }
+            }
+#if UNITY_EDITOR
+            var so = new UnityEditor.SerializedObject(c);
+            var sp = so.FindProperty("Country");
+            if (sp != null)
+            {
+                if (sp.propertyType == UnityEditor.SerializedPropertyType.Enum || sp.propertyType == UnityEditor.SerializedPropertyType.Integer)
+                    return (Countries)sp.intValue;
+            }
+#endif
+            return Countries.Global;
+        }
+
+        private static WorldPrefabKit GetWorldPrefabKit(WorldPrefabData c)
+        {
+            if (c == null)
+                return WorldPrefabKit.None;
+            var fi = typeof(WorldPrefabData).GetField("Kit", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fi != null)
+            {
+                try
+                { return (WorldPrefabKit)fi.GetValue(c); }
+                catch { }
+            }
+#if UNITY_EDITOR
+            var so = new UnityEditor.SerializedObject(c);
+            var sp = so.FindProperty("Kit");
+            if (sp != null)
+            {
+                if (sp.propertyType == UnityEditor.SerializedPropertyType.Enum || sp.propertyType == UnityEditor.SerializedPropertyType.Integer)
+                    return (WorldPrefabKit)sp.intValue;
+            }
+#endif
+            return WorldPrefabKit.None;
+        }
+
+        // Apply the window's CountryFilter to a WorldPrefabData component
+        private static bool CountryMatches(WorldPrefabData comp, CountryFilter filter)
+        {
+            var value = GetWorldPrefabCountry(comp);
+            switch (filter)
+            {
+                case CountryFilter.All:
+                    return true;
+                case CountryFilter.Global:
+                    return value == Countries.Global;
+                case CountryFilter.France:
+                    return value == Countries.France;
+                case CountryFilter.Italy:
+                    return value == Countries.Italy;
+                case CountryFilter.Poland:
+                    return value == Countries.Poland;
+                case CountryFilter.Spain:
+                    return value == Countries.Spain;
+                case CountryFilter.Germany:
+                    return value == Countries.Germany;
+                case CountryFilter.UnitedKingdom:
+                    return value == Countries.UnitedKingdom;
+                case CountryFilter.Portugal:
+                    return value == Countries.Portugal;
+                case CountryFilter.Greece:
+                    return value == Countries.Greece;
+                default:
+                    return true;
+            }
         }
 
         private bool MatchesSearch(IdentifiedData a, string term)

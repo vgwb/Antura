@@ -3,27 +3,54 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
+    public enum WorldPrefabKit
+    {
+        None = 0,
+        Antura = 1,
+        AdventurED = 2,
+        Hexplorando = 10,
+        K_BlockyChars = 36,
+        K_Car = 20,
+        K_Castle = 21,
+        K_CityCommercial = 22,
+        K_CityIndustrial = 23,
+        K_CityRoads = 24,
+        K_CitySuburban = 25,
+        K_Fantasy = 26,
+        K_Food = 27,
+        K_Furniture = 28,
+        K_Holiday = 29,
+        K_Nature = 30,
+        K_Pirate = 31,
+        K_Platformer = 32,
+        K_Survival = 33,
+        K_Train = 34,
+        K_Watercraft = 35,
+    }
+
+
     public enum WorldPrefabCategory
     {
         None = 0,    // fallback / uncategorized
-        Decoration = 10,   // vases, paintings, ornaments
-        Building = 20,   // houses, walls, roofs, structural
-        Food = 30,   // edible items (fruit, bread, meat)
         Animal = 40,   // animals, pets, wild creatures
-        Character = 50,   // NPCs, humanoids
-        Street = 60,   // roads, lamps, benches, street furniture
-        Vehicle = 70,   // cars, trains, boats, planes
-        Sign = 80,   // signs, boards, indicators
-        Prop = 90,   // misc props, interactive objects
-        Nature = 100,  // trees, rocks, plants, water elements
-        Tool = 110,  // tools, weapons, instruments
-        Collectible = 120,  // items to pick up (coins, keys, treasures)
-        Furniture = 130,  // chairs, tables, beds, cabinets
-        Container = 140,  // chests, boxes, barrels
-        Clothing = 150,  // hats, armor, costumes
-        Effect = 160,  // particles, visual FX
         Audio = 170,  // sound emitters, music sources
+        Building = 20,   // houses, walls, roofs, structural
+        Character = 50,   // NPCs, humanoids
+        Clothing = 150,  // hats, armor, costumes
+        Collectible = 120,  // items to pick up (coins, keys, treasures)
+        Container = 140,  // chests, boxes, barrels
+        Decoration = 10,   // vases, paintings, ornaments
+        Effect = 160,  // particles, visual FX
         Environment = 180,  // skyboxes, lighting profiles, terrain chunks
+        Food = 30,   // edible items (fruit, bread, meat)
+        Furniture = 130,  // chairs, tables, beds, cabinets
+        Nature = 100,  // trees, rocks, plants, water elements
+        Platform = 25,   // platforms, floors, walkways
+        Prop = 90,   // misc props, interactive objects
+        Sign = 80,   // signs, boards, indicators
+        Street = 60,   // roads, lamps, benches, street furniture
+        Tool = 110,  // tools, weapons, instruments
+        Vehicle = 70,   // cars, trains, boats, planes
         Other = 999   // fallback for uncategorized / misc
     }
 
@@ -31,101 +58,102 @@ namespace Antura.Discover
     {
         None = 0,
 
-        // Historical / thematic
-        Medieval = 1,
-        Modern = 2,
-        Futuristic = 3,
-        Ancient = 4,
-
-        // Environment / setting (30–89)
-        Ground = 30,
-        Skybox = 40,
-        Mountain = 50,
-        Seaside = 60,
-        City = 70,
-        Forest = 80,
-        Tree = 81,
-        Desert = 82,
-        Snow = 83,
-        Water = 84,
-        Fire = 85,
-        Rock = 86,
+        // Environment / setting (30)
+        EnvCity = 70,
+        EnvDesert = 82,
+        EnvFire = 85,
+        EnvForest = 80,
+        EnvGround = 30,
+        EnvMountain = 50,
+        EnvPlant = 83,
+        EnvRock = 86,
+        EnvSeaside = 60,
+        EnvSkybox = 40,
+        EnvSnow = 83,
+        EnvTree = 81,
+        EnvWater = 84,
 
         // Architecture / construction (110–179)
-        Building = 110,
-        ModularBuilding = 120,
-        Road = 140,
-        Bridge = 150,
-        Fence = 160,
-        Wall = 170,
+        ArchiBridge = 150,
+        ArchiBuilding = 110,
+        ArchiDoor = 180,
+        ArchiFence = 160,
+        ArchiLadder = 190,
+        ArchiModularBuilding = 120,
+        ArchiRoad = 140,
+        ArchiWall = 170,
+        ArchiWindow = 185,
 
         // Props & placeables (200–299)
-        Decoration = 200,
-        Food = 210,
-        Collectible = 220,   // (consistent spelling)
-        Sign = 230,
-        Chest = 240,
-        Flag = 250,
-        Container = 260,
-        Resource = 270,   // was PickUpMaterial
-        MovingObject = 280,
-        Platform = 290,   // gameplay platform (jumpable/movable)
+        PropChest = 240,
+        PropCollectible = 220,   // (consistent spelling)
+        PropContainer = 260,
+        PropDecoration = 200,
+        PropFlag = 250,
+        PropFood = 210,
+        PropMovingObject = 280,
+        PropResource = 270,   // was PickUpMaterial
+        PropSign = 230,
+        PropTool = 290,   // tools, weapons, instruments
 
-        // Food sub-types (300–359)
-        Fruit = 300,
-        Vegetable = 310,
-        Meat = 320,
-        Drink = 330,
-        Bread = 340,
-        Dairy = 350,
+        Platform = 300,   // gameplay platform
 
-        // Level flow / editor helpers (400–469)
-        SpawnPoint = 400,
-        Checkpoint = 410,
-        Teleport = 420,
-        Door = 430,
-        Ladder = 440,
-        Waypoint = 450,
-        Trigger = 460,
-        Volume = 461,
 
-        // Vehicles (510–559)
-        Car = 510,
-        Train = 520,
-        Boat = 530,
-        Airplane = 540,
-        Bicycle = 550,
 
-        // Gameplay / logic (600–629)
-        QuestItem = 600,
-        Interactive = 610,
-        AI = 620,   // has behaviour tree / AI
-        Static = 621,
+        // Level flow / editor helpers (400)
+        GameAI = 400,   // has behaviour tree / AI
+        GameBreakable = 410,
+        GameCheckpoint = 420,
+        GameClimbable = 425,
+        GameHazard = 430,   // spikes, lava, etc.
+        GameInteractive = 435,
+        GameObstacle = 440,
+        GameQuestItem = 445,
+        GameSpawnPoint = 450,
+        GameSpecial = 460,
+        GameTeleport = 470,
+        GameTrigger = 480,
+        GameVolume = 490,
 
-        // Nav / physics (640–679)
-        NavWalkable = 640,
-        NavObstacle = 641,
-        Breakable = 652,
-        Hazard = 653,   // spikes, lava, etc.
-        Climbable = 654,
+        // Vehicles (510)
+        VehicleCar = 510,
+        VehicleTrain = 520,
+        VehicleBoat = 530,
+        VehicleAirplane = 540,
+        VehicleBicycle = 550,
 
-        // VFX / Audio (700–739)
-        Effect = 700,   // visual effects, general
-        SoundFx = 710,
-        Music = 720,
-        LightSource = 730,
+        // Food sub-types (600)
+        FoodFruit = 600,
+        FoodVegetable = 610,
+        FoodMeat = 620,
+        FoodDrink = 630,
+        FoodBread = 640,
+        FoodDairy = 650,
 
-        // Culture / region (800–839)
-        Asian = 800,
-        European = 810,
-        African = 820,
-        American = 830,
+        // VFX / Audio (700)
+        FxEffect = 700,
+        FxSoundFx = 710,
+        FxMusic = 720,
+        FxLightSource = 730,
 
-        // Size / performance (900–959)
-        Small = 900,
-        Medium = 910,
-        Large = 920,
-        HighPoly = 951,
+        // Culture / region (800)
+        RegionAsia = 800,
+        RegionEuropea = 810,
+        RegionAfrica = 820,
+        RegionAmerica = 830,
+
+        // Size / performance (900)
+        SizeSmall = 900,
+        SizeMedium = 910,
+        SizeLarge = 920,
+        SizeHighPoly = 951,
+
+        // Theme
+        ThemeModern = 1,
+        ThemeMedieval = 2,
+        ThemeFantasy = 3,
+        ThemeFuturistic = 4,
+        ThemeAncient = 5,
 
     }
 
@@ -135,10 +163,10 @@ namespace Antura.Discover
         [Tooltip("Unique identifier for this prefab")]
         public string Id;
 
-        [Tooltip("Where does this prefab come from?")]
-        public string Source;
-
-        [Header("Filtering")]
+        [Header("Family")]
+        public WorldPrefabKit Kit;
+        public Countries Country = Countries.Global;
+        [Header("Category")]
         public WorldPrefabCategory Category;
         public List<WorldPrefabTag> Tags = new List<WorldPrefabTag>();
 

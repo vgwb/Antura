@@ -46,7 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
   Id: hexplorando-assets-city06
-  Source: Hexplorando
+  Kit: 10
+  Country: 0
   Category: 20
   Tags: 6e000000
 --- !u!1001 &103093472975070400
@@ -57,6 +58,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1037718802444384547}
     m_Modifications:
+    - target: {fileID: -8679921383154817045, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -106,6 +122,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -8679921383154817045, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 1bd6deeee94fd4ddb94275c2d6b1ac1d,
         type: 3}
