@@ -33,6 +33,9 @@ namespace Antura.Discover
 
         // Cached data
         private readonly List<IdentifiedData> _allData = new List<IdentifiedData>();
+        // World Prefabs cached data
+        private struct WorldPrefabEntry { public WorldPrefabData Comp; public string Path; }
+        private readonly List<WorldPrefabEntry> _worldPrefabs = new List<WorldPrefabEntry>();
         // Sorting
         private string _sortKey = null;
         private bool _sortAsc = true;
@@ -63,6 +66,11 @@ namespace Antura.Discover
         private const float ColQKnowledge = 100f;
         // Card-specific knowledge column
         private const float ColKnowledge = 110f;
+
+        // WorldPrefabData specific
+        private const float ColWPCategory = 140f;
+        private const float ColWPTags = 260f;
+        private WorldPrefabCategory? _wpCategoryFilter = null; // null => All
 
         // CardData specific
         private const float ColTitle = 220f;
@@ -96,7 +104,7 @@ namespace Antura.Discover
         private float GetTableWidth()
         {
             float width = MarginLeft + ColOpen + Gap;
-            bool hasImage = SelectedType == typeof(QuestData) || SelectedType == typeof(CardData) || SelectedType == typeof(ItemData) || SelectedType == typeof(AssetData);
+            bool hasImage = SelectedType == typeof(QuestData) || SelectedType == typeof(CardData) || SelectedType == typeof(ItemData) || SelectedType == typeof(AssetData) || SelectedType == typeof(WorldPrefabData);
             if (hasImage)
                 width += ColImage + Gap;
 
@@ -104,6 +112,11 @@ namespace Antura.Discover
             {
                 // DevStatus, Id(+IdDisplay), Location, Knowledge, Difficulty, MainTopic, LinkedCards, WordsUsed
                 width += ColQDevStatus + Gap + ColQId + Gap + ColQLocation + Gap + ColQKnowledge + Gap + ColDifficulty + Gap + ColTopic + Gap + ColCards + Gap + ColWords;
+            }
+            else if (SelectedType == typeof(WorldPrefabData))
+            {
+                // Preview, Id, Category, Tags, Path
+                width += ColId + Gap + ColWPCategory + Gap + ColWPTags + Gap + ColPath;
             }
             else if (SelectedType == typeof(WordData))
             {
@@ -238,6 +251,13 @@ namespace Antura.Discover
                 foreach (var t in topTypes)
                     _typeOptions.Add(new TypeOption { Label = NicifyTypeLabel(t), Type = t, IsAggregate = false, IsSeparator = false });
 
+                // Insert World Prefabs dataset right after TaskData as an important dataset
+                var wpType = FindTypeByName("WorldPrefabData");
+                if (wpType != null)
+                {
+                    _typeOptions.Add(new TypeOption { Label = "World Prefabs", Type = wpType, IsAggregate = false, IsSeparator = false });
+                }
+
                 // Separator
                 _typeOptions.Add(new TypeOption { Label = "—", Type = null, IsAggregate = false, IsSeparator = true });
 
@@ -296,6 +316,7 @@ namespace Antura.Discover
         private void RefreshList()
         {
             _allData.Clear();
+            _worldPrefabs.Clear();
             try
             {
                 // Load all assets derived from IdentifiedData in one search
@@ -306,6 +327,19 @@ namespace Antura.Discover
                     var obj = AssetDatabase.LoadAssetAtPath<IdentifiedData>(path);
                     if (obj != null)
                         _allData.Add(obj);
+                }
+
+                // Load all prefabs containing WorldPrefabData component
+                var wpGuids = AssetDatabase.FindAssets("t:Prefab");
+                foreach (var guid in wpGuids)
+                {
+                    var path = AssetDatabase.GUIDToAssetPath(guid);
+                    var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                    if (go == null)
+                        continue;
+                    var comp = go.GetComponentInChildren<WorldPrefabData>();
+                    if (comp != null)
+                        _worldPrefabs.Add(new WorldPrefabEntry { Comp = comp, Path = path });
                 }
             }
             catch (Exception ex)
@@ -379,6 +413,23 @@ namespace Antura.Discover
                     }
                 }
 
+                // WorldPrefabData Category filter
+                if (SelectedType == typeof(WorldPrefabData))
+                {
+                    GUILayout.Space(8);
+                    GUILayout.Label("Category:", GUILayout.Width(64));
+                    var values = (WorldPrefabCategory[])Enum.GetValues(typeof(WorldPrefabCategory));
+                    var labelsWp = new List<string> { "All" };
+                    labelsWp.AddRange(values.Select(v => v.ToString()));
+                    int cur = _wpCategoryFilter.HasValue ? (Array.IndexOf(values, _wpCategoryFilter.Value) + 1) : 0;
+                    int pick = EditorGUILayout.Popup(cur, labelsWp.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
+                    if (pick != cur)
+                    {
+                        _wpCategoryFilter = pick <= 0 ? default(WorldPrefabCategory?) : values[pick - 1];
+                        Repaint();
+                    }
+                }
+
                 // When browsing CardData, show a Quest filter popup
                 if (SelectedType == typeof(CardData))
                 {
@@ -427,7 +478,7 @@ namespace Antura.Discover
                 // Show count of visible items
                 try
                 {
-                    int count = Filtered().Count();
+                    int count = (SelectedType == typeof(WorldPrefabData)) ? FilteredWorldPrefabs().Count() : Filtered().Count();
                     GUILayout.Label($"{count} items", EditorStyles.miniLabel);
                 }
                 catch { }
@@ -487,6 +538,19 @@ namespace Antura.Discover
                 x += ColCards + Gap;
                 HeaderLabelRect("Words Used", new Rect(x, y, ColWords, lineH), "WordsUsed");
                 x += ColWords + Gap;
+            }
+            else if (SelectedType == typeof(WorldPrefabData))
+            {
+                GUI.Label(new Rect(x, y, ColImage, lineH), "Preview", EditorStyles.boldLabel);
+                x += ColImage + Gap;
+                HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
+                x += ColId + Gap;
+                HeaderLabelRect("Category", new Rect(x, y, ColWPCategory, lineH), "WPCategory");
+                x += ColWPCategory + Gap;
+                HeaderLabelRect("Tags", new Rect(x, y, ColWPTags, lineH), "WPTags");
+                x += ColWPTags + Gap;
+                HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
+                x += ColPath + Gap;
             }
             else if (SelectedType == typeof(WordData))
             {
@@ -577,6 +641,12 @@ namespace Antura.Discover
 
         private void DrawRows()
         {
+            if (SelectedType == typeof(WorldPrefabData))
+            {
+                DrawWorldPrefabRows();
+                return;
+            }
+
             var items = Filtered().ToList();
             if (items.Count == 0)
             {
@@ -636,6 +706,87 @@ namespace Antura.Discover
             GUI.EndScrollView();
         }
 
+        private void DrawWorldPrefabRows()
+        {
+            var items = FilteredWorldPrefabs().ToList();
+            if (items.Count == 0)
+            {
+                GUILayout.Space(8);
+                EditorGUILayout.HelpBox("No world prefabs found.", MessageType.Info);
+                return;
+            }
+
+            float tableWidth = GetTableWidth();
+            var outer = GUILayoutUtility.GetRect(position.width, position.height - 160, GUILayout.ExpandHeight(true));
+            float totalHeight = RowHeight * items.Count;
+            var inner = new Rect(0, 0, tableWidth, totalHeight);
+            _scroll = GUI.BeginScrollView(outer, _scroll, inner, true, true);
+            int index = 0;
+            float yCursor = 0f;
+            foreach (var entry in items)
+            {
+                float rowH = RowHeight;
+                var rowRect = new Rect(0, yCursor, tableWidth, rowH);
+                if ((index++ % 2) == 0)
+                    EditorGUI.DrawRect(new Rect(0, rowRect.y, tableWidth, rowRect.height), new Color(0, 0, 0, 0.04f));
+
+                float x = MarginLeft;
+                float lineH = EditorGUIUtility.singleLineHeight;
+                float y = rowRect.y + (rowRect.height - lineH) * 0.5f;
+                // Open
+                var rOpen = new Rect(x, rowRect.y + (rowRect.height - 20f) * 0.5f, ColOpen - 12f, 20f);
+                if (GUI.Button(rOpen, "Open"))
+                {
+                    var obj = AssetDatabase.LoadAssetAtPath<UnityEngine.Object>(entry.Path);
+                    EditorGUIUtility.PingObject(obj);
+                    Selection.activeObject = obj;
+                }
+                x += ColOpen + Gap;
+
+                // Preview
+                var rImg = new Rect(x, rowRect.y + 2f, ColImage, ColImage);
+                var goForPreview = AssetDatabase.LoadAssetAtPath<GameObject>(entry.Path);
+                if (goForPreview != null)
+                {
+                    var tex = AssetPreview.GetAssetPreview(goForPreview) ?? AssetPreview.GetMiniThumbnail(goForPreview);
+                    if (tex != null)
+                        GUI.DrawTexture(rImg, tex, ScaleMode.ScaleToFit);
+                    else
+                        Repaint();
+                }
+                x += ColImage + Gap;
+
+                // Id
+                var rId = new Rect(x, y, ColId, lineH);
+                EditorGUI.LabelField(rId, GetWorldPrefabId(entry.Comp));
+                x += ColId + Gap;
+
+                // Category
+                var rCat = new Rect(x, y, ColWPCategory, lineH);
+                EditorGUI.LabelField(rCat, GetWorldPrefabCategory(entry.Comp).ToString());
+                x += ColWPCategory + Gap;
+
+                // Tags
+                var rTags = new Rect(x, y, ColWPTags, lineH);
+                var tags = GetWorldPrefabTags(entry.Comp);
+                EditorGUI.LabelField(rTags, tags != null ? string.Join(", ", tags.Select(t => t.ToString())) : string.Empty);
+                x += ColWPTags + Gap;
+
+                // Path
+                var rPath = new Rect(x, y, ColPath, lineH);
+                EditorGUI.LabelField(rPath, FormatPath(entry.Path));
+
+                // Vertical grid lines per row
+                var colXs = GetColumnBoundariesX();
+                foreach (var gx in colXs)
+                {
+                    EditorGUI.DrawRect(new Rect(gx, rowRect.y, 1, rowRect.height), _gridLineColor);
+                }
+                yCursor += rowH;
+            }
+            GUI.EndScrollView();
+        }
+
         // Compute X coordinates (from 0) where vertical grid lines should be drawn for the current table
         private List<float> GetColumnBoundariesX()
         {
@@ -666,6 +817,20 @@ namespace Antura.Discover
                 x += ColCards + Gap;
                 xs.Add(x);
                 x += ColWords + Gap;
+                xs.Add(x);
+                return xs;
+            }
+            if (SelectedType == typeof(WorldPrefabData))
+            {
+                x += ColImage + Gap;
+                xs.Add(x);
+                x += ColId + Gap;
+                xs.Add(x);
+                x += ColWPCategory + Gap;
+                xs.Add(x);
+                x += ColWPTags + Gap;
+                xs.Add(x);
+                x += ColPath + Gap;
                 xs.Add(x);
                 return xs;
             }
@@ -1258,6 +1423,84 @@ namespace Antura.Discover
             return ordered;
         }
 
+        private IEnumerable<WorldPrefabEntry> FilteredWorldPrefabs()
+        {
+            IEnumerable<WorldPrefabEntry> set = _worldPrefabs;
+
+            // Category filter
+            if (_wpCategoryFilter.HasValue)
+            {
+                var cat = _wpCategoryFilter.Value;
+                set = set.Where(e => GetWorldPrefabCategory(e.Comp) == cat);
+            }
+
+            // Search filter over Id, Category, Tags, Path
+            var term = _search?.Trim();
+            if (!string.IsNullOrEmpty(term))
+            {
+                set = set.Where(e =>
+                {
+                    var id = GetWorldPrefabId(e.Comp) ?? string.Empty;
+                    var cat = GetWorldPrefabCategory(e.Comp).ToString();
+                    var tags = GetWorldPrefabTags(e.Comp)?.Select(t => t.ToString()) ?? Enumerable.Empty<string>();
+                    var path = FormatPath(e.Path) ?? string.Empty;
+                    return id.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0
+                        || cat.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0
+                        || tags.Any(t => t.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                        || path.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0;
+                });
+            }
+
+            // Sorting
+            Func<WorldPrefabEntry, string> keySelector = e => GetWorldPrefabId(e.Comp) ?? string.Empty;
+            if (!string.IsNullOrEmpty(_sortKey))
+            {
+                switch (_sortKey)
+                {
+                    case nameof(IdentifiedData.Id):
+                        keySelector = e => GetWorldPrefabId(e.Comp) ?? string.Empty;
+                        break;
+                    case "WPCategory":
+                        keySelector = e => GetWorldPrefabCategory(e.Comp).ToString();
+                        break;
+                    case "WPTags":
+                        keySelector = e => string.Join(",", GetWorldPrefabTags(e.Comp)?.Select(t => t.ToString()) ?? Array.Empty<string>());
+                        break;
+                    case "Path":
+                        keySelector = e => FormatPath(e.Path) ?? string.Empty;
+                        break;
+                    default:
+                        keySelector = e => GetWorldPrefabId(e.Comp) ?? string.Empty;
+                        break;
+                }
+            }
+            set = _sortAsc ? set.OrderBy(keySelector) : set.OrderByDescending(keySelector);
+            return set;
+        }
+
+        // Reflection helpers for WorldPrefabData private fields
+        private static string GetWorldPrefabId(WorldPrefabData c)
+        {
+            if (c == null)
+                return string.Empty;
+            var fi = typeof(WorldPrefabData).GetField("Id", BindingFlags.NonPublic | BindingFlags.Instance);
+            return fi != null ? (fi.GetValue(c) as string ?? string.Empty) : string.Empty;
+        }
+        private static WorldPrefabCategory GetWorldPrefabCategory(WorldPrefabData c)
+        {
+            if (c == null)
+                return default;
+            var fi = typeof(WorldPrefabData).GetField("category", BindingFlags.NonPublic | BindingFlags.Instance);
+            return fi != null ? (WorldPrefabCategory)fi.GetValue(c) : default;
+        }
+        private static List<WorldPrefabTag> GetWorldPrefabTags(WorldPrefabData c)
+        {
+            if (c == null)
+                return null;
+            var fi = typeof(WorldPrefabData).GetField("tags", BindingFlags.NonPublic | BindingFlags.Instance);
+            return fi != null ? (fi.GetValue(c) as List<WorldPrefabTag>) : null;
+        }
+
         private bool MatchesSearch(IdentifiedData a, string term)
         {
             if (!string.IsNullOrEmpty(a.Id) && a.Id.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
@@ -1472,6 +1715,18 @@ namespace Antura.Discover
                 foreach (var a in list.Cast<AssetData>())
                 {
                     sb.AppendLine(Escape("AssetData") + "," + Escape(a.Id) + "," + Escape(FormatPath(AssetDatabase.GetAssetPath(a))) + "," + Escape(a.License.ToString()) + "," + Escape(a.Copyright) + "," + Escape(a.SourceUrl));
+                }
+            }
+            else if (SelectedType == typeof(WorldPrefabData))
+            {
+                var wpList = FilteredWorldPrefabs().ToList();
+                sb.AppendLine("Type,Id,Category,Tags,Path");
+                foreach (var e in wpList)
+                {
+                    var id = GetWorldPrefabId(e.Comp);
+                    var cat = GetWorldPrefabCategory(e.Comp).ToString();
+                    var tags = string.Join("; ", GetWorldPrefabTags(e.Comp)?.Select(t => t.ToString()) ?? Array.Empty<string>());
+                    sb.AppendLine(Escape("WorldPrefab") + "," + Escape(id) + "," + Escape(cat) + "," + Escape(tags) + "," + Escape(FormatPath(e.Path)));
                 }
             }
             else if (SelectedType == typeof(ItemData))
