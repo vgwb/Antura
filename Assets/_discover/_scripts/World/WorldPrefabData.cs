@@ -29,6 +29,8 @@ namespace Antura.Discover
         Seaside = 60,
         City = 70,
 
+        Tree = 80,
+
         // Architecture specifics
         Building = 110,
         ModularBuilding = 120,
@@ -37,21 +39,16 @@ namespace Antura.Discover
         Bridge = 150,
         CityKit = 160,
         CastleKit = 170,
-        ModularBuildingsKit = 180,
 
         // Props and placeables
+        Food = 200,
         Decoration = 210,
         CollectableItem = 220,
         Sign = 230,
-        InfoSign = 240,
-        ArrowSign = 250,
-        StreetSign = 260,
         Fence = 270,
         Wall = 280,
         InvisibleWall = 290,
         Chest = 300,
-        Backpack = 310,
-        Ball = 320,
         Flag = 330,
         TargetPlatform = 340,
         PickUpMaterial = 350,
@@ -71,29 +68,23 @@ namespace Antura.Discover
         Watercraft = 540,
 
         // VFX / Audio
-        WinParticles = 610,
         ParticleFX = 620,
-        AudioEmitter = 630,
-        PlaySound3D = 640,
+        Audio = 630,
 
-        // UI / Helpers
-        DialogueUI = 710,
-        HomeUI = 720,
-        HelperUI = 730
 
     }
 
     public class WorldPrefabData : MonoBehaviour
     {
         [Tooltip("Unique identifier for this prefab")]
-        [SerializeField] private string Id;
+        public string Id;
 
         [Tooltip("Where does this prefab come from?")]
-        [SerializeField] private string Source;
+        public string Source;
 
         [Header("Filtering")]
-        [SerializeField] private WorldPrefabCategory Category;
-        [SerializeField] private List<WorldPrefabTag> Tags = new List<WorldPrefabTag>();
+        public WorldPrefabCategory Category;
+        public List<WorldPrefabTag> Tags = new List<WorldPrefabTag>();
 
 
 #if UNITY_EDITOR

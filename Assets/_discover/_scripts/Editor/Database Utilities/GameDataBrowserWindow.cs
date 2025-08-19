@@ -70,7 +70,8 @@ namespace Antura.Discover
         // WorldPrefabData specific
         private const float ColWPCategory = 140f;
         private const float ColWPTags = 260f;
-        private WorldPrefabCategory? _wpCategoryFilter = null; // null => All
+        private WorldPrefabCategory? _wpCategoryFilter = null; // no All in UI; defaults to first enum
+        private WorldPrefabTag? _wpTagFilter = null; // null => (Any)
 
         // CardData specific
         private const float ColTitle = 220f;
@@ -106,7 +107,9 @@ namespace Antura.Discover
             float width = MarginLeft + ColOpen + Gap;
             bool hasImage = SelectedType == typeof(QuestData) || SelectedType == typeof(CardData) || SelectedType == typeof(ItemData) || SelectedType == typeof(AssetData) || SelectedType == typeof(WorldPrefabData);
             if (hasImage)
+            {
                 width += ColImage + Gap;
+            }
 
             if (SelectedType == typeof(QuestData))
             {
@@ -413,20 +416,60 @@ namespace Antura.Discover
                     }
                 }
 
-                // WorldPrefabData Category filter
+                // WorldPrefabData Category + Tag filters
                 if (SelectedType == typeof(WorldPrefabData))
                 {
                     GUILayout.Space(8);
                     GUILayout.Label("Category:", GUILayout.Width(64));
                     var values = (WorldPrefabCategory[])Enum.GetValues(typeof(WorldPrefabCategory));
-                    var labelsWp = new List<string> { "All" };
-                    labelsWp.AddRange(values.Select(v => v.ToString()));
-                    int cur = _wpCategoryFilter.HasValue ? (Array.IndexOf(values, _wpCategoryFilter.Value) + 1) : 0;
-                    int pick = EditorGUILayout.Popup(cur, labelsWp.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
-                    if (pick != cur)
+                    if (!_wpCategoryFilter.HasValue && values.Length > 0)
+                        _wpCategoryFilter = values[0];
+                    // Labels with All at the end
+                    var catLabels = new List<string>(values.Select(v => v.ToString()));
+                    catLabels.Add("All");
+                    int curCat = _wpCategoryFilter.HasValue ? Array.IndexOf(values, _wpCategoryFilter.Value) : values.Length;
+                    if (curCat < 0)
+                        curCat = 0;
+                    int pickCat = EditorGUILayout.Popup(curCat, catLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(180));
+                    if (pickCat != curCat && values.Length > 0)
                     {
-                        _wpCategoryFilter = pick <= 0 ? default(WorldPrefabCategory?) : values[pick - 1];
+                        _wpCategoryFilter = (pickCat >= values.Length) ? default(WorldPrefabCategory?) : values[pickCat];
+                        _wpTagFilter = null; // reset tag when category changes
                         Repaint();
+                    }
+
+                    GUILayout.Space(8);
+                    GUILayout.Label("Tag:", GUILayout.Width(36));
+                    // Build tags actually present among prefabs in the selected category (or all when category is All)
+                    var presentTags = _worldPrefabs
+                        .Where(e => !_wpCategoryFilter.HasValue || GetWorldPrefabCategory(e.Comp) == _wpCategoryFilter.Value)
+                        .SelectMany(e => GetWorldPrefabTags(e.Comp) ?? new List<WorldPrefabTag>())
+                        .Distinct()
+                        .OrderBy(t => (int)t)
+                        .ToList();
+                    if (presentTags.Count == 0)
+                    {
+                        using (new EditorGUI.DisabledScope(true))
+                        {
+                            EditorGUILayout.Popup(0, new[] { "(None)" }, EditorStyles.toolbarPopup, GUILayout.Width(180));
+                        }
+                        _wpTagFilter = null;
+                    }
+                    else
+                    {
+                        if (_wpTagFilter.HasValue && !presentTags.Contains(_wpTagFilter.Value))
+                            _wpTagFilter = null;
+                        var tagLabels = new List<string> { "(Any)" };
+                        tagLabels.AddRange(presentTags.Select(v => v.ToString()));
+                        int curTag = _wpTagFilter.HasValue ? (presentTags.IndexOf(_wpTagFilter.Value) + 1) : 0;
+                        if (curTag < 0)
+                            curTag = 0;
+                        int pickTag = EditorGUILayout.Popup(curTag, tagLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(180));
+                        if (pickTag != curTag)
+                        {
+                            _wpTagFilter = pickTag <= 0 ? default(WorldPrefabTag?) : presentTags[pickTag - 1];
+                            Repaint();
+                        }
                     }
                 }
 
@@ -1434,6 +1477,17 @@ namespace Antura.Discover
                 set = set.Where(e => GetWorldPrefabCategory(e.Comp) == cat);
             }
 
+            // Tag filter (optional)
+            if (_wpTagFilter.HasValue)
+            {
+                var tag = _wpTagFilter.Value;
+                set = set.Where(e =>
+                {
+                    var tags = GetWorldPrefabTags(e.Comp);
+                    return tags != null && tags.Contains(tag);
+                });
+            }
+
             // Search filter over Id, Category, Tags, Path
             var term = _search?.Trim();
             if (!string.IsNullOrEmpty(term))
@@ -1483,22 +1537,90 @@ namespace Antura.Discover
         {
             if (c == null)
                 return string.Empty;
-            var fi = typeof(WorldPrefabData).GetField("Id", BindingFlags.NonPublic | BindingFlags.Instance);
-            return fi != null ? (fi.GetValue(c) as string ?? string.Empty) : string.Empty;
+            // Try reflection first
+            var fi = typeof(WorldPrefabData).GetField("Id", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fi != null)
+            {
+                var v = fi.GetValue(c) as string;
+                if (!string.IsNullOrEmpty(v))
+                    return v;
+            }
+            // Fallback to SerializedObject
+#if UNITY_EDITOR
+            var so = new UnityEditor.SerializedObject(c);
+            var sp = so.FindProperty("Id");
+            if (sp != null)
+                return sp.stringValue ?? string.Empty;
+#endif
+            return string.Empty;
         }
         private static WorldPrefabCategory GetWorldPrefabCategory(WorldPrefabData c)
         {
             if (c == null)
                 return default;
-            var fi = typeof(WorldPrefabData).GetField("category", BindingFlags.NonPublic | BindingFlags.Instance);
-            return fi != null ? (WorldPrefabCategory)fi.GetValue(c) : default;
+            // Reflection
+            var fi = typeof(WorldPrefabData).GetField("Category", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fi != null)
+            {
+                try
+                { return (WorldPrefabCategory)fi.GetValue(c); }
+                catch { }
+            }
+            // SerializedObject fallback
+#if UNITY_EDITOR
+            var so = new UnityEditor.SerializedObject(c);
+            var sp = so.FindProperty("Category");
+            if (sp != null)
+            {
+                if (sp.propertyType == UnityEditor.SerializedPropertyType.Enum)
+                {
+                    // Use underlying int value to support non-sequential enum numbers (10,20,...)
+                    return (WorldPrefabCategory)sp.intValue;
+                }
+                if (sp.propertyType == UnityEditor.SerializedPropertyType.Integer)
+                {
+                    return (WorldPrefabCategory)sp.intValue;
+                }
+            }
+#endif
+            return default;
         }
         private static List<WorldPrefabTag> GetWorldPrefabTags(WorldPrefabData c)
         {
             if (c == null)
                 return null;
-            var fi = typeof(WorldPrefabData).GetField("tags", BindingFlags.NonPublic | BindingFlags.Instance);
-            return fi != null ? (fi.GetValue(c) as List<WorldPrefabTag>) : null;
+            // Reflection
+            var fi = typeof(WorldPrefabData).GetField("Tags", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+            if (fi != null)
+            {
+                var list = fi.GetValue(c) as List<WorldPrefabTag>;
+                if (list != null)
+                    return list;
+            }
+            // SerializedObject fallback
+#if UNITY_EDITOR
+            var so = new UnityEditor.SerializedObject(c);
+            var sp = so.FindProperty("Tags");
+            if (sp != null && sp.isArray)
+            {
+                var result = new List<WorldPrefabTag>(sp.arraySize);
+                for (int i = 0; i < sp.arraySize; i++)
+                {
+                    var elem = sp.GetArrayElementAtIndex(i);
+                    if (elem.propertyType == UnityEditor.SerializedPropertyType.Enum)
+                    {
+                        // Use underlying int value to support non-sequential enum numbers
+                        result.Add((WorldPrefabTag)elem.intValue);
+                    }
+                    else if (elem.propertyType == UnityEditor.SerializedPropertyType.Integer)
+                    {
+                        result.Add((WorldPrefabTag)elem.intValue);
+                    }
+                }
+                return result;
+            }
+#endif
+            return null;
         }
 
         private bool MatchesSearch(IdentifiedData a, string term)
