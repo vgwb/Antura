@@ -28,7 +28,7 @@
 
 title: init
 // position is used to place the node in the Graph view in the Editor
-position: -32,-96
+position: -176,-105
 // group is used to organize the nodes in the Graph view in the Editor
 group: Intro
 // tags are used to add metadata to the node
@@ -56,14 +56,14 @@ title: NPCinventory
 position: 136,41
 assetimage: 
 ---
-I am hungry. Haw about some food?
+I am hungry. How about some food?
 <<if has_item_at_least("fr_baguette", 3)>>
     I needed 3 baguettes!
     <<inventory fr_baguette remove>>
     <<inventory fr_baguette remove>>
     <<inventory fr_baguette remove>>
 <<else>>
-    You don't have enought baguettes!
+    You don't have enough baguettes!
     <<if has_item("fr_fish")>>
         but you have some fish!
     <<endif>>
@@ -116,7 +116,7 @@ FATTO! esci e controlla
 ===
 
 title: NPCGIoconda
-position: 136,41
+position: 244,-30
 assetimage: antura_hero
 ---
 <<asset food_tomato>>
@@ -176,7 +176,7 @@ position: 121,-125
 ===
 title: functions
 color: red
-position: 121,-125
+position: 370,-181
 ---
 // these are the functions available in the game
 
@@ -201,7 +201,7 @@ Before awarding:
 
 ===
 title: NPCGreeting2
-position: 92,-223
+position: 156,-277
 assetimage: pirates
 ---
 // <<activity activity_memory>>

@@ -57,16 +57,7 @@ namespace Antura.Discover
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
 
                 // Hook simple command(s) to ActionManager
-                runner.AddCommandHandler<string>("activity", (arg) => { ActionManager.I.ResolveNodeCommandActivity(arg); });
-                runner.AddCommandHandler<string, string>("inventory", (arg, arg2) => { ActionManager.I.ResolveNodeCommandInventory(arg, arg2); });
-                runner.AddCommandHandler<string>("card", (arg) => { ActionManager.I.ResolveNodeCommandCard(arg); });
-                runner.AddCommandHandler<string>("task_start", (arg) => { ActionManager.I.ResolveNodeCommandTaskStart(arg); });
-                runner.AddCommandHandler<string>("task_end", (arg) => { ActionManager.I.ResolveNodeCommandTaskEnd(arg); });
-                runner.AddCommandHandler<string>("asset", (arg) => { ActionManager.I.ResolveNodeCommandAsset(arg); });
-                runner.AddCommandHandler("asset_hide", () => ActionManager.I.ResolveNodeCommandAssetHide());
-                runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
-                runner.AddCommandHandler<string>("action_post", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
-                runner.AddCommandHandler<int>("endquest", (arg) => { ActionManager.I.ResolveNodeCommandEndquest(arg); });
+                //                runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
             }
 
             if (presenter != null)
