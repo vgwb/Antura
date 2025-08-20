@@ -12,9 +12,8 @@ namespace Antura.Discover.World.Editor
     public static class WorldPrefabScenePreviewUtility
     {
         private const string RootName = "WorldPrefabs_ByKit";
-        private const int Columns = 10;
-        private const float ExtraMargin = 0.5f; // small extra gap to avoid touching
-        private const float GroupSpacing = 1000f; // separation between Kit groups along X
+        private const float GroupSpacing = 10f; // distance between kit columns along X (meters)
+        private const float RowGap = 1f;        // extra gap between prefabs within a kit along Z (meters)
 
         [MenuItem("Antura/Discover/Prefabs/Populate Scene with World Prefabs (Grouped by Kit)", priority = 2010)]
         public static void PopulateSceneWithWorldPrefabs()
@@ -32,9 +31,13 @@ namespace Antura.Discover.World.Editor
                     string guid = guids[i];
                     string path = AssetDatabase.GUIDToAssetPath(guid);
                     var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
-                    if (prefab == null) continue;
+                    if (prefab == null)
+                        continue;
+                    if (prefab.name == "Player_Discover_Cat")
+                        continue; // don't instantiate the player prefab
                     var data = prefab.GetComponent<WorldPrefabData>();
-                    if (data == null) continue; // only root-level WPD
+                    if (data == null)
+                        continue; // only root-level WPD
 
                     if (!byKit.TryGetValue(data.Kit, out var list))
                     {
@@ -55,22 +58,22 @@ namespace Antura.Discover.World.Editor
 
                 // Place each kit group
                 int kitIndex = 0;
+                // We will place one vertical line (along Z) per kit, columns spaced along X
                 int total = byKit.Values.Sum(l => l.Count);
                 int placed = 0;
                 foreach (var kvp in byKit.OrderBy(k => k.Key.ToString()))
                 {
                     var kit = kvp.Key;
-                    var items = kvp.Value;
+                    var items = kvp.Value.OrderBy(v => v.prefab.name).ToList();
 
                     var kitGO = new GameObject(kit.ToString());
                     kitGO.transform.SetParent(root.transform, false);
-                    kitGO.transform.position = new Vector3(kitIndex * GroupSpacing, 0f, 0f);
+                    // Column position for this kit
+                    float xBase = kitIndex * GroupSpacing;
+                    kitGO.transform.position = new Vector3(xBase, 0f, 0f);
                     Undo.RegisterCreatedObjectUndo(kitGO, "Create Kit Group");
 
-                    float xCursor = 0f;
-                    float zCursor = 0f;
-                    float maxRowDepth = 0f;
-                    int col = 0;
+                    float zCursor = 0f; // start at Z = 0 for each kit
 
                     for (int i = 0; i < items.Count; i++)
                     {
@@ -80,29 +83,20 @@ namespace Antura.Discover.World.Editor
 
                         // Instantiate under kit group to compute bounds at default scale
                         var instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
-                        if (instance == null) continue;
+                        if (instance == null)
+                            continue;
                         Undo.RegisterCreatedObjectUndo(instance, "Instantiate World Prefab");
                         instance.transform.SetParent(kitGO.transform, false);
 
                         // compute bounds (local to world, parent unrotated)
                         var b = ComputeInstanceBounds(instance);
-                        var width = Mathf.Max(0.01f, b.size.x) + ExtraMargin;
-                        var depth = Mathf.Max(0.01f, b.size.z) + ExtraMargin;
+                        var depth = Mathf.Max(0.01f, b.size.z);
 
                         // position instance
-                        instance.transform.localPosition = new Vector3(xCursor, 0f, zCursor);
+                        instance.transform.localPosition = new Vector3(0f, 0f, zCursor);
 
-                        // advance grid
-                        xCursor += width;
-                        maxRowDepth = Mathf.Max(maxRowDepth, depth);
-                        col++;
-                        if (col >= Columns)
-                        {
-                            col = 0;
-                            xCursor = 0f;
-                            zCursor += maxRowDepth;
-                            maxRowDepth = 0f;
-                        }
+                        // move forward along Z by current size + 1 meter
+                        zCursor += depth + RowGap;
                     }
 
                     placed += items.Count;
@@ -127,7 +121,8 @@ namespace Antura.Discover.World.Editor
             if (rends != null && rends.Length > 0)
             {
                 var b = rends[0].bounds;
-                for (int i = 1; i < rends.Length; i++) b.Encapsulate(rends[i].bounds);
+                for (int i = 1; i < rends.Length; i++)
+                    b.Encapsulate(rends[i].bounds);
                 return b;
             }
             // Then colliders
@@ -135,7 +130,8 @@ namespace Antura.Discover.World.Editor
             if (cols != null && cols.Length > 0)
             {
                 var b = cols[0].bounds;
-                for (int i = 1; i < cols.Length; i++) b.Encapsulate(cols[i].bounds);
+                for (int i = 1; i < cols.Length; i++)
+                    b.Encapsulate(cols[i].bounds);
                 return b;
             }
             // Fallback: mesh filters transformed by localToWorld
@@ -146,7 +142,8 @@ namespace Antura.Discover.World.Editor
                 for (int i = 1; i < mfs.Length; i++)
                 {
                     var mesh = mfs[i].sharedMesh;
-                    if (mesh == null) continue;
+                    if (mesh == null)
+                        continue;
                     var tb = TransformBounds(mfs[i].transform.localToWorldMatrix, mesh.bounds);
                     b.Encapsulate(tb);
                 }
