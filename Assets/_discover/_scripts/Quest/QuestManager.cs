@@ -101,7 +101,7 @@ namespace Antura.Discover
             AppManager.I.Player.SaveQuest(questStatus);
         }
 
-        public void YarnGetQuestNode(string nodeName)
+        public void YarnStartDialogue(string nodeName)
         {
             //Debug.Log($"YarnGetQuestNode: {nodeName}");
             //conversation?.DebugMetadata(nodeName);
