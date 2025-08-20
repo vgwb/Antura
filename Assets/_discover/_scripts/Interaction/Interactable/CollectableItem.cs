@@ -8,7 +8,7 @@ namespace Antura.Discover
     {
         public enum CollectableType
         {
-            bone = 1,
+            cookie = 1,
             coin = 2,
             item = 3
         }
@@ -71,7 +71,7 @@ namespace Antura.Discover
                 QuestManager.I.OnCollectCoin();
                 Destroy(gameObject);
             }
-            if (Type == CollectableType.bone)
+            if (Type == CollectableType.cookie)
             {
                 QuestManager.I.OnCollectBone();
                 Destroy(gameObject);

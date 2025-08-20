@@ -41,9 +41,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7136553562754714899}
+  - component: {fileID: -8532549938553975581}
   - component: {fileID: 2285223836564901496}
   - component: {fileID: 3040408528548250790}
-  - component: {fileID: -8532549938553975581}
   m_Layer: 0
   m_Name: Cookie
   m_TagString: Untagged
@@ -67,6 +67,23 @@ Transform:
   - {fileID: 512923038247367340}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-8532549938553975581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5122195263134712926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
+  Id: cookie
+  Kit: 1
+  Country: 0
+  Category: 120
+  Tags: dc000000
 --- !u!114 &2285223836564901496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -109,23 +126,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.5, y: 0.5, z: 0.77}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &-8532549938553975581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5122195263134712926}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e64ac97f069fb43fea7ab4ff2db29287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldPrefabData
-  Id: 
-  Kit: 1
-  Country: 0
-  Category: 120
-  Tags: dc000000
 --- !u!1 &6038248729468350397
 GameObject:
   m_ObjectHideFlags: 0
