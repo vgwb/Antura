@@ -5,6 +5,7 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using UnityEditor;
 using UnityEngine;
+using System.IO;
 
 namespace Antura.Discover
 {
@@ -423,6 +424,81 @@ namespace Antura.Discover
         }
 
         // ---------- Helpers ----------
+
+        /// <summary>
+        /// Scan prefabs under Assets/_discover/Prefabs for root-level WorldPrefabData, report empty or duplicate Ids.
+        /// If applyChanges is true, auto-fill missing Ids using a stable rule (parentFolder + fileName) sanitized.
+        /// Returns number of modified prefabs.
+        /// </summary>
+        public static int CheckWorldPrefabIds(bool applyChanges, List<string> logs, bool verbose = true)
+        {
+            int changes = 0;
+            var root = "Assets/_discover/Prefabs";
+            var guids = AssetDatabase.FindAssets("t:Prefab", new[] { root });
+            var idToPaths = new Dictionary<string, List<string>>(StringComparer.OrdinalIgnoreCase);
+
+            foreach (var guid in guids)
+            {
+                var path = AssetDatabase.GUIDToAssetPath(guid);
+                var go = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+                if (go == null)
+                    continue;
+                var comp = go.GetComponent<WorldPrefabData>(); // root only
+                if (comp == null)
+                    continue;
+
+                string id = comp.Id != null ? comp.Id.Trim() : string.Empty;
+                if (string.IsNullOrEmpty(id))
+                {
+                    string desired = BuildStablePrefabId(path);
+                    logs?.Add($"[WorldPrefabData] Missing Id → '{desired}' at {path}");
+                    if (applyChanges)
+                    {
+                        comp.Id = desired;
+                        EditorUtility.SetDirty(comp);
+                        changes++;
+                    }
+                }
+                else
+                {
+                    if (!idToPaths.TryGetValue(id, out var list))
+                    { list = new List<string>(); idToPaths[id] = list; }
+                    list.Add(path);
+                }
+            }
+
+            foreach (var kv in idToPaths)
+            {
+                if (kv.Value.Count > 1)
+                {
+                    logs?.Add($"[WorldPrefabData] Duplicate Id '{kv.Key}':\n - " + string.Join("\n - ", kv.Value));
+                }
+            }
+
+            if (applyChanges && changes > 0)
+            {
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+            }
+            logs?.Add($"WorldPrefabData checked. Prefabs scanned: {guids.Length}. Duplicates: {idToPaths.Count(kv => kv.Value.Count > 1)}. {(applyChanges ? "Autofilled missing Ids." : "No changes applied.")}");
+            return changes;
+        }
+
+        private static string BuildStablePrefabId(string assetPath)
+        {
+            try
+            {
+                var file = Path.GetFileNameWithoutExtension(assetPath) ?? string.Empty;
+                var dir = Path.GetDirectoryName(assetPath) ?? string.Empty;
+                var parent = Path.GetFileName(dir) ?? string.Empty;
+                var raw = string.IsNullOrEmpty(parent) ? file : parent + "_" + file;
+                return IdentifiedData.SanitizeId(raw);
+            }
+            catch
+            {
+                return IdentifiedData.SanitizeId(Path.GetFileNameWithoutExtension(assetPath) ?? "prefab");
+            }
+        }
 
         private static string EnsureUnique(string desired, HashSet<string> used)
         {

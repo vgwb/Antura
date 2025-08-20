@@ -71,6 +71,7 @@ namespace Antura.Discover
         private const float ColWPCategory = 100f;
         private const float ColWPTags = 100f;
         private const float ColWPKit = 100f;
+        private const float ColWPReplace = 120f;
         private WorldPrefabCategory? _wpCategoryFilter = null; // null => All categories
         private WorldPrefabTag? _wpTagFilter = null; // null => (Any)
         private WorldPrefabKit? _wpKitFilter = null; // null => (Any)
@@ -121,7 +122,7 @@ namespace Antura.Discover
             else if (SelectedType == typeof(WorldPrefabData))
             {
                 // Preview, Id, Category, Tags, Path
-                width += ColId + Gap + ColWPCategory + Gap + ColWPTags + Gap + ColWPKit + Gap + ColPath;
+                width += ColWPReplace + Gap + ColId + Gap + ColWPCategory + Gap + ColWPTags + Gap + ColWPKit + Gap + ColPath;
             }
             else if (SelectedType == typeof(WordData))
             {
@@ -334,8 +335,9 @@ namespace Antura.Discover
                         _allData.Add(obj);
                 }
 
-                // Load all prefabs containing WorldPrefabData component on the ROOT only (not children)
-                var wpGuids = AssetDatabase.FindAssets("t:Prefab");
+                // Load prefabs containing WorldPrefabData component on the ROOT only (not children),
+                // limited to the Discover Prefabs folder for speed.
+                var wpGuids = AssetDatabase.FindAssets("t:Prefab", new[] { DiscoverPathPrefix + "Prefabs" });
                 foreach (var guid in wpGuids)
                 {
                     var path = AssetDatabase.GUIDToAssetPath(guid);
@@ -621,6 +623,8 @@ namespace Antura.Discover
             {
                 GUI.Label(new Rect(x, y, ColImage, lineH), "Preview", EditorStyles.boldLabel);
                 x += ColImage + Gap;
+                HeaderLabelRect("Action", new Rect(x, y, ColWPReplace, lineH), "WPReplace");
+                x += ColWPReplace + Gap;
                 HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
                 x += ColId + Gap;
                 HeaderLabelRect("Category", new Rect(x, y, ColWPCategory, lineH), "WPCategory");
@@ -836,6 +840,22 @@ namespace Antura.Discover
                 }
                 x += ColImage + Gap;
 
+                // Replace button
+                var rRep = new Rect(x, rowRect.y + (rowRect.height - 20f) * 0.5f, ColWPReplace, 20f);
+                if (GUI.Button(rRep, "Replace"))
+                {
+                    var sel = Selection.gameObjects;
+                    if (sel == null || sel.Length == 0)
+                    {
+                        EditorUtility.DisplayDialog("Replace", "Select one or more scene objects in the Hierarchy to replace.", "OK");
+                    }
+                    else
+                    {
+                        ReplaceSelectedWithPrefab(entry.Path);
+                    }
+                }
+                x += ColWPReplace + Gap;
+
                 // Id
                 var rId = new Rect(x, y, ColId, lineH);
                 EditorGUI.LabelField(rId, GetWorldPrefabId(entry.Comp));
@@ -911,6 +931,8 @@ namespace Antura.Discover
             if (SelectedType == typeof(WorldPrefabData))
             {
                 x += ColImage + Gap;
+                xs.Add(x);
+                x += ColWPReplace + Gap;
                 xs.Add(x);
                 x += ColId + Gap;
                 xs.Add(x);
@@ -1834,6 +1856,71 @@ namespace Antura.Discover
                 }
             }
             return null;
+        }
+
+        // Replace currently selected scene objects with the prefab at given asset path, preserving hierarchy and transforms
+        private static void ReplaceSelectedWithPrefab(string prefabAssetPath)
+        {
+            var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(prefabAssetPath);
+            if (prefab == null)
+            {
+                Debug.LogWarning($"[GameDataBrowser] Prefab not found at {prefabAssetPath}");
+                return;
+            }
+
+            var selection = Selection.gameObjects;
+            if (selection == null || selection.Length == 0)
+                return;
+
+            Undo.IncrementCurrentGroup();
+            int group = Undo.GetCurrentGroup();
+            var newSelection = new System.Collections.Generic.List<GameObject>(selection.Length);
+            foreach (var go in selection)
+            {
+                if (go == null)
+                    continue;
+                if (!go.scene.IsValid() || !go.scene.isLoaded)
+                    continue; // only hierarchy objects
+                var parent = go.transform.parent;
+                int sibling = go.transform.GetSiblingIndex();
+                var localPos = go.transform.localPosition;
+                var localRot = go.transform.localRotation;
+                var localScale = go.transform.localScale;
+                var name = go.name;
+
+                // Instantiate prefab
+                GameObject newObj = PrefabUtility.InstantiatePrefab(prefab, go.scene) as GameObject;
+                if (newObj == null)
+                    newObj = UnityEngine.Object.Instantiate(prefab);
+
+                Undo.RegisterCreatedObjectUndo(newObj, "Replace With Prefab");
+                // Rename to child name if available, otherwise keep original replaced object's name
+                if (newObj.transform.childCount > 0)
+                {
+                    newObj.name = newObj.transform.GetChild(0).name;
+                }
+                else
+                {
+                    newObj.name = name;
+                }
+                newObj.transform.SetParent(parent, worldPositionStays: false);
+                newObj.transform.SetSiblingIndex(sibling);
+                newObj.transform.localPosition = localPos;
+                newObj.transform.localRotation = localRot;
+                newObj.transform.localScale = localScale;
+
+                Undo.DestroyObjectImmediate(go);
+                newSelection.Add(newObj);
+            }
+            Undo.CollapseUndoOperations(group);
+            if (newSelection.Count > 0)
+            {
+                UnityEngine.Object[] arr = new UnityEngine.Object[newSelection.Count];
+                for (int i = 0; i < newSelection.Count; i++)
+                    arr[i] = newSelection[i];
+                Selection.objects = arr;
+            }
+            SceneView.RepaintAll();
         }
 
         private static string NicifyTypeLabel(Type t)

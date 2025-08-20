@@ -30,6 +30,13 @@ namespace Antura.Discover
                     Run(scanOnly: true);
                 if (GUILayout.Button("Fix All", GUILayout.Height(28)))
                     Run(scanOnly: false);
+                if (GUILayout.Button("Check World Prefab Ids", GUILayout.Height(28)))
+                {
+                    _log.Clear();
+                    int changed = DataHealthUtility.CheckWorldPrefabIds(applyChanges: !_dryRun, logs: _log, verbose: _verbose);
+                    _log.Add($"— Done. WorldPrefabData ID check. Modified prefabs: {changed}");
+                    Repaint();
+                }
             }
 
             // New chapter: Data Maintenance

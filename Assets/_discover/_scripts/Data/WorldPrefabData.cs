@@ -12,6 +12,7 @@ namespace Antura.Discover
         K_BlockyChars = 36,
         K_Car = 20,
         K_Castle = 21,
+        K_RetroCastle = 37,
         K_CityCommercial = 22,
         K_CityIndustrial = 23,
         K_CityRoads = 24,
