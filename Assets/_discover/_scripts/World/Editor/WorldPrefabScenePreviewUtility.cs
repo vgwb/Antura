@@ -12,10 +12,11 @@ namespace Antura.Discover.World.Editor
     public static class WorldPrefabScenePreviewUtility
     {
         private const string RootName = "WorldPrefabs_ByKit";
-        private const float GroupSpacing = 10f; // distance between kit columns along X (meters)
-        private const float RowGap = 1f;        // extra gap between prefabs within a kit along Z (meters)
+        private const string WorldPrefabsFolder = "Assets/_discover/Prefabs";
+        private const float GroupSpacing = 17f; // distance between kit columns along X
+        private const float RowGap = 1f;        // extra gap between prefabs within a kit along Z
 
-        [MenuItem("Antura/Discover/Prefabs/Populate Scene with World Prefabs (Grouped by Kit)", priority = 2010)]
+        [MenuItem("Antura/Discover/Prefabs/Populate Scene with World Prefabs", priority = 2010)]
         public static void PopulateSceneWithWorldPrefabs()
         {
             try
@@ -23,7 +24,7 @@ namespace Antura.Discover.World.Editor
                 EditorUtility.DisplayProgressBar("World Prefabs", "Scanning prefabs...", 0f);
 
                 // Find all prefabs under the target folder
-                var guids = AssetDatabase.FindAssets("t:Prefab", new[] { "Assets/_discover/Prefabs" });
+                var guids = AssetDatabase.FindAssets("t:Prefab", new[] { WorldPrefabsFolder });
                 var byKit = new Dictionary<WorldPrefabKit, List<(string path, GameObject prefab, WorldPrefabData data)>>();
 
                 for (int i = 0; i < guids.Length; i++)
@@ -37,7 +38,7 @@ namespace Antura.Discover.World.Editor
                         continue; // don't instantiate the player prefab
                     var data = prefab.GetComponent<WorldPrefabData>();
                     if (data == null)
-                        continue; // only root-level WPD
+                        continue;
 
                     if (!byKit.TryGetValue(data.Kit, out var list))
                     {
@@ -58,7 +59,6 @@ namespace Antura.Discover.World.Editor
 
                 // Place each kit group
                 int kitIndex = 0;
-                // We will place one vertical line (along Z) per kit, columns spaced along X
                 int total = byKit.Values.Sum(l => l.Count);
                 int placed = 0;
                 foreach (var kvp in byKit.OrderBy(k => k.Key.ToString()))
@@ -73,7 +73,7 @@ namespace Antura.Discover.World.Editor
                     kitGO.transform.position = new Vector3(xBase, 0f, 0f);
                     Undo.RegisterCreatedObjectUndo(kitGO, "Create Kit Group");
 
-                    float zCursor = 0f; // start at Z = 0 for each kit
+                    float zCursor = 0f;
 
                     for (int i = 0; i < items.Count; i++)
                     {
@@ -81,21 +81,17 @@ namespace Antura.Discover.World.Editor
                         float progress = (placed + i + 1) / (float)Math.Max(1, total);
                         EditorUtility.DisplayProgressBar("World Prefabs", $"Placing {prefab.name}", progress);
 
-                        // Instantiate under kit group to compute bounds at default scale
                         var instance = PrefabUtility.InstantiatePrefab(prefab) as GameObject;
                         if (instance == null)
                             continue;
                         Undo.RegisterCreatedObjectUndo(instance, "Instantiate World Prefab");
                         instance.transform.SetParent(kitGO.transform, false);
 
-                        // compute bounds (local to world, parent unrotated)
                         var b = ComputeInstanceBounds(instance);
                         var depth = Mathf.Max(0.01f, b.size.z);
 
-                        // position instance
                         instance.transform.localPosition = new Vector3(0f, 0f, zCursor);
 
-                        // move forward along Z by current size + 1 meter
                         zCursor += depth + RowGap;
                     }
 
