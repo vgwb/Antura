@@ -1,508 +1,311 @@
 ﻿// FR-01 Paris
 
-title: FR_01_INIT
-position: -15,-266
+title: init
+position: -304,-431
 tags: type=Start
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
-<<set $MET_GUIDE = false>>
-<<set $MET_MAJOR = false>>
-<<set $MET_MONALISA = false>>
+<<declare $MET_GUIDE = false>>
+<<declare $MET_MAJOR = false>>
+<<declare $MET_MONALISA = false>>
 ===
 
-title: FR_01_start
-position: 205,-263
+title: start
+position: -301,-268
 tags: NEXTTARGET=TUTOR
 ---
 Welcome to Paris
 ===
-title: FR_01_talk_tutor
-position: -3,86
-tags: actorUID=TUTOR, meta_NEXTTARGET=toureiffel, asset=toureiffel
+
+
+
+title: talk_tutor
+position: 17,-670
+actor: tutor
 ---
-TUTOR: I saw Antura going to the Tour Eiffel. If you don't know where to go, follow the light beam in the sky or use the map!
-<<jump FR_01_talk_tutor_2>>
+TUTOR: I saw Antura going to the Tour Eiffel.
+<<camera_focus tour_eiffell>>
+If you don't know where to go, follow the light beam in the sky or use the map!
+Get there as soon as possibile!
 ===
-title: FR_01_talk_tutor_2
-position: 284,101
-tags: actorUID=TUTOR, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
+
+
+title: talk_louvre_external
+position: 62,57
+group: louvre
 ---
-TUTOR: Get there as soon as possibile!
-===
-title: FR_01_PARIS_Text_91409330
-position: -20,-81
-tags: actorUID=OLD_WOMAN, asset=louvre
----
+<<if $MET_MONALISA>>
+    <<jump go_bakery>>
+<<else>>>>
+<<asset louvre>>
 OLD_WOMAN: This is the entrance of The Louvre, our national museum of arts.
-<<jump FR_01_PARIS_Choice_32513271>>
+OLD_WOMAN: Do you want to enter?
+-> Yes:
+    Good visit!
+    <<action AREA_LOUVRE_ENTER >>
+-> No:
+    Ok
+<<endif>>
 ===
 
 title: talk_eiffell_roof
-position: 479,-592
-tags: actorUID=GUIDE, meta_ACTION=updatecoins, meta_BALLOON_TYPE=QUIZ, meta=BALLOON_TYPE:QUIZ, asset=toureiffel
+position: 46,-448
+group: toureiffel
+tags: actorUID=GUIDE
 ---
+<<asset  toureiffell>>
 GUIDE: The Eiffel Tower is 300 meters tall
-<<jump FR_01_PARIS_Text_31010391>>
-===
-title: FR_01_PARIS_Variables_30557341
-position: 1351,741
-tags: type=Variables
----
-// Variables
-<<set $MET_MONALISA = true>>
-<<jump FR_01_PARIS_Text_42680949>>
+<<asset mr_eiffel>>
+GUIDE: Build by Mr Eiffell in 1887
+<<asset iron>>
+GUIDE: It's made of iron!
+GUIDE: I saw Antura going towards Notre Dame.
+<<camera_focus notredame>>
+GUIDE: Get there!
+
 ===
 
-title: FR_01_PARIS_Text_30693267
-position: 2731,-1048
-tags: actorUID=WOMAN
----
-WOMAN: Sure!
-WOMAN: Why are you asking?
-WOMAN: Well.. it seems like a videogame, isn't it?
-<<jump npc_woman>>
-===
-
-title: talk_louvre_external
-position: -147,-851
-tags: type=Condition
----
-$MET_MONALISA
-===
 
 title: talk_eiffell_guide
-position: 525,-413
-tags: type=Condition
+position: 311,-447
+group: toureiffel
 ---
-$TOTAL_COINS > 2
-===
-
-title: FR_01_PARIS_Text_61_c9_aa
-position: 1536,-124
-tags: actorUID=GUIDE, meta_MOOD=SAD, meta=MOOD:SAD
----
-GUIDE: Hello. The ticket for the Tour Eiffel costs 3 coins.
-===
-
-title: toureiffell_sign
-position: 909,-377
-tags: actorUID=TUTOR
----
-TUTOR: Collect all coins!
-===
-
-title: npc_woman
-position: 2395,-1085
-tags: actorUID=WOMAN, type=Choice
----
-WOMAN: Ciao. What do you want to know?
--> "What is the Eiffel Tower?":
-    <<jump FR_01_PARIS_Text_30693267>>
--> "Where are we?":
-    <<jump FR_01_PARIS_Text_08976099>>
--> "Is this place real?":
-    <<jump FR_01_PARIS_Text_08981954>>
--> "Nothing. Bye.":
-    <<jump FR_01_PARIS_Text_08981954>>
-===
-
-title: FR_01_PARIS_Text_08976099
-position: 2754,-867
-tags: actorUID=WOMAN
----
-WOMAN: The famous iron tower 300 meters tall. The symbol of Paris!
-<<jump npc_woman>>
-===
-
-title: FR_01_PARIS_Text_08981954
-position: 2734,-1225
-tags: actorUID=WOMAN
----
-WOMAN: We are in Paris! the city of
-<<jump npc_woman>>
-===
-
-title: baguette_flour
-position: 959,-828
-tags: actorUID=CRAZY_MAN, meta_ACTION_POST=COLLECT_2, meta=ACTION_POST:COLLECT_2, asset=baguette_flour
----
-CRAZY_MAN: This is flour
-===
-
-title: FR_01_PARIS_Text_31010391
-position: 738,-591
-tags: actorUID=GUIDE, asset=mr_eiffel
----
-GUIDE: Build by Mr Eiffell in 1887
-<<jump FR_01_PARIS_Text_34299545>>
-===
-
-
-
-title: FR_01_PARIS_Text_40711652
-position: 1173,1186
-tags: actorUID=CRAZY_MAN, asset=baguette
----
-CRAZY_MAN: Help me! Antura has messed my kitchen and i can't find the ingredients to make the Baguette, our special french bread!
-<<jump FR_01_PARIS_Variables_60972502>>
+<<if $TOTAL_COINS > 2>>
+    Here is your ticket
+    <<asset tour_eiffell_ticket>>
+    <<set $TOTAL_COINS = $TOTAL_COINS-3>>
+    <<update_ui>>>>
+    <<action  area_toureiffel>>
+    <<asset tour_eiffell_map>>
+    I saw Antura going up to the top of the tower.
+    Take the elevator!
+<<elseif $TOTAL_COINS > 0>> 
+    TUTOR: Collect all coins!
+<<else>>
+    GUIDE: Hello. The ticket for the Tour Eiffel costs 3 coins.
+<<endif>>
 ===
 
 title: talk_notre_dame
-position: -307,256
+position: 54,-207
+group: notredame
 tags: actorUID=OLD_MAN, asset=notredame
 ---
-OLD_MAN: I'm the Mayor of Paris. And this is the Notre Dame Cathedral
-<<jump FR_01_PARIS_Text_40849056>>
-===
-
-title: FR_01_PARIS_Text_84768438
-position: 2054,-890
-tags: actorUID=MAN
----
-MAN: I'm going to work!
-MAN: I'm going to buy bread at the bakery.
-<<jump npc_man>>
-===
-
-title: FR_01_PARIS_Text_38_ca_b1
-position: 2050,-1270
-tags: actorUID=MAN
----
-MAN: I wasn't born in this country.
-MAN: From planet earth.
-<<jump npc_man>>
+OLD_MAN: I'm the Mayor of Paris.
+And this is the Notre Dame Cathedral
+<<asset notredame>>
+OLD_MAN: It's our most famous gothic church, built in 1182.
+<<action  action AREA_NOTREDAME_ROOF>>
+OLD_MAN: Come with me up to the roof of the church!
+<<set $MET_MAJOR = true>>
 ===
 
 title: talk_cook
-position: 1169,-366
-tags: type=Condition
+position: 76,972
+group: bakery
 ---
-$COLLECTED_ITEMS >= 4
-$COLLECTED_ITEMS == 0
+<<if $COLLECTED_ITEMS >= 4>>
+    CRAZY_MAN: GREAT! I can now bake the Baguette. And...
+    CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it?
+    <<quest_end 3>>
+<<else>>
+    Help me! Antura has messed my kitchen!
+    I can't find the ingredients to make the Baguette
+    <<asset  baguette>>
+    our special french bread!
+    <<set $QUEST_ITEMS = 4>>
+    Please bring me the 4 ingredients needed:
+    flour, water, yeast and salt.
+<<endif>>
+
 ===
 
-title: FR_01_PARIS_Text_52_2b_a9
-position: 1841,1157
-tags: actorUID=CRAZY_MAN, meta_ACTION=UPDATE_ITEMS, meta=ACTION:UPDATE_ITEMS
+title: visit_louvre
+position: 490,576
+group: louvre
+tags: actorUID=CRAZY_WOMAN
 ---
-CRAZY_MAN: Please bring me the 4 ingredients needed: flour, water, yeast and salt.
+<<asset louvre_inside>>
+CRAZY_WOMAN: You can find many sculptures and paintings.
+<<jump find_monalisa>>
 ===
 
-title: FR_01_PARIS_Text_a9_08_83
-position: 740,1538
-tags: actorUID=CRAZY_MAN
+title: find_monalisa
+position: 862,430
+group: louvre
+tags: actorUID=CRAZY_WOMAN
 ---
-CRAZY_MAN: GREAT! I can now bake the Baguette. And...
-<<jump FR_01_PARIS_Text_50313176>>
-===
 
-title: FR_01_PARIS_Text_33741117
-position: 399,783
-tags: actorUID=GUIDE, meta_ACTION=updatecoins, meta_ACTION_POST=area_toureiffel, asset=tour_eiffell_map
----
-GUIDE: I saw Antura going up to the top of the tower. Take the elevator!
-===
-
-title: FR_01_PARIS_Text_34299545
-position: 986,-560
-tags: actorUID=GUIDE, asset=iron
----
-GUIDE: It's made of iron!
-<<jump FR_01_PARIS_Text_35075174>>
-===
-
-title: FR_01_PARIS_Text_35075174
-position: 1245,-566
-tags: actorUID=GUIDE, meta_NEXTTARGET=notredame, asset=notredame
----
-GUIDE: I saw Antura going towards Notre Dame.
-<<jump FR_01_PARIS_Text_35140518>>
-===
-
-title: FR_01_PARIS_Text_35140518
-position: 1501,-589
-tags: actorUID=GUIDE, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
----
-GUIDE: Get there!
-===
-
-title: FR_01_PARIS_Text_35597845
-position: -270,753
-tags: actorUID=GUIDE, asset=tour_eiffell_ticket
----
-GUIDE: Here is your ticket
-<<jump FR_01_PARIS_Variables_02703263>>
-===
-
-title: FR_01_PARIS_Note_36081613
-position: 1896,1364
-tags: type=Note
----
-TUTOR
-===
-
-title: FR_01_PARIS_Note_36089508
-position: 1274,-880
-tags: type=Note
----
-TOUR EIFFEL
-===
-
-title: FR_01_PARIS_Note_36099972
-position: 1010,-123
-
----
-NOTRE DAME
-===
-
-title: FR_01_PARIS_Note_36109809
-position: 1285,-136
-tags: type=Note
----
-LOUVRE
-===
-
-title: FR_01_PARIS_Note_36119189
-position: 1459,-366
-tags: type=Note
----
-BAKERY
-===
-
-title: FR_01_PARIS_Text_36335876
-position: 88,523
-tags: actorUID=OLD_MAN, meta_NEXTTARGET=louvre, asset=louvre
----
-OLD_MAN: I saw Antura run into the Louvre Museum...
-<<jump FR_01_PARIS_Text_36398561>>
-===
-
-title: FR_01_PARIS_Text_36398561
-position: 451,522
-tags: actorUID=OLD_MAN, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
----
-OLD_MAN: It's just across the Seine river
-===
-
-title: npc_man
-position: 1682,-1043
-tags: actorUID=MAN, type=Choice
----
-MAN: Have you any questions?
--> "Have you seen Antura?":
-    <<jump FR_01_PARIS_Text_40423060>>
--> "What are you doing?":
-    <<jump FR_01_PARIS_Text_84768438>>
--> "Where do you come from?":
-    <<jump FR_01_PARIS_Text_38_ca_b1>>
--> "Goodbye":
-    <<jump FR_01_PARIS_Text_38_ca_b1>>
-===
-
-title: FR_01_PARIS_Text_40423060
-position: 2048,-1103
-tags: actorUID=MAN
----
-MAN: Yes! Talk to everybody and follow the lights!
-MAN: No. Who is Antura?
-<<jump npc_man>>
-===
-
-title: FR_01_PARIS_Text_40849056
-position: -15,255
-tags: actorUID=OLD_MAN
----
-OLD_MAN: It's our most famous gothic church, built in 1182.
-<<jump FR_01_PARIS_Text_00183204>>
-===
-
-title: FR_01_PARIS_Text_42615181
-position: 1283,947
-tags: actorUID=CRAZY_WOMAN, asset=monalisa
----
+<<action monalisa>>
 CRAZY_WOMAN: Go and find the Mona Lisa!
 ===
 
-title: FR_01_PARIS_Text_42680949
-position: 1689,750
-tags: actorUID=CRAZY_WOMAN, asset=leaonardodavinci
+title: go_bakery
+position: 347,60
+group: louvre
+tags: actorUID=OLD_WOMAN
 ---
-CRAZY_WOMAN: Painted in year 1500 by artist and scientist Leonardo Da Vinci
-===
-
-title: FR_01_PARIS_Text_42906729
-position: 959,944
-tags: actorUID=CRAZY_WOMAN, asset=louvre_inside
----
-CRAZY_WOMAN: You can find many sculptures and paintings.
-<<jump FR_01_PARIS_Text_42615181>>
-===
-
-title: FR_01_PARIS_Text_43125977
-position: 1020,286
-tags: actorUID=OLD_WOMAN, meta_NEXTTARGET=bakery
----
+<<nexttarget bakery>>
 OLD_WOMAN: Now look for Antura! I think it went to the bakery for a baguette!
-<<jump FR_01_PARIS_Text_43178594>>
-===
-
-title: FR_01_PARIS_Text_43178594
-position: 1385,194
-tags: actorUID=OLD_WOMAN, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
----
 OLD_WOMAN: Hurry up!
 ===
 
-title: FR_01_PARIS_Text_50313176
-position: 1022,1551
-tags: actorUID=CRAZY_MAN, meta_ACTION_POST=game_end
----
-CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it?
-===
-
 title: baguette_salt
-position: 2156,1564
-tags: actorUID=CRAZY_MAN, meta_ACTION_POST=COLLECT_1, meta=ACTION_POST:COLLECT_1, asset=baguette_salt
+position: 588,1161
+group: bakery
+color: yellow
+tags: actorUID=CRAZY_MAN
 ---
+<<action COLLECT_1>>
+<<asset baguette_salt>>
 CRAZY_MAN: This is salt
 ===
+title: baguette_flour
+position: 822,1161
+group: bakery
+color: yellow
+tags: actorUID=CRAZY_MAN
+---
+<<asset baguette_flour>>
+<<collect 2>>
+CRAZY_MAN: This is flour
+===
+
 
 title: baguette_water
-position: 1557,1567
-tags: actorUID=CRAZY_MAN, meta_ACTION_POST=COLLECT_3, meta=ACTION_POST:COLLECT_3, asset=baguette_water
+position: 323,1162
+group: bakery
+color: yellow
+tags: actorUID=CRAZY_MAN
 ---
+<<action COLLECT_3>>
+<<asset baguette_water>>
 CRAZY_MAN: This is water
 ===
 
 title: baguette_yeast
-position: 152,-854
-tags: actorUID=CRAZY_MAN, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=baguette_yeast
+position: 76,1156
+group: bakery
+color: yellow
+tags: actorUID=CRAZY_MAN
 ---
+<<action COLLECT_4>>
+<<asset baguette_yeast>>
 CRAZY_MAN: This is yeast
 ===
 
 title: talk_notre_dame_roof
-position: -260,527
-tags: actorUID=OLD_MAN, asset=notredame_fire
+position: 365,-209
+group: notredame
+tags: actorUID=OLD_MAN
 ---
+<<asset notredame_fire>>
 OLD_MAN: There was a big fire in 2019, but we could repair it.
-<<jump FR_01_PARIS_Text_36335876>>
+<<next_target louvre>>
+I saw Antura run into the Louvre Museum...
+It's just across the Seine river
 ===
 
-title: FR_01_PARIS_Text_00183204
-position: 244,250
-tags: actorUID=OLD_MAN, meta_ACTION_POST=AREA_NOTREDAME_ROOF, meta=ACTION_POST:AREA_NOTREDAME_ROOF
----
-OLD_MAN: Come with me up to the roof of the church!
-<<jump FR_01_PARIS_Variables_41_69_ab>>
-===
-
-title: FR_01_PARIS_Variables_41_69_ab
-position: 536,250
-tags: type=Variables
----
-// Variables
-<<set $MET_MAJOR = true>>
-===
-
-title: FR_01_PARIS_Variables_02703263
-position: 72,782
-tags: type=Variables
----
-// Variables
-<<set $TOTAL_COINS = $TOTAL_COINS-3>>
-<<jump FR_01_PARIS_Text_33741117>>
-===
 
 title: talk_louvre_guide
-position: 674,932
+position: 491,281
+group: louvre
 tags: actorUID=CRAZY_WOMAN, type=Choice
+color: blue
 ---
 CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want do to?
--> "Tell me about the Louvre":
-    <<jump FR_01_PARIS_Text_42906729>>
--> "Exit":
-    <<jump FR_01_PARIS_Condition_be_38_90>>
-===
-
-title: FR_01_PARIS_Text_32212533
-position: 2454,1524
-tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=AREA_LOUVRE_EXIT, meta=ACTION_POST:AREA_LOUVRE_EXIT
----
-CRAZY_WOMAN: Come back!
-===
-
-title: FR_01_PARIS_Choice_32513271
-position: 377,-109
-tags: actorUID=OLD_WOMAN, type=Choice
----
-OLD_WOMAN: Do you want to enter?
--> "Yes":
-    <<jump FR_01_PARIS_Text_32852926>>
--> "No":
-    <<jump FR_01_PARIS_Text_34955206>>
+-> Tell me about the Louvre
+    <<jump visit_louvre>>
+-> Exit
+    <<if $MET_MONALISA>>
+        <<action AREA_LOUVRE_EXIT>>
+        Come back!    
+    <<else>>
+        <<jump find_monalisa>>
+    <<endif>>
 ===
 
 title: louvre_monalisa
-position: 1001,736
-tags: actorUID=CRAZY_WOMAN, asset=monalisa
+position: 62,585
+group: louvre
+color: yellow
+tags: actorUID=CRAZY_WOMAN
 ---
+<<asset monalisa>>
 CRAZY_WOMAN: This is the famous Mona Lisa
-<<jump FR_01_PARIS_Variables_30557341>>
-===
+<<set $MET_MONALISA = true>>
+<<asset leaonardodavinci>>
+CRAZY_WOMAN: Painted in year 1500 by artist and scientist Leonardo Da Vinci
 
-title: FR_01_PARIS_Text_32852926
-position: 663,-189
-tags: actorUID=OLD_WOMAN, meta_ACTION_POST=AREA_LOUVRE_ENTER, meta=ACTION_POST:AREA_LOUVRE_ENTER
----
-OLD_WOMAN: Good visit!
 ===
 
 title: louvre_liberty
-position: 1872,1562
-tags: actorUID=CRAZY_WOMAN, asset=liberty_leading
+position: 64,427
+group: louvre
+color: yellow
+tags: actorUID=CRAZY_WOMAN, 
 ---
+<<asset liberty_leading>>
 CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents the Freedom
 ===
 
 title: louvre_venus
-position: 376,-865
-tags: actorUID=CRAZY_WOMAN, asset=venusmilo
+position: 65,268
+group: louvre
+color: yellow
+tags: actorUID=CRAZY_WOMAN, 
 ---
+<<asset venusmilo>>
 CRAZY_WOMAN: The Venus de Milo, an ancient Greek marble sculpture.
 ===
 
-title: FR_01_PARIS_Text_34955206
-position: 662,-13
-tags: actorUID=OLD_WOMAN
+title: npc_woman
+position: -626,-94
+tags: actorUID=WOMAN
+color: purple
 ---
-OLD_WOMAN: Ok
+WOMAN: Ciao. What do you want to know?
+-> What is the Eiffel Tower?
+    The famous iron tower 300 meters tall.
+    The symbol of Paris!
+-> Where are we?
+    We are in Paris! the city of love!
+-> Is this place real?
+    Sure! Why are you asking?
+    Well.. it seems like a videogame, isn't it?
+-> Nothing. Bye.:
 ===
 
-title: FR_01_PARIS_Condition_be_38_90
-position: 678,1226
-tags: type=Condition
+
+title: npc_man
+position: -628,-253
+tags: actorUID=MAN
+color: purple
 ---
-$MET_MONALISA
+MAN: Have you any questions?
+-> Have you seen Antura?
+    => Yes! Talk to everybody and follow the lights!
+    => No. Who is Antura?
+-> What are you doing?
+    => I'm going to work!
+    => I'm going to buy bread at the bakery
+-> Where do you come from?
+    => I wasn't born in this country.
+    => From planet earth.
+-> Goodbye
 ===
+
+
 
 title: npc_kid
-position: 602,-818
+position: -621,-415
 tags: actorUID=KID_MALE
+color: purple
 ---
-KID_MALE: Hi
-KID_MALE: How are you?
+=> Hi
+=> How are you?
 ===
 
-
-title: FR_01_PARIS_Variables_60972502
-position: 1518,1167
-tags: type=Variables
----
-// Variables
-<<set $QUEST_ITEMS = 4>>
-<<jump FR_01_PARIS_Text_52_2b_a9>>
-===
 
