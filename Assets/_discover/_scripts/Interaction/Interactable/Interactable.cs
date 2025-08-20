@@ -43,6 +43,8 @@ namespace Antura.Discover
         // [YarnNode(nameof(yarnProject))]
         // public string StartNodeId;
 
+        [SerializeField] DialogueReference DialogueNode = new();
+
         public string NodePermalink;
 
         [Header("Execute Quest Actions")]
