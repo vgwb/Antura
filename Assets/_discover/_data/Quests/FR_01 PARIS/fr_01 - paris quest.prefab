@@ -1043,8 +1043,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 10ed25bcd1a73da4498549a3aeaa756c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.YarnAnturaManager
-  runner: {fileID: 0}
-  presenter: {fileID: 0}
+  runner: {fileID: 1683302821009716542}
+  presenter: {fileID: 5891941937279096858}
   CurrentLanguage: EN
   NativeLanguage: EN
 --- !u!1 &4985426018006344035
@@ -1885,7 +1885,7 @@ PrefabInstance:
         type: 3}
       propertyPath: yarnProject
       value: 
-      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+      objectReference: {fileID: 7545569452688597077, guid: a753dcb46e73b4a499707e4fb40e3009,
         type: 3}
     - target: {fileID: 3740756621020649456, guid: 5c042fcef818f49f78de3cc6da7939ad,
         type: 3}
@@ -1992,6 +1992,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4bec29c0a230741bdac901dba8da47ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &5891941937279096858 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5956803314973807018, guid: 5c042fcef818f49f78de3cc6da7939ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 247329592935532976}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d9805cc514e945928cd9efc61379eca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!4 &6102485827649931825 stripped
@@ -4144,7 +4156,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 9238
+      value: 9256
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -6673,7 +6685,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 12755
+      value: 12773
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -10115,7 +10127,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 9878
+      value: 9896
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -12318,6 +12330,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: a753dcb46e73b4a499707e4fb40e3009,
+        type: 3}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: FR_01_talk_tutor
+      objectReference: {fileID: 0}
+    - target: {fileID: 726378034974291709, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
       propertyPath: FocusCameraOnInteract
       value: 1
       objectReference: {fileID: 0}
@@ -13155,7 +13178,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 9182
+      value: 9200
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -17109,7 +17132,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5402
+      value: 5420
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -19547,7 +19570,7 @@ PrefabInstance:
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 4768
+      value: 4786
       objectReference: {fileID: 0}
     - target: {fileID: 1257113042828663930, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
