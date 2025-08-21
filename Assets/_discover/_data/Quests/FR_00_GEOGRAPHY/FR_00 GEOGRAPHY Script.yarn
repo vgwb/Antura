@@ -1,4 +1,4 @@
-﻿// FR-00 Geograpghy
+﻿// FR-00 Geography
 title: init
 position: 0,0
 tags: Start
@@ -50,13 +50,13 @@ tags: actor=KID_FEMALE
     Can you bring the other flags to their respective country? Thank you!
     <<action area_bigger>>
 <<elseif $CURRENT_ITEM != "">>
-    That's not my flag, mine is blue, white and red.
+    That's not my flag. Mine is blue, white, and red.
 <<elseif $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     <<jump win>>
 <<else>>
     Hello! I am from France!
     Antura made a mess and all the flags have been mixed up!
-    My flag, the French one, is blue, white, and red
+    My flag, the French one, is blue, white, and red.
     Can you help me?
     <<jump task_france>>
 <<endif>>
@@ -70,7 +70,7 @@ tags: task
 <<if $EASY_MODE == true>>
         <<asset flag_france>>
 <<endif>>
-Find the french flag
+Find the French flag.
 <<task_start FIND_FRENCH_FLAG>>
 ===
 
@@ -80,7 +80,7 @@ group: france
 color: yellow
 tags: actor=TUTOR, asset=flag_france
 ---
-TUTOR: Flag of France
+TUTOR: Flag of France.
 ===
 
 //--------------------------------------------
@@ -97,7 +97,7 @@ tags: actor=MAN
 <<if $germany_completed>>
     <<asset flag_of_germany>>
     Thank you for helping me!
-    Berlin is the capital of Germany,
+    Berlin is the capital of Germany.
 <<elseif $germany_met>>
     <<if $CURRENT_ITEM == "flag_germany">>
         Danke! That is my flag!
@@ -105,14 +105,14 @@ tags: actor=MAN
         <<task_end germany>>
         <<set $germany_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
-        MAN: Nein! Our flag is horizontal with black, red and yellow.
+    MAN: Nein! Our flag has horizontal stripes of black, red, and yellow.
     <<else>>
         <<jump task_germany>>
     <<endif>>
 <<else>>
     <<set $germany_met = true>>
     Hallo! I'm from Germany!
-    We're famous for castles, forests and trains!
+    We're famous for castles, forests, and trains!
     <<jump task_germany>>
 <<endif>>
 ===
@@ -125,7 +125,7 @@ tags: task
 <<if $EASY_MODE == true>>
     <<card flag_of_germany>>
 <<endif>>
-Find the german flag.
+Find the German flag.
 It has horizontal stripes of black, red, and yellow.
 <<task_start FIND_GERMAN_FLAG>>
 ===
@@ -171,8 +171,8 @@ tags: actor=WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_of_spain>>
 <<endif>>
-Find the spanish flag.
-It's red and yellow, like sun and peppers.
+Find the Spanish flag.
+It's red and yellow, like the sun and peppers.
 <<task_start FIND_SPANISH_FLAG>>
 ===
 
@@ -190,13 +190,13 @@ tags: actor=KID_MALE
     <<asset flag_of_italy>>
     Thank you! Our capital is Rome!
 <<elseif $italy_met>>
-    <<if $CURRENT_ITEM == "flag_spain">>
+    <<if $CURRENT_ITEM == "flag_italy">>
         Grazie! That's my flag!
         <<action REMOVE_ITALY_FLAG>>
         <<task_end italy>>
         <<set $italy_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
-        My flag is different! It's green, white and red.
+    My flag is different! It's green, white, and red.
     <<else>>
         <<jump task_italy>>
     <<endif>>
@@ -215,7 +215,7 @@ tags: actor=KID_MALE
 <<if $EASY_MODE == true>>
     <<card flag_of_italy>>
 <<endif>>
-Find the italian flag.
+Find the Italian flag.
 It's green, white, and red like basil, mozzarella, and tomato on a pizza!
 <<task_start FIND_ITALY_FLAG>>
 ===
@@ -233,7 +233,7 @@ tags: actor=OLD_WOMAN
 <<if $belgium_completed>>
     <<asset flag_of_belgium>>
     Thank you for helping us!
-    Bruxelles is the capital of Belgium.
+    Brussels is the capital of Belgium.
 <<elseif $belgium_met>>
     <<if $CURRENT_ITEM == "flag_belgium">>
         Thank you, my beautiful flag is back!
@@ -241,7 +241,7 @@ tags: actor=OLD_WOMAN
         <<task_end belgium>>
         <<set $belgium_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
-        Remember, my flag is vertical black, yellow and red.
+    Remember, my flag has vertical stripes. black, yellow, and red.
     <<else>>
         <<jump task_belgium>>
     <<endif>>
@@ -261,7 +261,7 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_of_belgium>>
 <<endif>>
-Find the belgian flag.
+Find the Belgian flag.
 It's black, yellow, and red with vertical stripes.
 <<task_start FIND_BELGIUM_FLAG>>
 ===
@@ -273,7 +273,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_of_belgium>>
-TUTOR: Flag of Belgium
+TUTOR: Flag of Belgium.
 ===
 
 //--------------------------------------------
@@ -302,7 +302,7 @@ tags: actor=OLD_MAN
     <<endif>>
 <<else>>
     <<set $lux_met = true>>
-    Moien! I’m Luxembourg!
+    Moien! I’m from Luxembourg!
     We may be small, but we speak three languages!
     <<jump task_lux>>
 <<endif>>
@@ -329,7 +329,8 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_of_luxembourg>>
-TUTOR: Flag of Luxembourg
+TUTOR: Flag of Luxembourg.
+.
 ===
 
 //--------------------------------------------
@@ -345,7 +346,7 @@ tags: actor=CRAZY_WOMAN
 <<if $swiss_completed>>
     <<asset flag_of_swiss>>
     Thank you for helping us!
-    The swiss capital is Bern!
+    The capital of Switzerland is Bern!
 <<elseif $swiss_met>>
     <<if $CURRENT_ITEM == "flag_swiss">>
         Thank you for bringing my flag back!
@@ -358,7 +359,7 @@ tags: actor=CRAZY_WOMAN
         <<jump task_swiss>>
     <<endif>>
 <<else>>
-    <<set $lux_met = true>>
+    <<set $swiss_met = true>>
     Grüezi! I'm from Switzerland!
     We're famous for snowy mountains and cheese.
     <<jump task_swiss>>
@@ -374,7 +375,7 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_of_swiss>>
 <<endif>>
-Find the swiss flag.
+Find the Swiss flag.
 It's red with a big white cross — like a first aid kit!
 <<task_start FIND_SWISS_FLAG>>
 ===
@@ -392,7 +393,7 @@ tags: actor=CRAZY_MAN
 ---
 CRAZY_MAN: Bonjour! I’m from Monaco!
 CRAZY_MAN: We’re tiny but fancy — with race cars and royal palaces by the sea!
-<<show_asset flag_of_monaco>>
+<<asset flag_of_monaco>>
 CRAZY_MAN: My flag is red and white.
 ===
 
@@ -408,8 +409,8 @@ tags: actor=GUIDE
 ---
 GUIDE: Hola and Bonjour! I’m from Andorra!
 GUIDE: My flag is blue, yellow, and red.
-<<show_asset flag_of_andorra>>
-GUIDE: My flag is blue, yellow, and red.
+<<asset flag_of_andorra>>
+// Duplicate line removed
 
 ===
 
@@ -431,7 +432,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card  flag_of_germany>>
-Flag of Germany
+TUTOR: Flag of Germany.
 ===
 
 title: item_flag_italy
@@ -441,7 +442,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_italy>>
-Flag of Italy
+TUTOR: Flag of Italy.
 ===
 
 title: item_flag_switzerland
@@ -451,6 +452,6 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card  flag_swiss>>
-TUTOR: Flag of Switzerland
+TUTOR: Flag of Switzerland.
 ===
 

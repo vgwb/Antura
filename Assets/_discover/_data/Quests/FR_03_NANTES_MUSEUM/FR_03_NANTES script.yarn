@@ -1,4 +1,8 @@
 ﻿// FR-03 Nantes
+// Words used: Jules Verne, writer, Nantes, map, book, train, rocket, submarine, hot air balloon, Around the World in 80 Days, From the Earth to the Moon, 20000 Leagues Under the Seas
+// activities in this quest:
+// - find books (FIND_BOOKS)
+// - collect items (train, rocket, submarine, balloon)
 
 title: init
 position: 0,0
@@ -7,6 +11,7 @@ color: red
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
+<<declare $QUEST_ITEMS = 4>>
 ===
 title: talk_guide
 position: 337,219
@@ -17,7 +22,7 @@ CRAZY_WOMAN: Welcome to the house of Jules Verne!
 <<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
 <<jump task_find_books>>
 <<else>>
-<<jump FR_04_WIN>>
+<<jump won>>
 <<endif>>
 ===
 
@@ -25,30 +30,30 @@ title: task_find_books
 position: 702,219
 tags: task
 ---
-<<task_start find_books>>
+<<task_start FIND_BOOKS>>
 <<asset jverne_mission_overview>>
-Explore the house and find FOUR of his books!
+Explore the house and find four of his books!
 
 ===
 title: verne_painting
 position: 351,-354
 tags: actorUID=TUTOR, asset=jules_verne_1
 ---
-TUTOR: This is Jules Verne! He was a WRITER
+TUTOR: This is Jules Verne. He was a writer.
 ===
 
 title: verne_house
 position: 638,-360
 tags: actorUID=TUTOR, asset=jules_verne_house
 ---
-TUTOR: He was born in Nantes in 1828
+TUTOR: He was born in Nantes in 1828.
 ===
 
 title: map_nantes
 position: 894,-362
 tags: actorUID=TUTOR, asset=map_nantes
 ---
-TUTOR: This is the map on Nantes
+TUTOR: This is a map of Nantes.
 ===
 
 title: open_chest
@@ -67,8 +72,8 @@ position: 796,-106
 tags: actorUID=CRAZY_WOMAN
 ---
 <<asset jules_verne_2>>
-GREAT! You met Jules Verne
-the most famous writer of sci-fiction!
+Great! You met Jules Verne,
+the famous science fiction writer.
 <<quest_end 3>>
 ===
 
@@ -79,6 +84,7 @@ tags: actorUID=TUTOR
 ---
 <<asset book_80days>>
 TUTOR: This book is "Around the World in 80 Days"
+.
 <<jump train>>
 ===
 title: train
@@ -87,6 +93,7 @@ tags: item
 ---
 <<asset train>>
 TUTOR: This is an old train
+.
 <<action COLLECT_TRAIN>>
 ===
 
@@ -94,7 +101,7 @@ title: paint_moon
 position: 709,1062
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_ROCKET, meta=ACTION_POST:COLLECT_ROCKET, asset=rocket
 ---
-TUTOR: This is a space rocket
+TUTOR: This is a space rocket.
 ===
 
 title: book_moon
@@ -104,6 +111,7 @@ tags: actorUID=TUTOR
 ---
 <<asset book_earthmoon>>
 TUTOR: This book is "From earth to the Moon"
+.
 <<jump paint_moon>>
 ===
 
@@ -116,6 +124,7 @@ tags: actorUID=TUTOR
 ---
 <<asset book_underthesea>>
 TUTOR: This book is 20000 Leagues Under the Seas
+.
 <<jump paint_20000>>
 ===
 
@@ -125,6 +134,7 @@ tags: actorUID=TUTOR
 ---
 <<asset submarine>>
 TUTOR: This is a submarine
+.
 <<action COLLECT_SUBMARINE>>
 ===
 
@@ -132,7 +142,7 @@ title: paint_5weeks
 position: 681,490
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_BALOON, meta=ACTION_POST:COLLECT_BALOON, asset=balloon
 ---
-TUTOR: This is a Balloon. It flies by hot air.
+TUTOR: This is a hot air balloon.
 ===
 
 title: book_5weeks
@@ -140,7 +150,7 @@ position: 387,480
 color: yellow
 tags: actorUID=TUTOR, asset=book_5weeksballoon
 ---
-TUTOR: this book is Five Weeks in a Balloon
+TUTOR: This book is "Five Weeks in a Balloon".
 <<jump paint_5weeks>>
 ===
 

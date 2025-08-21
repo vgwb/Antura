@@ -7,9 +7,8 @@ color: red
 <<set $TOTAL_COINS = 0>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $MAX_PROGRESS = 8>>
-Welcome to the Seine River in Paris!
-You will learn about the Seine River
-its bridges, and the boats that sail on it.
+Welcome to the River Seine in Paris!
+You will learn about the river, its bridges, and the boats that sail on it.
 ===
 
 title: talk_tutor
@@ -31,10 +30,10 @@ title: welcome
 position: 269,203
 tags: actor=TUTOR, asset=seine_river_panoramic
 ---
-TUTOR: This is the Sein River!
+TUTOR: This is the River Seine!
 <<card  seine_map>>
-TUTOR: The river Seine flows through Paris.
-TUTOR: Many people live by this river
+TUTOR: The River Seine flows through Paris.
+TUTOR: Many people live by this river.
 <<jump task_seine>>
 ===
 
@@ -52,7 +51,7 @@ position: 567,210
 tags: actor=TUTOR
 ---
 <<task_start seine>>
-TUTOR: I lost 8 photos of the Sein.
+TUTOR: I lost 8 photos of the Seine.
 Can you find them all?
 Then come back to me!
 ===
@@ -86,7 +85,7 @@ color: yellow
 ---
 <<card sign_people_bridge>>
 <<action COLLECT_3>>
-TUTOR: This is a bridge for the people!
+TUTOR: This is a bridge for people!
 ===
 
 title: boat_people
@@ -96,7 +95,7 @@ color: yellow
 ---
 <<card  boat_people>>
 <<action COLLECT_5>>
-TUTOR: This boat has large windows, so tourista can see the city! it's a bâteaux mouches
+TUTOR: This boat has large windows, so tourists can see the city. It's a 'bateau-mouche' (a tourist boat).
 ===
 
 title: boat_house
@@ -116,7 +115,7 @@ color: yellow
 ---
 <<card boat_goods>>
 <<action COLLECT_7>>
-TUTOR: This boat transports goods
+TUTOR: This boat transports goods.
 ===
 
 title: look_seine_map
@@ -124,7 +123,7 @@ position: 863,-3
 tags: actor=TUTOR, asset=
 ---
 <<card  seine_france_map>>
-TUTOR: Now look at this map or the Seine
+TUTOR: Now look at this map of the Seine.
 <<jump question_seine_map>>
 ===
 
@@ -132,7 +131,7 @@ title: question_seine_map
 position: 1135,-4
 tags: actor=TUTOR, type=Choice
 ---
-TUTOR: The Seine is a river which flows into a sea, which one?
+TUTOR: The Seine flows into a sea. Which one?
 -> "The Mediterranean Sea":
     <<jump question_wrong>>
 -> "The English Channel":
@@ -146,11 +145,11 @@ position: 1137,211
 tags: actor=TUTOR
 color: purple
 ---
-TUTOR: YES! The Seine flows into the English Channel, north of France
+TUTOR: Yes! The Seine flows into the English Channel, in northern France.
 <<card  seine_map>>
-TUTOR: In this map: name the monuments you recognized.
-TUTOR: Draw a bridge in your notebook! Do you remember the Pont Alexandre 3?
-TUTOR: Great: you finished this level.
+TUTOR: On this map, name the monuments you recognize.
+TUTOR: Draw a bridge in your notebook! Do you remember the Pont Alexandre III?
+TUTOR: Great, you finished this level.
 <<quest_end 3>>
 ===
 
@@ -158,7 +157,7 @@ title: question_wrong
 position: 1363,-135
 tags: actor=TUTOR
 ---
-TUTOR: UHMMMM. not really. Look better at the map
+TUTOR: Hmm... not really. Look at the map again.
 <<jump question_seine_map>>
 ===
 
@@ -174,9 +173,9 @@ title: npc_boat
 position: -271,28
 tags: actor=MAN
 ---
-=> No i didn't see your dog
-=> A dog? there are many dogs here...
-=> I saw a dog walking around, yes
+=> No, I didn't see your dog.
+=> A dog? There are many dogs here...
+=> I did see a dog walking around, yes.
 ===
 
 
@@ -193,7 +192,7 @@ position: 239,-255
 tags: actor=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
 color: yellow
 ---
-TUTOR: <br>There are many boats
+TUTOR: There are many boats.
 ===
 
 title: talk_ile_de_france
@@ -201,8 +200,8 @@ position: -278,-435
 tags: actor=WOMAN
 ---
 <<card ile_de_france>>
-Look: there is an island. "île de la cité".
-It is the historic centre of Paris.
+Look: there is an island, Île de la Cité.
+It is the historic center of Paris.
 ===
 
 title: talk_pont_alexandre
@@ -210,7 +209,7 @@ position: -273,-285
 tags: actor=WOMAN
 ---
 <<card alexander_iii_bridge>>
-This is Pont Alexandre III: an historic monument
+This is the Pont Alexandre III, a historic monument.
 ===
 
 

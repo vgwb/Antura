@@ -5,7 +5,7 @@
 // - order ingredients
 
 // for teachers:
-// what do toy thinbk about this quest?
+// For teachers: what do you think about this quest?
 
 title: init
 position: 0,0
@@ -14,18 +14,19 @@ color: red
 ---
 <<set $MAX_PROGRESS = 7>>
 <<declare $ingredients = 0>>
-TUTOR: Welcome to FR-09: Côte d'Azur! It's a beautiful day on the coast.
+TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast.
 ===
 title: FR_09_COTES_DAZUR_Text_02630595
 position: -832,1264
 tags: actorUID=GUIDE, asset=_09_overview
 ---
+GUIDE: Explore the market and meet the sellers.
 ===
 title: market_cheesemonger
 position: -830,911
 tags: actorUID=MAN, asset=_09_cheesemonger
 ---
-MAN: I sell cheese and milk. I'm a cheesemonger
+MAN: I sell cheese and milk. I'm a cheesemonger.
 ===
 
 title: market_butcher
@@ -55,7 +56,7 @@ position: -830,1073
 tags: actorUID=MAN
 ---
 <<asset grocer>>
-MAN: I sell pepper, salt, huile and spices. I'm a grocer.
+MAN: I sell pepper, salt, oil, and spices. I'm a grocer.
 ===
 
 title: sign_french_coastlines
@@ -63,7 +64,7 @@ position: -842,395
 tags: actorUID=MAN, sign
 ---
 <<asset  french_coastlines>>
-MAN: FRENCH COASTLINES
+MAN: French coastlines.
 ===
 
 title: baker_bonjour
@@ -73,7 +74,7 @@ tags: actorUID=MAN
 ---
 <<asset shop_baker>>
 Bonjour! I sell fresh bread. I am a baker.
-Every day I wake up early to bake!
+Every day I wake up early to bake.
 <<jump baker_question>>
 ===
 
@@ -115,7 +116,7 @@ group: baker
 tags: actorUID=MAN
 ---
 <<activity ACTIVITY_MONEY_1 baker_payment_done>>
-MAN: Select enough money to pay for the items!
+MAN: Select enough money to pay.
 ===
 
 title: baker_payment_done
@@ -191,7 +192,8 @@ position: 714,1519
 group: fisher
 tags: actorUID=OLD_MAN
 ---
-OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger. All of my items come from the sea!
+OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger.
+All of my items come from the sea!
 <<jump FR_09_COTES_DAZUR_Choice__3WI_S5A>>
 ===
 
@@ -242,7 +244,8 @@ position: 764,1235
 group: cheesemonger
 tags: actorUID=WOMAN
 ---
-WOMAN: Hi! I sell cheese and milk. I am a cheesemonger. I use both cow milk and goat milk.
+WOMAN: Hi! I sell cheese and milk. I am a cheesemonger.
+I use both cow milk and goat milk.
 <<jump FR_09_COTES_DAZUR_Choice__S5A_14N>>
 ===
 
@@ -378,13 +381,12 @@ position: -410,-321
 group: pirates
 tags: actorUID=CRAZY_MAN
 ---
-CRAZY_MAN: Ahoy there! Welcome aboard. We come from Saint-Malo and have sailed the seas to get here!
-CRAZY_MAN: People call us pirates, but actually, we are Corsaires—Privateers!
-CRAZY_MAN: We were sailors working for the King of France.
-CRAZY_MAN: In the past, we used to steal items from the enemies of the King, but those days are long gone.
-CRAZY_MAN: You should pay for the items you need, so that the vendors can keep their shops open!
-
-<<jump FR_09_COTES_DAZUR_Text__SCX_I7P>>
+CRAZY_MAN: Ahoy! Welcome aboard.
+We come from Saint-Malo and sailed the seas to get here.
+People call us pirates, but we were corsairs—privateers.
+We worked for the King of France.
+In the past, we took items from the king's enemies, but those days are gone.
+Please pay for what you need so the shops can stay open!
 ===
 
 
@@ -406,10 +408,10 @@ position: 679,-357
 group: chef
 tags: actorUID=MAN
 ---
-Bonjour! Welcome to Marseille, on the coast of the beautiful Mediterranean Sea!
+Bonjour! Welcome to Marseille, on the Mediterranean Sea!
 <<asset bouillabaisse>>
-I want to make a special dish for you, a bouillabaisse!
-But I need some ingredients. 
+I want to make a special dish for you: bouillabaisse!
+But I need some ingredients.
 <<jump task_ingredients>>
 ===
 
@@ -422,16 +424,16 @@ tags: task
 ---
 <<task_start COLLECT_THE_INGREDIENTS>>
 Please go to the market and buy them for me.
-And remember your manners!
-Always say 'Bonjour' to greet someone,
-and 'Merci' to thank them!
+Remember your manners!
+Say "Bonjour" to greet someone,
+and "Merci" to thank them.
 ===
 
 title: task_ingredients_done
 position: 992,-216
 group: chef
 ---
-You got all the ingredients needed! Go back to chef.
+You got all the ingredients! Go back to the chef.
 
 ===
 
@@ -441,9 +443,9 @@ position: 674,-580
 group: chef
 tags: actorUID=MAN
 ---
-Magnifique! You have everything! And I hear you were very polite.
-You are a true connoisseur of the market.
-Now, let's prepare this feast!
+Magnifique! You have everything.
+You were very polite.
+Now, let's prepare our feast!
 <<jump activity_match_ingredients>>
 ===
 
@@ -454,7 +456,7 @@ color: red
 tags: activity
 ---
 <<activity ACTIVITY_ORDER activity_match_done>>
-Match the items to the sellers!
+Match each item to the right seller.
 ===
 
 
@@ -462,7 +464,7 @@ title: activity_match_done
 position: 1435,-572
 group: chef
 ---
-Well done! You matched all the items to the sellers.
+Well done! You matched all the items.
 Now, let's cook the bouillabaisse!
 <<quest_end 3>>
 ===
@@ -507,7 +509,7 @@ position: 1666,1608
 group: fisher
 tags: actorUID=OLD_MAN, meta_ACTION_POST=ACTIVITY_MONEY_2, meta=ACTION_POST:ACTIVITY_MONEY_2
 ---
-OLD_MAN: Select enough money to pay for the items!
+OLD_MAN: Select enough money to pay.
 <<jump FR_09_COTES_DAZUR_Choice__RNV_S5A>>
 ===
 
@@ -515,7 +517,7 @@ title: FR_09_COTES_DAZUR_Text__54Z_R5J
 position: 1395,1042
 tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_3, meta=ACTION_POST:ACTIVITY_MONEY_3
 ---
-WOMAN: Select enough money to pay for the items!
+WOMAN: Select enough money to pay.
 <<jump FR_09_COTES_DAZUR_Choice__S5A_14N_1>>
 ===
 
@@ -524,7 +526,7 @@ position: 1258,765
 group: grocer
 tags: actorUID=OLD_WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_5, meta=ACTION_POST:ACTIVITY_MONEY_5
 ---
-OLD_WOMAN: Select enough money to pay for the items!
+OLD_WOMAN: Select enough money to pay.
 <<jump FR_09_COTES_DAZUR_Choice__HD9_WO6>>
 ===
 
@@ -532,7 +534,7 @@ title: FR_09_COTES_DAZUR_Text__MGN_PPN
 position: 1500,2029
 tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_4, meta=ACTION_POST:ACTIVITY_MONEY_4
 ---
-WOMAN: Select enough money to pay for the items!
+WOMAN: Select enough money to pay.
 <<jump FR_09_COTES_DAZUR_Choice__S5A_HD9>>
 ===
 title: baker_notunderstands

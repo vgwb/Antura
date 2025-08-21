@@ -1,4 +1,9 @@
 ﻿// FR-02 Angers - school
+// Words used: school, classroom, backpack, lesson, CP, CE1, CE2, CM1, CM2, Collège, Lycée, Baccalauréat, geometry, cursive, canteen/menu
+// activities in this quest:
+// - find your classroom (task)
+// - find your backpack (task)
+// - match tools to shapes (geometry activity)
 
 title: init
 position: 0,0
@@ -17,7 +22,7 @@ position: 338,-337
 tags: actorUID=WOMAN
 ---
 WOMAN: Welcome! This is a nursery school, for our youngest pupils aged 3 to 5.
-WOMAN: You are much too big for our little chairs! Your school must be nearby.
+WOMAN: You are too big for our small chairs! Your school is nearby.
 
 ===
 title: school_2
@@ -27,7 +32,7 @@ tags: type=Condition
 <<if $got_backpack>>
     <<jump school_2_welcome>>
 <<else>>
-GUIDE: There it is! Now you’re all set and the lesson can start.
+GUIDE: There it is! Let's go inside and start the lesson.
 <<jump school_2_talk>>
 <<endif>>
 ===
@@ -36,9 +41,9 @@ title: school_2_welcome
 position: 724,-284
 tags: actorUID=GUIDE
 ---
-GUIDE: Bonjour and welcome! You've found it, this is your elementary school.
-GUIDE: However, you seem to have forgotten your backpack!
-GUIDE: You’ll need your books for the lesson.
+GUIDE: Bonjour! Welcome! You've found it. This is your elementary school.
+GUIDE: It looks like you forgot your backpack.
+GUIDE: You'll need your books for the lesson.
 <<jump task_backpack>>
 ===
 
@@ -46,8 +51,8 @@ title: school_3
 position: 340,63
 tags: actorUID=KID_MALE
 ---
-KID_MALE: Hi! This is a Collège. It's for students from 11 to 15 years old.
-KID_MALE: You're almost old enough, but not yet! Keep looking!
+KID_MALE: Hi! This is a middle school (Collège) for ages 11 to 15.
+KID_MALE: You're almost old enough, but not yet. Keep looking!
 
 ===
 
@@ -55,9 +60,9 @@ title: school_4
 position: 341,293
 tags: actorUID=MAN
 ---
-MAN: Bonjour! This is a Lycée, for students aged 16 to 18.
-MAN: Here, we study for the Baccalauréat exam before going to university.
-MAN: You're a bit too young! Try another school.
+MAN: Bonjour! This is a high school (Lycée) for ages 16 to 18.
+MAN: Students study for the Baccalauréat exam here before university.
+MAN: You're a bit too young. Try another school.
 ===
 
 
@@ -66,8 +71,8 @@ position: 620,290
 tags: actorUID=OLD_MAN
 ---
 Hello! I found a backpack on my way here.
-The books my students use are more complex than these,
-so I don’t think it belongs to them.
+These books are simpler than the ones my students use,
+so I don't think it belongs to them.
 <<action  SPAWN_BACKPACK>>
 Could it be yours?
 <<set $got_backpack = true>>
@@ -95,9 +100,9 @@ title: classroom_1
 position: 1574,-269
 tags: actorUID=MAN
 ---
-This is the CP classroom
-when you start primary school at 6 years old
-But this isn't your class, try the next door!
+This is the CP classroom.
+Children start primary school at 6 years old.
+This is not your class. Try the next door!
 <<action DOOR_OPEN_2>>
 ===
 
@@ -105,9 +110,9 @@ title: classroom_2
 position: 1579,-95
 tags: actorUID=WOMAN
 ---
-This is CE1
-where you go during your second year of primary school.
-But this isn't your class, try again!
+This is CE1,
+the second year of primary school.
+This is not your class. Try again!
 <<action DOOR_OPEN_3>>
 ===
 
@@ -116,8 +121,8 @@ position: 1581,54
 tags: actorUID=WOMAN
 ---
 Hi there! This is the CE2 classroom
-for students that are 8 years old.
-WOMAN: This isn't your class, but you're getting close!
+for students who are 8 years old.
+WOMAN: This is not your class, but you're getting close!
 <<action DOOR_OPEN_4>>
 ===
 
@@ -125,8 +130,8 @@ title: classroom_4
 position: 1584,217
 tags: actorUID=OLD_WOMAN
 ---
-Hello! This is the CM1
-which is the second to last year of primary school.
+Hello! This is CM1,
+the second-to-last year of primary school.
 Your class is just over there!
 <<action DOOR_OPEN_5>>
 ===
@@ -139,11 +144,11 @@ tags: actorUID=GUIDE
 ---
 There you are! Welcome to CM2!
 Let's get to work.
-Look, it's a writing lesson
+Look, it's a writing lesson.
 In France, we learn to write in cursive.
 <<asset cursive_writing>>
-GUIDE: Now for geometry! Can you figure out what each of these tools is used for?
-GUIDE: Match the tools to the shapes they are used to draw.
+GUIDE: Now for geometry!
+GUIDE: Match each tool to the shape it draws.
 <<activity ACTIVITY_ORDER activity_match_done>>
 ===
 
@@ -151,8 +156,8 @@ title: activity_match_done
 position: 1832,390
 tags: actorUID=GUIDE
 ---
-GUIDE: Great job! You know what we do every morning and afternoon?
-GUIDE: We have la récréation to play outside!
+GUIDE: Great job!
+GUIDE: Every morning and afternoon we have a break to play outside.
 GUIDE: You're all set. Welcome to the class!
 <<quest_end 3>>
 ===
@@ -163,7 +168,7 @@ position: 1205,-281
 tags: actorUID=TUTOR
 ---
 TUTOR: TASK COMPLETED! You can now enter school.
-<<nexttarget ELEMENTARY_TEACHER>>
+ 
 ===
 
 title: task_class_done
@@ -187,7 +192,7 @@ tags: actorUID=OLD_WOMAN,
 color: yellow
 ---
 <<asset canteen_menu>>
-Hello! I hope you're registered for the cantine
+Hello! I hope you're registered for the canteen.
 Look what's on the menu today!
 ===
 
@@ -198,6 +203,6 @@ color: yellow
 tags: item
 ---
 <<asset charte_laicite>>
-at school, everyone is welcome and respected
+At school, everyone is welcome and respected,
 no matter their beliefs.
 ===

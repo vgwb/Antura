@@ -104,13 +104,13 @@ assetimage:
 
 vuoi che ti sblocchi queta quest con...
 -> o stelle (fail)
-    <<endquest 0>>
+    <<quest_end 0>>
 -> una stella
-    <<endquest 1>>
+    <<quest_end 1>>
 -> due stelle
-    <<endquest 2>>
+    <<quest_end 2>>
 -> tre stelle
-    <<endquest 3>>
+    <<quest_end 3>>
 FATTO! esci e controlla
 
 ===
@@ -140,6 +140,11 @@ ora chiudo
     <<action open_chest>>
 
 ===
+title: activity_done
+position: 200,200
+---
+Narrator: Activity finished.
+===
 title: commands
 color: red
 position: 121,-125
@@ -167,11 +172,11 @@ position: 121,-125
 // configured in the actiosManager
 <<action action_id>>
 // called to end the current quest
-<<endquest>>
+<<quest_end 3>>
 // called to end the current quest with n (1,2,3) stars!
-<<endquest n>>
+// <<quest_end n>>
 // if the quest is not completed
-<<endquest fail>>
+// <<quest_end fail>>
 
 ===
 title: functions
@@ -220,7 +225,8 @@ position: -252,-938
 tags: #camera2 background:conductor_cabin
 ---
 
-Narrator: What do you want to do with {$coins} coins?  #line:02eb555 
+<<declare $coins = 0>>
+Narrator: What do you want to do with {$coins} coins?  #line:02eb555
 -> Open the door #line:07d1a6a 
  <<set $doorUnlocked = true>>
  Narrator: The door is open #line:0a986a0 

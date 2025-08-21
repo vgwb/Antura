@@ -1,4 +1,9 @@
 ﻿// FR-01 Paris
+// Words used: Eiffel Tower, ticket, coin, Notre-Dame, Louvre, Mona Lisa, Liberty Leading the People, baguette, flour, water, yeast, salt, map, elevator, iron
+// activities in this quest:
+// - collect ingredients (flour, water, yeast, salt)
+// - visit museum (Louvre, Mona Lisa)
+// - explore landmarks (Eiffel Tower, Notre-Dame)
 
 title: init
 position: -304,-431
@@ -7,6 +12,7 @@ color: red
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
+<<declare $QUEST_ITEMS = 0>>
 <<declare $MET_GUIDE = false>>
 <<declare $MET_MAJOR = false>>
 <<declare $MET_MONALISA = false>>
@@ -16,7 +22,7 @@ title: start
 position: -301,-268
 tags: NEXTTARGET=TUTOR
 ---
-Welcome to Paris
+Welcome to Paris!
 ===
 
 
@@ -25,10 +31,10 @@ title: talk_tutor
 position: 17,-670
 actor: tutor
 ---
-TUTOR: I saw Antura going to the Tour Eiffel.
+TUTOR: I saw Antura going to the Eiffel Tower.
 <<camera_focus tour_eiffell>>
 If you don't know where to go, follow the light beam in the sky or use the map!
-Get there as soon as possibile!
+Get there as soon as possible!
 ===
 
 
@@ -38,15 +44,15 @@ group: louvre
 ---
 <<if $MET_MONALISA>>
     <<jump go_bakery>>
-<<else>>>>
+<<else>>
 <<asset louvre>>
-OLD_WOMAN: This is the entrance of The Louvre, our national museum of arts.
+OLD_WOMAN: This is the entrance to the Louvre, our national art museum.
 OLD_WOMAN: Do you want to enter?
 -> Yes:
-    Good visit!
+    Enjoy your visit!
     <<action AREA_LOUVRE_ENTER >>
 -> No:
-    Ok
+    Okay.
 <<endif>>
 ===
 
@@ -56,9 +62,9 @@ group: toureiffel
 tags: actorUID=GUIDE
 ---
 <<asset  toureiffell>>
-GUIDE: The Eiffel Tower is 300 meters tall
+GUIDE: The Eiffel Tower is 300 meters tall.
 <<asset mr_eiffel>>
-GUIDE: Build by Mr Eiffell in 1887
+GUIDE: Built by Mr Eiffel in 1887.
 <<asset iron>>
 GUIDE: It's made of iron!
 GUIDE: I saw Antura going towards Notre Dame.
@@ -73,10 +79,10 @@ position: 311,-447
 group: toureiffel
 ---
 <<if $TOTAL_COINS > 2>>
-    Here is your ticket
+    Here is your ticket.
     <<asset tour_eiffell_ticket>>
     <<set $TOTAL_COINS = $TOTAL_COINS-3>>
-    <<update_ui>>>>
+    
     <<action  area_toureiffel>>
     <<asset tour_eiffell_map>>
     I saw Antura going up to the top of the tower.
@@ -84,7 +90,7 @@ group: toureiffel
 <<elseif $TOTAL_COINS > 0>> 
     TUTOR: Collect all coins!
 <<else>>
-    GUIDE: Hello. The ticket for the Tour Eiffel costs 3 coins.
+    GUIDE: Hello. The ticket for the Eiffel Tower costs 3 coins.
 <<endif>>
 ===
 
@@ -94,10 +100,10 @@ group: notredame
 tags: actorUID=OLD_MAN, asset=notredame
 ---
 OLD_MAN: I'm the Mayor of Paris.
-And this is the Notre Dame Cathedral
+OLD_MAN: This is Notre-Dame Cathedral.
 <<asset notredame>>
-OLD_MAN: It's our most famous gothic church, built in 1182.
-<<action  action AREA_NOTREDAME_ROOF>>
+OLD_MAN: It is a famous Gothic church, built in 1182.
+<<action AREA_NOTREDAME_ROOF>>
 OLD_MAN: Come with me up to the roof of the church!
 <<set $MET_MAJOR = true>>
 ===
@@ -111,13 +117,13 @@ group: bakery
     CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it?
     <<quest_end 3>>
 <<else>>
-    Help me! Antura has messed my kitchen!
-    I can't find the ingredients to make the Baguette
+    Help me! Antura made a mess in my kitchen!
+    I can't find the ingredients to make the baguette.
     <<asset  baguette>>
-    our special french bread!
+    Our special French bread!
     <<set $QUEST_ITEMS = 4>>
-    Please bring me the 4 ingredients needed:
-    flour, water, yeast and salt.
+    Please bring me 4 ingredients:
+    flour, water, yeast, and salt.
 <<endif>>
 
 ===
@@ -147,7 +153,7 @@ position: 347,60
 group: louvre
 tags: actorUID=OLD_WOMAN
 ---
-<<nexttarget bakery>>
+ 
 OLD_WOMAN: Now look for Antura! I think it went to the bakery for a baguette!
 OLD_WOMAN: Hurry up!
 ===
@@ -160,7 +166,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_1>>
 <<asset baguette_salt>>
-CRAZY_MAN: This is salt
+CRAZY_MAN: This is salt.
 ===
 title: baguette_flour
 position: 822,1161
@@ -169,8 +175,8 @@ color: yellow
 tags: actorUID=CRAZY_MAN
 ---
 <<asset baguette_flour>>
-<<collect 2>>
-CRAZY_MAN: This is flour
+<<action COLLECT_2>>
+CRAZY_MAN: This is flour.
 ===
 
 
@@ -182,7 +188,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_3>>
 <<asset baguette_water>>
-CRAZY_MAN: This is water
+CRAZY_MAN: This is water.
 ===
 
 title: baguette_yeast
@@ -193,7 +199,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_4>>
 <<asset baguette_yeast>>
-CRAZY_MAN: This is yeast
+CRAZY_MAN: This is yeast.
 ===
 
 title: talk_notre_dame_roof
@@ -203,9 +209,9 @@ tags: actorUID=OLD_MAN
 ---
 <<asset notredame_fire>>
 OLD_MAN: There was a big fire in 2019, but we could repair it.
-<<next_target louvre>>
-I saw Antura run into the Louvre Museum...
-It's just across the Seine river
+ 
+I saw Antura run into the Louvre Museum.
+It is just across the River Seine.
 ===
 
 
@@ -215,7 +221,7 @@ group: louvre
 tags: actorUID=CRAZY_WOMAN, type=Choice
 color: blue
 ---
-CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want do to?
+CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want to do?
 -> Tell me about the Louvre
     <<jump visit_louvre>>
 -> Exit
@@ -234,10 +240,10 @@ color: yellow
 tags: actorUID=CRAZY_WOMAN
 ---
 <<asset monalisa>>
-CRAZY_WOMAN: This is the famous Mona Lisa
+CRAZY_WOMAN: This is the famous Mona Lisa.
 <<set $MET_MONALISA = true>>
 <<asset leaonardodavinci>>
-CRAZY_WOMAN: Painted in year 1500 by artist and scientist Leonardo Da Vinci
+CRAZY_WOMAN: It was painted around 1500 by the artist and scientist Leonardo da Vinci.
 
 ===
 
@@ -248,7 +254,7 @@ color: yellow
 tags: actorUID=CRAZY_WOMAN, 
 ---
 <<asset liberty_leading>>
-CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents the Freedom
+CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents freedom.
 ===
 
 title: louvre_venus
@@ -268,14 +274,14 @@ color: purple
 ---
 WOMAN: Ciao. What do you want to know?
 -> What is the Eiffel Tower?
-    The famous iron tower 300 meters tall.
+    The famous iron tower, 300 meters tall.
     The symbol of Paris!
 -> Where are we?
-    We are in Paris! the city of love!
+    We are in Paris, the city of love!
 -> Is this place real?
     Sure! Why are you asking?
-    Well.. it seems like a videogame, isn't it?
--> Nothing. Bye.:
+    Well... it looks like a video game, doesn't it?
+-> Nothing. Bye.
 ===
 
 
@@ -284,16 +290,16 @@ position: -628,-253
 tags: actorUID=MAN
 color: purple
 ---
-MAN: Have you any questions?
+MAN: Do you have any questions?
 -> Have you seen Antura?
     => Yes! Talk to everybody and follow the lights!
     => No. Who is Antura?
 -> What are you doing?
     => I'm going to work!
-    => I'm going to buy bread at the bakery
+    => I'm going to buy bread at the bakery.
 -> Where do you come from?
     => I wasn't born in this country.
-    => From planet earth.
+    => From planet Earth.
 -> Goodbye
 ===
 
@@ -304,7 +310,7 @@ position: -621,-415
 tags: actorUID=KID_MALE
 color: purple
 ---
-=> Hi
+=> Hi!
 => How are you?
 ===
 

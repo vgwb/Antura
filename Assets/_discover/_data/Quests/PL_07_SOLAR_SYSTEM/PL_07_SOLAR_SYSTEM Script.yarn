@@ -28,8 +28,8 @@ group: Intro
 tags: actor=Guide
 image: torun_street
 ---
-<<set $planets_found = 0>>
-<<set $planets_needed = 8>>
+<<declare $planets_found = 0>>
+<<declare $planets_needed = 8>>
 Guide: Welcome to TORUŃ in POLAND.
 Guide: COPERNICUS was born here.
 Guide: ANTURA is stuck in his house!
@@ -191,7 +191,7 @@ image: planet_mercury
 Guide: MERCURY is closest to the SUN.
 Guide: It goes around very fast.
 <<activity jigsawpuzzle planet_mercury tutorial>>
-<<command SolarModel_AddPlanet "Mercury">>
+// Add Mercury to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: VENUS
     <<jump PLANET_VENUS>>
@@ -207,7 +207,7 @@ image: planet_venus
 Guide: VENUS is very hot.
 Guide: Thick clouds cover it.
 <<activity jigsawpuzzle planet_venus tutorial>>
-<<command SolarModel_AddPlanet "Venus">>
+// Add Venus to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: EARTH
     <<jump PLANET_EARTH>>
@@ -223,7 +223,7 @@ image: planet_earth
 Guide: EARTH is our home.
 Guide: It has land, air, and seas.
 <<activity jigsawpuzzle planet_earth tutorial>>
-<<command SolarModel_AddPlanet "Earth">>
+// Add Earth to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: MARS
     <<jump PLANET_MARS>>
@@ -239,7 +239,7 @@ image: planet_mars
 Guide: MARS is red and dusty.
 Guide: It has big volcanoes.
 <<activity jigsawpuzzle planet_mars tutorial>>
-<<command SolarModel_AddPlanet "Mars">>
+// Add Mars to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: JUPITER
     <<jump PLANET_JUPITER>>
@@ -255,7 +255,7 @@ image: planet_jupiter
 Guide: JUPITER is the biggest PLANET.
 Guide: It has a Great Red Spot.
 <<activity jigsawpuzzle planet_jupiter tutorial>>
-<<command SolarModel_AddPlanet "Jupiter">>
+// Add Jupiter to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: SATURN
     <<jump PLANET_SATURN>>
@@ -271,7 +271,7 @@ image: planet_saturn
 Guide: SATURN has bright RINGS.
 Guide: Many MOONS orbit it.
 <<activity jigsawpuzzle planet_saturn tutorial>>
-<<command SolarModel_AddPlanet "Saturn">>
+// Add Saturn to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: URANUS
     <<jump PLANET_URANUS>>
@@ -287,7 +287,7 @@ image: planet_uranus
 Guide: URANUS spins on its side.
 Guide: It looks blue‑green.
 <<activity jigsawpuzzle planet_uranus tutorial>>
-<<command SolarModel_AddPlanet "Uranus">>
+// Add Uranus to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Next: NEPTUNE
     <<jump PLANET_NEPTUNE>>
@@ -303,7 +303,7 @@ image: planet_neptune
 Guide: NEPTUNE is far and windy.
 Guide: It is deep blue.
 <<activity jigsawpuzzle planet_neptune tutorial>>
-<<command SolarModel_AddPlanet "Neptune">>
+// Add Neptune to the model (handled by activity)
 <<set $planets_found += 1>>
 -> Back to model
     <<jump ALL_PLANETS_FOUND>>
@@ -379,5 +379,5 @@ image: quest_complete
 ---
 Narrator: You helped COPERNICUS.
 Narrator: The SOLAR SYSTEM is complete!
-<<command EndQuest "PL_07_SOLAR_SYSTEM">>
+<<quest_end 3>>
 ===
