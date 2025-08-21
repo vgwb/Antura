@@ -17,33 +17,33 @@ color: red
 TUTOR: Welcome to FR-09: Côte d'Azur! It's a beautiful day on the coast.
 ===
 title: FR_09_COTES_DAZUR_Text_02630595
-position: -164,-273
+position: -832,1264
 tags: actorUID=GUIDE, asset=_09_overview
 ---
 ===
 title: market_cheesemonger
-position: 108,-298
+position: -830,911
 tags: actorUID=MAN, asset=_09_cheesemonger
 ---
 MAN: I sell cheese and milk. I'm a cheesemonger
 ===
 
 title: market_butcher
-position: 660,-222
+position: -834,729
 tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-9a-b7
 ---
 MAN: I sell meat. I'm a butcher.
 ===
 
 title: market_green
-position: -248,-477
+position: -845,568
 tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-9a-b7-f9-b7
 ---
 MAN: I sell fruits and vegetables. I'm a greengrocer.
 ===
 
 title: market_fish
-position: -463,-283
+position: -844,228
 tags: actorUID=MAN, asset=NOD-d824c831-20a3-49b8-b4bb-1730702654507-2a-9f-39-9b
 color: orange
 ---
@@ -51,114 +51,86 @@ MAN: I sell fish. I'm a fishmonger.
 ===
 
 title: market_grocer
-position: -142,-124
+position: -830,1073
 tags: actorUID=MAN
 ---
 <<asset grocer>>
 MAN: I sell pepper, salt, huile and spices. I'm a grocer.
 ===
 
-title: french_coastlines
-position: 89,-141
-tags: actorUID=MAN, asset=french_coastlines
+title: sign_french_coastlines
+position: -842,395
+tags: actorUID=MAN, sign
 ---
+<<asset  french_coastlines>>
 MAN: FRENCH COASTLINES
 ===
 
-title: FR_09_COTES_DAZUR_Text_MD8VDUP8
-position: 1323,-100
-tags: actorUID=MAN
----
-MAN: Bonjour! Welcome to Marseille, on the coast of the beautiful Mediterranean Sea!
-<<jump FR_09_COTES_DAZUR_Text_DUP8_F9R>>
-===
-
-title: FR_09_COTES_DAZUR_Text_DUP8_F9R
-position: 1622,-106
-tags: actorUID=MAN, asset=bouillabaisse
----
-MAN: I want to make a special dish for you, a bouillabaisse!
-<<jump task_ingredients_2>>
-===
-
-title: task_ingredients_2
-position: 1925,-91
-tags: actorUID=MAN, meta_TASK=COLLECT_THE_INGREDIENTS, meta=TASK:COLLECT_THE_INGREDIENTS
----
-MAN: But I need some ingredients. Please go to the market and buy them for me.
-<<jump FR_09_COTES_DAZUR_Text__LK1_681>>
-===
-
-title: FR_09_COTES_DAZUR_Text__LK1_681
-position: 2239,-89
-tags: actorUID=MAN
----
-MAN: And remember your manners! Always say 'Bonjour' to greet someone, and 'Merci' to thank them!
-===
-
-title: FR_09_baker_bonjour
-position: 814,201
+title: baker_bonjour
+position: 602,103
 group: baker
 tags: actorUID=MAN
 ---
-MAN: Bonjour! I sell fresh bread. I am a baker. Every day I wake up early to bake!
-<<jump FR_09_baker_question>>
+<<asset shop_baker>>
+Bonjour! I sell fresh bread. I am a baker.
+Every day I wake up early to bake!
+<<jump baker_question>>
 ===
 
-title: FR_09_baker_pay_please
-position: 1215,377
-group: baker
-tags: actorUID=MAN, meta_ACTION_POST=ACTIVITY_MONEY_1, meta=ACTION_POST:ACTIVITY_MONEY_1
----
-MAN: Select enough money to pay for the items!
-<<jump FR_09_baker_payment_done>>
-===
+
 
 title: shop_baker
-position: 456,337
+position: 337,102
 group: baker
 tags: actorUID=BAKER
-color: yellow
+color: blue
 ---
 -> Bonjour!:
-    <<jump FR_09_baker_bonjour>>
+    <<jump baker_bonjour>>
 -> Merci!:
-    <<jump FR_09_baker_notunderstands>>
+    <<jump baker_notunderstands>>
 -> Banana!:
-    <<jump FR_09_baker_notunderstands>>
+    <<jump baker_notunderstands>>
 ===
 
-title: FR_09_baker_question
-position: 1201,186
+title: baker_question
+position: 899,102
 group: baker
 tags: actorUID=BAKER, type=Choice
 ---
 What do you want to buy?
 -> "Bread":
-    <<jump FR_09_baker_pay_please>>
+    <<jump baker_pay_please>>
 -> "Fish and Crab":
-    <<jump FR_09_bakeer_sorry_dont_sell>>
+    <<jump baker_sorry_dont_sell>>
 -> "Tomatoes, Oranges, and Lemons":
-    <<jump FR_09_bakeer_sorry_dont_sell>>
+    <<jump baker_sorry_dont_sell>>
 -> "Salt, Pepper, and Oil":
-    <<jump FR_09_bakeer_sorry_dont_sell>>
+    <<jump baker_sorry_dont_sell>>
 ===
 
-title: FR_09_baker_payment_done
-position: 1491,389
+title: baker_pay_please
+position: 1200,102
 group: baker
-tags: actorUID=MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+tags: actorUID=MAN
 ---
--> "Merci!":
-    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
--> "Au revoir!":
-    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
--> "Bonne journée!":
-    <<jump FR_09_COTES_DAZUR_Variables__DMX_G0B>>
+<<activity ACTIVITY_MONEY_1 baker_payment_done>>
+MAN: Select enough money to pay for the items!
 ===
 
-title: FR_09_bakeer_sorry_dont_sell
-position: 1561,198
+title: baker_payment_done
+position: 1445,102
+group: baker
+tags: actorUID=MAN, no_translate
+---
+<<set $ingredients = $ingredients + 1>>
+-> Merci!
+-> Au revoir!
+-> Bonne journée!
+===
+
+title: baker_sorry_dont_sell
+position: 899,278
 group: baker
 tags: actorUID=MAN
 ---
@@ -224,8 +196,10 @@ OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger. All of my items c
 ===
 
 title: shop_cheesemonger
-position: 470,1120
-tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+position: 365,1107
+color: blue
+group: cheesemonger
+tags: actorUID=WOMAN, do_not_translate
 ---
 -> "Merci!":
     <<jump FR_09_COTES_DAZUR_Text__S5A_14N>>
@@ -237,6 +211,7 @@ tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LAN
 
 title: FR_09_COTES_DAZUR_Choice__S5A_14N
 position: 1078,1227
+group: cheesemonger
 tags: actorUID=WOMAN, type=Choice
 ---
 WOMAN: What do you want to buy?
@@ -264,6 +239,7 @@ tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LAN
 
 title: FR_09_COTES_DAZUR_Text__S5A_14N
 position: 764,1235
+group: cheesemonger
 tags: actorUID=WOMAN
 ---
 WOMAN: Hi! I sell cheese and milk. I am a cheesemonger. I use both cow milk and goat milk.
@@ -338,7 +314,7 @@ My items are always fresh!
 ===
 
 title: FR_09_COTES_DAZUR_Choice__HD9_WO6
-position: 1663,771
+position: 1567,758
 group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 ---
@@ -351,7 +327,7 @@ tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta
 ===
 
 title: FR_09_COTES_DAZUR_Text__HD9_WO6
-position: 1373,611
+position: 1277,598
 group: grocer
 tags: actorUID=OLD_WOMAN
 ---
@@ -359,7 +335,7 @@ OLD_WOMAN: Sorry, I don't sell that.
 ===
 
 title: FR_09_COTES_DAZUR_Choice__HD9_WO6_1
-position: 1068,639
+position: 972,626
 group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice
 ---
@@ -375,9 +351,10 @@ OLD_WOMAN: What do you want to buy?
 ===
 
 title: shop_grocer
-position: 448,689
+position: 349,676
 group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+color: blue
 ---
 -> "Merci!":
     <<jump FR_09_COTES_DAZUR_Text__HD9_WO6_1>>
@@ -388,7 +365,7 @@ tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta
 ===
 
 title: FR_09_COTES_DAZUR_Text__HD9_WO6_1
-position: 758,644
+position: 662,631
 group: grocer
 tags: actorUID=OLD_WOMAN
 ---
@@ -397,7 +374,7 @@ OLD_WOMAN: Hello! I sell spices and pantry goods. I am a grocer. You can use my 
 ===
 
 title: pirate
-position: 518,2457
+position: -410,-321
 group: pirates
 tags: actorUID=CRAZY_MAN
 ---
@@ -411,36 +388,85 @@ CRAZY_MAN: You should pay for the items you need, so that the vendors can keep t
 ===
 
 
-title: task_ingredients_done
-position: 1295,-485
-tags: actorUID=MAN
----
-MAN: Magnifique! You have everything! And I hear you were very polite.
-<<jump FR_09_COTES_DAZUR_Text__2VB_9U5>>
-===
-
-title: FR_09_COTES_DAZUR_Text__2VB_9U5
-position: 1595,-477
-tags: actorUID=MAN
----
-MAN: You are a true connoisseur of the market. Now, let's prepare this feast!
-<<jump FR_09_COTES_DAZUR_Text__9U5_KF0>>
-===
-
-title: FR_09_COTES_DAZUR_Text__9U5_KF0
-position: 1878,-466
-tags: actorUID=MAN, meta_ACTION_POST=ACTIVITY_ORDER, meta=ACTION_POST:ACTIVITY_ORDER
----
-MAN: Match the items to the sellers!
-<<jump FR_09_COTES_DAZUR_Variables_MDT1D7GS>>
-===
-
 title: chef
-position: 1229,2546
-tags: type=Condition
+position: 335,-348
+group: chef
+color: blue
+tags: 
 ---
-%ingredients == 5
+<<if $ingredients == 5>>
+    <<jump chef_ingredients_done>>
+<<else>>
+    <<jump chef_welcome>>
+<<endif>>
 ===
+
+title: chef_welcome
+position: 679,-357
+group: chef
+tags: actorUID=MAN
+---
+Bonjour! Welcome to Marseille, on the coast of the beautiful Mediterranean Sea!
+<<asset bouillabaisse>>
+I want to make a special dish for you, a bouillabaisse!
+But I need some ingredients. 
+<<jump task_ingredients>>
+===
+
+
+title: task_ingredients
+position: 992,-359
+group: chef
+color: green
+tags: task
+---
+<<task_start COLLECT_THE_INGREDIENTS>>
+Please go to the market and buy them for me.
+And remember your manners!
+Always say 'Bonjour' to greet someone,
+and 'Merci' to thank them!
+===
+
+title: task_ingredients_done
+position: 992,-216
+group: chef
+---
+You got all the ingredients needed! Go back to chef.
+
+===
+
+
+title: chef_ingredients_done
+position: 674,-580
+group: chef
+tags: actorUID=MAN
+---
+Magnifique! You have everything! And I hear you were very polite.
+You are a true connoisseur of the market.
+Now, let's prepare this feast!
+<<jump activity_match_ingredients>>
+===
+
+title: activity_match_ingredients
+position: 1207,-574
+group: chef
+color: red
+tags: activity
+---
+<<activity ACTIVITY_ORDER activity_match_done>>
+Match the items to the sellers!
+===
+
+
+title: activity_match_done
+position: 1435,-572
+group: chef
+---
+Well done! You matched all the items to the sellers.
+Now, let's cook the bouillabaisse!
+<<quest_end 3>>
+===
+
 
 title: FR_09_COTES_DAZUR_Variables_MDER8ILI
 position: 1969,1025
@@ -459,7 +485,7 @@ tags: type=Variables
 ===
 
 title: FR_09_COTES_DAZUR_Variables__427_DMX
-position: 2023,767
+position: 1927,754
 group: grocer
 tags: type=Variables
 ---
@@ -467,14 +493,6 @@ tags: type=Variables
 <<set $ingredients= $ingredients + 1>>
 ===
 
-title: FR_09_COTES_DAZUR_Variables__DMX_G0B
-position: 1782,380
-group: baker
-tags: type=Variables
----
-// Variables
-<<set $ingredients = $ingredients + 1>>
-===
 
 title: FR_09_COTES_DAZUR_Variables__G0B_S4R
 position: 2174,1989
@@ -502,7 +520,7 @@ WOMAN: Select enough money to pay for the items!
 ===
 
 title: FR_09_COTES_DAZUR_Text__R5J_MGN
-position: 1354,778
+position: 1258,765
 group: grocer
 tags: actorUID=OLD_WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_5, meta=ACTION_POST:ACTIVITY_MONEY_5
 ---
@@ -517,8 +535,8 @@ tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_4, meta=ACTION_POST:ACTIVI
 WOMAN: Select enough money to pay for the items!
 <<jump FR_09_COTES_DAZUR_Choice__S5A_HD9>>
 ===
-title: FR_09_baker_notunderstands
-position: 884,375
+title: baker_notunderstands
+position: 337,288
 group: baker
 tags: actorUID=MAN
 ---
@@ -534,13 +552,14 @@ OLD_MAN: Sorry, I don't think I understand...
 
 title: FR_09_COTES_DAZUR_Text__14N_MN1
 position: 760,1092
+group: cheesemonger
 tags: actorUID=WOMAN
 ---
 WOMAN: Sorry, I don't think I understand...
 ===
 
 title: FR_09_COTES_DAZUR_Text__WO6_WBF
-position: 760,831
+position: 664,818
 group: grocer
 tags: actorUID=OLD_WOMAN
 ---
@@ -556,7 +575,7 @@ MAN: Sorry, I don't think I understand...
 ===
 
 title: item_bread
-position: 1247,2835
+position: -411,954
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -564,7 +583,7 @@ TUTOR: Bread
 ===
 
 title: item_fish
-position: 1508,2846
+position: -432,1146
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -572,7 +591,7 @@ TUTOR: Fish
 ===
 
 title: item_orange
-position: 1966,2753
+position: -442,12
 color: yellow
 tags: actorUID=TUTOR
 ---
@@ -580,7 +599,7 @@ TUTOR: Orange
 ===
 
 title: item_lemon
-position: 1326,2710
+position: -436,656
 color: yellow
 tags: actorUID=TUTOR
 ---
@@ -588,7 +607,7 @@ TUTOR: Lemon
 ===
 
 title: item_tomato
-position: 1546,2710
+position: -430,798
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -596,7 +615,7 @@ TUTOR: Tomato
 ===
 
 title: item_cheese
-position: 1766,2710
+position: -443,1317
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -604,7 +623,7 @@ TUTOR: Cheese
 ===
 
 title: item_salt
-position: 1761,2828
+position: -450,171
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -612,7 +631,7 @@ TUTOR: Salt
 ===
 
 title: item_pepper
-position: 1498,2558
+position: -442,507
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -620,17 +639,10 @@ TUTOR: Pepper
 ===
 
 title: item_oil
-position: 1837,2540
+position: -456,323
 color: yellow
 tags: actorUID=TUTOR, item
 ---
 TUTOR: Oil
 ===
 
-title: Node
-group: baker
-style: note
-position: 434,141
----
-SHOP BAKER
-===
