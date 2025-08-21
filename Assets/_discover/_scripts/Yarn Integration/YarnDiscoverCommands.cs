@@ -19,14 +19,14 @@ namespace Antura.Discover
             //var assetImage = db.Get<ItemData>("assetCode");
             if (db.TryGet<AssetData>(assetCode, out var assetImage))
             {
-                UIManager.I.dialogues.ShowPostcardFromDialog(assetImage.Image);
+                UIManager.I.dialogues.ShowPostcard(assetImage.Image);
             }
         }
 
         [YarnCommand("asset_hide")]
         public static void CommandAssetHide()
         {
-            UIManager.I.dialogues.HidePostcardFromDialog();
+            UIManager.I.dialogues.HidePostcard();
         }
 
         // TASK

@@ -47,7 +47,7 @@ namespace Antura.Discover
         public DialogueType CurrDialogueType { get; private set; }
 
         int currChoiceIndex;
-        bool currPostcardWasZoomed;
+        bool currPostcardWasZoomedOnce; // TRUE when current postcard was zoomed in at least once
         bool gotoNextWhenPostcardFocusViewCloses;
         bool UseLearningLanguage = true;
         QuestNode currNode;
@@ -72,7 +72,7 @@ namespace Antura.Discover
             startEndPanel.OnBalloonClicked.Subscribe(OnBalloonClicked);
             startEndPanel.OnBalloonContinueClicked.Subscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Subscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Subscribe(ShowPostcardFocusView);
+            postcard.OnClicked.Subscribe(OnPostcardClicked);
             postcardFocusView.OnClicked.Subscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Subscribe(OnActClicked);
         }
@@ -87,7 +87,7 @@ namespace Antura.Discover
             startEndPanel.OnBalloonClicked.Unsubscribe(OnBalloonClicked);
             startEndPanel.OnBalloonContinueClicked.Unsubscribe(OnBalloonContinueClicked);
             choices.OnChoiceConfirmed.Unsubscribe(OnChoiceConfirmed);
-            postcard.OnClicked.Unsubscribe(ShowPostcardFocusView);
+            postcard.OnClicked.Unsubscribe(OnPostcardClicked);
             postcardFocusView.OnClicked.Unsubscribe(OnPostcardFocusViewClicked);
             DiscoverNotifier.Game.OnActClicked.Unsubscribe(OnActClicked);
         }
@@ -175,6 +175,27 @@ namespace Antura.Discover
             DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
             CurrDialogueType = DialogueType.None;
         }
+        
+        public void ShowPostcard(Sprite sprite, bool zoom = false)
+        {
+            if (zoom)
+            {
+                currPostcardWasZoomedOnce = true;
+                postcardFocusView.Show(sprite);
+            }
+            else
+            {
+                currPostcardWasZoomedOnce = false;
+                postcard.Show(sprite);
+            }
+        }
+
+        public void HidePostcard()
+        {
+            gotoNextWhenPostcardFocusViewCloses = false;
+            postcard.Hide();
+            postcardFocusView.Hide();
+        }
 
         #endregion
 
@@ -183,7 +204,7 @@ namespace Antura.Discover
         void ShowDialogueFor(QuestNode node)
         {
             currChoiceIndex = 0;
-            currPostcardWasZoomed = gotoNextWhenPostcardFocusViewCloses = false;
+            currPostcardWasZoomedOnce = gotoNextWhenPostcardFocusViewCloses = false;
             CoroutineRunner.RestartCoroutine(ref coShowDialogue, CO_ShowDialogueFor(node));
         }
 
@@ -250,11 +271,11 @@ namespace Antura.Discover
                 case NodeType.TEXT:
                     CurrDialogueType = DialogueType.Text;
                     currBalloon.Show(node, UseLearningLanguage);
-                    image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
-                    else
-                        postcard.Hide();
+                    // image = node.GetImage();
+                    // if (image != null)
+                    //     postcard.Show(image);
+                    // else
+                    //     postcard.Hide();
                     break;
                 case NodeType.PANEL:
                     currBalloon = startEndPanel;
@@ -266,11 +287,11 @@ namespace Antura.Discover
                     CurrDialogueType = DialogueType.Choice;
                     if (!string.IsNullOrEmpty(node.Content))
                         currBalloon.Show(node, UseLearningLanguage);
-                    image = node.GetImage();
-                    if (image != null)
-                        postcard.Show(image);
-                    else
-                        postcard.Hide();
+                    // image = node.GetImage();
+                    // if (image != null)
+                    //     postcard.Show(image);
+                    // else
+                    //     postcard.Hide();
                     //yield return new WaitForSeconds(0.3f);
                     choices.Show(node.Choices, UseLearningLanguage);
                     break;
@@ -302,10 +323,10 @@ namespace Antura.Discover
             }
             else
             {
-                if (currNode.ImageAutoOpen && postcard.IsActive && !currPostcardWasZoomed)
+                if (currNode.ImageAutoOpen && postcard.IsActive && !currPostcardWasZoomedOnce)
                 {
                     // Zoom into postcard and wait for next action
-                    ShowPostcardFocusView(postcard.CurrSprite);
+                    ShowPostcard(postcard.CurrSprite, true);
                     gotoNextWhenPostcardFocusViewCloses = true;
                     yield break;
                 }
@@ -333,36 +354,6 @@ namespace Antura.Discover
             }
 
             coNext = null;
-        }
-
-        public void ShowPostcardFromDialog(Sprite sprite, bool zoom = false)
-        {
-            //currPostcardWasZoomed = zoom;
-            //postcard.Show(sprite);
-            if (zoom)
-            {
-                ShowPostcardFocusView(sprite);
-                //gotoNextWhenPostcardFocusViewCloses = false;
-            }
-            else
-            {
-                postcard.Show(sprite);
-                //gotoNextWhenPostcardFocusViewCloses = false;
-            }
-        }
-
-        public void HidePostcardFromDialog()
-        {
-            currPostcardWasZoomed = false;
-            gotoNextWhenPostcardFocusViewCloses = false;
-            postcard.Hide();
-            HidePostcardFocusView();
-        }
-
-        void ShowPostcardFocusView(Sprite sprite)
-        {
-            currPostcardWasZoomed = true;
-            postcardFocusView.Show(sprite);
         }
 
         void HidePostcardFocusView()
@@ -398,6 +389,11 @@ namespace Antura.Discover
         void OnChoiceConfirmed(int choiceIndex)
         {
             Next(choiceIndex);
+        }
+
+        void OnPostcardClicked(Sprite sprite)
+        {
+            ShowPostcard(sprite, true);
         }
 
         void OnPostcardFocusViewClicked()
