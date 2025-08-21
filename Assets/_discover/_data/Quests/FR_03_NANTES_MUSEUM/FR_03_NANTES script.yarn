@@ -1,36 +1,34 @@
 ﻿// FR-03 Nantes
 
-title: FR_03_INIT
-position: 2,-319
+title: init
+position: 0,0
 tags: type=Start
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
-<<set $QUEST_ITEMS = 4>>
 ===
-title: FR_03_talk_guide
-position: 11,-109
+title: talk_guide
+position: 337,219
 tags: actorUID=CRAZY_WOMAN, asset=jules_verne_1
 ---
 <<if $COLLECTED_ITEMS == 0>>
 CRAZY_WOMAN: Welcome to the house of Jules Verne!
 <<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
-<<jump FR_04_Explore>>
+<<jump task_find_books>>
 <<else>>
 <<jump FR_04_WIN>>
 <<endif>>
 ===
-title: FR_04_WIN
-tags: win
-position: 363,-17
+
+title: task_find_books
+position: 702,219
+tags: task
 ---
-GREAT! You met Jules Verne, the most famous writer of sci-fiction!
-===
-title: FR_04_Explore
-position: 375,-157
----
+<<task_start find_books>>
+<<asset jverne_mission_overview>>
 Explore the house and find FOUR of his books!
+
 ===
 title: verne_painting
 position: 351,-354
@@ -53,83 +51,93 @@ tags: actorUID=TUTOR, asset=map_nantes
 TUTOR: This is the map on Nantes
 ===
 
-
-
-title: FR_03_NANTES_Text_00360352
-position: 817,-72
-tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=UPDATE_ITEMS, meta=ACTION_POST:UPDATE_ITEMS, asset=jverne_mission_overview
----
-CRAZY_WOMAN: Explore the house and find FOUR of his books!
-===
-
 title: open_chest
-position: 1174,-371
+position: 381,-83
 tags: type=Condition
 ---
-$COLLECTED_ITEMS >= 4
+<<if $COLLECTED_ITEMS >= 4>>
+<<jump won>>
+<<else>>
+<<jump task_find_books>>
+<<endif>>
 ===
 
-title: FR_03_NANTES_Text_01006089
-position: 1442,-373
-tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=jules_verne_2
+title: won
+position: 796,-106
+tags: actorUID=CRAZY_WOMAN
 ---
-CRAZY_WOMAN: GREAT! You met Jules Verne, the most famous writer of sci-fiction!
-===
-
-title: paint_80days
-position: 642,557
-tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_TRAIN, meta=ACTION_POST:COLLECT_TRAIN, asset=train
----
-TUTOR: This is an old train
+<<asset jules_verne_2>>
+GREAT! You met Jules Verne
+the most famous writer of sci-fiction!
+<<quest_end 3>>
 ===
 
 title: book_80days
-position: 325,552
-tags: actorUID=TUTOR, asset=book_80days
+position: 382,873
+color: yellow
+tags: actorUID=TUTOR
 ---
+<<asset book_80days>>
 TUTOR: This book is "Around the World in 80 Days"
-<<jump paint_80days>>
+<<jump train>>
+===
+title: train
+position: 709,885
+tags: item
+---
+<<asset train>>
+TUTOR: This is an old train
+<<action COLLECT_TRAIN>>
 ===
 
 title: paint_moon
-position: 652,724
+position: 709,1062
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_ROCKET, meta=ACTION_POST:COLLECT_ROCKET, asset=rocket
 ---
 TUTOR: This is a space rocket
 ===
 
 title: book_moon
-position: 311,736
-tags: actorUID=TUTOR, asset=book_earthmoon
+position: 356,1067
+color: yellow
+tags: actorUID=TUTOR
 ---
+<<asset book_earthmoon>>
 TUTOR: This book is "From earth to the Moon"
 <<jump paint_moon>>
 ===
 
-title: paint_20000
-position: 638,378
-tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_SUBMARINE, meta=ACTION_POST:COLLECT_SUBMARINE, asset=submarine
----
-TUTOR: This is a submarine
-===
+
 
 title: book_20000legues
-position: 313,349
-tags: actorUID=TUTOR, asset=book_underthesea
+position: 370,670
+color: yellow
+tags: actorUID=TUTOR
 ---
-TUTOR: This book is Twenty Thousand Leagues Under the Seas
+<<asset book_underthesea>>
+TUTOR: This book is 20000 Leagues Under the Seas
 <<jump paint_20000>>
 ===
 
+title: paint_20000
+position: 695,699
+tags: actorUID=TUTOR
+---
+<<asset submarine>>
+TUTOR: This is a submarine
+<<action COLLECT_SUBMARINE>>
+===
+
 title: paint_5weeks
-position: 624,169
+position: 681,490
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_BALOON, meta=ACTION_POST:COLLECT_BALOON, asset=balloon
 ---
 TUTOR: This is a Balloon. It flies by hot air.
 ===
 
 title: book_5weeks
-position: 330,159
+position: 387,480
+color: yellow
 tags: actorUID=TUTOR, asset=book_5weeksballoon
 ---
 TUTOR: this book is Five Weeks in a Balloon

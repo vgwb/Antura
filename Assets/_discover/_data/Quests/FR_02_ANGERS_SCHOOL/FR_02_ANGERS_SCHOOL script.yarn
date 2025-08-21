@@ -1,373 +1,203 @@
 ﻿// FR-02 Angers - school
 
-title: FR_02__INIT
-position: -13,-134
-tags: type=Start
+title: init
+position: 0,0
+tags: type=Start, meta=BALLOON_TYPE:PANEL
 color: red
 ---
 <<set $MAX_PROGRESS = 10>>
-<<set $got_backpack = false>>
-===
-title: FR_02_start
-position: -57,981
-tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
----
+<<declare $got_backpack = false>>
 TUTOR: Welcome to FR-02: Angers! It's the first day of school!
-<<jump FR_02_ANGERS___SCHOOL_Text__4X7_V2H>>
+TUTOR: You are 10 years old and in the last year of elementary school.
+TUTOR: Find your school and your classroom!
 ===
 
 title: school_1
-position: 457,-229
+position: 338,-337
 tags: actorUID=WOMAN
 ---
 WOMAN: Welcome! This is a nursery school, for our youngest pupils aged 3 to 5.
-<<jump FR_02_ANGERS___SCHOOL_Text_MD7JAX7X>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text_MD7JAX7X
-position: 727,-232
-tags: actorUID=WOMAN
----
 WOMAN: You are much too big for our little chairs! Your school must be nearby.
-===
 
-title: FR_02_ANGERS___SCHOOL_Text_AX7X_FDC
-position: 899,210
-tags: actorUID=GUIDE
+===
+title: school_2
+position: 340,-156
+tags: type=Condition
 ---
-GUIDE: However, you seem to have forgotten your backpack!
-<<jump FR_02_ANGERS___SCHOOL_Text__FDC_G4D>>
+<<if $got_backpack>>
+    <<jump school_2_welcome>>
+<<else>>
+GUIDE: There it is! Now you’re all set and the lesson can start.
+<<jump school_2_talk>>
+<<endif>>
 ===
 
-title: FR_02_ANGERS___SCHOOL_Text_5CAW_FDC
-position: 643,183
+title: school_2_welcome
+position: 724,-284
 tags: actorUID=GUIDE
 ---
 GUIDE: Bonjour and welcome! You've found it, this is your elementary school.
-<<jump FR_02_ANGERS___SCHOOL_Text_AX7X_FDC>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__FDC_G4D
-position: 1232,175
-tags: actorUID=GUIDE
----
+GUIDE: However, you seem to have forgotten your backpack!
 GUIDE: You’ll need your books for the lesson.
-<<jump task_backpack_1>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text_AX7X_UDT
-position: 308,664
-tags: actorUID=KID_MALE
----
-KID_MALE: You're almost old enough, but not yet! Keep looking!
+<<jump task_backpack>>
 ===
 
 title: school_3
-position: -26,675
+position: 340,63
 tags: actorUID=KID_MALE
 ---
 KID_MALE: Hi! This is a Collège. It's for students from 11 to 15 years old.
-<<jump FR_02_ANGERS___SCHOOL_Text_AX7X_UDT>>
-===
+KID_MALE: You're almost old enough, but not yet! Keep looking!
 
-title: FR_02_ANGERS___SCHOOL_Text__UDT_5SH
-position: 1273,432
-tags: actorUID=MAN
----
-MAN: Here, we study for the Baccalauréat exam before going to university.
-<<jump FR_02_ANGERS___SCHOOL_Text__5SH_HXU>>
 ===
 
 title: school_4
-position: 983,430
+position: 341,293
 tags: actorUID=MAN
 ---
 MAN: Bonjour! This is a Lycée, for students aged 16 to 18.
-<<jump FR_02_ANGERS___SCHOOL_Text__UDT_5SH>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__5SH_7KI
-position: 1982,-150
-tags: actorUID=OLD_MAN
----
-OLD_MAN: The books my students use are more complex than these,
-<<jump FR_02_ANGERS___SCHOOL_Text__7KI_HOC>>
-===
-
-title: school_4_2
-position: 1662,-148
-tags: actorUID=OLD_MAN
----
-OLD_MAN: Hello! I found a backpack on my way here.
-<<jump FR_02_ANGERS___SCHOOL_Text__5SH_7KI>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__5SH_HXU
-position: 1517,422
-tags: actorUID=MAN
----
+MAN: Here, we study for the Baccalauréat exam before going to university.
 MAN: You're a bit too young! Try another school.
 ===
 
-title: FR_02_ANGERS___SCHOOL_Text__7KI_8ZH
-position: 2659,-143
-tags: actorUID=OLD_MAN, meta_ACTION_POST=SPAWN_BACKPACK, meta=ACTION_POST:SPAWN_BACKPACK
----
-OLD_MAN: Could it be yours?
-<<jump FR_02_ANGERS___SCHOOL_Variables_MDEQTIWD>>
-===
 
-title: FR_02_ANGERS___SCHOOL_Text__FDC_8MY
-position: 446,-19
-tags: actorUID=GUIDE
----
-GUIDE: There it is! Now you’re all set and the lesson can start.
-<<jump task_class_2>>
-===
-
-title: task_class_2
-position: 742,-40
-tags: actorUID=GUIDE, meta_TASK=FIND_YOUR_CLASSROOM, meta=TASK:FIND_YOUR_CLASSROOM, meta_ACTION_POST=DOOR_OPEN_1, meta=ACTION_POST:DOOR_OPEN_1
----
-GUIDE: Come in! Your classroom is down the hall.
-===
-
-title: school_canteen
-position: 367,-714
-tags: actorUID=OLD_WOMAN, asset=canteen_menu
----
-OLD_WOMAN: Hello! I hope you're registered for the cantine! Look what's on the menu today!
-===
-
-title: school_charte
-position: 659,-712
-tags: actorUID=TUTOR, asset=charte_laicite
----
-TUTOR: This charter reminds us that at school, everyone is welcome and respected, no matter their beliefs.
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__7KI_HOC
-position: 2338,-128
+title: school_4_talk_man
+position: 620,290
 tags: actorUID=OLD_MAN
 ---
-OLD_MAN: so I don’t think it belongs to them.
-<<jump FR_02_ANGERS___SCHOOL_Text__7KI_8ZH>>
-===
-
-title: classroom_1
-position: 1204,-682
-tags: actorUID=MAN
----
-MAN: Hi! This is the CP classroom, the one you go to when you first start primary school at 6 years old.
-<<jump FR_02_ANGERS___SCHOOL_Text__9FB_NOQ>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__9FB_NOQ
-position: 1564,-666
-tags: actorUID=MAN, meta_ACTION_POST=DOOR_OPEN_2, meta=ACTION_POST:DOOR_OPEN_2
----
-MAN: But this isn’t your class, try the next door!
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__NOQ_TRE
-position: 1117,650
-tags: actorUID=WOMAN, meta_ACTION_POST=DOOR_OPEN_3, meta=ACTION_POST:DOOR_OPEN_3
----
-WOMAN: But this isn’t your class, try again!
-===
-
-title: classroom_2
-position: 744,677
-tags: actorUID=WOMAN
----
-WOMAN: Hello! This is CE1, where you go during your second year of primary school.
-<<jump FR_02_ANGERS___SCHOOL_Text__NOQ_TRE>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__TRE_TZ6
-position: 222,497
-tags: actorUID=WOMAN, meta_ACTION_POST=DOOR_OPEN_4, meta=ACTION_POST:DOOR_OPEN_4
----
-WOMAN: This isn’t your class, but you’re getting close!
-===
-
-title: classroom_3
-position: -36,537
-tags: actorUID=WOMAN
----
-WOMAN: Hi there! This is the CE2 classroom, for students that are 8 years old.
-<<jump FR_02_ANGERS___SCHOOL_Text__TRE_TZ6>>
-===
-
-title: classroom_4
-position: 17,286
-tags: actorUID=OLD_WOMAN
----
-OLD_WOMAN: Hello! This is the CM1, which is the second to last year of primary school.
-<<jump FR_02_ANGERS___SCHOOL_Text__TZ6_ZT0>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__TZ6_ZT0
-position: 334,268
-tags: actorUID=OLD_WOMAN, meta_ACTION_POST=DOOR_OPEN_5, meta=ACTION_POST:DOOR_OPEN_5
----
-OLD_WOMAN: Your class is just over there!
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__8MY_IZ7
-position: 924,-495
-tags: actorUID=GUIDE, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3
----
-GUIDE: Look, it's a writing lesson. In France, we learn to write in cursive.
-<<jump FR_02_ANGERS___SCHOOL_Text__IZ7_65X>>
-===
-
-title: teacher_classroom
-position: 413,-513
-tags: actorUID=GUIDE
----
-GUIDE: There you are! Welcome to CM2! Let's get to work.
-<<jump FR_02_ANGERS___SCHOOL_Text__8MY_IZ7>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__IZ7_65X
-position: 1293,-469
-tags: actorUID=GUIDE
----
-GUIDE: Now for geometry! Can you figure out what each of these tools is used for?
-<<jump FR_02_ANGERS___SCHOOL_Text__65X_3O5>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__65X_3O5
-position: 1693,-469
-tags: actorUID=GUIDE, meta_ACTION_POST=ACTIVITY_ORDER, meta=ACTION_POST:ACTIVITY_ORDER
----
-GUIDE: Match the tools to the shapes they are used to draw.
-<<jump FR_02_ANGERS___SCHOOL_Text__3O5_86W>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__3O5_86W
-position: 2013,-464
-tags: actorUID=GUIDE
----
-GUIDE: Great job! You know what we do every morning and afternoon?
-<<jump FR_02_ANGERS___SCHOOL_Text__86W_HA2>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__86W_HA2
-position: 2343,-445
-tags: actorUID=GUIDE
----
-GUIDE: We have la récréation to play outside!
-<<jump FR_02_ANGERS___SCHOOL_Text__HA2_WPS>>
-===
-
-title: FR_02_ANGERS___SCHOOL_Text__HA2_WPS
-position: 2662,-440
-tags: actorUID=GUIDE
----
-GUIDE: You're all set. Welcome to the class!
-===
-
-title: FR_02_ANGERS___SCHOOL_Note_MDEITIYL
-position: 2248,884
-tags: type=Note
----
-1. École Maternelle
-===
-
-title: FR_02_ANGERS___SCHOOL_Note_TIYL_QO7
-position: 1354,-216
-tags: type=Note
----
-2. École Primaire
-===
-
-title: FR_02_ANGERS___SCHOOL_Note__QO7_INV
-position: 2309,1173
-tags: type=Note
----
-3. Collège
-===
-
-title: FR_02_ANGERS___SCHOOL_Note__INV_XTJ
-position: 440,420
-tags: type=Note
----
-4. Lycée
-===
-
-title: school_2
-position: 660,420
-tags: type=Condition
----
-%got_backpack
-===
-
-title: FR_02_ANGERS___SCHOOL_Variables_MDEQTIWD
-position: 2987,-152
-tags: type=Variables
----
-// Variables
+Hello! I found a backpack on my way here.
+The books my students use are more complex than these,
+so I don’t think it belongs to them.
+<<action  SPAWN_BACKPACK>>
+Could it be yours?
 <<set $got_backpack = true>>
 ===
 
 
-
-title: FR_02_ANGERS___SCHOOL_Text_ME03PDPN
-position: 2613,1187
-tags: actorUID=TUTOR
+title: school_2_talk
+position: 734,-24
+tags: actorUID=GUIDE
 ---
-TUTOR: TASK: Find your backpack.
+<<action DOOR_OPEN_1>>
+GUIDE: Come in! Your classroom is down the hall.
+<<jump task_find_classroom>>
 ===
 
-title: task_backpack_done
-position: 1104,934
-tags: actorUID=TUTOR, meta_NEXTTARGET=ELEMENTARY_TEACHER, meta=NEXTTARGET:ELEMENTARY_TEACHER
+title: task_find_classroom
+position: 974,-24
+tags: actorUID=TUTOR, task
 ---
-TUTOR: TASK COMPLETED! You can now enter school.
-===
-
-title: FR_02_ANGERS___SCHOOL_Text_PDPN_PK2
-position: 1760,420
-tags: actorUID=TUTOR
----
+<<task_start FIND_YOUR_CLASSROOM>>
 TUTOR: TASK: Find your classroom.
 ===
 
+title: classroom_1
+position: 1574,-269
+tags: actorUID=MAN
+---
+This is the CP classroom
+when you start primary school at 6 years old
+But this isn't your class, try the next door!
+<<action DOOR_OPEN_2>>
+===
+
+title: classroom_2
+position: 1579,-95
+tags: actorUID=WOMAN
+---
+This is CE1
+where you go during your second year of primary school.
+But this isn't your class, try again!
+<<action DOOR_OPEN_3>>
+===
+
+title: classroom_3
+position: 1581,54
+tags: actorUID=WOMAN
+---
+Hi there! This is the CE2 classroom
+for students that are 8 years old.
+WOMAN: This isn't your class, but you're getting close!
+<<action DOOR_OPEN_4>>
+===
+
+title: classroom_4
+position: 1584,217
+tags: actorUID=OLD_WOMAN
+---
+Hello! This is the CM1
+which is the second to last year of primary school.
+Your class is just over there!
+<<action DOOR_OPEN_5>>
+===
+
+// asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png
+
+title: classroom_5
+position: 1585,388
+tags: actorUID=GUIDE
+---
+There you are! Welcome to CM2!
+Let's get to work.
+Look, it's a writing lesson
+In France, we learn to write in cursive.
+<<asset cursive_writing>>
+GUIDE: Now for geometry! Can you figure out what each of these tools is used for?
+GUIDE: Match the tools to the shapes they are used to draw.
+<<activity ACTIVITY_ORDER activity_match_done>>
+===
+
+title: activity_match_done
+position: 1832,390
+tags: actorUID=GUIDE
+---
+GUIDE: Great job! You know what we do every morning and afternoon?
+GUIDE: We have la récréation to play outside!
+GUIDE: You're all set. Welcome to the class!
+<<quest_end 3>>
+===
+
+
+title: task_backpack_done
+position: 1205,-281
+tags: actorUID=TUTOR
+---
+TUTOR: TASK COMPLETED! You can now enter school.
+<<nexttarget ELEMENTARY_TEACHER>>
+===
+
 title: task_class_done
-position: 1980,420
+position: 1207,-20
 tags: actorUID=TUTOR
 ---
 TUTOR: TASK COMPLETED! You can now start the lesson.
 ===
 
-title: FR_02_ANGERS___SCHOOL_Text__4X7_V2H
-position: 271,978
-tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
+title: task_backpack
+position: 976,-282
+tags: actorUID=GUIDE, task
 ---
-TUTOR: You are 10 years old and in the last year of elementary school.
-<<jump task_find_school>>
+Find your backpack and then come back.
 ===
 
-title: task_backpack_1
-position: 1579,180
-tags: actorUID=GUIDE, metaId=ME4B8X57
+
+title: school_canteen
+position: 1599,590
+tags: actorUID=OLD_WOMAN, 
+color: yellow
 ---
-GUIDE: Find your backpack and then come back.
+<<asset canteen_menu>>
+Hello! I hope you're registered for the cantine
+Look what's on the menu today!
 ===
 
-title: task_find_school
-position: 675,979
-tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
+title: school_charte
+position: 1891,592
+tags: actorUID=TUTOR
+color: yellow
+tags: item
 ---
-TUTOR: Find your school and your classroom!
+<<asset charte_laicite>>
+at school, everyone is welcome and respected
+no matter their beliefs.
 ===
-
-title: item_backpack
-position: 1047,-280
-tags: actorUID=TUTOR, meta_ITEM=unable_to_create_slug, meta=ITEM:unable_to_create_slug
----
-TUTOR: Backpack
-===
-

@@ -1,17 +1,23 @@
 ﻿// FR-05 Castles
 
-title: FR_05_INIT
-position: 0,0
+title: init
+position: -120,-48
 tags: type=Start
+color: red
 ---
 <<set $COLLECTED_ITEMS = 0>>
+Welcome to the castles of the Loire!
 ===
 
-title: FR_05_CASTLES_Text_01983386
+title: talk_guide
 position: 220,0
 tags: actorUID=GUIDE
 ---
+<<if $COLLECTED_ITEMS >= 8>>
+<<jump guide_question>>
+<<else>>
 GUIDE: Antura ran away and is hidden in a castle!
+<<endif>>
 ===
 
 title: guide_defence
@@ -34,7 +40,8 @@ title: FR_05_CASTLES_Text_02040108
 position: 880,0
 tags: actorUID=CRAZY_WOMAN
 ---
-CRAZY_WOMAN: Go find all the clothes of the knight: helmet, sword, bow, armor
+CRAZY_WOMAN: Go find all the clothes of the knight:
+helmet, sword, bow, armor
 <<jump FR_05_CASTLES_Variables_05477350>>
 ===
 
@@ -42,26 +49,29 @@ title: FR_05_CASTLES_Text_02082173
 position: 1100,0
 tags: actorUID=CRAZY_WOMAN
 ---
-CRAZY_WOMAN: Go find all the clothes of the Prince: hat, musical instrument, dance shoes, ball mask
+CRAZY_WOMAN: Go find all the clothes of the Prince:
+hat, musical instrument, dance shoes, ball mask
 <<jump FR_05_CASTLES_Variables_05477350>>
 ===
 
-title: FR_05_CASTLES_Choice_86_ba_9d
+title: guide_question
 position: 1320,0
 tags: actorUID=GUIDE, type=Choice
 ---
 GUIDE: Did you find Antura?
 -> "YES":
-    <<jump FR_05_CASTLES_Text_02147104>>
+    <<jump endgame>>
 -> "NO":
-    <<jump FR_05_CASTLES_Text_02147104>>
+    <<jump endgame>>
 ===
 
-title: FR_05_CASTLES_Text_02147104
+title: endgame
 position: 1540,0
-tags: actorUID=CRAZY_WOMAN, meta_ACTION_POST=WIN, meta=ACTION_POST:WIN, asset=map
+tags: actorUID=CRAZY_WOMAN
 ---
+<<asset map>>
 CRAZY_WOMAN: Did you like the castles? There are 200 castles like this here on the Loire!
+<<quest_end 3>>
 ===
 
 title: view_bridge
@@ -92,44 +102,46 @@ tags: actorUID=TUTOR, asset=obj_hat
 TUTOR: hat
 ===
 
-title: talk_guide_1
-position: 0,140
-tags: type=Condition
----
-$COLLECTED_ITEMS > 8
-===
-
 title: obg_sword
-position: 220,140
-tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_sword
+position: -69,587
+color: yellow
+tags: actorUID=TUTOR, item
 ---
+<<asset obj_sword>>
 TUTOR: sword
 ===
 
 title: obg_bow
-position: 440,140
-tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_bow
+position: 184,582
+color: yellow
+tags: actorUID=TUTOR, item
 ---
+<<asset  obj_bow>>
 TUTOR: bows and arrow
 ===
 
 title: obg_armor
-position: 660,140
+position: 479,582
+color: yellow
 tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_armor
 ---
 TUTOR: this
 ===
 
 title: view_loopholes
-position: 880,140
-tags: actorUID=CRAZY_WOMAN, asset=loopholes
+position: 736,605
+color: yellow
+tags: actorUID=CRAZY_WOMAN
 ---
+<<asset loopholes>>
+these are loopholes, they are used to shoot arrows at the enemy
 ===
 
 title: FR_05_CASTLES_Text_08_89_98
 position: 1100,140
-tags: actorUID=CRAZY_WOMAN, asset=chinon_defence
+tags: actorUID=CRAZY_WOMAN
 ---
+<<asset  chinon_defence>>
 CRAZY_WOMAN: This castle is used for defense.
 <<jump FR_05_CASTLES_Text_02040108>>
 ===
