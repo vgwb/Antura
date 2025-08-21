@@ -16,7 +16,7 @@ namespace Antura.Discover
 
         public static InteractionManager I { get; private set; }
         public int LastActionFrame { get; private set; }
-        public bool IsUsingFocusView { get; private set; }
+        public bool IsUsingFocusView => CameraManager.I.Mode == CameraMode.Focus;
         public bool HasValidNearbyInteractable => NearbyInteractable != null && NearbyInteractable.gameObject.activeInHierarchy;
         public Interactable NearbyInteractable { get; private set; } // Closest interactable, if any
 
@@ -86,23 +86,33 @@ namespace Antura.Discover
 
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape))
-                ExitDialogue();
-            if (IsUsingFocusView && Input.GetMouseButtonDown(0))
-                UnfocusCam();
+            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
+            if (IsUsingFocusView && Input.GetMouseButtonDown(0)) ResetCameraFocus();
         }
 
         #endregion
 
         #region Public Methods
 
-        public void FocusCameraOn(Transform target)
+        /// <summary>
+        /// Hides the UI and focuses the camera to look at a specific target and with an optional specific origin
+        /// </summary>
+        public void FocusCameraOn(Transform target, Transform origin = null)
         {
-            IsUsingFocusView = true;
             focusViewEnterFrame = Time.frameCount;
-            CameraManager.I.FocusCamOn(target);
-            CameraManager.I.ChangeCameraMode(CameraMode.Focus);
+            CameraManager.I.FocusOn(target, origin);
             UIManager.I.gameObject.SetActive(false);
+        }
+
+        /// <summary>
+        /// Shows the UI and resets the eventually active camera focus
+        /// </summary>
+        public void ResetCameraFocus()
+        {
+            if (!IsUsingFocusView) return;
+            
+            CameraManager.I.ResetFocus();
+            UIManager.I.gameObject.SetActive(true);
         }
 
         /// <summary>
@@ -120,16 +130,13 @@ namespace Antura.Discover
         /// </summary>
         public void ShowPreviewSignalFor(Interactable interactable, bool show)
         {
-            if (show || UIManager.I != null)
-                UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
+            if (show || UIManager.I != null) UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
         }
 
         public void ForceNearbyInteractableTo(Interactable interactable)
         {
-            if (NearbyInteractable != interactable)
-                SetNearbyInteractableTo(interactable);
-            if (!allNearbyInteractables.Contains(interactable))
-                allNearbyInteractables.Add(interactable);
+            if (NearbyInteractable != interactable) SetNearbyInteractableTo(interactable);
+            if (!allNearbyInteractables.Contains(interactable)) allNearbyInteractables.Add(interactable);
         }
 
         #endregion
@@ -139,18 +146,15 @@ namespace Antura.Discover
         void Act()
         {
             LastActionFrame = Time.frameCount;
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
-                UnfocusCam();
-            if (DiscoverGameManager.I.State != GameplayState.Play3D)
-                return;
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) ResetCameraFocus();
+            if (DiscoverGameManager.I.State != GameplayState.Play3D) return;
 
             // Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable);
 
             if (HasValidNearbyInteractable)
             {
                 QuestNode questNode = NearbyInteractable.Execute();
-                if (questNode != null)
-                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
+                if (questNode != null) this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
             }
         }
 
@@ -178,7 +182,7 @@ namespace Antura.Discover
             if (NearbyInteractable.FocusCameraOnInteract)
             {
                 CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-                CameraManager.I.FocusDialogueCamOn(NearbyInteractable.LookAtTransform);
+                CameraManager.I.SetDialogueModeTarget(NearbyInteractable.LookAtTransform);
             }
             UIManager.I.dialogues.HideSignal(interactable, false);
 
@@ -202,13 +206,6 @@ namespace Antura.Discover
                 UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);
             this.CancelCoroutine(ref coStartDialogue);
             UIManager.I.dialogues.CloseDialogue();
-        }
-
-        void UnfocusCam()
-        {
-            IsUsingFocusView = false;
-            CameraManager.I.ChangeCameraMode(CameraMode.Dialogue);
-            UIManager.I.gameObject.SetActive(true);
         }
 
         void RefreshNearbyInteractable()

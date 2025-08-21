@@ -21,6 +21,7 @@ namespace Antura.Discover
         #endregion
 
         public static CameraManager I;
+        public CameraMode Mode { get; private set; }
         public Camera MainCam { get; private set; }
         public Transform MainCamTrans { get; private set; }
         public PlayerCameraController CamController { get; private set; }
@@ -28,7 +29,6 @@ namespace Antura.Discover
 
         float lastZoomTickTime;
         float leaveMapTime;
-        CameraMode cameraMode;
         DialogueCamera dialogueCam;
         FocusCamera focusCam;
         MapCamera mapCam;
@@ -74,7 +74,7 @@ namespace Antura.Discover
             if (!Mathf.Approximately(Input.mouseScrollDelta.y, 0) && Time.time - leaveMapTime > 0.5f && Time.time - lastZoomTickTime >= minIntervalBetweenZoomTicks)
             {
                 lastZoomTickTime = Time.time;
-                switch (cameraMode)
+                switch (Mode)
                 {
                     case CameraMode.Player:
                         if (Input.mouseScrollDelta.y > 0)
@@ -112,29 +112,61 @@ namespace Antura.Discover
 
         public void ChangeCameraMode(CameraMode newMode)
         {
-            if (newMode == cameraMode)
+            if (newMode == Mode)
                 return;
 
-            cameraMode = newMode;
+            Mode = newMode;
 
-            CamController.Activate(cameraMode == CameraMode.Player);
-            dialogueCam.Activate(cameraMode == CameraMode.Dialogue);
-            mapCam.Activate(cameraMode == CameraMode.Map);
-            focusCam.Activate(cameraMode == CameraMode.Focus);
+            CamController.Activate(Mode == CameraMode.Player);
+            dialogueCam.Activate(Mode == CameraMode.Dialogue);
+            mapCam.Activate(Mode == CameraMode.Map);
+            focusCam.Activate(Mode == CameraMode.Focus);
         }
 
-        public void FocusDialogueCamOn(Transform target)
+        /// <summary>
+        /// Sets the target (LL, chest, etc.) of the current dialogue, which the camera should focus on
+        /// </summary>
+        public void SetDialogueModeTarget(Transform target)
         {
             dialogueCam.SetTarget(target);
         }
 
-        // For now this will be called only during dialogues
-        public void FocusCamOn(Transform target)
+        /// <summary>
+        /// Focuses the camera to look at a specific target and with an optional specific origin.
+        /// Only call this during dialogues
+        /// </summary>
+        public void FocusOn(Transform lookAtTarget, Transform origin = null)
         {
             Vector3 toCamPos = dialogueCam.CineMain.transform.position;
-            toCamPos.y += focusCam.YOffset;
+            if (origin != null) toCamPos = origin.position;
+            else toCamPos.y += focusCam.YOffset;
             focusCam.CineMain.transform.position = toCamPos;
-            focusCam.SetTarget(target);
+            focusCam.SetTarget(lookAtTarget);
+            ChangeCameraMode(CameraMode.Focus);
+        }
+
+        /// <summary>
+        /// Resets the eventually active camera focus
+        /// </summary>
+        public void ResetFocus()
+        {
+            if (Mode != CameraMode.Focus) return;
+            
+            switch (DiscoverGameManager.I.State)
+            {
+                case GameplayState.Dialogue:
+                    ChangeCameraMode(CameraMode.Dialogue);
+                    break;
+                case GameplayState.Play3D:
+                    ChangeCameraMode(CameraMode.Player);
+                    break;
+                case GameplayState.Map:
+                    ChangeCameraMode(CameraMode.Map);
+                    break;
+                default:
+                    ChangeCameraMode(CameraMode.Unset);
+                    break;
+            }
         }
 
         #endregion
@@ -143,7 +175,7 @@ namespace Antura.Discover
 
         void OnMapButtonToggled()
         {
-            switch (cameraMode)
+            switch (Mode)
             {
                 case CameraMode.Player:
                     ChangeCameraMode(CameraMode.Map);
