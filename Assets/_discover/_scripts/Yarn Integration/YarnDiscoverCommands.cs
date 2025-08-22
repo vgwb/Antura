@@ -139,26 +139,5 @@ namespace Antura.Discover
             ActionManager.I.ResolveQuestAction(activityCode);
         }
 
-        // CAMERA
-
-        [YarnCommand("camera_focus")]
-        public static void CommandCameraFocus(string focusName)
-        {
-            // TODO Stefano for implementation of parameters
-            // Should call:
-            // --> InteractionManager.I.FocusCameraOn(target, origin);
-            // Which also hides the dialogue UI.
-            // If you want to just control the camera use CameraManager.I.FocusOn() instead
-
-        }
-
-        [YarnCommand("camera_reset")]
-        public static void CommandCameraReset()
-        {
-            // This method also shows the UI if it was hidden by a previous focus.
-            // If you want to just control the camera use CameraManager.I.ResetFocus() instead
-            InteractionManager.I.ResetCameraFocus();
-        }
-
     }
 }

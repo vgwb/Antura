@@ -56,9 +56,19 @@ namespace Antura.Discover
                 runner.onNodeStart.AddListener(nodeName => { OnNodeStarted?.Invoke(nodeName); presenter?.SetCurrentNodeName(nodeName); });
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
 
-                // Hook simple command(s) to ActionManager
-                //                runner.AddCommandHandler<string>("action", (arg) => { ActionManager.I.ResolveQuestAction(arg); });
+                //Hook command(s) into Yarn
+
+                runner.AddCommandHandler<string>("camera_focus", (arg) =>
+                {
+                    var focus = gameObject.FindCameraFocus(arg);
+                    CameraManager.I.FocusOn(focus.LookAt, focus.Origin);
+                });
+                runner.AddCommandHandler("camera_reset", () =>
+                {
+                    CameraManager.I.ResetFocus();
+                });
             }
+
 
             if (presenter != null)
             {

@@ -1,33 +1,37 @@
 ﻿//--------------------------------------------
 // DEV QUEST SCRIPT
 //--------------------------------------------
-// Country: Italy
-// City: Firenze
-// Language Learning: Italian (basic vocab emphasized in CAPS)
-// Vocabulary (focus): ITALIA, UNITY, QUEST_DESIGN, FUN
-//
-// Activities:
-// 1) <<activity order planets_order tutorial>>
-// — Put the 8 PLANETS in the correct order (from the SUN).
-// Spoken Lines (count): nn
+// Country: Italy - Firenze
+// Content: Living document for testing Yarn features
+// and documenting available commands
 //--------------------------------------------
 
 //--------------------------------------------
 // INIT
 // every quest starts with an INIT node
-// used to inizialize existing variables
-// and to declare new variables
+// to inizialize existing variables and declare new ones
 //--------------------------------------------
 
+// title of a node must be unique to this quest
+// create a new node for anything that must be referenced multi times
+// that makes understanding of the flow easier
 title: init
 // position is used to place the node in the Graph view in the Editor
-position: -176,-105
+position: 0,0
 // group is used to organize the nodes in the Graph view in the Editor
-group: Intro
+group: docs
 // tags are used to add metadata to the node
+//  - actor is the speacking character, used mostly for voice overs
 tags: actor=Guide
+// color us used like this:
+//  - red for important nodes like init, quest end, tasks
+//  - blue for NPCs
+//  - yellow for items
+//  - green for tasks
+//  - purple for activities
+color: red
 ---
-// these are the common variables, declared out of here and available:
+// these are the common variables
 <<set $EASY_MODE = false>>
 <<set $IS_DESKTOP = false>>
 <<set $TOTAL_COINS = 0>>
@@ -35,113 +39,23 @@ tags: actor=Guide
 <<set $MAX_PROGRESS = 0>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $CURRENT_ITEM = "">>
-// here we declare new variables for this script
-<<declare $met_teacher_1 = false>>
+
+// here we declare new variables for this quest
+<<declare $met_teacher = false>>
 <<declare $got_hint = false>>
 <<declare $doorUnlocked = false>>
 ===
 
-// this is the first node of the quest
-
-title: NPCinventory
-position: 136,41
-assetimage: 
----
-I am hungry. How about some food?
-<<if has_item_at_least("fr_baguette", 3)>>
-    I needed 3 baguettes!
-    <<inventory fr_baguette remove>>
-    <<inventory fr_baguette remove>>
-    <<inventory fr_baguette remove>>
-<<else>>
-    You don't have enough baguettes!
-    <<if has_item("fr_fish")>>
-        but you have some fish!
-    <<endif>>
-<<endif>>
-
-===
-title: got_baguette
-position: 136,41
----
-che buona!
-<<inventory fr_baguette add>>
-
-===
-title: got_fish
-position: 136,41
----
-un pesce fresco!
-<<inventory fr_fish add>>
-
-===
-title: NPCcard
-position: 136,41
-assetimage: 
----
-ora sblocco una carta ok?
-<<card fr_fish>>
-torna al menù e guarda il book
-e ora la baguette
-<<card fr_baguette>>
-Buona vera?
-
-
-===
-title: NPCendgame
-position: 136,41
-assetimage: 
----
-
-vuoi che ti sblocchi queta quest con...
--> o stelle (fail)
-    <<quest_end 0>>
--> una stella
-    <<quest_end 1>>
--> due stelle
-    <<quest_end 2>>
--> tre stelle
-    <<quest_end 3>>
-FATTO! esci e controlla
-
-===
-
-title: NPCGIoconda
-position: 244,-30
-assetimage: antura_hero
----
-<<asset food_tomato>>
-ciao, stefano
-ti piacciono le foto?
-<<asset food_fish>>
--> vuoi arancia?
-    <<asset food_orange>>
-    <<action play_sfx>>
--> vuoi olio?
-    <<asset food_oil>>
-    <<action play_sfx>>
-ora chiudo
-<<asset_hide>>
--> Activity Order
-    <<activity activity_test>>
-    <<jump activity_done>>
--> Suona sfx
-    <<action play_sfx>>
--> Apri Baule
-    <<action open_chest>>
-
-===
-title: activity_done
-position: 200,200
----
-Narrator: Activity finished.
-===
-title: commands
-color: red
-position: 121,-125
----
+//--------------------------------------------
+// COMMANDS
 // these are the commands available in the game
+//--------------------------------------------
 
+title: docs_commands
+position: 240,1
+group: docs
+color: red
+---
 // adds the item = cardata to the inventory (needs to be collectable!)
 <<inventory id_cardata>> // same as add
 <<inventory id_cardata add>>
@@ -168,420 +82,332 @@ position: 121,-125
 // <<quest_end n>>
 // if the quest is not completed
 // <<quest_end fail>>
-
 ===
-title: functions
+
+//--------------------------------------------
+// FUNCTIONS
+// these are the functions available in the game
+//--------------------------------------------
+
+title: docs_functions
+position: 483,8
 color: red
-position: 370,-181
+group: docs
 ---
 // these are the functions available in the game
 
-If count:
 <<if item_count("flag_france") >= 2>>
-    
+    You have more than 2 Flags of France
 <<endif>>
 
-Simple check:
 <<if has_item("flag_france")>>
-    
+    You have a Flag of France
 <<endif>>
 
-At least N:
 <<if has_item_at_least("flag_france", 3)>>
-    
+    You have at least 3 Flags of France
 <<endif>>
 
-Before awarding:
 <<if can_collect("flag_france")>>
+    You can collect a Flag of France
 <<endif>>
 
 ===
+
+title: test_inventory
+position: 6,244
+group: inventory
+---
+I am hungry. How about some food?
+<<if has_item_at_least("fr_baguette", 3)>>
+    I needed 3 baguettes!
+    <<inventory fr_baguette remove>>
+    <<inventory fr_baguette remove>>
+    <<inventory fr_baguette remove>>
+<<else>>
+    You don't have enough baguettes!
+    <<if has_item("fr_fish")>>
+        but you have some fish!
+    <<endif>>
+<<endif>>
+
+===
+title: got_baguette
+position: 489,243
+group: inventory
+---
+You found a baguette!
+<<inventory fr_baguette add>>
+
+===
+title: got_fish
+position: 252,245
+group: inventory
+---
+An healthy fish!
+<<inventory fr_fish add>>
+
+===
+title: NPCcard
+position: 8,482
+group: cards: 
+---
+ora sblocco una carta ok?
+<<card fr_fish>>
+torna al menù e guarda il book
+e ora la baguette
+<<card fr_baguette>>
+Buona vera?
+
+===
+title: camera_test
+position: 316,479
+group: camera 
+---
+Now i show you the map of the playgroud
+<<camera_focus map_tutorial>>
+Do you see that point?
+<<camera_focus map_tutorial_detail>>
+Now Look at that palace!
+<<camera_focus palace>>
+Nice isnt' it?
+<<camera_reset>>
+
+===
+title: endgame
+position: -368,1
+group: endgame
+color: red
+---
+
+You can end this quest with...
+-> Zero stars (fail)
+    <<quest_end 0>>
+-> 1 star
+    <<quest_end 1>>
+-> 2 stars
+    <<quest_end 2>>
+-> 3 stars
+    <<quest_end 3>>
+
+===
+
+title: NPCGIoconda
+position: 662,2326
+assetimage: antura_hero
+---
+<<asset food_tomato>>
+ciao, stefano
+ti piacciono le foto?
+<<asset food_fish>>
+-> vuoi arancia?
+    <<asset food_orange>>
+    <<action play_sfx>>
+-> vuoi olio?
+    <<asset food_oil>>
+    <<action play_sfx>>
+ora chiudo
+<<asset_hide>>
+-> Activity Order
+    <<activity activity_test>>
+    <<jump activity_done>>
+-> Suona sfx
+    <<action play_sfx>>
+-> Apri Baule
+    <<action open_chest>>
+
+===
+title: activity_done
+position: 918,2328
+---
+Activity finished.
+===
+
 title: NPCGreeting2
-position: 156,-277
+position: 304,2331
 assetimage: pirates
 ---
 // <<activity activity_memory>>
-Narrator: Hallo #line:0386a35 
-Narrator: How are you? #line:09fdbcf 
--> Good #line:0797c85 
-    Narrator: Good to hear that #line:0a45421 
--> Bad #line:00b5b27 
-    Narrator: Oh, I am sorry to hear that #line:0ed242c 
--> Neutral #line:0853be0 
-    Narrator: I see, I hope it gets better soon #line:018b313 
-Narrator: What do you want to do with  coins? #line:0d27ec5 
+Narrator: Hallo
+Narrator: How are you?
+-> Good
+    Narrator: Good to hear that
+-> Bad
+    Narrator: Oh, I am sorry to hear that
+-> Neutral
+    Narrator: I see, I hope it gets better soon
+Narrator: What do you want to do with  coins?
 ===
 title: NPCGreeting3
-position: -252,-938
+position: 31,2331
 tags: #camera2 background:conductor_cabin
 ---
 
 <<declare $coins = 0>>
-Narrator: What do you want to do with {$coins} coins?  #line:02eb555
--> Open the door #line:07d1a6a 
+Narrator: What do you want to do with {$coins} coins? 
+-> Open the door
  <<set $doorUnlocked = true>>
- Narrator: The door is open #line:0a986a0 
--> Stay at home #line:018013f 
- Narrator: You stay at home #line:067a482
+ Narrator: The door is open
+-> Stay at home
+ Narrator: You stay at home
  <<set $coins = $coins + 10>>
 ===
 title: Chest_01
-position: -309,-740
+position: 142,2543
 ---
 <<if $doorUnlocked>>
-Narrator: la porta è aperta #line:00cfcfb 
+Narrator: la porta è aperta
 <<jump EntroInCasa>>
 <<else>>
-Narrator: la porta è chiusa #line:060c519 
+Narrator: la porta è chiusa
 <<endif>>
 ===
 
-title: Node
+title: note_for_the_editors
 style: note
-position: -650,-949
+position: -109,-200
 ---
-note di questa zona #line:05ce203 
+Custom note
+this is useful to leave notes for the editors
+like reminders of things to do
+or things to check
+or things to fix
 ===
+
 title: EntroInCasa
-position: -269,-552
+position: 425,2541
 ---
 entro in casa
 
 ===
 
-title: door_a
-position: 440,0
-tags: actorUID=TUTOR, meta_ACTION=unable_to_create_slug, meta=ACTION:unable_to_create_slug
----
-TUTOR: the door open PRE #line:01e5e5b 
-<<jump DEV_Text_MDQ5EL0V>>
-===
 
-title: DEV_Text_81_f8_b5
-position: 660,0
-tags: actorUID=TUTOR, meta_ACTION_POST=close_door
+title: coin_machine
+position: 29,2122
+tags:
+group: variables
 ---
-TUTOR: Now you have {$TOTAL_COINS} coins! and i close the door #line:0324065 
-===
-
-title: isolated_node_1
-position: 880,0
-tags: actorUID=OLD_WOMAN, meta_ACTION_POST=tutorial_action_post
----
-OLD_WOMAN: I am your teacher #line:0abea40 
-<<jump DEV_Condition_MDHJDA1X>>
-===
-
-title: DEV_Text_08_f8_b5
-position: 1100,0
-tags: actorUID=OLD_WOMAN, meta_ACTION_POST=OPEN_DOOR, meta=ACTION_POST:OPEN_DOOR
----
-OLD_WOMAN: YOu already met me #line:05a27b5 
-<<jump DEV_Variables_86_f8_b5>>
-===
-
-title: DEV_Text_21_f8_b5
-position: 1353,8
-tags: actorUID=TUTOR, meta_ACTION=UPDATE_COINS, meta=ACTION:UPDATE_COINS
----
-TUTOR: I'll give you 100 coins. #line:0ee9419 
-<<jump DEV_Text_81_f8_b5>>
-===
-
-title: DEV_Variables_86_f8_b5
-position: 1540,0
-tags: type=Variables
----
-// Variables
+I'll give you 100 coins.
 <<set $TOTAL_COINS = $TOTAL_COINS + 100>>
-<<jump DEV_Text_21_f8_b5>>
+
 ===
 
 title: quiz_test
-position: 1760,0
-tags: actorUID=GUIDE, type=Choice, meta_BALLOON_TYPE=QUIZ, meta=BALLOON_TYPE:QUIZ
+position: 4,718
+group: quiz
+tags: actor=GUIDE, type=QUIZ
 ---
-GUIDE: QUIZ: calculate 3*2 #line:0a1278a 
--> "It's 4": #line:0c2c777 
-    <<jump DEV_Text_17_f8_b5>>
--> "It's 6": #line:070ba53 
-    <<jump DEV_Choice_64_f8_b5>>
--> "It's 8": #line:04bc4a8 
-    <<jump DEV_Choice_64_f8_b5>>
+Calculate 3*2
+-> 4
+    <<jump quiz_test_wrong>>
+-> 6
+    <<jump quiz_test_correct>>
+-> 8
+    <<jump quiz_test_wrong>>
 ===
 
-title: DEV_Text_17_f8_b5
-position: 1980,0
-tags: actorUID=GUIDE, meta_MOOD=HAPPY, meta=MOOD:HAPPY
+title: quiz_test_correct
+position: 316,696
+group: quiz
+
 ---
-GUIDE: YES! #line:0fb5bba 
-<<jump DEV_Text_14_f8_b5>>
+YES! Correct.
 ===
 
-title: DEV_Choice_64_f8_b5
-position: 2200,0
-tags: actorUID=GUIDE, type=Choice, meta_MOOD=SAD, meta=MOOD:SAD
+title: quiz_test_wrong
+position: 319,847
+group: quiz
+
 ---
-GUIDE: No. Do you want to try again? #line:0802477 
--> "Yes": #line:0382af5 
-    <<jump DEV_Text_14_f8_b5>>
--> "No": #line:08e27bb 
+GUIDE: No. Do you want to try again?
+-> Yes
     <<jump quiz_test>>
+-> No
 ===
 
-title: talk_teacher
-position: 2420,0
-tags: actorUID=OLD_WOMAN
+
+title: test_mood
+position: 746,2539
+tags: actor=GUIDE, mood=HAPPY
 ---
-OLD_WOMAN: Sequence Line 1 #line:0d11210 
-OLD_WOMAN: Sequence Line 2 #line:01985bd 
-OLD_WOMAN: Sequence Line 3 #line:0ec0199 
-<<jump DEV_Text_94_f8_b5>>
+Happy Mood
+
 ===
 
-title: DEV_Text_94_f8_b5
-position: 0,140
-tags: actorUID=OLD_WOMAN, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
+title: random_lines
+position: 32,1891
+tags: actor=OLD_WOMAN
+group: random
 ---
-OLD_WOMAN: Smart random Line 1 #line:0b53d1c 
-OLD_WOMAN: Smart random Line 2 #line:0855983 
-OLD_WOMAN: Smart random Line 3 #line:0d0753f 
+Smart random Line 1
+Smart random Line 2
+Smart random Line 3
 ===
 
-title: DEV_Text_14_f8_b5
-position: 220,140
-tags: actorUID=GUIDE
+title: multiple_lines
+position: 331,1899
+tags: actor=KID_FEMALE
+group: random
 ---
-GUIDE: Goodbye #line:08ec773 
-===
+=> This is Hint 1
+=> This is Hint 2
+=> Hint 3
 
-title: DEV_Condition_MDHJDA1X
-position: 440,140
-tags: type=Condition
----
-%met_teacher_1 #line:05810ad 
-===
-
-title: DEV_Text_MDHJGXLJ
-position: 660,140
-tags: actorUID=KID_FEMALE
----
-KID_FEMALE: Welcome to your school #line:08aebee 
-===
-
-title: DEV_Variables_MDHJH9B9
-position: 880,140
-tags: type=Variables
----
-// Variables
-<<set $met_teacher_1 = true>>
-<<jump DEV_Text_MDHJGXLJ>>
 ===
 
 title: activity_test
-position: 1100,140
-tags: actorUID=KID_FEMALE
+position: 13,1104
+tags: actor=KID_FEMALE
+group: activities
+color: purple
 ---
-KID_FEMALE: Are you ready for your Mission? #line:01eaf23 
-<<jump DEV_Condition_MDYQ0Z0U>>
-===
-
-title: DEV_Text_MDQ543Y1
-position: 1320,140
-tags: actorUID=KID_FEMALE, meta_ACTION_POST=ACTIVITY_TEST, meta=ACTION_POST:ACTIVITY_TEST
----
-KID_FEMALE: Play this NORMAL Test Activity! #line:094725c 
-<<jump DEV_Condition_ME3U1A9W>>
-===
-
-title: actions_test
-position: 1540,140
-tags: actorUID=KID_FEMALE, meta_ACTION=PRE_ACTIONS, meta=ACTION:PRE_ACTIONS, meta_ACTION_POST=POST_ACTIONS, meta=ACTION_POST:POST_ACTIONS
----
-KID_FEMALE: Action Pre "pre_actions" and action_post "post_actions" #line:0651d47 
-===
-
-title: test_condition
-position: 1760,140
-tags: type=Condition
----
-%got_hint #line:0cc406b 
-===
-
-title: DEV_Text_MDQ5BT1L
-position: 1980,140
-tags: actorUID=KID_FEMALE
----
-KID_FEMALE: I alrady gave you an hint! #line:035160d 
-<<jump DEV_Variables_D1NB_Q85>>
-===
-
-title: DEV_Text_MDQ5BUGW
-position: 2200,140
-tags: actorUID=KID_FEMALE
----
-KID_FEMALE: This is Hint 1 #line:0cdd70d 
-KID_FEMALE: This is Hint 2 #line:0f8734f 
-<<jump DEV_Variables_MDQ5D1NB>>
-===
-
-title: DEV_Variables_MDQ5D1NB
-position: 2420,140
-tags: type=Variables
----
-// Variables
-<<set $got_hint = true>>
-===
-
-title: DEV_Variables_D1NB_Q85
-position: 0,280
-tags: type=Variables
----
-// Variables
-<<set $got_hint = false>>
-===
-
-title: DEV_Text_MDQ5EL0V
-position: 220,280
-tags: actorUID=TUTOR, meta_ACTION_POST=CLOSE_DOOR, meta=ACTION_POST:CLOSE_DOOR
----
-TUTOR: and closes POST #line:0625e44 
+KID_FEMALE: Play this NORMAL Test Activity!
+<<activity  ACTIVITY_TEST>>
 ===
 
 title: chest_money
-position: 440,280
-tags: actorUID=TUTOR, meta_ACTION_POST=ACTIVITY_MONEY, meta=ACTION_POST:ACTIVITY_MONEY
+position: 312,1106
+tags: actor=TUTOR
+group: activities
+color: purple
 ---
-TUTOR: Play with money #line:036dfa7 
+TUTOR: Play with money
+<<activity  ACTIVITY_MONEY easy>>
 ===
 
-title: task_collect
-position: 660,280
-tags: actorUID=KID_FEMALE
+
+
+
+
+title: switch_door
+position: 13,1365
+tags: actor=TUTOR
+group: actions
+color: yellow
 ---
-KID_FEMALE: I ask you a favour... #line:05d6737 
-<<jump DEV_Text_MDXECFP7>>
+TUTOR: and closes POST
+<<action CLOSE_DOOR>>
 ===
 
-title: DEV_Text_MDXECFP7
-position: 880,280
-tags: actorUID=KID_FEMALE, meta_TASK=COLLECT_FLOWERS, meta=TASK:COLLECT_FLOWERS
+title: actions_test
+position: 285,1369
+tags: actor=KID_FEMALE
+group: actions
 ---
-KID_FEMALE: Collect 5 flowers! #line:02d56dc 
+<<action PRE_ACTIONS>>
+Action Pre "pre_actions" and action_post "post_actions"
+<<action POST_ACTIONS>>
 ===
 
-title: task_collect_done
-position: 1100,280
-tags: actorUID=KID_FEMALE, meta_NEXTTARGET=KID, meta=NEXTTARGET:KID
+
+title: task_collect_flowers
+position: 18,1624
+tags: actor=KID_FEMALE
+group: tasks
+color: green
 ---
-KID_FEMALE: You collected all the flowers! Go back to the kid #line:0350c0c 
+Collect 5 flowers!
+<<task_start COLLECT_FLOWERS>>
 ===
 
-title: task_reach
-position: 1320,280
-tags: actorUID=TUTOR, meta_TASK=REACH_PLATFORM, meta=TASK:REACH_PLATFORM
----
-TUTOR: TASK: Reach that platform #line:06a1bd9 
-===
-
-title: task_reach_done
-position: 1540,280
-tags: actorUID=TUTOR
----
-TUTOR: TASK COMPLETED! YOU GOT HERE #line:0d18a18 
-===
-
-title: quest_start
-position: 1760,-399
-tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
----
-TUTOR: Welcome to the Dev scene #line:02b5f92 
-===
-
-title: DEV_Condition_MDYQ0Z0U
-position: 2139,471
-tags: type=Condition
----
-$EASY_MODE #line:08667cf 
-===
-
-title: DEV_Text_43Y1_TD4
-position: 1740,1203
-tags: actorUID=KID_FEMALE, meta_ACTION_POST=ACTIVITY_TEST_EASY, meta=ACTION_POST:ACTIVITY_TEST_EASY
----
-KID_FEMALE: Play this EASY Test Activity! #line:0af6d1f 
-<<jump DEV_Condition_ME3U1A9W>>
-===
-
-title: activity_test_done
-position: 2575,569
-tags: actorUID=KID_FEMALE
----
-KID_FEMALE: Well done. You can go on! #line:006c1f8 
-===
-
-title: activity_test_fail
-position: 0,420
-tags: actorUID=KID_FEMALE
----
-KID_FEMALE: Maybe you whould try again #line:0a16c0b 
-===
-
-title: quest_end
-position: 220,420
-tags: actorUID=TUTOR, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL
----
-TUTOR: CONGRATULATIONS! #line:0b269b6 
-===
-
-title: DEV_Text_MDZXW08E
-position: 440,420
-tags: actorUID=TUTOR
----
-TUTOR: You have the flag of France! #line:0fd4a81 
-===
-
-title: talk_franch_flag
-position: 660,420
-tags: type=Condition
----
-$CURRENT_ITEM == "french_flag" #line:0579968 
-"flag_italy" IN $INVENTORY #line:0c49601 
-===
-
-title: DEV_Text_W08E_8GK
-position: 880,420
-tags: actorUID=TUTOR
----
-TUTOR: You don't have the french flag #line:021e3dd 
-===
-
-title: DEV_Text_ME3SQW26
-position: 1214,566
-tags: actorUID=TUTOR
----
-TUTOR: Are you ready for an achievement? #line:019b763 
-<<jump DEV_Text_ME3SRQ46>>
-===
-
-title: DEV_Text_ME3SRQ46
-position: 1247,892
-tags: actorUID=TUTOR
----
-TUTOR: Developer Hat #line:029badf 
-===
-
-title: DEV_Condition_ME3U1A9W
-position: 1756,973
-tags: type=Condition
----
-$ACTIVITY_SUCCESS #line:0d28832 
-===
-
-title: DEV_Text_ME3UTRI4
-position: 2134,904
-tags: actorUID=TUTOR
----
-TUTOR: But you have the italian... good! #line:0efb8dc 
-===
 

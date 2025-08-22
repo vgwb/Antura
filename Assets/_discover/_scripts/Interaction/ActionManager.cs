@@ -20,7 +20,7 @@ namespace Antura.Discover
         public string DebugAction;
 
         [Tooltip("The starting location of the player")]
-        public GameObject PlayerSpawnPoint;
+        private GameObject PlayerSpawnPoint;
 
         public QuestActionData[] QuestActions;
 

@@ -138,8 +138,10 @@ namespace Antura.Discover
         public void FocusOn(Transform lookAtTarget, Transform origin = null)
         {
             Vector3 toCamPos = dialogueCam.CineMain.transform.position;
-            if (origin != null) toCamPos = origin.position;
-            else toCamPos.y += focusCam.YOffset;
+            if (origin != null)
+                toCamPos = origin.position;
+            else
+                toCamPos.y += focusCam.YOffset;
             focusCam.CineMain.transform.position = toCamPos;
             focusCam.SetTarget(lookAtTarget);
             ChangeCameraMode(CameraMode.Focus);
@@ -150,8 +152,9 @@ namespace Antura.Discover
         /// </summary>
         public void ResetFocus()
         {
-            if (Mode != CameraMode.Focus) return;
-            
+            if (Mode != CameraMode.Focus)
+                return;
+
             switch (DiscoverGameManager.I.State)
             {
                 case GameplayState.Dialogue:
