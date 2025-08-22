@@ -1,13 +1,5 @@
 ﻿//--------------------------------------------
 // DEV QUEST SCRIPT
-// This script is for the Creators of new scripts
-// It is not used in the game
-// It contains all docs, commands and options available in the game
-// It is a reference for the developers
-//--------------------------------------------
-// when writing a new script, please use this template
-// and follow the structure of the existing scripts
-// It will help you to create a consistent and easy to read script
 //--------------------------------------------
 // Country: Italy
 // City: Firenze
@@ -15,7 +7,8 @@
 // Vocabulary (focus): ITALIA, UNITY, QUEST_DESIGN, FUN
 //
 // Activities:
-// 1) <<activity order planets_order tutorial>>            — Put the 8 PLANETS in the correct order (from the SUN).
+// 1) <<activity order planets_order tutorial>>
+// — Put the 8 PLANETS in the correct order (from the SUN).
 // Spoken Lines (count): nn
 //--------------------------------------------
 
@@ -33,8 +26,6 @@ position: -176,-105
 group: Intro
 // tags are used to add metadata to the node
 tags: actor=Guide
-// assetimage is used to show an image in the Editor, it fetches from the AssetData
-assetimage: torun_street
 ---
 // these are the common variables, declared out of here and available:
 <<set $EASY_MODE = false>>
