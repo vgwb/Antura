@@ -7,20 +7,21 @@ Here are a few guidelines that we need contributors to
 follow so that we can have a chance of keeping things on top.
 
 ## Getting Started
-* Make sure you have a GitHub account.
-* Create a new issue on the GitHub repository, providing one does not already exist.
-* Clearly describe the issue including steps to reproduce it when it is a bug (fill out the issue template).
-* Make sure you fill in the earliest version that you know has the issue.
-* (Eventually) Fork the repository on GitHub.
+
+- Make sure you have a GitHub account.
+- Create a new issue on the GitHub repository, providing one does not already exist.
+- Clearly describe the issue including steps to reproduce it when it is a bug (fill out the issue template).
+- Make sure you fill in the earliest version that you know has the issue.
+- (Eventually) Fork the repository on GitHub.
 
 ## Making Changes
 
-* Create a topic branch from where you want to base your work.
-* Name your branch with the type of issue you are fixing; `feat`, `chore`, `docs`.
-* Please avoid working directly on your master branch.
-* Make sure you set the `Asset Serialization` mode in `Unity->Edit->Project Settings->Editor` to `Force Text`.
-* Make commits of logical units.
-* Make sure your commit messages are in the proper format. See below for further details.
+- Create a topic branch from where you want to base your work.
+- Name your branch with the type of issue you are fixing; `feat`, `chore`, `docs`.
+- Please avoid working directly on your master branch.
+- Make sure you set the `Asset Serialization` mode in `Unity->Edit->Project Settings->Editor` to `Force Text`.
+- Make commits of logical units.
+- Make sure your commit messages are in the proper format. See below for further details.
 
 Following the above method will ensure that all bug fixes are pushed to the `dev` branch while all new features will be pushed to the relevant next release branch. This means that patch releases are much easier to do as the `dev` branch will only contain bug fixes and will be used to fork into new patch releases. Master will then be rebased into the relevant next release branch so the next release  contains the updated bug fixes from the previous patch release.
 
@@ -49,15 +50,17 @@ the only difference is that we prefer to have the `if` and `for` statements with
 Class methods and parameters should always denote their accessibility
 level using the `public` `protected` `private` keywords.
 
-  > **Incorrect:**
-  ```
-  void MyMethod()
-  ```
+**Incorrect:**
 
-  > **Correct:**
-  ```
+```c#
+  void MyMethod()
+```
+
+**Correct:**
+
+```c#
   private void MyMethod()
-  ```
+```
 
 All core classes should be within the `Antura` namespace.
 
@@ -69,23 +72,25 @@ Where possible, the structure of the code should also flow with the accessibilit
 
 Blocks of code such as conditional statements and loops must always contain the block of code in braces `{ }` even if it is just one line.
 
-  > **Incorrect:**
-  ```
-  if (this == that) { do; }
-  ```
+**Incorrect:**
 
-  > **Correct:**
-  ```
+```c#
+if (this == that) { do; }
+```
+
+**Correct:**
+
+```c#
   if (this == that) {
     do;
   }
-  ```
+```
 
 Any method or variable reference should have the most simplified name as possible, which means no additional references should be added where it's not necessary.
 
-  > `this.transform.rotation` *is simplified to* `transform.rotation`
+`this.transform.rotation` is simplified to `transform.rotation`
 
-  > `GameObject.FindObjectsOfType` *is simplified to* `FindObjectsOfType`
+`GameObject.FindObjectsOfType` is simplified to `FindObjectsOfType`
 
 All MonoBehaviour inherited classes that implement a MonoBehaviour [Message](https://docs.unity3d.com/ScriptReference/MonoBehaviour.html) method must at least be `protected virtual` to allow any further inherited class to override and extend the methods.
 
@@ -114,13 +119,13 @@ The commit message lines should never exceed 72 characters and should be entered
 
 The type must be one of the following:
 
-* feat: A new feature.
-* fix: A bug fix.
-* docs: Documentation only changes.
-* refactor: A code change that neither fixes a bug or adds a feature.
-* perf: A code change that improves performance.
-* test: Adding missing tests.
-* chore: Changes to the build process or auxiliary tools or libraries such as documentation generation.
+- feat: A new feature.
+- fix: A bug fix.
+- docs: Documentation only changes.
+- refactor: A code change that neither fixes a bug or adds a feature.
+- perf: A code change that improves performance.
+- test: Adding missing tests.
+- chore: Changes to the build process or auxiliary tools or libraries such as documentation generation.
 
 ### Scope
 
@@ -157,8 +162,9 @@ Just as in the subject, use the imperative, present tense: "change" not "changed
   ```
 
 ## Submitting Changes
-* Push your changes to your topic branch in your repository.
-* Submit a pull request to the repository `vgwb/Antura`.
-* If you're submitting a bug fix pull request then target the repository `dev` branch.
-* If you're submitting a new feature pull request then target the next release branch in the repository.
-* The core team will aim to look at the pull request as soon as possible and provide feedback where required.
+
+- Push your changes to your topic branch in your repository.
+- Submit a pull request to the repository `vgwb/Antura`.
+- If you're submitting a bug fix pull request then target the repository `dev` branch.
+- If you're submitting a new feature pull request then target the next release branch in the repository.
+- The core team will aim to look at the pull request as soon as possible and provide feedback where required.
