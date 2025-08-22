@@ -1,0 +1,293 @@
+/* Yarn Graph Renderer CSS */
+.yarn-graph-container {
+    max-width: 100%;
+    margin: 20px 0;
+    background: #1a1a1a;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Full window mode */
+.yarn-graph-container.fullscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    border-radius: 0;
+    z-index: 9999;
+    background: #1a1a1a;
+}
+
+.yarn-graph-controls {
+    padding: 15px;
+    background: #2a2a2a;
+    border-bottom: 1px solid #333;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.yarn-graph-controls button {
+    background: #333;
+    color: white;
+    border: 1px solid #555;
+    padding: 8px 16px;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.yarn-graph-controls button:hover {
+    background: #444;
+}
+
+.yarn-graph-controls button:active {
+    background: #555;
+}
+
+.yarn-graph-controls button.active {
+    background: #0066cc;
+    border-color: #0088ff;
+}
+
+.yarn-graph-zoom-info {
+    color: #ccc;
+    font-size: 14px;
+    margin-left: auto;
+}
+
+.yarn-graph-viewport {
+    width: 100%;
+    height: 600px;
+    background: #222;
+    overflow: hidden;
+    position: relative;
+    cursor: grab;
+    /* Ensure proper sizing */
+    box-sizing: border-box;
+    min-height: 400px;
+}
+
+/* Full window viewport */
+.yarn-graph-container.fullscreen .yarn-graph-viewport {
+    height: calc(100vh - 60px); /* Subtract controls height */
+    min-height: calc(100vh - 60px);
+}
+
+.yarn-graph-viewport:active {
+    cursor: grabbing;
+}
+
+.yarn-graph-svg {
+    width: 100%;
+    height: 100%;
+    display: block;
+    /* Ensure SVG fills container properly */
+    box-sizing: border-box;
+    /* Remove overflow hidden to see if nodes are outside */
+    overflow: visible;
+    background: #222; /* Temporary: show SVG background */
+}
+
+/* Node Styles */
+.yarn-node {
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.yarn-node rect {
+    stroke-width: 2;
+    rx: 8;
+    transition: stroke-width 0.2s ease;
+}
+
+.yarn-node.start rect {
+    fill: #ff4444;
+    stroke: #ff6666;
+}
+
+.yarn-node.choice rect {
+    fill: #4444ff;
+    stroke: #6666ff;
+}
+
+.yarn-node.yellow rect {
+    fill: #ffaa00;
+    stroke: #ffcc44;
+}
+
+.yarn-node.purple rect {
+    fill: #aa44ff;
+    stroke: #cc66ff;
+}
+
+.yarn-node.red rect {
+    fill: #ff4444;
+    stroke: #ff6666;
+}
+
+.yarn-node.blue rect {
+    fill: #4444ff;
+    stroke: #6666ff;
+}
+
+.yarn-node.green rect {
+    fill: #44ff44;
+    stroke: #66ff66;
+}
+
+.yarn-node.default rect {
+    fill: #444;
+    stroke: #666;
+}
+
+.yarn-node text {
+    fill: white;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    font-size: 12px;
+    text-anchor: middle;
+    dominant-baseline: middle;
+    pointer-events: none;
+    user-select: none;
+}
+
+.yarn-node .yarn-node-title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.yarn-node .yarn-node-subtitle {
+    font-size: 10px;
+    opacity: 0.8;
+}
+
+/* Edge Styles */
+.yarn-edge {
+    stroke: #888;
+    stroke-width: 2;
+    fill: none;
+    marker-end: url(#yarn-arrowhead);
+    transition: stroke 0.2s ease;
+}
+
+.yarn-edge.choice {
+    stroke: #aaa;
+    stroke-dasharray: 5,5;
+}
+
+.yarn-edge:hover {
+    stroke: #fff;
+}
+
+/* Hover Effects */
+.yarn-node:hover rect {
+    stroke-width: 3;
+}
+
+.yarn-node:hover {
+    filter: brightness(1.1);
+}
+
+/* Tooltip */
+.yarn-tooltip {
+    position: absolute;
+    background: rgba(0, 0, 0, 0.95);
+    color: white;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    pointer-events: none;
+    max-width: 300px;
+    z-index: 1000;
+    white-space: pre-wrap;
+    border: 1px solid #444;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    line-height: 1.4;
+}
+
+.yarn-tooltip strong {
+    color: #ffd700;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Fullscreen specific styles */
+.yarn-graph-container.fullscreen .yarn-tooltip {
+    z-index: 10001;
+}
+
+/* Keyboard shortcut hint */
+.yarn-graph-fullscreen-hint {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-size: 11px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+    z-index: 10002;
+}
+
+.yarn-graph-container.fullscreen .yarn-graph-fullscreen-hint {
+    opacity: 1;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .yarn-graph-controls {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .yarn-graph-controls button {
+        margin-bottom: 5px;
+    }
+    
+    .yarn-graph-zoom-info {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .yarn-graph-viewport {
+        height: 400px;
+    }
+    
+    .yarn-graph-container.fullscreen .yarn-graph-viewport {
+        height: calc(100vh - 120px); /* More space for mobile controls */
+    }
+}
+
+/* Dark theme integration for MkDocs themes */
+[data-md-color-scheme="slate"] .yarn-graph-container,
+.md-typeset .yarn-graph-container {
+    background: #1a1a1a;
+}
+
+[data-md-color-scheme="default"] .yarn-graph-container {
+    background: #f8f9fa;
+}
+
+[data-md-color-scheme="default"] .yarn-graph-controls {
+    background: #e9ecef;
+    border-bottom-color: #dee2e6;
+}
+
+[data-md-color-scheme="default"] .yarn-graph-viewport {
+    background: #ffffff;
+    border: 1px solid #dee2e6;
+}
+
+/* Hide page scroll when fullscreen */
+body.yarn-graph-fullscreen-active {
+    overflow: hidden;
+}

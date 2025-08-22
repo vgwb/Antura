@@ -1,0 +1,29 @@
+title: init
+position: 0,0
+---
+Welcome to Yarn test
+<<jump first_node>>
+===
+title: first_node
+position: 200,0
+---
+FIrst Node of this graph
+-> Second Node
+    <<jump node_2>> 
+-> Third Node
+    <<jump node_3>>
+===
+title: node_2
+position: 200,100
+---
+Second Node of this graph
+
+===
+title: node_3
+position: 200,200
+---
+THird of this graph
+
+===
+
+
