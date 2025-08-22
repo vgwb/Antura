@@ -18,7 +18,6 @@ namespace Antura.Discover
         [SerializeField] private YarnConversationController conversation;
         [SerializeField] private YarnAnturaManager yarnManager;
 
-        public QuestListData Quests;
         public QuestData CurrentQuest;
         public Task[] QuestTasks;
         private Task CurrentTask;
