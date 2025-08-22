@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
 using Yarn.Unity;
+
 namespace Antura.Discover
 {
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
@@ -41,6 +42,7 @@ namespace Antura.Discover
         [Header("DEBUG")]
         public bool DebugQuest = false;
         public string DebugLanguage = "";
+        private bool _debugQuestApplied;
 
         protected override void Init()
         {
@@ -85,7 +87,19 @@ namespace Antura.Discover
 
             // Start the quest's starting node via Yarn (convention: "init")
             yarnManager?.InitNode("init");
+
+            ApplyInteractableDebugLabels(DebugQuest);
         }
+
+        void Update()
+        {
+            if (DebugQuest != _debugQuestApplied)
+            {
+                ApplyInteractableDebugLabels(DebugQuest);
+            }
+        }
+
+
 
         public void OnQuestEnd()
         {
@@ -313,6 +327,33 @@ namespace Antura.Discover
             output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
             output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
             Debug.Log(output);
+        }
+
+        private void ApplyInteractableDebugLabels(bool enable)
+        {
+            _debugQuestApplied = DebugQuest;
+            var interactables = Object.FindObjectsByType<Interactable>(FindObjectsInactive.Include, FindObjectsSortMode.None);
+            foreach (var it in interactables)
+            {
+                if (enable)
+                {
+                    var label = it.GetComponentInChildren<Debugging.InteractableDebugLabel>(true);
+                    if (label == null)
+                    {
+                        var go = new GameObject("_DebugLabel");
+                        go.transform.SetParent(it.transform, false);
+                        label = go.AddComponent<Debugging.InteractableDebugLabel>();
+                    }
+                    label.gameObject.SetActive(true);
+                    label.UpdateText();
+                }
+                else
+                {
+                    var label = it.GetComponentInChildren<Debugging.InteractableDebugLabel>(true);
+                    if (label != null)
+                        label.gameObject.SetActive(false);
+                }
+            }
         }
         #endregion
 

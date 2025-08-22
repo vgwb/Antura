@@ -39,12 +39,10 @@ namespace Antura.Discover
         public bool FocusCameraOnInteract;
 
         [Header("Execute Quest Node")]
-        // public YarnProject yarnProject;
-        // [YarnNode(nameof(yarnProject))]
-        // public string StartNodeId;
 
+        [Tooltip("Dialogue node to start")]
         [SerializeField] DialogueReference DialogueNode = new();
-
+        [Tooltip("If DialogueNode is not set, you can this string to start a dialogue node")]
         public string NodePermalink;
 
         [Header("Execute Quest Actions")]
@@ -59,6 +57,17 @@ namespace Antura.Discover
         public EdLivingLetter LL { get; private set; }
         public Transform LookAtTransform { get; private set; }
         Coroutine coDisableAfterAction;
+
+        // Expose node name for debug visualizations
+        public string DialogueNodeName
+        {
+            get
+            {
+                try
+                { return DialogueNode != null ? DialogueNode.nodeName ?? string.Empty : string.Empty; }
+                catch { return string.Empty; }
+            }
+        }
 
         #region Unity
 
