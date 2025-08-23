@@ -1,6 +1,7 @@
 using Antura.Audio;
 using Antura.Helpers;
 using Antura.Discover.Interaction;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -232,6 +233,21 @@ namespace Antura.Discover
             AudioManager.I.PlaySound(Sfx.Win);
             AnturaDog.SetActive(true);
             QuestManager.I.OnQuestEnd();
+        }
+
+        public CameraFocusData FindCameraFocus(string id, bool includeInactive = true)
+        {
+            Debug.Log("ActionManager: FindCameraFocus: " + id);
+            var items = this.GetComponentsInChildren<CameraFocusData>(includeInactive);
+            Debug.Log("ActionManager: FindCameraFocus: items found " + items.Length);
+            foreach (var it in items)
+            {
+                if (string.Equals(it.Id, id, StringComparison.Ordinal))
+                    return it;
+            }
+            Debug.LogWarning("ActionManager: FindCameraFocus: focus not found for code " + id);
+            return null;
+
         }
 
         #region Debug Methods

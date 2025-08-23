@@ -1227,7 +1227,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   conversation: {fileID: 1017903404427685943}
   yarnManager: {fileID: 7025751871255629625}
-  Quests: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
   CurrentQuest: {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
   QuestTasks:
   - Code: reach_platform
@@ -7894,7 +7893,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 10.2
+      value: 12.58
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -7904,7 +7903,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -18.74
+      value: -18.59
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -9513,7 +9512,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 30.32
+      value: 10.41
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -9523,7 +9522,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -14.38
+      value: -19.64
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -9568,12 +9567,12 @@ PrefabInstance:
     - target: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_Name
-      value: NPC Yarn Card
+      value: NPC Card
       objectReference: {fileID: 0}
     - target: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7628042235357773939, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -9593,12 +9592,23 @@ PrefabInstance:
     - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: NodePermalink
-      value: NPCcard
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 1bb60ef48b2f64a0b9777022755c1877,
+        type: 3}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: test_cards
       objectReference: {fileID: 0}
     - target: {fileID: 8526925139979786431, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}

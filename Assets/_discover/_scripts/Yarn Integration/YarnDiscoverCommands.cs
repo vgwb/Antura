@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
 using Yarn.Unity;
@@ -12,7 +14,7 @@ namespace Antura.Discover
         [YarnCommand("asset")]
         public static void CommandAsset(string assetCode)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
+            //Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
             if (string.IsNullOrEmpty(assetCode))
                 return;
             var db = DatabaseProvider.Instance;
@@ -112,10 +114,8 @@ namespace Antura.Discover
         [YarnCommand("action")]
         public static void CommandAction(string actionCode)
         {
-            Debug.Log($"ActionManager: CommandAction: {actionCode}");
             if (string.IsNullOrEmpty(actionCode))
                 return;
-
             ActionManager.I.ResolveQuestAction(actionCode);
         }
 

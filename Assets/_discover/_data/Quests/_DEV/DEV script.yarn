@@ -56,10 +56,25 @@ position: 240,1
 group: docs
 color: red
 ---
-// adds the item = cardata to the inventory (needs to be collectable!)
-<<inventory id_cardata>> // same as add
-<<inventory id_cardata add>>
-<<inventory id_cardata remove>>
+
+// execute the configured action in the actionManager
+<<action action_id>>
+
+// camera commands
+<<camera_focus palace>>
+<<camera_reset>>
+
+<<card fr_baguette show>>
+// shows the image
+<<asset id_asset>> 
+// hides the current image
+<<asset_hide>>
+
+// adds the item = card to the inventory (needs to be collectable!)
+<<inventory id_card add>>
+<<inventory id_card>> // same as add
+<<inventory id_card remove>>
+
 // launches an activity
 <<activity id_activity_configuration>>
 // starts a task
@@ -67,21 +82,21 @@ color: red
 // end a task... if you say nothing, its a success
 <<task_end id_task_configuration>>
 <<task_end id_task_configuration fail>>
-// or even without the id to end current task
-<<task_end>>
-<<task_end fail>>
-// shows the image
-<<asset id_asset>> 
-// hides the current image
-<<asset_hide>>
-// configured in the actiosManager
-<<action action_id>>
+<<task_end>> // or even without the id to end current task
+
+
 // called to end the current quest
 <<quest_end 3>>
 // called to end the current quest with n (1,2,3) stars!
 // <<quest_end n>>
 // if the quest is not completed
 // <<quest_end fail>>
+
+////// Yarn built-in commands
+<<wait 3>> // waits for 3 seconds
+
+<<stop>> // stops the current dialogue>>
+
 ===
 
 //--------------------------------------------
@@ -148,22 +163,25 @@ An healthy fish!
 <<inventory fr_fish add>>
 
 ===
-title: NPCcard
+title: test_cards
 position: 8,482
-group: cards: 
+group: cards 
 ---
-ora sblocco una carta ok?
+Now i show you some cards
 <<card fr_fish>>
-torna al menù e guarda il book
-e ora la baguette
+go back to the menu and browse the cards
+and now...
 <<card fr_baguette>>
-Buona vera?
+Good, isnt' it?
+<<card_hide>>
 
 ===
 title: camera_test
 position: 316,479
 group: camera 
 ---
+I wait 3 seconds
+<<custom_wait>>
 Now i show you the map of the playgroud
 <<camera_focus map_tutorial>>
 Do you see that point?

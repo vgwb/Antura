@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -56,17 +57,17 @@ namespace Antura.Discover
                 runner.onNodeStart.AddListener(nodeName => { OnNodeStarted?.Invoke(nodeName); presenter?.SetCurrentNodeName(nodeName); });
                 runner.onDialogueComplete.AddListener(() => OnDialogueComplete?.Invoke());
 
-                //Hook command(s) into Yarn
+                //Hook Commands into Yarn
 
-                runner.AddCommandHandler<string>("camera_focus", (arg) =>
-                {
-                    var focus = gameObject.FindCameraFocus(arg);
-                    CameraManager.I.FocusOn(focus.LookAt, focus.Origin);
-                });
-                runner.AddCommandHandler("camera_reset", () =>
-                {
-                    CameraManager.I.ResetFocus();
-                });
+                // runner.AddCommandHandler<string>("camera_focus", (arg) =>
+                // {
+                //     var focus = gameObject.FindCameraFocus(arg);
+                //     CameraManager.I.FocusOn(focus.LookAt, focus.Origin);
+                // });
+                // runner.AddCommandHandler("camera_reset", () =>
+                // {
+                //     CameraManager.I.ResetFocus();
+                // });
             }
 
 
@@ -74,6 +75,43 @@ namespace Antura.Discover
             {
                 presenter.Manager = this;
             }
+        }
+
+        [YarnCommand("custom_wait")]
+        public static IEnumerator CustomWait()
+        {
+            Debug.Log("YarnAnturaManager: CustomWait");
+            // Wait for 1 second
+            yield return new WaitForSeconds(4.0f);
+
+            // Because this method returns IEnumerator, it's a coroutine.
+            // Yarn Spinner will wait until onComplete is called.
+        }
+
+        // CAMERA
+
+        [YarnCommand("camera_focus")]
+        public static IEnumerator CommandCameraFocus(string cameraCode)
+        {
+            Debug.Log("YarnAnturaManager: camera_focus");
+            if (string.IsNullOrEmpty(cameraCode))
+                yield break;
+
+            var focus = ActionManager.I.FindCameraFocus(cameraCode);
+            if (focus != null)
+            {
+                I.StartCoroutine(CameraManager.I.FocusOnFocusData(focus));
+            }
+            else
+            {
+                Debug.LogWarning($"CommandCameraFocus: focus not found for code {cameraCode}");
+            }
+        }
+
+        [YarnCommand("camera_reset")]
+        public static void CommandCameraReset()
+        {
+            CameraManager.I.ResetFocus();
         }
 
         public void Setup(string language = "EN", string native = "EN")

@@ -4,10 +4,10 @@ namespace Antura.Discover {
 
     [System.CodeDom.Compiler.GeneratedCode("YarnSpinner", "3.0.3.0")]
     public partial class YarnVariables : Yarn.Unity.InMemoryVariableStorage, Yarn.Unity.IGeneratedVariableStorage {
-        // Accessor for Bool $met_teacher_1
-        public bool MetTeacher1 {
-            get => this.GetValueOrDefault<bool>("$met_teacher_1");
-            set => this.SetValue<bool>("$met_teacher_1", value);
+        // Accessor for Bool $met_teacher
+        public bool MetTeacher {
+            get => this.GetValueOrDefault<bool>("$met_teacher");
+            set => this.SetValue<bool>("$met_teacher", value);
         }
 
         // Accessor for Bool $got_hint

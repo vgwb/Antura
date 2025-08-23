@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.DeInspektor.Attributes;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 namespace Antura.Discover
 {
@@ -86,8 +87,10 @@ namespace Antura.Discover
 
         void UpdateDialogue()
         {
-            if (Input.GetKeyDown(KeyCode.Escape)) ExitDialogue();
-            if (IsUsingFocusView && Input.GetMouseButtonDown(0)) ResetCameraFocus();
+            if (Input.GetKeyDown(KeyCode.Escape))
+                ExitDialogue();
+            if (IsUsingFocusView && Input.GetMouseButtonDown(0))
+                ResetCameraFocus();
         }
 
         #endregion
@@ -109,8 +112,9 @@ namespace Antura.Discover
         /// </summary>
         public void ResetCameraFocus()
         {
-            if (!IsUsingFocusView) return;
-            
+            if (!IsUsingFocusView)
+                return;
+
             CameraManager.I.ResetFocus();
             UIManager.I.gameObject.SetActive(true);
         }
@@ -130,13 +134,16 @@ namespace Antura.Discover
         /// </summary>
         public void ShowPreviewSignalFor(Interactable interactable, bool show)
         {
-            if (show || UIManager.I != null) UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
+            if (show || UIManager.I != null)
+                UIManager.I.dialogues.ShowPreviewSignalFor(interactable, show);
         }
 
         public void ForceNearbyInteractableTo(Interactable interactable)
         {
-            if (NearbyInteractable != interactable) SetNearbyInteractableTo(interactable);
-            if (!allNearbyInteractables.Contains(interactable)) allNearbyInteractables.Add(interactable);
+            if (NearbyInteractable != interactable)
+                SetNearbyInteractableTo(interactable);
+            if (!allNearbyInteractables.Contains(interactable))
+                allNearbyInteractables.Add(interactable);
         }
 
         #endregion
@@ -146,15 +153,18 @@ namespace Antura.Discover
         void Act()
         {
             LastActionFrame = Time.frameCount;
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount) ResetCameraFocus();
-            if (DiscoverGameManager.I.State != GameplayState.Play3D) return;
+            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
+                ResetCameraFocus();
+            if (DiscoverGameManager.I.State != GameplayState.Play3D)
+                return;
 
             // Debug.Log("InteractionManager: Act() called + " + HasValidNearbyInteractable);
 
             if (HasValidNearbyInteractable)
             {
                 QuestNode questNode = NearbyInteractable.Execute();
-                if (questNode != null) this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
+                if (questNode != null)
+                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
             }
         }
 

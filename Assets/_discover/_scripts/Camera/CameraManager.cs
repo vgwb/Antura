@@ -1,4 +1,6 @@
-﻿using Unity.Cinemachine;
+﻿using System;
+using System.Collections;
+using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
 using UnityEngine;
@@ -12,7 +14,7 @@ namespace Antura.Discover
 
         /// <summary>After reaching min zoom level it switches to map view</summary>
         [DeRange(-5, 0)]
-        [SerializeField] Range minMaxPlayerZoomLevel = new Range(-2, 0);
+        [SerializeField] DG.DemiLib.Range minMaxPlayerZoomLevel = new DG.DemiLib.Range(-2, 0);
         [Range(0.1f, 10)]
         [SerializeField] float zoomTick = 2;
         [Range(0, 0.5f)]
@@ -135,8 +137,9 @@ namespace Antura.Discover
         /// Focuses the camera to look at a specific target and with an optional specific origin.
         /// Only call this during dialogues
         /// </summary>
-        public void FocusOn(Transform lookAtTarget, Transform origin = null)
+        public IEnumerator FocusOn(Transform lookAtTarget, Transform origin = null)
         {
+            Debug.Log("CameraManager: FocusOn: " + (lookAtTarget != null ? lookAtTarget.name : "null") + ", origin: " + (origin != null ? origin.name : "null"));
             Vector3 toCamPos = dialogueCam.CineMain.transform.position;
             if (origin != null)
                 toCamPos = origin.position;
@@ -145,6 +148,25 @@ namespace Antura.Discover
             focusCam.CineMain.transform.position = toCamPos;
             focusCam.SetTarget(lookAtTarget);
             ChangeCameraMode(CameraMode.Focus);
+            yield break;
+        }
+
+        /// <summary>
+        /// Focuses the camera to look at a specific target and with an optional specific origin.
+        /// Only call this during dialogues
+        /// </summary>
+        public IEnumerator FocusOnFocusData(CameraFocusData focusData)
+        {
+            // Debug.Log("CameraManager: FocusOn: " + (lookAtTarget != null ? lookAtTarget.name : "null") + ", origin: " + (origin != null ? origin.name : "null"));
+            // Vector3 toCamPos = dialogueCam.CineMain.transform.position;
+            // if (origin != null)
+            //     toCamPos = origin.position;
+            // else
+            //     toCamPos.y += focusCam.YOffset;
+            // focusCam.CineMain.transform.position = toCamPos;
+            // focusCam.SetTarget(lookAtTarget);
+            // ChangeCameraMode(CameraMode.Focus);
+            yield break;
         }
 
         /// <summary>
