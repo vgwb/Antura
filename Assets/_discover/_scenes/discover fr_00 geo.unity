@@ -286,7 +286,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -7.3806596
+      value: -7.376624
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -296,7 +296,7 @@ PrefabInstance:
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 8.413694
+      value: 8.402658
       objectReference: {fileID: 0}
     - target: {fileID: 8857367647254540548, guid: 517d2acc735dd5b4683a252a2b4fe05c,
         type: 3}
@@ -789,74 +789,6 @@ Mesh:
     offset: 0
     size: 0
     path: 
---- !u!1001 &1815426367
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -10.292775
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.030799866
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 8.100349
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4871922221571636493, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7755771273288260497, guid: 080c1c88d3a34374eb24c83c81c88d69,
-        type: 3}
-      propertyPath: m_Name
-      value: Flag_France
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 080c1c88d3a34374eb24c83c81c88d69, type: 3}
 --- !u!1 &1919941584
 GameObject:
   m_ObjectHideFlags: 0
@@ -1212,11 +1144,15 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 3612596625927625771, guid: db7a1b11754d7fe41b12843ae217b570,
+    - targetCorrespondingSourceObject: {fileID: 4711184856617975949, guid: db7a1b11754d7fe41b12843ae217b570,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
-    - targetCorrespondingSourceObject: {fileID: 7731180876393916913, guid: db7a1b11754d7fe41b12843ae217b570,
+    - targetCorrespondingSourceObject: {fileID: 3280181778350844627, guid: db7a1b11754d7fe41b12843ae217b570,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7540818764808568700, guid: db7a1b11754d7fe41b12843ae217b570,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1452,15 +1388,52 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 24.07
       objectReference: {fileID: 0}
+    - target: {fileID: 396737380262948626, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 396737380262948626, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_belgium
+      objectReference: {fileID: 0}
     - target: {fileID: 436370118392580560, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 1716247249}
+    - target: {fileID: 567023007132855512, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.635448
+      objectReference: {fileID: 0}
+    - target: {fileID: 567023007132855512, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 567023007132855512, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.554062
+      objectReference: {fileID: 0}
     - target: {fileID: 764178254616694075, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 764178254616694075, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 764178254616694075, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: spain_npc
       objectReference: {fileID: 0}
     - target: {fileID: 988528802714430239, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1512,10 +1485,36 @@ PrefabInstance:
       propertyPath: m_VersionIndex
       value: 16257
       objectReference: {fileID: 0}
+    - target: {fileID: 1281272128767201224, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 1281272128767201224, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_switzerland
+      objectReference: {fileID: 0}
     - target: {fileID: 1289734648505485946, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412152082325474306, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -17.855133
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412152082325474306, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1412152082325474306, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 32.59333
       objectReference: {fileID: 0}
     - target: {fileID: 1942453240855190248, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1527,6 +1526,23 @@ PrefabInstance:
       propertyPath: IsInteractable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1942453240855190248, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 1942453240855190248, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: france_npc
+      objectReference: {fileID: 0}
+    - target: {fileID: 2734105634495511862, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
     - target: {fileID: 2817578543430631102, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1547,6 +1563,21 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 32.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3228111830384485191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.043774
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228111830384485191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3228111830384485191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 33.65827
+      objectReference: {fileID: 0}
     - target: {fileID: 3403625381810231500, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_SizeDelta.y
@@ -1561,6 +1592,17 @@ PrefabInstance:
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3483819750767857481, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 3483819750767857481, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: andorra
       objectReference: {fileID: 0}
     - target: {fileID: 3496489910987613835, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1657,6 +1699,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 37.925003
       objectReference: {fileID: 0}
+    - target: {fileID: 4239304273305403479, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 4239304273305403479, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_italy
+      objectReference: {fileID: 0}
     - target: {fileID: 4441838599188396191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: NodePermalink
@@ -1666,6 +1719,17 @@ PrefabInstance:
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4441838599188396191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 4441838599188396191, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: npc_swiss
       objectReference: {fileID: 0}
     - target: {fileID: 4457519976109049178, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1682,6 +1746,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: fr_100 geo quest
       objectReference: {fileID: 0}
+    - target: {fileID: 5028710619144132298, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 5028710619144132298, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_lux
+      objectReference: {fileID: 0}
     - target: {fileID: 5124046294677926112, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1691,6 +1766,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 28.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312125088900707588, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -16.87
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312125088900707588, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5312125088900707588, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.09
       objectReference: {fileID: 0}
     - target: {fileID: 5495411630473737858, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1757,6 +1847,17 @@ PrefabInstance:
       propertyPath: m_Mesh
       value: 
       objectReference: {fileID: 827623161}
+    - target: {fileID: 5660834234188602058, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 5660834234188602058, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_germany
+      objectReference: {fileID: 0}
     - target: {fileID: 5752542912331189152, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: NodePermalink
@@ -1766,6 +1867,17 @@ PrefabInstance:
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5752542912331189152, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 5752542912331189152, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: belgium_npc
       objectReference: {fileID: 0}
     - target: {fileID: 5857350545571761121, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1787,6 +1899,47 @@ PrefabInstance:
       propertyPath: IsInteractable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5901655299274810644, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 5901655299274810644, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: germany_npc
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039353453891139034, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -14.113403
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039353453891139034, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6039353453891139034, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 26.19487
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383523595503090138, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -12.826756
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383523595503090138, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6383523595503090138, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 30.195862
+      objectReference: {fileID: 0}
     - target: {fileID: 6686780753170900989, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1807,6 +1960,17 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 25.919998
       objectReference: {fileID: 0}
+    - target: {fileID: 6891056920581002772, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 6891056920581002772, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_france
+      objectReference: {fileID: 0}
     - target: {fileID: 6952189151507706856, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: NodePermalink
@@ -1817,6 +1981,17 @@ PrefabInstance:
       propertyPath: IsInteractable
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6952189151507706856, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 6952189151507706856, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: luxembourg_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 6999369548426150827, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: NodePermalink
@@ -1826,6 +2001,17 @@ PrefabInstance:
         type: 3}
       propertyPath: IsInteractable
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6999369548426150827, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 6999369548426150827, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: monaco
       objectReference: {fileID: 0}
     - target: {fileID: 7360438461738453996, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1845,7 +2031,7 @@ PrefabInstance:
     - target: {fileID: 7621270716865817259, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 16429
+      value: 16513
       objectReference: {fileID: 0}
     - target: {fileID: 7662735961942076353, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1856,6 +2042,17 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 31.07
+      objectReference: {fileID: 0}
+    - target: {fileID: 7764628773408737389, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 51cac06ffec0e469bbefd6ea30655472,
+        type: 3}
+    - target: {fileID: 7764628773408737389, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_spain
       objectReference: {fileID: 0}
     - target: {fileID: 7784491843455582530, guid: 34b272fd7c23e4f07a0529fbc70c7309,
         type: 3}
@@ -1913,8 +2110,24 @@ PrefabInstance:
       propertyPath: m_Name
       value: _NPC Luxembourg
       objectReference: {fileID: 0}
+    - target: {fileID: 9068005438173850493, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -11.503862
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068005438173850493, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9068005438173850493, guid: 34b272fd7c23e4f07a0529fbc70c7309,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 29.69246
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
-    m_RemovedGameObjects: []
+    m_RemovedGameObjects:
+    - {fileID: 8008182336362534524, guid: 34b272fd7c23e4f07a0529fbc70c7309, type: 3}
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 5306534111681481638, guid: 34b272fd7c23e4f07a0529fbc70c7309,
@@ -1969,4 +2182,3 @@ SceneRoots:
   - {fileID: 1491441772}
   - {fileID: 1329439153}
   - {fileID: 9101137797113012428}
-  - {fileID: 1815426367}

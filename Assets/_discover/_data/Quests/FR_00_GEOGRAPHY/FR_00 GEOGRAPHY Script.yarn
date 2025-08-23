@@ -41,8 +41,9 @@ color: blue
 group: france
 tags: actor=KID_FEMALE
 ---
-<<if $CURRENT_ITEM == "flag_france">>
+<<if $CURRENT_ITEM == "flag_of_france">>
     Yes, that is my flag! Merci!
+    <<inventory flag_of_france remove>>
     <<task_start completed>>
     <<set $france_completed = true>>
     <<set $CURRENT_ITEM = "">>
@@ -68,7 +69,7 @@ group: france
 tags: task
 ---
 <<if $EASY_MODE == true>>
-        <<asset flag_france>>
+        <<asset flag_of_france>>
 <<endif>>
 Find the French flag.
 <<task_start FIND_FRENCH_FLAG>>
@@ -80,7 +81,9 @@ group: france
 color: yellow
 tags: actor=TUTOR, asset=flag_france
 ---
+<<card  flag_of_france>>
 TUTOR: Flag of France.
+<<inventory flag_of_france add>>
 ===
 
 //--------------------------------------------
@@ -99,13 +102,15 @@ tags: actor=MAN
     Thank you for helping me!
     Berlin is the capital of Germany.
 <<elseif $germany_met>>
-    <<if $CURRENT_ITEM == "flag_germany">>
+    Choose the black, red and yellow horizontal flag.
+    <<inventory select flag>>
+    <<if $CURRENT_ITEM == "flag_of_germany">>
         Danke! That is my flag!
-        <<action REMOVE_GERMANY_FLAG>>
+        <<inventory flag_of_germany remove>>
         <<task_end germany>>
         <<set $germany_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
-    MAN: Nein! Our flag has horizontal stripes of black, red, and yellow.
+    MAN: Our flag has horizontal stripes of black, red, and yellow.
     <<else>>
         <<jump task_germany>>
     <<endif>>
@@ -145,9 +150,9 @@ tags:
     Thank you!
     The most important cities in Spain are Madrid and Barcelona.
 <<elseif $spain_met>>
-    <<if $CURRENT_ITEM == "flag_spain">>
+    <<if $CURRENT_ITEM == "flag_of_spain">>
         Gracias!
-        <<action REMOVE_SPAIN_FLAG>>
+        <<inventory flag_of_spain add>>
         <<task_end spain>>
         <<set $spain_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
@@ -190,9 +195,9 @@ tags: actor=KID_MALE
     <<asset flag_of_italy>>
     Thank you! Our capital is Rome!
 <<elseif $italy_met>>
-    <<if $CURRENT_ITEM == "flag_italy">>
+    <<if $CURRENT_ITEM == "flag_of_italy">>
         Grazie! That's my flag!
-        <<action REMOVE_ITALY_FLAG>>
+        <<inventory flag_of_italy remove>>
         <<task_end italy>>
         <<set $italy_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
@@ -235,9 +240,9 @@ tags: actor=OLD_WOMAN
     Thank you for helping us!
     Brussels is the capital of Belgium.
 <<elseif $belgium_met>>
-    <<if $CURRENT_ITEM == "flag_belgium">>
+    <<if $CURRENT_ITEM == "flag_of_belgium">>
         Thank you, my beautiful flag is back!
-        <<action REMOVE_BELGIUM_FLAG>>
+        <<inventory flag_of_belgium remove>>
         <<task_end belgium>>
         <<set $belgium_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
@@ -274,6 +279,7 @@ tags: actor=TUTOR
 ---
 <<card flag_of_belgium>>
 TUTOR: Flag of Belgium.
+<<inventory flag_of_belgium add>>
 ===
 
 //--------------------------------------------
@@ -287,12 +293,12 @@ color: blue
 tags: actor=OLD_MAN
 ---
 <<if $lux_completed>>
-    <<asset flag_of_lux>>
+    <<asset flag_of_luxembourg>>
     Thank you for helping us!
 <<elseif $lux_met>>
-    <<if $CURRENT_ITEM == "flag_lux">>
+    <<if $CURRENT_ITEM == "flag_of_luxembourg">>
         Thank you! That is my flag.
-        <<action REMOVE_LUX_FLAG>>
+        <<inventory flag_of_luxembourg add>>
         <<task_end lux>>
         <<set $lux_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
@@ -330,7 +336,7 @@ tags: actor=TUTOR
 ---
 <<card flag_of_luxembourg>>
 TUTOR: Flag of Luxembourg.
-.
+<<inventory flag_of_luxembour add>>
 ===
 
 //--------------------------------------------
@@ -348,9 +354,9 @@ tags: actor=CRAZY_WOMAN
     Thank you for helping us!
     The capital of Switzerland is Bern!
 <<elseif $swiss_met>>
-    <<if $CURRENT_ITEM == "flag_swiss">>
+    <<if $CURRENT_ITEM == "flag_of_swiss">>
         Thank you for bringing my flag back!
-        <<action REMOVE_SWISS_FLAG>>
+        <<inventory flag_of_swiss remove>>
         <<task_end swiss>>
         <<set $swiss_completed = true>>
     <<elseif $CURRENT_ITEM != "">>
@@ -423,35 +429,39 @@ tags: actor=TUTOR
 ---
 <<card  flag_of_spain>>
 TUTOR: Flag of Spain
+<<inventory flag_of_spain add>>
 ===
 
 title: item_flag_germany
-position: 1164,-221
+position: 1179,-219
 group: germany
 color: yellow
 tags: actor=TUTOR
 ---
 <<card  flag_of_germany>>
 TUTOR: Flag of Germany.
+<<inventory flag_of_germany add>>
 ===
 
 title: item_flag_italy
-position: 1176,-787
+position: 1177,-788
 group: italy
 color: yellow
 tags: actor=TUTOR
 ---
-<<card flag_italy>>
+<<card flag_of_italy>>
 TUTOR: Flag of Italy.
+<<inventory flag_of_italy add>>
 ===
 
 title: item_flag_switzerland
-position: 1198,330
+position: 1196,330
 group: swiss
 color: yellow
 tags: actor=TUTOR
 ---
-<<card  flag_swiss>>
+<<card  flag_of_swiss>>
 TUTOR: Flag of Switzerland.
+<<inventory flag_of_swiss add>>
 ===
 
