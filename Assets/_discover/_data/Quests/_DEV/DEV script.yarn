@@ -209,6 +209,26 @@ Do you want to open the Chest? #line:03cae39
 <<action stop_elevator>>
 ===
 
+title: test_task
+position: 18,1624
+tags:
+group: tasks
+color: green
+---
+Collect 5 flowers! #line:0464331 
+<<task_start collect_flowers test_task_done>>
+===
+
+title: test_task_done
+position: 18,1624
+tags:
+group: tasks
+color: green
+---
+Well done! You collected 5 flowers!
+===
+
+
 title: item_chest
 position: 13,1365
 tags: actor=TUTOR
@@ -423,14 +443,5 @@ TUTOR: Play with money #line:076a9a4
 
 
 
-title: task_collect_flowers
-position: 18,1624
-tags: actor=KID_FEMALE
-group: tasks
-color: green
----
-Collect 5 flowers! #line:0464331 
-<<task_start COLLECT_FLOWERS>>
-===
 
 

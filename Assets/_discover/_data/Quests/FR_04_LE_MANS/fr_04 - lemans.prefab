@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2519344455256515021}
-  - component: {fileID: 4303202994655088533}
   - component: {fileID: 2423753823504118494}
+  - component: {fileID: 4303202994655088533}
   m_Layer: 0
-  m_Name: FR_04 - lemans
+  m_Name: fr_04 - lemans
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -36,6 +36,24 @@ Transform:
   - {fileID: 43274758504236630}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2423753823504118494
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4017108264321078535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CurrentQuest: {fileID: 11400000, guid: 87c4b293c451e4264b7f3305999ff0da, type: 2}
+  DebugQuest: 0
+  DebugLanguage: 
+  EasyMode: 0
+  LanguageCode: 
+  NativeLanguageCode: 
 --- !u!114 &4303202994655088533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,36 +67,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
-  PlayerSpawnPoint: {fileID: 0}
   QuestActions: []
-  Actions: []
+  Tasks: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
---- !u!114 &2423753823504118494
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4017108264321078535}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  conversation: {fileID: 0}
-  yarnManager: {fileID: 0}
-  Quests: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
-  CurrentQuest: {fileID: 11400000, guid: 87c4b293c451e4264b7f3305999ff0da, type: 2}
-  QuestTasks: []
-  EasyMode: 0
-  LanguageCode: 
-  NativeLanguageCode: 
-  total_coins: 0
-  total_bones: 0
-  collected_items: 0
-  DebugQuest: 0
-  DebugLanguage: 
 --- !u!1001 &4984320971931362908
 PrefabInstance:
   m_ObjectHideFlags: 0

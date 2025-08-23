@@ -3,20 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Tables;
 using Yarn.Unity;
 
 namespace Antura.Discover
 {
-    [System.Serializable]
-    public class AuthorCredit
-    {
-        public AuthorData Author;
-        public bool Content;
-        public bool Design;
-        public bool Development;
-        public bool Validation;
-    }
-
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
     public class QuestData : IdentifiedData
     {
@@ -100,10 +91,17 @@ namespace Antura.Discover
         public List<AuthorCredit> Credits;
 
         [Header("Unity References and Prefabs")]
-        public string assetsFolder;
-        public string scene;
         public GameObject WorldPrefab;
         public GameObject QuestPrefab;
+
+        public WorldController WorldControllerPrefab;
+
+        public string assetsFolder;
+        public string scene;
+
+        [Header("Localization")]
+        [Tooltip("String Table Collection used by Yarn's Localized Line Provider for this quest.")]
+        public TableReference YarnStringTable;
 
         // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
         public int GetBestStars()

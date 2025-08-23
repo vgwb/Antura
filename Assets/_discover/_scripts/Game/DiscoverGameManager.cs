@@ -19,6 +19,18 @@ namespace Antura.Discover
 
     public class DiscoverGameManager : SingletonMonoBehaviour<DiscoverGameManager>
     {
+        [Header("Quest")]
+        [Tooltip("Quest to load at startup (optional)")]
+        public QuestData StartingQuest;
+
+        [Header("Managers (optional)")]
+        [SerializeField] private QuestManager questManager;
+        [SerializeField] private TaskManager taskManager;
+        [SerializeField] private YarnAnturaManager yarnAnturaManager;
+        [SerializeField] private YarnConversationController yarnConversationController;
+        [SerializeField] private ActionManager actionManager;
+
+        [Header("Readonly")]
         public GameplayState State { get; private set; }
         /// <summary>Last play state (used to know to which play state to return after a dialogue/etc. state)</summary>
         public GameplayState LastPlayState { get; private set; }
@@ -30,6 +42,37 @@ namespace Antura.Discover
         IEnumerator Start()
         {
             State = GameplayState.None;
+
+            // Ensure references
+            if (!questManager)
+                questManager = FindFirstObjectByType<QuestManager>(FindObjectsInactive.Include);
+            if (!actionManager)
+                actionManager = FindFirstObjectByType<ActionManager>(FindObjectsInactive.Include);
+            if (!taskManager)
+                taskManager = FindFirstObjectByType<TaskManager>(FindObjectsInactive.Include);
+            if (!yarnAnturaManager)
+                yarnAnturaManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+            if (!yarnConversationController)
+                yarnConversationController = FindFirstObjectByType<YarnConversationController>(FindObjectsInactive.Include);
+
+            // Determine quest to use: prefer prefab-assigned QuestManager.CurrentQuest, otherwise StartingQuest
+            if (questManager != null)
+            {
+                var questToUse = questManager.CurrentQuest != null ? questManager.CurrentQuest : StartingQuest;
+                if (questToUse != null)
+                {
+                    questManager.CurrentQuest = questToUse;
+                    if (yarnAnturaManager != null)
+                    {
+                        // Initialize DialogueRunner with project and string table
+                        if (yarnAnturaManager.Runner != null)
+                        {
+                            yarnAnturaManager.Runner.SetProject(questToUse.YarnProject);
+                        }
+                        yarnAnturaManager.ApplyStringTableFromCurrentQuest();
+                    }
+                }
+            }
 
             yield return new WaitForSeconds(0.5f);
 
@@ -59,21 +102,15 @@ namespace Antura.Discover
             }
 
             // Store last play state
-            switch (newState)
+            bool newIsPlay = newState == GameplayState.Play3D || newState == GameplayState.PlayActivity;
+            bool currIsPlay = State == GameplayState.Play3D || State == GameplayState.PlayActivity;
+            if (newIsPlay)
             {
-                case GameplayState.Play3D:
-                case GameplayState.PlayActivity:
-                    LastPlayState = newState;
-                    break;
-                default:
-                    switch (State)
-                    {
-                        case GameplayState.Play3D:
-                        case GameplayState.PlayActivity:
-                            LastPlayState = State;
-                            break;
-                    }
-                    break;
+                LastPlayState = newState;
+            }
+            else if (currIsPlay)
+            {
+                LastPlayState = State;
             }
 
             State = newState;

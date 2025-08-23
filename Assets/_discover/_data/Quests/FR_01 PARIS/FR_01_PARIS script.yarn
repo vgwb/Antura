@@ -22,7 +22,7 @@ title: start
 position: -301,-268
 tags: NEXTTARGET=TUTOR
 ---
-Welcome to Paris!
+Welcome to Paris! #line:09aa220 
 ===
 
 
@@ -31,10 +31,10 @@ title: talk_tutor
 position: 17,-670
 actor: tutor
 ---
-TUTOR: I saw Antura going to the Eiffel Tower.
+TUTOR: I saw Antura going to the Eiffel Tower. #line:0bac9f3 
 <<camera_focus tour_eiffell>>
-If you don't know where to go, follow the light beam in the sky or use the map!
-Get there as soon as possible!
+If you don't know where to go, follow the light beam in the sky or use the map! #line:00a34b2 
+Get there as soon as possible! #line:0bddbba 
 ===
 
 
@@ -46,13 +46,13 @@ group: louvre
     <<jump go_bakery>>
 <<else>>
 <<asset louvre>>
-OLD_WOMAN: This is the entrance to the Louvre, our national art museum.
-OLD_WOMAN: Do you want to enter?
--> Yes:
-    Enjoy your visit!
+OLD_WOMAN: This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
+OLD_WOMAN: Do you want to enter? #line:0f74ff9 
+-> Yes: #line:090114f 
+    Enjoy your visit! #line:056e051 
     <<action AREA_LOUVRE_ENTER >>
--> No:
-    Okay.
+-> No: #line:077422a 
+    Okay. #line:0c28ea0 
 <<endif>>
 ===
 
@@ -62,14 +62,14 @@ group: toureiffel
 tags: actorUID=GUIDE
 ---
 <<asset  toureiffell>>
-GUIDE: The Eiffel Tower is 300 meters tall.
+GUIDE: The Eiffel Tower is 300 meters tall. #line:08c1973 
 <<asset mr_eiffel>>
-GUIDE: Built by Mr Eiffel in 1887.
+GUIDE: Built by Mr Eiffel in 1887. #line:09e5c3b 
 <<asset iron>>
-GUIDE: It's made of iron!
-GUIDE: I saw Antura going towards Notre Dame.
+GUIDE: It's made of iron! #line:0d59ade 
+GUIDE: I saw Antura going towards Notre Dame. #line:04d1e52 
 <<camera_focus notredame>>
-GUIDE: Get there!
+GUIDE: Get there! #line:083b3bf 
 
 ===
 
@@ -79,18 +79,18 @@ position: 311,-447
 group: toureiffel
 ---
 <<if $TOTAL_COINS > 2>>
-    Here is your ticket.
+    Here is your ticket. #line:04e74ad 
     <<asset tour_eiffell_ticket>>
     <<set $TOTAL_COINS = $TOTAL_COINS-3>>
     
     <<action  area_toureiffel>>
     <<asset tour_eiffell_map>>
-    I saw Antura going up to the top of the tower.
-    Take the elevator!
+    I saw Antura going up to the top of the tower. #line:089abda 
+    Take the elevator! #line:0585a5e 
 <<elseif $TOTAL_COINS > 0>> 
-    TUTOR: Collect all coins!
+    TUTOR: Collect all coins! #line:04d966b 
 <<else>>
-    GUIDE: Hello. The ticket for the Eiffel Tower costs 3 coins.
+    GUIDE: Hello. The ticket for the Eiffel Tower costs 3 coins. #line:069cbb3 
 <<endif>>
 ===
 
@@ -99,12 +99,12 @@ position: 54,-207
 group: notredame
 tags: actorUID=OLD_MAN, asset=notredame
 ---
-OLD_MAN: I'm the Mayor of Paris.
-OLD_MAN: This is Notre-Dame Cathedral.
+OLD_MAN: I'm the Mayor of Paris. #line:0cc11fa 
+OLD_MAN: This is Notre-Dame Cathedral. #line:06f3fa2 
 <<asset notredame>>
-OLD_MAN: It is a famous Gothic church, built in 1182.
+OLD_MAN: It is a famous Gothic church, built in 1182. #line:02edc0f 
 <<action AREA_NOTREDAME_ROOF>>
-OLD_MAN: Come with me up to the roof of the church!
+OLD_MAN: Come with me up to the roof of the church! #line:083dfcc 
 <<set $MET_MAJOR = true>>
 ===
 
@@ -113,17 +113,17 @@ position: 76,972
 group: bakery
 ---
 <<if $COLLECTED_ITEMS >= 4>>
-    CRAZY_MAN: GREAT! I can now bake the Baguette. And...
-    CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it?
+    CRAZY_MAN: GREAT! I can now bake the Baguette. And... #line:0017917 
+    CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it? #line:0d11596 
     <<quest_end 3>>
 <<else>>
-    Help me! Antura made a mess in my kitchen!
-    I can't find the ingredients to make the baguette.
+    Help me! Antura made a mess in my kitchen! #line:07bbb10 
+    I can't find the ingredients to make the baguette. #line:09e867c 
     <<asset  baguette>>
-    Our special French bread!
+    Our special French bread! #line:0874503 
     <<set $QUEST_ITEMS = 4>>
-    Please bring me 4 ingredients:
-    flour, water, yeast, and salt.
+    Please bring me 4 ingredients: #line:07d64c7 
+    flour, water, yeast, and salt. #line:0c01530 
 <<endif>>
 
 ===
@@ -134,7 +134,7 @@ group: louvre
 tags: actorUID=CRAZY_WOMAN
 ---
 <<asset louvre_inside>>
-CRAZY_WOMAN: You can find many sculptures and paintings.
+CRAZY_WOMAN: You can find many sculptures and paintings. #line:08dc97f 
 <<jump find_monalisa>>
 ===
 
@@ -145,7 +145,7 @@ tags: actorUID=CRAZY_WOMAN
 ---
 
 <<action monalisa>>
-CRAZY_WOMAN: Go and find the Mona Lisa!
+CRAZY_WOMAN: Go and find the Mona Lisa! #line:0442392 
 ===
 
 title: go_bakery
@@ -154,8 +154,8 @@ group: louvre
 tags: actorUID=OLD_WOMAN
 ---
  
-OLD_WOMAN: Now look for Antura! I think it went to the bakery for a baguette!
-OLD_WOMAN: Hurry up!
+OLD_WOMAN: Now look for Antura! I think it went to the bakery for a baguette! #line:076ef0f 
+OLD_WOMAN: Hurry up! #line:0e9c3e7 
 ===
 
 title: baguette_salt
@@ -166,7 +166,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_1>>
 <<asset baguette_salt>>
-CRAZY_MAN: This is salt.
+CRAZY_MAN: This is salt. #line:00f1d2f 
 ===
 title: baguette_flour
 position: 822,1161
@@ -176,7 +176,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<asset baguette_flour>>
 <<action COLLECT_2>>
-CRAZY_MAN: This is flour.
+CRAZY_MAN: This is flour. #line:06022b0 
 ===
 
 
@@ -188,7 +188,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_3>>
 <<asset baguette_water>>
-CRAZY_MAN: This is water.
+CRAZY_MAN: This is water. #line:0c4d1f6 
 ===
 
 title: baguette_yeast
@@ -199,7 +199,7 @@ tags: actorUID=CRAZY_MAN
 ---
 <<action COLLECT_4>>
 <<asset baguette_yeast>>
-CRAZY_MAN: This is yeast.
+CRAZY_MAN: This is yeast. #line:025865d 
 ===
 
 title: talk_notre_dame_roof
@@ -208,10 +208,10 @@ group: notredame
 tags: actorUID=OLD_MAN
 ---
 <<asset notredame_fire>>
-OLD_MAN: There was a big fire in 2019, but we could repair it.
+OLD_MAN: There was a big fire in 2019, but we could repair it. #line:09a0ead 
  
-I saw Antura run into the Louvre Museum.
-It is just across the River Seine.
+I saw Antura run into the Louvre Museum. #line:02ba888 
+It is just across the River Seine. #line:00d22e5 
 ===
 
 
@@ -221,13 +221,13 @@ group: louvre
 tags: actorUID=CRAZY_WOMAN, type=Choice
 color: blue
 ---
-CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want to do?
--> Tell me about the Louvre
+CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want to do? #line:0e6d2a5 
+-> Tell me about the Louvre #line:0a5fc63 
     <<jump visit_louvre>>
--> Exit
+-> Exit #line:0efc18f 
     <<if $MET_MONALISA>>
         <<action AREA_LOUVRE_EXIT>>
-        Come back!    
+        Come back!     #line:07dd921 
     <<else>>
         <<jump find_monalisa>>
     <<endif>>
@@ -240,10 +240,10 @@ color: yellow
 tags: actorUID=CRAZY_WOMAN
 ---
 <<asset monalisa>>
-CRAZY_WOMAN: This is the famous Mona Lisa.
+CRAZY_WOMAN: This is the famous Mona Lisa. #line:00187e9 
 <<set $MET_MONALISA = true>>
 <<asset leaonardodavinci>>
-CRAZY_WOMAN: It was painted around 1500 by the artist and scientist Leonardo da Vinci.
+CRAZY_WOMAN: It was painted around 1500 by the artist and scientist Leonardo da Vinci. #line:0a21eeb 
 
 ===
 
@@ -254,7 +254,7 @@ color: yellow
 tags: actorUID=CRAZY_WOMAN, 
 ---
 <<asset liberty_leading>>
-CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents freedom.
+CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents freedom. #line:0e05d56 
 ===
 
 title: louvre_venus
@@ -264,7 +264,7 @@ color: yellow
 tags: actorUID=CRAZY_WOMAN, 
 ---
 <<asset venusmilo>>
-CRAZY_WOMAN: The Venus de Milo, an ancient Greek marble sculpture.
+CRAZY_WOMAN: The Venus de Milo, an ancient Greek marble sculpture. #line:053d4fe 
 ===
 
 title: npc_woman
@@ -272,16 +272,16 @@ position: -626,-94
 tags: actorUID=WOMAN
 color: purple
 ---
-WOMAN: Ciao. What do you want to know?
--> What is the Eiffel Tower?
-    The famous iron tower, 300 meters tall.
-    The symbol of Paris!
--> Where are we?
-    We are in Paris, the city of love!
--> Is this place real?
-    Sure! Why are you asking?
-    Well... it looks like a video game, doesn't it?
--> Nothing. Bye.
+WOMAN: Ciao. What do you want to know? #line:0070084 
+-> What is the Eiffel Tower? #line:0d91dc0 
+    The famous iron tower, 300 meters tall. #line:0f17af0 
+    The symbol of Paris! #line:07a113f 
+-> Where are we? #line:09dd1da 
+    We are in Paris, the city of love! #line:02b627d 
+-> Is this place real? #line:08bede4 
+    Sure! Why are you asking? #line:08654e6 
+    Well... it looks like a video game, doesn't it? #line:0bc62a3 
+-> Nothing. Bye. #line:0fe0732 
 ===
 
 
@@ -290,17 +290,17 @@ position: -628,-253
 tags: actorUID=MAN
 color: purple
 ---
-MAN: Do you have any questions?
--> Have you seen Antura?
-    => Yes! Talk to everybody and follow the lights!
-    => No. Who is Antura?
--> What are you doing?
-    => I'm going to work!
-    => I'm going to buy bread at the bakery.
--> Where do you come from?
-    => I wasn't born in this country.
-    => From planet Earth.
--> Goodbye
+MAN: Do you have any questions? #line:07b94e9 
+-> Have you seen Antura? #line:0f18ad3 
+    => Yes! Talk to everybody and follow the lights! #line:0cf9b4e 
+    => No. Who is Antura? #line:0f9dd62 
+-> What are you doing? #line:002796f 
+    => I'm going to work! #line:0fe4ff4 
+    => I'm going to buy bread at the bakery. #line:05a38a8 
+-> Where do you come from? #line:05eabcf 
+    => I wasn't born in this country. #line:0635a6a 
+    => From planet Earth. #line:0749690 
+-> Goodbye #line:0ee51fc 
 ===
 
 
@@ -310,8 +310,8 @@ position: -621,-415
 tags: actorUID=KID_MALE
 color: purple
 ---
-=> Hi!
-=> How are you?
+=> Hi! #line:0c4d9e4 
+=> How are you? #line:032d401 
 ===
 
 

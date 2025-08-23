@@ -70,7 +70,6 @@ namespace Antura.Discover
                 // });
             }
 
-
             if (presenter != null)
             {
                 presenter.Manager = this;
@@ -101,6 +100,29 @@ namespace Antura.Discover
             else
             {
                 runner.RequestNextLine();
+            }
+        }
+
+        /// <summary>
+        /// Sets the DialogueRunner's Yarn Project.
+        /// </summary>
+        public void SetYarnProject(YarnProject project)
+        {
+            try
+            {
+                if (runner == null)
+                {
+                    runner = FindFirstObjectByType<DialogueRunner>(FindObjectsInactive.Include);
+                }
+                if (runner != null)
+                {
+                    runner.SetProject(project);
+                    Debug.Log($"[Yarn] Project set: {(project != null ? project.name : "<null>")}");
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"YarnAnturaManager: SetYarnProject failed: {ex.Message}");
             }
         }
 
@@ -225,16 +247,7 @@ namespace Antura.Discover
             Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-
-            //var task = QuestManager.I.GetTaskByCode(taskCode);
-            //if (task == null)
-            //{
-            //    Debug.LogError($"ActionManager: Task not found for command {taskCode}");
-            //    return;
-            //}
-
-            //QuestManager.I.TaskStart(task);
-            ActionManager.I.ResolveQuestAction(taskCode);
+            TaskManager.I?.StartTask(taskCode);
         }
 
         [YarnCommand("task_end")]
@@ -243,9 +256,7 @@ namespace Antura.Discover
             Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-
-            //QuestManager.I.TaskEnd(task);
-            ActionManager.I.ResolveQuestAction(taskCode);
+            TaskManager.I?.EndTask(taskCode, true);
         }
 
         // ------------------------------------------------------------

@@ -106,8 +106,6 @@ GameObject:
   - component: {fileID: 3901166902490316559}
   - component: {fileID: 7218914077253541649}
   - component: {fileID: 6139173589607489402}
-  - component: {fileID: 4684577837991239223}
-  - component: {fileID: 5773173111967702169}
   m_Layer: 0
   m_Name: PL_05 - baltic sea quest Prefab
   m_TagString: Untagged
@@ -128,7 +126,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 119305399008765736}
   - {fileID: 8717898243021179497}
   - {fileID: 5595885276719962908}
   - {fileID: 3168768799734917047}
@@ -150,19 +147,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dda0d24446e742d3ab44adabb52736d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  conversation: {fileID: 0}
-  yarnManager: {fileID: 0}
-  Quests: {fileID: 11400000, guid: 9b2ec8cfa8af947c8a0286761d003094, type: 2}
   CurrentQuest: {fileID: 11400000, guid: c55158fa3c0e24dc184dbdabf7028997, type: 2}
-  QuestTasks: []
+  DebugQuest: 1
+  DebugLanguage: IT
   EasyMode: 0
   LanguageCode: 
   NativeLanguageCode: 
-  total_coins: 0
-  total_bones: 0
-  collected_items: 0
-  DebugQuest: 1
-  DebugLanguage: IT
 --- !u!114 &6139173589607489402
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -176,7 +166,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
-  PlayerSpawnPoint: {fileID: 0}
   QuestActions:
   - ActionCode: INIT
     Commands:
@@ -187,38 +176,9 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
-  Actions: []
+  Tasks: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
---- !u!114 &4684577837991239223
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4550446330867767471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1950b0864f5ab46589de2956bba70cd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.YarnConversationController
-  runner: {fileID: 0}
---- !u!114 &5773173111967702169
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4550446330867767471}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 10ed25bcd1a73da4498549a3aeaa756c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.YarnAnturaManager
-  runner: {fileID: 0}
-  presenter: {fileID: 0}
-  CurrentLanguage: EN
-  NativeLanguage: EN
 --- !u!1 &7021348432232420695
 GameObject:
   m_ObjectHideFlags: 0
@@ -400,80 +360,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 6239444127202871911, guid: 8f0a054652f034920bc383309f6d77e4,
     type: 3}
   m_PrefabInstance: {fileID: 3107977813586159172}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &6133859145497214559
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 3901166902490316559}
-    m_Modifications:
-    - target: {fileID: 5736206750971171309, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_Name
-      value: DiscoverGameManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: d94c99914af0e4fcdabc243e30874f69, type: 3}
---- !u!4 &119305399008765736 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6104633436223330679, guid: d94c99914af0e4fcdabc243e30874f69,
-    type: 3}
-  m_PrefabInstance: {fileID: 6133859145497214559}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7857925778770552037
 PrefabInstance:
