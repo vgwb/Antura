@@ -176,7 +176,7 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("card")]
-        public static void CommandCard(string cardId)
+        public static void CommandCard(string cardId, string zoom = "")
         {
             if (string.IsNullOrEmpty(cardId))
                 return;
@@ -184,14 +184,15 @@ namespace Antura.Discover
             DatabaseProvider.TryGet<CardData>(cardId, out var c);
             CardData card = c;
 
-            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image);
+            bool openZoomed = (zoom.ToLower() == "zoom");
+            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image, openZoomed);
             DiscoverAppManager.I.RecordCardInteraction(card, true);
         }
 
         [YarnCommand("card_hide")]
         public static void CommandCardHide()
         {
-
+            UIManager.I.dialogues.HidePostcard();
         }
 
         [YarnCommand("asset")]

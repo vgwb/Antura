@@ -11,14 +11,14 @@ namespace Antura.Discover
     public static class YarnDiscoverFunctions
     {
         // --- Helpers ---
-        static DiscoverPlayerProfile P => DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
-        static CardData GetCard(string id) => DiscoverAppManager.I != null ? DiscoverAppManager.I.GetCardById(id) : null;
-        static CardState GetState(string id)
+        static DiscoverPlayerProfile PlayerProfile => DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
+        static CardData GetCard(string cardId) => DiscoverAppManager.I != null ? DiscoverAppManager.I.GetCardById(cardId) : null;
+        static CardState GetState(string cardId)
         {
-            if (P == null || string.IsNullOrEmpty(id) || P.cards == null)
+            if (PlayerProfile == null || string.IsNullOrEmpty(cardId) || PlayerProfile.cards == null)
                 return null;
-            CardState st;
-            return P.cards.TryGetValue(id, out st) ? st : null;
+            CardState state;
+            return PlayerProfile.cards.TryGetValue(cardId, out state) ? state : null;
         }
 
         // ------------------------------------------------------------

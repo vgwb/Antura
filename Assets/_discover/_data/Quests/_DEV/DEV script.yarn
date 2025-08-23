@@ -24,7 +24,7 @@ group: docs
 //  - actor is the speacking character, used mostly for voice overs
 tags: actor=Guide
 // color us used like this:
-//  - red for important nodes like init, quest end, tasks
+//  - red for important nodes like init and quest end
 //  - blue for NPCs
 //  - yellow for items
 //  - green for tasks
@@ -166,14 +166,17 @@ group: cards
 ---
 Now i show you some cards
 <<card fr_fish>>
+Please look at its details
+<<card fr_fish zoom>>
 go back to the menu and browse the cards
 and now...
 <<card fr_baguette>>
 Good, isnt' it?
 <<card_hide>>
+GO back to work now.
 
 ===
-title: camera_test
+title: test_camera
 position: 316,479
 group: camera 
 ---
@@ -185,6 +188,31 @@ Now Look at that palace!
 <<camera_focus palace>>
 Nice isnt' it?
 <<camera_reset>>
+
+===
+title: test_actions
+position: 285,1369
+tags: actor=KID_FEMALE
+group: actions
+---
+<<action activate_elevator>>
+Action Pre "pre_actions" and action_post "post_actions"
+Do you want to open the Chest?
+-> Yes
+    <<action open_chest>>
+-> No
+<<action stop_elevator>>
+===
+
+
+title: item_chest
+position: 13,1365
+tags: actor=TUTOR
+group: actions
+color: yellow
+---
+What is there inside?
+<<action open_chest>>
 
 ===
 title: endgame
@@ -389,28 +417,6 @@ TUTOR: Play with money
 ===
 
 
-
-
-
-title: switch_door
-position: 13,1365
-tags: actor=TUTOR
-group: actions
-color: yellow
----
-TUTOR: and closes POST
-<<action CLOSE_DOOR>>
-===
-
-title: actions_test
-position: 285,1369
-tags: actor=KID_FEMALE
-group: actions
----
-<<action PRE_ACTIONS>>
-Action Pre "pre_actions" and action_post "post_actions"
-<<action POST_ACTIONS>>
-===
 
 
 title: task_collect_flowers
