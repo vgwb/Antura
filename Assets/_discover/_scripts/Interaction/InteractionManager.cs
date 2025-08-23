@@ -103,7 +103,7 @@ namespace Antura.Discover
         public void FocusCameraOn(Transform target, Transform origin = null)
         {
             focusViewEnterFrame = Time.frameCount;
-            CameraManager.I.FocusOn(target, origin);
+            CoroutineRunner.FireCoroutine(CameraManager.I.FocusOn(target, origin));
             UIManager.I.gameObject.SetActive(false);
         }
 
@@ -112,8 +112,7 @@ namespace Antura.Discover
         /// </summary>
         public void ResetCameraFocus()
         {
-            if (!IsUsingFocusView)
-                return;
+            if (!IsUsingFocusView) return;
 
             CameraManager.I.ResetFocus();
             UIManager.I.gameObject.SetActive(true);

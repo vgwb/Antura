@@ -3,6 +3,7 @@ using System.Collections;
 using Unity.Cinemachine;
 using DG.DeInspektor.Attributes;
 using DG.DemiLib;
+using DG.Tweening;
 using UnityEngine;
 
 namespace Antura.Discover
@@ -28,12 +29,14 @@ namespace Antura.Discover
         public Transform MainCamTrans { get; private set; }
         public PlayerCameraController CamController { get; private set; }
         public StarterAssetsInputs StarterInput { get; private set; }
+        public bool IsFocusing { get; private set; }
 
         float lastZoomTickTime;
         float leaveMapTime;
         DialogueCamera dialogueCam;
         FocusCamera focusCam;
         MapCamera mapCam;
+        Tween focusTween;
 
         #region Unity
 
@@ -65,9 +68,9 @@ namespace Antura.Discover
 
         void OnDestroy()
         {
-            if (I == this)
-                I = null;
+            if (I == this) I = null;
             DiscoverNotifier.Game.OnMapButtonToggled.Unsubscribe(OnMapButtonToggled);
+            focusTween.Kill();
         }
 
         void Update()
@@ -132,41 +135,47 @@ namespace Antura.Discover
         {
             dialogueCam.SetTarget(target);
         }
-
+        
+        /// <summary>
+        /// Focuses the camera to look at a specific target and with an optional specific origin.
+        /// Only call this during dialogues
+        /// </summary>
+        public IEnumerator FocusOn(CameraFocusData focusData)
+        {
+            DoFocusOnSetup(focusData.LookAt, focusData.Origin);
+            yield return new WaitForSeconds(1);
+        }
         /// <summary>
         /// Focuses the camera to look at a specific target and with an optional specific origin.
         /// Only call this during dialogues
         /// </summary>
         public IEnumerator FocusOn(Transform lookAtTarget, Transform origin = null)
         {
-            Debug.Log("CameraManager: FocusOn: " + (lookAtTarget != null ? lookAtTarget.name : "null") + ", origin: " + (origin != null ? origin.name : "null"));
-            Vector3 toCamPos = dialogueCam.CineMain.transform.position;
-            if (origin != null)
-                toCamPos = origin.position;
-            else
-                toCamPos.y += focusCam.YOffset;
-            focusCam.CineMain.transform.position = toCamPos;
-            focusCam.SetTarget(lookAtTarget);
-            ChangeCameraMode(CameraMode.Focus);
-            yield break;
+            DoFocusOnSetup(lookAtTarget, origin);
+            yield return new WaitForSeconds(1);
         }
 
-        /// <summary>
-        /// Focuses the camera to look at a specific target and with an optional specific origin.
-        /// Only call this during dialogues
-        /// </summary>
-        public IEnumerator FocusOnFocusData(CameraFocusData focusData)
+        void DoFocusOnSetup(Transform lookAtTarget, Transform origin = null)
         {
-            // Debug.Log("CameraManager: FocusOn: " + (lookAtTarget != null ? lookAtTarget.name : "null") + ", origin: " + (origin != null ? origin.name : "null"));
-            // Vector3 toCamPos = dialogueCam.CineMain.transform.position;
-            // if (origin != null)
-            //     toCamPos = origin.position;
-            // else
-            //     toCamPos.y += focusCam.YOffset;
-            // focusCam.CineMain.transform.position = toCamPos;
-            // focusCam.SetTarget(lookAtTarget);
-            // ChangeCameraMode(CameraMode.Focus);
-            yield break;
+            Vector3 toCamPos = dialogueCam.CineMain.transform.position;
+            if (origin != null) toCamPos = origin.position;
+            else toCamPos.y += focusCam.YOffset;
+            IsFocusing = true;
+            focusTween.Kill();
+            focusCam.SetTarget(lookAtTarget);
+            switch (Mode)
+            {
+                case CameraMode.Focus:
+                    // Force animation of camera position
+                    focusTween = focusCam.CineMain.transform.DOMove(toCamPos, 1).SetEase(Ease.InOutQuad)
+                        .OnComplete(() => IsFocusing = false);
+                    break;
+                default:
+                    // Cinemachine will manage the animation itself
+                    focusCam.CineMain.transform.position = toCamPos;
+                    ChangeCameraMode(CameraMode.Focus);
+                    break;
+            }
         }
 
         /// <summary>
@@ -174,9 +183,10 @@ namespace Antura.Discover
         /// </summary>
         public void ResetFocus()
         {
-            if (Mode != CameraMode.Focus)
-                return;
+            if (Mode != CameraMode.Focus) return;
 
+            focusTween.Kill();
+            IsFocusing = false;
             switch (DiscoverGameManager.I.State)
             {
                 case GameplayState.Dialogue:

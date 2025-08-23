@@ -28,6 +28,11 @@ namespace Antura
         {
             I.RestartCoroutine(ref coroutine, coroutineMethod);
         }
+        
+        public static void FireCoroutine(IEnumerator coroutineMethod)
+        {
+            I.StartCoroutine(coroutineMethod);
+        }
 
         #endregion
     }

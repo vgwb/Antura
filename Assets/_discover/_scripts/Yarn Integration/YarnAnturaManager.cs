@@ -156,7 +156,7 @@ namespace Antura.Discover
             var focus = ActionManager.I.FindCameraFocus(cameraCode);
             if (focus != null)
             {
-                I.StartCoroutine(CameraManager.I.FocusOnFocusData(focus));
+                I.StartCoroutine(CameraManager.I.FocusOn(focus));
             }
             else
             {
