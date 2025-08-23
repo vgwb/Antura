@@ -1,16 +1,13 @@
 using UnityEngine;
-
-public class WorldController : MonoBehaviour
+namespace Antura.Discover
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    public class WorldController : MonoBehaviour
     {
-        
-    }
+        public static WorldController I;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        void Awake()
+        {
+            I = this;
+        }
     }
 }

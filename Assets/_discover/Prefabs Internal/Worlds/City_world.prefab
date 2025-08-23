@@ -431,6 +431,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7370482817960969945}
+  - component: {fileID: 5731758973183965684}
   m_Layer: 0
   m_Name: City_world
   m_TagString: Untagged
@@ -468,6 +469,18 @@ Transform:
   - {fileID: 204802428508931414}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5731758973183965684
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5069051516954444199}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 826e6502b32ee4fdd859412c098ce30b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldController
 --- !u!1 &8300302292400974923
 GameObject:
   m_ObjectHideFlags: 0
@@ -19048,11 +19061,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3758075636711397164, guid: 197fc822d45f141bbbe07018e81f7f8d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6945215965495843337, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
       propertyPath: m_Name
@@ -19107,16 +19115,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8118327901534014842, guid: 197fc822d45f141bbbe07018e81f7f8d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 8745309092176260195, guid: 197fc822d45f141bbbe07018e81f7f8d,
-        type: 3}
-      propertyPath: m_Mesh
-      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
