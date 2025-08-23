@@ -1136,8 +1136,6 @@ namespace Antura.Discover
             x += ColOpen + Gap;
             // Image (second column)
             var sprite = c.ImageAsset != null ? c.ImageAsset.Image : null;
-            if (sprite == null)
-                sprite = c.Image;
             var rImg = new Rect(x, rowRect.y + 2f, ColImage, ColImage);
             if (sprite != null)
             {

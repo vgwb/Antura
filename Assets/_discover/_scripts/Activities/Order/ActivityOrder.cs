@@ -401,8 +401,6 @@ namespace Antura.Discover.Activities
         {
             if (data == null)
                 return null;
-            if (data.Image != null)
-                return data.Image;
             if (data.ImageAsset != null)
                 return data.ImageAsset.Image;
             return null;

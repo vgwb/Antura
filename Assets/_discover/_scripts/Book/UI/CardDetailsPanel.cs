@@ -49,7 +49,7 @@ namespace Antura.Discover.UI
             }
 
             if (image)
-                image.sprite = def.ImageAsset != null ? def.ImageAsset.Image : def.Image;
+                image.sprite = def.ImageAsset.Image;
             if (image && greyscaleMaterial != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 

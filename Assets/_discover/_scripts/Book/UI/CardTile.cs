@@ -34,7 +34,7 @@ namespace Antura.Discover.UI
             categoryText.text = card.Category.ToString();
 
             if (image)
-                image.sprite = card.ImageAsset != null ? card.ImageAsset.Image : card.Image;
+                image.sprite = card.ImageAsset.Image;
 
             bool isLocked = state == null || !state.unlocked;
 

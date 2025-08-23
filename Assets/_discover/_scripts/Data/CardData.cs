@@ -44,7 +44,7 @@ namespace Antura.Discover
         public AssetData ImageAsset;
 
         [Tooltip("Optional image shown in the card, if different from the main image.")]
-        public Sprite Image;
+        public Sprite PreviewImage;
 
         [Tooltip("Optional audio clip shown with a sound icon in UI.")]
         public AssetData AudioAsset;

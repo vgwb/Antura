@@ -65,8 +65,6 @@ namespace Antura.Discover.Activities
         {
             if (data == null)
                 return null;
-            if (data.Image != null && data.Image.texture != null)
-                return data.Image.texture;
             if (data.ImageAsset != null && data.ImageAsset.Image != null && data.ImageAsset.Image.texture != null)
                 return data.ImageAsset.Image.texture;
             return null;

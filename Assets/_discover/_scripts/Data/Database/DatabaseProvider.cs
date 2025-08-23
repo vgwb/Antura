@@ -12,7 +12,7 @@ namespace Antura.Discover
         private const string ResourcesPath = "Database/Database";
 
         private static DatabaseManager _instance;
-        public static DatabaseManager Instance
+        public static DatabaseManager I
         {
             get
             {
@@ -31,8 +31,10 @@ namespace Antura.Discover
                         }
                     }
 #endif
-                    if (_instance != null) _instance.BuildIndex();
-                    else Debug.LogError($"[DatabaseProvider] Could not locate Database at Resources/{ResourcesPath}");
+                    if (_instance != null)
+                        _instance.BuildIndex();
+                    else
+                        Debug.LogError($"[DatabaseProvider] Could not locate Database at Resources/{ResourcesPath}");
                 }
                 return _instance;
             }
@@ -46,7 +48,7 @@ namespace Antura.Discover
         }
 
         // Sugar
-        public static T Get<T>(string id) where T : IdentifiedData => Instance.Get<T>(id);
-        public static bool TryGet<T>(string id, out T data) where T : IdentifiedData => Instance.TryGet(id, out data);
+        public static T Get<T>(string id) where T : IdentifiedData => I.Get<T>(id);
+        public static bool TryGet<T>(string id, out T data) where T : IdentifiedData => I.TryGet(id, out data);
     }
 }

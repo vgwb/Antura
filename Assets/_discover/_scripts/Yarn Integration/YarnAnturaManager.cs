@@ -178,9 +178,13 @@ namespace Antura.Discover
         [YarnCommand("card")]
         public static void CommandCard(string cardId)
         {
+            if (string.IsNullOrEmpty(cardId))
+                return;
             // Debug.Log($"ActionManager: ResolveNodeCommandCard: {cardId}");
             DatabaseProvider.TryGet<CardData>(cardId, out var c);
             CardData card = c;
+
+            UIManager.I.dialogues.ShowPostcard(card.ImageAsset.Image);
             DiscoverAppManager.I.RecordCardInteraction(card, true);
         }
 
@@ -196,7 +200,7 @@ namespace Antura.Discover
             //Debug.Log($"ActionManager: ResolveNodeCommandAsset: {assetCode}");
             if (string.IsNullOrEmpty(assetCode))
                 return;
-            var db = DatabaseProvider.Instance;
+            var db = DatabaseProvider.I;
             //var assetImage = db.Get<ItemData>("assetCode");
             if (db.TryGet<AssetData>(assetCode, out var assetImage))
             {
