@@ -69,7 +69,6 @@ namespace Antura.Discover
                         {
                             yarnAnturaManager.Runner.SetProject(questToUse.YarnProject);
                         }
-                        yarnAnturaManager.ApplyStringTableFromCurrentQuest();
                     }
                 }
             }
