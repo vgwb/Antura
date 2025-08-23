@@ -21,8 +21,9 @@ position: 0,0
 // group is used to organize the nodes in the Graph view in the Editor
 group: docs
 // tags are used to add metadata to the node
-//  - actor is the speacking character, used mostly for voice overs
-tags: actor=Guide
+// - actor is the speacking character, used mostly for voice overs
+// - type is used to identify special nodes like Start, End, Quiz
+tags: actor=Guide, type=Quiz
 // color us used like this:
 //  - red for important nodes like init and quest end
 //  - blue for NPCs
@@ -76,14 +77,16 @@ color: red
 <<inventory id_card>> // same as add
 <<inventory id_card remove>>
 
-// launches an activity
-<<activity id_activity_configuration>>
 // starts a task
 <<task_start id_task_configuration>>
 // end a task... if you say nothing, its a success
 <<task_end id_task_configuration>>
 <<task_end id_task_configuration fail>>
 <<task_end>> // or even without the id to end current task
+
+
+// launches an activity
+<<activity id_activity_configuration>>
 
 // end current quest and calculate stars based on progress
 <<quest_end>>
@@ -109,19 +112,20 @@ group: docs
 // these are the functions available in the game
 
 <<if item_count("flag_france") >= 2>>
-    You have more than 2 Flags of France
+    You have more than 2 Flags of France #line:08a1058 #native
+    another line #line:0563122 
 <<endif>>
 
 <<if has_item("flag_france")>>
-    You have a Flag of France
+    You have a Flag of France #line:kidm_0b932d0 
 <<endif>>
 
 <<if has_item_at_least("flag_france", 3)>>
-    You have at least 3 Flags of France
+    You have at least 3 Flags of France #line:0d694f1 
 <<endif>>
 
 <<if can_collect("flag_france")>>
-    You can collect a Flag of France
+    You can collect a Flag of France #line:03da430 
 <<endif>>
 
 ===
@@ -130,17 +134,18 @@ title: test_inventory
 position: 6,244
 group: inventory
 ---
-I am hungry. How about some food?
+I am hungry. how about some food? #line:0bdf566 
 <<if has_item_at_least("fr_baguette", 3)>>
-    I needed 3 baguettes!
+    I need 3 baguettes! #line:00c341e 
     <<inventory fr_baguette remove>>
     <<inventory fr_baguette remove>>
     <<inventory fr_baguette remove>>
 <<else>>
-    You don't have enough baguettes!
+    You don't have enough baguettes! #line:0c0d786 
     <<if has_item("fr_fish")>>
-        but you have some fish!
+        But you have some fish! #line:06c9370 
     <<endif>>
+    Thank you. #line:0a7921b 
 <<endif>>
 
 ===
@@ -148,7 +153,7 @@ title: got_baguette
 position: 489,243
 group: inventory
 ---
-You found a baguette!
+You found a baguette! #line:06c7cc8 
 <<inventory fr_baguette add>>
 
 ===
@@ -156,7 +161,7 @@ title: got_fish
 position: 252,245
 group: inventory
 ---
-An healthy fish!
+An healthy fish! #line:0ecc862 
 <<inventory fr_fish add>>
 
 ===
@@ -164,29 +169,29 @@ title: test_cards
 position: 8,482
 group: cards 
 ---
-Now i show you some cards
+Now i show you some cards #line:05edfca 
 <<card fr_fish>>
-Please look at its details
+Please look at its details #line:0adbe4f 
 <<card fr_fish zoom>>
-go back to the menu and browse the cards
-and now...
+go back to the menu and browse the cards #line:017a620 
+and now... #line:04ade19 
 <<card fr_baguette>>
-Good, isnt' it?
+Good, isnt' it? #line:04b02ce 
 <<card_hide>>
-GO back to work now.
+GO back to work now. #line:0970ed1 
 
 ===
 title: test_camera
 position: 316,479
 group: camera 
 ---
-Now i show you the map of the playgroud
+Now i show you the map of the playgroud #line:0c58bd8 
 <<camera_focus map_tutorial>>
-Do you see that point?
+Do you see that point? #line:03e0224 
 <<camera_focus map_tutorial_detail>>
-Now Look at that palace!
+Now Look at that palace! #line:0c1b2e4 
 <<camera_focus palace>>
-Nice isnt' it?
+Nice isnt' it? #line:04daace 
 <<camera_reset>>
 
 ===
@@ -196,14 +201,13 @@ tags: actor=KID_FEMALE
 group: actions
 ---
 <<action activate_elevator>>
-Action Pre "pre_actions" and action_post "post_actions"
-Do you want to open the Chest?
--> Yes
+Action Pre "pre_actions" and action_post "post_actions" #line:0a67b25 
+Do you want to open the Chest? #line:03cae39 
+-> Yes #line:067231b 
     <<action open_chest>>
--> No
+-> No #line:05d9657 
 <<action stop_elevator>>
 ===
-
 
 title: item_chest
 position: 13,1365
@@ -211,24 +215,58 @@ tags: actor=TUTOR
 group: actions
 color: yellow
 ---
-What is there inside?
+A good chest! #line:077ec11 
 <<action open_chest>>
-
 ===
+
+title: test_quiz
+position: 4,718
+group: quiz
+tags: type=quiz
+---
+Calculate 3*2 #line:0482c96 
+-> 4 #line:076225c 
+    <<jump test_quiz_wrong>>
+-> 6 #line:02c95c5 
+    <<jump test_quiz_correct>>
+-> 8 #line:0a529bd 
+    <<jump test_quiz_wrong>>
+===
+
+title: test_quiz_correct
+position: 316,696
+group: quiz
+
+---
+YES! Correct. #line:0eb010e 
+===
+
+title: test_quiz_wrong
+position: 319,847
+group: quiz
+
+---
+GUIDE: No. Do you want to try again? #line:0e2b8d7 
+-> Yes #line:08ff2b9 
+    <<jump test_quiz>>
+-> No #line:042881c 
+===
+
+
 title: endgame
 position: -368,1
 group: endgame
 color: red
 ---
 
-You can end this quest with...
--> Zero stars (fail)
+You can end this quest with... #line:027bdca 
+-> Zero stars (fail) #line:0130629 
     <<quest_end 0>>
--> 1 star
+-> 1 star #line:05caf8d 
     <<quest_end 1>>
--> 2 stars
+-> 2 stars #line:02466da 
     <<quest_end 2>>
--> 3 stars
+-> 3 stars #line:0f65a6b 
     <<quest_end 3>>
 
 ===
@@ -238,30 +276,30 @@ position: 662,2326
 assetimage: antura_hero
 ---
 <<asset food_tomato>>
-ciao, stefano
-ti piacciono le foto?
+ciao, stefano #line:0c0329c 
+ti piacciono le foto? #line:0b9b60d 
 <<asset food_fish>>
--> vuoi arancia?
+-> vuoi arancia? #line:0c2bd41 
     <<asset food_orange>>
     <<action play_sfx>>
--> vuoi olio?
+-> vuoi olio? #line:034ed48 
     <<asset food_oil>>
     <<action play_sfx>>
-ora chiudo
+ora chiudo #line:0baeb5f 
 <<asset_hide>>
--> Activity Order
+-> Activity Order #line:0087ab1 
     <<activity activity_test>>
     <<jump activity_done>>
--> Suona sfx
+-> Suona sfx #line:0f02889 
     <<action play_sfx>>
--> Apri Baule
+-> Apri Baule #line:053f800 
     <<action open_chest>>
 
 ===
 title: activity_done
 position: 918,2328
 ---
-Activity finished.
+Activity finished. #line:0ce187d 
 ===
 
 title: NPCGreeting2
@@ -269,15 +307,15 @@ position: 304,2331
 assetimage: pirates
 ---
 // <<activity activity_memory>>
-Narrator: Hallo
-Narrator: How are you?
--> Good
-    Narrator: Good to hear that
--> Bad
-    Narrator: Oh, I am sorry to hear that
--> Neutral
-    Narrator: I see, I hope it gets better soon
-Narrator: What do you want to do with  coins?
+Narrator: Hallo #line:08ecb6c 
+Narrator: How are you? #line:00b7839 
+-> Good #line:0991140 
+    Narrator: Good to hear that #line:0b3477e 
+-> Bad #line:08607a4 
+    Narrator: Oh, I am sorry to hear that #line:0e6ecb2 
+-> Neutral #line:05f3ea5 
+    Narrator: I see, I hope it gets better soon #line:0802baf 
+Narrator: What do you want to do with  coins? #line:0bcd506 
 ===
 title: NPCGreeting3
 position: 31,2331
@@ -285,22 +323,22 @@ tags: #camera2 background:conductor_cabin
 ---
 
 <<declare $coins = 0>>
-Narrator: What do you want to do with {$coins} coins? 
--> Open the door
+Narrator: What do you want to do with {$coins} coins?  #line:0a1994c 
+-> Open the door #line:0e11bee 
  <<set $doorUnlocked = true>>
- Narrator: The door is open
--> Stay at home
- Narrator: You stay at home
+ Narrator: The door is open #line:0cac01d 
+-> Stay at home #line:07f4239 
+ Narrator: You stay at home #line:079b16e 
  <<set $coins = $coins + 10>>
 ===
 title: Chest_01
 position: 142,2543
 ---
 <<if $doorUnlocked>>
-Narrator: la porta è aperta
+Narrator: la porta è aperta #line:0e22a89 
 <<jump EntroInCasa>>
 <<else>>
-Narrator: la porta è chiusa
+Narrator: la porta è chiusa #line:05086bc 
 <<endif>>
 ===
 
@@ -308,17 +346,17 @@ title: note_for_the_editors
 style: note
 position: -109,-200
 ---
-Custom note
-this is useful to leave notes for the editors
-like reminders of things to do
-or things to check
-or things to fix
+Custom note #line:04d621e 
+this is useful to leave notes for the editors #line:0520fb4 
+like reminders of things to do #line:078fe99 
+or things to check #line:0982259 
+or things to fix #line:096379b 
 ===
 
 title: EntroInCasa
 position: 425,2541
 ---
-entro in casa
+entro in casa #line:0f92df5 
 
 ===
 
@@ -328,50 +366,16 @@ position: 29,2122
 tags:
 group: variables
 ---
-I'll give you 100 coins.
+I'll give you 100 coins. #line:06427f9 
 <<set $TOTAL_COINS = $TOTAL_COINS + 100>>
 
 ===
-
-title: quiz_test
-position: 4,718
-group: quiz
-tags: actor=GUIDE, type=QUIZ
----
-Calculate 3*2
--> 4
-    <<jump quiz_test_wrong>>
--> 6
-    <<jump quiz_test_correct>>
--> 8
-    <<jump quiz_test_wrong>>
-===
-
-title: quiz_test_correct
-position: 316,696
-group: quiz
-
----
-YES! Correct.
-===
-
-title: quiz_test_wrong
-position: 319,847
-group: quiz
-
----
-GUIDE: No. Do you want to try again?
--> Yes
-    <<jump quiz_test>>
--> No
-===
-
 
 title: test_mood
 position: 746,2539
 tags: actor=GUIDE, mood=HAPPY
 ---
-Happy Mood
+Happy Mood #line:0a6e648 
 
 ===
 
@@ -380,9 +384,9 @@ position: 32,1891
 tags: actor=OLD_WOMAN
 group: random
 ---
-Smart random Line 1
-Smart random Line 2
-Smart random Line 3
+Smart random Line 1 #line:07193d8 
+Smart random Line 2 #line:06fe9a7 
+Smart random Line 3 #line:032e777 
 ===
 
 title: multiple_lines
@@ -390,9 +394,9 @@ position: 331,1899
 tags: actor=KID_FEMALE
 group: random
 ---
-=> This is Hint 1
-=> This is Hint 2
-=> Hint 3
+=> This is Hint 1 #line:0423295 
+=> This is Hint 2 #line:00d69e5 
+=> Hint 3 #line:08966ba 
 
 ===
 
@@ -402,7 +406,7 @@ tags: actor=KID_FEMALE
 group: activities
 color: purple
 ---
-KID_FEMALE: Play this NORMAL Test Activity!
+KID_FEMALE: Play this NORMAL Test Activity! #line:0e11b77 
 <<activity  ACTIVITY_TEST>>
 ===
 
@@ -412,7 +416,7 @@ tags: actor=TUTOR
 group: activities
 color: purple
 ---
-TUTOR: Play with money
+TUTOR: Play with money #line:076a9a4 
 <<activity  ACTIVITY_MONEY easy>>
 ===
 
@@ -425,7 +429,7 @@ tags: actor=KID_FEMALE
 group: tasks
 color: green
 ---
-Collect 5 flowers!
+Collect 5 flowers! #line:0464331 
 <<task_start COLLECT_FLOWERS>>
 ===
 
