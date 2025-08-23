@@ -12,7 +12,7 @@ public class CardDataEditor : Editor
     public override void OnPreviewGUI(Rect r, GUIStyle background)
     {
         var data = (CardData)target;
-        if (data.ImageAsset.Image != null)
+        if (data.ImageAsset != null && data.ImageAsset.Image != null)
             GUI.DrawTexture(r, data.ImageAsset.Image.texture, ScaleMode.ScaleToFit, true);
     }
 }

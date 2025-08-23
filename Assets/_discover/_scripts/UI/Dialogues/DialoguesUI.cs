@@ -175,7 +175,7 @@ namespace Antura.Discover
             DiscoverNotifier.Game.OnCloseDialogue.Dispatch();
             CurrDialogueType = DialogueType.None;
         }
-        
+
         public void ShowPostcard(Sprite sprite, bool zoom = false)
         {
             if (zoom)
@@ -260,9 +260,7 @@ namespace Antura.Discover
         {
             IsOpen = true;
             currNode = node;
-            currBalloon = narratorBalloon; // Can be changed by switch below
-            // while (InteractionManager.I.IsUsingFocusView)
-            //     yield return null;
+            currBalloon = narratorBalloon;
 
             UseLearningLanguage = !node.Native;
             switch (node.Type)

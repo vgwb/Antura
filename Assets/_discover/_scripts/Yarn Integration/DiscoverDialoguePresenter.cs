@@ -88,7 +88,7 @@ namespace Antura.Discover
             // If your Dialogue View doesn't need to handle lines, simply return
             // from this method immediately.
 
-            var nodeImage = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "assetimage");
+            //var nodeImage = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "assetimage");
 
 
             var lineId = line.TextID;
@@ -98,21 +98,28 @@ namespace Antura.Discover
             var metadata = line.Metadata;
             //Debug.Log($"RunLineAsync: {lineId} {CharacterName} {RawText} {TextWithoutCharacterName} {metadata.ToString()} ");
 
-            var qn = new QuestNode
+            var questNode = new QuestNode
             {
                 Type = NodeType.TEXT,
                 Content = TextWithoutCharacterName.Text,
                 ContentNative = TextWithoutCharacterName.Text, // TODO: provide native via localization
                 AudioId = null,
-                Image = nodeImage,
+                Image = "",
                 Permalink = _currentNodeName
             };
 
-            // Parse tags/metadata into QuestNode fields
-            ApplyTagsToQuestNode(qn, line.Metadata);
+            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
+            var headerTags = GetHeaderTagsTokens(_currentNodeName);
+            if (headerTags != null && headerTags.Length > 0)
+            {
+                ApplyTagsToQuestNode(questNode, headerTags);
+            }
 
-            UIManager.I.dialogues.ShowDialogueLine(qn);
-            Manager?.EmitQuestNode(qn);
+            // Parse inline tags/metadata (can refine/override)
+            ApplyTagsToQuestNode(questNode, line.Metadata);
+
+            UIManager.I.dialogues.ShowDialogueLine(questNode);
+            Manager?.EmitQuestNode(questNode);
             lastSeenLine = TextWithoutCharacterName.Text;
             var continueButton = true;
             if (continueButton)
@@ -173,6 +180,13 @@ namespace Antura.Discover
                 Choices = new List<NodeChoice>()
             };
 
+            // Parse node header tags first (eg: type=quiz) from Yarn header "tags"
+            var headerTags = GetHeaderTagsTokens(_currentNodeName);
+            if (headerTags != null && headerTags.Length > 0)
+            {
+                ApplyTagsToQuestNode(qn, headerTags);
+            }
+
             // Use the first option's metadata (if any) to populate high-level tags; or prefer current node tags when available
             if (dialogueOptions.Length > 0)
             {
@@ -191,7 +205,7 @@ namespace Antura.Discover
                     Content = option.Line.TextWithoutCharacterName.Text,
                     ContentNative = option.Line.TextWithoutCharacterName.Text, // Assuming native text is the same for now
                     AudioId = "",
-                    Image = "",
+                    Image = TryGetCardId(option.Line.Metadata) ?? string.Empty,
                     Highlight = false // Set highlight based on your logic
                 };
                 qn.Choices.Add(newChoice);
@@ -215,51 +229,74 @@ namespace Antura.Discover
 
         }
 
+        /// <summary>
+        /// Extract a card/image id from line metadata. Supports formats like "card:my_id" or "card=my_id".
+        /// Returns null if no card tag is present.
+        /// </summary>
+        private string TryGetCardId(string[] metadata)
+        {
+            if (metadata == null || metadata.Length == 0)
+                return null;
+            for (int i = 0; i < metadata.Length; i++)
+            {
+                var raw = metadata[i];
+                if (string.IsNullOrWhiteSpace(raw))
+                    continue;
+                var parts = raw.Split(new[] { ':', '=' }, 2);
+                if (parts.Length < 2)
+                    continue;
+                var key = parts[0].Trim().ToLowerInvariant();
+                var val = parts[1].Trim();
+                if (key == "card" && !string.IsNullOrEmpty(val))
+                    return val;
+            }
+            return null;
+        }
+
         private void ApplyTagsToQuestNode(QuestNode node, string[] attributes)
         {
             if (attributes == null || attributes.Length == 0)
                 return;
 
-            // Expect tag strings like: action=OpenShop, task=Collect, balloon=panel, mood=happy, image=SpriteName, nexttarget=Foo
+            // Expect tag strings like: type=panel
             foreach (var raw in attributes)
             {
                 if (string.IsNullOrWhiteSpace(raw))
                     continue;
                 var parts = raw.Split(new[] { '=' }, 2);
                 var name = parts[0].Trim().ToLowerInvariant();
-                var value = parts.Length > 1 ? parts[1].Trim() : string.Empty;
+                var value = parts.Length > 1 ? parts[1].Trim().Trim(',') : string.Empty;
 
                 switch (name)
                 {
-                    case "action":
-                        node.Action = value;
-                        break;
-                    case "action_post":
-                        node.ActionPost = value;
-                        break;
-                    case "task":
-                        node.Task = value; // optionally parse sub-args via attr.Properties
-                        break;
-                    case "balloon":
-                    case "balloon_type":
+                    case "type":
                         node.BalloonType = value;
                         if (value == "quiz")
                             node.Type = NodeType.QUIZ;
                         if (value == "panel")
                             node.Type = NodeType.PANEL;
                         break;
-                    case "mood":
-                        node.Mood = value;
-                        break;
-                    case "image":
-                        node.Image = value;
-                        break;
-                    case "nexttarget":
-                        node.NextTarget = value;
-                        break;
                     default:
                         break;
                 }
+            }
+        }
+
+        private string[] GetHeaderTagsTokens(string nodeName)
+        {
+            try
+            {
+                var d = Manager?.Runner?.Dialogue;
+                if (d == null || string.IsNullOrEmpty(nodeName))
+                    return null;
+                var tags = d.GetHeaderValue(nodeName, "tags");
+                if (string.IsNullOrEmpty(tags))
+                    return null;
+                return tags.Split(' ');
+            }
+            catch
+            {
+                return null;
             }
         }
     }
