@@ -21,12 +21,14 @@ namespace Antura.Discover
             return P.cards.TryGetValue(id, out st) ? st : null;
         }
 
-        /// ---- CARDS ----
+        // ------------------------------------------------------------
+        // CARDS
+        // ------------------------------------------------------------
 
         /*
         ///  EXAMPLE
         /// <<if card_unlocked("CARD_FR_BAGUETTE") == false>>
-        ///      line: "Jouons pour débloquer la carte baguette !"
+        ///      line: "You don't have the Baguette card yet!"
         /// <<endif>>
         */
         [YarnFunction("card_unlocked")]
@@ -36,7 +38,10 @@ namespace Antura.Discover
             return st != null && st.unlocked;
         }
 
-        /// ---- INVENTORY ----
+        // ------------------------------------------------------------
+        // INVENTORY
+        // ------------------------------------------------------------
+
         [YarnFunction("item_count")]
         public static float ItemCount(string itemCode)
         {

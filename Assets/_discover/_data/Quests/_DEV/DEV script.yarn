@@ -65,6 +65,7 @@ color: red
 <<camera_reset>>
 
 <<card fr_baguette show>>
+<<card_hide>>
 // shows the image
 <<asset id_asset>> 
 // hides the current image
@@ -84,17 +85,13 @@ color: red
 <<task_end id_task_configuration fail>>
 <<task_end>> // or even without the id to end current task
 
-
-// called to end the current quest
+// end current quest and calculate stars based on progress
+<<quest_end>>
+// end the current quest with n (0, 1,2,3) stars
 <<quest_end 3>>
-// called to end the current quest with n (1,2,3) stars!
-// <<quest_end n>>
-// if the quest is not completed
-// <<quest_end fail>>
 
-////// Yarn built-in commands
+// --- Yarn built-in commands ---
 <<wait 3>> // waits for 3 seconds
-
 <<stop>> // stops the current dialogue>>
 
 ===
@@ -180,8 +177,6 @@ title: camera_test
 position: 316,479
 group: camera 
 ---
-I wait 3 seconds
-<<custom_wait>>
 Now i show you the map of the playgroud
 <<camera_focus map_tutorial>>
 Do you see that point?
