@@ -264,7 +264,6 @@ namespace Antura.Discover
             // while (InteractionManager.I.IsUsingFocusView)
             //     yield return null;
 
-            Sprite image;
             UseLearningLanguage = !node.Native;
             switch (node.Type)
             {
