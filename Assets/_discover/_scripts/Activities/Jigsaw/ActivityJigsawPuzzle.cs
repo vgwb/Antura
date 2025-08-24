@@ -48,6 +48,12 @@ namespace Antura.Discover.Activities
             ResolveDifficulty();
             BuildPuzzle();
             UpdateValidateButton();
+            // Wire local validate button to base flow (ActivityBase.Validate -> DoValidate -> EndRound)
+            if (validateButton)
+            {
+                validateButton.onClick.RemoveAllListeners();
+                validateButton.onClick.AddListener(Validate);
+            }
             built = true;
         }
         protected override void Update()
@@ -297,8 +303,15 @@ namespace Antura.Discover.Activities
         private void UpdateValidateButton()
         {
             if (!validateButton)
+            {
+                // Sync overlay validate state when only using overlay
+                SetValidateEnabled(AllSlotsFilled());
                 return;
-            validateButton.interactable = AllSlotsFilled();
+            }
+            bool canValidate = AllSlotsFilled();
+            validateButton.interactable = canValidate;
+            // Also sync overlay validate state for consistency
+            SetValidateEnabled(canValidate);
         }
 
         private bool AllSlotsFilled()

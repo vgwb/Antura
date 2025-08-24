@@ -17,9 +17,7 @@ namespace Antura.Discover
 
         public QuestTask[] QuestTasks;
 
-
         private QuestTask CurrentTask;
-        private string CurrentActivity;
 
         public InventoryManager Inventory;
         public ProgressManager Progress;
@@ -213,13 +211,13 @@ namespace Antura.Discover
             }
         }
 
-        public void ActivityStart(GameObject activityObject)
-        {
-            // Debug.Log("ActivityStart: " + activityObject.name);
-            var activityBase = activityObject.GetComponent<ActivityBase>();
-            CurrentActivity = activityBase.ActivityCode;
-            activityBase.Open();
-        }
+        // public void ActivityStart(GameObject activityObject)
+        // {
+        //     // Debug.Log("ActivityStart: " + activityObject.name);
+        //     var activityBase = activityObject.GetComponent<ActivityBase>();
+        //     CurrentActivity = activityBase.ActivityCode;
+        //     activityBase.Open();
+        // }
 
         public void OnNodeStart(QuestNode node)
         {

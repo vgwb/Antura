@@ -381,7 +381,7 @@ namespace Antura.Discover
         {
             if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
                 return 0;
-            return ActivityManager.I?.TryGetResult(activityCode) ?? 0;
+            return ActivityManager.I?.GetResult(activityCode) ?? 0;
         }
 
     }

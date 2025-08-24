@@ -213,7 +213,7 @@ namespace Antura.Discover
 
         void ExitDialogue()
         {
-            DiscoverGameManager.I.ChangeState(DiscoverGameManager.I.LastPlayState);
+            DiscoverGameManager.I.ChangeState(GameplayState.Play3D);
             CameraManager.I.ChangeCameraMode(CameraMode.Player);
             if (HasValidNearbyInteractable)
                 UIManager.I.dialogues.ShowSignalFor(NearbyInteractable);

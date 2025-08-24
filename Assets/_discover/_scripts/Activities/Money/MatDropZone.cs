@@ -37,7 +37,7 @@ namespace Antura.Discover.Activities
                 // Pulse feedback
                 var mb = game as ActivityBase;
                 if (mb != null)
-                    mb.SendMessage("Pulse", drag.transform, SendMessageOptions.DontRequireReceiver);
+                    mb.Pulse(drag.transform);
             }
         }
     }

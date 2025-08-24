@@ -21,5 +21,13 @@ namespace Antura.Discover.Activities
         [Tooltip("If true, target is fixed . Otherwise, generated.")]
         public bool UseFixedTarget;
         public float FixedTargetAmount;
+
+        [Header("Tray Generation")]
+        [Tooltip("How many copies to spawn for each base combo item (minimum 2). Includes the original.")]
+        public int CopiesPerBaseItem = 3;
+        [Tooltip("Extra copies of the smallest denomination to add to ensure the target is reachable in many ways.")]
+        public int ExtraCopiesSmallest = 6;
+        [Tooltip("Maximum number of tokens to spawn in the tray to avoid excess.")]
+        public int MaxTrayTokens = 48;
     }
 }

@@ -1259,25 +1259,25 @@ MonoBehaviour:
   CurrentQuest: {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
   ActivityConfigs:
   - Code: activity_canvas
-    ActivityData: {fileID: 11400000, guid: 3e3a99e17d7e2487cbbfa26846cb7faa, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 3e3a99e17d7e2487cbbfa26846cb7faa, type: 2}
     ActivityGO: {fileID: 8576215028330994042}
   - Code: activity_jigsaw
-    ActivityData: {fileID: 11400000, guid: ef28c011bfcd342a79c5d0c4ae665cda, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: ef28c011bfcd342a79c5d0c4ae665cda, type: 2}
     ActivityGO: {fileID: 1951569388560497792}
   - Code: activity_memory
-    ActivityData: {fileID: 11400000, guid: ee7eee2228ed443dc9a5c8e803ff226f, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: ee7eee2228ed443dc9a5c8e803ff226f, type: 2}
     ActivityGO: {fileID: 2855985033479707397}
   - Code: activity_match
-    ActivityData: {fileID: 11400000, guid: a5dd1a93881954acea20c09b1307c82d, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: a5dd1a93881954acea20c09b1307c82d, type: 2}
     ActivityGO: {fileID: 7013386095266705384}
   - Code: activity_money
-    ActivityData: {fileID: 11400000, guid: 495c8457f35e141e7b112831e0caeaf2, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 495c8457f35e141e7b112831e0caeaf2, type: 2}
     ActivityGO: {fileID: 1537190702764520178}
   - Code: activity_order
-    ActivityData: {fileID: 11400000, guid: 307793b77241a480c9b6f64f2a5e1759, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: 307793b77241a480c9b6f64f2a5e1759, type: 2}
     ActivityGO: {fileID: 1915464406614868674}
   - Code: activity_piano
-    ActivityData: {fileID: 11400000, guid: ef7c87e8229944073accc6589339c47d, type: 2}
+    ActivitySettings: {fileID: 11400000, guid: ef7c87e8229944073accc6589339c47d, type: 2}
     ActivityGO: {fileID: 6522002994854111592}
   QuestTasks:
   - Code: collect_apples
@@ -4589,8 +4589,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Settings
       value: 
-      objectReference: {fileID: 11400000, guid: 3e3a99e17d7e2487cbbfa26846cb7faa,
-        type: 2}
+      objectReference: {fileID: 0}
     - target: {fileID: 2690313780399206902, guid: 8717b1d237c9449a89430adbba150ba5,
         type: 3}
       propertyPath: BackgroundImage
@@ -6775,11 +6774,6 @@ PrefabInstance:
       propertyPath: MoneyTarget
       value: 100
       objectReference: {fileID: 0}
-    - target: {fileID: 7946288915157357423, guid: 4d88cc0d2ebdb4c048386965338723cf,
-        type: 3}
-      propertyPath: activityPanel
-      value: 
-      objectReference: {fileID: 3833657412946844674}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6791,18 +6785,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 4998193542063329120}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &3833657412946844674 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8101630004106580834, guid: 4d88cc0d2ebdb4c048386965338723cf,
-    type: 3}
-  m_PrefabInstance: {fileID: 4998193542063329120}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1537190702764520178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee679f6d441c4c688e9598efcc909808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!224 &5973242417988649089 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 1709150003338170337, guid: 4d88cc0d2ebdb4c048386965338723cf,

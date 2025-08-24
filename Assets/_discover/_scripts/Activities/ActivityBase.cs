@@ -55,6 +55,11 @@ namespace Antura.Discover.Activities
         private bool validateEnabled;
         private bool descriptionShown;
         private int startingRoundsTarget; // keep original target to decide replay prompt
+                                          // Final close/notify state
+        private bool _closeNotified;
+        private bool _hasPendingClose;
+        private int _pendingScoreOut;
+        private int _pendingDurationSec;
 
         public enum ActivityPlayState { Idle, Playing, Paused, Finished, Exiting }
         private ActivityPlayState state = ActivityPlayState.Idle;
@@ -62,7 +67,7 @@ namespace Antura.Discover.Activities
 
 
         // Settings configured by the launcher (manager); concrete activities can override GetSettings to customize
-        private ActivitySettingsAbstract _configuredSettings;
+        public ActivitySettingsAbstract _configuredSettings;
 
         /// <summary>
         /// Configure this activity with the provided settings. Call before opening.
@@ -72,9 +77,22 @@ namespace Antura.Discover.Activities
             _configuredSettings = settings;
         }
 
-        public void Open()
+        private Coroutine _coOpenFresh;
+        public void OpenFresh()
         {
+            if (_coOpenFresh != null)
+                StopCoroutine(_coOpenFresh);
+            this.gameObject.SetActive(true);
+            _coOpenFresh = StartCoroutine(OpenFreshCO());
+        }
+
+        private IEnumerator OpenFreshCO()
+        {
+            // Wait a frame to allow scene/UI to settle before initializing
+            yield return null;
+
             InitOverlayUI();
+            ResetActivity();
             SetupRoundsFromSettings();
             startingRoundsTarget = roundsTarget;
             if (!descriptionShown && Description != null)
@@ -86,6 +104,8 @@ namespace Antura.Discover.Activities
             InitActivity();
             ShowPanel(HasTimer, TimerSeconds);
             BeginRound();
+
+            _coOpenFresh = null;
         }
 
         /// <summary>
@@ -100,6 +120,10 @@ namespace Antura.Discover.Activities
             roundStartTime = 0f;
             validateEnabled = false;
             descriptionShown = false;
+            _closeNotified = false;
+            _hasPendingClose = false;
+            _pendingScoreOut = 0;
+            _pendingDurationSec = 0;
             // Reset DOTween on children to avoid stuck tweens
             try
             { DOTween.Kill(this, complete: false); }
@@ -268,7 +292,12 @@ namespace Antura.Discover.Activities
                 onYes: () =>
                 {
                     // Finish immediately with 0 points, mark as fail for flow messaging
-                    OnActivityFinished(false, 0, Time.realtimeSinceStartup - roundStartTime, false);
+                    float elapsed = Time.realtimeSinceStartup - roundStartTime;
+                    OnActivityFinished(false, 0, elapsed, false);
+                    // queue close notify (quit => score 0)
+                    _pendingScoreOut = 0;
+                    _pendingDurationSec = Mathf.RoundToInt(elapsed);
+                    _hasPendingClose = true;
                     ShowEndMessage(false);
                     try
                     { PauseTimer(); }
@@ -371,17 +400,13 @@ namespace Antura.Discover.Activities
                 }
             }
 
+            // Queue notify and close panel
+            int scoreOut = success ? Mathf.Max(1, points) : (dueToTimeout ? -1 : Mathf.Min(-1, points));
+            _pendingScoreOut = scoreOut;
+            _pendingDurationSec = Mathf.RoundToInt(elapsed);
+            _hasPendingClose = true;
             HidePanel();
             state = ActivityPlayState.Finished;
-
-            // Notify ActivityManager to persist and possibly jump back to Yarn
-            try
-            {
-                // Map points to the "score" concept expected by Yarn: >0 success, =0 quit, <0 fail
-                int scoreOut = success ? Mathf.Max(1, points) : (dueToTimeout ? -1 : Mathf.Min(-1, points));
-                ActivityManager.I?.OnActivityClosed(ActivityCode, scoreOut, Mathf.RoundToInt(elapsed));
-            }
-            catch { }
         }
 
         private void TryShowResultBanner(bool success)
@@ -409,6 +434,12 @@ namespace Antura.Discover.Activities
             DOTween.Sequence()
                 .Append(target.DOScale(s * scale, duration).SetUpdate(true))
                 .Append(target.DOScale(s, duration).SetUpdate(true));
+        }
+
+        // Public wrapper so callers using SendMessage("Pulse", Transform) can invoke it with a single parameter
+        public void Pulse(Transform target)
+        {
+            Pulse(target, 1.08f, 0.12f);
         }
 
         /// <summary>
@@ -523,13 +554,6 @@ namespace Antura.Discover.Activities
             catch { }
         }
 
-        public void OpenFresh()
-        {
-            InitOverlayUI();
-            ResetActivity();
-            Open();
-        }
-
         public void ShowPanel(bool pHasTimer, int pTimerSeconds)
         {
             InitOverlayUI();
@@ -544,7 +568,27 @@ namespace Antura.Discover.Activities
             InitOverlayUI();
             overlay.Timer.CancelTimer();
             this.gameObject.SetActive(false);
+            NotifyClosedIfNeeded();
 
+        }
+
+        private void NotifyClosedIfNeeded()
+        {
+            if (_closeNotified)
+                return;
+            if (!_hasPendingClose)
+            {
+                // default to quit with 0 points if no explicit outcome was set
+                _pendingScoreOut = 0;
+                _pendingDurationSec = Mathf.Max(0, Mathf.RoundToInt(Time.realtimeSinceStartup - roundStartTime));
+            }
+            try
+            {
+                ActivityManager.I?.OnActivityClosed(ActivityCode, _pendingScoreOut, _pendingDurationSec);
+            }
+            catch { }
+            _closeNotified = true;
+            _hasPendingClose = false;
         }
 
         public void EnableValidateButton(bool enable)

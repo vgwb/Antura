@@ -32,8 +32,7 @@ namespace Antura.Discover.Activities
         public Transform trayParent;
         public Transform matParent;
         [SerializeField] private RectTransform dragLayer;                 // optional overlay for drags
-        public Button confirmButton;
-        public Button skipButton;
+
         public TextMeshProUGUI targetText;
         public TextMeshProUGUI currentText;
         public TextMeshProUGUI timerText;
@@ -64,12 +63,20 @@ namespace Antura.Discover.Activities
         private readonly List<GameObject> spawned = new();
 
         private const float EPS = 0.01f;
+        private bool ended; // prevent multiple close calls
 
         [Header("Layout")]
         [Tooltip("Padding from edges when scattering in tray.")]
         public float spawnScatterPadding = 20f;
 
-        private void Start()
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is MoneySettingsData csd)
+                Settings = csd;
+        }
+
+        public override void InitActivity()
         {
             SetupGame();
         }
@@ -87,19 +94,26 @@ namespace Antura.Discover.Activities
 
                 if (Mathf.Approximately(data.TimeRemaining, 0))
                 {
-                    Lose();
+                    // treat as timeout -> end via base flow
+                    if (!ended)
+                    {
+                        ended = true;
+                        EndRound(false, 0f, true);
+                    }
                 }
             }
         }
 
-        private void OnDestroy()
+        protected override void OnDestroy()
         {
+            base.OnDestroy();
             CleanupSpawned();
         }
 
         private void SetupGame()
         {
             CleanupSpawned();
+            ended = false;
 
             data = new MoneyData
             {
@@ -124,15 +138,39 @@ namespace Antura.Discover.Activities
             if (targetText)
                 targetText.text = $"{currencySymbol} {data.TargetAmount:0.00}";
 
-            // 3) Build tray with a base set + distractors
+            // 3) Build a rich tray ensuring solvability with many tokens
             var baseCombo = lastComboForTarget; // from BuildSolvableTarget
-            var tray = new List<MoneySet.MoneyItem>(baseCombo);
+            var tray = new List<MoneySet.MoneyItem>();
 
-            int distractorCount = Mathf.Clamp(difficulty, 0, Mathf.Max(0, all.Count - tray.Count));
-            var distractors = all.Except(tray).OrderBy(_ => prng.Next()).Take(distractorCount);
-            tray.AddRange(distractors);
+            // Helper to add copies but respect a soft cap
+            void AddCopies(MoneySet.MoneyItem item, int copies)
+            {
+                int cap = Mathf.Max(1, Settings.MaxTrayTokens);
+                for (int i = 0; i < copies && tray.Count < cap; i++)
+                    tray.Add(item);
+            }
 
-            // Shuffle tray
+            // Duplicate each base item several times (minimum 2)
+            int copiesPerBase = Mathf.Max(2, Settings.CopiesPerBaseItem);
+            foreach (var bi in baseCombo)
+                AddCopies(bi, copiesPerBase);
+
+            // Add extra copies of the smallest denomination available by difficulty
+            var smallest = all.FirstOrDefault();
+            if (smallest != null)
+                AddCopies(smallest, Mathf.Max(0, Settings.ExtraCopiesSmallest));
+
+            // Add a spread of distractors (other denominations) up to cap
+            foreach (var d in all)
+            {
+                if (tray.Count >= Settings.MaxTrayTokens)
+                    break;
+                // Add 1-2 copies depending on difficulty
+                int extra = Mathf.Clamp(difficulty, 0, 2);
+                AddCopies(d, extra);
+            }
+
+            // Shuffle tray and assign
             tray = tray.OrderBy(_ => prng.Next()).ToList();
             data.AvailableItems = tray;
 
@@ -159,17 +197,6 @@ namespace Antura.Discover.Activities
 
             // 6) UI wiring
             UpdateCurrentAmount(0f);
-            if (confirmButton)
-            {
-                confirmButton.onClick.RemoveAllListeners();
-                confirmButton.onClick.AddListener(Confirm);
-                confirmButton.interactable = false;
-            }
-            if (skipButton)
-            {
-                skipButton.onClick.RemoveAllListeners();
-                skipButton.onClick.AddListener(Skip);
-            }
         }
 
         private void CleanupSpawned()
@@ -203,19 +230,24 @@ namespace Antura.Discover.Activities
         {
             if (currentText)
                 currentText.text = $"{currencySymbol} {data.CurrentAmount:0.00}";
-            if (confirmButton)
-            {
-                bool match = Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
-                bool any = placed.Count > 0;
-                confirmButton.interactable = match && any;
-            }
+
+            bool match = Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
+            bool any = placed.Count > 0;
+            EnableValidateButton(match && any);
+
         }
 
         private void Confirm()
         {
             bool match = Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
             if (match)
-                Win();
+            {
+                if (!ended)
+                {
+                    ended = true;
+                    EndRound(true, 1f, false);
+                }
+            }
             else
                 StartCoroutine(ShakeAndError());
         }
@@ -244,29 +276,41 @@ namespace Antura.Discover.Activities
             // TODO: fire event to AchievementsManager / progression
             Debug.Log("[CountMoney] WIN");
             // Lock input if you want:
-            DoValidate();
+            if (!ended)
+            {
+                ended = true;
+                EndRound(true, 1f, false);
+            }
 
         }
 
         public override bool DoValidate()
         {
-            return true;
+            // Success when the current amount exactly matches the target (within EPS)
+            return Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
         }
 
         private void Lose()
         {
             Play(sfxError);
             Debug.Log("[CountMoney] LOSE (time)");
-            if (confirmButton)
-                confirmButton.interactable = false;
+
+
+            ended = true;
+            EndRound(false, 0f, true);
+
         }
 
         private void Skip()
         {
             // TODO: apply -1 point via BonusMalus or Score system
             Debug.Log("[CountMoney] SKIP (apply penalty)");
-            // Optionally immediately end:
-            Lose();
+            // End the round as a fail via base flow
+            if (!ended)
+            {
+                ended = true;
+                EndRound(false, 0f, false);
+            }
         }
 
         private void Play(AudioClip clip)

@@ -65,7 +65,7 @@ namespace Antura.Discover.Activities
             // Pulse on placement
             var ab = manager as ActivityBase;
             if (ab != null)
-                ab.SendMessage("Pulse", transform, SendMessageOptions.DontRequireReceiver);
+                ab.Pulse(transform);
         }
 
         public void ReturnToPool()

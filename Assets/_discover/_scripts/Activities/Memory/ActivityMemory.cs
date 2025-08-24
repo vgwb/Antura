@@ -10,7 +10,8 @@ namespace Antura.Discover.Activities
         [Header("Activity Memory Settings")]
 
         [Tooltip("ScriptableObject containing the available CardItems for this level.")]
-        public MemorySettingData ActivitySettings;
+        public MemorySettingData Settings;
+
         [Tooltip("Common sprite used for the back of all cards.")]
         public Sprite commonBack;
         public Button validateButton;
@@ -48,10 +49,17 @@ namespace Antura.Discover.Activities
                 grid = gridParent.GetComponent<GridLayoutGroup>();
         }
 
-        void Start()
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is MemorySettingData csd)
+                Settings = csd;
+        }
+
+        public override void InitActivity()
         {
             BuildBoard();
-            difficulty = ActivitySettings.Difficulty;
+            difficulty = Settings.Difficulty;
             if (difficulty == Difficulty.Tutorial)
                 StartCoroutine(TutorialIdleHints());
             else if (difficulty == Difficulty.Easy)
@@ -68,7 +76,7 @@ namespace Antura.Discover.Activities
         /// </summary>
         public void BuildBoard()
         {
-            if (ActivitySettings == null || ActivitySettings.CardsData == null || ActivitySettings.CardsData.Count == 0)
+            if (Settings == null || Settings.CardsData == null || Settings.CardsData.Count == 0)
             { Debug.LogError("Memory: missing CardsData"); return; }
 
             // Clear previous grid
@@ -128,7 +136,7 @@ namespace Antura.Discover.Activities
         private List<Sprite> PickUniqueFaces(int count)
         {
             var result = new List<Sprite>(count);
-            var cd = ActivitySettings.CardsData;
+            var cd = Settings.CardsData;
             if (cd == null || cd.Count == 0)
             {
                 Debug.LogError("Memory: no CardsData provided");
@@ -197,9 +205,20 @@ namespace Antura.Discover.Activities
                 matchedPairs++;
                 if (matchedPairs >= totalPairs)
                     OnWin();
+                // brief settle delay
+                yield return new WaitForSecondsRealtime(0.05f);
+            }
+            else
+            {
+                // mismatch: flip both back down and play SFX, keep input locked during flip
+                PlaySfx(mismatchSfx);
+                float wait = 1f;
+                yield return new WaitForSecondsRealtime(wait);
+                first.HideDown();
+                second.HideDown();
+                // wait approximately the duration of the flip animation to avoid early input
             }
 
-            yield return new WaitForSecondsRealtime(0.05f);
             first = null;
             second = null;
             resolving = false;

@@ -122,17 +122,17 @@ namespace Antura.Discover
                 yield return null;
             }
 
-            // Store last play state
-            bool newIsPlay = newState == GameplayState.Play3D || newState == GameplayState.PlayActivity;
-            bool currIsPlay = State == GameplayState.Play3D || State == GameplayState.PlayActivity;
-            if (newIsPlay)
-            {
-                LastPlayState = newState;
-            }
-            else if (currIsPlay)
-            {
-                LastPlayState = State;
-            }
+            // // Store last play state
+            // bool newIsPlay = newState == GameplayState.Play3D || newState == GameplayState.PlayActivity;
+            // bool currIsPlay = State == GameplayState.Play3D || State == GameplayState.PlayActivity;
+            // if (newIsPlay)
+            // {
+            //     LastPlayState = newState;
+            // }
+            // else if (currIsPlay)
+            // {
+            //     LastPlayState = State;
+            // }
 
             State = newState;
         }

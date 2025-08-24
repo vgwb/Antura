@@ -138,9 +138,9 @@ namespace Antura.Discover
                 }
                 switch (command.Command)
                 {
-                    case CommandType.Activity:
-                        QuestManager.I.ActivityStart(command.mainObject);
-                        break;
+                    // case CommandType.Activity:
+                    //     QuestManager.I.ActivityStart(command.mainObject);
+                    //     break;
                     case CommandType.Area:
                         ChangeArea(command.mainObject);
                         break;

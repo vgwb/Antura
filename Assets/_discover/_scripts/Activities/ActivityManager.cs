@@ -9,61 +9,51 @@ namespace Antura.Discover.Activities
     {
         public ActivityListData ActivityList;
 
-        public string _pendingReturnNode;
+        public string _returnNode;
         private ActivityBase _currentActivity;
         private int _lastResultScore;
 
-        /// <summary>
-        /// Launch an activity by string code. Looks up the ActivityConfig from QuestManager.
-        /// settings are taken from the ActivityConfig.ActivityData only (no prefab overrides).
-        /// When the activity finishes, if nodeReturn is provided, it triggers Yarn with the result stored.
-        /// </summary>
-        public bool Launch(string code, string nodeReturn)
+        public bool Launch(string configCode, string nodeReturn = "")
         {
+            Debug.Log($"ActivityManager.Launch: {configCode} -> {nodeReturn}");
             _lastResultScore = 0;
-            _pendingReturnNode = nodeReturn ?? string.Empty;
-
-            var qm = Antura.Discover.QuestManager.I;
-            if (qm == null || string.IsNullOrEmpty(code))
-            {
-                Debug.LogWarning($"ActivityManager.Launch: missing QuestManager or code");
-                return false;
-            }
+            _returnNode = nodeReturn ?? string.Empty;
 
             // Find activity config from QuestManager list
-            ActivityConfig cfg = null;
-            if (qm.ActivityConfigs != null)
+            ActivityConfig activityConfig = null;
+            if (QuestManager.I.ActivityConfigs != null)
             {
-                foreach (var c in qm.ActivityConfigs)
+                foreach (var c in QuestManager.I.ActivityConfigs)
                 {
-                    if (c != null && string.Equals(c.Code, code, StringComparison.OrdinalIgnoreCase))
-                    { cfg = c; break; }
+                    if (c != null && string.Equals(c.Code, configCode, StringComparison.OrdinalIgnoreCase))
+                    { activityConfig = c; break; }
                 }
             }
-            if (cfg == null || cfg.ActivityGO == null)
+            if (activityConfig == null || activityConfig.ActivityGO == null)
             {
-                Debug.LogWarning($"ActivityManager.Launch: config or prefab not found for '{code}'");
+                Debug.LogWarning($"ActivityManager.Launch: config or prefab not found for '{configCode}'");
                 return false;
             }
 
-            var act = cfg.ActivityGO.GetComponentInChildren<ActivityBase>(true);
-            if (act == null)
+            var activityBase = activityConfig.ActivityGO.GetComponentInChildren<ActivityBase>(true);
+            if (activityBase == null)
             {
-                Debug.LogError($"ActivityManager.Launch: ActivityBase missing on '{code}'");
+                Debug.LogError($"ActivityManager.Launch: ActivityBase missing on '{configCode}'");
                 return false;
             }
 
-            // Configure from data (only source of truth)
-            act.ConfigureSettings(cfg.ActivityData);
-            _currentActivity = act;
+            // Enter PlayActivity and hide world UI
+            DiscoverGameManager.I?.ChangeState(GameplayState.PlayActivity, true);
+            _currentActivity = activityBase;
 
-            // Ensure activity started fresh (self-manages overlay/panel)
-            act.OpenFresh();
+
+            // Configure from data
+            activityBase.ConfigureSettings(activityConfig.ActivitySettings);
+            activityBase.OpenFresh();
             return true;
         }
 
         /// <summary>
-        /// To be called by ActivityBase when it truly finishes and wants to close.
         /// Saves result and optionally jumps to Yarn return node.
         /// </summary>
         public void OnActivityClosed(string activityId, int resultScore, int durationSec)
@@ -87,20 +77,24 @@ namespace Antura.Discover.Activities
             }
             catch { }
 
-            // Jump back to Yarn if requested
-            if (!string.IsNullOrEmpty(_pendingReturnNode))
+            // If a return node is provided, enter Dialogue and start it; otherwise resume Play3D
+            if (!string.IsNullOrEmpty(_returnNode))
             {
-                YarnAnturaManager.I?.StartDialogue(_pendingReturnNode);
+                DiscoverGameManager.I?.ChangeState(GameplayState.Dialogue, true);
+                YarnAnturaManager.I?.StartDialogue(_returnNode);
             }
-
-            _pendingReturnNode = string.Empty;
+            else
+            {
+                DiscoverGameManager.I?.ChangeState(GameplayState.Play3D, true);
+            }
+            _returnNode = string.Empty;
             _currentActivity = null;
         }
 
         /// <summary>
         /// Return last activity result score for Yarn function access.
         /// </summary>
-        public int TryGetResult(string code)
+        public int GetResult(string code)
         {
             return _lastResultScore;
         }

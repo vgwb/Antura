@@ -56,12 +56,62 @@ namespace Antura.Discover.Activities
         public Vector2 bugScaleRange = new Vector2(0.8f, 1.2f);
 
         private readonly List<(CardData card, RectTransform rt, bool collected)> treasures = new();
+        private bool _didInit;
 
         void Start()
         {
-            Debug.Log("ActivityCanvas Start() called");
+            // If launched outside ActivityManager flow, do a best-effort init
+            if (!_didInit)
+            {
+                ResolveDifficulty();
+                Setup();
+                _didInit = true;
+            }
+        }
+
+        public override void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            base.ConfigureSettings(settings);
+            if (settings is CanvasSettingsData csd)
+                Settings = csd;
+        }
+
+        public override void InitActivity()
+        {
+            Settings = base._configuredSettings as CanvasSettingsData;
+            // Called by ActivityBase.Open
             ResolveDifficulty();
             Setup();
+            _didInit = true;
+        }
+
+        protected override void OnResetActivity()
+        {
+            // Destroy textures and runtime objects from previous runs
+            if (coverTex != null)
+            {
+                try
+                { Destroy(coverTex); }
+                catch { }
+                coverTex = null;
+            }
+            if (CoverImageUI)
+                CoverImageUI.texture = null;
+            for (int i = 0; i < bugsList.Count; i++)
+            {
+                var rt = bugsList[i];
+                if (rt != null)
+                    Destroy(rt.gameObject);
+            }
+            bugsList.Clear();
+            for (int i = 0; i < treasures.Count; i++)
+            {
+                var t = treasures[i];
+                if (t.rt != null)
+                    Destroy(t.rt.gameObject);
+            }
+            treasures.Clear();
+            _didInit = false;
         }
 
         private void ResolveDifficulty()

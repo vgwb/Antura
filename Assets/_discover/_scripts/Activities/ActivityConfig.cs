@@ -11,12 +11,9 @@ namespace Antura.Discover.Activities
         public string Code;
 
         [Tooltip("The settings data of the activity")]
-        public ActivitySettingsAbstract ActivityData;
+        public ActivitySettingsAbstract ActivitySettings;
 
         [Tooltip("The GameObject of the activity prefab")]
         public GameObject ActivityGO;
-
-        // the node to return to after the activity is completed
-        private String ReturnNode;
     }
 }
