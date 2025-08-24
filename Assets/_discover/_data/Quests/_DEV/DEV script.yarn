@@ -209,25 +209,53 @@ Do you want to open the Chest? #line:03cae39
 <<action stop_elevator>>
 ===
 
-title: test_task
+title: task_collect_apples
 position: 18,1624
 tags:
 group: tasks
 color: green
 ---
-Collect 5 flowers! #line:dev_test_task_1 
-<<task_start collect_flowers test_task_done>>
+<<if HasCompletedTask("collect_apples")>>
+    THank you! you finished this task #line:dev_task_collect_apples_2
+<<elseif GetCollectedItem("collect_apples") > 0 >>
+    I need more apples! #line:dev_task_collect_apples_3
+<<else>>
+    Collect 4 apples! #line:dev_task_collect_apples_1 
+    <<task_start collect_apples task_collect_apples_done>>
+<<endif>>
 ===
 
-title: test_task_done
+title: task_collect_apples_done
 position: 18,1624
 tags:
 group: tasks
 color: green
 ---
-Well done! You collected 5 flowers! #line:dev_test_task_done_1 
+Well done! Go back to the robot #line:dev_test_task_done_1 
 ===
 
+
+title: task_open_chest
+position: 18,1624
+tags:
+group: tasks
+color: green
+---
+<<if HasCompletedTask("open_chest")>>
+    Thanks you... I needed that
+<<else>>
+    Reach and open that chest! 
+    <<task_start open_chest task_open_chest_done>>
+<<endif>>
+===
+title: task_open_chest_done
+position: 18,1624
+tags:
+group: tasks
+color: green
+---
+Well done! You opened the chest. 
+===
 
 title: item_chest
 position: 13,1365

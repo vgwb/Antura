@@ -146,7 +146,6 @@ GameObject:
   - component: {fileID: 3265454570424409887}
   - component: {fileID: 1995716663718980252}
   - component: {fileID: 635009091083435798}
-  - component: {fileID: 7871731008232152660}
   m_Layer: 0
   m_Name: DiscoverGameManager
   m_TagString: Untagged
@@ -184,12 +183,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c71d0b79193ce834eb8bd1db8a65804e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  StartingQuest: {fileID: 0}
   questManager: {fileID: 0}
-  taskManager: {fileID: 7871731008232152660}
+  taskManager: {fileID: 0}
   yarnAnturaManager: {fileID: 1995716663718980252}
   yarnConversationController: {fileID: 635009091083435798}
   actionManager: {fileID: 0}
-  StartingQuest: {fileID: 0}
   isPaused: 0
 --- !u!114 &1995716663718980252
 MonoBehaviour:
@@ -220,18 +219,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   runner: {fileID: 5021966162577449117}
---- !u!114 &7871731008232152660
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736206750971171309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d9ec947dc5b1d419fa6e2c82591b82d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TaskManager
 --- !u!1001 &5873645632079191059
 PrefabInstance:
   m_ObjectHideFlags: 0

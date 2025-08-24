@@ -19,6 +19,7 @@ namespace Antura.Discover
 
         public InventoryManager Inventory;
         public ProgressManager Progress;
+        public QuestTaskManager TaskManager;
 
         [Header("DEBUG")]
         public bool DebugQuest = false;
@@ -41,6 +42,7 @@ namespace Antura.Discover
         {
             Inventory = new InventoryManager();
             Progress = new ProgressManager();
+            TaskManager = new QuestTaskManager(this);
         }
 
         void Start()
@@ -70,20 +72,8 @@ namespace Antura.Discover
                         t.Setup();
                 }
             }
-            // Ensure TaskManager exists, create if missing, then register tasks
-            var taskMgr = QuestTaskManager.I;
-            if (taskMgr == null)
-            {
-                taskMgr = FindFirstObjectByType<QuestTaskManager>(FindObjectsInactive.Include);
-                if (taskMgr == null)
-                {
-                    var go = new GameObject("_TaskManager");
-                    if (DiscoverGameManager.I != null)
-                        go.transform.SetParent(DiscoverGameManager.I.transform, false);
-                    taskMgr = go.AddComponent<QuestTaskManager>();
-                }
-            }
-            taskMgr.RegisterTasks(QuestTasks);
+
+            TaskManager.RegisterTasks(QuestTasks);
 
             // Initialize progress via local tasks
             Progress.Init(QuestTasks);
@@ -162,7 +152,7 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(taskCode))
                 return;
             // Prefer lookup via TaskManager registration
-            if (QuestTaskManager.I != null && QuestTaskManager.I.TryGetTask(taskCode, out var tmTask) && tmTask != null)
+            if (TaskManager.TryGetTask(taskCode, out var tmTask) && tmTask != null)
             {
                 CurrentTask = tmTask;
                 CurrentTask.Activate();
@@ -235,7 +225,7 @@ namespace Antura.Discover
         public void OnNodeEnd(QuestNode node)
         {
             if (!string.IsNullOrEmpty(node.Task))
-                TaskStart(node.Task);
+                TaskManager?.StartTask(node.Task);
             if (!string.IsNullOrEmpty(node.ActionPost))
                 ActionManager.I.ResolveQuestAction(node.ActionPost, node);
         }
@@ -266,8 +256,8 @@ namespace Antura.Discover
         {
             collected_items++;
             SetIntVar("$COLLECTED_ITEMS", collected_items);
-            if (!string.IsNullOrEmpty(tag) && CurrentTask != null)
-                CurrentTask.ItemCollected();
+            // route to task manager per-task logic
+            TaskManager?.OnCollectItemTag(tag);
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 

@@ -1,44 +1,83 @@
-using Antura.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 
 namespace Antura.Discover
 {
-    public class QuestTaskManager : SingletonMonoBehaviour<QuestTaskManager>
+    public class QuestTaskManager
     {
-        private readonly Dictionary<string, QuestTask> _tasksByCode = new();
-        private readonly HashSet<string> _activeTaskCodes = new();
+        public class TaskState
+        {
+            public string Code;
+            public int Collected;
+            public bool Completed;
+            public string NodeReturn; // optional node to return to on completion
+        }
+
+        private readonly QuestManager _quest;
+        private readonly Dictionary<string, QuestTask> _tasksByCode = new Dictionary<string, QuestTask>();
+        private readonly Dictionary<string, TaskState> _statesByCode = new Dictionary<string, TaskState>();
+        private string _currentTaskCode;
+
+        public string CurrentTaskCode => _currentTaskCode;
+
+        public QuestTaskManager(QuestManager quest)
+        {
+            _quest = quest;
+        }
 
         public void RegisterTasks(IEnumerable<QuestTask> tasks)
         {
             _tasksByCode.Clear();
-            _activeTaskCodes.Clear();
+            _statesByCode.Clear();
+            _currentTaskCode = null;
+
             if (tasks == null)
                 return;
+
             foreach (var t in tasks)
             {
                 if (t == null || string.IsNullOrEmpty(t.Code))
                     continue;
-                if (_tasksByCode.ContainsKey(t.Code))
-                {
-                    Debug.LogWarning($"TaskManager.RegisterTasks: duplicate task code '{t.Code}' — overriding.");
-                }
                 _tasksByCode[t.Code] = t;
+                _statesByCode[t.Code] = new TaskState
+                {
+                    Code = t.Code,
+                    Collected = 0,
+                    Completed = false,
+                    NodeReturn = string.Empty
+                };
             }
         }
 
-        public bool StartTask(string taskCode)
+        public bool StartTask(string taskCode, string nodeReturn = "")
         {
             if (string.IsNullOrEmpty(taskCode))
                 return false;
+
             if (!_tasksByCode.TryGetValue(taskCode, out var task))
             {
-                Debug.LogWarning($"TaskManager.StartTask: task not found for code '{taskCode}'.");
+                Debug.LogWarning($"QuestTaskManager.StartTask: task not found '{taskCode}'.");
                 return false;
             }
-            _activeTaskCodes.Add(taskCode);
-            // Delegate to current quest logic for activation/UI for now
-            QuestManager.I?.TaskStart(taskCode);
+
+            if (!string.IsNullOrEmpty(_currentTaskCode) && _currentTaskCode != taskCode)
+            {
+                Debug.LogWarning($"QuestTaskManager: replacing active task '{_currentTaskCode}' with '{taskCode}'.");
+            }
+
+            _currentTaskCode = taskCode;
+            var state = _statesByCode[taskCode];
+            state.Collected = 0;
+            state.Completed = false;
+            state.NodeReturn = nodeReturn ?? string.Empty;
+
+            // Activate task content; QuestTask.Activate handles showing TaskDisplay appropriately
+            task.Activate();
+            if (task.Type == TaskType.Collect)
+            {
+                UIManager.I.TaskDisplay.SetTotItemsCollected(0);
+            }
+
             return true;
         }
 
@@ -46,32 +85,100 @@ namespace Antura.Discover
         {
             if (string.IsNullOrEmpty(taskCode))
                 return false;
-            if (!_activeTaskCodes.Contains(taskCode))
-            {
-                // Allow end even if not tracked yet (defensive)
-                Debug.LogWarning($"TaskManager.EndTask: task '{taskCode}' not active.");
-            }
+
+            if (!_tasksByCode.TryGetValue(taskCode, out var task))
+                return false;
+
+            if (!_statesByCode.TryGetValue(taskCode, out var state))
+                return false;
+
             if (success)
-                QuestManager.I?.TaskSuccess(taskCode);
-            else
-                QuestManager.I?.TaskFail(taskCode);
-            _activeTaskCodes.Remove(taskCode);
+            {
+                state.Completed = true;
+                // Award points via QuestManager Progress
+                _quest.Progress.AddProgressPoints(task.GetSuccessPoints());
+            }
+
+            UIManager.I.TaskDisplay.Hide();
+
+            if (_currentTaskCode == taskCode)
+                _currentTaskCode = null;
+
             return true;
         }
 
-        public void OnCollectItem(string tag)
+        public void OnCollectItemTag(string tag)
         {
-            QuestManager.I?.OnCollectItem(tag);
+            if (string.IsNullOrEmpty(_currentTaskCode))
+                return;
+
+            if (!_tasksByCode.TryGetValue(_currentTaskCode, out var task))
+                return;
+
+            if (task.Type != TaskType.Collect)
+                return;
+
+            if (!string.IsNullOrEmpty(task.ItemTag) && !string.Equals(task.ItemTag, tag))
+                return;
+
+            var state = _statesByCode[_currentTaskCode];
+            state.Collected++;
+            UIManager.I.TaskDisplay.SetTotItemsCollected(state.Collected);
+
+            if (task.ItemCount > 0 && state.Collected >= task.ItemCount)
+            {
+                var code = _currentTaskCode;
+                var nodeReturn = state.NodeReturn;
+                EndTask(code, true);
+                if (!string.IsNullOrEmpty(nodeReturn))
+                {
+                    YarnAnturaManager.I?.StartDialogue(nodeReturn);
+                }
+            }
         }
 
-        public void OnReachTarget(string taskCode)
+        public void OnReachTarget(string taskCode) => EndTask(taskCode, true);
+        public void OnInteract(string taskCode) => EndTask(taskCode, true);
+
+        /// <summary>
+        /// Call when an Interactable has been used by the player. Completes the current Interact task if it targets this object.
+        /// </summary>
+        public void OnInteractableUsed(Interactable interacted)
         {
-            EndTask(taskCode, true);
+            if (interacted == null)
+                return;
+            if (string.IsNullOrEmpty(_currentTaskCode))
+                return;
+            if (!_tasksByCode.TryGetValue(_currentTaskCode, out var task))
+                return;
+            if (task.Type != TaskType.Interact)
+                return;
+            if (task.InteractGO == null)
+                return;
+
+            var target = task.InteractGO;
+            bool matches = interacted.gameObject == target || interacted.transform.IsChildOf(target.transform) || target.transform.IsChildOf(interacted.transform);
+            if (!matches)
+                return;
+
+            // Capture nodeReturn, end task, then jump if provided
+            var nodeReturn = _statesByCode.TryGetValue(_currentTaskCode, out var st) ? st.NodeReturn : string.Empty;
+            var code = _currentTaskCode;
+            EndTask(code, true);
+            if (!string.IsNullOrEmpty(nodeReturn))
+            {
+                YarnAnturaManager.I?.StartDialogue(nodeReturn);
+            }
         }
 
-        public void OnInteract(string taskCode)
+        public int GetCollectedCount(string taskCode)
         {
-            EndTask(taskCode, true);
+            return _statesByCode.TryGetValue(taskCode, out var st) ? st.Collected : 0;
+        }
+
+        public bool IsTaskCompleted(string taskCode)
+        {
+            return _statesByCode.TryGetValue(taskCode, out var st) && st.Completed;
         }
 
         public bool TryGetTask(string code, out QuestTask task)

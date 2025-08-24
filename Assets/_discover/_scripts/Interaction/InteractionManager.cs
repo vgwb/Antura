@@ -66,14 +66,14 @@ namespace Antura.Discover
 
         void Update()
         {
-            switch (DiscoverGameManager.I.State)
+            var state = DiscoverGameManager.I.State;
+            if (state == GameplayState.Play3D)
             {
-                case GameplayState.Play3D:
-                    UpdateWorld();
-                    break;
-                case GameplayState.Dialogue:
-                    UpdateDialogue();
-                    break;
+                UpdateWorld();
+            }
+            else if (state == GameplayState.Dialogue)
+            {
+                UpdateDialogue();
             }
         }
 
@@ -162,9 +162,12 @@ namespace Antura.Discover
 
             if (HasValidNearbyInteractable)
             {
-                QuestNode questNode = NearbyInteractable.Execute();
+                var interacted = NearbyInteractable;
+                QuestNode questNode = interacted.Execute();
+                // Notify task manager for Interact-type tasks
+                QuestManager.I?.TaskManager?.OnInteractableUsed(interacted);
                 if (questNode != null)
-                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, NearbyInteractable));
+                    this.RestartCoroutine(ref coStartDialogue, CO_StartDialogue(questNode, interacted));
             }
         }
 

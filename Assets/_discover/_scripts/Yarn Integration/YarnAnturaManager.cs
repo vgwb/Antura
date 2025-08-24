@@ -242,12 +242,12 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("task_start")]
-        public static void CommandTaskStart(string taskCode)
+        public static void CommandTaskStart(string taskCode, string nodeReturn)
         {
             Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-            QuestTaskManager.I?.StartTask(taskCode);
+            QuestManager.I?.TaskManager?.StartTask(taskCode, nodeReturn);
         }
 
         [YarnCommand("task_end")]
@@ -256,7 +256,30 @@ namespace Antura.Discover
             Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-            QuestTaskManager.I?.EndTask(taskCode, true);
+            QuestManager.I?.TaskManager.EndTask(taskCode, true);
+        }
+
+        // Yarn functions for querying task state
+        [YarnFunction("GetCurrentTask")]
+        public static string GetCurrentTask()
+        {
+            return QuestManager.I != null ? (QuestManager.I.TaskManager?.CurrentTaskCode ?? string.Empty) : string.Empty;
+        }
+
+        [YarnFunction("GetCollectedItem")]
+        public static int GetCollectedItem(string taskCode)
+        {
+            if (QuestManager.I == null || string.IsNullOrEmpty(taskCode))
+                return 0;
+            return QuestManager.I.TaskManager?.GetCollectedCount(taskCode) ?? 0;
+        }
+
+        [YarnFunction("HasCompletedTask")]
+        public static bool HasCompletedTask(string taskCode)
+        {
+            if (QuestManager.I == null || string.IsNullOrEmpty(taskCode))
+                return false;
+            return QuestManager.I.TaskManager?.IsTaskCompleted(taskCode) ?? false;
         }
 
         // ------------------------------------------------------------
@@ -264,7 +287,7 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("quest_end")]
-        public static void CommandEndquest(int finalStars = -1)
+        public static void CommandQuestEnd(float finalStars = -1)
         {
             // if finalStars is -1, calculate based on progress
             // if finalStars is 0, end as failed
@@ -273,7 +296,7 @@ namespace Antura.Discover
 
             QuestEnd questResult = new QuestEnd();
             questResult.questId = QuestManager.I.CurrentQuest.Id;
-            questResult.stars = finalStars;
+            questResult.stars = Mathf.RoundToInt(finalStars);
             DiscoverAppManager.I.RecordQuestEnd(questResult);
         }
 
@@ -300,6 +323,43 @@ namespace Antura.Discover
             {
                 Debug.LogError($"ActionManager: Unknown inventory action: {action}");
             }
+        }
+
+        [YarnFunction("item_count")]
+        public static float ItemCount(string itemCode)
+        {
+            var inv = QuestManager.I?.Inventory;
+            if (inv == null || string.IsNullOrEmpty(itemCode))
+                return 0f;
+            return inv.GetItemCount(itemCode);
+        }
+
+        [YarnFunction("has_item")]
+        public static bool HasItem(string itemCode)
+        {
+            var inv = QuestManager.I?.Inventory;
+            if (inv == null || string.IsNullOrEmpty(itemCode))
+                return false;
+            return inv.HasItem(itemCode);
+        }
+
+        [YarnFunction("has_item_at_least")]
+        public static bool HasItemAtLeast(string itemCode, float minQty)
+        {
+            var inv = QuestManager.I?.Inventory;
+            if (inv == null || string.IsNullOrEmpty(itemCode))
+                return false;
+            int min = Mathf.Max(1, Mathf.RoundToInt(minQty));
+            return inv.HasItem(itemCode, min);
+        }
+
+        [YarnFunction("can_collect")]
+        public static bool CanCollect(string itemCode)
+        {
+            var inv = QuestManager.I?.Inventory;
+            if (inv == null || string.IsNullOrEmpty(itemCode))
+                return false;
+            return inv.CanCollect(itemCode);
         }
 
         // ------------------------------------------------------------

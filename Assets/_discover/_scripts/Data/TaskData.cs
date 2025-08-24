@@ -21,9 +21,8 @@ namespace Antura.Discover
     {
         None = 0,
         Collect = 1,
-        Reach = 2,
-        Interact = 3,
-        Performance = 4
+        Interact = 2,
+        Performance = 3
     }
 
     [CreateAssetMenu(fileName = "TaskData", menuName = "Antura/Discover/Task")]

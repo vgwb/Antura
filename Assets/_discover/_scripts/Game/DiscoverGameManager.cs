@@ -25,7 +25,6 @@ namespace Antura.Discover
 
         [Header("Managers (optional)")]
         [SerializeField] private QuestManager questManager;
-        [SerializeField] private QuestTaskManager taskManager;
         [SerializeField] private YarnAnturaManager yarnAnturaManager;
         [SerializeField] private YarnConversationController yarnConversationController;
         [SerializeField] private ActionManager actionManager;
@@ -67,8 +66,6 @@ namespace Antura.Discover
                 questManager = FindFirstObjectByType<QuestManager>(FindObjectsInactive.Include);
             if (!actionManager)
                 actionManager = FindFirstObjectByType<ActionManager>(FindObjectsInactive.Include);
-            if (!taskManager)
-                taskManager = FindFirstObjectByType<QuestTaskManager>(FindObjectsInactive.Include);
             if (!yarnAnturaManager)
                 yarnAnturaManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (!yarnConversationController)

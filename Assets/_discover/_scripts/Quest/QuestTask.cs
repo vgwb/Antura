@@ -56,14 +56,14 @@ namespace Antura.Discover
             if (ItemCount <= 0 && ItemsContainer != null)
             {
                 ItemCount = ItemsContainer.transform.childCount;
+                Debug.LogWarning($"QuestTask {Code} ItemCount was not set, using {ItemCount} from ItemsContainer");
             }
-            itemsCollected = 0;
         }
 
         public void Activate()
         {
             // Debug.Log($"Activating Task: {Code}, Type: {Type}, ProgressPoints: {ProgressPoints}");
-            if (Type == TaskType.Interact || Type == TaskType.Reach)
+            if (Type == TaskType.Interact)
             {
                 if (InteractGO != null)
                 {
@@ -91,22 +91,6 @@ namespace Antura.Discover
 
         }
 
-        public void ItemCollected()
-        {
-            if (Type == TaskType.Collect && ItemsContainer != null)
-            {
-                itemsCollected++;
-                if (itemsCollected >= ItemCount)
-                {
-                    // Task completed
-                    QuestManager.I.TaskSuccess(Code);
-                }
-                else
-                {
-                    UIManager.I.TaskDisplay.SetTotItemsCollected(itemsCollected);
-                }
-            }
-        }
 
         public int GetTaskTotalePoints()
         {
@@ -124,8 +108,7 @@ namespace Antura.Discover
             {
                 return ProgressPoints;
             }
-            // collect points are collected during the task
-            return 0;
+            return ProgressPoints * ItemCount;
         }
 
     }
