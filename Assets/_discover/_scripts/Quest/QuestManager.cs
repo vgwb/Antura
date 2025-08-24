@@ -13,7 +13,11 @@ namespace Antura.Discover
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
         public QuestData CurrentQuest;
+        public List<ActivityConfig> ActivityConfigs;
+
         public QuestTask[] QuestTasks;
+
+
         private QuestTask CurrentTask;
         private string CurrentActivity;
 
@@ -211,9 +215,10 @@ namespace Antura.Discover
 
         public void ActivityStart(GameObject activityObject)
         {
-            Debug.Log("ActivityStart: " + activityObject.name);
-            CurrentActivity = activityObject.GetComponent<ActivityBase>().ActivityCode;
-            activityObject.GetComponent<ActivityPanel>().Open();
+            // Debug.Log("ActivityStart: " + activityObject.name);
+            var activityBase = activityObject.GetComponent<ActivityBase>();
+            CurrentActivity = activityBase.ActivityCode;
+            activityBase.Open();
         }
 
         public void OnNodeStart(QuestNode node)

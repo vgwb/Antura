@@ -58,6 +58,11 @@ namespace Antura.Discover.Activities
                 StartCoroutine(EasyPeriodicShakes());
         }
 
+        protected override void Update()
+        {
+            base.Update();
+        }
+
         /// <summary>
         /// Builds the board using CardData only.
         /// </summary>

@@ -7,9 +7,15 @@ namespace Antura.Discover.Activities
 
         [Header("Activity TraceLine Settings")]
         public int LineWidth = 5;
+
         void Start()
         {
 
+        }
+
+        protected override void Update()
+        {
+            base.Update();
         }
 
     }

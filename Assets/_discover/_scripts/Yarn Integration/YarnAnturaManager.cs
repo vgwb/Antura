@@ -1,3 +1,4 @@
+using Antura.Discover.Activities;
 using System;
 using System.Collections;
 using UnityEngine;
@@ -367,12 +368,20 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("activity")]
-        public static void ResolveNodeCommandActivity(string activityCode, string difficulty = null)
+        public static void ResolveNodeCommandActivity(string activityCode, string nodeReturn)
         {
-            Debug.Log($"ActionManager: ResolveNodeCommandActivity: {activityCode} {difficulty}");
+            //Debug.Log($"Yarn: activity {activityCode} -> {nodeReturn}");
             if (string.IsNullOrEmpty(activityCode))
                 return;
-            ActionManager.I.ResolveQuestAction(activityCode);
+            ActivityManager.I?.Launch(activityCode, nodeReturn);
+        }
+
+        [YarnFunction("GetActivityResult")]
+        public static int GetActivityResult(string activityCode)
+        {
+            if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
+                return 0;
+            return ActivityManager.I?.TryGetResult(activityCode) ?? 0;
         }
 
     }

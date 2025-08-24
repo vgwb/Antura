@@ -669,6 +669,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c10e20895dd984850b55008d6dfc0004, type: 3}
   - {fileID: 8300000, guid: de8117fba77e84997bbf4d46984cf2bc, type: 3}
   - {fileID: 8300000, guid: 0fb6cc3e329e04551b9cdcd21ec3e46c, type: 3}
+  useRainbowColors: 1
+  WhiteKeyColors:
+  - {r: 1, g: 0.2, b: 0.2, a: 1}
+  - {r: 1, g: 0.6, b: 0, a: 1}
+  - {r: 1, g: 0.9, b: 0.1, a: 1}
+  - {r: 0.1, g: 0.75, b: 0.3, a: 1}
+  - {r: 0, g: 0.7, b: 0.9, a: 1}
+  - {r: 0.2, g: 0.35, b: 0.95, a: 1}
+  - {r: 0.65, g: 0.45, b: 0.25, a: 1}
 --- !u!1 &5766881619081821586
 GameObject:
   m_ObjectHideFlags: 0
@@ -679,7 +688,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1709150003338170337}
   - component: {fileID: 5138282620430250821}
-  - component: {fileID: 8101630004106580834}
   - component: {fileID: 6337386382773390606}
   - component: {fileID: 1431890042723612978}
   - component: {fileID: 692783592549637185}
@@ -724,35 +732,48 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivityCode: 
-  timerSeconds: 60
-  PointsSuccess: 0
-  PointsFail: -1
   HelpPanel: {fileID: 0}
-  NodeDescription: 
-  NodeSuccess: 
-  NodeFail: 
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  roundsTarget: 1
+  masterTimeThreshold: 0
+  deprecatedEnableDebugHotkeys: 1
+  Settings: {fileID: 0}
+  ActivityDifficulty: 0
   playMode: 1
-  repeatDifficulty: 2
   keyboard: {fileID: 5643121760829794517}
-  melody: {fileID: 11400000, guid: ef7c87e8229944073accc6589339c47d, type: 2}
   playButton: {fileID: 5841363384017639495}
   stopButton: {fileID: 6112895328434130492}
   statusLabel: {fileID: 8642371149471004686}
   tutorialFlash: {r: 1, g: 0.95, b: 0.3, a: 1}
---- !u!114 &8101630004106580834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766881619081821586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee679f6d441c4c688e9598efcc909808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasTimer: 1
-  timerSeconds: 60
+  references:
+    version: 2
+    RefIds: []
 --- !u!223 &6337386382773390606
 Canvas:
   m_ObjectHideFlags: 0

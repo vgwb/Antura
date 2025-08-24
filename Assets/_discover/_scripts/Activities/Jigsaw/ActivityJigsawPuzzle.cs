@@ -41,7 +41,7 @@ namespace Antura.Discover.Activities
         private int cols;
         private int rows;
 
-        public override void Init()
+        public override void InitActivity()
         {
             if (built)
                 return;
@@ -49,6 +49,10 @@ namespace Antura.Discover.Activities
             BuildPuzzle();
             UpdateValidateButton();
             built = true;
+        }
+        protected override void Update()
+        {
+            base.Update();
         }
 
         private void ResolveDifficulty()

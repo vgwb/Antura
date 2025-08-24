@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 6127724180139484369}
   - component: {fileID: 2606011430771145487}
-  - component: {fileID: 3665041567241353298}
   - component: {fileID: 1531497810808432190}
   - component: {fileID: 5867357004236378626}
   - component: {fileID: 5417638428332177265}
@@ -55,30 +54,45 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivityCode: 
-  hasTimer: 1
-  timerSeconds: 60
-  PointsSuccess: 0
-  PointsFail: -1
   HelpPanel: {fileID: 0}
-  NodeDescription: 
-  NodeSuccess: 
-  NodeFail: 
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  roundsTarget: 1
+  masterTimeThreshold: 0
+  deprecatedEnableDebugHotkeys: 1
   Settings: {fileID: 0}
   ActivityDifficulty: 0
---- !u!114 &3665041567241353298
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1349397861460383394}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee679f6d441c4c688e9598efcc909808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasTimer: 1
-  timerSeconds: 60
+  QuestionLabel: {fileID: 0}
+  AnswersContainer: {fileID: 0}
+  ValidateButton: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!223 &1531497810808432190
 Canvas:
   m_ObjectHideFlags: 0

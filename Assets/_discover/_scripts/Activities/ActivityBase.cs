@@ -8,6 +8,7 @@ using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
 using System;
 using DG.Tweening;
+using Antura.Discover;
 
 namespace Antura.Discover.Activities
 {
@@ -20,9 +21,9 @@ namespace Antura.Discover.Activities
         Expert = 4
     }
 
-
     public class ActivityBase : MonoBehaviour
     {
+
         [Header("Common properties")]
         public string ActivityCode;
 
@@ -43,7 +44,12 @@ namespace Antura.Discover.Activities
         [Tooltip("Time threshold in seconds to consider a perfect 'master' round (doubles points on success). Set 0 to disable.")]
         [SerializeField] private float masterTimeThreshold = 0f;
 
-        private ActivityPanel activityPanel;
+        private bool initialized;
+        private bool currHasTimer;
+
+        public bool HasTimer => GetSettings()?.HasTimer ?? false;
+        public int TimerSeconds => GetSettings()?.TimerSeconds ?? 60;
+        private ActivityOverlay overlay;
         private int currentRound = 0;
         private float roundStartTime;
         private bool validateEnabled;
@@ -54,14 +60,21 @@ namespace Antura.Discover.Activities
         private ActivityPlayState state = ActivityPlayState.Idle;
         public ActivityPlayState State => state;
 
-        // Timer settings bridged from concrete settings
-        public bool HasTimer => GetSettings()?.HasTimer ?? false;
-        public int TimerSeconds => GetSettings()?.TimerSeconds ?? 60;
+
+        // Settings configured by the launcher (manager); concrete activities can override GetSettings to customize
+        private ActivitySettingsAbstract _configuredSettings;
+
+        /// <summary>
+        /// Configure this activity with the provided settings. Call before opening.
+        /// </summary>
+        public virtual void ConfigureSettings(ActivitySettingsAbstract settings)
+        {
+            _configuredSettings = settings;
+        }
 
         public void Open()
         {
-            activityPanel = GetComponentInParent<ActivityPanel>();
-            Init();
+            InitOverlayUI();
             SetupRoundsFromSettings();
             startingRoundsTarget = roundsTarget;
             if (!descriptionShown && Description != null)
@@ -69,6 +82,9 @@ namespace Antura.Discover.Activities
                 ShowMessage(Description);
                 descriptionShown = true;
             }
+            // Show panel with settings-derived timer
+            InitActivity();
+            ShowPanel(HasTimer, TimerSeconds);
             BeginRound();
         }
 
@@ -96,9 +112,67 @@ namespace Antura.Discover.Activities
         /// </summary>
         protected virtual void OnResetActivity() { }
 
-        public virtual void Init()
+        public virtual void InitActivity()
         {
+            Debug.Log("ActivityBase: Init() called");
+        }
 
+
+        // =============================
+        // Overlay/Panel management
+        // =============================
+        private void InitOverlayUI()
+        {
+            if (initialized)
+                return;
+            initialized = true;
+
+            overlay = this.GetComponentInChildren<ActivityOverlay>(true);
+            if (overlay == null)
+            {
+                Debug.LogError("ActivityBase: couldn't find ActivityOverlay child");
+                return;
+            }
+
+            // Wire buttons
+            overlay.BtClose.onClick.AddListener(ExitWithoutPoints);
+            overlay.BtHelp.onClick.AddListener(ToggleHelp);
+            overlay.BtValidate.onClick.AddListener(Validate);
+
+            // Subscriptions
+            try
+            { GlobalUI.PauseMenu.OnPauseToggled.Subscribe(OnGlobalPauseToggled); }
+            catch { }
+            overlay.Timer.OnTimerElapsed.Subscribe(OnTimerElapsed);
+        }
+
+        protected virtual void Update()
+        {
+            if (!(QuestManager.I?.DebugQuest ?? false))
+                return;
+            if (state != ActivityPlayState.Playing)
+                return;
+            // Debug: 1=fail (<0), 2=quit (=0), 3=success (>0)
+            if (Input.GetKeyDown(KeyCode.Alpha1))
+            {
+                Debug.Log("Force Exit Fail");
+                // Force close as fail
+                SetRoundsTarget(currentRound);
+                EndRound(false, 0f, false);
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha2))
+            {
+                Debug.Log("Force Exit 0 points");
+                // Quit with 0 points
+                ExitWithoutPoints();
+            }
+            else if (Input.GetKeyDown(KeyCode.Alpha3))
+            {
+                Debug.Log("Force Exit Success");
+                // Force close as success
+                SetRoundsTarget(currentRound);
+                EndRound(true, 1f, false);
+            }
         }
 
 
@@ -115,15 +189,21 @@ namespace Antura.Discover.Activities
             HelpPanel.SetActive(!HelpPanel.activeSelf);
         }
 
-        /// <summary>
-        /// Called by <see cref="ActivityOverlay"/> when the eventual timer has elapsed
-        /// </summary>
-        public void TimerElapsed()
+        private void OnTimerElapsed()
         {
             // Default behavior: treat as fail and end activity (no points or fail points based on PointsFail)
             Debug.LogWarning("ActivityBase: timer elapsed -> FAIL round");
             if (state == ActivityPlayState.Playing)
                 EndRound(false, 0f, true);
+        }
+
+        /// <summary>
+        /// Enable/disable the Validate button in the overlay.
+        /// </summary>
+        protected void SetValidateEnabled(bool enable)
+        {
+            validateEnabled = enable;
+            EnableValidateButton(enable);
         }
 
         /// <summary>
@@ -157,16 +237,9 @@ namespace Antura.Discover.Activities
         /// <summary>
         /// Override to expose concrete settings to base scoring logic.
         /// </summary>
-        protected virtual ActivitySettingsAbstract GetSettings() => null;
+        protected virtual ActivitySettingsAbstract GetSettings() => _configuredSettings;
 
-        /// <summary>
-        /// Enable/disable the Validate button in the overlay.
-        /// </summary>
-        protected void SetValidateEnabled(bool enable)
-        {
-            validateEnabled = enable;
-            activityPanel?.EnableValidateButton(enable);
-        }
+
 
         /// <summary>
         /// Call at the start of each round to initialize timers and UI.
@@ -190,7 +263,7 @@ namespace Antura.Discover.Activities
             state = ActivityPlayState.Exiting;
             // Pause timer while prompting
             if (HasTimer)
-                activityPanel?.PauseTimer();
+                PauseTimer();
             RequestExitConfirmation(
                 onYes: () =>
                 {
@@ -198,16 +271,16 @@ namespace Antura.Discover.Activities
                     OnActivityFinished(false, 0, Time.realtimeSinceStartup - roundStartTime, false);
                     ShowEndMessage(false);
                     try
-                    { activityPanel?.PauseTimer(); }
+                    { PauseTimer(); }
                     catch { }
-                    activityPanel?.Hide();
+                    HidePanel();
                     state = ActivityPlayState.Finished;
                 },
                 onNo: () =>
                 {
                     // Resume if was playing
                     if (HasTimer)
-                        activityPanel?.ResumeTimer();
+                        ResumeTimer();
                     state = ActivityPlayState.Playing;
                 }
             );
@@ -272,7 +345,7 @@ namespace Antura.Discover.Activities
             yield return new WaitForSecondsRealtime(0.85f);
             OnActivityFinished(success, points, elapsed, dueToTimeout);
             ShowEndMessage(success);
-            activityPanel?.PauseTimer();
+            PauseTimer();
 
             // If finished before reaching MaxRounds, offer a replay prompt
             var s = GetSettings();
@@ -292,26 +365,35 @@ namespace Antura.Discover.Activities
                 {
                     roundsTarget = Mathf.Clamp(startingRoundsTarget + 1, s.MinRounds, s.MaxRounds);
                     ResetActivity();
-                    activityPanel?.Show(HasTimer, TimerSeconds);
-                    Open();
+                    ShowPanel(HasTimer, TimerSeconds);
+                    BeginRound();
                     yield break;
                 }
             }
 
-            activityPanel?.Hide();
+            HidePanel();
             state = ActivityPlayState.Finished;
+
+            // Notify ActivityManager to persist and possibly jump back to Yarn
+            try
+            {
+                // Map points to the "score" concept expected by Yarn: >0 success, =0 quit, <0 fail
+                int scoreOut = success ? Mathf.Max(1, points) : (dueToTimeout ? -1 : Mathf.Min(-1, points));
+                ActivityManager.I?.OnActivityClosed(ActivityCode, scoreOut, Mathf.RoundToInt(elapsed));
+            }
+            catch { }
         }
 
         private void TryShowResultBanner(bool success)
         {
             try
             {
-                var overlay = activityPanel != null ? activityPanel.GetComponentInChildren<ActivityOverlay>(true) : null;
-                if (overlay != null)
+                var ov = overlay;
+                if (ov != null)
                 {
                     var color = success ? new Color(0.1f, 0.7f, 0.2f) : new Color(0.85f, 0.25f, 0.25f);
                     var text = success ? "Success" : "Try again";
-                    StartCoroutine(overlay.ShowResultBanner(text, color, 0.6f));
+                    StartCoroutine(ov.ShowResultBanner(text, color, 0.6f));
                 }
             }
             catch { }
@@ -427,6 +509,70 @@ namespace Antura.Discover.Activities
         protected virtual void RequestReplayConfirmation(Action onYes, Action onNo)
         {
             GlobalUI.ShowPrompt(LocalizationDataId.UI_AreYouSure, onYes, onNo, LanguageUse.Native);
+        }
+
+
+        protected virtual void OnDestroy()
+        {
+            if (overlay != null)
+            {
+                overlay.Timer.OnTimerElapsed.Unsubscribe(OnTimerElapsed);
+            }
+            try
+            { GlobalUI.PauseMenu.OnPauseToggled.Unsubscribe(OnGlobalPauseToggled); }
+            catch { }
+        }
+
+        public void OpenFresh()
+        {
+            InitOverlayUI();
+            ResetActivity();
+            Open();
+        }
+
+        public void ShowPanel(bool pHasTimer, int pTimerSeconds)
+        {
+            InitOverlayUI();
+            currHasTimer = pHasTimer;
+            this.gameObject.SetActive(true);
+            EnableValidateButton(false);
+            overlay.SetTimer(pHasTimer, pTimerSeconds);
+        }
+
+        public void HidePanel()
+        {
+            InitOverlayUI();
+            overlay.Timer.CancelTimer();
+            this.gameObject.SetActive(false);
+
+        }
+
+        public void EnableValidateButton(bool enable)
+        {
+            InitOverlayUI();
+            overlay.BtValidate.interactable = enable;
+        }
+
+        public void PauseTimer()
+        {
+            InitOverlayUI();
+            overlay.Timer.PauseTimer();
+        }
+
+        public void ResumeTimer()
+        {
+            InitOverlayUI();
+            overlay.Timer.ResumeTimer();
+        }
+
+        private void OnGlobalPauseToggled(bool paused)
+        {
+            if (!currHasTimer)
+                return;
+            if (paused)
+                PauseTimer();
+            else
+                ResumeTimer();
         }
     }
 }

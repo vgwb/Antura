@@ -190,7 +190,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1709150003338170337}
   - component: {fileID: -8603953391841034531}
-  - component: {fileID: 8101630004106580834}
   - component: {fileID: 6337386382773390606}
   - component: {fileID: 1431890042723612978}
   - component: {fileID: 692783592549637185}
@@ -235,14 +234,37 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ActivityCode: 
-  hasTimer: 1
-  timerSeconds: 60
-  PointsSuccess: 0
-  PointsFail: -1
   HelpPanel: {fileID: 0}
-  NodeDescription: 
-  NodeSuccess: 
-  NodeFail: 
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  SuccessMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  FailMessage:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  roundsTarget: 1
+  masterTimeThreshold: 0
+  deprecatedEnableDebugHotkeys: 1
   Settings: {fileID: 0}
   ActivityDifficulty: 0
   tilesPoolParent: {fileID: 3729829768112403557}
@@ -251,23 +273,14 @@ MonoBehaviour:
     type: 3}
   tilePrefab: {fileID: 9127632138236041138, guid: f316dfc893eed49819b136c461835b88,
     type: 3}
-  validateButton: {fileID: 8256153513693941237}
+  showGhostsInTutorial: 1
   audioSource: {fileID: 0}
   dropSound: {fileID: 0}
---- !u!114 &8101630004106580834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766881619081821586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee679f6d441c4c688e9598efcc909808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasTimer: 1
-  timerSeconds: 60
+  successSound: {fileID: 0}
+  failSound: {fileID: 0}
+  references:
+    version: 2
+    RefIds: []
 --- !u!223 &6337386382773390606
 Canvas:
   m_ObjectHideFlags: 0
@@ -558,18 +571,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 393610494037731415}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &8256153513693941237 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 8639554761993889186, guid: 39b319f64d6afa24bbe800d00f793d01,
-    type: 3}
-  m_PrefabInstance: {fileID: 393610494037731415}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 21ba0a6127314172997b5cfa187267d7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &4057380863049285744
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -35,6 +35,9 @@ namespace Antura.Discover
         public List<ActivityCategory> Category;
         public List<ActivitySkill> Skills;
 
+        [Header("Prefab")]
+        public GameObject ActivityPrefab;
+
         [Header("Credits")]
         public List<AuthorCredit> Credits;
     }

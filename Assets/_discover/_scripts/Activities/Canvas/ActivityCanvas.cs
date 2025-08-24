@@ -50,7 +50,7 @@ namespace Antura.Discover.Activities
 
         private RectTransform coverRect;
         private Camera uiCamera;   // if using Screen Space - Camera; left null for Overlay
-        private readonly System.Collections.Generic.List<RectTransform> bugsList = new System.Collections.Generic.List<RectTransform>();
+        private readonly List<RectTransform> bugsList = new List<RectTransform>();
         public RectTransform bugsLayer; // optional separate layer for bugs over the cover
         public float bugBaseSpeed = 120f; // px/sec at Normal
         public Vector2 bugScaleRange = new Vector2(0.8f, 1.2f);
@@ -59,6 +59,7 @@ namespace Antura.Discover.Activities
 
         void Start()
         {
+            Debug.Log("ActivityCanvas Start() called");
             ResolveDifficulty();
             Setup();
         }
@@ -119,8 +120,9 @@ namespace Antura.Discover.Activities
             treasuresSpawned = false; // will respawn on Setup
         }
 
-        void Update()
+        protected override void Update()
         {
+            base.Update();
 #if UNITY_EDITOR || UNITY_STANDALONE
             if (Input.GetMouseButton(0))
                 ScratchAt(Input.mousePosition);

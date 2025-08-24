@@ -23,9 +23,13 @@ namespace Antura.Discover.Activities
         private DraggableTile[] placed; // placed right tiles by left slot
         private readonly List<DropSlot> leftDropSlots = new();
 
-        public override void Init()
+        public override void InitActivity()
         {
             BuildRound();
+        }
+        protected override void Update()
+        {
+            base.Update();
         }
 
         protected override ActivitySettingsAbstract GetSettings() => Settings;

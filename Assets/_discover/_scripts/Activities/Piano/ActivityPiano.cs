@@ -41,6 +41,11 @@ namespace Antura.Discover.Activities
             BuildTargetNotes();
         }
 
+        protected override void Update()
+        {
+            base.Update();
+        }
+
         private void WireUI()
         {
             if (playButton)

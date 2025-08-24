@@ -159,7 +159,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1709150003338170337}
-  - component: {fileID: 8101630004106580834}
   - component: {fileID: 2690313780399206902}
   - component: {fileID: 6337386382773390606}
   - component: {fileID: 1431890042723612978}
@@ -192,20 +191,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
---- !u!114 &8101630004106580834
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5766881619081821586}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee679f6d441c4c688e9598efcc909808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hasTimer: 1
-  timerSeconds: 60
 --- !u!114 &2690313780399206902
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -249,6 +234,7 @@ MonoBehaviour:
     m_LocalVariables: []
   roundsTarget: 1
   masterTimeThreshold: 0
+  deprecatedEnableDebugHotkeys: 1
   Settings: {fileID: 0}
   BugPrefab: {fileID: 7292134696670690957, guid: fab2ba837e6ab46ec9d0b3626dffdf52,
     type: 3}
@@ -259,6 +245,7 @@ MonoBehaviour:
   BackgroundImageUI: {fileID: 262311829993238256}
   CoverImageUI: {fileID: 4646340746907366346}
   ProgressLabel: {fileID: 2509060565568701824}
+  TreasuresLayer: {fileID: 0}
   coverColor: {r: 0, g: 0, b: 0, a: 1}
   coverTextureWidth: 1024
   coverTextureHeight: 512

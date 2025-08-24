@@ -74,8 +74,9 @@ namespace Antura.Discover.Activities
             SetupGame();
         }
 
-        private void Update()
+        protected override void Update()
         {
+            base.Update();
             if (Settings.TimeLimit > 0 && data.TimeRemaining > 0)
             {
                 data.TimeRemaining -= Time.deltaTime;

@@ -47,13 +47,18 @@ namespace Antura.Discover.Activities
                 Debug.LogWarning("Puzzle supports max 10 items.");
         }
 
-        public override void Init()
+        public override void InitActivity()
         {
             ActivityDifficulty = Settings.Difficulty;
             var dataItems = BuildItemsFromSettings();
             minItemsToValidate = dataItems.Count;
             correctOrder = dataItems.ToArray();
             BuildRound();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
         }
 
         protected override ActivitySettingsAbstract GetSettings() => Settings;

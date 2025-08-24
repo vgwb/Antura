@@ -24,11 +24,16 @@ namespace Antura.Discover.Activities
         private readonly List<Toggle> _answerToggles = new List<Toggle>();
         private bool _allowMultiple; // if multiple correct entries exist
 
-        public override void Init()
+        public override void InitActivity()
         {
-            base.Init();
+            base.InitActivity();
             WireUI();
             BuildRound();
+        }
+
+        protected override void Update()
+        {
+            base.Update();
         }
 
         protected override ActivitySettingsAbstract GetSettings() => Settings;

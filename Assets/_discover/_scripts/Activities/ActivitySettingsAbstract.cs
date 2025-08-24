@@ -4,6 +4,9 @@ namespace Antura.Discover.Activities
 {
     public class ActivitySettingsAbstract : IdentifiedData
     {
+        [Header("Activity Type")]
+        public ActivityCode ActivityCode;
+
         [Header("Duration")]
         public Difficulty Difficulty = Difficulty.Normal;
         public int MinRounds = 1;
