@@ -215,7 +215,7 @@ tags:
 group: tasks
 color: green
 ---
-Collect 5 flowers! #line:0464331 
+Collect 5 flowers! #line:dev_test_task_1 
 <<task_start collect_flowers test_task_done>>
 ===
 
@@ -225,7 +225,7 @@ tags:
 group: tasks
 color: green
 ---
-Well done! You collected 5 flowers!
+Well done! You collected 5 flowers! #line:dev_test_task_done_1 
 ===
 
 
@@ -235,7 +235,7 @@ tags: actor=TUTOR
 group: actions
 color: yellow
 ---
-A good chest! #line:077ec11 
+A good chest! #line:dev_item_chest_1 
 <<action open_chest>>
 ===
 
@@ -244,12 +244,12 @@ position: 4,718
 group: quiz
 tags: type=quiz
 ---
-Calculate 3*2 #line:0482c96 
--> 4 #line:076225c 
+Calculate 3*2 #line:dev_test_quiz_1 
+-> 4 #line:dev_test_quiz_2 
     <<jump test_quiz_wrong>>
--> 6 #line:02c95c5 
+-> 6 #line:dev_test_quiz_3 
     <<jump test_quiz_correct>>
--> 8 #line:0a529bd 
+-> 8 #line:dev_test_quiz_4 
     <<jump test_quiz_wrong>>
 ===
 
