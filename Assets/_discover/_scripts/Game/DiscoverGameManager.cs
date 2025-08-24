@@ -75,19 +75,16 @@ namespace Antura.Discover
                 yarnConversationController = FindFirstObjectByType<YarnConversationController>(FindObjectsInactive.Include);
 
             // Determine quest to use: prefer prefab-assigned QuestManager.CurrentQuest, otherwise StartingQuest
-            if (questManager != null)
+            var questToUse = questManager.CurrentQuest != null ? questManager.CurrentQuest : StartingQuest;
+            if (questToUse != null)
             {
-                var questToUse = questManager.CurrentQuest != null ? questManager.CurrentQuest : StartingQuest;
-                if (questToUse != null)
+                questManager.CurrentQuest = questToUse;
+                if (yarnAnturaManager != null)
                 {
-                    questManager.CurrentQuest = questToUse;
-                    if (yarnAnturaManager != null)
+                    // Initialize DialogueRunner with project and string table
+                    if (yarnAnturaManager.Runner != null)
                     {
-                        // Initialize DialogueRunner with project and string table
-                        if (yarnAnturaManager.Runner != null)
-                        {
-                            yarnAnturaManager.Runner.SetProject(questToUse.YarnProject);
-                        }
+                        yarnAnturaManager.Runner.SetProject(questToUse.YarnProject);
                     }
                 }
             }

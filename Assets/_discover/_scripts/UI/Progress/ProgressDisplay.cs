@@ -20,9 +20,9 @@ namespace Antura.Discover
         [SerializeField] Image progressFill;
         [DeEmptyAlert]
         [SerializeField] ProgressStar[] stars;
-        
+
         #endregion
-        
+
         public bool IsOpen { get; private set; }
         public int CurrScore { get; private set; }
 
@@ -34,7 +34,8 @@ namespace Antura.Discover
 
         void Init()
         {
-            if (initialized) return;
+            if (initialized)
+                return;
 
             initialized = true;
 
@@ -44,14 +45,16 @@ namespace Antura.Discover
             showTween = ((RectTransform)this.transform).DOAnchorPosX(135, 0.5f).From().SetAutoKill(false).Pause()
                 .SetEase(Ease.OutBack)
                 .OnRewind(() => this.gameObject.SetActive(false));
-            
-            if (!wasActive) this.gameObject.SetActive(false);
+
+            if (!wasActive)
+                this.gameObject.SetActive(false);
         }
 
         void Awake()
         {
             Init();
-            if (!IsOpen) this.gameObject.SetActive(false);
+            if (!IsOpen)
+                this.gameObject.SetActive(false);
         }
 
         void OnDestroy()
@@ -63,12 +66,17 @@ namespace Antura.Discover
 
         #region Public Methods
 
+        public void Setup(int maxScore)
+        {
+            Show(maxScore, maxScore / 3, maxScore * 2 / 3, maxScore - 2);
+        }
+
         /// <summary>
         /// Call this method to show and setup the progress bar
         /// </summary>
         /// <param name="pMaxScore"></param>
         /// <param name="starsScore"></param>
-        public void Show(int pMaxScore, params int[] starsScore)
+        private void Show(int pMaxScore, params int[] starsScore)
         {
             if (starsScore.Length < stars.Length)
             {
@@ -90,7 +98,7 @@ namespace Antura.Discover
                 Vector3 pos = new Vector2(starT.anchoredPosition.x, progressBar.anchoredPosition.y + (barH / maxScore) * star.MinRequiredScore);
                 starT.anchoredPosition = pos;
             }
-            
+
             Refresh();
 
             showTween.Restart();
@@ -99,22 +107,24 @@ namespace Antura.Discover
 
         public void Hide()
         {
-            if (!IsOpen) return;
+            if (!IsOpen)
+                return;
 
             Init();
             IsOpen = false;
-            
+
             showTween.PlayBackwards();
         }
 
         public void SetCurrentScore(int value)
         {
-            if (CurrScore == value) return;
-            
+            if (CurrScore == value)
+                return;
+
             CurrScore = value;
             Refresh();
         }
-        
+
         #endregion
 
         #region Methods
@@ -124,8 +134,10 @@ namespace Antura.Discover
             progressFill.fillAmount = (float)CurrScore / maxScore;
             for (int i = 0; i < stars.Length; i++)
             {
-                if (stars[i].MinRequiredScore <= CurrScore) stars[i].Achieve(true);
-                else stars[i].Achieve(false);
+                if (stars[i].MinRequiredScore <= CurrScore)
+                    stars[i].Achieve(true);
+                else
+                    stars[i].Achieve(false);
             }
         }
 
@@ -157,7 +169,8 @@ namespace Antura.Discover
         [DeMethodButton(mode = DeButtonMode.PlayModeOnly)]
         void DecrementScoreBy1()
         {
-            if (CurrScore > 0) SetCurrentScore(CurrScore - 1);
+            if (CurrScore > 0)
+                SetCurrentScore(CurrScore - 1);
         }
 
         #endregion

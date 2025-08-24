@@ -18,7 +18,7 @@ namespace Antura.Discover
         private string CurrentActivity;
 
         public InventoryManager Inventory;
-        public ProgressManager progress;
+        public ProgressManager Progress;
 
         [Header("DEBUG")]
         public bool DebugQuest = false;
@@ -40,7 +40,7 @@ namespace Antura.Discover
         protected override void Init()
         {
             Inventory = new InventoryManager();
-            progress = new ProgressManager();
+            Progress = new ProgressManager();
         }
 
         void Start()
@@ -86,7 +86,7 @@ namespace Antura.Discover
             taskMgr.RegisterTasks(QuestTasks);
 
             // Initialize progress via local tasks
-            progress.Init(QuestTasks);
+            Progress.Init(QuestTasks);
             updateCounters();
 
             // Task registration moved to ActionManager.Start()
@@ -103,6 +103,9 @@ namespace Antura.Discover
             // DiscoverGameManager is responsible for starting the intro Yarn node
 
             ApplyInteractableDebugLabels(DebugQuest);
+
+            // TODO, maybe in taskmanager
+            UIManager.I.ProgressDisplay.Setup(30);
         }
 
         void Update()
@@ -192,7 +195,7 @@ namespace Antura.Discover
             }
 
             UIManager.I.TaskDisplay.Hide();
-            progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
+            Progress.AddProgressPoints(CurrentTask.GetSuccessPoints());
 
             if (!string.IsNullOrEmpty(CurrentTask.NodeSuccess))
                 YarnAnturaManager.I?.StartDialogue(CurrentTask.NodeSuccess);
@@ -202,7 +205,7 @@ namespace Antura.Discover
 
         public void AddProgressPoints(int points)
         {
-            progress.AddProgressPoints(points);
+            Progress.AddProgressPoints(points);
         }
 
         public void TaskFail(string taskCode = "")
