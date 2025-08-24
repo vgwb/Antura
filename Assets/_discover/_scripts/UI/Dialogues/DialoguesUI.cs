@@ -258,6 +258,8 @@ namespace Antura.Discover
 
         public void ShowDialogueLine(QuestNode node)
         {
+            Debug.Log("DialoguesUI.ShowDialogueLine " + node.Content + " / " + node.ContentNative);
+
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon;

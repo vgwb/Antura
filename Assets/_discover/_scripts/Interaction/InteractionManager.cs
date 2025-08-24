@@ -112,7 +112,8 @@ namespace Antura.Discover
         /// </summary>
         public void ResetCameraFocus()
         {
-            if (!IsUsingFocusView) return;
+            if (!IsUsingFocusView)
+                return;
 
             CameraManager.I.ResetFocus();
             UIManager.I.gameObject.SetActive(true);
