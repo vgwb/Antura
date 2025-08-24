@@ -22,10 +22,10 @@ namespace Antura.Discover
                 Destroy(child.gameObject);
             }
             // Subscribe to inventory events
-            if (QuestManager.I != null && QuestManager.I.inventory != null)
+            if (QuestManager.I != null && QuestManager.I.Inventory != null)
             {
                 Debug.Log("InventoryDisplay: Subscribing to inventory events.");
-                var inv = QuestManager.I.inventory;
+                var inv = QuestManager.I.Inventory;
                 inv.OnItemAdded += HandleItemAdded;
                 inv.OnItemRemoved += HandleItemRemoved;
                 inv.OnItemUpdated += HandleItemUpdated;
@@ -73,7 +73,7 @@ namespace Antura.Discover
             if (itemData == null)
                 return;
             CurrentItemData = itemData;
-            QuestManager.I?.inventory?.SelectItem(itemData.Code);
+            QuestManager.I?.Inventory?.SelectItem(itemData.Code);
         }
 
         private GameObject CreateOrUpdateItemView(InventoryItem item)
@@ -99,9 +99,9 @@ namespace Antura.Discover
                     display.PlayAppear();
                 }
                 // Apply selection state if this is the current item
-                if (QuestManager.I != null && QuestManager.I.inventory != null)
+                if (QuestManager.I != null && QuestManager.I.Inventory != null)
                 {
-                    var isSelected = QuestManager.I.inventory.CurrentItem == item;
+                    var isSelected = QuestManager.I.Inventory.CurrentItem == item;
                     display.SetSelected(isSelected);
                 }
             }

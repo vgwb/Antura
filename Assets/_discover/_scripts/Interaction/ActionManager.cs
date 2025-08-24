@@ -25,9 +25,6 @@ namespace Antura.Discover
 
         public QuestActionData[] QuestActions;
 
-        [Header("Tasks")]
-        [Tooltip("Tasks available for this quest")]
-        public Antura.Discover.Task[] Tasks;
 
         [Header("Specific")]
         private Transform target_AnturaLocation;
@@ -67,21 +64,8 @@ namespace Antura.Discover
                 WinFx.SetActive(false);
             }
 
-            // Initialize quest/world tasks (serialized here)
-            if (Tasks != null)
-            {
-                foreach (var t in Tasks)
-                {
-                    if (t != null)
-                        t.Setup();
-                }
-            }
-
             RespawnPlayer();
             yield return null;
-
-            // Register tasks centrally so Yarn commands can start/end them
-            TaskManager.I?.RegisterTasks(Tasks);
 
             if (DebugAction != "")
             {
@@ -160,8 +144,8 @@ namespace Antura.Discover
                     case CommandType.Area:
                         ChangeArea(command.mainObject);
                         break;
-                    case CommandType.Bones:
-                        QuestManager.I.OnCollectBones(1);
+                    case CommandType.Cookie:
+                        QuestManager.I.OnCollectCookie(1);
                         break;
                     case CommandType.Collect:
                         QuestManager.I.OnCollectItemCode(command.Parameter);

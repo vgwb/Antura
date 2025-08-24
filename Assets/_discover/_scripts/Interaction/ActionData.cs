@@ -10,7 +10,7 @@ namespace Antura.Discover
     {
         Activity = 6,
         Area = 2,
-        Bones = 10,
+        Cookie = 10,
         Collect = 4,
         InventoryAdd = 8,
         InventoryRemove = 9,

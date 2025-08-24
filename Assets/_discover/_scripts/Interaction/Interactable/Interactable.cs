@@ -174,13 +174,13 @@ namespace Antura.Discover
                 //     return null;
                 // }
                 // Debug.Log($"Interactable: Execute - Node: {DialogueNode.NodeName}");
-                QuestManager.I.YarnStartDialogue(DialogueNode.nodeName);
+                QuestManager.I.StartDialogue(DialogueNode.nodeName);
             }
 
             if (NodePermalink != "")
             {
                 Debug.Log($"Interactable: Execute - NodePermalink: {NodePermalink}");
-                QuestManager.I.YarnStartDialogue(NodePermalink);
+                QuestManager.I.StartDialogue(NodePermalink);
 
             }
 

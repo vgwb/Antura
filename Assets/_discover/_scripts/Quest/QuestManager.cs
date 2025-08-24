@@ -12,15 +12,13 @@ namespace Antura.Discover
 {
     public class QuestManager : SingletonMonoBehaviour<QuestManager>
     {
-        [Header("Yarn")]
-
         public QuestData CurrentQuest;
-        private Task CurrentTask;
+        public QuestTask[] QuestTasks;
+        private QuestTask CurrentTask;
         private string CurrentActivity;
 
-        public InventoryManager inventory;
-        private Progress progress;
-        private readonly List<QuestNode> tmpQuestNodes = new List<QuestNode>();
+        public InventoryManager Inventory;
+        public ProgressManager progress;
 
         [Header("DEBUG")]
         public bool DebugQuest = false;
@@ -36,14 +34,13 @@ namespace Antura.Discover
         private GameObject currentNPC;
         private PlayerController playerController;
         private int total_coins = 0;
-        private int total_bones = 0;
         private int collected_items = 0;
 
 
         protected override void Init()
         {
-            inventory = new InventoryManager();
-            progress = new Progress();
+            Inventory = new InventoryManager();
+            progress = new ProgressManager();
         }
 
         void Start()
@@ -63,10 +60,33 @@ namespace Antura.Discover
 
             // Initialize inventory target from Yarn variables if present
             int questItemsTarget = GetIntVar("$QUEST_ITEMS", 0);
-            inventory.Init(questItemsTarget);
-            // Initialize progress via ActionManager tasks
-            var tasksForProgress = ActionManager.I != null ? ActionManager.I.Tasks : null;
-            progress.Init(tasksForProgress);
+            Inventory.Init(questItemsTarget);
+            // Initialize and register tasks for this quest
+            if (QuestTasks != null)
+            {
+                foreach (var t in QuestTasks)
+                {
+                    if (t != null)
+                        t.Setup();
+                }
+            }
+            // Ensure TaskManager exists, create if missing, then register tasks
+            var taskMgr = QuestTaskManager.I;
+            if (taskMgr == null)
+            {
+                taskMgr = FindFirstObjectByType<QuestTaskManager>(FindObjectsInactive.Include);
+                if (taskMgr == null)
+                {
+                    var go = new GameObject("_TaskManager");
+                    if (DiscoverGameManager.I != null)
+                        go.transform.SetParent(DiscoverGameManager.I.transform, false);
+                    taskMgr = go.AddComponent<QuestTaskManager>();
+                }
+            }
+            taskMgr.RegisterTasks(QuestTasks);
+
+            // Initialize progress via local tasks
+            progress.Init(QuestTasks);
             updateCounters();
 
             // Task registration moved to ActionManager.Start()
@@ -80,8 +100,7 @@ namespace Antura.Discover
                 yarnManager.OnDialogueComplete += OnYarnDialogueComplete;
             }
 
-            // Start the quest's starting node via Yarn (convention: "init")
-            yarnManager?.InitNode("init");
+            // DiscoverGameManager is responsible for starting the intro Yarn node
 
             ApplyInteractableDebugLabels(DebugQuest);
         }
@@ -113,6 +132,14 @@ namespace Antura.Discover
 
             YarnAnturaManager.I?.StartDialogue("quest_end");
 
+            // SAVE COOKIES
+            var app = DiscoverAppManager.I;
+            if (app != null && app.CurrentProfile != null)
+            {
+                app.CurrentProfile.wallet.cookies = Inventory.GetCookies();
+                app.MarkDirty();
+            }
+
             DiscoverQuestSaved questStatus = new DiscoverQuestSaved
             {
                 QuestCode = CurrentQuest.Id
@@ -120,7 +147,7 @@ namespace Antura.Discover
             AppManager.I.Player.SaveQuest(questStatus);
         }
 
-        public void YarnStartDialogue(string nodeName)
+        public void StartDialogue(string nodeName)
         {
             //Debug.Log($"YarnGetQuestNode: {nodeName}");
             //conversation?.DebugMetadata(nodeName);
@@ -132,14 +159,14 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(taskCode))
                 return;
             // Prefer lookup via TaskManager registration
-            if (TaskManager.I != null && TaskManager.I.TryGetTask(taskCode, out var tmTask) && tmTask != null)
+            if (QuestTaskManager.I != null && QuestTaskManager.I.TryGetTask(taskCode, out var tmTask) && tmTask != null)
             {
                 CurrentTask = tmTask;
                 CurrentTask.Activate();
                 return;
             }
-            // Fallback: search in ActionManager serialized tasks
-            var list = ActionManager.I != null ? ActionManager.I.Tasks : null;
+            // Fallback: search in locally-serialized tasks
+            var list = QuestTasks;
             if (list == null)
                 return;
             foreach (var t in list)
@@ -212,7 +239,7 @@ namespace Antura.Discover
 
         public void OnCollectItemCode(string itemCode)
         {
-            if (inventory.CollectItem(itemCode))
+            if (Inventory.CollectItem(itemCode))
             {
                 Debug.Log("Collect item " + itemCode);
                 collected_items++;
@@ -223,7 +250,7 @@ namespace Antura.Discover
 
         public void RemoveItemCode(string itemCode)
         {
-            if (inventory != null && inventory.RemoveItem(itemCode))
+            if (Inventory != null && Inventory.RemoveItem(itemCode))
             {
                 Debug.Log("Remove item " + itemCode);
                 collected_items--;
@@ -241,18 +268,9 @@ namespace Antura.Discover
             AudioManager.I.PlaySound(Sfx.ScaleUp);
         }
 
-        public void OnCollectBone()
+        public void OnCollectCookie(int quantity = 1)
         {
-            total_bones++;
-            UIManager.I.BonesCounter.SetValue(total_bones);
-            AppManager.I.Player.AddBones(1);
-        }
-
-        public void OnCollectBones(int bones)
-        {
-            total_bones += bones;
-            UIManager.I.BonesCounter.SetValue(total_bones);
-            AppManager.I.Player.AddBones(bones);
+            Inventory.AddCookies(quantity);
         }
 
         private void updateCounters()

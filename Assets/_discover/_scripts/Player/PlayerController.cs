@@ -701,7 +701,7 @@ namespace Antura.Discover
                 case PlayerState.Running:
                     if (_isAutoSprinting && fromState == PlayerState.Walking)
                     {
-                        Debug.Log("Transitioned to auto-sprint!");
+                        // Debug.Log("Transitioned to auto-sprint!");
                     }
                     break;
                 case PlayerState.Walking:
@@ -766,7 +766,7 @@ namespace Antura.Discover
                     _idleTime = 0f;
                     _isSitting = false;
                     _isSleeping = false;
-                    Debug.Log("Cat woke up!");
+                    // Debug.Log("Cat woke up!");
 
                     // Return to idle before moving
                     animationController.State = CatAnimationStates.idle;

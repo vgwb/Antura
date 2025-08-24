@@ -6,18 +6,18 @@ using Antura.Utilities;
 
 namespace Antura.Discover
 {
-    public class Progress
+    public class ProgressManager
     {
         private HashSet<string> visitedSteps;
         private int total_progress;
         private int current_progress;
 
-        public Progress()
+        public ProgressManager()
         {
             visitedSteps = new HashSet<string>();
         }
 
-        public void Init(Task[] questTasks)
+        public void Init(QuestTask[] questTasks)
         {
 
             current_progress = 0;

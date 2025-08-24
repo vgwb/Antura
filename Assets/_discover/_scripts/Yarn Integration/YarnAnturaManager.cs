@@ -247,7 +247,7 @@ namespace Antura.Discover
             Debug.Log($"ActionManager: ResolveNodeCommandTaskStart: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-            TaskManager.I?.StartTask(taskCode);
+            QuestTaskManager.I?.StartTask(taskCode);
         }
 
         [YarnCommand("task_end")]
@@ -256,7 +256,7 @@ namespace Antura.Discover
             Debug.Log($"ActionManager: ResolveNodeCommandTaskEnd: {taskCode}");
             if (string.IsNullOrEmpty(taskCode))
                 return;
-            TaskManager.I?.EndTask(taskCode, true);
+            QuestTaskManager.I?.EndTask(taskCode, true);
         }
 
         // ------------------------------------------------------------
@@ -290,11 +290,11 @@ namespace Antura.Discover
 
             if (action == "add")
             {
-                QuestManager.I.inventory.CollectItem(itemCode);
+                QuestManager.I.Inventory.CollectItem(itemCode);
             }
             else if (action == "remove")
             {
-                QuestManager.I.inventory.RemoveItem(itemCode);
+                QuestManager.I.Inventory.RemoveItem(itemCode);
             }
             else
             {

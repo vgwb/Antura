@@ -24,15 +24,35 @@ namespace Antura.Discover
         public event Action<InventoryItem> OnItemRemoved;
         public event Action<InventoryItem> OnItemUpdated; // quantity changed
         public event Action<InventoryItem> OnSelectionChanged;
+        public event Action<int> OnCookiesChanged;
 
         private int total_items;
+        private int cookies;
 
         public InventoryManager() { }
 
         public void Init(int maxItems)
         {
             total_items = maxItems;
+            // Initialize cookies from current player profile, if available
+            try
+            {
+                var playerProfile = DiscoverAppManager.I != null ? DiscoverAppManager.I.CurrentProfile : null;
+                cookies = playerProfile != null ? Mathf.Max(0, playerProfile.wallet.cookies) : 0;
+            }
+            catch { cookies = 0; }
+            OnCookiesChanged?.Invoke(cookies);
         }
+
+        public void AddCookies(int n)
+        {
+            if (n == 0)
+                return;
+            cookies = Mathf.Max(0, cookies + n);
+            OnCookiesChanged?.Invoke(cookies);
+        }
+
+        public int GetCookies() => cookies;
 
         public bool CollectItem(string itemCode, int quantity = 1)
         {

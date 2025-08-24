@@ -26,7 +26,7 @@ namespace Antura.Discover
 
         [Header("UI Elements")]
         [DeEmptyAlert]
-        public ItemsCounter BonesCounter;
+        public CookiesCounter CookiesCounter;
         [DeEmptyAlert]
         public ItemsCounter CoinsCounter;
         [DeEmptyAlert]
@@ -67,6 +67,8 @@ namespace Antura.Discover
 
         void Start()
         {
+            // Initialize UI components that depend on managers
+            CookiesCounter.Initialize(canvas);
             DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Subscribe(OnInteractableEnteredByPlayer);
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);

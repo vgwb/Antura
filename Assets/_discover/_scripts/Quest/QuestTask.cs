@@ -9,7 +9,7 @@ namespace Antura.Discover
 {
 
     [Serializable]
-    public class Task
+    public class QuestTask
     {
         [Tooltip("Task Code used in a Node to activate it")]
         public string Code;

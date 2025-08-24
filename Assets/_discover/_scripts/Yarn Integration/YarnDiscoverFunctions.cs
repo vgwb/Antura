@@ -45,7 +45,7 @@ namespace Antura.Discover
         [YarnFunction("item_count")]
         public static float ItemCount(string itemCode)
         {
-            var inv = QuestManager.I?.inventory;
+            var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
                 return 0f;
             return inv.GetItemCount(itemCode);
@@ -54,7 +54,7 @@ namespace Antura.Discover
         [YarnFunction("has_item")]
         public static bool HasItem(string itemCode)
         {
-            var inv = QuestManager.I?.inventory;
+            var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
                 return false;
             return inv.HasItem(itemCode);
@@ -63,7 +63,7 @@ namespace Antura.Discover
         [YarnFunction("has_item_at_least")]
         public static bool HasItemAtLeast(string itemCode, float minQty)
         {
-            var inv = QuestManager.I?.inventory;
+            var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
                 return false;
             int min = Mathf.Max(1, Mathf.RoundToInt(minQty));
@@ -73,7 +73,7 @@ namespace Antura.Discover
         [YarnFunction("can_collect")]
         public static bool CanCollect(string itemCode)
         {
-            var inv = QuestManager.I?.inventory;
+            var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
                 return false;
             return inv.CanCollect(itemCode);

@@ -73,7 +73,8 @@ namespace Antura.Discover
             }
             if (Type == CollectableType.cookie)
             {
-                QuestManager.I.OnCollectBone();
+                QuestManager.I.OnCollectCookie();
+                UIManager.I.CookiesCounter.PlayPickupFromWorld(transform.position);
                 Destroy(gameObject);
             }
             if (Type == CollectableType.item)

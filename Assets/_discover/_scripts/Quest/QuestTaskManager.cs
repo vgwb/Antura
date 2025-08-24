@@ -4,12 +4,12 @@ using UnityEngine;
 
 namespace Antura.Discover
 {
-    public class TaskManager : SingletonMonoBehaviour<TaskManager>
+    public class QuestTaskManager : SingletonMonoBehaviour<QuestTaskManager>
     {
-        private readonly Dictionary<string, Task> _tasksByCode = new();
+        private readonly Dictionary<string, QuestTask> _tasksByCode = new();
         private readonly HashSet<string> _activeTaskCodes = new();
 
-        public void RegisterTasks(IEnumerable<Task> tasks)
+        public void RegisterTasks(IEnumerable<QuestTask> tasks)
         {
             _tasksByCode.Clear();
             _activeTaskCodes.Clear();
@@ -74,7 +74,7 @@ namespace Antura.Discover
             EndTask(taskCode, true);
         }
 
-        public bool TryGetTask(string code, out Task task)
+        public bool TryGetTask(string code, out QuestTask task)
         {
             return _tasksByCode.TryGetValue(code, out task);
         }

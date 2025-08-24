@@ -25,7 +25,7 @@ namespace Antura.Discover
 
         [Header("Managers (optional)")]
         [SerializeField] private QuestManager questManager;
-        [SerializeField] private TaskManager taskManager;
+        [SerializeField] private QuestTaskManager taskManager;
         [SerializeField] private YarnAnturaManager yarnAnturaManager;
         [SerializeField] private YarnConversationController yarnConversationController;
         [SerializeField] private ActionManager actionManager;
@@ -36,20 +36,39 @@ namespace Antura.Discover
         public GameplayState LastPlayState { get; private set; }
         // when we pause the game we use this global var
         public bool isPaused;
+        private bool isIntroRunning;
 
         Coroutine coChangeState;
+
+        void OnEnable()
+        {
+            // Hook Yarn dialogue complete to resume gameplay
+            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+            if (yarn != null)
+            {
+                yarn.OnDialogueComplete += OnYarnDialogueComplete;
+            }
+        }
+
+        void OnDisable()
+        {
+            var yarn = yarnAnturaManager != null ? yarnAnturaManager : FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
+            if (yarn != null)
+            {
+                yarn.OnDialogueComplete -= OnYarnDialogueComplete;
+            }
+        }
 
         IEnumerator Start()
         {
             State = GameplayState.None;
 
-            // Ensure references
             if (!questManager)
                 questManager = FindFirstObjectByType<QuestManager>(FindObjectsInactive.Include);
             if (!actionManager)
                 actionManager = FindFirstObjectByType<ActionManager>(FindObjectsInactive.Include);
             if (!taskManager)
-                taskManager = FindFirstObjectByType<TaskManager>(FindObjectsInactive.Include);
+                taskManager = FindFirstObjectByType<QuestTaskManager>(FindObjectsInactive.Include);
             if (!yarnAnturaManager)
                 yarnAnturaManager = FindFirstObjectByType<YarnAnturaManager>(FindObjectsInactive.Include);
             if (!yarnConversationController)
@@ -73,10 +92,19 @@ namespace Antura.Discover
                 }
             }
 
-            yield return new WaitForSeconds(0.5f);
+            // Enter Setup state first to let managers initialize (ActionManager, QuestManager, etc.)
+            ChangeState(GameplayState.Setup, true);
 
-            // TODO > Set to Play3D at the right time, after eventual Intro etc.
-            DiscoverGameManager.I.ChangeState(GameplayState.Play3D, true);
+            // Let one frame pass for Start() of managers and task registration
+            yield return null;
+
+            // Initialize intro: set Dialogue state and start Yarn init via QuestManager
+            ChangeState(GameplayState.Intro, true);
+            isIntroRunning = true;
+            if (questManager != null)
+            {
+                questManager.StartDialogue("init");
+            }
         }
 
         void OnDestroy()
@@ -113,6 +141,16 @@ namespace Antura.Discover
             }
 
             State = newState;
+        }
+
+        void OnYarnDialogueComplete()
+        {
+            // After intro/dialogue completes, return to 3D play only if we're handling the intro
+            if (isIntroRunning)
+            {
+                isIntroRunning = false;
+                ChangeState(GameplayState.Play3D, true);
+            }
         }
     }
 }

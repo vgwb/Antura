@@ -84,11 +84,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8323975479767242364}
-  - component: {fileID: 6517459754633199252}
+  - component: {fileID: 3263408637225415495}
   - component: {fileID: 8326531958760053048}
   - component: {fileID: 8143261171870648306}
   m_Layer: 0
-  m_Name: BonesCounter
+  m_Name: CookiesCounter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -115,7 +115,7 @@ RectTransform:
   m_AnchoredPosition: {x: 440, y: -36}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 1, y: 1}
---- !u!114 &6517459754633199252
+--- !u!114 &3263408637225415495
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -124,12 +124,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 8114583949949845478}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64105a8dc96074d04b3904e781771bc7, type: 3}
+  m_Script: {fileID: 11500000, guid: a539816cbc76b40c1bfdc81dbbaef02e, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
-  AutoSetup: 0
-  TfCount: {fileID: 8146161474736739158}
-  BoneImg: {fileID: 8324745081802242014}
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CookiesCounter
+  label: {fileID: 8146161474736739158}
+  icon: {fileID: 8324745081802242014}
+  canvas: {fileID: 0}
+  defaultCookieSprite: {fileID: 21300000, guid: 5bdcb75c4b97dc94f9707663504143b6,
+    type: 3}
+  punchScale: 0.15
+  punchDuration: 0.3
+  flyDuration: 0.6
+  flyEase: 7
 --- !u!222 &8326531958760053048
 CanvasRenderer:
   m_ObjectHideFlags: 0
