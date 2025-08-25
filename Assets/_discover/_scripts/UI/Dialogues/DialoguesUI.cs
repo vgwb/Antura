@@ -367,9 +367,15 @@ namespace Antura.Discover
         void OnActClicked()
         {
             if (postcardFocusView.IsOpen && !gotoNextWhenPostcardFocusViewCloses)
-                postcardFocusView.Hide();
-            else if (CurrDialogueType == DialogueType.Text && !InteractionManager.I.IsUsingFocusView)
             {
+                postcardFocusView.Hide();
+            }
+            else if (CurrDialogueType == DialogueType.Text && (!InteractionManager.I.IsUsingFocusView || this.gameObject.activeSelf))
+            {
+                // Previously, with Homer, the condition was only checking if the camera focus view was active,
+                // and if so would return FALSE because SPACE/E would have to exit focus view and show the dialogue UI again.
+                // Since we moved to Yarn, the logic has changed in that the dialogue UI is not hidden anymore when focusing the camera,
+                // so now it returns FALSE only if we're in focus mode AND the UI is hidden
                 Next(currChoiceIndex);
             }
         }
