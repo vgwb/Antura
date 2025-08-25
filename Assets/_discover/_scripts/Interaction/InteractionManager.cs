@@ -153,8 +153,13 @@ namespace Antura.Discover
         void Act()
         {
             LastActionFrame = Time.frameCount;
-            if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
-                ResetCameraFocus();
+            // The bottom lines were for the previous version of camera focus, before Yarn and focus logic changes,
+            // when pressing Act during a camera focus would automatically reset the focus.
+            // Since we passed to Yarn, a focus reset needs to be called directly by the dialogue
+            // and is not automatic anymore, so the bottom lines are now commented out
+            // (but not deleted, in case things change again)
+            // if (IsUsingFocusView && focusViewEnterFrame != Time.frameCount)
+            //     ResetCameraFocus();
             if (DiscoverGameManager.I.State != GameplayState.Play3D)
                 return;
 
