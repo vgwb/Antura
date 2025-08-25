@@ -561,6 +561,7 @@ namespace Antura.Discover.Activities
             this.gameObject.SetActive(true);
             EnableValidateButton(false);
             overlay.SetTimer(pHasTimer, pTimerSeconds);
+            DiscoverNotifier.Game.OnActivityPanelToggled.Dispatch(true);
         }
 
         public void HidePanel()
@@ -569,7 +570,7 @@ namespace Antura.Discover.Activities
             overlay.Timer.CancelTimer();
             this.gameObject.SetActive(false);
             NotifyClosedIfNeeded();
-
+            DiscoverNotifier.Game.OnActivityPanelToggled.Dispatch(false);
         }
 
         private void NotifyClosedIfNeeded()

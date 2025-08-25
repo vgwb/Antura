@@ -21,6 +21,8 @@ namespace Antura.Discover
         [SerializeField] NavigatorMarker navigatorMarker;
         [DeEmptyAlert]
         [SerializeField] Navigator navigator;
+        [DeEmptyAlert]
+        [SerializeField] GameObject touchZones;
         [DeEmptyAlert, Tooltip("Objects to hide when a dialogue starts")]
         [SerializeField] GameObject[] hideDuringDialogue;
 
@@ -73,6 +75,7 @@ namespace Antura.Discover
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Subscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Subscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Subscribe(OnCloseDialogue);
+            DiscoverNotifier.Game.OnActivityPanelToggled.Subscribe(OnActivityPanelToggled);
         }
 
         void OnDestroy()
@@ -84,6 +87,7 @@ namespace Antura.Discover
             DiscoverNotifier.Game.OnInteractableExitedByPlayer.Unsubscribe(OnInteractableExitedByPlayer);
             DiscoverNotifier.Game.OnStartDialogue.Unsubscribe(OnStartDialogue);
             DiscoverNotifier.Game.OnCloseDialogue.Unsubscribe(OnCloseDialogue);
+            DiscoverNotifier.Game.OnActivityPanelToggled.Unsubscribe(OnActivityPanelToggled);
         }
 
         void LateUpdate()
@@ -137,6 +141,12 @@ namespace Antura.Discover
                 btAct.gameObject.SetActive(false);
             foreach (GameObject go in hideDuringDialogue)
                 go.gameObject.SetActive(true);
+        }
+        
+        void OnActivityPanelToggled(bool toggledOn)
+        {
+            // Hide touch zones UI when the activity panel is toggled on
+            touchZones.SetActive(!toggledOn);
         }
 
         #endregion

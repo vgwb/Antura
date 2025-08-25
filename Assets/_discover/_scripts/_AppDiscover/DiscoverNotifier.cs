@@ -24,6 +24,8 @@ namespace Antura.Discover
             public static readonly ActionEvent<Interactable> OnInteractableExitedByPlayer = new("DiscoverNotifier.Game.OnInteractableExitedByPlayer");
             /// <summary>When the action button is pressed</summary>
             public static readonly ActionEvent OnActClicked = new("DiscoverNotifier.Game.OnActClicked");
+            /// <summary>When the activity panel is shown or hidden (parameter is TRUE if shown, FALSE if hidden)</summary>
+            public static readonly ActionEvent<bool> OnActivityPanelToggled = new("DiscoverNotifier.Game.OnActivityPanelToggled");
             /// <summary>When the map button is toggled</summary>
             public static readonly ActionEvent OnMapButtonToggled = new("DiscoverNotifier.Game.OnMapButtonToggled");
             /// <summary>When the map camera is activated or deactivated</summary>
