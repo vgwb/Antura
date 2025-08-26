@@ -9,7 +9,8 @@ All scripts are distributed under the Simplified BSD License (BSD-2-Clause).
 
 BSD 2-Clause License
 
-Copyright (c) 2017, TH Köln / Cologne Game Lab, Video Games Without Borders & Wixel Studios
+Original Antura and the Letters is Copyright (c) TH Köln / Cologne Game Lab, Video Games Without Borders & Wixel Studios  
+Discover Module is Copyright (c) Video Games Without Borders
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted provided that the following conditions are met:

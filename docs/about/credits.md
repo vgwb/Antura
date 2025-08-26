@@ -29,6 +29,7 @@ Francesco Cavallari
 Prof. Dr. Emmanuel Guardiola (CGL)
 
 **R&D, PRODUCTION AND ADDITIONAL GAME DESIGN**  
+**DISCOVER MODULE LEAD, DESIGN AND DEVELOPMENT**  
 Stefano Cecere
 
 **PROGRAMMING**  
