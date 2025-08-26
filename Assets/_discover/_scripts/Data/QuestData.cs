@@ -35,14 +35,18 @@ namespace Antura.Discover
         public List<CardData> Cards;
         public List<WordData> Words;
 
-        [Header("Gameplay")]
+        [Tooltip("Target age range for this quest.")]
+        public int AgeMin;
+        public int AgeMax;
         public Difficulty Difficulty;
-        public List<GameplayType> Gameplay;
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
 
         [Tooltip("Does this quest require any other quest to be completed first?")]
         public List<QuestData> Dependencies;
+
+        [Header("Gameplay")]
+        public List<GameplayType> Gameplay;
 
         [Header("Rewards")]
         [Range(0, 20)]
