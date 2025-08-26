@@ -106,7 +106,7 @@ namespace Antura.Discover.EditorUI
             if (string.IsNullOrEmpty(folder))
                 return;
 
-            Antura.Discover.QuestExportUtils.WithLocale(selectedLocale, () =>
+            QuestExportUtils.WithLocale(selectedLocale, () =>
             {
                 foreach (var q in quests)
                 {
@@ -116,8 +116,8 @@ namespace Antura.Discover.EditorUI
                         continue;
                     try
                     {
-                        var md = Antura.Discover.QuestExportUtils.BuildQuestMarkdown(q); // single-file export: no language menu
-                        var fileName = Antura.Discover.QuestExportUtils.GetQuestPublishFileNameForLocale(q, selectedLocale);
+                        var md = QuestExportUtils.BuildQuestMarkdown(q); // single-file export: no language menu
+                        var fileName = QuestExportUtils.GetQuestPublishFileNameForLocale(q, selectedLocale);
                         var path = Path.Combine(folder, fileName);
                         File.WriteAllText(path, md);
                     }
@@ -163,7 +163,7 @@ namespace Antura.Discover.EditorUI
             }
 
             // Languages to publish
-            var publishLangs = new[] { "en", "fr", "pl", "it" };
+            var publishLangs = new[] { "", "fr", "pl", "it" };
             int ok = 0, fail = 0;
 
             // Country order and label for indexes
@@ -184,9 +184,16 @@ namespace Antura.Discover.EditorUI
             foreach (var lang in publishLangs)
             {
                 var locale = FindLocaleByCode(lang);
+                // If lang is empty (used to denote default English), ensure we use the English locale
+                if (string.IsNullOrEmpty(lang))
+                {
+                    var enLocale = FindLocaleByCode("en");
+                    if (enLocale != null)
+                        locale = enLocale;
+                }
                 var grouped = new Dictionary<Countries, List<KeyValuePair<string, string>>>();
 
-                Antura.Discover.QuestExportUtils.WithLocale(locale, () =>
+                QuestExportUtils.WithLocale(locale, () =>
                 {
                     foreach (var q in quests)
                     {
@@ -194,30 +201,26 @@ namespace Antura.Discover.EditorUI
                             continue; // web publish: only public quests
                         try
                         {
-                            string fileName = Antura.Discover.QuestExportUtils.GetQuestPublishFileNameForLocale(q, locale);
+                            string fileName = QuestExportUtils.GetQuestPublishFileNameForLocale(q, locale);
                             string outPath = Path.Combine(folder, fileName);
 
                             // Generate separate script page if script is public
                             string scriptFileName = null;
                             if (q.IsScriptPublic)
                             {
-                                scriptFileName = Antura.Discover.QuestExportUtils.GetQuestScriptPublishFileNameForLocale(q, locale);
+                                scriptFileName = QuestExportUtils.GetQuestScriptPublishFileNameForLocale(q, locale);
                                 string scriptPath = Path.Combine(folder, scriptFileName);
-                                var scriptMd = Antura.Discover.QuestExportUtils.BuildQuestScriptMarkdown(q, includeLanguageMenu: true, locale: locale);
+                                var scriptMd = QuestExportUtils.BuildQuestScriptMarkdown(q, includeLanguageMenu: true, locale: locale);
                                 File.WriteAllText(scriptPath, scriptMd);
                             }
 
-                            var md = Antura.Discover.QuestExportUtils.BuildQuestMarkdown(q, includeLanguageMenu: true, scriptPageFileName: scriptFileName, locale: locale); // include language menu and link to script page
+                            var md = QuestExportUtils.BuildQuestMarkdown(q, includeLanguageMenu: true, scriptPageFileName: scriptFileName, locale: locale); // include language menu and link to script page
                             File.WriteAllText(outPath, md);
 
-                            var title = q.TitleText;
-                            if (string.IsNullOrEmpty(title) || string.IsNullOrWhiteSpace(title))
-                            {
-                                title = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
-                            }
+                            var title = QuestExportUtils.GetHumanTitle(q);
                             title = title?.Replace("\r", " ").Replace("\n", " ");
-                            var code = Antura.Discover.QuestExportUtils.GetQuestCode(q);
-                            var linkText = string.IsNullOrEmpty(title) ? code : ($"{code} - {title}");
+                            var code = QuestExportUtils.GetQuestCode(q);
+                            var linkText = string.IsNullOrEmpty(title) ? code : ($"{title} ({code})");
                             if (!grouped.TryGetValue(q.Country, out var list))
                             { list = new List<KeyValuePair<string, string>>(); grouped[q.Country] = list; }
                             list.Add(new KeyValuePair<string, string>(linkText, fileName));
@@ -236,20 +239,20 @@ namespace Antura.Discover.EditorUI
                 {
                     var indexSb = new System.Text.StringBuilder();
                     indexSb.AppendLine("---");
-                    indexSb.AppendLine("title: Antura Discover Quests");
+                    indexSb.AppendLine("title: Quests");
                     indexSb.AppendLine("hide:");
                     indexSb.AppendLine("  - navigation");
                     indexSb.AppendLine("---");
                     indexSb.AppendLine();
 
                     // H1 and language menu on index
-                    indexSb.AppendLine("# Antura Discover Quests");
+                    indexSb.AppendLine("# Quests");
                     // Disable link for the current language
                     var langs = new (string code, string label)[] { ("en", "english"), ("fr", "french"), ("pl", "polish"), ("it", "italian") };
                     var parts = new List<string>(langs.Length);
                     foreach (var l in langs)
                     {
-                        bool isCurrent = lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase);
+                        bool isCurrent = string.IsNullOrEmpty(lang) ? (l.code == "en") : lang.StartsWith(l.code, StringComparison.OrdinalIgnoreCase);
                         string file = l.code == "en" ? "index.md" : $"index.{l.code}.md";
                         parts.Add(isCurrent ? l.label : $"[{l.label}](./{file})");
                     }
@@ -269,7 +272,7 @@ namespace Antura.Discover.EditorUI
                         indexSb.AppendLine();
                     }
 
-                    string indexName = lang.StartsWith("en") ? "index.md" : $"index.{lang}.md";
+                    string indexName = (string.IsNullOrEmpty(lang) || lang.StartsWith("en", StringComparison.OrdinalIgnoreCase)) ? "index.md" : $"index.{lang}.md";
                     string indexPath = Path.Combine(folder, indexName);
                     File.WriteAllText(indexPath, indexSb.ToString());
                 }

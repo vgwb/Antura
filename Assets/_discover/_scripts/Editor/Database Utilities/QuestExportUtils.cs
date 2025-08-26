@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using System.Text;
+using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Settings;
@@ -25,7 +26,7 @@ namespace Antura.Discover
         {
             string code = GetQuestCode(q);
             var dateStr = (date ?? DateTime.Now).ToString("yyyy-MM-dd");
-            return $"Antura Quest - {code} - {dateStr}.md";
+            return $"Antura Quest - {code}/{q.VersionText} - {dateStr}.md";
         }
 
         public static string GetQuestPublishFileName(QuestData q)
@@ -52,6 +53,16 @@ namespace Antura.Discover
             return code + "-script.md";
         }
 
+        // Returns the human-facing title with robust fallbacks (IdDisplay -> Id/name)
+        public static string GetHumanTitle(QuestData q)
+        {
+            if (q == null)
+                return string.Empty;
+            string fallback = !string.IsNullOrEmpty(q.IdDisplay) ? q.IdDisplay : (!string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
+            string t = SafeLocalized(q.Title, fallback);
+            return string.IsNullOrWhiteSpace(t) ? fallback : t;
+        }
+
         // Builds a localized Markdown for a quest using the current LocalizationSettings.SelectedLocale.
         // includeLanguageMenu: if true, adds the language switch menu (intended for web publish only)
         // scriptPageFileName: if provided and q.IsScriptPublic, the main page will link to this script page instead of embedding
@@ -59,14 +70,14 @@ namespace Antura.Discover
         {
             var sb = new StringBuilder();
 
-            // Try to resolve localized strings based on current locale
-            string title = SafeLocalized(q.Title, fallback: !string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
-            string desc = SafeLocalized(q.Description, fallback: string.Empty);
+            // Resolve human title with robust fallbacks
+            string title = GetHumanTitle(q);
+            string desc = SafeLocalized(q.Description, fallback: q.DescriptionText);
             string code = GetQuestCode(q);
 
             // YAML front matter with title
             sb.AppendLine("---");
-            sb.AppendLine("title: " + code + " - " + title);
+            sb.AppendLine("title: " + title + " (" + code + ")");
             // Hide navigation in site theme
             sb.AppendLine("hide:");
             sb.AppendLine("  - navigation");
@@ -74,7 +85,7 @@ namespace Antura.Discover
             sb.AppendLine();
 
             // Heading and meta
-            sb.AppendLine("# " + code + " - " + title);
+            sb.AppendLine("# " + title + " (" + code + ")");
 
             // Optional language switch menu (web publish only), after H1
             if (includeLanguageMenu)
@@ -91,7 +102,7 @@ namespace Antura.Discover
                 sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
                 sb.AppendLine();
             }
-            sb.AppendLine("Date: " + DateTime.Now.ToString("yyyy-MM-dd"));
+            sb.AppendLine("Version: " + q.VersionText);
             sb.AppendLine("Status: " + q.DevStatus);
             sb.AppendLine();
 
@@ -243,16 +254,17 @@ namespace Antura.Discover
         {
             var sb = new StringBuilder();
             string code = GetQuestCode(q);
-            string title = SafeLocalized(q.Title, fallback: !string.IsNullOrEmpty(q.Id) ? q.Id : q.name);
+            string title = GetHumanTitle(q);
+
 
             sb.AppendLine("---");
-            sb.AppendLine("title: " + code + " - Script");
+            sb.AppendLine("title: " + title + " (" + code + ") - Script");
             sb.AppendLine("hide:");
             sb.AppendLine("  - navigation");
             sb.AppendLine("---");
             sb.AppendLine();
 
-            sb.AppendLine("# " + code + " - Script");
+            sb.AppendLine("# " + title + " (" + code + ") - Script");
             if (includeLanguageMenu)
             {
                 var lang = GetLanguageCode(locale);
@@ -267,9 +279,7 @@ namespace Antura.Discover
 
             if (q.YarnScript != null)
             {
-                sb.AppendLine("```yarn");
-                sb.AppendLine(q.YarnScript.text);
-                sb.AppendLine("```");
+                sb.AppendLine(RenderYarnAsHtml(q.YarnScript.text));
             }
             else
             {
@@ -277,6 +287,144 @@ namespace Antura.Discover
             }
 
             return sb.ToString();
+        }
+
+        // Render Yarn script like the JS viewer: H2 per node + tokenized code inside a styled <pre>
+        static string RenderYarnAsHtml(string script)
+        {
+            if (string.IsNullOrEmpty(script))
+                return string.Empty;
+            var parts = script.Split(new[] { "===" }, StringSplitOptions.None);
+            var sb = new StringBuilder();
+            foreach (var rawPart in parts)
+            {
+                if (string.IsNullOrWhiteSpace(rawPart))
+                    continue;
+
+                // Extract title/color from header
+                string title = MatchLineValue(rawPart, @"^\s*title:\s*(.+)$");
+                string nodeColor = MatchLineValue(rawPart, @"^\s*color:\s*([^\r\n]+)$");
+                string nodeId = !string.IsNullOrEmpty(title) ? ($"ys-node-{Slugify(title)}") : string.Empty;
+
+                var lines = rawPart.Replace("\r\n", "\n").Replace("\r", "\n").Split('\n');
+                var code = new StringBuilder();
+
+                bool inHeader = true;
+                bool seenTitle = false;
+                foreach (var lineRaw in lines)
+                {
+                    string line = HtmlEscape(lineRaw);
+                    string t = line.Trim();
+                    if (inHeader)
+                    {
+                        if (!seenTitle && t.Length == 0)
+                            continue; // trim empty lines before title
+                        if (t == "---")
+                        { code.AppendLine("<span class=\"yarn-header-dim\">---</span>"); inHeader = false; continue; }
+                        if (t.StartsWith("title:"))
+                        { seenTitle = true; continue; } // omit title line from code
+                        if (t.StartsWith("position:"))
+                        { continue; } // do not render position lines
+                        // other header lines dimmed (position:, tags:, color:, blank)
+                        if (t.Length == 0)
+                        { code.AppendLine(""); continue; }
+                        code.AppendLine($"<span class=\"yarn-header-dim\">{line}</span>");
+                        // header line written
+                    }
+                    else
+                    {
+                        // Body: process tokens on escaped line
+                        string processed = line;
+                        // commands: <<...>> are escaped already as &lt;&lt;...&gt;&gt;
+                        processed = Regex.Replace(processed, "&lt;&lt;[^&]*?&gt;&gt;", m => $"<span class=\"yarn-cmd\">{m.Value}</span>");
+                        // #line: meta tags
+                        processed = Regex.Replace(processed, "#line:[^\\n]*", m => $"<span class=\"yarn-meta\">{m.Value}</span>");
+                        // choices -> ...
+                        if (Regex.IsMatch(t, @"^[-\\s]?>"))
+                        {
+                            processed = $"<span class=\"yarn-choice\">{processed}</span>";
+                        }
+                        // comments starting with //
+                        if (t.StartsWith("//"))
+                        {
+                            processed = $"<span class=\"yarn-comment\">{processed}</span>";
+                        }
+                        // Bold only spoken lines (not commands, not choices, not comments, not meta)
+                        bool isSpoken = t.Length > 0
+                                         && !t.StartsWith("//")
+                                         && !Regex.IsMatch(t, @"^[-\\s]?>")
+                                         && !t.StartsWith("#line:")
+                                         && !t.StartsWith("&lt;&lt;");
+                        if (isSpoken)
+                            code.AppendLine($"<span class=\"yarn-line\">{processed}</span>");
+                        else
+                            code.AppendLine(processed);
+                    }
+                }
+
+                if (!string.IsNullOrEmpty(title))
+                {
+                    sb.AppendLine($"<a id=\"{nodeId}\"></a>");
+                    sb.AppendLine($"## {HtmlEscape(title)}");
+                    sb.AppendLine();
+                }
+                // Pass node color via CSS variable for very light overlay in CSS
+                string style = !string.IsNullOrEmpty(nodeColor) ? $" style=\"--node-color:{HtmlAttributeEscape(nodeColor)}\"" : string.Empty;
+                sb.Append("<div class=\"yarn-node\"");
+                if (!string.IsNullOrEmpty(title))
+                    sb.Append($" data-title=\"{HtmlAttributeEscape(title)}\"");
+                sb.Append(">");
+                sb.Append($"<pre class=\"yarn-code\"{style}><code>");
+                sb.Append(code.ToString());
+                sb.Append("</code></pre></div>\n\n");
+            }
+
+            return sb.ToString();
+        }
+
+        static string MatchLineValue(string text, string pattern)
+        {
+            try
+            {
+                var rx = new Regex(pattern, RegexOptions.Multiline | RegexOptions.IgnoreCase);
+                var m = rx.Match(text);
+                if (m.Success && m.Groups.Count > 1)
+                    return m.Groups[1].Value.Trim();
+            }
+            catch { }
+            return string.Empty;
+        }
+
+        static string HtmlEscape(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            return s.Replace("&", "&amp;").Replace("<", "&lt;").Replace(">", "&gt;");
+        }
+
+        static string HtmlAttributeEscape(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            return HtmlEscape(s).Replace("\"", "&quot;");
+        }
+
+        static string Slugify(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            var sb = new StringBuilder();
+            foreach (var ch in s.ToLowerInvariant())
+            {
+                if ((ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9'))
+                    sb.Append(ch);
+                else
+                    sb.Append('-');
+            }
+            var slug = sb.ToString();
+            // collapse multiple dashes
+            slug = Regex.Replace(slug, "-+", "-");
+            return slug.Trim('-');
         }
 
         public static string FormatAuthor(AuthorData a)
@@ -343,13 +491,14 @@ namespace Antura.Discover
             return name ?? string.Empty;
         }
 
-        static string SafeLocalized(LocalizedString ls, string fallback)
+        public static string SafeLocalized(LocalizedString ls, string fallback)
         {
             if (ls == null)
                 return fallback;
             try
             {
-                return ls.GetLocalizedString();
+                var s = ls.GetLocalizedString();
+                return string.IsNullOrWhiteSpace(s) ? fallback : s;
             }
             catch
             {

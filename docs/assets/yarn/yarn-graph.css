@@ -1,11 +1,12 @@
 /* Yarn Graph Renderer CSS */
 .yarn-graph-container {
     max-width: 100%;
-    margin: 20px 0;
-    background: #1a1a1a;
+    margin: 0;
+    background: #F5F5F5;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    height: 100%;
 }
 
 /* Full window mode */
@@ -63,14 +64,73 @@
 
 .yarn-graph-viewport {
     width: 100%;
-    height: 600px;
-    background: #222;
+    height: 100%;
+    background: #F5F5F5;
     overflow: hidden;
     position: relative;
     cursor: grab;
     /* Ensure proper sizing */
     box-sizing: border-box;
     min-height: 400px;
+}
+
+/* Inspector panel */
+.yarn-graph-inspector {
+    position: absolute;
+    right: 10px;
+    top: 70px;
+    width: 320px;
+    max-height: calc(100% - 90px);
+    overflow: auto;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 6px;
+    color: #ddd;
+    z-index: 1000;
+}
+.yarn-graph-inspector.hidden { display: none; }
+.yarn-graph-inspector .inspector-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 8px 10px; background: #222; border-bottom: 1px solid #333;
+}
+.yarn-graph-inspector .inspector-title { font-weight: 600; }
+.yarn-graph-inspector .inspector-close { background: transparent; color: #ccc; border: none; font-size: 18px; cursor: pointer; }
+.yarn-graph-inspector .inspector-content { padding: 10px; }
+.yarn-graph-inspector .inspector-row { display: flex; gap: 8px; margin-bottom: 8px; align-items: baseline; }
+.yarn-graph-inspector .inspector-row label { width: 90px; color: #aaa; font-size: 12px; }
+.yarn-graph-inspector .inspector-row ul { margin: 0; padding-left: 16px; }
+.yarn-graph-inspector .inspector-row.content pre { max-height: 200px; overflow: auto; background: #0d0d0d; padding: 8px; border-radius: 4px; border: 1px solid #222; }
+
+/* Split layout and Script panel */
+.yarn-split { display: grid; grid-template-columns: 1fr 6px 1fr; gap: 0; height: 100%; }
+.yarn-split-gutter { background: repeating-linear-gradient(90deg, rgba(0,0,0,0.06), rgba(0,0,0,0.06) 1px, rgba(0,0,0,0.12) 1px, rgba(0,0,0,0.12) 2px); cursor: col-resize; width: 6px; }
+.yarn-graph-script-panel { background: #fff; border: 1px solid #ddd; color: #111; display: flex; flex-direction: column; height: 100%; min-width: 0; }
+.yarn-graph-script-panel .script-header { display: flex; justify-content: space-between; padding: 8px 10px; background: #f5f5f5; border-bottom: 1px solid #e5e5e5; }
+.yarn-graph-script-panel .script-close { background: transparent; color: #555; border: none; font-size: 18px; cursor: pointer; }
+.yarn-graph-script-panel .script-content { flex: 1; overflow: auto; padding: 10px; }
+.yarn-graph-script-panel .script-code { display: block; margin: 0; white-space: normal; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace; font-size: 12px; line-height: 1.45; }
+.yarn-graph-script-panel .yarn-block pre { margin: 0 0 12px 0; white-space: pre-wrap; }
+.yarn-graph-script-panel .script-code .yarn-meta { color: #888; }
+.yarn-graph-script-panel .script-code .yarn-cmd { color: #0b62b4; }
+.yarn-graph-script-panel .script-code .yarn-comment { color: #6a737d; }
+.yarn-graph-script-panel .script-code .yarn-choice { color: #005a3c; font-weight: 500; }
+
+/* Node selection/dimming */
+.yarn-node.selected rect { stroke: #ffd54f !important; stroke-width: 3; filter: brightness(1.2); }
+.yarn-edge.highlight { stroke: #ffd54f !important; }
+
+/* Group boxes */
+.yarn-group-layer { pointer-events: none; }
+.yarn-group-box {
+    fill: #CCD7C8;
+    stroke: #8FA088;
+    stroke-dasharray: 6 4;
+    opacity: 0.5;
+}
+.yarn-group-label {
+    fill: #56624F;
+    font-size: 12px;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 }
 
 /* Full window viewport */
@@ -91,7 +151,7 @@
     box-sizing: border-box;
     /* Remove overflow hidden to see if nodes are outside */
     overflow: visible;
-    background: #222; /* Temporary: show SVG background */
+    background: #F5F5F5; /* Temporary: show SVG background */
 }
 
 /* Node Styles */
@@ -147,7 +207,7 @@
 }
 
 .yarn-node text {
-    fill: white;
+    fill: #111;
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
     font-size: 12px;
     text-anchor: middle;
@@ -181,7 +241,7 @@
 }
 
 .yarn-edge:hover {
-    stroke: #fff;
+    stroke: #000;
 }
 
 /* Hover Effects */

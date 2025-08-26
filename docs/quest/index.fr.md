@@ -1,26 +1,26 @@
 ---
-title: Antura Discover Quests
+title: Quests
 hide:
   - navigation
 ---
 
-# Antura Discover Quests
+# Quests
 Language: [english](./index.md) - french - [polish](./index.pl.md) - [italian](./index.it.md)
 
 ## France
 
-- [fr_00 - Les voisins de la France](./fr_00.fr.md)
-- [fr_01 - Paris !](./fr_01.fr.md)
-- [fr_02 - Le système scolaire](./fr_02.fr.md)
-- [fr_03 - Jules Verne et les transports](./fr_03.fr.md)
-- [fr_05 - Un conte de deux châteaux](./fr_05.fr.md)
-- [fr_09 - Nourriture et marché](./fr_09.fr.md)
-- [fr_10 - Paris Seine](./fr_10.fr.md)
-- [fr_11 - La Marseillaise](./fr_11.fr.md)
+- [Jules Verne et les transports (fr_03)](./fr_03.fr.md)
+- [La Marseillaise (fr_11)](./fr_11.fr.md)
+- [Le système scolaire (fr_02)](./fr_02.fr.md)
+- [Les voisins de la France (fr_00)](./fr_00.fr.md)
+- [Nourriture et marché (fr_09)](./fr_09.fr.md)
+- [Paris ! (fr_01)](./fr_01.fr.md)
+- [Paris Seine (fr_10)](./fr_10.fr.md)
+- [Un conte de deux châteaux (fr_05)](./fr_05.fr.md)
 
 ## Poland
 
-- [pl_00 - Les voisins de la Pologne](./pl_00.fr.md)
-- [pl_01 - Découvrir Varsovie](./pl_01.fr.md)
-- [pl_06 - Pain d'épices et marché alimentaire](./pl_06.fr.md)
+- [Découvrir Varsovie (pl_01)](./pl_01.fr.md)
+- [Les voisins de la Pologne (pl_00)](./pl_00.fr.md)
+- [Pain d'épices et marché alimentaire (pl_06)](./pl_06.fr.md)
 

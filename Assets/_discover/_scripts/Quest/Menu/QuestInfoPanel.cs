@@ -87,7 +87,7 @@ namespace Antura.Discover.UI
 
         public void OpenManual()
         {
-            Application.OpenURL("https://antura.org/manual/quests/" + currentQuestData.manualPage);
+            // Application.OpenURL("https://antura.org/manual/quests/" + currentQuestData.manualPage);
         }
 
         public void Close()

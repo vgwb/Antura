@@ -17,6 +17,9 @@ namespace Antura.Discover
         [Tooltip("Just for display in the UI. Not used in the game logic.")]
         public string IdDisplay;
 
+        [Tooltip("For docs and website, 100 = 1.00")]
+        public int Version = 100;
+
         [Tooltip("Development status of this quest. Needed for internal testing and validation.")]
         public DevStatus DevStatus;
 
@@ -48,7 +51,6 @@ namespace Antura.Discover
         [Header("Public website docs")]
         public bool IsPublic;
         public bool IsScriptPublic;
-        public string manualPage;
 
         [Tooltip("for the Website. THis is a Markdown file that contains additional resources for the quest, such as links to videos, articles, etc.")]
         public TextAsset AdditionalResources;
@@ -85,6 +87,18 @@ namespace Antura.Discover
                 try
                 { return Description.GetLocalizedString(); }
                 catch { return string.Empty; }
+            }
+        }
+
+        public string VersionText
+        {
+            get
+            {
+                // Format as X.YY where Version is stored as integer (e.g., 100 => 1.00)
+                int v = Mathf.Max(0, Version);
+                int major = v / 100;
+                int minor = v % 100;
+                return $"{major}.{minor:00}";
             }
         }
 

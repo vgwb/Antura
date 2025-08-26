@@ -16,6 +16,8 @@ class YarnGraphRenderer {
             enableControls: options.enableControls !== false,
             enableTooltips: options.enableTooltips !== false,
             theme: options.theme || 'dark',
+            panSpeed: options.panSpeed ?? 0.3,
+            graphOnlyInFullscreen: options.graphOnlyInFullscreen === true,
             ...options
         };
         
@@ -33,8 +35,13 @@ class YarnGraphRenderer {
             }
         }
         
-        this.nodes = new Map();
-        this.edges = [];
+    this.nodes = new Map();
+    this.edges = [];
+    this.edgeElements = [];
+    this.nodeElements = new Map(); // title -> <g>
+    this.adjacency = { out: new Map(), in: new Map() };
+    this.selectedTitle = null;
+    this.lastScript = '';
         this.scale = 1;
         this.translateX = 0;
         this.translateY = 0;
@@ -57,41 +64,60 @@ class YarnGraphRenderer {
         if (this.options.enableControls) {
             controlsHTML = `
                 <div class="yarn-graph-controls">
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].resetZoom()">Reset Zoom</button>
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].fitToScreen()">Fit to Screen</button>
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].centerAllNodes()">Force Center</button>
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].toggleFullscreen()" class="fullscreen-btn">⛶ Fullscreen</button>
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].exportSVG()">Export SVG</button>
-                    <button onclick="window.yarnGraphInstances['${this.container.id}'].debugViewport()">Debug</button>
-                    <div class="yarn-graph-zoom-info">
-                        Zoom: <span class="zoom-level">100%</span>
+                    <div class="yarn-graph-left-controls">
+                        <button onclick="window.yarnGraphInstances['${this.container.id}'].resetZoom()">Reset</button>
+                        <button onclick="window.yarnGraphInstances['${this.container.id}'].fitToScreen()">Fit</button>
+                        <button onclick="window.yarnGraphInstances['${this.container.id}'].toggleFullscreen()" class="fullscreen-btn">⛶ Full</button>
                     </div>
+                    <div class="yarn-graph-search">
+                        <input type="search" placeholder="Find node..." class="yarn-search-input" />
+                    </div>
+                    <div class="yarn-graph-zoom-info">Zoom: <span class="zoom-level">100%</span></div>
                 </div>
             `;
         }
         
         this.container.innerHTML = `
             ${controlsHTML}
-            <div class="yarn-graph-viewport" style="height: ${this.options.height}px; min-height: ${Math.max(400, this.options.height)}px;">
-                <svg class="yarn-graph-svg" width="100%" height="100%">
-                    <defs>
-                        <marker id="yarn-arrowhead-${this.container.id}" markerWidth="10" markerHeight="7" 
-                                refX="9" refY="3.5" orient="auto" class="yarn-arrowhead">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#888" />
-                        </marker>
-                    </defs>
-                    <g class="yarn-graph-group"></g>
-                </svg>
-                <div class="yarn-graph-fullscreen-hint">Press ESC to exit fullscreen</div>
+            <div class="yarn-split" style="height: ${this.options.height}px; min-height: ${Math.max(400, this.options.height)}px; grid-template-columns: 50% 6px 50%;">
+                <div class="yarn-graph-script-panel">
+                    <div class="script-header"><span>Yarn Script</span></div>
+                    <div class="script-content"><div class="script-code"></div></div>
+                </div>
+                <div class="yarn-split-gutter" title="Drag to resize"></div>
+                <div class="yarn-graph-viewport">
+                    <svg class="yarn-graph-svg" width="100%" height="100%">
+                        <defs>
+                            <marker id="yarn-arrowhead-${this.container.id}" markerWidth="10" markerHeight="7" 
+                                    refX="9" refY="3.5" orient="auto" class="yarn-arrowhead">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#888" />
+                            </marker>
+                        </defs>
+                        <g class="yarn-graph-group"></g>
+                    </svg>
+                    <div class="yarn-graph-fullscreen-hint">Press ESC to exit fullscreen</div>
+                </div>
             </div>
         `;
         
-        this.viewport = this.container.querySelector('.yarn-graph-viewport');
+    this.viewport = this.container.querySelector('.yarn-graph-viewport');
         this.svg = this.container.querySelector('.yarn-graph-svg');
         this.group = this.container.querySelector('.yarn-graph-group');
         this.zoomDisplay = this.container.querySelector('.zoom-level');
         this.fullscreenBtn = this.container.querySelector('.fullscreen-btn');
         this.isFullscreen = false;
+    this.searchInput = this.container.querySelector('.yarn-search-input');
+    this.inspector = null;
+        this.scriptPanel = this.container.querySelector('.yarn-graph-script-panel');
+    this.split = this.container.querySelector('.yarn-split');
+        this.gutter = this.container.querySelector('.yarn-split-gutter');
+        // Inspector removed: no close handling
+        // Graph visible only in fullscreen? Hide viewport and gutter now
+        if (this.options.graphOnlyInFullscreen) {
+            if (this.viewport) this.viewport.style.display = 'none';
+            if (this.gutter) this.gutter.style.display = 'none';
+            if (this.split) this.split.style.gridTemplateColumns = '1fr';
+        }
         
         // Ensure viewport has proper dimensions
         console.log('📦 Viewport created:', {
@@ -119,12 +145,13 @@ class YarnGraphRenderer {
             }
         });
         
-        document.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e) => {
             if (this.isDragging) {
-                const deltaX = e.clientX - this.lastMousePos.x;
-                const deltaY = e.clientY - this.lastMousePos.y;
-                this.translateX += deltaX / this.scale;
-                this.translateY += deltaY / this.scale;
+        const deltaX = e.clientX - this.lastMousePos.x;
+        const deltaY = e.clientY - this.lastMousePos.y;
+        const pf = this.options.panSpeed ?? 0.6;
+        this.translateX += (deltaX * pf) / this.scale;
+        this.translateY += (deltaY * pf) / this.scale;
                 this.updateTransform();
                 this.lastMousePos = { x: e.clientX, y: e.clientY };
                 e.preventDefault();
@@ -166,14 +193,15 @@ class YarnGraphRenderer {
             touches = Array.from(e.touches);
         });
         
-        this.viewport.addEventListener('touchmove', (e) => {
+    this.viewport.addEventListener('touchmove', (e) => {
             e.preventDefault();
             if (touches.length === 1 && e.touches.length === 1) {
                 // Single touch - pan
-                const deltaX = e.touches[0].clientX - touches[0].clientX;
-                const deltaY = e.touches[0].clientY - touches[0].clientY;
-                this.translateX += deltaX / this.scale;
-                this.translateY += deltaY / this.scale;
+        const deltaX = e.touches[0].clientX - touches[0].clientX;
+        const deltaY = e.touches[0].clientY - touches[0].clientY;
+        const pf = this.options.panSpeed ?? 0.6;
+        this.translateX += (deltaX * pf) / this.scale;
+        this.translateY += (deltaY * pf) / this.scale;
                 this.updateTransform();
             }
             touches = Array.from(e.touches);
@@ -195,6 +223,7 @@ class YarnGraphRenderer {
                             e.preventDefault();
                             this.exitFullscreen();
                         }
+                        this.clearSelection();
                         break;
                     case '0':
                         if (e.ctrlKey || e.metaKey) {
@@ -208,9 +237,106 @@ class YarnGraphRenderer {
                             this.fitToScreen();
                         }
                         break;
+                    case '+':
+                    case '=':
+                        e.preventDefault();
+                        this.zoomAt(this.viewport.offsetWidth/2, this.viewport.offsetHeight/2, 1.1);
+                        break;
+                    case '-':
+                    case '_':
+                        e.preventDefault();
+                        this.zoomAt(this.viewport.offsetWidth/2, this.viewport.offsetHeight/2, 0.9);
+                        break;
+                    case 'ArrowLeft':
+                        this.translateX += 30 / this.scale; this.updateTransform(); break;
+                    case 'ArrowRight':
+                        this.translateX -= 30 / this.scale; this.updateTransform(); break;
+                    case 'ArrowUp':
+                        this.translateY += 30 / this.scale; this.updateTransform(); break;
+                    case 'ArrowDown':
+                        this.translateY -= 30 / this.scale; this.updateTransform(); break;
                 }
             }
         });
+
+        if (this.searchInput) {
+            this.searchInput.addEventListener('keydown', (e) => {
+                if (e.key === 'Enter') {
+                    const q = this.searchInput.value.trim();
+                    if (!q) return;
+                    const match = Array.from(this.nodes.keys()).find(t => t.toLowerCase().includes(q.toLowerCase()));
+                    if (match) this.focusNode(match);
+                }
+                e.stopPropagation();
+            }, { capture: true });
+            this.searchInput.addEventListener('click', (e) => e.stopPropagation());
+        }
+
+        // Split gutter drag
+        if (this.gutter && this.split) {
+            let dragging = false;
+            let startX = 0;
+            let startLeft = 0;
+            const gutterWidth = this.gutter.offsetWidth || 6;
+            // Restore saved ratio if available
+            try {
+                const saved = localStorage.getItem('yarnSplitRatio');
+                if (saved) {
+                    const cw = this.split.getBoundingClientRect().width;
+                    const ratio = Math.min(0.8, Math.max(0.2, parseFloat(saved)));
+                    const left = (cw - gutterWidth) * ratio;
+                    const right = Math.max(0, cw - gutterWidth - left);
+                    this.split.style.gridTemplateColumns = `${left}px ${gutterWidth}px ${right}px`;
+                }
+            } catch (e) {}
+            const onMouseMove = (e) => {
+                if (!dragging) return;
+                const dx = e.clientX - startX;
+                const cw = this.split.getBoundingClientRect().width;
+                let left = Math.max(0, Math.min(cw - gutterWidth, startLeft + dx));
+                // Constrain to 20%-80%
+                const min = cw * 0.2;
+                const max = cw * 0.8 - gutterWidth;
+                left = Math.max(min, Math.min(max, left));
+                const right = Math.max(0, cw - gutterWidth - left);
+                this.split.style.gridTemplateColumns = `${left}px ${gutterWidth}px ${right}px`;
+            };
+            const onMouseUp = () => {
+                if (!dragging) return;
+                dragging = false;
+                document.removeEventListener('mousemove', onMouseMove);
+                document.removeEventListener('mouseup', onMouseUp);
+                // Save ratio
+                try {
+                    const cw = this.split.getBoundingClientRect().width;
+                    const cs = window.getComputedStyle(this.split).gridTemplateColumns.split(' ');
+                    const leftPx = parseFloat(cs[0]);
+                    const ratio = Math.max(0.2, Math.min(0.8, leftPx / (cw - gutterWidth)));
+                    localStorage.setItem('yarnSplitRatio', String(ratio));
+                } catch (e) {}
+            };
+            this.gutter.addEventListener('mousedown', (e) => {
+                dragging = true; startX = e.clientX; const cs = window.getComputedStyle(this.split).gridTemplateColumns.split(' ');
+                const cw = this.split.getBoundingClientRect().width;
+                startLeft = parseFloat(cs[0]); if (isNaN(startLeft)) startLeft = cw * 0.5;
+                document.addEventListener('mousemove', onMouseMove);
+                document.addEventListener('mouseup', onMouseUp);
+                e.preventDefault();
+                e.stopPropagation();
+            });
+            window.addEventListener('resize', () => {
+                // keep ratio roughly 50% on resize when columns in %
+                const cw = this.split.getBoundingClientRect().width;
+                let ratio = 0.5;
+                try {
+                    const saved = localStorage.getItem('yarnSplitRatio');
+                    if (saved) ratio = Math.min(0.8, Math.max(0.2, parseFloat(saved)));
+                } catch (e) {}
+                const left = (cw - gutterWidth) * ratio;
+                const right = Math.max(0, cw - gutterWidth - left);
+                this.split.style.gridTemplateColumns = `${left}px ${gutterWidth}px ${right}px`;
+            });
+        }
     }
     
     updateTransform() {
@@ -362,7 +488,8 @@ class YarnGraphRenderer {
         console.log('📝 Yarn script length:', yarnScript.length);
         console.log('📝 First 200 chars:', yarnScript.substring(0, 200));
         
-        this.nodes = this.parseYarnScript(yarnScript);
+    this.lastScript = yarnScript;
+    this.nodes = this.parseYarnScript(yarnScript);
         console.log('📊 Parsed nodes:', this.nodes.size);
         this.nodes.forEach((node, title) => {
             console.log(`  - ${title}:`, { x: node.x, y: node.y, connections: node.connections });
@@ -383,11 +510,20 @@ class YarnGraphRenderer {
             return;
         }
         
-        this.edges = [];
-        this.group.innerHTML = '';
+    this.edges = [];
+    this.edgeElements = [];
+    this.nodeElements.clear();
+    this.group.innerHTML = '';
+    // Prepare layer for group boxes behind edges/nodes
+    this.groupLayer = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+    this.groupLayer.setAttribute('class', 'yarn-group-layer');
+    this.group.appendChild(this.groupLayer);
         
-        // Create edges based on connections
+    // Create edges based on connections and build adjacency
+    this.adjacency.out.clear();
+    this.adjacency.in.clear();
         this.nodes.forEach((node, title) => {
+        this.adjacency.out.set(title, new Set());
             node.connections.forEach(targetTitle => {
                 if (this.nodes.has(targetTitle)) {
                     this.edges.push({
@@ -395,6 +531,9 @@ class YarnGraphRenderer {
                         target: targetTitle,
                         type: 'connection'
                     });
+            this.adjacency.out.get(title).add(targetTitle);
+            if (!this.adjacency.in.has(targetTitle)) this.adjacency.in.set(targetTitle, new Set());
+            this.adjacency.in.get(targetTitle).add(title);
                     console.log(`🔗 Edge: ${title} -> ${targetTitle}`);
                 } else {
                     console.warn(`⚠️ Connection target not found: ${title} -> ${targetTitle}`);
@@ -404,15 +543,21 @@ class YarnGraphRenderer {
         
         console.log('🔗 Total edges:', this.edges.length);
         
-        // Render edges first (behind nodes)
-        this.edges.forEach(edge => this.renderEdge(edge));
+    // Draw group rectangles first (behind everything)
+    this.renderGroupBoxes();
+
+    // Render edges (behind nodes)
+    this.edges.forEach(edge => this.renderEdge(edge));
         
-        // Render nodes
-        this.nodes.forEach((node, title) => this.renderNode(node, title));
+    // Render nodes
+    this.nodes.forEach((node, title) => this.renderNode(node, title));
         
         console.log('✅ Rendering complete. Fitting to screen...');
         
-        // Auto-fit after rendering
+    // Populate script panel with the current script
+    this.showScriptPanel();
+
+    // Auto-fit after rendering
         setTimeout(() => {
             this.fitToScreen();
             console.log('📏 Fit to screen complete.');
@@ -422,6 +567,9 @@ class YarnGraphRenderer {
     renderNode(node, title) {
         const group = document.createElementNS('http://www.w3.org/2000/svg', 'g');
         group.classList.add('yarn-node');
+    group.dataset.title = title;
+    group.addEventListener('dblclick', (e) => { e.stopPropagation(); this.focusNode(title); });
+    group.addEventListener('click', (e) => { e.stopPropagation(); this.selectNode(title); });
         
         // Apply node styling
         if (node.isStart) group.classList.add('start');
@@ -429,27 +577,41 @@ class YarnGraphRenderer {
         else if (node.color) group.classList.add(node.color);
         else group.classList.add('default');
         
-        const width = Math.max(140, Math.min(200, title.length * 9));
-        const height = node.choices.length > 0 ? 80 : 60;
+    const width = Math.max(160, Math.min(240, title.length * 9));
+    const height = node.choices.length > 0 ? 84 : 64;
+    node._w = width; node._h = height;
         
         // Background rectangle
-        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-        rect.setAttribute('x', node.x - width/2);
-        rect.setAttribute('y', node.y - height/2);
-        rect.setAttribute('width', width);
-        rect.setAttribute('height', height);
-        group.appendChild(rect);
+    const mainRect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    mainRect.setAttribute('x', node.x - width/2);
+    mainRect.setAttribute('y', node.y - height/2);
+    mainRect.setAttribute('width', width);
+    mainRect.setAttribute('height', height);
+    mainRect.setAttribute('fill', '#FFFFFF');
+    const colorHex = this.resolveColor(node.color);
+    mainRect.setAttribute('stroke', colorHex);
+    mainRect.setAttribute('stroke-width', '2');
+    group.appendChild(mainRect);
+
+    // Top color bar
+    const bar = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+    bar.setAttribute('x', node.x - width/2);
+    bar.setAttribute('y', node.y - height/2);
+    bar.setAttribute('width', width);
+    bar.setAttribute('height', 10);
+    bar.setAttribute('fill', colorHex);
+    group.appendChild(bar);
         
         // Title text
         const titleText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
-        titleText.classList.add('yarn-node-title');
+    titleText.classList.add('yarn-node-title');
         titleText.setAttribute('x', node.x);
         titleText.setAttribute('y', node.y - (height > 60 ? 15 : 5));
         titleText.textContent = this.truncateText(title, 20);
         group.appendChild(titleText);
         
         // Subtitle (group/actor)
-        if (node.group || node.actor) {
+    if (node.group || node.actor) {
             const subText = document.createElementNS('http://www.w3.org/2000/svg', 'text');
             subText.classList.add('yarn-node-subtitle');
             subText.setAttribute('x', node.x);
@@ -474,6 +636,7 @@ class YarnGraphRenderer {
         }
         
         this.group.appendChild(group);
+    this.nodeElements.set(title, group);
     }
     
     renderEdge(edge) {
@@ -508,7 +671,10 @@ class YarnGraphRenderer {
         path.setAttribute('d', d);
         path.setAttribute('marker-end', `url(#yarn-arrowhead-${this.container.id})`);
         
-        this.group.appendChild(path);
+    path.dataset.source = edge.source;
+    path.dataset.target = edge.target;
+    this.group.appendChild(path);
+    this.edgeElements.push(path);
     }
     
     addTooltip(element, node, title) {
@@ -599,6 +765,21 @@ class YarnGraphRenderer {
         this.updateTransform();
         this.updateZoomDisplay();
     }
+
+    zoomAt(x, y, zoomFactor) {
+        const rect = this.viewport.getBoundingClientRect();
+        const mouseX = x;
+        const mouseY = y;
+        const newScale = Math.max(0.1, Math.min(3, this.scale * zoomFactor));
+        if (newScale !== this.scale) {
+            const scaleChange = newScale / this.scale;
+            this.translateX = mouseX - (mouseX - this.translateX) * scaleChange;
+            this.translateY = mouseY - (mouseY - this.translateY) * scaleChange;
+            this.scale = newScale;
+            this.updateTransform();
+            this.updateZoomDisplay();
+        }
+    }
     
     fitToScreen() {
         console.log('📏 Fitting to screen...');
@@ -630,7 +811,7 @@ class YarnGraphRenderer {
             
             const scaleX = availableWidth / bounds.width;
             const scaleY = availableHeight / bounds.height;
-            this.scale = Math.min(scaleX, scaleY, 1); // Don't scale up beyond 100%
+            this.scale = Math.min(scaleX, scaleY); // Allow scaling up if content is very small
             
             // Center the scaled content
             const scaledWidth = bounds.width * this.scale;
@@ -788,6 +969,23 @@ class YarnGraphRenderer {
             this.fullscreenBtn.classList.add('active');
         }
         
+        // Set 50/50 split in fullscreen and refit after a short delay
+        if (this.split) {
+            if (this.options.graphOnlyInFullscreen) {
+                if (this.viewport) this.viewport.style.display = '';
+                if (this.gutter) this.gutter.style.display = '';
+            }
+            this.split.style.gridTemplateColumns = 'calc(50% - 3px) 6px calc(50% - 3px)';
+            const controls = this.container.querySelector('.yarn-graph-controls');
+            const controlsH = controls ? controls.getBoundingClientRect().height : 0;
+            this.split.style.height = Math.max(300, window.innerHeight - controlsH) + 'px';
+        }
+        // If graph is only in fullscreen, hide it again
+        if (this.options.graphOnlyInFullscreen) {
+            if (this.viewport) this.viewport.style.display = 'none';
+            if (this.gutter) this.gutter.style.display = 'none';
+            if (this.split) this.split.style.gridTemplateColumns = '1fr';
+        }
         // Refit to new dimensions after a short delay
         setTimeout(() => {
             this.fitToScreen();
@@ -902,6 +1100,169 @@ class YarnGraphRenderer {
             });
     }
 }
+
+// Selection & inspector
+YarnGraphRenderer.prototype.selectNode = function(title) {
+    this.selectedTitle = title;
+    // Highlight selected node and its edges; no dimming of others
+    this.nodeElements.forEach((el, t) => {
+        el.classList.toggle('selected', t === title);
+    });
+    this.edgeElements.forEach(path => {
+        const isOut = path.dataset.source === title;
+        const isIn = path.dataset.target === title;
+        path.classList.toggle('highlight', isOut || isIn);
+    });
+    this.scrollScriptToNode(title);
+};
+
+YarnGraphRenderer.prototype.clearSelection = function() {
+    this.selectedTitle = null;
+    this.nodeElements.forEach(el => { el.classList.remove('selected'); });
+    this.edgeElements.forEach(path => { path.classList.remove('highlight'); });
+    // No inspector in simplified mode
+};
+
+YarnGraphRenderer.prototype.focusNode = function(title) {
+    const node = this.nodes.get(title);
+    if (!node) return;
+    // Zoom and center
+    const rect = this.viewport.getBoundingClientRect();
+    const targetScale = Math.max(0.6, Math.min(1.5, this.scale < 0.8 ? 1.0 : this.scale));
+    this.scale = targetScale;
+    this.translateX = rect.width/2 - node.x * this.scale;
+    this.translateY = rect.height/2 - node.y * this.scale;
+    this.updateTransform();
+    this.updateZoomDisplay();
+    this.selectNode(title);
+};
+
+
+YarnGraphRenderer.prototype.showScriptPanel = function() {
+    if (!this.scriptPanel) return;
+    const code = this.scriptPanel.querySelector('.script-code');
+    if (!this._scriptHTMLCached) {
+        this._scriptHTMLCached = this.buildScriptHTMLWithAnchors(this.lastScript);
+    }
+    code.innerHTML = this._scriptHTMLCached;
+};
+
+YarnGraphRenderer.prototype.hideScriptPanel = function() {
+    if (!this.scriptPanel) return;
+    this.scriptPanel.classList.add('hidden');
+};
+
+// Build escaped HTML with anchors per node block for scrolling
+YarnGraphRenderer.prototype.buildScriptHTMLWithAnchors = function(script) {
+    const escapeHtml = (s) => s
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    const slug = (t) => (t || '')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '');
+
+    const parts = script.split('===');
+    const htmlParts = [];
+    for (let i = 0; i < parts.length; i++) {
+        const raw = parts[i];
+        if (!raw.trim()) continue;
+        const titleMatch = raw.match(/title:\s*(.+)/);
+        const title = titleMatch ? titleMatch[1].trim() : '';
+        const id = title ? `yg-node-${slug(title)}` : '';
+        let escaped = escapeHtml(raw);
+        // Highlight yarn commands and dim only the id after #line:
+        escaped = escaped
+            .replace(/(^|\n)#line:([^\n]*)/gm, (m, p1, idpart) => `${p1}#line:<span class="yarn-meta">${idpart}</span>`)
+            .replace(/&lt;&lt;[^&]*?&gt;&gt;/g, (m) => `<span class="yarn-cmd">${m}</span>`)
+            .replace(/(^|\n)\s*\/\/[^\n]*/gm, (m) => `<span class="yarn-comment">${m}</span>`)
+            .replace(/(^|\n)(\s*\-\>[^\n]*)/gm, (m, p1, body) => `${p1}<span class="yarn-choice">${body}</span>`);
+
+        // Tokenize lines to bold spoken lines (non-control lines)
+        const boldSpoken = escaped.split('\n').map(line => {
+            const trimmed = line.replace(/^\s+/, '');
+            const isControl =
+                trimmed.startsWith('#line:') ||
+                trimmed.startsWith('title:') ||
+                trimmed.startsWith('tags:') ||
+                trimmed.startsWith('position:') ||
+                trimmed.startsWith('->') ||
+                trimmed.startsWith('&lt;&lt;') ||
+                trimmed.startsWith('//') ||
+                trimmed === '' ||
+                trimmed === '===';
+            if (isControl) return line;
+            return `<span class="yarn-speech"><strong>${line}</strong></span>`;
+        }).join('\n');
+
+        const block = `<div class="yarn-block"${id ? ` id="${id}"` : ''}><pre>${escapeHtml('===\n')}${boldSpoken}</pre></div>`;
+        htmlParts.push(block);
+    }
+    return htmlParts.join('');
+};
+
+YarnGraphRenderer.prototype.scrollScriptToNode = function(title) {
+    if (!this.scriptPanel) return;
+    this.showScriptPanel();
+    const id = `yg-node-${title.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/(^-|-$)/g, '')}`;
+    const anchor = this.scriptPanel.querySelector(`#${id}`);
+    const container = this.scriptPanel.querySelector('.script-content');
+    if (anchor && container) {
+        const aRect = anchor.getBoundingClientRect();
+        const cRect = container.getBoundingClientRect();
+        const top = (aRect.top - cRect.top) + container.scrollTop - cRect.height * 0.2;
+        container.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+    }
+};
+
+// Draw group rectangles behind nodes sharing the same group
+YarnGraphRenderer.prototype.renderGroupBoxes = function() {
+    if (!this.groupLayer) return;
+    while (this.groupLayer.firstChild) this.groupLayer.removeChild(this.groupLayer.firstChild);
+    const groups = new Map();
+    this.nodes.forEach((node, title) => {
+        if (!node.group) return;
+        if (!groups.has(node.group)) groups.set(node.group, []);
+        groups.get(node.group).push(node);
+    });
+    groups.forEach((nodes, groupName) => {
+        if (nodes.length === 0) return;
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        nodes.forEach(n => {
+            const w = n._w || 160, h = n._h || 60;
+            minX = Math.min(minX, n.x - w/2);
+            maxX = Math.max(maxX, n.x + w/2);
+            minY = Math.min(minY, n.y - h/2);
+            maxY = Math.max(maxY, n.y + h/2);
+        });
+    const pad = 40;
+        const rect = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
+        rect.setAttribute('x', (minX - pad).toString());
+        rect.setAttribute('y', (minY - pad).toString());
+        rect.setAttribute('width', (maxX - minX + pad*2).toString());
+        rect.setAttribute('height', (maxY - minY + pad*2).toString());
+        rect.setAttribute('class', 'yarn-group-box');
+        this.groupLayer.appendChild(rect);
+        // Optional: label
+        const label = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        label.setAttribute('x', (minX - pad + 8).toString());
+        label.setAttribute('y', (minY - pad + 16).toString());
+        label.setAttribute('class', 'yarn-group-label');
+        label.textContent = groupName;
+        this.groupLayer.appendChild(label);
+    });
+};
+
+// Color resolver for node color property
+YarnGraphRenderer.prototype.resolveColor = function(raw) {
+    if (!raw) return '#6c757d';
+    const v = String(raw).trim().toLowerCase();
+    if (v.startsWith('#') && (v.length === 7 || v.length === 4)) return raw;
+    const map = {
+        red: '#e74c3c', blue: '#3498db', green: '#27ae60', yellow: '#f1c40f', purple: '#9b59b6', orange: '#e67e22', pink: '#e91e63', gray: '#6c757d'
+    };
+    return map[v] || '#6c757d';
+};
 
 // Export for use in modules
 if (typeof module !== 'undefined' && module.exports) {
