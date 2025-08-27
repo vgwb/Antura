@@ -19,6 +19,9 @@ namespace Antura.Discover
         [Tooltip("Optional, Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
+        [Tooltip("If the card has a specific place...")]
+        public LocationData Location;
+
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
 

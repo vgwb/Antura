@@ -9,17 +9,50 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2843c3b30ceab482488a66b2e3ccf08f, type: 3}
+  m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
   m_Name: food_lemon
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.AssetData
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: food_lemon
-  Title: Lemon
-  Type: 0
+  DevStatus: 2
+  Title:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Category: 4
+  Topics: 
+  Year: 0
   Country: 0
-  Image: {fileID: 21300000, guid: a1d7e681c4e1e4f3683b6e0452bd7692, type: 3}
-  Audio: {fileID: 0}
-  Model3D: {fileID: 0}
-  License: 0
-  Copyright: 
-  SourceUrl: https://commons.wikimedia.org/wiki/File:Lemon.jpg
-  LicenseNotes: 
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: 740d26ab028154c54af41fe9e96d9124, type: 2}
+  PreviewImage: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 1
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 4
+  CustomTag: 
+  Quests:
+  - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
+  references:
+    version: 2
+    RefIds: []

@@ -6,8 +6,8 @@
 // - explore landmarks (Eiffel Tower, Notre-Dame)
 
 title: init
-position: -304,-431
-tags: type=Start
+position: 0,0
+tags: type=Start, panel
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
@@ -16,22 +16,19 @@ color: red
 <<declare $MET_GUIDE = false>>
 <<declare $MET_MAJOR = false>>
 <<declare $MET_MONALISA = false>>
-===
 
-title: start
-position: -301,-268
-tags: NEXTTARGET=TUTOR
----
 Welcome to Paris! #line:fr01_start 
+<<target tutor>>
 ===
 
 
 
 title: talk_tutor
-position: 17,-670
+position: 300,-663
 actor: tutor
+color: blue
 ---
-TUTOR: I saw Antura going to the Eiffel Tower. #line:fr01_talk_tutor
+I saw Antura going to the Eiffel Tower. #line:fr01_talk_tutor
 <<camera_focus tour_eiffell>>
 Follow the target or use the map! #line:fr01_talk_tutor_2 
 Get there as soon as possible! #line:fr01_talk_tutor_3 
@@ -39,15 +36,16 @@ Get there as soon as possible! #line:fr01_talk_tutor_3
 
 
 title: talk_louvre_external
-position: 62,57
+position: 320,61
 group: louvre
+actor: OLD_WOMAN
 ---
 <<if $MET_MONALISA>>
     <<jump go_bakery>>
 <<else>>
 <<asset louvre>>
-OLD_WOMAN: This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
-OLD_WOMAN: Do you want to enter? #line:0f74ff9 
+This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
+Do you want to enter? #line:0f74ff9 
 -> Yes: #line:090114f 
     Enjoy your visit! #line:056e051 
     <<action AREA_LOUVRE_ENTER >>
@@ -57,64 +55,65 @@ OLD_WOMAN: Do you want to enter? #line:0f74ff9
 ===
 
 title: talk_eiffell_roof
-position: 46,-448
+position: 319,-444
 group: toureiffel
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 ---
-<<asset  toureiffell>>
-GUIDE: The Eiffel Tower is 300 meters tall. #line:08c1973 
+<<asset toureiffell>>
+The Eiffel Tower is 300 meters tall. #line:08c1973 
 <<asset mr_eiffel>>
-GUIDE: Built by Mr Eiffel in 1887. #line:09e5c3b 
+Built by Mr Eiffel in 1887. #line:09e5c3b 
 <<asset iron>>
-GUIDE: It's made of iron! #line:0d59ade 
-GUIDE: I saw Antura going towards Notre Dame. #line:04d1e52 
+It's made of iron! #line:0d59ade 
+I saw Antura going towards Notre Dame. #line:04d1e52 
 <<camera_focus notredame>>
-GUIDE: Get there! #line:083b3bf 
+Get there! #line:083b3bf 
 
 ===
 
 
 title: talk_eiffell_guide
-position: 311,-447
+position: 584,-443
 group: toureiffel
+actor: guide
 ---
 <<if $TOTAL_COINS > 2>>
     Here is your ticket. #line:04e74ad 
     <<asset tour_eiffell_ticket>>
     <<set $TOTAL_COINS = $TOTAL_COINS-3>>
-    
-    <<action  area_toureiffel>>
+    <<action area_toureiffel>>
     <<asset tour_eiffell_map>>
     I saw Antura going up to the top of the tower. #line:089abda 
     Take the elevator! #line:0585a5e 
 <<elseif $TOTAL_COINS > 0>> 
-    TUTOR: Collect all coins! #line:04d966b 
+    Collect all coins! #line:04d966b 
 <<else>>
-    GUIDE: Hello. The ticket for the Eiffel Tower costs 3 coins. #line:069cbb3 
+    The ticket for the Eiffel Tower costs 3 coins. #line:069cbb3 
 <<endif>>
 ===
 
 title: talk_notre_dame
-position: 54,-207
+position: 327,-203
 group: notredame
-tags: actorUID=OLD_MAN, asset=notredame
+tags: actor=OLD_MAN, asset=notredame
 ---
-OLD_MAN: I'm the Mayor of Paris. #line:0cc11fa 
-OLD_MAN: This is Notre-Dame Cathedral. #line:06f3fa2 
+I'm the Mayor of Paris. #line:0cc11fa 
+This is Notre-Dame Cathedral. #line:06f3fa2 
 <<asset notredame>>
-OLD_MAN: It is a famous Gothic church, built in 1182. #line:02edc0f 
+It is a famous Gothic church, built in 1182. #line:02edc0f 
 <<action AREA_NOTREDAME_ROOF>>
-OLD_MAN: Come with me up to the roof of the church! #line:083dfcc 
+Come with me up to the roof of the church! #line:083dfcc 
 <<set $MET_MAJOR = true>>
 ===
 
 title: talk_cook
-position: 76,972
+position: 334,976
 group: bakery
+actor: CRAZY_MAN
 ---
 <<if $COLLECTED_ITEMS >= 4>>
-    CRAZY_MAN: GREAT! I can now bake the Baguette. And... #line:0017917 
-    CRAZY_MAN: CONGRATULATIONS! You won the game! Did you like it? #line:0d11596 
+    GREAT! I can now bake the Baguette. And... #line:0017917 
+    CONGRATULATIONS! You won the game! Did you like it? #line:0d11596 
     <<quest_end 3>>
 <<else>>
     Help me! Antura made a mess in my kitchen! #line:07bbb10 
@@ -129,150 +128,151 @@ group: bakery
 ===
 
 title: visit_louvre
-position: 490,576
+position: 748,580
 group: louvre
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset louvre_inside>>
-CRAZY_WOMAN: You can find many sculptures and paintings. #line:08dc97f 
+You can find many sculptures and paintings. #line:08dc97f 
 <<jump find_monalisa>>
 ===
 
 title: find_monalisa
-position: 862,430
+position: 1120,434
 group: louvre
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 
 <<action monalisa>>
-CRAZY_WOMAN: Go and find the Mona Lisa! #line:0442392 
+Go and find the Mona Lisa! #line:0442392 
 ===
 
 title: go_bakery
-position: 347,60
+position: 605,64
 group: louvre
-tags: actorUID=OLD_WOMAN
+tags: actor=OLD_WOMAN
 ---
  
-OLD_WOMAN: Now look for Antura! I think it went to the bakery for a baguette! #line:076ef0f 
-OLD_WOMAN: Hurry up! #line:0e9c3e7 
+Now look for Antura! It went to the bakery for a baguette! #line:076ef0f 
+Hurry up! #line:0e9c3e7 
 ===
 
 title: baguette_salt
-position: 588,1161
+position: 846,1165
 group: bakery
 color: yellow
-tags: actorUID=CRAZY_MAN
+tags: actor=CRAZY_MAN
 ---
 <<action COLLECT_1>>
 <<asset baguette_salt>>
-CRAZY_MAN: This is salt. #line:00f1d2f 
+This is salt. #line:00f1d2f 
 ===
+
+
 title: baguette_flour
-position: 822,1161
+position: 1080,1165
 group: bakery
 color: yellow
-tags: actorUID=CRAZY_MAN
+tags: actor=CRAZY_MAN
 ---
 <<asset baguette_flour>>
 <<action COLLECT_2>>
-CRAZY_MAN: This is flour. #line:06022b0 
+This is flour. #line:06022b0 
 ===
 
 
 title: baguette_water
-position: 323,1162
+position: 581,1166
 group: bakery
 color: yellow
-tags: actorUID=CRAZY_MAN
+tags: actor=CRAZY_MAN
 ---
 <<action COLLECT_3>>
 <<asset baguette_water>>
-CRAZY_MAN: This is water. #line:0c4d1f6 
+This is water. #line:0c4d1f6 
 ===
 
 title: baguette_yeast
-position: 76,1156
+position: 334,1160
 group: bakery
 color: yellow
-tags: actorUID=CRAZY_MAN
+tags: actor=CRAZY_MAN
 ---
 <<action COLLECT_4>>
 <<asset baguette_yeast>>
-CRAZY_MAN: This is yeast. #line:025865d 
+This is yeast. #line:025865d 
 ===
 
 title: talk_notre_dame_roof
-position: 365,-209
+position: 638,-205
 group: notredame
-tags: actorUID=OLD_MAN
+tags: actor=OLD_MAN
 ---
 <<asset notredame_fire>>
-OLD_MAN: There was a big fire in 2019, but we could repair it. #line:09a0ead 
- 
+There was a big fire in 2019, but we could repair it. #line:09a0ead 
 I saw Antura run into the Louvre Museum. #line:02ba888 
 It is just across the River Seine. #line:00d22e5 
 ===
 
 
 title: talk_louvre_guide
-position: 491,281
+position: 749,285
 group: louvre
-tags: actorUID=CRAZY_WOMAN, type=Choice
+tags: actor=CRAZY_WOMAN
 color: blue
 ---
-CRAZY_WOMAN: Welcome to the Louvre Museum. What do you want to do? #line:0e6d2a5 
+Welcome to the Louvre Museum. What do you want to do? #line:0e6d2a5 
 -> Tell me about the Louvre #line:0a5fc63 
     <<jump visit_louvre>>
 -> Exit #line:0efc18f 
     <<if $MET_MONALISA>>
         <<action AREA_LOUVRE_EXIT>>
-        Come back!     #line:07dd921 
+        Come back! #line:07dd921 
     <<else>>
         <<jump find_monalisa>>
     <<endif>>
 ===
 
 title: louvre_monalisa
-position: 62,585
+position: 320,589
 group: louvre
 color: yellow
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset monalisa>>
-CRAZY_WOMAN: This is the famous Mona Lisa. #line:00187e9 
+This is the famous Mona Lisa. #line:00187e9 
 <<set $MET_MONALISA = true>>
 <<asset leaonardodavinci>>
-CRAZY_WOMAN: It was painted around 1500 by the artist and scientist Leonardo da Vinci. #line:0a21eeb 
+It was painted around 1500 by the artist and scientist Leonardo da Vinci. #line:0a21eeb 
 
 ===
 
 title: louvre_liberty
-position: 64,427
+position: 322,431
 group: louvre
 color: yellow
-tags: actorUID=CRAZY_WOMAN, 
+tags: actor=CRAZY_WOMAN
 ---
 <<asset liberty_leading>>
-CRAZY_WOMAN: Liberty Leading the People by the French artist Eugène Delacroix represents freedom. #line:0e05d56 
+Liberty Leading the People by the French artist Eugène Delacroix represents freedom. #line:0e05d56 
 ===
 
 title: louvre_venus
-position: 65,268
+position: 323,272
 group: louvre
 color: yellow
-tags: actorUID=CRAZY_WOMAN, 
+tags: actor=CRAZY_WOMAN, 
 ---
 <<asset venusmilo>>
-CRAZY_WOMAN: The Venus de Milo, an ancient Greek marble sculpture. #line:053d4fe 
+The Venus de Milo, an ancient Greek marble sculpture. #line:053d4fe 
 ===
 
 title: npc_woman
-position: -626,-94
-tags: actorUID=WOMAN
+position: -284,321
+tags: actor=WOMAN
 color: purple
 ---
-WOMAN: Ciao. What do you want to know? #line:0070084 
+Ciao. What do you want to know? #line:0070084 
 -> What is the Eiffel Tower? #line:0d91dc0 
     The famous iron tower, 300 meters tall. #line:0f17af0 
     The symbol of Paris! #line:07a113f 
@@ -286,11 +286,11 @@ WOMAN: Ciao. What do you want to know? #line:0070084
 
 
 title: npc_man
-position: -628,-253
-tags: actorUID=MAN
+position: -286,162
+tags: actor=MAN
 color: purple
 ---
-MAN: Do you have any questions? #line:07b94e9 
+Do you have any questions? #line:07b94e9 
 -> Have you seen Antura? #line:0f18ad3 
     => Yes! Talk to everybody and follow the lights! #line:0cf9b4e 
     => No. Who is Antura? #line:0f9dd62 
@@ -306,12 +306,10 @@ MAN: Do you have any questions? #line:07b94e9
 
 
 title: npc_kid
-position: -621,-415
-tags: actorUID=KID_MALE
+position: -279,0
+tags: actor=KID_MALE
 color: purple
 ---
 => Hi! #line:0c4d9e4 
 => How are you? #line:032d401 
 ===
-
-
