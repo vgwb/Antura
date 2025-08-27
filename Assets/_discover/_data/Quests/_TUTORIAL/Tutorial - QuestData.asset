@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 729b072f75ad845a1b4bbe3f15ec0761,
     type: 3}
   IdDisplay: T
+  Version: 100
   DevStatus: 3
   Title:
     m_TableReference:
@@ -40,17 +41,18 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Thumbnail: {fileID: 21300000, guid: d2dfb9d91ba8043c18ed93e7f0850282, type: 3}
-  MainTopic: 0
+  MainTopic: 20
   Cards: []
   Words: []
+  AgeMin: 5
+  AgeMax: 99
   Difficulty: 1
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
-  IsPublic: 0
+  IsPublic: 1
   IsScriptPublic: 0
-  manualPage: tutorial
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
@@ -63,19 +65,15 @@ MonoBehaviour:
     Design: 1
     Development: 1
     Validation: 0
-  CreditsContent: []
-  CreditsDesign:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  - {fileID: 11400000, guid: bf6110850e62c4624b892c100f91302c, type: 2}
-  CreditsDevelopment:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  - {fileID: 11400000, guid: bf6110850e62c4624b892c100f91302c, type: 2}
-  assetsFolder: TUTORIAL
-  scene: discover _tutorial
   WorldPrefab: {fileID: 6945215965495843337, guid: 197fc822d45f141bbbe07018e81f7f8d,
     type: 3}
   QuestPrefab: {fileID: 4017108264321078535, guid: aec059f64328e48b6a52efffc7aadf91,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: TUTORIAL
+  scene: discover _tutorial
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []
