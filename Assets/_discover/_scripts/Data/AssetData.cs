@@ -7,7 +7,7 @@ namespace Antura.Discover
     public class AssetData : IdentifiedData
     {
         public AssetType Type = AssetType.Image;
-        public Countries Country = Countries.Global; // Default to global if not specified
+        public Countries Country = Countries.International; // Default to global if not specified
 
         [Header("Asset Reference")]
         public Sprite Image;

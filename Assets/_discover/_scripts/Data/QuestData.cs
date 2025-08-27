@@ -59,6 +59,40 @@ namespace Antura.Discover
         [Tooltip("for the Website. THis is a Markdown file that contains additional resources for the quest, such as links to videos, articles, etc.")]
         public TextAsset AdditionalResources;
 
+        public List<AuthorCredit> Credits;
+
+        [Header("Unity References and Prefabs")]
+        public GameObject WorldPrefab;
+        public GameObject QuestPrefab;
+
+        public WorldController WorldControllerPrefab;
+
+        public string assetsFolder;
+        public string scene;
+
+        [Header("Localization")]
+        [Tooltip("String Table Collection used by Yarn's Localized Line Provider for this quest.")]
+        public TableReference YarnStringTable;
+
+        // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
+        public int GetBestStars()
+        {
+            try
+            {
+                var mgr = DiscoverAppManager.I;
+                var prof = mgr != null ? mgr.CurrentProfile : null;
+                var qs = prof != null ? prof.stats?.quests : null;
+                if (qs != null && !string.IsNullOrEmpty(this.Id))
+                {
+                    if (qs.TryGetValue(this.Id, out var s))
+                        return Mathf.Clamp(s.bestStars, 0, 3);
+                }
+            }
+            catch { }
+            return 0;
+        }
+
+
         public int KnowledgeValue
         {
             get
@@ -104,39 +138,6 @@ namespace Antura.Discover
                 int minor = v % 100;
                 return $"{major}.{minor:00}";
             }
-        }
-
-        public List<AuthorCredit> Credits;
-
-        [Header("Unity References and Prefabs")]
-        public GameObject WorldPrefab;
-        public GameObject QuestPrefab;
-
-        public WorldController WorldControllerPrefab;
-
-        public string assetsFolder;
-        public string scene;
-
-        [Header("Localization")]
-        [Tooltip("String Table Collection used by Yarn's Localized Line Provider for this quest.")]
-        public TableReference YarnStringTable;
-
-        // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
-        public int GetBestStars()
-        {
-            try
-            {
-                var mgr = DiscoverAppManager.I;
-                var prof = mgr != null ? mgr.CurrentProfile : null;
-                var qs = prof != null ? prof.stats?.quests : null;
-                if (qs != null && !string.IsNullOrEmpty(this.Id))
-                {
-                    if (qs.TryGetValue(this.Id, out var s))
-                        return Mathf.Clamp(s.bestStars, 0, 3);
-                }
-            }
-            catch { }
-            return 0;
         }
 
     }

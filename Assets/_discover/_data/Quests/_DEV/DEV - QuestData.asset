@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 007563904a7704f749412d0f08d22516,
     type: 3}
   IdDisplay: T
+  Version: 100
   DevStatus: 3
   Title:
     m_TableReference:
@@ -40,17 +41,20 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Thumbnail: {fileID: 11400000, guid: 970cc22a656b341849ae2fc94c85f9ec, type: 2}
-  MainTopic: 0
-  Cards: []
-  Words: []
+  MainTopic: 20
+  Cards:
+  - {fileID: 11400000, guid: cd6c73dbcae5443c1a02cc32b2bb0360, type: 2}
+  Words:
+  - {fileID: 11400000, guid: 8fdf587a8f9a647d98c3a37144f171eb, type: 2}
+  AgeMin: 9
+  AgeMax: 99
   Difficulty: 1
-  Gameplay: 01000000
   Duration: 10
   Dependencies: []
+  Gameplay: 0100000004000000
   cookies: 0
-  IsPublic: 0
-  IsScriptPublic: 0
-  manualPage: 
+  IsPublic: 1
+  IsScriptPublic: 1
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}

@@ -11,8 +11,6 @@ Since the game is free and Open Source, it can be installed as many times withou
 Every player should have a personal account. It can be created by pressing the \+ button in the home page and configuring the personal avatar.  
 The account lives only on the device where it is created 
 
-\#**QUESTION**: how important would be the feature to move a player profile into another device?
-
 NOTE: all profile data aren’t shared with external companies and no personal data is collected at all.
 
 Here you can create a TEACHER PROFILE, who has everything unlocked.  

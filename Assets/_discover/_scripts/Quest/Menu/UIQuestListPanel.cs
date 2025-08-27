@@ -28,7 +28,7 @@ namespace Antura.Discover.UI
         void Start()
         {
             Container.SetActive(false);
-            currentCountry = Countries.Global;
+            currentCountry = Countries.International;
             ListTitleText.text = "";
         }
 
@@ -48,9 +48,9 @@ namespace Antura.Discover.UI
                     continue;
                 // If a specific country is selected, include both that country's quests and Global ones.
                 // If Global is selected, include only Global quests.
-                bool match = country == Countries.Global
-                    ? questData.Country == Countries.Global
-                    : (questData.Country == country || questData.Country == Countries.Global);
+                bool match = country == Countries.International
+                    ? questData.Country == Countries.International
+                    : (questData.Country == country || questData.Country == Countries.International);
                 if (match)
                     addQuestMenuItem(questData);
             }

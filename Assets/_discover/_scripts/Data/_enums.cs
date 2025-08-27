@@ -2,7 +2,7 @@ namespace Antura.Discover
 {
     public enum Countries
     {
-        Global = 0,
+        International = 0,
         Italy = 1,
         France = 2,
         Poland = 3,

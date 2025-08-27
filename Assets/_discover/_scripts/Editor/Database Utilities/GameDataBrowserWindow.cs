@@ -1707,7 +1707,7 @@ namespace Antura.Discover
         private static Countries GetWorldPrefabCountry(WorldPrefabData c)
         {
             if (c == null)
-                return Countries.Global;
+                return Countries.International;
             var fi = typeof(WorldPrefabData).GetField("Country", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
             if (fi != null)
             {
@@ -1724,7 +1724,7 @@ namespace Antura.Discover
                     return (Countries)sp.intValue;
             }
 #endif
-            return Countries.Global;
+            return Countries.International;
         }
 
         private static WorldPrefabKit GetWorldPrefabKit(WorldPrefabData c)
@@ -1759,7 +1759,7 @@ namespace Antura.Discover
                 case CountryFilter.All:
                     return true;
                 case CountryFilter.Global:
-                    return value == Countries.Global;
+                    return value == Countries.International;
                 case CountryFilter.France:
                     return value == Countries.France;
                 case CountryFilter.Italy:
@@ -1991,7 +1991,7 @@ namespace Antura.Discover
                 switch (_countryFilter)
                 {
                     case CountryFilter.Global:
-                        return value == Countries.Global;
+                        return value == Countries.International;
                     case CountryFilter.France:
                         return value == Countries.France;
                     case CountryFilter.Italy:

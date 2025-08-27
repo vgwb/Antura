@@ -67,7 +67,7 @@ namespace Antura.Discover
                         Undo.RecordObject(existing, "Update AssetData from Image");
                         existing.Type = AssetType.Image;
                         existing.Image = sprite;
-                        if (existing.Country == Countries.Global && country != Countries.Global)
+                        if (existing.Country == Countries.International && country != Countries.International)
                             existing.Country = country;
                         if (string.IsNullOrWhiteSpace(existing.Id))
                             existing.Editor_SetId(id);
@@ -239,7 +239,7 @@ namespace Antura.Discover
         private static Countries MapCountryCodeToEnum(string code)
         {
             if (string.IsNullOrEmpty(code))
-                return Countries.Global;
+                return Countries.International;
             switch (code.ToLowerInvariant())
             {
                 case "fr":
@@ -259,7 +259,7 @@ namespace Antura.Discover
                 case "gr":
                     return Countries.Greece;
                 default:
-                    return Countries.Global;
+                    return Countries.International;
             }
         }
     }

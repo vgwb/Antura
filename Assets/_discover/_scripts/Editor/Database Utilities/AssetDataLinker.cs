@@ -120,7 +120,7 @@ namespace Antura.Discover
                         if (data.Type != AssetType.Image)
                         { data.Type = AssetType.Image; dirty = true; }
                         // Set country if still Global/default and context provides one
-                        if (data.Country.Equals(Countries.Global) && !country.Equals(Countries.Global))
+                        if (data.Country.Equals(Countries.International) && !country.Equals(Countries.International))
                         { data.Country = country; dirty = true; }
                         // Ensure an ID exists; if it's the bare filename and we have a code, upgrade to prefixed
                         if (string.IsNullOrWhiteSpace(data.Id))
@@ -184,7 +184,7 @@ namespace Antura.Discover
         private static Countries MapCountryCodeToEnum(string code)
         {
             if (string.IsNullOrEmpty(code))
-                return Countries.Global;
+                return Countries.International;
             switch (code.ToLowerInvariant())
             {
                 case "fr":
@@ -204,7 +204,7 @@ namespace Antura.Discover
                 case "gr":
                     return Countries.Greece;
                 default:
-                    return Countries.Global;
+                    return Countries.International;
             }
         }
 

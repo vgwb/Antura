@@ -167,7 +167,7 @@ namespace Antura.Discover
 
         [Header("Family")]
         public WorldPrefabKit Kit;
-        public Countries Country = Countries.Global;
+        public Countries Country = Countries.International;
         [Header("Category")]
         public WorldPrefabCategory Category;
         public List<WorldPrefabTag> Tags = new List<WorldPrefabTag>();
