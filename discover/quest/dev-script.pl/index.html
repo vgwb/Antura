@@ -1,0 +1,473 @@
+<!doctype html><html lang=en class=no-js> <head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content="The Learn with Antura project website and docs for Educators, Designers and Game Developers"><meta name=author content=VGWB><link href=https://antura.org/discover/quest/dev-script.pl/ rel=canonical><link rel=icon href=../../../assets/icon.png><meta name=generator content="mkdocs-1.6.1, mkdocs-material-9.6.18"><title>Rozwój (dev) - Script - Learn with Antura</title><link rel=stylesheet href=../../../assets/stylesheets/main.7e37652d.min.css><link rel=stylesheet href=../../../assets/stylesheets/palette.06af60db.min.css><link rel=preconnect href=https://fonts.gstatic.com crossorigin><link rel=stylesheet href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback"><style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style><link rel=stylesheet href=../../../assets/stylesheets/extra.css><link rel=stylesheet href=../../../assets/yarn/yarn-graph.css><link rel=stylesheet href=../../../assets/yarn/yarn-script.css><script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script></head> <body dir=ltr data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo> <input class=md-toggle data-md-toggle=drawer type=checkbox id=__drawer autocomplete=off> <input class=md-toggle data-md-toggle=search type=checkbox id=__search autocomplete=off> <label class=md-overlay for=__drawer></label> <div data-md-component=skip> <a href=#rozwoj-dev-script class=md-skip> Skip to content </a> </div> <div data-md-component=announce> </div> <header class=md-header data-md-component=header> <nav class="md-header__inner md-grid" aria-label=Header> <a href=../../.. title="Learn with Antura" class="md-header__button md-logo" aria-label="Learn with Antura" data-md-component=logo> <img src=../../../assets/icon.png alt=logo> </a> <label class="md-header__button md-icon" for=__drawer> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg> </label> <div class=md-header__title data-md-component=header-title> <div class=md-header__ellipsis> <div class=md-header__topic> <span class=md-ellipsis> Learn with Antura </span> </div> <div class=md-header__topic data-md-component=header-topic> <span class=md-ellipsis> Rozwój (dev) - Script </span> </div> </div> </div> <form class=md-header__option data-md-component=palette> <input class=md-option data-md-color-media data-md-color-scheme=default data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to dark mode" type=radio name=__palette id=__palette_0> <label class="md-header__button md-icon" title="Switch to dark mode" for=__palette_1 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg> </label> <input class=md-option data-md-color-media data-md-color-scheme=slate data-md-color-primary=indigo data-md-color-accent=indigo aria-label="Switch to light mode" type=radio name=__palette id=__palette_1> <label class="md-header__button md-icon" title="Switch to light mode" for=__palette_0 hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg> </label> </form> <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script> <label class="md-header__button md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> </label> <div class=md-search data-md-component=search role=dialog> <label class=md-search__overlay for=__search></label> <div class=md-search__inner role=search> <form class=md-search__form name=search> <input type=text class=md-search__input name=query aria-label=Search placeholder=Search autocapitalize=off autocorrect=off autocomplete=off spellcheck=false data-md-component=search-query required> <label class="md-search__icon md-icon" for=__search> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg> </label> <nav class=md-search__options aria-label=Search> <button type=reset class="md-search__icon md-icon" title=Clear aria-label=Clear tabindex=-1> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg> </button> </nav> </form> <div class=md-search__output> <div class=md-search__scrollwrap tabindex=0 data-md-scrollfix> <div class=md-search-result data-md-component=search-result> <div class=md-search-result__meta> Initializing search </div> <ol class=md-search-result__list role=presentation></ol> </div> </div> </div> </div> </div> <div class=md-header__source> <a href=https://github.com/vgwb/Antura title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill=currentColor d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> GitHub/Antura </div> </a> </div> </nav> </header> <div class=md-container data-md-component=container> <nav class=md-tabs aria-label=Tabs data-md-component=tabs> <div class=md-grid> <ul class=md-tabs__list> <li class=md-tabs__item> <a href=../../.. class=md-tabs__link> Home </a> </li> <li class=md-tabs__item> <a href=../../../blog/ class=md-tabs__link> News </a> </li> <li class=md-tabs__item> <a href=../../../manual/ class=md-tabs__link> Teacher's Manual </a> </li> <li class=md-tabs__item> <a href=../../ class=md-tabs__link> Discover </a> </li> <li class=md-tabs__item> <a href=../../../dev/ class=md-tabs__link> Developers </a> </li> <li class=md-tabs__item> <a href=../../../about/erasmus class=md-tabs__link> Erasmus+ </a> </li> <li class=md-tabs__item> <a href=../../../about/ class=md-tabs__link> About </a> </li> </ul> </div> </nav> <main class=md-main data-md-component=main> <div class="md-main__inner md-grid"> <div class="md-sidebar md-sidebar--primary" data-md-component=sidebar data-md-type=navigation> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--primary md-nav--lifted" aria-label=Navigation data-md-level=0> <label class=md-nav__title for=__drawer> <a href=../../.. title="Learn with Antura" class="md-nav__button md-logo" aria-label="Learn with Antura" data-md-component=logo> <img src=../../../assets/icon.png alt=logo> </a> Learn with Antura </label> <div class=md-nav__source> <a href=https://github.com/vgwb/Antura title="Go to repository" class=md-source data-md-component=source> <div class="md-source__icon md-icon"> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 448 512"><!-- Font Awesome Free 7.0.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path fill=currentColor d="M439.6 236.1 244 40.5c-5.4-5.5-12.8-8.5-20.4-8.5s-15 3-20.4 8.4L162.5 81l51.5 51.5c27.1-9.1 52.7 16.8 43.4 43.7l49.7 49.7c34.2-11.8 61.2 31 35.5 56.7-26.5 26.5-70.2-2.9-56-37.3L240.3 199v121.9c25.3 12.5 22.3 41.8 9.1 55-6.4 6.4-15.2 10.1-24.3 10.1s-17.8-3.6-24.3-10.1c-17.6-17.6-11.1-46.9 11.2-56v-123c-20.8-8.5-24.6-30.7-18.6-45L142.6 101 8.5 235.1C3 240.6 0 247.9 0 255.5s3 15 8.5 20.4l195.6 195.7c5.4 5.4 12.7 8.4 20.4 8.4s15-3 20.4-8.4l194.7-194.7c5.4-5.4 8.4-12.8 8.4-20.4s-3-15-8.4-20.4"/></svg> </div> <div class=md-source__repository> GitHub/Antura </div> </a> </div> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../.. class=md-nav__link> <span class=md-ellipsis> Home </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2> <div class="md-nav__link md-nav__container"> <a href=../../../blog/ class="md-nav__link "> <span class=md-ellipsis> News </span> </a> <label class="md-nav__link " for=__nav_2 id=__nav_2_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2> <span class="md-nav__icon md-icon"></span> News </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_2> <label class=md-nav__link for=__nav_2_2 id=__nav_2_2_label tabindex=0> <span class=md-ellipsis> Archive </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_2_label aria-expanded=false> <label class=md-nav__title for=__nav_2_2> <span class="md-nav__icon md-icon"></span> Archive </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../blog/archive/2024/ class=md-nav__link> <span class=md-ellipsis> 2024 </span> </a> </li> <li class=md-nav__item> <a href=../../../blog/archive/2023/ class=md-nav__link> <span class=md-ellipsis> 2023 </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_2_3> <label class=md-nav__link for=__nav_2_3 id=__nav_2_3_label tabindex=0> <span class=md-ellipsis> Categories </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_2_3_label aria-expanded=false> <label class=md-nav__title for=__nav_2_3> <span class="md-nav__icon md-icon"></span> Categories </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../blog/category/erasmus/ class=md-nav__link> <span class=md-ellipsis> erasmus </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_3> <div class="md-nav__link md-nav__container"> <a href=../../../manual/ class="md-nav__link "> <span class=md-ellipsis> Teacher's Manual </span> </a> <label class="md-nav__link " for=__nav_3 id=__nav_3_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_3_label aria-expanded=false> <label class=md-nav__title for=__nav_3> <span class="md-nav__icon md-icon"></span> Teacher's Manual </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../manual/install/ class=md-nav__link> <span class=md-ellipsis> Install </span> </a> </li> <li class=md-nav__item> <a href=../../../manual/impact/ class=md-nav__link> <span class=md-ellipsis> Impact evaluation </span> </a> </li> <li class=md-nav__item> <a href=../../../manual/feedback/ class=md-nav__link> <span class=md-ellipsis> Give feedback </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4> <div class="md-nav__link md-nav__container"> <a href=../../ class="md-nav__link "> <span class=md-ellipsis> Discover </span> </a> <label class="md-nav__link " for=__nav_4 id=__nav_4_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4> <span class="md-nav__icon md-icon"></span> Discover </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_2> <div class="md-nav__link md-nav__container"> <a href=../../activities/ class="md-nav__link "> <span class=md-ellipsis> Activities </span> </a> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_4_2_label aria-expanded=false> <label class=md-nav__title for=__nav_4_2> <span class="md-nav__icon md-icon"></span> Activities </label> <ul class=md-nav__list data-md-scrollfix> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_3> <div class="md-nav__link md-nav__container"> <a href=../../cards/ class="md-nav__link "> <span class=md-ellipsis> Cards </span> </a> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_4_3_label aria-expanded=false> <label class=md-nav__title for=__nav_4_3> <span class="md-nav__icon md-icon"></span> Cards </label> <ul class=md-nav__list data-md-scrollfix> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_4> <div class="md-nav__link md-nav__container"> <a href=../ class="md-nav__link "> <span class=md-ellipsis> Quest </span> </a> <label class="md-nav__link " for=__nav_4_4 id=__nav_4_4_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_4_4_label aria-expanded=false> <label class=md-nav__title for=__nav_4_4> <span class="md-nav__icon md-icon"></span> Quest </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../dev/ class=md-nav__link> <span class=md-ellipsis> Development (dev) </span> </a> </li> <li class=md-nav__item> <a href=../fr_00/ class=md-nav__link> <span class=md-ellipsis> The neighbors of France (fr_00) </span> </a> </li> <li class=md-nav__item> <a href=../fr_01/ class=md-nav__link> <span class=md-ellipsis> Paris! (fr_01) </span> </a> </li> <li class=md-nav__item> <a href=../fr_02/ class=md-nav__link> <span class=md-ellipsis> The School system (fr_02) </span> </a> </li> <li class=md-nav__item> <a href=../fr_03/ class=md-nav__link> <span class=md-ellipsis> Jules Verne and transportation (fr_03) </span> </a> </li> <li class=md-nav__item> <a href=../fr_05/ class=md-nav__link> <span class=md-ellipsis> A tale of two castles (fr_05) </span> </a> </li> <li class=md-nav__item> <a href=../fr_08/ class=md-nav__link> <span class=md-ellipsis> Mont Blanc & Mountains (fr_08) </span> </a> </li> <li class=md-nav__item> <a href=../fr_09/ class=md-nav__link> <span class=md-ellipsis> Food & Market (fr_09) </span> </a> </li> <li class=md-nav__item> <a href=../fr_10/ class=md-nav__link> <span class=md-ellipsis> Paris Seine (fr_10) </span> </a> </li> <li class=md-nav__item> <a href=../fr_11/ class=md-nav__link> <span class=md-ellipsis> La Marseillaise (fr_11) </span> </a> </li> <li class=md-nav__item> <a href=../pl_00/ class=md-nav__link> <span class=md-ellipsis> The neighbors of Poland (pl_00) </span> </a> </li> <li class=md-nav__item> <a href=../pl_01/ class=md-nav__link> <span class=md-ellipsis> Discover Warszawa (pl_01) </span> </a> </li> <li class=md-nav__item> <a href=../pl_02/ class=md-nav__link> <span class=md-ellipsis> Search of Dwarves (pl_02) </span> </a> </li> <li class=md-nav__item> <a href=../pl_03/ class=md-nav__link> <span class=md-ellipsis> Odra River (pl_03) </span> </a> </li> <li class=md-nav__item> <a href=../pl_04/ class=md-nav__link> <span class=md-ellipsis> The Zoo (pl_04) </span> </a> </li> <li class=md-nav__item> <a href=../pl_05/ class=md-nav__link> <span class=md-ellipsis> Baltic Sea (pl_05) </span> </a> </li> <li class=md-nav__item> <a href=../pl_06/ class=md-nav__link> <span class=md-ellipsis> Gingerbread & food market (pl_06) </span> </a> </li> <li class=md-nav__item> <a href=../pl_07/ class=md-nav__link> <span class=md-ellipsis> Copernicus and the Solar System (pl_07) </span> </a> </li> <li class=md-nav__item> <a href=../tutorial/ class=md-nav__link> <span class=md-ellipsis> Tutorial (tutorial) </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_4_5> <div class="md-nav__link md-nav__container"> <a href=../../words/ class="md-nav__link "> <span class=md-ellipsis> Words </span> </a> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_4_5_label aria-expanded=false> <label class=md-nav__title for=__nav_4_5> <span class="md-nav__icon md-icon"></span> Words </label> <ul class=md-nav__list data-md-scrollfix> </ul> </nav> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5> <div class="md-nav__link md-nav__container"> <a href=../../../dev/ class="md-nav__link "> <span class=md-ellipsis> Developers </span> </a> <label class="md-nav__link " for=__nav_5 id=__nav_5_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_5_label aria-expanded=false> <label class=md-nav__title for=__nav_5> <span class="md-nav__icon md-icon"></span> Developers </label> <ul class=md-nav__list data-md-scrollfix> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_2> <label class=md-nav__link for=__nav_5_2 id=__nav_5_2_label tabindex=0> <span class=md-ellipsis> Game Design </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_2_label aria-expanded=false> <label class=md-nav__title for=__nav_5_2> <span class="md-nav__icon md-icon"></span> Game Design </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../dev/GameDesign/ArabicLanguage/ class=md-nav__link> <span class=md-ellipsis> Arabic Language </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/GameDesign/DataAnalysis/ class=md-nav__link> <span class=md-ellipsis> Data Analysis </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/GameDesign/LearningGoals/ class=md-nav__link> <span class=md-ellipsis> Learning Goals </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_3> <label class=md-nav__link for=__nav_5_3 id=__nav_5_3_label tabindex=0> <span class=md-ellipsis> Modules </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_3_label aria-expanded=false> <label class=md-nav__title for=__nav_5_3> <span class="md-nav__icon md-icon"></span> Modules </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../dev/Modules/Analytics/ class=md-nav__link> <span class=md-ellipsis> Analytics </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/AnturaLivingLetters/ class=md-nav__link> <span class=md-ellipsis> Antura and Living Letters </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/ApplicationFlow/ class=md-nav__link> <span class=md-ellipsis> App Flow </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/ArabicRendering/ class=md-nav__link> <span class=md-ellipsis> Arabic Text Rendering </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/catupdate/ class=md-nav__link> <span class=md-ellipsis> CAT UPGRADE NOTES </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Database/ class=md-nav__link> <span class=md-ellipsis> DB Management </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/DatabaseManagement/ class=md-nav__link> <span class=md-ellipsis> DB Info </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/DatabaseSchemas/ class=md-nav__link> <span class=md-ellipsis> DB Schemas </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/DataFlow/ class=md-nav__link> <span class=md-ellipsis> Data Flow </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Journey/ class=md-nav__link> <span class=md-ellipsis> Journey </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Localization/ class=md-nav__link> <span class=md-ellipsis> Localization </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Logging/ class=md-nav__link> <span class=md-ellipsis> Logging System </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/MiniGame/ class=md-nav__link> <span class=md-ellipsis> MiniGames Interface </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/PlayerProfile/ class=md-nav__link> <span class=md-ellipsis> Player Profile </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/ProjectStructure/ class=md-nav__link> <span class=md-ellipsis> Project Structure </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Shaders/ class=md-nav__link> <span class=md-ellipsis> Shaders </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Modules/Teacher/ class=md-nav__link> <span class=md-ellipsis> Teacher AI </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_4> <label class=md-nav__link for=__nav_5_4 id=__nav_5_4_label tabindex=0> <span class=md-ellipsis> Minigames </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_4_label aria-expanded=false> <label class=md-nav__title for=__nav_5_4> <span class="md-nav__icon md-icon"></span> Minigames </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../dev/Minigames/Assessments/ class=md-nav__link> <span class=md-ellipsis> Assessment </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/Balloons/ class=md-nav__link> <span class=md-ellipsis> Balloons </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/ColorTickle/ class=md-nav__link> <span class=md-ellipsis> Color Tickle </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/DancingDots/ class=md-nav__link> <span class=md-ellipsis> Dancing Dots </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/Egg/ class=md-nav__link> <span class=md-ellipsis> Egg </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/FastCrowd/ class=md-nav__link> <span class=md-ellipsis> Fast Crowd </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/HideAndSeek/ class=md-nav__link> <span class=md-ellipsis> Hide And Seek </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/MakeFriends/ class=md-nav__link> <span class=md-ellipsis> Make Friends </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/Maze/ class=md-nav__link> <span class=md-ellipsis> Maze </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/MissingLetter/ class=md-nav__link> <span class=md-ellipsis> Missing Letter </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/MixedLetters/ class=md-nav__link> <span class=md-ellipsis> Mixed Letters </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/ReadingGame/ class=md-nav__link> <span class=md-ellipsis> Reading Game </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/Scanner/ class=md-nav__link> <span class=md-ellipsis> Scanner </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/SickLetters/ class=md-nav__link> <span class=md-ellipsis> Sick Letters </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/TakeMeHome/ class=md-nav__link> <span class=md-ellipsis> Take Me Home </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/ThrowBalls/ class=md-nav__link> <span class=md-ellipsis> Throw Balls </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/Minigames/Tobogan/ class=md-nav__link> <span class=md-ellipsis> Tobogan </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_5> <div class="md-nav__link md-nav__container"> <a href=../../../dev/DiscoverED/ class="md-nav__link "> <span class=md-ellipsis> Discover Countries </span> </a> <label class="md-nav__link " for=__nav_5_5 id=__nav_5_5_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_5_label aria-expanded=false> <label class=md-nav__title for=__nav_5_5> <span class="md-nav__icon md-icon"></span> Discover Countries </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../dev/DiscoverED/quest-design/ class=md-nav__link> <span class=md-ellipsis> Design Discover Quests (for designers) </span> </a> </li> </ul> </nav> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_5_6> <label class=md-nav__link for=__nav_5_6 id=__nav_5_6_label tabindex=0> <span class=md-ellipsis> HowTo </span> <span class="md-nav__icon md-icon"></span> </label> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_5_6_label aria-expanded=false> <label class=md-nav__title for=__nav_5_6> <span class="md-nav__icon md-icon"></span> HowTo </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../dev/HowTo/APIDocsGeneration/ class=md-nav__link> <span class=md-ellipsis> API documentation </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/AudioFiles/ class=md-nav__link> <span class=md-ellipsis> Audio Files </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/Build/ class=md-nav__link> <span class=md-ellipsis> Build </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/Collaborator/ class=md-nav__link> <span class=md-ellipsis> Collaborator Guide </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/CreateEdition/ class=md-nav__link> <span class=md-ellipsis> Create Edition </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/DebugShortcuts/ class=md-nav__link> <span class=md-ellipsis> Debug and Shortcuts </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/DeveloperGuidelines/ class=md-nav__link> <span class=md-ellipsis> Dev guide </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/DrawingsFont/ class=md-nav__link> <span class=md-ellipsis> Drawings Glyphs (Words Images) </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/ExportGoogleSheetData/ class=md-nav__link> <span class=md-ellipsis> Export from Sheets </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/ExportPlayerDatabase/ class=md-nav__link> <span class=md-ellipsis> Retrieve Player DB </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/Fonts/ class=md-nav__link> <span class=md-ellipsis> Fonts Atlas </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/INSTALL/ class=md-nav__link> <span class=md-ellipsis> Install and Configure </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/Localization/ class=md-nav__link> <span class=md-ellipsis> How to localize </span> </a> </li> <li class=md-nav__item> <a href=../../../dev/HowTo/RefactoringGuidelines/ class=md-nav__link> <span class=md-ellipsis> Refactoring Guidelines </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../../dev/changelog/ class=md-nav__link> <span class=md-ellipsis> Changelog </span> </a> </li> </ul> </nav> </li> <li class=md-nav__item> <a href=../../../about/erasmus class=md-nav__link> <span class=md-ellipsis> Erasmus+ </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_7> <div class="md-nav__link md-nav__container"> <a href=../../../about/ class="md-nav__link "> <span class=md-ellipsis> About </span> </a> <label class="md-nav__link " for=__nav_7 id=__nav_7_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=1 aria-labelledby=__nav_7_label aria-expanded=false> <label class=md-nav__title for=__nav_7> <span class="md-nav__icon md-icon"></span> About </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../about/contact/ class=md-nav__link> <span class=md-ellipsis> Contact and Community </span> </a> </li> <li class=md-nav__item> <a href=../../../about/credits/ class=md-nav__link> <span class=md-ellipsis> Credits </span> </a> </li> <li class=md-nav__item> <a href=../../../about/license/ class=md-nav__link> <span class=md-ellipsis> License </span> </a> </li> <li class=md-nav__item> <a href=../../../about/credits-assets/ class=md-nav__link> <span class=md-ellipsis> Credits assets </span> </a> </li> <li class="md-nav__item md-nav__item--nested"> <input class="md-nav__toggle md-toggle " type=checkbox id=__nav_7_6> <div class="md-nav__link md-nav__container"> <a href=../../../about/erasmus/ class="md-nav__link "> <span class=md-ellipsis> Erasmus </span> </a> <label class="md-nav__link " for=__nav_7_6 id=__nav_7_6_label tabindex=0> <span class="md-nav__icon md-icon"></span> </label> </div> <nav class=md-nav data-md-level=2 aria-labelledby=__nav_7_6_label aria-expanded=false> <label class=md-nav__title for=__nav_7_6> <span class="md-nav__icon md-icon"></span> Erasmus </label> <ul class=md-nav__list data-md-scrollfix> <li class=md-nav__item> <a href=../../../about/erasmus/erasmus-de/ class=md-nav__link> <span class=md-ellipsis> Erasmus+ DE </span> </a> </li> </ul> </nav> </li> </ul> </nav> </li> </ul> </nav> </div> </div> </div> <div class="md-sidebar md-sidebar--secondary" data-md-component=sidebar data-md-type=toc> <div class=md-sidebar__scrollwrap> <div class=md-sidebar__inner> <nav class="md-nav md-nav--secondary" aria-label="Table of contents"> <label class=md-nav__title for=__toc> <span class="md-nav__icon md-icon"></span> Table of contents </label> <ul class=md-nav__list data-md-component=toc data-md-scrollfix> <li class=md-nav__item> <a href=#init class=md-nav__link> <span class=md-ellipsis> init </span> </a> </li> <li class=md-nav__item> <a href=#docs_commands class=md-nav__link> <span class=md-ellipsis> docs_commands </span> </a> </li> <li class=md-nav__item> <a href=#docs_functions class=md-nav__link> <span class=md-ellipsis> docs_functions </span> </a> </li> <li class=md-nav__item> <a href=#test_inventory class=md-nav__link> <span class=md-ellipsis> test_inventory </span> </a> </li> <li class=md-nav__item> <a href=#got_baguette class=md-nav__link> <span class=md-ellipsis> got_baguette </span> </a> </li> <li class=md-nav__item> <a href=#got_fish class=md-nav__link> <span class=md-ellipsis> got_fish </span> </a> </li> <li class=md-nav__item> <a href=#test_cards class=md-nav__link> <span class=md-ellipsis> test_cards </span> </a> </li> <li class=md-nav__item> <a href=#test_camera class=md-nav__link> <span class=md-ellipsis> test_camera </span> </a> </li> <li class=md-nav__item> <a href=#test_actions class=md-nav__link> <span class=md-ellipsis> test_actions </span> </a> </li> <li class=md-nav__item> <a href=#task_collect_apples class=md-nav__link> <span class=md-ellipsis> task_collect_apples </span> </a> </li> <li class=md-nav__item> <a href=#task_collect_apples_done class=md-nav__link> <span class=md-ellipsis> task_collect_apples_done </span> </a> </li> <li class=md-nav__item> <a href=#task_open_chest class=md-nav__link> <span class=md-ellipsis> task_open_chest </span> </a> </li> <li class=md-nav__item> <a href=#task_open_chest_done class=md-nav__link> <span class=md-ellipsis> task_open_chest_done </span> </a> </li> <li class=md-nav__item> <a href=#item_chest class=md-nav__link> <span class=md-ellipsis> item_chest </span> </a> </li> <li class=md-nav__item> <a href=#test_quiz class=md-nav__link> <span class=md-ellipsis> test_quiz </span> </a> </li> <li class=md-nav__item> <a href=#test_quiz_correct class=md-nav__link> <span class=md-ellipsis> test_quiz_correct </span> </a> </li> <li class=md-nav__item> <a href=#test_quiz_wrong class=md-nav__link> <span class=md-ellipsis> test_quiz_wrong </span> </a> </li> <li class=md-nav__item> <a href=#endgame class=md-nav__link> <span class=md-ellipsis> endgame </span> </a> </li> <li class=md-nav__item> <a href=#npcgioconda class=md-nav__link> <span class=md-ellipsis> NPCGIoconda </span> </a> </li> <li class=md-nav__item> <a href=#activity_done class=md-nav__link> <span class=md-ellipsis> activity_done </span> </a> </li> <li class=md-nav__item> <a href=#npcgreeting2 class=md-nav__link> <span class=md-ellipsis> NPCGreeting2 </span> </a> </li> <li class=md-nav__item> <a href=#npcgreeting3 class=md-nav__link> <span class=md-ellipsis> NPCGreeting3 </span> </a> </li> <li class=md-nav__item> <a href=#chest_01 class=md-nav__link> <span class=md-ellipsis> Chest_01 </span> </a> </li> <li class=md-nav__item> <a href=#note_for_the_editors class=md-nav__link> <span class=md-ellipsis> note_for_the_editors </span> </a> </li> <li class=md-nav__item> <a href=#entroincasa class=md-nav__link> <span class=md-ellipsis> EntroInCasa </span> </a> </li> <li class=md-nav__item> <a href=#coin_machine class=md-nav__link> <span class=md-ellipsis> coin_machine </span> </a> </li> <li class=md-nav__item> <a href=#test_mood class=md-nav__link> <span class=md-ellipsis> test_mood </span> </a> </li> <li class=md-nav__item> <a href=#random_lines class=md-nav__link> <span class=md-ellipsis> random_lines </span> </a> </li> <li class=md-nav__item> <a href=#multiple_lines class=md-nav__link> <span class=md-ellipsis> multiple_lines </span> </a> </li> <li class=md-nav__item> <a href=#activity_canvas class=md-nav__link> <span class=md-ellipsis> activity_canvas </span> </a> </li> <li class=md-nav__item> <a href=#activity_canvas_result class=md-nav__link> <span class=md-ellipsis> activity_canvas_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_jigsaw class=md-nav__link> <span class=md-ellipsis> activity_jigsaw </span> </a> </li> <li class=md-nav__item> <a href=#activity_jigsaw_result class=md-nav__link> <span class=md-ellipsis> activity_jigsaw_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_memory class=md-nav__link> <span class=md-ellipsis> activity_memory </span> </a> </li> <li class=md-nav__item> <a href=#activity_memory_result class=md-nav__link> <span class=md-ellipsis> activity_memory_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_match class=md-nav__link> <span class=md-ellipsis> activity_match </span> </a> </li> <li class=md-nav__item> <a href=#activity_match_result class=md-nav__link> <span class=md-ellipsis> activity_match_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_money class=md-nav__link> <span class=md-ellipsis> activity_money </span> </a> </li> <li class=md-nav__item> <a href=#activity_money_result class=md-nav__link> <span class=md-ellipsis> activity_money_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_order class=md-nav__link> <span class=md-ellipsis> activity_order </span> </a> </li> <li class=md-nav__item> <a href=#activity_order_result class=md-nav__link> <span class=md-ellipsis> activity_order_result </span> </a> </li> <li class=md-nav__item> <a href=#activity_piano class=md-nav__link> <span class=md-ellipsis> activity_piano </span> </a> </li> <li class=md-nav__item> <a href=#activity_piano_result class=md-nav__link> <span class=md-ellipsis> activity_piano_result </span> </a> </li> </ul> </nav> </div> </div> </div> <div class=md-content data-md-component=content> <article class="md-content__inner md-typeset"> <a href=https://github.com/vgwb/Antura/edit/main/docs/discover/quest/dev-script.pl.md title="Edit this page" class="md-content__button md-icon" rel=edit> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M10 20H6V4h7v5h5v3.1l2-2V8l-6-6H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h4zm10.2-7c.1 0 .3.1.4.2l1.3 1.3c.2.2.2.6 0 .8l-1 1-2.1-2.1 1-1c.1-.1.2-.2.4-.2m0 3.9L14.1 23H12v-2.1l6.1-6.1z"/></svg> </a> <h1 id=rozwoj-dev-script>Rozwój (dev) - Script</h1> <p><a href=../index.pl/ >Quest Index</a> - Language: <a href=../dev-script/ >english</a> - <a href=../dev-script.fr/ >french</a> - polish - <a href=../dev-script.it/ >italian</a></p> <p><a id=ys-node-init></a></p> <h2 id=init>init</h2> <div class=yarn-node data-title=init><pre class=yarn-code style=--node-color:red><code><span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// DEV QUEST SCRIPT</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// Country: Italy - Firenze</span>
+<span class=yarn-header-dim>// Content: Living document for testing Yarn features</span>
+<span class=yarn-header-dim>// and documenting available commands</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// INIT</span>
+<span class=yarn-header-dim>// every quest starts with an INIT node</span>
+<span class=yarn-header-dim>// to inizialize existing variables and declare new ones</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// title of a node must be unique to this quest</span>
+<span class=yarn-header-dim>// create a new node for anything that must be referenced multi times</span>
+<span class=yarn-header-dim>// that makes understanding of the flow easier</span>
+<span class=yarn-header-dim>// position is used to place the node in the Graph view in the Editor</span>
+<span class=yarn-header-dim>// group is used to organize the nodes in the Graph view in the Editor</span>
+<span class=yarn-header-dim>group: docs</span>
+<span class=yarn-header-dim>// tags are used to add metadata to the node</span>
+<span class=yarn-header-dim>// - actor is the speacking character, used mostly for voice overs</span>
+<span class=yarn-header-dim>// - type is used to identify special nodes like Start, End, Quiz</span>
+<span class=yarn-header-dim>tags: actor=Guide, type=Quiz</span>
+<span class=yarn-header-dim>// color us used like this:</span>
+<span class=yarn-header-dim>//  - red for important nodes like init and quest end</span>
+<span class=yarn-header-dim>//  - blue for NPCs</span>
+<span class=yarn-header-dim>//  - yellow for items</span>
+<span class=yarn-header-dim>//  - green for tasks</span>
+<span class=yarn-header-dim>//  - purple for activities</span>
+<span class=yarn-header-dim>color: red</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-comment>// these are the common variables</span>
+<span class=yarn-cmd>&lt;&lt;set $EASY_MODE = false&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $IS_DESKTOP = false&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $TOTAL_COINS = 0&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $COLLECTED_ITEMS = 0&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $MAX_PROGRESS = 0&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $CURRENT_PROGRESS = 0&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;set $CURRENT_ITEM = ""&gt;&gt;</span>
+
+<span class=yarn-comment>// here we declare new variables for this quest</span>
+<span class=yarn-cmd>&lt;&lt;declare $met_teacher = false&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;declare $got_hint = false&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;declare $doorUnlocked = false&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-docs-commands></a></p> <h2 id=docs_commands>docs_commands</h2> <div class=yarn-node data-title=docs_commands><pre class=yarn-code style=--node-color:red><code><span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// COMMANDS</span>
+<span class=yarn-header-dim>// these are the commands available in the game</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>group: docs</span>
+<span class=yarn-header-dim>color: red</span>
+<span class=yarn-header-dim>---</span>
+
+<span class=yarn-comment>// execute the configured action in the actionManager</span>
+<span class=yarn-cmd>&lt;&lt;action action_id&gt;&gt;</span>
+
+<span class=yarn-comment>// camera commands</span>
+<span class=yarn-cmd>&lt;&lt;camera_focus palace&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;camera_reset&gt;&gt;</span>
+
+<span class=yarn-cmd>&lt;&lt;card fr_baguette show&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;card_hide&gt;&gt;</span>
+<span class=yarn-comment>// shows the image</span>
+<span class=yarn-cmd>&lt;&lt;asset id_asset&gt;&gt;</span> 
+<span class=yarn-comment>// hides the current image</span>
+<span class=yarn-cmd>&lt;&lt;asset_hide&gt;&gt;</span>
+
+<span class=yarn-comment>// adds the item = card to the inventory (needs to be collectable!)</span>
+<span class=yarn-cmd>&lt;&lt;inventory id_card add&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;inventory id_card&gt;&gt;</span> // same as add
+<span class=yarn-cmd>&lt;&lt;inventory id_card remove&gt;&gt;</span>
+
+<span class=yarn-comment>// starts a task</span>
+<span class=yarn-cmd>&lt;&lt;task_start id_task_configuration&gt;&gt;</span>
+<span class=yarn-comment>// end a task... if you say nothing, its a success</span>
+<span class=yarn-cmd>&lt;&lt;task_end id_task_configuration&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;task_end id_task_configuration fail&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;task_end&gt;&gt;</span> // or even without the id to end current task
+
+
+<span class=yarn-comment>// launches an activity</span>
+<span class=yarn-cmd>&lt;&lt;activity id_activity_configuration&gt;&gt;</span>
+
+<span class=yarn-comment>// end current quest and calculate stars based on progress</span>
+<span class=yarn-cmd>&lt;&lt;quest_end&gt;&gt;</span>
+<span class=yarn-comment>// end the current quest with n (0, 1,2,3) stars</span>
+<span class=yarn-cmd>&lt;&lt;quest_end 3&gt;&gt;</span>
+
+<span class=yarn-comment>// --- Yarn built-in commands ---</span>
+<span class=yarn-cmd>&lt;&lt;wait 3&gt;&gt;</span> // waits for 3 seconds
+<span class=yarn-cmd>&lt;&lt;stop&gt;&gt;</span> // stops the current dialogue&gt;&gt;
+
+
+</code></pre></div> <p><a id=ys-node-docs-functions></a></p> <h2 id=docs_functions>docs_functions</h2> <div class=yarn-node data-title=docs_functions><pre class=yarn-code style=--node-color:red><code><span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>// FUNCTIONS</span>
+<span class=yarn-header-dim>// these are the functions available in the game</span>
+<span class=yarn-header-dim>//--------------------------------------------</span>
+<span class=yarn-header-dim>color: red</span>
+<span class=yarn-header-dim>group: docs</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-comment>// these are the functions available in the game</span>
+
+&lt;&lt;if item_count("flag_france") &gt;= 2&gt;&gt;
+<span class=yarn-line>    You have more than 2 Flags of France <span class=yarn-meta>#line:08a1058 #native</span></span>
+<span class=yarn-line>    another line <span class=yarn-meta>#line:0563122 </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+<span class=yarn-cmd>&lt;&lt;if has_item("flag_france")&gt;&gt;</span>
+<span class=yarn-line>    You have a Flag of France <span class=yarn-meta>#line:kidm_0b932d0 </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+<span class=yarn-cmd>&lt;&lt;if has_item_at_least("flag_france", 3)&gt;&gt;</span>
+<span class=yarn-line>    You have at least 3 Flags of France <span class=yarn-meta>#line:0d694f1 </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+<span class=yarn-cmd>&lt;&lt;if can_collect("flag_france")&gt;&gt;</span>
+<span class=yarn-line>    You can collect a Flag of France <span class=yarn-meta>#line:03da430 </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-test-inventory></a></p> <h2 id=test_inventory>test_inventory</h2> <div class=yarn-node data-title=test_inventory><pre class=yarn-code><code><span class=yarn-header-dim>group: inventory</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>I am hungry. how about some food? <span class=yarn-meta>#line:0bdf566 </span></span>
+<span class=yarn-cmd>&lt;&lt;if has_item_at_least("fr_baguette", 3)&gt;&gt;</span>
+<span class=yarn-line>    I need 3 baguettes! <span class=yarn-meta>#line:00c341e </span></span>
+    <span class=yarn-cmd>&lt;&lt;inventory fr_baguette remove&gt;&gt;</span>
+    <span class=yarn-cmd>&lt;&lt;inventory fr_baguette remove&gt;&gt;</span>
+    <span class=yarn-cmd>&lt;&lt;inventory fr_baguette remove&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>    You don't have enough baguettes! <span class=yarn-meta>#line:0c0d786 </span></span>
+    <span class=yarn-cmd>&lt;&lt;if has_item("fr_fish")&gt;&gt;</span>
+<span class=yarn-line>        But you have some fish! <span class=yarn-meta>#line:06c9370 </span></span>
+    <span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+<span class=yarn-line>    Thank you. <span class=yarn-meta>#line:0a7921b </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-got-baguette></a></p> <h2 id=got_baguette>got_baguette</h2> <div class=yarn-node data-title=got_baguette><pre class=yarn-code><code><span class=yarn-header-dim>group: inventory</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>You found a baguette! <span class=yarn-meta>#line:dev_got_baguette </span></span>
+<span class=yarn-cmd>&lt;&lt;inventory fr_baguette add&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-got-fish></a></p> <h2 id=got_fish>got_fish</h2> <div class=yarn-node data-title=got_fish><pre class=yarn-code><code><span class=yarn-header-dim>group: inventory</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>An healthy fish! <span class=yarn-meta>#line:dev_got_fish </span></span>
+<span class=yarn-cmd>&lt;&lt;inventory fr_fish add&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-test-cards></a></p> <h2 id=test_cards>test_cards</h2> <div class=yarn-node data-title=test_cards><pre class=yarn-code><code><span class=yarn-header-dim>group: cards </span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Now i show you some cards <span class=yarn-meta>#line:05edfca </span></span>
+<span class=yarn-cmd>&lt;&lt;card fr_fish&gt;&gt;</span>
+<span class=yarn-line>Please look at its details <span class=yarn-meta>#line:0adbe4f </span></span>
+<span class=yarn-cmd>&lt;&lt;card fr_fish zoom&gt;&gt;</span>
+<span class=yarn-line>go back to the menu and browse the cards <span class=yarn-meta>#line:017a620 </span></span>
+<span class=yarn-line>and now... <span class=yarn-meta>#line:04ade19 </span></span>
+<span class=yarn-cmd>&lt;&lt;card fr_baguette&gt;&gt;</span>
+<span class=yarn-line>Good, isnt' it? <span class=yarn-meta>#line:04b02ce </span></span>
+<span class=yarn-cmd>&lt;&lt;card_hide&gt;&gt;</span>
+<span class=yarn-line>GO back to work now. <span class=yarn-meta>#line:0970ed1 </span></span>
+
+
+</code></pre></div> <p><a id=ys-node-test-camera></a></p> <h2 id=test_camera>test_camera</h2> <div class=yarn-node data-title=test_camera><pre class=yarn-code><code><span class=yarn-header-dim>group: camera </span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Now i show you the map of the playgroud <span class=yarn-meta>#line:0c58bd8 </span></span>
+<span class=yarn-cmd>&lt;&lt;camera_focus map_tutorial&gt;&gt;</span>
+<span class=yarn-line>Do you see that point? <span class=yarn-meta>#line:03e0224 </span></span>
+<span class=yarn-cmd>&lt;&lt;camera_focus map_tutorial_detail&gt;&gt;</span>
+<span class=yarn-line>Now Look at that palace! <span class=yarn-meta>#line:0c1b2e4 </span></span>
+<span class=yarn-cmd>&lt;&lt;camera_focus palace&gt;&gt;</span>
+<span class=yarn-line>Nice isnt' it? <span class=yarn-meta>#line:04daace </span></span>
+<span class=yarn-cmd>&lt;&lt;camera_reset&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-test-actions></a></p> <h2 id=test_actions>test_actions</h2> <div class=yarn-node data-title=test_actions><pre class=yarn-code><code><span class=yarn-header-dim>tags: actor=KID_FEMALE</span>
+<span class=yarn-header-dim>group: actions</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-cmd>&lt;&lt;action activate_elevator&gt;&gt;</span>
+<span class=yarn-line>Action Pre "pre_actions" and action_post "post_actions" <span class=yarn-meta>#line:0a67b25 </span></span>
+<span class=yarn-line>Do you want to open the Chest? <span class=yarn-meta>#line:03cae39 </span></span>
+<span class=yarn-line>-&gt; Yes <span class=yarn-meta>#line:067231b </span></span>
+    <span class=yarn-cmd>&lt;&lt;action open_chest&gt;&gt;</span>
+<span class=yarn-line>-&gt; No <span class=yarn-meta>#line:05d9657 </span></span>
+<span class=yarn-cmd>&lt;&lt;action stop_elevator&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-task-collect-apples></a></p> <h2 id=task_collect_apples>task_collect_apples</h2> <div class=yarn-node data-title=task_collect_apples><pre class=yarn-code style=--node-color:green><code><span class=yarn-header-dim>tags:</span>
+<span class=yarn-header-dim>group: tasks</span>
+<span class=yarn-header-dim>color: green</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-cmd>&lt;&lt;if HasCompletedTask("collect_apples")&gt;&gt;</span>
+<span class=yarn-line>    Thank you! you finished this task <span class=yarn-meta>#line:dev_task_collect_apples_2</span></span>
+&lt;&lt;elseif GetCollectedItem("collect_apples") &gt; 0 &gt;&gt;
+<span class=yarn-line>    I need more apples! <span class=yarn-meta>#line:dev_task_collect_apples_3</span></span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>    Collect 4 apples! <span class=yarn-meta>#line:dev_task_collect_apples_1 </span></span>
+    <span class=yarn-cmd>&lt;&lt;task_start collect_apples task_collect_apples_done&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-task-collect-apples-done></a></p> <h2 id=task_collect_apples_done>task_collect_apples_done</h2> <div class=yarn-node data-title=task_collect_apples_done><pre class=yarn-code style=--node-color:green><code><span class=yarn-header-dim>tags:</span>
+<span class=yarn-header-dim>group: tasks</span>
+<span class=yarn-header-dim>color: green</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Well done! Go back to the robot <span class=yarn-meta>#line:dev_test_task_done_1 </span></span>
+
+</code></pre></div> <p><a id=ys-node-task-open-chest></a></p> <h2 id=task_open_chest>task_open_chest</h2> <div class=yarn-node data-title=task_open_chest><pre class=yarn-code style=--node-color:green><code><span class=yarn-header-dim>tags:</span>
+<span class=yarn-header-dim>group: tasks</span>
+<span class=yarn-header-dim>color: green</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-cmd>&lt;&lt;if HasCompletedTask("open_chest")&gt;&gt;</span>
+<span class=yarn-line>    Thanks you... I needed that</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>    Reach and open that chest! </span>
+    <span class=yarn-cmd>&lt;&lt;task_start open_chest task_open_chest_done&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-task-open-chest-done></a></p> <h2 id=task_open_chest_done>task_open_chest_done</h2> <div class=yarn-node data-title=task_open_chest_done><pre class=yarn-code style=--node-color:green><code><span class=yarn-header-dim>tags:</span>
+<span class=yarn-header-dim>group: tasks</span>
+<span class=yarn-header-dim>color: green</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Well done! You opened the chest. </span>
+
+</code></pre></div> <p><a id=ys-node-item-chest></a></p> <h2 id=item_chest>item_chest</h2> <div class=yarn-node data-title=item_chest><pre class=yarn-code style=--node-color:yellow><code><span class=yarn-header-dim>tags: actor=TUTOR</span>
+<span class=yarn-header-dim>group: actions</span>
+<span class=yarn-header-dim>color: yellow</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>A good chest! <span class=yarn-meta>#line:dev_item_chest_1 </span></span>
+<span class=yarn-cmd>&lt;&lt;action open_chest&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-test-quiz></a></p> <h2 id=test_quiz>test_quiz</h2> <div class=yarn-node data-title=test_quiz><pre class=yarn-code><code><span class=yarn-header-dim>group: quiz</span>
+<span class=yarn-header-dim>tags: type=quiz</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Calculate 3*2 <span class=yarn-meta>#line:dev_test_quiz_1 </span></span>
+<span class=yarn-line>-&gt; 4 <span class=yarn-meta>#line:dev_test_quiz_2 </span></span>
+    <span class=yarn-cmd>&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
+<span class=yarn-line>-&gt; 6 <span class=yarn-meta>#line:dev_test_quiz_3 </span></span>
+    <span class=yarn-cmd>&lt;&lt;jump test_quiz_correct&gt;&gt;</span>
+<span class=yarn-line>-&gt; 8 <span class=yarn-meta>#line:dev_test_quiz_4 </span></span>
+    <span class=yarn-cmd>&lt;&lt;jump test_quiz_wrong&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-test-quiz-correct></a></p> <h2 id=test_quiz_correct>test_quiz_correct</h2> <div class=yarn-node data-title=test_quiz_correct><pre class=yarn-code><code><span class=yarn-header-dim>group: quiz</span>
+
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>YES! Correct. <span class=yarn-meta>#line:0eb010e </span></span>
+
+</code></pre></div> <p><a id=ys-node-test-quiz-wrong></a></p> <h2 id=test_quiz_wrong>test_quiz_wrong</h2> <div class=yarn-node data-title=test_quiz_wrong><pre class=yarn-code><code><span class=yarn-header-dim>group: quiz</span>
+
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>GUIDE: No. Do you want to try again? <span class=yarn-meta>#line:0e2b8d7 </span></span>
+<span class=yarn-line>-&gt; Yes <span class=yarn-meta>#line:08ff2b9 </span></span>
+    <span class=yarn-cmd>&lt;&lt;jump test_quiz&gt;&gt;</span>
+<span class=yarn-line>-&gt; No <span class=yarn-meta>#line:042881c </span></span>
+
+</code></pre></div> <p><a id=ys-node-endgame></a></p> <h2 id=endgame>endgame</h2> <div class=yarn-node data-title=endgame><pre class=yarn-code style=--node-color:red><code><span class=yarn-header-dim>group: endgame</span>
+<span class=yarn-header-dim>color: red</span>
+<span class=yarn-header-dim>---</span>
+
+<span class=yarn-line>You can end this quest with... <span class=yarn-meta>#line:027bdca </span></span>
+<span class=yarn-line>-&gt; Zero stars (fail) <span class=yarn-meta>#line:0130629 </span></span>
+    <span class=yarn-cmd>&lt;&lt;quest_end 0&gt;&gt;</span>
+<span class=yarn-line>-&gt; 1 star <span class=yarn-meta>#line:05caf8d </span></span>
+    <span class=yarn-cmd>&lt;&lt;quest_end 1&gt;&gt;</span>
+<span class=yarn-line>-&gt; 2 stars <span class=yarn-meta>#line:02466da </span></span>
+    <span class=yarn-cmd>&lt;&lt;quest_end 2&gt;&gt;</span>
+<span class=yarn-line>-&gt; 3 stars <span class=yarn-meta>#line:0f65a6b </span></span>
+    <span class=yarn-cmd>&lt;&lt;quest_end 3&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-npcgioconda></a></p> <h2 id=npcgioconda>NPCGIoconda</h2> <div class=yarn-node data-title=NPCGIoconda><pre class=yarn-code><code><span class=yarn-header-dim>assetimage: antura_hero</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-cmd>&lt;&lt;asset food_tomato&gt;&gt;</span>
+<span class=yarn-line>ciao, stefano <span class=yarn-meta>#line:0c0329c </span></span>
+<span class=yarn-line>ti piacciono le foto? <span class=yarn-meta>#line:0b9b60d </span></span>
+<span class=yarn-cmd>&lt;&lt;asset food_fish&gt;&gt;</span>
+<span class=yarn-line>-&gt; vuoi arancia? <span class=yarn-meta>#line:0c2bd41 </span></span>
+    <span class=yarn-cmd>&lt;&lt;asset food_orange&gt;&gt;</span>
+    <span class=yarn-cmd>&lt;&lt;action play_sfx&gt;&gt;</span>
+<span class=yarn-line>-&gt; vuoi olio? <span class=yarn-meta>#line:034ed48 </span></span>
+    <span class=yarn-cmd>&lt;&lt;asset food_oil&gt;&gt;</span>
+    <span class=yarn-cmd>&lt;&lt;action play_sfx&gt;&gt;</span>
+<span class=yarn-line>ora chiudo <span class=yarn-meta>#line:0baeb5f </span></span>
+<span class=yarn-cmd>&lt;&lt;asset_hide&gt;&gt;</span>
+<span class=yarn-line>-&gt; Activity Order <span class=yarn-meta>#line:0087ab1 </span></span>
+    <span class=yarn-cmd>&lt;&lt;activity activity_test&gt;&gt;</span>
+    <span class=yarn-cmd>&lt;&lt;jump activity_done&gt;&gt;</span>
+<span class=yarn-line>-&gt; Suona sfx <span class=yarn-meta>#line:0f02889 </span></span>
+    <span class=yarn-cmd>&lt;&lt;action play_sfx&gt;&gt;</span>
+<span class=yarn-line>-&gt; Apri Baule <span class=yarn-meta>#line:053f800 </span></span>
+    <span class=yarn-cmd>&lt;&lt;action open_chest&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-activity-done></a></p> <h2 id=activity_done>activity_done</h2> <div class=yarn-node data-title=activity_done><pre class=yarn-code><code><span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity finished. <span class=yarn-meta>#line:0ce187d </span></span>
+
+</code></pre></div> <p><a id=ys-node-npcgreeting2></a></p> <h2 id=npcgreeting2>NPCGreeting2</h2> <div class=yarn-node data-title=NPCGreeting2><pre class=yarn-code><code><span class=yarn-header-dim>assetimage: pirates</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-comment>// <span class=yarn-cmd>&lt;&lt;activity activity_memory&gt;&gt;</span></span>
+<span class=yarn-line>Narrator: Hallo <span class=yarn-meta>#line:08ecb6c </span></span>
+<span class=yarn-line>Narrator: How are you? <span class=yarn-meta>#line:00b7839 </span></span>
+<span class=yarn-line>-&gt; Good <span class=yarn-meta>#line:0991140 </span></span>
+<span class=yarn-line>    Narrator: Good to hear that <span class=yarn-meta>#line:0b3477e </span></span>
+<span class=yarn-line>-&gt; Bad <span class=yarn-meta>#line:08607a4 </span></span>
+<span class=yarn-line>    Narrator: Oh, I am sorry to hear that <span class=yarn-meta>#line:0e6ecb2 </span></span>
+<span class=yarn-line>-&gt; Neutral <span class=yarn-meta>#line:05f3ea5 </span></span>
+<span class=yarn-line>    Narrator: I see, I hope it gets better soon <span class=yarn-meta>#line:0802baf </span></span>
+<span class=yarn-line>Narrator: What do you want to do with  coins? <span class=yarn-meta>#line:0bcd506 </span></span>
+
+</code></pre></div> <p><a id=ys-node-npcgreeting3></a></p> <h2 id=npcgreeting3>NPCGreeting3</h2> <div class=yarn-node data-title=NPCGreeting3><pre class=yarn-code><code><span class=yarn-header-dim>tags: #camera2 background:conductor_cabin</span>
+<span class=yarn-header-dim>---</span>
+
+<span class=yarn-cmd>&lt;&lt;declare $coins = 0&gt;&gt;</span>
+<span class=yarn-line>Narrator: What do you want to do with {$coins} coins?  <span class=yarn-meta>#line:0a1994c </span></span>
+<span class=yarn-line>-&gt; Open the door <span class=yarn-meta>#line:0e11bee </span></span>
+ <span class=yarn-cmd>&lt;&lt;set $doorUnlocked = true&gt;&gt;</span>
+<span class=yarn-line> Narrator: The door is open <span class=yarn-meta>#line:0cac01d </span></span>
+<span class=yarn-line>-&gt; Stay at home <span class=yarn-meta>#line:07f4239 </span></span>
+<span class=yarn-line> Narrator: You stay at home <span class=yarn-meta>#line:079b16e </span></span>
+ <span class=yarn-cmd>&lt;&lt;set $coins = $coins + 10&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-chest-01></a></p> <h2 id=chest_01>Chest_01</h2> <div class=yarn-node data-title=Chest_01><pre class=yarn-code><code><span class=yarn-header-dim>---</span>
+<span class=yarn-cmd>&lt;&lt;if $doorUnlocked&gt;&gt;</span>
+<span class=yarn-line>Narrator: la porta è aperta <span class=yarn-meta>#line:0e22a89 </span></span>
+<span class=yarn-cmd>&lt;&lt;jump EntroInCasa&gt;&gt;</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Narrator: la porta è chiusa <span class=yarn-meta>#line:05086bc </span></span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-note-for-the-editors></a></p> <h2 id=note_for_the_editors>note_for_the_editors</h2> <div class=yarn-node data-title=note_for_the_editors><pre class=yarn-code><code><span class=yarn-header-dim>style: note</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Custom note <span class=yarn-meta>#line:04d621e </span></span>
+<span class=yarn-line>this is useful to leave notes for the editors <span class=yarn-meta>#line:0520fb4 </span></span>
+<span class=yarn-line>like reminders of things to do <span class=yarn-meta>#line:078fe99 </span></span>
+<span class=yarn-line>or things to check <span class=yarn-meta>#line:0982259 </span></span>
+<span class=yarn-line>or things to fix <span class=yarn-meta>#line:096379b </span></span>
+
+</code></pre></div> <p><a id=ys-node-entroincasa></a></p> <h2 id=entroincasa>EntroInCasa</h2> <div class=yarn-node data-title=EntroInCasa><pre class=yarn-code><code><span class=yarn-header-dim>---</span>
+<span class=yarn-line>entro in casa <span class=yarn-meta>#line:0f92df5 </span></span>
+
+
+</code></pre></div> <p><a id=ys-node-coin-machine></a></p> <h2 id=coin_machine>coin_machine</h2> <div class=yarn-node data-title=coin_machine><pre class=yarn-code><code><span class=yarn-header-dim>tags:</span>
+<span class=yarn-header-dim>group: variables</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>I'll give you 100 coins. <span class=yarn-meta>#line:06427f9 </span></span>
+<span class=yarn-cmd>&lt;&lt;set $TOTAL_COINS = $TOTAL_COINS + 100&gt;&gt;</span>
+
+
+</code></pre></div> <p><a id=ys-node-test-mood></a></p> <h2 id=test_mood>test_mood</h2> <div class=yarn-node data-title=test_mood><pre class=yarn-code><code><span class=yarn-header-dim>tags: actor=GUIDE, mood=HAPPY</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Happy Mood <span class=yarn-meta>#line:0a6e648 </span></span>
+
+
+</code></pre></div> <p><a id=ys-node-random-lines></a></p> <h2 id=random_lines>random_lines</h2> <div class=yarn-node data-title=random_lines><pre class=yarn-code><code><span class=yarn-header-dim>tags: actor=OLD_WOMAN</span>
+<span class=yarn-header-dim>group: random</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Smart random Line 1 <span class=yarn-meta>#line:07193d8 </span></span>
+<span class=yarn-line>Smart random Line 2 <span class=yarn-meta>#line:06fe9a7 </span></span>
+<span class=yarn-line>Smart random Line 3 <span class=yarn-meta>#line:032e777 </span></span>
+
+</code></pre></div> <p><a id=ys-node-multiple-lines></a></p> <h2 id=multiple_lines>multiple_lines</h2> <div class=yarn-node data-title=multiple_lines><pre class=yarn-code><code><span class=yarn-header-dim>tags: actor=KID_FEMALE</span>
+<span class=yarn-header-dim>group: random</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>=&gt; This is Hint 1 <span class=yarn-meta>#line:0423295 </span></span>
+<span class=yarn-line>=&gt; This is Hint 2 <span class=yarn-meta>#line:00d69e5 </span></span>
+<span class=yarn-line>=&gt; Hint 3 <span class=yarn-meta>#line:08966ba </span></span>
+
+
+</code></pre></div> <p><a id=ys-node-activity-canvas></a></p> <h2 id=activity_canvas>activity_canvas</h2> <div class=yarn-node data-title=activity_canvas><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity CANVAS! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_canvas activity_canvas_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-canvas-result></a></p> <h2 id=activity_canvas_result>activity_canvas_result</h2> <div class=yarn-node data-title=activity_canvas_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_canvas") &gt; 0&gt;&gt;
+<span class=yarn-line>You played CANVAS activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-jigsaw></a></p> <h2 id=activity_jigsaw>activity_jigsaw</h2> <div class=yarn-node data-title=activity_jigsaw><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity JIGSAW PUZZLE! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_jigsaw activity_jigsaw_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-jigsaw-result></a></p> <h2 id=activity_jigsaw_result>activity_jigsaw_result</h2> <div class=yarn-node data-title=activity_jigsaw_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_jigsaw") &gt; 0&gt;&gt;
+<span class=yarn-line>You played JIGSAW PUZZLE activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-memory></a></p> <h2 id=activity_memory>activity_memory</h2> <div class=yarn-node data-title=activity_memory><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity MEMORY! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_memory activity_memory_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-memory-result></a></p> <h2 id=activity_memory_result>activity_memory_result</h2> <div class=yarn-node data-title=activity_memory_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_memory") &gt; 0&gt;&gt;
+<span class=yarn-line>You played MEMORY activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-match></a></p> <h2 id=activity_match>activity_match</h2> <div class=yarn-node data-title=activity_match><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity MATCH! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_match activity_match_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-match-result></a></p> <h2 id=activity_match_result>activity_match_result</h2> <div class=yarn-node data-title=activity_match_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_match") &gt; 0&gt;&gt;
+<span class=yarn-line>You played MATCH activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-money></a></p> <h2 id=activity_money>activity_money</h2> <div class=yarn-node data-title=activity_money><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity MONEY! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_money activity_money_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-money-result></a></p> <h2 id=activity_money_result>activity_money_result</h2> <div class=yarn-node data-title=activity_money_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_money") &gt; 0&gt;&gt;
+<span class=yarn-line>You played MONEY activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-order></a></p> <h2 id=activity_order>activity_order</h2> <div class=yarn-node data-title=activity_order><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Activity ORDER! </span>
+<span class=yarn-cmd>&lt;&lt;activity activity_order activity_order_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-order-result></a></p> <h2 id=activity_order_result>activity_order_result</h2> <div class=yarn-node data-title=activity_order_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_order") &gt; 0&gt;&gt;
+<span class=yarn-line>You played ORDER activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-piano></a></p> <h2 id=activity_piano>activity_piano</h2> <div class=yarn-node data-title=activity_piano><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>tags: actor=KID_FEMALE</span>
+<span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+<span class=yarn-line>Play this PIANO Melody! <span class=yarn-meta>#line:0e11b77 </span></span>
+<span class=yarn-cmd>&lt;&lt;activity activity_piano activity_piano_result&gt;&gt;</span>
+
+</code></pre></div> <p><a id=ys-node-activity-piano-result></a></p> <h2 id=activity_piano_result>activity_piano_result</h2> <div class=yarn-node data-title=activity_piano_result><pre class=yarn-code style=--node-color:purple><code><span class=yarn-header-dim>tags: actor=KID_FEMALE</span>
+<span class=yarn-header-dim>group: activities</span>
+<span class=yarn-header-dim>color: purple</span>
+<span class=yarn-header-dim>---</span>
+&lt;&lt;if GetActivityResult("activity_piano") &gt; 0&gt;&gt;
+<span class=yarn-line>You played the PIANO activity well!</span>
+<span class=yarn-cmd>&lt;&lt;else&gt;&gt;</span>
+<span class=yarn-line>Try again.</span>
+<span class=yarn-cmd>&lt;&lt;endif&gt;&gt;</span>
+
+</code></pre></div> </article> </div> <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script> </div> <button type=button class="md-top md-icon" data-md-component=top hidden> <svg xmlns=http://www.w3.org/2000/svg viewbox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg> Back to top </button> </main> <footer class=md-footer> <div class="md-footer-meta md-typeset"> <div class="md-footer-meta__inner md-grid"> <div class=md-copyright> <div class=md-copyright__highlight> <a href=/about>© CGL / VGWB | CC BY-NC-SA</a> | <a href=/privacy-policy>Privacy Policy</a> </div> Made with <a href=https://squidfunk.github.io/mkdocs-material/ target=_blank rel=noopener> Material for MkDocs </a> </div> </div> </div> </footer> </div> <div class=md-dialog data-md-component=dialog> <div class="md-dialog__inner md-typeset"></div> </div> <script id=__config type=application/json>{"base": "../../..", "features": ["content.action.edit", "navigation.tracking", "navigation.tabs", "navigation.top", "navigation.indexes"], "search": "../../../assets/javascripts/workers/search.973d3a69.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script> <script src=../../../assets/javascripts/bundle.92b07e13.min.js></script> <script src=../../../assets/yarn/yarn-graph.js></script> <script src=../../../assets/yarn/yarn-script.js></script> </body> </html>
