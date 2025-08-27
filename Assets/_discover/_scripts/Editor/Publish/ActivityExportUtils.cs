@@ -40,7 +40,8 @@ namespace Antura.Discover.Editor
             foreach (var a in acts.OrderBy(x => x.Code.ToString(), StringComparer.OrdinalIgnoreCase))
             {
                 string name = PublishUtils.SafeLocalized(a.Name, a.name);
-                sb.AppendLine($"## {name} ({a.Code})");
+                sb.AppendLine($"<a id=\"{a.Code}\"></a>");
+                sb.AppendLine($"## {name}");
                 sb.AppendLine();
                 sb.AppendLine("- Code: " + a.Code);
                 sb.AppendLine("- Image: " + (a.Image ? AssetDatabase.GetAssetPath(a.Image) : ""));
@@ -48,10 +49,17 @@ namespace Antura.Discover.Editor
                     sb.AppendLine("- Categories: " + string.Join(", ", a.Category));
                 if (a.Skills != null && a.Skills.Count > 0)
                     sb.AppendLine("- Skills: " + string.Join(", ", a.Skills));
-                sb.AppendLine("- Prefab: " + (a.ActivityPrefab ? AssetDatabase.GetAssetPath(a.ActivityPrefab) : ""));
+
+                if (a.AdditionalResources != null && !string.IsNullOrEmpty(a.AdditionalResources.text))
+                {
+                    sb.AppendLine();
+                    sb.AppendLine(a.AdditionalResources.text);
+                }
+
+
                 if (a.Credits != null && a.Credits.Count > 0)
                 {
-                    sb.AppendLine("- Credits:");
+                    sb.AppendLine("\nCredits:");
                     foreach (var c in a.Credits.Where(c => c != null && c.Author != null))
                         sb.AppendLine("  - " + PublishUtils.FormatAuthor(c.Author));
                 }

@@ -95,8 +95,11 @@ namespace Antura.Discover.Editor
                     string cCountry = PublishUtils.TryToString(() => card.Country.ToString());
                     string cKV = PublishUtils.TryToString(() => card.Points.ToString());
                     string cImagePath = PublishUtils.GetCardImageAssetPath(card);
+                    string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
 
                     sb.AppendLine($"### {cTitle}");
+                    if (!string.IsNullOrEmpty(cId))
+                        sb.AppendLine($"Link: [{cId}](../cards/index.md#{cId})");
                     sb.AppendLine($"Description: {cDesc}");
                     sb.AppendLine($"Category: {cCategory}");
                     sb.AppendLine($"Year: {cYear}");
@@ -110,7 +113,7 @@ namespace Antura.Discover.Editor
             sb.AppendLine("## Words");
             if (q.Words != null && q.Words.Count > 0)
             {
-                sb.AppendLine("- Words Used: " + string.Join(", ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
+                sb.AppendLine("- " + string.Join(", ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)));
             }
 
             sb.AppendLine("## Activities");
@@ -129,9 +132,15 @@ namespace Antura.Discover.Editor
                         int count = 0;
                         foreach (var item in AsEnumerable(acValue))
                         {
-                            string label = GetActivityLabel(item);
-                            if (!string.IsNullOrEmpty(label))
-                                sb.AppendLine("- " + label);
+                            string codeStr = GetActivityCode(item);
+                            if (!string.IsNullOrEmpty(codeStr))
+                                sb.AppendLine($"- [{codeStr}](../activities/index.md#{codeStr})");
+                            else
+                            {
+                                string label = GetActivityLabel(item);
+                                if (!string.IsNullOrEmpty(label))
+                                    sb.AppendLine("- " + label);
+                            }
                             count++;
                         }
                         if (count == 0)
@@ -455,6 +464,32 @@ namespace Antura.Discover.Editor
                 return task.ToString();
             }
             catch { return task.ToString(); }
+        }
+
+        static string GetActivityCode(object cfg)
+        {
+            if (cfg == null)
+                return string.Empty;
+            try
+            {
+                var t = cfg.GetType();
+                var pi = t.GetProperty("Code", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                         ?? t.GetProperty("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (pi != null)
+                {
+                    var v = pi.GetValue(cfg);
+                    return v != null ? v.ToString() : string.Empty;
+                }
+                var fi = t.GetField("Code", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
+                        ?? t.GetField("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (fi != null)
+                {
+                    var v = fi.GetValue(cfg);
+                    return v != null ? v.ToString() : string.Empty;
+                }
+            }
+            catch { }
+            return string.Empty;
         }
 
 

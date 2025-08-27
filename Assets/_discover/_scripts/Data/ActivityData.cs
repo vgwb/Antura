@@ -38,6 +38,9 @@ namespace Antura.Discover
         [Header("Prefab")]
         public GameObject ActivityPrefab;
 
+        [Tooltip("for the Website. This is a Markdown file that contains additional informations.")]
+        public TextAsset AdditionalResources;
+
         [Header("Credits")]
         public List<AuthorCredit> Credits;
     }

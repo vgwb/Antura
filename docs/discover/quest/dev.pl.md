@@ -22,6 +22,7 @@ Status: Ready
 
 ## Cards
 ### Bagietka
+Link: [fr_baguette](../cards/index.md#fr_baguette)
 Description: Długie francuskie pieczywo. Chrupiące na zewnątrz i miękkie w środku.
 Category: Food
 Year: 0
@@ -30,15 +31,15 @@ KnowledgeValue: 1
 Image: 
 
 ## Words
-- Words Used: peace
+- peace
 ## Activities
-- activity_canvas
-- activity_jigsaw
-- activity_memory
-- activity_match
-- activity_money
-- activity_order
-- activity_piano
+- [activity_canvas](../activities/index.md#activity_canvas)
+- [activity_jigsaw](../activities/index.md#activity_jigsaw)
+- [activity_memory](../activities/index.md#activity_memory)
+- [activity_match](../activities/index.md#activity_match)
+- [activity_money](../activities/index.md#activity_money)
+- [activity_order](../activities/index.md#activity_order)
+- [activity_piano](../activities/index.md#activity_piano)
 
 ## Tasks
 - [Collect] collect_apples
