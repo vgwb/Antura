@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: e11e86020062a4b3d94ad4ad76027afd,
     type: 3}
   IdDisplay: 5
+  Version: 100
   DevStatus: 1
   Title:
     m_TableReference:
@@ -43,14 +44,15 @@ MonoBehaviour:
   MainTopic: 1
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
-  IsPublic: 0
+  IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
@@ -78,19 +80,14 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  CreditsContent:
-  - {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
-  CreditsDesign:
-  - {fileID: 11400000, guid: 50ea37ce6f4064ad7acca9463b92a65a, type: 2}
-  - {fileID: 11400000, guid: f32a1eb30084e4f558daa6310ed31c36, type: 2}
-  - {fileID: 11400000, guid: 102b106205e784c0fbc01390d66f312e, type: 2}
-  CreditsDevelopment:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  assetsFolder: PL_05
-  scene: discover pl_05 baltic sea
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 4550446330867767471, guid: 633839e3b33fc47279c3ffcb6865a122,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_05
+  scene: discover pl_05 baltic sea
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

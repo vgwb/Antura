@@ -4104,6 +4104,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
+  ActivityConfigs: []
+  QuestTasks: []
   DebugQuest: 0
   DebugLanguage: IT
   EasyMode: 0
@@ -4263,7 +4265,6 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
-  Tasks: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
 --- !u!1 &4666286802340064856
@@ -9070,6 +9071,12 @@ PrefabInstance:
       propertyPath: NodePermalink
       value: shop_baker
       objectReference: {fileID: 0}
+    - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: Word
+      value: 
+      objectReference: {fileID: 11400000, guid: 0cbcc9d9cff3047399ba21f4fc889fd4,
+        type: 2}
     - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: HeadProp
@@ -14444,6 +14451,21 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: fb62d5b8551a44a5099a4b23a883a59f,
         type: 2}
+    - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: Color.b
+      value: 0.49056602
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: Color.g
+      value: 0.1504094
+      objectReference: {fileID: 0}
+    - target: {fileID: 2656310347846800054, guid: 5e19eafb340366c4590bcaaad511166c,
+        type: 3}
+      propertyPath: Color.r
+      value: 0.21969607
+      objectReference: {fileID: 0}
     - target: {fileID: 4788061485843009964, guid: 5e19eafb340366c4590bcaaad511166c,
         type: 3}
       propertyPath: m_Name

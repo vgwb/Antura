@@ -17,6 +17,8 @@ namespace Antura.Discover.Activities
 
             public Difficulty Difficulty;
             public Sprite Image;
+            public int Width;
+            public int Height;
         }
 
         public string SetName;
