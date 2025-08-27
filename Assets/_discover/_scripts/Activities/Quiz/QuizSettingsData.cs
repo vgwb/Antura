@@ -15,7 +15,8 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "QuizSettingsData", menuName = "Antura/Activity/Quiz Settings")]
     public class QuizSettingsData : ActivitySettingsAbstract
     {
-        [Header("Quiz Settings")]
+        [Header("--- Activity Quiz Settings")]
+
         public string Question;
 
         [Tooltip("Between 2 and 8 items")]

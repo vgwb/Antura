@@ -87,24 +87,6 @@ namespace Antura.Discover.Activities
         protected override void Update()
         {
             base.Update();
-            if (Settings.TimeLimit > 0 && data.TimeRemaining > 0)
-            {
-                data.TimeRemaining -= Time.deltaTime;
-                if (data.TimeRemaining < 0)
-                    data.TimeRemaining = 0;
-                if (timerText)
-                    timerText.text = Mathf.CeilToInt(data.TimeRemaining).ToString();
-
-                if (Mathf.Approximately(data.TimeRemaining, 0))
-                {
-                    // treat as timeout -> end via base flow
-                    if (!ended)
-                    {
-                        ended = true;
-                        EndRound(false, 0f, true);
-                    }
-                }
-            }
         }
 
         protected override void OnDestroy()
@@ -118,10 +100,7 @@ namespace Antura.Discover.Activities
             CleanupSpawned();
             ended = false;
 
-            data = new MoneyData
-            {
-                TimeRemaining = Settings.TimeLimit
-            };
+            data = new MoneyData();
 
             // 1) Build candidate pool by difficulty gate
             var all = Settings.MoneySet.items

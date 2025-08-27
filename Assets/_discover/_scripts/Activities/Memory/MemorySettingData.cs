@@ -8,7 +8,7 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "MemorySettingData", menuName = "Antura/Activity/Memory Data")]
     public class MemorySettingData : ActivitySettingsAbstract
     {
-        [Header("Memory Game Settings")]
+        [Header("--- Activity Memory Settings")]
         public List<CardData> CardsData = new List<CardData>();
     }
 }

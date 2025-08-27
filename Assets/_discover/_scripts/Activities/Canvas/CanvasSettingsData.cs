@@ -8,13 +8,9 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "CanvasSettingsData", menuName = "Antura/Activity/Canvas Settings")]
     public class CanvasSettingsData : ActivitySettingsAbstract
     {
-        [Header("Activity Canvas Settings")]
+        [Header("--- Activity Canvas Settings")]
         [Tooltip("Background asset used as the canvas image")]
         public AssetData PuzzleImageAsset;
-
-        // Backward-compatibility with older assets using a raw Texture2D
-        [SerializeField, FormerlySerializedAs("PuzzleImage"), HideInInspector]
-        private Texture2D LegacyPuzzleImage;
 
         public Sprite BugSprite;
 
@@ -35,9 +31,7 @@ namespace Antura.Discover.Activities
 
         public void Resolve(out Difficulty difficulty, out Texture2D image, out int bugs, out int brushSize, out float threshold)
         {
-            image = (PuzzleImageAsset != null && PuzzleImageAsset.Image != null)
-                ? PuzzleImageAsset.Image.texture
-                : LegacyPuzzleImage;
+            image = PuzzleImageAsset.Image.texture;
             difficulty = Difficulty;
 
             switch (Difficulty)

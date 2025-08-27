@@ -7,13 +7,9 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "JigsawPuzzleSettings", menuName = "Antura/Activity/Jigsaw Settings")]
     public class JigsawPuzzleSettingsData : ActivitySettingsAbstract
     {
-        [Header("Activity JigsawPuzzle Settings")]
+        [Header("--- Activity JigsawPuzzle Settings")]
         [Tooltip("CardData providing the image for the puzzle")]
         public CardData PuzzleCard;
-
-        // Backward-compatibility: keep old serialized Texture2D so existing assets continue to work until migrated
-        [SerializeField, FormerlySerializedAs("PuzzleImage"), HideInInspector]
-        private Texture2D LegacyPuzzleImage;
 
         [Header("Overrides Difficulty Based Settings")]
         [Tooltip("If > 0 overrides difficulty-based horizontal pieces.")]
@@ -26,8 +22,6 @@ namespace Antura.Discover.Activities
             // Default underlay alpha
             underlayAlpha = 0.2f;
             image = ResolveTexture(PuzzleCard);
-            if (image == null)
-                image = LegacyPuzzleImage;
             difficulty = Difficulty;
 
             int baseSize = 4;
