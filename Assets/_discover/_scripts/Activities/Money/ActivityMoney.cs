@@ -69,6 +69,9 @@ namespace Antura.Discover.Activities
         [Tooltip("Padding from edges when scattering in tray.")]
         public float spawnScatterPadding = 20f;
 
+        [Tooltip("Global scale")]
+        public float globalScale = 0.6f;
+
         public override void ConfigureSettings(ActivitySettingsAbstract settings)
         {
             base.ConfigureSettings(settings);
@@ -181,7 +184,7 @@ namespace Antura.Discover.Activities
                 spawned.Add(go);
                 var view = go.GetComponent<MoneyItemView>();
                 var drag = go.GetComponent<DraggableMoney>();
-                view.Setup(it, currencySymbol);
+                view.Setup(it, currencySymbol, globalScale);
                 if (drag != null)
                 {
                     drag.canvas = canvas;
@@ -339,7 +342,7 @@ namespace Antura.Discover.Activities
                 var row = Instantiate(hintRowPrefab, hintListParent);
                 var view = row.GetComponent<MoneyItemView>();
                 if (view)
-                    view.Setup(item, currencySymbol);
+                    view.Setup(item, currencySymbol, globalScale);
             }
         }
 
