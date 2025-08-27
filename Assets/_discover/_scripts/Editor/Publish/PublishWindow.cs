@@ -162,9 +162,8 @@ namespace Antura.Discover.Editor
             int ok = 0, fail = 0;
 
             Countries[] order = new[] {
-                Countries.France, Countries.Poland, Countries.Germany, Countries.Greece,
+                Countries.International, Countries.France, Countries.Poland, Countries.Germany, Countries.Greece,
                 Countries.Italy, Countries.Portugal, Countries.Spain, Countries.UnitedKingdom,
-                Countries.International
             };
             Func<Countries, string> countryLabel = c => c == Countries.UnitedKingdom ? "United Kingdom" : c.ToString();
 

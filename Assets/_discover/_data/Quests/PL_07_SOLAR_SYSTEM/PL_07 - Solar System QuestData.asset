@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 61a2aec64e85b40df836a570e9b7740c,
     type: 3}
   IdDisplay: 7
+  Version: 100
   DevStatus: 1
   Title:
     m_TableReference:
@@ -43,14 +44,15 @@ MonoBehaviour:
   MainTopic: 4
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
-  IsPublic: 0
+  IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
@@ -63,16 +65,14 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  CreditsContent:
-  - {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
-  CreditsDesign: []
-  CreditsDevelopment:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  assetsFolder: PL_07
-  scene: discover pl_07 solar_system
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 4842159426435640053, guid: 8cc25d1548a8d4aa091b14ba83ed82d5,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_07
+  scene: discover pl_07 solar_system
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

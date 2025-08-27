@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: a9c6e5128621648e38581242e9f9d6cf,
     type: 3}
   IdDisplay: 4
+  Version: 100
   DevStatus: 1
   Title:
     m_TableReference:
@@ -43,14 +44,15 @@ MonoBehaviour:
   MainTopic: 4
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 05000000
   Duration: 20
   Dependencies: []
+  Gameplay: 05000000
   cookies: 0
-  IsPublic: 0
+  IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
@@ -78,19 +80,14 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  CreditsContent:
-  - {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
-  CreditsDesign:
-  - {fileID: 11400000, guid: 50ea37ce6f4064ad7acca9463b92a65a, type: 2}
-  - {fileID: 11400000, guid: f32a1eb30084e4f558daa6310ed31c36, type: 2}
-  - {fileID: 11400000, guid: 102b106205e784c0fbc01390d66f312e, type: 2}
-  CreditsDevelopment:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  assetsFolder: PL_04
-  scene: discover pl_04 zoo
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 2691809237515479876, guid: f4029d0eca7b344e99053fc00b1b223f,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_04
+  scene: discover pl_04 zoo
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []
