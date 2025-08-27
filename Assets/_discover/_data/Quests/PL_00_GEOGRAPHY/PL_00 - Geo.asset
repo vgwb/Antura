@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 54da4580b9a4844c4aed48abdcaec4a3,
     type: 3}
   IdDisplay: G
+  Version: 100
   DevStatus: 1
   Title:
     m_TableReference:
@@ -43,15 +44,18 @@ MonoBehaviour:
   MainTopic: 2
   Cards:
   - {fileID: 11400000, guid: e9fe808439167f045a7a38ac2a1de7ae, type: 2}
+  - {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
+  - {fileID: 11400000, guid: 7334cba1b1bae4c6e97679b8aabea73e, type: 2}
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 2
-  Gameplay: 
   Duration: 15
   Dependencies: []
+  Gameplay: 
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: f32a1eb30084e4f558daa6310ed31c36, type: 2}
@@ -64,11 +68,14 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  assetsFolder: PL_00
-  scene: discover pl_00 geo
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 618657827729079236, guid: 3db464f69298749e8a517f91e1b0243a,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_00
+  scene: discover pl_00 geo
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

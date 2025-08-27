@@ -18,6 +18,7 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: c70b27b1aa4b94d518232869db40ffdb,
     type: 3}
   IdDisplay: G
+  Version: 100
   DevStatus: 1
   Title:
     m_TableReference:
@@ -43,15 +44,24 @@ MonoBehaviour:
   MainTopic: 2
   Cards:
   - {fileID: 11400000, guid: e9fe808439167f045a7a38ac2a1de7ae, type: 2}
+  - {fileID: 11400000, guid: 7b8e41f7613d8954bad6d61262a05cf6, type: 2}
+  - {fileID: 11400000, guid: f0d7c16f0c5f2944b9c089bb304676fb, type: 2}
+  - {fileID: 11400000, guid: c4155f34c1056d645b83735a3e522425, type: 2}
+  - {fileID: 11400000, guid: 686c1daede728de4c89b5608fddbea91, type: 2}
+  - {fileID: 11400000, guid: 91f408929de47a64092269095b5fafe5, type: 2}
+  - {fileID: 11400000, guid: 0001eb74ad9dadc4a82dc1b5a629db31, type: 2}
+  - {fileID: 11400000, guid: 12417a96a23123f45840dbeb8d8d2e0c, type: 2}
+  - {fileID: 11400000, guid: e1c2ed671439349eea2ebac3bf093556, type: 2}
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 2
-  Gameplay: 
   Duration: 15
   Dependencies: []
+  Gameplay: 
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
@@ -74,11 +84,14 @@ MonoBehaviour:
     Design: 1
     Development: 0
     Validation: 0
-  assetsFolder: FR_00
-  scene: discover fr_00 geo
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 4574598919450440142, guid: 34b272fd7c23e4f07a0529fbc70c7309,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: FR_00
+  scene: discover fr_00 geo
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []
