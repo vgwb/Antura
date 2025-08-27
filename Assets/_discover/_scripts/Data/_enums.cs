@@ -39,43 +39,38 @@ namespace Antura.Discover
     public enum KnowledgeTopic
     {
         None = 0,
-        Anthropology = 18,
-        Architecture = 25,
-        Art = 5,
-        Community = 38,
-        CulinaryArts = 31,
-        Culture = 3,
-        Dance = 27,
-        Design = 30,
-        Diversity = 36,
-        Economy = 11,
+        // Core subjects (simplified)
+        History = 1,           // Keep - kids love stories from the past
+        Geography = 2,         // Keep - where things are
+        Science = 4,           // Keep - how things work
+        Art = 5,              // Keep - making and creating
+        Culture = 3,          // Keep - how people live
+
+        // Kid-friendly specifics
+        Animals = 40,          // Instead of complex "Fauna"
+        Plants = 41,           // Instead of "Flora"
+        Space = 42,            // Kids love astronomy
+        Weather = 43,          // Observable science
+        Transportation = 44,   // Cars, planes, boats
+
+        // Creative & Active
+        Music = 22,            // Keep
+        Sports = 32,           // Keep
+        Cooking = 45,          // Instead of "CulinaryArts"
+        Dancing = 46,          // Instead of "Dance/PerformingArts"
+
+        // Social concepts (simplified)
+        Family = 47,           // Instead of "Sociology"
+        Community = 38,        // Keep - good for this age
+        Friendship = 48,       // Important social concept
+
+        // Practical life
         Education = 20,
-        Environment = 9,
-        Ethics = 15,
-        Fashion = 29,
-        Film = 26,
-        Geography = 2,
-        Health = 10,
-        Heritage = 39,
-        History = 1,
-        Inclusion = 37,
-        Language = 6,
-        Law = 19,
-        Literature = 21,
-        Music = 22,
-        PerformingArts = 24,
-        Philosophy = 13,
-        Photography = 28,
-        Politics = 12,
-        Religion = 14,
-        Science = 4,
-        Society = 7,
-        Sociology = 17,
-        Sports = 32,
-        Technology = 8,
-        Tradition = 34,
-        Travel = 33,
-        VisualArts = 23,
+        Health = 10,           // Keep
+        Safety = 49,           // Important for kids
+        Environment = 9,       // Keep - caring for nature
+        Money = 11,            // Keep - basic financial literacy
+        Time = 12              // Keep - understanding clocks/calendars
     }
 
     public enum GameplayType

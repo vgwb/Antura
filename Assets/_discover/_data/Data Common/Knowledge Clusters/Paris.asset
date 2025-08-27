@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: Paris
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterSO
+  clusterName: Eiffel Tower
+  description: Everything related to the iconic Paris landmark
+  priority: 2
+  clusterColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
+  coreCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
+  connections:
+  - connectedCard: {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
+    connectionType: 0
+    connectionStrength: 0.884
+    connectionReason: Gustave Eiffel designed and built the tower
+    linkingKeywords:
+    - architect
+    - engineer
+    - creator
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
+    connectionType: 2
+    connectionStrength: 0.802
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  discoveryPath:
+  - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
+  - {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
+  - {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
+  cohesionStrength: 0.813
+  targetAge: 1
+  educationalTopics: 02000000

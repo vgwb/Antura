@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: sign_danger
   m_EditorClassIdentifier: 
   Id: fr_dangersign
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -31,14 +32,27 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Image: {fileID: 0}
-  Audio: {fileID: 0}
   Category: 8
-  Topics: 
+  Topics: 2c000000
   Year: 0
   Country: 2
-  UnlockQuests: []
-  MaxProgress: 10
+  Location: {fileID: 0}
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 0}
+  PreviewImage: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  Tag: 0
+  CustomTag: 
+  Quests: []
   references:
     version: 2
     RefIds: []

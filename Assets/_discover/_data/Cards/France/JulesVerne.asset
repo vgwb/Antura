@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: JulesVerne
   m_EditorClassIdentifier: 
   Id: fr_julesverne
+  DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -32,19 +33,26 @@ MonoBehaviour:
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Category: 7
-  Topics: 1500000004000000
+  Topics: 0300000004000000
   Year: 1850
   Country: 2
-  KnowledgeValue: 10
+  Location: {fileID: 0}
+  Words: []
+  MasteryPointsToUnlock: 1
+  Cookies: 0
+  Gems: 0
+  Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: e145f6099a7f6474fb0dc841bcf73fb1, type: 2}
-  Image: {fileID: 0}
+  PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
   ItemIcon: {fileID: 0}
   Tag: 0
   CustomTag: 
-  LinkedQuests: []
+  Quests: []
   references:
     version: 2
     RefIds: []
