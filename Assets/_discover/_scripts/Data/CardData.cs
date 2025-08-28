@@ -22,6 +22,8 @@ namespace Antura.Discover
         [Tooltip("If the card has a specific place...")]
         public LocationData Location;
 
+        public string WikipediaUrl;
+
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
 
