@@ -4,7 +4,7 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
-namespace Antura.Discover
+namespace Antura.Discover.Editor
 {
     // This class  createa a WorldPrefab from a selected model in the Project Window.
     public static class CreateWorldPrefabFromModel

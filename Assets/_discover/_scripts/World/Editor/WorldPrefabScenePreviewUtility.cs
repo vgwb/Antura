@@ -7,7 +7,7 @@ using UnityEditor;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 
-namespace Antura.Discover.World.Editor
+namespace Antura.Discover.Editor
 {
     public static class WorldPrefabScenePreviewUtility
     {
