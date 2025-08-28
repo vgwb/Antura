@@ -79,6 +79,8 @@ namespace Antura.Discover
         public LayerMask GroundLayers;
 
         [Header("Slope Settings")]
+        [Tooltip("Disable all slope-specific movement (no sliding, no special handling)")]
+        public bool disableSlopeMovement = false;
         [Tooltip("Speed of sliding down slopes")]
         public float slideSpeed = 5f;
 
@@ -130,7 +132,7 @@ namespace Antura.Discover
         public bool IsOnSlope => isOnSlope;
         public bool IsMoving => _speed > 0.1f || _slideVelocity.magnitude > 0.1f;
         public bool IsJumping => _hasJumped && !isGrounded;
-        public bool IsSliding => isOnSlope && _slopeAngle > _controller.slopeLimit;
+        public bool IsSliding => !disableSlopeMovement && isOnSlope && _slopeAngle > _controller.slopeLimit;
         public bool IsAutoSprinting => _isAutoSprinting;
         public Vector2 CurrentMoveInput => _input?.move ?? Vector2.zero;
         public float CurrentSpeed => _speed;
@@ -285,7 +287,7 @@ namespace Antura.Discover
             bool isSprinting = _input.sprint || _isAutoSprinting;
 
             // Update walking timer for auto-sprint
-            if (_input.move != Vector2.zero && isGrounded && !isOnSlope)
+            if (_input.move != Vector2.zero && isGrounded && (!isOnSlope || disableSlopeMovement))
             {
                 _walkingTime += Time.deltaTime;
 
@@ -367,7 +369,7 @@ namespace Antura.Discover
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
             // Handle slope movement
-            if (isGrounded && isOnSlope)
+            if (!disableSlopeMovement && isGrounded && isOnSlope)
             {
                 // Check if on a steep slope that should cause sliding
                 if (_slopeAngle > _controller.slopeLimit)
@@ -431,7 +433,7 @@ namespace Antura.Discover
                 _moveVelocity = targetDirection * _speed;
 
                 // Gradually reduce slide velocity when not on slope
-                if (!isOnSlope)
+                if (!isOnSlope || disableSlopeMovement)
                 {
                     _slideVelocity = Vector3.Lerp(_slideVelocity, Vector3.zero, Time.deltaTime * 3f);
                 }
@@ -481,7 +483,7 @@ namespace Antura.Discover
                     _verticalVelocity = -2f;
 
                     // Extra downward force on slopes to prevent bouncing
-                    if (isOnSlope && !_hasJumped)
+                    if (!disableSlopeMovement && isOnSlope && !_hasJumped)
                     {
                         _verticalVelocity = -slopeForceDown;
                     }
@@ -666,7 +668,7 @@ namespace Antura.Discover
             {
                 CurrentState = PlayerState.Sitting;
             }
-            else if (isOnSlope && _slopeAngle > _controller.slopeLimit)
+            else if (IsSliding)
             {
                 CurrentState = PlayerState.Sliding;
             }
@@ -717,13 +719,15 @@ namespace Antura.Discover
                     _walkingTime = 0f;
                     _isAutoSprinting = false;
                     break;
+                default:
+                    break;
             }
         }
 
         private void UpdateIdleBehavior()
         {
             // Check if player is idle (no input and grounded, not sliding)
-            bool isIdle = _input.move == Vector2.zero && isGrounded && !isOnSlope && !_input.jump;
+            bool isIdle = _input.move == Vector2.zero && isGrounded && (!isOnSlope || disableSlopeMovement) && !_input.jump;
 
             if (isIdle)
             {
