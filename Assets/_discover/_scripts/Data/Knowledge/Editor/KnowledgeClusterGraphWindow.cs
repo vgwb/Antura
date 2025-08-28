@@ -9,15 +9,18 @@ namespace Antura.Discover.Editor
     public class KnowledgeClusterGraphWindow : EditorWindow
     {
         private KnowledgeCollectionData clusterCollection;
-        private Vector2 scrollPos;
-        private Vector2 graphOffset = Vector2.zero;
+        private Vector2 scrollPos;                 // sidebar scroll
+        private Vector2 graphScroll;               // graph scroll (content space)
+        private Vector2 graphOffset = Vector2.zero; // legacy pan
         private float zoomLevel = 1.0f;
         private bool isDragging = false;
         private Vector2 lastMousePos;
+        private Vector2 graphDrawOrigin = Vector2.zero; // top-left of content bounds
 
         // Graph layout
         private Dictionary<KnowledgeClusterData, Vector2> clusterPositions = new Dictionary<KnowledgeClusterData, Vector2>();
         private Dictionary<CardData, Vector2> cardPositions = new Dictionary<CardData, Vector2>();
+        private List<CardData> uniqueCards = new List<CardData>();
 
         // Display options
         private bool showConnections = true;
@@ -25,6 +28,9 @@ namespace Antura.Discover.Editor
         private bool showBridges = true;
         private bool autoLayout = true;
         private ClusterPriority filterPriority = ClusterPriority.Low;
+        private int connectionTypeIndex = 0; // 0 = All, else enum selection
+
+        private const string PrefKeyCollectionPath = "Antura.KnowledgeClusterGraphWindow.CollectionPath";
 
         // Selection
         private KnowledgeClusterData selectedCluster;
@@ -50,13 +56,21 @@ namespace Antura.Discover.Editor
             // Try to find cluster collection automatically
             if (clusterCollection == null)
             {
-                string[] guids = AssetDatabase.FindAssets("t:KnowledgeClusterCollection");
-                if (guids.Length > 0)
+                var savedPath = EditorPrefs.GetString(PrefKeyCollectionPath, string.Empty);
+                if (!string.IsNullOrEmpty(savedPath))
                 {
-                    string path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                    clusterCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(path);
-                    RefreshLayout();
+                    clusterCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(savedPath);
                 }
+                if (clusterCollection == null)
+                {
+                    string[] guids = AssetDatabase.FindAssets("t:KnowledgeClusterCollection");
+                    if (guids.Length > 0)
+                    {
+                        string path = AssetDatabase.GUIDToAssetPath(guids[0]);
+                        clusterCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(path);
+                    }
+                }
+                RefreshLayout();
             }
         }
 
@@ -69,12 +83,16 @@ namespace Antura.Discover.Editor
                 wordWrap = true
             };
 
-            cardStyle = new GUIStyle("button")
+            cardStyle = new GUIStyle(EditorStyles.miniButton)
             {
                 alignment = TextAnchor.MiddleCenter,
-                fontSize = 8,
-                wordWrap = true
+                fontSize = 9,
+                wordWrap = false,
+                clipping = TextClipping.Clip,
+                fixedHeight = 22
             };
+            // Ensure readable contrast depending on skin
+            cardStyle.normal.textColor = EditorGUIUtility.isProSkin ? Color.white : Color.black;
 
             selectedStyle = new GUIStyle("box")
             {
@@ -117,8 +135,16 @@ namespace Antura.Discover.Editor
         {
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
 
-            clusterCollection = (KnowledgeCollectionData)EditorGUILayout.ObjectField(
-                clusterCollection, typeof(KnowledgeCollectionData), false, GUILayout.Width(200));
+            EditorGUI.BeginChangeCheck();
+            var newCollection = (KnowledgeCollectionData)EditorGUILayout.ObjectField(
+                clusterCollection, typeof(KnowledgeCollectionData), false, GUILayout.Width(220));
+            if (EditorGUI.EndChangeCheck())
+            {
+                clusterCollection = newCollection;
+                var p = clusterCollection ? AssetDatabase.GetAssetPath(clusterCollection) : string.Empty;
+                EditorPrefs.SetString(PrefKeyCollectionPath, p);
+                RefreshLayout();
+            }
 
             if (GUILayout.Button("Refresh Layout", EditorStyles.toolbarButton))
             {
@@ -137,6 +163,11 @@ namespace Antura.Discover.Editor
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
             filterPriority = (ClusterPriority)EditorGUILayout.EnumPopup(filterPriority, EditorStyles.toolbarPopup, GUILayout.Width(80));
 
+            GUILayout.Space(10);
+            // Connection type filter popup
+            string[] connOptions = BuildConnectionTypeOptions();
+            connectionTypeIndex = EditorGUILayout.Popup(connectionTypeIndex, connOptions, EditorStyles.toolbarPopup, GUILayout.Width(160));
+
             GUILayout.FlexibleSpace();
 
             EditorGUILayout.LabelField($"Zoom: {zoomLevel:F2}", GUILayout.Width(80));
@@ -148,15 +179,19 @@ namespace Antura.Discover.Editor
         {
             Event e = Event.current;
 
+            Rect graphArea = new Rect(0, EditorGUIUtility.singleLineHeight + 5, position.width - 250, position.height - EditorGUIUtility.singleLineHeight - 5);
+
             if (e.type == EventType.MouseDown && e.button == 0)
             {
-                Vector2 mousePos = e.mousePosition;
-                mousePos = (mousePos - graphOffset) / zoomLevel;
+                if (!graphArea.Contains(e.mousePosition))
+                    return;
+                Vector2 local = e.mousePosition - new Vector2(graphArea.x, graphArea.y);
+                Vector2 mousePos = (local / zoomLevel) + graphScroll;
 
                 // Check cluster selection
                 foreach (var kvp in clusterPositions)
                 {
-                    Rect clusterRect = GetClusterRect(kvp.Key, kvp.Value);
+                    Rect clusterRect = GetClusterRect(kvp.Key, kvp.Value - graphDrawOrigin);
                     if (clusterRect.Contains(mousePos))
                     {
                         selectedCluster = kvp.Key;
@@ -172,7 +207,7 @@ namespace Antura.Discover.Editor
                 {
                     foreach (var kvp in cardPositions)
                     {
-                        Rect cardRect = GetCardRect(kvp.Key, kvp.Value);
+                        Rect cardRect = GetCardRect(kvp.Key, kvp.Value - graphDrawOrigin);
                         if (cardRect.Contains(mousePos))
                         {
                             selectedCard = kvp.Key;
@@ -195,7 +230,7 @@ namespace Antura.Discover.Editor
                 }
 
                 Vector2 delta = e.mousePosition - lastMousePos;
-                graphOffset += delta;
+                graphScroll -= delta / Mathf.Max(0.01f, zoomLevel);
                 lastMousePos = e.mousePosition;
                 e.Use();
             }
@@ -219,12 +254,13 @@ namespace Antura.Discover.Editor
                 return;
 
             Rect graphArea = new Rect(0, EditorGUIUtility.singleLineHeight + 5, position.width - 250, position.height - EditorGUIUtility.singleLineHeight - 5);
+            var bounds = ComputeGraphBounds();
+            graphDrawOrigin = new Vector2(bounds.xMin, bounds.yMin);
+            var contentSize = new Vector2(Mathf.Max(bounds.width, graphArea.width), Mathf.Max(bounds.height, graphArea.height));
+            graphScroll = GUI.BeginScrollView(graphArea, graphScroll, new Rect(0, 0, contentSize.x, contentSize.y));
 
-            GUI.BeginGroup(graphArea);
-
-            // Apply zoom and offset
             Matrix4x4 oldMatrix = GUI.matrix;
-            GUI.matrix = Matrix4x4.TRS(graphOffset, Quaternion.identity, Vector3.one * zoomLevel);
+            GUI.matrix = Matrix4x4.TRS(Vector3.zero, Quaternion.identity, Vector3.one * zoomLevel);
 
             // Draw bridges first (behind everything)
             if (showBridges)
@@ -236,6 +272,7 @@ namespace Antura.Discover.Editor
             if (showConnections)
             {
                 DrawCardConnections();
+                DrawClusterCardLinks();
             }
 
             // Draw clusters
@@ -248,7 +285,7 @@ namespace Antura.Discover.Editor
             }
 
             GUI.matrix = oldMatrix;
-            GUI.EndGroup();
+            GUI.EndScrollView();
         }
 
         private void DrawClusters()
@@ -262,7 +299,7 @@ namespace Antura.Discover.Editor
                     clusterPositions[cluster] = GetRandomPosition();
 
                 Vector2 pos = clusterPositions[cluster];
-                Rect rect = GetClusterRect(cluster, pos);
+                Rect rect = GetClusterRect(cluster, pos - graphDrawOrigin);
 
                 // Set color based on priority
                 Color oldColor = GUI.backgroundColor;
@@ -282,41 +319,28 @@ namespace Antura.Discover.Editor
 
         private void DrawCards()
         {
-            foreach (var cluster in clusterCollection.allClusters)
+            foreach (var card in uniqueCards)
             {
-                if (cluster == null || cluster.priority > filterPriority)
+                if (card == null)
                     continue;
-                if (!clusterPositions.ContainsKey(cluster))
+                if (!cardPositions.TryGetValue(card, out var cardPos))
                     continue;
 
-                Vector2 clusterPos = clusterPositions[cluster];
-                var allCards = cluster.GetAllCards();
+                Rect rect = GetCardRect(card, cardPos - graphDrawOrigin);
 
-                for (int i = 0; i < allCards.Count; i++)
+                Color oldColor = GUI.backgroundColor;
+                if (card == selectedCard)
+                    GUI.backgroundColor = Color.yellow;
+
+                string label = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
+                if (GUI.Button(rect, label, cardStyle))
                 {
-                    var card = allCards[i];
-                    if (card == null)
-                        continue;
-
-                    Vector2 cardPos = GetCardPositionInCluster(clusterPos, i, allCards.Count);
-                    cardPositions[card] = cardPos;
-
-                    Rect rect = GetCardRect(card, cardPos);
-
-                    Color oldColor = GUI.backgroundColor;
-                    if (card == selectedCard)
-                        GUI.backgroundColor = Color.yellow;
-                    else if (card == cluster.coreCard)
-                        GUI.backgroundColor = Color.cyan;
-
-                    if (GUI.Button(rect, card.name, cardStyle))
-                    {
-                        selectedCard = card;
-                        selectedCluster = cluster;
-                    }
-
-                    GUI.backgroundColor = oldColor;
+                    selectedCard = card;
+                    // Prefer to focus on one of its clusters
+                    selectedCluster = clusterCollection.FindClusterForCard(card);
                 }
+
+                GUI.backgroundColor = oldColor;
             }
         }
 
@@ -341,11 +365,17 @@ namespace Antura.Discover.Editor
                         continue;
 
                     Vector2 connectedPos = cardPositions[connection.connectedCard];
-
+                    if (connectionTypeIndex > 0)
+                    {
+                        var types = (ConnectionType[])Enum.GetValues(typeof(ConnectionType));
+                        var filterType = types[Mathf.Clamp(connectionTypeIndex - 1, 0, types.Length - 1)];
+                        if (connection.connectionType != filterType)
+                            continue;
+                    }
                     Color connectionColor = GetConnectionTypeColor(connection.connectionType);
                     connectionColor.a = connection.connectionStrength;
 
-                    DrawLine(corePos, connectedPos, connectionColor, connection.connectionStrength * 3f);
+                    DrawLine(corePos - graphDrawOrigin, connectedPos - graphDrawOrigin, connectionColor, connection.connectionStrength * 3f);
                 }
             }
         }
@@ -362,8 +392,8 @@ namespace Antura.Discover.Editor
                 if (!clusterPositions.ContainsKey(bridge.fromCluster) || !clusterPositions.ContainsKey(bridge.toCluster))
                     continue;
 
-                Vector2 fromPos = clusterPositions[bridge.fromCluster];
-                Vector2 toPos = clusterPositions[bridge.toCluster];
+                Vector2 fromPos = clusterPositions[bridge.fromCluster] - graphDrawOrigin;
+                Vector2 toPos = clusterPositions[bridge.toCluster] - graphDrawOrigin;
 
                 DrawLine(fromPos, toPos, Color.magenta, bridge.bridgeStrength * 5f);
             }
@@ -371,6 +401,7 @@ namespace Antura.Discover.Editor
 
         private void DrawSidebar()
         {
+            GUI.contentColor = EditorGUIUtility.isProSkin ? Color.white : Color.black;
             Rect sidebarArea = new Rect(position.width - 250, EditorGUIUtility.singleLineHeight + 5, 250, position.height - EditorGUIUtility.singleLineHeight - 5);
 
             GUI.BeginGroup(sidebarArea, EditorStyles.helpBox);
@@ -454,6 +485,7 @@ namespace Antura.Discover.Editor
                         clusterPositions[cluster] = GetRandomPosition();
                     }
                 }
+                LayoutCardsUnique();
             }
         }
 
@@ -476,6 +508,39 @@ namespace Antura.Discover.Editor
                 );
                 clusterPositions[clusters[i]] = pos;
             }
+
+            // Lay out unique cards on a larger ring
+            LayoutCardsUnique(center, radius * 1.6f);
+        }
+
+        private void LayoutCardsUnique()
+        {
+            LayoutCardsUnique(new Vector2(300, 200), 320f);
+        }
+
+        private void LayoutCardsUnique(Vector2 center, float radius)
+        {
+            // Build unique set
+            var set = new HashSet<CardData>();
+            foreach (var cl in clusterCollection.allClusters)
+            {
+                if (cl == null)
+                    continue;
+                var cards = cl.GetAllCards();
+                foreach (var c in cards)
+                    if (c != null)
+                        set.Add(c);
+            }
+            uniqueCards = set.ToList();
+
+            // Position cards on a ring
+            cardPositions.Clear();
+            for (int i = 0; i < uniqueCards.Count; i++)
+            {
+                float angle = (float)i / Math.Max(1, uniqueCards.Count) * Mathf.PI * 2;
+                Vector2 pos = center + new Vector2(Mathf.Cos(angle) * radius, Mathf.Sin(angle) * radius);
+                cardPositions[uniqueCards[i]] = pos;
+            }
         }
 
         private Vector2 GetRandomPosition()
@@ -493,7 +558,7 @@ namespace Antura.Discover.Editor
 
         private Rect GetCardRect(CardData card, Vector2 pos)
         {
-            return new Rect(pos.x - 25, pos.y - 10, 50, 20);
+            return new Rect(pos.x - 50, pos.y - 11, 100, 22);
         }
 
         private Vector2 GetCardPositionInCluster(Vector2 clusterPos, int cardIndex, int totalCards)
@@ -524,11 +589,85 @@ namespace Antura.Discover.Editor
                     return Color.red;
                 case ConnectionType.Cultural:
                     return Color.magenta;
+                case ConnectionType.Temporal:
+                    return new Color(1f, 0.5f, 0f); // orange
+                case ConnectionType.Causal:
+                    return new Color(0.6f, 0.2f, 1f); // purple-ish
                 case ConnectionType.Functional:
                     return Color.cyan;
+                case ConnectionType.Conceptual:
+                    return new Color(0.2f, 0.8f, 0.8f);
+                case ConnectionType.Comparison:
+                    return new Color(0.8f, 0.8f, 0.2f);
                 default:
                     return Color.white;
             }
+        }
+
+        private void DrawClusterCardLinks()
+        {
+            foreach (var cluster in clusterCollection.allClusters)
+            {
+                if (cluster == null || cluster.priority > filterPriority)
+                    continue;
+                if (!clusterPositions.TryGetValue(cluster, out var cPos))
+                    continue;
+
+                var cards = cluster.GetAllCards();
+                foreach (var card in cards)
+                {
+                    if (card == null)
+                        continue;
+                    if (!cardPositions.TryGetValue(card, out var kPos))
+                        continue;
+                    DrawLine(cPos - graphDrawOrigin, kPos - graphDrawOrigin, Color.gray, 1.5f);
+                }
+            }
+        }
+
+        private Rect ComputeGraphBounds()
+        {
+            float minX = float.PositiveInfinity, minY = float.PositiveInfinity;
+            float maxX = float.NegativeInfinity, maxY = float.NegativeInfinity;
+
+            void Enc(Rect r)
+            {
+                minX = Mathf.Min(minX, r.xMin);
+                minY = Mathf.Min(minY, r.yMin);
+                maxX = Mathf.Max(maxX, r.xMax);
+                maxY = Mathf.Max(maxY, r.yMax);
+            }
+
+            foreach (var kv in clusterPositions)
+            {
+                if (kv.Key == null)
+                    continue;
+                Enc(new Rect(kv.Value.x - 60, kv.Value.y - 30, 120, 60));
+            }
+            foreach (var kv in cardPositions)
+            {
+                if (kv.Key == null)
+                    continue;
+                Enc(new Rect(kv.Value.x - 50, kv.Value.y - 11, 100, 22));
+            }
+
+            if (!float.IsFinite(minX) || !float.IsFinite(minY) || !float.IsFinite(maxX) || !float.IsFinite(maxY))
+            {
+                minX = minY = 0f;
+                maxX = maxY = 1000f;
+            }
+
+            const float margin = 200f;
+            return Rect.MinMaxRect(minX - margin, minY - margin, maxX + margin, maxY + margin);
+        }
+
+        private static string[] BuildConnectionTypeOptions()
+        {
+            var names = Enum.GetNames(typeof(ConnectionType));
+            var list = new List<string>(names.Length + 1) { "Connections: All" };
+            foreach (var n in names)
+                list.Add($"Type: {n}");
+            return list.ToArray();
         }
 
         private void DrawLine(Vector2 from, Vector2 to, Color color, float width)
@@ -543,8 +682,12 @@ namespace Antura.Discover.Editor
         {
             if (clusterPositions.ContainsKey(cluster))
             {
-                Vector2 clusterPos = clusterPositions[cluster];
-                graphOffset = -clusterPos * zoomLevel + new Vector2(position.width * 0.3f, position.height * 0.5f);
+                Vector2 clusterPos = clusterPositions[cluster] - graphDrawOrigin;
+                Rect graphArea = new Rect(0, EditorGUIUtility.singleLineHeight + 5, position.width - 250, position.height - EditorGUIUtility.singleLineHeight - 5);
+                Vector2 viewportCenter = new Vector2(graphArea.width, graphArea.height) * 0.5f / Mathf.Max(0.01f, zoomLevel);
+                graphScroll = clusterPos - viewportCenter;
+                graphScroll.x = Mathf.Max(0, graphScroll.x);
+                graphScroll.y = Mathf.Max(0, graphScroll.y);
             }
         }
     }

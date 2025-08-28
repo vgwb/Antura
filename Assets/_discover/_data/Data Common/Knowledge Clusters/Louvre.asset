@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: Louvre
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterData
+  clusterName: Louvre
+  description: 
+  priority: 3
+  clusterColor: {r: 1, g: 1, b: 1, a: 1}
+  coreCard: {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
+  connections:
+  - connectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 9c8a75583db2d4fed9fd908cd89a70f5, type: 2}
+    connectionType: 5
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 7f394b68eadd5478db5016c14c370613, type: 2}
+    connectionType: 1
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 38a9a0cacc74a468c8778813ef6aab08, type: 2}
+    connectionType: 5
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 0345023b0cc744e98bb604629cffbff1, type: 2}
+    connectionType: 5
+    connectionStrength: 0.708
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  discoveryPath:
+  - {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
+  - {fileID: 11400000, guid: 0345023b0cc744e98bb604629cffbff1, type: 2}
+  - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+  - {fileID: 11400000, guid: 9c8a75583db2d4fed9fd908cd89a70f5, type: 2}
+  - {fileID: 11400000, guid: 7f394b68eadd5478db5016c14c370613, type: 2}
+  - {fileID: 11400000, guid: 38a9a0cacc74a468c8778813ef6aab08, type: 2}
+  cohesionStrength: 0.762
+  targetAge: 2
+  educationalTopics: 
