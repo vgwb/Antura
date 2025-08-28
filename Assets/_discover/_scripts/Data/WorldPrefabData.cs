@@ -7,7 +7,7 @@ namespace Antura.Discover
     {
         None = 0,
         Antura = 1,
-        AdventurED = 2,
+        Discover = 2,
         Hexplorando = 10,
         K_BlockyChars = 36,
         K_Car = 20,
