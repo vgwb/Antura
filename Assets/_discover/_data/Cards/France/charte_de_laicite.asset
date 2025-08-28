@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: BridgesTrains
-  m_EditorClassIdentifier: 
-  Id: fr_bridgestrains
+  m_Name: charte_de_laicite
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
+  Id: fr_charte_de_laicite
   DevStatus: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 8508085886983
+      m_KeyId: 8508094275584
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -27,22 +27,24 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 8508090081280
+      m_KeyId: 8508094275585
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Category: 9
+  Category: 0
   Topics: 
   Year: 0
-  Country: 0
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
   Words: []
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 3f4cfbd5d1f074fffb368b88bfd850e4, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 23b55c2f3e87344fd9a680def2a37bb3, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -51,7 +53,8 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   Tag: 0
   CustomTag: 
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   references:
     version: 2
     RefIds: []

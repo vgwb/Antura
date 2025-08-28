@@ -1,0 +1,60 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: Baguette
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterSO
+  clusterName: Baguette
+  description: Everything related to the iconic Paris landmark
+  priority: 2
+  clusterColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
+  coreCard: {fileID: 11400000, guid: cd6c73dbcae5443c1a02cc32b2bb0360, type: 2}
+  connections:
+  - connectedCard: {fileID: 11400000, guid: 296c81d4f43a04bcd85a480a8c5a2f1c, type: 2}
+    connectionType: 0
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 95f1ab513f0e8446e82a2e62b66e3cfb, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 176452962475749dfba7876aa911b778, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 659ba0af3d0974272ba4b1df125fb6c6, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: feb8b2e33a14b454b932914d2804ebf4, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  discoveryPath:
+  - {fileID: 11400000, guid: cd6c73dbcae5443c1a02cc32b2bb0360, type: 2}
+  - {fileID: 11400000, guid: 296c81d4f43a04bcd85a480a8c5a2f1c, type: 2}
+  - {fileID: 11400000, guid: 95f1ab513f0e8446e82a2e62b66e3cfb, type: 2}
+  - {fileID: 11400000, guid: 176452962475749dfba7876aa911b778, type: 2}
+  - {fileID: 11400000, guid: 659ba0af3d0974272ba4b1df125fb6c6, type: 2}
+  - {fileID: 11400000, guid: feb8b2e33a14b454b932914d2804ebf4, type: 2}
+  cohesionStrength: 0.813
+  targetAge: 1
+  educationalTopics: 02000000
