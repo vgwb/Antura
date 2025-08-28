@@ -395,5 +395,19 @@ namespace Antura.Discover
             ActionManager.I.CommandSetActive(triggerable, active);
         }
 
+        // ------------------------------------------------------------
+        // UTILITIES
+        // ------------------------------------------------------------
+
+        public void DebugMetadata(string nodeName)
+        {
+            if (runner == null || string.IsNullOrEmpty(nodeName))
+                return;
+
+            var metadata = runner.Dialogue.GetHeaderValue(nodeName, "tags");
+
+
+            Debug.Log($"TAGS for {nodeName}: {metadata}");
+        }
     }
 }

@@ -145,7 +145,6 @@ GameObject:
   - component: {fileID: 6104633436223330679}
   - component: {fileID: 3265454570424409887}
   - component: {fileID: 1995716663718980252}
-  - component: {fileID: 635009091083435798}
   - component: {fileID: 9164591454477344658}
   m_Layer: 0
   m_Name: DiscoverGameManager
@@ -187,7 +186,6 @@ MonoBehaviour:
   StartingQuest: {fileID: 0}
   questManager: {fileID: 0}
   yarnAnturaManager: {fileID: 1995716663718980252}
-  yarnConversationController: {fileID: 635009091083435798}
   actionManager: {fileID: 0}
   isPaused: 0
 --- !u!114 &1995716663718980252
@@ -206,19 +204,6 @@ MonoBehaviour:
   presenter: {fileID: 227907427024555449}
   CurrentLanguage: EN
   NativeLanguage: EN
---- !u!114 &635009091083435798
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5736206750971171309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1950b0864f5ab46589de2956bba70cd0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  runner: {fileID: 5021966162577449117}
 --- !u!114 &9164591454477344658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -232,6 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.ActivityManager
   ActivityList: {fileID: 11400000, guid: 5959186c3a0f54ec6b11cecc4d36d6a1, type: 2}
+  _returnNode: 
 --- !u!1001 &5873645632079191059
 PrefabInstance:
   m_ObjectHideFlags: 0
