@@ -260,7 +260,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 3823903038637178398}
   - {fileID: 8967688457783689496}
   - {fileID: 2616230320132742953}
   - {fileID: 3404612640653930833}
@@ -456,11 +455,10 @@ Transform:
   - {fileID: 5020746839821993197}
   - {fileID: 2135093465455189437}
   - {fileID: 7360909333549831750}
+  - {fileID: 3823903038637178398}
   - {fileID: 7442194353790339953}
-  - {fileID: 3777555613411034270}
   - {fileID: 2649036991570037210}
-  - {fileID: 1937664971612375368}
-  - {fileID: 8875475815102260671}
+  - {fileID: 2406238325198539554}
   - {fileID: 1924861523044115501}
   - {fileID: 7759257881524590458}
   - {fileID: 1278207417919499351}
@@ -481,6 +479,40 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826e6502b32ee4fdd859412c098ce30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldController
+--- !u!1 &7050026954971248921
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2406238325198539554}
+  m_Layer: 0
+  m_Name: REBUILD!
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2406238325198539554
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7050026954971248921}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children:
+  - {fileID: 1937664971612375368}
+  - {fileID: 8875475815102260671}
+  - {fileID: 3777555613411034270}
+  m_Father: {fileID: 7370482817960969945}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8300302292400974923
 GameObject:
   m_ObjectHideFlags: 0
@@ -3096,7 +3128,7 @@ PrefabInstance:
     - target: {fileID: 118314223952099230, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -58.8
+      value: -93.7
       objectReference: {fileID: 0}
     - target: {fileID: 118314223952099230, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
@@ -3106,7 +3138,7 @@ PrefabInstance:
     - target: {fileID: 118314223952099230, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -47
+      value: -60.8
       objectReference: {fileID: 0}
     - target: {fileID: 118314223952099230, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
@@ -3161,12 +3193,12 @@ PrefabInstance:
     - target: {fileID: 5073386199102664468, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3
+      value: -40.5
       objectReference: {fileID: 0}
     - target: {fileID: 5073386199102664468, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.7
+      value: -7.5
       objectReference: {fileID: 0}
     - target: {fileID: 5940056505661811199, guid: 00afeb170bde849bea82fdaf37f4eba8,
         type: 3}
@@ -3965,27 +3997,37 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7360909333549831750}
+    m_TransformParent: {fileID: 7370482817960969945}
     m_Modifications:
     - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
+        type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.43892002
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 13.46
+      value: -19.9
       objectReference: {fileID: 0}
     - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.14
       objectReference: {fileID: 0}
     - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 91.590004
+      value: -60.01
       objectReference: {fileID: 0}
     - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
@@ -4022,10 +4064,15 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2390962218326418061, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6527066903052038206, guid: a1c395a704ae04bb2be2ea6ba0a129ff,
         type: 3}
       propertyPath: m_Name
-      value: tile-low
+      value: under floor museum
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -6635,7 +6682,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7370482817960969945}
+    m_TransformParent: {fileID: 2406238325198539554}
     m_Modifications:
     - target: {fileID: 1520700927005757317, guid: 343d856b900f12a43963394c9845695a,
         type: 3}
@@ -10287,7 +10334,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7370482817960969945}
+    m_TransformParent: {fileID: 2406238325198539554}
     m_Modifications:
     - target: {fileID: 2424464135954675688, guid: 11d3657864854e34180ffaf0397a864c,
         type: 3}
@@ -10446,12 +10493,17 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 7370482817960969945}
+    m_TransformParent: {fileID: 2406238325198539554}
     m_Modifications:
     - target: {fileID: 3713750301827673163, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
       propertyPath: m_Name
       value: OpenHouse_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3713750301827673163, guid: 63f92b85a7295fe438b6bd0845408899,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3879229188476924186, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
@@ -10471,17 +10523,17 @@ PrefabInstance:
     - target: {fileID: 5734925263565385516, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.83
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734925263565385516, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.109999895
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734925263565385516, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 175.72
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5734925263565385516, guid: 63f92b85a7295fe438b6bd0845408899,
         type: 3}
@@ -19116,6 +19168,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8745309092176260195, guid: 197fc822d45f141bbbe07018e81f7f8d,
+        type: 3}
+      propertyPath: m_VersionIndex
+      value: 4755
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -20875,7 +20932,7 @@ PrefabInstance:
     - target: {fileID: 1520700927005757317, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -26.9
+      value: -25.46
       objectReference: {fileID: 0}
     - target: {fileID: 1520700927005757317, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
@@ -20885,7 +20942,7 @@ PrefabInstance:
     - target: {fileID: 1520700927005757317, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -75.94
+      value: -66.75
       objectReference: {fileID: 0}
     - target: {fileID: 1520700927005757317, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
@@ -20925,12 +20982,17 @@ PrefabInstance:
     - target: {fileID: 4944910698424850472, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
       propertyPath: m_Name
-      value: Openhouse_4 Jules Verne
+      value: Museum
       objectReference: {fileID: 0}
     - target: {fileID: 4944910698424850472, guid: 5539f2e61eef652489b910b34d662493,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8184126293121408459, guid: 5539f2e61eef652489b910b34d662493,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
