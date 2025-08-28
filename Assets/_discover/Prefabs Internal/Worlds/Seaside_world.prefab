@@ -256,7 +256,7 @@ Transform:
   m_GameObject: {fileID: 4422598368175267853}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -12.800003}
+  m_LocalPosition: {x: 7, y: 0, z: -12.800003}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -425,6 +425,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8486736905079848363}
+  - component: {fileID: 8032352354998064023}
   - component: {fileID: 1159220915594825829}
   - component: {fileID: 2931046833499249931}
   - component: {fileID: 8178187610526633151}
@@ -444,12 +445,27 @@ Transform:
   m_GameObject: {fileID: 8266494036424459268}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 12, y: 12, z: 12}
+  m_LocalPosition: {x: 5, y: 0, z: 0.80000305}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 3903470118658603703}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8032352354998064023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8266494036424459268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c56d4acf22728436d84236d4c7024acb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WaterTextureAnimator
+  scrollSpeed: {x: 0, y: 0.2}
+  pingPong: 1
+  pingPongSpeed: 0.2
 --- !u!33 &1159220915594825829
 MeshFilter:
   m_ObjectHideFlags: 0
