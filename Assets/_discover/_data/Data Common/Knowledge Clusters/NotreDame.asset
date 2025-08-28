@@ -12,13 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
   m_Name: NotreDame
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterData
-  clusterName: 
+  clusterName: Notre Dame
   description: 
   priority: 3
   clusterColor: {r: 1, g: 1, b: 1, a: 1}
-  coreCard: {fileID: 0}
-  connections: []
-  discoveryPath: []
+  coreCard: {fileID: 11400000, guid: 6f7e0e892ea5545109e80c590bec4e8d, type: 2}
+  connections:
+  - connectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+    connectionType: 2
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  - connectedCard: {fileID: 11400000, guid: 53e4759e7d9024a2f9de78487b87859a, type: 2}
+    connectionType: 6
+    connectionStrength: 0.506
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  discoveryPath:
+  - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+  - {fileID: 11400000, guid: 6f7e0e892ea5545109e80c590bec4e8d, type: 2}
+  - {fileID: 11400000, guid: 53e4759e7d9024a2f9de78487b87859a, type: 2}
   cohesionStrength: 0.8
   targetAge: 2
   educationalTopics: 
