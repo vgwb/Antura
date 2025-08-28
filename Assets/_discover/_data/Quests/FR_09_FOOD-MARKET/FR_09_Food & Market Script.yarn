@@ -35,6 +35,7 @@ tags: actorUID=MAN
 ---
 <<asset shop_baker>>
 Bonjour! I sell fresh bread. I am a baker.
+<<card  fr_baker>>
 Every day I wake up early to bake.
 <<jump baker_question>>
 ===
@@ -156,6 +157,7 @@ group: fisher
 tags: actorUID=OLD_MAN
 ---
 OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger.
+<<card  fr_fishmonger>>
 All of my items come from the sea!
 <<jump fisher_question>>
 ===
@@ -207,6 +209,7 @@ group: cheesemonger
 tags: actorUID=WOMAN
 ---
 WOMAN: Hi! I sell cheese and milk. I am a cheesemonger.
+<<card  fr_cheesemonger>>
 I use both cow milk and goat milk.
 <<jump cheesemonger_question>>
 ===
@@ -273,8 +276,8 @@ position: 634,820
 group: greengrocer
 tags: actorUID=WOMAN
 ---
-WOMAN: Hello! I sell fruits and vegetables.
-I'm a greengrocer.
+WOMAN: Hello! I sell fruits and vegetables. I'm a greengrocer.
+<<card  fr_greengrocer>>
 My items are always fresh!
 <<jump greengrocer_question>>
 ===
@@ -333,7 +336,9 @@ position: 1684,-8
 group: grocer
 tags: actorUID=OLD_WOMAN
 ---
-OLD_WOMAN: Hello! I sell spices and pantry goods. I am a grocer. You can use my items for many recipes.
+OLD_WOMAN: Hello! I sell spices and pantry goods. I am a grocer.
+<<card  fr_grocer>> 
+You can use my items for many recipes.
 <<jump grocer_question>>
 ===
 
