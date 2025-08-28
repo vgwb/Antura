@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace Antura.Discover.Interaction
+namespace Antura.Discover
 {
     public abstract class ActionAbstract : MonoBehaviour
     {

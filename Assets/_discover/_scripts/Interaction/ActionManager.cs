@@ -126,6 +126,19 @@ namespace Antura.Discover
             }
         }
 
+        public void CommandSetActive(string name, bool active)
+        {
+            var triggerable = FindActableInChildren(name);
+            if (triggerable != null)
+            {
+                triggerable.gameObject.SetActive(active);
+            }
+            else
+            {
+                Debug.LogWarning($"Triggerable '{name}' not found under ActionManager hierarchy.");
+            }
+        }
+
         public void ResolveCommands(List<CommandData> commands)
         {
             foreach (var command in commands)
@@ -249,6 +262,19 @@ namespace Antura.Discover
             Debug.LogWarning("ActionManager: FindCameraFocus: focus not found for code " + id);
             return null;
 
+        }
+
+        private Actable FindActableInChildren(string name)
+        {
+            var list = GetComponentsInChildren<Actable>(includeInactive: true);
+            if (list == null || list.Length == 0)
+                return null;
+
+            if (string.IsNullOrEmpty(name))
+                return list.FirstOrDefault();
+
+            return list.FirstOrDefault(t => string.Equals(t.gameObject.name, name, StringComparison.OrdinalIgnoreCase)
+                                          || string.Equals(t.name, name, StringComparison.OrdinalIgnoreCase));
         }
 
         #region Debug Methods

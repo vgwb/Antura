@@ -1,6 +1,7 @@
 using Antura.Discover.Activities;
 using System;
 using System.Collections;
+using System.Linq;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -382,6 +383,16 @@ namespace Antura.Discover
             if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
                 return 0;
             return ActivityManager.I?.GetResult(activityCode) ?? 0;
+        }
+
+        // ------------------------------------------------------------
+        // TRIGGERS
+        // ------------------------------------------------------------
+        [YarnCommand("SetActive")]
+        public static void SetActive(string triggerable, bool active = true)
+        {
+            // Debug.Log($"YarnAnturaManager: SetActive {triggerable} {active}");
+            ActionManager.I.CommandSetActive(triggerable, active);
         }
 
     }
