@@ -90,6 +90,7 @@ tags: actorUID=MAN, no_translate
 -> Merci!
 -> Au revoir!
 -> Bonne journée!
+<<SetActive Collect_Baker>>
 ===
 
 title: baker_dontsell
@@ -108,6 +109,7 @@ tags: actorUID=OLD_MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=L
 -> "Au revoir!":
 -> "Merci!":
 -> "Bonne journée!":
+<<SetActive Collect_Fisher>>
 ===
 
 title: fisher_dontsell
@@ -196,6 +198,7 @@ tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LAN
 -> "Bonne journée!":
 -> "Au revoir!":
 -> "Merci!":
+<<SetActive Collect_Cheesemonger>>
 ===
 
 title: cheesemonger_bonjour
@@ -232,6 +235,7 @@ tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LAN
 -> "Bonne journée!":
 -> "Merci!":
 -> "Au revoir!":
+<<SetActive Collect_Greengrocer>>
 ===
 
 title: greengrocer_question
@@ -283,6 +287,7 @@ tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta
 -> "Au revoir!":
 -> "Merci!":
 -> "Bonne journée!":
+<<SetActive Collect_Grocer>>
 ===
 
 title: grocer_dontsell
