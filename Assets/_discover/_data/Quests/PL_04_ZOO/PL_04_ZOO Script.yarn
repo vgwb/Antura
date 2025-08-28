@@ -12,348 +12,292 @@
 // 6) <<activity order zoo_animal_facts tutorial>> – Pair ANIMALS ↔ FACTS (recap).
 // 7) <<activity memory zoo_animal_cards tutorial>> – Animal card pairs (recap).
 // 8) <<activity quiz wroclaw_zoo_basics tutorial>> – Final quiz (FLAG, facts).
-// Spoken Lines (count): 54
 
-//--------------------------------------------
-// INTRO – CRIME SCENE
-//--------------------------------------------
-
-title: START_ZOO
+title: init
 position: 0,0
 group: Intro
-tags: actor=Zoo Director
+tags: actor=Man, type:Panel
 image: centennial_hall_empty_flag
+color: red
 ---
-Zoo Director: The FLAG is missing!
-Zoo Director: It was on the IGLICA at CENTENNIAL HALL.
-Zoo Director: Please help, detective.
+The FLAG is missing!
+It was on the IGLICA at CENTENNIAL HALL.
+Please help, find it!
 
 //--------------------------------------------
 // ENTRANCE – AMBIENCE
 //--------------------------------------------
 ===
-title: ZOO_GATE
-position: 250,0
+title: animal_peacock
+position: -17,-453
 group: ZOO
 tags: actor=Peacock
 image: zoo_gate
 ---
-Peacock: My tail is a FLAG already!
+My tail is a FLAG already!
 
 ===
-title: ZOO_GATE_2
-position: 250,60
+title: animal_parrot
+position: -20,-273
 group: ZOO
 tags: actor=Parrot
 image: zoo_gate
 ---
-Parrot: Squawk! Red and yellow ran by!
--> Choose an ANIMAL
-    <<jump MENU_ANIMALS>>
-
-//--------------------------------------------
-// MENU – FREE ROAM
-//--------------------------------------------
-===
-title: MENU_ANIMALS
-position: 500,0
-group: ZOO
-tags: actor=Narrator
----
-Narrator: Pick an enclosure.
--> ELEPHANT
-    <<jump ELEPHANT_KEEPER>>
--> GIRAFFE
-    <<jump GIRAFFE_KEEPER>>
--> LION
-    <<jump LION_KEEPER>>
--> MONKEY
-    <<jump MONKEY_KEEPER>>
--> PENGUIN
-    <<jump PENGUIN_KEEPER>>
--> Recap
-    <<jump RECAP_GATE>>
+Squawk! Red and yellow ran by!
 
 //--------------------------------------------
 // PART 1 – ELEPHANT
 //--------------------------------------------
 ===
 title: ELEPHANT_KEEPER
-position: 0,200
+position: 343,6
 group: ELEPHANT
 tags: actor=Keeper
 image: elephant_keeper
+color: blue
 ---
-Keeper: ELEPHANT is the biggest ANIMAL.
-Keeper: ELEPHANT has great MEMORY.
-Keeper: Try the MEMORY game.
+ELEPHANT is the biggest ANIMAL.
+ELEPHANT has great MEMORY.
+Try the MEMORY game.
 <<activity memory elephant_sounds tutorial>>
 -> More info
     <<jump ELEPHANT_SIGN>>
 
 ===
 title: ELEPHANT_SIGN
-position: 250,200
+position: 606,22
 group: ELEPHANT
-tags: actor=Sign
+tags: actor=tutor
 image: elephant_sign
 ---
-Sign: ELEPHANT. Thick skin. Big EARS.
-Sign: Largest land ANIMAL.
--> Kid talk
-    <<jump ELEPHANT_KID>>
+ELEPHANT. Thick skin. Big EARS.
+Largest land ANIMAL.
 
 ===
 title: ELEPHANT_KID
-position: 500,200
+position: 907,14
 group: ELEPHANT
 tags: actor=Kid
 image: kid_elephant
 ---
-Kid: Its EARS are bigger than me!
-Kid: Can it fan me in summer?
--> Back
-    <<jump MENU_ANIMALS>>
+Its EARS are bigger than me!
+Can it fan me in summer?
 
 //--------------------------------------------
 // PART 2 – GIRAFFE
 //--------------------------------------------
 ===
 title: GIRAFFE_KEEPER
-position: 0,350
+position: 343,228
 group: GIRAFFE
 tags: actor=Keeper
 image: giraffe_keeper
+color: blue
 ---
-Keeper: GIRAFFE is the tallest MAMMAL.
-Keeper: Long NECK reaches LEAVES.
-Keeper: Clean to help her EAT.
+GIRAFFE is the tallest MAMMAL.
+Long NECK reaches LEAVES.
+Clean to help her EAT.
 <<activity cleancanvas giraffe_leaves tutorial>>
--> More info
-    <<jump GIRAFFE_SIGN>>
 
 ===
 title: GIRAFFE_SIGN
-position: 250,350
+position: 593,228
 group: GIRAFFE
 tags: actor=Sign
 image: giraffe_sign
 ---
-Sign: GIRAFFE. Tall. Long NECK.
-Sign: Long EYELASHES.
--> Kid talk
-    <<jump GIRAFFE_KID>>
+GIRAFFE. Tall. Long NECK.
+Long EYELASHES.
 
 ===
 title: GIRAFFE_KID
-position: 500,350
+position: 843,228
 group: GIRAFFE
 tags: actor=Kid
 image: kid_giraffe
 ---
-Kid: With that NECK,
-Kid: I could reach cookies!
--> Back
-    <<jump MENU_ANIMALS>>
+With that NECK,
+I could reach cookies!
 
 //--------------------------------------------
 // PART 3 – LION
 //--------------------------------------------
 ===
 title: LION_KEEPER
-position: 0,500
+position: 351,437
 group: LION
 tags: actor=Keeper
 image: lion_keeper
+color: blue
 ---
-Keeper: LION is the king.
-Keeper: LION lives in a PRIDE.
-Keeper: Match the LION facts.
+LION is the king.
+LION lives in a PRIDE.
+Match the LION facts.
 <<activity order lion_pride tutorial>>
--> More info
-    <<jump LION_SIGN>>
 
 ===
 title: LION_SIGN
-position: 250,500
+position: 601,437
 group: LION
 tags: actor=Sign
 image: lion_sign
 ---
-Sign: LION. PRIDE = family.
-Sign: Males have MANES.
--> Kid talk
-    <<jump LION_KID>>
+LION. PRIDE = family.
+Males have MANES.
 
 ===
 title: LION_KID
-position: 500,500
+position: 851,437
 group: LION
 tags: actor=Kid
 image: kid_lion
 ---
-Kid: That ROAR!
-Kid: My hat jumped!
--> Back
-    <<jump MENU_ANIMALS>>
+That ROAR!
+My hat jumped!
 
 //--------------------------------------------
 // PART 4 – MONKEY
 //--------------------------------------------
 ===
 title: MONKEY_KEEPER
-position: 0,650
+position: 364,685
 group: MONKEY
 tags: actor=Keeper
 image: monkey_keeper
+color: blue
 ---
-Keeper: MONKEY loves to CLIMB.
-Keeper: Hands, feet, and tail.
-Keeper: Clean the CLIMB path.
+MONKEY loves to CLIMB.
+Hands, feet, and tail.
+Clean the CLIMB path.
 <<activity cleancanvas monkey_climb tutorial>>
--> More info
-    <<jump MONKEY_SIGN>>
 
 ===
 title: MONKEY_SIGN
-position: 250,650
+position: 614,685
 group: MONKEY
 tags: actor=Sign
 image: monkey_sign
 ---
-Sign: MONKEY. Great CLIMBER.
-Sign: Loves FRUIT.
--> Kid talk
-    <<jump MONKEY_KID>>
+MONKEY. Great CLIMBER.
+Loves FRUIT.
 
 ===
 title: MONKEY_KID
-position: 500,650
+position: 864,685
 group: MONKEY
 tags: actor=Kid
 image: kid_monkey
 ---
-Kid: He copied my dance!
-Kid: Do monkeys wink?
--> Back
-    <<jump MENU_ANIMALS>>
+He copied my dance!
+Do monkeys wink?
 
 //--------------------------------------------
 // PART 5 – PENGUIN
 //--------------------------------------------
 ===
 title: PENGUIN_KEEPER
-position: 0,800
+position: 380,936
 group: PENGUIN
 tags: actor=Keeper
 image: penguin_keeper
+color: blue
 ---
-Keeper: PENGUIN is a BIRD.
-Keeper: It cannot fly. It can SWIM.
-Keeper: Remember the ICE path.
+PENGUIN is a BIRD.
+It cannot fly. It can SWIM.
+Remember the ICE path.
 <<activity memory penguin_paths tutorial>>
--> More info
-    <<jump PENGUIN_SIGN>>
 
 ===
 title: PENGUIN_SIGN
-position: 250,800
+position: 619,936
 group: PENGUIN
-tags: actor=Sign
+tags: actor=Tutor
 image: penguin_sign
 ---
-Sign: PENGUIN. Bird. Swimmer.
-Sign: Lives near OCEANS.
--> Kid talk
-    <<jump PENGUIN_KID>>
+PENGUIN. Bird. Swimmer.
+Lives near OCEANS.
 
 ===
 title: PENGUIN_KID
-position: 500,800
+position: 880,936
 group: PENGUIN
 tags: actor=Kid
 image: kid_penguin
 ---
-Kid: They WADDLE like me!
-Kid: Tiny tuxedos!
--> Back
-    <<jump MENU_ANIMALS>>
+They WADDLE like me!
+Tiny tuxedos!
 
 //--------------------------------------------
 // RECAP – MATCH & CARDS
 //--------------------------------------------
 ===
 title: RECAP_GATE
-position: 800,900
+position: 667,1215
 group: Recap
 tags: actor=Narrator
 image: zoo_recap
 ---
-Narrator: Ready to review?
-Narrator: Match ANIMALS to FACTS.
+Ready to review?
+Match ANIMALS to FACTS.
 <<activity order zoo_animal_facts tutorial>>
 
 ===
 title: RECAP_CARDS
-position: 1050,900
+position: 917,1215
 group: Recap
 tags: actor=Narrator
 image: zoo_cards
 ---
-Narrator: Now match the CARDS.
+Now match the CARDS.
 <<activity memory zoo_animal_cards tutorial>>
--> Return FLAG
-    <<jump RETURN_DIRECTOR>>
 
 //--------------------------------------------
 // TWIST – FLAG RETURN
 //--------------------------------------------
 ===
 title: RETURN_DIRECTOR
-position: 1300,900
-group: Twist
+position: -629,292
+group: End
 tags: actor=Zoo Director
 image: centennial_hall_antura_flag
 ---
-Zoo Director: Look! ANTURA has the FLAG!
+Look! ANTURA has the FLAG!
 -> Ceremony
     <<jump CEREMONY_END>>
 
 ===
 title: CEREMONY_END
-position: 1550,900
+position: -396,298
 group: End
 tags: actor=Zoo Director
 image: flag_on_iglica
 ---
-Zoo Director: The FLAG is home.
-Zoo Director: Thank you, detective.
--> Final Quiz
-    <<jump FINAL_QUIZ>>
+The FLAG is home.
+Thank you, detective.
+<<jump FINAL_QUIZ>>
 
 //--------------------------------------------
 // FINAL QUIZ
 //--------------------------------------------
 ===
 title: FINAL_QUIZ
-position: 1800,900
-group: Quiz
+position: -154,541
+group: End
 tags: actor=Narrator
 image: wroclaw_flag_quiz
 ---
-Narrator: Answer the questions.
-<<activity quiz wroclaw_zoo_basics tutorial>>
--> Quest Complete
-    <<jump QUEST_COMPLETE>>
+Answer the questions.
+<<activity quiz wroclaw_zoo_basics QUEST_COMPLETE>>
 
 ===
 title: QUEST_COMPLETE
-position: 2050,900
+position: -35,308
 group: End
 tags: actor=Narrator
 image: quest_complete
+color: red
 ---
-Narrator: Great work at the ZOO!
-Narrator: See you on the ODRA RIVER!
+Great work at the ZOO!
+See you on the ODRA RIVER!
 <<quest_end 3>>
 ===

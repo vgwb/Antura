@@ -16,29 +16,27 @@
 // INTRO – LIGHTHOUSE OFF
 //--------------------------------------------
 
-title: START_GDANSK
-position: 0,0
+title: init
+position: -288,-123
 group: Intro
 tags: actor=Narrator
 image: gdansk_lighthouse_off
+color: red
 ---
-Narrator: Welcome to GDAŃSK in POLAND.
-Narrator: The LIGHTHOUSE is off.
-Narrator: Let’s fix it!
+Welcome to GDAŃSK in POLAND.
+The LIGHTHOUSE is off.
+Let’s fix it!
 
 ===
 title: MISSION_NOTE
-position: 240,0
+position: -24,-127
 group: Intro
 tags: actor=Narrator
 image: mission_card
 ---
-Narrator: We need a gift for NEPTUNE.
-Narrator: Make a NECKLACE.
-Narrator: 5 AMBER + 5 SHELLS.
-
--> Go to the BEACH
-    <<jump BEACH_INTRO>>
+We need a gift for NEPTUNE.
+Make a NECKLACE.
+5 AMBER + 5 SHELLS.
 
 
 //--------------------------------------------
@@ -46,27 +44,27 @@ Narrator: 5 AMBER + 5 SHELLS.
 //--------------------------------------------
 ===
 title: BEACH_INTRO
-position: 480,0
+position: 379,-117
 group: Beach
 tags: actor=Narrator
 image: baltic_beach
 ---
-Narrator: This is the BALTIC SEA.
-Narrator: Let’s find SHELLS in the SAND.
+This is the BALTIC SEA.
+Let’s find SHELLS in the SAND.
 
 ===
 title: BEACH_SHELLS_HINT
-position: 720,0
+position: 639,-123
 group: Beach
 tags: actor=Narrator
 image: beach_sand_piles
 ---
-Narrator: Drag to clean the SAND.
-Narrator: Find 5 SHELL piles.
+Drag to clean the SAND.
+Find 5 SHELL piles.
 <<activity cleancanvas beach_shells tutorial>>
 
 -> Meet the FISHERMAN
-    <<jump FISHERMAN_MEET>>
+<<jump FISHERMAN_MEET>>
 
 
 //--------------------------------------------
@@ -121,24 +119,24 @@ Fisherman: It shines a bright light.
 //--------------------------------------------
 ===
 title: CRAFTING_INTRO
-position: 0,220
+position: -23,672
 group: Crafting
 tags: actor=Narrator
 image: crafting_table
 ---
-Narrator: We have 10 pieces.
-Narrator: AMBER and SHELL.
-Narrator: Make a pattern.
+We have 10 pieces.
+AMBER and SHELL.
+Make a pattern.
 
 ===
 title: CRAFTING_ORDER
-position: 240,220
+position: 217,672
 group: Crafting
 tags: actor=Narrator
 image: necklace_pattern
 ---
-Narrator: Drag in order.
-Narrator: AMBER–SHELL–AMBER–SHELL…
+Drag in order.
+AMBER–SHELL–AMBER–SHELL…
 <<activity order necklace_sequence tutorial>>
 
 -> To NEPTUNE’S FOUNTAIN
@@ -150,12 +148,12 @@ Narrator: AMBER–SHELL–AMBER–SHELL…
 //--------------------------------------------
 ===
 title: NEPTUNE_FOUNTAIN
-position: 480,220
+position: 457,672
 group: Neptune
 tags: actor=Narrator
 image: neptune_fountain
 ---
-Narrator: Place the NECKLACE on NEPTUNE.
+Place the NECKLACE on NEPTUNE.
 
 ===
 title: NEPTUNE_SPEAK
@@ -185,8 +183,8 @@ group: Neptune
 tags: actor=Narrator
 image: lighthouse_beam_on
 ---
-Narrator: FLASH! The LIGHTHOUSE shines.
-Narrator: Great job!
+FLASH! The LIGHTHOUSE shines.
+Great job!
 
 -> Watch for SEALS
     <<jump SEALS_WARNING>>
@@ -223,12 +221,12 @@ Antura: Woof! The quest is done!
 //--------------------------------------------
 ===
 title: RECAP_MEMORY
-position: 0,440
+position: -23,892
 group: Recap
 tags: actor=Narrator
 image: sea_vocab_cards
 ---
-Narrator: Match the words.
+Match the words.
 <<activity memory sea_vocab tutorial>>
 
 -> Final Quiz
@@ -240,13 +238,13 @@ Narrator: Match the words.
 //--------------------------------------------
 ===
 title: FINAL_QUIZ
-position: 240,440
-group: Quiz
+position: 217,892
+group: End
 tags: actor=Narrator
 image: baltic_quiz
 ---
-Narrator: Answer two questions.
-Narrator: Tap the best choice.
+Answer two questions.
+Tap the best choice.
 <<activity quiz baltic_basics tutorial>>
 // Suggested questions in preset:
 // 1) What sea is near GDAŃSK? a) BLACK  b) BALTIC ✅
@@ -262,12 +260,12 @@ Narrator: Tap the best choice.
 //--------------------------------------------
 ===
 title: QUEST_COMPLETE
-position: 480,440
+position: 457,892
 group: End
 tags: actor=Narrator
 image: quest_complete
 ---
-Narrator: You helped GDAŃSK.
-Narrator: The LIGHTHOUSE shines again!
+You helped GDAŃSK.
+The LIGHTHOUSE shines again!
 <<quest_end 3>>
 ===

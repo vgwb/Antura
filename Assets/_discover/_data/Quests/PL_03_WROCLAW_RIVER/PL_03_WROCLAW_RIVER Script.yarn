@@ -18,11 +18,12 @@
 //--------------------------------------------
 // INTRO – DOCK
 //--------------------------------------------
-title: START_ODRA
+title: init
 position: 0,0
 group: Intro
 tags: actor=BoatCaptain
 image: odra_dock
+color: red
 ---
 Boat Captain: Welcome to WROCŁAW in POLAND.
 Boat Captain: This is the ODRA RIVER.
@@ -88,8 +89,6 @@ Boat Captain: ROAD BRIDGE is for CARS.
 Boat Captain: Hint: spot CARS crossing.
 
 <<activity memory odra_bridges tutorial>>
--> See BOATS
-    <<jump BOATS_INTRO>>
 ===
 
 
@@ -148,8 +147,6 @@ Boat Captain: BRIDGE→people/CARS/TRAIN.
 Boat Captain: BOAT→goods/live.
 
 <<activity order odra_couples tutorial>>
--> See the MAP
-    <<jump MAP_INTRO>>
 ===
 
 
@@ -180,8 +177,6 @@ Narrator: Tap ODRA, WISŁA, BALTIC.
 Narrator: Follow RIVERS to the SEA.
 
 <<activity order odra_map_triplet tutorial>>
--> Back to dock
-    <<jump ENDING_DOCK>>
 ===
 
 
@@ -207,8 +202,8 @@ Boat Captain: Ready for a quiz?
 // FINAL QUIZ – ALWAYS LAST
 //--------------------------------------------
 title: FINAL_QUIZ
-position: 900,520
-group: Quiz
+position: 889,549
+group: End
 tags: actor=Narrator
 image: odra_quiz
 ---

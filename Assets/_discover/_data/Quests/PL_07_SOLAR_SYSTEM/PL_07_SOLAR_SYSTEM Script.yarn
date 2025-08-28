@@ -22,11 +22,12 @@
 // INTRO – ARRIVAL IN TORUŃ
 //--------------------------------------------
 
-title: START_TORUN
-position: 0,0
+title: Init
+position: -137,-132
 group: Intro
 tags: actor=Guide
 image: torun_street
+color: red
 ---
 <<declare $planets_found = 0>>
 <<declare $planets_needed = 8>>
@@ -34,22 +35,20 @@ Guide: Welcome to TORUŃ in POLAND.
 Guide: COPERNICUS was born here.
 Guide: ANTURA is stuck in his house!
 Guide: Let’s ask COPERNICUS for help.
--> Talk to COPERNICUS
-    <<jump COPERNICUS_OUTSIDE>>
 
 //--------------------------------------------
 // MEET COPERNICUS
 //--------------------------------------------
 ===
 title: COPERNICUS_OUTSIDE
-position: 200,0
+position: 162,-138
 group: Intro
 tags: actor=Copernicus
 image: copernicus_house_front
 ---
-Copernicus: Hello! I am NICOLAUS COPERNICUS.
-Copernicus: I can help you rescue ANTURA.
-Copernicus: First, fix my SOLAR SYSTEM map.
+Hello! I am NICOLAUS COPERNICUS.
+I can help you rescue ANTURA.
+First, fix my SOLAR SYSTEM map.
 -> Help with planets
     <<jump PLANETS_ORDER>>
 
@@ -75,9 +74,9 @@ position: 600,0
 group: SolarSystem
 tags: actor=Copernicus
 ---
-Copernicus: Well done!
-Copernicus: Long ago, people put EARTH in the center.
-Copernicus: I found the SUN is in the center.
+Well done!
+Long ago, people put EARTH in the center.
+I found the SUN is in the center.
 -> Enter the museum
     <<jump INSIDE_MUSEUM>>
 
@@ -121,9 +120,9 @@ group: Museum
 tags: actor=Copernicus
 image: telescope_display
 ---
-Copernicus: A TELESCOPE helps us see far.
-Copernicus: It has a LENS and an EYEPIECE.
-Copernicus: A PLANETARIUM shows the sky indoors.
+A TELESCOPE helps us see far.
+It has a LENS and an EYEPIECE.
+A PLANETARIUM shows the sky indoors.
 -> Match the parts
     <<jump TELESCOPE_PARTS>>
 
@@ -150,8 +149,8 @@ group: Museum
 tags: actor=Copernicus
 image: planet_piano_card
 ---
-Copernicus: Music helps memory.
-Copernicus: Play the PLANET order tune.
+Music helps memory.
+Play the PLANET order tune.
 -> Play
     <<jump PIANO_PLAY>>
 
@@ -318,8 +317,8 @@ group: SolarSystem
 tags: actor=Copernicus
 image: solar_model_finale
 ---
-Copernicus: You found all 8 PLANETS.
-Copernicus: The model is complete.
+You found all 8 PLANETS.
+The model is complete.
 -> Rescue ANTURA
     <<jump RESCUE_ANTURA_GUIDE>>
 
@@ -328,22 +327,23 @@ Copernicus: The model is complete.
 //--------------------------------------------
 ===
 title: RESCUE_ANTURA_GUIDE
-position: 0,440
+position: 1726,713
 group: Finale
 tags: actor=Guide
 image: antura_trail
+
 ---
 Guide: ANTURA is free!
 
 ===
 title: RESCUE_ANTURA_COP
-position: 200,440
-group: Finale
+position: -21,1066
+group: End
 tags: actor=Copernicus
 image: antura_rescued
 ---
-Copernicus: Thank you for your help.
-Copernicus: Remember: the SUN is in the center.
+Thank you for your help.
+"Remember: the SUN is in the center.""
 -> Final Quiz
     <<jump FINAL_QUIZ>>
 
@@ -352,8 +352,8 @@ Copernicus: Remember: the SUN is in the center.
 //--------------------------------------------
 ===
 title: FINAL_QUIZ
-position: 400,440
-group: Finale
+position: 372,1108
+group: End
 tags: actor=Narrator
 image: quiz_solar_system
 ---
@@ -372,10 +372,11 @@ Narrator: Tap the best choice.
 //--------------------------------------------
 ===
 title: QUEST_COMPLETE
-position: 600,440
+position: 727,1084
 group: End
 tags: actor=Narrator
 image: quest_complete
+color: red
 ---
 Narrator: You helped COPERNICUS.
 Narrator: The SOLAR SYSTEM is complete!
