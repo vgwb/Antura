@@ -70,12 +70,11 @@ title: school_4_talk_man
 position: 620,290
 tags: actorUID=OLD_MAN
 ---
-Hello! I found a backpack on my way here.
+OLD MAN: Hello! I found a backpack on my way here.
 These books are simpler than the ones my students use,
 so I don't think it belongs to them.
 <<action  SPAWN_BACKPACK>>
 Could it be yours?
-<<set $got_backpack = true>>
 ===
 
 
@@ -100,7 +99,7 @@ title: classroom_1
 position: 1574,-269
 tags: actorUID=MAN
 ---
-This is the CP classroom.
+MAN: This is the CP classroom.
 Children start primary school at 6 years old.
 This is not your class. Try the next door!
 <<action DOOR_OPEN_2>>
@@ -110,7 +109,7 @@ title: classroom_2
 position: 1579,-95
 tags: actorUID=WOMAN
 ---
-This is CE1,
+MAN: This is CE1,
 the second year of primary school.
 This is not your class. Try again!
 <<action DOOR_OPEN_3>>
@@ -120,9 +119,9 @@ title: classroom_3
 position: 1581,54
 tags: actorUID=WOMAN
 ---
-Hi there! This is the CE2 classroom
+WOMAN: Hi there! This is the CE2 classroom
 for students who are 8 years old.
-WOMAN: This is not your class, but you're getting close!
+This is not your class, but you're getting close!
 <<action DOOR_OPEN_4>>
 ===
 
@@ -130,7 +129,7 @@ title: classroom_4
 position: 1584,217
 tags: actorUID=OLD_WOMAN
 ---
-Hello! This is CM1,
+WOMAN: Hello! This is CM1,
 the second-to-last year of primary school.
 Your class is just over there!
 <<action DOOR_OPEN_5>>
@@ -141,8 +140,9 @@ Your class is just over there!
 title: classroom_5
 position: 1585,388
 tags: actorUID=GUIDE
+color: purple
 ---
-There you are! Welcome to CM2!
+GUIDE: There you are! Welcome to CM2!
 Let's get to work.
 Look, it's a writing lesson.
 In France, we learn to write in cursive.
@@ -153,7 +153,7 @@ GUIDE: Match each tool to the shape it draws.
 ===
 
 title: activity_match_done
-position: 1832,390
+position: 1838,385
 tags: actorUID=GUIDE
 ---
 GUIDE: Great job!
@@ -187,7 +187,7 @@ Find your backpack and then come back.
 
 
 title: school_canteen
-position: 1599,590
+position: 1830,-269
 tags: actorUID=OLD_WOMAN, 
 color: yellow
 ---
@@ -197,7 +197,7 @@ Look what's on the menu today!
 ===
 
 title: school_charte
-position: 1891,592
+position: 1830,-98
 tags: actorUID=TUTOR
 color: yellow
 tags: item
