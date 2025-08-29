@@ -7,10 +7,6 @@ using Yarn.Unity;
 
 namespace Antura.Discover
 {
-    /// <summary>
-    /// Facade/proxy over Yarn's DialogueRunner to keep a stable API for Quest/Node systems.
-    /// Not a LineProvider. Works with DiscoverDialoguePresenter to emit QuestNode events.
-    /// </summary>
     public class YarnAnturaManager : MonoBehaviour
     {
         public static YarnAnturaManager I { get; private set; }
@@ -23,8 +19,8 @@ namespace Antura.Discover
         public string NativeLanguage = "EN";
 
         public event Action<string> OnNodeStarted;
-        public event Action<QuestNode> OnQuestNode;         // for text lines
-        public event Action<QuestNode> OnQuestOptions;      // for choices
+        public event Action<QuestNode> OnQuestNode;
+        public event Action<QuestNode> OnQuestOptions;
         public event Action OnDialogueComplete;
 
         public DialogueRunner Runner => runner;
@@ -164,6 +160,18 @@ namespace Antura.Discover
             if (string.IsNullOrEmpty(actionCode))
                 return;
             ActionManager.I.ResolveQuestAction(actionCode);
+        }
+
+        // ------------------------------------------------------------
+        // AREA
+        // ------------------------------------------------------------
+
+        [YarnCommand("area")]
+        public static void CommandArea(string actionCode)
+        {
+            if (string.IsNullOrEmpty(actionCode))
+                return;
+            ActionManager.I.ResolveAreaCommand(actionCode);
         }
 
         // ------------------------------------------------------------

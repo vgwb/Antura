@@ -3,9 +3,9 @@ using UnityEngine;
 
 namespace Antura.Discover.Interaction
 {
-    public class Mover : ActionAbstract
+    public class Mover : ActableAbstract
     {
-
+        [Header("--- Mover Settings")]
         public bool AutoStart = false;
 
         private bool isActive = false;

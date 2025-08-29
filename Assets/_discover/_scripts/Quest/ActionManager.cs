@@ -126,6 +126,20 @@ namespace Antura.Discover
             }
         }
 
+        public void ResolveAreaCommand(string action)
+        {
+            action = action.ToLower();
+
+            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
+            if (actionData == null)
+            {
+                Debug.LogError("Action not found: " + action);
+                return;
+            }
+            ResolveCommands(actionData.Commands);
+
+        }
+
         public void CommandSetActive(string name, bool active)
         {
             var triggerable = FindActableInChildren(name);
@@ -170,7 +184,7 @@ namespace Antura.Discover
                         QuestManager.I.RemoveItemCode(command.mainObject.ToString());
                         break;
                     case CommandType.PlaySfx:
-                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        command.mainObject.GetComponent<ActableAbstract>().Trigger();
                         break;
                     case CommandType.ProgressPoints:
                         QuestManager.I.AddProgressPoints(int.Parse(command.Parameter));
@@ -197,7 +211,7 @@ namespace Antura.Discover
                         FocusTarget(command.mainObject.transform);
                         break;
                     case CommandType.Trigger:
-                        command.mainObject.GetComponent<ActionAbstract>().Trigger();
+                        command.mainObject.GetComponent<ActableAbstract>().Trigger();
                         break;
                     case CommandType.TaskStart:
                         QuestManager.I.TaskStart(command.Parameter);

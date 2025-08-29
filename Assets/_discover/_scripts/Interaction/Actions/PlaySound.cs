@@ -4,8 +4,10 @@ using UnityEngine;
 namespace Antura.Discover.Interaction
 {
     [RequireComponent(typeof(AudioSource))]
-    public class PlaySound : ActionAbstract
+    public class PlaySound : ActableAbstract
     {
+        [Header("--- PlaySound Settings")]
+
         public AudioClip SoundFx;
         public AudioSource audioSource;
 
