@@ -22,8 +22,8 @@ position: 0,0
 group: docs
 // tags are used to add metadata to the node
 // - actor is the speacking character, used mostly for voice overs
-// - type is used to identify special nodes like Start, End, Quiz
-tags: actor=Guide, type=Quiz
+// - type is used to identify special nodes like Panel, Quiz
+tags: actor=Guide, type=Panel
 // color us used like this:
 //  - red for important nodes like init and quest end
 //  - blue for NPCs
@@ -45,6 +45,9 @@ color: red
 <<declare $met_teacher = false>>
 <<declare $got_hint = false>>
 <<declare $doorUnlocked = false>>
+
+Welcome to the DEV quest!
+You can use this quest to test features and commands.
 ===
 
 //--------------------------------------------
