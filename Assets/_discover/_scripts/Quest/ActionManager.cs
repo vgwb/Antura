@@ -9,6 +9,7 @@ using System.Runtime.Remoting.Messaging;
 using UnityEngine;
 using TMPro;
 using Yarn.Unity;
+using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace Antura.Discover
 {
@@ -126,14 +127,44 @@ namespace Antura.Discover
             }
         }
 
-        public void ResolveAreaCommand(string action)
+        public void ResolveAreaCommand(string areaCode)
         {
-            action = action.ToLower();
+            areaCode = areaCode.ToLower();
 
-            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == action);
+            if (areaCode == "off")
+            {
+                if (currentArea != null)
+                {
+                    currentArea.SetActive(false);
+                    currentArea = null;
+                }
+                return;
+            }
+
+            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == areaCode);
             if (actionData == null)
             {
-                Debug.LogError("Action not found: " + action);
+                Debug.LogError("Action not found: " + areaCode);
+                return;
+            }
+            ResolveCommands(actionData.Commands);
+
+        }
+
+        public void ResolveTargetCommand(string targetCode)
+        {
+            targetCode = targetCode.ToLower();
+
+            if (targetCode == "off")
+            {
+                TargetOff();
+                return;
+            }
+
+            var actionData = QuestActions.FirstOrDefault(a => a.ActionCode.ToLower() == targetCode);
+            if (actionData == null)
+            {
+                Debug.LogError("Action not found: " + targetCode);
                 return;
             }
             ResolveCommands(actionData.Commands);
@@ -159,9 +190,7 @@ namespace Antura.Discover
             {
                 if (command.Bypass)
                 {
-                    if (QuestManager.I.DebugQuest)
-                        //                        Debug.Log("Command is disabled: " + command.Command);
-                        continue;
+                    continue;
                 }
                 switch (command.Command)
                 {
@@ -208,7 +237,10 @@ namespace Antura.Discover
                         RespawnPlayer();
                         break;
                     case CommandType.Target:
-                        FocusTarget(command.mainObject.transform);
+                        Target(command.mainObject.transform);
+                        break;
+                    case CommandType.TargetOff:
+                        TargetOff();
                         break;
                     case CommandType.Trigger:
                         command.mainObject.GetComponent<ActableAbstract>().Trigger();
@@ -233,14 +265,17 @@ namespace Antura.Discover
             }
         }
 
-        public void FocusTarget(Transform targetGO)
+        public void TargetOff()
+        {
+            InteractionManager.I.ActivateWorldTargetIcon(false);
+        }
+        public void Target(Transform targetGO)
         {
             if (targetGO == null)
             {
                 Debug.LogError("Target GameObject is null.");
                 return;
             }
-            InteractionManager.I.FocusCameraOn(targetGO);
             InteractionManager.I.ActivateWorldTargetIcon(true, targetGO);
         }
 

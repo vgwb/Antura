@@ -126,6 +126,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
   IsInteractable: 1
   NearbyAutoActivate: 0
   IconType: 1
@@ -558,6 +559,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
   IsInteractable: 1
   NearbyAutoActivate: 0
   IconType: 1
@@ -1138,6 +1140,15 @@ MonoBehaviour:
       unityAction:
         m_PersistentCalls:
           m_Calls: []
+  - ActionCode: target_chest
+    Commands:
+    - Command: 5
+      mainObject: {fileID: 2601674923930154802}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
 --- !u!1 &8205823209885656452
@@ -1266,6 +1277,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
   IsInteractable: 1
   NearbyAutoActivate: 0
   IconType: 1
@@ -1409,7 +1421,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 6644
+      value: 6647
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -10173,6 +10185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Interactable
+  Id: 
   IsInteractable: 1
   NearbyAutoActivate: 0
   IconType: 4
@@ -12696,7 +12709,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5608
+      value: 5611
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}

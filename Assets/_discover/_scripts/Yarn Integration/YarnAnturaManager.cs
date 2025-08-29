@@ -163,6 +163,27 @@ namespace Antura.Discover
         }
 
         // ------------------------------------------------------------
+        // ACTIVITY
+        // ------------------------------------------------------------
+
+        [YarnCommand("activity")]
+        public static void CommandActivity(string activityCode, string nodeReturn)
+        {
+            //Debug.Log($"Yarn: activity {activityCode} -> {nodeReturn}");
+            if (string.IsNullOrEmpty(activityCode))
+                return;
+            ActivityManager.I?.Launch(activityCode, nodeReturn);
+        }
+
+        [YarnFunction("GetActivityResult")]
+        public static int FunctionGetActivityResult(string activityCode)
+        {
+            if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
+                return 0;
+            return ActivityManager.I?.GetResult(activityCode) ?? 0;
+        }
+
+        // ------------------------------------------------------------
         // AREA
         // ------------------------------------------------------------
 
@@ -248,6 +269,18 @@ namespace Antura.Discover
         }
 
         // ------------------------------------------------------------
+        // TARGET
+        // ------------------------------------------------------------
+
+        [YarnCommand("target")]
+        public static void CommandTarget(string targetCode)
+        {
+            if (string.IsNullOrEmpty(targetCode))
+                return;
+            ActionManager.I.ResolveTargetCommand(targetCode);
+        }
+
+        // ------------------------------------------------------------
         // TASK
         // ------------------------------------------------------------
 
@@ -271,13 +304,13 @@ namespace Antura.Discover
 
         // Yarn functions for querying task state
         [YarnFunction("GetCurrentTask")]
-        public static string GetCurrentTask()
+        public static string FunctionGetCurrentTask()
         {
             return QuestManager.I != null ? (QuestManager.I.TaskManager?.CurrentTaskCode ?? string.Empty) : string.Empty;
         }
 
         [YarnFunction("GetCollectedItem")]
-        public static int GetCollectedItem(string taskCode)
+        public static int FunctionGetCollectedItem(string taskCode)
         {
             if (QuestManager.I == null || string.IsNullOrEmpty(taskCode))
                 return 0;
@@ -285,7 +318,7 @@ namespace Antura.Discover
         }
 
         [YarnFunction("HasCompletedTask")]
-        public static bool HasCompletedTask(string taskCode)
+        public static bool FunctionHasCompletedTask(string taskCode)
         {
             if (QuestManager.I == null || string.IsNullOrEmpty(taskCode))
                 return false;
@@ -336,7 +369,7 @@ namespace Antura.Discover
         }
 
         [YarnFunction("item_count")]
-        public static float ItemCount(string itemCode)
+        public static float FunctionItemCount(string itemCode)
         {
             var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
@@ -345,7 +378,7 @@ namespace Antura.Discover
         }
 
         [YarnFunction("has_item")]
-        public static bool HasItem(string itemCode)
+        public static bool FunctionHasItem(string itemCode)
         {
             var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
@@ -354,7 +387,7 @@ namespace Antura.Discover
         }
 
         [YarnFunction("has_item_at_least")]
-        public static bool HasItemAtLeast(string itemCode, float minQty)
+        public static bool FunctionHasItemAtLeast(string itemCode, float minQty)
         {
             var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
@@ -364,7 +397,7 @@ namespace Antura.Discover
         }
 
         [YarnFunction("can_collect")]
-        public static bool CanCollect(string itemCode)
+        public static bool FunctionCanCollect(string itemCode)
         {
             var inv = QuestManager.I?.Inventory;
             if (inv == null || string.IsNullOrEmpty(itemCode))
@@ -373,31 +406,10 @@ namespace Antura.Discover
         }
 
         // ------------------------------------------------------------
-        // ACTIVITY
-        // ------------------------------------------------------------
-
-        [YarnCommand("activity")]
-        public static void ResolveNodeCommandActivity(string activityCode, string nodeReturn)
-        {
-            //Debug.Log($"Yarn: activity {activityCode} -> {nodeReturn}");
-            if (string.IsNullOrEmpty(activityCode))
-                return;
-            ActivityManager.I?.Launch(activityCode, nodeReturn);
-        }
-
-        [YarnFunction("GetActivityResult")]
-        public static int GetActivityResult(string activityCode)
-        {
-            if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
-                return 0;
-            return ActivityManager.I?.GetResult(activityCode) ?? 0;
-        }
-
-        // ------------------------------------------------------------
         // TRIGGERS
         // ------------------------------------------------------------
         [YarnCommand("SetActive")]
-        public static void SetActive(string triggerable, bool active = true)
+        public static void CommandSetActive(string triggerable, bool active = true)
         {
             // Debug.Log($"YarnAnturaManager: SetActive {triggerable} {active}");
             ActionManager.I.CommandSetActive(triggerable, active);

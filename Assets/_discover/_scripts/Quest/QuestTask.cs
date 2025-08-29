@@ -77,7 +77,7 @@ namespace Antura.Discover
                 UIManager.I.TaskDisplay.Show(Code, 0);
                 if (TargetPoint != null)
                 {
-                    ActionManager.I.FocusTarget(TargetPoint.transform);
+                    ActionManager.I.Target(TargetPoint.transform);
                 }
             }
             else if (Type == TaskType.Collect)

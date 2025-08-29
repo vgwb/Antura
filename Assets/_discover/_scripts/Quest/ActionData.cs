@@ -21,6 +21,7 @@ namespace Antura.Discover
         SpawnPlayer = 3,
         SpawnSet = 11,
         Target = 5,
+        TargetOff = 19,
         TaskStart = 14,
         TaskSuccess = 15,
         TaskFail = 16,

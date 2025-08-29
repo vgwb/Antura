@@ -252,7 +252,9 @@ color: green
 <<if HasCompletedTask("open_chest")>>
     Thanks you... I needed that
 <<else>>
-    Reach and open that chest! 
+    Reach and open that chest!
+    <<area off>>
+    <<target target_chest>>
     <<task_start open_chest task_open_chest_done>>
 <<endif>>
 ===
@@ -263,6 +265,7 @@ group: tasks
 color: green
 ---
 Well done! You opened the chest. 
+<<target off>>
 ===
 
 title: item_chest

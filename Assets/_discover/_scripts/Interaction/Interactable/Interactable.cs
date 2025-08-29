@@ -18,7 +18,7 @@ namespace Antura.Discover
         Use = 4
     }
 
-    public class Interactable : MonoBehaviour
+    public class Interactable : ActableAbstract
     {
         #region Serialized
 
@@ -98,6 +98,11 @@ namespace Antura.Discover
             this.StopAllCoroutines();
             if (InteractionManager.I != null)
                 InteractionManager.I.ShowPreviewSignalFor(this, false);
+        }
+
+        // from ActableAbstract
+        public override void OnTrigger()
+        {
         }
 
         public void OnTriggerEnter(Collider other)
