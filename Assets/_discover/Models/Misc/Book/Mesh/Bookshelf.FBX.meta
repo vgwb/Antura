@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: ae00e251ff449334ba581dc55d1670f2
 ModelImporter:
-  serializedVersion: 22200
+  serializedVersion: 24200
   internalIDToNameTable: []
   externalObjects:
   - first:
@@ -18,19 +18,22 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ShelfWood00_AI
-    second: {fileID: 2100000, guid: bcea88bc5aae2af41be8532efb4a9b62, type: 2}
+    second: {fileID: -8067726398312463513, guid: f6933bc29fce04e51a67060a5cef2a57,
+      type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ShelfWood02_AI
-    second: {fileID: 2100000, guid: 0aecf690fd960e54eaef9ca3b4bd0324, type: 2}
+    second: {fileID: -8067726398312463513, guid: 771a68e6b8236424d93ff48a5833a010,
+      type: 3}
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: ShelfWood03_AI
-    second: {fileID: 2100000, guid: 7132e49afce81bf47bbf374eb4484b59, type: 2}
+    second: {fileID: -8067726398312463513, guid: b729ae91a60349e42a9f6eb987ca537d,
+      type: 3}
   materials:
-    materialImportMode: 1
+    materialImportMode: 2
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -41,8 +44,6 @@ ModelImporter:
     optimizeGameObjects: 0
     removeConstantScaleCurves: 0
     motionNodeName: 
-    rigImportErrors: 
-    rigImportWarnings: 
     animationImportErrors: 
     animationImportWarnings: 
     animationRetargetingWarnings: 
@@ -66,10 +67,10 @@ ModelImporter:
     useSRGBMaterialColor: 0
     sortHierarchyByName: 1
     importPhysicalCameras: 1
-    importVisibility: 1
+    importVisibility: 0
     importBlendShapes: 1
-    importCameras: 1
-    importLights: 1
+    importCameras: 0
+    importLights: 0
     nodeNameCollisionStrategy: 0
     fileIdsGeneration: 2
     swapUVChannels: 0
@@ -83,6 +84,9 @@ ModelImporter:
     maxBonesPerVertex: 4
     minBoneWeight: 0.001
     optimizeBones: 1
+    generateMeshLods: 0
+    meshLodGenerationFlags: 0
+    maximumMeshLod: -1
     meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8

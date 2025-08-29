@@ -258,7 +258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1076713357886709742
 Transform:
   m_ObjectHideFlags: 0
@@ -6835,20 +6835,25 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 7759257881524590458}
     m_Modifications:
+    - target: {fileID: 1264854057011333337, guid: 96ba6578ea4e81b4c811c738f3a0d275,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3693093614222498186, guid: 96ba6578ea4e81b4c811c738f3a0d275,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.17857143
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3693093614222498186, guid: 96ba6578ea4e81b4c811c738f3a0d275,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.17857143
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3693093614222498186, guid: 96ba6578ea4e81b4c811c738f3a0d275,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.17857143
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3693093614222498186, guid: 96ba6578ea4e81b4c811c738f3a0d275,
         type: 3}
@@ -6909,6 +6914,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_StaticEditorFlags
       value: 2147483647
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251821743329919481, guid: 96ba6578ea4e81b4c811c738f3a0d275,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251821743329919481, guid: 96ba6578ea4e81b4c811c738f3a0d275,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5251821743329919481, guid: 96ba6578ea4e81b4c811c738f3a0d275,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -19054,7 +19074,7 @@ PrefabInstance:
     - target: {fileID: 8745309092176260195, guid: 197fc822d45f141bbbe07018e81f7f8d,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 4779
+      value: 4782
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -20212,20 +20232,35 @@ PrefabInstance:
       propertyPath: m_StaticEditorFlags
       value: 2147483647
       objectReference: {fileID: 0}
+    - target: {fileID: 4914500950916043056, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914500950916043056, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4914500950916043056, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7522646254400481572, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
         type: 3}
       propertyPath: m_LocalScale.x
-      value: 0.71428573
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7522646254400481572, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
         type: 3}
       propertyPath: m_LocalScale.y
-      value: 0.71428573
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7522646254400481572, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
         type: 3}
       propertyPath: m_LocalScale.z
-      value: 0.71428573
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7522646254400481572, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
         type: 3}
@@ -20276,6 +20311,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7522646254400481572, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
+        type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

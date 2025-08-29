@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 9145421406900457685}
   - component: {fileID: 5429151572182161871}
   m_Layer: 0
-  m_Name: Tree Block
+  m_Name: Tree Block Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -128,13 +128,23 @@ MonoBehaviour:
   m_Container: {fileID: 9145421406900457685}
   m_ItemsToInstantiate:
   - prefab: {fileID: 0}
-    Prefab: {fileID: 2715257236778461677, guid: c1a4b3673ccb442459a8bc80e0863a1e,
+    Prefab: {fileID: 8046017033776796326, guid: 5c77a5f32e9acb24d8b79355ab7550f9,
       type: 3}
     probability: 0
-    Probability: 100
+    Probability: 50
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 4719996267481638174, guid: 96ba6578ea4e81b4c811c738f3a0d275,
+      type: 3}
+    probability: 0
+    Probability: 22
+  - prefab: {fileID: 0}
+    Prefab: {fileID: 4271905167138607669, guid: b4ea18b6bf2400f4ea9613f65a35e0ea,
+      type: 3}
+    probability: 0
+    Probability: 66
   m_Method: 2
   m_Space: 0
-  m_Spacing: {x: 1.17, y: 1.17}
+  m_Spacing: {x: 1.17, y: NaN}
   m_Up: 1
   m_Forward: 2
   m_PositionOffset:
@@ -146,24 +156,24 @@ MonoBehaviour:
     randomZ: 1
     space: 0
   m_RotationOffset:
-    setup: 0
+    setup: 1
     min: {x: 0, y: 0, z: 0}
-    max: {x: 0, y: 0, z: 0}
+    max: {x: 0, y: 180, z: 0}
     randomX: 0
-    randomY: 0
+    randomY: 1
     randomZ: 0
     space: 0
   m_ScaleOffset:
-    setup: 1
+    setup: 0
     min: {x: 0.8, y: 0.1, z: 0}
-    max: {x: 1.2, y: 2, z: 2}
+    max: {x: 0.8, y: 0.19, z: 2}
     randomX: 1
     randomY: 1
     randomZ: 0
     space: 0
   m_DeprecatedInstances: []
-  m_AutoRefresh: 1
-  m_Seed: -2412934
+  m_AutoRefresh: 0
+  m_Seed: 100738216
 --- !u!1 &459599994323007973
 GameObject:
   m_ObjectHideFlags: 0
@@ -182,7 +192,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &9133842065217879049
 Transform:
   m_ObjectHideFlags: 0
@@ -287,7 +297,7 @@ GameObject:
   - component: {fileID: 4890644951508241079}
   - component: {fileID: 1894459017732423234}
   m_Layer: 0
-  m_Name: Fence
+  m_Name: Fence Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4424,7 +4434,7 @@ GameObject:
   - component: {fileID: 6166282140331308376}
   - component: {fileID: 6287384253934300869}
   m_Layer: 0
-  m_Name: Trees
+  m_Name: Trees Spline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4670,7 +4680,7 @@ MonoBehaviour:
     space: 0
   m_DeprecatedInstances: []
   m_AutoRefresh: 1
-  m_Seed: 1240957552
+  m_Seed: -2041600929
 --- !u!1 &6050393479785407858
 GameObject:
   m_ObjectHideFlags: 0
