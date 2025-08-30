@@ -13,17 +13,20 @@ MonoBehaviour:
   m_Name: art_venus_milo
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: art_venus_milo
-  Status: 1
+  Status: 3
   Importance: 20
-  Notes: 
+  Rationale: This statue teaches kids about ancient Greek art and how old things
+    can still be beautiful
   Type: 4
-  Topics: 0500000003000000
-  Year: 0
-  Country: 0
+  Topics: 050000000100000003000000
+  Year: 130
+  Country: 7
   Location: {fileID: 0}
-  WikipediaUrl: 
-  TitleEn: Venus Milo
-  DescriptionEn: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Venus_de_Milo
+  TitleEn: Venus de Milo
+  DescriptionEn: A beautiful ancient statue of a woman made from white marble. Her
+    arms are missing but she is still considered one of the most beautiful statues
+    ever made.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +45,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: art_monalisa
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,9 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Venus Milo
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

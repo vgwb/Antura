@@ -10,26 +10,27 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: object_lion
+  m_Name: animal_giraffe
   m_EditorClassIdentifier: 
-  Id: object_lion
-  Status: 1
+  Id: animal_giraffe
+  Status: 3
   Importance: 20
-  Notes: 
+  Rationale: Giraffes are fascinating animals that show kids how nature adapts to
+    find food
   Type: 3
   Topics: 2800000009000000
   Year: 0
   Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Lion
-  DescriptionEn: A big cat called the king of animals. It lives in groups called
-    prides.
+  TitleEn: Giraffe
+  DescriptionEn: A very tall animal with a long neck. Giraffes are taller than trees!
+    They eat leaves that other animals cannot reach.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 17917029638162
+      m_KeyId: 17917029638160
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -38,27 +39,34 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 17917033832448
+      m_KeyId: 17917029638161
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: animal_elephant
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: a66fad290866ebf4b8d2f1c784ee8792, type: 2}
+  ImageAsset: {fileID: 11400000, guid: ec345758ace4f89439bdd81646422114, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Giraffe
+  _lastDescriptionEn: A very tall animal with a long neck. It eats leaves from high
+    trees.
   references:
     version: 2
     RefIds: []

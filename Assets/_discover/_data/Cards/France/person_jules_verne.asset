@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: person_jules_verne
   m_EditorClassIdentifier: 
   Id: person_jules_verne
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 0
+  Rationale: Jules Verne shows kids how imagination and science can work together
   Type: 2
-  Topics: 0100000003000000
-  Year: 1850
+  Topics: 080000000400000001000000
+  Year: 1828
   Country: 2
   Location: {fileID: 11400000, guid: 77a5e0eadd66648ae84bb6f49ebd268b, type: 2}
-  WikipediaUrl: https://wikipedia.org/wiki/Jules_Verne
+  WikipediaUrl: https://en.wikipedia.org/wiki/Jules_Verne
   TitleEn: Jules Verne
-  DescriptionEn: A writer who imagined amazing adventures. He created cool stories
-    like '20,000 Leagues Under the Sea'.
+  DescriptionEn: A French writer who imagined amazing adventures before they were
+    possible! He wrote about submarines, rockets, and traveling around the world.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -43,7 +43,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
+  LinkedCards: literature_around_80_days
   MasteryPointsToUnlock: 10
   Cookies: 0
   Gems: 0
@@ -56,10 +59,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Jules Verne
+  _lastDescriptionEn: A writer who imagined amazing adventures. He created cool stories
+    like '20,000 Leagues Under the Sea'.
   references:
     version: 2
     RefIds: []

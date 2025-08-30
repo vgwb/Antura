@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: concept_cursive_writing
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: concept_cursive_writing
-  Status: 1
+  Status: 3
   Importance: 20
-  Notes: 
+  Rationale: Cursive writing is an important part of French education and cultural
+    identity
   Type: 4
-  Topics: 0300000026000000
-  Year: 0
-  Country: 0
+  Topics: 140000000300000005000000
+  Year: 1800
+  Country: 2
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Cursive writing
-  DescriptionEn: 
+  TitleEn: Cursive Writing
+  DescriptionEn: A special way of writing where all the letters in a word are connected.
+    In France, children learn to write this way in school.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
+  LinkedCards: education_primaire_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Cursive writing
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

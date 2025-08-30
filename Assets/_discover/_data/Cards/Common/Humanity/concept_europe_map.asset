@@ -10,55 +10,64 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: object_monkey
+  m_Name: concept_europe_map
   m_EditorClassIdentifier: 
-  Id: object_monkey
+  Id: concept_europe_map
   Status: 1
-  Importance: 20
-  Notes: 
-  Type: 3
-  Topics: 2800000009000000
-  Year: 0
+  Importance: 10
+  Rationale: Maps help kids understand where different countries are and how they
+    connect
+  Type: 4
+  Topics: 0200000014000000
+  Year: 2000
   Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Monkey
-  DescriptionEn: A smart animal that can climb and play. Some monkeys live in big
-    families.
+  TitleEn: Europe Map
+  DescriptionEn: A map showing all the countries in Europe. You can see where France,
+    Poland, Germany, and other countries are located.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 17917033832449
+      m_KeyId: 6282198985465856
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: 
     m_TableEntryReference:
-      m_KeyId: 17917033832450
+      m_KeyId: 0
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
+  LinkedCards: flag_france
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: 794327b950b058a449821d836fea45f2, type: 2}
+  ImageAsset: {fileID: 11400000, guid: fe8dca30c278943308f790c7871c5adb, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Europe Map
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

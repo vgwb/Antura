@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: education_lycee_fr
   m_EditorClassIdentifier: 
   Id: education_lycee_fr
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 10
+  Rationale: "The Lyc\xE9e system shows kids the path to higher education in France"
   Type: 4
   Topics: 1400000003000000
-  Year: 0
+  Year: 1975
   Country: 2
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: "Lyc\xE9e"
-  DescriptionEn: School for teens before university. You choose subjects you like.
+  TitleEn: "Lyc\xE9e in France"
+  DescriptionEn: "High school in France for teenagers aged 16 to 18. Students study
+    hard for the Baccalaur\xE9at exam to go to university."
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -42,7 +43,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: education_college_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,9 +58,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: "Lyc\xE9e"
+  _lastDescriptionEn: School for teens before university. You choose subjects you
+    like.
   references:
     version: 2
     RefIds: []

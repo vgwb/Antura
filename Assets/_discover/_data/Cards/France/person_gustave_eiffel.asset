@@ -13,17 +13,18 @@ MonoBehaviour:
   m_Name: person_gustave_eiffel
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: person_gustave_eiffel
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 10
+  Rationale: 
   Type: 2
-  Topics: 0100000003000000
-  Year: 1910
+  Topics: 010000000300000004000000
+  Year: 1832
   Country: 2
-  Location: {fileID: 0}
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   WikipediaUrl: https://en.wikipedia.org/wiki/Gustave_Eiffel
   TitleEn: Gustave Eiffel
-  DescriptionEn: 
+  DescriptionEn: The man who built the Eiffel Tower! He was an engineer who loved
+    building with iron and created the most famous tower in the world.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +43,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,9 +58,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Gustave Eiffel
+  _lastDescriptionEn: The man who built the Eiffel Tower! He was an engineer who
+    loved building with iron and created the most famous tower in the world.
   references:
     version: 2
     RefIds: []

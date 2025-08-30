@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: flag_poland
   m_EditorClassIdentifier: 
   Id: flag_poland
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 0
+  Rationale: The Polish flag is essential for Polish language learning and cultural
+    identity
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
-  Country: 0
+  Topics: 0200000003000000
+  Year: 1919
+  Country: 3
   Location: {fileID: 0}
-  WikipediaUrl: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Flag_of_Poland
   TitleEn: Flag of Poland
-  DescriptionEn: Polish flag
+  DescriptionEn: The flag of Poland has white and red horizontal stripes. Poland
+    is famous for scientists like Copernicus and delicious pierogi!
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
+  LinkedCards: person_nicolaus_copernicus
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Flag of Poland
+  _lastDescriptionEn: Polish flag
   references:
     version: 2
     RefIds: []

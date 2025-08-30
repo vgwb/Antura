@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: art_monalisa
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: art_monalisa
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 0
+  Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance
+    art
   Type: 3
-  Topics: 0500000003000000
-  Year: 0
-  Country: 2
+  Topics: 050000000100000003000000
+  Year: 1503
+  Country: 1
   Location: {fileID: 0}
-  WikipediaUrl: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Mona_Lisa
   TitleEn: Mona Lisa
-  DescriptionEn: 
+  DescriptionEn: The most famous painting in the world! A woman with a mysterious
+    smile painted by Leonardo da Vinci. She seems to follow you with her eyes.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +44,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: person_leonardo_da_vinci
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,9 +59,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Mona Lisa
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

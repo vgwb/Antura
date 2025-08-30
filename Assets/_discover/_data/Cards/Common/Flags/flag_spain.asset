@@ -13,17 +13,19 @@ MonoBehaviour:
   m_Name: flag_spain
   m_EditorClassIdentifier: 
   Id: flag_spain
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 10
+  Rationale: The Spanish flag helps kids learn about France's southern neighbor and
+    its vibrant culture
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
-  Country: 0
+  Topics: 0200000003000000
+  Year: 1981
+  Country: 4
   Location: {fileID: 0}
   WikipediaUrl: 
   TitleEn: Flag of Spain
-  DescriptionEn: 
+  DescriptionEn: The flag of Spain has red and yellow horizontal stripes. The colors
+    are like the sun and peppers! Spain invented flamenco dancing.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Words: []
+  LinkedCards: flag_france
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Flag of Spain
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

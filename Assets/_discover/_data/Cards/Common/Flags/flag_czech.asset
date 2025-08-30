@@ -14,16 +14,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: flag_czech
   Status: 1
-  Importance: 20
-  Notes: 
+  Importance: 30
+  Rationale: Central European countries help kids understand the region around Poland
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
+  Topics: 0200000003000000
+  Year: 1920
   Country: 0
   Location: {fileID: 0}
-  WikipediaUrl: 
-  TitleEn: Flag of Czech
-  DescriptionEn: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Flag_of_the_Czech_Republic
+  TitleEn: Flag of Czech Republic
+  DescriptionEn: The flag has white and red stripes with a blue triangle. The Czech
+    Republic is famous for beautiful Prague castle and crystal glass.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +43,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Words: []
+  LinkedCards: flag_poland
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +59,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Flag of Czech
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

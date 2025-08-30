@@ -12,9 +12,9 @@ namespace Antura.Discover
         public Status Status = Status.Draft;
 
         public CardImportance Importance = CardImportance.Medium;
-        [Tooltip("Notes: why is this card important?")]
+        [Tooltip("Why is this card important?")]
         [TextArea]
-        public string Notes;
+        public string Rationale;
 
         [Tooltip("What role does this card play in the game?")]
         public CardType Type;
@@ -38,9 +38,12 @@ namespace Antura.Discover
         public LocalizedString Description;
 
         [Header("References")]
-
+        [Tooltip("Quests that can unlock this card. A card can be rewarded by multiple quests.")]
+        public List<QuestData> Quests;
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
+        [Tooltip("Cards linked, comma separated")]
+        public string LinkedCards;
 
         [Header("Mastery")]
         [Tooltip("Mastery points needed to unlock this card.")]
@@ -76,14 +79,43 @@ namespace Antura.Discover
         [Tooltip("Maximum quantity per stack for this item (ignored if not stackable). Use 0 or negative for unlimited.")]
         public int MaxStack = 99;
         public ItemData ItemIcon;
-        public ItemTag Tag;
+        public ItemTag ItemTag;
         [Tooltip("Optional tag if set to Custom.")]
         public string CustomTag;
 
-        [Header("Quests")]
-        [Tooltip("Quests that can unlock this card. A card can be rewarded by multiple quests.")]
-        public List<QuestData> Quests;
+        [Header("Authoring Metadata")]
+        [Tooltip("Notes about this card for the authoring team.")]
+        [TextArea]
+        public string Notes;
+        [Tooltip("Last review date in yyyy-MM-dd format. Auto-updated when TitleEn or DescriptionEn change.")]
+        public string LastReviewed;
+        [Tooltip("Set to true when TitleEn/DescriptionEn change we know we must update Localizatazions!.")]
+        public bool NeedsLocalizationUpdate = false;
+        [Tooltip("Set to true when TitleEn/DescriptionEn change we know we must update Localizatazions!.")]
 
+
+        // Track these to detect changes in editor
+        [SerializeField, HideInInspector] private string _lastTitleEn;
+        [SerializeField, HideInInspector] private string _lastDescriptionEn;
+
+#if UNITY_EDITOR
+        private void OnValidate()
+        {
+            try
+            {
+                bool titleChanged = !string.Equals(TitleEn, _lastTitleEn, StringComparison.Ordinal);
+                bool descChanged = !string.Equals(DescriptionEn, _lastDescriptionEn, StringComparison.Ordinal);
+                if (titleChanged || descChanged)
+                {
+                    LastReviewed = DateTime.Now.ToString("yyyy-MM-dd");
+                    NeedsLocalizationUpdate = true;
+                    _lastTitleEn = TitleEn;
+                    _lastDescriptionEn = DescriptionEn;
+                }
+            }
+            catch { }
+        }
+#endif
 
     }
 }

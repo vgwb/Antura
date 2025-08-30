@@ -10,20 +10,22 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: education_collge_fr
+  m_Name: education_college_fr
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: education_collge_fr
-  Status: 1
-  Importance: 20
-  Notes: 
+  Id: education_college_fr
+  Status: 3
+  Importance: 10
+  Rationale: Understanding the French school system helps kids compare education
+    across countries
   Type: 4
-  Topics: 140000000f000000
-  Year: 0
+  Topics: 1400000003000000
+  Year: 1975
   Country: 2
   Location: {fileID: 0}
-  WikipediaUrl: https://fr.wikipedia.org/wiki/Coll%C3%A8ge_en_France
-  TitleEn: "Coll\xE8ge en France"
-  DescriptionEn: 
+  WikipediaUrl: 
+  TitleEn: "Coll\xE8ge in France"
+  DescriptionEn: Middle school in France for kids aged 11 to 15. Students learn many
+    subjects and prepare for high school.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
+  LinkedCards: education_lycee_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: "Coll\xE8ge en France"
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

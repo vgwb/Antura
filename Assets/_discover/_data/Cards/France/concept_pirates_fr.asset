@@ -15,15 +15,17 @@ MonoBehaviour:
   Id: concept_pirates_fr
   Status: 1
   Importance: 20
-  Notes: 
+  Rationale: Pirates capture kids' imagination while teaching about maritime history
+    and French naval power
   Type: 4
-  Topics: 2600000003000000
-  Year: 1806
+  Topics: 01000000030000002c000000
+  Year: 1600
   Country: 2
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Pirates
-  DescriptionEn: 
+  TitleEn: French Pirates
+  DescriptionEn: Brave sailors who sailed the seas for the King of France. They were
+    called corsairs and protected French ships from enemies.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
+  LinkedCards: concept_boat_eiffel_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Pirates
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

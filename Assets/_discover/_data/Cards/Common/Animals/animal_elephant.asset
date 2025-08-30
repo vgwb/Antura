@@ -10,25 +10,26 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: object_giraffe
+  m_Name: animal_elephant
   m_EditorClassIdentifier: 
-  Id: object_giraffe
-  Status: 1
-  Importance: 20
-  Notes: 
+  Id: animal_elephant
+  Status: 3
+  Importance: 0
+  Rationale: Elephants are amazing animals that kids love learning about at the zoo!
   Type: 3
   Topics: 2800000009000000
   Year: 0
   Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
-  TitleEn: Giraffe
-  DescriptionEn: A very tall animal with a long neck. It eats leaves from high trees.
+  TitleEn: Elephant
+  DescriptionEn: A big animal with a trunk. Elephants are the biggest animals that
+    walk on land. They have big ears and love to spray water!
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 17917029638160
+      m_KeyId: 17917029638158
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
@@ -37,27 +38,34 @@ MonoBehaviour:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
     m_TableEntryReference:
-      m_KeyId: 17917029638161
+      m_KeyId: 17917029638159
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: animal_giraffe
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: ec345758ace4f89439bdd81646422114, type: 2}
+  ImageAsset: {fileID: 11400000, guid: 25bf98f3f3306ee4db7e5d17492c3cc8, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: here we can write notes
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Elephant
+  _lastDescriptionEn: A big animal with a trunk. In zoos they like showers and mud
+    baths.
   references:
     version: 2
     RefIds: []

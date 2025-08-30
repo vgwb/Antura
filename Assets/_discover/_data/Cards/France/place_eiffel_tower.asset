@@ -13,18 +13,18 @@ MonoBehaviour:
   m_Name: place_eiffel_tower
   m_EditorClassIdentifier: 
   Id: place_eiffel_tower
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 0
+  Rationale: 
   Type: 1
-  Topics: 0200000009000000
+  Topics: 020000000100000003000000
   Year: 1889
   Country: 2
   Location: {fileID: 0}
   WikipediaUrl: https://wikipedia.org/wiki/Eiffel_Tower
   TitleEn: Eiffel Tower
-  DescriptionEn: A tall tower and a symbol of Paris. You can go up and see the whole
-    city.
+  DescriptionEn: A tall tower and a symbol of Paris. It's made of iron and is 300
+    meters talll. You can go up and see the whole city.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -43,7 +43,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
+  LinkedCards: louvre
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -56,10 +59,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Eiffel Tower
+  _lastDescriptionEn: A tall tower and a symbol of Paris. It's made of iron and is
+    300 meters talll. You can go up and see the whole city.
   references:
     version: 2
     RefIds: []

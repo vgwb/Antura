@@ -14,16 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: flag_lithuania
   Status: 1
-  Importance: 20
-  Notes: 
+  Importance: 30
+  Rationale: Baltic countries teach kids about northern European geography and Poland's
+    neighbors
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
+  Topics: 0200000003000000
+  Year: 1988
   Country: 0
   Location: {fileID: 0}
-  WikipediaUrl: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Flag_of_Lithuania
   TitleEn: Flag of Lithuania
-  DescriptionEn: 
+  DescriptionEn: The flag has yellow, green, and red horizontal stripes. Lithuania
+    is a Baltic country with beautiful forests and beaches.
   Title:
     m_TableReference:
       m_TableCollectionName: 
@@ -42,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
+  LinkedCards: flag_poland
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -55,10 +60,13 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Flag of Lithuania
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

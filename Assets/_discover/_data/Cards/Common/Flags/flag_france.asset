@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: flag_france
   m_EditorClassIdentifier: 
   Id: flag_france
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 0
+  Rationale: The French flag is essential for teaching French national identity and
+    values
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
-  Country: 0
+  Topics: 0200000003000000
+  Year: 1794
+  Country: 2
   Location: {fileID: 0}
-  WikipediaUrl: 
+  WikipediaUrl: https://en.wikipedia.org/wiki/Flag_of_France
   TitleEn: Flag of France
-  DescriptionEn: "The flag of France is blue, white, and red. It\u2019s a symbol
-    of freedom."
+  DescriptionEn: 'The flag of France has three vertical stripes: blue, white, and
+    red. These colors represent liberty, equality, and fraternity!'
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -43,7 +44,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Words: []
+  LinkedCards: eiffel_tower
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -56,10 +60,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Flag of France
+  _lastDescriptionEn: "The flag of France is blue, white, and red. It\u2019s a symbol
+    of freedom."
   references:
     version: 2
     RefIds: []

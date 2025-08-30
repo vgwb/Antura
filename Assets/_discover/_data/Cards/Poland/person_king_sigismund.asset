@@ -13,18 +13,19 @@ MonoBehaviour:
   m_Name: person_king_sigismund
   m_EditorClassIdentifier: 
   Id: person_king_sigismund
-  Status: 1
-  Importance: 20
-  Notes: 
+  Status: 3
+  Importance: 10
+  Rationale: Historical kings help kids understand how cities were built and developed
+    over time
   Type: 2
   Topics: 0100000003000000
-  Year: 0
+  Year: 1566
   Country: 3
   Location: {fileID: 0}
-  WikipediaUrl: 
-  TitleEn: King Sigismund
-  DescriptionEn: A famous king in Polish history. In Warsaw there is a tall column
-    with his statue.
+  WikipediaUrl: https://en.wikipedia.org/wiki/Sigismund_III_Vasa
+  TitleEn: King Sigismund III
+  DescriptionEn: A king of Poland who built many beautiful buildings in Warsaw. His
+    statue stands on a tall column in the city center.
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -43,7 +44,9 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests: []
   Words: []
+  LinkedCards: person_wars_sawa
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -56,9 +59,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests: []
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: King Sigismund
+  _lastDescriptionEn: A famous king in Polish history. In Warsaw there is a tall
+    column with his statue.
   references:
     version: 2
     RefIds: []

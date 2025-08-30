@@ -15,7 +15,7 @@ MonoBehaviour:
   Id: place_notre_dame_de_paris
   Status: 1
   Importance: 10
-  Notes: 
+  Rationale: 
   Type: 1
   Topics: 0200000009000000
   Year: 1885
@@ -43,7 +43,10 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
+  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -56,10 +59,14 @@ MonoBehaviour:
   IsStackable: 0
   MaxStack: 99
   ItemIcon: {fileID: 0}
-  Tag: 0
+  ItemTag: 0
   CustomTag: 
-  Quests:
-  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  _lastTitleEn: Notre-Dame de Paris
+  _lastDescriptionEn: A beautiful cathedral in Paris. Its colorful glass windows
+    tell stories.
   references:
     version: 2
     RefIds: []
