@@ -6,6 +6,8 @@ using System.Linq;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Localization.Settings;
+using UnityEngine.Localization.Tables;
 
 namespace Antura.Discover
 {
@@ -78,9 +80,16 @@ namespace Antura.Discover
 
             EditorGUILayout.Space(10);
             EditorGUILayout.LabelField("Validation", EditorStyles.boldLabel);
-            if (GUILayout.Button("Validate Cards", GUILayout.Height(26)))
+            using (new EditorGUILayout.HorizontalScope())
             {
-                ValidateCards();
+                if (GUILayout.Button("Validate Cards Data", GUILayout.Height(26)))
+                {
+                    ValidateCardsData();
+                }
+                if (GUILayout.Button("Validate Cards Localization", GUILayout.Height(26)))
+                {
+                    ValidateCardsLocalization();
+                }
             }
 
             EditorGUILayout.Space(10);
@@ -162,18 +171,22 @@ namespace Antura.Discover
             return result;
         }
 
-        private void ValidateCards()
+        private void ValidateCardsData()
         {
-            RunValidationAndShowDialog();
+            RunDataValidationAndShowDialog();
         }
 
-        private static void RunValidationAndShowDialog()
+        private void ValidateCardsLocalization()
+        {
+            RunLocalizationValidationAndShowDialog();
+        }
+
+        private static void RunDataValidationAndShowDialog()
         {
             var cards = LoadAllCards();
             var idSet = new HashSet<string>(cards.Where(c => !string.IsNullOrEmpty(c?.Id)).Select(c => c.Id), StringComparer.OrdinalIgnoreCase);
 
             int missingId = 0;
-            int missingLocTitle = 0;
             int missingTopics = 0;
             int missingImage = 0;
             int emptyTitleEn = 0;
@@ -190,31 +203,11 @@ namespace Antura.Discover
                     Debug.LogWarning($"[Card Validate] Missing ID: {AssetDatabase.GetAssetPath(c)}", c);
                 }
 
-                // Localized Title (if present)
-                try
-                {
-                    LocalizedString title = null;
-                    var prop = c.GetType().GetProperty("Title");
-                    if (prop != null)
-                        title = prop.GetValue(c) as LocalizedString;
-                    if (title == null || title.IsEmpty)
-                    {
-                        missingLocTitle++;
-                        Debug.LogWarning($"[Card Validate] Missing localized Title: {c.name}", c);
-                    }
-                }
-                catch { }
-
                 if (c.Topics == null || c.Topics.Count == 0)
                 { missingTopics++; Debug.LogWarning($"[Card Validate] Missing topics: {c.name}", c); }
 
-                try
-                {
-                    var img = c.GetType().GetProperty("ImageAsset")?.GetValue(c);
-                    if (img == null)
-                    { missingImage++; Debug.LogWarning($"[Card Validate] Missing image: {c.name}", c); }
-                }
-                catch { }
+                if (c.ImageAsset == null)
+                { missingImage++; Debug.LogWarning($"[Card Validate] Missing image: {c.name}", c); }
 
                 if (string.IsNullOrWhiteSpace(c.TitleEn))
                 { emptyTitleEn++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty TitleEn", c); }
@@ -223,14 +216,112 @@ namespace Antura.Discover
             }
 
             EditorUtility.DisplayDialog(
-                "Validate Cards",
+                "Validate Cards Data",
                 $"Total: {cards.Count}\n" +
                 $"Missing Id: {missingId}\n" +
-                $"Missing Localized Title: {missingLocTitle}\n" +
                 $"Missing Topics: {missingTopics}\n" +
                 $"Missing Image: {missingImage}\n" +
                 $"TitleEn empty: {emptyTitleEn}\n" +
                 $"DescriptionEn empty: {emptyDescEn}\n",
+                "OK");
+        }
+
+        private static void RunLocalizationValidationAndShowDialog()
+        {
+            var cards = LoadAllCards();
+
+            int missingTitleRef = 0;
+            int missingDescRef = 0;
+            int titleMissingInLocales = 0;
+            int descMissingInLocales = 0;
+
+            var locales = LocalizationSettings.AvailableLocales?.Locales;
+            int localeCount = locales != null ? locales.Count : 0;
+
+            foreach (var c in cards)
+            {
+                if (c == null)
+                    continue;
+
+                // Title references
+                if (c.Title == null || c.Title.IsEmpty)
+                {
+                    missingTitleRef++;
+                    Debug.LogWarning($"[Card Loc Validate] Missing Title table/entry reference: {c.name}", c);
+                }
+                else if (localeCount > 0)
+                {
+                    var missingLocales = new List<string>();
+                    foreach (var locale in locales)
+                    {
+                        try
+                        {
+                            var table = LocalizationSettings.StringDatabase.GetTable(c.Title.TableReference, locale);
+                            StringTableEntry entry = null;
+                            var tr = c.Title.TableEntryReference;
+                            if (tr.ReferenceType == TableEntryReference.Type.Id)
+                                entry = table?.GetEntry(tr.KeyId);
+                            else
+                                entry = table?.GetEntry(tr.Key);
+                            if (entry == null || string.IsNullOrEmpty(entry.LocalizedValue))
+                                missingLocales.Add(locale.Identifier.Code);
+                        }
+                        catch
+                        {
+                            missingLocales.Add(locale.Identifier.Code);
+                        }
+                    }
+                    if (missingLocales.Count > 0)
+                    {
+                        titleMissingInLocales++;
+                        Debug.LogWarning($"[Card Loc Validate] Title missing for locales [{string.Join(", ", missingLocales)}]: {c.name}", c);
+                    }
+                }
+
+                // Description references
+                if (c.Description == null || c.Description.IsEmpty)
+                {
+                    missingDescRef++;
+                    Debug.LogWarning($"[Card Loc Validate] Missing Description table/entry reference: {c.name}", c);
+                }
+                else if (localeCount > 0)
+                {
+                    var missingLocales = new List<string>();
+                    foreach (var locale in locales)
+                    {
+                        try
+                        {
+                            var table = LocalizationSettings.StringDatabase.GetTable(c.Description.TableReference, locale);
+                            StringTableEntry entry = null;
+                            var tr = c.Description.TableEntryReference;
+                            if (tr.ReferenceType == TableEntryReference.Type.Id)
+                                entry = table?.GetEntry(tr.KeyId);
+                            else
+                                entry = table?.GetEntry(tr.Key);
+                            if (entry == null || string.IsNullOrEmpty(entry.LocalizedValue))
+                                missingLocales.Add(locale.Identifier.Code);
+                        }
+                        catch
+                        {
+                            missingLocales.Add(locale.Identifier.Code);
+                        }
+                    }
+                    if (missingLocales.Count > 0)
+                    {
+                        descMissingInLocales++;
+                        Debug.LogWarning($"[Card Loc Validate] Description missing for locales [{string.Join(", ", missingLocales)}]: {c.name}", c);
+                    }
+                }
+            }
+
+            EditorUtility.DisplayDialog(
+                "Validate Cards Localization",
+                $"Total: {cards.Count}\n" +
+                $"Locales checked: {localeCount}\n" +
+                $"Missing Title reference: {missingTitleRef}\n" +
+                $"Missing Title in some locales: {titleMissingInLocales}\n" +
+                $"Missing Description reference: {missingDescRef}\n" +
+                $"Missing Description in some locales: {descMissingInLocales}\n",
                 "OK");
         }
     }
