@@ -6,8 +6,9 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "AssetData", menuName = "Antura/Discover/Asset", order = 1)]
     public class AssetData : IdentifiedData
     {
+        public Status Status = Status.Draft;
         public AssetType Type = AssetType.Image;
-        public Countries Country = Countries.International; // Default to global if not specified
+        public Countries Country = Countries.International;
 
         [Header("Asset Reference")]
         public Sprite Image;

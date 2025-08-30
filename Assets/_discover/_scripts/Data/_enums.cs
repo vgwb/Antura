@@ -47,7 +47,7 @@ namespace Antura.Discover
     {
         None = 0,
 
-        CORE_SUBJECTS___ = -1,
+        _CORE_SUBJECTS__ = -1,
         Art = 5,              // making and creating
         Culture = 3,          // how people live
         Geography = 2,        // where things are
@@ -57,7 +57,7 @@ namespace Antura.Discover
         Science = 4,          // how things work
         Technology = 39,     // applied science
 
-        KIDS_SPECIFC___ = -2,
+        _KIDS_SPECIFC__ = -2,
         Animal = 40,
         Food = 45,
         Music = 22,
@@ -68,7 +68,7 @@ namespace Antura.Discover
         Transportation = 44,   // Cars, planes, boats
         Weather = 43,          // Observable science
 
-        SOCIAL_PRACTICAL_LIFE___ = -3,
+        _SOCIAL_PRACTICAL_LIFE__ = -3,
         Civics = 15,        // basic government and citizenship
         Community = 38, // when people organize and help each other locally
         Education = 20,
@@ -97,11 +97,11 @@ namespace Antura.Discover
     public enum Status
     {
         Standby = 0, // we don't know yet if it'll go intothe game
-        Draft = 1,
+        Draft = 1, // just started, incomplete
         NeedsReview = 2, // someone has to review it
-        Production = 3,
+        Production = 3, // ready for production!
         Validated = 10, // by the teachers, after testing
-        Archived = -10,
+        Archived = -10, // not used anymore
     }
 
     public enum AssetType

@@ -57,7 +57,9 @@ namespace Antura.Discover
         private const float ColTag = 140f;
         private const float ColLicense = 110f;
         private const float ColCopyright = 300f;
+        private const float ColSource = 220f; // AssetData: Source URL column
         private const float ColACards = 260f; // AssetData: Cards column
+        private const float ColAType = 100f;   // AssetData: Type column
         private const float RowHeight = ColImage + 12f;
 
         // Quest-specific narrower columns
@@ -92,6 +94,8 @@ namespace Antura.Discover
         private const float ColCardWords = 140f;
         private const float ColQuests = 100f;
         private readonly Dictionary<CardData, string> _cardTitleCache = new Dictionary<CardData, string>();
+        // Preview cache to avoid recomputing AssetPreview each frame
+        private readonly Dictionary<UnityEngine.Object, Texture> _previewCache = new Dictionary<UnityEngine.Object, Texture>();
 
         // KnowledgeData specific
         private const float ColKName = 200f;
@@ -154,8 +158,8 @@ namespace Antura.Discover
             }
             else if (SelectedType == typeof(CardData))
             {
-                // Id, Title, Importance, Type, Topics, Collectible(+Icon), Year, Points, Knowledge(list), Words, Linked Quests, Path
-                width += ColId + Gap + ColTitle + Gap + ColImportance + Gap + ColCategory + Gap + ColTopics + Gap + ColCollectible + Gap + ColYear + Gap + ColPoints + Gap + ColCardKnowledges + Gap + ColCardWords + Gap + ColQuests + Gap + ColPath;
+                // Status, Id, Title, Importance, Type, Topics, Collectible(+Icon), Year, Points, Knowledge(list), Words, Linked Quests, Path (Image already counted above)
+                width += ColQDevStatus + Gap + ColId + Gap + ColTitle + Gap + ColImportance + Gap + ColCategory + Gap + ColTopics + Gap + ColCollectible + Gap + ColYear + Gap + ColPoints + Gap + ColCardKnowledges + Gap + ColCardWords + Gap + ColQuests + Gap + ColPath;
             }
             else if (SelectedType == typeof(KnowledgeData))
             {
@@ -168,8 +172,8 @@ namespace Antura.Discover
             }
             else if (SelectedType == typeof(AssetData))
             {
-                // Id, Cards, Path, License, Copyright
-                width += ColId + Gap + ColACards + Gap + ColPath + Gap + ColLicense + Gap + ColCopyright;
+                // Status, Id, Type, Cards, License, Source, Copyright, Path (Image already counted above)
+                width += ColQDevStatus + Gap + ColId + Gap + ColAType + Gap + ColACards + Gap + ColLicense + Gap + ColSource + Gap + ColCopyright + Gap + ColPath;
             }
             return width;
         }
@@ -783,6 +787,8 @@ namespace Antura.Discover
             {
                 GUI.Label(new Rect(x, y, ColImage, lineH), "Image", EditorStyles.boldLabel);
                 x += ColImage + Gap;
+                HeaderLabelRect("Status", new Rect(x, y, ColQDevStatus, lineH), "Status");
+                x += ColQDevStatus + Gap;
                 HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
                 x += ColId + Gap;
                 HeaderLabelRect("Title", new Rect(x, y, ColTitle, lineH), "Title");
@@ -844,16 +850,22 @@ namespace Antura.Discover
             {
                 GUI.Label(new Rect(x, y, ColImage, lineH), "Image", EditorStyles.boldLabel);
                 x += ColImage + Gap;
+                HeaderLabelRect("Status", new Rect(x, y, ColQDevStatus, lineH), "Status");
+                x += ColQDevStatus + Gap;
                 HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
                 x += ColId + Gap;
+                HeaderLabelRect("Type", new Rect(x, y, ColAType, lineH), "AType");
+                x += ColAType + Gap;
                 HeaderLabelRect("Cards", new Rect(x, y, ColACards, lineH), "AssetCards");
                 x += ColACards + Gap;
-                HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
-                x += ColPath + Gap;
                 HeaderLabelRect("License", new Rect(x, y, ColLicense, lineH), "License");
                 x += ColLicense + Gap;
-                HeaderLabelRect("Copyright / Source", new Rect(x, y, ColCopyright, lineH), "Copyright");
+                HeaderLabelRect("Source", new Rect(x, y, ColSource, lineH), "Source");
+                x += ColSource + Gap;
+                HeaderLabelRect("Copyright", new Rect(x, y, ColCopyright, lineH), "Copyright");
                 x += ColCopyright + Gap;
+                HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
+                x += ColPath + Gap;
             }
             else
             {
@@ -1133,6 +1145,8 @@ namespace Antura.Discover
             {
                 x += ColImage + Gap;
                 xs.Add(x);
+                x += ColQDevStatus + Gap;
+                xs.Add(x);
                 x += ColId + Gap;
                 xs.Add(x);
                 x += ColTitle + Gap;
@@ -1196,17 +1210,23 @@ namespace Antura.Discover
             if (SelectedType == typeof(AssetData))
             {
                 x += ColImage + Gap;
-                xs.Add(x);
+                xs.Add(x); // after Image
+                x += ColQDevStatus + Gap;
+                xs.Add(x); // after Status
                 x += ColId + Gap;
-                xs.Add(x);
+                xs.Add(x); // after Id
+                x += ColAType + Gap;
+                xs.Add(x); // after Type
                 x += ColACards + Gap;
-                xs.Add(x);
-                x += ColPath + Gap;
-                xs.Add(x);
+                xs.Add(x); // after Cards
                 x += ColLicense + Gap;
-                xs.Add(x);
+                xs.Add(x); // after License
+                x += ColSource + Gap;
+                xs.Add(x); // after Source
                 x += ColCopyright + Gap;
-                xs.Add(x);
+                xs.Add(x); // after Copyright
+                x += ColPath + Gap;
+                xs.Add(x); // after Path
                 return xs;
             }
             // Generic: Id, Path
@@ -1227,25 +1247,34 @@ namespace Antura.Discover
             if (GUI.Button(rOpen, "Open"))
             { EditorGUIUtility.PingObject(a); Selection.activeObject = a; }
             x += ColOpen + Gap;
-            // Image (second column)
+            // Image (second column) with preview cache
             var rImg = new Rect(x, rowRect.y + 2f, ColImage, ColImage);
             if (a.Image != null)
             {
-                var tex = AssetPreview.GetAssetPreview(a.Image) ?? AssetPreview.GetMiniThumbnail(a.Image) ?? a.Image.texture;
+                Texture tex;
+                if (!_previewCache.TryGetValue(a.Image, out tex) || tex == null)
+                {
+                    tex = AssetPreview.GetAssetPreview(a.Image) ?? AssetPreview.GetMiniThumbnail(a.Image) ?? a.Image.texture;
+                    _previewCache[a.Image] = tex;
+                }
                 if (tex != null)
                     GUI.DrawTexture(rImg, tex, ScaleMode.ScaleToFit);
                 else
                     Repaint();
             }
             x += ColImage + Gap;
+            // Status (readonly label)
+            var rStat = new Rect(x, y, ColQDevStatus, lineH);
+            EditorGUI.LabelField(rStat, a.Status.ToString());
+            x += ColQDevStatus + Gap;
             // Id
             var rId = new Rect(x, y, ColId, lineH);
             EditorGUI.LabelField(rId, a.Id ?? string.Empty);
             x += ColId + Gap;
-            // Path
-            var rPath = new Rect(x, y, ColPath, lineH);
-            EditorGUI.LabelField(rPath, FormatPath(AssetDatabase.GetAssetPath(a)));
-            x += ColPath + Gap;
+            // Type
+            var rType = new Rect(x, y, ColAType, lineH);
+            EditorGUI.LabelField(rType, a.Type.ToString());
+            x += ColAType + Gap;
             // Cards using this AssetData (one per line, clickable links to CardData)
             var rCards = new Rect(x, rowRect.y + 4f, ColACards, rowRect.height - 8f);
             float cy = rCards.y;
@@ -1255,8 +1284,15 @@ namespace Antura.Discover
                 .ToList();
             if (cardsUsing.Count > 0)
             {
+                int total = cardsUsing.Count;
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rCards.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                cy = rCards.y + (rCards.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
                 foreach (var cd in cardsUsing)
                 {
+                    if (shown >= linesToShow)
+                        break;
                     string label = string.IsNullOrEmpty(cd.Id) ? cd.name : cd.Id;
                     var rc = new Rect(rCards.x, cy, rCards.width, lineH);
                     GUI.Label(rc, label, EditorStyles.label);
@@ -1284,13 +1320,8 @@ namespace Antura.Discover
                         Event.current.Use();
                     }
                     cy += lineH;
-                    if (cy > rCards.yMax - lineH)
-                        break;
+                    shown++;
                 }
-            }
-            else
-            {
-                GUI.Label(new Rect(rCards.x, cy, rCards.width, lineH), "(No cards)", EditorStyles.miniLabel);
             }
             x += ColACards + Gap;
             // License
@@ -1300,18 +1331,23 @@ namespace Antura.Discover
             if (EditorGUI.EndChangeCheck())
             { Undo.RecordObject(a, "Edit License"); a.License = newLic; EditorUtility.SetDirty(a); }
             x += ColLicense + Gap;
+            // Source
+            var rSrc = new Rect(x, y, ColSource, lineH);
+            EditorGUI.BeginChangeCheck();
+            string newSrc = EditorGUI.TextField(rSrc, a.SourceUrl ?? string.Empty);
+            if (EditorGUI.EndChangeCheck())
+            { Undo.RecordObject(a, "Edit SourceUrl"); a.SourceUrl = newSrc; EditorUtility.SetDirty(a); }
+            x += ColSource + Gap;
             // Copyright
             var rCopy = new Rect(x, y, ColCopyright, lineH);
             EditorGUI.BeginChangeCheck();
             string newCopy = EditorGUI.TextField(rCopy, a.Copyright ?? string.Empty);
             if (EditorGUI.EndChangeCheck())
             { Undo.RecordObject(a, "Edit Copyright"); a.Copyright = newCopy; EditorUtility.SetDirty(a); }
-            // Source under it
-            var rSrc = new Rect(x, y + lineH + 4f, ColCopyright, lineH);
-            EditorGUI.BeginChangeCheck();
-            string newSrc = EditorGUI.TextField(rSrc, a.SourceUrl ?? string.Empty);
-            if (EditorGUI.EndChangeCheck())
-            { Undo.RecordObject(a, "Edit SourceUrl"); a.SourceUrl = newSrc; EditorUtility.SetDirty(a); }
+            x += ColCopyright + Gap;
+            // Path (last)
+            var rPath = new Rect(x, y, ColPath, lineH);
+            EditorGUI.LabelField(rPath, FormatPath(AssetDatabase.GetAssetPath(a)));
         }
 
         private void DrawGenericRow(Rect rowRect, IdentifiedData d)
@@ -1418,6 +1454,10 @@ namespace Antura.Discover
                 }
             }
             x += ColImage + Gap;
+            // Status
+            var rStatus = new Rect(x, y, ColQDevStatus, lineH);
+            EditorGUI.LabelField(rStatus, c.Status.ToString());
+            x += ColQDevStatus + Gap;
             // Id
             var rId = new Rect(x, y, ColId, lineH);
             EditorGUI.LabelField(rId, c.Id ?? string.Empty);
@@ -2161,6 +2201,9 @@ namespace Antura.Discover
                     case "Category":
                         keySelector = a => a is WordData w3 ? w3.Category.ToString() : (a is CardData c1 ? c1.Type.ToString() : string.Empty);
                         break;
+                    case "Status":
+                        keySelector = a => a is CardData cs ? cs.Status.ToString() : (a is AssetData asd ? asd.Status.ToString() : (a is QuestData qs ? qs.Status.ToString() : string.Empty));
+                        break;
                     case "Name":
                         keySelector = a => a is KnowledgeData k0 ? (k0.Name ?? string.Empty) : string.Empty;
                         break;
@@ -2239,6 +2282,15 @@ namespace Antura.Discover
                         break;
                     case "Copyright":
                         keySelector = a => a is AssetData ad2 ? (ad2.Copyright ?? string.Empty) : string.Empty;
+                        break;
+                    case "Source":
+                        keySelector = a => a is AssetData ad3 ? (ad3.SourceUrl ?? string.Empty) : string.Empty;
+                        break;
+                    case "AssetCards":
+                        keySelector = a => a is AssetData ad4 ? (_allData.OfType<CardData>().Count(cd => cd != null && (cd.ImageAsset == ad4 || cd.AudioAsset == ad4))).ToString("D4") : string.Empty;
+                        break;
+                    case "AType":
+                        keySelector = a => a is AssetData at ? at.Type.ToString() : string.Empty;
                         break;
                     default:
                         keySelector = a => a?.Id ?? string.Empty;
