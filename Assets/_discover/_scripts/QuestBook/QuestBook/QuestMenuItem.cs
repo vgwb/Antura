@@ -24,9 +24,9 @@ namespace Antura.Discover.UI
             canvasGroup = this.gameObject.AddComponent<CanvasGroup>();
 
             questData = _questData;
-            SelectBtn.interactable = questData.DevStatus != Status.Standby;
+            SelectBtn.interactable = questData.Status != Status.Standby;
             canvasGroup.alpha = SelectBtn.interactable ? 1 : 0.7f;
-            Lock.SetActive(questData.DevStatus == Status.Standby);
+            Lock.SetActive(questData.Status == Status.Standby);
             Code.text = _questData.IdDisplay;
             // Debug.Log("QuestMenuItem Init: " + _questData.Code);
             Title.text = _questData.Title.GetLocalizedString();

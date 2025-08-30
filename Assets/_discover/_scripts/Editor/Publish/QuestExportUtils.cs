@@ -44,7 +44,7 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
             sb.AppendLine("Version: " + q.VersionText);
-            sb.AppendLine("Status: " + q.DevStatus);
+            sb.AppendLine("Status: " + q.Status);
             sb.AppendLine();
 
             if (!string.IsNullOrEmpty(desc))

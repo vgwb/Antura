@@ -18,7 +18,8 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: e369c9e6e970b46d88aee2779fdcfd4a,
     type: 3}
   IdDisplay: 6
-  DevStatus: 1
+  Version: 100
+  Status: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -28,8 +29,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 3
-  Location: {fileID: 11400000, guid: 71b008dc93ebd4bb494fcbae2e105b4b, type: 2}
   Description:
     m_TableReference:
       m_TableCollectionName: 
@@ -39,18 +38,21 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Country: 3
+  Location: {fileID: 11400000, guid: 71b008dc93ebd4bb494fcbae2e105b4b, type: 2}
   Thumbnail: {fileID: 0}
-  MainTopic: 7
+  MainTopic: 11
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
@@ -63,17 +65,15 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  CreditsContent:
-  - {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
-  CreditsDesign: []
-  CreditsDevelopment:
-  - {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
-  assetsFolder: PL_06
-  scene: discover pl_06 market
   WorldPrefab: {fileID: 4842159426435640053, guid: 76eed80a7deb54abb97f38bc31aec2d7,
     type: 3}
   QuestPrefab: {fileID: 4842159426435640053, guid: 76eed80a7deb54abb97f38bc31aec2d7,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_06
+  scene: discover pl_06 market
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

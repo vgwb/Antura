@@ -21,13 +21,13 @@ namespace Antura.Discover
         public int Version = 100;
 
         [Tooltip("Development status of this quest. Needed for internal testing and validation.")]
-        public Status DevStatus;
+        public Status Status;
 
         [Header("Description")]
         public LocalizedString Title;
+        public LocalizedString Description;
         public Countries Country;
         public LocationData Location;
-        public LocalizedString Description;
         public AssetData Thumbnail;
 
         [Header("Content")]

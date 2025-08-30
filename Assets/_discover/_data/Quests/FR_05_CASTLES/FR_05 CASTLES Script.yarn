@@ -1,11 +1,43 @@
-﻿// FR-05 Castles
-// Words used: castle, Chinon, Chambord, drawbridge, parapet, loopholes, defense, knight, armor, sword, bow, helmet, prince, mask, shoes, map, room, interior
-// activities in this quest:
-// - collect knight items (helmet, sword, bow, armor)
-// - collect prince items (hat, musical instrument, dance shoes, mask)
+﻿// ============================================================================
+// FR_05_CASTLES - Medieval Loire Valley
+// ============================================================================
+// Development Status: WELL-DEVELOPED - Complete medieval exploration
+// Location: Loire Valley, France - Chinon & Chambord Castles
+// Description: Medieval adventure exploring French castle heritage. Discover defensive architecture at Chinon and royal luxury at Chambord while collecting knight equipment and prince items. Learn about drawbridges, parapets, medieval life, and Loire Valley's 200+ castles.
+//
+// Cards:
+// - chinon (NEEDS CREATION / historical castle)
+// - chambord (NEEDS CREATION / renaissance castle)
+// - chinon_defence (NEEDS CREATION / military architecture)
+// - chambord_ball (NEEDS CREATION / royal culture)
+// - bridge (COMPLETE / castle architecture)
+// - parapet (COMPLETE / defensive architecture)
+// - loopholes (COMPLETE / military feature)
+// - obj_helmet (NEEDS CREATION / knight equipment)
+// - obj_sword (NEEDS CREATION / knight equipment)
+// - obj_bow (NEEDS CREATION / knight equipment)
+// - obj_armor (NEEDS CREATION / knight equipment)
+// - obj_hat (NEEDS CREATION / noble attire)
+// - obj_musical_instruments (NEEDS CREATION / court culture)
+// - obj_dance_shoes (NEEDS CREATION / court culture)
+// - obj_ball_mask (NEEDS CREATION / court culture)
+// - map (COMPLETE / regional geography)
+//
+// Tasks:
+// - Collect knight items: helmet, sword, bow, armor
+// - Collect prince items: hat, musical instrument, dance shoes, ball mask
+// - Explore different castle functions (defense vs luxury)
+//
+// Activities:
+// - Medieval item collection challenges
+// - Castle architecture exploration
+// - Historical comparison between military and luxury castles
+//
+// Words used: castle, Chinon, Chambord, drawbridge, parapet, loopholes, defense, knight, armor, sword, bow, helmet, prince, mask, shoes, map, room, interior, Loire Valley, medieval, royal, French heritage
+// ============================================================================
 
 title: init
-position: -120,-48
+position: 0,0
 tags: type=Start
 color: red
 ---
@@ -107,7 +139,7 @@ TUTOR: a hat
 ===
 
 title: obg_sword
-position: -69,587
+position: 7,500
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -117,7 +149,7 @@ TUTOR: sword
 ===
 
 title: obg_bow
-position: 184,582
+position: 260,495
 color: yellow
 tags: actorUID=TUTOR, item
 ---
@@ -126,7 +158,7 @@ TUTOR: a bow and arrows
 ===
 
 title: obg_armor
-position: 479,582
+position: 555,495
 color: yellow
 tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_armor
 ---
@@ -135,7 +167,7 @@ TUTOR: armor
 ===
 
 title: view_loopholes
-position: 736,605
+position: 812,518
 color: yellow
 tags: actorUID=CRAZY_WOMAN
 ---

@@ -18,7 +18,8 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 0795ad9236d6f48fa9daa528b55678f6,
     type: 3}
   IdDisplay: 9
-  DevStatus: 1
+  Version: 100
+  Status: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -28,8 +29,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 2
-  Location: {fileID: 11400000, guid: 9fd6215306d3648059bc7c86710bfd56, type: 2}
   Description:
     m_TableReference:
       m_TableCollectionName: 
@@ -39,6 +38,8 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: 9fd6215306d3648059bc7c86710bfd56, type: 2}
   Thumbnail: {fileID: 11400000, guid: d03249a1c0d5d45ecb4e3ad5b89f6a9d, type: 2}
   MainTopic: 11
   Cards:
@@ -49,14 +50,15 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9d9a1f609ea194172bfb0b28b3d2e4ee, type: 2}
   - {fileID: 11400000, guid: de4d36df20609463db9746e9cab0fa53, type: 2}
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 0100000003000000
   Duration: 15
   Dependencies: []
+  Gameplay: 0100000003000000
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: 
   AdditionalResources: {fileID: 0}
   Credits:
   - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
@@ -79,11 +81,14 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  assetsFolder: FR_09
-  scene: discover fr_09 food_market
   WorldPrefab: {fileID: 0}
   QuestPrefab: {fileID: 4474422697355515469, guid: 6b16b15ff73f24cb2ac1ee8695a7a26c,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: FR_09
+  scene: discover fr_09 food_market
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

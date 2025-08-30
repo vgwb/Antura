@@ -18,7 +18,8 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: b23117934d1db412383640061ae4d901,
     type: 3}
   IdDisplay: 5
-  DevStatus: 0
+  Version: 100
+  Status: 1
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -28,8 +29,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 2
-  Location: {fileID: 11400000, guid: ad0a61200f47e4edaa48584fde7068ed, type: 2}
   Description:
     m_TableReference:
       m_TableCollectionName: 
@@ -39,21 +38,22 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: ad0a61200f47e4edaa48584fde7068ed, type: 2}
   Thumbnail: {fileID: 0}
   MainTopic: 0
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: fr_5
   AdditionalResources: {fileID: 0}
-  YarnStringTable:
-    m_TableCollectionName: 
   Credits:
   - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
     Content: 1
@@ -82,6 +82,8 @@ MonoBehaviour:
   WorldControllerPrefab: {fileID: 0}
   assetsFolder: FR_05
   scene: discover fr_05 castles
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

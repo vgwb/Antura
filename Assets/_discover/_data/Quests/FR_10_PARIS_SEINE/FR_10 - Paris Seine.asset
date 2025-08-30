@@ -18,7 +18,8 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: 469996e104b3f4faa97871292f6e6cd1,
     type: 3}
   IdDisplay: 10
-  DevStatus: 3
+  Version: 100
+  Status: 2
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -28,8 +29,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 2
-  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   Description:
     m_TableReference:
       m_TableCollectionName: 
@@ -39,18 +38,21 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   Thumbnail: {fileID: 11400000, guid: c9a4539dbef3f44c598eace1df12a16a, type: 2}
   MainTopic: 17
   Cards: []
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 3
-  Gameplay: 
   Duration: 10
   Dependencies: []
+  Gameplay: 
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 0
-  manualPage: fr_1b
   AdditionalResources: {fileID: 4900000, guid: f3d7e0a4d198049c09e003c3469421b0, type: 3}
   Credits:
   - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
@@ -68,12 +70,15 @@ MonoBehaviour:
     Design: 0
     Development: 1
     Validation: 0
-  assetsFolder: FR_10
-  scene: discover fr_10 paris_sein
   WorldPrefab: {fileID: 4756090750195079128, guid: f342316d43d1d46d9a37132e3847f78f,
     type: 3}
   QuestPrefab: {fileID: 4836856928656916913, guid: 2a08247f2dd7b4899b9f02243f73b15f,
     type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: FR_10
+  scene: discover fr_10 paris_sein
+  YarnStringTable:
+    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []
