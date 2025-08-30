@@ -88,8 +88,8 @@ namespace Antura.Discover
             // If your Dialogue View doesn't need to handle lines, simply return
             // from this method immediately.
 
-            //var nodeImage = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "assetimage");
-
+            var nodeType = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "type");
+            // Debug.Log($"Node {_currentNodeName} has type {nodeType}");
 
             var lineId = line.TextID;
             var CharacterName = line.CharacterName;
@@ -100,7 +100,7 @@ namespace Antura.Discover
 
             var questNode = new QuestNode
             {
-                Type = NodeType.TEXT,
+                Type = nodeType == "panel" ? NodeType.PANEL : NodeType.TEXT,
                 Content = TextWithoutCharacterName.Text,
                 ContentNative = TextWithoutCharacterName.Text, // TODO: provide native via localization
                 AudioId = null,
