@@ -1,4 +1,4 @@
-# Discover Countries Module
+# Discover Module
 
 !!! warning
     This area is Work in Progress

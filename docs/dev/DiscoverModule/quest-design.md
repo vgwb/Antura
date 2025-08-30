@@ -1,7 +1,10 @@
-# Design Discover Quests (for designers)
+---
+title: Design Discover Quests
+---
 
-Any Quest of the Discover Module is composed of a Unity Scene and an Homer flow.
+# Design Discover Quests
 
+Any Quest of the Discover Module is composed of a Unity Scene and an Yarn script.
 
 ## Design Doc
 We always start with a Design Doc (usually Google Doc) with these important content:
@@ -15,49 +18,11 @@ We always start with a Design Doc (usually Google Doc) with these important cont
 - **Environment**: where does the play take place?
 - **Story / Flow**: detailed description of the gamplay
 
-## Homer
-
-- the nodes that need to be called from Unity need a "permalink".
-- we send "commands" from Homer to Unity using Metadata
-
-### Node Metadata
-
-**Permalink**  
-unique string. needed to call a specific node from Unity
-
-**Assets**  
-We can upload images that will be downloaded into the Unity project
-_any_ image needs to have a displaimer about copyright (used for the credits)
-we can't use copyrighted images.
-
-**native**  
-If true, the node is displayed first in native language (useful for introdctions)
-
-**Action**  
-Triggers an action in Unity when displaying the node.
-
-**Action_Post** 
-Triggers an action in Unity when closing the node.
-
-**NextTarget**
-wants the code of a target defined in Unity, to point the Camera and show where to go next
-
-**Mood**  
-not used yet. will be used to change tone of voice.
-
-**Balloon Type**
-To change the balloon graphics
-Choices are:
-
-- quiz
-- speech (default)
-- whisper
-- thought
 
 ## Unity
 
 ### QuestData
-`QuestData` must be added to the `/Discover/Data/` folder and then to the QuestsList (to be listed)
+`QuestData` must be added to the `/Discover/_data/` folder and then to the QuestsList (to be listed)
 
 ### Scene
 A scene has all the standard prefabs and these two main Game Objects:
@@ -65,7 +30,7 @@ A scene has all the standard prefabs and these two main Game Objects:
 **World**  
 (all static / common 3D assets), that can be shared among different quests
 
-**Level**  
+**Quest**  
 that has all the dynamic elements of this quest
 
 ### Components
@@ -84,9 +49,20 @@ We can also use monuments assets from the game [Hexplorando](https://store.steam
 
 The 3D assets must be **low-poly**, flat textures.
 
-Images are imported from Homer. and we can add custom textures if needed.
-
 All assets must stay inside the Quest folder.
+
+### Images
+We need small images.
+These are the formats:
+
+- JPG 85% quality or PNG (if alpha is needed)
+- 256 px for small icons
+- 512 px for medium icons / small images
+- 1024 px for big mages
+(dmensions are for the shorter side)
+let's use multiple of 4 for dimensions
+
+let's register the original url of the image in the Source field of AssetData
 
 ## Translations and Audio
 

@@ -14,10 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
 - Classroom mode
 - the Cat model
 
-### Dev notes
+### Dev notes
 
 - Removed Facebook SDK
-- Unity 2022
+- Unity 6.2
 
 ## [2.4.0] - 2022
 New Supported languages:

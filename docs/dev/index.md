@@ -5,14 +5,14 @@ Here are all the docs for developers and designers.
 The docs are _always WIP_ please report any error or requests for details (on Discord or via GitHub issue).  
 The repository of this project is: <https://github.com/vgwb/Antura>  
 
+## Discover Quests
+To create a new Quest [Design Discover Quests](DiscoverModule/index.md)  
+
 ## Game Design
 
 - [Arabic Language](GameDesign/ArabicLanguage.md)
 - [Data nalysis](GameDesign/DataAnalysis.md)
 - [Learning Goals](GameDesign/LearningGoals.md)
-
-## DiscoverED Quests
-To create a new Quest [DesignQuests](DiscoverED/index.md)  
 
 ## HowTo
 **User and Tester guides**
