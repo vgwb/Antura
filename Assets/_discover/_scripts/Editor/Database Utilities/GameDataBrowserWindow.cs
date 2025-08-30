@@ -1226,7 +1226,7 @@ namespace Antura.Discover
             x += ColImage + Gap;
             // DevStatus
             var rDev = new Rect(x, y, ColQDevStatus, lineH);
-            EditorGUI.LabelField(rDev, q.DevStatus.ToString());
+            EditorGUI.LabelField(rDev, q.Status.ToString());
             x += ColQDevStatus + Gap;
             // Id + "  - " + IdDisplay
             var rId = new Rect(x, y, ColQId, lineH);
@@ -1432,7 +1432,7 @@ namespace Antura.Discover
             if (SelectedType == typeof(QuestData) && _devStatusFilter.HasValue)
             {
                 var status = _devStatusFilter.Value;
-                set = set.Where(a => a is QuestData q && q.DevStatus == status);
+                set = set.Where(a => a is QuestData q && q.Status == status);
             }
 
             // Search filter across Id, Title/Name and for AssetData also Copyright/Source
@@ -2020,16 +2020,17 @@ namespace Antura.Discover
         {
             if (c == null)
                 return null;
-            if (_cardTitleCache.TryGetValue(c, out var cached) && !string.IsNullOrEmpty(cached))
-                return cached;
-            try
-            {
-                var s = c.Title.GetLocalizedString();
-                if (!string.IsNullOrEmpty(s))
-                { _cardTitleCache[c] = s; return s; }
-            }
-            catch { }
-            return null;
+            return c.TitleEn;
+            // if (_cardTitleCache.TryGetValue(c, out var cached) && !string.IsNullOrEmpty(cached))
+            //     return cached;
+            // try
+            // {
+            //     var s = c.Title.GetLocalizedString();
+            //     if (!string.IsNullOrEmpty(s))
+            //     { _cardTitleCache[c] = s; return s; }
+            // }
+            // catch { }
+            // return null;
         }
 
         private void ExportCsv()
@@ -2084,12 +2085,16 @@ namespace Antura.Discover
             }
             else if (SelectedType == typeof(CardData))
             {
-                sb.AppendLine("Type,Id,Path,Title,Collectible,Year,Category,Topics,LinkedQuests");
-                foreach (var c in list.Cast<CardData>())
+                // Delegate to centralized CardDataExchangeUtility for AI-centric CSV
+                try
                 {
-                    var topics = c.Topics != null ? string.Join("; ", c.Topics.Select(t => t.ToString())) : string.Empty;
-                    var quests = c.Quests != null ? string.Join("; ", c.Quests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)) : string.Empty;
-                    sb.AppendLine(Escape("CardData") + "," + Escape(c.Id) + "," + Escape(FormatPath(AssetDatabase.GetAssetPath(c))) + "," + Escape(GetCardTitle(c)) + "," + Escape(c.IsCollectible ? "true" : "false") + "," + Escape(c.Year.ToString()) + "," + Escape(c.Type.ToString()) + "," + Escape(topics) + "," + Escape(quests));
+                    var cards = list.Cast<CardData>();
+                    var csv = CardDataExchangeUtility.BuildCardsCsv(cards);
+                    sb.Append(csv);
+                }
+                catch (Exception ex)
+                {
+                    Debug.LogError($"[GameDataBrowser] Failed to build CardData CSV via exchange utility: {ex.Message}");
                 }
             }
             else if (SelectedType == typeof(QuestData))
@@ -2102,7 +2107,7 @@ namespace Antura.Discover
                     string words = q.Words != null ? string.Join("; ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)) : string.Empty;
                     sb.AppendLine(
                         Escape("QuestData") + "," +
-                        Escape(q.DevStatus.ToString()) + "," +
+                        Escape(q.Status.ToString()) + "," +
                         Escape(q.Id) + "," +
                         Escape(q.IdDisplay) + "," +
                         Escape(locId) + "," +
