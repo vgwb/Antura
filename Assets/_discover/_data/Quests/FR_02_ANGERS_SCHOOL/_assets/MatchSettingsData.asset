@@ -10,23 +10,17 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 522986d1bf14a4377939400a4b220bb6, type: 3}
-  m_Name: Match Zoo_1 Settings
+  m_Name: MatchSettingsData
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.MatchSettingsData
-  Id: match_zoo_1_settings
-  ActivityCode: 2
+  Id: 
+  ActivityCode: 0
   Difficulty: 3
   MinRounds: 1
   MaxRounds: 3
   HasTimer: 1
-  TimerSeconds: 600
+  TimerSeconds: 60
   PointsFail: -1
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
-  GroupsData:
-  - Question: {fileID: 11400000, guid: de4d36df20609463db9746e9cab0fa53, type: 2}
-    Answers:
-    - {fileID: 11400000, guid: 9c3a141c12db144f18bc9fa5868a2dcf, type: 2}
-  - Question: {fileID: 11400000, guid: de4d36df20609463db9746e9cab0fa53, type: 2}
-    Answers:
-    - {fileID: 11400000, guid: 9c3a141c12db144f18bc9fa5868a2dcf, type: 2}
+  GroupsData: []
