@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
   m_Name: Tour Eiffel
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterSO
-  clusterName: Eiffel Tower
-  description: Everything related to the iconic Paris landmark
-  priority: 2
-  clusterColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
-  coreCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
-  connections:
+  Name: Eiffel Tower
+  Description: Everything related to the iconic Paris landmark
+  Importance: 2
+  NodeColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
+  CoreCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
+  Connections:
   - connectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
     connectionType: 2
     connectionStrength: 0.802
@@ -39,11 +39,11 @@ MonoBehaviour:
     connectionReason: 
     linkingKeywords: []
     learningValue: 
-  discoveryPath:
+  DiscoveryPath:
   - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
   - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   - {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
   - {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
   cohesionStrength: 0.813
   targetAge: 1
-  educationalTopics: 02000000
+  Topics: 02000000

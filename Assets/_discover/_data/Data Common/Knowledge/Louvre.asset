@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
   m_Name: Louvre
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeClusterData
-  clusterName: Louvre
-  description: 
-  priority: 3
-  clusterColor: {r: 1, g: 1, b: 1, a: 1}
-  coreCard: {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
-  connections:
+  Name: Louvre
+  Description: 
+  Importance: 3
+  NodeColor: {r: 1, g: 1, b: 1, a: 1}
+  CoreCard: {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
+  Connections:
   - connectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
     connectionType: 2
     connectionStrength: 0
@@ -48,7 +48,7 @@ MonoBehaviour:
     connectionReason: 
     linkingKeywords: []
     learningValue: 
-  discoveryPath:
+  DiscoveryPath:
   - {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
   - {fileID: 11400000, guid: 0345023b0cc744e98bb604629cffbff1, type: 2}
   - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
@@ -57,4 +57,4 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 38a9a0cacc74a468c8778813ef6aab08, type: 2}
   cohesionStrength: 0.762
   targetAge: 2
-  educationalTopics: 
+  Topics: 

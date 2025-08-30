@@ -30,7 +30,7 @@ namespace Antura.Discover
                 {
                     "-", // id
                     Escape(string.Join(", ", Enum.GetNames(typeof(Status)))),
-                    Escape(string.Join(", ", Enum.GetNames(typeof(CardImportance)))),
+                    Escape(string.Join(", ", Enum.GetNames(typeof(KnowledgeImportance)))),
                     // Exclude CardType values <= 0 (e.g., None)
                     Escape(string.Join(", ", Enum.GetValues(typeof(CardType)).Cast<Enum>().Where(e => Convert.ToInt32(e) > 0).Select(e => e.ToString()))),
                     // Exclude KnowledgeTopic values <= 0 (e.g., None)
@@ -189,7 +189,7 @@ namespace Antura.Discover
                 if (card.Status != status)
                 { if (!dryRun) card.Status = status; changedFields.Add(nameof(card.Status)); }
                 // Importance
-                TryParseEnum(Get("importance"), out CardImportance importance);
+                TryParseEnum(Get("importance"), out KnowledgeImportance importance);
                 if (card.Importance != importance)
                 { if (!dryRun) card.Importance = importance; changedFields.Add(nameof(card.Importance)); }
                 // Type

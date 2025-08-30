@@ -6,68 +6,68 @@ namespace Antura.Discover
 {
 
     [Serializable]
-    public class ClusterBridge
+    public class KnowledgeBridge
     {
-        public KnowledgeClusterData fromCluster;
-        public KnowledgeClusterData toCluster;
-        public CardData bridgeCard;
-        public string bridgeReason;
+        public KnowledgeData From;
+        public KnowledgeData To;
+        public CardData BridgeCard;
+        public string BridgeReason;
         [Range(0.1f, 1.0f)]
-        public float bridgeStrength = 0.5f;
+        public float BridgeStrength = 0.5f;
     }
 
-    [CreateAssetMenu(fileName = "KnowledgeCluster", menuName = "Antura/Discover/Knowledge Cluster")]
-    public class KnowledgeClusterData : ScriptableObject
+    [CreateAssetMenu(fileName = "KnowledgeData", menuName = "Antura/Discover/Knowledge Data")]
+    public class KnowledgeData : IdentifiedData
     {
-        [Header("Cluster Identity")]
-        public string clusterName;
+        [Header("Knowledge")]
+        public string Name;
         [TextArea(2, 4)]
-        public string description;
-        public ClusterPriority priority = ClusterPriority.Medium;
-        public Color clusterColor = Color.white;
+        public string Description;
+        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
+        public Color NodeColor = Color.white;
 
         [Header("Core Knowledge")]
         [Tooltip("The main card that represents this theme")]
-        public CardData coreCard;
+        public CardData CoreCard;
 
         [Header("Connected Cards")]
-        public List<CardConnection> connections = new List<CardConnection>();
+        public List<CardConnection> Connections = new List<CardConnection>();
 
         [Header("Discovery Flow")]
         [Tooltip("Suggested order for discovering related cards")]
-        public List<CardData> discoveryPath = new List<CardData>();
+        public List<CardData> DiscoveryPath = new List<CardData>();
 
         [Header("Settings")]
         [Range(0.1f, 1.0f)]
-        [Tooltip("How tightly related cards in this cluster are")]
+        [Tooltip("How tightly related cards")]
         public float cohesionStrength = 0.8f;
 
         [Header("Educational Context")]
-        [Tooltip("Age range this cluster is most suitable for")]
+        [Tooltip("Age range this Knowledge is most suitable for")]
         public AgeRange targetAge = AgeRange.Ages6to10;
 
-        [Tooltip("Topics this cluster helps teach")]
-        public List<KnowledgeTopic> educationalTopics = new List<KnowledgeTopic>();
+        [Tooltip("Topics this Knowledge helps teach")]
+        public List<KnowledgeTopic> Topics = new List<KnowledgeTopic>();
 
         // === RUNTIME METHODS ===
 
         /// <summary>
-        /// Get all cards in this cluster including core card
+        /// Get all cards in this Knowledge including core card
         /// </summary>
         public List<CardData> GetAllCards()
         {
             var allCards = new HashSet<CardData>();
 
-            if (coreCard != null)
-                allCards.Add(coreCard);
+            if (CoreCard != null)
+                allCards.Add(CoreCard);
 
-            foreach (var connection in connections)
+            foreach (var connection in Connections)
             {
                 if (connection.connectedCard != null)
                     allCards.Add(connection.connectedCard);
             }
 
-            foreach (var card in discoveryPath)
+            foreach (var card in DiscoveryPath)
             {
                 if (card != null)
                     allCards.Add(card);
@@ -82,7 +82,7 @@ namespace Antura.Discover
         public List<CardData> GetCardsByConnectionType(ConnectionType type)
         {
             var result = new List<CardData>();
-            foreach (var connection in connections)
+            foreach (var connection in Connections)
             {
                 if (connection.connectionType == type && connection.connectedCard != null)
                     result.Add(connection.connectedCard);
@@ -95,10 +95,10 @@ namespace Antura.Discover
         /// </summary>
         public float GetConnectionStrength(CardData card)
         {
-            if (card == coreCard)
+            if (card == CoreCard)
                 return 1.0f;
 
-            foreach (var connection in connections)
+            foreach (var connection in Connections)
             {
                 if (connection.connectedCard == card)
                     return connection.connectionStrength;
@@ -107,20 +107,20 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Check if cluster contains a specific card
+        /// Check if Knowledge contains a specific card
         /// </summary>
         public bool ContainsCard(CardData card)
         {
-            if (coreCard == card)
+            if (CoreCard == card)
                 return true;
 
-            foreach (var connection in connections)
+            foreach (var connection in Connections)
             {
                 if (connection.connectedCard == card)
                     return true;
             }
 
-            return discoveryPath.Contains(card);
+            return DiscoveryPath.Contains(card);
         }
 
         /// <summary>
@@ -128,32 +128,32 @@ namespace Antura.Discover
         /// </summary>
         public CardData GetNextInDiscoveryPath(CardData currentCard)
         {
-            int currentIndex = discoveryPath.IndexOf(currentCard);
-            if (currentIndex >= 0 && currentIndex < discoveryPath.Count - 1)
+            int currentIndex = DiscoveryPath.IndexOf(currentCard);
+            if (currentIndex >= 0 && currentIndex < DiscoveryPath.Count - 1)
             {
-                return discoveryPath[currentIndex + 1];
+                return DiscoveryPath[currentIndex + 1];
             }
             return null;
         }
 
         // === VALIDATION ===
-        [ContextMenu("Validate Cluster")]
-        public void ValidateCluster()
+        [ContextMenu("Validate Knowledge")]
+        public void ValidateKnowledge()
         {
             var issues = new List<string>();
 
-            if (string.IsNullOrEmpty(clusterName))
-                issues.Add("Cluster name is empty");
+            if (string.IsNullOrEmpty(Name))
+                issues.Add("Knowledge name is empty");
 
-            if (coreCard == null)
+            if (CoreCard == null)
                 issues.Add("No core card assigned");
 
-            if (connections.Count == 0)
+            if (Connections.Count == 0)
                 issues.Add("No connections defined");
 
             // Check for duplicate connections
             var cardSet = new HashSet<CardData>();
-            foreach (var connection in connections)
+            foreach (var connection in Connections)
             {
                 if (connection.connectedCard != null)
                 {
@@ -165,7 +165,7 @@ namespace Antura.Discover
             }
 
             // Check discovery path validity
-            foreach (var card in discoveryPath)
+            foreach (var card in DiscoveryPath)
             {
                 if (card != null && !ContainsCard(card))
                     issues.Add($"Discovery path contains unconnected card: {card.name}");
@@ -173,11 +173,11 @@ namespace Antura.Discover
 
             if (issues.Count > 0)
             {
-                Debug.LogWarning($"Cluster '{clusterName}' has issues:\n- " + string.Join("\n- ", issues));
+                Debug.LogWarning($"Knowledge '{Name}' has issues:\n- " + string.Join("\n- ", issues));
             }
             else
             {
-                Debug.Log($"Cluster '{clusterName}' validation passed!");
+                Debug.Log($"Knowledge '{Name}' validation passed!");
             }
         }
     }

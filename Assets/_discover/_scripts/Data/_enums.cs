@@ -13,7 +13,7 @@ namespace Antura.Discover
         UnitedKingdom = 8
     }
 
-    public enum CardImportance
+    public enum KnowledgeImportance
     {
         Critical = 0, // Absolutely required to reach learning/quest goals
         High = 10, // should appear unless there are strong constraints

@@ -18,7 +18,7 @@ namespace Antura.Discover.Editor
         private Vector2 graphDrawOrigin = Vector2.zero; // top-left of content bounds
 
         // Graph layout
-        private Dictionary<KnowledgeClusterData, Vector2> clusterPositions = new Dictionary<KnowledgeClusterData, Vector2>();
+        private Dictionary<KnowledgeData, Vector2> clusterPositions = new Dictionary<KnowledgeData, Vector2>();
         private Dictionary<CardData, Vector2> cardPositions = new Dictionary<CardData, Vector2>();
         private List<CardData> uniqueCards = new List<CardData>();
 
@@ -27,20 +27,20 @@ namespace Antura.Discover.Editor
         private bool showCardDetails = true;
         private bool showBridges = true;
         private bool autoLayout = true;
-        private ClusterPriority filterPriority = ClusterPriority.Low;
+        private KnowledgeImportance filterPriority = KnowledgeImportance.Low;
         private int connectionTypeIndex = 0; // 0 = All, else enum selection
 
         private const string PrefKeyCollectionPath = "Antura.KnowledgeClusterGraphWindow.CollectionPath";
 
         // Selection
-        private KnowledgeClusterData selectedCluster;
+        private KnowledgeData selectedCluster;
         private CardData selectedCard;
 
         // Styling
         private GUIStyle clusterStyle;
         private GUIStyle cardStyle;
         private GUIStyle selectedStyle;
-        private Dictionary<ClusterPriority, Color> priorityColors;
+        private Dictionary<KnowledgeImportance, Color> priorityColors;
 
         [MenuItem("Antura/Discover/Knowledge/Knowledge Graph")]
         public static void ShowWindow()
@@ -105,12 +105,12 @@ namespace Antura.Discover.Editor
 
         private void InitializePriorityColors()
         {
-            priorityColors = new Dictionary<ClusterPriority, Color>
+            priorityColors = new Dictionary<KnowledgeImportance, Color>
             {
-                { ClusterPriority.Critical, new Color(1f, 0.2f, 0.2f, 0.8f) },
-                { ClusterPriority.High, new Color(1f, 0.8f, 0.2f, 0.8f) },
-                { ClusterPriority.Medium, new Color(0.2f, 0.8f, 0.2f, 0.8f) },
-                { ClusterPriority.Low, new Color(0.6f, 0.6f, 0.6f, 0.8f) }
+                { KnowledgeImportance.Critical, new Color(1f, 0.2f, 0.2f, 0.8f) },
+                { KnowledgeImportance.High, new Color(1f, 0.8f, 0.2f, 0.8f) },
+                { KnowledgeImportance.Medium, new Color(0.2f, 0.8f, 0.2f, 0.8f) },
+                { KnowledgeImportance.Low, new Color(0.6f, 0.6f, 0.6f, 0.8f) }
             };
         }
 
@@ -161,7 +161,7 @@ namespace Antura.Discover.Editor
             GUILayout.Space(10);
 
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
-            filterPriority = (ClusterPriority)EditorGUILayout.EnumPopup(filterPriority, EditorStyles.toolbarPopup, GUILayout.Width(80));
+            filterPriority = (KnowledgeImportance)EditorGUILayout.EnumPopup(filterPriority, EditorStyles.toolbarPopup, GUILayout.Width(80));
 
             GUILayout.Space(10);
             // Connection type filter popup
@@ -211,7 +211,7 @@ namespace Antura.Discover.Editor
                         if (cardRect.Contains(mousePos))
                         {
                             selectedCard = kvp.Key;
-                            selectedCluster = clusterCollection.FindClusterForCard(kvp.Key);
+                            selectedCluster = clusterCollection.FindKnowledgeForCard(kvp.Key);
                             GUI.changed = true;
                             e.Use();
                             return;
@@ -290,9 +290,9 @@ namespace Antura.Discover.Editor
 
         private void DrawClusters()
         {
-            foreach (var cluster in clusterCollection.allClusters)
+            foreach (var cluster in clusterCollection.AllKnowledges)
             {
-                if (cluster == null || cluster.priority > filterPriority)
+                if (cluster == null || cluster.Importance > filterPriority)
                     continue;
 
                 if (!clusterPositions.ContainsKey(cluster))
@@ -303,15 +303,15 @@ namespace Antura.Discover.Editor
 
                 // Set color based on priority
                 Color oldColor = GUI.backgroundColor;
-                GUI.backgroundColor = priorityColors[cluster.priority];
+                GUI.backgroundColor = priorityColors[cluster.Importance];
 
                 GUIStyle style = (cluster == selectedCluster) ? selectedStyle : clusterStyle;
 
-                GUI.Box(rect, cluster.clusterName, style);
+                GUI.Box(rect, cluster.Name, style);
 
                 // Draw priority indicator
                 Rect priorityRect = new Rect(rect.x, rect.y - 15, rect.width, 12);
-                GUI.Label(priorityRect, cluster.priority.ToString(), EditorStyles.miniLabel);
+                GUI.Label(priorityRect, cluster.Importance.ToString(), EditorStyles.miniLabel);
 
                 GUI.backgroundColor = oldColor;
             }
@@ -337,7 +337,7 @@ namespace Antura.Discover.Editor
                 {
                     selectedCard = card;
                     // Prefer to focus on one of its clusters
-                    selectedCluster = clusterCollection.FindClusterForCard(card);
+                    selectedCluster = clusterCollection.FindKnowledgeForCard(card);
                 }
 
                 GUI.backgroundColor = oldColor;
@@ -346,18 +346,18 @@ namespace Antura.Discover.Editor
 
         private void DrawCardConnections()
         {
-            foreach (var cluster in clusterCollection.allClusters)
+            foreach (var cluster in clusterCollection.AllKnowledges)
             {
-                if (cluster == null || cluster.priority > filterPriority)
+                if (cluster == null || cluster.Importance > filterPriority)
                     continue;
-                if (cluster.coreCard == null)
+                if (cluster.CoreCard == null)
                     continue;
 
                 Vector2 corePos = Vector2.zero;
-                if (cardPositions.ContainsKey(cluster.coreCard))
-                    corePos = cardPositions[cluster.coreCard];
+                if (cardPositions.ContainsKey(cluster.CoreCard))
+                    corePos = cardPositions[cluster.CoreCard];
 
-                foreach (var connection in cluster.connections)
+                foreach (var connection in cluster.Connections)
                 {
                     if (connection.connectedCard == null)
                         continue;
@@ -382,20 +382,20 @@ namespace Antura.Discover.Editor
 
         private void DrawClusterBridges()
         {
-            foreach (var bridge in clusterCollection.bridges)
+            foreach (var bridge in clusterCollection.Bridges)
             {
-                if (bridge.fromCluster == null || bridge.toCluster == null)
+                if (bridge.From == null || bridge.To == null)
                     continue;
-                if (bridge.fromCluster.priority > filterPriority || bridge.toCluster.priority > filterPriority)
-                    continue;
-
-                if (!clusterPositions.ContainsKey(bridge.fromCluster) || !clusterPositions.ContainsKey(bridge.toCluster))
+                if (bridge.From.Importance > filterPriority || bridge.To.Importance > filterPriority)
                     continue;
 
-                Vector2 fromPos = clusterPositions[bridge.fromCluster] - graphDrawOrigin;
-                Vector2 toPos = clusterPositions[bridge.toCluster] - graphDrawOrigin;
+                if (!clusterPositions.ContainsKey(bridge.From) || !clusterPositions.ContainsKey(bridge.To))
+                    continue;
 
-                DrawLine(fromPos, toPos, Color.magenta, bridge.bridgeStrength * 5f);
+                Vector2 fromPos = clusterPositions[bridge.From] - graphDrawOrigin;
+                Vector2 toPos = clusterPositions[bridge.To] - graphDrawOrigin;
+
+                DrawLine(fromPos, toPos, Color.magenta, bridge.BridgeStrength * 5f);
             }
         }
 
@@ -409,28 +409,28 @@ namespace Antura.Discover.Editor
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
             EditorGUILayout.LabelField("Graph Statistics", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField($"Total Clusters: {clusterCollection.allClusters.Count}");
-            EditorGUILayout.LabelField($"Visible Clusters: {clusterCollection.allClusters.Count(c => c != null && c.priority <= filterPriority)}");
-            EditorGUILayout.LabelField($"Bridges: {clusterCollection.bridges.Count}");
+            EditorGUILayout.LabelField($"Total Clusters: {clusterCollection.AllKnowledges.Count}");
+            EditorGUILayout.LabelField($"Visible Clusters: {clusterCollection.AllKnowledges.Count(c => c != null && c.Importance <= filterPriority)}");
+            EditorGUILayout.LabelField($"Bridges: {clusterCollection.Bridges.Count}");
 
             EditorGUILayout.Space();
 
             if (selectedCluster != null)
             {
                 EditorGUILayout.LabelField("Selected Cluster", EditorStyles.boldLabel);
-                EditorGUILayout.LabelField($"Name: {selectedCluster.clusterName}");
-                EditorGUILayout.LabelField($"Priority: {selectedCluster.priority}");
+                EditorGUILayout.LabelField($"Name: {selectedCluster.Name}");
+                EditorGUILayout.LabelField($"Priority: {selectedCluster.Importance}");
                 EditorGUILayout.LabelField($"Cards: {selectedCluster.GetAllCards().Count}");
                 EditorGUILayout.LabelField($"Cohesion: {selectedCluster.cohesionStrength:F2}");
 
-                if (selectedCluster.coreCard != null)
+                if (selectedCluster.CoreCard != null)
                 {
-                    EditorGUILayout.LabelField($"Core: {selectedCluster.coreCard.name}");
+                    EditorGUILayout.LabelField($"Core: {selectedCluster.CoreCard.name}");
                 }
 
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Connections:", EditorStyles.boldLabel);
-                foreach (var conn in selectedCluster.connections)
+                foreach (var conn in selectedCluster.Connections)
                 {
                     if (conn.connectedCard != null)
                     {
@@ -478,7 +478,7 @@ namespace Antura.Discover.Editor
             else
             {
                 // Random positions if not auto-layout
-                foreach (var cluster in clusterCollection.allClusters)
+                foreach (var cluster in clusterCollection.AllKnowledges)
                 {
                     if (cluster != null && !clusterPositions.ContainsKey(cluster))
                     {
@@ -491,7 +491,7 @@ namespace Antura.Discover.Editor
 
         private void PerformAutoLayout()
         {
-            var clusters = clusterCollection.allClusters.Where(c => c != null).ToList();
+            var clusters = clusterCollection.AllKnowledges.Where(c => c != null).ToList();
             if (clusters.Count == 0)
                 return;
 
@@ -522,7 +522,7 @@ namespace Antura.Discover.Editor
         {
             // Build unique set
             var set = new HashSet<CardData>();
-            foreach (var cl in clusterCollection.allClusters)
+            foreach (var cl in clusterCollection.AllKnowledges)
             {
                 if (cl == null)
                     continue;
@@ -551,7 +551,7 @@ namespace Antura.Discover.Editor
             );
         }
 
-        private Rect GetClusterRect(KnowledgeClusterData cluster, Vector2 pos)
+        private Rect GetClusterRect(KnowledgeData cluster, Vector2 pos)
         {
             return new Rect(pos.x - 60, pos.y - 30, 120, 60);
         }
@@ -606,9 +606,9 @@ namespace Antura.Discover.Editor
 
         private void DrawClusterCardLinks()
         {
-            foreach (var cluster in clusterCollection.allClusters)
+            foreach (var cluster in clusterCollection.AllKnowledges)
             {
-                if (cluster == null || cluster.priority > filterPriority)
+                if (cluster == null || cluster.Importance > filterPriority)
                     continue;
                 if (!clusterPositions.TryGetValue(cluster, out var cPos))
                     continue;
@@ -678,7 +678,7 @@ namespace Antura.Discover.Editor
             Handles.color = oldColor;
         }
 
-        private void FocusOnCluster(KnowledgeClusterData cluster)
+        private void FocusOnCluster(KnowledgeData cluster)
         {
             if (clusterPositions.ContainsKey(cluster))
             {

@@ -18,14 +18,6 @@ namespace Antura.Discover
         Comparison = 10      // Comparing similar things
     }
 
-    public enum ClusterPriority
-    {
-        Critical = 1,       // Essential for survival/safety
-        High = 2,           // Important for integration
-        Medium = 3,         // Valuable cultural knowledge
-        Low = 4             // Nice to know
-    }
-
     public enum AgeRange
     {
         Ages3to5 = 1,       // Preschool

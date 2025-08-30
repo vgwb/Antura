@@ -11,7 +11,7 @@ namespace Antura.Discover
     {
         public Status Status = Status.Draft;
 
-        public CardImportance Importance = CardImportance.Medium;
+        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
         [Tooltip("Why is this card important?")]
         [TextArea]
         public string Rationale;

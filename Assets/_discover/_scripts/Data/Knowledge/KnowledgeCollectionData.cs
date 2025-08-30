@@ -5,40 +5,40 @@ using UnityEditor;
 
 namespace Antura.Discover
 {
-    [CreateAssetMenu(fileName = "KnowledgeCollectionData", menuName = "Antura/Discover/Cluster Collection")]
+    [CreateAssetMenu(fileName = "KnowledgeCollectionData", menuName = "Antura/Discover/Knowledge Collection")]
     public class KnowledgeCollectionData : ScriptableObject
     {
-        [Header("Cluster Organization")]
-        public List<KnowledgeClusterData> allClusters = new List<KnowledgeClusterData>();
+        [Header("Knowledge Organization")]
+        public List<KnowledgeData> AllKnowledges = new List<KnowledgeData>();
 
-        [Header("Cross-Cluster Connections")]
-        public List<ClusterBridge> bridges = new List<ClusterBridge>();
+        [Header("Cross-Knowledge Connections")]
+        public List<KnowledgeBridge> Bridges = new List<KnowledgeBridge>();
 
         // === QUERY METHODS ===
 
         /// <summary>
-        /// Find which cluster contains a specific card
+        /// Find which knowledge contains a specific card
         /// </summary>
-        public KnowledgeClusterData FindClusterForCard(CardData card)
+        public KnowledgeData FindKnowledgeForCard(CardData card)
         {
-            foreach (var cluster in allClusters)
+            foreach (var knowledge in AllKnowledges)
             {
-                if (cluster.ContainsCard(card))
-                    return cluster;
+                if (knowledge.ContainsCard(card))
+                    return knowledge;
             }
             return null;
         }
 
         /// <summary>
-        /// Get clusters by priority level
+        /// Get Knowledges by priority level
         /// </summary>
-        public List<KnowledgeClusterData> GetClustersByPriority(ClusterPriority priority)
+        public List<KnowledgeData> knowledge(KnowledgeImportance priority)
         {
-            var result = new List<KnowledgeClusterData>();
-            foreach (var cluster in allClusters)
+            var result = new List<KnowledgeData>();
+            foreach (var knowledge in AllKnowledges)
             {
-                if (cluster.priority == priority)
-                    result.Add(cluster);
+                if (knowledge.Importance == priority)
+                    result.Add(knowledge);
             }
             return result;
         }
@@ -46,19 +46,19 @@ namespace Antura.Discover
         /// <summary>
         /// Get all cards that are discoverable based on known cards
         /// </summary>
-        public List<CardData> GetDiscoverableCards(List<CardData> knownCards, ClusterPriority maxPriority = ClusterPriority.Low)
+        public List<CardData> GetDiscoverableCards(List<CardData> knownCards, KnowledgeImportance maxPriority = KnowledgeImportance.Low)
         {
             var discoverable = new HashSet<CardData>();
 
-            foreach (var cluster in allClusters)
+            foreach (var knowledge in AllKnowledges)
             {
-                if (cluster.priority > maxPriority)
+                if (knowledge.Importance > maxPriority)
                     continue;
 
                 // If player knows core card, they can discover connected cards
-                if (knownCards.Contains(cluster.coreCard))
+                if (knownCards.Contains(knowledge.CoreCard))
                 {
-                    foreach (var connection in cluster.connections)
+                    foreach (var connection in knowledge.Connections)
                     {
                         if (connection.connectedCard != null && !knownCards.Contains(connection.connectedCard))
                             discoverable.Add(connection.connectedCard);
@@ -70,43 +70,43 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Get related clusters through bridges
+        /// Get related knowledges through bridges
         /// </summary>
-        public List<KnowledgeClusterData> GetRelatedClusters(KnowledgeClusterData cluster)
+        public List<KnowledgeData> GetRelatedKnowledges(KnowledgeData knowledge)
         {
-            var related = new List<KnowledgeClusterData>();
+            var related = new List<KnowledgeData>();
 
-            foreach (var bridge in bridges)
+            foreach (var bridge in Bridges)
             {
-                if (bridge.fromCluster == cluster && bridge.toCluster != null)
-                    related.Add(bridge.toCluster);
-                else if (bridge.toCluster == cluster && bridge.fromCluster != null)
-                    related.Add(bridge.fromCluster);
+                if (bridge.From == knowledge && bridge.To != null)
+                    related.Add(bridge.To);
+                else if (bridge.To == knowledge && bridge.From != null)
+                    related.Add(bridge.From);
             }
 
             return related;
         }
 
-        [ContextMenu("Validate All Clusters")]
-        public void ValidateAllClusters()
+        [ContextMenu("Validate All Knowledges")]
+        public void ValidateAllKnowledges()
         {
-            Debug.Log($"Validating {allClusters.Count} clusters...");
+            Debug.Log($"Validating {AllKnowledges.Count} Knowledges...");
 
             int issueCount = 0;
-            foreach (var cluster in allClusters)
+            foreach (var knowledge in AllKnowledges)
             {
-                if (cluster != null)
+                if (knowledge != null)
                 {
-                    cluster.ValidateCluster();
+                    knowledge.ValidateKnowledge();
                 }
                 else
                 {
-                    Debug.LogError("Null cluster found in collection!");
+                    Debug.LogError("Null Knowledge found in collection!");
                     issueCount++;
                 }
             }
 
-            Debug.Log($"Cluster validation complete. Check console for any issues.");
+            Debug.Log($"Knowledge validation complete. Check console for any issues.");
         }
     }
 }
