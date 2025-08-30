@@ -24,10 +24,7 @@ namespace Antura.Discover
         /// Build a sanitized ID from a base name with an optional country two-letter code prefix.
         public static string BuildSanitizedId(string baseName, string countryCode = null)
         {
-            var withPrefix = string.IsNullOrEmpty(countryCode)
-                ? baseName
-                : PrefixOnce(countryCode, baseName);
-            return SanitizeId(withPrefix);
+            return SanitizeId(baseName);
         }
 
         /// Adds prefix_ only if not already present (case-insensitive)

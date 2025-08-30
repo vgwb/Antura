@@ -8,7 +8,7 @@ namespace Antura.Discover.Editor
     /// </summary>
     public class TerrainToLowPolyMesh : MonoBehaviour
     {
-        [MenuItem("Antura/Discover/Export Terrain To Low-Poly Mesh (Vertex Colors)")]
+        [MenuItem("Antura/Discover/Utility/Export Terrain To Low-Poly Mesh", priority = 600)]
         static void Export()
         {
             var terrain = Selection.activeGameObject ? Selection.activeGameObject.GetComponent<Terrain>() : null;

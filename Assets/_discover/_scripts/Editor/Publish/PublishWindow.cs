@@ -17,7 +17,7 @@ namespace Antura.Discover.Editor
         private Countries filterCountry = Countries.International;
         private bool filterByCountry = false;
 
-        [MenuItem("Antura/Discover/Export Window ", priority = 290)]
+        [MenuItem("Antura/Discover/Export Window ", priority = 160)]
         public static void Open()
         {
             GetWindow<PublishWindow>(title: "Export").Show();
@@ -126,7 +126,7 @@ namespace Antura.Discover.Editor
             EditorUtility.RevealInFinder(folder);
         }
 
-        [MenuItem("Antura/Discover/Publish Website", priority = 300)]
+        [MenuItem("Antura/Discover/Publish Website", priority = 160)]
         public static void PublishAllToDocs()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;

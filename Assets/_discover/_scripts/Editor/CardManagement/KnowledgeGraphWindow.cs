@@ -42,7 +42,7 @@ namespace Antura.Discover.Editor
         private GUIStyle selectedStyle;
         private Dictionary<KnowledgeImportance, Color> priorityColors;
 
-        [MenuItem("Antura/Discover/Knowledge/Knowledge Graph")]
+        [MenuItem("Antura/Discover/Knowledge Graph", priority = 150)]
         public static void ShowWindow()
         {
             GetWindow<KnowledgeGraphWindow>("Knowledge Graph");

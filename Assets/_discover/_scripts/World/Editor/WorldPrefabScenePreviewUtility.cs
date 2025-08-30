@@ -16,7 +16,7 @@ namespace Antura.Discover.Editor
         private const float GroupSpacing = 17f; // distance between kit columns along X
         private const float RowGap = 1f;        // extra gap between prefabs within a kit along Z
 
-        [MenuItem("Antura/Discover/Prefabs/Populate Scene with World Prefabs", priority = 2010)]
+        [MenuItem("Antura/Discover/Utility/Populate Scene with World Prefabs", priority = 600)]
         public static void PopulateSceneWithWorldPrefabs()
         {
             try

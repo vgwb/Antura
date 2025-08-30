@@ -35,9 +35,10 @@ namespace Antura.Discover
                     if (!(Array.IndexOf(ImageExtensions, ext) >= 0 || obj is Texture2D || obj is Sprite))
                     { skipped++; continue; }
 
-                    // Ensure sprite import and load sprite
+                    // Ensure sprite import and load sprite (force reimport to guarantee sub-asset availability)
                     EnsureSpriteImporter(assetPath);
-                    var sprite = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+                    AssetDatabase.ImportAsset(assetPath, ImportAssetOptions.ForceSynchronousImport | ImportAssetOptions.ForceUpdate);
+                    var sprite = LoadSpriteAtPath(assetPath);
                     if (sprite == null)
                     { skipped++; continue; }
 
@@ -48,7 +49,7 @@ namespace Antura.Discover
                     // Infer country and build id
                     var code = InferCountryCodeFromPath(assetPath);
                     var country = MapCountryCodeToEnum(code);
-                    var id = IdentifiedData.BuildSanitizedId(fileBase, code);
+                    var id = IdentifiedData.BuildSanitizedId(fileBase);
 
                     var existing = AssetDatabase.LoadAssetAtPath<AssetData>(defaultPath);
                     if (existing == null)
@@ -216,6 +217,27 @@ namespace Antura.Discover
                 catch { }
             }
             return changed;
+        }
+
+        private static Sprite LoadSpriteAtPath(string assetPath)
+        {
+            if (string.IsNullOrEmpty(assetPath))
+                return null;
+            // Try direct load first (works when SpriteImportMode.Single)
+            var sp = AssetDatabase.LoadAssetAtPath<Sprite>(assetPath);
+            if (sp != null)
+                return sp;
+            // Fallback: iterate sub-assets and return first Sprite
+            var reps = AssetDatabase.LoadAllAssetRepresentationsAtPath(assetPath);
+            if (reps != null)
+            {
+                foreach (var r in reps)
+                {
+                    if (r is Sprite s)
+                        return s;
+                }
+            }
+            return null;
         }
 
         private static string InferCountryCodeFromPath(string assetPath)
