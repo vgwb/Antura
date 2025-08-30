@@ -18,7 +18,8 @@ MonoBehaviour:
   YarnScript: {fileID: -8253061345870894857, guid: c068943b5a077414a931970f3f80ada4,
     type: 3}
   IdDisplay: 1
-  DevStatus: 3
+  Version: 100
+  Status: 2
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -28,8 +29,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Country: 2
-  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   Description:
     m_TableReference:
       m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
@@ -39,23 +38,26 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   Thumbnail: {fileID: 11400000, guid: c5a7898cbbc064c2fa818b052f712f7e, type: 2}
-  MainTopic: 0
+  MainTopic: 3
   Cards:
   - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   - {fileID: 11400000, guid: cd6c73dbcae5443c1a02cc32b2bb0360, type: 2}
   - {fileID: 11400000, guid: 6f7e0e892ea5545109e80c590bec4e8d, type: 2}
   - {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
   Words: []
+  AgeMin: 0
+  AgeMax: 0
   Difficulty: 4
-  Gameplay: 020000000100000000000000
   Duration: 20
   Dependencies:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  Gameplay: 020000000100000000000000
   cookies: 0
   IsPublic: 1
   IsScriptPublic: 1
-  manualPage: fr_1
   AdditionalResources: {fileID: 4900000, guid: 792a7f34af4db4db19b8b6ee434d1c13, type: 3}
   Credits:
   - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
