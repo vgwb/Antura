@@ -1,23 +1,35 @@
-﻿//--------------------------------------------
-// QUEST: PL_05_BALTIC_SEA – The Amber Necklace of Gdańsk
-//--------------------------------------------
-// Vocabulary: POLAND, GDAŃSK, BALTIC SEA, BEACH, SAND, SHELL, AMBER, LIGHTHOUSE, FISHERMAN, CUTTER, NET, NECKLACE, NEPTUNE, FOUNTAIN, SEAL
+﻿// ============================================================================
+// PL_05_BALTIC_SEA - Baltic Coast Exploration
+// ============================================================================
+//
+// Cards:
+// - baltic_sea_coast (NEEDS CREATION / coastal geography)
+// - BalticSea (COMPLETE / water body)
+// - amber (NEEDS CREATION / regional treasure)
+// - baltic_lighthouse (NEEDS CREATION / maritime navigation)
+// - [POTENTIAL]: gdansk_port, fishing_boat, sea_animals
+//
+// Tasks:
+// - [NEEDS ANALYSIS] Likely coastal exploration and maritime education
+//
 // Activities:
-// 1) <<activity cleancanvas beach_shells tutorial>> — Beachcombing: reveal 5 SHELL piles. (BEACH, SAND, SHELL)
-// 2) <<activity cleancanvas beach_amber tutorial>>  — Beachcombing: reveal 5 AMBER piles. (AMBER, BALTIC SEA)
-// 3) <<activity jigsawpuzzle gdansk_lighthouse tutorial>> — Rebuild LIGHTHOUSE image; role of a LIGHTHOUSE.
-// 4) <<activity order necklace_sequence tutorial>> — Craft NECKLACE: pattern of AMBER + SHELL. (sequence)
-// 5) <<activity memory sea_vocab tutorial>> — Memory cards: FISHERMAN, CUTTER, NET, SEAL, BEACH, AMBER.
-// 6) <<activity quiz baltic_basics tutorial>> — Final quiz (flagship facts + vocab).
-// Spoken Lines (count): 37
+// cleancanvas beach_shells        - Beachcombing: reveal 5 SHELL piles. (BEACH, SAND, SHELL)
+// cleancanvas beach_amber         - Beachcombing: reveal 5 AMBER piles. (AMBER, BALTIC SEA)
+// jigsawpuzzle gdansk_lighthouse  - Rebuild LIGHTHOUSE image; role of a LIGHTHOUSE.
+// order necklace_sequence         - Craft NECKLACE: pattern of AMBER + SHELL.
+// memory sea_vocab                - Memory cards: FISHERMAN, CUTTER, NET, SEAL, BEACH, AMBER
+// quiz baltic_basics              - Final quiz.
+//
+// Words used: Baltic Sea, coast, amber, lighthouse, Gdansk, fishing, maritime, beach, waves, seagull, ship, port, navigation, ecosystem, Poland
+// ============================================================================
 
 
 //--------------------------------------------
-// INTRO – LIGHTHOUSE OFF
+// INTRO
 //--------------------------------------------
 
 title: init
-position: -288,-123
+position: 0,0
 group: Intro
 tags: actor=Narrator
 image: gdansk_lighthouse_off

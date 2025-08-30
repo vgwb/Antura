@@ -1,19 +1,27 @@
-﻿// Quest: PL_03_WROCLAW_RIVER
-// Title: A Voyage on the Odra River
-// Key Words (focus vocab): POLAND, WROCŁAW, RIVER, ODRA, BRIDGE, FOOTBRIDGE, TRAIN, CAR, BOAT, BARGE, HOUSEBOAT, SEA, BALTIC, MAP, SIGN
-// Goal: Learn simple words while sailing the ODRA in WROCŁAW. Short lines, one speaker per node, key words in CAPS.
+﻿// ============================================================================
+// PL_03_WROCLAW_RIVER - Odra River Exploration
+// ============================================================================
+// Location: Wrocław, Poland - Odra River and bridges
 //
-// Activities Synthesis:
-// 1) <<activity cleancanvas odra_footbridge tutorial>>  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).
-// 2) <<activity memory odra_bridges tutorial>>          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS). (Used twice.)
-// 3) <<activity jigsawpuzzle odra_barge tutorial>>      — Rebuild BARGE image; concept: BOAT that carries GOODS.
-// 4) <<activity jigsawpuzzle odra_houseboat tutorial>>  — Rebuild HOUSEBOAT image; concept: BOAT for LIVING.
-// 5) <<activity order odra_couples tutorial>>           — Pair BRIDGES→(people/CARS/TRAIN) and BOATS→(goods/live).
-// 6) <<activity order odra_map_triplet tutorial>>       — Tap/sequence ODRA, WISŁA, BALTIC; concept: rivers flow to SEA.
-// 7) <<activity quiz odra_facts tutorial>>              — Final assessment (at least 2 Qs): ODRA→BALTIC, longest river=WISŁA.
+// Cards:
+// - odra_river (geographical feature)
+// - RiverOdra (major river)
+// - wroclaw_bridges (infrastructure)
+// - Footbridges (bridge types)
 //
-// Spoken Lines (count): 33
-
+// Tasks:
+//
+// Activities:
+// cleancanvas odra_footbridge  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).
+// memory odra_bridges          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS).
+// jigsawpuzzle odra_barge      — Rebuild BARGE image; concept: BOAT that carries GOODS.
+// jigsawpuzzle odra_houseboat  — Rebuild HOUSEBOAT image; concept: BOAT for LIVING.
+// order odra_couples           — Pair BRIDGES→(people/CARS/TRAIN) and BOATS→(goods/live).
+// order odra_map_triplet       — Tap/sequence ODRA, WISŁA, BALTIC; concept: rivers flow to SEA.
+// quiz odra_facts              — Final assessment (at least 2 Qs): ODRA→BALTIC, longest river=WISŁA.
+//
+// Words used: Odra, river, bridge, island , water, Wrocław, navigation, ecosystem
+// ============================================================================
 
 //--------------------------------------------
 // INTRO – DOCK
@@ -25,12 +33,9 @@ tags: actor=BoatCaptain
 image: odra_dock
 color: red
 ---
-Boat Captain: Welcome to WROCŁAW in POLAND.
-Boat Captain: This is the ODRA RIVER.
-Boat Captain: Ready to explore?
-
--> Let’s go!
-    <<jump BRIDGES_INTRO>>
+Welcome to WROCŁAW in POLAND.
+This is the ODRA RIVER.
+Ready to explore?
 ===
 
 
@@ -43,12 +48,10 @@ group: Bridges
 tags: actor=BoatCaptain
 image: city_of_bridges
 ---
-Boat Captain: WROCŁAW has many BRIDGES.
-Boat Captain: More than one hundred!
-Boat Captain: Let’s find three types.
+WROCŁAW has many BRIDGES.
+More than one hundred!
+Let’s find three types.
 
--> Find the FOOTBRIDGE
-    <<jump BRIDGE_FOOT_HINT>>
 ===
 
 title: BRIDGE_FOOT_HINT
@@ -57,12 +60,11 @@ group: Bridges
 tags: actor=BoatCaptain
 image: footbridge_view
 ---
-Boat Captain: FOOTBRIDGE is for people.
-Boat Captain: Hint: no CARS on it.
+FOOTBRIDGE is for people.
+Hint: no CARS on it.
 
 <<activity cleancanvas odra_footbridge tutorial>>
--> Next: TRAIN BRIDGE
-    <<jump BRIDGE_TRAIN_HINT>>
+
 ===
 
 title: BRIDGE_TRAIN_HINT
@@ -71,8 +73,8 @@ group: Bridges
 tags: actor=BoatCaptain
 image: railway_bridge
 ---
-Boat Captain: TRAIN BRIDGE carries TRAINS.
-Boat Captain: Hint: look for TRACKS.
+TRAIN BRIDGE carries TRAINS.
+Hint: look for TRACKS.
 
 <<activity memory odra_bridges tutorial>>
 -> Next: ROAD BRIDGE
@@ -85,8 +87,8 @@ group: Bridges
 tags: actor=BoatCaptain
 image: road_bridge
 ---
-Boat Captain: ROAD BRIDGE is for CARS.
-Boat Captain: Hint: spot CARS crossing.
+ROAD BRIDGE is for CARS.
+Hint: spot CARS crossing.
 
 <<activity memory odra_bridges tutorial>>
 ===
@@ -101,8 +103,8 @@ group: Boats
 tags: actor=BoatCaptain
 image: odra_river_traffic
 ---
-Boat Captain: Many BOATS on the ODRA.
-Boat Captain: Find a BARGE first.
+Many BOATS on the ODRA.
+Find a BARGE first.
 
 -> Show me a BARGE
     <<jump BOAT_BARGE_HINT>>
@@ -114,12 +116,11 @@ group: Boats
 tags: actor=BoatCaptain
 image: barge_photo
 ---
-Boat Captain: BARGE is low and flat.
-Boat Captain: It carries GOODS.
+BARGE is low and flat.
+It carries GOODS.
 
 <<activity jigsawpuzzle odra_barge tutorial>>
 -> Find a HOUSEBOAT
-    <<jump BOAT_HOUSE_HINT>>
 ===
 
 title: BOAT_HOUSE_HINT
@@ -128,12 +129,11 @@ group: Boats
 tags: actor=BoatCaptain
 image: houseboat
 ---
-Boat Captain: HOUSEBOAT is for living.
-Boat Captain: Windows like a small home.
+HOUSEBOAT is for living.
+Windows like a small home.
 
 <<activity jigsawpuzzle odra_houseboat tutorial>>
--> Match jobs
-    <<jump BOATS_MATCH>>
+
 ===
 
 title: BOATS_MATCH
@@ -142,9 +142,9 @@ group: Boats
 tags: actor=BoatCaptain
 image: odra_couples
 ---
-Boat Captain: Match things to jobs.
-Boat Captain: BRIDGE→people/CARS/TRAIN.
-Boat Captain: BOAT→goods/live.
+Match things to jobs.
+BRIDGE→people/CARS/TRAIN.
+BOAT→goods/live.
 
 <<activity order odra_couples tutorial>>
 ===
@@ -159,9 +159,9 @@ group: Map
 tags: actor=BoatCaptain
 image: poland_river_map
 ---
-Boat Captain: ODRA is Poland’s 2 RIVER.
-Boat Captain: WISŁA is 1, the longest.
-Boat Captain: Both flow to the BALTIC SEA.
+ODRA is Poland’s 2 RIVER.
+WISŁA is 1, the longest.
+Both flow to the BALTIC SEA.
 
 -> Map check
     <<jump MAP_ACTIVITY>>
@@ -189,12 +189,10 @@ group: End
 tags: actor=BoatCaptain
 image: odra_sign
 ---
-Boat Captain: This blue SIGN means RIVER.
-Boat Captain: You learned BRIDGES and BOATS.
-Boat Captain: Ready for a quiz?
-
--> Final Quiz
-    <<jump FINAL_QUIZ>>
+This blue SIGN means RIVER.
+You learned BRIDGES and BOATS.
+Ready for a quiz?
+<<jump FINAL_QUIZ>>
 ===
 
 
@@ -207,16 +205,15 @@ group: End
 tags: actor=Narrator
 image: odra_quiz
 ---
-Narrator: Answer two questions.
-Narrator: Tap the best choice.
+Answer two questions.
+Tap the best choice.
 
 <<activity quiz odra_facts tutorial>>
 // Suggested questions in preset:
 // 1) ODRA flows into which SEA?  a) BLACK  b) BALTIC ✅
 // 2) Longest RIVER in POLAND?    a) WISŁA ✅  b) ODRA
 
--> Finish
-    <<jump QUEST_COMPLETE>>
+<<jump QUEST_COMPLETE>>
 ===
 
 title: QUEST_COMPLETE
@@ -225,8 +222,8 @@ group: End
 tags: actor=BoatCaptain
 image: quest_complete
 ---
-Boat Captain: Great work, RIVER explorer!
-Boat Captain: See you on the next trip!
+Great work, RIVER explorer!
+See you on the next trip!
 
 <<quest_end 3>>
 ===

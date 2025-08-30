@@ -1,0 +1,8 @@
+## Game Design
+Prepare for an alpine adventure! Help The cat select the right gear for changing weather as he climbs Mont Blanc, the highest peak in the Alps, and learn about the countries that surround it.
+
+### Mission
+The player must guide Cat up a winding path to the summit of Mont Blanc. The ascent is divided into sections with different weather conditions (wind, snow, bright sun). At each section, the player must open Cat's backpack and choose the correct clothing to proceed safely. The quest culminates in a flag-placing puzzle at the peak, followed by a fun bobsled ride down.
+
+### Location
+Mont Blanc, French Alps - Mountain peak

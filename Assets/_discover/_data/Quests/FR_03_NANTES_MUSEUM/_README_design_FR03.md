@@ -1,5 +1,4 @@
-## Knowledge Content
-
+## Game Design
 Let’s go to Nantes and discover who Jules Verne was and discover some transport vehicles.
 
 - He was born in Nantes in 1828
