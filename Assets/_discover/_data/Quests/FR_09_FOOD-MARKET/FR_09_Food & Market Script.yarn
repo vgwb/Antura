@@ -1,5 +1,5 @@
 ﻿// FR-09 Cotes Dazur Market
-// Words used: bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil
+// Words used: bread, fish, crab, orange, lemon, tomato, cheese, salt, pepper, oil
 // activities in this quest:
 // - DONE collect ingredients (bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil)
 // - order ingredients
@@ -14,13 +14,13 @@ color: red
 ---
 <<set $MAX_PROGRESS = 7>>
 <<declare $ingredients = 0>>
-TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast.
+TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. #line:078e646 
 ===
 title: FR_09_COTES_DAZUR_Text_02630595
 position: -757,1139
 tags: actorUID=GUIDE, asset=_09_overview
 ---
-GUIDE: Explore the market and meet the sellers.
+GUIDE: Explore the market and meet the sellers. #line:0e8ffc8 
 ===
 
 
@@ -29,18 +29,16 @@ GUIDE: Explore the market and meet the sellers.
 
 
 title: baker_bonjour
-position: 644,-11
+position: 646,-11
 group: baker
 tags: actorUID=MAN
 ---
 <<asset shop_baker>>
-Bonjour! I sell fresh bread. I am a baker.
-<<card  fr_baker>>
-Every day I wake up early to bake.
+Bonjour! I sell fresh bread. I am a baker. #line:0c6f41f 
+Every day I wake up early to bake. #line:0f6e48a 
+<<card  person_baker zoom>>
 <<jump baker_question>>
 ===
-
-
 
 title: shop_baker
 position: 405,-11
@@ -48,11 +46,12 @@ group: baker
 tags: actorUID=BAKER
 color: blue
 ---
--> Bonjour!:
+Bonjour! #line:0cd2ee2 
+-> Bonjour!: #line:09460ce 
     <<jump baker_bonjour>>
--> Merci!:
+-> Merci!: #line:0bf3f32 
     <<jump baker_notunderstand>>
--> Banana!:
+-> Banana!: #line:0ebf8b2 
     <<jump baker_notunderstand>>
 ===
 
@@ -61,14 +60,14 @@ position: 880,-10
 group: baker
 tags: actorUID=BAKER, type=Choice
 ---
-What do you want to buy?
--> "Bread":
+What do you want to buy? #line:00279c8 
+-> "Bread": #line:00eab87 
     <<jump baker_pay_activity>>
--> "Fish and Crab":
+-> "Fish and Crab": #line:08177a5 
     <<jump baker_dontsell>>
--> "Tomatoes, Oranges, and Lemons":
+-> "Tomatoes, Oranges, and Lemons": #line:0a8294a 
     <<jump baker_dontsell>>
--> "Salt, Pepper, and Oil":
+-> "Salt, Pepper, and Oil": #line:0babba5 
     <<jump baker_dontsell>>
 ===
 
@@ -79,7 +78,7 @@ tags: actorUID=MAN
 color: purple
 ---
 <<activity ACTIVITY_MONEY_BAKER baker_payment_done>>
-MAN: Select enough money to pay.
+MAN: Select enough money to pay. #line:0bbf963 
 ===
 
 title: baker_payment_done
@@ -88,9 +87,9 @@ group: baker
 tags: actorUID=MAN, no_translate
 ---
 <<set $ingredients = $ingredients + 1>>
--> Merci!
--> Au revoir!
--> Bonne journée!
+-> Merci! #line:00da30a 
+-> Au revoir! #line:00cbd60 
+-> Bonne journée! #line:00cd1cf 
 <<SetActive Collect_Baker>>
 ===
 
@@ -99,7 +98,7 @@ position: 879,149
 group: baker
 tags: actorUID=MAN
 ---
-MAN: Sorry, I don't sell that.
+MAN: Sorry, I don't sell that. #line:0875143 
 ===
 
 title: fisher_payment_done
@@ -107,9 +106,9 @@ position: 2169,551
 group: fisher
 tags: actorUID=OLD_MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 ---
--> "Au revoir!":
--> "Merci!":
--> "Bonne journée!":
+-> "Au revoir!": #line:02e64ff 
+-> "Merci!": #line:02c23e5 
+-> "Bonne journée!": #line:080d945 
 <<SetActive Collect_Fisher>>
 ===
 
@@ -118,7 +117,7 @@ position: 1925,554
 group: fisher
 tags: actorUID=OLD_MAN
 ---
-OLD_MAN: Sorry, I don't sell that.
+OLD_MAN: Sorry, I don't sell that. #line:01ea288 
 ===
 
 title: fisher_question
@@ -126,14 +125,14 @@ position: 1925,391
 group: fisher
 tags: actorUID=OLD_MAN, type=Choice
 ---
-OLD_MAN: What do you want to buy?
--> "Fish & Crab":
+OLD_MAN: What do you want to buy? #line:04deddc 
+-> "Fish & Crab": #line:0e562df 
     <<jump fisher_pay_activity>>
--> "Tomatoes, Oranges, and Lemons":
+-> "Tomatoes, Oranges, and Lemons": #line:085463e 
     <<jump fisher_dontsell>>
--> "Bread":
+-> "Bread": #line:0604902 
     <<jump fisher_dontsell>>
--> "Milk":
+-> "Milk": #line:0c5f144 
     <<jump fisher_dontsell>>
 ===
 
@@ -143,11 +142,11 @@ color: blue
 group: fisher
 tags: actorUID=OLD_MAN
 ---
--> "Lycée!":
+-> "Lycée!": #line:0d65316 
     <<jump talk_dont_understand>>
--> "Bonjour!":
+-> "Bonjour!": #line:089f618 
     <<jump fisher_bonjour>>
--> "Au revoir!":
+-> "Au revoir!": #line:06b0535 
     <<detour talk_dont_understand>>
 ===
 
@@ -155,10 +154,11 @@ title: fisher_bonjour
 position: 1689,392
 group: fisher
 tags: actorUID=OLD_MAN
+actor: OLD_MAN
 ---
-OLD_MAN: Good morning! I sell fish and crab. I'm a fishmonger.
-<<card  fr_fishmonger>>
-All of my items come from the sea!
+Good morning! I sell fish and crab. I'm a fishmonger. #line:04b4a87 
+All of my items come from the sea! #line:0aa9ce7 
+<<card  person_fishmonger zoom>>
 <<jump fisher_question>>
 ===
 
@@ -168,11 +168,11 @@ color: blue
 group: cheesemonger
 tags: actorUID=WOMAN, do_not_translate
 ---
--> "Merci!":
+-> "Merci!": #line:0693ba6 
     <<jump cheesemonger_notunderstand>>
--> "Bonjour!":
+-> "Bonjour!": #line:022bf02 
     <<jump cheesemonger_bonjour>>
--> "Chat!":
+-> "Chat!": #line:0b56a4d 
     <<jump cheesemonger_notunderstand>>
 ===
 
@@ -180,15 +180,16 @@ title: cheesemonger_question
 position: 876,400
 group: cheesemonger
 tags: actorUID=WOMAN, type=Choice
+actor: WOMAN
 ---
-WOMAN: What do you want to buy?
--> "Milk":
+What do you want to buy? #line:03009de 
+-> "Milk": #line:0aa7def 
     <<jump cheesemonger_pay_activity>>
--> "Salt, Pepper, and Oil":
+-> "Salt, Pepper, and Oil": #line:057f694 
     <<jump cheesemonger_dontsell>>
--> "Bread":
+-> "Bread": #line:087919f 
     <<jump cheesemonger_dontsell>>
--> "Tomatoes, Oranges, and Lemons":
+-> "Tomatoes, Oranges, and Lemons": #line:067bfab 
     <<jump cheesemonger_dontsell>>
 ===
 
@@ -197,20 +198,20 @@ position: 1117,550
 group:cheesemonger
 tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 ---
--> "Bonne journée!":
--> "Au revoir!":
--> "Merci!":
+-> "Bonne journée!": #line:0dd3ac3 
+-> "Au revoir!": #line:02a1238 
+-> "Merci!": #line:0273de1 
 <<SetActive Collect_Cheesemonger>>
 ===
 
 title: cheesemonger_bonjour
-position: 641,401
+position: 641,403
 group: cheesemonger
 tags: actorUID=WOMAN
 ---
-WOMAN: Hi! I sell cheese and milk. I am a cheesemonger.
-<<card  fr_cheesemonger>>
-I use both cow milk and goat milk.
+WOMAN: Hi! I sell cheese and milk. I am a cheesemonger. #line:09eb222 
+I use both cow milk and goat milk. #line:02f4bc9 
+<<card  person_cheesemonger zoom>>
 <<jump cheesemonger_question>>
 ===
 
@@ -219,7 +220,7 @@ position: 875,559
 group:cheesemonger
 tags: actorUID=WOMAN
 ---
-WOMAN: Sorry, I don't sell that.
+WOMAN: Sorry, I don't sell that. #line:058fc6d 
 ===
 
 title: greengrocer_dontsell
@@ -227,7 +228,7 @@ position: 870,981
 group: greengrocer
 tags: actorUID=MAN
 ---
-MAN: Sorry, I don't sell that.
+MAN: Sorry, I don't sell that. #line:03b0024 
 ===
 
 title: greengrocer_payment_activity
@@ -235,9 +236,9 @@ position: 1105,976
 group: greengrocer
 tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 ---
--> "Bonne journée!":
--> "Merci!":
--> "Au revoir!":
+-> "Bonne journée!": #line:0ff9361 
+-> "Merci!": #line:0741be3 
+-> "Au revoir!": #line:023f352 
 <<SetActive Collect_Greengrocer>>
 ===
 
@@ -246,14 +247,14 @@ position: 869,819
 group: greengrocer
 tags: actorUID=WOMAN
 ---
-WOMAN: What do you want to buy?
--> "Fish and crab":
+WOMAN: What do you want to buy? #line:042eb5a 
+-> "Fish and crab": #line:0fead1d 
     <<jump greengrocer_dontsell>>
--> "Bread":
+-> "Bread": #line:0879f58 
     <<jump greengrocer_dontsell>>
--> "Tomatoes, Oranges, and Lemons":
+-> "Tomatoes, Oranges, and Lemons": #line:015a2b4 
     <<jump greengrocer_pay_activity>>
--> "Milk":
+-> "Milk": #line:0fd3f3a 
     <<jump greengrocer_dontsell>>
 ===
 
@@ -263,11 +264,11 @@ color: blue
 group: greengrocer
 tags: actorUID=WOMAN
 ---
--> "Merci!":
+-> "Merci!": #line:0a43c28 
     <<detour talk_dont_understand>>
--> "Train!":
+-> "Train!": #line:02af86a 
     <<detour talk_dont_understand>>
--> "Bonjour!":
+-> "Bonjour!": #line:0039ce8 
     <<jump greengrocer_bonjour>>
 ===
 
@@ -275,10 +276,11 @@ title: greengrocer_bonjour
 position: 634,820
 group: greengrocer
 tags: actorUID=WOMAN
+actor: WOMAN
 ---
-WOMAN: Hello! I sell fruits and vegetables. I'm a greengrocer.
-<<card  fr_greengrocer>>
-My items are always fresh!
+Hello! I sell fruits and vegetables. I'm a greengrocer. #line:041ade1 
+My items are always fresh! #line:0969b87 
+<<card  person_greengrocer zoom>>
 <<jump greengrocer_question>>
 ===
 
@@ -287,9 +289,9 @@ position: 2168,154
 group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 ---
--> "Au revoir!":
--> "Merci!":
--> "Bonne journée!":
+-> "Au revoir!": #line:0ce6f8a 
+-> "Merci!": #line:0e8ec1b 
+-> "Bonne journée!": #line:062029a 
 <<SetActive Collect_Grocer>>
 ===
 
@@ -297,23 +299,25 @@ title: grocer_dontsell
 position: 1918,155
 group: grocer
 tags: actorUID=OLD_WOMAN
+action: OLD_WOMAN
 ---
-OLD_WOMAN: Sorry, I don't sell that.
+Sorry, I don't sell that. #line:0977493 
 ===
 
 title: grocer_question
 position: 1919,-5
 group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice
+actor: OLD_WOMAN
 ---
-OLD_WOMAN: What do you want to buy?
--> "Tomatoes, Oranges, and Lemons":
+What do you want to buy? #line:0c36100 
+-> "Tomatoes, Oranges, and Lemons": #line:0d6dabd 
     <<jump grocer_dontsell>>
--> "Bread":
+-> "Bread": #line:03eeda4 
     <<jump grocer_dontsell>>
--> "Milk":
+-> "Milk": #line:097fca2 
     <<jump grocer_dontsell>>
--> "Salt, Pepper, and Oil":
+-> "Salt, Pepper, and Oil": #line:0068f15 
     <<jump grocer_pay_activity>>
 ===
 
@@ -323,11 +327,11 @@ group: grocer
 tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug
 color: blue
 ---
--> "Merci!":
+-> "Merci!": #line:0dd992c 
     <<jump grocer_notunderstand>>
--> "Bonjour!":
+-> "Bonjour!": #line:0623f71 
     <<jump grocer_bonjour>>
--> "Livre!":
+-> "Livre!": #line:0b4db3b 
     <<jump grocer_notunderstand>>
 ===
 
@@ -335,24 +339,35 @@ title: grocer_bonjour
 position: 1684,-8
 group: grocer
 tags: actorUID=OLD_WOMAN
+actor: OLD_WOMAN
 ---
-OLD_WOMAN: Hello! I sell spices and pantry goods. I am a grocer.
-<<card  fr_grocer>> 
-You can use my items for many recipes.
+Hello! I sell spices and pantry goods. I am a grocer. #line:0ffbfa4 
+You can use my items for many recipes. #line:0c6a554 
+<<card  person_grocer zoom>>
 <<jump grocer_question>>
 ===
 
 title: pirate
-position: -410,-320
+position: -210,-258
 group: pirates
 tags: actorUID=CRAZY_MAN
+actor: CRAZY_MAN
 ---
-CRAZY_MAN: Ahoy! Welcome aboard.
-We come from Saint-Malo and sailed the seas to get here.
-People call us pirates, but we were corsairs—privateers.
-We worked for the King of France.
-In the past, we took items from the king's enemies, but those days are gone.
-Please pay for what you need so the shops can stay open!
+Ahoy! Welcome aboard. #line:04ee922 
+We come from Saint-Malo and sailed the seas to get here. #line:056c70d 
+People call us pirates, but we were corsairs—privateers. #line:0f764a6 
+<<activity ACTIVITY_JIGSAW activity_pirate_done>>
+===
+
+title: activity_pirate_done
+position: 38,-258
+group: pirates
+tags: actorUID=CRAZY_MAN
+actor: CRAZY_MAN
+---
+We worked for the King of France. #line:0af3bba 
+In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
+Please pay for what you need so the shops can stay open! #line:02c49d0 
 ===
 
 
@@ -374,10 +389,10 @@ position: 674,-579
 group: chef
 tags: actorUID=MAN
 ---
-Bonjour! Welcome to Marseille, on the Mediterranean Sea!
-<<asset bouillabaisse>>
-I want to make a special dish for you: bouillabaisse!
-But I need some ingredients.
+Bonjour! Welcome to Marseille, on the Mediterranean Sea! #line:02548dd 
+I want to make a special dish for you, a bouillabaisse! #line:0c65de3 
+<<card food_bouillabaisse_fr zoom>>
+But I need some ingredients. #line:0623733 
 <<jump task_ingredients>>
 ===
 
@@ -388,19 +403,18 @@ group: chef
 color: green
 tags: task
 ---
+Please go to the market and buy them for me. #line:06602c6 
 <<task_start COLLECT_THE_INGREDIENTS>>
-Please go to the market and buy them for me.
-Remember your manners!
-Say "Bonjour" to greet someone,
-and "Merci" to thank them.
+Remember your manners! #line:02819db 
+Say "Bonjour" to greet someone, #line:04c9d69 
+and "Merci" to thank them. #line:022fd8f 
 ===
 
 title: task_ingredients_done
 position: 671,-268
 group: chef
 ---
-You got all the ingredients! Go back to the chef.
-
+You got all the ingredients! Go back to the chef. #line:05398f2 
 ===
 
 
@@ -409,9 +423,9 @@ position: 669,-418
 group: chef
 tags: actorUID=MAN
 ---
-Magnifique! You have everything.
-You were very polite.
-Now, let's prepare our feast!
+Magnifique! You have everything. #line:0257fc7 
+You were very polite. #line:0112e25 
+Now, let's prepare our feast! #line:0051174 
 <<jump activity_match_ingredients>>
 ===
 
@@ -422,7 +436,7 @@ tags: activity
 color: purple
 ---
 <<activity ACTIVITY_ORDER activity_match_done>>
-Match each item to the right seller.
+Match each item to the right seller. #line:0a6e106 
 ===
 
 
@@ -430,8 +444,8 @@ title: activity_match_done
 position: 926,-273
 group: chef
 ---
-Well done! You matched all the items.
-Now, let's cook the bouillabaisse!
+Well done! You matched all the items. #line:01648b2 
+Now, let's cook the bouillabaisse! #line:0f0f617 
 <<quest_end 3>>
 ===
 
@@ -448,7 +462,7 @@ tags: actorUID=OLD_MAN, meta_ACTION_POST=ACTIVITY_MONEY_2, meta=ACTION_POST:ACTI
 color: purple
 ---
 <<activity ACTIVITY_MONEY_FISHER fisher_payment_done>>
-OLD_MAN: Select enough money to pay.
+OLD_MAN: Select enough money to pay. #line:0995020 
 ===
 
 title: cheesemonger_pay_activity
@@ -458,7 +472,7 @@ tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_3, meta=ACTION_POST:ACTIVI
 color: purple
 ---
 <<activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity>>
-WOMAN: Select enough money to pay.
+WOMAN: Select enough money to pay. #line:0f44ea7 
 ===
 
 title: grocer_pay_activity
@@ -468,7 +482,7 @@ tags: actorUID=OLD_WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_5, meta=ACTION_POST:AC
 color: purple
 ---
 <<activity ACTIVITY_MONEY_GROCER grocer_payment_done>>
-OLD_WOMAN: Select enough money to pay.
+OLD_WOMAN: Select enough money to pay. #line:0c80f9e 
 ===
 
 title: greengrocer_pay_activity
@@ -478,21 +492,21 @@ tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_4, meta=ACTION_POST:ACTIVI
 color: purple
 ---
 <<activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity>>
-WOMAN: Select enough money to pay.
+WOMAN: Select enough money to pay. #line:08fc94e 
 ===
 title: baker_notunderstand
 position: 404,150
 group: baker
 tags: actorUID=MAN
 ---
-MAN: Sorry, I don't think I understand...
+MAN: Sorry, I don't think I understand... #line:0db5121 
 ===
 
 title: FR_09_COTES_DAZUR_Text__S5A_VOH
 position: 1639,551
 tags: actorUID=OLD_MAN
 ---
-OLD_MAN: Sorry, I don't think I understand...
+OLD_MAN: Sorry, I don't think I understand... #line:058710c 
 ===
 
 title: cheesemonger_notunderstand
@@ -501,7 +515,7 @@ position: 403,563
 group: cheesemonger
 tags: actorUID=WOMAN
 ---
-WOMAN: Sorry, I don't think I understand...
+WOMAN: Sorry, I don't think I understand... #line:01a0ec9 
 ===
 
 title: grocer_notunderstand
@@ -509,7 +523,7 @@ position: 1437,157
 group: grocer
 tags: actorUID=OLD_WOMAN
 ---
-OLD_WOMAN: Sorry, I don't think I understand...
+OLD_WOMAN: Sorry, I don't think I understand... #line:0a30381 
 ===
 
 title: talk_dont_understand
@@ -517,9 +531,9 @@ position: 1303,692
 tags: detour
 color: orange
 ---
-=> Sorry, I don't think I understand...
-=> What??
-=> Jen ne comprends pas...
+=> Sorry, I don't think I understand... #line:0f9044b 
+=> What?? #line:09682b7 
+=> Jen ne comprends pas... #line:0c1b3e0 
 ===
 
 title: item_bread
@@ -527,7 +541,7 @@ position: -411,954
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Bread
+TUTOR: Bread #line:08e101e 
 ===
 
 title: item_fish
@@ -535,7 +549,7 @@ position: -432,1146
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Fish
+TUTOR: Fish #line:0feed79 
 ===
 
 title: item_orange
@@ -543,7 +557,7 @@ position: -442,12
 color: yellow
 tags: actorUID=TUTOR
 ---
-TUTOR: Orange
+TUTOR: Orange #line:0c0fa04 
 ===
 
 title: item_lemon
@@ -551,7 +565,7 @@ position: -436,656
 color: yellow
 tags: actorUID=TUTOR
 ---
-TUTOR: Lemon
+TUTOR: Lemon #line:0c6b991 
 ===
 
 title: item_tomato
@@ -559,7 +573,7 @@ position: -430,798
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Tomato
+TUTOR: Tomato #line:0a6782d 
 ===
 
 title: item_cheese
@@ -567,7 +581,7 @@ position: -443,1317
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Cheese
+TUTOR: Cheese #line:0acd781 
 ===
 
 title: item_salt
@@ -575,7 +589,7 @@ position: -450,171
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Salt
+TUTOR: Salt #line:07bbcb0 
 ===
 
 title: item_pepper
@@ -583,7 +597,7 @@ position: -442,507
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Pepper
+TUTOR: Pepper #line:04d85d3 
 ===
 
 title: item_oil
@@ -591,6 +605,6 @@ position: -456,323
 color: yellow
 tags: actorUID=TUTOR, item
 ---
-TUTOR: Oil
+TUTOR: Oil #line:0156410 
 ===
 

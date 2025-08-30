@@ -9,11 +9,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 522986d1bf14a4377939400a4b220bb6, type: 3}
-  m_Name: MatchSettingsData
-  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.MatchSettingsData
+  m_Script: {fileID: 11500000, guid: b7af6468ec5ed443382ad4a264476e3b, type: 3}
+  m_Name: Jigsaw Pirate
+  m_EditorClassIdentifier: 
   Id: 
-  ActivityCode: 0
+  ActivityCode: 5
   Difficulty: 3
   MinRounds: 1
   MaxRounds: 3
@@ -23,4 +23,6 @@ MonoBehaviour:
   PointsEasy: 1
   PointsNormal: 2
   PointsExpert: 3
-  GroupsData: []
+  PuzzleCard: {fileID: 11400000, guid: ab70b9c260bd24996812207ba7a3aa96, type: 2}
+  HorizontalPieces: 0
+  VerticalPieces: 0
