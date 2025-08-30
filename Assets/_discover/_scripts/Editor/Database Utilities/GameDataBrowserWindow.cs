@@ -57,17 +57,20 @@ namespace Antura.Discover
         private const float ColTag = 140f;
         private const float ColLicense = 110f;
         private const float ColCopyright = 300f;
+        private const float ColACards = 260f; // AssetData: Cards column
         private const float RowHeight = ColImage + 12f;
 
         // Quest-specific narrower columns
         private const float ColQId = 160f;
         private const float ColQDevStatus = 110f;
-        private const float ColQTitle = 200f;
-        private const float ColQLocation = 150f;
-        private const float ColQKnowledge = 100f;
+        private const float ColQTitle = 150f;
+        private const float ColQLocation = 100f;
+        private const float ColQKnowledge = 60f;
         // Card-specific knowledge column
-        private const float ColKnowledge = 110f;
+        private const float ColPoints = 80f;
         private const float ColQTopics = 200f;
+        // QuestData Knowledges column (list of KnowledgeData items)
+        private const float ColQKnowledges = 100f;
 
         // WorldPrefabData specific
         private const float ColWPCategory = 100f;
@@ -79,12 +82,13 @@ namespace Antura.Discover
         private WorldPrefabKit? _wpKitFilter = null; // null => (Any)
 
         // CardData specific
-        private const float ColTitle = 220f;
+        private const float ColTitle = 140f;
         private const float ColCollectible = 60f;
         private const float ColYear = 60f;
-        private const float ColCategory = 140f;
+        private const float ColCategory = 100f;
         private const float ColImportance = 80f;
-        private const float ColTopics = 140f;
+        private const float ColTopics = 100f;
+        private const float ColCardKnowledges = 200f;
         private const float ColCardWords = 140f;
         private const float ColQuests = 100f;
         private readonly Dictionary<CardData, string> _cardTitleCache = new Dictionary<CardData, string>();
@@ -93,9 +97,11 @@ namespace Antura.Discover
         private const float ColKName = 200f;
         private const float ColKDesc = 260f;
         private const float ColKImportance = 120f;
+        private const float ColKCoreCard = 180f;
         private const float ColKConnections = 300f;
         private const float ColKAge = 120f;
         private const float ColKTopics = 220f;
+        private const float ColKQuests = 260f;
 
         // WordData specific
         private const float ColWActive = 60f;
@@ -134,7 +140,7 @@ namespace Antura.Discover
             if (SelectedType == typeof(QuestData))
             {
                 // DevStatus, Title, Id(+IdDisplay), Location, Knowledge, Difficulty, Category, Topics, LinkedCards, WordsUsed
-                width += ColQDevStatus + Gap + ColQTitle + Gap + ColQId + Gap + ColQLocation + Gap + ColQKnowledge + Gap + ColDifficulty + Gap + ColTopic + Gap + ColQTopics + Gap + ColCards + Gap + ColWords;
+                width += ColQDevStatus + Gap + ColQTitle + Gap + ColQId + Gap + ColQLocation + Gap + ColQKnowledge + Gap + ColDifficulty + Gap + ColTopic + Gap + ColQTopics + Gap + ColQKnowledges + Gap + ColCards + Gap + ColWords;
             }
             else if (SelectedType == typeof(WorldPrefabData))
             {
@@ -148,13 +154,13 @@ namespace Antura.Discover
             }
             else if (SelectedType == typeof(CardData))
             {
-                // Id, Title, Importance, Type, Topics, Collectible(+Icon), Year, Knowledge, Words, Linked Quests, Path
-                width += ColId + Gap + ColTitle + Gap + ColImportance + Gap + ColCategory + Gap + ColTopics + Gap + ColCollectible + Gap + ColYear + Gap + ColKnowledge + Gap + ColCardWords + Gap + ColQuests + Gap + ColPath;
+                // Id, Title, Importance, Type, Topics, Collectible(+Icon), Year, Points, Knowledge(list), Words, Linked Quests, Path
+                width += ColId + Gap + ColTitle + Gap + ColImportance + Gap + ColCategory + Gap + ColTopics + Gap + ColCollectible + Gap + ColYear + Gap + ColPoints + Gap + ColCardKnowledges + Gap + ColCardWords + Gap + ColQuests + Gap + ColPath;
             }
             else if (SelectedType == typeof(KnowledgeData))
             {
-                // Id, Name, Description, Importance, Connections, targetAge, Topics
-                width += ColId + Gap + ColKName + Gap + ColKDesc + Gap + ColKImportance + Gap + ColKConnections + Gap + ColKAge + Gap + ColKTopics;
+                // Id, Name, Description, Importance, CoreCard, Connections, targetAge, Topics, Quests
+                width += ColId + Gap + ColKName + Gap + ColKDesc + Gap + ColKImportance + Gap + ColKCoreCard + Gap + ColKConnections + Gap + ColKAge + Gap + ColKTopics + Gap + ColKQuests;
             }
             else if (SelectedType == typeof(ItemData))
             {
@@ -162,7 +168,8 @@ namespace Antura.Discover
             }
             else if (SelectedType == typeof(AssetData))
             {
-                width += ColId + Gap + ColPath + Gap + ColLicense + Gap + ColCopyright;
+                // Id, Cards, Path, License, Copyright
+                width += ColId + Gap + ColACards + Gap + ColPath + Gap + ColLicense + Gap + ColCopyright;
             }
             return width;
         }
@@ -723,9 +730,9 @@ namespace Antura.Discover
                 x += ColQTitle + Gap;
                 HeaderLabelRect("Id — Display", new Rect(x, y, ColQId, lineH), "IdConcat");
                 x += ColQId + Gap;
-                HeaderLabelRect("Location.Id", new Rect(x, y, ColQLocation, lineH), "Location");
+                HeaderLabelRect("Location", new Rect(x, y, ColQLocation, lineH), "Location");
                 x += ColQLocation + Gap;
-                HeaderLabelRect("Knowledge", new Rect(x, y, ColQKnowledge, lineH), "KnowledgeValue");
+                HeaderLabelRect("Points", new Rect(x, y, ColQKnowledge, lineH), "KnowledgeValue");
                 x += ColQKnowledge + Gap;
                 HeaderLabelRect("Difficulty", new Rect(x, y, ColDifficulty, lineH), "Difficulty");
                 x += ColDifficulty + Gap;
@@ -733,6 +740,8 @@ namespace Antura.Discover
                 x += ColTopic + Gap;
                 HeaderLabelRect("Topics", new Rect(x, y, ColQTopics, lineH), "Topics");
                 x += ColQTopics + Gap;
+                HeaderLabelRect("Knowledges", new Rect(x, y, ColQKnowledges, lineH), "Knowledges");
+                x += ColQKnowledges + Gap;
                 HeaderLabelRect("Linked Cards", new Rect(x, y, ColCards, lineH), "LinkedCards");
                 x += ColCards + Gap;
                 HeaderLabelRect("Words Used", new Rect(x, y, ColWords, lineH), "WordsUsed");
@@ -788,8 +797,10 @@ namespace Antura.Discover
                 x += ColCollectible + Gap;
                 HeaderLabelRect("Year", new Rect(x, y, ColYear, lineH), "Year");
                 x += ColYear + Gap;
-                HeaderLabelRect("Knowledge", new Rect(x, y, ColKnowledge, lineH), "KnowledgeValue");
-                x += ColKnowledge + Gap;
+                HeaderLabelRect("Points", new Rect(x, y, ColPoints, lineH), "KnowledgeValue");
+                x += ColPoints + Gap;
+                HeaderLabelRect("Knowledge", new Rect(x, y, ColCardKnowledges, lineH), "CardKnowledges");
+                x += ColCardKnowledges + Gap;
                 HeaderLabelRect("Words", new Rect(x, y, ColCardWords, lineH), "CardWords");
                 x += ColCardWords + Gap;
                 HeaderLabelRect("Linked Quests", new Rect(x, y, ColQuests, lineH), "LinkedQuests");
@@ -807,12 +818,16 @@ namespace Antura.Discover
                 x += ColKDesc + Gap;
                 HeaderLabelRect("Importance", new Rect(x, y, ColKImportance, lineH), "Importance");
                 x += ColKImportance + Gap;
+                HeaderLabelRect("Core Card", new Rect(x, y, ColKCoreCard, lineH), "CoreCard");
+                x += ColKCoreCard + Gap;
                 HeaderLabelRect("Connections", new Rect(x, y, ColKConnections, lineH), "Connections");
                 x += ColKConnections + Gap;
                 HeaderLabelRect("Target Age", new Rect(x, y, ColKAge, lineH), "TargetAge");
                 x += ColKAge + Gap;
                 HeaderLabelRect("Topics", new Rect(x, y, ColKTopics, lineH), "Topics");
                 x += ColKTopics + Gap;
+                HeaderLabelRect("Quests", new Rect(x, y, ColKQuests, lineH), "KQuests");
+                x += ColKQuests + Gap;
             }
             else if (SelectedType == typeof(ItemData))
             {
@@ -831,6 +846,8 @@ namespace Antura.Discover
                 x += ColImage + Gap;
                 HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
                 x += ColId + Gap;
+                HeaderLabelRect("Cards", new Rect(x, y, ColACards, lineH), "AssetCards");
+                x += ColACards + Gap;
                 HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
                 x += ColPath + Gap;
                 HeaderLabelRect("License", new Rect(x, y, ColLicense, lineH), "License");
@@ -1070,6 +1087,8 @@ namespace Antura.Discover
                 xs.Add(x);
                 x += ColQTopics + Gap;
                 xs.Add(x);
+                x += ColQKnowledges + Gap;
+                xs.Add(x);
                 x += ColCards + Gap;
                 xs.Add(x);
                 x += ColWords + Gap;
@@ -1128,7 +1147,9 @@ namespace Antura.Discover
                 xs.Add(x);
                 x += ColYear + Gap;
                 xs.Add(x);
-                x += ColKnowledge + Gap;
+                x += ColPoints + Gap;
+                xs.Add(x);
+                x += ColCardKnowledges + Gap;
                 xs.Add(x);
                 x += ColCardWords + Gap;
                 xs.Add(x);
@@ -1148,11 +1169,15 @@ namespace Antura.Discover
                 xs.Add(x);
                 x += ColKImportance + Gap;
                 xs.Add(x);
+                x += ColKCoreCard + Gap;
+                xs.Add(x);
                 x += ColKConnections + Gap;
                 xs.Add(x);
                 x += ColKAge + Gap;
                 xs.Add(x);
                 x += ColKTopics + Gap;
+                xs.Add(x);
+                x += ColKQuests + Gap;
                 xs.Add(x);
                 return xs;
             }
@@ -1173,6 +1198,8 @@ namespace Antura.Discover
                 x += ColImage + Gap;
                 xs.Add(x);
                 x += ColId + Gap;
+                xs.Add(x);
+                x += ColACards + Gap;
                 xs.Add(x);
                 x += ColPath + Gap;
                 xs.Add(x);
@@ -1219,6 +1246,53 @@ namespace Antura.Discover
             var rPath = new Rect(x, y, ColPath, lineH);
             EditorGUI.LabelField(rPath, FormatPath(AssetDatabase.GetAssetPath(a)));
             x += ColPath + Gap;
+            // Cards using this AssetData (one per line, clickable links to CardData)
+            var rCards = new Rect(x, rowRect.y + 4f, ColACards, rowRect.height - 8f);
+            float cy = rCards.y;
+            var cardsUsing = _allData.OfType<CardData>()
+                .Where(cd => cd != null && (cd.ImageAsset == a || cd.AudioAsset == a))
+                .OrderBy(cd => cd.Id ?? cd.name)
+                .ToList();
+            if (cardsUsing.Count > 0)
+            {
+                foreach (var cd in cardsUsing)
+                {
+                    string label = string.IsNullOrEmpty(cd.Id) ? cd.name : cd.Id;
+                    var rc = new Rect(rCards.x, cy, rCards.width, lineH);
+                    GUI.Label(rc, label, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rc, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rc.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(cd);
+                        Selection.activeObject = cd;
+                        // Also focus browser onto CardData and search this Id
+                        try
+                        {
+                            int idx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(CardData));
+                            if (idx >= 0)
+                            {
+                                _selectedTypeIndex = idx;
+                                _search = cd.Id ?? cd.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    cy += lineH;
+                    if (cy > rCards.yMax - lineH)
+                        break;
+                }
+            }
+            else
+            {
+                GUI.Label(new Rect(rCards.x, cy, rCards.width, lineH), "(No cards)", EditorStyles.miniLabel);
+            }
+            x += ColACards + Gap;
             // License
             var rLic = new Rect(x, y, ColLicense, lineH);
             EditorGUI.BeginChangeCheck();
@@ -1314,6 +1388,34 @@ namespace Antura.Discover
                     GUI.DrawTexture(rImg, tex, ScaleMode.ScaleToFit);
                 else
                     Repaint();
+                // Click on preview to open/select the AssetData that owns this image
+                if (c.ImageAsset != null)
+                {
+                    EditorGUIUtility.AddCursorRect(rImg, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rImg.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(c.ImageAsset);
+                        Selection.activeObject = c.ImageAsset;
+                        // Also focus the Game Data Browser on AssetData and search this Id
+                        try
+                        {
+                            // find AssetData entry option index
+                            int idx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(AssetData));
+                            if (idx >= 0)
+                            {
+                                _selectedTypeIndex = idx;
+                                _search = c.ImageAsset.Id ?? c.ImageAsset.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                }
             }
             x += ColImage + Gap;
             // Id
@@ -1357,11 +1459,61 @@ namespace Antura.Discover
             var rYear = new Rect(x, y, ColYear, lineH);
             EditorGUI.LabelField(rYear, c.Year.ToString());
             x += ColYear + Gap;
-            // KnowledgeValue as progress bar 0..10
-            var rKv = new Rect(x, y, ColKnowledge, lineH);
+            // Points (0..10)
+            var rKv = new Rect(x, y, ColPoints, lineH);
             float kv = Mathf.Clamp(c.Points, 0, 10);
             EditorGUI.ProgressBar(rKv, kv / 10f, c.Points.ToString());
-            x += ColKnowledge + Gap;
+            x += ColPoints + Gap;
+            // Knowledge: list all KnowledgeData where this card is CoreCard or in Connections
+            var rKList = new Rect(x, rowRect.y + 4f, ColCardKnowledges, rowRect.height - 8f);
+            float ky = rKList.y;
+            var knows = _allData.OfType<KnowledgeData>()
+                .Where(kd => kd != null && ((kd.CoreCard == c) || (kd.Connections != null && kd.Connections.Any(conn => conn != null && conn.connectedCard == c))))
+                .OrderBy(kd => kd.Id ?? kd.name)
+                .ToList();
+            if (knows.Count > 0)
+            {
+                int total = knows.Count;
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rKList.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                ky = rKList.y + (rKList.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
+                foreach (var kd in knows)
+                {
+                    if (shown >= linesToShow)
+                        break;
+                    string kLabel = string.IsNullOrEmpty(kd.Id) ? kd.name : kd.Id;
+                    var rk = new Rect(rKList.x, ky, rKList.width, lineH);
+                    GUI.Label(rk, kLabel, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rk, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rk.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(kd);
+                        Selection.activeObject = kd;
+                        // Focus browser to KnowledgeData and search this Id
+                        try
+                        {
+                            int kdIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(KnowledgeData));
+                            if (kdIdx >= 0)
+                            {
+                                _selectedTypeIndex = kdIdx;
+                                _search = kd.Id ?? kd.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    ky += lineH;
+                    shown++;
+                }
+            }
+            // leave empty when none
+            x += ColCardKnowledges + Gap;
             // Words linked to this card (one per line)
             string words = string.Empty;
             if (c.Words != null && c.Words.Count > 0)
@@ -1369,12 +1521,52 @@ namespace Antura.Discover
             var rWords = new Rect(x, rowRect.y + 4f, ColCardWords, rowRect.height - 8f);
             GUI.Label(rWords, words, EditorStyles.label);
             x += ColCardWords + Gap;
-            // Linked Quests
-            string quests = string.Empty;
-            if (c.Quests != null && c.Quests.Count > 0)
-            { quests = string.Join(", ", c.Quests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)); }
-            var rQuests = new Rect(x, y, ColQuests, lineH);
-            EditorGUI.LabelField(rQuests, quests);
+            // Linked Quests (one per line, clickable)
+            var rQuests = new Rect(x, rowRect.y + 4f, ColQuests, rowRect.height - 8f);
+            float qy = rQuests.y;
+            var questList = (c.Quests ?? new List<QuestData>()).Where(q => q != null).OrderBy(q => q.Id ?? q.name).ToList();
+            if (questList.Count > 0)
+            {
+                int total = questList.Count;
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rQuests.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                qy = rQuests.y + (rQuests.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
+                foreach (var q in questList)
+                {
+                    if (shown >= linesToShow)
+                        break;
+                    string qLabel = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
+                    var rq = new Rect(rQuests.x, qy, rQuests.width, lineH);
+                    GUI.Label(rq, qLabel, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rq, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rq.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(q);
+                        Selection.activeObject = q;
+                        // Focus browser to QuestData and search this Id
+                        try
+                        {
+                            int qIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(QuestData));
+                            if (qIdx >= 0)
+                            {
+                                _selectedTypeIndex = qIdx;
+                                _search = q.Id ?? q.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    qy += lineH;
+                    shown++;
+                }
+            }
+            // leave empty when none
             x += ColQuests + Gap;
             // Path (last column)
             var rPath = new Rect(x, y, ColPath, lineH);
@@ -1407,11 +1599,51 @@ namespace Antura.Discover
             var rImp = new Rect(x, y, ColKImportance, lineH);
             EditorGUI.LabelField(rImp, k.Importance.ToString());
             x += ColKImportance + Gap;
+            // Core Card (clickable)
+            var rCore = new Rect(x, y, ColKCoreCard, lineH);
+            if (k.CoreCard != null)
+            {
+                string coreLabel = string.IsNullOrEmpty(k.CoreCard.Id) ? k.CoreCard.name : k.CoreCard.Id;
+                GUI.Label(rCore, coreLabel, EditorStyles.label);
+                EditorGUIUtility.AddCursorRect(rCore, MouseCursor.Link);
+                if (Event.current.type == EventType.MouseDown && rCore.Contains(Event.current.mousePosition))
+                {
+                    EditorGUIUtility.PingObject(k.CoreCard);
+                    Selection.activeObject = k.CoreCard;
+                    // Also focus the Game Data Browser on CardData and search this Id
+                    try
+                    {
+                        int cdIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(CardData));
+                        if (cdIdx >= 0)
+                        {
+                            _selectedTypeIndex = cdIdx;
+                            _search = k.CoreCard.Id ?? k.CoreCard.name;
+                            _sortKey = nameof(IdentifiedData.Id);
+                            _sortAsc = true;
+                            _scroll = Vector2.zero;
+                            RefreshList();
+                            Repaint();
+                        }
+                    }
+                    catch { }
+                    Event.current.Use();
+                }
+            }
+            else
+            {
+                GUI.Label(rCore, "(None)", EditorStyles.miniLabel);
+            }
+            x += ColKCoreCard + Gap;
             // Connections: every connection per line, clickable to open the CardData, show "CardId (connectionType)"
             var rConnArea = new Rect(x, rowRect.y + 4f, ColKConnections, rowRect.height - 8f);
             float lineY = rConnArea.y;
             if (k.Connections != null && k.Connections.Count > 0)
             {
+                int total = k.Connections.Count(cn => cn != null && cn.connectedCard != null);
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rConnArea.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                lineY = rConnArea.y + (rConnArea.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
                 foreach (var c in k.Connections)
                 {
                     if (c == null || c.connectedCard == null)
@@ -1428,7 +1660,8 @@ namespace Antura.Discover
                         Event.current.Use();
                     }
                     lineY += lineH;
-                    if (lineY > rConnArea.yMax - lineH)
+                    shown++;
+                    if (shown >= linesToShow)
                         break; // avoid drawing beyond cell; keeps UI responsive
                 }
             }
@@ -1446,6 +1679,60 @@ namespace Antura.Discover
             var tops = k.Topics != null ? string.Join(", ", k.Topics.Select(t => t.ToString())) : string.Empty;
             var rTop = new Rect(x, y, ColKTopics, lineH);
             EditorGUI.LabelField(rTop, tops);
+            x += ColKTopics + Gap;
+            // Quests referencing this Knowledge (one per line, clickable, and focus browser to QuestData)
+            var rQ = new Rect(x, rowRect.y + 4f, ColKQuests, rowRect.height - 8f);
+            float qy = rQ.y;
+            // gather quests having this knowledge in their Knowledges list
+            var quests = _allData.OfType<QuestData>()
+                .Where(qd => qd != null && qd.Knowledges != null && qd.Knowledges.Contains(k))
+                .OrderBy(qd => qd.Id ?? qd.name)
+                .ToList();
+            if (quests.Count > 0)
+            {
+                int total = quests.Count;
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rQ.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                qy = rQ.y + (rQ.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
+                foreach (var qd in quests)
+                {
+                    if (shown >= linesToShow)
+                        break;
+                    string qLabel = string.IsNullOrEmpty(qd.Id) ? qd.name : qd.Id;
+                    var rq = new Rect(rQ.x, qy, rQ.width, lineH);
+                    GUI.Label(rq, qLabel, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rq, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rq.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(qd);
+                        Selection.activeObject = qd;
+                        // Also focus the Game Data Browser on QuestData and search this Id
+                        try
+                        {
+                            int qIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(QuestData));
+                            if (qIdx >= 0)
+                            {
+                                _selectedTypeIndex = qIdx;
+                                _search = qd.Id ?? qd.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    qy += lineH;
+                    shown++;
+                }
+            }
+            else
+            {
+                GUI.Label(new Rect(rQ.x, qy, rQ.width, lineH), "(No quests)", EditorStyles.miniLabel);
+            }
         }
 
         private void DrawQuestDataRow(Rect rowRect, QuestData q)
@@ -1527,6 +1814,54 @@ namespace Antura.Discover
             var rTopics = new Rect(x, rowRect.y + 4f, ColQTopics, rowRect.height - 8f);
             GUI.Label(rTopics, topicsText, EditorStyles.label);
             x += ColQTopics + Gap;
+            // Knowledges (one per line, clickable to navigate to KnowledgeData)
+            var rKnows = new Rect(x, rowRect.y + 4f, ColQKnowledges, rowRect.height - 8f);
+            float ky = rKnows.y;
+            if (q.Knowledges != null && q.Knowledges.Count > 0)
+            {
+                int total = q.Knowledges.Count(kd => kd != null);
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rKnows.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                ky = rKnows.y + (rKnows.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
+                foreach (var k in q.Knowledges)
+                {
+                    if (k == null)
+                        continue;
+                    if (shown >= linesToShow)
+                        break;
+                    string label = string.IsNullOrEmpty(k.Id) ? k.name : k.Id;
+                    var rk = new Rect(rKnows.x, ky, rKnows.width, lineH);
+                    GUI.Label(rk, label, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rk, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rk.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(k);
+                        Selection.activeObject = k;
+                        // Also focus the Game Data Browser on KnowledgeData and search this Id
+                        try
+                        {
+                            int idx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(KnowledgeData));
+                            if (idx >= 0)
+                            {
+                                _selectedTypeIndex = idx;
+                                _search = k.Id ?? k.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    ky += lineH;
+                    shown++;
+                }
+            }
+            // leave empty when none
+            x += ColQKnowledges + Gap;
             // Linked Cards
             var rCards = new Rect(x, rowRect.y + 4f, ColCards, rowRect.height - 8f);
             float cy = rCards.y;
@@ -1544,6 +1879,22 @@ namespace Antura.Discover
                     {
                         EditorGUIUtility.PingObject(c);
                         Selection.activeObject = c;
+                        // Focus the browser onto CardData and search this Id
+                        try
+                        {
+                            int cdIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(CardData));
+                            if (cdIdx >= 0)
+                            {
+                                _selectedTypeIndex = cdIdx;
+                                _search = c.Id ?? c.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
                         Event.current.Use();
                     }
                     cy += lineH;
@@ -1551,15 +1902,55 @@ namespace Antura.Discover
                         break;
                 }
             }
-            else
-            {
-                GUI.Label(new Rect(rCards.x, cy, rCards.width, lineH), "(No cards)", EditorStyles.miniLabel);
-            }
+            // leave empty when none
             x += ColCards + Gap;
-            // Words Used
-            var words = q.Words != null ? string.Join(", ", q.Words.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id)) : string.Empty;
-            var rWords = new Rect(x, y, ColWords, lineH);
-            EditorGUI.LabelField(rWords, words);
+            // Words Used (one per line, clickable and navigates to WordData)
+            var rWords = new Rect(x, rowRect.y + 4f, ColWords, rowRect.height - 8f);
+            float wy = rWords.y;
+            if (q.Words != null && q.Words.Count > 0)
+            {
+                int total = q.Words.Count(ww => ww != null);
+                int maxLines = Mathf.Max(1, Mathf.FloorToInt(rWords.height / lineH));
+                int linesToShow = Mathf.Min(total, maxLines);
+                wy = rWords.y + (rWords.height - linesToShow * lineH) * 0.5f;
+                int shown = 0;
+                foreach (var w in q.Words)
+                {
+                    if (w == null)
+                        continue;
+                    if (shown >= linesToShow)
+                        break;
+                    string wLabel = string.IsNullOrEmpty(w.Id) ? w.name : w.Id;
+                    var rw = new Rect(rWords.x, wy, rWords.width, lineH);
+                    GUI.Label(rw, wLabel, EditorStyles.label);
+                    EditorGUIUtility.AddCursorRect(rw, MouseCursor.Link);
+                    if (Event.current.type == EventType.MouseDown && rw.Contains(Event.current.mousePosition))
+                    {
+                        EditorGUIUtility.PingObject(w);
+                        Selection.activeObject = w;
+                        // Focus the browser onto WordData and search this Id
+                        try
+                        {
+                            int wIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(WordData));
+                            if (wIdx >= 0)
+                            {
+                                _selectedTypeIndex = wIdx;
+                                _search = w.Id ?? w.name;
+                                _sortKey = nameof(IdentifiedData.Id);
+                                _sortAsc = true;
+                                _scroll = Vector2.zero;
+                                RefreshList();
+                                Repaint();
+                            }
+                        }
+                        catch { }
+                        Event.current.Use();
+                    }
+                    wy += lineH;
+                    shown++;
+                }
+            }
+            // leave empty when none
             x += ColWords + Gap;
         }
 
@@ -1807,6 +2198,9 @@ namespace Antura.Discover
                     case "Importance":
                         keySelector = a => a is CardData c7 ? c7.Importance.ToString() : (a is KnowledgeData k3 ? k3.Importance.ToString() : string.Empty);
                         break;
+                    case "CoreCard":
+                        keySelector = a => a is KnowledgeData kcc ? (string.IsNullOrEmpty(kcc.CoreCard?.Id) ? (kcc.CoreCard?.name ?? string.Empty) : kcc.CoreCard.Id) : string.Empty;
+                        break;
                     case "KnowledgeValue":
                         keySelector = a => a is CardData c5 ? c5.Points.ToString("D2") : (a is QuestData q0 ? (q0.Cards != null ? q0.Cards.Where(cc => cc != null).Sum(cc => Mathf.Clamp(cc.Points, 0, 10)).ToString("D3") : "") : string.Empty);
                         break;
@@ -1827,6 +2221,9 @@ namespace Antura.Discover
                         break;
                     case "LinkedCards":
                         keySelector = a => a is QuestData q5 ? string.Join(";", q5.Cards?.Where(c => c != null).Select(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id) ?? Array.Empty<string>()) : string.Empty;
+                        break;
+                    case "Knowledges":
+                        keySelector = a => a is QuestData qK ? string.Join(";", qK.Knowledges?.Where(k => k != null).Select(k => string.IsNullOrEmpty(k.Id) ? k.name : k.Id) ?? Array.Empty<string>()) : string.Empty;
                         break;
                     case "WordsUsed":
                         keySelector = a => a is QuestData q6 ? string.Join(";", q6.Words?.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id) ?? Array.Empty<string>()) : string.Empty;

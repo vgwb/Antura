@@ -34,6 +34,7 @@ namespace Antura.Discover
 
         [Header("Content")]
         public KnowledgeTopic MainTopic;
+        public List<KnowledgeData> Knowledges;
         public List<CardData> Cards;
         public List<WordData> Words;
 

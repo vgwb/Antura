@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: French School System
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.KnowledgeData
+  Id: frenchschool
+  Name: French School
+  Description: 
+  Importance: 10
+  NodeColor: {r: 1, g: 1, b: 1, a: 1}
+  CoreCard: {fileID: 11400000, guid: 4a4b8a9808760450ca513ed25d515b57, type: 2}
+  Connections:
+  - connectedCard: {fileID: 11400000, guid: d9cbe9ec09de842bc95cc5ca6a5a83df, type: 2}
+    connectionType: 0
+    connectionStrength: 0
+    connectionReason: 
+    linkingKeywords: []
+    learningValue: 
+  DiscoveryPath: []
+  cohesionStrength: 0.8
+  targetAge: 2
+  Topics: 

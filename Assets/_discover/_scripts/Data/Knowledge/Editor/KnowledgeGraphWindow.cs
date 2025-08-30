@@ -6,9 +6,9 @@ using UnityEditor;
 
 namespace Antura.Discover.Editor
 {
-    public class KnowledgeClusterGraphWindow : EditorWindow
+    public class KnowledgeGraphWindow : EditorWindow
     {
-        private KnowledgeCollectionData clusterCollection;
+        private KnowledgeCollectionData knowledgeCollection;
         private Vector2 scrollPos;                 // sidebar scroll
         private Vector2 graphScroll;               // graph scroll (content space)
         private Vector2 graphOffset = Vector2.zero; // legacy pan
@@ -30,7 +30,7 @@ namespace Antura.Discover.Editor
         private KnowledgeImportance filterPriority = KnowledgeImportance.Low;
         private int connectionTypeIndex = 0; // 0 = All, else enum selection
 
-        private const string PrefKeyCollectionPath = "Antura.KnowledgeClusterGraphWindow.CollectionPath";
+        private const string PrefKeyCollectionPath = "Antura.KnowledgeGraphWindow.CollectionPath";
 
         // Selection
         private KnowledgeData selectedCluster;
@@ -45,7 +45,7 @@ namespace Antura.Discover.Editor
         [MenuItem("Antura/Discover/Knowledge/Knowledge Graph")]
         public static void ShowWindow()
         {
-            GetWindow<KnowledgeClusterGraphWindow>("Cluster Graph");
+            GetWindow<KnowledgeGraphWindow>("Knowledge Graph");
         }
 
         private void OnEnable()
@@ -54,20 +54,20 @@ namespace Antura.Discover.Editor
             InitializePriorityColors();
 
             // Try to find cluster collection automatically
-            if (clusterCollection == null)
+            if (knowledgeCollection == null)
             {
                 var savedPath = EditorPrefs.GetString(PrefKeyCollectionPath, string.Empty);
                 if (!string.IsNullOrEmpty(savedPath))
                 {
-                    clusterCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(savedPath);
+                    knowledgeCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(savedPath);
                 }
-                if (clusterCollection == null)
+                if (knowledgeCollection == null)
                 {
-                    string[] guids = AssetDatabase.FindAssets("t:KnowledgeClusterCollection");
+                    string[] guids = AssetDatabase.FindAssets("t:KnowledgeCollection");
                     if (guids.Length > 0)
                     {
                         string path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                        clusterCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(path);
+                        knowledgeCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(path);
                     }
                 }
                 RefreshLayout();
@@ -118,9 +118,9 @@ namespace Antura.Discover.Editor
         {
             DrawToolbar();
 
-            if (clusterCollection == null)
+            if (knowledgeCollection == null)
             {
-                EditorGUILayout.HelpBox("No KnowledgeClusterCollection assigned. Please select one to visualize.", MessageType.Info);
+                EditorGUILayout.HelpBox("No KnowledgeCollection assigned. Please select one to visualize.", MessageType.Info);
                 return;
             }
 
@@ -137,11 +137,11 @@ namespace Antura.Discover.Editor
 
             EditorGUI.BeginChangeCheck();
             var newCollection = (KnowledgeCollectionData)EditorGUILayout.ObjectField(
-                clusterCollection, typeof(KnowledgeCollectionData), false, GUILayout.Width(220));
+                knowledgeCollection, typeof(KnowledgeCollectionData), false, GUILayout.Width(220));
             if (EditorGUI.EndChangeCheck())
             {
-                clusterCollection = newCollection;
-                var p = clusterCollection ? AssetDatabase.GetAssetPath(clusterCollection) : string.Empty;
+                knowledgeCollection = newCollection;
+                var p = knowledgeCollection ? AssetDatabase.GetAssetPath(knowledgeCollection) : string.Empty;
                 EditorPrefs.SetString(PrefKeyCollectionPath, p);
                 RefreshLayout();
             }
@@ -211,7 +211,7 @@ namespace Antura.Discover.Editor
                         if (cardRect.Contains(mousePos))
                         {
                             selectedCard = kvp.Key;
-                            selectedCluster = clusterCollection.FindKnowledgeForCard(kvp.Key);
+                            selectedCluster = knowledgeCollection.FindKnowledgeForCard(kvp.Key);
                             GUI.changed = true;
                             e.Use();
                             return;
@@ -250,7 +250,7 @@ namespace Antura.Discover.Editor
 
         private void DrawGraph()
         {
-            if (clusterCollection == null)
+            if (knowledgeCollection == null)
                 return;
 
             Rect graphArea = new Rect(0, EditorGUIUtility.singleLineHeight + 5, position.width - 250, position.height - EditorGUIUtility.singleLineHeight - 5);
@@ -272,7 +272,7 @@ namespace Antura.Discover.Editor
             if (showConnections)
             {
                 DrawCardConnections();
-                DrawClusterCardLinks();
+                DrawKnowledgeCardLinks();
             }
 
             // Draw clusters
@@ -290,7 +290,7 @@ namespace Antura.Discover.Editor
 
         private void DrawClusters()
         {
-            foreach (var cluster in clusterCollection.AllKnowledges)
+            foreach (var cluster in knowledgeCollection.AllKnowledges)
             {
                 if (cluster == null || cluster.Importance > filterPriority)
                     continue;
@@ -337,7 +337,7 @@ namespace Antura.Discover.Editor
                 {
                     selectedCard = card;
                     // Prefer to focus on one of its clusters
-                    selectedCluster = clusterCollection.FindKnowledgeForCard(card);
+                    selectedCluster = knowledgeCollection.FindKnowledgeForCard(card);
                 }
 
                 GUI.backgroundColor = oldColor;
@@ -346,7 +346,7 @@ namespace Antura.Discover.Editor
 
         private void DrawCardConnections()
         {
-            foreach (var cluster in clusterCollection.AllKnowledges)
+            foreach (var cluster in knowledgeCollection.AllKnowledges)
             {
                 if (cluster == null || cluster.Importance > filterPriority)
                     continue;
@@ -382,7 +382,7 @@ namespace Antura.Discover.Editor
 
         private void DrawClusterBridges()
         {
-            foreach (var bridge in clusterCollection.Bridges)
+            foreach (var bridge in knowledgeCollection.Bridges)
             {
                 if (bridge.From == null || bridge.To == null)
                     continue;
@@ -409,15 +409,15 @@ namespace Antura.Discover.Editor
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
             EditorGUILayout.LabelField("Graph Statistics", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField($"Total Clusters: {clusterCollection.AllKnowledges.Count}");
-            EditorGUILayout.LabelField($"Visible Clusters: {clusterCollection.AllKnowledges.Count(c => c != null && c.Importance <= filterPriority)}");
-            EditorGUILayout.LabelField($"Bridges: {clusterCollection.Bridges.Count}");
+            EditorGUILayout.LabelField($"Total Knowledges: {knowledgeCollection.AllKnowledges.Count}");
+            EditorGUILayout.LabelField($"Visible Knowledges: {knowledgeCollection.AllKnowledges.Count(c => c != null && c.Importance <= filterPriority)}");
+            EditorGUILayout.LabelField($"Bridges: {knowledgeCollection.Bridges.Count}");
 
             EditorGUILayout.Space();
 
             if (selectedCluster != null)
             {
-                EditorGUILayout.LabelField("Selected Cluster", EditorStyles.boldLabel);
+                EditorGUILayout.LabelField("Selected Knowledge", EditorStyles.boldLabel);
                 EditorGUILayout.LabelField($"Name: {selectedCluster.Name}");
                 EditorGUILayout.LabelField($"Priority: {selectedCluster.Importance}");
                 EditorGUILayout.LabelField($"Cards: {selectedCluster.GetAllCards().Count}");
@@ -443,7 +443,7 @@ namespace Antura.Discover.Editor
                 {
                     FocusOnCluster(selectedCluster);
                 }
-                if (GUILayout.Button("Edit Cluster"))
+                if (GUILayout.Button("Edit Knowledge"))
                 {
                     Selection.activeObject = selectedCluster;
                 }
@@ -468,7 +468,7 @@ namespace Antura.Discover.Editor
 
         private void RefreshLayout()
         {
-            if (clusterCollection == null)
+            if (knowledgeCollection == null)
                 return;
 
             if (autoLayout)
@@ -478,7 +478,7 @@ namespace Antura.Discover.Editor
             else
             {
                 // Random positions if not auto-layout
-                foreach (var cluster in clusterCollection.AllKnowledges)
+                foreach (var cluster in knowledgeCollection.AllKnowledges)
                 {
                     if (cluster != null && !clusterPositions.ContainsKey(cluster))
                     {
@@ -491,7 +491,7 @@ namespace Antura.Discover.Editor
 
         private void PerformAutoLayout()
         {
-            var clusters = clusterCollection.AllKnowledges.Where(c => c != null).ToList();
+            var clusters = knowledgeCollection.AllKnowledges.Where(c => c != null).ToList();
             if (clusters.Count == 0)
                 return;
 
@@ -522,7 +522,7 @@ namespace Antura.Discover.Editor
         {
             // Build unique set
             var set = new HashSet<CardData>();
-            foreach (var cl in clusterCollection.AllKnowledges)
+            foreach (var cl in knowledgeCollection.AllKnowledges)
             {
                 if (cl == null)
                     continue;
@@ -604,16 +604,16 @@ namespace Antura.Discover.Editor
             }
         }
 
-        private void DrawClusterCardLinks()
+        private void DrawKnowledgeCardLinks()
         {
-            foreach (var cluster in clusterCollection.AllKnowledges)
+            foreach (var knowledge in knowledgeCollection.AllKnowledges)
             {
-                if (cluster == null || cluster.Importance > filterPriority)
+                if (knowledge == null || knowledge.Importance > filterPriority)
                     continue;
-                if (!clusterPositions.TryGetValue(cluster, out var cPos))
+                if (!clusterPositions.TryGetValue(knowledge, out var cPos))
                     continue;
 
-                var cards = cluster.GetAllCards();
+                var cards = knowledge.GetAllCards();
                 foreach (var card in cards)
                 {
                     if (card == null)
