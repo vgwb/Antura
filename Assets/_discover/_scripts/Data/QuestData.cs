@@ -24,6 +24,8 @@ namespace Antura.Discover
         public Status Status;
 
         [Header("Description")]
+        [Tooltip("English title, for reference only. Not used in the game logic.")]
+        public string TitleEn;
         public LocalizedString Title;
         public LocalizedString Description;
         public Countries Country;
