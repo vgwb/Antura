@@ -58,7 +58,7 @@ namespace Antura.Discover.Editor
                     sb.AppendLine($"### {title}");
                     if (!string.IsNullOrEmpty(desc))
                         sb.AppendLine(desc + "\n");
-                    sb.AppendLine("- Category: " + c.Category);
+                    sb.AppendLine("- Category: " + c.Type);
                     if (c.Topics != null && c.Topics.Count > 0)
                         sb.AppendLine("- Topics: " + string.Join(", ", c.Topics));
                     if (c.Year != 0)

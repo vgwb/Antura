@@ -21,7 +21,7 @@ namespace Antura.Discover
         public int Version = 100;
 
         [Tooltip("Development status of this quest. Needed for internal testing and validation.")]
-        public DevStatus DevStatus;
+        public Status DevStatus;
 
         [Header("Description")]
         public LocalizedString Title;

@@ -47,7 +47,7 @@ namespace Antura.Discover
         private enum WordActiveFilter { All, ActiveOnly, InactiveOnly }
         private WordActiveFilter _wordActive = WordActiveFilter.All;
         // QuestData DevStatus filter
-        private DevStatus? _devStatusFilter = null; // null => All
+        private Status? _devStatusFilter = null; // null => All
 
         // Layout sizes
         private const float ColOpen = 60f;
@@ -408,14 +408,14 @@ namespace Antura.Discover
                 {
                     GUILayout.Space(8);
                     GUILayout.Label("Status:", GUILayout.Width(48));
-                    var devValues = (DevStatus[])Enum.GetValues(typeof(DevStatus));
+                    var devValues = (Status[])Enum.GetValues(typeof(Status));
                     var devLabels = new List<string> { "All" };
                     devLabels.AddRange(devValues.Select(v => v.ToString()));
                     int current = _devStatusFilter.HasValue ? (Array.IndexOf(devValues, _devStatusFilter.Value) + 1) : 0;
                     int chosen = EditorGUILayout.Popup(current, devLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(80));
                     if (chosen != current)
                     {
-                        _devStatusFilter = chosen <= 0 ? default(DevStatus?) : devValues[chosen - 1];
+                        _devStatusFilter = chosen <= 0 ? default(Status?) : devValues[chosen - 1];
                         Repaint();
                     }
                 }
@@ -1177,7 +1177,7 @@ namespace Antura.Discover
             x += ColKnowledge + Gap;
             // Category
             var rCat = new Rect(x, y, ColCategory, lineH);
-            EditorGUI.LabelField(rCat, c.Category.ToString());
+            EditorGUI.LabelField(rCat, c.Type.ToString());
             x += ColCategory + Gap;
             // Topics
             var topics = c.Topics != null ? string.Join(", ", c.Topics.Select(t => t.ToString())) : string.Empty;
@@ -1468,7 +1468,7 @@ namespace Antura.Discover
                         keySelector = a => a is CardData cd ? (GetCardTitle(cd) ?? string.Empty) : string.Empty;
                         break;
                     case "Category":
-                        keySelector = a => a is WordData w3 ? w3.Category.ToString() : (a is CardData c1 ? c1.Category.ToString() : string.Empty);
+                        keySelector = a => a is WordData w3 ? w3.Category.ToString() : (a is CardData c1 ? c1.Type.ToString() : string.Empty);
                         break;
                     case "Active":
                         keySelector = a => a is WordData w0 ? (w0.Active ? "1" : "0") : string.Empty;
@@ -1805,7 +1805,7 @@ namespace Antura.Discover
                 var title = GetCardTitle(cd) ?? string.Empty;
                 if (!string.IsNullOrEmpty(title) && title.IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                     return true;
-                if (cd.Category.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                if (cd.Type.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                     return true;
                 if (cd.Year.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                     return true;
@@ -2089,7 +2089,7 @@ namespace Antura.Discover
                 {
                     var topics = c.Topics != null ? string.Join("; ", c.Topics.Select(t => t.ToString())) : string.Empty;
                     var quests = c.Quests != null ? string.Join("; ", c.Quests.Where(q => q != null).Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)) : string.Empty;
-                    sb.AppendLine(Escape("CardData") + "," + Escape(c.Id) + "," + Escape(FormatPath(AssetDatabase.GetAssetPath(c))) + "," + Escape(GetCardTitle(c)) + "," + Escape(c.IsCollectible ? "true" : "false") + "," + Escape(c.Year.ToString()) + "," + Escape(c.Category.ToString()) + "," + Escape(topics) + "," + Escape(quests));
+                    sb.AppendLine(Escape("CardData") + "," + Escape(c.Id) + "," + Escape(FormatPath(AssetDatabase.GetAssetPath(c))) + "," + Escape(GetCardTitle(c)) + "," + Escape(c.IsCollectible ? "true" : "false") + "," + Escape(c.Year.ToString()) + "," + Escape(c.Type.ToString()) + "," + Escape(topics) + "," + Escape(quests));
                 }
             }
             else if (SelectedType == typeof(QuestData))

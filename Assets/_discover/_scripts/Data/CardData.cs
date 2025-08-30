@@ -9,24 +9,38 @@ namespace Antura.Discover
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
     public class CardData : IdentifiedData
     {
-        public DevStatus DevStatus = DevStatus.Development;
+        public Status Status = Status.Draft;
 
-        [Header("Knowledge Content")]
-        public LocalizedString Title;
-        public LocalizedString Description;
-        public CardCategory Category;
+        public CardImportance Importance = CardImportance.Medium;
+        [Tooltip("Notes: why is this card important?")]
+        [TextArea]
+        public string Notes;
+
+        [Tooltip("What role does this card play in the game?")]
+        public CardType Type;
+
+        [Tooltip("What domain of knowledge does it belong to")]
         public List<KnowledgeTopic> Topics;
+
         [Tooltip("Optional, Year of origin, for historical context.")]
         public int Year;
         public Countries Country;
         [Tooltip("If the card has a specific place...")]
         public LocationData Location;
-
         public string WikipediaUrl;
+
+        [Header("Content: internal English only")]
+        public string TitleEn;
+        [TextArea]
+        public string DescriptionEn;
+        [Header("Content: Localized")]
+        public LocalizedString Title;
+        public LocalizedString Description;
+
+        [Header("References")]
 
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
-
 
         [Header("Mastery")]
         [Tooltip("Mastery points needed to unlock this card.")]

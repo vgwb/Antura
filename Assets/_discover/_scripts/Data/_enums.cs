@@ -13,6 +13,16 @@ namespace Antura.Discover
         UnitedKingdom = 8
     }
 
+    public enum CardImportance
+    {
+        Critical = 0, // Absolutely required to reach learning/quest goals
+        High = 10, // should appear unless there are strong constraints
+        Medium = 20, // Useful but optional; include to enrich or when time allows
+        Low = 30, // Nice-to-have filler; use to pace/relieve cognitive load
+        Flavor = 40, //  zero impact on goals or gating
+        Deprecated = 90 // Legacy content - not used anymore
+    }
+
     public enum Difficulty
     {
         Tutorial = 1,
@@ -21,56 +31,54 @@ namespace Antura.Discover
         Difficult = 4
     }
 
-    public enum CardCategory
+    public enum CardType
     {
         None = 0,
-        Achievement = 10,
-        Art = 3,
-        Fauna = 6,
-        Flora = 5,
-        Food = 4,
-        Humanity = 9,
-        Natural = 2,
-        Object = 8,
-        People = 7,
-        Place = 1,
+        Place = 1,        // Cities, rivers, mountains, landmarks
+        Person = 2,       // Historical figures, teachers, friends
+        Object = 3,       // Items to interact with or collect
+        Concept = 4,      // Abstract ideas (friendship, safety, peace)
+        Activity = 5,     // Games, puzzles, cooking, sports
+        Lore = 6,         // Optional storytelling/mascot/flavor
+        Achievement = 7   // Badges, trophies
     }
 
     public enum KnowledgeTopic
     {
         None = 0,
-        // Core subjects (simplified)
-        History = 1,           // Keep - kids love stories from the past
-        Geography = 2,         // Keep - where things are
-        Science = 4,           // Keep - how things work
-        Art = 5,              // Keep - making and creating
-        Culture = 3,          // Keep - how people live
 
-        // Kid-friendly specifics
-        Animals = 40,          // Instead of complex "Fauna"
-        Plants = 41,           // Instead of "Flora"
-        Space = 42,            // Kids love astronomy
-        Weather = 43,          // Observable science
+        CORE_SUBJECTS___ = -1,
+        Art = 5,              // making and creating
+        Culture = 3,          // how people live
+        Geography = 2,        // where things are
+        History = 1,
+        Literature = 8,      // stories and books
+        Math = 21,           // numbers and logic
+        Science = 4,          // how things work
+        Technology = 39,     // applied science
+
+        KIDS_SPECIFC___ = -2,
+        Animal = 40,
+        Food = 45,
+        Music = 22,
+        Plant = 41,
+        Recreation = 46,   // leisure & hobbies: dance, crafts, hiking, games
+        Space = 42,
+        Sport = 32,
         Transportation = 44,   // Cars, planes, boats
+        Weather = 43,          // Observable science
 
-        // Creative & Active
-        Music = 22,            // Keep
-        Sports = 32,           // Keep
-        Cooking = 45,          // Instead of "CulinaryArts"
-        Dancing = 46,          // Instead of "Dance/PerformingArts"
-
-        // Social concepts (simplified)
-        Family = 47,           // Instead of "Sociology"
-        Community = 38,        // Keep - good for this age
-        Friendship = 48,       // Important social concept
-
-        // Practical life
+        SOCIAL_PRACTICAL_LIFE___ = -3,
+        Civics = 15,        // basic government and citizenship
+        Community = 38, // when people organize and help each other locally
         Education = 20,
-        Health = 10,           // Keep
-        Safety = 49,           // Important for kids
-        Environment = 9,       // Keep - caring for nature
-        Money = 11,            // Keep - basic financial literacy
-        Time = 12              // Keep - understanding clocks/calendars
+        Environment = 9,       // caring for nature
+        Family = 47,
+        Friendship = 48,       // Important social concept
+        Health = 10,
+        Money = 11,            // basic financial literacy
+        Safety = 49,
+        Time = 12              // understanding clocks/calendars
     }
 
     public enum GameplayType
@@ -86,13 +94,14 @@ namespace Antura.Discover
         Story
     }
 
-    public enum DevStatus
+    public enum Status
     {
-        Inactive = 0,
-        Development = 1,
-        Testing = 2,
-        Ready = 3,
-        Validated = 4,
+        Standby = 0, // we don't know yet if it'll go intothe game
+        Draft = 1,
+        NeedsReview = 2, // someone has to review it
+        Production = 3,
+        Validated = 10, // by the teachers, after testing
+        Archived = -10,
     }
 
     public enum AssetType
@@ -111,8 +120,7 @@ namespace Antura.Discover
     }
 
     /// <summary>
-    /// Broad competence categories — each activity/minigame should have at least one.
-    /// These are high-level groupings
+    /// Broad competence categories. These are high-level groupings
     /// </summary>
     public enum ActivityCategory
     {
@@ -134,8 +142,7 @@ namespace Antura.Discover
     }
 
     /// <summary>
-    /// Specific skills — fine-grained abilities trained or required by the activity.
-    /// You can tag multiple skills per activity.
+    /// Specific skills — fine-grained abilities trained or required by an activity.
     /// </summary>
     public enum ActivitySkill
     {

@@ -149,12 +149,12 @@ namespace Antura.Discover.Editor
             {
                 id = card.Id,
                 fileName = Path.GetFileNameWithoutExtension(assetPath),
-                devStatus = card.DevStatus.ToString(),
+                devStatus = card.Status.ToString(),
 
                 // Knowledge Content
                 title = ConvertLocalizedString(card.Title),
                 description = ConvertLocalizedString(card.Description),
-                category = card.Category.ToString(),
+                category = card.Type.ToString(),
                 year = card.Year,
                 country = card.Country.ToString(),
 
@@ -323,8 +323,8 @@ namespace Antura.Discover.Editor
                 }
 
                 // Update core fields (category, topics, year, country)
-                if (!string.IsNullOrEmpty(cj.category) && Enum.TryParse<CardCategory>(cj.category, out var cat))
-                    card.Category = cat;
+                if (!string.IsNullOrEmpty(cj.category) && Enum.TryParse<CardType>(cj.category, out var cat))
+                    card.Type = cat;
                 card.Year = cj.year;
                 if (!string.IsNullOrEmpty(cj.country) && Enum.TryParse<Countries>(cj.country, out var cnt))
                     card.Country = cnt;
@@ -465,7 +465,7 @@ namespace Antura.Discover.Editor
         private static void UpdateExportStats(ExportStats stats, CardData card, CardDataJson cardJson)
         {
             // Category counts
-            string category = card.Category.ToString();
+            string category = card.Type.ToString();
             if (stats.categoryCounts.ContainsKey(category))
                 stats.categoryCounts[category]++;
             else

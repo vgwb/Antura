@@ -69,7 +69,7 @@ namespace Antura.Discover.UI
                 slideshow.SetImages(null);
             }
 
-            if (currentQuestData.DevStatus != DevStatus.Inactive)
+            if (currentQuestData.DevStatus != Status.Standby)
             {
                 PlayBtn.interactable = true;
             }

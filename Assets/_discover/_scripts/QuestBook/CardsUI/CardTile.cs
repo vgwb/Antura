@@ -31,7 +31,7 @@ namespace Antura.Discover.UI
             this.onClick = onClick;
 
             titleText.text = card.Title.GetLocalizedString();
-            categoryText.text = card.Category.ToString();
+            categoryText.text = card.Type.ToString();
 
             if (image)
                 image.sprite = card.ImageAsset.Image;

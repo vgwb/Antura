@@ -454,7 +454,7 @@ namespace Antura.Discover.Editor
                 EditorGUILayout.Space();
                 EditorGUILayout.LabelField("Selected Card", EditorStyles.boldLabel);
                 EditorGUILayout.LabelField($"Name: {selectedCard.name}");
-                EditorGUILayout.LabelField($"Category: {selectedCard.Category}");
+                EditorGUILayout.LabelField($"Category: {selectedCard.Type}");
 
                 if (GUILayout.Button("Edit Card"))
                 {

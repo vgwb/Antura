@@ -12,8 +12,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
   m_Name: food_yeast
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: fr_baguette_yeast
-  DevStatus: 1
+  Id: food_yeast
+  Status: 1
+  Importance: 20
+  Notes: 
+  Type: 3
+  Topics: 2d00000003000000
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  TitleEn: Yeast
+  DescriptionEn: 
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
@@ -32,11 +42,6 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Category: 4
-  Topics: 2d000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
   Words: []
   MasteryPointsToUnlock: 1
   Cookies: 0

@@ -52,9 +52,9 @@ namespace Antura.Discover.UI
             if (categoryDropdown != null)
             {
                 categoryDropdown.ClearOptions();
-                var names = Enum.GetNames(typeof(Antura.Discover.CardCategory));
+                var names = Enum.GetNames(typeof(Antura.Discover.CardType));
                 categoryDropdown.AddOptions(new List<string>(names));
-                var defaultIndex = Array.IndexOf(names, Antura.Discover.CardCategory.None.ToString());
+                var defaultIndex = Array.IndexOf(names, Antura.Discover.CardType.None.ToString());
                 categoryDropdown.value = Mathf.Clamp(defaultIndex, 0, names.Length - 1);
                 categoryDropdown.RefreshShownValue();
             }
@@ -108,16 +108,16 @@ namespace Antura.Discover.UI
                 }
             }
 
-            Antura.Discover.CardCategory? category = null;
+            Antura.Discover.CardType? category = null;
             if (categoryDropdown)
             {
-                var names = Enum.GetNames(typeof(Antura.Discover.CardCategory));
+                var names = Enum.GetNames(typeof(Antura.Discover.CardType));
                 if (categoryDropdown.value >= 0 && categoryDropdown.value < names.Length)
                 {
-                    if (Enum.TryParse<Antura.Discover.CardCategory>(names[categoryDropdown.value], out var cat))
+                    if (Enum.TryParse<Antura.Discover.CardType>(names[categoryDropdown.value], out var cat))
                     {
                         // Treat None as no category filter
-                        if (cat != Antura.Discover.CardCategory.None)
+                        if (cat != Antura.Discover.CardType.None)
                             category = cat;
                     }
                 }
@@ -129,7 +129,7 @@ namespace Antura.Discover.UI
                     continue;
                 if (country.HasValue && c.Country != country.Value)
                     continue;
-                if (category.HasValue && c.Category != category.Value)
+                if (category.HasValue && c.Type != category.Value)
                     continue;
                 cards.Add(c);
             }
