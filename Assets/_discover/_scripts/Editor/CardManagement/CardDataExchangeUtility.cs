@@ -62,8 +62,7 @@ namespace Antura.Discover
                     Escape(c.Country.ToString()),
                     Escape(c.WikipediaUrl),
                     Escape(c.Notes),
-                    Escape(c.Rationale),
-                    Escape(c.LinkedCards)
+                    Escape(c.Rationale)
                 };
                 sb.AppendLine(string.Join(",", row));
             }
@@ -228,9 +227,6 @@ namespace Antura.Discover
                 var rationale = Get("Rationale");
                 if (!string.Equals(card.Rationale, rationale, StringComparison.Ordinal))
                 { if (!dryRun) card.Rationale = rationale; changedFields.Add(nameof(card.Rationale)); }
-                var linked = Get("LinkedCards");
-                if (!string.Equals(card.LinkedCards, linked, StringComparison.Ordinal))
-                { if (!dryRun) card.LinkedCards = linked; changedFields.Add(nameof(card.LinkedCards)); }
                 // Optional metadata
                 var lastReviewed = Get("LastReviewed");
                 if (!string.IsNullOrWhiteSpace(lastReviewed))

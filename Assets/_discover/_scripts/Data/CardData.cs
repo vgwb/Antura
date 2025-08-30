@@ -42,8 +42,6 @@ namespace Antura.Discover
         public List<QuestData> Quests;
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
-        [Tooltip("Cards linked, comma separated")]
-        public string LinkedCards;
 
         [Header("Mastery")]
         [Tooltip("Mastery points needed to unlock this card.")]

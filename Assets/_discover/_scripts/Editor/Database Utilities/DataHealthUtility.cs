@@ -112,12 +112,16 @@ namespace Antura.Discover
                 desired = IdentifiedData.SanitizeId(desired);
 
                 if (string.IsNullOrEmpty(data.Id))
+                {
                     logs?.Add($"[{data.GetType().Name}:{fileBase}] Missing Id → '{desired}'");
+                    Debug.LogWarning($"[Data Health] Missing Id → '{desired}'", data);
+                }
 
                 if (!string.Equals(data.Id, desired, StringComparison.Ordinal))
                 {
                     if (verbose)
                         logs?.Add($"[{data.GetType().Name}:{fileBase}] Id '{data.Id}' → '{desired}'");
+                    Debug.LogWarning($"[Data Health] Id sanitize → '{data.Id}' → '{desired}'", data);
                     if (applyChanges)
                     { data.Editor_SetId(desired); dirty = true; }
                 }
@@ -127,6 +131,7 @@ namespace Antura.Discover
                 if (!string.Equals(unique, data.Id, StringComparison.Ordinal))
                 {
                     logs?.Add($"[{data.GetType().Name}:{fileBase}] Id duplicate → '{data.Id}' → '{unique}'");
+                    Debug.LogWarning($"[Data Health] Duplicate Id resolved → '{data.Id}' → '{unique}'", data);
                     if (applyChanges)
                     { data.Editor_SetId(unique, lockAfter: true); dirty = true; }
                 }
@@ -150,6 +155,7 @@ namespace Antura.Discover
                 if (hasImg && hasAud)
                 {
                     logs?.Add($"[AssetData:{fileBase}] Both Image & Audio set. Keeping '{a.Type}', clearing the other.");
+                    Debug.LogWarning($"[Data Health] AssetData has both Image & Audio set", a);
                     if (applyChanges)
                     {
                         if (a.Type == AssetType.Image)
@@ -163,6 +169,7 @@ namespace Antura.Discover
                 {
                     if (verbose)
                         logs?.Add($"[AssetData:{fileBase}] Type mismatch → set Type=Image.");
+                    Debug.LogWarning($"[Data Health] AssetData type mismatch, set Type=Image", a);
                     if (applyChanges)
                     { a.Type = AssetType.Image; dirty = true; }
                 }
@@ -170,6 +177,7 @@ namespace Antura.Discover
                 {
                     if (verbose)
                         logs?.Add($"[AssetData:{fileBase}] Type mismatch → set Type=Audio.");
+                    Debug.LogWarning($"[Data Health] AssetData type mismatch, set Type=Audio", a);
                     if (applyChanges)
                     { a.Type = AssetType.Audio; dirty = true; }
                 }
@@ -186,7 +194,10 @@ namespace Antura.Discover
                 bool dirty = false;
 
                 if (it.Icon == null)
+                {
                     logs?.Add($"[ItemData:{fileBase}] Icon is missing. (Warning)");
+                    Debug.LogWarning($"[Data Health] ItemData icon is missing", it);
+                }
 
                 if (applyChanges && dirty)
                 { EditorUtility.SetDirty(it); changes++; }
@@ -208,6 +219,11 @@ namespace Antura.Discover
                     var assetPath = AssetDatabase.GetAssetPath(asset);
                     var cardList = string.Join(", ", grp.Select(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id));
                     logs?.Add($"[CardData] Duplicate ImageAsset: '{asset?.Id ?? asset?.name}' ({assetPath}) used by {grp.Count()} cards → {cardList}");
+                    // Emit per-card clickable warnings
+                    foreach (var c in grp)
+                    {
+                        Debug.LogWarning($"[Data Health] Duplicate ImageAsset '{asset?.Id ?? asset?.name}' referenced here", c);
+                    }
                 }
             }
 
@@ -220,72 +236,10 @@ namespace Antura.Discover
             return changes;
         }
 
-        /// <summary>
-        /// Ensure bidirectional consistency between CardData.Quests and QuestData.Cards.
-        /// Adds missing back-links on both sides. Returns number of modified assets.
-        /// </summary>
         public static int SyncCardQuestLinks(bool applyChanges, List<string> logs, bool verbose = true)
         {
-            int changes = 0;
-            var cards = FindAll<CardData>();
-            var quests = FindAll<QuestData>();
-
-            // Build fast lookup by Id/name
-            var cardById = cards.Where(c => c != null)
-                .ToDictionary(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id, c => c, StringComparer.OrdinalIgnoreCase);
-            var questById = quests.Where(q => q != null)
-                .ToDictionary(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id, q => q, StringComparer.OrdinalIgnoreCase);
-
-            // Normalize null lists
-            foreach (var c in cards.Where(x => x != null))
-                if (c.Quests == null)
-                    c.Quests = new List<QuestData>();
-            foreach (var q in quests.Where(x => x != null))
-                if (q.Cards == null)
-                    q.Cards = new List<CardData>();
-
-            // Pass 1: For each CardData.Quests ensure QuestData.Cards contains the card
-            foreach (var c in cards.Where(x => x != null))
-            {
-                foreach (var q in c.Quests.Where(x => x != null).ToList())
-                {
-                    if (!q.Cards.Contains(c))
-                    {
-                        logs?.Add($"[Sync] Add back-link: Quest '{q.Id ?? q.name}' ← Card '{c.Id ?? c.name}'");
-                        if (applyChanges)
-                        {
-                            q.Cards.Add(c);
-                            EditorUtility.SetDirty(q);
-                            changes++;
-                        }
-                    }
-                }
-            }
-
-            // Pass 2: For each QuestData.Cards ensure CardData.Quests contains the quest
-            foreach (var q in quests.Where(x => x != null))
-            {
-                foreach (var c in q.Cards.Where(x => x != null).ToList())
-                {
-                    if (!c.Quests.Contains(q))
-                    {
-                        logs?.Add($"[Sync] Add forward-link: Card '{c.Id ?? c.name}' ← Quest '{q.Id ?? q.name}'");
-                        if (applyChanges)
-                        {
-                            c.Quests.Add(q);
-                            EditorUtility.SetDirty(c);
-                            changes++;
-                        }
-                    }
-                }
-            }
-
-            if (applyChanges && changes > 0)
-            {
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-            }
-            return changes;
+            // Forward to central implementation in CardValidationUtility
+            return Antura.Discover.Editor.CardValidationUtility.SyncCardQuestLinks(applyChanges, logs, verbose);
         }
 
         /// <summary>
@@ -293,40 +247,7 @@ namespace Antura.Discover
         /// </summary>
         public static void PrintCardQuestRelationships(List<string> logs, bool includeOrphans)
         {
-            var cards = FindAll<CardData>();
-            var quests = FindAll<QuestData>();
-
-            logs?.Add($"Cards: {cards.Count}, Quests: {quests.Count}");
-
-            foreach (var c in cards.Where(x => x != null))
-            {
-                var qList = (c.Quests ?? new List<QuestData>())
-                    .Where(q => q != null)
-                    .Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id)
-                    .ToList();
-                string cId = string.IsNullOrEmpty(c.Id) ? c.name : c.Id;
-                logs?.Add($"Card {cId} → Quests: {(qList.Count == 0 ? "-" : string.Join(", ", qList))}");
-            }
-
-            foreach (var q in quests.Where(x => x != null))
-            {
-                var cList = (q.Cards ?? new List<CardData>())
-                    .Where(cd => cd != null)
-                    .Select(cd => string.IsNullOrEmpty(cd.Id) ? cd.name : cd.Id)
-                    .ToList();
-                string qId = string.IsNullOrEmpty(q.Id) ? q.name : q.Id;
-                logs?.Add($"Quest {qId} → Cards: {(cList.Count == 0 ? "-" : string.Join(", ", cList))}");
-            }
-
-            if (includeOrphans)
-            {
-                var orphanCards = cards.Where(c => c != null && (c.Quests == null || c.Quests.All(x => x == null))).ToList();
-                var orphanQuests = quests.Where(q => q != null && (q.Cards == null || q.Cards.All(x => x == null))).ToList();
-                if (orphanCards.Count > 0)
-                    logs?.Add($"Orphan Cards (no quests): {string.Join(", ", orphanCards.Select(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id))}");
-                if (orphanQuests.Count > 0)
-                    logs?.Add($"Orphan Quests (no cards): {string.Join(", ", orphanQuests.Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id))}");
-            }
+            Antura.Discover.Editor.CardValidationUtility.PrintCardQuestRelationships(logs, includeOrphans);
         }
 
         /// <summary>
@@ -335,92 +256,7 @@ namespace Antura.Discover
         /// </summary>
         public static int UnlinkNonReciprocalCardQuestLinks(bool applyChanges, List<string> logs, bool verbose = true)
         {
-            int changes = 0;
-            var cards = FindAll<CardData>();
-            var quests = FindAll<QuestData>();
-
-            foreach (var c in cards.Where(x => x != null))
-            {
-                bool dirty = false;
-                if (c.Quests == null)
-                    c.Quests = new List<QuestData>();
-                // Remove nulls
-                int before = c.Quests.Count;
-                c.Quests = c.Quests.Where(q => q != null).Distinct().ToList();
-                if (c.Quests.Count != before)
-                { dirty = true; logs?.Add($"[Clean] Card '{c.Id ?? c.name}' removed null/dup quests"); }
-                // Remove quests that don't reference this card
-                var toRemove = new List<QuestData>();
-                foreach (var q in c.Quests)
-                {
-                    if (q == null)
-                        continue;
-                    if (q.Cards == null || !q.Cards.Contains(c))
-                    {
-                        logs?.Add($"[Unlink] Card '{c.Id ?? c.name}' -x Quest '{q?.Id ?? q?.name}' (non-reciprocal)");
-                        toRemove.Add(q);
-                    }
-                }
-                if (toRemove.Count > 0)
-                {
-                    if (applyChanges)
-                    {
-                        foreach (var q in toRemove)
-                            c.Quests.Remove(q);
-                        EditorUtility.SetDirty(c);
-                        changes++;
-                    }
-                }
-                else if (applyChanges && dirty)
-                {
-                    EditorUtility.SetDirty(c);
-                    changes++;
-                }
-            }
-
-            foreach (var q in quests.Where(x => x != null))
-            {
-                bool dirty = false;
-                if (q.Cards == null)
-                    q.Cards = new List<CardData>();
-                int before = q.Cards.Count;
-                q.Cards = q.Cards.Where(cd => cd != null).Distinct().ToList();
-                if (q.Cards.Count != before)
-                { dirty = true; logs?.Add($"[Clean] Quest '{q.Id ?? q.name}' removed null/dup cards"); }
-                var toRemove = new List<CardData>();
-                foreach (var c in q.Cards)
-                {
-                    if (c == null)
-                        continue;
-                    if (c.Quests == null || !c.Quests.Contains(q))
-                    {
-                        logs?.Add($"[Unlink] Quest '{q.Id ?? q.name}' -x Card '{c?.Id ?? c?.name}' (non-reciprocal)");
-                        toRemove.Add(c);
-                    }
-                }
-                if (toRemove.Count > 0)
-                {
-                    if (applyChanges)
-                    {
-                        foreach (var c in toRemove)
-                            q.Cards.Remove(c);
-                        EditorUtility.SetDirty(q);
-                        changes++;
-                    }
-                }
-                else if (applyChanges && dirty)
-                {
-                    EditorUtility.SetDirty(q);
-                    changes++;
-                }
-            }
-
-            if (applyChanges && changes > 0)
-            {
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-            }
-            return changes;
+            return Antura.Discover.Editor.CardValidationUtility.UnlinkNonReciprocalCardQuestLinks(applyChanges, logs, verbose);
         }
 
         // ---------- Helpers ----------

@@ -5,6 +5,7 @@ using System.IO;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
@@ -82,6 +83,32 @@ namespace Antura.Discover
                 ValidateCards();
             }
 
+            EditorGUILayout.Space(10);
+            EditorGUILayout.LabelField("Card ↔ Quest Links", EditorStyles.boldLabel);
+            using (new EditorGUILayout.HorizontalScope())
+            {
+                if (GUILayout.Button("Sync Links (bidirectional)", GUILayout.Height(22)))
+                {
+                    var logs = new List<string>();
+                    int changes = Antura.Discover.Editor.CardValidationUtility.SyncCardQuestLinks(true, logs);
+                    Debug.Log(string.Join("\n", logs));
+                    EditorUtility.DisplayDialog("Sync Links", $"Changes applied: {changes}", "OK");
+                }
+                if (GUILayout.Button("Unlink Non-Reciprocal", GUILayout.Height(22)))
+                {
+                    var logs = new List<string>();
+                    int changes = Antura.Discover.Editor.CardValidationUtility.UnlinkNonReciprocalCardQuestLinks(true, logs);
+                    Debug.Log(string.Join("\n", logs));
+                    EditorUtility.DisplayDialog("Unlink Non-Reciprocal", $"Changes applied: {changes}", "OK");
+                }
+            }
+            if (GUILayout.Button("Print Relationships to Console", GUILayout.Height(22)))
+            {
+                var logs = new List<string>();
+                Antura.Discover.Editor.CardValidationUtility.PrintCardQuestRelationships(logs, includeOrphans: true);
+                Debug.Log(string.Join("\n", logs));
+            }
+
             // Persist prefs
             if (GUI.changed)
             {
@@ -137,35 +164,73 @@ namespace Antura.Discover
 
         private void ValidateCards()
         {
+            RunValidationAndShowDialog();
+        }
+
+        private static void RunValidationAndShowDialog()
+        {
             var cards = LoadAllCards();
             var idSet = new HashSet<string>(cards.Where(c => !string.IsNullOrEmpty(c?.Id)).Select(c => c.Id), StringComparer.OrdinalIgnoreCase);
-            int emptyTitle = 0, emptyDesc = 0, brokenLinks = 0;
+
+            int missingId = 0;
+            int missingLocTitle = 0;
+            int missingTopics = 0;
+            int missingImage = 0;
+            int emptyTitleEn = 0;
+            int emptyDescEn = 0;
 
             foreach (var c in cards)
             {
                 if (c == null)
                     continue;
-                if (string.IsNullOrWhiteSpace(c.TitleEn))
-                { emptyTitle++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty TitleEn", c); }
-                if (string.IsNullOrWhiteSpace(c.DescriptionEn))
-                { emptyDesc++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty DescriptionEn", c); }
 
-                if (!string.IsNullOrWhiteSpace(c.LinkedCards))
+                if (string.IsNullOrWhiteSpace(c.Id))
                 {
-                    var links = c.LinkedCards.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries)
-                        .Select(s => s.Trim())
-                        .Where(s => !string.IsNullOrEmpty(s));
-                    foreach (var link in links)
+                    missingId++;
+                    Debug.LogWarning($"[Card Validate] Missing ID: {AssetDatabase.GetAssetPath(c)}", c);
+                }
+
+                // Localized Title (if present)
+                try
+                {
+                    LocalizedString title = null;
+                    var prop = c.GetType().GetProperty("Title");
+                    if (prop != null)
+                        title = prop.GetValue(c) as LocalizedString;
+                    if (title == null || title.IsEmpty)
                     {
-                        if (!idSet.Contains(link))
-                        { brokenLinks++; Debug.LogWarning($"[Card Validate] '{c.Id}' links to missing card '{link}'", c); }
+                        missingLocTitle++;
+                        Debug.LogWarning($"[Card Validate] Missing localized Title: {c.name}", c);
                     }
                 }
+                catch { }
+
+                if (c.Topics == null || c.Topics.Count == 0)
+                { missingTopics++; Debug.LogWarning($"[Card Validate] Missing topics: {c.name}", c); }
+
+                try
+                {
+                    var img = c.GetType().GetProperty("ImageAsset")?.GetValue(c);
+                    if (img == null)
+                    { missingImage++; Debug.LogWarning($"[Card Validate] Missing image: {c.name}", c); }
+                }
+                catch { }
+
+                if (string.IsNullOrWhiteSpace(c.TitleEn))
+                { emptyTitleEn++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty TitleEn", c); }
+                if (string.IsNullOrWhiteSpace(c.DescriptionEn))
+                { emptyDescEn++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty DescriptionEn", c); }
             }
 
             EditorUtility.DisplayDialog(
                 "Validate Cards",
-                $"TitleEn empty: {emptyTitle}\nDescriptionEn empty: {emptyDesc}\nBroken LinkedCards: {brokenLinks}",
+                $"Total: {cards.Count}\n" +
+                $"Missing Id: {missingId}\n" +
+                $"Missing Localized Title: {missingLocTitle}\n" +
+                $"Missing Topics: {missingTopics}\n" +
+                $"Missing Image: {missingImage}\n" +
+                $"TitleEn empty: {emptyTitleEn}\n" +
+                $"DescriptionEn empty: {emptyDescEn}\n",
                 "OK");
         }
     }
