@@ -33,7 +33,7 @@ position: 819,-1478
 tags: actor=KID_FEMALE
 color: purple
 ---
-Good job! You did it!
+Good job! You did it! #line:0ba3c4c 
     <<quest_end 3>>
 ===
 
@@ -51,7 +51,7 @@ tags: actor=KID_FEMALE
     <<set $france_completed = true>>
     <<set $CURRENT_ITEM = "">>
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
-    Can you find the German Flag?
+    Can you find the German Flag? #line:04bd4db 
     <<set $france_met = true>>
     <<action germany_active>>
     <<action area_bigger>>
@@ -114,7 +114,7 @@ tags: actor=MAN
     Berlin is the capital of Germany. #line:0446f03 
 <<elseif $CURRENT_ITEM == "flag_of_germany">>
     Danke! That is my flag! #line:0ba8707
-    Can you help my spanish friend?
+    Can you help my spanish friend? #line:03684cb 
     <<set $germany_met = true>>
     <<inventory flag_of_germany remove>>
     <<task_end FIND_GERMAN_FLAG germany_npc>>
@@ -157,11 +157,11 @@ tags:
 ---
 <<if $spain_completed>>
     <<card flag_spain>>
-    Thank you for helping me! 
-    Barcelona and Madrid are the most important cities in Spain. 
+    Thank you for helping me!  #line:0a5c214 
+    Barcelona and Madrid are the most important cities in Spain.  #line:09cf6c9 
 <<elseif $CURRENT_ITEM == "flag_of_spain">>
-    That is my flag!
-    Thank you, can you give my Italian friend their flag?
+    That is my flag! #line:0c57e40 
+    Thank you, can you give my Italian friend their flag? #line:0930602 
     <<set $spain_met = true>>
     <<inventory flag_of_spain remove>>
     <<task_end FIND_SPANISH_FLAG spain_npc>>
@@ -169,12 +169,12 @@ tags:
     <<jump task_italy>>
     <<set $spain_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
-    MAN: Not mine!Our flag is red and ywlloe. 
+    MAN: Not mine!Our flag is red and ywlloe.  #line:0db05da 
         <<jump task_spain>>
 <<elseif $spain_met == false >>
     <<set $spain_met = true>>
-    Hallo! I'm from Spain! 
-    We invented the Flamenco Dance! 
+    Hallo! I'm from Spain!  #line:0f5bc06 
+    We invented the Flamenco Dance!  #line:05e6d48 
     <<jump task_spain>>
 <<endif>>
 
@@ -207,7 +207,7 @@ color: blue
     Thank you! Our capital is Rome! #line:0148edb 
 <<elseif $CURRENT_ITEM == "flag_of_italy">>
     Grazie! That's my flag! #line:081ac66 
-    Help the find the Belgian flag and bring it to them!
+    Help the find the Belgian flag and bring it to them! #line:001f54f 
     <<inventory flag_of_italy remove>>
     <<task_end FIND_ITALIAN_FLAG italy_npc>>
     <<set $italy_completed = true>>

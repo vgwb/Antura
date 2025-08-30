@@ -31,7 +31,7 @@ position: 337,219
 tags: actorUID=CRAZY_WOMAN, asset=jules_verne_1
 ---
 <<if $COLLECTED_ITEMS == 0>>
-CRAZY_WOMAN: Welcome to the house of Jules Verne!
+CRAZY_WOMAN: Welcome to the house of Jules Verne! #line:08f7bc1 
 <<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
 <<jump task_find_books>>
 <<else>>
@@ -45,28 +45,28 @@ tags: task
 ---
 <<task_start FIND_BOOKS>>
 <<asset jverne_mission_overview>>
-Explore the house and find four of his books!
+Explore the house and find four of his books! #line:0aac249 
 
 ===
 title: verne_painting
 position: 351,-354
 tags: actorUID=TUTOR, asset=jules_verne_1
 ---
-TUTOR: This is Jules Verne. He was a writer.
+TUTOR: This is Jules Verne. He was a writer. #line:096a3b3 
 ===
 
 title: verne_house
 position: 638,-360
 tags: actorUID=TUTOR, asset=jules_verne_house
 ---
-TUTOR: He was born in Nantes in 1828.
+TUTOR: He was born in Nantes in 1828. #line:003b311 
 ===
 
 title: map_nantes
 position: 894,-362
 tags: actorUID=TUTOR, asset=map_nantes
 ---
-TUTOR: This is a map of Nantes.
+TUTOR: This is a map of Nantes. #line:09bcaba 
 ===
 
 title: open_chest
@@ -85,8 +85,8 @@ position: 796,-106
 tags: actorUID=CRAZY_WOMAN
 ---
 <<asset jules_verne_2>>
-Great! You met Jules Verne,
-the famous science fiction writer.
+Great! You met Jules Verne, #line:099cdca 
+the famous science fiction writer. #line:05a032e 
 <<quest_end 3>>
 ===
 
@@ -96,8 +96,8 @@ color: yellow
 tags: actorUID=TUTOR
 ---
 <<asset book_80days>>
-TUTOR: This book is "Around the World in 80 Days"
-.
+TUTOR: This book is "Around the World in 80 Days" #line:03131e3 
+. #line:03bb750 
 <<jump train>>
 ===
 title: train
@@ -105,8 +105,8 @@ position: 709,885
 tags: item
 ---
 <<asset train>>
-TUTOR: This is an old train
-.
+TUTOR: This is an old train #line:0732ebc 
+. #line:07f2b1f 
 <<action COLLECT_TRAIN>>
 ===
 
@@ -114,7 +114,7 @@ title: paint_moon
 position: 709,1062
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_ROCKET, meta=ACTION_POST:COLLECT_ROCKET, asset=rocket
 ---
-TUTOR: This is a space rocket.
+TUTOR: This is a space rocket. #line:0e5ae78 
 ===
 
 title: book_moon
@@ -123,8 +123,8 @@ color: yellow
 tags: actorUID=TUTOR
 ---
 <<asset book_earthmoon>>
-TUTOR: This book is "From earth to the Moon"
-.
+TUTOR: This book is "From earth to the Moon" #line:06df7d0 
+. #line:007e798 
 <<jump paint_moon>>
 ===
 
@@ -136,8 +136,8 @@ color: yellow
 tags: actorUID=TUTOR
 ---
 <<asset book_underthesea>>
-TUTOR: This book is 20000 Leagues Under the Seas
-.
+TUTOR: This book is 20000 Leagues Under the Seas #line:03536a1 
+. #line:056cee4 
 <<jump paint_20000>>
 ===
 
@@ -146,8 +146,8 @@ position: 695,699
 tags: actorUID=TUTOR
 ---
 <<asset submarine>>
-TUTOR: This is a submarine
-.
+TUTOR: This is a submarine #line:0f298c2 
+. #line:01b587c 
 <<action COLLECT_SUBMARINE>>
 ===
 
@@ -155,7 +155,7 @@ title: paint_5weeks
 position: 681,490
 tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_BALOON, meta=ACTION_POST:COLLECT_BALOON, asset=balloon
 ---
-TUTOR: This is a hot air balloon.
+TUTOR: This is a hot air balloon. #line:06a7709 
 ===
 
 title: book_5weeks
@@ -163,7 +163,7 @@ position: 387,480
 color: yellow
 tags: actorUID=TUTOR, asset=book_5weeksballoon
 ---
-TUTOR: This book is "Five Weeks in a Balloon".
+TUTOR: This book is "Five Weeks in a Balloon". #line:0934a7c 
 <<jump paint_5weeks>>
 ===
 

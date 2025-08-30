@@ -26,7 +26,7 @@ Use this button to advance the dialog. #line:0f4f069
 <<asset tutorial_image>>
 Use this button to view the photo #line:0784704 
 <<if $IS_DESKTOP>>
-    Press SPACE key to jump
+    Press SPACE key to jump #line:07940cf 
 <<else>>
     <<asset tutorial_jump>>
     Use this button to jump. #line:0b9c1fa 
@@ -38,10 +38,10 @@ position: 511,-4
 tags: actor=TUTOR, asset=tutorial_move
 ---
 <<if $IS_DESKTOP>>
-    Use the keys WASD to walk.
+    Use the keys WASD to walk. #line:037d71d 
 <<else>>
     <<asset tutorial_move>>
-    Use your left finger to walk
+    Use your left finger to walk #line:0e55bc4 
 <<endif>>
 ===
 
@@ -110,10 +110,10 @@ position: 826,140
 tags: 
 ---
 <<if $IS_DESKTOP>>
-    Press right mouse button to move the camera.
+    Press right mouse button to move the camera. #line:0e633a2 
 <<else>>
     <<asset tutorial_camera>>
-    Use your right finger to move the camera.
+    Use your right finger to move the camera. #line:0aa47cb 
 <<endif>>
 ===
 
@@ -122,9 +122,9 @@ position: 1266,140
 tags: 
 ---
 <<if $IS_DESKTOP>>
-    Press SPACE key to talk or interact.
+    Press SPACE key to talk or interact. #line:0c18f6b 
 <<else>>
     <<asset  tutorial_act>>
-     Use this button to talk or interact
+     Use this button to talk or interact #line:0c14f65 
 <<endif>>
 ===

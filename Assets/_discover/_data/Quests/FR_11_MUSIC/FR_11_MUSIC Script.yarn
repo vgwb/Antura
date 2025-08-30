@@ -28,14 +28,14 @@ position: 275,-57
 tags: actorUID=MAN
 ---
 <<if $COLLECTED_ITEMS >= 7>>
-Thank you for helping us!
-Can you put it together?
+Thank you for helping us! #line:09fc7ad 
+Can you put it together? #line:0515a95 
 <<action order_notes>>
 <<else>>
-Hello! We're part of a band. We're musicians.
-We wanted to play the French Anthem, but we cannot!
-Antura has mixed up the musical script.
-Find the notes of the script.
+Hello! We're part of a band. We're musicians. #line:09a50f8 
+We wanted to play the French Anthem, but we cannot! #line:0a9df26 
+Antura has mixed up the musical script. #line:0f0ccdf 
+Find the notes of the script. #line:0c9616b 
 <<task_start find_the_script_parts>>
 <<endif>>
 ===
@@ -45,18 +45,18 @@ position: 279,122
 tags: 
 ---
 <<if $COLLECTED_ITEMS >= 11>>
-Thank you! The words of the French Hymn are important.
-The French National Anthem, "La Marseillaise" rapresents France and its people.
-Can you put the words in order?
+Thank you! The words of the French Hymn are important. #line:025e35b 
+The French National Anthem, "La Marseillaise" rapresents France and its people. #line:0e4484d 
+Can you put the words in order? #line:07e4ff1 
 <<activity order_words>>
 <<elseif $COLLECTED_ITEMS >= 7>>
-Hello I'm Jean Michelle Jarre.
-I'm a french composer, and I'm helping the band play "La Marseillaise".
-Find the words of the anthem.
-They've been scattered around by Antura.
+Hello I'm Jean Michelle Jarre. #line:02f7c8b 
+I'm a french composer, and I'm helping the band play "La Marseillaise". #line:0bd77b7 
+Find the words of the anthem. #line:0e7033c 
+They've been scattered around by Antura. #line:0dc84d4 
 <<task_start find_the_words>>
 <<else>>
-I'm busy right now, come talk to me later
+I'm busy right now, come talk to me later #line:08be987 
 <<endif>>
 
 ===
@@ -64,7 +64,7 @@ I'm busy right now, come talk to me later
 title: win_order
 position: 5,198
 ---
-Now let's try to play the song!
+Now let's try to play the song! #line:0cef358 
 <<activity play_piano>>
 ===
 

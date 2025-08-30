@@ -46,8 +46,8 @@ color: red
 <<declare $got_hint = false>>
 <<declare $doorUnlocked = false>>
 
-Welcome to the DEV quest!
-You can use this quest to test features and commands.
+Welcome to the DEV quest! #line:0973921 
+You can use this quest to test features and commands. #line:0196a6d 
 ===
 
 //--------------------------------------------
@@ -172,7 +172,7 @@ title: area_change
 position: 8,482
 group: area 
 ---
-Now i'll let you go around.
+Now i'll let you go around. #line:0aa3b5d 
 <<area full_area>>
 
 ===
@@ -253,9 +253,9 @@ group: tasks
 color: green
 ---
 <<if HasCompletedTask("open_chest")>>
-    Thanks you... I needed that
+    Thanks you... I needed that #line:073d718 
 <<else>>
-    Reach and open that chest!
+    Reach and open that chest! #line:0c31fab 
     <<area off>>
     <<target target_chest>>
     <<task_start open_chest task_open_chest_done>>
@@ -267,7 +267,7 @@ tags:
 group: tasks
 color: green
 ---
-Well done! You opened the chest. 
+Well done! You opened the chest.  #line:04e697a 
 <<target off>>
 ===
 
@@ -368,11 +368,11 @@ title: test_setactive
 position: 732,2915
 
 ---
-Now i'll activate gameObject test_setactive
+Now i'll activate gameObject test_setactive #line:0ef2850 
 <<SetActive TestSetActive_Crate>>
-And now i'll switch it off
+And now i'll switch it off #line:0a360b1 
 <<SetActive TestSetActive_Crate false>>
-Nice, isn't it?
+Nice, isn't it? #line:06bd992 
 ===
 
 title: NPCGreeting2
@@ -478,7 +478,7 @@ position: 11,1139
 group: activities
 color: purple
 ---
-Activity CANVAS! 
+Activity CANVAS!  #line:0532f99 
 <<activity activity_canvas activity_canvas_result>>
 ===
 
@@ -488,9 +488,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_canvas") > 0>>
-You played CANVAS activity well!
+You played CANVAS activity well! #line:04fd2ce 
 <<else>>
-Try again.
+Try again. #line:0797e1e 
 <<endif>>
 ===
 
@@ -499,7 +499,7 @@ position: 271,1139
 group: activities
 color: purple
 ---
-Activity JIGSAW PUZZLE! 
+Activity JIGSAW PUZZLE!  #line:0d97ed9 
 <<activity activity_jigsaw activity_jigsaw_result>>
 ===
 
@@ -509,9 +509,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_jigsaw") > 0>>
-You played JIGSAW PUZZLE activity well!
+You played JIGSAW PUZZLE activity well! #line:041075b 
 <<else>>
-Try again.
+Try again. #line:0921ca5 
 <<endif>>
 ===
 
@@ -520,7 +520,7 @@ position: 540,1140
 group: activities
 color: purple
 ---
-Activity MEMORY! 
+Activity MEMORY!  #line:0727144 
 <<activity activity_memory activity_memory_result>>
 ===
 
@@ -530,9 +530,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_memory") > 0>>
-You played MEMORY activity well!
+You played MEMORY activity well! #line:03121d7 
 <<else>>
-Try again.
+Try again. #line:0d146ef 
 <<endif>>
 ===
 
@@ -541,7 +541,7 @@ position: 769,1139
 group: activities
 color: purple
 ---
-Activity MATCH! 
+Activity MATCH!  #line:0949b00 
 <<activity activity_match activity_match_result>>
 ===
 
@@ -551,9 +551,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_match") > 0>>
-You played MATCH activity well!
+You played MATCH activity well! #line:0426701 
 <<else>>
-Try again.
+Try again. #line:07643ad 
 <<endif>>
 ===
 
@@ -562,7 +562,7 @@ position: 1005,1141
 group: activities
 color: purple
 ---
-Activity MONEY! 
+Activity MONEY!  #line:05b81d1 
 <<activity activity_money activity_money_result>>
 ===
 
@@ -572,9 +572,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_money") > 0>>
-You played MONEY activity well!
+You played MONEY activity well! #line:0a63bb1 
 <<else>>
-Try again.
+Try again. #line:02b103d 
 <<endif>>
 ===
 
@@ -583,7 +583,7 @@ position: 1253,1142
 group: activities
 color: purple
 ---
-Activity ORDER! 
+Activity ORDER!  #line:08e289f 
 <<activity activity_order activity_order_result>>
 ===
 
@@ -593,9 +593,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_order") > 0>>
-You played ORDER activity well!
+You played ORDER activity well! #line:05527db 
 <<else>>
-Try again.
+Try again. #line:04681e2 
 <<endif>>
 ===
 
@@ -618,9 +618,9 @@ group: activities
 color: purple
 ---
 <<if GetActivityResult("activity_piano") > 0>>
-You played the PIANO activity well!
+You played the PIANO activity well! #line:0b9f1af 
 <<else>>
-Try again.
+Try again. #line:04c91cd 
 <<endif>>
 ===
 
