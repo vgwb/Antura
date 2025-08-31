@@ -186,16 +186,24 @@ namespace Antura.Discover
         {
             var cards = LoadAllCards();
 
-            int createdTitleEntries = 0;
-            int createdDescEntries = 0;
-            int fixedTitleRefs = 0;
-            int fixedDescRefs = 0;
+            // Counters
+            int createdTitleEntriesEn = 0;
+            int createdDescEntriesEn = 0;
+            int fixedTitleRefsNew = 0;    // were empty
+            int fixedDescRefsNew = 0;     // were empty
+            int fixedTitleRefsWrong = 0;  // wrong table/key corrected
+            int fixedDescRefsWrong = 0;   // wrong table/key corrected
+            int updatedTitleValuesEn = 0; // seeded from TitleEn
+            int updatedDescValuesEn = 0;  // seeded from DescriptionEn
+            int missingCardsTableLocales = 0; // across checks
+            int missingTitleEntriesOtherLocales = 0;
+            int missingDescEntriesOtherLocales = 0;
 
-            var locales = LocalizationSettings.AvailableLocales?.Locales;
-            int localeCount = locales != null ? locales.Count : 0;
+            var locales = LocalizationSettings.AvailableLocales?.Locales ?? new List<UnityEngine.Localization.Locale>();
+            int localeCount = locales.Count;
 
             // Find English locale (en or en-*)
-            var enLocale = locales?.FirstOrDefault(l => l != null && l.Identifier.Code.ToLowerInvariant().StartsWith("en"));
+            var enLocale = locales.FirstOrDefault(l => l != null && l.Identifier.Code.ToLowerInvariant().StartsWith("en"));
 
             foreach (var c in cards)
             {
@@ -207,77 +215,165 @@ namespace Antura.Discover
                     continue;
                 }
 
-                // Ensure Title entry if Title reference is empty
+                string titleKey = c.Id;
+                string descKey = c.Id + ".desc";
+
+                // 1) Ensure LocalizedString references exist and point to Cards/{expectedKey}
+                // Title
                 if (c.Title == null || c.Title.IsEmpty)
                 {
-                    var key = c.Id;
-                    // Set the LocalizedString reference on the card
-                    c.Title = new LocalizedString("Cards", key);
-                    fixedTitleRefs++;
-
-                    if (enLocale == null)
-                    {
-                        Debug.LogWarning($"[Card Loc Validate] No English locale found. Cannot seed Title for '{c.Id}'.", c);
-                    }
-                    else
-                    {
-                        var enTable = LocalizationSettings.StringDatabase.GetTable("Cards", enLocale);
-                        if (enTable == null)
-                        {
-                            Debug.LogWarning($"[Card Loc Validate] Could not find 'Cards' table for locale '{enLocale.Identifier.Code}'.", c);
-                        }
-                        else
-                        {
-                            var entry = enTable.GetEntry(key);
-                            if (entry == null)
-                            {
-                                enTable.AddEntry(key, string.IsNullOrWhiteSpace(c.TitleEn) ? c.name : c.TitleEn);
-                                createdTitleEntries++;
-                            }
-                            else if (string.IsNullOrEmpty(entry.LocalizedValue) && !string.IsNullOrWhiteSpace(c.TitleEn))
-                            {
-                                entry.Value = c.TitleEn;
-                            }
-                            EditorUtility.SetDirty(enTable);
-                        }
-                    }
+                    c.Title = new LocalizedString("Cards", titleKey);
+                    fixedTitleRefsNew++;
                     EditorUtility.SetDirty(c);
                 }
+                else
+                {
+                    bool needsFix = false;
+                    try
+                    {
+                        var tblName = c.Title.TableReference.TableCollectionName;
+                        if (!string.Equals(tblName, "Cards", StringComparison.OrdinalIgnoreCase))
+                            needsFix = true;
+                        // If we can read a key name, ensure it matches expected; if not available, we still rewrite for safety
+                        var entryName = c.Title.TableEntryReference.Key;
+                        if (!string.Equals(entryName, titleKey, StringComparison.Ordinal))
+                            needsFix = true;
+                    }
+                    catch { needsFix = true; }
+                    if (needsFix)
+                    {
+                        c.Title = new LocalizedString("Cards", titleKey);
+                        fixedTitleRefsWrong++;
+                        EditorUtility.SetDirty(c);
+                    }
+                }
 
-                // Ensure Description entry if Description reference is empty
+                // Description
                 if (c.Description == null || c.Description.IsEmpty)
                 {
-                    var key = c.Id + ".desc";
-                    c.Description = new LocalizedString("Cards", key);
-                    fixedDescRefs++;
-
-                    if (enLocale == null)
+                    c.Description = new LocalizedString("Cards", descKey);
+                    fixedDescRefsNew++;
+                    EditorUtility.SetDirty(c);
+                }
+                else
+                {
+                    bool needsFix = false;
+                    try
                     {
-                        Debug.LogWarning($"[Card Loc Validate] No English locale found. Cannot seed Description for '{c.Id}'.", c);
+                        var tblName = c.Description.TableReference.TableCollectionName;
+                        if (!string.Equals(tblName, "Cards", StringComparison.OrdinalIgnoreCase))
+                            needsFix = true;
+                        var entryName = c.Description.TableEntryReference.Key;
+                        if (!string.Equals(entryName, descKey, StringComparison.Ordinal))
+                            needsFix = true;
+                    }
+                    catch { needsFix = true; }
+                    if (needsFix)
+                    {
+                        c.Description = new LocalizedString("Cards", descKey);
+                        fixedDescRefsWrong++;
+                        EditorUtility.SetDirty(c);
+                    }
+                }
+
+                // 2) Ensure entries exist in the Cards table(s)
+                // English: create/seed entries
+                if (enLocale == null)
+                {
+                    Debug.LogWarning($"[Card Loc Validate] No English locale found. Cannot seed Title/Description for '{c.Id}'.", c);
+                }
+                else
+                {
+                    var enTable = LocalizationSettings.StringDatabase.GetTable("Cards", enLocale);
+                    if (enTable == null)
+                    {
+                        Debug.LogWarning($"[Card Loc Validate] Could not find 'Cards' table for locale '{enLocale.Identifier.Code}'.", c);
+                        missingCardsTableLocales++;
+                        // Fallback: ensure keys exist in any available 'Cards' table so SharedData is updated and persisted
+                        var anyTable = locales
+                            .Select(loc => LocalizationSettings.StringDatabase.GetTable("Cards", loc))
+                            .FirstOrDefault(t => t != null);
+                        if (anyTable != null)
+                        {
+                            if (anyTable.GetEntry(titleKey) == null)
+                                anyTable.AddEntry(titleKey, string.Empty);
+                            if (anyTable.GetEntry(descKey) == null)
+                                anyTable.AddEntry(descKey, string.Empty);
+                            EditorUtility.SetDirty(anyTable);
+                            if (anyTable.SharedData != null)
+                                EditorUtility.SetDirty(anyTable.SharedData);
+                        }
                     }
                     else
                     {
-                        var enTable = LocalizationSettings.StringDatabase.GetTable("Cards", enLocale);
-                        if (enTable == null)
+                        // Title entry
+                        var tEntry = enTable.GetEntry(titleKey);
+                        if (tEntry == null)
                         {
-                            Debug.LogWarning($"[Card Loc Validate] Could not find 'Cards' table for locale '{enLocale.Identifier.Code}'.", c);
-                        }
-                        else
-                        {
-                            var entry = enTable.GetEntry(key);
-                            if (entry == null)
-                            {
-                                enTable.AddEntry(key, string.IsNullOrWhiteSpace(c.DescriptionEn) ? string.Empty : c.DescriptionEn);
-                                createdDescEntries++;
-                            }
-                            else if (string.IsNullOrEmpty(entry.LocalizedValue) && !string.IsNullOrWhiteSpace(c.DescriptionEn))
-                            {
-                                entry.Value = c.DescriptionEn;
-                            }
+                            enTable.AddEntry(titleKey, string.IsNullOrWhiteSpace(c.TitleEn) ? c.name : c.TitleEn);
+                            createdTitleEntriesEn++;
                             EditorUtility.SetDirty(enTable);
+                            if (enTable.SharedData != null)
+                                EditorUtility.SetDirty(enTable.SharedData);
+                        }
+                        else if (string.IsNullOrEmpty(tEntry.Value) && !string.IsNullOrWhiteSpace(c.TitleEn))
+                        {
+                            tEntry.Value = c.TitleEn;
+                            updatedTitleValuesEn++;
+                            EditorUtility.SetDirty(enTable);
+                            if (enTable.SharedData != null)
+                                EditorUtility.SetDirty(enTable.SharedData);
+                        }
+
+                        // Description entry
+                        var dEntry = enTable.GetEntry(descKey);
+                        if (dEntry == null)
+                        {
+                            enTable.AddEntry(descKey, string.IsNullOrWhiteSpace(c.DescriptionEn) ? string.Empty : c.DescriptionEn);
+                            createdDescEntriesEn++;
+                            EditorUtility.SetDirty(enTable);
+                            if (enTable.SharedData != null)
+                                EditorUtility.SetDirty(enTable.SharedData);
+                        }
+                        else if (string.IsNullOrEmpty(dEntry.Value) && !string.IsNullOrWhiteSpace(c.DescriptionEn))
+                        {
+                            dEntry.Value = c.DescriptionEn;
+                            updatedDescValuesEn++;
+                            EditorUtility.SetDirty(enTable);
+                            if (enTable.SharedData != null)
+                                EditorUtility.SetDirty(enTable.SharedData);
                         }
                     }
-                    EditorUtility.SetDirty(c);
+                }
+
+                // Other locales: ensure keys exist in existing tables (create empty entries), and report missing tables
+                foreach (var loc in locales)
+                {
+                    if (loc == null || (enLocale != null && loc.Identifier == enLocale.Identifier))
+                        continue;
+
+                    var table = LocalizationSettings.StringDatabase.GetTable("Cards", loc);
+                    if (table == null)
+                    {
+                        missingCardsTableLocales++;
+                        continue;
+                    }
+                    if (table.GetEntry(titleKey) == null)
+                    {
+                        table.AddEntry(titleKey, string.Empty);
+                        missingTitleEntriesOtherLocales++;
+                        EditorUtility.SetDirty(table);
+                        if (table.SharedData != null)
+                            EditorUtility.SetDirty(table.SharedData);
+                    }
+                    if (table.GetEntry(descKey) == null)
+                    {
+                        table.AddEntry(descKey, string.Empty);
+                        missingDescEntriesOtherLocales++;
+                        EditorUtility.SetDirty(table);
+                        if (table.SharedData != null)
+                            EditorUtility.SetDirty(table.SharedData);
+                    }
                 }
             }
 
@@ -286,10 +382,14 @@ namespace Antura.Discover
 
             EditorUtility.DisplayDialog(
                 "Validate Cards Localization",
-                $"Total: {cards.Count}\n" +
+                $"Total cards: {cards.Count}\n" +
                 $"Locales available: {localeCount}\n" +
-                $"Fixed Title refs: {fixedTitleRefs} | Entries created: {createdTitleEntries}\n" +
-                $"Fixed Description refs: {fixedDescRefs} | Entries created: {createdDescEntries}",
+                $"Fixed Title refs: {fixedTitleRefsNew + fixedTitleRefsWrong} (created: {fixedTitleRefsNew}, corrected: {fixedTitleRefsWrong})\n" +
+                $"Fixed Description refs: {fixedDescRefsNew + fixedDescRefsWrong} (created: {fixedDescRefsNew}, corrected: {fixedDescRefsWrong})\n" +
+                $"English entries created — Title: {createdTitleEntriesEn}, Description: {createdDescEntriesEn}\n" +
+                $"English entries updated — Title: {updatedTitleValuesEn}, Description: {updatedDescValuesEn}\n" +
+                $"Missing 'Cards' table occurrences (all locales): {missingCardsTableLocales}\n" +
+                $"Missing entries in other locales — Title: {missingTitleEntriesOtherLocales}, Description: {missingDescEntriesOtherLocales}",
                 "OK");
         }
     }

@@ -15,7 +15,6 @@ MonoBehaviour:
   Id: person_greengrocer
   Status: 1
   Importance: 20
-  Rationale: 
   Type: 2
   Topics: 0100000003000000
   Year: 0
@@ -26,26 +25,25 @@ MonoBehaviour:
   DescriptionEn: A person who sells fresh fruit and vegetables.
   Title:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 8508106858501
-      m_Key: 
+      m_KeyId: 0
+      m_Key: person_greengrocer
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 8508106858502
-      m_Key: 
+      m_KeyId: 0
+      m_Key: person_greengrocer.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -60,6 +58,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1

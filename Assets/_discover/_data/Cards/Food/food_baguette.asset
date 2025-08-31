@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: food_baguette
   Status: 3
   Importance: 0
-  Rationale: Baguettes are iconic French culture that kids can easily understand
-    and remember
   Type: 3
   Topics: 2d00000003000000
   Year: 1700
@@ -28,19 +26,19 @@ MonoBehaviour:
     people buy fresh baguettes every day from the bakery!
   Title:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 8508085886977
-      m_Key: 
+      m_KeyId: 0
+      m_Key: food_baguette
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 8508085886978
-      m_Key: 
+      m_KeyId: 0
+      m_Key: food_baguette.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -48,7 +46,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   - {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
   Words: []
-  LinkedCards: concept_baguette_flour
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -63,11 +60,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 11400000, guid: b3b621c4b0a6d4a1dbcb09a2b9a303d5, type: 2}
   ItemTag: 0
   CustomTag: 
+  Rationale: Baguettes are iconic French culture that kids can easily understand
+    and remember
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Baguette
-  _lastDescriptionEn: "A long French bread. It\u2019s crispy outside and soft inside."
+  _lastTitleEn: French Baguette
+  _lastDescriptionEn: A long, crispy bread that is the most famous food in France.
+    French people buy fresh baguettes every day from the bakery!
   references:
     version: 2
     RefIds: []

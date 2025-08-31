@@ -15,7 +15,6 @@ MonoBehaviour:
   Id: animal_elephant
   Status: 3
   Importance: 0
-  Rationale: Elephants are amazing animals that kids love learning about at the zoo!
   Type: 3
   Topics: 2800000009000000
   Year: 0
@@ -27,19 +26,19 @@ MonoBehaviour:
     walk on land. They have big ears and love to spray water!
   Title:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 17917029638158
-      m_Key: 
+      m_KeyId: 0
+      m_Key: animal_elephant
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: GUID:489e745741afd43c1a3d915614b75e8e
+      m_TableCollectionName: Cards
     m_TableEntryReference:
-      m_KeyId: 17917029638159
-      m_Key: 
+      m_KeyId: 0
+      m_Key: animal_elephant.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -47,7 +46,6 @@ MonoBehaviour:
   Words:
   - {fileID: 11400000, guid: 84e42c1b03866479eacf939e05638cdf, type: 2}
   - {fileID: 11400000, guid: 580cb3cda8b3949ad863154f8d8b325e, type: 2}
-  LinkedCards: animal_giraffe
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -62,6 +60,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: Elephants are amazing animals that kids love learning about at the zoo!
   Notes: here we can write notes
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
