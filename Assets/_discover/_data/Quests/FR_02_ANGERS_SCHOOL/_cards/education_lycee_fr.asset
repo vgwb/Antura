@@ -15,7 +15,6 @@ MonoBehaviour:
   Id: education_lycee_fr
   Status: 3
   Importance: 10
-  Rationale: "The Lyc\xE9e system shows kids the path to higher education in France"
   Type: 4
   Topics: 1400000003000000
   Year: 1975
@@ -43,15 +42,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
-  LinkedCards: education_college_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: e161ec9bd24494496826c8f9401e29c8, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -60,12 +59,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: "The Lyc\xE9e system shows kids the path to higher education in France"
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: "Lyc\xE9e"
-  _lastDescriptionEn: School for teens before university. You choose subjects you
-    like.
+  _lastTitleEn: "Lyc\xE9e in France"
+  _lastDescriptionEn: "High school in France for teenagers aged 16 to 18. Students
+    study hard for the Baccalaur\xE9at exam to go to university."
   references:
     version: 2
     RefIds: []
