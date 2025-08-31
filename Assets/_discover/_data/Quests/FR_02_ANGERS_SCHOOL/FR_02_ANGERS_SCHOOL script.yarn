@@ -34,10 +34,9 @@ position: 340,-156
 tags: type=Condition
 ---
 <<if $got_backpack>>
-    <<jump school_2_welcome>>
+    <<jump school_2_talk>>
 <<else>>
-GUIDE: There it is! Let's go inside and start the lesson. #line:0624437 
-<<jump school_2_talk>>
+    <<jump school_2_welcome>>
 <<endif>>
 ===
 
@@ -53,13 +52,12 @@ You'll need your books for the lesson. #line:044385f
 ===
 
 title: school_3
-position: 340,63
+position: 340,61
 tags: actorUID=KID_MALE
 actor: KID_MALE
 ---
-Hi! This is a middle school (Collège) for ages 11 to 15. #line:06478e9 
+Hi! This is a middle school for ages 11 to 15. #line:06478e9 
 You're almost old enough, but not yet. Keep looking! #line:0df97f8 
-
 ===
 
 title: school_4
@@ -67,7 +65,7 @@ position: 341,293
 tags: actorUID=MAN
 actor: MAN
 ---
-Bonjour! This is a high school (Lycée) for ages 16 to 18. #line:04a0e4b 
+Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
 Students study for the Baccalauréat exam here before university. #line:027eba1 
 You're a bit too young. Try another school. #line:0630d14 
 ===
@@ -81,7 +79,7 @@ actor: OLD_MAN
 Hello! I found a backpack on my way here. #line:0c3b4fe 
 These books are simpler than the ones my students use, #line:0d3aba1 
 so I don't think it belongs to them. #line:09c5297 
-<<action  SPAWN_BACKPACK>>
+<<action spawn_backpack>>
 Could it be yours? #line:0f44535 
 ===
 
@@ -91,17 +89,18 @@ position: 734,-24
 tags: actorUID=GUIDE
 actor: GUIDE
 ---
+There it is! Let's go inside and start the lesson. #line:0624437 
 <<action DOOR_OPEN_1>>
 Come in! Your classroom is down the hall. #line:0b91268 
-<<jump task_find_classroom>>
+<<jump task_find_classroom >>
 ===
 
 title: task_find_classroom
 position: 974,-24
 tags: actorUID=TUTOR, task
 ---
-<<task_start FIND_YOUR_CLASSROOM>>
 TUTOR: TASK: Find your classroom. #line:058ddbc 
+<<task_start TASK_CLASSROOM task_class_done>>
 ===
 
 title: classroom_1
@@ -151,7 +150,7 @@ Your class is just over there! #line:00f6294
 // asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png
 
 title: classroom_5
-position: 1585,388
+position: 1585,387
 tags: actorUID=GUIDE
 color: purple
 actor: GUIDE
@@ -163,7 +162,7 @@ In France, we learn to write in cursive. #line:0f8995f
 <<asset cursive_writing zoom>>
 Now for geometry! #line:0365921 
 Match each tool to the shape it draws. #line:052d22a 
-<<activity ACTIVITY_ORDER activity_match_done>>
+<<activity ACTIVITY_MATCH activity_match_done>>
 ===
 
 title: activity_match_done
@@ -182,8 +181,8 @@ title: task_backpack_done
 position: 1205,-281
 tags: actorUID=TUTOR
 ---
-TUTOR: TASK COMPLETED! You can now enter school. #line:063f354 
- 
+TUTOR: TASK COMPLETED! You can now enter school. #line:063f354  
+<<set $got_backpack = true>>
 ===
 
 title: task_class_done
@@ -198,6 +197,7 @@ position: 976,-282
 tags: actorUID=GUIDE, task
 ---
 Find your backpack and then come back. #line:0e3ad75 
+<<task_start TASK_BACKPACK task_backpack_done>>
 ===
 
 
@@ -207,8 +207,8 @@ tags: actorUID=OLD_WOMAN,
 color: yellow
 ---
 Hello! I hope you're registered for the canteen. #line:021132d 
-<<asset canteen_menu>>
 Look what's on the menu today! #line:0978619 
+<<card object_canteen_menu>>
 ===
 
 title: school_charte
@@ -217,7 +217,7 @@ tags: actorUID=TUTOR
 color: yellow
 tags: item
 ---
-<<asset charte_laicite>>
+<<card concept_charter_of_secularism>>
 At school, everyone is welcome and respected, #line:02977c9 
 no matter their beliefs. #line:09c12ac 
 ===
