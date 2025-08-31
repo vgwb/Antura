@@ -25,6 +25,7 @@ namespace Antura.Discover.Activities
     {
 
         [Header("Common properties")]
+        public ActivityData ActivityData;
         public string ActivityCode;
 
         [SerializeField] GameObject HelpPanel;

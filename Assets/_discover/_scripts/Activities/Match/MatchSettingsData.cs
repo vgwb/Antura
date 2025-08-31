@@ -8,9 +8,10 @@ namespace Antura.Discover.Activities
     [Serializable]
     public class MatchGroupData
     {
-        [Tooltip("Question/master CardData")]
+        [Tooltip("Question CardData")]
         public CardData Question;
-        [Tooltip("All valid CardData answers that should match this question")]
+
+        [Tooltip("All CardData answers that should match this question")]
         public List<CardData> Answers = new List<CardData>();
     }
 
@@ -19,8 +20,7 @@ namespace Antura.Discover.Activities
     {
         [Header("--- Activity Memory Settings")]
 
-        [Header("Groups using CardData (supports 1:1 and 1:many)")]
-        [Tooltip("Define each Question with one or more Answers; a 1:1 pair is just a group with a single Answer.")]
+        [Tooltip("Define each question with >= 1 answers")]
         public List<MatchGroupData> GroupsData = new List<MatchGroupData>();
     }
 }

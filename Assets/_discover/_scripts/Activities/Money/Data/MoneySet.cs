@@ -7,8 +7,6 @@ namespace Antura.Discover.Activities
     [CreateAssetMenu(fileName = "MoneySet", menuName = "Antura/Activity/Money MoneySet")]
     public class MoneySet : ScriptableObject
     {
-        public enum MoneyType { Coin, Paper }
-
         [System.Serializable]
         public class MoneyItem
         {
@@ -22,6 +20,9 @@ namespace Antura.Discover.Activities
         }
 
         public string SetName;
+
+        [Tooltip("Currency symbol to show with values (€, zł, etc.).")]
+        public string CurrencySymbol = "€";
 
         public List<MoneyItem> items = new List<MoneyItem>();
     }

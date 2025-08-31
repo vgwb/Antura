@@ -8,9 +8,9 @@ namespace Antura.Discover.Activities
     public class ActivityMemory : ActivityBase
     {
         [Header("Activity Memory Settings")]
-
-        [Tooltip("ScriptableObject containing the available CardItems for this level.")]
         public MemorySettingData Settings;
+
+        [Header("References")]
 
         [Tooltip("Common sprite used for the back of all cards.")]
         public Sprite commonBack;

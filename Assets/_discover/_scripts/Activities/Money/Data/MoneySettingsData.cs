@@ -2,6 +2,20 @@ using UnityEngine;
 
 namespace Antura.Discover.Activities
 {
+
+    public enum MoneyType
+    {
+        Coin = 0,
+        Paper = 1
+    }
+
+    public enum MoneyTypeFilter
+    {
+        Both = 0,
+        CoinOnly = 1,
+        BanknoteOnly = 2,
+    }
+
     [CreateAssetMenu(fileName = "MoneySettingsData", menuName = "Antura/Activity/Money Settings")]
     public class MoneySettingsData : ActivitySettingsAbstract
     {

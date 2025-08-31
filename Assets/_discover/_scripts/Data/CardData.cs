@@ -12,9 +12,6 @@ namespace Antura.Discover
         public Status Status = Status.Draft;
 
         public KnowledgeImportance Importance = KnowledgeImportance.Medium;
-        [Tooltip("Why is this card important?")]
-        [TextArea]
-        public string Rationale;
 
         [Tooltip("What role does this card play in the game?")]
         public CardType Type;
@@ -82,6 +79,10 @@ namespace Antura.Discover
         public string CustomTag;
 
         [Header("Authoring Metadata")]
+        [Tooltip("Why is this card important?")]
+        [TextArea]
+        public string Rationale;
+
         [Tooltip("Notes about this card for the authoring team.")]
         [TextArea]
         public string Notes;

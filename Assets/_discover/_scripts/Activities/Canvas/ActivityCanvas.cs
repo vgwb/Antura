@@ -12,6 +12,7 @@ namespace Antura.Discover.Activities
     {
         [Header("Activity Canvas Settings")]
         public CanvasSettingsData Settings;
+
         [Tooltip("Optional bug prefab. If assigned, this prefab will be instantiated for each bug.")]
         public CanvasBug BugPrefab;
 
@@ -23,7 +24,7 @@ namespace Antura.Discover.Activities
         public Difficulty ActivityDifficulty = Difficulty.Default;
         public int Bugs = 0;
 
-        [Header("UI Refs")]
+        [Header("References")]
         public RawImage BackgroundImageUI;
         public RawImage CoverImageUI;
         public TextMeshProUGUI ProgressLabel;

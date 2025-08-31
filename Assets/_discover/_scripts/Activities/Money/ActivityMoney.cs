@@ -7,27 +7,12 @@ using System.Linq;
 
 namespace Antura.Discover.Activities
 {
-
-    public enum MoneyKind
-    {
-        Both = 0,
-        CoinOnly = 1,
-        BanknoteOnly = 2,
-    }
-
-
-    /// <summary>
-    /// Main controller for the Count Money activity.
-    /// </summary>
     public class ActivityMoney : ActivityBase
     {
         [Header("Activity Money Settings")]
         public MoneySettingsData Settings;
 
-        [Tooltip("Currency symbol to show with values (€, zł, etc.).")]
-        public string currencySymbol = "€";
-
-        [Header("UI References")]
+        [Header("References")]
         public Canvas canvas;
         public Transform trayParent;
         public Transform matParent;
@@ -118,7 +103,7 @@ namespace Antura.Discover.Activities
                 : BuildSolvableTarget(all, 2, 4);
 
             if (targetText)
-                targetText.text = $"{currencySymbol} {data.TargetAmount:0.00}";
+                targetText.text = $"{Settings.MoneySet.CurrencySymbol} {data.TargetAmount:0.00}";
 
             // 3) Build a rich tray ensuring solvability with many tokens
             var baseCombo = lastComboForTarget; // from BuildSolvableTarget
@@ -163,7 +148,7 @@ namespace Antura.Discover.Activities
                 spawned.Add(go);
                 var view = go.GetComponent<MoneyItemView>();
                 var drag = go.GetComponent<DraggableMoney>();
-                view.Setup(it, currencySymbol, globalScale);
+                view.Setup(it, Settings.MoneySet.CurrencySymbol, globalScale);
                 if (drag != null)
                 {
                     drag.canvas = canvas;
@@ -211,7 +196,7 @@ namespace Antura.Discover.Activities
         private void UpdateCurrentAmount(float amount)
         {
             if (currentText)
-                currentText.text = $"{currencySymbol} {data.CurrentAmount:0.00}";
+                currentText.text = $"{Settings.MoneySet.CurrencySymbol} {data.CurrentAmount:0.00}";
 
             bool match = Mathf.Abs(data.CurrentAmount - data.TargetAmount) <= EPS;
             bool any = placed.Count > 0;
@@ -321,7 +306,7 @@ namespace Antura.Discover.Activities
                 var row = Instantiate(hintRowPrefab, hintListParent);
                 var view = row.GetComponent<MoneyItemView>();
                 if (view)
-                    view.Setup(item, currencySymbol, globalScale);
+                    view.Setup(item, Settings.MoneySet.CurrencySymbol, globalScale);
             }
         }
 

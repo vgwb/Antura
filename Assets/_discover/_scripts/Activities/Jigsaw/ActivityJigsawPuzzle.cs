@@ -8,7 +8,7 @@ namespace Antura.Discover.Activities
 {
     public class ActivityJigsawPuzzle : ActivityBase
     {
-        [Header("Settings Asset")]
+        [Header("Jigsaw Puzzle Settings")]
         public JigsawPuzzleSettingsData settings;
 
         // OLD FIELDS (optional fallback / can remove later)
@@ -17,7 +17,7 @@ namespace Antura.Discover.Activities
         private int VerticalPieces;
         private Difficulty Difficulty;
 
-        [Header("Scene Refs")]
+        [Header("References")]
         public RectTransform gridParent;
         public RectTransform poolParent;
         public RectTransform dragLayer;
