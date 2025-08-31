@@ -16,6 +16,9 @@ namespace Antura.Discover.UI
         public Image soundIcon;
         public GameObject lockedBadge;
 
+        public Button nextCardButton;
+        public Button prevCardButton;
+
         [Header("Audio")]
         public AudioSource audioSource;
 
@@ -28,35 +31,67 @@ namespace Antura.Discover.UI
 
         private CardData def;
         private CardState state;
+        private QuestCardsUI owner; // source list owner for navigation
+        private System.Collections.Generic.IReadOnlyList<CardData> orderedCards;
+        private Func<CardData, CardState> stateResolver;
 
-        public void Show(CardData def, CardState state)
+        private void Awake()
         {
-            this.def = def;
+            if (nextCardButton)
+            {
+                nextCardButton.onClick.RemoveListener(OnNextCard);
+                nextCardButton.onClick.AddListener(OnNextCard);
+            }
+            if (prevCardButton)
+            {
+                prevCardButton.onClick.RemoveListener(OnPrevCard);
+                prevCardButton.onClick.AddListener(OnPrevCard);
+            }
+        }
+
+        public void SetOwner(QuestCardsUI questCardsUI)
+        {
+            owner = questCardsUI;
+            UpdateNavButtons();
+        }
+
+        public void SetNavData(System.Collections.Generic.IReadOnlyList<CardData> order, Func<CardData, CardState> resolver)
+        {
+            orderedCards = order;
+            stateResolver = resolver;
+            UpdateNavButtons();
+        }
+
+        public void Show(CardData card, CardState state)
+        {
+            this.def = card;
             this.state = state;
-            var c = def.Title.GetLocalizedString();
+            var c = card.Title.GetLocalizedString();
             gameObject.SetActive(true);
 
             bool isLocked = state == null || !state.unlocked;
 
-            SetLocalized(titleText, def.Title, fallback: def.Id);
+            SetLocalized(titleText, card.Title, fallback: card.Id);
             if (isLocked)
             {
-                SetLocalized(descriptionText, def.Description, fallback: "Locked. Play quests to discover this content.");
+                SetLocalized(descriptionText, card.Description, fallback: "Locked. Play quests to discover this content.");
             }
             else
             {
-                SetLocalized(descriptionText, def.Description, fallback: string.Empty);
+                SetLocalized(descriptionText, card.Description, fallback: string.Empty);
             }
 
-            if (image)
-                image.sprite = def.ImageAsset.Image;
+            if (card.ImageAsset != null && card.ImageAsset.Image != null && image != null)
+                image.sprite = card.ImageAsset.Image;
             if (image && greyscaleMaterial != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 
-            if (lockedBadge)
-                lockedBadge.SetActive(isLocked);
-            if (soundIcon)
-                soundIcon.enabled = def.AudioAsset != null && def.AudioAsset.Audio != null;
+            // if (lockedBadge)
+            //     lockedBadge.SetActive(isLocked);
+            // if (soundIcon)
+            //     soundIcon.enabled = def.AudioAsset != null && def.AudioAsset.Audio != null;
+
+            UpdateNavButtons();
         }
 
         public void Hide()
@@ -90,6 +125,64 @@ namespace Antura.Discover.UI
                 titleHandle = handle;
             if (ReferenceEquals(label, descriptionText))
                 descHandle = handle;
+        }
+
+        private void OnNextCard()
+        {
+            if (orderedCards == null || def == null)
+                return;
+            int idx = IndexOfCurrent();
+            if (idx >= 0 && idx + 1 < orderedCards.Count)
+            {
+                var next = orderedCards[idx + 1];
+                var nextState = stateResolver != null ? stateResolver(next) : null;
+                Show(next, nextState);
+            }
+            UpdateNavButtons();
+        }
+
+        private void OnPrevCard()
+        {
+            if (orderedCards == null || def == null)
+                return;
+            int idx = IndexOfCurrent();
+            if (idx > 0)
+            {
+                var prev = orderedCards[idx - 1];
+                var prevState = stateResolver != null ? stateResolver(prev) : null;
+                Show(prev, prevState);
+            }
+            UpdateNavButtons();
+        }
+
+        private void UpdateNavButtons()
+        {
+            bool canPrev = false, canNext = false;
+            if (orderedCards != null && def != null)
+            {
+                int idx = IndexOfCurrent();
+                canPrev = idx > 0;
+                canNext = idx >= 0 && (idx + 1) < orderedCards.Count;
+            }
+            if (prevCardButton)
+                prevCardButton.interactable = canPrev;
+            if (nextCardButton)
+                nextCardButton.interactable = canNext;
+        }
+
+        private int IndexOfCurrent()
+        {
+            if (orderedCards == null || def == null)
+                return -1;
+            for (int i = 0; i < orderedCards.Count; i++)
+            {
+                var cd = orderedCards[i];
+                if (cd == def)
+                    return i;
+                if (cd != null && def != null && !string.IsNullOrEmpty(cd.Id) && cd.Id == def.Id)
+                    return i;
+            }
+            return -1;
         }
     }
 }

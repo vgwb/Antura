@@ -24,6 +24,10 @@ namespace Antura.Discover.UI
         private CardState state;
         private Action<CardData> onClick;
 
+        // Expose read-only access for navigation
+        public CardData Data => def;
+        public CardState State => state;
+
         public void Init(CardData card, CardState state, Action<CardData> onClick)
         {
             this.def = card;

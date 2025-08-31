@@ -45,6 +45,12 @@ namespace Antura.Discover.UI
                 }
                 tile.Init(def, state, OnTileClicked);
             }
+
+            if (detailsPanel != null)
+            {
+                detailsPanel.SetOwner(this);
+                detailsPanel.SetNavData(GetCardDefs(), GetState);
+            }
         }
 
 
@@ -57,7 +63,77 @@ namespace Antura.Discover.UI
                 manager.CurrentProfile.cards.TryGetValue(def.Id, out st);
             }
             if (detailsPanel != null)
+            {
+                detailsPanel.SetNavData(GetCardDefs(), GetState);
                 detailsPanel.Show(def, st);
+            }
+        }
+
+        // Navigation helpers used by CardDetailsPanel
+        public bool TryGetNext(CardData current, out CardData next, out CardState state)
+        {
+            next = null;
+            state = null;
+            if (current == null || spawned.Count == 0)
+                return false;
+            var list = GetCardDefs();
+            int i = list.FindIndex(cd => cd == current);
+            if (i < 0)
+                i = list.FindIndex(cd => cd != null && cd.Id == current.Id);
+            if (i < 0 || i + 1 >= list.Count)
+                return false;
+            next = list[i + 1];
+            state = GetState(next);
+            return true;
+        }
+
+        public bool TryGetPrev(CardData current, out CardData prev, out CardState state)
+        {
+            prev = null;
+            state = null;
+            if (current == null || spawned.Count == 0)
+                return false;
+            var list = GetCardDefs();
+            int i = list.FindIndex(cd => cd == current);
+            if (i < 0)
+                i = list.FindIndex(cd => cd != null && cd.Id == current.Id);
+            if (i <= 0)
+                return false;
+            prev = list[i - 1];
+            state = GetState(prev);
+            return true;
+        }
+
+        public bool HasNext(CardData current) => TryGetNext(current, out _, out _);
+        public bool HasPrev(CardData current) => TryGetPrev(current, out _, out _);
+
+        private List<CardData> GetCardDefs()
+        {
+            var list = new List<CardData>(spawned.Count);
+            foreach (var tile in spawned)
+            {
+                if (tile != null && tile.Data != null)
+                    list.Add(tile.Data);
+            }
+            return list;
+        }
+
+        private CardState GetState(CardData def)
+        {
+            if (def == null)
+                return null;
+            // Use the state from the existing tile if possible to avoid recomputing
+            var tile = spawned.FirstOrDefault(t => t != null && t.Data == def);
+            if (tile != null)
+                return tile.State;
+
+            var manager = DiscoverAppManager.I;
+            Antura.Discover.CardState st = null;
+            if (manager != null && manager.CurrentProfile != null && manager.CurrentProfile.cards != null)
+            {
+                manager.CurrentProfile.cards.TryGetValue(def.Id, out st);
+            }
+            return st;
         }
 
         private void ClearGrid()
