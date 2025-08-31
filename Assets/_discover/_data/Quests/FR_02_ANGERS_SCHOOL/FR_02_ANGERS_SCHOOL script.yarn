@@ -9,7 +9,8 @@
 
 title: init
 position: 0,0
-tags: type=Start, meta=BALLOON_TYPE:PANEL
+type: panel
+tags: 
 color: red
 actor: TUTOR
 ---
@@ -22,7 +23,7 @@ Find your school and your classroom! #line:0f65a1b
 
 title: school_1
 position: 338,-337
-tags: actorUID=WOMAN
+tags: actor=WOMAN
 actor: WOMAN
 ---
 Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. #line:096b721 
@@ -31,7 +32,7 @@ You are too big for our small chairs! Your school is nearby. #line:07ed07b
 ===
 title: school_2
 position: 340,-156
-tags: type=Condition
+tags:
 ---
 <<if $got_backpack>>
     <<jump school_2_talk>>
@@ -42,7 +43,7 @@ tags: type=Condition
 
 title: school_2_welcome
 position: 724,-284
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 actor: GUIDE
 ---
 Bonjour! Welcome! You've found it. This is your elementary school. #line:092b309 
@@ -53,7 +54,7 @@ You'll need your books for the lesson. #line:044385f
 
 title: school_3
 position: 340,61
-tags: actorUID=KID_MALE
+tags: actor=KID_MALE
 actor: KID_MALE
 ---
 Hi! This is a middle school for ages 11 to 15. #line:06478e9 
@@ -62,7 +63,7 @@ You're almost old enough, but not yet. Keep looking! #line:0df97f8
 
 title: school_4
 position: 341,293
-tags: actorUID=MAN
+tags: actor=MAN
 actor: MAN
 ---
 Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
@@ -73,7 +74,7 @@ You're a bit too young. Try another school. #line:0630d14
 
 title: school_4_talk_man
 position: 620,290
-tags: actorUID=OLD_MAN
+tags: actor=OLD_MAN
 actor: OLD_MAN
 ---
 Hello! I found a backpack on my way here. #line:0c3b4fe 
@@ -86,7 +87,7 @@ Could it be yours? #line:0f44535
 
 title: school_2_talk
 position: 734,-24
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 actor: GUIDE
 ---
 There it is! Let's go inside and start the lesson. #line:0624437 
@@ -97,7 +98,7 @@ Come in! Your classroom is down the hall. #line:0b91268
 
 title: task_find_classroom
 position: 974,-24
-tags: actorUID=TUTOR, task
+tags: actor=TUTOR, task
 ---
 TUTOR: TASK: Find your classroom. #line:058ddbc 
 <<task_start TASK_CLASSROOM task_class_done>>
@@ -105,7 +106,7 @@ TUTOR: TASK: Find your classroom. #line:058ddbc
 
 title: classroom_1
 position: 1574,-269
-tags: actorUID=MAN
+tags: actor=MAN
 actor: MAN
 ---
 This is the CP classroom. #line:08b2774 
@@ -116,7 +117,7 @@ This is not your class. Try the next door! #line:068e48b
 
 title: classroom_2
 position: 1579,-95
-tags: actorUID=WOMAN
+tags: actor=WOMAN
 actor: WOMAN
 ---
 This is CE1, #line:0f699d3 
@@ -127,7 +128,7 @@ This is not your class. Try again! #line:029fd9c
 
 title: classroom_3
 position: 1581,54
-tags: actorUID=WOMAN
+tags: actor=WOMAN
 actor: WOMAN
 ---
 Hi there! This is the CE2 classroom #line:0bce01a 
@@ -138,7 +139,7 @@ This is not your class, but you're getting close! #line:0e4aa95
 
 title: classroom_4
 position: 1584,217
-tags: actorUID=OLD_WOMAN
+tags: actor=OLD_WOMAN
 actor: OLD_WOMAN
 ---
 Hello! This is CM1, #line:043653e 
@@ -151,7 +152,7 @@ Your class is just over there! #line:00f6294
 
 title: classroom_5
 position: 1585,387
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 color: purple
 actor: GUIDE
 ---
@@ -167,8 +168,9 @@ Match each tool to the shape it draws. #line:052d22a
 
 title: activity_match_done
 position: 1838,385
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 actor: GUIDE
+color: purple
 ---
 Great job! #line:0e3f1fa 
 Every morning and afternoon we have a break to play outside. #line:037391b 
@@ -179,7 +181,7 @@ You're all set. Welcome to the class! #line:021df05
 
 title: task_backpack_done
 position: 1205,-281
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 TUTOR: TASK COMPLETED! You can now enter school. #line:063f354  
 <<set $got_backpack = true>>
@@ -187,14 +189,14 @@ TUTOR: TASK COMPLETED! You can now enter school. #line:063f354
 
 title: task_class_done
 position: 1207,-20
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 TUTOR: TASK COMPLETED! You can now start the lesson. #line:093e91d 
 ===
 
 title: task_backpack
 position: 976,-282
-tags: actorUID=GUIDE, task
+tags: actor=GUIDE, task
 ---
 Find your backpack and then come back. #line:0e3ad75 
 <<task_start TASK_BACKPACK task_backpack_done>>
@@ -203,7 +205,7 @@ Find your backpack and then come back. #line:0e3ad75
 
 title: school_canteen
 position: 1830,-269
-tags: actorUID=OLD_WOMAN, 
+tags: actor=OLD_WOMAN, 
 color: yellow
 ---
 Hello! I hope you're registered for the canteen. #line:021132d 
@@ -213,7 +215,7 @@ Look what's on the menu today! #line:0978619
 
 title: school_charte
 position: 1830,-98
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 color: yellow
 tags: item
 ---
