@@ -23,7 +23,8 @@ hide:
 <span class="yarn-header-dim">// - find your classroom (task)</span>
 <span class="yarn-header-dim">// - find your backpack (task)</span>
 <span class="yarn-header-dim">// - match tools to shapes (geometry activity)</span>
-<span class="yarn-header-dim">tags: type=Start, meta=BALLOON_TYPE:PANEL</span>
+<span class="yarn-header-dim">type: panel</span>
+<span class="yarn-header-dim">tags: </span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">actor: TUTOR</span>
 <span class="yarn-header-dim">---</span>
@@ -38,7 +39,7 @@ hide:
 <a id="ys-node-school-1"></a>
 ## school_1
 
-<div class="yarn-node" data-title="school_1"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<div class="yarn-node" data-title="school_1"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. <span class="yarn-meta">#line:096b721 </span></span>
@@ -50,7 +51,7 @@ hide:
 <a id="ys-node-school-2"></a>
 ## school_2
 
-<div class="yarn-node" data-title="school_2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: type=Condition</span>
+<div class="yarn-node" data-title="school_2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags:</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if $got_backpack&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;jump school_2_talk&gt;&gt;</span>
@@ -63,7 +64,7 @@ hide:
 <a id="ys-node-school-2-welcome"></a>
 ## school_2_welcome
 
-<div class="yarn-node" data-title="school_2_welcome"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=GUIDE</span>
+<div class="yarn-node" data-title="school_2_welcome"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour! Welcome! You've found it. This is your elementary school. <span class="yarn-meta">#line:092b309 </span></span>
@@ -76,7 +77,7 @@ hide:
 <a id="ys-node-school-3"></a>
 ## school_3
 
-<div class="yarn-node" data-title="school_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=KID_MALE</span>
+<div class="yarn-node" data-title="school_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=KID_MALE</span>
 <span class="yarn-header-dim">actor: KID_MALE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hi! This is a middle school for ages 11 to 15. <span class="yarn-meta">#line:06478e9 </span></span>
@@ -87,7 +88,7 @@ hide:
 <a id="ys-node-school-4"></a>
 ## school_4
 
-<div class="yarn-node" data-title="school_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=MAN</span>
+<div class="yarn-node" data-title="school_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">actor: MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour! This is a high school for ages 16 to 18. <span class="yarn-meta">#line:04a0e4b </span></span>
@@ -99,7 +100,7 @@ hide:
 <a id="ys-node-school-4-talk-man"></a>
 ## school_4_talk_man
 
-<div class="yarn-node" data-title="school_4_talk_man"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=OLD_MAN</span>
+<div class="yarn-node" data-title="school_4_talk_man"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">actor: OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I found a backpack on my way here. <span class="yarn-meta">#line:0c3b4fe </span></span>
@@ -113,7 +114,7 @@ hide:
 <a id="ys-node-school-2-talk"></a>
 ## school_2_talk
 
-<div class="yarn-node" data-title="school_2_talk"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=GUIDE</span>
+<div class="yarn-node" data-title="school_2_talk"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">There it is! Let's go inside and start the lesson. <span class="yarn-meta">#line:0624437 </span></span>
@@ -126,7 +127,7 @@ hide:
 <a id="ys-node-task-find-classroom"></a>
 ## task_find_classroom
 
-<div class="yarn-node" data-title="task_find_classroom"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR, task</span>
+<div class="yarn-node" data-title="task_find_classroom"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR, task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: TASK: Find your classroom. <span class="yarn-meta">#line:058ddbc </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_CLASSROOM task_class_done&gt;&gt;</span>
@@ -136,7 +137,7 @@ hide:
 <a id="ys-node-classroom-1"></a>
 ## classroom_1
 
-<div class="yarn-node" data-title="classroom_1"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=MAN</span>
+<div class="yarn-node" data-title="classroom_1"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">actor: MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is the CP classroom. <span class="yarn-meta">#line:08b2774 </span></span>
@@ -149,7 +150,7 @@ hide:
 <a id="ys-node-classroom-2"></a>
 ## classroom_2
 
-<div class="yarn-node" data-title="classroom_2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<div class="yarn-node" data-title="classroom_2"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">This is CE1, <span class="yarn-meta">#line:0f699d3 </span></span>
@@ -162,7 +163,7 @@ hide:
 <a id="ys-node-classroom-3"></a>
 ## classroom_3
 
-<div class="yarn-node" data-title="classroom_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<div class="yarn-node" data-title="classroom_3"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hi there! This is the CE2 classroom <span class="yarn-meta">#line:0bce01a </span></span>
@@ -175,7 +176,7 @@ hide:
 <a id="ys-node-classroom-4"></a>
 ## classroom_4
 
-<div class="yarn-node" data-title="classroom_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=OLD_WOMAN</span>
+<div class="yarn-node" data-title="classroom_4"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! This is CM1, <span class="yarn-meta">#line:043653e </span></span>
@@ -189,7 +190,7 @@ hide:
 ## classroom_5
 
 <div class="yarn-node" data-title="classroom_5"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">// asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png</span>
-<span class="yarn-header-dim">tags: actorUID=GUIDE</span>
+<span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">actor: GUIDE</span>
 <span class="yarn-header-dim">---</span>
@@ -207,8 +208,9 @@ hide:
 <a id="ys-node-activity-match-done"></a>
 ## activity_match_done
 
-<div class="yarn-node" data-title="activity_match_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=GUIDE</span>
+<div class="yarn-node" data-title="activity_match_done"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">tags: actor=GUIDE</span>
 <span class="yarn-header-dim">actor: GUIDE</span>
+<span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Great job! <span class="yarn-meta">#line:0e3f1fa </span></span>
 <span class="yarn-line">Every morning and afternoon we have a break to play outside. <span class="yarn-meta">#line:037391b </span></span>
@@ -220,7 +222,7 @@ hide:
 <a id="ys-node-task-backpack-done"></a>
 ## task_backpack_done
 
-<div class="yarn-node" data-title="task_backpack_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="task_backpack_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: TASK COMPLETED! You can now enter school. <span class="yarn-meta">#line:063f354  </span></span>
 <span class="yarn-cmd">&lt;&lt;set $got_backpack = true&gt;&gt;</span>
@@ -230,7 +232,7 @@ hide:
 <a id="ys-node-task-class-done"></a>
 ## task_class_done
 
-<div class="yarn-node" data-title="task_class_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="task_class_done"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: TASK COMPLETED! You can now start the lesson. <span class="yarn-meta">#line:093e91d </span></span>
 
@@ -239,7 +241,7 @@ hide:
 <a id="ys-node-task-backpack"></a>
 ## task_backpack
 
-<div class="yarn-node" data-title="task_backpack"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=GUIDE, task</span>
+<div class="yarn-node" data-title="task_backpack"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actor=GUIDE, task</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Find your backpack and then come back. <span class="yarn-meta">#line:0e3ad75 </span></span>
 <span class="yarn-cmd">&lt;&lt;task_start TASK_BACKPACK task_backpack_done&gt;&gt;</span>
@@ -249,7 +251,7 @@ hide:
 <a id="ys-node-school-canteen"></a>
 ## school_canteen
 
-<div class="yarn-node" data-title="school_canteen"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actorUID=OLD_WOMAN, </span>
+<div class="yarn-node" data-title="school_canteen"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=OLD_WOMAN, </span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I hope you're registered for the canteen. <span class="yarn-meta">#line:021132d </span></span>
@@ -261,7 +263,7 @@ hide:
 <a id="ys-node-school-charte"></a>
 ## school_charte
 
-<div class="yarn-node" data-title="school_charte"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<div class="yarn-node" data-title="school_charte"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">color: yellow</span>
 <span class="yarn-header-dim">tags: item</span>
 <span class="yarn-header-dim">---</span>

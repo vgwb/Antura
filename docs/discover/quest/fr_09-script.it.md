@@ -28,21 +28,13 @@ hide:
 ## init
 
 <div class="yarn-node" data-title="init"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">=</span>
-<span class="yarn-header-dim">tags: type=Start, panel</span>
+<span class="yarn-header-dim">tags: </span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $MAX_PROGRESS = 7&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $ingredients = 0&gt;&gt;</span>
-<span class="yarn-line">TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. <span class="yarn-meta">#line:078e646 </span></span>
-
-</code></pre></div>
-
-<a id="ys-node-fr-09-cotes-dazur-text-02630595"></a>
-## FR_09_COTES_DAZUR_Text_02630595
-
-<div class="yarn-node" data-title="FR_09_COTES_DAZUR_Text_02630595"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=GUIDE, asset=_09_overview</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">GUIDE: Explore the market and meet the sellers. <span class="yarn-meta">#line:0e8ffc8 </span></span>
+<span class="yarn-line">Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. <span class="yarn-meta">#line:078e646 </span></span>
 
 </code></pre></div>
 
@@ -50,12 +42,12 @@ hide:
 ## baker_bonjour
 
 <div class="yarn-node" data-title="baker_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;asset shop_baker&gt;&gt;</span>
 <span class="yarn-line">Bonjour! I sell fresh bread. I am a baker. <span class="yarn-meta">#line:0c6f41f </span></span>
 <span class="yarn-line">Every day I wake up early to bake. <span class="yarn-meta">#line:0f6e48a </span></span>
-<span class="yarn-cmd">&lt;&lt;card  person_baker zoom&gt;&gt;</span>
+<span class="yarn-cmd">&lt;&lt;card person_baker zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump baker_question&gt;&gt;</span>
 
 </code></pre></div>
@@ -64,7 +56,7 @@ hide:
 ## shop_baker
 
 <div class="yarn-node" data-title="shop_baker"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=BAKER</span>
+<span class="yarn-header-dim">tags: actor=BAKER</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour! <span class="yarn-meta">#line:0cd2ee2 </span></span>
@@ -81,7 +73,7 @@ hide:
 ## baker_question
 
 <div class="yarn-node" data-title="baker_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=BAKER, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=BAKER, type=Choice</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:00279c8 </span></span>
 <span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:00eab87 </span></span>
@@ -99,7 +91,7 @@ hide:
 ## baker_pay_activity
 
 <div class="yarn-node" data-title="baker_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_BAKER baker_payment_done&gt;&gt;</span>
@@ -111,7 +103,7 @@ hide:
 ## baker_payment_done
 
 <div class="yarn-node" data-title="baker_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=MAN, no_translate</span>
+<span class="yarn-header-dim">tags: actor=MAN, no_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;set $ingredients = $ingredients + 1&gt;&gt;</span>
 <span class="yarn-line">-&gt; Merci! <span class="yarn-meta">#line:00da30a </span></span>
@@ -125,7 +117,7 @@ hide:
 ## baker_dontsell
 
 <div class="yarn-node" data-title="baker_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">MAN: Sorry, I don't sell that. <span class="yarn-meta">#line:0875143 </span></span>
 
@@ -135,7 +127,7 @@ hide:
 ## fisher_payment_done
 
 <div class="yarn-node" data-title="fisher_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:02e64ff </span></span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:02c23e5 </span></span>
@@ -148,9 +140,9 @@ hide:
 ## fisher_dontsell
 
 <div class="yarn-node" data-title="fisher_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">OLD_MAN: Sorry, I don't sell that. <span class="yarn-meta">#line:01ea288 </span></span>
+<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:01ea288 </span></span>
 
 </code></pre></div>
 
@@ -158,9 +150,9 @@ hide:
 ## fisher_question
 
 <div class="yarn-node" data-title="fisher_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN, type=Choice</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">OLD_MAN: What do you want to buy? <span class="yarn-meta">#line:04deddc </span></span>
+<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:04deddc </span></span>
 <span class="yarn-line">-&gt; "Fish &amp; Crab": <span class="yarn-meta">#line:0e562df </span></span>
     <span class="yarn-cmd">&lt;&lt;jump fisher_pay_activity&gt;&gt;</span>
 <span class="yarn-line">-&gt; "Tomatoes, Oranges, and Lemons": <span class="yarn-meta">#line:085463e </span></span>
@@ -177,7 +169,7 @@ hide:
 
 <div class="yarn-node" data-title="shop_fisher"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Lycée!": <span class="yarn-meta">#line:0d65316 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump talk_dont_understand&gt;&gt;</span>
@@ -192,7 +184,7 @@ hide:
 ## fisher_bonjour
 
 <div class="yarn-node" data-title="fisher_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">actor: OLD_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Good morning! I sell fish and crab. I'm a fishmonger. <span class="yarn-meta">#line:04b4a87 </span></span>
@@ -207,7 +199,7 @@ hide:
 
 <div class="yarn-node" data-title="shop_cheesemonger"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, do_not_translate</span>
+<span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0693ba6 </span></span>
     <span class="yarn-cmd">&lt;&lt;jump cheesemonger_notunderstand&gt;&gt;</span>
@@ -222,7 +214,7 @@ hide:
 ## cheesemonger_question
 
 <div class="yarn-node" data-title="cheesemonger_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=WOMAN, type=Choice</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:03009de </span></span>
@@ -241,7 +233,7 @@ hide:
 ## cheesemonger_payment_done
 
 <div class="yarn-node" data-title="cheesemonger_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug</span>
+<span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:0dd3ac3 </span></span>
 <span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:02a1238 </span></span>
@@ -254,9 +246,9 @@ hide:
 ## cheesemonger_bonjour
 
 <div class="yarn-node" data-title="cheesemonger_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">WOMAN: Hi! I sell cheese and milk. I am a cheesemonger. <span class="yarn-meta">#line:09eb222 </span></span>
+<span class="yarn-line">Hi! I sell cheese and milk. I am a cheesemonger. <span class="yarn-meta">#line:09eb222 </span></span>
 <span class="yarn-line">I use both cow milk and goat milk. <span class="yarn-meta">#line:02f4bc9 </span></span>
 <span class="yarn-cmd">&lt;&lt;card  person_cheesemonger zoom&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;jump cheesemonger_question&gt;&gt;</span>
@@ -267,9 +259,9 @@ hide:
 ## cheesemonger_dontsell
 
 <div class="yarn-node" data-title="cheesemonger_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group:cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">WOMAN: Sorry, I don't sell that. <span class="yarn-meta">#line:058fc6d </span></span>
+<span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:058fc6d </span></span>
 
 </code></pre></div>
 
@@ -277,7 +269,7 @@ hide:
 ## greengrocer_dontsell
 
 <div class="yarn-node" data-title="greengrocer_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">MAN: Sorry, I don't sell that. <span class="yarn-meta">#line:03b0024 </span></span>
 
@@ -287,7 +279,7 @@ hide:
 ## greengrocer_payment_activity
 
 <div class="yarn-node" data-title="greengrocer_payment_activity"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug</span>
+<span class="yarn-header-dim">tags: actor=WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Bonne journée!": <span class="yarn-meta">#line:0ff9361 </span></span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0741be3 </span></span>
@@ -300,9 +292,9 @@ hide:
 ## greengrocer_question
 
 <div class="yarn-node" data-title="greengrocer_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">WOMAN: What do you want to buy? <span class="yarn-meta">#line:042eb5a </span></span>
+<span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:042eb5a </span></span>
 <span class="yarn-line">-&gt; "Fish and crab": <span class="yarn-meta">#line:0fead1d </span></span>
     <span class="yarn-cmd">&lt;&lt;jump greengrocer_dontsell&gt;&gt;</span>
 <span class="yarn-line">-&gt; "Bread": <span class="yarn-meta">#line:0879f58 </span></span>
@@ -319,7 +311,7 @@ hide:
 
 <div class="yarn-node" data-title="shop_greengrocer"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0a43c28 </span></span>
     <span class="yarn-cmd">&lt;&lt;detour talk_dont_understand&gt;&gt;</span>
@@ -334,7 +326,7 @@ hide:
 ## greengrocer_bonjour
 
 <div class="yarn-node" data-title="greengrocer_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">actor: WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I sell fruits and vegetables. I'm a greengrocer. <span class="yarn-meta">#line:041ade1 </span></span>
@@ -348,7 +340,7 @@ hide:
 ## grocer_payment_done
 
 <div class="yarn-node" data-title="grocer_payment_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN, do_not_translate</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Au revoir!": <span class="yarn-meta">#line:0ce6f8a </span></span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0e8ec1b </span></span>
@@ -361,7 +353,7 @@ hide:
 ## grocer_dontsell
 
 <div class="yarn-node" data-title="grocer_dontsell"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">action: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Sorry, I don't sell that. <span class="yarn-meta">#line:0977493 </span></span>
@@ -372,7 +364,7 @@ hide:
 ## grocer_question
 
 <div class="yarn-node" data-title="grocer_question"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN, type=Choice</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN, type=Choice</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">What do you want to buy? <span class="yarn-meta">#line:0c36100 </span></span>
@@ -391,7 +383,7 @@ hide:
 ## shop_grocer
 
 <div class="yarn-node" data-title="shop_grocer"><pre class="yarn-code" style="--node-color:blue"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN, type=Choice, meta_LANGUAGE=unable_to_create_slug, meta=LANGUAGE:unable_to_create_slug</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">color: blue</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">-&gt; "Merci!": <span class="yarn-meta">#line:0dd992c </span></span>
@@ -407,7 +399,7 @@ hide:
 ## grocer_bonjour
 
 <div class="yarn-node" data-title="grocer_bonjour"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">actor: OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Hello! I sell spices and pantry goods. I am a grocer. <span class="yarn-meta">#line:0ffbfa4 </span></span>
@@ -421,7 +413,7 @@ hide:
 ## pirate
 
 <div class="yarn-node" data-title="pirate"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pirates</span>
-<span class="yarn-header-dim">tags: actorUID=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">actor: CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Ahoy! Welcome aboard. <span class="yarn-meta">#line:04ee922 </span></span>
@@ -435,7 +427,7 @@ hide:
 ## activity_pirate_done
 
 <div class="yarn-node" data-title="activity_pirate_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: pirates</span>
-<span class="yarn-header-dim">tags: actorUID=CRAZY_MAN</span>
+<span class="yarn-header-dim">tags: actor=CRAZY_MAN</span>
 <span class="yarn-header-dim">actor: CRAZY_MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">We worked for the King of France. <span class="yarn-meta">#line:0af3bba </span></span>
@@ -463,7 +455,7 @@ hide:
 ## chef_welcome
 
 <div class="yarn-node" data-title="chef_welcome"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Bonjour! Welcome to Marseille, on the Mediterranean Sea! <span class="yarn-meta">#line:02548dd </span></span>
 <span class="yarn-line">I want to make a special dish for you, a bouillabaisse! <span class="yarn-meta">#line:0c65de3 </span></span>
@@ -501,7 +493,7 @@ hide:
 ## chef_ingredients_done
 
 <div class="yarn-node" data-title="chef_ingredients_done"><pre class="yarn-code"><code><span class="yarn-header-dim">group: chef</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">Magnifique! You have everything. <span class="yarn-meta">#line:0257fc7 </span></span>
 <span class="yarn-line">You were very polite. <span class="yarn-meta">#line:0112e25 </span></span>
@@ -537,11 +529,11 @@ hide:
 ## fisher_pay_activity
 
 <div class="yarn-node" data-title="fisher_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: fisher</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_MAN, meta_ACTION_POST=ACTIVITY_MONEY_2, meta=ACTION_POST:ACTIVITY_MONEY_2</span>
+<span class="yarn-header-dim">tags: actor=OLD_MAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_FISHER fisher_payment_done&gt;&gt;</span>
-<span class="yarn-line">OLD_MAN: Select enough money to pay. <span class="yarn-meta">#line:0995020 </span></span>
+<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0995020 </span></span>
 
 </code></pre></div>
 
@@ -549,11 +541,11 @@ hide:
 ## cheesemonger_pay_activity
 
 <div class="yarn-node" data-title="cheesemonger_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group:cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_3, meta=ACTION_POST:ACTIVITY_MONEY_3</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity&gt;&gt;</span>
-<span class="yarn-line">WOMAN: Select enough money to pay. <span class="yarn-meta">#line:0f44ea7 </span></span>
+<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0f44ea7 </span></span>
 
 </code></pre></div>
 
@@ -561,11 +553,11 @@ hide:
 ## grocer_pay_activity
 
 <div class="yarn-node" data-title="grocer_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_5, meta=ACTION_POST:ACTIVITY_MONEY_5</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GROCER grocer_payment_done&gt;&gt;</span>
-<span class="yarn-line">OLD_WOMAN: Select enough money to pay. <span class="yarn-meta">#line:0c80f9e </span></span>
+<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:0c80f9e </span></span>
 
 </code></pre></div>
 
@@ -573,11 +565,11 @@ hide:
 ## greengrocer_pay_activity
 
 <div class="yarn-node" data-title="greengrocer_pay_activity"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: greengrocer</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN, meta_ACTION_POST=ACTIVITY_MONEY_4, meta=ACTION_POST:ACTIVITY_MONEY_4</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity&gt;&gt;</span>
-<span class="yarn-line">WOMAN: Select enough money to pay. <span class="yarn-meta">#line:08fc94e </span></span>
+<span class="yarn-line">Select enough money to pay. <span class="yarn-meta">#line:08fc94e </span></span>
 
 </code></pre></div>
 
@@ -585,29 +577,19 @@ hide:
 ## baker_notunderstand
 
 <div class="yarn-node" data-title="baker_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: baker</span>
-<span class="yarn-header-dim">tags: actorUID=MAN</span>
+<span class="yarn-header-dim">tags: actor=MAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">MAN: Sorry, I don't think I understand... <span class="yarn-meta">#line:0db5121 </span></span>
-
-</code></pre></div>
-
-<a id="ys-node-fr-09-cotes-dazur-text-s5a-voh"></a>
-## FR_09_COTES_DAZUR_Text__S5A_VOH
-
-<div class="yarn-node" data-title="FR_09_COTES_DAZUR_Text__S5A_VOH"><pre class="yarn-code"><code><span class="yarn-header-dim">tags: actorUID=OLD_MAN</span>
-<span class="yarn-header-dim">---</span>
-<span class="yarn-line">OLD_MAN: Sorry, I don't think I understand... <span class="yarn-meta">#line:058710c </span></span>
+<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:0db5121 </span></span>
 
 </code></pre></div>
 
 <a id="ys-node-cheesemonger-notunderstand"></a>
 ## cheesemonger_notunderstand
 
-<div class="yarn-node" data-title="cheesemonger_notunderstand"><pre class="yarn-code"><code>
-<span class="yarn-header-dim">group: cheesemonger</span>
-<span class="yarn-header-dim">tags: actorUID=WOMAN</span>
+<div class="yarn-node" data-title="cheesemonger_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: cheesemonger</span>
+<span class="yarn-header-dim">tags: actor=WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">WOMAN: Sorry, I don't think I understand... <span class="yarn-meta">#line:01a0ec9 </span></span>
+<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:01a0ec9 </span></span>
 
 </code></pre></div>
 
@@ -615,9 +597,9 @@ hide:
 ## grocer_notunderstand
 
 <div class="yarn-node" data-title="grocer_notunderstand"><pre class="yarn-code"><code><span class="yarn-header-dim">group: grocer</span>
-<span class="yarn-header-dim">tags: actorUID=OLD_WOMAN</span>
+<span class="yarn-header-dim">tags: actor=OLD_WOMAN</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">OLD_WOMAN: Sorry, I don't think I understand... <span class="yarn-meta">#line:0a30381 </span></span>
+<span class="yarn-line">Sorry, I don't think I understand... <span class="yarn-meta">#line:0a30381 </span></span>
 
 </code></pre></div>
 
@@ -637,7 +619,7 @@ hide:
 ## item_bread
 
 <div class="yarn-node" data-title="item_bread"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Bread <span class="yarn-meta">#line:08e101e </span></span>
 
@@ -647,7 +629,7 @@ hide:
 ## item_fish
 
 <div class="yarn-node" data-title="item_fish"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Fish <span class="yarn-meta">#line:0feed79 </span></span>
 
@@ -657,7 +639,7 @@ hide:
 ## item_orange
 
 <div class="yarn-node" data-title="item_orange"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Orange <span class="yarn-meta">#line:0c0fa04 </span></span>
 
@@ -667,7 +649,7 @@ hide:
 ## item_lemon
 
 <div class="yarn-node" data-title="item_lemon"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR</span>
+<span class="yarn-header-dim">tags: actor=TUTOR</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Lemon <span class="yarn-meta">#line:0c6b991 </span></span>
 
@@ -677,7 +659,7 @@ hide:
 ## item_tomato
 
 <div class="yarn-node" data-title="item_tomato"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Tomato <span class="yarn-meta">#line:0a6782d </span></span>
 
@@ -687,7 +669,7 @@ hide:
 ## item_cheese
 
 <div class="yarn-node" data-title="item_cheese"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Cheese <span class="yarn-meta">#line:0acd781 </span></span>
 
@@ -697,7 +679,7 @@ hide:
 ## item_salt
 
 <div class="yarn-node" data-title="item_salt"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Salt <span class="yarn-meta">#line:07bbcb0 </span></span>
 
@@ -707,7 +689,7 @@ hide:
 ## item_pepper
 
 <div class="yarn-node" data-title="item_pepper"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Pepper <span class="yarn-meta">#line:04d85d3 </span></span>
 
@@ -717,7 +699,7 @@ hide:
 ## item_oil
 
 <div class="yarn-node" data-title="item_oil"><pre class="yarn-code" style="--node-color:yellow"><code><span class="yarn-header-dim">color: yellow</span>
-<span class="yarn-header-dim">tags: actorUID=TUTOR, item</span>
+<span class="yarn-header-dim">tags: actor=TUTOR, item</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-line">TUTOR: Oil <span class="yarn-meta">#line:0156410 </span></span>
 
