@@ -173,57 +173,13 @@ namespace Antura.Discover
 
         private void ValidateCardsData()
         {
-            RunDataValidationAndShowDialog();
+            var rpt = Editor.CardValidationUtility.ValidateAllCards(logEachIssue: true);
+            EditorUtility.DisplayDialog("Validate Cards Data", rpt.ToString(), "OK");
         }
 
         private void ValidateCardsLocalization()
         {
             RunLocalizationValidationAndShowDialog();
-        }
-
-        private static void RunDataValidationAndShowDialog()
-        {
-            var cards = LoadAllCards();
-            var idSet = new HashSet<string>(cards.Where(c => !string.IsNullOrEmpty(c?.Id)).Select(c => c.Id), StringComparer.OrdinalIgnoreCase);
-
-            int missingId = 0;
-            int missingTopics = 0;
-            int missingImage = 0;
-            int emptyTitleEn = 0;
-            int emptyDescEn = 0;
-
-            foreach (var c in cards)
-            {
-                if (c == null)
-                    continue;
-
-                if (string.IsNullOrWhiteSpace(c.Id))
-                {
-                    missingId++;
-                    Debug.LogWarning($"[Card Validate] Missing ID: {AssetDatabase.GetAssetPath(c)}", c);
-                }
-
-                if (c.Topics == null || c.Topics.Count == 0)
-                { missingTopics++; Debug.LogWarning($"[Card Validate] Missing topics: {c.name}", c); }
-
-                if (c.ImageAsset == null)
-                { missingImage++; Debug.LogWarning($"[Card Validate] Missing image: {c.name}", c); }
-
-                if (string.IsNullOrWhiteSpace(c.TitleEn))
-                { emptyTitleEn++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty TitleEn", c); }
-                if (string.IsNullOrWhiteSpace(c.DescriptionEn))
-                { emptyDescEn++; Debug.LogWarning($"[Card Validate] '{c.Id}' has empty DescriptionEn", c); }
-            }
-
-            EditorUtility.DisplayDialog(
-                "Validate Cards Data",
-                $"Total: {cards.Count}\n" +
-                $"Missing Id: {missingId}\n" +
-                $"Missing Topics: {missingTopics}\n" +
-                $"Missing Image: {missingImage}\n" +
-                $"TitleEn empty: {emptyTitleEn}\n" +
-                $"DescriptionEn empty: {emptyDescEn}\n",
-                "OK");
         }
 
         private static void RunLocalizationValidationAndShowDialog()

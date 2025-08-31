@@ -10,6 +10,7 @@ namespace Antura.Discover.Editor
     public struct CardValidationReport
     {
         public int TotalCards;
+        public int DuplicateIdsGroups;
         public int MissingId;
         public int MissingLocalizedTitle;
         public int MissingTopics;
@@ -21,6 +22,7 @@ namespace Antura.Discover.Editor
         public override string ToString()
         {
             return $"Total: {TotalCards}\n" +
+                   $"Duplicate Id groups: {DuplicateIdsGroups}\n" +
                    $"Missing Id: {MissingId}\n" +
                    $"Missing Localized Title: {MissingLocalizedTitle}\n" +
                    $"Missing Topics: {MissingTopics}\n" +
@@ -69,9 +71,27 @@ namespace Antura.Discover.Editor
                     cards.Add(c);
             }
 
+            // Detect duplicate CardId across assets (case-insensitive)
+            var dupGroups = cards
+                .Where(c => c != null && !string.IsNullOrWhiteSpace(c.Id))
+                .GroupBy(c => c.Id, StringComparer.OrdinalIgnoreCase)
+                .Where(g => g.Count() > 1)
+                .ToList();
+            if (dupGroups.Count > 0)
+            {
+                foreach (var g in dupGroups)
+                {
+                    Debug.LogError($"[Card Validate] Duplicate CardId '{g.Key}' used by {g.Count()} assets:");
+                    foreach (var c in g)
+                    {
+                        Debug.LogError($" - {c.name} ({AssetDatabase.GetAssetPath(c)})", c);
+                    }
+                }
+            }
+
             var idSet = new HashSet<string>(cards.Where(c => !string.IsNullOrEmpty(c?.Id)).Select(c => c.Id), StringComparer.OrdinalIgnoreCase);
 
-            var report = new CardValidationReport { TotalCards = cards.Count };
+            var report = new CardValidationReport { TotalCards = cards.Count, DuplicateIdsGroups = dupGroups.Count };
             foreach (var c in cards)
             {
                 if (c == null)
@@ -91,24 +111,20 @@ namespace Antura.Discover.Editor
                     Debug.LogWarning($"[Card Validate] Missing ID: {AssetDatabase.GetAssetPath(card)}", card);
             }
 
-            // Localized Title (if present in schema)
+            // Localized Title
             try
             {
-                var titleProp = card.GetType().GetProperty("Title");
-                if (titleProp != null)
+                var titleLoc = card.Title;
+                if (titleLoc == null || titleLoc.IsEmpty)
                 {
-                    var loc = titleProp.GetValue(card) as LocalizedString;
-                    if (loc == null || loc.IsEmpty)
-                    {
-                        rpt.MissingLocalizedTitle++;
-                        if (log)
-                            Debug.LogWarning($"[Card Validate] Missing localized Title: {card.name}", card);
-                    }
+                    rpt.MissingLocalizedTitle++;
+                    if (log)
+                        Debug.LogWarning($"[Card Validate] Missing localized Title: {card.name}", card);
                 }
             }
-            catch { /* ignore reflection issues */ }
+            catch { }
 
-            // Topics (common)
+            // Topics
             if (card.Topics == null || card.Topics.Count == 0)
             {
                 rpt.MissingTopics++;
@@ -116,11 +132,10 @@ namespace Antura.Discover.Editor
                     Debug.LogWarning($"[Card Validate] Missing topics: {card.name}", card);
             }
 
-            // Image (if schema has ImageAsset)
+            // Image
             try
             {
-                var imgObj = card.GetType().GetProperty("ImageAsset")?.GetValue(card);
-                if (imgObj == null)
+                if (card.ImageAsset == null)
                 {
                     rpt.MissingImage++;
                     if (log)
@@ -129,11 +144,9 @@ namespace Antura.Discover.Editor
             }
             catch { }
 
-            // English convenience fields (window previously checked these)
             try
             {
-                var titleEn = card.GetType().GetProperty("TitleEn")?.GetValue(card) as string;
-                if (string.IsNullOrWhiteSpace(titleEn))
+                if (string.IsNullOrWhiteSpace(card.TitleEn))
                 {
                     rpt.EmptyTitleEn++;
                     if (log)
@@ -144,8 +157,7 @@ namespace Antura.Discover.Editor
 
             try
             {
-                var descEn = card.GetType().GetProperty("DescriptionEn")?.GetValue(card) as string;
-                if (string.IsNullOrWhiteSpace(descEn))
+                if (string.IsNullOrWhiteSpace(card.DescriptionEn))
                 {
                     rpt.EmptyDescriptionEn++;
                     if (log)
@@ -171,6 +183,27 @@ namespace Antura.Discover.Editor
             foreach (var q in quests)
                 if (q != null && q.Cards == null)
                     q.Cards = new List<CardData>();
+
+            // Deduplicate: ensure a Quest does not link the same Card multiple times
+            foreach (var q in quests.Where(x => x != null))
+            {
+                if (q.Cards == null)
+                    q.Cards = new List<CardData>();
+                int before = q.Cards.Count;
+                // Remove nulls in this pass as well, keeps logs simpler
+                var dedup = q.Cards.Where(cd => cd != null).Distinct().ToList();
+                if (dedup.Count != before)
+                {
+                    int removed = before - dedup.Count;
+                    logs?.Add($"[Sync] Dedup Quest '{(string.IsNullOrEmpty(q.Id) ? q.name : q.Id)}': removed {removed} duplicate card reference(s)");
+                    if (applyChanges)
+                    {
+                        q.Cards = dedup;
+                        EditorUtility.SetDirty(q);
+                        changes++;
+                    }
+                }
+            }
 
             // Pass 1: Card -> ensure Quest has Card
             foreach (var c in cards.Where(x => x != null))

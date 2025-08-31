@@ -17,10 +17,10 @@ namespace Antura.Discover.Editor
         private Countries filterCountry = Countries.International;
         private bool filterByCountry = false;
 
-        [MenuItem("Antura/Discover/Export Window ", priority = 160)]
+        [MenuItem("Antura/Discover/Publish & Export Quests", priority = 160)]
         public static void Open()
         {
-            GetWindow<PublishWindow>(title: "Export").Show();
+            GetWindow<PublishWindow>(title: "Publish & Export Quests").Show();
         }
 
         private void OnEnable()
@@ -63,7 +63,7 @@ namespace Antura.Discover.Editor
                 {
                     ExportFilteredToFolder();
                 }
-                if (GUILayout.Button("Publish All to Docs"))
+                if (GUILayout.Button("Publish Website"))
                 {
                     PublishAllToDocs();
                 }
@@ -139,7 +139,7 @@ namespace Antura.Discover.Editor
             {
                 foreach (var file in Directory.GetFiles(folder, "*.md", SearchOption.TopDirectoryOnly))
                 {
-                    // Quest folder is fully generated; safe to clear all .md files
+                    // Discover folder is fully generated; safe to clear all .md files
                     File.Delete(file);
                 }
             }
