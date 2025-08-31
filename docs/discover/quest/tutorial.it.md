@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./tutorial.md) - [french](./tutorial.fr.md) - [polish](./tutorial.pl.md) - italian
 
 Version: 1.00
-Status: Ready
+Status: NeedsReview
 
 ## Informations
 

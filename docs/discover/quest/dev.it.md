@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.it.md) - Language: [english](./dev.md) - [french](./dev.fr.md) - [polish](./dev.pl.md) - italian
 
 Version: 1.00
-Status: Ready
+Status: Draft
 
 ## Informations
 
@@ -18,14 +18,15 @@ Status: Ready
 - Category: Education
 - Knowledge points: 1
 - Topics:
-  - CulinaryArts
+  - Culture
+  - Food
 
 ## Cards
-### Baguette
-Link: [fr_baguette](../cards/index.md#fr_baguette)
-Description: Un pane francese lungo. È croccante fuori e morbido dentro.
-Category: Food
-Year: 0
+### No translation found for 'food_baguette' in Cards
+Link: [food_baguette](../cards/index.md#food_baguette)
+Description: No translation found for 'food_baguette.desc' in Cards
+Category: 
+Year: 1700
 Country: France
 KnowledgeValue: 1
 Image: 

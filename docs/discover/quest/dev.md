@@ -7,7 +7,7 @@ hide:
 [Quest Index](./index.md) - Language: english - [french](./dev.fr.md) - [polish](./dev.pl.md) - [italian](./dev.it.md)
 
 Version: 1.00
-Status: Ready
+Status: Draft
 
 ## Informations
 
@@ -18,14 +18,15 @@ Status: Ready
 - Category: Education
 - Knowledge points: 1
 - Topics:
-  - CulinaryArts
+  - Culture
+  - Food
 
 ## Cards
-### Baguette
-Link: [fr_baguette](../cards/index.md#fr_baguette)
-Description: A long French bread. It’s crispy outside and soft inside.
-Category: Food
-Year: 0
+### French Baguette
+Link: [food_baguette](../cards/index.md#food_baguette)
+Description: A long, crispy bread that is the most famous food in France. French people buy fresh baguettes every day from the bakery!
+Category: 
+Year: 1700
 Country: France
 KnowledgeValue: 1
 Image: 

@@ -29,8 +29,8 @@ hide:
 <span class="yarn-header-dim">group: docs</span>
 <span class="yarn-header-dim">// tags are used to add metadata to the node</span>
 <span class="yarn-header-dim">// - actor is the speacking character, used mostly for voice overs</span>
-<span class="yarn-header-dim">// - type is used to identify special nodes like Start, End, Quiz</span>
-<span class="yarn-header-dim">tags: actor=Guide, type=Quiz</span>
+<span class="yarn-header-dim">// - type is used to identify special nodes like Panel, Quiz</span>
+<span class="yarn-header-dim">tags: actor=Guide, type=Panel</span>
 <span class="yarn-header-dim">// color us used like this:</span>
 <span class="yarn-header-dim">//  - red for important nodes like init and quest end</span>
 <span class="yarn-header-dim">//  - blue for NPCs</span>
@@ -38,6 +38,7 @@ hide:
 <span class="yarn-header-dim">//  - green for tasks</span>
 <span class="yarn-header-dim">//  - purple for activities</span>
 <span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">type: panel</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-comment">// these are the common variables</span>
 <span class="yarn-cmd">&lt;&lt;set $EASY_MODE = false&gt;&gt;</span>
@@ -52,6 +53,9 @@ hide:
 <span class="yarn-cmd">&lt;&lt;declare $met_teacher = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $got_hint = false&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;declare $doorUnlocked = false&gt;&gt;</span>
+
+<span class="yarn-line">Welcome to the DEV quest! <span class="yarn-meta">#line:0973921 </span></span>
+<span class="yarn-line">You can use this quest to test features and commands. <span class="yarn-meta">#line:0196a6d </span></span>
 
 </code></pre></div>
 
@@ -184,6 +188,17 @@ hide:
 
 </code></pre></div>
 
+<a id="ys-node-area-change"></a>
+## area_change
+
+<div class="yarn-node" data-title="area_change"><pre class="yarn-code"><code><span class="yarn-header-dim">group: area </span>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Now i'll let you go around. <span class="yarn-meta">#line:0aa3b5d </span></span>
+<span class="yarn-cmd">&lt;&lt;area full_area&gt;&gt;</span>
+
+
+</code></pre></div>
+
 <a id="ys-node-test-cards"></a>
 ## test_cards
 
@@ -273,9 +288,11 @@ hide:
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
 <span class="yarn-cmd">&lt;&lt;if HasCompletedTask("open_chest")&gt;&gt;</span>
-<span class="yarn-line">    Thanks you... I needed that</span>
+<span class="yarn-line">    Thanks you... I needed that <span class="yarn-meta">#line:073d718 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">    Reach and open that chest! </span>
+<span class="yarn-line">    Reach and open that chest! <span class="yarn-meta">#line:0c31fab </span></span>
+    <span class="yarn-cmd">&lt;&lt;area off&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;target target_chest&gt;&gt;</span>
     <span class="yarn-cmd">&lt;&lt;task_start open_chest task_open_chest_done&gt;&gt;</span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
@@ -288,7 +305,8 @@ hide:
 <span class="yarn-header-dim">group: tasks</span>
 <span class="yarn-header-dim">color: green</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Well done! You opened the chest. </span>
+<span class="yarn-line">Well done! You opened the chest.  <span class="yarn-meta">#line:04e697a </span></span>
+<span class="yarn-cmd">&lt;&lt;target off&gt;&gt;</span>
 
 </code></pre></div>
 
@@ -349,16 +367,23 @@ hide:
 <div class="yarn-node" data-title="endgame"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: endgame</span>
 <span class="yarn-header-dim">color: red</span>
 <span class="yarn-header-dim">---</span>
-
 <span class="yarn-line">You can end this quest with... <span class="yarn-meta">#line:027bdca </span></span>
-<span class="yarn-line">-&gt; Zero stars (fail) <span class="yarn-meta">#line:0130629 </span></span>
-    <span class="yarn-cmd">&lt;&lt;quest_end 0&gt;&gt;</span>
-<span class="yarn-line">-&gt; 1 star <span class="yarn-meta">#line:05caf8d </span></span>
-    <span class="yarn-cmd">&lt;&lt;quest_end 1&gt;&gt;</span>
-<span class="yarn-line">-&gt; 2 stars <span class="yarn-meta">#line:02466da </span></span>
-    <span class="yarn-cmd">&lt;&lt;quest_end 2&gt;&gt;</span>
-<span class="yarn-line">-&gt; 3 stars <span class="yarn-meta">#line:0f65a6b </span></span>
-    <span class="yarn-cmd">&lt;&lt;quest_end 3&gt;&gt;</span>
+<span class="yarn-line">-&gt; NOOOO i don't want end</span>
+<span class="yarn-line">-&gt; YES, let's end</span>
+    <span class="yarn-cmd">&lt;&lt;quest_end&gt;&gt;</span>
+    <span class="yarn-cmd">&lt;&lt;jump close_game&gt;&gt;</span>
+
+</code></pre></div>
+
+<a id="ys-node-close-game"></a>
+## close_game
+
+<div class="yarn-node" data-title="close_game"><pre class="yarn-code" style="--node-color:red"><code><span class="yarn-header-dim">group: endgame</span>
+<span class="yarn-header-dim">color: red</span>
+<span class="yarn-header-dim">type: panel_endgame</span>
+<span class="yarn-header-dim">---</span>
+
+<span class="yarn-line">THis is the last message! goodybye</span>
 
 
 </code></pre></div>
@@ -396,6 +421,19 @@ hide:
 
 <div class="yarn-node" data-title="activity_done"><pre class="yarn-code"><code><span class="yarn-header-dim">---</span>
 <span class="yarn-line">Activity finished. <span class="yarn-meta">#line:0ce187d </span></span>
+
+</code></pre></div>
+
+<a id="ys-node-test-setactive"></a>
+## test_setactive
+
+<div class="yarn-node" data-title="test_setactive"><pre class="yarn-code"><code>
+<span class="yarn-header-dim">---</span>
+<span class="yarn-line">Now i'll activate gameObject test_setactive <span class="yarn-meta">#line:0ef2850 </span></span>
+<span class="yarn-cmd">&lt;&lt;SetActive TestSetActive_Crate&gt;&gt;</span>
+<span class="yarn-line">And now i'll switch it off <span class="yarn-meta">#line:0a360b1 </span></span>
+<span class="yarn-cmd">&lt;&lt;SetActive TestSetActive_Crate false&gt;&gt;</span>
+<span class="yarn-line">Nice, isn't it? <span class="yarn-meta">#line:06bd992 </span></span>
 
 </code></pre></div>
 
@@ -522,7 +560,7 @@ hide:
 <div class="yarn-node" data-title="activity_canvas"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity CANVAS! </span>
+<span class="yarn-line">Activity CANVAS!  <span class="yarn-meta">#line:0532f99 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_canvas activity_canvas_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -534,9 +572,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_canvas") &gt; 0&gt;&gt;
-<span class="yarn-line">You played CANVAS activity well!</span>
+<span class="yarn-line">You played CANVAS activity well! <span class="yarn-meta">#line:04fd2ce </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:0797e1e </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -547,7 +585,7 @@ hide:
 <div class="yarn-node" data-title="activity_jigsaw"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity JIGSAW PUZZLE! </span>
+<span class="yarn-line">Activity JIGSAW PUZZLE!  <span class="yarn-meta">#line:0d97ed9 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_jigsaw activity_jigsaw_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -559,9 +597,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_jigsaw") &gt; 0&gt;&gt;
-<span class="yarn-line">You played JIGSAW PUZZLE activity well!</span>
+<span class="yarn-line">You played JIGSAW PUZZLE activity well! <span class="yarn-meta">#line:041075b </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:0921ca5 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -572,7 +610,7 @@ hide:
 <div class="yarn-node" data-title="activity_memory"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity MEMORY! </span>
+<span class="yarn-line">Activity MEMORY!  <span class="yarn-meta">#line:0727144 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_memory activity_memory_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -584,9 +622,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_memory") &gt; 0&gt;&gt;
-<span class="yarn-line">You played MEMORY activity well!</span>
+<span class="yarn-line">You played MEMORY activity well! <span class="yarn-meta">#line:03121d7 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:0d146ef </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -597,7 +635,7 @@ hide:
 <div class="yarn-node" data-title="activity_match"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity MATCH! </span>
+<span class="yarn-line">Activity MATCH!  <span class="yarn-meta">#line:0949b00 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_match activity_match_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -609,9 +647,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_match") &gt; 0&gt;&gt;
-<span class="yarn-line">You played MATCH activity well!</span>
+<span class="yarn-line">You played MATCH activity well! <span class="yarn-meta">#line:0426701 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:07643ad </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -622,7 +660,7 @@ hide:
 <div class="yarn-node" data-title="activity_money"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity MONEY! </span>
+<span class="yarn-line">Activity MONEY!  <span class="yarn-meta">#line:05b81d1 </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_money activity_money_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -634,9 +672,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_money") &gt; 0&gt;&gt;
-<span class="yarn-line">You played MONEY activity well!</span>
+<span class="yarn-line">You played MONEY activity well! <span class="yarn-meta">#line:0a63bb1 </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:02b103d </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -647,7 +685,7 @@ hide:
 <div class="yarn-node" data-title="activity_order"><pre class="yarn-code" style="--node-color:purple"><code><span class="yarn-header-dim">group: activities</span>
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
-<span class="yarn-line">Activity ORDER! </span>
+<span class="yarn-line">Activity ORDER!  <span class="yarn-meta">#line:08e289f </span></span>
 <span class="yarn-cmd">&lt;&lt;activity activity_order activity_order_result&gt;&gt;</span>
 
 </code></pre></div>
@@ -659,9 +697,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_order") &gt; 0&gt;&gt;
-<span class="yarn-line">You played ORDER activity well!</span>
+<span class="yarn-line">You played ORDER activity well! <span class="yarn-meta">#line:05527db </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:04681e2 </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>
@@ -686,9 +724,9 @@ hide:
 <span class="yarn-header-dim">color: purple</span>
 <span class="yarn-header-dim">---</span>
 &lt;&lt;if GetActivityResult("activity_piano") &gt; 0&gt;&gt;
-<span class="yarn-line">You played the PIANO activity well!</span>
+<span class="yarn-line">You played the PIANO activity well! <span class="yarn-meta">#line:0b9f1af </span></span>
 <span class="yarn-cmd">&lt;&lt;else&gt;&gt;</span>
-<span class="yarn-line">Try again.</span>
+<span class="yarn-line">Try again. <span class="yarn-meta">#line:04c91cd </span></span>
 <span class="yarn-cmd">&lt;&lt;endif&gt;&gt;</span>
 
 </code></pre></div>

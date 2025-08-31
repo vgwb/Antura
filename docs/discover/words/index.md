@@ -20,6 +20,7 @@ hide:
 | crocodile | CROCODILE | CROCODILE | KROKODYL | COCCODRILLO |
 | dog | DOG | CHIEN | PIES | CANE |
 | duck | DUCK | CANARD | KACZKA | ANATRA |
+| eagle | EAGLE | AIGLE | No translation found for 'eagle' in Words | No translation found for 'eagle' in Words |
 | elephant | ELEPHANT | ÉLÉPHANT | SŁOŃ | ELEFANTE |
 | fox | FOX | RENARD | LIS | VOLPE |
 | frog | FROG | GRENOUILLE | ŻABA | RANA |
@@ -38,6 +39,7 @@ hide:
 | tiger | TIGER | TIGRE | TYGRYS | TIGRE |
 | turtle | TURTLE | TORTUE | ŻÓŁW | TARTARUGA |
 | whale | WHALE | BALEINE | WIELORYB | BALENA |
+| wolf | WOLF | LOUP | No translation found for 'wolf' in Words | No translation found for 'wolf' in Words |
 
 ## Body
 
@@ -94,6 +96,7 @@ hide:
 | station | STATION | STATION | DWORZEC | STAZIONE |
 | street | STREET | RUE | ULICA | VIA |
 | theatre | THEATRE | THÉÂTRE | KINO | TEATRO |
+| tower | tower | tour | No translation found for 'tower' in Words | No translation found for 'tower' in Words |
 | town | TOWN | VILLAGE | MIASTECZKO | CITTADINA |
 | train | TRAIN | TRAIN | POCIĄG | TRENO |
 | truck | TRUCK | CAMION | CIĘŻARÓWKA | CAMION |
@@ -163,6 +166,7 @@ hide:
 | carrot | CARROT | CAROTTE | MARCHEWKA | CAROTA |
 | cheese | CHEESE | FROMAGE | SER | FORMAGGIO |
 | cherry | CHERRY | CERISE | WIŚNIA | CILIEGIA |
+| chickpea | CHICKPEA | POIS CHICHE | CIECIERZYCA | CECE |
 | cucumber | CUCUMBER | CONCOMBRE | OGÓREK | CETRIOLO |
 | fish_food | FISH | POISON | No translation found for 'fish_food' in Words | PESCE |
 | food | FOOD | NOURRITURE | JEDZENIE | CIBO |
@@ -220,6 +224,12 @@ hide:
 | towel | TOWEL | SERVIETTE | RĘCZNIK | ASCIUGAMANO |
 | washing_machine | WASHING MACHINE | MACHINE À LAVER | PRALKA | LAVATRICE |
 | window | WINDOW | FENÊTRE | OKNO | FINESTRA |
+
+## Jobs
+
+| id | en | fr | pl | it |
+|---|---|---|---|---|
+| doctor | DOCTOR | MÉDECIN | No translation found for 'doctor' in Words | No translation found for 'doctor' in Words |
 
 ## Math
 
@@ -300,6 +310,7 @@ hide:
 | id | en | fr | pl | it |
 |---|---|---|---|---|
 | ball | BALL | BALLON | PIŁKA | PALLA |
+| basketball | Basket Ball | Basket-ball | No translation found for 'basketball' in Words | No translation found for 'basketball' in Words |
 | book | BOOK | LIVRE | KSIĄŻKA | LIBRO |
 | box | BOX | BOÎTE | PUDEŁKO | SCATOLA |
 | doll | DOLL | POUPÉE | LALKA | BAMBOLA |
