@@ -15,36 +15,36 @@ MonoBehaviour:
   Id: object_eiffel_tower_ticket
   Status: 1
   Importance: 20
-  Rationale: 
   Type: 3
   Topics: 04000000
   Year: 0
-  Country: 2
+  Country: 0
   Location: {fileID: 0}
   WikipediaUrl: 
   TitleEn: Eiffel Tower ticket
-  DescriptionEn: 
+  DescriptionEn: A special paper that lets you visit the famous tall tower in Paris,
+    France.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: object_eiffel_tower_ticket
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: object_eiffel_tower_ticket.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
-  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -59,11 +59,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: 
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
   _lastTitleEn: Eiffel Tower ticket
-  _lastDescriptionEn: 
+  _lastDescriptionEn: A special paper that lets you visit the famous tall tower in
+    Paris, France.
   references:
     version: 2
     RefIds: []

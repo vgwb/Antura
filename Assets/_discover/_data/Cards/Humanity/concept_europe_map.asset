@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: concept_europe_map
   Status: 1
   Importance: 10
-  Rationale: Maps help kids understand where different countries are and how they
-    connect
   Type: 4
   Topics: 0200000014000000
   Year: 2000
@@ -37,10 +35,10 @@ MonoBehaviour:
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: concept_europe_map.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -48,7 +46,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
-  LinkedCards: flag_france
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -63,11 +60,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: Maps help kids understand where different countries are and how they
+    connect
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
   _lastTitleEn: Europe Map
-  _lastDescriptionEn: 
+  _lastDescriptionEn: A map showing all the countries in Europe. You can see where
+    France, Poland, Germany, and other countries are located.
   references:
     version: 2
     RefIds: []

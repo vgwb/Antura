@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: education_college_fr
   Status: 3
   Importance: 10
-  Rationale: Understanding the French school system helps kids compare education
-    across countries
   Type: 4
   Topics: 1400000003000000
   Year: 1975
@@ -28,19 +26,19 @@ MonoBehaviour:
     subjects and prepare for high school.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: education_college_fr
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: education_college_fr.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -62,6 +60,8 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: Understanding the French school system helps kids compare education
+    across countries
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1

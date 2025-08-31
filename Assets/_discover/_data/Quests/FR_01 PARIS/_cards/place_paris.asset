@@ -15,36 +15,36 @@ MonoBehaviour:
   Id: place_paris
   Status: 1
   Importance: 20
-  Rationale: 
   Type: 1
   Topics: 0200000009000000
   Year: 0
   Country: 0
   Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
-  WikipediaUrl: https://wikipedia.org/wiki/Paris
+  WikipediaUrl: 
   TitleEn: Paris
-  DescriptionEn: 
+  DescriptionEn: The capital city of France. Paris has a famous tall tower called
+    the Eiffel Tower!
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: place_paris
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: place_paris.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
-  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -59,11 +59,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: 
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
   _lastTitleEn: Paris
-  _lastDescriptionEn: 
+  _lastDescriptionEn: The capital city of France. Paris has a famous tall tower called
+    the Eiffel Tower!
   references:
     version: 2
     RefIds: []

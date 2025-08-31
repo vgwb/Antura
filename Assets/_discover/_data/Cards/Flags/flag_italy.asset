@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: flag_italy
   Status: 3
   Importance: 10
-  Rationale: The Italian flag connection to pizza helps kids remember the colors
-    easily
   Type: 4
   Topics: 0200000003000000
   Year: 1946
@@ -28,26 +26,25 @@ MonoBehaviour:
     red. The colors look like basil, mozzarella, and tomatoes on pizza!'
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: flag_italy
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: flag_italy.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Quests:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Words: []
-  LinkedCards: flag_france
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -62,11 +59,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: The Italian flag connection to pizza helps kids remember the colors
+    easily
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
   _lastTitleEn: Flag of Italy
-  _lastDescriptionEn: 
+  _lastDescriptionEn: 'The flag of Italy has three vertical stripes: green, white,
+    and red. The colors look like basil, mozzarella, and tomatoes on pizza!'
   references:
     version: 2
     RefIds: []

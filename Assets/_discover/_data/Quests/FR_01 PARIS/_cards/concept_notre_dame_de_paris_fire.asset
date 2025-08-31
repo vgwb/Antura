@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: concept_notre_dame_de_paris_fire
   Status: 3
   Importance: 20
-  Rationale: This event teaches kids about protecting cultural heritage and community
-    cooperation
   Type: 4
   Topics: 010000000300000009000000
   Year: 2019
@@ -28,25 +26,25 @@ MonoBehaviour:
     Paris. Many people worked together to save this important building.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: concept_notre_dame_de_paris_fire
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: concept_notre_dame_de_paris_fire.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
-  LinkedCards: louvre
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -61,11 +59,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: This event teaches kids about protecting cultural heritage and community
+    cooperation
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Notre-Dame de Paris fire
-  _lastDescriptionEn: 
+  _lastTitleEn: Notre-Dame Fire
+  _lastDescriptionEn: In 2019, a big fire damaged the beautiful Notre-Dame Cathedral
+    in Paris. Many people worked together to save this important building.
   references:
     version: 2
     RefIds: []

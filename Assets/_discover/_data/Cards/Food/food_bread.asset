@@ -15,7 +15,6 @@ MonoBehaviour:
   Id: food_bread
   Status: 1
   Importance: 20
-  Rationale: 
   Type: 3
   Topics: 2d00000003000000
   Year: 0
@@ -23,7 +22,8 @@ MonoBehaviour:
   Location: {fileID: 0}
   WikipediaUrl: 
   TitleEn: BREAD
-  DescriptionEn: 
+  DescriptionEn: A yummy food made from flour and water. You can make sandwiches
+    with bread!
   Title:
     m_TableReference:
       m_TableCollectionName: GUID:83cedfbe63a854be2a71d77763f2eb90
@@ -35,17 +35,16 @@ MonoBehaviour:
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: food_bread.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  LinkedCards: 
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -60,11 +59,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 11400000, guid: b3b621c4b0a6d4a1dbcb09a2b9a303d5, type: 2}
   ItemTag: 0
   CustomTag: 
+  Rationale: 
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
   _lastTitleEn: BREAD
-  _lastDescriptionEn: 
+  _lastDescriptionEn: A yummy food made from flour and water. You can make sandwiches
+    with bread!
   references:
     version: 2
     RefIds: []

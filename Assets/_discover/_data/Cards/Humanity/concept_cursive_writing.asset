@@ -15,8 +15,6 @@ MonoBehaviour:
   Id: concept_cursive_writing
   Status: 3
   Importance: 20
-  Rationale: Cursive writing is an important part of French education and cultural
-    identity
   Type: 4
   Topics: 140000000300000005000000
   Year: 1800
@@ -28,26 +26,25 @@ MonoBehaviour:
     In France, children learn to write this way in school.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: concept_cursive_writing
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: concept_cursive_writing.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Quests:
   - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
-  LinkedCards: education_primaire_fr
   MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
@@ -62,11 +59,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Rationale: Cursive writing is an important part of French education and cultural
+    identity
   Notes: 
-  LastReviewed: 2025-08-30
+  LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
-  _lastTitleEn: Cursive writing
-  _lastDescriptionEn: 
+  _lastTitleEn: Cursive Writing
+  _lastDescriptionEn: A special way of writing where all the letters in a word are
+    connected. In France, children learn to write this way in school.
   references:
     version: 2
     RefIds: []

@@ -186,98 +186,110 @@ namespace Antura.Discover
         {
             var cards = LoadAllCards();
 
-            int missingTitleRef = 0;
-            int missingDescRef = 0;
-            int titleMissingInLocales = 0;
-            int descMissingInLocales = 0;
+            int createdTitleEntries = 0;
+            int createdDescEntries = 0;
+            int fixedTitleRefs = 0;
+            int fixedDescRefs = 0;
 
             var locales = LocalizationSettings.AvailableLocales?.Locales;
             int localeCount = locales != null ? locales.Count : 0;
+
+            // Find English locale (en or en-*)
+            var enLocale = locales?.FirstOrDefault(l => l != null && l.Identifier.Code.ToLowerInvariant().StartsWith("en"));
 
             foreach (var c in cards)
             {
                 if (c == null)
                     continue;
+                if (string.IsNullOrEmpty(c.Id))
+                {
+                    Debug.LogWarning($"[Card Loc Validate] Skipping card without Id: {c.name}", c);
+                    continue;
+                }
 
-                // Title references
+                // Ensure Title entry if Title reference is empty
                 if (c.Title == null || c.Title.IsEmpty)
                 {
-                    missingTitleRef++;
-                    Debug.LogWarning($"[Card Loc Validate] Missing Title table/entry reference: {c.name}", c);
-                }
-                else if (localeCount > 0)
-                {
-                    var missingLocales = new List<string>();
-                    foreach (var locale in locales)
+                    var key = c.Id;
+                    // Set the LocalizedString reference on the card
+                    c.Title = new LocalizedString("Cards", key);
+                    fixedTitleRefs++;
+
+                    if (enLocale == null)
                     {
-                        try
+                        Debug.LogWarning($"[Card Loc Validate] No English locale found. Cannot seed Title for '{c.Id}'.", c);
+                    }
+                    else
+                    {
+                        var enTable = LocalizationSettings.StringDatabase.GetTable("Cards", enLocale);
+                        if (enTable == null)
                         {
-                            var table = LocalizationSettings.StringDatabase.GetTable(c.Title.TableReference, locale);
-                            StringTableEntry entry = null;
-                            var tr = c.Title.TableEntryReference;
-                            if (tr.ReferenceType == TableEntryReference.Type.Id)
-                                entry = table?.GetEntry(tr.KeyId);
-                            else
-                                entry = table?.GetEntry(tr.Key);
-                            if (entry == null || string.IsNullOrEmpty(entry.LocalizedValue))
-                                missingLocales.Add(locale.Identifier.Code);
+                            Debug.LogWarning($"[Card Loc Validate] Could not find 'Cards' table for locale '{enLocale.Identifier.Code}'.", c);
                         }
-                        catch
+                        else
                         {
-                            missingLocales.Add(locale.Identifier.Code);
+                            var entry = enTable.GetEntry(key);
+                            if (entry == null)
+                            {
+                                enTable.AddEntry(key, string.IsNullOrWhiteSpace(c.TitleEn) ? c.name : c.TitleEn);
+                                createdTitleEntries++;
+                            }
+                            else if (string.IsNullOrEmpty(entry.LocalizedValue) && !string.IsNullOrWhiteSpace(c.TitleEn))
+                            {
+                                entry.Value = c.TitleEn;
+                            }
+                            EditorUtility.SetDirty(enTable);
                         }
                     }
-                    if (missingLocales.Count > 0)
-                    {
-                        titleMissingInLocales++;
-                        Debug.LogWarning($"[Card Loc Validate] Title missing for locales [{string.Join(", ", missingLocales)}]: {c.name}", c);
-                    }
+                    EditorUtility.SetDirty(c);
                 }
 
-                // Description references
+                // Ensure Description entry if Description reference is empty
                 if (c.Description == null || c.Description.IsEmpty)
                 {
-                    missingDescRef++;
-                    Debug.LogWarning($"[Card Loc Validate] Missing Description table/entry reference: {c.name}", c);
-                }
-                else if (localeCount > 0)
-                {
-                    var missingLocales = new List<string>();
-                    foreach (var locale in locales)
+                    var key = c.Id + ".desc";
+                    c.Description = new LocalizedString("Cards", key);
+                    fixedDescRefs++;
+
+                    if (enLocale == null)
                     {
-                        try
+                        Debug.LogWarning($"[Card Loc Validate] No English locale found. Cannot seed Description for '{c.Id}'.", c);
+                    }
+                    else
+                    {
+                        var enTable = LocalizationSettings.StringDatabase.GetTable("Cards", enLocale);
+                        if (enTable == null)
                         {
-                            var table = LocalizationSettings.StringDatabase.GetTable(c.Description.TableReference, locale);
-                            StringTableEntry entry = null;
-                            var tr = c.Description.TableEntryReference;
-                            if (tr.ReferenceType == TableEntryReference.Type.Id)
-                                entry = table?.GetEntry(tr.KeyId);
-                            else
-                                entry = table?.GetEntry(tr.Key);
-                            if (entry == null || string.IsNullOrEmpty(entry.LocalizedValue))
-                                missingLocales.Add(locale.Identifier.Code);
+                            Debug.LogWarning($"[Card Loc Validate] Could not find 'Cards' table for locale '{enLocale.Identifier.Code}'.", c);
                         }
-                        catch
+                        else
                         {
-                            missingLocales.Add(locale.Identifier.Code);
+                            var entry = enTable.GetEntry(key);
+                            if (entry == null)
+                            {
+                                enTable.AddEntry(key, string.IsNullOrWhiteSpace(c.DescriptionEn) ? string.Empty : c.DescriptionEn);
+                                createdDescEntries++;
+                            }
+                            else if (string.IsNullOrEmpty(entry.LocalizedValue) && !string.IsNullOrWhiteSpace(c.DescriptionEn))
+                            {
+                                entry.Value = c.DescriptionEn;
+                            }
+                            EditorUtility.SetDirty(enTable);
                         }
                     }
-                    if (missingLocales.Count > 0)
-                    {
-                        descMissingInLocales++;
-                        Debug.LogWarning($"[Card Loc Validate] Description missing for locales [{string.Join(", ", missingLocales)}]: {c.name}", c);
-                    }
+                    EditorUtility.SetDirty(c);
                 }
             }
+
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
 
             EditorUtility.DisplayDialog(
                 "Validate Cards Localization",
                 $"Total: {cards.Count}\n" +
-                $"Locales checked: {localeCount}\n" +
-                $"Missing Title reference: {missingTitleRef}\n" +
-                $"Missing Title in some locales: {titleMissingInLocales}\n" +
-                $"Missing Description reference: {missingDescRef}\n" +
-                $"Missing Description in some locales: {descMissingInLocales}\n",
+                $"Locales available: {localeCount}\n" +
+                $"Fixed Title refs: {fixedTitleRefs} | Entries created: {createdTitleEntries}\n" +
+                $"Fixed Description refs: {fixedDescRefs} | Entries created: {createdDescEntries}",
                 "OK");
         }
     }
