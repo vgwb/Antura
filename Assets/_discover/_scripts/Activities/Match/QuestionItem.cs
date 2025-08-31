@@ -5,20 +5,30 @@ using Antura.Discover;
 
 namespace Antura.Discover.Activities
 {
-    [DisallowMultipleComponent]
+    public enum HighlightVisualState
+    {
+        Default,
+        Hover,
+        Correct,
+        Wrong
+    }
+
     public class QuestionItem : MonoBehaviour
     {
         [Header("References")]
         public Image CardImage;
         public TextMeshProUGUI Label;
         public GameObject Highlight;
-        [HideInInspector] public MatchDropSlot DropSlot;
+        public Image highlightImage;
+
+        public MatchDropSlot DropSlot;
 
         [Header("Data")]
         public CardData Data;
         public string ExpectedAnswerId;
 
-        private Image _highlightImage;
+
+        private HighlightVisualState _currentHighlightState = HighlightVisualState.Default;
 
         public void Init(string title, Sprite sprite, int slotIndex, ActivityMatch manager, CardData data, string expectedAnswerId = null)
         {
@@ -38,46 +48,56 @@ namespace Antura.Discover.Activities
             Data = data;
             ExpectedAnswerId = expectedAnswerId;
 
-            // Drop overlay (needs a Graphic to receive UI events)
-            var dropGO = new GameObject("DropOverlay", typeof(RectTransform));
-            dropGO.transform.SetParent(transform, false);
-            var img = dropGO.AddComponent<Image>();
-            img.color = new Color(1, 1, 1, 0f); // invisible, but raycastable
-            img.raycastTarget = true;
-            DropSlot = dropGO.AddComponent<MatchDropSlot>();
-            DropSlot.manager = manager;
-            DropSlot.slotIndex = slotIndex;
+            if (DropSlot != null)
+            {
+                DropSlot.manager = manager;
+                DropSlot.slotIndex = slotIndex;
+                DropSlot.Owner = this;
+            }
 
-            // Cache highlight image
-            if (Highlight != null)
-                _highlightImage = Highlight.GetComponent<Image>();
-            if (_highlightImage == null && Highlight != null)
-                _highlightImage = Highlight.AddComponent<Image>();
-            // Default normal
-            SetHighlight(null);
+            SetHighlightState(HighlightVisualState.Default);
         }
 
         /// null -> default, true -> green, false -> red
         public void SetHighlight(bool? correct)
         {
-            if (Highlight == null)
-                return;
-            if (_highlightImage == null)
-                _highlightImage = Highlight.GetComponent<Image>();
             if (correct == null)
             {
-                var color = Color.white;
-                color.a = .2f;
-                _highlightImage.color = color;
-                // Highlight.SetActive(false);
+                _currentHighlightState = HighlightVisualState.Default;
+
             }
             else
             {
-                var color = correct.Value ? Color.green : Color.red;
-                color.a = 0.35f;
-                _highlightImage.color = color;
-                // Highlight.SetActive(true);
+                _currentHighlightState = correct.Value ? HighlightVisualState.Correct : HighlightVisualState.Wrong;
             }
+            SetHighlightState(_currentHighlightState);
+        }
+
+        public void SetHighlightState(HighlightVisualState state)
+        {
+            Color color;
+            if (state == HighlightVisualState.Hover)
+            {
+                color = new Color(1f, 1f, 1f, 0.5f);
+            }
+            else if (state == HighlightVisualState.Correct)
+            {
+                color = new Color(0.1f, 0.85f, 0.2f, 0.35f);
+            }
+            else if (state == HighlightVisualState.Wrong)
+            {
+                color = new Color(1f, 0.2f, 0.2f, 0.35f);
+            }
+            else
+            {
+                color = new Color(1f, 1f, 1f, 0.2f);
+            }
+            highlightImage.color = color;
+        }
+
+        public void SetHoverVisual(bool isHover)
+        {
+            SetHighlightState(isHover ? HighlightVisualState.Hover : _currentHighlightState);
         }
     }
 }

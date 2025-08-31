@@ -11,6 +11,7 @@ namespace Antura.Discover.Activities
         private RectTransform board;
         private Vector2 startPos;
         private Vector2 startPointer;
+        private bool reparentedOnBegin;
 
         private void Awake()
         {
@@ -22,10 +23,23 @@ namespace Antura.Discover.Activities
             if (manager == null || manager.BoardArea == null || rt == null)
                 return;
             board = manager.BoardArea as RectTransform;
-            var parentRT = rt.parent as RectTransform;
-            if (parentRT == null)
+            if (board == null)
                 return;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out startPointer);
+            // Ensure we drag in BoardArea space to clamp correctly
+            if (rt.parent != board)
+            {
+                var world = rt.position;
+                rt.SetParent(board, worldPositionStays: true);
+                // Center anchors/pivot for consistent anchoredPosition semantics
+                rt.anchorMin = new Vector2(0.5f, 0.5f);
+                rt.anchorMax = new Vector2(0.5f, 0.5f);
+                rt.pivot = new Vector2(0.5f, 0.5f);
+                reparentedOnBegin = true;
+                // Recompute anchored position from world
+                var local = (Vector2)board.InverseTransformPoint(world);
+                rt.anchoredPosition = local;
+            }
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(board, eventData.position, eventData.pressEventCamera, out startPointer);
             startPos = rt.anchoredPosition;
         }
 
@@ -33,17 +47,16 @@ namespace Antura.Discover.Activities
         {
             if (board == null || rt == null)
                 return;
-            var parentRT = rt.parent as RectTransform;
-            if (parentRT == null)
-                return;
             Vector2 curr;
-            RectTransformUtility.ScreenPointToLocalPointInRectangle(parentRT, eventData.position, eventData.pressEventCamera, out curr);
+            RectTransformUtility.ScreenPointToLocalPointInRectangle(board, eventData.position, eventData.pressEventCamera, out curr);
             var desired = startPos + (curr - startPointer);
             rt.anchoredPosition = ClampAnchoredToParent(board, rt, desired);
         }
 
         public void OnEndDrag(PointerEventData eventData)
         {
+            // Keep parent as BoardArea; drop logic will reattach if needed
+            reparentedOnBegin = false;
         }
 
         private static Vector2 ClampAnchoredToParent(RectTransform parent, RectTransform child, Vector2 desired)

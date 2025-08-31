@@ -23,8 +23,7 @@ namespace Antura.Discover.Activities
         public AudioSource audioSource;
         public AudioClip dropSound;
 
-        private DraggableTile[] placed; // placed answer items indexed by question
-                                        // DropSlots are owned by QuestionItem
+        private DraggableTile[] placed;
         private readonly List<QuestionItem> questionItems = new();
         private readonly Dictionary<DraggableTile, Vector2> poolAnchoredPos = new();
         private readonly Dictionary<DraggableTile, int> poolSiblingIndex = new();
@@ -125,6 +124,7 @@ namespace Antura.Discover.Activities
                 }
                 drop.manager = this;
                 drop.slotIndex = i;
+                drop.Owner = qItem;
                 // tracked through questionItems
                 questionItems.Add(qItem);
                 qItem.ExpectedAnswerId = pair.Answer.Id;
@@ -222,7 +222,6 @@ namespace Antura.Discover.Activities
 
             // Add a board-wide drop area so non-question drops are captured without snapping
             EnsureBoardDropArea();
-
             UpdateSlotHighlights();
         }
 
@@ -296,8 +295,6 @@ namespace Antura.Discover.Activities
                 placed[slotIndex] = null;
             if (slotIndex >= 0 && slotIndex < questionItems.Count)
                 questionItems[slotIndex]?.SetHighlight(null);
-            // Update AnswerItem state if available
-            // We don't know which tile, so this is handled at detach/drop moments elsewhere
             UpdateValidateState();
             UpdateSlotHighlights();
         }
@@ -380,9 +377,9 @@ namespace Antura.Discover.Activities
             var drop = area.GetComponent<MatchDropSlot>();
             if (drop == null)
                 drop = area.gameObject.AddComponent<MatchDropSlot>();
-            var g = area.GetComponent<UnityEngine.UI.Image>();
+            var g = area.GetComponent<Image>();
             if (g == null)
-                g = area.gameObject.AddComponent<UnityEngine.UI.Image>();
+                g = area.gameObject.AddComponent<Image>();
             g.color = new Color(1, 1, 1, 0f);
             g.raycastTarget = true;
             drop.manager = this;
@@ -410,7 +407,6 @@ namespace Antura.Discover.Activities
             }
         }
 
-        // Keep the tile at its current visual position, ensuring parent and memory are updated.
         public void OnTileDroppedInPoolKeepPosition(DraggableTile tile)
         {
             if (tile == null)
@@ -422,15 +418,7 @@ namespace Antura.Discover.Activities
                 {
                     placed[i] = null;
                     if (i >= 0 && i < questionItems.Count)
-                    {
-                        var comp = questionItems[i];
-                        if (comp != null)
-                        {
-                            var m = comp.GetType().GetMethod("SetHighlight");
-                            if (m != null)
-                                m.Invoke(comp, new object[] { null });
-                        }
-                    }
+                        questionItems[i]?.SetHighlight(null);
                 }
             }
             if (tile.transform is RectTransform rt)
@@ -467,8 +455,8 @@ namespace Antura.Discover.Activities
         private void UpdateSlotHighlights()
         {
             // Give gentle guidance in Tutorial/Easy
-            var diff = Settings != null ? Settings.Difficulty : Difficulty.Default;
-            if (diff != Difficulty.Easy)
+            var currentDifficulty = Settings != null ? Settings.Difficulty : Difficulty.Default;
+            if (currentDifficulty != Difficulty.Easy)
             {
                 // Clear all
                 for (int i = 0; i < questionItems.Count; i++)

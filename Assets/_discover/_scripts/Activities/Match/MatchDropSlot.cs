@@ -10,16 +10,22 @@ namespace Antura.Discover.Activities
     /// Provides simple highlight helpers used by ActivityMatch.
     /// </summary>
     [DisallowMultipleComponent]
-    public class MatchDropSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler
+    public class MatchDropSlot : MonoBehaviour, IDropHandler, IBeginDragHandler, IDragHandler, IEndDragHandler, IPointerEnterHandler, IPointerExitHandler
     {
-        [Tooltip("Assigned by ActivityMatch at runtime")]
         public ActivityMatch manager;
-        [Tooltip("Assigned by ActivityMatch at runtime")]
         public int slotIndex = -1;
         [Tooltip("When true, acts as a pool drop area instead of a question slot.")]
         public bool IsPoolArea = false;
 
-        // Drag state for moving the whole question group
+        [Tooltip("Owning QuestionItem for highlight state updates")]
+        public QuestionItem Owner;
+
+        [Header("Visuals")]
+        [Tooltip("Optional hover color when a tile is over this slot.")]
+        public Color HoverColor = new Color(0f, 0.6f, 1f, 0.2f);
+        private Image _img;
+        private Image _ownerHighlightImage;
+
         private RectTransform dragRoot;
         private bool draggingQuestion;
         private Vector2 startRootPos;
@@ -27,15 +33,23 @@ namespace Antura.Discover.Activities
 
         private void Awake()
         {
-            // If used under a RectTransform, stretch to cover parent by default
-            var rt = transform as RectTransform;
-            if (rt != null)
+            // Auto-find the owning QuestionItem if not assigned
+            if (Owner == null)
+                Owner = GetComponentInParent<QuestionItem>();
+            _img = GetComponent<Image>();
+            if (Owner != null && Owner.Highlight != null)
             {
-                rt.anchorMin = Vector2.zero;
-                rt.anchorMax = Vector2.one;
-                rt.offsetMin = Vector2.zero;
-                rt.offsetMax = Vector2.zero;
-                rt.pivot = new Vector2(0.5f, 0.5f);
+                _ownerHighlightImage = Owner.Highlight.GetComponent<Image>();
+                if (_ownerHighlightImage == null)
+                    _ownerHighlightImage = Owner.Highlight.AddComponent<Image>();
+            }
+            // Default invisible for any local Image; highlight is handled by QuestionItem
+            if (_img != null)
+            {
+                var c = _img.color;
+                c.a = 0f;
+                _img.color = c;
+                _img.raycastTarget = true;
             }
         }
 
@@ -132,6 +146,35 @@ namespace Antura.Discover.Activities
             if (IsPoolArea)
                 return;
             draggingQuestion = false;
+        }
+
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (IsPoolArea)
+                return;
+            // Highlight only when hovering with a draggable tile
+            if (eventData != null && eventData.pointerDrag && eventData.pointerDrag.GetComponent<DraggableTile>() != null)
+            {
+                if (_ownerHighlightImage != null)
+                    _ownerHighlightImage.color = new Color(1f, 1f, 1f, 0.5f);
+                else if (_img != null)
+                {
+                    // Fallback visual if no owner present
+                    _img.color = HoverColor;
+                }
+            }
+        }
+
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            if (_ownerHighlightImage != null)
+                _ownerHighlightImage.color = new Color(1f, 1f, 1f, 0.2f);
+            else if (_img != null)
+            {
+                var c = _img.color;
+                c.a = 0f;
+                _img.color = c;
+            }
         }
 
     }
