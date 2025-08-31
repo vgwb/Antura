@@ -11,7 +11,8 @@ namespace Antura.Discover
         TEXT = 1,
         CHOICE = 2,
         QUIZ = 3,
-        PANEL = 4
+        PANEL = 4,
+        PANEL_ENDGAME = 5,
     }
 
     public struct NodeChoice

@@ -210,6 +210,7 @@ namespace Antura.Discover
 
         IEnumerator CO_ShowDialogueFor(QuestNode node)
         {
+            Debug.Log("IS THIS DEPRECATED??");
             IsOpen = true;
             currNode = node;
             currBalloon = narratorBalloon; // Can be changed by switch below
@@ -280,6 +281,11 @@ namespace Antura.Discover
                     currBalloon = startEndPanel;
                     CurrDialogueType = DialogueType.Text;
                     ShowStartPanel(node);
+                    break;
+                case NodeType.PANEL_ENDGAME:
+                    currBalloon = startEndPanel;
+                    CurrDialogueType = DialogueType.Text;
+                    ShowEndPanel(node, QuestManager.I.Progress.GetCurrentStarsAchieved());
                     break;
                 case NodeType.CHOICE:
                 case NodeType.QUIZ:

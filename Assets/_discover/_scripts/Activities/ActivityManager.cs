@@ -60,19 +60,11 @@ namespace Antura.Discover.Activities
         {
             _lastResultScore = resultScore;
 
-            // Persist activity run stats
             try
             {
-                DiscoverAppManager.I?.RecordQuestEnd(new Antura.Discover.QuestEnd
+                DiscoverAppManager.I?.RecordActivityEnd(new ActivityEnd
                 {
-                    questId = QuestManager.I.CurrentQuest != null ? QuestManager.I.CurrentQuest.Id : string.Empty,
-                    score = 0,
-                    durationSec = 0,
-                    stars = 0,
-                    activities = new List<ActivityEnd>
-                    {
-                        new ActivityEnd { activityId = activityId, score = resultScore, durationSec = durationSec }
-                    }
+                    activityId = activityId, score = resultScore, durationSec = durationSec
                 });
             }
             catch { }

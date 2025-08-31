@@ -7,6 +7,7 @@ using Antura.Utilities;
 using System.Collections.Generic;
 using UnityEngine;
 using Yarn;
+using DG.DeExtensions;
 
 namespace Antura.Discover
 {
@@ -120,26 +121,16 @@ namespace Antura.Discover
             }
         }
 
-        public void OnQuestEnd()
+        public void QuestEnd()
         {
             if (DebugConfig.I.VerboseAntura)
-                Debug.Log("OnQuestEnd");
+                Debug.Log("QuestEnd");
 
-            YarnAnturaManager.I?.StartDialogue("quest_end");
-
-            // SAVE COOKIES
-            var app = DiscoverAppManager.I;
-            if (app != null && app.CurrentProfile != null)
-            {
-                app.CurrentProfile.wallet.cookies = Inventory.GetCookies();
-                app.MarkDirty();
-            }
-
-            DiscoverQuestSaved questStatus = new DiscoverQuestSaved
-            {
-                QuestCode = CurrentQuest.Id
-            };
-            AppManager.I.Player.SaveQuest(questStatus);
+            QuestEnd questResult = new QuestEnd();
+            questResult.questId = CurrentQuest.Id;
+            questResult.stars = Progress.GetCurrentStarsAchieved();
+            DiscoverGameManager.I.GameEnd(questResult, Inventory.GetCookies());
+            //YarnAnturaManager.I?.StartDialogue("quest_end");
         }
 
         public void StartDialogue(string nodeName)
@@ -353,7 +344,7 @@ namespace Antura.Discover
             var output = "";
             output += "DEBUG INFO";
             output += "\nQuest: " + CurrentQuest.Id;
-            output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Id).Score;
+            // output += "\nQuest Score: " + AppManager.I.Player.GetQuestStatus(CurrentQuest.Id).Score;
             output += "\nNative Language: " + AppManager.I.AppSettings.NativeLanguage;
             output += "\nLearning Language: " + AppManager.I.ContentEdition.LearningLanguage;
             Debug.Log(output);

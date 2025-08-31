@@ -63,8 +63,7 @@ namespace Antura.Discover.UI
 
         public void OpenQuest(QuestData questData)
         {
-            //Debug.Log("Load scene " + questData.scene);
-            AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
+            DiscoverAppManager.I.OpenQuest(questData);
         }
 
 

@@ -24,38 +24,34 @@ namespace Antura.Discover
         public string questId;
         public int score;
         public int durationSec;
-        public int stars; // 0..3
-        public List<ActivityEnd> activities; // optional
+        public int stars;
+        public List<ActivityEnd> activities;
     }
 
     public class DiscoverAppManager : SingletonMonoBehaviour<DiscoverAppManager>
     {
-        [Header("Economy (milestones & quest star caps)")]
-        [SerializeField] private EconomySettings economySettings;
+        [SerializeField]
+        private EconomySettings economySettings;
 
-        [Header("Storage")]
-        [SerializeField] private string storageSubdir = "discover_profiles";
+        private const string storageSubdir = "discover_profiles";
 
-        // Store for JSON files + tiny PlayerPrefs pointer
         private DiscoverProfileManager profilesManager;
 
-        // Currently loaded Discover profile (null until Initialize... is called)
         public DiscoverPlayerProfile CurrentProfile { get; private set; }
 
-        // Profile service (v7 helpers)
-        private ProfileService _profileSvc;
-        private ProfileService Svc
+        private ProfileService profileService;
+        private ProfileService ProfileSvc
         {
             get
             {
-                if (_profileSvc == null && CurrentProfile != null)
-                    _profileSvc = new ProfileService(CurrentProfile, economySettings);
-                return _profileSvc;
+                if (profileService == null && CurrentProfile != null)
+                    profileService = new ProfileService(CurrentProfile, economySettings);
+                return profileService;
             }
         }
 
         // Auto-save debounce (seconds)
-        [SerializeField] private float saveDebounceSeconds = 60f;
+        private float saveDebounceSeconds = 60f;
         private bool dirty;
         private Coroutine saveCo;
 
@@ -74,9 +70,6 @@ namespace Antura.Discover
         /// <summary>Raised when gems are awarded through the ledger (delta, newly added tokens).</summary>
         public event Action<int, GemTokenClaim[]> OnGemsAwarded;
 
-        // ------------------------------
-        // Lifecycle
-        // ------------------------------
         protected override void Init()
         {
             DontDestroyOnLoad(this);
@@ -91,7 +84,6 @@ namespace Antura.Discover
 
         private void Start()
         {
-            // Initialize with the current legacy profile (if any)
             if (AppManager.I.PlayerProfileManager.CurrentPlayer != null)
             {
                 InitializeFromLegacyUuid(AppManager.I.PlayerProfileManager.CurrentPlayer.Uuid,
@@ -125,6 +117,20 @@ namespace Antura.Discover
         }
 
         // ------------------------------
+        // Navigation
+        // ------------------------------
+        public void OpenQuest(QuestData questData)
+        {
+            AppManager.I.NavigationManager.GoToDiscoverQuest(questData.scene);
+        }
+
+        public void GoToQuestMenu()
+        {
+            AppManager.I.NavigationManager.ExitToMainMenu();
+        }
+
+
+        // ------------------------------
         // Profile load / switch
         // ------------------------------
         public void InitializeFromLegacyUuid(string legacyUuid, PlayerProfile legacy = null)
@@ -151,7 +157,7 @@ namespace Antura.Discover
         private void SetCurrentProfile(DiscoverPlayerProfile p)
         {
             CurrentProfile = p;
-            _profileSvc = (p != null) ? new ProfileService(p, economySettings) : null;
+            profileService = (p != null) ? new ProfileService(p, economySettings) : null;
             OnProfileLoaded?.Invoke(CurrentProfile);
         }
 
@@ -166,21 +172,40 @@ namespace Antura.Discover
         //   QUEST FLOW
         // =========================================================
 
+        public void RecordActivityEnd(ActivityEnd activityEnd)
+        {
+            if (CurrentProfile == null)
+            { Debug.LogWarning("DiscoverAppManager.RecordActivityEnd called with no profile loaded."); return; }
+
+            ProfileSvc.RecordActivityRun(
+                activityId: activityEnd.activityId,
+                win: activityEnd.score >= 50,
+                score: activityEnd.score,
+                timeSec: activityEnd.durationSec,
+                topic: activityEnd.topic,
+                attempts: activityEnd.attempts,
+                correct: activityEnd.correct,
+                wrongItems: activityEnd.wrongItems
+            );
+
+            MarkDirty();
+        }
+
         /// <summary>Update the current profile after a quest concludes</summary>
-        public void RecordQuestEnd(QuestEnd end)
+        public void RecordQuestEnd(QuestEnd end, int currentCookies)
         {
             if (CurrentProfile == null)
             { Debug.LogWarning("DiscoverAppManager.RecordQuestEnd called with no profile loaded."); return; }
 
             // Record quest run (updates stats + awards star→gem delta if improved)
-            var award = Svc.RecordQuestRun(end.questId, end.score, end.stars, end.durationSec);
+            var award = ProfileSvc.RecordQuestRun(end.questId, end.score, end.stars, end.durationSec);
 
             // Aggregate activities
             if (end.activities != null)
             {
                 foreach (var a in end.activities)
                 {
-                    Svc.RecordActivityRun(
+                    ProfileSvc.RecordActivityRun(
                         activityId: a.activityId,
                         win: a.score >= 50,
                         score: a.score,
@@ -199,6 +224,8 @@ namespace Antura.Discover
                 OnCurrencyChanged?.Invoke();
             }
 
+            CurrentProfile.wallet.cookies = currentCookies;
+
             MarkDirty();
         }
 
@@ -212,13 +239,13 @@ namespace Antura.Discover
             if (CurrentProfile == null || card == null)
                 return;
 
-            Svc.RecordCardSeen(card.Id);
+            ProfileSvc.RecordCardSeen(card.Id);
 
             // KP per interaction (can trigger XP milestone gems)
-            var kpRes = Svc.RecordCardAnswerAndPoints(card.Id, answeredCorrect);
+            var kpRes = ProfileSvc.RecordCardAnswerAndPoints(card.Id, answeredCorrect);
 
             // MP per interaction + unlock gem once ready (no overrides)
-            var mpRes = Svc.ApplyCardMasteryAndUnlock(card, answeredCorrect);
+            var mpRes = ProfileSvc.ApplyCardMasteryAndUnlock(card, answeredCorrect);
 
             OnCurrencyChanged?.Invoke();
             if (kpRes.Any)
@@ -273,7 +300,7 @@ namespace Antura.Discover
             // Points (XP) — may trigger XP milestone gem claims via EconomySettings
             if (rewardPoints != 0)
             {
-                var xpAward = Svc.AddPoints(rewardPoints);
+                var xpAward = ProfileSvc.AddPoints(rewardPoints);
                 if (xpAward.Any)
                 {
                     OnGemsAwarded?.Invoke(xpAward.gemsAdded, xpAward.newClaims);
@@ -284,7 +311,7 @@ namespace Antura.Discover
             // Gems via ledger (idempotent per achievement)
             if (rewardGems > 0)
             {
-                var gemAward = Svc.ClaimAchievementGem(achievementId, rewardGems);
+                var gemAward = ProfileSvc.ClaimAchievementGem(achievementId, rewardGems);
                 if (gemAward.Any)
                 {
                     OnGemsAwarded?.Invoke(gemAward.gemsAdded, gemAward.newClaims);

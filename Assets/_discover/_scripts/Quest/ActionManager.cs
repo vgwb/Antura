@@ -219,7 +219,7 @@ namespace Antura.Discover
                         QuestManager.I.AddProgressPoints(int.Parse(command.Parameter));
                         break;
                     case CommandType.QuestEnd:
-                        QuestManager.I.OnQuestEnd();
+                        QuestManager.I.QuestEnd();
                         break;
                     case CommandType.SetActive:
                         if (command.mainObject != null)
@@ -295,7 +295,7 @@ namespace Antura.Discover
             WinFx.GetComponent<ParticleSystem>().Play();
             AudioManager.I.PlaySound(Sfx.Win);
             AnturaDog.SetActive(true);
-            QuestManager.I.OnQuestEnd();
+            QuestManager.I.QuestEnd();
         }
 
         public CameraFocusData FindCameraFocus(string id, bool includeInactive = true)

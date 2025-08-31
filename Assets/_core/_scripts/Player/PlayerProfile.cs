@@ -229,34 +229,34 @@ namespace Antura.Profile
 
         #region Discover quests
 
-        public DiscoverQuestSaved GetQuestStatus(string questCode)
-        {
-            return Quests.Find(q => q.QuestCode == questCode);
-        }
+        // public DiscoverQuestSaved GetQuestStatus(string questCode)
+        // {
+        //     return Quests.Find(q => q.QuestCode == questCode);
+        // }
 
-        /// <summary>
-        /// Adds or updates a quest in the Quests list, ensuring QuestCode uniqueness.
-        /// </summary>
-        /// <param name="questToSave">The quest to save</param>
-        public void SaveQuest(DiscoverQuestSaved questToSave)
-        {
-            var updatedQuests = new List<DiscoverQuestSaved>(Quests);
+        // /// <summary>
+        // /// Adds or updates a quest in the Quests list, ensuring QuestCode uniqueness.
+        // /// </summary>
+        // /// <param name="questToSave">The quest to save</param>
+        // public void SaveQuest(DiscoverQuestSaved questToSave)
+        // {
+        //     var updatedQuests = new List<DiscoverQuestSaved>(Quests);
 
-            // Check if the QuestCode already exists
-            int existingIndex = updatedQuests.FindIndex(q => q.QuestCode == questToSave.QuestCode);
-            if (existingIndex >= 0)
-            {
-                // QuestCode exists, update the existing entry
-                updatedQuests[existingIndex] = questToSave;
-            }
-            else
-            {
-                updatedQuests.Add(questToSave);
-            }
+        //     // Check if the QuestCode already exists
+        //     int existingIndex = updatedQuests.FindIndex(q => q.QuestCode == questToSave.QuestCode);
+        //     if (existingIndex >= 0)
+        //     {
+        //         // QuestCode exists, update the existing entry
+        //         updatedQuests[existingIndex] = questToSave;
+        //     }
+        //     else
+        //     {
+        //         updatedQuests.Add(questToSave);
+        //     }
 
-            Quests = updatedQuests;
-            Save();
-        }
+        //     Quests = updatedQuests;
+        //     Save();
+        // }
 
         #endregion
 

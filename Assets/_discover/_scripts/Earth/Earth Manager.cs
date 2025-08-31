@@ -28,7 +28,6 @@ namespace Antura.Discover
         void Start()
         {
             //            Debug.Log("EarthManager START");
-            // Debug.Log("Current contet: " + AppManager.I.ContentEdition.ContentID);
             if (AppManager.I.ContentEdition.ContentID == LearningContentID.Discover_Poland)
             {
                 SelectCountry(Countries.Poland);

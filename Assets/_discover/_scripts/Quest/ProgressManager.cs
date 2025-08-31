@@ -54,5 +54,20 @@ namespace Antura.Discover
             current_progress += points;
             UpdateUI();
         }
+
+        public int GetCurrentStarsAchieved()
+        {
+            if (total_progress == 0)
+                return 0;
+            float progressRatio = current_progress / total_progress;
+            if (progressRatio >= 0.9f)
+                return 3;
+            else if (progressRatio >= 0.6f)
+                return 2;
+            else if (progressRatio >= 0.3f)
+                return 1;
+            else
+                return 0;
+        }
     }
 }

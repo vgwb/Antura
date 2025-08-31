@@ -330,17 +330,10 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("quest_end")]
-        public static void CommandQuestEnd(float finalStars = -1)
+        public static void CommandQuestEnd()
         {
-            // if finalStars is -1, calculate based on progress
-            // if finalStars is 0, end as failed
-            // if finalStars is 1,2,3 end with that many stars
-            Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {finalStars}");
-
-            QuestEnd questResult = new QuestEnd();
-            questResult.questId = QuestManager.I.CurrentQuest.Id;
-            questResult.stars = Mathf.RoundToInt(finalStars);
-            DiscoverAppManager.I.RecordQuestEnd(questResult);
+            //Debug.Log($"ActionManager: ResolveNodeCommandEndquest: {finalStars}");
+            QuestManager.I.QuestEnd();
         }
 
         // ------------------------------------------------------------

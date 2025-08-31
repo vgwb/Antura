@@ -91,6 +91,12 @@ namespace Antura.Discover
             var nodeType = Manager.Runner.Dialogue.GetHeaderValue(_currentNodeName, "type");
             // Debug.Log($"Node {_currentNodeName} has type {nodeType}");
 
+            NodeType type = NodeType.TEXT;
+            if (nodeType == "panel_endgame")
+                type = NodeType.PANEL_ENDGAME;
+            else if (nodeType == "panel")
+                type = NodeType.PANEL;
+
             var lineId = line.TextID;
             var CharacterName = line.CharacterName;
             var RawText = line.RawText;
@@ -100,7 +106,7 @@ namespace Antura.Discover
 
             var questNode = new QuestNode
             {
-                Type = nodeType == "panel" ? NodeType.PANEL : NodeType.TEXT,
+                Type = type,
                 Content = TextWithoutCharacterName.Text,
                 ContentNative = TextWithoutCharacterName.Text, // TODO: provide native via localization
                 AudioId = null,

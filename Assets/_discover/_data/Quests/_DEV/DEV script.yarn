@@ -321,15 +321,21 @@ position: -368,1
 group: endgame
 color: red
 ---
-
 You can end this quest with... #line:027bdca 
 -> NOOOO i don't want end
--> 0 stars (fail) #line:0130629 
-    <<quest_end 0>>
--> 1 star #line:05caf8d 
-    <<quest_end 1>>
--> 3 stars #line:0f65a6b 
-    <<quest_end 3>>
+-> YES, let's end
+    <<quest_end>>
+    <<jump close_game>>
+===
+
+title: close_game
+position: -368,200
+group: endgame
+color: red
+type: panel_endgame
+---
+
+THis is the last message! goodybye
 
 ===
 

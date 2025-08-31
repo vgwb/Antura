@@ -35,8 +35,10 @@ namespace Antura.Discover
         // when we pause the game we use this global var
         public bool isPaused;
         private bool isIntroRunning;
-
         Coroutine coChangeState;
+
+        // sets stars when the game ends. hack we need to check state
+        private int GameEndStars = -1;
 
         void OnEnable()
         {
@@ -136,12 +138,27 @@ namespace Antura.Discover
 
         void OnYarnDialogueComplete()
         {
+            Debug.Log("-- discoverGameManager - OnYarnDialogueComplete in state " + State);
             // After intro/dialogue completes, return to 3D play only if we're handling the intro
             if (isIntroRunning)
             {
                 isIntroRunning = false;
                 ChangeState(GameplayState.Play3D, true);
             }
+
+            if (GameEndStars >= 0)
+            {
+                Debug.Log("QUIT GAME");
+                DiscoverAppManager.I.GoToQuestMenu();
+            }
+        }
+
+        public void GameEnd(QuestEnd questResult, int currentCookies)
+        {
+            Debug.Log("Setting GamePlayState to End with result " + questResult.stars);
+            DiscoverAppManager.I.RecordQuestEnd(questResult, currentCookies);
+            GameEndStars = questResult.stars;
+            ChangeState(GameplayState.End, true);
         }
     }
 }
