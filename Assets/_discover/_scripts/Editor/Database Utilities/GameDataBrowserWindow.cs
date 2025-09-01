@@ -457,20 +457,23 @@ namespace Antura.Discover
                     Repaint();
                 }
 
-                GUILayout.Space(8);
-                // Country selector (applies to data types with a Countries member; also for WorldPrefabData)
-                GUILayout.Label("Country:", GUILayout.Width(56));
-                var cOpts = GetCountryOptions();
-                var cLabels = cOpts.Select(o => o.Label).ToArray();
-                int cIndex = Mathf.Max(0, cOpts.FindIndex(o => !o.IsSeparator && o.Value.Equals(_countryFilter)));
-                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels, EditorStyles.toolbarPopup, GUILayout.Width(100));
+                GUILayout.Space(6);
+                // Country selector (compact): first entry is the label => no filter (All)
+                var rawCOpts = GetCountryOptions();
+                var cOpts = rawCOpts.Where(o => !o.IsSeparator).ToList();
+                var cLabels = new List<string> { "Country" };
+                cLabels.AddRange(cOpts.Select(o => o.Label));
+                int cIndex = 0;
+                if (_countryFilter != CountryFilter.All)
+                {
+                    int optIdx = cOpts.FindIndex(o => o.Value.Equals(_countryFilter));
+                    cIndex = optIdx >= 0 ? optIdx + 1 : 0;
+                }
+                int newCIndex = EditorGUILayout.Popup(cIndex, cLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
                 if (newCIndex != cIndex)
                 {
-                    if (!cOpts[newCIndex].IsSeparator)
-                    {
-                        _countryFilter = cOpts[newCIndex].Value;
-                        Repaint();
-                    }
+                    _countryFilter = (newCIndex <= 0) ? CountryFilter.All : cOpts[newCIndex - 1].Value;
+                    Repaint();
                 }
 
                 // DevStatus selector (only when browsing quests)
@@ -580,16 +583,14 @@ namespace Antura.Discover
                     }
                 }
 
-                // When browsing CardData, show a Quest filter popup
+                // When browsing CardData, show compact filter popups with label as first option
                 if (SelectedType == typeof(CardData))
                 {
-                    GUILayout.Space(8);
-                    GUILayout.Label("Quest:", GUILayout.Width(44));
-                    // Build quest list (IdDisplay fallback to Id/name)
+                    GUILayout.Space(6);
+                    // Quest filter (first option is the label => no filter)
                     var allQuests = _allData.OfType<QuestData>().OrderBy(q => q.Id ?? q.name).ToList();
-                    var questLabels = new List<string> { "(All)" };
-                    foreach (var q in allQuests)
-                        questLabels.Add(string.IsNullOrEmpty(q.Id) ? q.name : q.Id);
+                    var questLabels = new List<string> { "Quest" };
+                    questLabels.AddRange(allQuests.Select(q => string.IsNullOrEmpty(q.Id) ? q.name : q.Id));
                     int currentIndex = 0;
                     if (_cardQuestFilter != null)
                     {
@@ -597,18 +598,17 @@ namespace Antura.Discover
                         if (idx >= 0)
                             currentIndex = idx + 1;
                     }
-                    int newQ = EditorGUILayout.Popup(currentIndex, questLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(110));
+                    int newQ = EditorGUILayout.Popup(currentIndex, questLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
                     if (newQ != currentIndex)
                     {
                         _cardQuestFilter = newQ <= 0 ? null : allQuests[newQ - 1];
                         Repaint();
                     }
 
+                    GUILayout.Space(4);
                     // Type filter
-                    GUILayout.Space(8);
-                    GUILayout.Label("Type:", GUILayout.Width(36));
                     var typeValues = (CardType[])Enum.GetValues(typeof(CardType));
-                    var typeLabels = new List<string> { "(Any)" };
+                    var typeLabels = new List<string> { "Type" };
                     typeLabels.AddRange(typeValues.Select(v => v.ToString()));
                     int curType = _cardTypeFilter.HasValue ? (Array.IndexOf(typeValues, _cardTypeFilter.Value) + 1) : 0;
                     int pickType = EditorGUILayout.Popup(curType, typeLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(110));
@@ -618,11 +618,10 @@ namespace Antura.Discover
                         Repaint();
                     }
 
+                    GUILayout.Space(4);
                     // Topics filter
-                    GUILayout.Space(8);
-                    GUILayout.Label("Topics:", GUILayout.Width(54));
                     var topicValues = (KnowledgeTopic[])Enum.GetValues(typeof(KnowledgeTopic));
-                    var topicLabels = new List<string> { "(Any)" };
+                    var topicLabels = new List<string> { "Topics" };
                     topicLabels.AddRange(topicValues.Select(v => v.ToString()));
                     int curTopic = _cardTopicFilter.HasValue ? (Array.IndexOf(topicValues, _cardTopicFilter.Value) + 1) : 0;
                     int pickTopic = EditorGUILayout.Popup(curTopic, topicLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
@@ -632,11 +631,10 @@ namespace Antura.Discover
                         Repaint();
                     }
 
+                    GUILayout.Space(4);
                     // Importance filter
-                    GUILayout.Space(8);
-                    GUILayout.Label("Importance:", GUILayout.Width(78));
                     var impValues = (KnowledgeImportance[])Enum.GetValues(typeof(KnowledgeImportance));
-                    var impLabels = new List<string> { "(Any)" };
+                    var impLabels = new List<string> { "Importance" };
                     impLabels.AddRange(impValues.Select(v => v.ToString()));
                     int curImp = _cardImportanceFilter.HasValue ? (Array.IndexOf(impValues, _cardImportanceFilter.Value) + 1) : 0;
                     int pickImp = EditorGUILayout.Popup(curImp, impLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
@@ -646,11 +644,10 @@ namespace Antura.Discover
                         Repaint();
                     }
 
+                    GUILayout.Space(4);
                     // Status filter
-                    GUILayout.Space(8);
-                    GUILayout.Label("Status:", GUILayout.Width(52));
                     var stValues = (Status[])Enum.GetValues(typeof(Status));
-                    var stLabels = new List<string> { "All" };
+                    var stLabels = new List<string> { "Status" };
                     stLabels.AddRange(stValues.Select(v => v.ToString()));
                     int curStatus = _cardStatusFilter.HasValue ? (Array.IndexOf(stValues, _cardStatusFilter.Value) + 1) : 0;
                     int pickStatus = EditorGUILayout.Popup(curStatus, stLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(100));
