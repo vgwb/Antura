@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53ab89d6d03ed4e648d67d44fc8fa036, type: 3}
+  m_Name: Zoo Animals
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.TopicData
+  Id: animals
+  Name: Zoo Animal
+  Description: 
+  Importance: 20
+  NodeColor: {r: 1, g: 1, b: 1, a: 1}
+  CoreCard: {fileID: 11400000, guid: 6c9a8bc968e454adabafc040302ea490, type: 2}
+  Connections:
+  - ConnectedCard: {fileID: 11400000, guid: 9ccc9cc7536e14955b0124a566e2d5a3, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.6
+    ConnectionReason: Auto from remaining cards
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 59b8c3a29f89743658e92a6694107c18, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.6
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: ad9f739459055427da370dff93ff3385, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.6
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: b55f8603c01a34af0b0d972b9b40ddb8, type: 2}
+    ConnectionType: 11
+    ConnectionStrength: 0.6
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  DiscoveryPath: []
+  CohesionStrength: 0.6
+  TargetAge: 2
+  Subjects: 28000000

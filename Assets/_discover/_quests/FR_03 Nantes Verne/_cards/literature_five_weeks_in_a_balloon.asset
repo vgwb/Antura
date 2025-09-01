@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: literature_five_weeks_in_a_balloon
   Status: 3
-  Importance: 20
   Type: 3
-  Topics: 08000000
-  Year: 1863
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Five_Weeks_in_a_Balloon
+  Subjects: 08000000
   TitleEn: Five Weeks in a Balloon
   DescriptionEn: A book by Jules Verne about flying across Africa in a hot air balloon.
     It's full of adventure and discovery!
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1863
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Five_Weeks_in_a_Balloon
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30

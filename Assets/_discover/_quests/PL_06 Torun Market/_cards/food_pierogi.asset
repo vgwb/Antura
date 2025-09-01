@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: food_pierogi
   Status: 3
-  Importance: 10
   Type: 3
-  Topics: 2d00000003000000
-  Year: 1600
-  Country: 3
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Pierogi
+  Subjects: 2d00000003000000
   TitleEn: Polish Pierogi
   DescriptionEn: Dumplings filled with things like potato, cheese, or fruit. They
     are a famous Polish dish.
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1600
+  Country: 3
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Pierogi
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 7dab0c24286af469b8866e9173e14aaf, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30

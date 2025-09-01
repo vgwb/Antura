@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: flag_italy
   Status: 3
-  Importance: 10
   Type: 4
-  Topics: 0200000003000000
-  Year: 1946
-  Country: 1
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 0200000003000000
   TitleEn: Flag of Italy
   DescriptionEn: 'The flag of Italy has three vertical stripes: green, white, and
     red. The colors look like basil, mozzarella, and tomatoes on pizza!'
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1946
+  Country: 1
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: The Italian flag connection to pizza helps kids remember the colors
     easily
   Notes: 

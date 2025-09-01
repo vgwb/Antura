@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: concept_europe_map
   Status: 1
-  Importance: 10
   Type: 4
-  Topics: 0200000014000000
-  Year: 2000
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 0200000014000000
   TitleEn: Europe Map
   DescriptionEn: A map showing all the countries in Europe. You can see where France,
     Poland, Germany, and other countries are located.
@@ -42,11 +37,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 2000
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 451c1d20616df4f6990af440f0154894, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -60,6 +63,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Maps help kids understand where different countries are and how they
     connect
   Notes: 

@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: person_fryderyk_chopin
   Status: 3
-  Importance: 0
   Type: 2
-  Topics: 160000000100000003000000
-  Year: 1810
-  Country: 3
-  Location: {fileID: 0}
-  WikipediaUrl: "https://en.wikipedia.org/wiki/Fr\xE9d\xE9ric_Chopin"
+  Subjects: 160000000100000003000000
   TitleEn: Fryderyk Chopin
   DescriptionEn: A famous piano composer from Poland. He wrote beautiful music that
     sounds like dancing or telling stories. His music makes people feel happy or
@@ -43,10 +38,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1810
+  Country: 3
+  Location: {fileID: 0}
+  WikipediaUrl: "https://en.wikipedia.org/wiki/Fr\xE9d\xE9ric_Chopin"
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: bf72cc75cf34c4b4cbea66370223c267, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -60,6 +63,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Chopin introduces kids to classical music and shows how music can express
     emotions
   Notes: 

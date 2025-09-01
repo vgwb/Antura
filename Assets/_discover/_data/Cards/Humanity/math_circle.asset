@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: fr_figure_circle
   Status: 1
-  Importance: 20
   Type: 4
-  Topics: 15000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 15000000
   TitleEn: Circle
   DescriptionEn: A round shape with no corners. Circles look like wheels, balls,
     and coins!
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 5f0923eb0c3564d8ba82bbd683129a9e, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31

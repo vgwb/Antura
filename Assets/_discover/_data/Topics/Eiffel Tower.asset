@@ -19,32 +19,40 @@ MonoBehaviour:
   NodeColor: {r: 0.8962264, g: 0.48616055, b: 0.48616055, a: 1}
   CoreCard: {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   Connections:
-  - connectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
-    connectionType: 2
-    connectionStrength: 0.802
-    connectionReason: 
-    linkingKeywords: []
-    learningValue: 
-  - connectedCard: {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
-    connectionType: 1
-    connectionStrength: 0.884
-    connectionReason: Gustave Eiffel designed and built the tower
-    linkingKeywords:
+  - ConnectedCard: {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+    ConnectionType: 2
+    ConnectionStrength: 0.802
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
+    ConnectionType: 1
+    ConnectionStrength: 0.884
+    ConnectionReason: Gustave Eiffel designed and built the tower
+    LinkingKeywords:
     - architect
     - engineer
-    - creator
-    learningValue: 
-  - connectedCard: {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
-    connectionType: 3
-    connectionStrength: 0.802
-    connectionReason: 
-    linkingKeywords: []
-    learningValue: 
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
+  - ConnectedCard: {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
+    ConnectionType: 3
+    ConnectionStrength: 0.802
+    ConnectionReason: 
+    LinkingKeywords: []
+    LearningValue: 
+    TimeKind: 1
+    CompareKind: 0
+    CulturalRole: 0
   DiscoveryPath:
   - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
   - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
   - {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
   - {fileID: 11400000, guid: a890488cbae51429692d27fdd250a769, type: 2}
-  cohesionStrength: 0.813
-  targetAge: 1
-  Topics: 02000000
+  CohesionStrength: 0.813
+  TargetAge: 1
+  Subjects: 01000000

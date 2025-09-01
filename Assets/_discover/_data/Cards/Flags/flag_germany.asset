@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: flag_germany
   Status: 3
-  Importance: 10
   Type: 4
-  Topics: 0200000003000000
-  Year: 1949
-  Country: 5
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 0200000003000000
   TitleEn: Flag of Germany
   DescriptionEn: 'The flag of Germany has three horizontal stripes: black, red, and
     yellow. Germany is famous for cars, castles, and fairy tales!'
@@ -42,11 +37,19 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1949
+  Country: 5
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
   - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -60,6 +63,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: The German flag helps kids learn about France's important neighbor country
   Notes: 
   LastReviewed: 2025-08-31

@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: object_mermaid_of_warsaw
   Status: 2
-  Importance: 10
   Type: 3
-  Topics: 0300000001000000
-  Year: 0
-  Country: 3
-  Location: {fileID: 11400000, guid: fca0506d8ba2148978e9d54d2876f8d0, type: 2}
-  WikipediaUrl: 
+  Subjects: 0300000001000000
   TitleEn: Mermaid of Warsaw
   DescriptionEn: "The mermaid is a symbol of Warsaw and appears on the city\u2019s
     coat of arms. A statue of her stands by the river, holding a sword and shield
@@ -43,10 +38,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 3
+  Location: {fileID: 11400000, guid: fca0506d8ba2148978e9d54d2876f8d0, type: 2}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: bf72cc75cf34c4b4cbea66370223c267, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -60,6 +63,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30

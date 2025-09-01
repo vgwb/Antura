@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: person_jules_verne
   Status: 3
-  Importance: 0
   Type: 2
-  Topics: 080000000400000001000000
-  Year: 1828
-  Country: 2
-  Location: {fileID: 11400000, guid: 77a5e0eadd66648ae84bb6f49ebd268b, type: 2}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Jules_Verne
+  Subjects: 080000000400000001000000
   TitleEn: Jules Verne
   DescriptionEn: A French writer who imagined amazing adventures before they were
     possible! He wrote about submarines, rockets, and traveling around the world.
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1828
+  Country: 2
+  Location: {fileID: 11400000, guid: 77a5e0eadd66648ae84bb6f49ebd268b, type: 2}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Jules_Verne
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 2f46045755510453cbde01d70728b52b, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 10
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
-  MasteryPointsToUnlock: 10
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Jules Verne shows kids how imagination and science can work together
   Notes: 
   LastReviewed: 2025-08-31

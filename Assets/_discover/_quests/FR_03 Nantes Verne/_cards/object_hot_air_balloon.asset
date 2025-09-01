@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: object_hot_air_balloon
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2c000000
-  Year: 0
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2c000000
   TitleEn: Hot-Air Balloon
   DescriptionEn: A balloon that flies using hot air. The first one flew in France.
   Title:
@@ -41,10 +36,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -58,6 +61,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30

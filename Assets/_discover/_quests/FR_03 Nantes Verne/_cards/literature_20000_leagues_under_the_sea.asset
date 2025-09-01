@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: literature_20000_leagues_under_the_sea
   Status: 3
-  Importance: 10
   Type: 3
-  Topics: 08000000
-  Year: 1871
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Twenty_Thousand_Leagues_Under_the_Sea
+  Subjects: 08000000
   TitleEn: 20000 Leagues Under the Sea
   DescriptionEn: A book by Jules Verne about underwater adventures in a submarine
     called the Nautilus. You meet giant sea creatures!
@@ -42,10 +37,18 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1871
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Twenty_Thousand_Leagues_Under_the_Sea
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -59,6 +62,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
