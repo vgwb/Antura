@@ -35,6 +35,9 @@ namespace Antura.Discover
         [Header("Knowledge Importance")]
         public KnowledgeImportance Importance = KnowledgeImportance.Medium;
 
+        [Tooltip("Target age range for this word.")]
+        public AgeRange targetAge = AgeRange.Ages6to10;
+
         [Tooltip("Is this the core card of a Knowledge?")]
         public KnowledgeData CoreOfKnowledge;
         [Tooltip("How many Knowledges include this card?")]

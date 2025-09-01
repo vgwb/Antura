@@ -16,6 +16,10 @@ namespace Antura.Discover
 
         [Tooltip("English text, used for sorting and fallback.")]
         public string TextEn;
+
+        [Tooltip("Target age range for this word.")]
+        public AgeRange targetAge = AgeRange.Ages6to10;
+
         public WordDataKind Kind;
         public WordDataCategory Category;
         public WordDataForm Form;

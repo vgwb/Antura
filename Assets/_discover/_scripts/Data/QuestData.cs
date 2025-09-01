@@ -39,8 +39,8 @@ namespace Antura.Discover
         public List<WordData> Words;
 
         [Tooltip("Target age range for this quest.")]
-        public int AgeMin;
-        public int AgeMax;
+        public AgeRange targetAge = AgeRange.Ages6to10;
+
         public Difficulty Difficulty;
         [Tooltip("In minutes.. approximately how long it takes to complete the quest.")]
         public int Duration;
@@ -67,18 +67,11 @@ namespace Antura.Discover
         [Header("Unity References and Prefabs")]
         public GameObject WorldPrefab;
         public GameObject QuestPrefab;
-
         public WorldController WorldControllerPrefab;
-
         public string assetsFolder;
         public string scene;
         public LocalizedStringTable QuestStringsTable;
 
-        [Header("Localization")]
-        [Tooltip("String Table Collection used by Yarn's Localized Line Provider for this quest.")]
-        public TableReference YarnStringTable;
-
-        // Returns the player's best stars for this quest (0..3) using DiscoverAppManager's current profile.
         public int GetBestStars()
         {
             try
@@ -95,8 +88,6 @@ namespace Antura.Discover
             catch { }
             return 0;
         }
-
-
         public int KnowledgeValue
         {
             get
@@ -111,14 +102,13 @@ namespace Antura.Discover
             }
         }
 
-        // Convenience localized fields
         public string TitleText
         {
             get
             {
                 try
                 { return Title.GetLocalizedString(); }
-                catch { return string.Empty; }
+                catch { return TitleEn; }
             }
         }
 

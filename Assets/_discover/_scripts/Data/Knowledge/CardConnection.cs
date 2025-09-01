@@ -18,14 +18,6 @@ namespace Antura.Discover
         Comparison = 10      // Comparing similar things
     }
 
-    public enum AgeRange
-    {
-        Ages3to5 = 1,       // Preschool
-        Ages6to10 = 2,      // Primary school
-        Ages11to15 = 3,     // Secondary school
-        Ages16Plus = 4      // Adult learning
-    }
-
     [System.Serializable]
     public class CardConnection
     {

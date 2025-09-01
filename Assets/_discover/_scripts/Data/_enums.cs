@@ -23,6 +23,14 @@ namespace Antura.Discover
         Deprecated = 90 // Legacy content - not used anymore
     }
 
+    public enum AgeRange
+    {
+        Ages3to5 = 1,       // Preschool
+        Ages6to10 = 2,      // Primary school
+        Ages11to15 = 3,     // Secondary school
+        Ages16Plus = 4      // Adult learning
+    }
+
     public enum Difficulty
     {
         Tutorial = 1,
