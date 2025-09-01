@@ -3,6 +3,7 @@ title: init
 position: 0,0
 tags: Start
 color: red
+type: panel
 ---
 <<set $CURRENT_PROGRESS = 0>>
 <<set $MAX_PROGRESS = 7>>
@@ -21,6 +22,8 @@ color: red
 <<declare $spain_met = false>>
 <<declare $spain_completed = false>>
 <<action area_small>>
+
+Welcome to the Geography Quest!
 
 ===
 
