@@ -14,15 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: concept_notre_dame_de_paris_fire
   Status: 3
-  Importance: 20
   Type: 4
-  Topics: 010000000300000009000000
-  IsCoreCard: 0
-  IsInKnowledges: 1
-  Year: 2019
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Notre-Dame_de_Paris_fire
+  Subjects: 010000000300000009000000
   TitleEn: Notre-Dame Fire
   DescriptionEn: In 2019, a big fire damaged the beautiful Notre-Dame Cathedral in
     Paris. Many people worked together to save this important building.
@@ -44,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 2019
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Notre-Dame_de_Paris_fire
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 80ec95e72507e4d73bc84c16378b1355, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -61,9 +63,9 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: This event teaches kids about protecting cultural heritage and community
     cooperation
-  Credits: []
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1

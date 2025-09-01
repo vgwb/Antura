@@ -71,6 +71,8 @@ namespace Antura.Discover
         public AssetType MediaType = AssetType.Image;
         [Tooltip("Let' put an image always, even if media type is different")]
         public AssetData ImageAsset;
+        [Tooltip("Optional additional images for this card (used in slideshows/gallery)")]
+        public List<AssetData> AdditionalImageAssets;
 
         [Tooltip("Optional image shown in the card, if different from the main image.")]
         public Sprite PreviewImage;
@@ -129,6 +131,26 @@ namespace Antura.Discover
             catch { }
         }
 #endif
+
+        // Returns the main image and any additional images (optionally including PreviewImage) as a unique sequence of Sprites.
+        public IEnumerable<Sprite> GetGallerySprites(bool includePreview = false)
+        {
+            var seen = new HashSet<Sprite>();
+            if (ImageAsset != null && ImageAsset.Image != null && seen.Add(ImageAsset.Image))
+                yield return ImageAsset.Image;
+
+            if (AdditionalImageAssets != null)
+            {
+                foreach (var a in AdditionalImageAssets)
+                {
+                    if (a != null && a.Image != null && seen.Add(a.Image))
+                        yield return a.Image;
+                }
+            }
+
+            if (includePreview && PreviewImage != null && seen.Add(PreviewImage))
+                yield return PreviewImage;
+        }
 
     }
 }
