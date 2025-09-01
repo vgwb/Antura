@@ -55,7 +55,7 @@ group: poland
 tags: actor=KID_FEMALE
 ---
 <<if $CURRENT_ITEM == "flag_of_poland">>
-    Yes, that is my flag! Thank you!
+    Yes, that is my flag! Thank you! #line:0c9fa89 
     <<inventory flag_of_poland remove>>
     <<task_end FIND_polish_FLAG>>
     <<task_start completed>>
@@ -68,14 +68,14 @@ tags: actor=KID_FEMALE
     <<action area_bigger>>
     <<jump task_germany  >>
 <<elseif $CURRENT_ITEM != "">>
-    That's not my flag. Mine is white and red.
+    That's not my flag. Mine is white and red. #line:0f967da 
 <<elseif $CURRENT_PROGRESS >= $MAX_PROGRESS>>
     <<jump win>>
 <<else>>
-    Hello! I am from Poland! 
-    Antura made a mess and all the flags have been mixed up!
-    My flag, the polish one is white, and red. 
-    Can you help me? 
+    Hello! I am from Poland!  #line:017ad80 
+    Antura made a mess and all the flags have been mixed up! #line:0b9e31d 
+    My flag, the polish one is white and red.  #line:08a2f6d 
+    Can you help me?  #line:0fe57ef 
     <<set $poland_met = true>>
     <<jump task_poland>>
 <<endif>>
@@ -89,8 +89,8 @@ tags: task
 <<if $EASY_MODE == true>>
         <<asset flag_of_poland>>
 <<endif>>
-Find the polish flag.
-It's white and red.
+Find the polish flag. #line:09e3b54 
+It's white and red. #line:0b52ba1 
 <<task_start FIND_polish_FLAG task_poland>>
 ===
 
@@ -101,7 +101,7 @@ color: yellow
 tags: actor=TUTOR, asset=flag_poland
 ---
 <<card  flag_poland>>
-TUTOR: Flag of Poland. 
+TUTOR: Flag of Poland.  #line:07ca581 
 <<if $CURRENT_ITEM == "flag_of_poland">>
     
 <<else>>
@@ -126,7 +126,7 @@ tags: actor=MAN
     Berlin is the capital of Germany. #line:0446f03 
 <<elseif $CURRENT_ITEM == "flag_of_germany">>
     Danke! That is my flag! #line:0ba8707
-    Can you help my belarusian friend?
+    Can you help my belarusian friend? #line:06c463a 
     <<set $germany_met = true>>
     <<inventory flag_of_germany remove>>
     <<task_end FIND_GERMAN_FLAG germany_npc>>
@@ -170,10 +170,10 @@ tags:
 <<if $belarus_completed>>
     <<card flag_belarus>>
     Thank you for helping me!  #line:0a5c214 
-    Minsk is the capital of Belarus! 
+    Minsk is the capital of Belarus!  #line:0aecb59 
 <<elseif $CURRENT_ITEM == "flag_of_belarus">>
     That is my flag! #line:0c57e40 
-    Thank you, can you give my czech friend their flag?
+    Thank you, can you give my czech friend their flag? #line:021e1a2 
     <<set $belarus_met = true>>
     <<inventory flag_of_belarus remove>>
     <<task_end FIND_belarusian_FLAG belarus_npc>>
@@ -181,12 +181,12 @@ tags:
     <<jump task_czech_republic>>
     <<set $belarus_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
-        My flag is red and green with a red pattern on the left.
+        My flag is red and green with a red pattern on the left. #line:0653fae 
         <<jump task_belarus>>
 <<elseif $belarus_met == false >>
     <<set $belarus_met = true>>
-    Hallo! I'm from Belarus!  
-    We have a primeaval forest, it has been growing for centuries!  
+    Hallo! I'm from Belarus!   #line:0ccf58d 
+    We have a primeaval forest, it has been growing for centuries!   #line:0c6ac62 
     <<jump task_belarus>>
 <<endif>>
 
@@ -199,8 +199,8 @@ tags: actor=WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_belarus>>
 <<endif>>
-Find the belarusian flag. 
-It's red and green, with a pattern on the left! 
+Find the belarusian flag.  #line:0c00afe 
+It's red and green, with a pattern on the left!  #line:05c6081 
 <<task_start FIND_belarusian_FLAG task_belarus>>
 ===
 
@@ -216,23 +216,23 @@ color: blue
 ---
 <<if $czech_completed>>
     <<card flag_czech_republic>>
-    Thank you! Our capital is Minsk!  
+    Thank you! Our capital is Minsk!   #line:08473de 
 <<elseif $CURRENT_ITEM == "flag_of_czech_republic">>
-    Thank you! That's my flag! 
-    Help the find the lithuanian flag and bring it to them! 
+    Thank you! That's my flag!  #line:07ba10f 
+    Help the find the lithuanian flag and bring it to them!  #line:0a1e0a3 
     <<inventory flag_of_czech_republic remove>>
     <<task_end FIND_czech_FLAG czech_republic_npc>>
     <<set $czech_completed = true>>
     <<jump task_lithuania>>
     <<action lithuania_active>>
 <<elseif $CURRENT_ITEM != "">>
-    My flag is different! It's white and red with a blue triangle.
+    My flag is different! It's white and red with a blue triangle. #line:0000741 
     <<set $czech_met = true>>
         <<jump task_czech_republic>>
 <<elseif $czech_met == false>>
     <<set $czech_met = true>>
-    Hi! I'm from Czech Republic!
-    We have the most castle in Europe!
+    Hi! I'm from Czech Republic! #line:0ded863 
+    We have the most castle in Europe! #line:03dc09c 
     <<jump task_czech_republic>>
 <<endif>>
 ===
@@ -245,8 +245,8 @@ tags: actor=KID_MALE
 <<if $EASY_MODE == true>>
     <<card flag_czech_republic>>
 <<endif>>
-Find the Czech flag. 
-It's white and red with a blue triangle.
+Find the Czech flag.  #line:0ff23aa 
+It's white and red with a blue triangle. #line:03cb303 
 <<task_start FIND_czech_republic_FLAG task_czech_republic>>
 ===
 
@@ -262,11 +262,11 @@ color: blue
 ---
 <<if $lithuania_completed>>
     <<card flag_lithuania>>
-    Thank you for helping us!
-    Brussels is the capital of Lithuania. 
+    Thank you for helping us! #line:06cf019 
+    Brussels is the capital of Lithuania.  #line:0acbb04 
 <<elseif $CURRENT_ITEM == "flag_of_lithuania">>
-        Thank you, my beautiful flag is back! 
-        Can you help my Ukrainian friend?
+        Thank you, my beautiful flag is back!  #line:0d2f54c 
+        Can you help my Ukrainian friend? #line:0bcf83b 
         <<inventory flag_of_lithuania remove>>
         <<task_end FIND_lithuania_FLAG lithuania_npc>>
         <<set $lithuania_completed = true>>
@@ -274,13 +274,13 @@ color: blue
         <<set $lithuania_met = true>>
         <<jump task_ukraine>>
 <<elseif $CURRENT_ITEM != "">>
-    Remember, my flag is red, green and yellow.
+    Remember, my flag is red, green and yellow. #line:00af906 
         <<jump task_lithuania>>
         <<set $lithuania_met = true>>
 <<else>>
     <<set $lithuania_met = true>>
-    Hi! I'm from Lithuania! 
-    One third of our country is covered by forests! 
+    Hi! I'm from Lithuania!  #line:0534a85 
+    One third of our country is covered by forests!  #line:0465c31 
     <<jump task_lithuania>>
 <<endif>>
 ===
@@ -293,8 +293,8 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_lithuania>>
 <<endif>>
-Find the Lithuanian flag. 
-It's red, green and yellow.
+Find the Lithuanian flag.  #line:0b88326 
+It's red, green and yellow. #line:0754062 
 <<task_start FIND_lithuania_FLAG task_lithuania>>
 ===
 
@@ -305,7 +305,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_lithuania>>
-TUTOR: Flag of Lithuania. 
+TUTOR: Flag of Lithuania.  #line:0942331 
 <<if $CURRENT_ITEM == "flag_of_lithuania">>
 
 <<else>>
@@ -326,23 +326,23 @@ tags: actor=OLD_MAN
 <<if $ukraine_completed>>
     <<card flag_ukraine>>
     Thank you for helping us! #line:02114ba 
-    Our capital is Kiev.
+    Our capital is Kiev. #line:01b1e6d 
 <<elseif $CURRENT_ITEM == "flag_of_ukraine">>
         Thank you! That is my flag. #line:05de5ab 
-        Can you help my slovakian friend?
+        Can you help my slovakian friend? #line:0aa87ef 
         <<inventory flag_of_ukraine remove>>
         <<task_end FIND_ukraine_FLAG ukraine_npc>>
         <<set $ukraine_completed = true>>
         <<action slovakia_active>>
         <<jump task_slovakia>>
 <<elseif $CURRENT_ITEM != "">>
-    Nope! Our flag is blue and yellow.
+    Nope! Our flag is blue and yellow. #line:0a94866 
     <<set $ukraine_met = true>>
     <<jump task_ukraine>>
 <<else>>
     <<set $ukraine_met = true>>
-    Moien! I’m from Ukraine!
-    We are called the "Bread Basket" of Europe because we produce a lot of grain!
+    Moien! I’m from Ukraine! #line:07ea99a 
+    We are called the "Bread Basket" of Europe because we produce a lot of grain! #line:0dbd4af 
     <<jump task_ukraine>>
 <<endif>>
 ===
@@ -356,8 +356,8 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_ukraine>>
 <<endif>>
-Find the flag of Ukraine.  
-It is blue and yellow.
+Find the flag of Ukraine.   #line:07c148b 
+It is blue and yellow. #line:0b6e8e7 
 <<task_start FIND_ukraine_FLAG task_ukraine>>
 ===
 
@@ -368,7 +368,7 @@ color: yellow
 tags: actor=TUTOR
 ---
 <<card flag_ukraine>>
-TUTOR: Flag of Ukraine. 
+TUTOR: Flag of Ukraine.  #line:0805b90 
 <<if $CURRENT_ITEM == "flag_of_ukraine">>
 
 <<else>>
@@ -388,21 +388,21 @@ color: blue
 ---
 <<if $slovakia_completed>>
     <<card flag_slovakia>>
-    Thank you for helping us! 
-    The capital of Slovakia is Bratislava! 
+    Thank you for helping us!  #line:06a6231 
+    The capital of Slovakia is Bratislava!  #line:0891aba 
 <<elseif $CURRENT_ITEM == "flag_of_slovakia">>
-        Thank you for bringing my flag back! 
-        Go back to the start and claim your victory!
+        Thank you for bringing my flag back!  #line:0d453e9 
+        Go back to the start and claim your victory! #line:04bf6d1 
         <<inventory flag_of_slovakia remove>>
         <<task_end FIND_slovakia_FLAG npc_slovakia>>
         <<set $slovakia_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
-        Our flag is white, red and blue with a coagt of arms.
+        Our flag is white, red and blue with a coagt of arms. #line:0af30a1 
         <<jump task_slovakia>>
 <<else>>
     <<set $slovakia_met = true>>
-    I'm from Slovakia!
-    We used to be a country with Czech Republic. 
+    I'm from Slovakia! #line:054e1b8 
+    We used to be a country with Czech Republic.  #line:0278f6a 
     <<jump task_slovakia>>
 <<endif>>
 
@@ -417,8 +417,8 @@ tags: actor=OLD_WOMAN
 <<if $EASY_MODE == true>>
     <<card flag_slovakia>>
 <<endif>>
-Find the Slovakian flag.  
-It's white, red and blue with the coat of arms.
+Find the Slovakian flag.   #line:04b6692 
+It's white, red and blue with the coat of arms. #line:0866ee1 
 <<task_start FIND_slovakia_FLAG npc_slovakia>>
 ===
 
@@ -433,8 +433,8 @@ color: blue
 group: russia
 tags: actor=CRAZY_MAN
 ---
-CRAZY_MAN: Hello, I'm Russia.
-CRAZY_MAN: This is just a tiny part of the big country.
+CRAZY_MAN: Hello, I'm Russia. #line:065c41c 
+CRAZY_MAN: This is just a tiny part of the big country. #line:0a4bae4 
 <<card flag_russia>>
 
 ===

@@ -34,14 +34,8 @@ Transform:
   - {fileID: 4565486277999499728}
   - {fileID: 6650519004837241881}
   - {fileID: 4747041871004482162}
-  - {fileID: 5724068841680898042}
-  - {fileID: 136614173076211664}
-  - {fileID: 2564629392382645651}
-  - {fileID: 5231341110326485013}
-  - {fileID: 3541754283373025071}
-  - {fileID: 4575387186130724289}
-  - {fileID: 5639285657780418993}
-  - {fileID: 9185186478814359800}
+  - {fileID: 3532478046083052162}
+  - {fileID: 2272341224484466547}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &3821862232358977262
@@ -58,9 +52,100 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   ActivityConfigs: []
-  QuestTasks: []
+  QuestTasks:
+  - Code: FIND_polish_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the French Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: flag
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_GERMAN_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the German Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: pokeball
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_belarusian_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the Spanish Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_czech_republic_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the Italian Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_lithuania_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the Belgian Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_ukraine_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the Luxembourgish Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
+  - Code: FIND_slovakia_FLAG
+    Type: 1
+    InteractGO: {fileID: 0}
+    ProgressPoints: 1
+    NodeDescription: Find the Swiss Flag
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 1
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
   DebugQuest: 0
-  DebugLanguage: IT
+  DebugLanguage: EN
   EasyMode: 0
   LanguageCode: 
   NativeLanguageCode: 
@@ -80,6 +165,38 @@ MonoBehaviour:
   QuestActions: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
+--- !u!1 &2579572983030402937
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3532478046083052162}
+  m_Layer: 0
+  m_Name: Task_1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &3532478046083052162
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2579572983030402937}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 5724068841680898042}
+  m_Father: {fileID: 3181139274598534955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2800380818402303951
 GameObject:
   m_ObjectHideFlags: 0
@@ -440,6 +557,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -461,6 +580,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -510,6 +630,44 @@ MonoBehaviour:
   proximityMaterial: {fileID: 2100000, guid: 205b20837fd664435892510e79fcfb7a, type: 2}
   Player: {fileID: 0}
   radius: 2
+--- !u!1 &6687857196143219742
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2272341224484466547}
+  m_Layer: 0
+  m_Name: Task 2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2272341224484466547
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6687857196143219742}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 136614173076211664}
+  - {fileID: 2564629392382645651}
+  - {fileID: 5231341110326485013}
+  - {fileID: 3541754283373025071}
+  - {fileID: 4575387186130724289}
+  - {fileID: 5639285657780418993}
+  - {fileID: 9185186478814359800}
+  m_Father: {fileID: 3181139274598534955}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7279348813852976409
 GameObject:
   m_ObjectHideFlags: 0
@@ -540,13 +698,13 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3154506076282343900}
-  - {fileID: 3614335568792644423}
+  - {fileID: 8676217033049642426}
   - {fileID: 340390043324941061}
+  - {fileID: 7802860153187332523}
   - {fileID: 5321766960628259863}
+  - {fileID: 3614335568792644423}
   - {fileID: 1983484322300174317}
   - {fileID: 7094106234104854038}
-  - {fileID: 7802860153187332523}
-  - {fileID: 8676217033049642426}
   m_Father: {fileID: 3181139274598534955}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &8134207739385272747
@@ -945,6 +1103,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -966,6 +1126,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -1026,7 +1187,7 @@ PrefabInstance:
     - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_Name
-      value: NPC Andorra
+      value: NPC Poland
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1095,7 +1256,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
         type: 3}
@@ -1105,7 +1266,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6029653e-31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
         type: 3}
@@ -1169,12 +1330,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 3532478046083052162}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.37108
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
         type: 3}
@@ -1243,7 +1404,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
@@ -1258,7 +1419,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.31638
+      value: -11.62
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
@@ -1322,7 +1483,7 @@ PrefabInstance:
     - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_Name
-      value: NPC Switzerland
+      value: NPC Belarus
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1446,7 +1607,7 @@ PrefabInstance:
     - target: {fileID: 7567400182825766872, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_Name
-      value: _NPC Luxemburg
+      value: _NPC Russia
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1465,12 +1626,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.17081
+      value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
@@ -1480,7 +1641,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.30482
+      value: -10.87
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
@@ -1544,7 +1705,7 @@ PrefabInstance:
     - target: {fileID: 6227446328266854522, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
       propertyPath: m_Name
-      value: NPC Spain
+      value: NPC Ukraine
       objectReference: {fileID: 0}
     - target: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
@@ -1613,7 +1774,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: d7790f4dcabba1f42a8a3a524473aa8f,
         type: 3}
@@ -1692,7 +1853,7 @@ PrefabInstance:
     - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_Name
-      value: NPC Belgium
+      value: NPC Germany
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1761,7 +1922,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
         type: 3}
@@ -1771,7 +1932,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6029653e-31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
         type: 3}
@@ -1840,7 +2001,7 @@ PrefabInstance:
     - target: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_Name
-      value: NPC Germany
+      value: NPC Slovakia
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -1914,7 +2075,7 @@ PrefabInstance:
     - target: {fileID: 480359215998724169, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_Name
-      value: NPC Monaco
+      value: NPC Lithuania
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
@@ -1983,7 +2144,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
         type: 3}
@@ -1993,7 +2154,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.6029653e-31
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
         type: 3}
@@ -2057,12 +2218,12 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 3181139274598534955}
+    m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.00411
+      value: -1.39
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
         type: 3}
@@ -2072,7 +2233,7 @@ PrefabInstance:
     - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -7.32795
+      value: -5.45
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
         type: 3}
@@ -2186,7 +2347,7 @@ PrefabInstance:
     - target: {fileID: 3988915826671699256, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
       propertyPath: m_Name
-      value: NPC France
+      value: NPC Czech Republic
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
