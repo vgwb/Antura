@@ -58,8 +58,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 68c44e25ced343349b151957b804e32c, type: 2}
   - {fileID: 11400000, guid: d14310026ca8bb6428fadfaf6007c6fd, type: 2}
   Words: []
-  AgeMin: 0
-  AgeMax: 0
+  targetAge: 2
   Difficulty: 2
   Duration: 15
   Dependencies: []
@@ -95,8 +94,9 @@ MonoBehaviour:
   WorldControllerPrefab: {fileID: 0}
   assetsFolder: FR_00
   scene: discover fr_00 geo
-  YarnStringTable:
-    m_TableCollectionName: 
+  QuestStringsTable:
+    m_TableReference:
+      m_TableCollectionName: GUID:9481a1e17b8714c969d2c646ab788881
   references:
     version: 2
     RefIds: []
