@@ -1,7 +1,6 @@
 ﻿using DG.DeInspektor.Attributes;
 using DG.Tweening;
 using TMPro;
-using UnityEditor.Localization.Plugins.XLIFF.V20;
 using UnityEngine;
 
 namespace Antura.Discover
@@ -30,7 +29,7 @@ namespace Antura.Discover
                 .SetEase(Ease.OutQuart)
                 .OnRewind(() => this.gameObject.SetActive(false));
             changeTween = tfCurrent.transform.DOPunchScale(Vector3.one * 0.5f, 0.5f).SetAutoKill(false).Pause();
-            
+
             this.gameObject.SetActive(false);
         }
 
@@ -46,20 +45,22 @@ namespace Antura.Discover
 
         public void Show()
         {
-            if (isOpen) return;
+            if (isOpen)
+                return;
 
             isOpen = true;
-            
+
             showTween.Restart();
             this.gameObject.SetActive(true);
         }
 
         public void Hide()
         {
-            if (!isOpen) return;
+            if (!isOpen)
+                return;
 
             isOpen = false;
-            
+
             showTween.PlayBackwards();
         }
 
@@ -67,7 +68,8 @@ namespace Antura.Discover
         {
             totItemsCollected = pTotItemsCollected;
             targetItems = pTargetItems;
-            if (targetItems <= 0) Hide();
+            if (targetItems <= 0)
+                Hide();
             else
             {
                 Show();
@@ -85,7 +87,8 @@ namespace Antura.Discover
         {
             int prev = totItemsCollected;
             totItemsCollected = ValidateAsTotItemsCollected(value);
-            if (targetItems != prev) Refresh();
+            if (targetItems != prev)
+                Refresh();
         }
 
         #endregion
@@ -96,8 +99,10 @@ namespace Antura.Discover
         {
             tfCurrent.text = totItemsCollected.ToString();
             tfTarget.text = targetItems.ToString();
-            if (immediate) changeTween.Complete();
-            else changeTween.Restart();
+            if (immediate)
+                changeTween.Complete();
+            else
+                changeTween.Restart();
         }
 
         int ValidateAsTotItemsCollected(int value)
