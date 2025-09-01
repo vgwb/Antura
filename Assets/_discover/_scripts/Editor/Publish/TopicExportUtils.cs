@@ -65,7 +65,7 @@ namespace Antura.Discover.Editor
                     var tops = string.Join(", ", k.Subjects.Select(t => t.ToString()));
                     meta.Add($"Topics: {tops}");
                 }
-                meta.Add($"TargetAge: {k.targetAge}");
+                meta.Add($"TargetAge: {k.TargetAge}");
                 if (meta.Count > 0)
                     sb.AppendLine("- " + string.Join("  \n- ", meta));
 
@@ -80,11 +80,11 @@ namespace Antura.Discover.Editor
                 if (k.Connections != null && k.Connections.Count > 0)
                 {
                     var conns = k.Connections
-                        .Where(c => c != null && c.connectedCard != null)
+                        .Where(c => c != null && c.ConnectedCard != null)
                         .Select(c =>
                         {
-                            var cid = string.IsNullOrEmpty(c.connectedCard.Id) ? c.connectedCard.name : c.connectedCard.Id;
-                            return $"[{cid}](../cards/index.md#{Slug(cid)}) ({c.connectionType})";
+                            var cid = string.IsNullOrEmpty(c.ConnectedCard.Id) ? c.ConnectedCard.name : c.ConnectedCard.Id;
+                            return $"[{cid}](../cards/index.md#{Slug(cid)}) ({c.ConnectionType})";
                         })
                         .ToList();
                     if (conns.Count > 0)

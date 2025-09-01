@@ -98,7 +98,7 @@ namespace Antura.Discover.Editor
                             {
                                 if (cn == null)
                                     continue;
-                                var cc = cn.connectedCard;
+                                var cc = cn.ConnectedCard;
                                 if (cc == null)
                                     continue;
                                 if (connectionCounts.TryGetValue(cc, out var n))
@@ -126,7 +126,7 @@ namespace Antura.Discover.Editor
                             {
                                 if (cn == null)
                                     continue;
-                                var cc = cn.connectedCard;
+                                var cc = cn.ConnectedCard;
                                 if (cc == null)
                                     continue;
                                 if (connectionCounts.TryGetValue(cc, out var n))

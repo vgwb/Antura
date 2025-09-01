@@ -1505,7 +1505,7 @@ namespace Antura.Discover
             var rKList = new Rect(x, rowRect.y + 4f, ColCardKnowledges, rowRect.height - 8f);
             float ky = rKList.y;
             var knows = _allData.OfType<TopicData>()
-                .Where(kd => kd != null && ((kd.CoreCard == c) || (kd.Connections != null && kd.Connections.Any(conn => conn != null && conn.connectedCard == c))))
+                .Where(kd => kd != null && ((kd.CoreCard == c) || (kd.Connections != null && kd.Connections.Any(conn => conn != null && conn.ConnectedCard == c))))
                 .OrderBy(kd => kd.Id ?? kd.name)
                 .ToList();
             if (knows.Count > 0)
@@ -1676,24 +1676,24 @@ namespace Antura.Discover
             float lineY = rConnArea.y;
             if (k.Connections != null && k.Connections.Count > 0)
             {
-                int total = k.Connections.Count(cn => cn != null && cn.connectedCard != null);
+                int total = k.Connections.Count(cn => cn != null && cn.ConnectedCard != null);
                 int maxLines = Mathf.Max(1, Mathf.FloorToInt(rConnArea.height / lineH));
                 int linesToShow = Mathf.Min(total, maxLines);
                 lineY = rConnArea.y + (rConnArea.height - linesToShow * lineH) * 0.5f;
                 int shown = 0;
                 foreach (var c in k.Connections)
                 {
-                    if (c == null || c.connectedCard == null)
+                    if (c == null || c.ConnectedCard == null)
                         continue;
-                    string cardLabel = string.IsNullOrEmpty(c.connectedCard.Id) ? c.connectedCard.name : c.connectedCard.Id;
-                    string text = cardLabel + " (" + c.connectionType.ToString() + ")";
+                    string cardLabel = string.IsNullOrEmpty(c.ConnectedCard.Id) ? c.ConnectedCard.name : c.ConnectedCard.Id;
+                    string text = cardLabel + " (" + c.ConnectionType.ToString() + ")";
                     var rc = new Rect(rConnArea.x, lineY, rConnArea.width, lineH);
                     GUI.Label(rc, text, EditorStyles.label);
                     EditorGUIUtility.AddCursorRect(rc, MouseCursor.Link);
                     if (Event.current.type == EventType.MouseDown && rc.Contains(Event.current.mousePosition))
                     {
-                        EditorGUIUtility.PingObject(c.connectedCard);
-                        Selection.activeObject = c.connectedCard;
+                        EditorGUIUtility.PingObject(c.ConnectedCard);
+                        Selection.activeObject = c.ConnectedCard;
                         Event.current.Use();
                     }
                     lineY += lineH;
@@ -1710,7 +1710,7 @@ namespace Antura.Discover
             x += ColKConnections + Gap;
             // Target Age
             var rAge = new Rect(x, y, ColKAge, lineH);
-            EditorGUI.LabelField(rAge, k.targetAge.ToString());
+            EditorGUI.LabelField(rAge, k.TargetAge.ToString());
             x += ColKAge + Gap;
             // Topics
             var tops = k.Subjects != null ? string.Join(", ", k.Subjects.Select(t => t.ToString())) : string.Empty;

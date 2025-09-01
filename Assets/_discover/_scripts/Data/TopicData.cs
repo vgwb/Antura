@@ -43,11 +43,11 @@ namespace Antura.Discover
         [Header("Settings")]
         [Range(0.1f, 1.0f)]
         [Tooltip("How tightly related cards")]
-        public float cohesionStrength = 0.8f;
+        public float CohesionStrength = 0.8f;
 
         [Header("Educational Context")]
         [Tooltip("Age range this Topic is most suitable for")]
-        public AgeRange targetAge = AgeRange.Ages6to10;
+        public AgeRange TargetAge = AgeRange.Ages6to10;
 
         [Tooltip("Subjects this Topic helps teach")]
         [FormerlySerializedAs("Topics")]
@@ -67,8 +67,8 @@ namespace Antura.Discover
 
             foreach (var connection in Connections)
             {
-                if (connection.connectedCard != null)
-                    allCards.Add(connection.connectedCard);
+                if (connection.ConnectedCard != null)
+                    allCards.Add(connection.ConnectedCard);
             }
 
             foreach (var card in DiscoveryPath)
@@ -88,8 +88,8 @@ namespace Antura.Discover
             var result = new List<CardData>();
             foreach (var connection in Connections)
             {
-                if (connection.connectionType == type && connection.connectedCard != null)
-                    result.Add(connection.connectedCard);
+                if (connection.ConnectionType == type && connection.ConnectedCard != null)
+                    result.Add(connection.ConnectedCard);
             }
             return result;
         }
@@ -104,8 +104,8 @@ namespace Antura.Discover
 
             foreach (var connection in Connections)
             {
-                if (connection.connectedCard == card)
-                    return connection.connectionStrength;
+                if (connection.ConnectedCard == card)
+                    return connection.ConnectionStrength;
             }
             return 0f;
         }
@@ -120,7 +120,7 @@ namespace Antura.Discover
 
             foreach (var connection in Connections)
             {
-                if (connection.connectedCard == card)
+                if (connection.ConnectedCard == card)
                     return true;
             }
 
@@ -159,12 +159,12 @@ namespace Antura.Discover
             var cardSet = new HashSet<CardData>();
             foreach (var connection in Connections)
             {
-                if (connection.connectedCard != null)
+                if (connection.ConnectedCard != null)
                 {
-                    if (cardSet.Contains(connection.connectedCard))
-                        issues.Add($"Duplicate connection to {connection.connectedCard.name}");
+                    if (cardSet.Contains(connection.ConnectedCard))
+                        issues.Add($"Duplicate connection to {connection.ConnectedCard.name}");
                     else
-                        cardSet.Add(connection.connectedCard);
+                        cardSet.Add(connection.ConnectedCard);
                 }
             }
 

@@ -26,7 +26,7 @@ namespace Antura.Discover
                 {
                     foreach (var cn in t.Connections)
                     {
-                        var cc = cn != null ? cn.connectedCard : null;
+                        var cc = cn != null ? cn.ConnectedCard : null;
                         if (cc != null)
                             AddCardSubjects(totals, cc, 1);
                     }

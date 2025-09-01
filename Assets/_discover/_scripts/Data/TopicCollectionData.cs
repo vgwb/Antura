@@ -62,8 +62,8 @@ namespace Antura.Discover
                 {
                     foreach (var connection in topic.Connections)
                     {
-                        if (connection.connectedCard != null && !knownCards.Contains(connection.connectedCard))
-                            discoverable.Add(connection.connectedCard);
+                        if (connection.ConnectedCard != null && !knownCards.Contains(connection.ConnectedCard))
+                            discoverable.Add(connection.ConnectedCard);
                     }
                 }
             }

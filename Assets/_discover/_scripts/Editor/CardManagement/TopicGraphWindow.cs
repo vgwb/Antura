@@ -359,23 +359,23 @@ namespace Antura.Discover.Editor
 
                 foreach (var connection in cluster.Connections)
                 {
-                    if (connection.connectedCard == null)
+                    if (connection.ConnectedCard == null)
                         continue;
-                    if (!cardPositions.ContainsKey(connection.connectedCard))
+                    if (!cardPositions.ContainsKey(connection.ConnectedCard))
                         continue;
 
-                    Vector2 connectedPos = cardPositions[connection.connectedCard];
+                    Vector2 connectedPos = cardPositions[connection.ConnectedCard];
                     if (connectionTypeIndex > 0)
                     {
                         var types = (ConnectionType[])Enum.GetValues(typeof(ConnectionType));
                         var filterType = types[Mathf.Clamp(connectionTypeIndex - 1, 0, types.Length - 1)];
-                        if (connection.connectionType != filterType)
+                        if (connection.ConnectionType != filterType)
                             continue;
                     }
-                    Color connectionColor = GetConnectionTypeColor(connection.connectionType);
-                    connectionColor.a = connection.connectionStrength;
+                    Color connectionColor = GetConnectionTypeColor(connection.ConnectionType);
+                    connectionColor.a = connection.ConnectionStrength;
 
-                    DrawLine(corePos - graphDrawOrigin, connectedPos - graphDrawOrigin, connectionColor, connection.connectionStrength * 3f);
+                    DrawLine(corePos - graphDrawOrigin, connectedPos - graphDrawOrigin, connectionColor, connection.ConnectionStrength * 3f);
                 }
             }
         }
@@ -421,7 +421,7 @@ namespace Antura.Discover.Editor
                 EditorGUILayout.LabelField($"Name: {selectedCluster.Name}");
                 EditorGUILayout.LabelField($"Priority: {selectedCluster.Importance}");
                 EditorGUILayout.LabelField($"Cards: {selectedCluster.GetAllCards().Count}");
-                EditorGUILayout.LabelField($"Cohesion: {selectedCluster.cohesionStrength:F2}");
+                EditorGUILayout.LabelField($"Cohesion: {selectedCluster.CohesionStrength:F2}");
 
                 if (selectedCluster.CoreCard != null)
                 {
@@ -432,9 +432,9 @@ namespace Antura.Discover.Editor
                 EditorGUILayout.LabelField("Connections:", EditorStyles.boldLabel);
                 foreach (var conn in selectedCluster.Connections)
                 {
-                    if (conn.connectedCard != null)
+                    if (conn.ConnectedCard != null)
                     {
-                        EditorGUILayout.LabelField($"• {conn.connectedCard.name} ({conn.connectionType})");
+                        EditorGUILayout.LabelField($"• {conn.ConnectedCard.name} ({conn.ConnectionType})");
                     }
                 }
 
@@ -579,25 +579,25 @@ namespace Antura.Discover.Editor
         {
             switch (type)
             {
-                case ConnectionType.Person:
+                case ConnectionType.CreatedBy:
                     return Color.blue;
-                case ConnectionType.Location:
+                case ConnectionType.LocatedIn:
                     return Color.green;
-                case ConnectionType.Material:
+                case ConnectionType.MadeOf:
                     return Color.yellow;
-                case ConnectionType.Historical:
+                case ConnectionType.IsA:
                     return Color.red;
-                case ConnectionType.Cultural:
+                case ConnectionType.CulturalContext:
                     return Color.magenta;
-                case ConnectionType.Temporal:
+                case ConnectionType.TimeContext:
                     return new Color(1f, 0.5f, 0f); // orange
                 case ConnectionType.Causal:
                     return new Color(0.6f, 0.2f, 1f); // purple-ish
-                case ConnectionType.Functional:
+                case ConnectionType.Purpose:
                     return Color.cyan;
-                case ConnectionType.Conceptual:
+                case ConnectionType.RelatedTo:
                     return new Color(0.2f, 0.8f, 0.8f);
-                case ConnectionType.Comparison:
+                case ConnectionType.Compare:
                     return new Color(0.8f, 0.8f, 0.2f);
                 default:
                     return Color.white;

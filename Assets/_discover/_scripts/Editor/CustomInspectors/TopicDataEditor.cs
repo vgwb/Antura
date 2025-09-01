@@ -64,12 +64,12 @@ namespace Antura.Discover.Editor
                     topic.DiscoveryPath.Add(topic.CoreCard);
 
                 var sortedConnections = new List<CardConnection>(topic.Connections);
-                sortedConnections.Sort((a, b) => b.connectionStrength.CompareTo(a.connectionStrength));
+                sortedConnections.Sort((a, b) => b.ConnectionStrength.CompareTo(a.ConnectionStrength));
 
                 foreach (var connection in sortedConnections)
                 {
-                    if (connection.connectedCard != null && !topic.DiscoveryPath.Contains(connection.connectedCard))
-                        topic.DiscoveryPath.Add(connection.connectedCard);
+                    if (connection.ConnectedCard != null && !topic.DiscoveryPath.Contains(connection.ConnectedCard))
+                        topic.DiscoveryPath.Add(connection.ConnectedCard);
                 }
 
                 EditorUtility.SetDirty(topic);
