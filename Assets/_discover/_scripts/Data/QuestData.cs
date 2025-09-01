@@ -72,6 +72,7 @@ namespace Antura.Discover
 
         public string assetsFolder;
         public string scene;
+        public LocalizedStringTable QuestStringsTable;
 
         [Header("Localization")]
         [Tooltip("String Table Collection used by Yarn's Localized Line Provider for this quest.")]

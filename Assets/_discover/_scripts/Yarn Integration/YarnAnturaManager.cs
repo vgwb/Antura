@@ -1,7 +1,6 @@
 using Antura.Discover.Activities;
 using System;
 using System.Collections;
-using System.Linq;
 using UnityEngine;
 using Yarn.Unity;
 
@@ -14,6 +13,7 @@ namespace Antura.Discover
         [Header("Yarn References")]
         [SerializeField] private DialogueRunner runner;
         [SerializeField] private DiscoverDialoguePresenter presenter;
+        [SerializeField] private DiscoverLineProvider lineProvider;
 
         [Header("Locale")] public string CurrentLanguage = "EN";
         public string NativeLanguage = "EN";
@@ -24,6 +24,7 @@ namespace Antura.Discover
         public event Action OnDialogueComplete;
 
         public DialogueRunner Runner => runner;
+        public DiscoverLineProvider LineProvider => lineProvider;
 
         private void Awake()
         {

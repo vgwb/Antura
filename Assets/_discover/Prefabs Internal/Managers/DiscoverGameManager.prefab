@@ -202,6 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.YarnAnturaManager
   runner: {fileID: 5021966162577449117}
   presenter: {fileID: 227907427024555449}
+  lineProvider: {fileID: 2865536274126941819}
   CurrentLanguage: EN
   NativeLanguage: EN
 --- !u!114 &9164591454477344658
@@ -404,6 +405,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 5873645632079191059}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &2865536274126941819 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8522797973968515688, guid: 5c042fcef818f49f78de3cc6da7939ad,
+    type: 3}
+  m_PrefabInstance: {fileID: 5873645632079191059}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5eab7c9a840b54338bb32b24b6d328c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DiscoverLineProvider
 --- !u!114 &5021966162577449117 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1455500555130453134, guid: 5c042fcef818f49f78de3cc6da7939ad,

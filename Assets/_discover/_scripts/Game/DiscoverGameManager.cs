@@ -81,6 +81,7 @@ namespace Antura.Discover
                     if (yarnAnturaManager.Runner != null)
                     {
                         yarnAnturaManager.Runner.SetProject(questToUse.YarnProject);
+                        yarnAnturaManager.LineProvider.SetStringTable(questToUse.QuestStringsTable);
                     }
                 }
             }

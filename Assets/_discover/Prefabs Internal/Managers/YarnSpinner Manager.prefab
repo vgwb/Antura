@@ -1319,7 +1319,7 @@ GameObject:
   - component: {fileID: 6331729519416918913}
   - component: {fileID: 1455500555130453134}
   - component: {fileID: 4000104025218669392}
-  - component: {fileID: 6675882765298289751}
+  - component: {fileID: 8522797973968515688}
   m_Layer: 0
   m_Name: YarnSpinner Manager
   m_TagString: Untagged
@@ -1360,7 +1360,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   yarnProject: {fileID: 0}
   variableStorage: {fileID: 4000104025218669392}
-  lineProvider: {fileID: 6675882765298289751}
+  lineProvider: {fileID: 8522797973968515688}
   saliencyStrategy: 0
   dialoguePresenters:
   - {fileID: 5956803314973807018}
@@ -1396,7 +1396,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   showDebug: 1
   debugTextView: {fileID: 0}
---- !u!114 &6675882765298289751
+--- !u!114 &8522797973968515688
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1405,12 +1405,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 9179233844371905304}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f9c1f487b798d402db42bc11cee5b810, type: 3}
+  m_Script: {fileID: 11500000, guid: 5eab7c9a840b54338bb32b24b6d328c4, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.DiscoverLineProvider
   stringsTable:
     m_TableReference:
-      m_TableCollectionName: GUID:704d1a9077846447b82e6268e7dbd463
+      m_TableCollectionName: 
   assetTable:
     m_TableReference:
       m_TableCollectionName: 
