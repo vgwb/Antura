@@ -71,6 +71,68 @@ namespace Antura.Discover.Editor
                     cards.Add(c);
             }
 
+            // Knowledge-based flags: compute CoreOfKnowledge and IsInKnowledges counts from KnowledgeData
+            try
+            {
+                var knowledges = FindAll<KnowledgeData>();
+                var coreMap = new Dictionary<CardData, KnowledgeData>();
+                var connectionCounts = new Dictionary<CardData, int>();
+                foreach (var k in knowledges.Where(k => k != null))
+                {
+                    if (k.CoreCard != null)
+                    {
+                        // If a card is core of multiple knowledges, keep the first and warn
+                        if (!coreMap.ContainsKey(k.CoreCard))
+                            coreMap[k.CoreCard] = k;
+                        else
+                            Debug.LogWarning($"[Card Validate] Card '{k.CoreCard?.Id ?? k.CoreCard?.name}' is core of multiple Knowledges: '{coreMap[k.CoreCard]?.Id ?? coreMap[k.CoreCard]?.name}' and '{k?.Id ?? k?.name}'. Using the first.", k);
+                    }
+                    if (k.Connections != null)
+                    {
+                        foreach (var cn in k.Connections)
+                        {
+                            if (cn == null)
+                                continue;
+                            var cc = cn.connectedCard;
+                            if (cc == null)
+                                continue;
+                            if (connectionCounts.TryGetValue(cc, out var n))
+                                connectionCounts[cc] = n + 1;
+                            else
+                                connectionCounts[cc] = 1;
+                        }
+                    }
+                }
+
+                int changes = 0;
+                foreach (var c in cards.Where(x => x != null))
+                {
+                    coreMap.TryGetValue(c, out var newCoreOf);
+                    int newCount = connectionCounts.TryGetValue(c, out var n) ? n : 0;
+                    if (!ReferenceEquals(c.CoreOfKnowledge, newCoreOf) || c.IsInKnowledges != newCount)
+                    {
+                        c.CoreOfKnowledge = newCoreOf;
+                        c.IsInKnowledges = newCount;
+                        EditorUtility.SetDirty(c);
+                        changes++;
+                        if (logEachIssue)
+                        {
+                            string kId = newCoreOf == null ? "-" : (string.IsNullOrEmpty(newCoreOf.Id) ? newCoreOf.name : newCoreOf.Id);
+                            Debug.Log($"[Card Validate] Update knowledge flags for '{c.Id ?? c.name}': CoreOfKnowledge={kId}, IsInKnowledges={newCount}", c);
+                        }
+                    }
+                }
+                if (changes > 0)
+                {
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.LogWarning($"[Card Validate] Knowledge flags update skipped: {ex.Message}");
+            }
+
             // Detect duplicate CardId across assets (case-insensitive)
             var dupGroups = cards
                 .Where(c => c != null && !string.IsNullOrWhiteSpace(c.Id))

@@ -16,6 +16,8 @@ namespace Antura.Discover
         public float BridgeStrength = 0.5f;
     }
 
+    // This is the "Knowledge Molecule" of the Discover module.
+    // It contains a core card and a set of connected cards, each with a connection type and strength.
     [CreateAssetMenu(fileName = "KnowledgeData", menuName = "Antura/Discover/Knowledge Data")]
     public class KnowledgeData : IdentifiedData
     {

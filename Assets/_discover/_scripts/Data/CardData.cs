@@ -5,26 +5,17 @@ using UnityEngine.Localization;
 
 namespace Antura.Discover
 {
-    // this is the "Knowledge Atom" of the Discover module.
+    // This is the "Knowledge Atom" of the Discover module.
     [CreateAssetMenu(fileName = "CardData", menuName = "Antura/Discover/Card")]
     public class CardData : IdentifiedData
     {
         public Status Status = Status.Draft;
-
-        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
 
         [Tooltip("What role does this card play in the game?")]
         public CardType Type;
 
         [Tooltip("What domain of knowledge does it belong to")]
         public List<KnowledgeTopic> Topics;
-
-        [Tooltip("Optional, Year of origin, for historical context.")]
-        public int Year;
-        public Countries Country;
-        [Tooltip("If the card has a specific place...")]
-        public LocationData Location;
-        public string WikipediaUrl;
 
         [Header("Content: internal English only")]
         public string TitleEn;
@@ -34,16 +25,30 @@ namespace Antura.Discover
         public LocalizedString Title;
         public LocalizedString Description;
 
+        [Tooltip("Optional, Year of origin, for historical context.")]
+        public int Year;
+        public Countries Country;
+        [Tooltip("If the card has a specific place...")]
+        public LocationData Location;
+        public string WikipediaUrl;
+
+        [Header("Knowledge Importance")]
+        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
+
+        [Tooltip("Is this the core card of a Knowledge?")]
+        public KnowledgeData CoreOfKnowledge;
+        [Tooltip("How many Knowledges include this card?")]
+        public int IsInKnowledges;
+
+        [Tooltip("Mastery points needed to unlock this card.")]
+        [Min(1)]
+        public int MasteryPointsToUnlock = 1;
+
         [Header("References")]
         [Tooltip("Quests that can unlock this card. A card can be rewarded by multiple quests.")]
         public List<QuestData> Quests;
         [Tooltip("Words related to this card, for vocabulary learning and Living Letters spawned")]
         public List<WordData> Words;
-
-        [Header("Mastery")]
-        [Tooltip("Mastery points needed to unlock this card.")]
-        [Min(1)]
-        public int MasteryPointsToUnlock = 1;
 
         [Header("Rewards")]
         [Range(0, 20)]
@@ -79,6 +84,8 @@ namespace Antura.Discover
         public string CustomTag;
 
         [Header("Authoring Metadata")]
+        public List<AuthorCredit> Credits;
+
         [Tooltip("Why is this card important?")]
         [TextArea]
         public string Rationale;
