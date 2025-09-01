@@ -1,0 +1,304 @@
+﻿//--------------------------------------------
+// QUEST: PL_04_ZOO – The Case of the Missing Flag
+//--------------------------------------------
+// Country: Poland
+// Activities:
+// 1) <<activity memory elephant_sounds tutorial>> – Repeat sound order (ELEPHANT, MEMORY).
+// 2) <<activity cleancanvas giraffe_leaves tutorial>> – Clean to help EAT (GIRAFFE, NECK, LEAVES).
+// 3) <<activity order lion_pride tutorial>> – Match LION facts (PRIDE, MANE, CUB).
+// 4) <<activity cleancanvas monkey_climb tutorial>> – Clean climb path (MONKEY, CLIMB).
+// 5) <<activity memory penguin_paths tutorial>> – Remember icy path (PENGUIN, SWIM).
+// 6) <<activity order zoo_animal_facts tutorial>> – Pair ANIMALS ↔ FACTS (recap).
+// 7) <<activity memory zoo_animal_cards tutorial>> – Animal card pairs (recap).
+// 8) <<activity quiz wroclaw_zoo_basics tutorial>> – Final quiz (FLAG, facts).
+// Words:
+// POLAND, WROCŁAW, ZOO, FLAG, CENTENNIAL HALL, IGLICA, ANIMAL, ELEPHANT, GIRAFFE, LION, MONKEY, PENGUIN, PRIDE, CLIMB, SWIM, KEEPER, SIGN
+// ============================================================================
+title: init
+position: 0,0
+group: Intro
+tags: actor=Man, type:Panel
+image: centennial_hall_empty_flag
+color: red
+---
+The FLAG is missing! #line:09c6bf7 
+It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+Please help, find it! #line:0fd5d1a 
+
+//--------------------------------------------
+// ENTRANCE – AMBIENCE
+//--------------------------------------------
+===
+title: animal_peacock
+position: -17,-453
+group: ZOO
+tags: actor=Peacock
+image: zoo_gate
+---
+My tail is a FLAG already! #line:04fff6b 
+
+===
+title: animal_parrot
+position: -20,-273
+group: ZOO
+tags: actor=Parrot
+image: zoo_gate
+---
+Squawk! Red and yellow ran by! #line:0e84545 
+
+//--------------------------------------------
+// PART 1 – ELEPHANT
+//--------------------------------------------
+===
+title: ELEPHANT_KEEPER
+position: 343,6
+group: ELEPHANT
+tags: actor=Keeper
+image: elephant_keeper
+color: blue
+---
+ELEPHANT is the biggest ANIMAL. #line:027b51f 
+ELEPHANT has great MEMORY. #line:03a150c 
+Try the MEMORY game. #line:0f98478 
+<<activity memory elephant_sounds tutorial>>
+-> More info #line:0a0499e 
+    <<jump ELEPHANT_SIGN>>
+
+===
+title: ELEPHANT_SIGN
+position: 606,22
+group: ELEPHANT
+tags: actor=tutor
+image: elephant_sign
+---
+ELEPHANT. Thick skin. Big EARS. #line:048e8a1 
+Largest land ANIMAL. #line:0b1cca2 
+
+===
+title: ELEPHANT_KID
+position: 907,14
+group: ELEPHANT
+tags: actor=Kid
+image: kid_elephant
+---
+Its EARS are bigger than me! #line:0fc78ad 
+Can it fan me in summer? #line:004abc7 
+
+//--------------------------------------------
+// PART 2 – GIRAFFE
+//--------------------------------------------
+===
+title: GIRAFFE_KEEPER
+position: 343,228
+group: GIRAFFE
+tags: actor=Keeper
+image: giraffe_keeper
+color: blue
+---
+GIRAFFE is the tallest MAMMAL. #line:0d5c607 
+Long NECK reaches LEAVES. #line:0a4d24e 
+Clean to help her EAT. #line:04b42f2 
+<<activity cleancanvas giraffe_leaves tutorial>>
+
+===
+title: GIRAFFE_SIGN
+position: 593,228
+group: GIRAFFE
+tags: actor=Sign
+image: giraffe_sign
+---
+GIRAFFE. Tall. Long NECK. #line:0a8a73f 
+Long EYELASHES. #line:0291317 
+
+===
+title: GIRAFFE_KID
+position: 843,228
+group: GIRAFFE
+tags: actor=Kid
+image: kid_giraffe
+---
+With that NECK, #line:068daeb 
+I could reach cookies! #line:0bee484 
+
+//--------------------------------------------
+// PART 3 – LION
+//--------------------------------------------
+===
+title: LION_KEEPER
+position: 351,437
+group: LION
+tags: actor=Keeper
+image: lion_keeper
+color: blue
+---
+LION is the king. #line:07f2e15 
+LION lives in a PRIDE. #line:042266c 
+Match the LION facts. #line:0124e1c 
+<<activity order lion_pride tutorial>>
+
+===
+title: LION_SIGN
+position: 601,437
+group: LION
+tags: actor=Sign
+image: lion_sign
+---
+LION. PRIDE = family. #line:0ac6cc0 
+Males have MANES. #line:0d2883b 
+
+===
+title: LION_KID
+position: 851,437
+group: LION
+tags: actor=Kid
+image: kid_lion
+---
+That ROAR! #line:079f4e0 
+My hat jumped! #line:0e957cf 
+
+//--------------------------------------------
+// PART 4 – MONKEY
+//--------------------------------------------
+===
+title: MONKEY_KEEPER
+position: 364,685
+group: MONKEY
+tags: actor=Keeper
+image: monkey_keeper
+color: blue
+---
+MONKEY loves to CLIMB. #line:0867233 
+Hands, feet, and tail. #line:0eaefd6 
+Clean the CLIMB path. #line:079451b 
+<<activity cleancanvas monkey_climb tutorial>>
+
+===
+title: MONKEY_SIGN
+position: 614,685
+group: MONKEY
+tags: actor=Sign
+image: monkey_sign
+---
+MONKEY. Great CLIMBER. #line:0900219 
+Loves FRUIT. #line:021b299 
+
+===
+title: MONKEY_KID
+position: 864,685
+group: MONKEY
+tags: actor=Kid
+image: kid_monkey
+---
+He copied my dance! #line:0bf2346 
+Do monkeys wink? #line:0eecdf9 
+
+//--------------------------------------------
+// PART 5 – PENGUIN
+//--------------------------------------------
+===
+title: PENGUIN_KEEPER
+position: 380,936
+group: PENGUIN
+tags: actor=Keeper
+image: penguin_keeper
+color: blue
+---
+PENGUIN is a BIRD. #line:08c70e8 
+It cannot fly. It can SWIM. #line:0540c5a 
+Remember the ICE path. #line:0a3420c 
+<<activity memory penguin_paths tutorial>>
+
+===
+title: PENGUIN_SIGN
+position: 619,936
+group: PENGUIN
+tags: actor=Tutor
+image: penguin_sign
+---
+PENGUIN. Bird. Swimmer. #line:0877d95 
+Lives near OCEANS. #line:0eac350 
+
+===
+title: PENGUIN_KID
+position: 880,936
+group: PENGUIN
+tags: actor=Kid
+image: kid_penguin
+---
+They WADDLE like me! #line:0ae73f3 
+Tiny tuxedos! #line:05ac327 
+
+//--------------------------------------------
+// RECAP – MATCH & CARDS
+//--------------------------------------------
+===
+title: RECAP_GATE
+position: 667,1215
+group: Recap
+tags: actor=Narrator
+image: zoo_recap
+---
+Ready to review? #line:0e7e733 
+Match ANIMALS to FACTS. #line:05f345e 
+<<activity order zoo_animal_facts tutorial>>
+
+===
+title: RECAP_CARDS
+position: 917,1215
+group: Recap
+tags: actor=Narrator
+image: zoo_cards
+---
+Now match the CARDS. #line:0f6f882 
+<<activity memory zoo_animal_cards tutorial>>
+
+//--------------------------------------------
+// TWIST – FLAG RETURN
+//--------------------------------------------
+===
+title: RETURN_DIRECTOR
+position: -629,292
+group: End
+tags: actor=Zoo Director
+image: centennial_hall_antura_flag
+---
+Look! ANTURA has the FLAG! #line:0e24973 
+-> Ceremony #line:001c615 
+    <<jump CEREMONY_END>>
+
+===
+title: CEREMONY_END
+position: -396,298
+group: End
+tags: actor=Zoo Director
+image: flag_on_iglica
+---
+The FLAG is home. #line:0d91701 
+Thank you, detective. #line:08c71db 
+<<jump FINAL_QUIZ>>
+
+//--------------------------------------------
+// FINAL QUIZ
+//--------------------------------------------
+===
+title: FINAL_QUIZ
+position: -154,541
+group: End
+tags: actor=Narrator
+image: wroclaw_flag_quiz
+---
+Answer the questions. #line:010b191 
+<<activity quiz wroclaw_zoo_basics QUEST_COMPLETE>>
+
+===
+title: QUEST_COMPLETE
+position: -35,308
+group: End
+tags: actor=Narrator
+image: quest_complete
+color: red
+---
+Great work at the ZOO! #line:056d51c 
+See you on the ODRA RIVER! #line:0d4f5f7 
+<<quest_end 3>>
+===

@@ -1,0 +1,383 @@
+﻿// ============================================================================
+// PL_07_SOLAR_SYSTEM - Nicolaus Copernicus & Astronomy
+// ============================================================================
+// Location: Toruń, Poland - Copernicus House, Museum, and Planetarium
+//
+// Cards:
+// - NicolausCopernicus (scientific figure)
+// - planet_mercury (planetary education)
+// - planet_venus (planetary education)
+// - planet_earth (planetary education)
+// - planet_mars (planetary education)
+// - planet_jupiter (planetary education)
+// - planet_saturn (planetary education)
+// - planet_uranus (planetary education)
+// - planet_neptune (planetary education)
+// - telescope (scientific instrument)
+// - planetarium (educational facility)
+//
+// Tasks:
+// - Fix solar system map with correct planetary order
+// - Clean and learn about telescope parts
+// - Visit each planet in order with individual activities
+//
+// Activities:
+// - order planets_order (arrange 8 planets from Sun)
+// - piano planet_order_song (musical mnemonic for planet order)
+// - cleancanvas telescope_lens_clean (clean telescope lens)
+// - memory telescope_parts (match telescope components)
+// - jigsawpuzzle planet_mercury through planet_neptune (8 individual planet jigsaws)
+//
+// Words used: POLAND, TORUŃ, COPERNICUS, SUN, PLANET, SOLAR SYSTEM, TELESCOPE, LENS, PLANETARIUM, MERCURY, VENUS, EARTH, MARS, JUPITER, SATURN, URANUS, NEPTUNE, MOONS, CENTER, ASTRONOMY, SCIENTIST
+// ============================================================================
+
+title: Init
+position: -137,-132
+group: Intro
+tags: actor=Guide
+image: torun_street
+color: red
+---
+<<declare $planets_found = 0>>
+<<declare $planets_needed = 8>>
+Welcome to TORUŃ in POLAND. #line:0673aff 
+COPERNICUS was born here. #line:00fe710 
+ANTURA is stuck in his house! #line:00589bc 
+Let's ask COPERNICUS for help. #line:031963d 
+
+//--------------------------------------------
+// MEET COPERNICUS
+//--------------------------------------------
+===
+title: COPERNICUS_OUTSIDE
+position: 162,-138
+group: Intro
+tags: actor=Copernicus
+image: copernicus_house_front
+---
+Hello! I am NICOLAUS COPERNICUS. #line:0c5050d 
+I can help you rescue ANTURA. #line:0a41815 
+First, fix my SOLAR SYSTEM map. #line:0f17151 
+-> Help with planets #line:07bdf91 
+    <<jump PLANETS_ORDER>>
+
+//--------------------------------------------
+// ACTIVITY – ORDER THE PLANETS
+//--------------------------------------------
+===
+title: PLANETS_ORDER
+position: 400,0
+group: SolarSystem
+tags: actor=Narrator
+---
+<<activity order planets_order tutorial>>
+-> Done #line:06c0d36 
+    <<jump AFTER_PLANETS_ORDER>>
+
+//--------------------------------------------
+// AFTER ORDERING – HELIOCENTRIC IDEA
+//--------------------------------------------
+===
+title: AFTER_PLANETS_ORDER
+position: 600,0
+group: SolarSystem
+tags: actor=Copernicus
+---
+Well done! #line:06ea147 
+Long ago, people put EARTH in the center. #line:0af451b 
+I found the SUN is in the center. #line:0392dfd 
+
+
+//--------------------------------------------
+// MUSEUM – CENTER MODEL
+//--------------------------------------------
+===
+title: INSIDE_MUSEUM
+position: 800,0
+group: Museum
+tags: actor=Guide
+image: museum_hall
+---
+Here is a 3D SOLAR SYSTEM. #line:0069f70 
+It spins in the hall. #line:04de41d 
+Find PLANETS to add them here. #line:01e7dda 
+Clean the TELESCOPE #line:0c22e2c 
+
+
+//--------------------------------------------
+// ACTIVITY – CLEAN THE TELESCOPE LENS
+//--------------------------------------------
+===
+title: TELESCOPE_DIRTY
+position: 1000,0
+group: Museum
+tags: actor=Narrator
+image: telescope_lens_dirty
+---
+<<activity cleancanvas telescope_lens_clean tutorial>>
+-> Learn the parts #line:0e91a5e 
+
+
+//--------------------------------------------
+// TELESCOPE – PARTS & PLANETARIUM
+//--------------------------------------------
+===
+title: TELESCOPE_EXPLAIN
+position: 1200,0
+group: Museum
+tags: actor=Copernicus
+image: telescope_display
+---
+A TELESCOPE helps us see far. #line:0314ed5 
+It has a LENS and an EYEPIECE. #line:062693e 
+A PLANETARIUM shows the sky indoors. #line:0cab30b 
+-> Match the parts #line:015eb34 
+    <<jump TELESCOPE_PARTS>>
+
+//--------------------------------------------
+// ACTIVITY – MATCH TELESCOPE PARTS
+//--------------------------------------------
+===
+title: TELESCOPE_PARTS
+position: 1400,0
+group: Museum
+tags: actor=Narrator
+---
+<<activity memory telescope_parts tutorial>>
+-> Piano memory #line:0db50a7 
+    <<jump PIANO_INTRO>>
+
+//--------------------------------------------
+// PIANO – PLANET ORDER SONG
+//--------------------------------------------
+===
+title: PIANO_INTRO
+position: 1600,0
+group: Museum
+tags: actor=Copernicus
+image: planet_piano_card
+---
+Music helps memory. #line:08d3111 
+Play the PLANET order tune. #line:0471676 
+-> Play #line:0f08a91 
+
+===
+title: PIANO_PLAY
+position: 1800,0
+group: Museum
+tags: actor=Narrator
+---
+<<activity piano planet_order_song tutorial>>
+-> Find PLANETS #line:013de52 
+
+//--------------------------------------------
+// DISCOVER THE PLANETS
+//--------------------------------------------
+===
+title: FIND_PLANETS
+position: 0,220
+group: SolarSystem
+tags: actor=Guide
+image: solar_model_center
+---
+Let's visit each PLANET. #line:0b015a8 
+They appear in the model when found. #line:00d6fdf 
+-> Start with MERCURY #line:04ba61d 
+
+// MERCURY
+===
+title: PLANET_MERCURY
+position: 200,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_mercury
+---
+MERCURY is closest to the SUN. #line:0235ac2 
+It goes around very fast. #line:03c1c86 
+<<activity jigsawpuzzle planet_mercury tutorial>>
+// Add Mercury to the model (handled by activity)
+<<set $planets_found += 1>>
+
+// VENUS
+===
+title: PLANET_VENUS
+position: 400,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_venus
+---
+VENUS is very hot. #line:0fbc89d 
+Thick clouds cover it. #line:0244228 
+<<activity jigsawpuzzle planet_venus tutorial>>
+// Add Venus to the model (handled by activity)
+<<set $planets_found += 1>>
+
+// EARTH
+===
+title: PLANET_EARTH
+position: 600,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_earth
+---
+EARTH is our home. #line:01002c7 
+It has land, air, and seas. #line:032ae50 
+<<activity jigsawpuzzle planet_earth tutorial>>
+// Add Earth to the model (handled by activity)
+<<set $planets_found += 1>>
+
+
+// MARS
+===
+title: PLANET_MARS
+position: 800,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_mars
+---
+MARS is red and dusty. #line:007f580 
+It has big volcanoes. #line:0bc9c83 
+<<activity jigsawpuzzle planet_mars tutorial>>
+// Add Mars to the model (handled by activity)
+<<set $planets_found += 1>>
+-> Next: JUPITER #line:08af681 
+
+
+// JUPITER
+===
+title: PLANET_JUPITER
+position: 1000,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_jupiter
+---
+JUPITER is the biggest PLANET. #line:06e72b3 
+It has a Great Red Spot. #line:094d7dd 
+<<activity jigsawpuzzle planet_jupiter tutorial>>
+// Add Jupiter to the model (handled by activity)
+<<set $planets_found += 1>>
+-> Next: SATURN #line:07229a6 
+
+
+// SATURN
+===
+title: PLANET_SATURN
+position: 1200,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_saturn
+---
+SATURN has bright RINGS. #line:0e6de7d 
+Many MOONS orbit it. #line:00a70f4 
+<<activity jigsawpuzzle planet_saturn tutorial>>
+// Add Saturn to the model (handled by activity)
+<<set $planets_found += 1>>
+-> Next: URANUS #line:09ba1f7 
+    <<jump PLANET_URANUS>>
+
+// URANUS
+===
+title: PLANET_URANUS
+position: 1400,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_uranus
+---
+URANUS spins on its side. #line:04df973 
+It looks blue‑green. #line:01e724d 
+<<activity jigsawpuzzle planet_uranus tutorial>>
+// Add Uranus to the model (handled by activity)
+<<set $planets_found += 1>>
+
+
+// NEPTUNE
+===
+title: PLANET_NEPTUNE
+position: 1600,220
+group: SolarSystem
+tags: actor=Guide
+image: planet_neptune
+---
+NEPTUNE is far and windy. #line:0191651 
+It is deep blue. #line:0584147 
+<<activity jigsawpuzzle planet_neptune tutorial>>
+// Add Neptune to the model (handled by activity)
+<<set $planets_found += 1>>
+
+<<jump ALL_PLANETS_FOUND>>
+
+//--------------------------------------------
+// ALL PLANETS FOUND – MOVE TO RESCUE
+//--------------------------------------------
+===
+title: ALL_PLANETS_FOUND
+position: 1800,220
+group: SolarSystem
+tags: actor=Copernicus
+image: solar_model_finale
+---
+You found all 8 PLANETS. #line:0d91787 
+The model is complete. #line:0d9ce49 
+-> Rescue ANTURA #line:0896149 
+
+
+//--------------------------------------------
+// RESCUE ANTURA – SCENE
+//--------------------------------------------
+===
+title: RESCUE_ANTURA_GUIDE
+position: 1726,713
+group: Finale
+tags: actor=Guide
+image: antura_trail
+
+---
+ANTURA is free! #line:0294715 
+
+===
+title: RESCUE_ANTURA_COP
+position: -21,1066
+group: End
+tags: actor=Copernicus
+image: antura_rescued
+---
+Thank you for your help. #line:0d7e5be 
+"Remember: the SUN is in the center."" #line:0b0e4bf 
+-> Final Quiz #line:0a535da 
+    <<jump FINAL_QUIZ>>
+
+//--------------------------------------------
+// FINAL QUIZ – ALWAYS LAST
+//--------------------------------------------
+===
+title: FINAL_QUIZ
+position: 372,1108
+group: End
+tags: actor=Narrator
+image: quiz_solar_system
+---
+Answer the questions. #line:08bea58 
+Tap the best choice. #line:082b5ff 
+<<activity quiz copernicus_basics tutorial>>
+// Suggested questions in preset:
+// 1) Who is in the center of the SOLAR SYSTEM? a) EARTH  b) SUN ✅  c) MOON
+// 2) How many PLANETS are there?             a) 7  b) 8 ✅  c) 9
+// 3) COPERNICUS was from which country?       a) POLAND ✅  b) ITALY  c) FRANCE
+
+<<jump QUEST_COMPLETE>>
+
+//--------------------------------------------
+// END
+//--------------------------------------------
+===
+title: QUEST_COMPLETE
+position: 727,1084
+group: End
+tags: actor=Narrator
+image: quest_complete
+color: red
+---
+You helped COPERNICUS. #line:0be7346 
+The SOLAR SYSTEM is complete! #line:0410bab 
+<<quest_end 3>>
+===

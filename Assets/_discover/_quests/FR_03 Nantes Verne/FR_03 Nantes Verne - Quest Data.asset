@@ -1,0 +1,101 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
+  m_Name: FR_03 Nantes Verne - Quest Data
+  m_EditorClassIdentifier: 
+  Id: fr_03
+  YarnProject: {fileID: 7545569452688597077, guid: 1f338d96a29b14b918e917ec824cce62,
+    type: 3}
+  YarnScript: {fileID: -8253061345870894857, guid: a90eece3b92ef47c4ab174f7f12973ff,
+    type: 3}
+  IdDisplay: 3
+  Version: 100
+  Status: 1
+  TitleEn: Jules Verne (Nantes)
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5097430470090752
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: 77a5e0eadd66648ae84bb6f49ebd268b, type: 2}
+  Thumbnail: {fileID: 11400000, guid: e784fb6ead4ed40e69e1a0ee2cca49ef, type: 2}
+  MainTopic: 8
+  Knowledges: []
+  Cards:
+  - {fileID: 11400000, guid: a2d9ee9ebbb054125b06e52553cdcbb3, type: 2}
+  - {fileID: 11400000, guid: 032346f4088704c9daa6efd3616ad4c9, type: 2}
+  - {fileID: 11400000, guid: 222361de1b4064591a898c00d3fbd665, type: 2}
+  - {fileID: 11400000, guid: 8de0cea158b6c4206891522abeeab281, type: 2}
+  - {fileID: 11400000, guid: 01fea5c22b0754e2299016bc666880d0, type: 2}
+  - {fileID: 11400000, guid: 55b32312d16b5446dbcdc037eea4d61b, type: 2}
+  - {fileID: 11400000, guid: f3affd6702c2544dcb86772f46be2663, type: 2}
+  - {fileID: 11400000, guid: 0790a741be166465e8051b26f4f7cd87, type: 2}
+  - {fileID: 11400000, guid: 1a68269eeba004263b680124f7ca2657, type: 2}
+  - {fileID: 11400000, guid: 499537edb57db4b9dbb23747d77d8ac3, type: 2}
+  - {fileID: 11400000, guid: e09228d1ce519438a861597b107af766, type: 2}
+  - {fileID: 11400000, guid: 9885dfec242db413886dcbf7be6d0be6, type: 2}
+  Words: []
+  AgeMin: 6
+  AgeMax: 14
+  Difficulty: 3
+  Duration: 15
+  Dependencies: []
+  Gameplay: 
+  cookies: 0
+  IsPublic: 1
+  IsScriptPublic: 1
+  AdditionalResources: {fileID: 4900000, guid: 79080801743384abaa7e1160a6900a76, type: 3}
+  Credits:
+  - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
+    Content: 1
+    Design: 1
+    Development: 0
+    Validation: 0
+  - Author: {fileID: 11400000, guid: 83ad0b231f6c04d26a2e7178e31c493c, type: 2}
+    Content: 1
+    Design: 0
+    Development: 0
+    Validation: 0
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Content: 0
+    Design: 0
+    Development: 1
+    Validation: 0
+  WorldPrefab: {fileID: 6945215965495843337, guid: 565857fc991e5439e8c563fa60ffe653,
+    type: 3}
+  QuestPrefab: {fileID: 4017108264321078535, guid: f171b706ca5114e55ac9cada7020c0df,
+    type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: FR_03
+  scene: discover fr_03 nantes
+  QuestStringsTable:
+    m_TableReference:
+      m_TableCollectionName: GUID:91f7e04a176bf428ea7f4aab88304585
+  YarnStringTable:
+    m_TableCollectionName: 
+  references:
+    version: 2
+    RefIds: []

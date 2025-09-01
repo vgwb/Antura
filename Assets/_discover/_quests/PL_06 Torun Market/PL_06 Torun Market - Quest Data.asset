@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
+  m_Name: PL_06 Torun Market - Quest Data
+  m_EditorClassIdentifier: 
+  Id: pl_06
+  YarnProject: {fileID: 7545569452688597077, guid: 682a49436d7f845748ce7e80fbe9b3e2,
+    type: 3}
+  YarnScript: {fileID: -8253061345870894857, guid: e369c9e6e970b46d88aee2779fdcfd4a,
+    type: 3}
+  IdDisplay: 6
+  Version: 100
+  Status: 1
+  TitleEn: Market (Torun)
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5388265698877440
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: 
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 3
+  Location: {fileID: 11400000, guid: 71b008dc93ebd4bb494fcbae2e105b4b, type: 2}
+  Thumbnail: {fileID: 0}
+  MainTopic: 11
+  Knowledges: []
+  Cards:
+  - {fileID: 11400000, guid: d12564eb0ed434a1091e0e0cdc0dd77c, type: 2}
+  - {fileID: 11400000, guid: c52fe0bd081e64009a61a41bb45bca55, type: 2}
+  - {fileID: 11400000, guid: ebc23072caeec47d8881589646a4777c, type: 2}
+  Words: []
+  AgeMin: 0
+  AgeMax: 0
+  Difficulty: 3
+  Duration: 10
+  Dependencies: []
+  Gameplay: 
+  cookies: 0
+  IsPublic: 1
+  IsScriptPublic: 0
+  AdditionalResources: {fileID: 4900000, guid: 9e63bf18eb7644fafbfcf74c9dff5de8, type: 3}
+  Credits:
+  - Author: {fileID: 11400000, guid: 024f7cc7b4f6345efa6eddfda856a8b3, type: 2}
+    Content: 1
+    Design: 0
+    Development: 0
+    Validation: 0
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Content: 0
+    Design: 0
+    Development: 1
+    Validation: 0
+  WorldPrefab: {fileID: 4842159426435640053, guid: 76eed80a7deb54abb97f38bc31aec2d7,
+    type: 3}
+  QuestPrefab: {fileID: 4842159426435640053, guid: 76eed80a7deb54abb97f38bc31aec2d7,
+    type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: PL_06
+  scene: discover pl_06 market
+  QuestStringsTable:
+    m_TableReference:
+      m_TableCollectionName: GUID:30f4f3b4d793948c08cccee5aad85b20
+  YarnStringTable:
+    m_TableCollectionName: 
+  references:
+    version: 2
+    RefIds: []

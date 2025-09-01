@@ -1,0 +1,109 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b276baff48e2943c7999c1d7922312fb, type: 3}
+  m_Name: FR_01 Paris - Quest Data
+  m_EditorClassIdentifier: 
+  Id: fr_01
+  YarnProject: {fileID: 7545569452688597077, guid: a753dcb46e73b4a499707e4fb40e3009,
+    type: 3}
+  YarnScript: {fileID: -8253061345870894857, guid: c068943b5a077414a931970f3f80ada4,
+    type: 3}
+  IdDisplay: 1
+  Version: 100
+  Status: 2
+  TitleEn: Paris
+  Title:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 111559041024
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: GUID:e56888351fc7441398ed5bfc4daa696e
+    m_TableEntryReference:
+      m_KeyId: 5375315542007808
+      m_Key: 
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
+  Thumbnail: {fileID: 11400000, guid: c5a7898cbbc064c2fa818b052f712f7e, type: 2}
+  MainTopic: 3
+  Knowledges:
+  - {fileID: 11400000, guid: eb70d0c2bde1f426b8b944ef8899376b, type: 2}
+  - {fileID: 11400000, guid: 7562f9326af2249da8e5afc2b6a4cdea, type: 2}
+  - {fileID: 11400000, guid: c17b0091d12de451885dba484fb78671, type: 2}
+  - {fileID: 11400000, guid: cdfe435401e4447d8a06a855193a1268, type: 2}
+  Cards:
+  - {fileID: 11400000, guid: ad496c89877f247429a3b74da20a9e43, type: 2}
+  - {fileID: 11400000, guid: cd6c73dbcae5443c1a02cc32b2bb0360, type: 2}
+  - {fileID: 11400000, guid: 6f7e0e892ea5545109e80c590bec4e8d, type: 2}
+  - {fileID: 11400000, guid: 0db0711802e3847e987451e231479d31, type: 2}
+  - {fileID: 11400000, guid: 38eb8bb6eebcb428b9f23846d5df0d25, type: 2}
+  - {fileID: 11400000, guid: 22302165303b5477e8e234989aa6ec80, type: 2}
+  - {fileID: 11400000, guid: 774310539e2214558a181ea84bf9fdff, type: 2}
+  - {fileID: 11400000, guid: 53e4759e7d9024a2f9de78487b87859a, type: 2}
+  - {fileID: 11400000, guid: 568ac096b49624a5181e34e11c0d36e9, type: 2}
+  - {fileID: 11400000, guid: d29e395f094cb496093337f52ada822d, type: 2}
+  Words: []
+  AgeMin: 0
+  AgeMax: 0
+  Difficulty: 4
+  Duration: 20
+  Dependencies:
+  - {fileID: 11400000, guid: c729947aa22394cdb889b3b6aad9f328, type: 2}
+  Gameplay: 020000000100000000000000
+  cookies: 0
+  IsPublic: 1
+  IsScriptPublic: 1
+  AdditionalResources: {fileID: 4900000, guid: 792a7f34af4db4db19b8b6ee434d1c13, type: 3}
+  Credits:
+  - Author: {fileID: 11400000, guid: 533e33cc045b74d09bf8b678c9ab45a5, type: 2}
+    Content: 1
+    Design: 0
+    Development: 0
+    Validation: 0
+  - Author: {fileID: 11400000, guid: 83ad0b231f6c04d26a2e7178e31c493c, type: 2}
+    Content: 1
+    Design: 0
+    Development: 0
+    Validation: 0
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Content: 0
+    Design: 1
+    Development: 1
+    Validation: 0
+  - Author: {fileID: 11400000, guid: bf6110850e62c4624b892c100f91302c, type: 2}
+    Content: 0
+    Design: 1
+    Development: 0
+    Validation: 0
+  WorldPrefab: {fileID: 4756090750195079128, guid: f342316d43d1d46d9a37132e3847f78f,
+    type: 3}
+  QuestPrefab: {fileID: 4836856928656916913, guid: 9263f703ee58a4c05b541889a7a875e1,
+    type: 3}
+  WorldControllerPrefab: {fileID: 0}
+  assetsFolder: FR_01
+  scene: discover fr_01 paris
+  QuestStringsTable:
+    m_TableReference:
+      m_TableCollectionName: GUID:a2d282f2ce2954d209bda497fbc2e661
+  YarnStringTable:
+    m_TableCollectionName: 
+  references:
+    version: 2
+    RefIds: []

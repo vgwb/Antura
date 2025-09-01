@@ -1,0 +1,321 @@
+﻿// ============================================================================
+// PL_02_WROCLAW_DWARVES - Wroclaw Dwarf
+// ============================================================================
+// Location: Wrocław, Poland - Old Town and Market Square
+//
+// Cards:
+// - wroclaw_dwarf_statue (cultural symbol)
+// - PolishDwarf (cultural tradition)
+// - wroclaw_market_square (city center)
+// - WroclawOldTownHall (historical building)
+// - WroclawCathedral (religious architecture)
+// - WroclawSkyTower (modern landmark)
+//
+// Tasks:
+// - dwarf statue collection throughout city
+//
+// Activities:
+//
+// Words used:Wrocław, dwarf, statue, Market Square, Old Town, cathedral, tradition, collection, city, Poland
+// ============================================================================
+
+title: init
+position: 0,0
+tags: type=Start
+color: red
+---
+<<declare $found = 0>>
+<<declare $need = 10>>
+<<declare $dwarf_0 = false>>
+<<declare $dwarf_1 = false>>
+<<declare $dwarf_2 = false>>
+<<declare $dwarf_3 = false>>
+<<declare $dwarf_4 = false>>
+<<declare $dwarf_5 = false>>
+<<declare $dwarf_6 = false>>
+<<declare $dwarf_7 = false>>
+<<declare $dwarf_8 = false>>
+<<declare $dwarf_9 = false>>
+Oh no! Antura is stuck at the top of the SKY TOWER. #line:0a18e6c 
+The dwarves locked the elevator. #line:08bcfba 
+<<jump task_dwarves>>
+===
+
+title: task_dwarves
+position: 0,180
+tags: task
+---
+<<task_start FIND_DWARVES>>
+<<asset wroclaw_dwarves_overview>>
+Find 10 dwarves around Wrocław. They will help us. #line:07471d4 
+Explore the city. Talk to each dwarf you find. #line:09148d9 
+===
+
+
+// 0) The origin of dwarves
+title: dwarf_origin
+position: 280,0
+group: dwarves
+tags: actor=DWARF
+---
+Wrocław is the city of dwarfs. You can find them everywhere. #line:007686b 
+They are small and kind. They like to play tricks. #line:0143908 
+<<activity jigsawpuzzle wroclaw_dwarf_origin tutorial>>
+<<if !$dwarf_0>>
+	<<set $dwarf_0 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:0059028 
+<<endif>>
+===
+
+// 1) Old Town Hall
+title: dwarf_town_hall
+position: 280,180
+group: dwarves
+tags: actor=DWARF
+---
+This is the Old Town Hall. City leaders work here. #line:02cbbf0 
+Meetings happen inside. The clock is very old. #line:0ca6131 
+<<activity jigsawpuzzle wroclaw_town_hall tutorial>>
+<<if !$dwarf_1>>
+	<<set $dwarf_1 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:07867ac 
+<<endif>>
+===
+
+// 2) Cathedral with quiz
+title: dwarf_cathedral
+position: 280,360
+group: dwarves
+tags: actor=DWARF
+---
+This is the Cathedral. It is a large and important church. #line:00f2132 
+It has tall towers and colorful stained-glass windows. #line:08871e4 
+<<jump bishop_quiz>>
+===
+
+title: bishop_quiz
+position: 520,360
+group: dwarves
+tags: actor=DWARF, type=Choice
+---
+What do people do in a cathedral? #line:05ea00d 
+-> They shop for food. #line:0c891cc 
+	Not here. Try again. #line:0d84e58 
+	<<jump bishop_quiz>>
+-> They pray. #line:01ac8e6 
+	Yes. You may collect the dwarf. #line:071c92a 
+	<<jump cathedral_collect>>
+-> They fly planes. #line:09d9b34 
+	No. Try again. #line:06ebc0c 
+	<<jump bishop_quiz>>
+===
+
+title: cathedral_collect
+position: 760,360
+group: dwarves
+tags: actor=DWARF
+---
+<<activity jigsawpuzzle wroclaw_cathedral tutorial>>
+<<if !$dwarf_2>>
+	<<set $dwarf_2 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:0ac6a7d 
+<<endif>>
+===
+
+// 3) ZOO tie-in
+title: dwarf_zoo
+position: 280,540
+group: dwarves
+tags: actor=DWARF
+---
+Visit the Wrocław ZOO, the biggest in Poland. #line:0198e80 
+It has many animals from around the world. #line:01b020e 
+<<activity jigsawpuzzle wroclaw_zoo tutorial>>
+<<if !$dwarf_3>>
+	<<set $dwarf_3 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:0f4a3c9 
+<<endif>>
+===
+
+// 4) Centennial Hall
+title: dwarf_centennial_hall
+position: 280,720
+group: dwarves
+tags: actor=DWARF
+---
+The Centennial Hall is huge. Inside you see shows and concerts. #line:0ebb952 
+The roof looks like a giant dome. #line:0f4189b 
+<<activity jigsawpuzzle centennial_hall tutorial>>
+<<if !$dwarf_4>>
+	<<set $dwarf_4 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:038d2f9 
+<<endif>>
+===
+
+// 5) Multimedia Fountain
+title: dwarf_fountain
+position: 280,900
+group: dwarves
+tags: actor=DWARF
+---
+Water dances here with music and lights. #line:0daf76d 
+The shows are beautiful on summer nights. #line:006ed40 
+<<activity jigsawpuzzle multimedia_fountain tutorial>>
+<<if !$dwarf_5>>
+	<<set $dwarf_5 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:004a763 
+<<endif>>
+===
+
+// 6) Panorama Racławicka
+title: dwarf_panorama
+position: 280,1080
+group: dwarves
+tags: actor=DWARF
+---
+A giant battle painting goes all around you. #line:0de7f17 
+You stand inside the story. #line:0f8436b 
+<<activity jigsawpuzzle panorama_raclawicka tutorial>>
+<<if !$dwarf_6>>
+	<<set $dwarf_6 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:0130584 
+<<endif>>
+===
+
+// 7) Olga Tokarczuk
+title: dwarf_olga
+position: 280,1260
+group: dwarves
+tags: actor=DWARF
+---
+Olga Tokarczuk is a famous writer who lives in Wrocław. #line:0496de5 
+She won the Nobel Prize in Literature. #line:00ae354 
+<<activity jigsawpuzzle olga_tokarczuk tutorial>>
+<<if !$dwarf_7>>
+	<<set $dwarf_7 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:067f80a 
+<<endif>>
+===
+
+// 8) Sky Tower Plaza Dwarf
+title: dwarf_plaza
+position: 560,1260
+group: dwarves
+tags: actor=DWARF
+---
+This is the modern plaza near the Sky Tower. #line:096a9ee 
+People meet here to talk and play. #line:0c899a5 
+<<activity jigsawpuzzle plaza_dwarf tutorial>>
+<<if !$dwarf_8>>
+	<<set $dwarf_8 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:0314653 
+<<endif>>
+===
+
+// 9) Sky Tower Dwarf
+title: dwarf_sky_tower
+position: 840,1260
+group: dwarves
+tags: actor=DWARF
+---
+The Sky Tower is very tall. #line:0ccd434 
+You can see very far from the top. #line:0170463 
+<<activity jigsawpuzzle sky_tower_dwarf tutorial>>
+<<if !$dwarf_9>>
+	<<set $dwarf_9 = true>>
+	<<set $found = $found + 1>>
+A dwarf joined us. #line:060daca 
+<<endif>>
+===
+
+// Keymaster at the elevator
+title: elevator_keymaster
+position: 1137,1267
+group: dwarves
+tags: actor=DWARF
+---
+I guard the elevator. #line:0dd986c 
+<<if $found < $need>>
+You still need more dwarves. Keep exploring the city. #line:08dfa28 
+<<else>>
+Great! You found them all. I open the door with my key. #line:0fdc177 
+<<action activate_elevator>>
+<<endif>>
+===
+
+title: elevator_up
+position: 611,1818
+tags: actor=GUIDE
+---
+The elevator goes up... Ding! #line:0abe973 
+The view is beautiful. #line:008b500 
+===
+
+title: rescue_top
+position: 851,1818
+tags: actor=ANTURA
+---
+ANTURA: I'm here! Thank you! #line:066b636 
+ANTURA: Wink... POOF! #line:0a6619b 
+Magic! Antura is playful. #line:0de1060 
+
+===
+
+// Final Assessment
+title: assessment_intro
+position: 851,1618
+tags: actor=GUIDE
+---
+Quick check. #line:0816525 
+Two short questions. #line:03ddff0 
+<<jump assessment_q1>>
+===
+
+title: assessment_q1
+position: 1162,1702
+tags: assessment, actor=GUIDE
+---
+What is the symbol of Wrocław? #line:020c66a 
+-> a dog #line:03ffcee 
+	Not this. #line:07344d2 
+	<<jump assessment_q1>>
+-> a monkey #line:0760b20 
+	No. #line:0868c5e 
+	<<jump assessment_q1>>
+-> a dwarf #line:0972bf0 
+	Correct! #line:088b881 
+	<<jump assessment_q2>>
+===
+
+title: assessment_q2
+position: 1455,1715
+tags: assessment, actor=GUIDE
+---
+Wrocław is the ... biggest city of Poland. #line:09d303d 
+-> first #line:0ce9571 
+	No. #line:039419a 
+	<<jump assessment_q2>>
+-> second #line:0fea2e7 
+	Not this. #line:028148c 
+	<<jump assessment_q2>>
+-> third #line:0ebe219 
+	Correct! Well done. #line:0802440 
+	<<jump assessment_end>>
+===
+
+title: assessment_end
+position: 1769,1692
+tags: actor=GUIDE
+---
+You finished the quest! #line:0fc1bad 
+<<quest_end 3>>
+===

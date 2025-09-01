@@ -1,0 +1,229 @@
+﻿// ============================================================================
+// PL_03_WROCLAW_RIVER - Odra River Exploration
+// ============================================================================
+// Location: Wrocław, Poland - Odra River and bridges
+//
+// Cards:
+// - odra_river (geographical feature)
+// - RiverOdra (major river)
+// - wroclaw_bridges (infrastructure)
+// - Footbridges (bridge types)
+//
+// Tasks:
+//
+// Activities:
+// cleancanvas odra_footbridge  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).
+// memory odra_bridges          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS).
+// jigsawpuzzle odra_barge      — Rebuild BARGE image; concept: BOAT that carries GOODS.
+// jigsawpuzzle odra_houseboat  — Rebuild HOUSEBOAT image; concept: BOAT for LIVING.
+// order odra_couples           — Pair BRIDGES→(people/CARS/TRAIN) and BOATS→(goods/live).
+// order odra_map_triplet       — Tap/sequence ODRA, WISŁA, BALTIC; concept: rivers flow to SEA.
+// quiz odra_facts              — Final assessment (at least 2 Qs): ODRA→BALTIC, longest river=WISŁA.
+//
+// Words used: Odra, river, bridge, island , water, Wrocław, navigation, ecosystem
+// ============================================================================
+
+//--------------------------------------------
+// INTRO – DOCK
+//--------------------------------------------
+title: init
+position: 0,0
+group: Intro
+tags: actor=BoatCaptain
+image: odra_dock
+color: red
+---
+Welcome to WROCŁAW in POLAND. #line:03f03fe 
+This is the ODRA RIVER. #line:053bcb9 
+Ready to explore? #line:06099c1 
+===
+
+
+//--------------------------------------------
+// PART 1 – CITY OF BRIDGES
+//--------------------------------------------
+title: BRIDGES_INTRO
+position: 300,0
+group: Bridges
+tags: actor=BoatCaptain
+image: city_of_bridges
+---
+WROCŁAW has many BRIDGES. #line:041a469 
+More than one hundred! #line:0522f41 
+Let’s find three types. #line:04082d6 
+
+===
+
+title: BRIDGE_FOOT_HINT
+position: 520,-40
+group: Bridges
+tags: actor=BoatCaptain
+image: footbridge_view
+---
+FOOTBRIDGE is for people. #line:0d0c6ff 
+Hint: no CARS on it. #line:057b7a9 
+
+<<activity cleancanvas odra_footbridge tutorial>>
+
+===
+
+title: BRIDGE_TRAIN_HINT
+position: 760,-20
+group: Bridges
+tags: actor=BoatCaptain
+image: railway_bridge
+---
+TRAIN BRIDGE carries TRAINS. #line:04b8fb2 
+Hint: look for TRACKS. #line:03bf613 
+
+<<activity memory odra_bridges tutorial>>
+-> Next: ROAD BRIDGE #line:08d07e5 
+    <<jump BRIDGE_CAR_HINT>>
+===
+
+title: BRIDGE_CAR_HINT
+position: 1000,0
+group: Bridges
+tags: actor=BoatCaptain
+image: road_bridge
+---
+ROAD BRIDGE is for CARS. #line:0f6e252 
+Hint: spot CARS crossing. #line:03fcfdf 
+
+<<activity memory odra_bridges tutorial>>
+===
+
+
+//--------------------------------------------
+// PART 2 – RIVER BOATS
+//--------------------------------------------
+title: BOATS_INTRO
+position: 0,260
+group: Boats
+tags: actor=BoatCaptain
+image: odra_river_traffic
+---
+Many BOATS on the ODRA. #line:0eb639b 
+Find a BARGE first. #line:0d21cc3 
+
+-> Show me a BARGE #line:03495d2 
+    <<jump BOAT_BARGE_HINT>>
+===
+
+title: BOAT_BARGE_HINT
+position: 240,260
+group: Boats
+tags: actor=BoatCaptain
+image: barge_photo
+---
+BARGE is low and flat. #line:028dcdf 
+It carries GOODS. #line:083423e 
+
+<<activity jigsawpuzzle odra_barge tutorial>>
+-> Find a HOUSEBOAT #line:0a09f26 
+===
+
+title: BOAT_HOUSE_HINT
+position: 480,260
+group: Boats
+tags: actor=BoatCaptain
+image: houseboat
+---
+HOUSEBOAT is for living. #line:0d77d00 
+Windows like a small home. #line:0d30896 
+
+<<activity jigsawpuzzle odra_houseboat tutorial>>
+
+===
+
+title: BOATS_MATCH
+position: 720,260
+group: Boats
+tags: actor=BoatCaptain
+image: odra_couples
+---
+Match things to jobs. #line:0d62913 
+BRIDGE→people/CARS/TRAIN. #line:094d834 
+BOAT→goods/live. #line:0e16bac 
+
+<<activity order odra_couples tutorial>>
+===
+
+
+//--------------------------------------------
+// PART 3 – BIG MAP
+//--------------------------------------------
+title: MAP_INTRO
+position: 0,520
+group: Map
+tags: actor=BoatCaptain
+image: poland_river_map
+---
+ODRA is Poland’s 2 RIVER. #line:0ff7dfd 
+WISŁA is 1, the longest. #line:03fe124 
+Both flow to the BALTIC SEA. #line:0941615 
+
+-> Map check #line:0fe3ec3 
+    <<jump MAP_ACTIVITY>>
+===
+
+title: MAP_ACTIVITY
+position: 300,520
+group: Map
+tags: actor=Narrator
+image: map_icons
+---
+Narrator: Tap ODRA, WISŁA, BALTIC. #line:0ddc2c8 
+Narrator: Follow RIVERS to the SEA. #line:06237e3 
+
+<<activity order odra_map_triplet tutorial>>
+===
+
+
+//--------------------------------------------
+// ENDING – DOCK & SIGN
+//--------------------------------------------
+title: ENDING_DOCK
+position: 600,520
+group: End
+tags: actor=BoatCaptain
+image: odra_sign
+---
+This blue SIGN means RIVER. #line:0b583df 
+You learned BRIDGES and BOATS. #line:0a2180f 
+Ready for a quiz? #line:07d9d36 
+<<jump FINAL_QUIZ>>
+===
+
+
+//--------------------------------------------
+// FINAL QUIZ – ALWAYS LAST
+//--------------------------------------------
+title: FINAL_QUIZ
+position: 889,549
+group: End
+tags: actor=Narrator
+image: odra_quiz
+---
+Answer two questions. #line:0afcdc6 
+Tap the best choice. #line:0c9b102 
+
+<<activity quiz odra_facts tutorial>>
+// Suggested questions in preset:
+// 1) ODRA flows into which SEA?  a) BLACK  b) BALTIC ✅
+// 2) Longest RIVER in POLAND?    a) WISŁA ✅  b) ODRA
+
+<<jump QUEST_COMPLETE>>
+===
+
+title: QUEST_COMPLETE
+position: 1200,520
+group: End
+tags: actor=BoatCaptain
+image: quest_complete
+---
+Great work, RIVER explorer! #line:012f97c 
+See you on the next trip! #line:045c7d9 
+
+<<quest_end 3>>
+===

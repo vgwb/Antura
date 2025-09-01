@@ -14,9 +14,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: food_baguette
   Status: 3
-  Importance: 0
   Type: 3
   Topics: 2d00000003000000
+  Importance: 0
+  CoreOfKnowledge: {fileID: 11400000, guid: 7562f9326af2249da8e5afc2b6a4cdea, type: 2}
+  IsInKnowledges: 0
+  MasteryPointsToUnlock: 1
   Year: 1700
   Country: 2
   Location: {fileID: 0}
@@ -46,7 +49,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
   - {fileID: 11400000, guid: d18b0b80b09374f6db671c77b4ab5b64, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
@@ -62,6 +64,7 @@ MonoBehaviour:
   CustomTag: 
   Rationale: Baguettes are iconic French culture that kids can easily understand
     and remember
+  Credits: []
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1

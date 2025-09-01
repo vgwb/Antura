@@ -1,0 +1,225 @@
+﻿// ============================================================================
+// FR_02_ANGERS_SCHOOL - Jules Verne
+// ============================================================================
+// Words used: school, classroom, backpack, lesson, CP, CE1, CE2, CM1, CM2, Collège, Lycée, Baccalauréat, geometry, cursive, canteen/menu
+// activities in this quest:
+// - find your classroom (task)
+// - find your backpack (task)
+// - match tools to shapes (geometry activity)
+
+title: init
+position: 0,0
+type: panel
+tags: 
+color: red
+actor: TUTOR
+---
+<<set $MAX_PROGRESS = 10>>
+<<declare $got_backpack = false>>
+TUTOR: Welcome to FR-02: Angers! It's the first day of school! #line:014887e 
+You are 10 years old and in the last year of elementary school. #line:063e8e0 
+Find your school and your classroom! #line:0f65a1b 
+===
+
+title: school_1
+position: 338,-337
+tags: actor=WOMAN
+actor: WOMAN
+---
+woman: Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. #line:096b721 
+woman: You are too big for our small chairs! Your school is nearby. #line:07ed07b 
+
+===
+title: school_2
+position: 340,-156
+tags:
+---
+<<if $got_backpack>>
+    <<jump school_2_talk>>
+<<else>>
+    <<jump school_2_welcome>>
+<<endif>>
+===
+
+title: school_2_welcome
+position: 724,-284
+tags: actor=GUIDE
+actor: GUIDE
+---
+Bonjour! Welcome! You've found it. This is your elementary school. #line:092b309 
+It looks like you forgot your backpack. #line:0dd7977 
+You'll need your books for the lesson. #line:044385f 
+<<jump task_backpack>>
+===
+
+title: school_3
+position: 340,61
+tags: actor=KID_MALE
+actor: KID_MALE
+---
+Hi! This is a middle school for ages 11 to 15. #line:06478e9 
+You're almost old enough, but not yet. Keep looking! #line:0df97f8 
+===
+
+title: school_4
+position: 341,293
+tags: actor=MAN
+actor: MAN
+---
+Bonjour! This is a high school for ages 16 to 18. #line:04a0e4b 
+Students study for the Baccalauréat exam here before university. #line:027eba1 
+You're a bit too young. Try another school. #line:0630d14 
+===
+
+
+title: school_4_talk_man
+position: 620,290
+tags: actor=OLD_MAN
+actor: OLD_MAN
+---
+Hello! I found a backpack on my way here. #line:0c3b4fe 
+These books are simpler than the ones my students use, #line:0d3aba1 
+so I don't think it belongs to them. #line:09c5297 
+<<action spawn_backpack>>
+Could it be yours? #line:0f44535 
+===
+
+
+title: school_2_talk
+position: 734,-24
+tags: actor=GUIDE
+actor: GUIDE
+---
+There it is! Let's go inside and start the lesson. #line:0624437 
+<<action DOOR_OPEN_1>>
+Come in! Your classroom is down the hall. #line:0b91268 
+<<jump task_find_classroom >>
+===
+
+title: task_find_classroom
+position: 974,-24
+tags: actor=TUTOR, task
+---
+TUTOR: TASK: Find your classroom. #line:058ddbc 
+<<task_start TASK_CLASSROOM task_class_done>>
+===
+
+title: classroom_1
+position: 1574,-269
+tags: actor=MAN
+actor: MAN
+---
+This is the CP classroom. #line:08b2774 
+Children start primary school at 6 years old. #line:09bfe7f 
+This is not your class. Try the next door! #line:068e48b 
+<<action DOOR_OPEN_2>>
+===
+
+title: classroom_2
+position: 1579,-95
+tags: actor=WOMAN
+actor: WOMAN
+---
+This is CE1, #line:0f699d3 
+the second year of primary school. #line:08f3ab2 
+This is not your class. Try again! #line:029fd9c 
+<<action DOOR_OPEN_3>>
+===
+
+title: classroom_3
+position: 1581,54
+tags: actor=WOMAN
+actor: WOMAN
+---
+Hi there! This is the CE2 classroom #line:0bce01a 
+for students who are 8 years old. #line:0b411ce 
+This is not your class, but you're getting close! #line:0e4aa95 
+<<action DOOR_OPEN_4>>
+===
+
+title: classroom_4
+position: 1584,217
+tags: actor=OLD_WOMAN
+actor: OLD_WOMAN
+---
+Hello! This is CM1, #line:043653e 
+the second-to-last year of primary school. #line:0532330 
+Your class is just over there! #line:00f6294 
+<<action DOOR_OPEN_5>>
+===
+
+// asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png
+
+title: classroom_5
+position: 1585,387
+tags: actor=GUIDE
+color: purple
+actor: GUIDE
+---
+There you are! Welcome to CM2! #line:02797f8 
+Let's get to work. #line:0f90123 
+Look, it's a writing lesson. #line:0071a0d 
+In France, we learn to write in cursive. #line:0f8995f 
+<<asset cursive_writing zoom>>
+Now for geometry! #line:0365921 
+Match each tool to the shape it draws. #line:052d22a 
+<<activity ACTIVITY_MATCH activity_match_done>>
+===
+
+title: activity_match_done
+position: 1838,385
+tags: actor=GUIDE
+actor: GUIDE
+color: purple
+---
+Great job! #line:0e3f1fa 
+Every morning and afternoon we have a break to play outside. #line:037391b 
+You're all set. Welcome to the class! #line:021df05 
+<<quest_end 3>>
+===
+
+
+title: task_backpack_done
+position: 1205,-281
+tags: actor=TUTOR
+---
+TUTOR: TASK COMPLETED! You can now enter school. #line:063f354  
+<<set $got_backpack = true>>
+===
+
+title: task_class_done
+position: 1207,-20
+tags: actor=TUTOR
+---
+TUTOR: TASK COMPLETED! You can now start the lesson. #line:093e91d 
+===
+
+title: task_backpack
+position: 976,-282
+tags: actor=GUIDE, task
+---
+Find your backpack and then come back. #line:0e3ad75 
+<<task_start TASK_BACKPACK task_backpack_done>>
+===
+
+
+title: school_canteen
+position: 1830,-269
+tags: actor=OLD_WOMAN, 
+color: yellow
+---
+Hello! I hope you're registered for the canteen. #line:021132d 
+Look what's on the menu today! #line:0978619 
+<<card object_canteen_menu>>
+===
+
+title: school_charte
+position: 1830,-98
+tags: actor=TUTOR
+color: yellow
+tags: item
+---
+<<card concept_charter_of_secularism>>
+At school, everyone is welcome and respected, #line:02977c9 
+no matter their beliefs. #line:09c12ac 
+===

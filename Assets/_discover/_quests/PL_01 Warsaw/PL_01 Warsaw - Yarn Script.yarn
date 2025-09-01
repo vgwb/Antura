@@ -1,0 +1,241 @@
+﻿// ============================================================================
+// PL_01_WARSAW - Discover Polish Capital
+// ============================================================================
+// Location: Warsaw, Poland 
+//
+// Cards:
+// - MermaidOfWarsaw (cultural symbol)
+// - warsaw_chopin_monument (musical heritage)
+// - FryderykChopin (historical figure)
+// - warsaw_wars_statue (legendary figure)
+// - WarsAndSawa (city legend)
+// - warsaw_wisla_river (geographical feature)
+// - RiverWisla (major river)
+// - KingSigismund (historical figure)
+// - warsaw_sejm (government building)
+// - President (political figure)
+// - warsaw_palace_culture (cultural landmark)
+// - MariaCurie (scientific figure)
+// - MoneyZloty (currency education)
+// - warsaw_national_stadium (sports venue)
+//
+// Tasks:
+// - Return Mermaid's sword after parliament visit
+// - Help Wars find Sawa by the river
+// - Find King Sigismund's crown
+// - Follow Maria Curie's coin trail
+//
+// Activities:
+// - piano chopin_melody (musical activity)
+// - quiz polish_flag_colors (civic education)
+// - quiz warsaw_basics (comprehensive review)
+//
+// Words used: TRANSPORT (TRAIN, TRAM, BUS, CAR, BIKE), SPORT (FOOTBALL, BALL, GOAL, FIELD), FLAG, ZŁOTY, MERMAID OF WARSAW, CHOPIN, WARS & SAWA, KING SIGISMUND, PRESIDENT/SEJM, PALACE OF CULTURE AND SCIENCE, MARIA SKŁODOWSKA-CURIE, NATIONAL STADIUM, COPERNICUS
+// ============================================================================
+
+title: init
+position: 0,0
+tags: type=Start
+color: red
+---
+<<set $TOTAL_COINS = 0>>
+<<set $COLLECTED_ITEMS = 0>>
+===
+
+// ————————————————————————————————————————————————————————————————————
+// GUIDE — WELCOME
+// ————————————————————————————————————————————————————————————————————
+title: GUIDE_INTRO
+tags: actor=Guide, balloon=panel
+group: Warsaw
+---
+<<card warsaw_city_gate>>
+Welcome to WARSAW, the capital of POLAND. #line:0b126ba 
+ANTURA ran through the city and made a mess. #line:0f4026d 
+Can you help us fix things? #line:0e40172 
+Start with the MERMAID OF WARSAW by the RIVER. #line:0303973 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// MERMAID OF WARSAW — MISSING SWORD + TRANSPORT VOCAB
+// ————————————————————————————————————————————————————————————————————
+title: MERMAID_SQUARE
+tags: actor=Mermaid
+group: Warsaw
+---
+<<card warsaw_mermaid_plaza>>
+Hello. I am the MERMAID of WARSAW. #line:048b274 
+ANTURA took my SWORD while I tried to stop him. #line:03284c1 
+Please find it, and help other places on his trail. #line:0b37c7e 
+Do you know how people move in WARSAW? #line:014ebd5 
+You can ride a TRAM, take a BUS, or a TRAIN. #line:0f69ca8 
+You can also go by CAR or BIKE. #line:01b35cc 
+I saw ANTURA near the CHOPIN Monument. #line:016885a 
+Follow the music. #line:00591a8 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// CHOPIN MONUMENT — PIANO ACTIVITY
+// ————————————————————————————————————————————————————————————————————
+title: CHOPIN_MONUMENT
+tags: actor=Chopin
+group: Warsaw
+---
+<<card warsaw_chopin_monument>>
+Hello. I am FRYDERYK CHOPIN. #line:05e23dd 
+My MUSIC NOTES flew away. #line:0c2dc21 
+Please recreate the MELODY. #line:0cd9161 
+<<activity piano chopin_melody tutorial>>
+Beautiful. Thank you. #line:0588964 
+I wrote many pieces for PIANO. #line:02f0cb6 
+I saw ANTURA run toward COPERNICUS. #line:0d0dfb2 
+Keep going. The MERMAID needs her SWORD back. #line:0f18f1a 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// WARS AND SAWA — FIND SAWA AT THE WISŁA
+// ————————————————————————————————————————————————————————————————————
+title: WARS_AND_SAWA
+tags: actor=Wars
+group: Warsaw
+---
+<<card warsaw_wars_statue>>
+Have you seen SAWA? We got separated. #line:0f91d02 
+ANTURA caused trouble. SAWA ran toward the RIVER. #line:0d21844 
+Please bring her back. #line:0fac801 
+===
+
+title: SAWA_BY_WISLA
+tags: actor=Sawa
+group: Warsaw
+---
+<<card warsaw_wisla_river>>
+Hello. I am by the WISŁA RIVER. #line:057d461 
+The WISŁA is the longest river in POLAND. #line:0345857 
+Let’s go back to WARS. #line:071d7d4 
+===
+
+title: WARS_SAWA_LEGEND
+tags: actor=Wars
+group: Warsaw
+---
+<<card warsaw_wars_sawa_back>>
+Thank you. We are together again. #line:099f978 
+We are WARS and SAWA. This is a WARSAW legend. #line:012d571 
+Find KING SIGISMUND’s COLUMN next. #line:023e2de 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// KING SIGISMUND — FIND THE CROWN (SMALL TASK)
+// ————————————————————————————————————————————————————————————————————
+title: SIGISMUND_COLUMN
+tags: actor=King_Sigismund
+group: Warsaw
+---
+<<card warsaw_sigismund_column>>
+Greetings. I am KING SIGISMUND. #line:0735d68 
+My CROWN fell when ANTURA ran past! #line:06acced 
+It should be nearby. Please find it. #line:0a6c3f8 
+// Task hint (scene action suggested)
+// task=find_crown, action=HighlightCrown could be handled by scene logic if needed
+Well done. My CROWN is back. #line:0853f81 
+Go to the PARLIAMENT. The MERMAID’s SWORD is there. #line:0fe293d 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// PRESIDENT & PARLIAMENT — FLAG COLORS QUIZ (+ PALACE INFO)
+// ————————————————————————————————————————————————————————————————————
+title: PRESIDENT_PARLIAMENT
+tags: actor=President
+group: Warsaw
+---
+<<card warsaw_sejm>>
+Welcome to the POLISH HOUSES OF PARLIAMENT. #line:049ead5 
+I also work at the PRESIDENTIAL PALACE. #line:0bd4bf9 
+I have the MERMAID’s SWORD. #line:0a0d570 
+But first, help me fix the POLISH FLAG. #line:08e2833 
+Choose the correct COLORS. #line:0b6a50a 
+<<activity quiz polish_flag_colors tutorial>>
+Thank you. The FLAG is WHITE and RED. #line:0c1be80 
+We also celebrate the 3 MAY CONSTITUTION DAY. #line:0691d35 
+Here is the MERMAID’s SWORD. Please return it. #line:09a7cf5 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// MERMAID — RETURN THE SWORD
+// ————————————————————————————————————————————————————————————————————
+title: MERMAID_RETURN
+tags: actor=Mermaid
+group: Warsaw
+---
+<<card warsaw_mermaid_sword>>
+You found my SWORD. Thank you. #line:0098677 
+I am a symbol of WARSAW. #line:02279a9 
+ANTURA also reached the PALACE OF CULTURE AND SCIENCE. #line:03d0b7a 
+Please check it. #line:0c28f2d 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// PALACE OF CULTURE AND SCIENCE — MEET MARIA, FOLLOW COIN TRAIL
+// ————————————————————————————————————————————————————————————————————
+title: PALACE_CULTURE_MARIA
+tags: actor=Maria_Curie
+group: Warsaw
+---
+<<card warsaw_palace_culture>>
+Hello. I am MARIA SKŁODOWSKA‑CURIE. #line:0d43ca0 
+This is the PALACE OF CULTURE AND SCIENCE. #line:02b3d6b 
+ANTURA misplaced my WALLET. #line:0666af3 
+Follow the COIN TRAIL. Our currency is the ZŁOTY. #line:00a545d 
+<<activity order curie_coin_trail tutorial>>
+You found it. Thank you. #line:0585b5a 
+I heard noise at the NATIONAL STADIUM. #line:0762923 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// NATIONAL STADIUM — SCORE 5 GOALS + ANTHEM
+// ————————————————————————————————————————————————————————————————————
+title: NATIONAL_STADIUM
+tags: actor=Robert_Lewandowski
+group: Warsaw
+---
+<<card warsaw_national_stadium>>
+This is the NATIONAL STADIUM. #line:0bb0aa5 
+Can you score 5 GOALS? #line:09126e5 
+<<activity order score_5_goals tutorial>>
+Great shots! #line:0c55643 
+SPORT words: FOOTBALL, BALL, GOAL, FIELD. #line:06ef367 
+People sing our NATIONAL ANTHEM here. #line:0b65eb8 
+Independence Day is on 11 NOVEMBER. #line:09c2e0c 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// GUIDE — OUTRO
+// ————————————————————————————————————————————————————————————————————
+title: GUIDE_OUTRO
+tags: actor=Guide, balloon=panel
+group: Warsaw
+---
+<<card warsaw_city_sunset>>
+You helped the city. ANTURA left WARSAW. #line:0afa91b 
+The MERMAID, CHOPIN, and friends say thank you. #line:0be619e 
+Keep exploring POLAND! #line:0aeb8fb 
+===
+
+// ————————————————————————————————————————————————————————————————————
+// FINAL QUIZ — 2 QUESTIONS (FLAG + VOCAB MATCH)
+// ————————————————————————————————————————————————————————————————————
+title: FINAL_QUIZ
+tags: actor= Narrator, balloon=quiz
+group: Quiz
+---
+<<card warsaw_quiz>>
+Final questions. #line:01faf50 
+// Q1: How does the POLISH FLAG look? (image choices handled in activity content)
+// Q2: Match picture with words (TRANSPORT/SPORT vocabulary)
+<<activity quiz warsaw_basics tutorial>>
+Well done! #line:08f99a0 
+===
+
+
+
