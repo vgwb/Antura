@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
@@ -9,6 +10,8 @@ using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
+    // SubjectCount moved to QuestSubjectsUtility to keep this class lean.
+
     [CreateAssetMenu(fileName = "QuestData", menuName = "Antura/Discover/Quest Data")]
     public class QuestData : IdentifiedData
     {
@@ -34,6 +37,9 @@ namespace Antura.Discover
         public AssetData Thumbnail;
 
         [Header("Content")]
+        [Tooltip("Top subjects aggregated from Topics (Core 2x + Connections 1x)")]
+        public List<SubjectCount> Subjects;
+
         public Subject Subject;
         [FormerlySerializedAs("Knowledges")]
         public List<TopicData> Topics;
@@ -135,6 +141,28 @@ namespace Antura.Discover
                 return $"{major}.{minor:00}";
             }
         }
+
+        public List<SubjectCount> GetSubjectsBreakdown() => QuestSubjectsUtility.ComputeSubjectsBreakdown(this);
+        // Optional non-serialized convenience property (uses live computation)
+        public string SubjectsSummaryText => QuestSubjectsUtility.BuildSummaryText(GetSubjectsBreakdown());
+
+#if UNITY_EDITOR
+        [ContextMenu("Refresh Top Subjects")]
+        private void RefreshTopSubjects()
+        {
+            var list = GetSubjectsBreakdown();
+            Subjects = list != null ? list.Take(4).ToList() : new List<SubjectCount>();
+        }
+
+        [ContextMenu("Log Subjects Breakdown")]
+        private void LogSubjectsBreakdown()
+        {
+            var list = GetSubjectsBreakdown();
+            var lines = list?.Select(sc => $"- {sc.Subject}: {sc.Count}") ?? Enumerable.Empty<string>();
+            var body = lines.Any() ? string.Join("\n", lines) : "(none)";
+            Debug.Log($"[QuestData] {name} subjects (desc):\n" + body, this);
+        }
+#endif
 
     }
 }
