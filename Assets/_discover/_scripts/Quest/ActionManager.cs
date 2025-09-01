@@ -1,15 +1,10 @@
 using Antura.Audio;
-using Antura.Helpers;
-using Antura.Discover.Interaction;
 using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
 using UnityEngine;
-using TMPro;
-using Yarn.Unity;
-using UnityEditor.Localization.Plugins.XLIFF.V12;
 
 namespace Antura.Discover
 {
