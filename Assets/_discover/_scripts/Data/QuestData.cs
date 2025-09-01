@@ -5,6 +5,7 @@ using UnityEngine;
 using UnityEngine.Localization;
 using UnityEngine.Localization.Tables;
 using Yarn.Unity;
+using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
@@ -33,8 +34,9 @@ namespace Antura.Discover
         public AssetData Thumbnail;
 
         [Header("Content")]
-        public KnowledgeTopic MainTopic;
-        public List<KnowledgeData> Knowledges;
+        public Subject Subject;
+        [FormerlySerializedAs("Knowledges")]
+        public List<TopicData> Topics;
         public List<CardData> Cards;
         public List<WordData> Words;
 

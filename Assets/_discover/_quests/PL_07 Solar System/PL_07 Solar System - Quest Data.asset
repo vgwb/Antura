@@ -42,13 +42,12 @@ MonoBehaviour:
   Country: 3
   Location: {fileID: 11400000, guid: 71b008dc93ebd4bb494fcbae2e105b4b, type: 2}
   Thumbnail: {fileID: 0}
-  MainTopic: 4
-  Knowledges: []
+  Subject: 4
+  Topics: []
   Cards:
   - {fileID: 11400000, guid: 64d5705c99fc341798ccccc51f4e2c39, type: 2}
   Words: []
-  AgeMin: 0
-  AgeMax: 0
+  targetAge: 2
   Difficulty: 3
   Duration: 10
   Dependencies: []
@@ -77,8 +76,6 @@ MonoBehaviour:
   QuestStringsTable:
     m_TableReference:
       m_TableCollectionName: GUID:213edffcac825413dbaa1676194baa28
-  YarnStringTable:
-    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

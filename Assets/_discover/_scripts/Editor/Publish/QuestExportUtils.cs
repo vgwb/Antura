@@ -62,22 +62,21 @@ namespace Antura.Discover.Editor
             sb.AppendLine("- Location: " + q.Country + " - " + locId);
 
             sb.AppendLine("## Content");
-            sb.AppendLine("- Category: " + q.MainTopic);
-            sb.AppendLine("- Knowledge points: " + q.KnowledgeValue);
+            sb.AppendLine("- Subject: " + q.Subject);
 
             // Topics (unique from cards)
-            if (q.Cards != null && q.Cards.Count > 0)
+            if (q.Topics != null && q.Topics.Count > 0)
             {
                 var set = new HashSet<string>();
-                foreach (var cc in q.Cards)
-                    if (cc != null && cc.Topics != null)
-                        foreach (var t in cc.Topics)
+                foreach (var cc in q.Topics)
+                    if (cc != null && cc.Subjects != null)
+                        foreach (var t in cc.Subjects)
                             set.Add(t.ToString());
                 if (set.Count > 0)
                 {
                     sb.AppendLine("- Topics:");
                     foreach (var t in set.OrderBy(s => s))
-                        sb.AppendLine("  - " + t);
+                        sb.AppendLine("    - " + t);
                 }
             }
 
@@ -99,13 +98,9 @@ namespace Antura.Discover.Editor
 
                     sb.AppendLine($"### {cTitle}");
                     if (!string.IsNullOrEmpty(cId))
-                        sb.AppendLine($"Link: [{cId}](../cards/index.md#{cId})");
-                    sb.AppendLine($"Description: {cDesc}");
-                    sb.AppendLine($"Category: {cCategory}");
-                    sb.AppendLine($"Year: {cYear}");
-                    sb.AppendLine($"Country: {cCountry}");
-                    sb.AppendLine($"KnowledgeValue: {cKV}");
-                    sb.AppendLine($"Image: {cImagePath}");
+                        sb.AppendLine($"Link: [{cId}](../cards/index.md#{cId})  ");
+                    sb.AppendLine($"Description: {cDesc}  ");
+                    sb.AppendLine($"Category: {cCategory}  ");
                     sb.AppendLine();
                 }
             }

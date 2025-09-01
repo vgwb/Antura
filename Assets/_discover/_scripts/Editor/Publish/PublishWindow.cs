@@ -92,9 +92,9 @@ namespace Antura.Discover.Editor
                 {
                     PublishActivitiesOnly();
                 }
-                if (GUILayout.Button("Publish Knowledge Only"))
+                if (GUILayout.Button("Publish Topics Only"))
                 {
-                    PublishKnowledgeOnly();
+                    PublishTopicOnly();
                 }
             }
 
@@ -290,11 +290,11 @@ namespace Antura.Discover.Editor
                 string activitiesDir = Path.Combine(discoverRoot, "activities");
                 string cardsDir = Path.Combine(discoverRoot, "cards");
                 string wordsDir = Path.Combine(discoverRoot, "words");
-                string knowledgeDir = Path.Combine(discoverRoot, "knowledge");
+                string topicsDir = Path.Combine(discoverRoot, "topics");
                 Directory.CreateDirectory(activitiesDir);
                 Directory.CreateDirectory(cardsDir);
                 Directory.CreateDirectory(wordsDir);
-                Directory.CreateDirectory(knowledgeDir);
+                Directory.CreateDirectory(topicsDir);
 
                 PublishUtils.WithLocale(en, () =>
                 {
@@ -307,8 +307,8 @@ namespace Antura.Discover.Editor
                     var wordsMd = WordExportUtils.BuildWordsIndexMarkdown(en);
                     File.WriteAllText(Path.Combine(wordsDir, "index.md"), wordsMd);
 
-                    var knoledgesMd = KnowledgeExportUtils.BuildKnowledgeIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(knowledgeDir, "index.md"), knoledgesMd);
+                    var knoledgesMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
+                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), knoledgesMd);
                 });
             }
             catch (Exception ex)
@@ -319,7 +319,7 @@ namespace Antura.Discover.Editor
             EditorUtility.RevealInFinder(folder);
         }
 
-        // Publish only Quests (all locales), without Activities/Cards/Words/Knowledge
+        // Publish only Quests (all locales), without Activities/Cards/Words/Topic
         public static void PublishQuestsOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
@@ -517,26 +517,26 @@ namespace Antura.Discover.Editor
             }
         }
 
-        public static void PublishKnowledgeOnly()
+        public static void PublishTopicOnly()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
             string discoverRoot = Path.Combine(projectRoot, "docs", "discover");
-            string knowledgeDir = Path.Combine(discoverRoot, "knowledge");
-            Directory.CreateDirectory(knowledgeDir);
+            string topicsDir = Path.Combine(discoverRoot, "topics");
+            Directory.CreateDirectory(topicsDir);
             try
             {
                 var en = FindLocaleByCode("en");
                 PublishUtils.WithLocale(en, () =>
                 {
-                    var knowledgeMd = KnowledgeExportUtils.BuildKnowledgeIndexMarkdown(en);
-                    File.WriteAllText(Path.Combine(knowledgeDir, "index.md"), knowledgeMd);
+                    var topicMd = TopicExportUtils.BuildTopicIndexMarkdown(en);
+                    File.WriteAllText(Path.Combine(topicsDir, "index.md"), topicMd);
                 });
-                Debug.Log($"[Publish] Published Knowledge index to {knowledgeDir}");
-                EditorUtility.RevealInFinder(knowledgeDir);
+                Debug.Log($"[Publish] Published Topic index to {topicsDir}");
+                EditorUtility.RevealInFinder(topicsDir);
             }
             catch (Exception ex)
             {
-                Debug.LogError($"[Publish] Failed generating Knowledge index: {ex.Message}");
+                Debug.LogError($"[Publish] Failed generating Topic index: {ex.Message}");
             }
         }
 

@@ -71,35 +71,69 @@ namespace Antura.Discover.Editor
                     cards.Add(c);
             }
 
-            // Knowledge-based flags: compute CoreOfKnowledge and IsInKnowledges counts from KnowledgeData
+            // Topic/Knowledge-based flags: compute CoreOfTopic and IsInTopics
             try
             {
-                var knowledges = FindAll<KnowledgeData>();
-                var coreMap = new Dictionary<CardData, KnowledgeData>();
+                // Prefer new TopicData assets if present
+                var topics = FindAll<TopicData>();
+                var knowledges = FindAll<TopicData>();
+                bool useTopics = topics != null && topics.Count > 0;
+                var coreMap = new Dictionary<CardData, UnityEngine.Object>();
                 var connectionCounts = new Dictionary<CardData, int>();
-                foreach (var k in knowledges.Where(k => k != null))
+
+                if (useTopics)
                 {
-                    if (k.CoreCard != null)
+                    foreach (var t in topics.Where(t => t != null))
                     {
-                        // If a card is core of multiple knowledges, keep the first and warn
-                        if (!coreMap.ContainsKey(k.CoreCard))
-                            coreMap[k.CoreCard] = k;
-                        else
-                            Debug.LogWarning($"[Card Validate] Card '{k.CoreCard?.Id ?? k.CoreCard?.name}' is core of multiple Knowledges: '{coreMap[k.CoreCard]?.Id ?? coreMap[k.CoreCard]?.name}' and '{k?.Id ?? k?.name}'. Using the first.", k);
-                    }
-                    if (k.Connections != null)
-                    {
-                        foreach (var cn in k.Connections)
+                        if (t.CoreCard != null)
                         {
-                            if (cn == null)
-                                continue;
-                            var cc = cn.connectedCard;
-                            if (cc == null)
-                                continue;
-                            if (connectionCounts.TryGetValue(cc, out var n))
-                                connectionCounts[cc] = n + 1;
+                            if (!coreMap.ContainsKey(t.CoreCard))
+                                coreMap[t.CoreCard] = t;
                             else
-                                connectionCounts[cc] = 1;
+                                Debug.LogWarning($"[Card Validate] Card '{t.CoreCard?.Id ?? t.CoreCard?.name}' is core of multiple Topics.", t);
+                        }
+                        if (t.Connections != null)
+                        {
+                            foreach (var cn in t.Connections)
+                            {
+                                if (cn == null)
+                                    continue;
+                                var cc = cn.connectedCard;
+                                if (cc == null)
+                                    continue;
+                                if (connectionCounts.TryGetValue(cc, out var n))
+                                    connectionCounts[cc] = n + 1;
+                                else
+                                    connectionCounts[cc] = 1;
+                            }
+                        }
+                    }
+                }
+                else
+                {
+                    foreach (var k in knowledges.Where(k => k != null))
+                    {
+                        if (k.CoreCard != null)
+                        {
+                            if (!coreMap.ContainsKey(k.CoreCard))
+                                coreMap[k.CoreCard] = k;
+                            else
+                                Debug.LogWarning($"[Card Validate] Card '{k.CoreCard?.Id ?? k.CoreCard?.name}' is core of multiple Knowledges.", k);
+                        }
+                        if (k.Connections != null)
+                        {
+                            foreach (var cn in k.Connections)
+                            {
+                                if (cn == null)
+                                    continue;
+                                var cc = cn.connectedCard;
+                                if (cc == null)
+                                    continue;
+                                if (connectionCounts.TryGetValue(cc, out var n))
+                                    connectionCounts[cc] = n + 1;
+                                else
+                                    connectionCounts[cc] = 1;
+                            }
                         }
                     }
                 }
@@ -107,18 +141,22 @@ namespace Antura.Discover.Editor
                 int changes = 0;
                 foreach (var c in cards.Where(x => x != null))
                 {
-                    coreMap.TryGetValue(c, out var newCoreOf);
+                    coreMap.TryGetValue(c, out var coreOwner);
+                    var newTopic = coreOwner as TopicData;
                     int newCount = connectionCounts.TryGetValue(c, out var n) ? n : 0;
-                    if (!ReferenceEquals(c.CoreOfKnowledge, newCoreOf) || c.IsInKnowledges != newCount)
+                    bool changed = false;
+                    if (!ReferenceEquals(c.CoreOfTopic, newTopic))
+                    { c.CoreOfTopic = newTopic; changed = true; }
+                    if (c.IsInTopics != newCount)
+                    { c.IsInTopics = newCount; changed = true; }
+                    if (changed)
                     {
-                        c.CoreOfKnowledge = newCoreOf;
-                        c.IsInKnowledges = newCount;
                         EditorUtility.SetDirty(c);
                         changes++;
                         if (logEachIssue)
                         {
-                            string kId = newCoreOf == null ? "-" : (string.IsNullOrEmpty(newCoreOf.Id) ? newCoreOf.name : newCoreOf.Id);
-                            Debug.Log($"[Card Validate] Update knowledge flags for '{c.Id ?? c.name}': CoreOfKnowledge={kId}, IsInKnowledges={newCount}", c);
+                            string kId = newTopic == null ? "-" : (string.IsNullOrEmpty(newTopic.Id) ? newTopic.name : newTopic.Id);
+                            Debug.Log($"[Card Validate] Update topic flags for '{c.Id ?? c.name}': CoreOfTopic={kId}, IsInTopics={newCount}", c);
                         }
                     }
                 }
@@ -187,7 +225,7 @@ namespace Antura.Discover.Editor
             catch { }
 
             // Topics
-            if (card.Topics == null || card.Topics.Count == 0)
+            if (card.Subjects == null || card.Subjects.Count == 0)
             {
                 rpt.MissingTopics++;
                 if (log)

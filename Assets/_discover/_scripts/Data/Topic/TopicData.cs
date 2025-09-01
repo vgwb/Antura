@@ -1,15 +1,16 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
 
     [Serializable]
-    public class KnowledgeBridge
+    public class TopicBridge
     {
-        public KnowledgeData From;
-        public KnowledgeData To;
+        public TopicData From;
+        public TopicData To;
         public CardData BridgeCard;
         public string BridgeReason;
         [Range(0.1f, 1.0f)]
@@ -18,17 +19,17 @@ namespace Antura.Discover
 
     // This is the "Knowledge Molecule" of the Discover module.
     // It contains a core card and a set of connected cards, each with a connection type and strength.
-    [CreateAssetMenu(fileName = "KnowledgeData", menuName = "Antura/Discover/Knowledge Data")]
-    public class KnowledgeData : IdentifiedData
+    [CreateAssetMenu(fileName = "TopicData", menuName = "Antura/Discover/Topic Data")]
+    public class TopicData : IdentifiedData
     {
-        [Header("Knowledge")]
+        [Header("Topic")]
         public string Name;
         [TextArea(2, 4)]
         public string Description;
-        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
+        public Importance Importance = Importance.Medium;
         public Color NodeColor = Color.white;
 
-        [Header("Core Knowledge")]
+        [Header("Core Topic")]
         [Tooltip("The main card that represents this theme")]
         public CardData CoreCard;
 
@@ -45,16 +46,17 @@ namespace Antura.Discover
         public float cohesionStrength = 0.8f;
 
         [Header("Educational Context")]
-        [Tooltip("Age range this Knowledge is most suitable for")]
+        [Tooltip("Age range this Topic is most suitable for")]
         public AgeRange targetAge = AgeRange.Ages6to10;
 
-        [Tooltip("Topics this Knowledge helps teach")]
-        public List<KnowledgeTopic> Topics = new List<KnowledgeTopic>();
+        [Tooltip("Subjects this Topic helps teach")]
+        [FormerlySerializedAs("Topics")]
+        public List<Subject> Subjects = new List<Subject>();
 
         // === RUNTIME METHODS ===
 
         /// <summary>
-        /// Get all cards in this Knowledge including core card
+        /// Get all cards in this Topic including core card
         /// </summary>
         public List<CardData> GetAllCards()
         {
@@ -109,7 +111,7 @@ namespace Antura.Discover
         }
 
         /// <summary>
-        /// Check if Knowledge contains a specific card
+        /// Check if Topic contains a specific card
         /// </summary>
         public bool ContainsCard(CardData card)
         {
@@ -139,13 +141,13 @@ namespace Antura.Discover
         }
 
         // === VALIDATION ===
-        [ContextMenu("Validate Knowledge")]
-        public void ValidateKnowledge()
+        [ContextMenu("Validate Topic")]
+        public void ValidateTopic()
         {
             var issues = new List<string>();
 
             if (string.IsNullOrEmpty(Name))
-                issues.Add("Knowledge name is empty");
+                issues.Add("Topic name is empty");
 
             if (CoreCard == null)
                 issues.Add("No core card assigned");
@@ -175,11 +177,11 @@ namespace Antura.Discover
 
             if (issues.Count > 0)
             {
-                Debug.LogWarning($"Knowledge '{Name}' has issues:\n- " + string.Join("\n- ", issues));
+                Debug.LogWarning($"Topic '{Name}' has issues:\n- " + string.Join("\n- ", issues));
             }
             else
             {
-                Debug.Log($"Knowledge '{Name}' validation passed!");
+                Debug.Log($"Topic '{Name}' validation passed!");
             }
         }
     }

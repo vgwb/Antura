@@ -6,40 +6,40 @@ using UnityEditor;
 
 namespace Antura.Discover.Editor
 {
-    [CustomEditor(typeof(KnowledgeData))]
-    public class KnowledgeClusterDataEditor : UnityEditor.Editor
+    [CustomEditor(typeof(TopicData))]
+    public class TopicDataEditor : UnityEditor.Editor
     {
         public override void OnInspectorGUI()
         {
-            KnowledgeData cluster = (KnowledgeData)target;
+            TopicData topic = (TopicData)target;
 
             // Custom header
             EditorGUILayout.Space();
             var style = new GUIStyle(EditorStyles.boldLabel);
             style.fontSize = 16;
-            EditorGUILayout.LabelField($"Knowledge Cluster: {cluster.Name}", style);
+            EditorGUILayout.LabelField($"Topic: {topic.Name}", style);
             EditorGUILayout.Space();
 
             // Priority color coding
             var oldColor = GUI.backgroundColor;
-            switch (cluster.Importance)
+            switch (topic.Importance)
             {
-                case KnowledgeImportance.Critical:
+                case Importance.Critical:
                     GUI.backgroundColor = Color.red;
                     break;
-                case KnowledgeImportance.High:
+                case Importance.High:
                     GUI.backgroundColor = Color.yellow;
                     break;
-                case KnowledgeImportance.Medium:
+                case Importance.Medium:
                     GUI.backgroundColor = Color.green;
                     break;
-                case KnowledgeImportance.Low:
+                case Importance.Low:
                     GUI.backgroundColor = Color.gray;
                     break;
             }
 
             EditorGUILayout.BeginVertical("box");
-            EditorGUILayout.LabelField($"Priority: {cluster.Importance}", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Priority: {topic.Importance}", EditorStyles.boldLabel);
             EditorGUILayout.EndVertical();
             GUI.backgroundColor = oldColor;
 
@@ -52,37 +52,37 @@ namespace Antura.Discover.Editor
 
             // Utility buttons
             EditorGUILayout.BeginHorizontal();
-            if (GUILayout.Button("Validate Cluster"))
+            if (GUILayout.Button("Validate Topic"))
             {
-                cluster.ValidateKnowledge();
+                topic.ValidateTopic();
             }
             if (GUILayout.Button("Auto-arrange Discovery Path"))
             {
                 // Simple auto-arrange: core card first, then by connection strength
-                cluster.DiscoveryPath.Clear();
-                if (cluster.CoreCard != null)
-                    cluster.DiscoveryPath.Add(cluster.CoreCard);
+                topic.DiscoveryPath.Clear();
+                if (topic.CoreCard != null)
+                    topic.DiscoveryPath.Add(topic.CoreCard);
 
-                var sortedConnections = new List<CardConnection>(cluster.Connections);
+                var sortedConnections = new List<CardConnection>(topic.Connections);
                 sortedConnections.Sort((a, b) => b.connectionStrength.CompareTo(a.connectionStrength));
 
                 foreach (var connection in sortedConnections)
                 {
-                    if (connection.connectedCard != null && !cluster.DiscoveryPath.Contains(connection.connectedCard))
-                        cluster.DiscoveryPath.Add(connection.connectedCard);
+                    if (connection.connectedCard != null && !topic.DiscoveryPath.Contains(connection.connectedCard))
+                        topic.DiscoveryPath.Add(connection.connectedCard);
                 }
 
-                EditorUtility.SetDirty(cluster);
+                EditorUtility.SetDirty(topic);
             }
             EditorGUILayout.EndHorizontal();
 
             // Stats
             EditorGUILayout.Space();
             EditorGUILayout.BeginVertical("box");
-            EditorGUILayout.LabelField("Cluster Statistics", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField($"Total Cards: {cluster.GetAllCards().Count}");
-            EditorGUILayout.LabelField($"Connections: {cluster.Connections.Count}");
-            EditorGUILayout.LabelField($"Discovery Path Length: {cluster.DiscoveryPath.Count}");
+            EditorGUILayout.LabelField("Topic Statistics", EditorStyles.boldLabel);
+            EditorGUILayout.LabelField($"Total Cards: {topic.GetAllCards().Count}");
+            EditorGUILayout.LabelField($"Connections: {topic.Connections.Count}");
+            EditorGUILayout.LabelField($"Discovery Path Length: {topic.DiscoveryPath.Count}");
             EditorGUILayout.EndVertical();
         }
     }

@@ -42,16 +42,15 @@ MonoBehaviour:
   Country: 2
   Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
   Thumbnail: {fileID: 11400000, guid: c9a4539dbef3f44c598eace1df12a16a, type: 2}
-  MainTopic: 17
-  Knowledges: []
+  Subject: 2
+  Topics: []
   Cards:
   - {fileID: 11400000, guid: e39ade6ed88c54f82b490bb23f5046cb, type: 2}
   - {fileID: 11400000, guid: 924ba342f3785407b85ae807a4a86d0f, type: 2}
   - {fileID: 11400000, guid: e5e509d54e7d549b88c530743f86d6cb, type: 2}
   - {fileID: 11400000, guid: 000f778fc14ca49798f6fe1e2913ab6b, type: 2}
   Words: []
-  AgeMin: 0
-  AgeMax: 0
+  targetAge: 2
   Difficulty: 3
   Duration: 10
   Dependencies: []
@@ -86,8 +85,6 @@ MonoBehaviour:
   QuestStringsTable:
     m_TableReference:
       m_TableCollectionName: GUID:b90ebc042e6dd4584b2dc55809f17693
-  YarnStringTable:
-    m_TableCollectionName: 
   references:
     version: 2
     RefIds: []

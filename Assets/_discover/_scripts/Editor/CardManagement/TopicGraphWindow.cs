@@ -6,9 +6,9 @@ using UnityEditor;
 
 namespace Antura.Discover.Editor
 {
-    public class KnowledgeGraphWindow : EditorWindow
+    public class TopicGraphWindow : EditorWindow
     {
-        private KnowledgeCollectionData knowledgeCollection;
+        private TopicCollectionData knowledgeCollection;
         private Vector2 scrollPos;                 // sidebar scroll
         private Vector2 graphScroll;               // graph scroll (content space)
         private Vector2 graphOffset = Vector2.zero; // legacy pan
@@ -18,7 +18,7 @@ namespace Antura.Discover.Editor
         private Vector2 graphDrawOrigin = Vector2.zero; // top-left of content bounds
 
         // Graph layout
-        private Dictionary<KnowledgeData, Vector2> clusterPositions = new Dictionary<KnowledgeData, Vector2>();
+        private Dictionary<TopicData, Vector2> clusterPositions = new Dictionary<TopicData, Vector2>();
         private Dictionary<CardData, Vector2> cardPositions = new Dictionary<CardData, Vector2>();
         private List<CardData> uniqueCards = new List<CardData>();
 
@@ -27,25 +27,25 @@ namespace Antura.Discover.Editor
         private bool showCardDetails = true;
         private bool showBridges = true;
         private bool autoLayout = true;
-        private KnowledgeImportance filterPriority = KnowledgeImportance.Low;
+        private Importance filterPriority = Importance.Low;
         private int connectionTypeIndex = 0; // 0 = All, else enum selection
 
         private const string PrefKeyCollectionPath = "Antura.KnowledgeGraphWindow.CollectionPath";
 
         // Selection
-        private KnowledgeData selectedCluster;
+        private TopicData selectedCluster;
         private CardData selectedCard;
 
         // Styling
         private GUIStyle clusterStyle;
         private GUIStyle cardStyle;
         private GUIStyle selectedStyle;
-        private Dictionary<KnowledgeImportance, Color> priorityColors;
+        private Dictionary<Importance, Color> priorityColors;
 
-        [MenuItem("Antura/Discover/Knowledge Graph", priority = 150)]
+        [MenuItem("Antura/Discover/Topic Graph", priority = 150)]
         public static void ShowWindow()
         {
-            GetWindow<KnowledgeGraphWindow>("Knowledge Graph");
+            GetWindow<TopicGraphWindow>("Topic Graph");
         }
 
         private void OnEnable()
@@ -59,7 +59,7 @@ namespace Antura.Discover.Editor
                 var savedPath = EditorPrefs.GetString(PrefKeyCollectionPath, string.Empty);
                 if (!string.IsNullOrEmpty(savedPath))
                 {
-                    knowledgeCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(savedPath);
+                    knowledgeCollection = AssetDatabase.LoadAssetAtPath<TopicCollectionData>(savedPath);
                 }
                 if (knowledgeCollection == null)
                 {
@@ -67,7 +67,7 @@ namespace Antura.Discover.Editor
                     if (guids.Length > 0)
                     {
                         string path = AssetDatabase.GUIDToAssetPath(guids[0]);
-                        knowledgeCollection = AssetDatabase.LoadAssetAtPath<KnowledgeCollectionData>(path);
+                        knowledgeCollection = AssetDatabase.LoadAssetAtPath<TopicCollectionData>(path);
                     }
                 }
                 RefreshLayout();
@@ -105,12 +105,12 @@ namespace Antura.Discover.Editor
 
         private void InitializePriorityColors()
         {
-            priorityColors = new Dictionary<KnowledgeImportance, Color>
+            priorityColors = new Dictionary<Importance, Color>
             {
-                { KnowledgeImportance.Critical, new Color(1f, 0.2f, 0.2f, 0.8f) },
-                { KnowledgeImportance.High, new Color(1f, 0.8f, 0.2f, 0.8f) },
-                { KnowledgeImportance.Medium, new Color(0.2f, 0.8f, 0.2f, 0.8f) },
-                { KnowledgeImportance.Low, new Color(0.6f, 0.6f, 0.6f, 0.8f) }
+                { Importance.Critical, new Color(1f, 0.2f, 0.2f, 0.8f) },
+                { Importance.High, new Color(1f, 0.8f, 0.2f, 0.8f) },
+                { Importance.Medium, new Color(0.2f, 0.8f, 0.2f, 0.8f) },
+                { Importance.Low, new Color(0.6f, 0.6f, 0.6f, 0.8f) }
             };
         }
 
@@ -136,8 +136,8 @@ namespace Antura.Discover.Editor
             EditorGUILayout.BeginHorizontal(EditorStyles.toolbar);
 
             EditorGUI.BeginChangeCheck();
-            var newCollection = (KnowledgeCollectionData)EditorGUILayout.ObjectField(
-                knowledgeCollection, typeof(KnowledgeCollectionData), false, GUILayout.Width(220));
+            var newCollection = (TopicCollectionData)EditorGUILayout.ObjectField(
+                knowledgeCollection, typeof(TopicCollectionData), false, GUILayout.Width(220));
             if (EditorGUI.EndChangeCheck())
             {
                 knowledgeCollection = newCollection;
@@ -161,7 +161,7 @@ namespace Antura.Discover.Editor
             GUILayout.Space(10);
 
             EditorGUILayout.LabelField("Filter:", GUILayout.Width(40));
-            filterPriority = (KnowledgeImportance)EditorGUILayout.EnumPopup(filterPriority, EditorStyles.toolbarPopup, GUILayout.Width(80));
+            filterPriority = (Importance)EditorGUILayout.EnumPopup(filterPriority, EditorStyles.toolbarPopup, GUILayout.Width(80));
 
             GUILayout.Space(10);
             // Connection type filter popup
@@ -290,7 +290,7 @@ namespace Antura.Discover.Editor
 
         private void DrawClusters()
         {
-            foreach (var cluster in knowledgeCollection.AllKnowledges)
+            foreach (var cluster in knowledgeCollection.AllTopics)
             {
                 if (cluster == null || cluster.Importance > filterPriority)
                     continue;
@@ -346,7 +346,7 @@ namespace Antura.Discover.Editor
 
         private void DrawCardConnections()
         {
-            foreach (var cluster in knowledgeCollection.AllKnowledges)
+            foreach (var cluster in knowledgeCollection.AllTopics)
             {
                 if (cluster == null || cluster.Importance > filterPriority)
                     continue;
@@ -409,8 +409,8 @@ namespace Antura.Discover.Editor
             scrollPos = EditorGUILayout.BeginScrollView(scrollPos);
 
             EditorGUILayout.LabelField("Graph Statistics", EditorStyles.boldLabel);
-            EditorGUILayout.LabelField($"Total Knowledges: {knowledgeCollection.AllKnowledges.Count}");
-            EditorGUILayout.LabelField($"Visible Knowledges: {knowledgeCollection.AllKnowledges.Count(c => c != null && c.Importance <= filterPriority)}");
+            EditorGUILayout.LabelField($"Total Knowledges: {knowledgeCollection.AllTopics.Count}");
+            EditorGUILayout.LabelField($"Visible Knowledges: {knowledgeCollection.AllTopics.Count(c => c != null && c.Importance <= filterPriority)}");
             EditorGUILayout.LabelField($"Bridges: {knowledgeCollection.Bridges.Count}");
 
             EditorGUILayout.Space();
@@ -478,7 +478,7 @@ namespace Antura.Discover.Editor
             else
             {
                 // Random positions if not auto-layout
-                foreach (var cluster in knowledgeCollection.AllKnowledges)
+                foreach (var cluster in knowledgeCollection.AllTopics)
                 {
                     if (cluster != null && !clusterPositions.ContainsKey(cluster))
                     {
@@ -491,7 +491,7 @@ namespace Antura.Discover.Editor
 
         private void PerformAutoLayout()
         {
-            var clusters = knowledgeCollection.AllKnowledges.Where(c => c != null).ToList();
+            var clusters = knowledgeCollection.AllTopics.Where(c => c != null).ToList();
             if (clusters.Count == 0)
                 return;
 
@@ -522,7 +522,7 @@ namespace Antura.Discover.Editor
         {
             // Build unique set
             var set = new HashSet<CardData>();
-            foreach (var cl in knowledgeCollection.AllKnowledges)
+            foreach (var cl in knowledgeCollection.AllTopics)
             {
                 if (cl == null)
                     continue;
@@ -551,7 +551,7 @@ namespace Antura.Discover.Editor
             );
         }
 
-        private Rect GetClusterRect(KnowledgeData cluster, Vector2 pos)
+        private Rect GetClusterRect(TopicData cluster, Vector2 pos)
         {
             return new Rect(pos.x - 60, pos.y - 30, 120, 60);
         }
@@ -606,7 +606,7 @@ namespace Antura.Discover.Editor
 
         private void DrawKnowledgeCardLinks()
         {
-            foreach (var knowledge in knowledgeCollection.AllKnowledges)
+            foreach (var knowledge in knowledgeCollection.AllTopics)
             {
                 if (knowledge == null || knowledge.Importance > filterPriority)
                     continue;
@@ -678,7 +678,7 @@ namespace Antura.Discover.Editor
             Handles.color = oldColor;
         }
 
-        private void FocusOnCluster(KnowledgeData cluster)
+        private void FocusOnCluster(TopicData cluster)
         {
             if (clusterPositions.ContainsKey(cluster))
             {

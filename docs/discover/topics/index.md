@@ -1,9 +1,9 @@
 ---
-title: Knowledge
+title: Topics
 hide:
 ---
 
-# Knowledge
+# Topics
 
 ## baguette
 - Name: Baguette  

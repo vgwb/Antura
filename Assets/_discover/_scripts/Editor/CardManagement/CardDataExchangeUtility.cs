@@ -30,11 +30,11 @@ namespace Antura.Discover
                 {
                     "-", // id
                     Escape(string.Join(", ", Enum.GetNames(typeof(Status)))),
-                    Escape(string.Join(", ", Enum.GetNames(typeof(KnowledgeImportance)))),
+                    Escape(string.Join(", ", Enum.GetNames(typeof(Importance)))),
                     // Exclude CardType values <= 0 (e.g., None)
                     Escape(string.Join(", ", Enum.GetValues(typeof(CardType)).Cast<Enum>().Where(e => Convert.ToInt32(e) > 0).Select(e => e.ToString()))),
                     // Exclude KnowledgeTopic values <= 0 (e.g., None)
-                    Escape(string.Join(", ", Enum.GetValues(typeof(KnowledgeTopic)).Cast<Enum>().Where(e => Convert.ToInt32(e) > 0).Select(e => e.ToString()))),
+                    Escape(string.Join(", ", Enum.GetValues(typeof(Subject)).Cast<Enum>().Where(e => Convert.ToInt32(e) > 0).Select(e => e.ToString()))),
                     "", // TitleEn
                     "", // DescriptionEn
                     "", // year
@@ -48,7 +48,7 @@ namespace Antura.Discover
             }
             foreach (var c in cards ?? Enumerable.Empty<CardData>())
             {
-                var topics = c.Topics != null ? string.Join(",", c.Topics.Select(t => t.ToString())) : string.Empty;
+                var topics = c.Subjects != null ? string.Join(",", c.Subjects.Select(t => t.ToString())) : string.Empty;
                 var row = new[]
                 {
                     Escape(c.Id),
@@ -188,7 +188,7 @@ namespace Antura.Discover
                 if (card.Status != status)
                 { if (!dryRun) card.Status = status; changedFields.Add(nameof(card.Status)); }
                 // Importance
-                TryParseEnum(Get("importance"), out KnowledgeImportance importance);
+                TryParseEnum(Get("importance"), out Importance importance);
                 if (card.Importance != importance)
                 { if (!dryRun) card.Importance = importance; changedFields.Add(nameof(card.Importance)); }
                 // Type
@@ -197,10 +197,10 @@ namespace Antura.Discover
                 { if (!dryRun) card.Type = type; changedFields.Add(nameof(card.Type)); }
                 // Topics
                 var newTopics = ParseTopics(Get("topics"));
-                bool topicsChanged = (card.Topics == null && newTopics.Count > 0)
-                                     || (card.Topics != null && (card.Topics.Count != newTopics.Count || !card.Topics.SequenceEqual(newTopics)));
+                bool topicsChanged = (card.Subjects == null && newTopics.Count > 0)
+                                     || (card.Subjects != null && (card.Subjects.Count != newTopics.Count || !card.Subjects.SequenceEqual(newTopics)));
                 if (topicsChanged)
-                { if (!dryRun) card.Topics = newTopics; changedFields.Add(nameof(card.Topics)); }
+                { if (!dryRun) card.Subjects = newTopics; changedFields.Add(nameof(card.Subjects)); }
                 // Title/Description
                 var titleEn = Get("TitleEn");
                 if (!string.Equals(card.TitleEn, titleEn, StringComparison.Ordinal))
@@ -253,16 +253,16 @@ namespace Antura.Discover
             return applied;
         }
 
-        private static List<KnowledgeTopic> ParseTopics(string s)
+        private static List<Subject> ParseTopics(string s)
         {
-            var list = new List<KnowledgeTopic>();
+            var list = new List<Subject>();
             if (string.IsNullOrWhiteSpace(s))
                 return list;
             var parts = s.Split(new[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
             foreach (var p in parts)
             {
                 var token = p.Trim();
-                if (TryParseEnum(token, out KnowledgeTopic k))
+                if (TryParseEnum(token, out Subject k))
                     list.Add(k);
             }
             return list;

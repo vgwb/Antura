@@ -13,7 +13,7 @@ namespace Antura.Discover
         UnitedKingdom = 8
     }
 
-    public enum KnowledgeImportance
+    public enum Importance
     {
         Critical = 0, // Absolutely required to reach learning/quest goals
         High = 10, // should appear unless there are strong constraints
@@ -51,7 +51,7 @@ namespace Antura.Discover
         Achievement = 7   // Badges, trophies
     }
 
-    public enum KnowledgeTopic
+    public enum Subject
     {
         None = 0,
 

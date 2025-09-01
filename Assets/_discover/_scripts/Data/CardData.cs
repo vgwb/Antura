@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Localization;
+using UnityEngine.Serialization;
 
 namespace Antura.Discover
 {
@@ -14,8 +15,9 @@ namespace Antura.Discover
         [Tooltip("What role does this card play in the game?")]
         public CardType Type;
 
-        [Tooltip("What domain of knowledge does it belong to")]
-        public List<KnowledgeTopic> Topics;
+        [Tooltip("What subjects does it belong to")]
+        [FormerlySerializedAs("Topics")]
+        public List<Subject> Subjects;
 
         [Header("Content: internal English only")]
         public string TitleEn;
@@ -33,15 +35,17 @@ namespace Antura.Discover
         public string WikipediaUrl;
 
         [Header("Knowledge Importance")]
-        public KnowledgeImportance Importance = KnowledgeImportance.Medium;
+        public Importance Importance = Importance.Medium;
 
         [Tooltip("Target age range for this word.")]
         public AgeRange targetAge = AgeRange.Ages6to10;
 
-        [Tooltip("Is this the core card of a Knowledge?")]
-        public KnowledgeData CoreOfKnowledge;
-        [Tooltip("How many Knowledges include this card?")]
-        public int IsInKnowledges;
+        [Tooltip("Is this the core card of a Topic?")]
+        [FormerlySerializedAs("CoreOfKnowledge")]
+        public TopicData CoreOfTopic;
+        [Tooltip("How many Topics include this card?")]
+        [FormerlySerializedAs("IsInKnowledges")]
+        public int IsInTopics;
 
         [Tooltip("Mastery points needed to unlock this card.")]
         [Min(1)]

@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
   m_Name: castle_chinon
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: fr_chinon
+  Id: castle_chinon
   Status: 1
   Type: 1
-  Topics: 01000000
+  Subjects: 01000000
   TitleEn: Castle Chinon
   DescriptionEn: 
   Title:
@@ -38,13 +38,15 @@ MonoBehaviour:
     m_LocalVariables: []
   Year: 0
   Country: 2
-  Location: {fileID: 0}
+  Location: {fileID: 11400000, guid: ad0a61200f47e4edaa48584fde7068ed, type: 2}
   WikipediaUrl: 
   Importance: 20
-  CoreOfKnowledge: {fileID: 0}
-  IsInKnowledges: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 0
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: c4e2ae8fdcb634e888f433d50f44f3e7, type: 2}
   Words: []
   Cookies: 0
   Gems: 0

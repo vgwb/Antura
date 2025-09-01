@@ -92,8 +92,8 @@ namespace Antura.Discover
                         {
                             Undo.RecordObject(card, "Set Id (First Topic + TitleEn)");
                             string country = IdentifiedData.CountryNameToCode(card.Country.ToString());
-                            string topicPart = (card.Topics != null && card.Topics.Count > 0)
-                                ? card.Topics[0].ToString()
+                            string topicPart = (card.Subjects != null && card.Subjects.Count > 0)
+                                ? card.Subjects[0].ToString()
                                 : card.Type.ToString();
                             string titlePart = string.IsNullOrWhiteSpace(card.TitleEn) ? card.name : card.TitleEn;
                             string baseName = string.Concat(topicPart, "_", titlePart);

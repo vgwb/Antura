@@ -11,33 +11,33 @@ using UnityEngine.Localization.Settings;
 
 namespace Antura.Discover.Editor
 {
-    public static class KnowledgeExportUtils
+    public static class TopicExportUtils
     {
-        public static string BuildKnowledgeIndexMarkdown(Locale locale)
+        public static string BuildTopicIndexMarkdown(Locale locale)
         {
             var sb = new StringBuilder();
             sb.AppendLine("---");
-            sb.AppendLine("title: Knowledge");
+            sb.AppendLine("title: Topics");
             sb.AppendLine("hide:");
             sb.AppendLine("---\n");
-            sb.AppendLine("# Knowledge\n");
+            sb.AppendLine("# Topics\n");
 
-            var guids = AssetDatabase.FindAssets("t:KnowledgeData");
-            var knowledges = new List<KnowledgeData>();
+            var guids = AssetDatabase.FindAssets("t:TopicData");
+            var topics = new List<TopicData>();
             foreach (var guid in guids)
             {
                 var path = AssetDatabase.GUIDToAssetPath(guid);
-                var k = AssetDatabase.LoadAssetAtPath<KnowledgeData>(path);
+                var k = AssetDatabase.LoadAssetAtPath<TopicData>(path);
                 if (k != null)
-                    knowledges.Add(k);
+                    topics.Add(k);
             }
 
             // Sort by Id (fallback to name)
-            knowledges = knowledges
+            topics = topics
                 .OrderBy(k => string.IsNullOrEmpty(k?.Id) ? k?.name : k.Id)
                 .ToList();
 
-            foreach (var k in knowledges)
+            foreach (var k in topics)
             {
                 if (k == null)
                     continue;
@@ -60,9 +60,9 @@ namespace Antura.Discover.Editor
 
                 meta.Add($"Importance: {k.Importance}");
 
-                if (k.Topics != null && k.Topics.Count > 0)
+                if (k.Subjects != null && k.Subjects.Count > 0)
                 {
-                    var tops = string.Join(", ", k.Topics.Select(t => t.ToString()));
+                    var tops = string.Join(", ", k.Subjects.Select(t => t.ToString()));
                     meta.Add($"Topics: {tops}");
                 }
                 meta.Add($"TargetAge: {k.targetAge}");

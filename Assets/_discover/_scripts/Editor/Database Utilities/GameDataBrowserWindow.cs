@@ -128,9 +128,9 @@ namespace Antura.Discover
 
         // CardData toolbar filters
         private CardType? _cardTypeFilter = null; // null => (Any)
-        private KnowledgeImportance? _cardImportanceFilter = null; // null => (Any)
+        private Importance? _cardImportanceFilter = null; // null => (Any)
         private Status? _cardStatusFilter = null; // null => All
-        private KnowledgeTopic? _cardTopicFilter = null; // null => (Any)
+        private Subject? _cardTopicFilter = null; // null => (Any)
 
         private float GetTableWidth()
         {
@@ -143,7 +143,7 @@ namespace Antura.Discover
 
             if (SelectedType == typeof(QuestData))
             {
-                // DevStatus, Title, Id(+IdDisplay), Location, Knowledge, Difficulty, Category, Topics, LinkedCards, WordsUsed
+                // DevStatus, Title, Id(+IdDisplay), Location, Topic, Difficulty, Category, Subjects, LinkedCards, WordsUsed
                 width += ColQDevStatus + Gap + ColQTitle + Gap + ColQId + Gap + ColQLocation + Gap + ColQKnowledge + Gap + ColDifficulty + Gap + ColTopic + Gap + ColQTopics + Gap + ColQKnowledges + Gap + ColCards + Gap + ColWords;
             }
             else if (SelectedType == typeof(WorldPrefabData))
@@ -161,7 +161,7 @@ namespace Antura.Discover
                 // Status, Id, Title, Importance, Type, Topics, Collectible(+Icon), Year, Points, Knowledge(list), Words, Linked Quests, Path (Image already counted above)
                 width += ColQDevStatus + Gap + ColId + Gap + ColTitle + Gap + ColImportance + Gap + ColCategory + Gap + ColTopics + Gap + ColCollectible + Gap + ColYear + Gap + ColPoints + Gap + ColCardKnowledges + Gap + ColCardWords + Gap + ColQuests + Gap + ColPath;
             }
-            else if (SelectedType == typeof(KnowledgeData))
+            else if (SelectedType == typeof(TopicData))
             {
                 // Id, Name, Description, Importance, CoreCard, Connections, targetAge, Topics, Quests
                 width += ColId + Gap + ColKName + Gap + ColKDesc + Gap + ColKImportance + Gap + ColKCoreCard + Gap + ColKConnections + Gap + ColKAge + Gap + ColKTopics + Gap + ColKQuests;
@@ -273,7 +273,7 @@ namespace Antura.Discover
                 var topTypes = new List<Type>();
                 var questType = concreteTypes.FirstOrDefault(t => t.Name == nameof(QuestData));
                 var cardType = concreteTypes.FirstOrDefault(t => t.Name == nameof(CardData));
-                var knowledgeType = concreteTypes.FirstOrDefault(t => t.Name == nameof(KnowledgeData));
+                var knowledgeType = concreteTypes.FirstOrDefault(t => t.Name == nameof(TopicData));
                 var assetType = concreteTypes.FirstOrDefault(t => t.Name == nameof(AssetData));
                 var wordType = concreteTypes.FirstOrDefault(t => t.Name == nameof(WordData));
                 var taskType = concreteTypes.FirstOrDefault(t => t.Name == nameof(TaskData));
@@ -619,28 +619,28 @@ namespace Antura.Discover
                     }
 
                     GUILayout.Space(4);
-                    // Topics filter
-                    var topicValues = (KnowledgeTopic[])Enum.GetValues(typeof(KnowledgeTopic));
-                    var topicLabels = new List<string> { "Topics" };
+                    // Subjects filter
+                    var topicValues = (Subject[])Enum.GetValues(typeof(Subject));
+                    var topicLabels = new List<string> { "Subjects" };
                     topicLabels.AddRange(topicValues.Select(v => v.ToString()));
                     int curTopic = _cardTopicFilter.HasValue ? (Array.IndexOf(topicValues, _cardTopicFilter.Value) + 1) : 0;
                     int pickTopic = EditorGUILayout.Popup(curTopic, topicLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
                     if (pickTopic != curTopic)
                     {
-                        _cardTopicFilter = pickTopic <= 0 ? default(KnowledgeTopic?) : topicValues[pickTopic - 1];
+                        _cardTopicFilter = pickTopic <= 0 ? default(Subject?) : topicValues[pickTopic - 1];
                         Repaint();
                     }
 
                     GUILayout.Space(4);
                     // Importance filter
-                    var impValues = (KnowledgeImportance[])Enum.GetValues(typeof(KnowledgeImportance));
+                    var impValues = (Importance[])Enum.GetValues(typeof(Importance));
                     var impLabels = new List<string> { "Importance" };
                     impLabels.AddRange(impValues.Select(v => v.ToString()));
                     int curImp = _cardImportanceFilter.HasValue ? (Array.IndexOf(impValues, _cardImportanceFilter.Value) + 1) : 0;
                     int pickImp = EditorGUILayout.Popup(curImp, impLabels.ToArray(), EditorStyles.toolbarPopup, GUILayout.Width(120));
                     if (pickImp != curImp)
                     {
-                        _cardImportanceFilter = pickImp <= 0 ? default(KnowledgeImportance?) : impValues[pickImp - 1];
+                        _cardImportanceFilter = pickImp <= 0 ? default(Importance?) : impValues[pickImp - 1];
                         Repaint();
                     }
 
@@ -739,7 +739,7 @@ namespace Antura.Discover
                 x += ColDifficulty + Gap;
                 HeaderLabelRect("Category", new Rect(x, y, ColTopic, lineH), "MainTopic");
                 x += ColTopic + Gap;
-                HeaderLabelRect("Topics", new Rect(x, y, ColQTopics, lineH), "Topics");
+                HeaderLabelRect("Subjects", new Rect(x, y, ColQTopics, lineH), "Topics");
                 x += ColQTopics + Gap;
                 HeaderLabelRect("Knowledges", new Rect(x, y, ColQKnowledges, lineH), "Knowledges");
                 x += ColQKnowledges + Gap;
@@ -794,7 +794,7 @@ namespace Antura.Discover
                 x += ColImportance + Gap;
                 HeaderLabelRect("Type", new Rect(x, y, ColCategory, lineH), "Category");
                 x += ColCategory + Gap;
-                HeaderLabelRect("Topics", new Rect(x, y, ColTopics, lineH), "Topics");
+                HeaderLabelRect("Subjects", new Rect(x, y, ColTopics, lineH), "Subjects");
                 x += ColTopics + Gap;
                 HeaderLabelRect("Collectible", new Rect(x, y, ColCollectible, lineH), "Collectible");
                 x += ColCollectible + Gap;
@@ -811,7 +811,7 @@ namespace Antura.Discover
                 HeaderLabelRect("Path", new Rect(x, y, ColPath, lineH), "Path");
                 x += ColPath + Gap;
             }
-            else if (SelectedType == typeof(KnowledgeData))
+            else if (SelectedType == typeof(TopicData))
             {
                 HeaderLabelRect("Id", new Rect(x, y, ColId, lineH), nameof(IdentifiedData.Id));
                 x += ColId + Gap;
@@ -827,7 +827,7 @@ namespace Antura.Discover
                 x += ColKConnections + Gap;
                 HeaderLabelRect("Target Age", new Rect(x, y, ColKAge, lineH), "TargetAge");
                 x += ColKAge + Gap;
-                HeaderLabelRect("Topics", new Rect(x, y, ColKTopics, lineH), "Topics");
+                HeaderLabelRect("Subjects", new Rect(x, y, ColKTopics, lineH), "Subjects");
                 x += ColKTopics + Gap;
                 HeaderLabelRect("Quests", new Rect(x, y, ColKQuests, lineH), "KQuests");
                 x += ColKQuests + Gap;
@@ -932,7 +932,7 @@ namespace Antura.Discover
                 {
                     DrawCardDataRow(rowRect, cd);
                 }
-                else if (SelectedType == typeof(KnowledgeData) && obj is KnowledgeData kd)
+                else if (SelectedType == typeof(TopicData) && obj is TopicData kd)
                 {
                     DrawKnowledgeDataRow(rowRect, kd);
                 }
@@ -1170,7 +1170,7 @@ namespace Antura.Discover
                 xs.Add(x);
                 return xs;
             }
-            if (SelectedType == typeof(KnowledgeData))
+            if (SelectedType == typeof(TopicData))
             {
                 x += ColId + Gap;
                 xs.Add(x);
@@ -1472,7 +1472,7 @@ namespace Antura.Discover
             EditorGUI.LabelField(rCat, c.Type.ToString());
             x += ColCategory + Gap;
             // Topics (one per line)
-            string topicsText = c.Topics != null ? string.Join("\n", c.Topics.Select(t => t.ToString())) : string.Empty;
+            string topicsText = c.Subjects != null ? string.Join("\n", c.Subjects.Select(t => t.ToString())) : string.Empty;
             var rTop = new Rect(x, rowRect.y + 4f, ColTopics, rowRect.height - 8f);
             GUI.Label(rTop, topicsText, EditorStyles.label);
             x += ColTopics + Gap;
@@ -1504,7 +1504,7 @@ namespace Antura.Discover
             // Knowledge: list all KnowledgeData where this card is CoreCard or in Connections
             var rKList = new Rect(x, rowRect.y + 4f, ColCardKnowledges, rowRect.height - 8f);
             float ky = rKList.y;
-            var knows = _allData.OfType<KnowledgeData>()
+            var knows = _allData.OfType<TopicData>()
                 .Where(kd => kd != null && ((kd.CoreCard == c) || (kd.Connections != null && kd.Connections.Any(conn => conn != null && conn.connectedCard == c))))
                 .OrderBy(kd => kd.Id ?? kd.name)
                 .ToList();
@@ -1530,7 +1530,7 @@ namespace Antura.Discover
                         // Focus browser to KnowledgeData and search this Id
                         try
                         {
-                            int kdIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(KnowledgeData));
+                            int kdIdx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(TopicData));
                             if (kdIdx >= 0)
                             {
                                 _selectedTypeIndex = kdIdx;
@@ -1610,7 +1610,7 @@ namespace Antura.Discover
             EditorGUI.LabelField(rPath, FormatPath(AssetDatabase.GetAssetPath(c)));
         }
 
-        private void DrawKnowledgeDataRow(Rect rowRect, KnowledgeData k)
+        private void DrawKnowledgeDataRow(Rect rowRect, TopicData k)
         {
             float x = MarginLeft;
             float lineH = EditorGUIUtility.singleLineHeight;
@@ -1713,7 +1713,7 @@ namespace Antura.Discover
             EditorGUI.LabelField(rAge, k.targetAge.ToString());
             x += ColKAge + Gap;
             // Topics
-            var tops = k.Topics != null ? string.Join(", ", k.Topics.Select(t => t.ToString())) : string.Empty;
+            var tops = k.Subjects != null ? string.Join(", ", k.Subjects.Select(t => t.ToString())) : string.Empty;
             var rTop = new Rect(x, y, ColKTopics, lineH);
             EditorGUI.LabelField(rTop, tops);
             x += ColKTopics + Gap;
@@ -1722,7 +1722,7 @@ namespace Antura.Discover
             float qy = rQ.y;
             // gather quests having this knowledge in their Knowledges list
             var quests = _allData.OfType<QuestData>()
-                .Where(qd => qd != null && qd.Knowledges != null && qd.Knowledges.Contains(k))
+                .Where(qd => qd != null && qd.Topics != null && qd.Topics.Contains(k))
                 .OrderBy(qd => qd.Id ?? qd.name)
                 .ToList();
             if (quests.Count > 0)
@@ -1830,7 +1830,7 @@ namespace Antura.Discover
             x += ColDifficulty + Gap;
             // Category
             var rTopic = new Rect(x, y, ColTopic, lineH);
-            EditorGUI.LabelField(rTopic, q.MainTopic.ToString());
+            EditorGUI.LabelField(rTopic, q.Subject.ToString());
             x += ColTopic + Gap;
             // Topics aggregated from cards (one per line)
             string topicsText = string.Empty;
@@ -1839,8 +1839,8 @@ namespace Antura.Discover
                 var allTopics = new List<string>();
                 foreach (var cc in q.Cards)
                 {
-                    if (cc != null && cc.Topics != null)
-                        allTopics.AddRange(cc.Topics.Select(t => t.ToString()));
+                    if (cc != null && cc.Subjects != null)
+                        allTopics.AddRange(cc.Subjects.Select(t => t.ToString()));
                 }
                 var uniq = allTopics.Where(s => !string.IsNullOrEmpty(s)).Distinct().OrderBy(s => s).ToList();
                 if (uniq.Count > 0)
@@ -1854,14 +1854,14 @@ namespace Antura.Discover
             // Knowledges (one per line, clickable to navigate to KnowledgeData)
             var rKnows = new Rect(x, rowRect.y + 4f, ColQKnowledges, rowRect.height - 8f);
             float ky = rKnows.y;
-            if (q.Knowledges != null && q.Knowledges.Count > 0)
+            if (q.Topics != null && q.Topics.Count > 0)
             {
-                int total = q.Knowledges.Count(kd => kd != null);
+                int total = q.Topics.Count(kd => kd != null);
                 int maxLines = Mathf.Max(1, Mathf.FloorToInt(rKnows.height / lineH));
                 int linesToShow = Mathf.Min(total, maxLines);
                 ky = rKnows.y + (rKnows.height - linesToShow * lineH) * 0.5f;
                 int shown = 0;
-                foreach (var k in q.Knowledges)
+                foreach (var k in q.Topics)
                 {
                     if (k == null)
                         continue;
@@ -1878,7 +1878,7 @@ namespace Antura.Discover
                         // Also focus the Game Data Browser on KnowledgeData and search this Id
                         try
                         {
-                            int idx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(KnowledgeData));
+                            int idx = _typeOptions.FindIndex(o => o.Type != null && o.Type.Name == nameof(TopicData));
                             if (idx >= 0)
                             {
                                 _selectedTypeIndex = idx;
@@ -2143,7 +2143,7 @@ namespace Antura.Discover
             if (SelectedType == typeof(CardData) && _cardTopicFilter.HasValue)
             {
                 var tp = _cardTopicFilter.Value;
-                set = set.Where(a => a is CardData c && c.Topics != null && c.Topics.Contains(tp));
+                set = set.Where(a => a is CardData c && c.Subjects != null && c.Subjects.Contains(tp));
             }
             // CardData Importance filter
             if (SelectedType == typeof(CardData) && _cardImportanceFilter.HasValue)
@@ -2202,10 +2202,10 @@ namespace Antura.Discover
                         keySelector = a => a is CardData cs ? cs.Status.ToString() : (a is AssetData asd ? asd.Status.ToString() : (a is QuestData qs ? qs.Status.ToString() : string.Empty));
                         break;
                     case "Name":
-                        keySelector = a => a is KnowledgeData k0 ? (k0.Name ?? string.Empty) : string.Empty;
+                        keySelector = a => a is TopicData k0 ? (k0.Name ?? string.Empty) : string.Empty;
                         break;
                     case "Description":
-                        keySelector = a => a is KnowledgeData k1 ? (k1.Description ?? string.Empty) : string.Empty;
+                        keySelector = a => a is TopicData k1 ? (k1.Description ?? string.Empty) : string.Empty;
                         break;
                     case "Active":
                         keySelector = a => a is WordData w0 ? (w0.Active ? "1" : "0") : string.Empty;
@@ -2218,11 +2218,11 @@ namespace Antura.Discover
                         break;
                     case "Topics":
                         keySelector = a =>
-                            a is CardData c2 ? string.Join(",", c2.Topics?.Select(t => t.ToString()) ?? Array.Empty<string>()) :
-                            (a is KnowledgeData k2 ? string.Join(",", k2.Topics?.Select(t => t.ToString()) ?? Array.Empty<string>()) :
+                            a is CardData c2 ? string.Join(",", c2.Subjects?.Select(t => t.ToString()) ?? Array.Empty<string>()) :
+                            (a is TopicData k2 ? string.Join(",", k2.Subjects?.Select(t => t.ToString()) ?? Array.Empty<string>()) :
                             (a is QuestData qTop ? string.Join(",", (qTop.Cards ?? new List<CardData>())
-                                .Where(c => c != null && c.Topics != null)
-                                .SelectMany(c => c.Topics.Select(t => t.ToString()))
+                                .Where(c => c != null && c.Subjects != null)
+                                .SelectMany(c => c.Subjects.Select(t => t.ToString()))
                                 .Distinct()
                                 .OrderBy(s => s)) : string.Empty));
                         break;
@@ -2236,16 +2236,16 @@ namespace Antura.Discover
                         keySelector = a => a is CardData c4 ? c4.Year.ToString("D4") : string.Empty;
                         break;
                     case "Importance":
-                        keySelector = a => a is CardData c7 ? c7.Importance.ToString() : (a is KnowledgeData k3 ? k3.Importance.ToString() : string.Empty);
+                        keySelector = a => a is CardData c7 ? c7.Importance.ToString() : (a is TopicData k3 ? k3.Importance.ToString() : string.Empty);
                         break;
                     case "CoreCard":
-                        keySelector = a => a is KnowledgeData kcc ? (string.IsNullOrEmpty(kcc.CoreCard?.Id) ? (kcc.CoreCard?.name ?? string.Empty) : kcc.CoreCard.Id) : string.Empty;
+                        keySelector = a => a is TopicData kcc ? (string.IsNullOrEmpty(kcc.CoreCard?.Id) ? (kcc.CoreCard?.name ?? string.Empty) : kcc.CoreCard.Id) : string.Empty;
                         break;
                     case "KnowledgeValue":
                         keySelector = a => a is CardData c5 ? c5.Points.ToString("D2") : (a is QuestData q0 ? (q0.Cards != null ? q0.Cards.Where(cc => cc != null).Sum(cc => Mathf.Clamp(cc.Points, 0, 10)).ToString("D3") : "") : string.Empty);
                         break;
                     case "MainTopic":
-                        keySelector = a => a is QuestData q1 ? q1.MainTopic.ToString() : string.Empty;
+                        keySelector = a => a is QuestData q1 ? q1.Subject.ToString() : string.Empty;
                         break;
                     case "IdDisplay":
                         keySelector = a => a is QuestData q2 ? (q2.IdDisplay ?? string.Empty) : string.Empty;
@@ -2263,7 +2263,7 @@ namespace Antura.Discover
                         keySelector = a => a is QuestData q5 ? string.Join(";", q5.Cards?.Where(c => c != null).Select(c => string.IsNullOrEmpty(c.Id) ? c.name : c.Id) ?? Array.Empty<string>()) : string.Empty;
                         break;
                     case "Knowledges":
-                        keySelector = a => a is QuestData qK ? string.Join(";", qK.Knowledges?.Where(k => k != null).Select(k => string.IsNullOrEmpty(k.Id) ? k.name : k.Id) ?? Array.Empty<string>()) : string.Empty;
+                        keySelector = a => a is QuestData qK ? string.Join(";", qK.Topics?.Where(k => k != null).Select(k => string.IsNullOrEmpty(k.Id) ? k.name : k.Id) ?? Array.Empty<string>()) : string.Empty;
                         break;
                     case "WordsUsed":
                         keySelector = a => a is QuestData q6 ? string.Join(";", q6.Words?.Where(w => w != null).Select(w => string.IsNullOrEmpty(w.Id) ? w.name : w.Id) ?? Array.Empty<string>()) : string.Empty;
@@ -2574,7 +2574,7 @@ namespace Antura.Discover
                     return true;
                 if (cd.Year.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                     return true;
-                if (cd.Topics != null && cd.Topics.Any(t => t.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
+                if (cd.Subjects != null && cd.Subjects.Any(t => t.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0))
                     return true;
                 if (cd.Quests != null && cd.Quests.Any(q => q != null && ((string.IsNullOrEmpty(q.Id) ? q.name : q.Id).IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)))
                     return true;
@@ -2585,7 +2585,7 @@ namespace Antura.Discover
             }
             if (a is QuestData qd)
             {
-                if (qd.MainTopic.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
+                if (qd.Subject.ToString().IndexOf(term, StringComparison.OrdinalIgnoreCase) >= 0)
                     return true;
                 if (qd.Location != null)
                 {
@@ -2878,7 +2878,7 @@ namespace Antura.Discover
                         Escape(locId) + "," +
                         Escape(q.KnowledgeValue.ToString()) + "," +
                         Escape(q.Difficulty.ToString()) + "," +
-                        Escape(q.MainTopic.ToString()) + "," +
+                        Escape(q.Subject.ToString()) + "," +
                         Escape(linkedCards) + "," +
                         Escape(words)
                     );
