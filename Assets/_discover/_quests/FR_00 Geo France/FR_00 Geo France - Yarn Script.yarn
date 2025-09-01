@@ -254,17 +254,19 @@ color: blue
     <<card flag_belgium>>
     Thank you for helping us! #line:080a099 
     Brussels is the capital of Belgium. #line:06b3ceb 
-<<elseif $belgium_met>>
-    <<if $CURRENT_ITEM == "flag_of_belgium">>
+<<elseif $CURRENT_ITEM == "flag_of_belgium">>
         Thank you, my beautiful flag is back! #line:079096a 
+        Can you help my Luxemourgian friend?
         <<inventory flag_of_belgium remove>>
-        <<task_end belgium>>
+        <<task_end FIND_BELGIUM_FLAG belgium_npc>>
         <<set $belgium_completed = true>>
-    <<elseif $CURRENT_ITEM != "">>
+        <<action lux_active>>
+        <<set $belgium_met = true>>
+        <<jump task_lux>>
+<<elseif $CURRENT_ITEM != "">>
     Remember, my flag has vertical stripes. black, yellow, and red. #line:0141a13 
-    <<else>>
         <<jump task_belgium>>
-    <<endif>>
+        <<set $belgium_met = true>>
 <<else>>
     <<set $belgium_met = true>>
     Bonjour! I'm from Belgium! #line:0a61b67 
@@ -283,7 +285,7 @@ tags: actor=OLD_WOMAN
 <<endif>>
 Find the Belgian flag. #line:0f08126 
 It's black, yellow, and red with vertical stripes. #line:079ecca 
-<<task_start FIND_BELGIUM_FLAG>>
+<<task_start FIND_BELGIUM_FLAG task_belgium>>
 ===
 
 title: item_flag_belgium
@@ -314,17 +316,19 @@ tags: actor=OLD_MAN
 <<if $lux_completed>>
     <<card flag_luxembourg>>
     Thank you for helping us! #line:02114ba 
-<<elseif $lux_met>>
-    <<if $CURRENT_ITEM == "flag_of_luxembourg">>
+
+<<elseif $CURRENT_ITEM == "flag_of_luxembourg">>
         Thank you! That is my flag. #line:05de5ab 
-        <<inventory flag_of_luxembourg add>>
-        <<task_end lux>>
+        Can you help my swiss friend?
+        <<inventory flag_of_luxembourg remove>>
+        <<task_end FIND_LUX_FLAG luxembourg_npc>>
         <<set $lux_completed = true>>
-    <<elseif $CURRENT_ITEM != "">>
-        Nope! Our flag is red, white, and light blue. #line:0529472 
-    <<else>>
-        <<jump task_lux>>
-    <<endif>>
+        <<action swiss_active>>
+        <<jump task_swiss>>
+<<elseif $CURRENT_ITEM != "">>
+    Nope! Our flag is red, white, and light blue. #line:0529472 
+    <<set $lux_met = true>>
+    <<jump task_lux>>
 <<else>>
     <<set $lux_met = true>>
     Moien! I’m from Luxembourg! #line:0b22d58 
@@ -376,23 +380,22 @@ color: blue
     <<card flag_switzerland>>
     Thank you for helping us! #line:02f73c8 
     The capital of Switzerland is Bern! #line:0d2e2d7 
-<<elseif $swiss_met>>
-    <<if $CURRENT_ITEM == "flag_of_swiss">>
+<<elseif $CURRENT_ITEM == "flag_of_swiss">>
         Thank you for bringing my flag back! #line:0ca99a0 
+        Go back to the start and claim your victory!
         <<inventory flag_of_swiss remove>>
-        <<task_end swiss>>
+        <<task_end FIND_SWISS_FLAG npc_swiss>>
         <<set $swiss_completed = true>>
-    <<elseif $CURRENT_ITEM != "">>
+<<elseif $CURRENT_ITEM != "">>
         Not my flag. Our flag is red with a white cross. #line:0caad5a 
-    <<else>>
         <<jump task_swiss>>
-    <<endif>>
 <<else>>
     <<set $swiss_met = true>>
     Grüezi! I'm from Switzerland! #line:09fe8fc 
     We're famous for snowy mountains and cheese. #line:0bf6b0d 
     <<jump task_swiss>>
 <<endif>>
+
 ===
 
 
@@ -406,7 +409,7 @@ tags: actor=OLD_WOMAN
 <<endif>>
 Find the Swiss flag. #line:0ec7096 
 It's red with a big white cross — like a first aid kit! #line:07cc57e 
-<<task_start FIND_SWISS_FLAG>>
+<<task_start FIND_SWISS_FLAG npc_swiss>>
 ===
 
 
