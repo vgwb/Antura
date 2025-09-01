@@ -16,6 +16,7 @@ actor: TUTOR
 ---
 <<set $MAX_PROGRESS = 10>>
 <<declare $got_backpack = false>>
+<<SetActive Collect_Backpack false>>
 TUTOR: Welcome to FR-02: Angers! It's the first day of school! #line:014887e 
 You are 10 years old and in the last year of elementary school. #line:063e8e0 
 Find your school and your classroom! #line:0f65a1b 
@@ -26,8 +27,8 @@ position: 338,-337
 tags: actor=WOMAN
 actor: WOMAN
 ---
-woman: Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. #line:096b721 
-woman: You are too big for our small chairs! Your school is nearby. #line:07ed07b 
+Welcome! This is a nursery school, for our youngest pupils aged 3 to 5. #line:096b721 
+You are too big for our small chairs! Your school is nearby. #line:07ed07b 
 
 ===
 title: school_2
@@ -80,7 +81,7 @@ actor: OLD_MAN
 Hello! I found a backpack on my way here. #line:0c3b4fe 
 These books are simpler than the ones my students use, #line:0d3aba1 
 so I don't think it belongs to them. #line:09c5297 
-<<action spawn_backpack>>
+<<SetActive Collect_Backpack>>
 Could it be yours? #line:0f44535 
 ===
 
@@ -99,6 +100,7 @@ Come in! Your classroom is down the hall. #line:0b91268
 title: task_find_classroom
 position: 974,-24
 tags: actor=TUTOR, task
+color: green
 ---
 TUTOR: TASK: Find your classroom. #line:058ddbc 
 <<task_start TASK_CLASSROOM task_class_done>>
@@ -197,6 +199,7 @@ TUTOR: TASK COMPLETED! You can now start the lesson. #line:093e91d
 title: task_backpack
 position: 976,-282
 tags: actor=GUIDE, task
+color: green
 ---
 Find your backpack and then come back. #line:0e3ad75 
 <<task_start TASK_BACKPACK task_backpack_done>>

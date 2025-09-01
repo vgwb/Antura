@@ -17,7 +17,7 @@ color: red
 ---
 <<set $MAX_PROGRESS = 7>>
 <<declare $ingredients = 0>>
-Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. #line:078e646 
+TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. #line:078e646 
 ===
 
 
@@ -341,7 +341,7 @@ You can use my items for many recipes. #line:0c6a554
 ===
 
 title: pirate
-position: -210,-258
+position: 1428,-273
 group: pirates
 tags: actor=CRAZY_MAN
 actor: CRAZY_MAN
@@ -349,18 +349,28 @@ actor: CRAZY_MAN
 Ahoy! Welcome aboard. #line:04ee922 
 We come from Saint-Malo and sailed the seas to get here. #line:056c70d 
 People call us pirates, but we were corsairs—privateers. #line:0f764a6 
+<<jump pirate_activity>>
+===
+
+title: pirate_activity
+position: 1669,-267
+group: pirates
+tags: actor=MAN
+color: purple
+---
 <<activity ACTIVITY_JIGSAW activity_pirate_done>>
+Complete the image.  #line:08396f2 
 ===
 
 title: activity_pirate_done
-position: 38,-258
+position: 1892,-264
 group: pirates
 tags: actor=CRAZY_MAN
 actor: CRAZY_MAN
 ---
 We worked for the King of France. #line:0af3bba 
 In the past, we took items from the king's enemies, but those days are gone. #line:0b61715 
-Please pay for what you need so the shops can stay open! #line:02c49d0 
+You should pay for what you need so the shops can stay open! #line:02c49d0 
 ===
 
 
@@ -372,6 +382,8 @@ tags:
 ---
 <<if $ingredients == 5>>
     <<jump chef_ingredients_done>>
+<<elseif GetCollectedItem("COLLECT_THE_INGREDIENTS") > 0 >>
+    <<jump chef_not_enough>>
 <<else>>
     <<jump chef_welcome>>
 <<endif>>
@@ -391,16 +403,25 @@ But I need some ingredients. #line:0623733
 
 
 title: task_ingredients
-position: 927,-579
+position: 927,-581
 group: chef
 color: green
 tags: task
 ---
 Please go to the market and buy them for me. #line:06602c6 
-<<task_start COLLECT_THE_INGREDIENTS>>
+<<task_start COLLECT_THE_INGREDIENTS task_ingredients_done>>
 Remember your manners! #line:02819db 
 Say "Bonjour" to greet someone, #line:04c9d69 
 and "Merci" to thank them. #line:022fd8f 
+===
+
+title: chef_not_enough
+position: 404,-274
+group: chef
+tags: task
+---
+I need more ingredients! #line:0c5c6ac 
+Make sure you talk to everyone in the market. #line:0060c01 
 ===
 
 title: task_ingredients_done

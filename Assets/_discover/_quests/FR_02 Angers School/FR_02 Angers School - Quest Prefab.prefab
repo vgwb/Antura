@@ -9,13 +9,15 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5775100362784239490}
+  - component: {fileID: 454147158192678105}
+  - component: {fileID: 4814056133550323216}
   m_Layer: 0
-  m_Name: Backpack
+  m_Name: Collect_Backpack
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &5775100362784239490
 Transform:
   m_ObjectHideFlags: 0
@@ -32,6 +34,40 @@ Transform:
   - {fileID: 1678851666714247665}
   m_Father: {fileID: 6248812635050322377}
   m_LocalEulerAnglesHint: {x: 0, y: -47.039, z: 0}
+--- !u!114 &454147158192678105
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712622693413978096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5d77bcf4b2ad54e4b96bfc59a0437f01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AutoCollect: 1
+  Type: 3
+  ItemTag: backpack
+  particleEffectPrefab: {fileID: 9163842254569548763, guid: 0e62c4d669c52425fa7ad6a0a297dd84,
+    type: 3}
+  enableRotation: 0
+  rotationSpeed: 100
+  bobbingAmount: 0.1
+  bobbingSpeed: 1
+--- !u!114 &4814056133550323216
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 712622693413978096}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b8ac803da27d4467aa4d1bf8c4a0db3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
 --- !u!1 &1379232562769141677
 GameObject:
   m_ObjectHideFlags: 0
@@ -691,7 +727,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3019
+      value: 3037
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -4727,13 +4763,18 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 884445567931901382, guid: d2c16ee3d38a96d4eaed9d337930053a,
         type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 884445567931901382, guid: d2c16ee3d38a96d4eaed9d337930053a,
+        type: 3}
       propertyPath: enableRotation
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1828532048031315108, guid: d2c16ee3d38a96d4eaed9d337930053a,
         type: 3}
       propertyPath: m_Name
-      value: Collect_Backpack
+      value: Backpack
       objectReference: {fileID: 0}
     - target: {fileID: 1828532048031315108, guid: d2c16ee3d38a96d4eaed9d337930053a,
         type: 3}
@@ -4795,7 +4836,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4870634104709408544, guid: d2c16ee3d38a96d4eaed9d337930053a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
