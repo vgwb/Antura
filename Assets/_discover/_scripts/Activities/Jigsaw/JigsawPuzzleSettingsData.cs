@@ -4,10 +4,10 @@ using UnityEngine.Serialization;
 
 namespace Antura.Discover.Activities
 {
-    [CreateAssetMenu(fileName = "JigsawPuzzleSettings", menuName = "Antura/Activity/Jigsaw Settings")]
+    [CreateAssetMenu(fileName = "JigsawSettings", menuName = "Antura/Activity/Jigsaw Settings")]
     public class JigsawPuzzleSettingsData : ActivitySettingsAbstract
     {
-        [Header("--- Activity JigsawPuzzle Settings")]
+        [Header("--- Activity Jigsaw Settings")]
         [Tooltip("CardData providing the image for the puzzle")]
         public CardData PuzzleCard;
 
