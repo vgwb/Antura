@@ -38,6 +38,9 @@ namespace Antura.Discover
         [Tooltip("Camera focus on icon on interaction?")]
         public bool FocusCameraOnInteract;
 
+        [Tooltip("Face to Player when nearby")]
+        public bool FaceToPlayer;
+
         [Header("Execute Quest Node")]
 
         [Tooltip("Dialogue node to start")]
@@ -51,6 +54,11 @@ namespace Antura.Discover
         [SerializeField] string QuestAction;
         [Tooltip("Executes these commands")]
         [SerializeField] List<CommandData> Commands;
+
+        [Header("References")]
+        public FaceToPlayer FaceToPlayerComp;
+        bool _facePrevEnabled;
+
         #endregion
 
         public bool IsLL { get; private set; }
@@ -112,6 +120,14 @@ namespace Antura.Discover
                 if (other.gameObject == InteractionManager.I.player.gameObject)
                 {
                     DiscoverNotifier.Game.OnInteractableEnteredByPlayer.Dispatch(this);
+                    if (FaceToPlayer)
+                    {
+                        if (FaceToPlayerComp != null)
+                        {
+                            _facePrevEnabled = FaceToPlayerComp.enabled;
+                            FaceToPlayerComp.enabled = true;
+                        }
+                    }
                     if (NearbyAutoActivate)
                     {
                         NearbyAutoActivate = false;
@@ -124,7 +140,11 @@ namespace Antura.Discover
         void OnTriggerExit(Collider other)
         {
             if (other.gameObject == InteractionManager.I.player.gameObject)
+            {
+                if (FaceToPlayer && FaceToPlayerComp != null)
+                    FaceToPlayerComp.enabled = _facePrevEnabled;
                 OnTriggerExitPlayer();
+            }
         }
 
         void OnTriggerExitPlayer()
