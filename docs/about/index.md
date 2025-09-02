@@ -4,13 +4,13 @@ title: About the Antura Project
 
 ## Our Team
 
-This original Arabic project was developed by the Cologne Game Lab – TH Köln (German university of Applied Sciences),  Video Games Without Borders (a nonprofit organization registered in Spain) and Wixel Studios (a Lebanese development studio).[![](https://www.antura.org/wp-content/uploads/2017/01/CGL-TH_Logo-300x51.png)](http://www.colognegamelab.de/)[![](https://www.antura.org/wp-content/uploads/2017/03/VGWB_Logo_Horiz-300x65.jpg)](http://vgwb.org/)![](https://www.antura.org/wp-content/uploads/2017/01/WixelLogo_HiRes-300x180.png)
+This original Arabic project was developed by the Cologne Game Lab – TH Köln (German university of Applied Sciences), Video Games Without Borders (a nonprofit organization registered in Spain) and Wixel Studios (a Lebanese development studio).[![CGL logo](https://www.antura.org/wp-content/uploads/2017/01/CGL-TH_Logo-300x51.png)](http://www.colognegamelab.de/) [![VGWB logo](https://www.antura.org/wp-content/uploads/2017/03/VGWB_Logo_Horiz-300x65.jpg)](http://vgwb.org/) ![Wixel logo](https://www.antura.org/wp-content/uploads/2017/01/WixelLogo_HiRes-300x180.png)
 
 Later on, several additional partners joined and helped adapt the game to address other emergencies and learning needs in different contexts with the priority set on 3 humanitarian crises: Syria, Afghanistan and Ukraine.
 
-![](https://www.antura.org/wp-content/uploads/2022/07/Partners_01.png)
+![partners 1](https://www.antura.org/wp-content/uploads/2022/07/Partners_01.png)
 
-![](https://www.antura.org/wp-content/uploads/2022/07/Partners_02.png)
+![partners 2](https://www.antura.org/wp-content/uploads/2022/07/Partners_02.png)
 
 Our team is located all over the world and mainly comprises European, Middle Eastern and North African residents and refugees. It is a mix of veteran game developers, scientists and humanitarians. More than 100 people collaborated on the development and distribution of this game.
 
@@ -30,18 +30,18 @@ The Antura initiative was possible thanks to the support of many people and orga
 
 A special thanks to all partners who helped on the original game:
 
--   University of Verona, Department of Computer Science (game development)
--   The Bahcesehir University (testing and dissemination)
--   Université Chouaib Doukkali (testing)
--   Université Libanaise (testing and dissemination)
--   Libraries Without Borders (dissemination)
--   Unity3D (Donated Pro License)
--   Slack (Team communication tool)
--   EA (PR services)
--   Ubisoft (Digital marketing support)
--   Abdullah & Ebtisam’s Charitable Association (trailer support)
--   Glasgow Caledonian University (game jam about Antura)
+- University of Verona, Department of Computer Science (game development)
+- The Bahcesehir University (testing and dissemination)
+- Université Chouaib Doukkali (testing)
+- Université Libanaise (testing and dissemination)
+- Libraries Without Borders (dissemination)
+- Unity3D (Donated Pro License)
+- Slack (Team communication tool)
+- EA (PR services)
+- Ubisoft (Digital marketing support)
+- Abdullah & Ebtisam’s Charitable Association (trailer support)
+- Glasgow Caledonian University (game jam about Antura)
 
-[![](https://www.antura.org/wp-content/uploads/2019/02/Techfugees_logo_very_small.png)](http://techfugees.com)
+[![techfugees logo](https://www.antura.org/wp-content/uploads/2019/02/Techfugees_logo_very_small.png)](http://techfugees.com)
 
 Finally, being selected as winner of the Education Category at the Techfugees Global Challenges Competition 2018, we established a longlasting partnership with Techfugees for scaling our impact!
