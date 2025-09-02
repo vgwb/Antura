@@ -17,9 +17,8 @@ color: red
 ---
 <<set $MAX_PROGRESS = 7>>
 <<declare $ingredients = 0>>
-TUTOR: Welcome to FR-09: Côte d'Azur! It's a sunny day on the coast. #line:078e646 
+Welcome to Côte d'Azur! It's a sunny day on the coast. #line:078e646 
 ===
-
 
 title: baker_bonjour
 position: 646,-11
@@ -40,11 +39,11 @@ tags: actor=BAKER
 color: blue
 ---
 Bonjour! #line:0cd2ee2 
--> Bonjour!: #line:09460ce 
+-> Bonjour! #line:09460ce 
     <<jump baker_bonjour>>
--> Merci!: #line:0bf3f32 
+-> Merci! #line:0bf3f32 
     <<jump baker_notunderstand>>
--> Banana!: #line:0ebf8b2 
+-> Banana! #line:0ebf8b2 
     <<jump baker_notunderstand>>
 ===
 
@@ -413,6 +412,13 @@ Please go to the market and buy them for me. #line:06602c6
 Remember your manners! #line:02819db 
 Say "Bonjour" to greet someone, #line:04c9d69 
 and "Merci" to thank them. #line:022fd8f 
+===
+
+title: task_ingredients_desc
+type: task
+---
+Collect all the ingredients for the recipe.
+They are: bread, fish, orange, lemon, tomato, cheese, salt, pepper, oil.
 ===
 
 title: chef_not_enough
