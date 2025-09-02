@@ -10,27 +10,28 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20278937291aa4be7b7bc4e1a5a67820, type: 3}
-  m_Name: Order Activity
+  m_Name: Jigsaw Activity
   m_EditorClassIdentifier: 
-  Id: order_activity
+  Id: jigsaw_activity
+  Status: 2
+  Code: 5
   Name:
     m_TableReference:
       m_TableCollectionName: GUID:8a60e2f2e18324112b92275e13eee032
     m_TableEntryReference:
-      m_KeyId: 397233086464
+      m_KeyId: 308091543552
       m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Code: 1
   Image: {fileID: 0}
-  Category: 090000000c000000
-  Skills: 200000001f000000040000000a0000000d000000
-  ActivityPrefab: {fileID: 5766881619081821586, guid: 59e4d2aa4543440b7978d9f3e4dc6b06,
+  Category: 060000000c00000000000000
+  Skills: 15000000160000000a0000000d000000
+  ActivityPrefab: {fileID: 5766881619081821586, guid: 3494a883392b34216bafde1cc93e36d7,
     type: 3}
-  AdditionalResources: {fileID: 4900000, guid: f9d6ec3c9847347378a54679a47de2ff, type: 3}
+  AdditionalResources: {fileID: 4900000, guid: 738017c05005640b78f24bf823bd807e, type: 3}
   Credits:
-  - Author: {fileID: 11400000, guid: 102b106205e784c0fbc01390d66f312e, type: 2}
+  - Author: {fileID: 11400000, guid: f32a1eb30084e4f558daa6310ed31c36, type: 2}
     Content: 0
     Design: 1
     Development: 0
