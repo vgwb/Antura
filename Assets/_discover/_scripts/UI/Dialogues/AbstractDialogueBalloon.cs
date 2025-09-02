@@ -71,7 +71,8 @@ namespace Antura.Discover
 
         public void Show(QuestNode node, bool UseLearningLanguage)
         {
-            if (IsOpen) return;
+            if (IsOpen)
+                return;
 
             IsOpen = true;
             currNode = node;

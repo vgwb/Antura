@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 3265454570424409887}
   - component: {fileID: 1995716663718980252}
   - component: {fileID: 9164591454477344658}
+  - component: {fileID: 3506963210805333443}
   m_Layer: 0
   m_Name: DiscoverGameManager
   m_TagString: Untagged
@@ -219,6 +220,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.Activities.ActivityManager
   ActivityList: {fileID: 11400000, guid: 5959186c3a0f54ec6b11cecc4d36d6a1, type: 2}
   _returnNode: 
+--- !u!114 &3506963210805333443
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5736206750971171309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e04ad9da7ddfa4b208e1d92ea8c38607, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldManager
+  environmentPrefabs: []
+  environmentParent: {fileID: 0}
 --- !u!1001 &5873645632079191059
 PrefabInstance:
   m_ObjectHideFlags: 0

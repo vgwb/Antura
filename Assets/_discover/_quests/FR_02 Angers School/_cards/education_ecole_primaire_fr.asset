@@ -15,15 +15,7 @@ MonoBehaviour:
   Id: education_ecole_primaire_fr
   Status: 3
   Type: 4
-  Topics: 1400000003000000
-  Importance: 0
-  CoreOfKnowledge: {fileID: 11400000, guid: 5b878c0bdbd0f4e5188f96fe04225dd3, type: 2}
-  IsInKnowledges: 0
-  MasteryPointsToUnlock: 1
-  Year: 1975
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 1400000003000000
   TitleEn: Primary School in France
   DescriptionEn: School for kids aged 6 to 10. You learn reading, writing, and counting.
   Title:
@@ -44,6 +36,15 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1975
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 5b878c0bdbd0f4e5188f96fe04225dd3, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
   Cookies: 0
@@ -51,6 +52,8 @@ MonoBehaviour:
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 90ed7fc4220424dd3b53e7843b2d5884, type: 2}
+  AdditionalImageAssets:
+  - {fileID: 11400000, guid: cb7603767d3d54343b47a721b90255c7, type: 2}
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,8 +62,8 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
-  Rationale: 
   Credits: []
+  Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1886961206091471443}
   - component: {fileID: -3462028783255564650}
   m_Layer: 0
-  m_Name: Europe_Map_World
+  m_Name: Europe Map - World Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -30,6 +30,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 8641720162109247305}
   - {fileID: 7129419045802045302}
   - {fileID: 7176450344428467978}
   - {fileID: 1113279474533064020}
@@ -50,6 +51,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826e6502b32ee4fdd859412c098ce30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldController
+  WorldId: europe_map
+  DefaultSetup: {fileID: 11400000, guid: 7ff055a660b794103b8e6fa7e7a0d6da, type: 2}
+  AutoApplyOnAwake: 1
 --- !u!1 &7925892788955548614
 GameObject:
   m_ObjectHideFlags: 0
@@ -112,6 +116,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -133,6 +139,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -326,6 +333,80 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1921237178449228535}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &2001028471281976224
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 1886961206091471443}
+    m_Modifications:
+    - target: {fileID: 5659934351583949219, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_Name
+      value: WorldSystems
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4df0505b5464043e395644783e8c827b, type: 3}
+--- !u!4 &8641720162109247305 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+    type: 3}
+  m_PrefabInstance: {fileID: 2001028471281976224}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3471924065541338717
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -418,6 +499,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1886961206091471443}
     m_Modifications:
+    - target: {fileID: 1296537223019392896, guid: e174e2762598e46ce87f0f1bfaa13109,
+        type: 3}
+      propertyPath: m_text
+      value: FRANCE
+      objectReference: {fileID: 0}
+    - target: {fileID: 1296537223019392896, guid: e174e2762598e46ce87f0f1bfaa13109,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 0.6
+      objectReference: {fileID: 0}
     - target: {fileID: 4664566804176473216, guid: e174e2762598e46ce87f0f1bfaa13109,
         type: 3}
       propertyPath: m_Name

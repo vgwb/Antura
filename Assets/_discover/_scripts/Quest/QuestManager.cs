@@ -100,6 +100,17 @@ namespace Antura.Discover
             // TODO, maybe in taskmanager
             UIManager.I.ProgressDisplay.Setup(30);
         }
+        void OnEnable()
+        {
+            // setup World
+            var root = WorldManager.I ? WorldManager.I.Current : FindFirstObjectByType<WorldController>();
+            if (!root)
+                return;
+
+            var effective = root.GetEffectiveSetup(CurrentQuest ? CurrentQuest.WorldSetup : null);
+            if (effective)
+                root.ApplySetup(effective);
+        }
 
         void Update()
         {

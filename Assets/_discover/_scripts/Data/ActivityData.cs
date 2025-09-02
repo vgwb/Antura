@@ -18,15 +18,18 @@ namespace Antura.Discover
         MoneyCount = 7,
         Piano = 8,
         TraceLine = 9,
+        Dino = 10,
     }
 
     [CreateAssetMenu(fileName = "ActivityData", menuName = "Antura/Discover/Activity")]
     public class ActivityData : IdentifiedData
     {
-        public LocalizedString Name;
+        [Tooltip("Development status of this Activity")]
+        public Status Status;
 
         [Header("Identification")]
         public ActivityCode Code = ActivityCode.Unknown;
+        public LocalizedString Name;
 
         [Header("Media")]
         public Sprite Image;
@@ -38,7 +41,7 @@ namespace Antura.Discover
         [Header("Prefab")]
         public GameObject ActivityPrefab;
 
-        [Tooltip("for the Website. This is a Markdown file that contains additional informations.")]
+        [Tooltip("For the Website. This is a Markdown file that contains additional informations.")]
         public TextAsset AdditionalResources;
 
         [Header("Credits")]

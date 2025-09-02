@@ -120,7 +120,7 @@ GameObject:
   - component: {fileID: 5826405480926435366}
   - component: {fileID: -8651862949758544353}
   m_Layer: 0
-  m_Name: Seaside_world
+  m_Name: Pier Seaside - World Prefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -139,6 +139,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 6142095530773827721}
   - {fileID: 3421578080249247956}
   - {fileID: 3903470118658603703}
   - {fileID: 927892940857894933}
@@ -159,6 +160,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 826e6502b32ee4fdd859412c098ce30b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.WorldController
+  WorldId: pier_marseille
+  DefaultSetup: {fileID: 11400000, guid: c0eb62eaa60ca4897ae0378d2fcf9711, type: 2}
+  AutoApplyOnAwake: 1
 --- !u!1 &2571216210179687438
 GameObject:
   m_ObjectHideFlags: 0
@@ -3210,6 +3214,80 @@ Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ebc9915cb510081449fab8714fe5871b,
     type: 3}
   m_PrefabInstance: {fileID: 3836085824820317681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4113335872439917664
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 5826405480926435366}
+    m_Modifications:
+    - target: {fileID: 5659934351583949219, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_Name
+      value: WorldSystems
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 4df0505b5464043e395644783e8c827b, type: 3}
+--- !u!4 &6142095530773827721 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
+    type: 3}
+  m_PrefabInstance: {fileID: 4113335872439917664}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &4154514025029311860
 PrefabInstance:

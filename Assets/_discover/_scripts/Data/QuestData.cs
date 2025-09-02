@@ -72,10 +72,14 @@ namespace Antura.Discover
 
         public List<AuthorCredit> Credits;
 
-        [Header("Unity References and Prefabs")]
-        public GameObject WorldPrefab;
+        [Header("WorldSetup")]
         public GameObject QuestPrefab;
         public WorldController WorldControllerPrefab;
+
+        [Tooltip("Optionan override for the world setup")]
+        public WorldSetupData WorldSetup;
+
+        [Header("Unity internal")]
         public string assetsFolder;
         public string scene;
         public LocalizedStringTable QuestStringsTable;
