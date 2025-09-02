@@ -134,6 +134,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
     nodeName: 
@@ -148,6 +149,7 @@ MonoBehaviour:
     unityAction:
       m_PersistentCalls:
         m_Calls: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &407806772416020429
 GameObject:
   m_ObjectHideFlags: 0
@@ -567,6 +569,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
     nodeName: 
@@ -581,6 +584,7 @@ MonoBehaviour:
     unityAction:
       m_PersistentCalls:
         m_Calls: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &4988448130833161589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1288,6 +1292,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
     nodeName: 
@@ -1302,6 +1307,7 @@ MonoBehaviour:
     unityAction:
       m_PersistentCalls:
         m_Calls: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8406236050538410350
 GameObject:
   m_ObjectHideFlags: 0
@@ -7362,12 +7368,12 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Submarine (The Nautilus)
+      value: Hot-Air Balloon
       objectReference: {fileID: 0}
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_fontSize
-      value: 1.65
+      value: 1.55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10430,6 +10436,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 0
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 1bb60ef48b2f64a0b9777022755c1877,
       type: 3}
@@ -10438,6 +10445,7 @@ MonoBehaviour:
   disableAfterAction: 0
   QuestAction: 
   Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!65 &7764688193591337478
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -13073,7 +13081,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 5764
+      value: 5779
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}

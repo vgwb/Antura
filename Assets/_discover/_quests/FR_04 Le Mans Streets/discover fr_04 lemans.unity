@@ -475,74 +475,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d94c99914af0e4fcdabc243e30874f69, type: 3}
---- !u!1001 &716578070
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5659934351583949219, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_Name
-      value: WorldManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4df0505b5464043e395644783e8c827b, type: 3}
 --- !u!1 &865676622
 GameObject:
   m_ObjectHideFlags: 0
@@ -769,7 +701,7 @@ PrefabInstance:
     - target: {fileID: 6945215965495843337, guid: 565857fc991e5439e8c563fa60ffe653,
         type: 3}
       propertyPath: m_Name
-      value: nantes_town
+      value: Nantes_world
       objectReference: {fileID: 0}
     - target: {fileID: 7042686429415778104, guid: 565857fc991e5439e8c563fa60ffe653,
         type: 3}
@@ -826,6 +758,30 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 4142178449039584461, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 4312081732491727696, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 6478739804658722522, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 604610198819612227, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 8349007594498017162, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 979652037330265585, guid: 565857fc991e5439e8c563fa60ffe653,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 0}
+    - targetCorrespondingSourceObject: {fileID: 7457596661944815479, guid: 565857fc991e5439e8c563fa60ffe653,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 0}
@@ -1251,7 +1207,7 @@ PrefabInstance:
     - target: {fileID: 4017108264321078535, guid: c0a5080a240524edb80d098715b2bb52,
         type: 3}
       propertyPath: m_Name
-      value: fr_04 - lemans
+      value: FR_04 Le Mans Streets - Quest Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -1283,7 +1239,6 @@ SceneRoots:
   - {fileID: 865676623}
   - {fileID: 7183721416852824197}
   - {fileID: 1919941585}
-  - {fileID: 716578070}
   - {fileID: 1095105143}
   - {fileID: 1329439153}
   - {fileID: 7535642291324390758}

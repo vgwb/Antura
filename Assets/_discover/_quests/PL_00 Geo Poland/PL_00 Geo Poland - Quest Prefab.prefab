@@ -60,7 +60,7 @@ MonoBehaviour:
     NodeDescription: Find the French Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 2579572983030402937}
     ItemCount: 1
     ItemTag: flag
     TimerSeconds: 0
@@ -73,7 +73,7 @@ MonoBehaviour:
     NodeDescription: Find the German Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: pokeball
     TimerSeconds: 0
@@ -83,10 +83,10 @@ MonoBehaviour:
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 1
-    NodeDescription: Find the Spanish Flag
+    NodeDescription: Find the Belarus Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: 
     TimerSeconds: 0
@@ -96,10 +96,10 @@ MonoBehaviour:
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 1
-    NodeDescription: Find the Italian Flag
+    NodeDescription: Find the Czech Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: 
     TimerSeconds: 0
@@ -109,10 +109,10 @@ MonoBehaviour:
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 1
-    NodeDescription: Find the Belgian Flag
+    NodeDescription: Find the Lithuanian Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: 
     TimerSeconds: 0
@@ -122,10 +122,10 @@ MonoBehaviour:
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 1
-    NodeDescription: Find the Luxembourgish Flag
+    NodeDescription: Find the Ukraine Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: 
     TimerSeconds: 0
@@ -135,10 +135,10 @@ MonoBehaviour:
     Type: 1
     InteractGO: {fileID: 0}
     ProgressPoints: 1
-    NodeDescription: Find the Swiss Flag
+    NodeDescription: Find the Slovakian Flag
     NodeSuccess: 
     NodeFail: 
-    ItemsContainer: {fileID: 0}
+    ItemsContainer: {fileID: 6687857196143219742}
     ItemCount: 1
     ItemTag: 
     TimerSeconds: 0
@@ -162,7 +162,86 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   DebugAction: 
-  QuestActions: []
+  QuestActions:
+  - ActionCode: area_bigger
+    Commands:
+    - Command: 2
+      mainObject: {fileID: 8256537263351456991}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: area_small
+    Commands:
+    - Command: 2
+      mainObject: {fileID: 3009329843068580835}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: germany_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 6774594391948979690}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+    - Command: 18
+      mainObject: {fileID: 0}
+      Parameter: false
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: belarus_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 2510020293096930133}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: czech_republic_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 5342816373903002107}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: lithuania_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 8049790718925775943}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: ukraine_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 1460467913408844567}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
+  - ActionCode: slovakia_active
+    Commands:
+    - Command: 18
+      mainObject: {fileID: 4461638569917999037}
+      Parameter: 
+      Bypass: 0
+      unityAction:
+        m_PersistentCalls:
+          m_Calls: []
   WinFx: {fileID: 0}
   AnturaDog: {fileID: 0}
 --- !u!1 &2579572983030402937
@@ -180,7 +259,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &3532478046083052162
 Transform:
   m_ObjectHideFlags: 0
@@ -245,7 +324,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &6900488018236685979
 Transform:
   m_ObjectHideFlags: 0
@@ -255,7 +334,7 @@ Transform:
   m_GameObject: {fileID: 3009329843068580835}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 6.45, y: 0, z: -15.51}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -511,7 +590,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 16552
+  m_VersionIndex: 16556
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -529,10 +608,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Points:
-  - {x: 13.648178, y: 0, z: -14.636337}
-  - {x: -3.6375313, y: 0, z: -15.47699}
-  - {x: 0.6232195, y: 0.0000076293945, z: -39.279076}
-  - {x: 23.012106, y: 0, z: -38.120102}
+  - {x: 19.803719, y: 0, z: -30.254433}
+  - {x: 9.647614, y: 0, z: -29.904785}
+  - {x: 9.631611, y: 0.0000076293945, z: -37.265533}
+  - {x: 10.003008, y: 2, z: -37.02401}
+  - {x: 10.398634, y: 1.9999981, z: -40.849167}
+  - {x: 8.66832, y: 1.9999981, z: -40.85283}
+  - {x: 8.997688, y: 2, z: -42.986115}
+  - {x: 10.380318, y: 2, z: -46.641243}
+  - {x: 10.399021, y: 2, z: -51.402992}
+  - {x: 16.622026, y: 2, z: -54.54515}
+  - {x: 22.68929, y: 2, z: -53.727943}
+  - {x: 23.548695, y: 2, z: -47.52642}
+  - {x: 22.333033, y: 2, z: -43.850647}
+  - {x: 20.066639, y: 1.9999981, z: -43.062637}
+  - {x: 20.401834, y: 0, z: -38.619797}
   m_Extrude: 10
   m_EditMode: 0
   m_FlipNormals: 1
@@ -645,7 +735,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2272341224484466547
 Transform:
   m_ObjectHideFlags: 0
@@ -655,7 +745,7 @@ Transform:
   m_GameObject: {fileID: 6687857196143219742}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.72, y: 0, z: 0.25}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -693,7 +783,7 @@ Transform:
   m_GameObject: {fileID: 7279348813852976409}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 26.12, y: 0, z: -131.57}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1056,7 +1146,7 @@ MonoBehaviour:
   m_PreserveMeshAssetOnDestroy: 0
   assetGuid: 
   m_Mesh: {fileID: 0}
-  m_VersionIndex: 16257
+  m_VersionIndex: 16302
   m_IsSelectable: 1
   m_SelectedFaces: 
   m_SelectedEdges: []
@@ -1074,11 +1164,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Points:
-  - {x: 19.940876, y: 0, z: -13.913162}
-  - {x: 10.267721, y: 0, z: -15.114296}
-  - {x: 7.81641, y: 0.0000076293945, z: -22.319733}
-  - {x: 17.689846, y: 0, z: -29.325958}
-  - {x: 20.969006, y: 0.9336395, z: -22.780792}
+  - {x: 18.900822, y: 0, z: -21.334274}
+  - {x: 14.0872, y: 0, z: -22.553955}
+  - {x: 12.164051, y: 0.0000076293945, z: -27.58242}
+  - {x: 11.711216, y: 1, z: -31.048904}
+  - {x: 18.230896, y: 0, z: -32.480568}
+  - {x: 19.916206, y: 1, z: -29.543083}
+  - {x: 20.544825, y: 0.9336395, z: -24.687836}
   m_Extrude: 10
   m_EditMode: 0
   m_FlipNormals: 1
@@ -1189,10 +1281,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Poland
       objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: poland_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -33.635
+      value: -26.4
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1202,7 +1310,7 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 125.193
+      value: 122.5
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1260,6 +1368,21 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -4.4508114
       objectReference: {fileID: 0}
@@ -1308,6 +1431,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 8119426316916793826}
+    - target: {fileID: 6162346162628877853, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: 0000fa6338569784f99feea28a0b814e,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_czech_republic
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: 0000fa6338569784f99feea28a0b814e,
         type: 3}
       propertyPath: m_Name
@@ -1324,6 +1463,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 794320697663135000}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &8119426316916793826 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: 0000fa6338569784f99feea28a0b814e,
+    type: 3}
+  m_PrefabInstance: {fileID: 794320697663135000}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &933214042059602679
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1332,6 +1477,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 3532478046083052162}
     m_Modifications:
+    - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: 0b3c303747d83dd42bd340efc84e6431,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1382,6 +1542,17 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: 0b3c303747d83dd42bd340efc84e6431,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: 0b3c303747d83dd42bd340efc84e6431,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_poland
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: 0b3c303747d83dd42bd340efc84e6431,
         type: 3}
       propertyPath: m_Name
@@ -1408,13 +1579,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -3.08746
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.42262
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
@@ -1456,16 +1642,32 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: b8b8804711bcb2447bd7a29296c89f4d,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 4260819454440483993}
     - target: {fileID: 7755771273288260497, guid: b8b8804711bcb2447bd7a29296c89f4d,
         type: 3}
       propertyPath: m_Name
       value: Flag_Russia
+      objectReference: {fileID: 0}
+    - target: {fileID: 7755771273288260497, guid: b8b8804711bcb2447bd7a29296c89f4d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8b8804711bcb2447bd7a29296c89f4d, type: 3}
+--- !u!4 &4260819454440483993 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 3962947390948812837, guid: b8b8804711bcb2447bd7a29296c89f4d,
+    type: 3}
+  m_PrefabInstance: {fileID: 999323165592061116}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &5639285657780418993 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: b8b8804711bcb2447bd7a29296c89f4d,
@@ -1485,10 +1687,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Belarus
       objectReference: {fileID: 0}
+    - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: belarus_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -28.222132
+      value: -26.63
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1498,7 +1721,7 @@ PrefabInstance:
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 119.47369
+      value: 117.65
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1546,6 +1769,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2962377604610757833}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &2510020293096930133 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+    type: 3}
+  m_PrefabInstance: {fileID: 2962377604610757833}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &3250392283326742942
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1557,7 +1786,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -24.288
+      value: -24.08
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -1567,7 +1796,7 @@ PrefabInstance:
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 120.861
+      value: 122.32
       objectReference: {fileID: 0}
     - target: {fileID: 5722072399628253064, guid: b152e2fd2a59e48a98952de78476ba9a,
         type: 3}
@@ -1609,6 +1838,27 @@ PrefabInstance:
       propertyPath: m_Name
       value: _NPC Russia
       objectReference: {fileID: 0}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: IconType
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 8252306080280056798, guid: b152e2fd2a59e48a98952de78476ba9a,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: russia
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1630,13 +1880,28 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.4
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.84523
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
@@ -1678,6 +1943,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 5137723568612946191}
+    - target: {fileID: 6162346162628877853, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_slovakia
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
         type: 3}
       propertyPath: m_Name
@@ -1688,6 +1969,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8d2af91fcb434b41a8027ce5a6fe4bf, type: 3}
+--- !u!4 &5137723568612946191 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
+    type: 3}
+  m_PrefabInstance: {fileID: 4387875055190183413}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &9185186478814359800 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: b8d2af91fcb434b41a8027ce5a6fe4bf,
@@ -1702,15 +1989,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4747041871004482162}
     m_Modifications:
+    - target: {fileID: 5615583599526268028, guid: 831175b46a41048bc9f9b7cd9d517689,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5615583599526268028, guid: 831175b46a41048bc9f9b7cd9d517689,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 5615583599526268028, guid: 831175b46a41048bc9f9b7cd9d517689,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: ukraine_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 6227446328266854522, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
       propertyPath: m_Name
       value: NPC Ukraine
       objectReference: {fileID: 0}
+    - target: {fileID: 6227446328266854522, guid: 831175b46a41048bc9f9b7cd9d517689,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -35.443
+      value: -30.32
       objectReference: {fileID: 0}
     - target: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
@@ -1720,7 +2028,7 @@ PrefabInstance:
     - target: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 128.895
+      value: 116.79
       objectReference: {fileID: 0}
     - target: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
         type: 3}
@@ -1762,6 +2070,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 831175b46a41048bc9f9b7cd9d517689, type: 3}
+--- !u!1 &1460467913408844567 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6227446328266854522, guid: 831175b46a41048bc9f9b7cd9d517689,
+    type: 3}
+  m_PrefabInstance: {fileID: 4767283014495306605}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3614335568792644423 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8070584296358733866, guid: 831175b46a41048bc9f9b7cd9d517689,
@@ -1776,6 +2090,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
+    - target: {fileID: 4871922221571636493, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: d7790f4dcabba1f42a8a3a524473aa8f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1826,6 +2155,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 4166344155043005991}
+    - target: {fileID: 6162346162628877853, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_germany
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: d7790f4dcabba1f42a8a3a524473aa8f,
         type: 3}
       propertyPath: m_Name
@@ -1842,6 +2187,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 4790091329749531357}
   m_PrefabAsset: {fileID: 0}
+--- !u!4 &4166344155043005991 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: d7790f4dcabba1f42a8a3a524473aa8f,
+    type: 3}
+  m_PrefabInstance: {fileID: 4790091329749531357}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &6182643084171215478
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1855,20 +2206,41 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Germany
       objectReference: {fileID: 0}
+    - target: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 1174245858688381850, guid: b50a02c7e1b0747998fbc2713d17d219,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: germany_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -22.86
+      value: -29.55
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 0.53
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 121.76
+      value: 131.3
       objectReference: {fileID: 0}
     - target: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
         type: 3}
@@ -1910,6 +2282,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b50a02c7e1b0747998fbc2713d17d219, type: 3}
+--- !u!1 &6774594391948979690 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 849237028678004636, guid: b50a02c7e1b0747998fbc2713d17d219,
+    type: 3}
+  m_PrefabInstance: {fileID: 6182643084171215478}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &8676217033049642426 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3289092606236235724, guid: b50a02c7e1b0747998fbc2713d17d219,
@@ -1924,6 +2302,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
+    - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1974,6 +2367,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 1991698152194741348}
+    - target: {fileID: 6162346162628877853, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: a1c269147c97c3f41a2b813cd3e5e587,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_belarus
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: a1c269147c97c3f41a2b813cd3e5e587,
         type: 3}
       propertyPath: m_Name
@@ -1984,6 +2393,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1c269147c97c3f41a2b813cd3e5e587, type: 3}
+--- !u!4 &1991698152194741348 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: a1c269147c97c3f41a2b813cd3e5e587,
+    type: 3}
+  m_PrefabInstance: {fileID: 6920888768079964318}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &2564629392382645651 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: a1c269147c97c3f41a2b813cd3e5e587,
@@ -1998,15 +2413,36 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 4747041871004482162}
     m_Modifications:
+    - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 4833959457160868566, guid: 0329449496d40424b8e836f648e114d4,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: npc_slovakia
+      objectReference: {fileID: 0}
     - target: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_Name
       value: NPC Slovakia
       objectReference: {fileID: 0}
+    - target: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -25.04
+      value: -33.41
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -2016,7 +2452,7 @@ PrefabInstance:
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 118.13
+      value: 122.21
       objectReference: {fileID: 0}
     - target: {fileID: 9150006764135880320, guid: 0329449496d40424b8e836f648e114d4,
         type: 3}
@@ -2064,6 +2500,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7313171618748926317}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &4461638569917999037 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6383701241047510736, guid: 0329449496d40424b8e836f648e114d4,
+    type: 3}
+  m_PrefabInstance: {fileID: 7313171618748926317}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7573944251981941774
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2077,10 +2519,31 @@ PrefabInstance:
       propertyPath: m_Name
       value: NPC Lithuania
       objectReference: {fileID: 0}
+    - target: {fileID: 480359215998724169, guid: d55f914b0047442579e023489fbe4032,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101015943241905231, guid: d55f914b0047442579e023489fbe4032,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2101015943241905231, guid: d55f914b0047442579e023489fbe4032,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 2101015943241905231, guid: d55f914b0047442579e023489fbe4032,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: lithuania_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -32.666
+      value: -23.09
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
@@ -2090,7 +2553,7 @@ PrefabInstance:
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 120.609
+      value: 119.12
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
@@ -2138,6 +2601,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 7573944251981941774}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &8049790718925775943 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 480359215998724169, guid: d55f914b0047442579e023489fbe4032,
+    type: 3}
+  m_PrefabInstance: {fileID: 7573944251981941774}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8267023092999596578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2146,6 +2615,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
+    - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2196,6 +2680,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 653687098461263576}
+    - target: {fileID: 6162346162628877853, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: 3d9cbd15436ea6a4782d106f917cb776,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_lithuania
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: 3d9cbd15436ea6a4782d106f917cb776,
         type: 3}
       propertyPath: m_Name
@@ -2206,6 +2706,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3d9cbd15436ea6a4782d106f917cb776, type: 3}
+--- !u!4 &653687098461263576 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: 3d9cbd15436ea6a4782d106f917cb776,
+    type: 3}
+  m_PrefabInstance: {fileID: 8267023092999596578}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &3541754283373025071 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: 3d9cbd15436ea6a4782d106f917cb776,
@@ -2220,6 +2726,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2272341224484466547}
     m_Modifications:
+    - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2270,6 +2791,22 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6162346162628877853, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: IconTransform
+      value: 
+      objectReference: {fileID: 525654884466484278}
+    - target: {fileID: 6162346162628877853, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 6162346162628877853, guid: d423122b3076f7546a6d955745012799,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: item_flag_ukraine
+      objectReference: {fileID: 0}
     - target: {fileID: 7755771273288260497, guid: d423122b3076f7546a6d955745012799,
         type: 3}
       propertyPath: m_Name
@@ -2280,6 +2817,12 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d423122b3076f7546a6d955745012799, type: 3}
+--- !u!4 &525654884466484278 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8910373238119021818, guid: d423122b3076f7546a6d955745012799,
+    type: 3}
+  m_PrefabInstance: {fileID: 8999178408368396492}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &4575387186130724289 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4871922221571636493, guid: d423122b3076f7546a6d955745012799,
@@ -2297,7 +2840,7 @@ PrefabInstance:
     - target: {fileID: 1240553783593123176, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -27.04
+      value: -32.21
       objectReference: {fileID: 0}
     - target: {fileID: 1240553783593123176, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
@@ -2307,7 +2850,7 @@ PrefabInstance:
     - target: {fileID: 1240553783593123176, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 124.14
+      value: 125.96
       objectReference: {fileID: 0}
     - target: {fileID: 1240553783593123176, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
@@ -2344,16 +2887,43 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3231793670438951230, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
+        type: 3}
+      propertyPath: IsInteractable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3231793670438951230, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
+        type: 3}
+      propertyPath: DialogueNode.project
+      value: 
+      objectReference: {fileID: 7545569452688597077, guid: 9970beae0a6ea4791a63beaa27dc5409,
+        type: 3}
+    - target: {fileID: 3231793670438951230, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
+        type: 3}
+      propertyPath: DialogueNode.nodeName
+      value: czech_republic_npc
+      objectReference: {fileID: 0}
     - target: {fileID: 3988915826671699256, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
         type: 3}
       propertyPath: m_Name
       value: NPC Czech Republic
+      objectReference: {fileID: 0}
+    - target: {fileID: 3988915826671699256, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d, type: 3}
+--- !u!1 &5342816373903002107 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3988915826671699256, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 9042672661570931907}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &7802860153187332523 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1240553783593123176, guid: 9c32889c1aa8742ad9c8c51cbdfefc7d,

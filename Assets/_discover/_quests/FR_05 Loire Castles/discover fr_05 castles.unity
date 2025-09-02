@@ -120,74 +120,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &122313231
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 5659934351583949219, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_Name
-      value: WorldManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7793649001507507433, guid: 4df0505b5464043e395644783e8c827b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4df0505b5464043e395644783e8c827b, type: 3}
 --- !u!1001 &131642702
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -697,7 +629,7 @@ PrefabInstance:
     - target: {fileID: 4017108264321078535, guid: 3c219dd300d1545f783a8574dda2fedb,
         type: 3}
       propertyPath: m_Name
-      value: fr_05 - castles
+      value: FR_05 Loire Castles - Quest Prefab
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -972,12 +904,7 @@ PrefabInstance:
     - target: {fileID: 6692327102080073420, guid: 9819ec655849140eaa5d6957bb57a8a7,
         type: 3}
       propertyPath: m_Name
-      value: Castles_world
-      objectReference: {fileID: 0}
-    - target: {fileID: 6692327102080073420, guid: 9819ec655849140eaa5d6957bb57a8a7,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
+      value: Castles Loire - World Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 7349222413376311812, guid: 9819ec655849140eaa5d6957bb57a8a7,
         type: 3}
@@ -1156,7 +1083,6 @@ SceneRoots:
   - {fileID: 865676623}
   - {fileID: 7183721416852824197}
   - {fileID: 1919941585}
-  - {fileID: 122313231}
   - {fileID: 5627633594131241571}
   - {fileID: 1329439153}
   - {fileID: 1363703972}
