@@ -18,6 +18,7 @@ tags: Start
 color: red
 ---
 <<set $CURRENT_PROGRESS = 0>>
+<<set $MAX_PROGRESS = 7>>
 <<declare $poland_met = false>>
 <<declare $poland_completed = false>>
 <<declare $germany_met = false>>
@@ -32,6 +33,7 @@ color: red
 <<declare $lithuania_completed = false>>
 <<declare $czech_met = false>>
 <<declare $czech_completed = false>>
+<<action area_small>>
 
 ===
 
@@ -45,7 +47,7 @@ tags: actor=KID_FEMALE
 color: purple
 ---
 Good job! You did it! #line:0ba3c4c 
-    <<quest_end 3>>
+    <<quest_end>>
 ===
 
 title: poland_npc
@@ -54,11 +56,15 @@ color: blue
 group: poland
 tags: actor=KID_FEMALE
 ---
-<<if $CURRENT_ITEM == "flag_of_poland">>
+<<if $CURRENT_PROGRESS >= $MAX_PROGRESS>>
+    <<jump win>>
+<<elseif $poland_completed == true>>
+    Thank you for helping me!
+    Can you help my other friends?
+<<elseif $CURRENT_ITEM == "flag_of_poland">>
     Yes, that is my flag! Thank you! #line:0c9fa89 
     <<inventory flag_of_poland remove>>
     <<task_end FIND_polish_FLAG>>
-    <<task_start completed>>
     <<set $poland_completed = true>>
     <<set $CURRENT_ITEM = "">>
     <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
@@ -69,8 +75,6 @@ tags: actor=KID_FEMALE
     <<jump task_germany  >>
 <<elseif $CURRENT_ITEM != "">>
     That's not my flag. Mine is white and red. #line:0f967da 
-<<elseif $CURRENT_PROGRESS >= $MAX_PROGRESS>>
-    <<jump win>>
 <<else>>
     Hello! I am from Poland!  #line:017ad80 
     Antura made a mess and all the flags have been mixed up! #line:0b9e31d 
@@ -128,11 +132,12 @@ tags: actor=MAN
     Danke! That is my flag! #line:0ba8707
     Can you help my belarusian friend? #line:06c463a 
     <<set $germany_met = true>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
     <<inventory flag_of_germany remove>>
-    <<task_end FIND_GERMAN_FLAG germany_npc>>
+    <<task_end FIND_GERMAN_FLAG>>
     <<action belarus_active>>
-    <<jump task_belarus>>
     <<set $germany_completed = true>>
+    <<jump task_belarus>>
 <<elseif $CURRENT_ITEM != "">>
     MAN: Our flag has horizontal stripes of black, red, and yellow. #line:0cd7024 
         <<jump task_germany>>
@@ -176,10 +181,11 @@ tags:
     Thank you, can you give my czech friend their flag? #line:021e1a2 
     <<set $belarus_met = true>>
     <<inventory flag_of_belarus remove>>
-    <<task_end FIND_belarusian_FLAG belarus_npc>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
+    <<task_end FIND_belarusian_FLAG>>
     <<action czech_republic_active>>
-    <<jump task_czech_republic>>
     <<set $belarus_completed = true>>
+    <<jump task_czech_republic>>
 <<elseif $CURRENT_ITEM != "">>
         My flag is red and green with a red pattern on the left. #line:0653fae 
         <<jump task_belarus>>
@@ -215,16 +221,17 @@ tags: actor=KID_MALE
 color: blue
 ---
 <<if $czech_completed>>
-    <<card flag_czech_republic>>
+    <<card flag_czech>>
     Thank you! Our capital is Minsk!   #line:08473de 
 <<elseif $CURRENT_ITEM == "flag_of_czech_republic">>
     Thank you! That's my flag!  #line:07ba10f 
     Help the find the lithuanian flag and bring it to them!  #line:0a1e0a3 
     <<inventory flag_of_czech_republic remove>>
-    <<task_end FIND_czech_FLAG czech_republic_npc>>
+    <<task_end FIND_czech_republic_FLAG>>
+    <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
     <<set $czech_completed = true>>
-    <<jump task_lithuania>>
     <<action lithuania_active>>
+    <<jump task_lithuania>>
 <<elseif $CURRENT_ITEM != "">>
     My flag is different! It's white and red with a blue triangle. #line:0000741 
     <<set $czech_met = true>>
@@ -268,7 +275,8 @@ color: blue
         Thank you, my beautiful flag is back!  #line:0d2f54c 
         Can you help my Ukrainian friend? #line:0bcf83b 
         <<inventory flag_of_lithuania remove>>
-        <<task_end FIND_lithuania_FLAG lithuania_npc>>
+        <<task_end FIND_lithuania_FLAG >>
+        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
         <<set $lithuania_completed = true>>
         <<action ukraine_active>>
         <<set $lithuania_met = true>>
@@ -331,7 +339,8 @@ tags: actor=OLD_MAN
         Thank you! That is my flag. #line:05de5ab 
         Can you help my slovakian friend? #line:0aa87ef 
         <<inventory flag_of_ukraine remove>>
-        <<task_end FIND_ukraine_FLAG ukraine_npc>>
+        <<task_end FIND_ukraine_FLAG>>
+        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
         <<set $ukraine_completed = true>>
         <<action slovakia_active>>
         <<jump task_slovakia>>
@@ -394,7 +403,8 @@ color: blue
         Thank you for bringing my flag back!  #line:0d453e9 
         Go back to the start and claim your victory! #line:04bf6d1 
         <<inventory flag_of_slovakia remove>>
-        <<task_end FIND_slovakia_FLAG npc_slovakia>>
+        <<task_end FIND_slovakia_FLAG >>
+        <<set $CURRENT_PROGRESS = $CURRENT_PROGRESS + 1>>
         <<set $slovakia_completed = true>>
 <<elseif $CURRENT_ITEM != "">>
         Our flag is white, red and blue with a coagt of arms. #line:0af30a1 
@@ -477,8 +487,8 @@ group: czech_republic
 color: yellow
 tags: actor=TUTOR
 ---
-<<card flag_czech_republic>>
-TUTOR: Flag of czech_republic. #line:0fdc68b 
+<<card flag_czech>>
+TUTOR: Flag of Czech Republic. #line:0fdc68b 
 <<if $CURRENT_ITEM == "flag_of_czech_republic">>
 
 <<else>>
