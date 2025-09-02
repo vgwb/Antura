@@ -18,7 +18,7 @@ namespace Antura.Discover.Editor
     public static class AddCommentExample
     {
 
-        [MenuItem("Antura/Experimental/Localization/Add Shared Comment", priority = 1000)]
+        [MenuItem("Antura/Discover/Utility/Experimental/Localization Add Shared Comment", priority = 1000)]
         public static void AddSharedCommentExample()
         {
             AddSharedComment("Quests France", "line:0a24992", "Short context for translators.");

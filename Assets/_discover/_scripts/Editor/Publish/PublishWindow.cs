@@ -17,10 +17,10 @@ namespace Antura.Discover.Editor
         private Countries filterCountry = Countries.International;
         private bool filterByCountry = false;
 
-        [MenuItem("Antura/Discover/Publish & Export Quests", priority = 160)]
+        [MenuItem("Antura/Discover/Publish Web & Export Quests", priority = 160)]
         public static void Open()
         {
-            GetWindow<PublishWindow>(title: "Publish & Export Quests").Show();
+            GetWindow<PublishWindow>(title: "Publish Web & Export Quests").Show();
         }
 
         private void OnEnable()
@@ -155,7 +155,6 @@ namespace Antura.Discover.Editor
             EditorUtility.RevealInFinder(folder);
         }
 
-        [MenuItem("Antura/Discover/Publish Website", priority = 160)]
         public static void PublishAllToDocs()
         {
             string projectRoot = Directory.GetParent(Application.dataPath).FullName;
