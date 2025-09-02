@@ -236,6 +236,7 @@ GameObject:
   - component: {fileID: 4674336879015998024}
   - component: {fileID: 213366315215552654}
   - component: {fileID: 7290577221793618635}
+  - component: {fileID: 7772995699213425515}
   m_Layer: 0
   m_Name: LL_Discover
   m_TagString: Untagged
@@ -273,13 +274,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Id: 
   IsInteractable: 1
   NearbyAutoActivate: 0
   IconType: 1
   IconTransform: {fileID: 5396177026648878583}
   ShowOnMap: 0
-  ShowIconAlways: 1
+  ShowIconAlways: 0
   FocusCameraOnInteract: 1
+  FaceToPlayer: 1
   DialogueNode:
     project: {fileID: 0}
     nodeName: 
@@ -287,6 +290,7 @@ MonoBehaviour:
   disableAfterAction: 0
   QuestAction: 
   Commands: []
+  FaceToPlayerComp: {fileID: 7772995699213425515}
 --- !u!114 &2656310347846800054
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -374,6 +378,25 @@ MonoBehaviour:
   Country: 0
   Category: 50
   Tags: 
+--- !u!114 &7772995699213425515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4788061485843009964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cd58d795f7bd49fbab941aa1ca7920e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.FaceToPlayer
+  ActivateOnStart: 0
+  Pivot: {fileID: 0}
+  Target: {fileID: 0}
+  LockYOnly: 1
+  TurnSpeed: 180
+  SmoothReturnOnDisable: 1
+  ReturnSpeed: 180
 --- !u!1 &5092105606933901799
 GameObject:
   m_ObjectHideFlags: 0
