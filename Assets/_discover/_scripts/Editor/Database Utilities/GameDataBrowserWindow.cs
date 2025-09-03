@@ -27,7 +27,6 @@ namespace Antura.Discover
         private readonly List<TypeOption> _typeOptions = new List<TypeOption>();
         private int _selectedTypeIndex = 0; // index into _typeOptions
 
-        // Country filter (applied only when data type exposes a Countries Country member)
         private enum CountryFilter { All, Global, France, Italy, Poland, Spain, Germany, UnitedKingdom, Portugal, Greece }
         private CountryFilter _countryFilter = CountryFilter.All;
 
@@ -48,6 +47,9 @@ namespace Antura.Discover
         private WordActiveFilter _wordActive = WordActiveFilter.All;
         // QuestData DevStatus filter
         private Status? _devStatusFilter = null; // null => All
+        // Pagination
+        private int _pageIndex = 0;
+        private const int PageSize = 100;
 
         // Layout sizes
         private const float ColOpen = 60f;
@@ -410,6 +412,8 @@ namespace Antura.Discover
             GUILayout.Space(6);
             DrawHeader();
             DrawRows();
+            GUILayout.Space(4);
+            DrawFooter();
         }
 
         private void DrawToolbar()
@@ -432,6 +436,7 @@ namespace Antura.Discover
                     else
                     {
                         _selectedTypeIndex = newIndex;
+                        _pageIndex = 0;
                     }
                     Repaint();
                 }
@@ -454,6 +459,7 @@ namespace Antura.Discover
                     _sortKey = null;
                     _sortAsc = true;
                     _scroll = Vector2.zero;
+                    _pageIndex = 0;
                     RefreshList();
                     Repaint();
                 }
@@ -466,7 +472,7 @@ namespace Antura.Discover
                         _searchField = new SearchField();
                     var newSearchEarly = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(160));
                     if (!string.Equals(newSearchEarly, _search, StringComparison.Ordinal))
-                    { _search = newSearchEarly; Repaint(); }
+                    { _search = newSearchEarly; _pageIndex = 0; Repaint(); }
                     searchDrawn = true;
                 }
 
@@ -486,6 +492,7 @@ namespace Antura.Discover
                 if (newCIndex != cIndex)
                 {
                     _countryFilter = (newCIndex <= 0) ? CountryFilter.All : cOpts[newCIndex - 1].Value;
+                    _pageIndex = 0;
                     Repaint();
                 }
 
@@ -502,6 +509,7 @@ namespace Antura.Discover
                     if (chosen != current)
                     {
                         _devStatusFilter = chosen <= 0 ? default(Status?) : devValues[chosen - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
                 }
@@ -523,6 +531,7 @@ namespace Antura.Discover
                         _wpCategoryFilter = (pickCat >= values.Length) ? default(WorldPrefabCategory?) : values[pickCat];
                         _wpTagFilter = null; // reset tag when category changes
                         _wpKitFilter = null; // keep Kit independent but reset to be safe when scope changes
+                        _pageIndex = 0;
                         Repaint();
                     }
 
@@ -557,6 +566,7 @@ namespace Antura.Discover
                         if (pickTag != curTag)
                         {
                             _wpTagFilter = pickTag <= 0 ? default(WorldPrefabTag?) : presentTags[pickTag - 1];
+                            _pageIndex = 0;
                             Repaint();
                         }
                     }
@@ -591,6 +601,7 @@ namespace Antura.Discover
                         if (pickKit != curKit)
                         {
                             _wpKitFilter = pickKit <= 0 ? default(WorldPrefabKit?) : presentKits[pickKit - 1];
+                            _pageIndex = 0;
                             Repaint();
                         }
                     }
@@ -615,6 +626,7 @@ namespace Antura.Discover
                     if (newQ != currentIndex)
                     {
                         _cardQuestFilter = newQ <= 0 ? null : allQuests[newQ - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
 
@@ -628,6 +640,7 @@ namespace Antura.Discover
                     if (pickType != curType)
                     {
                         _cardTypeFilter = pickType <= 0 ? default(CardType?) : typeValues[pickType - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
 
@@ -641,6 +654,7 @@ namespace Antura.Discover
                     if (pickTopic != curTopic)
                     {
                         _cardTopicFilter = pickTopic <= 0 ? default(Subject?) : topicValues[pickTopic - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
 
@@ -654,6 +668,7 @@ namespace Antura.Discover
                     if (pickImp != curImp)
                     {
                         _cardImportanceFilter = pickImp <= 0 ? default(Importance?) : impValues[pickImp - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
 
@@ -667,6 +682,7 @@ namespace Antura.Discover
                     if (pickStatus != curStatus)
                     {
                         _cardStatusFilter = pickStatus <= 0 ? default(Status?) : stValues[pickStatus - 1];
+                        _pageIndex = 0;
                         Repaint();
                     }
                 }
@@ -680,7 +696,7 @@ namespace Antura.Discover
                     string[] actLabels = new[] { "All", "Active", "Inactive" };
                     int newAct = EditorGUILayout.Popup(actIndex, actLabels, EditorStyles.toolbarPopup, GUILayout.Width(100));
                     if (newAct != actIndex)
-                    { _wordActive = (WordActiveFilter)newAct; Repaint(); }
+                    { _wordActive = (WordActiveFilter)newAct; _pageIndex = 0; Repaint(); }
                 }
 
                 // Draw the generic search box only if not already drawn earlier
@@ -690,31 +706,9 @@ namespace Antura.Discover
                         _searchField = new SearchField();
                     var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(100));
                     if (!string.Equals(newSearch, _search, StringComparison.Ordinal))
-                    { _search = newSearch; Repaint(); }
+                    { _search = newSearch; _pageIndex = 0; Repaint(); }
                 }
 
-                GUILayout.FlexibleSpace();
-                // Show count of visible items
-                try
-                {
-                    int count = (SelectedType == typeof(WorldPrefabData)) ? FilteredWorldPrefabs().Count() : Filtered().Count();
-                    GUILayout.Label($"{count} items", EditorStyles.miniLabel);
-                }
-                catch { }
-
-                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton))
-                {
-                    RefreshTypes();
-                    RefreshList();
-                }
-                //                GUILayout.Space(8);
-
-                if (GUILayout.Button("Export CSV", EditorStyles.toolbarButton))
-                {
-                    ExportCsv();
-                }
-                // Export is now handled in QuestExporterWindow
-                // Refresh button already placed at the start
             }
         }
 
@@ -913,7 +907,11 @@ namespace Antura.Discover
                 return;
             }
 
-            var items = Filtered().ToList();
+            var fullItems = Filtered().ToList();
+            int totalCount = fullItems.Count;
+            int totalPages = Mathf.Max(1, Mathf.CeilToInt(totalCount / (float)PageSize));
+            _pageIndex = Mathf.Clamp(_pageIndex, 0, Mathf.Max(0, totalPages - 1));
+            var items = (totalCount > PageSize) ? fullItems.Skip(_pageIndex * PageSize).Take(PageSize).ToList() : fullItems;
             if (items.Count == 0)
             {
                 GUILayout.Space(8);
@@ -978,7 +976,11 @@ namespace Antura.Discover
 
         private void DrawWorldPrefabRows()
         {
-            var items = FilteredWorldPrefabs().ToList();
+            var fullItems = FilteredWorldPrefabs().ToList();
+            int totalCount = fullItems.Count;
+            int totalPages = Mathf.Max(1, Mathf.CeilToInt(totalCount / (float)PageSize));
+            _pageIndex = Mathf.Clamp(_pageIndex, 0, Mathf.Max(0, totalPages - 1));
+            var items = (totalCount > PageSize) ? fullItems.Skip(_pageIndex * PageSize).Take(PageSize).ToList() : fullItems;
             if (items.Count == 0)
             {
                 GUILayout.Space(8);
@@ -2727,7 +2729,6 @@ namespace Antura.Discover
             list.Add(new CountryOption { Label = "International", Value = CountryFilter.Global, IsSeparator = false });
             list.Add(new CountryOption { Label = "France", Value = CountryFilter.France, IsSeparator = false });
             list.Add(new CountryOption { Label = "Poland", Value = CountryFilter.Poland, IsSeparator = false });
-            // Separator
             list.Add(new CountryOption { Label = "—", Value = _countryFilter, IsSeparator = true });
             // Others in a fixed order
             list.Add(new CountryOption { Label = "Germany", Value = CountryFilter.Germany, IsSeparator = false });
@@ -2746,6 +2747,52 @@ namespace Antura.Discover
             if (path.StartsWith(DiscoverPathPrefix, StringComparison.Ordinal))
                 return path.Substring(DiscoverPathPrefix.Length);
             return path;
+        }
+
+        private void DrawFooter()
+        {
+            using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar))
+            {
+                // Items count
+                int count = 0;
+                try
+                {
+                    count = (SelectedType == typeof(WorldPrefabData)) ? FilteredWorldPrefabs().Count() : Filtered().Count();
+                }
+                catch { }
+                GUILayout.Label($"{count} items", EditorStyles.miniLabel, GUILayout.Width(100));
+
+                // Pagination (only when exceeding page size)
+                if (count > PageSize)
+                {
+                    int totalPages = Mathf.Max(1, Mathf.CeilToInt(count / (float)PageSize));
+                    _pageIndex = Mathf.Clamp(_pageIndex, 0, totalPages - 1);
+
+                    using (new EditorGUI.DisabledScope(_pageIndex <= 0))
+                    {
+                        if (GUILayout.Button("◀ Prev", EditorStyles.toolbarButton, GUILayout.Width(70)))
+                        { _pageIndex = Mathf.Max(0, _pageIndex - 1); Repaint(); }
+                    }
+                    GUILayout.Label($"Page {_pageIndex + 1} / {totalPages}", EditorStyles.miniLabel, GUILayout.Width(120));
+                    using (new EditorGUI.DisabledScope(_pageIndex >= totalPages - 1))
+                    {
+                        if (GUILayout.Button("Next ▶", EditorStyles.toolbarButton, GUILayout.Width(70)))
+                        { _pageIndex = Mathf.Min(totalPages - 1, _pageIndex + 1); Repaint(); }
+                    }
+                }
+
+                // Left aligned: Refresh + Export CSV
+                if (GUILayout.Button("Refresh", EditorStyles.toolbarButton, GUILayout.Width(70)))
+                {
+                    RefreshTypes();
+                    RefreshList();
+                }
+                if (GUILayout.Button("Export CSV", EditorStyles.toolbarButton, GUILayout.Width(90)))
+                {
+                    ExportCsv();
+                }
+                GUILayout.FlexibleSpace();
+            }
         }
 
         private bool MatchesCountryFilter(IdentifiedData a)
