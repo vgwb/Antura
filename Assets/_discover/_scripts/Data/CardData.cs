@@ -106,8 +106,8 @@ namespace Antura.Discover
         public string LastReviewed;
         [Tooltip("Set to true when TitleEn/DescriptionEn change we know we must update Localizatazions!.")]
         public bool NeedsLocalizationUpdate = false;
-        [Tooltip("Set to true when TitleEn/DescriptionEn change we know we must update Localizatazions!.")]
-
+        [Tooltip("Used when this card is created inside a quest, to track the quest owner")]
+        public string QuestOwner;
 
         // Track these to detect changes in editor
         [SerializeField, HideInInspector] private string _lastTitleEn;

@@ -16,7 +16,7 @@ namespace Antura.Discover
     {
         private static readonly string[] Header = new[]
         {
-            "id","status","importance","type","topics","TitleEn","DescriptionEn","year","Country","wikipediaUrl","Notes","Rationale","LinkedCards"
+            "id","status","importance","type","topics","TitleEn","DescriptionEn","year","Country","wikipediaUrl","Notes","Rationale","LinkedCards","QuestOwner"
         };
 
         public static string BuildCardsCsv(IEnumerable<CardData> cards, bool includeDevRow = true)
@@ -42,7 +42,8 @@ namespace Antura.Discover
                     "", // wikipediaUrl
                     "", // Notes
                     "", // Rationale
-                    ""  // LinkedCards
+                    "", // LinkedCards (not exported)
+                    ""  // QuestOwner
                 };
                 sb.AppendLine(string.Join(",", devRow));
             }
@@ -62,7 +63,9 @@ namespace Antura.Discover
                     Escape(c.Country.ToString()),
                     Escape(c.WikipediaUrl),
                     Escape(c.Notes),
-                    Escape(c.Rationale)
+                    Escape(c.Rationale),
+                    "", // LinkedCards placeholder
+                    Escape(c.QuestOwner)
                 };
                 sb.AppendLine(string.Join(",", row));
             }
@@ -195,12 +198,12 @@ namespace Antura.Discover
                 TryParseEnum(Get("type"), out CardType type);
                 if (card.Type != type)
                 { if (!dryRun) card.Type = type; changedFields.Add(nameof(card.Type)); }
-                // Topics
-                var newTopics = ParseTopics(Get("topics"));
-                bool topicsChanged = (card.Subjects == null && newTopics.Count > 0)
-                                     || (card.Subjects != null && (card.Subjects.Count != newTopics.Count || !card.Subjects.SequenceEqual(newTopics)));
-                if (topicsChanged)
-                { if (!dryRun) card.Subjects = newTopics; changedFields.Add(nameof(card.Subjects)); }
+                // Subjects
+                var newSubjects = ParseTopics(Get("topics"));
+                bool subjectsChanged = (card.Subjects == null && newSubjects.Count > 0)
+                                     || (card.Subjects != null && (card.Subjects.Count != newSubjects.Count || !card.Subjects.SequenceEqual(newSubjects)));
+                if (subjectsChanged)
+                { if (!dryRun) card.Subjects = newSubjects; changedFields.Add(nameof(card.Subjects)); }
                 // Title/Description
                 var titleEn = Get("TitleEn");
                 if (!string.Equals(card.TitleEn, titleEn, StringComparison.Ordinal))
@@ -227,6 +230,10 @@ namespace Antura.Discover
                 var rationale = Get("Rationale");
                 if (!string.Equals(card.Rationale, rationale, StringComparison.Ordinal))
                 { if (!dryRun) card.Rationale = rationale; changedFields.Add(nameof(card.Rationale)); }
+                // QuestOwner
+                var questOwner = Get("QuestOwner");
+                if (!string.Equals(card.QuestOwner, questOwner, StringComparison.Ordinal))
+                { if (!dryRun) card.QuestOwner = questOwner; changedFields.Add(nameof(card.QuestOwner)); }
                 // Optional metadata
                 var lastReviewed = Get("LastReviewed");
                 if (!string.IsNullOrWhiteSpace(lastReviewed))

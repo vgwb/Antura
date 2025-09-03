@@ -416,6 +416,7 @@ namespace Antura.Discover
         {
             using (new EditorGUILayout.HorizontalScope(EditorStyles.toolbar))
             {
+                bool searchDrawn = false; // ensure we render the search box only once
                 // Left: Data selector (narrower width)
                 // GUILayout.Label("Data:", GUILayout.Width(40));
                 var labels = _typeOptions.Select(o => o.Label).ToArray();
@@ -455,6 +456,18 @@ namespace Antura.Discover
                     _scroll = Vector2.zero;
                     RefreshList();
                     Repaint();
+                }
+
+                // For CardData, show the search box immediately after Reset so it's the first control in the header after Reset
+                if (SelectedType == typeof(CardData))
+                {
+                    GUILayout.Space(6);
+                    if (_searchField == null)
+                        _searchField = new SearchField();
+                    var newSearchEarly = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(160));
+                    if (!string.Equals(newSearchEarly, _search, StringComparison.Ordinal))
+                    { _search = newSearchEarly; Repaint(); }
+                    searchDrawn = true;
                 }
 
                 GUILayout.Space(6);
@@ -670,12 +683,15 @@ namespace Antura.Discover
                     { _wordActive = (WordActiveFilter)newAct; Repaint(); }
                 }
 
-                //GUILayout.Space(12);
-                if (_searchField == null)
-                    _searchField = new SearchField();
-                var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(100));
-                if (!string.Equals(newSearch, _search, StringComparison.Ordinal))
-                { _search = newSearch; Repaint(); }
+                // Draw the generic search box only if not already drawn earlier
+                if (!searchDrawn)
+                {
+                    if (_searchField == null)
+                        _searchField = new SearchField();
+                    var newSearch = _searchField.OnToolbarGUI(_search, GUILayout.MinWidth(100));
+                    if (!string.Equals(newSearch, _search, StringComparison.Ordinal))
+                    { _search = newSearch; Repaint(); }
+                }
 
                 GUILayout.FlexibleSpace();
                 // Show count of visible items
