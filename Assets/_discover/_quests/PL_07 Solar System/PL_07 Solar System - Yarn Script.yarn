@@ -1,6 +1,4 @@
-﻿// ============================================================================
-// PL_07_SOLAR_SYSTEM - Nicolaus Copernicus & Astronomy
-// ============================================================================
+﻿// PL_07 - Nicolaus Copernicus & Solar System
 // Location: Toruń, Poland - Copernicus House, Museum, and Planetarium
 //
 // Cards:
@@ -32,11 +30,12 @@
 // ============================================================================
 
 title: Init
-position: -137,-132
+position: 0,0
 group: Intro
 tags: actor=Guide
 image: torun_street
 color: red
+type: panel
 ---
 <<declare $planets_found = 0>>
 <<declare $planets_needed = 8>>

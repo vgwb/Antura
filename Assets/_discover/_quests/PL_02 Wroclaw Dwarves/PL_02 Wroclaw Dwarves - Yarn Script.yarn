@@ -1,8 +1,5 @@
-﻿// ============================================================================
-// PL_02_WROCLAW_DWARVES - Wroclaw Dwarf
-// ============================================================================
+﻿// PL_02_WROCLAW_DWARVES - The great Wrocław dwarf rescue// ============================================================================
 // Location: Wrocław, Poland - Old Town and Market Square
-//
 // Cards:
 // - wroclaw_dwarf_statue (cultural symbol)
 // - PolishDwarf (cultural tradition)
@@ -10,19 +7,15 @@
 // - WroclawOldTownHall (historical building)
 // - WroclawCathedral (religious architecture)
 // - WroclawSkyTower (modern landmark)
-//
 // Tasks:
 // - dwarf statue collection throughout city
-//
-// Activities:
-//
 // Words used:Wrocław, dwarf, statue, Market Square, Old Town, cathedral, tradition, collection, city, Poland
-// ============================================================================
 
 title: init
 position: 0,0
 tags: type=Start
 color: red
+type: panel
 ---
 <<declare $found = 0>>
 <<declare $need = 10>>
@@ -38,7 +31,6 @@ color: red
 <<declare $dwarf_9 = false>>
 Oh no! Antura is stuck at the top of the SKY TOWER. #line:0a18e6c 
 The dwarves locked the elevator. #line:08bcfba 
-<<jump task_dwarves>>
 ===
 
 title: task_dwarves
@@ -264,8 +256,8 @@ title: rescue_top
 position: 851,1818
 tags: actor=ANTURA
 ---
-ANTURA: I'm here! Thank you! #line:066b636 
-ANTURA: Wink... POOF! #line:0a6619b 
+I'm here! Thank you! #line:066b636 
+Wink... POOF! #line:0a6619b 
 Magic! Antura is playful. #line:0de1060 
 
 ===

@@ -1,16 +1,9 @@
-﻿// ============================================================================
-// PL_03_WROCLAW_RIVER - Odra River Exploration
-// ============================================================================
-// Location: Wrocław, Poland - Odra River and bridges
-//
+﻿// PL_03 - A Voyage on the Odra River
 // Cards:
 // - odra_river (geographical feature)
 // - RiverOdra (major river)
 // - wroclaw_bridges (infrastructure)
 // - Footbridges (bridge types)
-//
-// Tasks:
-//
 // Activities:
 // cleancanvas odra_footbridge  — Clean the FOOTBRIDGE image; concept: BRIDGE for people (no CARS).
 // memory odra_bridges          — Match BRIDGE types; concepts: TRAIN BRIDGE (tracks), ROAD BRIDGE (CARS).
@@ -19,13 +12,11 @@
 // order odra_couples           — Pair BRIDGES→(people/CARS/TRAIN) and BOATS→(goods/live).
 // order odra_map_triplet       — Tap/sequence ODRA, WISŁA, BALTIC; concept: rivers flow to SEA.
 // quiz odra_facts              — Final assessment (at least 2 Qs): ODRA→BALTIC, longest river=WISŁA.
-//
 // Words used: Odra, river, bridge, island , water, Wrocław, navigation, ecosystem
-// ============================================================================
 
-//--------------------------------------------
+
 // INTRO – DOCK
-//--------------------------------------------
+
 title: init
 position: 0,0
 group: Intro
@@ -33,11 +24,10 @@ tags: actor=BoatCaptain
 image: odra_dock
 color: red
 ---
-Welcome to WROCŁAW in POLAND. #line:03f03fe 
-This is the ODRA RIVER. #line:053bcb9 
+Welcome to WROCŁAW in POLAND #line:03f03fe 
+This is the ODRA RIVER #line:053bcb9 
 Ready to explore? #line:06099c1 
 ===
-
 
 //--------------------------------------------
 // PART 1 – CITY OF BRIDGES
@@ -60,8 +50,8 @@ group: Bridges
 tags: actor=BoatCaptain
 image: footbridge_view
 ---
-FOOTBRIDGE is for people. #line:0d0c6ff 
-Hint: no CARS on it. #line:057b7a9 
+FOOTBRIDGE is for people #line:0d0c6ff 
+Hint no CARS on it #line:057b7a9 
 
 <<activity cleancanvas odra_footbridge tutorial>>
 
@@ -73,8 +63,8 @@ group: Bridges
 tags: actor=BoatCaptain
 image: railway_bridge
 ---
-TRAIN BRIDGE carries TRAINS. #line:04b8fb2 
-Hint: look for TRACKS. #line:03bf613 
+TRAIN BRIDGE carries TRAINS #line:04b8fb2 
+Hint look for TRACKS #line:03bf613 
 
 <<activity memory odra_bridges tutorial>>
 -> Next: ROAD BRIDGE #line:08d07e5 
@@ -87,8 +77,8 @@ group: Bridges
 tags: actor=BoatCaptain
 image: road_bridge
 ---
-ROAD BRIDGE is for CARS. #line:0f6e252 
-Hint: spot CARS crossing. #line:03fcfdf 
+ROAD BRIDGE is for CARS #line:0f6e252 
+Hint spot CARS crossing #line:03fcfdf 
 
 <<activity memory odra_bridges tutorial>>
 ===
@@ -116,8 +106,8 @@ group: Boats
 tags: actor=BoatCaptain
 image: barge_photo
 ---
-BARGE is low and flat. #line:028dcdf 
-It carries GOODS. #line:083423e 
+BARGE is low and flat #line:028dcdf 
+It carries GOODS #line:083423e 
 
 <<activity jigsawpuzzle odra_barge tutorial>>
 -> Find a HOUSEBOAT #line:0a09f26 
@@ -129,8 +119,8 @@ group: Boats
 tags: actor=BoatCaptain
 image: houseboat
 ---
-HOUSEBOAT is for living. #line:0d77d00 
-Windows like a small home. #line:0d30896 
+HOUSEBOAT is for living #line:0d77d00 
+Windows like a small home #line:0d30896 
 
 <<activity jigsawpuzzle odra_houseboat tutorial>>
 
@@ -142,9 +132,9 @@ group: Boats
 tags: actor=BoatCaptain
 image: odra_couples
 ---
-Match things to jobs. #line:0d62913 
-BRIDGE→people/CARS/TRAIN. #line:094d834 
-BOAT→goods/live. #line:0e16bac 
+Match things to jobs #line:0d62913 
+BRIDGE -> people/CARS/TRAIN #line:094d834 
+BOAT -> goods/live #line:0e16bac 
 
 <<activity order odra_couples tutorial>>
 ===
@@ -173,8 +163,8 @@ group: Map
 tags: actor=Narrator
 image: map_icons
 ---
-Narrator: Tap ODRA, WISŁA, BALTIC. #line:0ddc2c8 
-Narrator: Follow RIVERS to the SEA. #line:06237e3 
+Tap ODRA, WISŁA, BALTIC. #line:0ddc2c8 
+Follow RIVERS to the SEA. #line:06237e3 
 
 <<activity order odra_map_triplet tutorial>>
 ===

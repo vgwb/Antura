@@ -1,31 +1,24 @@
-﻿// ============================================================================
-// PL_06_TORUN_MARKET - Medieval Torun & Copernicus Birthplace
-// ============================================================================
-// Location: Toruń, Poland - Medieval Market Square and Copernicus sites
-//
+﻿// PL_06_TORUN_MARKET - Gingerbread & food market
+// Location: Toruń, Poland - Medieval Market Square
 // Cards:
 // - torun_gingerbread (cultural tradition)
 // - torun_town_hall (Gothic architecture)
 // - medieval_market (historical setting)
-// - NicolausCopernicus (scientific figure)
 // - pierogi
-//
 // Tasks:
 // - ingredient collection
-//
 // Activities:
 // - money activities to pay
 // - collect ingredients (eggs, flour, milk, butter, honey, cloves, cinnamon, ginger)
 // - buy pierogi for the cook
 // - bake gingerbread (order/memory of ingredients)
 // - Pierogi Challenge: order/memory of ingredients (flour, eggs, cheese, potatoes)
-//
-// Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval, Copernicus, Poland
-// ============================================================================
+// Words used: Toruń, market, vendor, grocer, beekeeper, dairy, eggs, milk, butter, flour, honey, cloves, cinnamon, ginger, pierogi, molds, coins, zloty, kitchen, gingerbread, medieval
 
 title: init
 position: 0,0
 tags: type=Start
+type: panel
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
@@ -59,17 +52,17 @@ tags: actor=GUIDE
 ---
 GUIDE: Visit the stands and talk to vendors. #line:0c470ae 
 -> Grocer (spices) #line:0c33932 
-	<<focus_camera shop_grocer>>
+	<<camera_focus shop_grocer>>
 -> Beekeeper (honey) #line:0431cbc 
-	<<focus_camera shop_beekeeper>>
+	<<camera_focus shop_beekeeper>>
 -> Dairy vendor (milk, butter) #line:0bfeb9e 
-	<<focus_camera shop_dairy>>
+	<<camera_focus shop_dairy>>
 -> Egg vendor (eggs) #line:0aed436 
-	<<focus_camera shop_eggs>>
+	<<camera_focus shop_eggs>>
 -> Greengrocer (fruits, vegetables) #line:0b3cc4d 
-	<<focus_camera shop_greengrocer>>
+	<<camera_focus shop_greengrocer>>
 -> Cook (pierogi) #line:0486ae8 
-	<<focus_camera shop_cook>>
+	<<camera_focus shop_cook>>
 ===
 
 title: shop_grocer

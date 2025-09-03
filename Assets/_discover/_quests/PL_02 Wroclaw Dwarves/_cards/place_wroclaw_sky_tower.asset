@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: place_wroclaw_sky_tower
   Status: 1
-  Importance: 20
   Type: 1
-  Topics: 0200000009000000
-  Year: 0
-  Country: 3
-  Location: {fileID: 11400000, guid: e8331505f2195492b9e1828f3ee87c8b, type: 2}
-  WikipediaUrl: 
+  Subjects: 020000002600000003000000
   TitleEn: 'Wroclaw: Sky Tower'
   DescriptionEn: One of the tallest buildings in Poland. It has shops and a viewpoint.
   Title:
@@ -41,14 +36,23 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 3
+  Location: {fileID: 11400000, guid: e8331505f2195492b9e1828f3ee87c8b, type: 2}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: cbbc5698bd1a87649b5608df910abf2f, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -57,10 +61,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
+  QuestOwner: PL_02
   _lastTitleEn: 'Wroclaw: Sky Tower'
   _lastDescriptionEn: One of the tallest buildings in Poland. It has shops and a
     viewpoint.

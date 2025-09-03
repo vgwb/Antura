@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: currency_euro
   Status: 3
-  Importance: 20
   Type: 4
-  Topics: 0b000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 0b00000002000000
   TitleEn: Euro Currency
   DescriptionEn: Money used in many countries in Europe. You can buy toys and ice
     cream with euros!
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: c40e064da47ab4e459046259a6216e85, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,10 +63,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Euro Currency
   _lastDescriptionEn: Money used in many countries in Europe. You can buy toys and
     ice cream with euros!

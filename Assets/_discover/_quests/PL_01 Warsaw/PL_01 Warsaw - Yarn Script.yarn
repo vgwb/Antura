@@ -1,6 +1,4 @@
-﻿// ============================================================================
-// PL_01_WARSAW - Discover Polish Capital
-// ============================================================================
+﻿// PL_01 - WARSAW - Discover Warsaw
 // Location: Warsaw, Poland 
 //
 // Cards:
@@ -31,15 +29,17 @@
 // - quiz warsaw_basics (comprehensive review)
 //
 // Words used: TRANSPORT (TRAIN, TRAM, BUS, CAR, BIKE), SPORT (FOOTBALL, BALL, GOAL, FIELD), FLAG, ZŁOTY, MERMAID OF WARSAW, CHOPIN, WARS & SAWA, KING SIGISMUND, PRESIDENT/SEJM, PALACE OF CULTURE AND SCIENCE, MARIA SKŁODOWSKA-CURIE, NATIONAL STADIUM, COPERNICUS
-// ============================================================================
 
 title: init
 position: 0,0
 tags: type=Start
 color: red
+type: panel
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
+Welcome to Warsaw!
+
 ===
 
 // ————————————————————————————————————————————————————————————————————
@@ -213,7 +213,8 @@ Independence Day is on 11 NOVEMBER. #line:09c2e0c
 // GUIDE — OUTRO
 // ————————————————————————————————————————————————————————————————————
 title: GUIDE_OUTRO
-tags: actor=Guide, balloon=panel
+tags: actor=Guide
+type: panel
 group: Warsaw
 ---
 <<card warsaw_city_sunset>>
@@ -226,7 +227,8 @@ Keep exploring POLAND! #line:0aeb8fb
 // FINAL QUIZ — 2 QUESTIONS (FLAG + VOCAB MATCH)
 // ————————————————————————————————————————————————————————————————————
 title: FINAL_QUIZ
-tags: actor= Narrator, balloon=quiz
+tags: actor= Narrator
+type: quiz
 group: Quiz
 ---
 <<card warsaw_quiz>>
@@ -236,6 +238,3 @@ Final questions. #line:01faf50
 <<activity quiz warsaw_basics tutorial>>
 Well done! #line:08f99a0 
 ===
-
-
-

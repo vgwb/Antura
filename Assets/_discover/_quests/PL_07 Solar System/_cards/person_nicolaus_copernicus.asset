@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: person_nicolaus_copernicus
   Status: 3
-  Importance: 0
   Type: 2
-  Topics: 04000000010000002a000000
-  Year: 1473
-  Country: 3
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Nicolaus_Copernicus
+  Subjects: 04000000010000002a000000
   TitleEn: Nicolaus Copernicus
   DescriptionEn: A brilliant scientist from Poland who discovered that the Earth
     goes around the Sun, not the other way around! This changed how we understand
@@ -43,14 +38,23 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1473
+  Country: 3
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Nicolaus_Copernicus
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 9cf13dc019f09c24e996bf3b4ef0b108, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,11 +63,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Copernicus teaches kids about scientific discovery and Polish contributions
     to astronomy
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Nicolaus Copernicus
   _lastDescriptionEn: A brilliant scientist from Poland who discovered that the Earth
     goes around the Sun, not the other way around! This changed how we understand
