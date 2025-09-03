@@ -1,7 +1,4 @@
-﻿// ============================================================================
-// FR_04_LE_MANS - Racing & Road Safety
-// ============================================================================
-//
+﻿// FR_04 LE_MANS - Racing & Road Safety
 // Cards:
 // - lemans_race (sports heritage)
 // - race_car (automotive)
@@ -10,232 +7,102 @@
 // - danger_sign (safety education)
 // - zebra_crossing (safety education)
 // - scooter (transportation)
-//
 // Tasks:
 // - Experience Le Mans race as spectator
 // - Navigate city streets following traffic rules
 // - Identify and respond to traffic signs correctly
 // - Reach train station safely
-//
-// Activities:
-//
 // Words used: race, car, speed, traffic, lights, stop, danger, zebra crossing, scooter, train station, safety, street, road, pedestrian, red, yellow, green, triangle, stripes, careful
-// ============================================================================
 
-title: FR_04_INIT
+title: init
 position: 349,-460
-tags: type=Start
+tags:
+type: panel
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
+Welcome to Le Mans! #line:0a4f3e1
 ===
 
 title: talk_friend
 position: 348,-154
-tags: actorUID=MAN, asset=NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8-5b-91
+tags: actorUID=MAN
 ---
-MAN: This is the race of Le Mans #line:02f370e 
-<<jump FR_04_LE_MANS_Text_ad_2b_a8>>
-===
-
-title: FR_04_LE_MANS_Text_ad_2b_a8
-position: 666,-146
-tags: actorUID=MAN, asset=NOD-ab5c8955-35eb-449b-a9cf-1711465867579-08-ad-2b-a8
----
-MAN: Cars are very fast! #line:07f77f0 
-<<jump FR_04_LE_MANS_Text_01346118>>
-===
-
-title: FR_04_LE_MANS_Text_01346118
-position: 950,-197
-tags: actorUID=MAN, asset=NOD-12b4963e-7f8b-4437-bb59-1730701346118
----
-MAN: Only adults can drive them. #line:0d0cd3f 
-<<jump FR_04_LE_MANS_Text_01540291>>
-===
-
-title: FR_04_LE_MANS_Text_01540291
-position: 1305,-196
-tags: actorUID=GUIDE, asset=NOD-0be533a1-2595-4a42-896c-1730701540291
----
-GUIDE: The race is finished. Go back home by train! #line:0b834f8 
-<<jump FR_04_LE_MANS_Text_89250882>>
-===
-
-title: FR_04_LE_MANS_Text_89250882
-position: 1602,-200
-tags: actorUID=MAN, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug
----
-MAN: Wow, those race cars are fast! #line:0e54cfc 
-<<jump FR_04_LE_MANS_Text_MDEFUUXF>>
+This is the race of Le Mans #line:02f370e 
+Cars are very fast! #line:07f77f0 
+Only adults can drive them. #line:0d0cd3f 
+The race is finished. Go back home by train! #line:0b834f8 
+Wow, those race cars are fast! #line:0e54cfc 
+But remember, the racetrack is the only place to go that fast. #line:053328c 
+On city streets, safety is what's most important. #line:0b70620 
+It's time to go home!
+Here, take my scooter to get to the train station. #line:00f2f65 
+I'll wait for you there.
+Be very careful and pay attention to the signs! #line:0b5ee19 
 ===
 
 title: sign_stop
 position: 3579,-135
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8
+tags: actorUID=TUTOR
 ---
-TUTOR: This is a STOP sign. #line:09ac224 
-<<jump sign_stop_1>>
+This is a STOP sign. #line:09ac224 
+It means you must always come to a complete stop
+and look both ways before you can go. #line:0758dbd 
+
 ===
 
 title: restart_level
 position: 1722,142
-tags: actorUID=TUTOR, asset=NOD-65e05a67-3bbb-47af-9d65-1730789296213
+tags: actorUID=TUTOR
 ---
-TUTOR: you didn't pay attention! retry! #line:0eed8ec 
+you didn't pay attention! retry! #line:0eed8ec 
 ===
 
 title: sign_danger
 position: 1739,361
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3
----
-TUTOR: This is a DANGER sign! #line:0a57038 
-<<jump sign_danger_1>>
-===
-
-title: FR_04_LE_MANS_Text_01841640
-position: 1047,111
 tags: actorUID=TUTOR
 ---
-TUTOR: YELLOW: SLOW DOWN #line:0b0c56c 
-<<jump FR_04_LE_MANS_Text_01843528>>
-===
-
-title: FR_04_LE_MANS_Text_01843528
-position: 1356,113
-tags: actorUID=TUTOR
----
-TUTOR: GREEN: GO! #line:0c87bce 
-===
-
-title: FR_04_LE_MANS_Text_01839323
-position: 716,110
-tags: actorUID=TUTOR
----
-TUTOR: RED: STOP #line:0cb35d6 
-<<jump FR_04_LE_MANS_Text_01841640>>
+This is a DANGER sign! #line:0a57038 
+It warns you to be careful and slow down
+because there might be something unexpected on the road. #line:07915e7 
 ===
 
 title: street_lights
 position: 429,133
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3-09-bb
+tags: actorUID=TUTOR
 ---
-TUTOR: These are traffic lights. #line:0355437 
-<<jump FR_04_LE_MANS_Text_01839323>>
+These are traffic lights. #line:0355437 
+RED: STOP #line:0cb35d6
+YELLOW: SLOW DOWN #line:0b0c56c 
+GREEN: GO! #line:0c87bce 
 ===
 
 title: zebra_crossing
 position: 460,682
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3-09-bb-aa-87
+tags: actorUID=TUTOR, 
 ---
-TUTOR: These white stripes are a zebra crossing. #line:02fbb57 
-<<jump zebra_crossing_1>>
+These white stripes are a zebra crossing. #line:02fbb57 
+It gives pedestrians the right way. #line:085d81b 
+So you must slow down when approaching it
+and stop if someone is trying to cross! #line:04e20a8 
 ===
 
-title: FR_04_LE_MANS_Text_MDEFUUXF
-position: 1929,-187
-tags: actorUID=MAN
----
-MAN: But remember, the racetrack is the only place to go that fast. #line:053328c 
-<<jump FR_04_LE_MANS_Text_MDEFVAMR>>
-===
 
-title: FR_04_LE_MANS_Text_MDEFVAMR
-position: 2357,-221
-tags: actorUID=MAN
----
-MAN: On city streets, safety is what's most important. #line:0b70620 
-<<jump FR_04_LE_MANS_Text_MDEGRRNM>>
-===
-
-title: FR_04_LE_MANS_Text_MDEGRRNM
-position: 2627,-214
-tags: actorUID=MAN
----
-MAN: It's time to go home! Here, take my scooter to get to the train station. #line:00f2f65 
-<<jump FR_04_LE_MANS_Text_MDEGSF39>>
-===
-
-title: FR_04_LE_MANS_Text_MDEGSF39
-position: 2943,-168
-tags: actorUID=MAN
----
-MAN: I'll wait for you there. Be very careful and pay attention to the signs! #line:0b5ee19 
-<<jump FR_04_LE_MANS_Note_MDIRXAZ6>>
-===
-
-title: sign_stop_1
-position: 3920,-145
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8
----
-TUTOR: It means you must always come to a complete stop and look both ways before you can go. #line:0758dbd 
-===
-
-title: FR_04_LE_MANS_Note_MDIRW9XA
-position: 1980,140
-tags: type=Note
----
-This MAN is Leo #line:09c0c62 
-===
-
-title: FR_04_LE_MANS_Note_MDIRXAZ6
-position: 3237,-156
-tags: type=Note
----
-Scooter section #line:04b8dfa 
-<<jump sign_stop>>
-===
-
-title: FR_04_LE_MANS_Text_3588_MKJ
+title: danger_signs
 position: 2305,140
-tags: actorUID=TUTOR, asset=NOD-04ea8248-01f1-4927-84cd-1730701753588
+tags: actorUID=TUTOR
 ---
-TUTOR: They are TRIANGLE #line:08c3073 
+They are TRIANGLE #line:08c3073 
 ===
 
-title: sign_danger_1
-position: 1764,602
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3
----
-TUTOR: It warns you to be careful and slow down because there might be something unexpected on the road. #line:07915e7 
-===
 
-title: zebra_crossing_1
-position: 854,695
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3-09-bb-aa-87
----
-TUTOR: It gives pedestrians the right way. #line:085d81b 
-<<jump zebra_crossing_2>>
-===
-
-title: zebra_crossing_2
-position: 1182,699
-tags: actorUID=TUTOR, asset=NOD-4f6bb472-b0d3-453d-9691-1711465810762-2b-a8-d9-b3-09-bb-aa-87
----
-TUTOR: So you must slow down when approaching it and stop if someone is trying to cross! #line:04e20a8 
-===
-
-title: FR_04_LE_MANS_Text_MDISWV6P
+title: bravo
 position: 433,395
 tags: actorUID=MAN
 ---
-MAN: You made it! #line:03b112c 
-<<jump FR_04_LE_MANS_Text_WV6P_ODD>>
-===
-
-title: FR_04_LE_MANS_Text_WV6P_ODD
-position: 799,387
-tags: actorUID=MAN
----
-MAN: And you followed all the rules perfectly. #line:0662662 
-<<jump FR_04_LE_MANS_Text__ODD_YIC>>
-===
-
-title: FR_04_LE_MANS_Text__ODD_YIC
-position: 1150,384
-tags: actorUID=MAN
----
-MAN: You're a street safety expert! Have a good trip! #line:0c88cfb 
+=> You made it! #line:03b112c 
+=> you followed all the rules perfectly. #line:0662662 
+=> You're a street safety expert! Have a good trip! #line:0c88cfb 
 ===
 

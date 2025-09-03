@@ -41,10 +41,8 @@ namespace Antura.Discover
         public AgeRange targetAge = AgeRange.Ages6to10;
 
         [Tooltip("Is this the core card of a Topic?")]
-        [FormerlySerializedAs("CoreOfKnowledge")]
         public TopicData CoreOfTopic;
         [Tooltip("How many Topics include this card?")]
-        [FormerlySerializedAs("IsInKnowledges")]
         public int IsInTopics;
 
         [Tooltip("Mastery points needed to unlock this card.")]

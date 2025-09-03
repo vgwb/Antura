@@ -69,7 +69,7 @@ color: red
 <<camera_focus palace>>
 <<camera_reset>>
 
-<<card fr_baguette show>>
+<<card food_baguette show>>
 <<card_hide>>
 // shows the image
 <<asset id_asset>> 
@@ -139,14 +139,14 @@ position: 6,244
 group: inventory
 ---
 I am hungry. how about some food? #line:0bdf566 
-<<if has_item_at_least("fr_baguette", 3)>>
+<<if has_item_at_least("food_baguette", 3)>>
     I need 3 baguettes! #line:00c341e 
-    <<inventory fr_baguette remove>>
-    <<inventory fr_baguette remove>>
-    <<inventory fr_baguette remove>>
+    <<inventory food_baguette remove>>
+    <<inventory food_baguette remove>>
+    <<inventory food_baguette remove>>
 <<else>>
     You don't have enough baguettes! #line:0c0d786 
-    <<if has_item("fr_fish")>>
+    <<if has_item("food_fish")>>
         But you have some fish! #line:06c9370 
     <<endif>>
     Thank you. #line:0a7921b 
@@ -158,7 +158,7 @@ position: 489,243
 group: inventory
 ---
 You found a baguette! #line:dev_got_baguette 
-<<inventory fr_baguette add>>
+<<inventory food_baguette add>>
 
 ===
 title: got_fish
@@ -166,7 +166,7 @@ position: 252,245
 group: inventory
 ---
 An healthy fish! #line:dev_got_fish 
-<<inventory fr_fish add>>
+<<inventory food_fish add>>
 
 ===
 title: area_change
@@ -182,12 +182,12 @@ position: 8,482
 group: cards 
 ---
 Now i show you some cards #line:05edfca 
-<<card fr_fish>>
+<<card food_fish>>
 Please look at its details #line:0adbe4f 
-<<card fr_fish zoom>>
+<<card food_fish zoom>>
 go back to the menu and browse the cards #line:017a620 
 and now... #line:04ade19 
-<<card fr_baguette>>
+<<card food_baguette>>
 Good, isnt' it? #line:04b02ce 
 <<card_hide>>
 GO back to work now. #line:0970ed1 

@@ -1,7 +1,4 @@
-﻿// ============================================================================
-// FR_05_CASTLES - A tale of two castles
-// ============================================================================
-//
+﻿// FR_05 CASTLES - A tale of two castles
 // Cards:
 // - chinon (historical castle)
 // - chambord (renaissance castle)
@@ -19,19 +16,18 @@
 // - obj_dance_shoes (court culture)
 // - obj_ball_mask (court culture)
 // - map (regional geography)
-//
 // Tasks:
 // - Collect knight items: helmet, sword, bow, armor
 // - Collect prince items: hat, musical instrument, dance shoes, ball mask
 // - Explore different castle functions (defense vs luxury)
-//
 // Activities:
 // Words used: castle, Chinon, Chambord, drawbridge, parapet, loopholes, defense, knight, armor, sword, bow, helmet, prince, mask, shoes, map, room, interior, Loire Valley, medieval, royal, French heritage
 // ============================================================================
 
 title: init
 position: 0,0
-tags: type=Start
+tags:
+type: panel
 color: red
 ---
 <<set $COLLECTED_ITEMS = 0>>
@@ -40,54 +36,54 @@ Welcome to the castles of the Loire! #line:09dda7c
 
 title: talk_guide
 position: 220,0
-tags: actorUID=GUIDE
+tags: actor=GUIDE
 ---
 <<if $COLLECTED_ITEMS >= 8>>
 <<jump guide_question>>
 <<else>>
-GUIDE: Antura ran away and is hiding in a castle! #line:067c028 
+Antura ran away and is hiding in a castle! #line:067c028 
 <<endif>>
 ===
 
 title: guide_defence
 position: 440,0
-tags: actorUID=CRAZY_WOMAN, asset=chinon
+tags: actor=CRAZY_WOMAN, asset=chinon
 ---
-CRAZY_WOMAN: This is the castle of Chinon. #line:06eaf5c 
+This is the castle of Chinon. #line:06eaf5c 
 <<jump FR_05_CASTLES_Text_98_0a_8d>>
 ===
 
 title: guide_living
 position: 660,0
-tags: actorUID=CRAZY_WOMAN, asset=chambord
+tags: actor=CRAZY_WOMAN, asset=chambord
 ---
-CRAZY_WOMAN: Welcome to Chambord Castle. #line:0a06d3f 
+Welcome to Chambord Castle. #line:0a06d3f 
 <<jump FR_05_CASTLES_Text_91139071>>
 ===
 
 title: FR_05_CASTLES_Text_02040108
 position: 880,0
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
-CRAZY_WOMAN: Find all the things a knight wears: #line:0bfad5e 
+Find all the things a knight wears: #line:0bfad5e 
 helmet, sword, bow, and armor. #line:08b44fc 
  
 ===
 
 title: FR_05_CASTLES_Text_02082173
 position: 1100,0
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
-CRAZY_WOMAN: Find all the prince's items: #line:0cb22cb 
+Find all the prince's items: #line:0cb22cb 
 hat, musical instrument, dance shoes, and ball mask. #line:0d2be40 
  
 ===
 
 title: guide_question
 position: 1320,0
-tags: actorUID=GUIDE, type=Choice
+tags: actor=GUIDE
 ---
-GUIDE: Did you find Antura? #line:01003d0 
+Did you find Antura? #line:01003d0 
 -> "YES": #line:0d9f509 
     <<jump endgame>>
 -> "NO": #line:0de6ebb 
@@ -96,73 +92,72 @@ GUIDE: Did you find Antura? #line:01003d0
 
 title: endgame
 position: 1540,0
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset map>>
-CRAZY_WOMAN: Did you like the castles? There are 200 castles like this in the Loire Valley! #line:01e6614 
+Did you like the castles? There are 200 castles like this in the Loire Valley! #line:01e6614 
 <<quest_end 3>>
 ===
 
 title: view_bridge
 position: 1760,0
-tags: actorUID=CRAZY_WOMAN, asset=bridge
+tags: actor=CRAZY_WOMAN, asset=bridge
 ---
-CRAZY_WOMAN: A drawbridge is a kind of movable bridge used in castles. #line:0010896 
+A drawbridge is a kind of movable bridge used in castles. #line:0010896 
 ===
 
 title: view_parapet
 position: 1980,0
-tags: actorUID=CRAZY_WOMAN, asset=parapet
+tags: actor=CRAZY_WOMAN, asset=parapet
 ---
-CRAZY_WOMAN: A parapet has gaps used for defense. #line:0aaf4dd 
+A parapet has gaps used for defense. #line:0aaf4dd 
 ===
 
 title: obg_helmet
 position: 2200,0
-tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL, asset=obj_helmet
+tags: actor=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, meta_BALLOON_TYPE=PANEL, meta=BALLOON_TYPE:PANEL, asset=obj_helmet
 ---
-TUTOR: a helmet #line:0b492f6 
+a helmet #line:0b492f6 
 ===
 
 title: obj_hat
 position: 2420,0
-tags: actorUID=TUTOR, asset=obj_hat
+tags: actor=TUTOR, asset=obj_hat
 ---
-TUTOR: a hat #line:0806c77 
+a hat #line:0806c77 
 ===
 
 title: obg_sword
 position: 7,500
 color: yellow
-tags: actorUID=TUTOR, item
+tags: actor=TUTOR, item
 ---
 <<asset obj_sword>>
-TUTOR: sword #line:0733b81 
-. #line:0a7f8e6 
+sword #line:0733b81 
 ===
 
 title: obg_bow
 position: 260,495
 color: yellow
-tags: actorUID=TUTOR, item
+tags: actor=TUTOR, item
 ---
 <<asset  obj_bow>>
-TUTOR: a bow and arrows #line:049d6e8 
+a bow and arrows #line:049d6e8 
 ===
 
 title: obg_armor
 position: 555,495
 color: yellow
-tags: actorUID=TUTOR, meta_ACTION_POST=unable_to_create_slug, meta=ACTION_POST:unable_to_create_slug, asset=obj_armor
+tags: actor=TUTOR
 ---
-TUTOR: this #line:0b5f321 
-TUTOR: armor #line:01ac543 
+<<asset  obj_armor>>
+this is an armor #line:01ac543 
 ===
 
 title: view_loopholes
 position: 812,518
 color: yellow
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset loopholes>>
 These are loopholes. They are used to shoot arrows at the enemy. #line:050e177 
@@ -170,68 +165,68 @@ These are loopholes. They are used to shoot arrows at the enemy. #line:050e177
 
 title: FR_05_CASTLES_Text_08_89_98
 position: 1100,140
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset  chinon_defence>>
-CRAZY_WOMAN: This castle was used for defense. #line:026073b 
+This castle was used for defense. #line:026073b 
 <<jump FR_05_CASTLES_Text_02040108>>
 ===
 
 title: FR_05_CASTLES_Text_98_0a_8d
 position: 1320,140
-tags: actorUID=CRAZY_WOMAN, asset=chinon_old
+tags: actor=CRAZY_WOMAN, asset=chinon_old
 ---
-CRAZY_WOMAN: It is very old. #line:0a0e0ca 
+It is very old. #line:0a0e0ca 
 <<jump FR_05_CASTLES_Text_08_89_98>>
 ===
 
 title: FR_05_CASTLES_Text_91139071
 position: 1540,140
-tags: actorUID=CRAZY_WOMAN, asset=chambord_ball
+tags: actor=CRAZY_WOMAN, asset=chambord_ball
 ---
-CRAZY_WOMAN: Kings and princes used this castle for balls, plays, and concerts. #line:07d0b04 
+Kings and princes used this castle for balls, plays, and concerts. #line:07d0b04 
 <<jump FR_05_CASTLES_Text_02082173>>
 ===
 
 title: obj_musical_intrument
 position: 1760,140
-tags: actorUID=TUTOR, asset=obj_musical_instruments
+tags: actor=TUTOR, asset=obj_musical_instruments
 ---
-TUTOR: a musical instrument #line:07f4c19 
+a musical instrument #line:07f4c19 
 ===
 
 title: obj_shoes
 position: 1980,140
-tags: actorUID=TUTOR, asset=obj_dance_shoes
+tags: actor=TUTOR, asset=obj_dance_shoes
 ---
-TUTOR: dance shoes #line:01ee90f 
+dance shoes #line:01ee90f 
 ===
 
 title: obj_ball_mask
 position: 2200,140
-tags: actorUID=TUTOR, asset=obj_ball_mask
+tags: actor=TUTOR, asset=obj_ball_mask
 ---
-TUTOR: a ball mask #line:0071a08 
+a ball mask #line:0071a08 
 ===
 
 title: view_chambord_map
 position: 2420,140
-tags: actorUID=TUTOR, asset=chambord_map
+tags: actor=TUTOR, asset=chambord_map
 ---
-TUTOR: This is a map of the castle. #line:0b62127 
+This is a map of the castle. #line:0b62127 
 ===
 
 title: view_chambord_room
 position: 0,280
-tags: actorUID=TUTOR, asset=chambord_room
+tags: actor=TUTOR, asset=chambord_room
 ---
-TUTOR: What a room! #line:0f99fd5 
+What a room! #line:0f99fd5 
 ===
 
 title: view_interior
 position: 220,280
-tags: actorUID=TUTOR, asset=chambord_interior
+tags: actor=TUTOR, asset=chambord_interior
 ---
-TUTOR: It is very nice! #line:082ac97 
+It is very nice! #line:082ac97 
 ===
 

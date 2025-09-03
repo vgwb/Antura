@@ -1,37 +1,33 @@
-﻿// ============================================================================
-// FR_03_NANTES_MUSEUM - Jules Verne
-// ============================================================================
-// Location: Nantes, France - Jules Verne House Museum
-// Description: Literary adventure through Jules Verne's imagination. Explore his birthplace, discover his famous works, and collect items representing his science fiction inventions (train, rocket, submarine, balloon) while learning about 19th century innovation.
-//
+﻿// FR_03 NANTES_MUSEUM - Jules Verne
 // Tasks:
 // - FIND_BOOKS (collect 4 Jules Verne books)
 // - COLLECT_TRAIN (collect from "Around the World in 80 Days")
 // - COLLECT_ROCKET (collect from "From Earth to the Moon")
 // - COLLECT_SUBMARINE (collect from "20,000 Leagues Under the Sea")
 // - COLLECT_BALLOON (collect from "Five Weeks in a Balloon")
-//
-// Activities:
-//
 // Words:
 // writer, map, book, train, rocket, submarine, hot air balloon, science fiction, invention, exploration, adventure
-// ============================================================================
 
 title: init
 position: 0,0
-tags: type=Start
+tags: 
 color: red
+type: panel
 ---
 <<set $TOTAL_COINS = 0>>
 <<set $COLLECTED_ITEMS = 0>>
 <<declare $QUEST_ITEMS = 4>>
+Welcome to the Museum of Jules Verne in Nantes! #line:0b5e2f3
 ===
+
+
+
 title: talk_guide
 position: 337,219
-tags: actorUID=CRAZY_WOMAN, asset=jules_verne_1
+tags: actor=CRAZY_WOMAN, asset=jules_verne_1
 ---
 <<if $COLLECTED_ITEMS == 0>>
-CRAZY_WOMAN: Welcome to the house of Jules Verne! #line:08f7bc1 
+Welcome to the house of Jules Verne! #line:08f7bc1 
 <<elseif $COLLECTED_ITEMS < $QUEST_ITEMS>>
 <<jump task_find_books>>
 <<else>>
@@ -50,28 +46,28 @@ Explore the house and find four of his books! #line:0aac249
 ===
 title: verne_painting
 position: 351,-354
-tags: actorUID=TUTOR, asset=jules_verne_1
+tags: actor=TUTOR, asset=jules_verne_1
 ---
-TUTOR: This is Jules Verne. He was a writer. #line:096a3b3 
+This is Jules Verne. He was a writer. #line:096a3b3 
 ===
 
 title: verne_house
 position: 638,-360
-tags: actorUID=TUTOR, asset=jules_verne_house
+tags: actor=TUTOR, asset=jules_verne_house
 ---
-TUTOR: He was born in Nantes in 1828. #line:003b311 
+He was born in Nantes in 1828. #line:003b311 
 ===
 
 title: map_nantes
 position: 894,-362
-tags: actorUID=TUTOR, asset=map_nantes
+tags: actor=TUTOR, asset=map_nantes
 ---
-TUTOR: This is a map of Nantes. #line:09bcaba 
+This is a map of Nantes. #line:09bcaba 
 ===
 
 title: open_chest
 position: 381,-83
-tags: type=Condition
+tags:
 ---
 <<if $COLLECTED_ITEMS >= 4>>
 <<jump won>>
@@ -82,7 +78,7 @@ tags: type=Condition
 
 title: won
 position: 796,-106
-tags: actorUID=CRAZY_WOMAN
+tags: actor=CRAZY_WOMAN
 ---
 <<asset jules_verne_2>>
 Great! You met Jules Verne, #line:099cdca 
@@ -93,11 +89,10 @@ the famous science fiction writer. #line:05a032e
 title: book_80days
 position: 382,873
 color: yellow
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 <<asset book_80days>>
-TUTOR: This book is "Around the World in 80 Days" #line:03131e3 
-. #line:03bb750 
+This book is "Around the World in 80 Days" #line:03131e3
 <<jump train>>
 ===
 title: train
@@ -105,66 +100,62 @@ position: 709,885
 tags: item
 ---
 <<asset train>>
-TUTOR: This is an old train #line:0732ebc 
-. #line:07f2b1f 
+This is an old train #line:0732ebc 
 <<action COLLECT_TRAIN>>
 ===
 
 title: paint_moon
 position: 709,1062
-tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_ROCKET, meta=ACTION_POST:COLLECT_ROCKET, asset=rocket
+tags: actor=TUTOR
 ---
-TUTOR: This is a space rocket. #line:0e5ae78 
+<<card rocket>>
+This is a space rocket. #line:0e5ae78 
 ===
 
 title: book_moon
 position: 356,1067
 color: yellow
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 <<asset book_earthmoon>>
-TUTOR: This book is "From earth to the Moon" #line:06df7d0 
-. #line:007e798 
+This book is "From earth to the Moon" #line:06df7d0 
 <<jump paint_moon>>
 ===
-
 
 
 title: book_20000legues
 position: 370,670
 color: yellow
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 <<asset book_underthesea>>
-TUTOR: This book is 20000 Leagues Under the Seas #line:03536a1 
-. #line:056cee4 
+This book is 20000 Leagues Under the Seas #line:03536a1 
 <<jump paint_20000>>
 ===
 
 title: paint_20000
 position: 695,699
-tags: actorUID=TUTOR
+tags: actor=TUTOR
 ---
 <<asset submarine>>
-TUTOR: This is a submarine #line:0f298c2 
-. #line:01b587c 
+This is a submarine #line:0f298c2 
 <<action COLLECT_SUBMARINE>>
 ===
 
 title: paint_5weeks
 position: 681,490
-tags: actorUID=TUTOR, meta_ACTION_POST=COLLECT_BALOON, meta=ACTION_POST:COLLECT_BALOON, asset=balloon
+tags: actor=TUTOR
 ---
-TUTOR: This is a hot air balloon. #line:06a7709 
+<<card balloon>>
+This is a hot air balloon. #line:06a7709 
 ===
 
 title: book_5weeks
 position: 387,480
 color: yellow
-tags: actorUID=TUTOR, asset=book_5weeksballoon
+tags: actor=TUTOR
 ---
-TUTOR: This book is "Five Weeks in a Balloon". #line:0934a7c 
+<<card book_5weeksballoon>>
+This book is "Five Weeks in a Balloon". #line:0934a7c 
 <<jump paint_5weeks>>
 ===
-
-

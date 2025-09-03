@@ -41,7 +41,6 @@ namespace Antura.Discover
         public List<SubjectCount> Subjects;
 
         public Subject Subject;
-        [FormerlySerializedAs("Knowledges")]
         public List<TopicData> Topics;
         public List<CardData> Cards;
         public List<WordData> Words;

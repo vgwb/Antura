@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: concept_cursive_writing
   Status: 3
-  Importance: 20
   Type: 4
-  Topics: 140000000300000005000000
-  Year: 1800
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 140000000300000005000000
   TitleEn: Cursive Writing
   DescriptionEn: A special way of writing where all the letters in a word are connected.
     In France, children learn to write this way in school.
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1800
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 82cc2e8ecb7924f20832674aabadc472, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,11 +63,13 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Cursive writing is an important part of French education and cultural
     identity
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Cursive Writing
   _lastDescriptionEn: A special way of writing where all the letters in a word are
     connected. In France, children learn to write this way in school.

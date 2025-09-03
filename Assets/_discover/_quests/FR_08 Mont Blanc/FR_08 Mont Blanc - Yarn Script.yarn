@@ -1,7 +1,4 @@
-﻿// ============================================================================
-// FR_08_MONT_BLANC_MOUNTAINS - Mont Blanc & Mountains  
-// ============================================================================
-//
+﻿// FR_08 MONT_BLANC_MOUNTAINS - Mont Blanc & Mountains  
 // Cards:
 // - mont_blanc (geographical landmark)
 // - flag_france (national symbol)
@@ -9,55 +6,47 @@
 // - flag_swiss (national symbol)
 // Tasks:
 // - Place 3 flags correctly on Mont Blanc summit
-//
 // Activities:
 // - Basic flag placement
 // - Order activity for mountain equipment preparation
 // - Memory game for Alpine animal identification
 // - Quiz on mountain safety and geography
-//
 // Words used:Europe, flags, France, Italy, Switzerland, Alps, altitude, summit, glacier, avalanche, marmot, crampons, rope, weather, safety
-// ============================================================================
 
 title: init
 position: 0,0
-tags: type=Start
+type: panel
 color: red
 ---
 <<set $COLLECTED_ITEMS = 0>>
 ===
-title: FR_08_talk_tutor
+
+title: talk_tutor
 position: 193,62
 tags: actorUID=TUTOR, asset=mont_blanc
 ---
-TUTOR: You have to go up the Mont Blanc, the highest mountain in Europe #line:07d23cb 
-<<jump FR_08_MONT_BLANC___MOUNTAINS_Text_03681398>>
-===
-
-title: FR_08_MONT_BLANC___MOUNTAINS_Text_03681398
-position: 216,255
-tags: actorUID=TUTOR
----
-TUTOR: and put the 3 flags correctly #line:07f2699 
+You have to go up the Mont Blanc
+the highest mountain in Europe #line:07d23cb 
+and put the 3 flags correctly #line:07f2699 
 ===
 
 title: flag_france
 position: 660,0
 tags: actorUID=TUTOR, asset=flag_france
 ---
-TUTOR: Find the French flag. #line:0d23529 
+Find the French flag. #line:0d23529 
 ===
 
 title: flag_italy
 position: 880,0
 tags: actorUID=TUTOR, asset=flag_italy
 ---
-TUTOR: Find the Italian flag. #line:050fe70 
+Find the Italian flag. #line:050fe70 
 ===
 
 title: flag_swiss
 position: 1100,0
 tags: actorUID=TUTOR, asset=flag_swiss
 ---
-TUTOR: Find the Swiss flag. #line:03db010 
+Find the Swiss flag. #line:03db010 
 ===

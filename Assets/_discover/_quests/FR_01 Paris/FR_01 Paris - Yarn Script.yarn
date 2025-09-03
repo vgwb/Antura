@@ -1,6 +1,4 @@
-﻿// FR_01_PARIS
-// Location: Paris, France - Eiffel Tower, Louvre, Notre-Dame, Bakery
-// Description: Paris tour through iconic landmarks. Learn about Eiffel Tower construction, explore Louvre artworks, visit Notre-Dame architecture, French baguette making with ingredient collection.
+﻿// FR_01 PARIS
 // Cards:
 // - tour_eiffell (landmark education)
 // - mr_eiffel (historical figure)
@@ -19,21 +17,18 @@
 // - baguette_water (ingredient education)
 // - baguette_yeast (ingredient education)
 // - baguette_salt (ingredient education)
-//
 // Tasks:
 // - Collect 4 baguette ingredients from various locations
 // - Reach Monalisa
-//
 // Activities:
 // - puzzle - Eiffel Tower
-//
 // Words: 
 // ticket, coin, baguette, flour, water, yeast, salt, map, elevator, iron, museum, cathedral, painting, sculpture,
-// ============================================================================
 
 title: init
 position: 0,0
-tags: type=Start, panel
+tags:
+type: panel
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
@@ -44,6 +39,7 @@ color: red
 <<declare $MET_MONALISA = false>>
 
 Welcome to Paris! #line:fr01_start 
+Go and talk with the tutor! #line:fr01_start_2
 <<target tutor>>
 ===
 
@@ -70,8 +66,8 @@ actor: OLD_WOMAN
     <<jump go_bakery>>
 <<else>>
 <<asset louvre>>
-woman: This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
-woman: Do you want to enter? #line:0f74ff9
+This is the entrance to the Louvre, our national art museum. #line:0cf1cc8 
+Do you want to enter? #line:0f74ff9
 -> Yes: #line:090114f 
     Enjoy your visit! #line:056e051 
     <<action AREA_LOUVRE_ENTER >>
@@ -266,11 +262,11 @@ color: yellow
 tags: actor=CRAZY_WOMAN
 ---
 <<asset monalisa>>
-This is the famous Mona Lisa. #line:00187e9 
+This is the famous Mona Lisa. #line:louvre_monalisa_1
 <<set $MET_MONALISA = true>>
 <<asset leaonardodavinci>>
-It was painted around 1500 by the artist and scientist Leonardo da Vinci. #line:0a21eeb 
-
+It was painted around 1500 #line:louvre_monalisa_2
+by the artist and scientist Leonardo da Vinci. #line:louvre_monalisa_3
 ===
 
 title: louvre_liberty
@@ -280,7 +276,9 @@ color: yellow
 tags: actor=CRAZY_WOMAN
 ---
 <<asset liberty_leading>>
-Liberty Leading the People by the French artist Eugène Delacroix represents freedom. #line:0e05d56 
+This painting represents freedom. #line:louvre_liberty_1
+It's called Liberty Leading the People #line:louvre_liberty_2
+by the French artist Eugène Delacroix #line:louvre_liberty_3
 ===
 
 title: louvre_venus

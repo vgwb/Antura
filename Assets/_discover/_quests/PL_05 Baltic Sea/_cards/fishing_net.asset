@@ -20,19 +20,19 @@ MonoBehaviour:
   DescriptionEn: A net used to catch fish.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: fishing_net
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: fishing_net.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -40,18 +40,19 @@ MonoBehaviour:
   Country: 3
   Location: {fileID: 0}
   WikipediaUrl: 
-  Importance: 0
+  Importance: 20
   targetAge: 2
   CoreOfTopic: {fileID: 0}
   IsInTopics: 1
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: c55158fa3c0e24dc184dbdabf7028997, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: 547ea314ef66448b6b588b7d1e1c1431, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}

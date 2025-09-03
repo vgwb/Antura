@@ -20,19 +20,19 @@ MonoBehaviour:
   DescriptionEn: A city in Poland where Nicolaus Copernicus was born.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: torun
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: torun.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -45,13 +45,14 @@ MonoBehaviour:
   CoreOfTopic: {fileID: 0}
   IsInTopics: 0
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: c5b67bdc2715c452f95800b3397e1f50, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: ee40a5c2e599a4311a3242ba1ea66b39, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}

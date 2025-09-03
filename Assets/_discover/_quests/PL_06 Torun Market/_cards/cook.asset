@@ -20,19 +20,19 @@ MonoBehaviour:
   DescriptionEn: A person who prepares food.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: cook
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: cook.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -45,13 +45,14 @@ MonoBehaviour:
   CoreOfTopic: {fileID: 0}
   IsInTopics: 0
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: 7dab0c24286af469b8866e9173e14aaf, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: 426b56291ced345c5bbfc6457b6a4b45, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}

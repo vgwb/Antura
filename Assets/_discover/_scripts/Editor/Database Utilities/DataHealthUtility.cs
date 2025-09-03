@@ -90,33 +90,77 @@ namespace Antura.Discover
         public static int Fix(List<IdentifiedData> identifiedAll, List<AssetData> assets, List<ItemData> items, bool applyChanges, List<string> logs, bool verbose = true)
         {
             int changes = 0;
-            var usedIds = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
 
-            // Seed with current IDs across all IdentifiedData we found (including AssetData & ItemData if they derive)
-            foreach (var id in identifiedAll)
-                if (!string.IsNullOrEmpty(id?.Id))
-                    usedIds.Add(id.Id);
-            foreach (var i in items)
-                if (i != null && !string.IsNullOrEmpty(i.Id))
-                    usedIds.Add(i.Id);
+            // 1) Build duplicate maps per data type
+            var dupByType = new Dictionary<string, Dictionary<string, List<IdentifiedData>>>(StringComparer.OrdinalIgnoreCase);
+            foreach (var d in identifiedAll.Where(x => x != null))
+            {
+                var t = d.GetType().Name;
+                var id = d.Id ?? string.Empty;
+                if (!dupByType.TryGetValue(t, out var map))
+                { map = new Dictionary<string, List<IdentifiedData>>(StringComparer.OrdinalIgnoreCase); dupByType[t] = map; }
+                if (!map.TryGetValue(id, out var list))
+                { list = new List<IdentifiedData>(); map[id] = list; }
+                list.Add(d);
+            }
 
-            // Pass 1: Generic rules for all IdentifiedData (sanitize + uniqueness)
+            // 2) Report duplicates (per type) and provide a clear original entry
+            foreach (var typeEntry in dupByType)
+            {
+                foreach (var idEntry in typeEntry.Value)
+                {
+                    if (!string.IsNullOrEmpty(idEntry.Key) && idEntry.Value.Count > 1)
+                    {
+                        var ordered = idEntry.Value
+                            .OrderBy(x => AssetDatabase.GetAssetPath(x), StringComparer.OrdinalIgnoreCase)
+                            .ToList();
+                        var original = ordered[0];
+                        var originalPath = AssetDatabase.GetAssetPath(original);
+                        var dupPaths = ordered.Skip(1).Select(x => AssetDatabase.GetAssetPath(x)).ToList();
+                        logs?.Add($"[Duplicates] {typeEntry.Key} Id '{idEntry.Key}' → Original: {originalPath}\nDuplicates ({dupPaths.Count}):\n - " + string.Join("\n - ", dupPaths));
+                        Debug.LogWarning($"[Data Health] Duplicate Id (original kept) '{idEntry.Key}' for type {typeEntry.Key}", original);
+                        foreach (var obj in ordered.Skip(1))
+                            Debug.LogWarning($"[Data Health] Duplicate Id (will be renamed) '{idEntry.Key}' for type {typeEntry.Key}", obj);
+                    }
+                }
+            }
+
+            // 3) Per-type ID counts to decide first occurrence vs duplicates
+            var idCountsByType = new Dictionary<string, Dictionary<string, int>>(StringComparer.OrdinalIgnoreCase);
+            foreach (var d in identifiedAll.Where(x => x != null))
+            {
+                var t = d.GetType().Name;
+                if (!idCountsByType.TryGetValue(t, out var map))
+                { map = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase); idCountsByType[t] = map; }
+                var id = d.Id ?? string.Empty;
+                if (string.IsNullOrEmpty(id))
+                    continue;
+                map[id] = map.TryGetValue(id, out var c) ? c + 1 : 1;
+            }
+            var seenPerIdByType = new Dictionary<string, Dictionary<string, int>>(StringComparer.OrdinalIgnoreCase);
+
+            // Maintain used Ids per type as we fix assets (incremental to preserve first wins)
+            var usedIdsPerType = new Dictionary<string, HashSet<string>>(StringComparer.OrdinalIgnoreCase);
+
+            // 4) Pass 1: Generic rules for all IdentifiedData (sanitize + per-type uniqueness)
             foreach (var data in identifiedAll.Where(x => x != null))
             {
-                var path = AssetDatabase.GetAssetPath(data);
-                var fileBase = System.IO.Path.GetFileNameWithoutExtension(path);
+                var assetPath = AssetDatabase.GetAssetPath(data);
+                var fileBase = System.IO.Path.GetFileNameWithoutExtension(assetPath);
                 bool dirty = false;
 
-                // ID sanitize + uniqueness
+                var typeName = data.GetType().Name;
+                if (!usedIdsPerType.TryGetValue(typeName, out var typeSet))
+                { typeSet = new HashSet<string>(StringComparer.OrdinalIgnoreCase); usedIdsPerType[typeName] = typeSet; }
+
+                // Sanitize desired Id
                 var desired = string.IsNullOrEmpty(data.Id) ? fileBase : data.Id;
                 desired = IdentifiedData.SanitizeId(desired);
-
                 if (string.IsNullOrEmpty(data.Id))
                 {
                     logs?.Add($"[{data.GetType().Name}:{fileBase}] Missing Id → '{desired}'");
                     Debug.LogWarning($"[Data Health] Missing Id → '{desired}'", data);
                 }
-
                 if (!string.Equals(data.Id, desired, StringComparison.Ordinal))
                 {
                     if (verbose)
@@ -126,8 +170,26 @@ namespace Antura.Discover
                     { data.Editor_SetId(desired); dirty = true; }
                 }
 
-                usedIds.RemoveWhere(id => string.Equals(id, data.Id, StringComparison.OrdinalIgnoreCase));
-                var unique = EnsureUnique(desired, usedIds);
+                // Compute per-type uniqueness, keeping first occurrence of duplicates
+                var otherIds = new HashSet<string>(typeSet, StringComparer.OrdinalIgnoreCase);
+                var currentId = data.Id ?? string.Empty;
+                bool hasDup = !string.IsNullOrEmpty(currentId)
+                              && idCountsByType.TryGetValue(typeName, out var countMap)
+                              && countMap.TryGetValue(currentId, out var totalForId)
+                              && totalForId > 1;
+                if (!seenPerIdByType.TryGetValue(typeName, out var seenMap))
+                { seenMap = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase); seenPerIdByType[typeName] = seenMap; }
+                int seen = !string.IsNullOrEmpty(currentId) && seenMap.TryGetValue(currentId, out var s) ? s : 0;
+
+                // Avoid self-collision by default
+                otherIds.RemoveWhere(id => string.Equals(id, currentId, StringComparison.OrdinalIgnoreCase));
+                // If this is the first occurrence among duplicates, let it keep the id
+                if (hasDup && seen == 0)
+                {
+                    otherIds.RemoveWhere(id => string.Equals(id, currentId, StringComparison.OrdinalIgnoreCase));
+                }
+
+                var unique = EnsureUnique(desired, otherIds);
                 if (!string.Equals(unique, data.Id, StringComparison.Ordinal))
                 {
                     logs?.Add($"[{data.GetType().Name}:{fileBase}] Id duplicate → '{data.Id}' → '{unique}'");
@@ -135,7 +197,11 @@ namespace Antura.Discover
                     if (applyChanges)
                     { data.Editor_SetId(unique, lockAfter: true); dirty = true; }
                 }
-                usedIds.Add(data.Id);
+
+                // Update tracking for this type
+                typeSet.Add(data.Id);
+                if (!string.IsNullOrEmpty(currentId))
+                    seenMap[currentId] = seen + 1;
 
                 if (applyChanges && dirty)
                 { EditorUtility.SetDirty(data); changes++; }

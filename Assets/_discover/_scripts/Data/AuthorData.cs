@@ -7,6 +7,7 @@ namespace Antura.Discover
     public class AuthorCredit
     {
         public AuthorData Author;
+        public bool Research;
         public bool Content;
         public bool Design;
         public bool Development;

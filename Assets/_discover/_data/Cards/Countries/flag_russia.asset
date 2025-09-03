@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: flag_russia
   Status: 1
-  Importance: 20
   Type: 4
-  Topics: 2600000003000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2600000003000000
   TitleEn: Flag of Russia
   DescriptionEn: A flag with white, blue, and red stripes. It represents the country
     of Russia.
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 70e6fae7a78c54f88ba4bc725accd498, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 5c1a68649d011004a9df20c2a3ebf431, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,10 +63,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Flag of Russia
   _lastDescriptionEn: A flag with white, blue, and red stripes. It represents the
     country of Russia.

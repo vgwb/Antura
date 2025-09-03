@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace Antura.Discover
@@ -21,5 +22,9 @@ namespace Antura.Discover
 
         [TextArea]
         public string LicenseNotes;    // For custom terms or clarifications
+
+        [Header("Authoring Metadata")]
+        public List<AuthorCredit> Credits;
+
     }
 }

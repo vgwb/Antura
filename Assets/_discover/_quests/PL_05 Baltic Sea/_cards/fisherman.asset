@@ -20,19 +20,19 @@ MonoBehaviour:
   DescriptionEn: A person who catches fish at sea.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: fisherman
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: fisherman.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -40,18 +40,19 @@ MonoBehaviour:
   Country: 3
   Location: {fileID: 0}
   WikipediaUrl: 
-  Importance: 0
+  Importance: 20
   targetAge: 2
   CoreOfTopic: {fileID: 11400000, guid: e02fcf93b58ef41b987c8f4ec96d50a5, type: 2}
   IsInTopics: 0
   MasteryPointsToUnlock: 1
-  Quests: []
+  Quests:
+  - {fileID: 11400000, guid: c55158fa3c0e24dc184dbdabf7028997, type: 2}
   Words: []
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: ac9cf2609897046c6b5630404f5d0810, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
   m_Name: country_france
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
-  Id: france
+  Id: country_france
   Status: 2
   Type: 1
   Subjects: 0200000003000000
@@ -20,19 +20,19 @@ MonoBehaviour:
   DescriptionEn: A country in Europe. Capital is Paris.
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: country_france
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: country_france.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -42,7 +42,7 @@ MonoBehaviour:
   WikipediaUrl: 
   Importance: 0
   targetAge: 2
-  CoreOfTopic: {fileID: 0}
+  CoreOfTopic: {fileID: 11400000, guid: 38b80c2544c4b48499fa677e842c0016, type: 2}
   IsInTopics: 0
   MasteryPointsToUnlock: 2
   Quests: []
@@ -51,7 +51,7 @@ MonoBehaviour:
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 0}
+  ImageAsset: {fileID: 11400000, guid: 27334b62891ec4cad8e6fd96a0202355, type: 2}
   AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
@@ -61,12 +61,18 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
-  Credits: []
+  Credits:
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Research: 1
+    Content: 1
+    Design: 0
+    Development: 0
+    Validation: 0
   Rationale: 
   Notes: 
   LastReviewed: 2025-09-03
   NeedsLocalizationUpdate: 1
-  QuestOwner: FR_NEIGHBORS
+  QuestOwner: FR_08
   _lastTitleEn: France
   _lastDescriptionEn: A country in Europe. Capital is Paris.
   references:

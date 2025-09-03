@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: food_lemon
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2d00000003000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2d00000003000000
   TitleEn: Lemon
   DescriptionEn: A yellow fruit that tastes very sour. Lemons are used to make lemonade!
   Title:
@@ -41,15 +36,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 740d26ab028154c54af41fe9e96d9124, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 1
@@ -58,10 +62,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Lemon
   _lastDescriptionEn: A yellow fruit that tastes very sour. Lemons are used to make
     lemonade!

@@ -1,0 +1,77 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
+  m_Name: notre_dame_de_paris
+  m_EditorClassIdentifier: 
+  Id: notre_dame_de_paris
+  Status: 1
+  Type: 1
+  Subjects: 0200000009000000
+  TitleEn: Notre-Dame de Paris
+  DescriptionEn: A beautiful cathedral in Paris. Its colorful glass windows tell
+    stories.
+  Title:
+    m_TableReference:
+      m_TableCollectionName: Cards
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: notre_dame_de_paris
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: Cards
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: notre_dame_de_paris.desc
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Year: 1885
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: c17b0091d12de451885dba484fb78671, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+  Words: []
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: 0310c467bdbef4abd95ae197c8da8d73, type: 2}
+  AdditionalImageAssets: []
+  PreviewImage: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  ItemTag: 0
+  CustomTag: 
+  Credits: []
+  Rationale: 
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  QuestOwner: 
+  _lastTitleEn: Notre-Dame de Paris
+  _lastDescriptionEn: A beautiful cathedral in Paris. Its colorful glass windows
+    tell stories.
+  references:
+    version: 2
+    RefIds: []

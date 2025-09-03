@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: food_tomato
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2d00000003000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2d00000003000000
   TitleEn: Tomato
   DescriptionEn: A red, round fruit that grows on plants. Tomatoes are used to make
     pizza sauce!
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 83db86de9667948e2af2f550d060f739, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 1
@@ -59,10 +63,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 11400000, guid: 692bad5269a894de391d8c333902c2ce, type: 2}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Tomato
   _lastDescriptionEn: A red, round fruit that grows on plants. Tomatoes are used
     to make pizza sauce!

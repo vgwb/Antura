@@ -50,6 +50,8 @@ namespace Antura.Discover
         // Pagination
         private int _pageIndex = 0;
         private const int PageSize = 100;
+        // Duplicates view toggle
+        private bool _duplicatesOnly = false;
 
         // Layout sizes
         private const float ColOpen = 60f;
@@ -460,6 +462,7 @@ namespace Antura.Discover
                     _sortAsc = true;
                     _scroll = Vector2.zero;
                     _pageIndex = 0;
+                    _duplicatesOnly = false;
                     RefreshList();
                     Repaint();
                 }
@@ -2190,6 +2193,57 @@ namespace Antura.Discover
 
             // Apply sorting
             set = ApplySorting(set);
+
+            // Duplicates filter at the end (based on case-insensitive Id or Title/Name)
+            if (_duplicatesOnly)
+            {
+                // Build keys by selected dataset scope to avoid mixing unrelated types
+                Func<IdentifiedData, IEnumerable<string>> keyFn = a =>
+                {
+                    var keys = new List<string>();
+                    var id = a?.Id;
+                    if (!string.IsNullOrEmpty(id))
+                        keys.Add(id);
+                    // Title/Name per-type
+                    if (a is CardData cd)
+                    {
+                        var title = GetCardTitle(cd);
+                        if (!string.IsNullOrEmpty(title))
+                            keys.Add(title);
+                    }
+                    else if (a is WordData wd)
+                    {
+                        if (!string.IsNullOrEmpty(wd.TextEn))
+                            keys.Add(wd.TextEn);
+                    }
+                    else if (a is QuestData qd)
+                    {
+                        if (!string.IsNullOrEmpty(qd.TitleEn))
+                            keys.Add(qd.TitleEn);
+                    }
+                    else if (a is TopicData kd)
+                    {
+                        if (!string.IsNullOrEmpty(kd.Name))
+                            keys.Add(kd.Name);
+                    }
+                    else
+                    {
+                        var nm = GetStringMemberValue(a, GetBestNameMember(a.GetType()));
+                        if (!string.IsNullOrEmpty(nm))
+                            keys.Add(nm);
+                    }
+                    return keys.Where(k => !string.IsNullOrEmpty(k)).Select(k => k.Trim());
+                };
+
+                var dupKeys = set
+                    .SelectMany(a => keyFn(a).Select(k => new { Key = k.ToLowerInvariant(), Item = a }))
+                    .GroupBy(x => x.Key)
+                    .Where(g => g.Count() > 1)
+                    .Select(g => g.Key)
+                    .ToHashSet();
+
+                set = set.Where(a => keyFn(a).Any(k => dupKeys.Contains(k.ToLowerInvariant())));
+            }
             return set;
         }
 
@@ -2392,6 +2446,18 @@ namespace Antura.Discover
                 }
             }
             set = _sortAsc ? set.OrderBy(keySelector) : set.OrderByDescending(keySelector);
+            // Duplicates-only view for world prefabs (by Id, case-insensitive)
+            if (_duplicatesOnly)
+            {
+                var dupIds = set
+                    .Select(e => GetWorldPrefabId(e.Comp) ?? string.Empty)
+                    .Select(id => id.Trim().ToLowerInvariant())
+                    .GroupBy(id => id)
+                    .Where(g => !string.IsNullOrEmpty(g.Key) && g.Count() > 1)
+                    .Select(g => g.Key)
+                    .ToHashSet();
+                set = set.Where(e => dupIds.Contains((GetWorldPrefabId(e.Comp) ?? string.Empty).Trim().ToLowerInvariant()));
+            }
             return set;
         }
 
@@ -2791,6 +2857,15 @@ namespace Antura.Discover
                 {
                     ExportCsv();
                 }
+
+                GUILayout.Space(6);
+                bool newDup = GUILayout.Toggle(_duplicatesOnly, "check duplicates", EditorStyles.toolbarButton, GUILayout.Width(130));
+                if (newDup != _duplicatesOnly)
+                {
+                    _duplicatesOnly = newDup;
+                    _pageIndex = 0;
+                    Repaint();
+                }
                 GUILayout.FlexibleSpace();
             }
         }
@@ -2859,6 +2934,27 @@ namespace Antura.Discover
             // }
             // catch { }
             // return null;
+        }
+
+        // Helper to read TitleEn where available (CardData, QuestData, or any IdentifiedData with a public TitleEn string)
+        private string GetTitleEn(IdentifiedData a)
+        {
+            if (a == null)
+                return null;
+            if (a is CardData cd)
+                return GetCardTitle(cd);
+            if (a is QuestData qd)
+                return qd.TitleEn;
+            try
+            {
+                var pi = a.GetType().GetProperty("TitleEn", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
+                if (pi != null && pi.PropertyType == typeof(string) && pi.CanRead)
+                {
+                    return pi.GetValue(a, null) as string;
+                }
+            }
+            catch { }
+            return null;
         }
 
         private void ExportCsv()

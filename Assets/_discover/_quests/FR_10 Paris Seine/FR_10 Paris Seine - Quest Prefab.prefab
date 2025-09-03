@@ -1199,8 +1199,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: 8a1b66c29c36a41ec9138ee97bcc7e6d, type: 2}
-  ActivityConfigs: []
-  QuestTasks: []
+  ActivityConfigs:
+  - Code: 
+    ActivitySettings: {fileID: 0}
+    ActivityGO: {fileID: 0}
+  QuestTasks:
+  - Code: 
+    Type: 0
+    InteractGO: {fileID: 0}
+    ProgressPoints: 0
+    NodeDescription: 
+    NodeSuccess: 
+    NodeFail: 
+    ItemsContainer: {fileID: 0}
+    ItemCount: 0
+    ItemTag: 
+    TimerSeconds: 0
+    TargetPoint: {fileID: 0}
+    Area: {fileID: 0}
   DebugQuest: 1
   DebugLanguage: 
   EasyMode: 0

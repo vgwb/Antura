@@ -1,0 +1,75 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
+  m_Name: louvre
+  m_EditorClassIdentifier: 
+  Id: louvre
+  Status: 3
+  Type: 1
+  Subjects: 050000000300000001000000
+  TitleEn: Louvre
+  DescriptionEn: "A huge museum full of art. It\u2019s where the Mona Lisa lives."
+  Title:
+    m_TableReference:
+      m_TableCollectionName: Cards
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: louvre
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Description:
+    m_TableReference:
+      m_TableCollectionName: Cards
+    m_TableEntryReference:
+      m_KeyId: 0
+      m_Key: louvre.desc
+    m_FallbackState: 0
+    m_WaitForCompletion: 0
+    m_LocalVariables: []
+  Year: 1793
+  Country: 2
+  Location: {fileID: 11400000, guid: c940d02c833bc4444886d4db99cc640b, type: 2}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Louvre
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: cdfe435401e4447d8a06a855193a1268, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+  Words: []
+  Cookies: 0
+  Gems: 0
+  Points: 1
+  MediaType: 0
+  ImageAsset: {fileID: 11400000, guid: 7e300c42f47364930914a749feeee35e, type: 2}
+  AdditionalImageAssets: []
+  PreviewImage: {fileID: 0}
+  AudioAsset: {fileID: 0}
+  IsCollectible: 0
+  IsStackable: 0
+  MaxStack: 99
+  ItemIcon: {fileID: 0}
+  ItemTag: 0
+  CustomTag: 
+  Credits: []
+  Rationale: 
+  Notes: 
+  LastReviewed: 2025-08-30
+  NeedsLocalizationUpdate: 1
+  QuestOwner: 
+  _lastTitleEn: Louvre
+  _lastDescriptionEn: "A huge museum full of art. It\u2019s where the Mona Lisa lives."
+  references:
+    version: 2
+    RefIds: []

@@ -17,22 +17,24 @@ MonoBehaviour:
   Type: 1
   Subjects: 01000000
   TitleEn: Castle Chinon
-  DescriptionEn: 
+  DescriptionEn: "Ch\xE2teau de Chinon is a strong stone fortress on a hill above
+    the river in the Loire Valley. Long ago, kings stayed here and Joan of Arc came
+    to meet the future king of France."
   Title:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: castle_chinon
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: 
+      m_TableCollectionName: Cards
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: 
+      m_Key: castle_chinon.desc
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
@@ -53,6 +55,7 @@ MonoBehaviour:
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 7b385a17057ea42558699787bb1bf87c, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -64,10 +67,13 @@ MonoBehaviour:
   Credits: []
   Rationale: 
   Notes: 
-  LastReviewed: 2025-09-01
+  LastReviewed: 2025-09-04
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Castle Chinon
-  _lastDescriptionEn: 
+  _lastDescriptionEn: "Ch\xE2teau de Chinon is a strong stone fortress on a hill
+    above the river in the Loire Valley. Long ago, kings stayed here and Joan of
+    Arc came to meet the future king of France."
   references:
     version: 2
     RefIds: []

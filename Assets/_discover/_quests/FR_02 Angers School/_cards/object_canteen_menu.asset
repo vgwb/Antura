@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: object_canteen_menu
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2600000003000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2600000003000000
   TitleEn: Canteen menu
   DescriptionEn: A list that shows what food you can eat at school lunch. It helps
     you choose what to eat!
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 034b8bc9200bb461d902b4d56f255310, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -59,10 +63,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Canteen menu
   _lastDescriptionEn: A list that shows what food you can eat at school lunch. It
     helps you choose what to eat!

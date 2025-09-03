@@ -1,26 +1,17 @@
-﻿// ============================================================================
-// FR_10_PARIS_SEINE - Seine River Journey
-// ============================================================================
+﻿// FR_10 PARIS_SEINE - Seine River Journey
 // Location: Paris, France - Seine River and bridges
-// Description: River exploration quest likely focusing on Seine's role in Paris history, famous bridges (Pont Neuf, Alexander III), riverside landmarks, and river transportation. Potential boat journey connecting major Paris attractions.
-//
 // Cards:
 // - seine_river (geographical feature)
 // - seine_map (navigation aid)
 // - seine_river_panoramic (scenic view)
 // - boat_eiffel (river transportation)
 // - bridge_alexander_iii (architectural landmark)
-//
-// Tasks:
-//
-// Activities:
-//
-// Words used: Seine, river, boat, bridge, Paris, Alexander III, Notre-Dame, navigation, water, transportation, history
-// ============================================================================
+// Words used: Seine, river, boat, bridge, Paris, Notre-Dame, navigation, water, transportation, history
 
 title: init
 position: 0,0
-tags: type=Panel
+tags:
+type: panel
 color: red
 ---
 <<set $TOTAL_COINS = 0>>
@@ -49,10 +40,10 @@ title: welcome
 position: 269,203
 tags: actor=TUTOR, asset=seine_river_panoramic
 ---
-TUTOR: This is the River Seine! #line:0aa0f3a 
-<<card  seine_map>>
-TUTOR: The River Seine flows through Paris. #line:064988b 
-TUTOR: Many people live by this river. #line:080744b 
+This is the River Seine! #line:0aa0f3a 
+<<card seine_map>>
+The River Seine flows through Paris. #line:064988b 
+Many people live by this river. #line:080744b 
 <<jump task_seine>>
 ===
 
@@ -60,8 +51,8 @@ title: found_all_photos
 position: 586,-3
 tags: actor=TUTOR
 ---
-TUTOR: Thank you! #line:0a70250 
-TUTOR: Do you know that there are 37 bridges on the Seine? #line:0353a5c 
+Thank you! #line:0a70250 
+Do you know that there are 37 bridges on the Seine? #line:0353a5c 
 <<jump look_seine_map>>
 ===
 
@@ -70,7 +61,7 @@ position: 567,210
 tags: actor=TUTOR
 ---
 <<task_start seine>>
-TUTOR: I lost 8 photos of the Seine. #line:0d77f5e 
+I lost 8 photos of the Seine. #line:0d77f5e 
 Can you find them all? #line:05727a9 
 Then come back to me! #line:09b03cc 
 ===
@@ -83,7 +74,7 @@ tags: actor=TUTOR
 ---
 <<card sign_train_bridge>>
 <<action COLLECT_1>>
-TUTOR: This is a bridge for trains! #line:0a0991d 
+This is a bridge for trains! #line:0a0991d 
 ===
 
 title: sign_car_bridge
@@ -93,7 +84,7 @@ color: yellow
 ---
 <<card sign_car_bridge>>
 <<action COLLECT_2>>
-TUTOR: This is a bridge for cars! #line:0d79d7d 
+This is a bridge for cars! #line:0d79d7d 
 ===
 
 
@@ -104,7 +95,7 @@ color: yellow
 ---
 <<card sign_people_bridge>>
 <<action COLLECT_3>>
-TUTOR: This is a bridge for people! #line:0f8a96f 
+This is a bridge for people! #line:0f8a96f 
 ===
 
 title: boat_people
@@ -114,7 +105,7 @@ color: yellow
 ---
 <<card  boat_people>>
 <<action COLLECT_5>>
-TUTOR: This boat has large windows, so tourists can see the city. It's a 'bateau-mouche' (a tourist boat). #line:0129c99 
+This boat has large windows, so tourists can see the city. It's a 'bateau-mouche' (a tourist boat). #line:0129c99 
 ===
 
 title: boat_house
@@ -124,7 +115,7 @@ color: yellow
 ---
 <<card boat_house>>
 <<action COLLECT_6>>
-TUTOR: This boat is a house! People live here! #line:0a627c2 
+This boat is a house! People live here! #line:0a627c2 
 ===
 
 title: boat_goods
@@ -134,7 +125,7 @@ color: yellow
 ---
 <<card boat_goods>>
 <<action COLLECT_7>>
-TUTOR: This boat transports goods. #line:0f13a44 
+This boat transports goods. #line:0f13a44 
 ===
 
 title: look_seine_map
@@ -142,7 +133,7 @@ position: 863,-3
 tags: actor=TUTOR, asset=
 ---
 <<card  seine_france_map>>
-TUTOR: Now look at this map of the Seine. #line:0b03341 
+Now look at this map of the Seine. #line:0b03341 
 <<jump question_seine_map>>
 ===
 
@@ -150,7 +141,7 @@ title: question_seine_map
 position: 1135,-4
 tags: actor=TUTOR, type=Choice
 ---
-TUTOR: The Seine flows into a sea. Which one? #line:0adc7b7 
+The Seine flows into a sea. Which one? #line:0adc7b7 
 -> "The Mediterranean Sea": #line:04cf904 
     <<jump question_wrong>>
 -> "The English Channel": #line:041b8ec 
@@ -164,11 +155,11 @@ position: 1137,211
 tags: actor=TUTOR
 color: purple
 ---
-TUTOR: Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
+Yes! The Seine flows into the English Channel, in northern France. #line:023623a 
 <<card  seine_map>>
-TUTOR: On this map, name the monuments you recognize. #line:0406145 
-TUTOR: Draw a bridge in your notebook! Do you remember the Pont Alexandre III? #line:06c5bed 
-TUTOR: Great, you finished this level. #line:0c408c3 
+On this map, name the monuments you recognize. #line:0406145 
+Draw a bridge in your notebook! Do you remember the Pont Alexandre III? #line:06c5bed 
+Great, you finished this level. #line:0c408c3 
 <<quest_end 3>>
 ===
 
@@ -176,7 +167,7 @@ title: question_wrong
 position: 1363,-135
 tags: actor=TUTOR
 ---
-TUTOR: Hmm... not really. Look at the map again. #line:01c9d19 
+Hmm... not really. Look at the map again. #line:01c9d19 
 <<jump question_seine_map>>
 ===
 
@@ -203,7 +194,7 @@ position: 472,-249
 tags: actor=TUTOR, meta_ACTION_POST=COLLECT_8, meta=ACTION_POST:COLLECT_8, asset=boat_eiffel
 color: yellow
 ---
-TUTOR: Look how nice! #line:059f66d 
+Look how nice! #line:059f66d 
 ===
 
 title: boat_river
@@ -211,7 +202,7 @@ position: 239,-255
 tags: actor=TUTOR, meta_ACTION_POST=COLLECT_4, meta=ACTION_POST:COLLECT_4, asset=boat_river
 color: yellow
 ---
-TUTOR: There are many boats. #line:076e2e6 
+There are many boats. #line:076e2e6 
 ===
 
 title: talk_ile_de_france
@@ -230,5 +221,3 @@ tags: actor=WOMAN
 <<card alexander_iii_bridge>>
 This is the Pont Alexandre III, a historic monument. #line:09c706f 
 ===
-
-

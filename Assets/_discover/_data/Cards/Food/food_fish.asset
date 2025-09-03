@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Id: food_fish
   Status: 1
-  Importance: 20
   Type: 3
-  Topics: 2d00000003000000
-  Year: 0
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 2d00000003000000
   TitleEn: FISH
   DescriptionEn: An animal that lives and swims in water. Fish have fins and gills
     to breathe underwater.
@@ -42,15 +37,24 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 20
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: dc53874a2ed164d74842d792f9934376, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: e778505d7e2e54fb08e7ab17a43acc71, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 1
@@ -59,10 +63,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 11400000, guid: b31e07b0a7c3d42a3838d36ebb8eb0d3, type: 2}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: FISH
   _lastDescriptionEn: An animal that lives and swims in water. Fish have fins and
     gills to breathe underwater.

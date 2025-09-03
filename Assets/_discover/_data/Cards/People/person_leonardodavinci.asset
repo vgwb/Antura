@@ -14,15 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: person_leonardodavinci
   Status: 3
-  Importance: 0
   Type: 2
-  Topics: 050000000400000001000000
-  IsCoreCard: 0
-  IsInKnowledges: 1
-  Year: 1452
-  Country: 0
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Leonardo_da_Vinci
+  Subjects: 050000000400000001000000
   TitleEn: Leonardo da Vinci
   DescriptionEn: An amazing artist and scientist from Italy. He painted the Mona
     Lisa and invented flying machines hundreds of years before airplanes!
@@ -44,14 +37,23 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1452
+  Country: 0
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Leonardo_da_Vinci
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: e87fed98e1ed54768b8ebe426e72510a, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -60,11 +62,12 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
-  Rationale: 
   Credits: []
+  Rationale: 
   Notes: 
   LastReviewed: 2025-08-30
   NeedsLocalizationUpdate: 1
+  QuestOwner: 
   _lastTitleEn: Leonardo da Vinci
   _lastDescriptionEn: An amazing artist and scientist from Italy. He painted the
     Mona Lisa and invented flying machines hundreds of years before airplanes!
