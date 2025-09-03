@@ -43,8 +43,17 @@ namespace Antura.Discover.Editor
                 sb.AppendLine($"[Quest Index]({indexLink}) - Language: {en} - {fr} - {pl} - {it}");
                 sb.AppendLine();
             }
-            sb.AppendLine("Version: " + q.VersionText);
-            sb.AppendLine("Status: " + q.Status);
+            sb.AppendLine("Version: " + q.VersionText + "  ");
+            sb.AppendLine("Status: " + q.Status + "  ");
+            string locName = string.Empty;
+            if (q.Location != null)
+            {
+                var fallback = !string.IsNullOrEmpty(q.Location.Id) ? q.Location.Id : q.Location.name;
+                // Use localized Location.Name when available
+                var localized = PublishUtils.SafeLocalized(q.Location.Name, fallback: fallback);
+                locName = localized;
+            }
+            sb.AppendLine("Location: " + q.Country + (string.IsNullOrEmpty(locName) ? string.Empty : (" - " + locName)));
             sb.AppendLine();
 
             if (!string.IsNullOrEmpty(desc))
@@ -53,31 +62,17 @@ namespace Antura.Discover.Editor
                 sb.AppendLine();
             }
 
-            // Data section
-            sb.AppendLine("## Informations");
-            sb.AppendLine();
-            sb.AppendLine("- Title: " + title);
-            sb.AppendLine("- Description: " + (string.IsNullOrEmpty(desc) ? q.DescriptionText : desc));
-            string locId = q.Location != null ? (!string.IsNullOrEmpty(q.Location.Id) ? q.Location.Id : q.Location.name) : string.Empty;
-            sb.AppendLine("- Location: " + q.Country + " - " + locId);
-
             sb.AppendLine("## Content");
-            sb.AppendLine("- Subject: " + q.Subject);
+            sb.AppendLine("Subjects: ");
+            sb.AppendLine();
 
-            // Topics (unique from cards)
-            if (q.Topics != null && q.Topics.Count > 0)
+            if (q.Subjects != null)
             {
-                var set = new HashSet<string>();
-                foreach (var cc in q.Topics)
-                    if (cc != null && cc.Subjects != null)
-                        foreach (var t in cc.Subjects)
-                            set.Add(t.ToString());
-                if (set.Count > 0)
+                foreach (var cc in q.Subjects)
                 {
-                    sb.AppendLine("- Topics:");
-                    foreach (var t in set.OrderBy(s => s))
-                        sb.AppendLine("    - " + t);
+                    sb.AppendLine("  - " + cc.Subject + " (x" + cc.Count + ")");
                 }
+                sb.AppendLine();
             }
 
             // Linked cards (expanded)
@@ -96,11 +91,8 @@ namespace Antura.Discover.Editor
                     string cImagePath = PublishUtils.GetCardImageAssetPath(card);
                     string cId = !string.IsNullOrEmpty(card.Id) ? card.Id : card.name;
 
-                    sb.AppendLine($"### {cTitle}");
-                    if (!string.IsNullOrEmpty(cId))
-                        sb.AppendLine($"Link: [{cId}](../cards/index.md#{cId})  ");
-                    sb.AppendLine($"Description: {cDesc}  ");
-                    sb.AppendLine($"Category: {cCategory}  ");
+                    sb.AppendLine($"**[{cTitle}](../cards/index.md#{cId})**  ");
+                    sb.AppendLine($"{cDesc}  ");
                     sb.AppendLine();
                 }
             }
@@ -223,8 +215,8 @@ namespace Antura.Discover.Editor
 
             if (q.AdditionalResources != null && !string.IsNullOrEmpty(q.AdditionalResources.text))
             {
-                sb.AppendLine();
-                sb.AppendLine("## Additional Resources");
+                // sb.AppendLine();
+                // sb.AppendLine("## Additional Resources");
                 sb.AppendLine();
                 sb.AppendLine(q.AdditionalResources.text);
             }
@@ -468,6 +460,23 @@ namespace Antura.Discover.Editor
             try
             {
                 var t = cfg.GetType();
+                // Preferred: ActivityConfig.ActivitySettings.ActivityCode
+                try
+                {
+                    var settingsObj = t.GetProperty("ActivitySettings", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(cfg)
+                                     ?? t.GetField("ActivitySettings", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(cfg);
+                    if (settingsObj != null)
+                    {
+                        var st = settingsObj.GetType();
+                        var acVal = st.GetProperty("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(settingsObj)
+                                   ?? st.GetField("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)?.GetValue(settingsObj);
+                        if (acVal != null)
+                            return acVal.ToString();
+                    }
+                }
+                catch { }
+
+                // Fallbacks: ActivityConfig.Code or ActivityConfig.ActivityCode
                 var pi = t.GetProperty("Code", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
                          ?? t.GetProperty("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
                 if (pi != null)

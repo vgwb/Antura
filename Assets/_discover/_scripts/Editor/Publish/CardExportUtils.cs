@@ -64,7 +64,6 @@ namespace Antura.Discover.Editor
                     if (c.Year != 0)
                         sb.AppendLine("- Year: " + c.Year);
                     sb.AppendLine("- Country: " + c.Country);
-                    sb.AppendLine("- Cookies: " + c.Cookies + " | Points: " + c.Points);
                     // if (c.ImageAsset != null)
                     //     sb.AppendLine("- Image: " + AssetDatabase.GetAssetPath(c.ImageAsset.Image));
                     // if (c.AudioAsset != null)
@@ -78,45 +77,7 @@ namespace Antura.Discover.Editor
                             .Select(id => $"[{id}](../words/{id}.md)");
                         sb.AppendLine("- Words: " + string.Join(", ", wordLinks));
                     }
-                    // Activities aggregated from linked quests
-                    if (c.Quests != null && c.Quests.Count > 0)
-                    {
-                        var activityCodes = new HashSet<string>(StringComparer.OrdinalIgnoreCase);
-                        foreach (var q in c.Quests.Where(q => q != null))
-                        {
-                            try
-                            {
-                                var prefab = q.QuestPrefab;
-                                var qmType = FindTypeByName("QuestManager");
-                                if (prefab == null || qmType == null)
-                                    continue;
-                                var qm = prefab.GetComponent(qmType);
-                                if (qm == null)
-                                    continue;
-                                var acMember = qmType.GetField("ActivityConfigs", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                                               ?? (MemberInfo)qmType.GetProperty("ActivityConfigs", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance);
-                                var acValue = GetMemberValue(qm, acMember);
-                                foreach (var item in AsEnumerable(acValue))
-                                {
-                                    var codeObj = GetMemberValue(item, item?.GetType().GetProperty("Code", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                                                                        ?? (MemberInfo)item?.GetType().GetField("Code", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                                                                        ?? item?.GetType().GetProperty("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance)
-                                                                        ?? (MemberInfo)item?.GetType().GetField("ActivityCode", BindingFlags.Public | BindingFlags.NonPublic | BindingFlags.Instance));
-                                    string code = codeObj != null ? codeObj.ToString() : null;
-                                    if (!string.IsNullOrWhiteSpace(code))
-                                        activityCodes.Add(code);
-                                }
-                            }
-                            catch { /* ignore per-quest reflection errors */ }
-                        }
-                        if (activityCodes.Count > 0)
-                        {
-                            var actLinks = activityCodes
-                                .OrderBy(x => x, StringComparer.OrdinalIgnoreCase)
-                                .Select(code => $"[{code}](../activities/{code}.md)");
-                            sb.AppendLine("- Activities: " + string.Join(", ", actLinks));
-                        }
-                    }
+
                     if (c.Quests != null && c.Quests.Count > 0)
                     {
                         var questLinks = c.Quests
