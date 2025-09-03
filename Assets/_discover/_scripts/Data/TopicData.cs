@@ -53,6 +53,9 @@ namespace Antura.Discover
         [FormerlySerializedAs("Topics")]
         public List<Subject> Subjects = new List<Subject>();
 
+        [Header("Authoring Metadata")]
+        public List<AuthorCredit> Credits;
+
         // === RUNTIME METHODS ===
 
         /// <summary>

@@ -7,3 +7,4 @@
 - [Cards](./cards/index.md) - the "atoms" of knowledge of the game
 - [Words](./words/index.md) - words that are discovered in the gme
 - [Activities](./activities/index.md) - the minigames that can be played
+- [Locations](./locations/index.md) - the Locations and Worlds

@@ -44,8 +44,6 @@ namespace Antura.Discover.Editor
                 string kid = string.IsNullOrEmpty(k.Id) ? k.name : k.Id;
                 sb.AppendLine($"## {kid}");
 
-                // Description
-
 
                 // Inline meta
                 var meta = new List<string>();
@@ -55,7 +53,7 @@ namespace Antura.Discover.Editor
 
                 if (!string.IsNullOrEmpty(k.Description))
                 {
-                    meta.Add($"Description: {EscapeParagraph(k.Description)}");
+                    meta.Add($"Description: {PublishUtils.EscapeParagraph(k.Description)}");
                 }
 
                 meta.Add($"Importance: {k.Importance}");
@@ -95,7 +93,12 @@ namespace Antura.Discover.Editor
                     }
                 }
 
-
+                if (k.Credits != null && k.Credits.Count > 0)
+                {
+                    sb.AppendLine("\nCredits:");
+                    foreach (var c in k.Credits.Where(c => c != null && c.Author != null))
+                        sb.AppendLine("  - " + PublishUtils.FormatAuthor(c.Author));
+                }
 
                 sb.AppendLine();
             }
@@ -115,13 +118,6 @@ namespace Antura.Discover.Editor
             if (string.IsNullOrEmpty(s))
                 return string.Empty;
             return s.Replace("|", "\\|").Replace("*", "\\*");
-        }
-
-        private static string EscapeParagraph(string s)
-        {
-            if (string.IsNullOrEmpty(s))
-                return string.Empty;
-            return s.Replace("\r\n", "\n").Replace("\r", "\n");
         }
     }
 }

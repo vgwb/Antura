@@ -14,15 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: art_monalisa
   Status: 3
-  Importance: 0
   Type: 3
-  Topics: 050000000100000003000000
-  IsCoreCard: 0
-  IsInKnowledges: 1
-  Year: 1503
-  Country: 1
-  Location: {fileID: 0}
-  WikipediaUrl: https://en.wikipedia.org/wiki/Mona_Lisa
+  Subjects: 050000000100000003000000
   TitleEn: Mona Lisa
   DescriptionEn: The most famous painting in the world! A woman with a mysterious
     smile painted by Leonardo da Vinci. She seems to follow you with her eyes.
@@ -44,14 +37,25 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
-  Quests: []
-  Words: []
+  Year: 1503
+  Country: 1
+  Location: {fileID: 0}
+  WikipediaUrl: https://en.wikipedia.org/wiki/Mona_Lisa
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 1
   MasteryPointsToUnlock: 1
+  Quests:
+  - {fileID: 11400000, guid: 6eed211db83384d52b00e0a65d92c8a6, type: 2}
+  Words:
+  - {fileID: 11400000, guid: 56172b16c2db149d796a8f68b9827dce, type: 2}
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 47c43d186465e4350860c698476a6310, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -60,9 +64,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits:
+  - Author: {fileID: 11400000, guid: 53f72e96bf2f24d519a04ff7b016afc8, type: 2}
+    Content: 0
+    Design: 0
+    Development: 0
+    Validation: 0
   Rationale: Kids are fascinated by this mysterious painting and it introduces Renaissance
     art
-  Credits: []
   Notes: 
   LastReviewed: 2025-08-31
   NeedsLocalizationUpdate: 1

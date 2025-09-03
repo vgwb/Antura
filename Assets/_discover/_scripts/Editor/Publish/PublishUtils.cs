@@ -287,6 +287,13 @@ namespace Antura.Discover.Editor
             //            var encodedScriptPath = string.Join("/", scriptPath.Replace("\\", "/").Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Select(seg => Uri.EscapeDataString(seg)));
         }
 
+        public static string EscapeParagraph(string s)
+        {
+            if (string.IsNullOrEmpty(s))
+                return string.Empty;
+            return s.Replace("\r\n", "\n").Replace("\r", "\n");
+        }
+
     }
 }
 #endif
