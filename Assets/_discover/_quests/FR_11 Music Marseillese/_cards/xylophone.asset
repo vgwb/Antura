@@ -10,46 +10,49 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5aadddd4859dc4005a1f0c713ace0269, type: 3}
-  m_Name: music_la_marseillaise
-  m_EditorClassIdentifier: 
-  Id: music_la_marseillaise
-  Status: 1
-  Importance: 20
-  Type: 4
-  Topics: 1600000003000000
-  Year: 1885
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: https://wikipedia.org/wiki/La_Marseillaise
-  TitleEn: La Marseillaise
-  DescriptionEn: The French national song. People sing it at big events and sports
-    games.
+  m_Name: xylophone
+  m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
+  Id: xylophone
+  Status: 2
+  Type: 3
+  Subjects: 1600000014000000
+  TitleEn: Xylophone
+  DescriptionEn: An instrument with bars you hit to make notes.
   Title:
     m_TableReference:
-      m_TableCollectionName: Cards
+      m_TableCollectionName: 
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: music_la_marseillaise
+      m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
   Description:
     m_TableReference:
-      m_TableCollectionName: Cards
+      m_TableCollectionName: 
     m_TableEntryReference:
       m_KeyId: 0
-      m_Key: music_la_marseillaise.desc
+      m_Key: 
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 0
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 0
+  targetAge: 2
+  CoreOfTopic: {fileID: 0}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests: []
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
-  ImageAsset: {fileID: 11400000, guid: d83a9895d8d555d409eb9c75deb7497f, type: 2}
+  ImageAsset: {fileID: 0}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -58,13 +61,14 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: 
   Notes: 
-  LastReviewed: 2025-08-30
-  NeedsLocalizationUpdate: 1
-  _lastTitleEn: La Marseillaise
-  _lastDescriptionEn: The French national song. People sing it at big events and
-    sports games.
+  LastReviewed: 
+  NeedsLocalizationUpdate: 0
+  QuestOwner: FR_11
+  _lastTitleEn: 
+  _lastDescriptionEn: 
   references:
     version: 2
     RefIds: []

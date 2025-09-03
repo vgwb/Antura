@@ -1,31 +1,21 @@
-﻿// ============================================================================
-// FR_11_MUSIC - French Musical Heritage
-// ============================================================================
-//
-// Cards:
-// - LaMarseillese (national anthem)
-// - JeanMichelJarre (contemporary composer)
-//
-// Tasks:
-//
-// Activities:
-// - Piano activity
-//
+﻿// FR_11 MUSIC - La Marseillaise
 // Words used: music, composer, anthem, La Marseillaise, piano, melody, rhythm, French, classical, electronic, Jean-Michel Jarre, instruments
 // ============================================================================
 
-title: FR_11_init
+title: init
 position: 0,0
-tags: type=Start
+tags:
+type: panel
 ---
 <<set $MAX_PROGRESS = 4>>
 <<set $CURRENT_PROGRESS = 0>>
 <<set $TOTAL_COINS = 0>>
+Welcome to the music quest!
 ===
 
 title: band_member
 position: 275,-57
-tags: actorUID=MAN
+tags: actor=MAN
 ---
 <<if $COLLECTED_ITEMS >= 7>>
 Thank you for helping us! #line:09fc7ad 
@@ -67,4 +57,3 @@ position: 5,198
 Now let's try to play the song! #line:0cef358 
 <<activity play_piano>>
 ===
-
