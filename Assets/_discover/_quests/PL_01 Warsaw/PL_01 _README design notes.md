@@ -2,7 +2,7 @@
 
 Complete Warsaw exploration following Antura through capital landmarks. Meet Mermaid of Warsaw, experience Chopin's music, learn Wars & Sawa legend, visit parliament, encounter Maria Curie at Palace of Culture, and conclude at National Stadium with sports activities.
 
-**Knowledge Content**
+### Knowledge Content
 Buildings:
 
 - Mermaid of Warsaw
@@ -29,7 +29,7 @@ Maria Curie-Skłodowska
 Vocabulary:  sport: football (soccer), ball, goal/gate, soccer field
 Transport: train, tram, bus, car, bike
 
-**Story / Flow**
+### Flow
 
 You are greeted in Warsaw, the capital of Poland by the Guide. He asks you for your help. It seems that Antura has been creating chaos since it arrived here and somebody needs to stop it and fix it. He points you in the direction of the Mermaid of Warsaw.
 
@@ -67,7 +67,7 @@ Then the Guide comes and he says that you have managed to clear the commotion th
 Question 1: How does the polish flag look? (with a few pictures to choose from)
 Question 2: Math the picture with words (the vocabulary)
 
-**Resources**
+### Resources
 **Palace of Culture and Science**
 A tall, historic skyscraper in Warsaw built in the 1950s as a gift from the Soviet Union. Today it houses theaters, museums, offices, and a viewing terrace.
 

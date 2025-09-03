@@ -7,7 +7,7 @@ The player must explore a stylized map of Wrocław to find 10 unique dwarf statu
 **The Dwarf Expert (Guide):** A friendly guide who explains the mission and the magical nature of the dwarves.  
 **Special Dwarves:** The "Bishop Dwarf" who asks questions, and the "Keymaster Dwarf" who guards the elevator.  
 
-**Knowledge Content**
+### Knowledge Content
 
 **Facts about Wrocław:**
 
@@ -18,7 +18,7 @@ The player must explore a stylized map of Wrocław to find 10 unique dwarf statu
 
 **Basic Definitions:** To understand that a Town Hall is where the city's leaders work and a Cathedral is a large, important church where people pray.
 
-**Story / Flow**
+### Flow
 
 **Mission**: We start on the campus of the Leonardo School. The player meets the "Dwarf Expert."
 
@@ -56,7 +56,6 @@ one of the largest operating fountains in Europe, is a multimedia musical founta
 
 EN: The Wrocław multimedia fountain is a place where water dances to music and colorful lights. Every summer show is a beautiful story told with water and light.
 
-
 **Dwarf 6 - Panorama Racławicka**
 a museum in Wrocław that displays the painting by Wojciech Kossak and Jan Styka, showing the events of a battle of Raclawice. Its dimentions are 1500x11400 cm.
 
@@ -64,8 +63,6 @@ EN: The Racławice Panorama is a giant painting that shows a big battle. It’s 
 
 **Dwarf 7 - Olga Tokarczuk**
 polish writer who was awarded with the Nobel Prize in Literature. She is living in Wrocław.
-
-
 EN: In Wrocław lives Olga Tokarczuk. She is the most famous Polish writer. The characters in her books often live in Lower Silesia, the region where Wrocław is the main city.
 
 **The Hunt - Part 2 (Sky Tower): **

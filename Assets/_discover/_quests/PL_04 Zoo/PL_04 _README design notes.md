@@ -8,7 +8,7 @@ The player must act as a detective to find the missing flag of Wrocław. The cor
 The ZOO Director: The character who gives the mission and provides information.
 The Animals: An Elephant, a Giraffe, a Lion, a Monkey, and a Penguin, each with their own personality and mini-game.
 
-**Knowledge Content**  
+### Knowledge content
 **Famous Landmarks:**   
 
 - To recognize the Centennial Hall (a UNESCO World Heritage site), 

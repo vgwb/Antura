@@ -9,7 +9,7 @@ The player must gather materials from a Baltic beach by playing a "beachcombing"
 The Fisherman: A friendly character who provides information about his job, the local geography, and wildlife.
 Neptune: The statue at Neptune's Fountain, who comes to life to accept the offering.
 
-**Knowledge Content:**  
+### Knowledge Content
 Baltic Sea Characteristics:
 
 - The Baltic coast has beautiful sandy beaches.
@@ -24,46 +24,57 @@ Learn words related to the sea: fisherman, cutter, fishing net, shell, fish, sea
 - Learn about the historic Gdańsk Lighthouse and its role.
 - Get a brief introduction to the legend of the Amber Room.
 
+### Flow
 The quest begins in Gdańsk near the Lighthouse, which is turned off. A message explains: "Antura has played a prank and turned off the lighthouse! The legend says only an offering to Neptune, king of the sea, can relight it. He desires a necklace made from the treasures of the Baltic: 5 pieces of amber and 5 beautiful seashells."
-The Beach: The player heads to the sandy beach.
+
+**The Beach: **
+The player heads to the sandy beach.
 Mini-Game Shells: To find the items, the player plays a "beachcombing" game, dragging a rake tool across the sand to uncover the hidden amber and shells.
 5 sand piles 1 for each piece of shell
 
-Meet the Fisherman: The player meets a fisherman mending his fishing net next to his cutter.
+**Meet the Fisherman:** 
+meets a fisherman mending his fishing net next to his cutter.
 Mini-Game Amber 5 special piles 1 for each piece of amber
 Fisherman: "Witaj! I am a fisherman. 
 I use this cutter to go out on the Baltic Sea 
 and this net to catch fish.
-The Crafting: Once all 10 items are collected, a simple crafting UI appears. The player drags the amber and shells onto a string in a pattern to create the necklace. (sequence activity)
+
+**The Crafting:**
+Once all 10 items are collected, a simple crafting UI appears. The player drags the amber and shells onto a string in a pattern to create the necklace. (sequence activity)
 Use Activity Order. 
 The order of the piles can be around the fountain
-The Offering to Neptune: The player returns to Neptune's Fountain and places the finished necklace on the statue.
+
+**The Offering to Neptune:**
+The player returns to Neptune's Fountain and places the finished necklace on the statue.
 The statue of Neptune glows and speaks with a deep voice.
 Neptune: "A fine offering! This beautiful amber reminds me of the lost Amber Room! (A pop-up explains the Amber Room mystery). You have shown respect for the sea. I will grant your wish!"
 With a flash of light from Neptune's trident, the Lighthouse beam turns on in the distance.
-Conclusion - The Final Lesson: The player wins the race, reaching the seals just in time to block Antura, who then scampers away. The fisherman walks over.
+
+**Conclusion - The Final Lesson:**
+The player wins the race, reaching the seals just in time to block Antura, who then scampers away. The fisherman walks over.
 Fisherman: "Well done! These are wild seals. 
 We must always keep our distance to keep them safe and happy in their natural home.
 Look there is Antura! Go there
 Walk to antura (pay attention to seals -1)
 Antura: The quest is complete.
-Final Assessment
+
+**Final Assessment**
 Question: 4 questions on pictures (2 answers each)
 (An image of amber) -> Amber
 (An image of a fish) -> Fish
 (An image of a seal) -> Seal
 (An image of a beach) -> Beach
 
-Resources
-Gdańsk Nowy Port Lighthouse: historic 19th century structure, built in 1894, that used to guide ships into Gdansk’s harbor and was among the first lighthouses on the Baltic Sea coast to use electric light. It’s currently open to visitors as a museum and offers a panoramic view of the Baltic Sea and port area.
+### Resources
+**Gdańsk Nowy Port Lighthouse:** historic 19th century structure, built in 1894, that used to guide ships into Gdansk’s harbor and was among the first lighthouses on the Baltic Sea coast to use electric light. It’s currently open to visitors as a museum and offers a panoramic view of the Baltic Sea and port area.
 
-Baltic Sea – shore in Gdańsk (photo of Brzeźno Beach): it is known for sandy beaches, brisk sea breeze, and scenic coast. It’s a popular spot for both locals and tourists, especially during summer.
+**Baltic Sea – shore in Gdańsk** (photo of Brzeźno Beach): it is known for sandy beaches, brisk sea breeze, and scenic coast. It’s a popular spot for both locals and tourists, especially during summer.
   
-Amber: also known as Baltic Gold, is fossilized tree resin that can be found along the shores of the Baltic Sea. It can often contain ancient inclusions like insects or plant matter. It is prized for its warm hues and used to be traded along the famous Amber Road connecting northern Europe to the Mediterranean.
+**Amber**: also known as Baltic Gold, is fossilized tree resin that can be found along the shores of the Baltic Sea. It can often contain ancient inclusions like insects or plant matter. It is prized for its warm hues and used to be traded along the famous Amber Road connecting northern Europe to the Mediterranean.
 
-The Amber Room: world famous chamber decorated in amber panels, originally created in the 18th century by German and Gdansk-based artisans. A replica now resides in Catherine Palace near St. Petersburg, but its mysterious wartime disappearance links it forever to Gdansk’s amber trade.
+**The Amber Room:** world famous chamber decorated in amber panels, originally created in the 18th century by German and Gdansk-based artisans. A replica now resides in Catherine Palace near St. Petersburg, but its mysterious wartime disappearance links it forever to Gdansk’s amber trade.
 
-Żuraw: medieval port crane and one of Gdansk’s most iconic landmarks. Built in the 15th century, it served both as a loading crane and a city gate along the Motława River.
+**Żuraw**: medieval port crane and one of Gdansk’s most iconic landmarks. Built in the 15th century, it served both as a loading crane and a city gate along the Motława River.
 
 Neptun’s fountain: historic fountain in Gdansk located in Gdansk’s Long Market and in front of the Main Town Hall, symbolizes the city’s connection to the sea. The statue of the sea god has stood there since the 17th century and is a popular meeting point for visitors.
 
