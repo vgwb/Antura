@@ -278,6 +278,15 @@ namespace Antura.Discover.Editor
                 LocalizationSettings.SelectedLocale = prev;
             }
         }
+
+        public static string EncodeUriString(string path)
+        {
+            if (string.IsNullOrEmpty(path))
+                return string.Empty;
+            return Uri.EscapeUriString(path).Replace("%2F", "/").Replace("%5C", "/");
+            //            var encodedScriptPath = string.Join("/", scriptPath.Replace("\\", "/").Split(new[] { '/' }, StringSplitOptions.RemoveEmptyEntries).Select(seg => Uri.EscapeDataString(seg)));
+        }
+
     }
 }
 #endif
