@@ -28,6 +28,7 @@ namespace Antura.Discover
         public string Description;
         public Importance Importance = Importance.Medium;
         public Color NodeColor = Color.white;
+        public Countries Country;
 
         [Header("Core Topic")]
         [Tooltip("The main card that represents this theme")]

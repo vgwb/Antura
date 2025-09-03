@@ -68,6 +68,9 @@ namespace Antura.Discover
         public bool IsScriptPublic;
 
         [Tooltip("for the Website. THis is a Markdown file that contains additional resources for the quest, such as links to videos, articles, etc.")]
+        public TextAsset TeacherResources;
+
+        [Tooltip("Game Design Notes, published with the script")]
         public TextAsset AdditionalResources;
 
         public List<AuthorCredit> Credits;
