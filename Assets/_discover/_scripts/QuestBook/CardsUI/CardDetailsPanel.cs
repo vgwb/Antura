@@ -14,7 +14,9 @@ namespace Antura.Discover.UI
         public TextMeshProUGUI descriptionText;
         public Image image;
         public Image soundIcon;
+        public GameObject isTopicBadge;
         public GameObject lockedBadge;
+        public TextMeshProUGUI progressText;
 
         public Button nextCardButton;
         public Button prevCardButton;
@@ -86,8 +88,19 @@ namespace Antura.Discover.UI
             if (image && greyscaleMaterial != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 
-            // if (lockedBadge)
-            //     lockedBadge.SetActive(isLocked);
+            if (lockedBadge)
+                lockedBadge.SetActive(isLocked);
+
+            if (state != null)
+            {
+                progressText.text = $"{state.masteryPoints} / {card.MasteryPointsToUnlock}";
+            }
+            else
+            {
+                progressText.text = $"0 / {card.MasteryPointsToUnlock}";
+            }
+            isTopicBadge.SetActive(card.CoreOfTopic != null);
+
             // if (soundIcon)
             //     soundIcon.enabled = def.AudioAsset != null && def.AudioAsset.Audio != null;
 

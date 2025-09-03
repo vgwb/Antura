@@ -150,6 +150,8 @@ namespace Antura.Discover
         // Optional non-serialized convenience property (uses live computation)
         public string SubjectsSummaryText => QuestSubjectsUtility.BuildSummaryText(GetSubjectsBreakdown());
 
+        public string SubjectsListText => QuestSubjectsUtility.BuildSummaryTextSimple(GetSubjectsBreakdown());
+
 #if UNITY_EDITOR
         [ContextMenu("Refresh Top Subjects")]
         private void RefreshTopSubjects()

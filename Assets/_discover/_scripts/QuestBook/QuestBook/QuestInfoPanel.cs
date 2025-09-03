@@ -34,27 +34,29 @@ namespace Antura.Discover.UI
             QuestCardsUI.Init(questData);
 
 
-            Title.text = questData.Id + " | " + questData.Title.GetLocalizedString();
-            if (questData.Location != null)
-                Title.text += " | " + questData.Location.Name.GetLocalizedString();
+            Title.text = questData.Title.GetLocalizedString() + " | " + questData.Id;
 
+            Description.text = "";
             if (questData.Description != null && !questData.Description.IsEmpty)
-                Description.text = questData.Description.GetLocalizedString();
+                Description.text += questData.Description.GetLocalizedString() + "\n";
 
-            Description.text += "\n\n";
+            if (questData.Location != null)
+                Description.text += "Location: " + questData.Location.Name.GetLocalizedString() + "\n";
 
-            // if (questData.Cate != null)
-            //     Description.text += "<b>Categories:</b> " + questData.Categories + "\n";
+            Description.text += "Subjects: " + questData.SubjectsListText + "\n";
+
+            Description.text += "Difficulty: " + questData.Difficulty + "\n";
+
             if (questData.Duration > 0)
-                Description.text += "<b>Duration:</b> " + questData.Duration + " min" + "\n";
-            if (questData.Words != null)
-            {
-                Description.text += "<b>Words used:</b> ";
-                foreach (var word in questData.Words)
-                {
-                    Description.text += "- " + word.GetLocalizedString() + "\n";
-                }
-            }
+                Description.text += "Duration: " + questData.Duration + " min" + "\n";
+            // if (questData.Words != null)
+            // {
+            //     Description.text += "<b>Words used:</b> ";
+            //     foreach (var word in questData.Words)
+            //     {
+            //         Description.text += "- " + word.GetLocalizedString() + "\n";
+            //     }
+            // }
             // if (questData.Gameplay != null)
             //     Description.text += "<b>Gameplay:</b> " + questData.Gameplay + "\n\n";
             // if (questData.Content != "")

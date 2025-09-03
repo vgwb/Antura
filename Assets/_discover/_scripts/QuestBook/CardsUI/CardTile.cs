@@ -14,6 +14,10 @@ namespace Antura.Discover.UI
         public TextMeshProUGUI titleText;
         public TextMeshProUGUI categoryText;
 
+        public GameObject isTopicBadge;
+        public GameObject lockedBadge;
+        public TextMeshProUGUI progressText;
+
         [Header("Locked Greyscale")]
         public Material greyscaleMaterial;
 
@@ -58,6 +62,18 @@ namespace Antura.Discover.UI
             if (greyscaleMaterial != null && image != null)
                 image.material = isLocked ? greyscaleMaterial : null;
 
+            if (lockedBadge)
+                lockedBadge.SetActive(isLocked);
+
+            if (state != null)
+            {
+                progressText.text = $"{state.masteryPoints} / {card.MasteryPointsToUnlock}";
+            }
+            else
+            {
+                progressText.text = $"0 / {card.MasteryPointsToUnlock}";
+            }
+            isTopicBadge.SetActive(card.CoreOfTopic != null);
         }
 
         private void OnRectTransformDimensionsChange()

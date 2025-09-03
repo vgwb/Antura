@@ -49,6 +49,16 @@ namespace Antura.Discover
             return string.Join(separator, list.Select(sc => sc.ToString()));
         }
 
+        public static string BuildSummaryTextSimple(IEnumerable<SubjectCount> counts, string separator = ", ")
+        {
+            if (counts == null)
+                return string.Empty;
+            var list = counts.ToList();
+            if (list.Count == 0)
+                return string.Empty;
+            return string.Join(separator, list.Take(3).Select(sc => sc.Subject.ToString()));
+        }
+
         private static void AddCardSubjects(Dictionary<Subject, int> totals, CardData card, int weight)
         {
             if (card == null)
