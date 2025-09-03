@@ -2704,6 +2704,7 @@ GameObject:
   - component: {fileID: 69740903692786385}
   - component: {fileID: 5253329627236453631}
   - component: {fileID: 4842236905888986849}
+  - component: {fileID: 238426173368906792}
   m_Layer: 0
   m_Name: orange (2)
   m_TagString: Untagged
@@ -2720,7 +2721,7 @@ Transform:
   m_GameObject: {fileID: 3362015870185276845}
   serializedVersion: 2
   m_LocalRotation: {x: 0.016535707, y: -0.3281203, z: -0.047537547, w: 0.9432941}
-  m_LocalPosition: {x: -0.13, y: 0.313, z: -0.037}
+  m_LocalPosition: {x: -0.88, y: 0.313, z: -0.13}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2821,6 +2822,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.169692, y: 0.16719998, z: 0.16969198}
   m_Center: {x: -3.1143424e-10, y: 0.08359999, z: 6.228685e-10}
+--- !u!114 &238426173368906792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3362015870185276845}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_orange
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &3481936315422933408
 GameObject:
   m_ObjectHideFlags: 0
@@ -3768,6 +3799,7 @@ GameObject:
   - component: {fileID: 299674862592308044}
   - component: {fileID: 2277903519911807936}
   - component: {fileID: 1635193297442661661}
+  - component: {fileID: 7488430533234096661}
   m_Layer: 0
   m_Name: loaf-round (1)
   m_TagString: Untagged
@@ -3885,6 +3917,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.77170986, y: 0.2931796, z: 0.5144732}
   m_Center: {x: 0, y: 0.1465898, z: 0}
+--- !u!114 &7488430533234096661
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4117054024735477269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_bread
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &4172392245712262218
 GameObject:
   m_ObjectHideFlags: 0
@@ -4098,6 +4160,7 @@ GameObject:
   - component: {fileID: 5283284043199825548}
   - component: {fileID: 250828100700302928}
   - component: {fileID: 3987093896702901993}
+  - component: {fileID: 4724093500548878967}
   m_Layer: 0
   m_Name: salt and pepper
   m_TagString: Untagged
@@ -4114,7 +4177,7 @@ Transform:
   m_GameObject: {fileID: 4456311401947678137}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0.60279024, z: 0, w: 0.7978997}
-  m_LocalPosition: {x: 0.045, y: 0, z: -0.193}
+  m_LocalPosition: {x: 0.57, y: 0, z: -0.6}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -4164,6 +4227,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.15, y: 0.24, z: 0.37}
   m_Center: {x: 0, y: 0.4, z: 0}
+--- !u!114 &4724093500548878967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4456311401947678137}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_pepper_salt
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &4474422697355515469
 GameObject:
   m_ObjectHideFlags: 0
@@ -5223,6 +5316,7 @@ GameObject:
   - component: {fileID: 2126374239324349900}
   - component: {fileID: 5720680640900661237}
   - component: {fileID: 6866397748585910646}
+  - component: {fileID: 3689005521061133437}
   m_Layer: 0
   m_Name: tomato (3)
   m_TagString: Untagged
@@ -5239,7 +5333,7 @@ Transform:
   m_GameObject: {fileID: 6068330096868077314}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.13052592, z: -0, w: 0.99144495}
-  m_LocalPosition: {x: 0.12, y: 0.3, z: 0.284}
+  m_LocalPosition: {x: -0.71, y: 0.3, z: 0.74}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5340,6 +5434,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.169692, y: 0.14266428, z: 0.169692}
   m_Center: {x: 0, y: 0.07133214, z: 0}
+--- !u!114 &3689005521061133437
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6068330096868077314}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_tomato
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &6165263844773758528
 GameObject:
   m_ObjectHideFlags: 0
@@ -5860,6 +5984,7 @@ GameObject:
   - component: {fileID: 1855215334843774542}
   - component: {fileID: 7079471603635370237}
   - component: {fileID: 2108255249629300352}
+  - component: {fileID: 4060316188898581491}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -5876,7 +6001,7 @@ Transform:
   m_GameObject: {fileID: 6830432381479177902}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.53, y: 0, z: -0.21}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5925,6 +6050,36 @@ MonoBehaviour:
   rotationSpeed: 100
   bobbingAmount: 0.1
   bobbingSpeed: 1
+--- !u!114 &4060316188898581491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6830432381479177902}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_fish
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &6953779413122036013
 GameObject:
   m_ObjectHideFlags: 0
@@ -7213,6 +7368,7 @@ GameObject:
   - component: {fileID: 5887021009116626016}
   - component: {fileID: 4183880126785126983}
   - component: {fileID: 4207507396714546108}
+  - component: {fileID: 3130430235851262596}
   m_Layer: 0
   m_Name: bottle-oil (2)
   m_TagString: Untagged
@@ -7330,6 +7486,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.14, y: 0.6218, z: 0.14}
   m_Center: {x: 0, y: 0.3109, z: 0}
+--- !u!114 &3130430235851262596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8205570980342425331}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_oil
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &8259800187065461127
 GameObject:
   m_ObjectHideFlags: 0
@@ -7723,6 +7909,7 @@ GameObject:
   - component: {fileID: 7468996093989039921}
   - component: {fileID: 3550947045478062309}
   - component: {fileID: 8559877252771437387}
+  - component: {fileID: 2098377009043992662}
   m_Layer: 0
   m_Name: lemon (2)
   m_TagString: Untagged
@@ -7738,13 +7925,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9166171170906214307}
   serializedVersion: 2
-  m_LocalRotation: {x: -0.70105743, y: -0.09229581, z: -0.09229581, w: 0.70105743}
-  m_LocalPosition: {x: 0.217, y: 0.3, z: -0.021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.35, y: 0.3, z: 0.41}
   m_LocalScale: {x: 0.79999995, y: 0.8000001, z: 0.8000001}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 6428378525208634510}
-  m_LocalEulerAnglesHint: {x: -90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!33 &8503925600714997171
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -7840,6 +8027,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.17320506, y: 0.22399999, z: 0.19999999}
   m_Center: {x: -0.00000000166893, y: 0.111999996, z: 0}
+--- !u!114 &2098377009043992662
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9166171170906214307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_lemon
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &9182027399374546362
 GameObject:
   m_ObjectHideFlags: 0
@@ -8684,7 +8901,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Cheesemonger
+      value: casaro
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -9040,7 +9257,7 @@ PrefabInstance:
     - target: {fileID: 8910854346563396959, guid: f0038908e90e84c0b9f031b604ae2251,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.45
+      value: -0.262
       objectReference: {fileID: 0}
     - target: {fileID: 8910854346563396959, guid: f0038908e90e84c0b9f031b604ae2251,
         type: 3}
@@ -9050,7 +9267,7 @@ PrefabInstance:
     - target: {fileID: 8910854346563396959, guid: f0038908e90e84c0b9f031b604ae2251,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.95
+      value: 0.932
       objectReference: {fileID: 0}
     - target: {fileID: 8910854346563396959, guid: f0038908e90e84c0b9f031b604ae2251,
         type: 3}
@@ -9099,6 +9316,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 4648662099726269246}
+    - targetCorrespondingSourceObject: {fileID: 18134602074175429, guid: f0038908e90e84c0b9f031b604ae2251,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3820259075289433604}
   m_SourcePrefab: {fileID: 100100000, guid: f0038908e90e84c0b9f031b604ae2251, type: 3}
 --- !u!1 &2461305713909485815 stripped
 GameObject:
@@ -9148,6 +9369,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.52, y: 0.5, z: 0.44}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3820259075289433604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2461305713909485815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_crab
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!4 &6467603387295253101 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8910854346563396959, guid: f0038908e90e84c0b9f031b604ae2251,
@@ -9977,7 +10228,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.02
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
         type: 3}
@@ -9987,7 +10238,7 @@ PrefabInstance:
     - target: {fileID: -8679921383154817045, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.28
+      value: 0.05
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
         type: 3}
@@ -10046,6 +10297,10 @@ PrefabInstance:
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 2422249808873509082}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6095039330068139329}
   m_SourcePrefab: {fileID: 100100000, guid: 5dda0606bfdce4e41bd5e21dd931a0d4, type: 3}
 --- !u!1 &2522509967101439464 stripped
 GameObject:
@@ -10095,6 +10350,36 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.22999999, y: 0.59054625, z: 0.22999999}
   m_Center: {x: 0, y: 0.29527313, z: 0}
+--- !u!114 &6095039330068139329
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2522509967101439464}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ef4bfb1c5f71e427997442bee5cce9bd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Id: 
+  IsInteractable: 1
+  NearbyAutoActivate: 0
+  IconType: 0
+  IconTransform: {fileID: 0}
+  ShowOnMap: 0
+  ShowIconAlways: 0
+  FocusCameraOnInteract: 0
+  FaceToPlayer: 0
+  DialogueNode:
+    project: {fileID: 7545569452688597077, guid: ac590a8785379443fbb648382d590f33,
+      type: 3}
+    nodeName: item_milk
+  NodePermalink: 
+  disableAfterAction: 0
+  QuestAction: 
+  Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!4 &2903152562922780498 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 5dda0606bfdce4e41bd5e21dd931a0d4,
@@ -10554,7 +10839,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Fishmonger
+      value: Pescivendolo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -10815,7 +11100,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Greengrocer
+      value: Fruttivendolo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11395,7 +11680,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Greengrocer
+      value: Fruttivendolo
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -11419,7 +11704,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3591
+      value: 3609
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -15689,7 +15974,7 @@ PrefabInstance:
     - target: {fileID: 8975250573548358907, guid: aec78715485724438a97aa3feb338050,
         type: 3}
       propertyPath: m_text
-      value: Baker
+      value: Panettiere
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
