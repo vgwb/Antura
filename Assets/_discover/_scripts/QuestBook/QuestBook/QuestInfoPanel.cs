@@ -4,6 +4,7 @@ using System.Linq;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using Antura.UI;
 
 namespace Antura.Discover.UI
 {
@@ -27,6 +28,7 @@ namespace Antura.Discover.UI
 
         public void Show(QuestData questData)
         {
+            GlobalUI.ShowPauseMenu(false);
             Description.text = "";
             gameObject.SetActive(true);
             currentQuestData = questData;
@@ -95,6 +97,7 @@ namespace Antura.Discover.UI
         public void Close()
         {
             gameObject.SetActive(false);
+            GlobalUI.ShowPauseMenu(true);
         }
 
         public void BtnNextQuest()
