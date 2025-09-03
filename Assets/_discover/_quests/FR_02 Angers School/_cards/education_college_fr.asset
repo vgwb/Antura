@@ -14,13 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Antura.Discover.CardData
   Id: education_college_fr
   Status: 3
-  Importance: 10
   Type: 4
-  Topics: 1400000003000000
-  Year: 1975
-  Country: 2
-  Location: {fileID: 0}
-  WikipediaUrl: 
+  Subjects: 1400000003000000
   TitleEn: "Coll\xE8ge in France"
   DescriptionEn: Middle school in France for kids aged 11 to 15. Students learn many
     subjects and prepare for high school.
@@ -42,16 +37,25 @@ MonoBehaviour:
     m_FallbackState: 0
     m_WaitForCompletion: 0
     m_LocalVariables: []
+  Year: 1975
+  Country: 2
+  Location: {fileID: 0}
+  WikipediaUrl: 
+  Importance: 10
+  targetAge: 2
+  CoreOfTopic: {fileID: 11400000, guid: 5b878c0bdbd0f4e5188f96fe04225dd3, type: 2}
+  IsInTopics: 0
+  MasteryPointsToUnlock: 1
   Quests:
   - {fileID: 11400000, guid: 716363fcf6f5d429fad297723e024700, type: 2}
   - {fileID: 11400000, guid: 4752297a8bb3a4c1baaaa5969fa46b85, type: 2}
   Words: []
-  MasteryPointsToUnlock: 1
   Cookies: 0
   Gems: 0
   Points: 1
   MediaType: 0
   ImageAsset: {fileID: 11400000, guid: 5bcd285d7134848b4ae01ecc4254986c, type: 2}
+  AdditionalImageAssets: []
   PreviewImage: {fileID: 0}
   AudioAsset: {fileID: 0}
   IsCollectible: 0
@@ -60,6 +64,7 @@ MonoBehaviour:
   ItemIcon: {fileID: 0}
   ItemTag: 0
   CustomTag: 
+  Credits: []
   Rationale: Understanding the French school system helps kids compare education
     across countries
   Notes: 

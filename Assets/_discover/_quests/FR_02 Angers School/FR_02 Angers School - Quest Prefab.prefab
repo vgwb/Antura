@@ -262,6 +262,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 7545569452688597077, guid: 221ba14b956b8451794922189fab6cab,
       type: 3}
@@ -270,6 +271,7 @@ MonoBehaviour:
   disableAfterAction: 0
   QuestAction: 
   Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1 &4017108264321078535
 GameObject:
   m_ObjectHideFlags: 0
@@ -709,6 +711,7 @@ MonoBehaviour:
   ShowOnMap: 0
   ShowIconAlways: 1
   FocusCameraOnInteract: 0
+  FaceToPlayer: 0
   DialogueNode:
     project: {fileID: 0}
     nodeName: 
@@ -716,6 +719,7 @@ MonoBehaviour:
   disableAfterAction: 0
   QuestAction: add_progress_points
   Commands: []
+  FaceToPlayerComp: {fileID: 0}
 --- !u!1001 &118635310605698883
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -727,7 +731,7 @@ PrefabInstance:
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 3037
+      value: 3043
       objectReference: {fileID: 0}
     - target: {fileID: 1020406542880875525, guid: d93d9cef666b54203b25c67c598fe5df,
         type: 3}
@@ -5656,7 +5660,7 @@ PrefabInstance:
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.39922917
+      value: 0.938493
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
@@ -5666,7 +5670,7 @@ PrefabInstance:
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.91685116
+      value: 0.34529823
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
@@ -5681,7 +5685,7 @@ PrefabInstance:
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 132.94
+      value: 40.4
       objectReference: {fileID: 0}
     - target: {fileID: 2361778404096118809, guid: d55f914b0047442579e023489fbe4032,
         type: 3}
