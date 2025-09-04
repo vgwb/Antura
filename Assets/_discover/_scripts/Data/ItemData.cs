@@ -10,7 +10,8 @@ namespace Antura.Discover
         Coin = 2,
         Flag = 3,
         Food = 4,
-        Key = 5
+        Key = 5,
+        Animal = 6,
     }
 
     [CreateAssetMenu(fileName = "ItemIconData", menuName = "Antura/Discover/Inventory Icon Item")]
