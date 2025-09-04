@@ -13,176 +13,258 @@
 
 
 title: init
-position: 0,0
+type: panel
+position: -952,-145
 group: Intro
 tags: actor=Man, type:Panel
 image: centennial_hall_empty_flag
 color: red
 ---
-The FLAG is missing! #line:09c6bf7 
+<<declare $talked_animals = false>>
+TUTOR: Welcome to Wroclaw Zoo. #line:0fe55d1 
+There are lots of animals here! #line:005dd46 
+===
+
+title: director_talk
+position: -951,-5
+group: Intro
+tags: actor=Man, type:Panel
+image: centennial_hall_empty_flag
+---
+<<if $talked_animals == true>>
+    <<jump director_task_done>>
+<<else>>
+    <<jump director_task>>
+<<endif>>
+===
+
+title: director_task
+position: -715,-144
+group: Intro
+tags: actor=Man, type:Panel
+image: centennial_hall_empty_flag
+color: green
+---
+Oh no! The FLAG is missing! #line:09c6bf7 
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
-Please help, find it! #line:0fd5d1a 
+Please help me, find it! #line:0fd5d1a 
+Talk to the animals, maybe one of them took it. #line:012b933 
+<<task_start TASK_ANIMALS task_animals_done>>
+===
+
+title: task_animals_desc
+type: task
+position: -711,-284
+---
+Find the flag! #line:0da284c 
+Talk to all the animals. Maybe they know where the flag is. #line:010adc5 
+===
 
 //--------------------------------------------
 // ENTRANCE – AMBIENCE
 //--------------------------------------------
-===
+
 title: animal_peacock
-position: -17,-453
+position: 904,637
 group: ZOO
 tags: actor=Peacock
 image: zoo_gate
 ---
-My tail is a FLAG already! #line:04fff6b 
-
+I don't need a flag, #line:0085a8a 
+my tail is a FLAG already! #line:04fff6b 
 ===
+
 title: animal_parrot
-position: -20,-273
+position: 1152,640
 group: ZOO
 tags: actor=Parrot
 image: zoo_gate
 ---
 Squawk! Red and yellow ran by! #line:0e84545 
+===
 
 //--------------------------------------------
 // PART 1 – ELEPHANT
 //--------------------------------------------
-===
-title: ELEPHANT_KEEPER
-position: 343,6
+
+title: elephant_talk
+position: 382,-133
 group: ELEPHANT
 tags: actor=Keeper
 image: elephant_keeper
 color: blue
 ---
-ELEPHANT is the biggest ANIMAL. #line:027b51f 
-ELEPHANT has great MEMORY. #line:03a150c 
-Try the MEMORY game. #line:0f98478 
-<<activity memory elephant_sounds tutorial>>
--> More info #line:0a0499e 
-    <<jump ELEPHANT_SIGN>>
-
+I'm an elephant, the biggest animal on land. #line:027b51f 
+I have great memory. #line:03a150c 
+Do you have a good memory too? #line:0f98478 
+<<activity ACTIVITY_MEMORY_ELEPHANT elephant_activity_done>>
 ===
+
+title: elephant_activity_done
+position: 611,-133
+group: ELEPHANT
+tags: actor=Keeper
+image: elephant_keeper
+
+---
+<<inventory animal_elephant add>>
+A flag? I don't have one. #line:0b79d01 
+If I had taken it, I would remember! #line:0f124bf 
+===
+
 title: ELEPHANT_SIGN
-position: 606,22
+position: 387,11
 group: ELEPHANT
 tags: actor=tutor
 image: elephant_sign
 ---
 ELEPHANT. Thick skin. Big EARS. #line:048e8a1 
 Largest land ANIMAL. #line:0b1cca2 
-
 ===
+
 title: ELEPHANT_KID
-position: 907,14
+position: 612,13
 group: ELEPHANT
 tags: actor=Kid
 image: kid_elephant
 ---
-Its EARS are bigger than me! #line:0fc78ad 
-Can it fan me in summer? #line:004abc7 
+Its ears are bigger than me! #line:0fc78ad 
+Can it fan me in the summer? #line:004abc7 
 
 //--------------------------------------------
 // PART 2 – GIRAFFE
 //--------------------------------------------
 ===
-title: GIRAFFE_KEEPER
-position: 343,228
+title: giraffe_talk
+position: 898,-136
 group: GIRAFFE
 tags: actor=Keeper
 image: giraffe_keeper
 color: blue
 ---
-GIRAFFE is the tallest MAMMAL. #line:0d5c607 
-Long NECK reaches LEAVES. #line:0a4d24e 
-Clean to help her EAT. #line:04b42f2 
-<<activity cleancanvas giraffe_leaves tutorial>>
-
+I'm a giraffe, the tallest of the animals. #line:0d5c607 
+My long neck help me reach the leaves. #line:0a4d24e 
+Do you want to watch me eat? #line:04b42f2 
+<<activity ACTIVITY_CLEAN_GIRAFFE giraffe_activity_done>>
 ===
+
+title: giraffe_activity_done
+position: 1127,-143
+group: GIRAFFE
+tags: actor=Keeper
+image: giraffe_keeper
+---
+<<inventory animal_elephant add>>
+I didn't take the flag, #line:0877d6f 
+it's too tall for even me to reach! #line:02d00e2 
+===
+
 title: GIRAFFE_SIGN
-position: 593,228
+position: 911,12
 group: GIRAFFE
 tags: actor=Sign
 image: giraffe_sign
 ---
 GIRAFFE. Tall. Long NECK. #line:0a8a73f 
 Long EYELASHES. #line:0291317 
-
 ===
+
 title: GIRAFFE_KID
-position: 843,228
+position: 1134,0
 group: GIRAFFE
 tags: actor=Kid
 image: kid_giraffe
 ---
-With that NECK, #line:068daeb 
-I could reach cookies! #line:0bee484 
+With a neck like that, #line:068daeb 
+I could see my house even from here. #line:0bee484 
 
 //--------------------------------------------
 // PART 3 – LION
 //--------------------------------------------
 ===
-title: LION_KEEPER
-position: 351,437
+title: lion_talk
+position: 380,252
 group: LION
 tags: actor=Keeper
 image: lion_keeper
 color: blue
 ---
-LION is the king. #line:07f2e15 
-LION lives in a PRIDE. #line:042266c 
-Match the LION facts. #line:0124e1c 
-<<activity order lion_pride tutorial>>
-
+I'm a lion, the biggest predator in Africa. #line:07f2e15 
+I live in groups with other lions. #line:042266c 
+How well do you know lions? #line:0124e1c 
+<<activity ACTIVITY_ORDER_LION lion_activity_done>>
 ===
+
+title: lion_activity_done
+position: 600,252
+group: LION
+tags: actor=Keeper
+image: lion_keeper
+---
+<<inventory animal_lion add>>
+You have to find the flag! #line:05da6d7 
+I like watching it flutter in the wind. #line:01b3593 
+===
+
 title: LION_SIGN
-position: 601,437
+position: 388,400
 group: LION
 tags: actor=Sign
 image: lion_sign
 ---
-LION. PRIDE = family. #line:0ac6cc0 
+LION. PRIDE = family of lions. #line:0ac6cc0 
 Males have MANES. #line:0d2883b 
-
 ===
+
 title: LION_KID
-position: 851,437
+position: 616,401
 group: LION
 tags: actor=Kid
 image: kid_lion
 ---
-That ROAR! #line:079f4e0 
-My hat jumped! #line:0e957cf 
+What a roar! #line:079f4e0 
 
 //--------------------------------------------
 // PART 4 – MONKEY
 //--------------------------------------------
 ===
-title: MONKEY_KEEPER
-position: 364,685
+title: monkey_talk
+position: 900,234
 group: MONKEY
 tags: actor=Keeper
 image: monkey_keeper
 color: blue
 ---
-MONKEY loves to CLIMB. #line:0867233 
-Hands, feet, and tail. #line:0eaefd6 
-Clean the CLIMB path. #line:079451b 
-<<activity cleancanvas monkey_climb tutorial>>
-
+I'm an ape, and I love to climb trees. #line:0867233 
+Did you know? I'm related to humans! #line:0eaefd6 
+Clean the path so I can climb. #line:079451b 
+<<activity ACTIVITY_MATCH_MONKEY monkey_activity_done>>
 ===
+
+title: monkey_activity_done
+position: 1123,231
+group: MONKEY
+tags: actor=Keeper
+image: monkey_keeper
+
+---
+<<inventory animal_monkey add>>
+I'm not the one who took the flag. #line:0c53945 
+But it would be fun to climb that pole... #line:0a43c85 
+===
+
 title: MONKEY_SIGN
-position: 614,685
+position: 897,392
 group: MONKEY
 tags: actor=Sign
 image: monkey_sign
 ---
 MONKEY. Great CLIMBER. #line:0900219 
 Loves FRUIT. #line:021b299 
-
 ===
+
 title: MONKEY_KID
-position: 864,685
+position: 1123,394
 group: MONKEY
 tags: actor=Kid
 image: kid_monkey
@@ -194,68 +276,102 @@ Do monkeys wink? #line:0eecdf9
 // PART 5 – PENGUIN
 //--------------------------------------------
 ===
-title: PENGUIN_KEEPER
-position: 380,936
+title: penguin_talk
+position: 385,628
 group: PENGUIN
 tags: actor=Keeper
 image: penguin_keeper
 color: blue
 ---
-PENGUIN is a BIRD. #line:08c70e8 
-It cannot fly. It can SWIM. #line:0540c5a 
-Remember the ICE path. #line:0a3420c 
-<<activity memory penguin_paths tutorial>>
-
+I'm a penguin, and I'm a strange bird. #line:08c70e8 
+I can't fly, but I can swim really well!. #line:0540c5a 
+Can you rememeber the right path through the ice? #line:0a3420c 
+<<activity ACTIVITY_JIGSAW_PENGUIN penguin_activity_done>>
 ===
+
+title: penguin_activity_done
+position: 605,626
+group: PENGUIN
+tags: actor=Keeper
+image: penguin_keeper
+---
+<<inventory animal_penguin add>>
+No, I didn't take the flag. #line:078190f 
+I can't fly, remember? #line:08568f5 
+===
+
 title: PENGUIN_SIGN
-position: 619,936
+position: 388,783
 group: PENGUIN
 tags: actor=Tutor
 image: penguin_sign
 ---
 PENGUIN. Bird. Swimmer. #line:0877d95 
 Lives near OCEANS. #line:0eac350 
-
 ===
+
 title: PENGUIN_KID
-position: 880,936
+position: 613,777
 group: PENGUIN
 tags: actor=Kid
 image: kid_penguin
 ---
-They WADDLE like me! #line:0ae73f3 
-Tiny tuxedos! #line:05ac327 
+How cute! #line:0ae73f3 
+It looks like it's wearing a tiny tuxedo. #line:05ac327 
 
 //--------------------------------------------
 // RECAP – MATCH & CARDS
 //--------------------------------------------
 ===
-title: RECAP_GATE
-position: 667,1215
-group: Recap
-tags: actor=Narrator
-image: zoo_recap
----
-Ready to review? #line:0e7e733 
-Match ANIMALS to FACTS. #line:05f345e 
-<<activity order zoo_animal_facts tutorial>>
 
+title: task_animals_done
+position: -451,-152
+tags: actor=TUTOR
+---
+TUTOR: TASK COMPLETED! Go back to the director. #line:0a93d9b 
+<<set $talked_animals = true>>
 ===
+
+title: director_task_done
+position: -709,89
+group: Intro
+tags: actor=Man, type:Panel
+image: centennial_hall_empty_flag
+color: purple
+---
+Good, you talked to all the animals. #line:032811f 
+Now let's review these facts. #line:0364f30 
+Match the ANIMALS to the FACTS.  #line:08de86f 
+<<activity order zoo_animal_facts tutorial>>
+===
+
 title: RECAP_CARDS
-position: 917,1215
+position: -463,88
 group: Recap
 tags: actor=Narrator
 image: zoo_cards
+color: purple
 ---
 Now match the CARDS. #line:0f6f882 
 <<activity memory zoo_animal_cards tutorial>>
+===
+
+title: director_activity_done
+position: -628,275
+tags: actor=Narrator
+image: zoo_recap
+---
+It looks like the animals are all innocent. #line:0bc2b46 
+But then, who took the flag? #line:0fc0ab7 
+<<jump RETURN_DIRECTOR>>
+===
 
 //--------------------------------------------
 // TWIST – FLAG RETURN
 //--------------------------------------------
-===
+
 title: RETURN_DIRECTOR
-position: -629,292
+position: -621,484
 group: End
 tags: actor=Zoo Director
 image: centennial_hall_antura_flag
@@ -266,12 +382,12 @@ Look! ANTURA has the FLAG! #line:0e24973
 
 ===
 title: CEREMONY_END
-position: -396,298
+position: -366,486
 group: End
 tags: actor=Zoo Director
 image: flag_on_iglica
 ---
-The FLAG is home. #line:0d91701 
+The FLAG is finally home. #line:0d91701 
 Thank you, detective. #line:08c71db 
 <<jump FINAL_QUIZ>>
 
@@ -280,17 +396,17 @@ Thank you, detective. #line:08c71db
 //--------------------------------------------
 ===
 title: FINAL_QUIZ
-position: -154,541
+position: -119,485
 group: End
 tags: actor=Narrator
 image: wroclaw_flag_quiz
 ---
 Answer the questions. #line:010b191 
 <<activity quiz wroclaw_zoo_basics QUEST_COMPLETE>>
-
 ===
+
 title: QUEST_COMPLETE
-position: -35,308
+position: -115,618
 group: End
 tags: actor=Narrator
 image: quest_complete
