@@ -11,6 +11,12 @@ type: panel
 <<set $CURRENT_PROGRESS = 0>>
 <<set $TOTAL_COINS = 0>>
 Welcome to the music quest!
+<<activity  order_marseillese marseillese_played>>
+===
+
+title: marseillese_played
+---
+Well done! You played "La Marseillaise"! #line:0a5f3e1
 ===
 
 title: band_member
