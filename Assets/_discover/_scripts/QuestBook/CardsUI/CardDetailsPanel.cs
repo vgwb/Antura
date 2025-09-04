@@ -31,9 +31,9 @@ namespace Antura.Discover.UI
         private AsyncOperationHandle<string>? titleHandle;
         private AsyncOperationHandle<string>? descHandle;
 
-        private CardData def;
-        private CardState state;
-        private QuestCardsUI owner; // source list owner for navigation
+        private CardData currentCard;
+        private CardState currentCardState;
+        private QuestCardsUI owner; // for navigation
         private System.Collections.Generic.IReadOnlyList<CardData> orderedCards;
         private Func<CardData, CardState> stateResolver;
 
@@ -66,9 +66,9 @@ namespace Antura.Discover.UI
 
         public void Show(CardData card, CardState state)
         {
-            this.def = card;
-            this.state = state;
-            var c = card.Title.GetLocalizedString();
+            currentCard = card;
+            currentCardState = state;
+
             gameObject.SetActive(true);
 
             bool isLocked = state == null || !state.unlocked;
@@ -101,22 +101,24 @@ namespace Antura.Discover.UI
             }
             isTopicBadge.SetActive(card.CoreOfTopic != null);
 
-            // if (soundIcon)
-            //     soundIcon.enabled = def.AudioAsset != null && def.AudioAsset.Audio != null;
+            DiscoverAudioManager.I.Stop();
+            soundIcon.enabled = currentCard.AudioAsset != null && currentCard.AudioAsset.Audio != null;
 
             UpdateNavButtons();
         }
 
         public void Hide()
         {
+            DiscoverAudioManager.I.Stop();
             gameObject.SetActive(false);
         }
 
         public void OnPlayAudio()
         {
-            if (def?.AudioAsset == null || audioSource == null)
+            if (currentCard?.AudioAsset == null || audioSource == null)
                 return;
-            audioSource.PlayOneShot(def.AudioAsset.Audio);
+            //audioSource.PlayOneShot(currentCard.AudioAsset.Audio);
+            DiscoverAudioManager.I.Play(currentCard.AudioAsset);
         }
 
         private void SetLocalized(TMP_Text label, LocalizedString localized, string fallback)
@@ -142,7 +144,7 @@ namespace Antura.Discover.UI
 
         private void OnNextCard()
         {
-            if (orderedCards == null || def == null)
+            if (orderedCards == null || currentCard == null)
                 return;
             int idx = IndexOfCurrent();
             if (idx >= 0 && idx + 1 < orderedCards.Count)
@@ -156,7 +158,7 @@ namespace Antura.Discover.UI
 
         private void OnPrevCard()
         {
-            if (orderedCards == null || def == null)
+            if (orderedCards == null || currentCard == null)
                 return;
             int idx = IndexOfCurrent();
             if (idx > 0)
@@ -171,7 +173,7 @@ namespace Antura.Discover.UI
         private void UpdateNavButtons()
         {
             bool canPrev = false, canNext = false;
-            if (orderedCards != null && def != null)
+            if (orderedCards != null && currentCard != null)
             {
                 int idx = IndexOfCurrent();
                 canPrev = idx > 0;
@@ -185,14 +187,14 @@ namespace Antura.Discover.UI
 
         private int IndexOfCurrent()
         {
-            if (orderedCards == null || def == null)
+            if (orderedCards == null || currentCard == null)
                 return -1;
             for (int i = 0; i < orderedCards.Count; i++)
             {
                 var cd = orderedCards[i];
-                if (cd == def)
+                if (cd == currentCard)
                     return i;
-                if (cd != null && def != null && !string.IsNullOrEmpty(cd.Id) && cd.Id == def.Id)
+                if (cd != null && currentCard != null && !string.IsNullOrEmpty(cd.Id) && cd.Id == currentCard.Id)
                     return i;
             }
             return -1;
