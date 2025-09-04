@@ -70,7 +70,7 @@ tags: actor=MAN
 color: purple
 ---
 MAN: Select enough money to pay. #line:0bbf963 
-<<activity ACTIVITY_MONEY_BAKER baker_payment_done>>
+<<activity money_baker baker_payment_done>>
 ===
 
 title: baker_payment_done
@@ -358,7 +358,7 @@ tags: actor=MAN
 color: purple
 ---
 Complete the image. #line:08396f2 
-<<activity ACTIVITY_JIGSAW activity_pirate_done>>
+<<activity jigsaw_pirate activity_pirate_done>>
 ===
 
 title: activity_pirate_done
@@ -457,7 +457,7 @@ tags: activity
 color: purple
 ---
 Match each item to the right seller. #line:0a6e106 
-<<activity ACTIVITY_ORDER activity_match_done>>
+<<activity match_ingredients activity_match_done>>
 ===
 
 
@@ -483,7 +483,7 @@ tags: actor=OLD_MAN
 color: purple
 ---
 Select enough money to pay. #line:0995020 
-<<activity ACTIVITY_MONEY_FISHER fisher_payment_done>>
+<<activity money_fishmonger fisher_payment_done>>
 ===
 
 title: cheesemonger_pay_activity
@@ -493,7 +493,7 @@ tags: actor=WOMAN
 color: purple
 ---
 Select enough money to pay. #line:0f44ea7 
-<<activity ACTIVITY_MONEY_CHEESEMONGER cheesemonger_payment_activity>>
+<<activity money_cheesemonger cheesemonger_payment_activity>>
 ===
 
 title: grocer_pay_activity
@@ -503,7 +503,7 @@ tags: actor=OLD_WOMAN
 color: purple
 ---
 Select enough money to pay. #line:0c80f9e 
-<<activity ACTIVITY_MONEY_GROCER grocer_payment_done>>
+<<activity money_grocer grocer_payment_done>>
 ===
 
 title: greengrocer_pay_activity
@@ -513,7 +513,7 @@ tags: actor=WOMAN
 color: purple
 ---
 Select enough money to pay. #line:08fc94e 
-<<activity ACTIVITY_MONEY_GREENGROCER greengrocer_payment_activity>>
+<<activity money_greengrocer greengrocer_payment_activity>>
 ===
 title: baker_notunderstand
 position: 404,150

@@ -167,23 +167,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: 78797fe20886d427691e70700034bbcc, type: 2}
   ActivityConfigs:
-  - Code: ACTIVITY_MEMORY_ELEPHANT
-    ActivitySettings: {fileID: 11400000, guid: d6b1b24414b6e5340a52fb68df93186a, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: d6b1b24414b6e5340a52fb68df93186a, type: 2}
     ActivityGO: {fileID: 0}
-  - Code: ACTIVITY_CLEAN_GIRAFFE
-    ActivitySettings: {fileID: 11400000, guid: d68c2df3f21e9824cbd1414bdce2bfa6, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: d68c2df3f21e9824cbd1414bdce2bfa6, type: 2}
     ActivityGO: {fileID: 5394021566493139281}
-  - Code: ACTIVITY_ORDER_LION
-    ActivitySettings: {fileID: 11400000, guid: 2e1a582405b7a7d438def17681864ac3, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: 2e1a582405b7a7d438def17681864ac3, type: 2}
     ActivityGO: {fileID: 3167812551181752788}
-  - Code: ACTIVITY_MATCH_MONKEY
-    ActivitySettings: {fileID: 11400000, guid: 3cc5d0dcf17d8ac4abe22ef47774421d, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: 3cc5d0dcf17d8ac4abe22ef47774421d, type: 2}
     ActivityGO: {fileID: 3146751409067964462}
-  - Code: ACTIVITY_JIGSAW_PENGUIN
-    ActivitySettings: {fileID: 11400000, guid: 626078760a6cc91469bf2cf5df1ca64c, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: 626078760a6cc91469bf2cf5df1ca64c, type: 2}
     ActivityGO: {fileID: 6241975807957221229}
-  - Code: ACTIVITY_MATCH_ZOO
-    ActivitySettings: {fileID: 11400000, guid: 9bfeb6c9f025142319c61b9fc2555be3, type: 2}
+  - ActivitySettings: {fileID: 11400000, guid: 9bfeb6c9f025142319c61b9fc2555be3, type: 2}
     ActivityGO: {fileID: 7598353673767988110}
   QuestTasks:
   - Code: TASK_ANIMALS
@@ -218,7 +212,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DebugAction: 
   QuestActions:
-  - ActionCode: INIT
+  - ActionCode: init
     Commands:
     - Command: 11
       mainObject: {fileID: 3599756154057614573}

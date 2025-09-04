@@ -11,8 +11,20 @@ type: panel
 <<set $CURRENT_PROGRESS = 0>>
 <<set $TOTAL_COINS = 0>>
 Welcome to the music quest!
-<<activity  order_marseillese marseillese_played>>
+<<activity  order_marseillese_audio marseillese_played>>
 ===
+
+title: npc_robot
+---
+now play Jigsaw
+<<activity jigsaw_marseillese marseillese_played>>
+===
+title: npc_ll
+---
+now play Order
+<<activity order_marseillese_audio marseillese_played>>
+===
+
 
 title: marseillese_played
 ---

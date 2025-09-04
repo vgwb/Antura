@@ -168,20 +168,20 @@ namespace Antura.Discover
         // ------------------------------------------------------------
 
         [YarnCommand("activity")]
-        public static void CommandActivity(string activityCode, string nodeReturn)
+        public static void CommandActivity(string activitySettingsCode, string nodeReturn = "")
         {
             //Debug.Log($"Yarn: activity {activityCode} -> {nodeReturn}");
-            if (string.IsNullOrEmpty(activityCode))
+            if (string.IsNullOrEmpty(activitySettingsCode))
                 return;
-            ActivityManager.I?.Launch(activityCode, nodeReturn);
+            ActivityManager.I?.Launch(activitySettingsCode, nodeReturn);
         }
 
         [YarnFunction("GetActivityResult")]
-        public static int FunctionGetActivityResult(string activityCode)
+        public static int FunctionGetActivityResult(string activitySettingsCode)
         {
-            if (QuestManager.I == null || string.IsNullOrEmpty(activityCode))
+            if (QuestManager.I == null || string.IsNullOrEmpty(activitySettingsCode))
                 return 0;
-            return ActivityManager.I?.GetResult(activityCode) ?? 0;
+            return ActivityManager.I?.GetResult(activitySettingsCode) ?? 0;
         }
 
         // ------------------------------------------------------------

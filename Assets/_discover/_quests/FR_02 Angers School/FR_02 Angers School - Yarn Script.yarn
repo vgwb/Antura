@@ -17,7 +17,7 @@ actor: TUTOR
 <<set $MAX_PROGRESS = 10>>
 <<declare $got_backpack = false>>
 <<SetActive Collect_Backpack false>>
-TUTOR: Welcome Angers! It's the first day of school! #line:014887e 
+Welcome Angers! It's the first day of school! #line:014887e 
 You are 10 years old and in the last year of elementary school. #line:063e8e0 
 Find your school and your classroom! #line:0f65a1b 
 <<task_start TASK_SCHOOL task_school_done>>
@@ -27,7 +27,7 @@ title: task_school_desc
 type: task
 position: 973,-174
 ---
-Find your school!  #line:0da284c 
+Find your school! #line:0da284c 
 ===
 
 title: school_1
@@ -110,7 +110,7 @@ position: 974,-24
 tags: actor=TUTOR, task
 color: green
 ---
-TUTOR: TASK: Find your classroom. #line:058ddbc 
+TASK: Find your classroom. #line:058ddbc 
 <<task_start TASK_CLASSROOM task_class_done>>
 ===
 
@@ -165,8 +165,6 @@ Your class is just over there! #line:00f6294
 <<action DOOR_OPEN_5>>
 ===
 
-// asset cursive_writing - CC0 - https://commons.wikimedia.org/wiki/File:BlackBoard_(Blender_classroom_demo).png
-
 title: classroom_5
 position: 1585,387
 tags: actor=GUIDE
@@ -180,7 +178,7 @@ In France, we learn to write in cursive. #line:0f8995f
 <<card concept_cursive_writing zoom>>
 Now for geometry! #line:0365921 
 Match each tool to the shape it draws. #line:052d22a 
-<<activity ACTIVITY_MATCH activity_match_done>>
+<<activity match_shapes activity_match_done>>
 ===
 
 title: activity_match_done
@@ -199,14 +197,14 @@ title: task_school_done
 position: 1,145
 tags: actor=TUTOR
 ---
-TUTOR: TASK COMPLETED!  #line:03ed76a 
+TASK COMPLETED!  #line:03ed76a 
 ===
 
 title: task_backpack_done
 position: 1205,-281
 tags: actor=TUTOR
 ---
-TUTOR: TASK COMPLETED! You can now enter school. #line:063f354  
+TASK COMPLETED! You can now enter school. #line:063f354  
 <<set $got_backpack = true>>
 ===
 
@@ -214,7 +212,7 @@ title: task_class_done
 position: 1207,-20
 tags: actor=TUTOR
 ---
-TUTOR: TASK COMPLETED! You can now start the lesson. #line:093e91d 
+TASK COMPLETED! You can now start the lesson. #line:093e91d 
 ===
 
 title: task_backpack

@@ -29,7 +29,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 6664129704370699090}
+  - {fileID: 2808941279869977982}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4017108264321078535
@@ -90,6 +90,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentQuest: {fileID: 11400000, guid: 2f080d355007a4c9bb2242db14ada97c, type: 2}
+  ActivityConfigs:
+  - ActivitySettings: {fileID: 11400000, guid: 267c7f935b13945189ecfdb47ea80b17, type: 2}
+    ActivityGO: {fileID: 0}
+  QuestTasks: []
   DebugQuest: 0
   DebugLanguage: 
   EasyMode: 0
@@ -111,7 +115,6 @@ MonoBehaviour:
   QuestActions:
   - ActionCode: init
     Commands: []
-  Tasks: []
   WinFx: {fileID: 6035653481209703028}
   AnturaDog: {fileID: 9055827304920176344}
 --- !u!1 &4638323301641215331
@@ -187,7 +190,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 1
   m_Children:
-  - {fileID: 5805669090998459251}
+  - {fileID: 3031207155628615007}
   m_Father: {fileID: 2519344455256515021}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4962889709652980159
@@ -7392,9 +7395,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93d9cef666b54203b25c67c598fe5df, type: 3}
---- !u!4 &6664129704370699090 stripped
+--- !u!4 &2808941279869977982 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3298553672514368464, guid: d93d9cef666b54203b25c67c598fe5df,
+  m_CorrespondingSourceObject: {fileID: 6288769493283327484, guid: d93d9cef666b54203b25c67c598fe5df,
     type: 3}
   m_PrefabInstance: {fileID: 8195829762021886082}
   m_PrefabAsset: {fileID: 0}
@@ -11564,9 +11567,9 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d93d9cef666b54203b25c67c598fe5df, type: 3}
---- !u!4 &5805669090998459251 stripped
+--- !u!4 &3031207155628615007 stripped
 Transform:
-  m_CorrespondingSourceObject: {fileID: 3298553672514368464, guid: d93d9cef666b54203b25c67c598fe5df,
+  m_CorrespondingSourceObject: {fileID: 6288769493283327484, guid: d93d9cef666b54203b25c67c598fe5df,
     type: 3}
   m_PrefabInstance: {fileID: 9031740706437916835}
   m_PrefabAsset: {fileID: 0}
