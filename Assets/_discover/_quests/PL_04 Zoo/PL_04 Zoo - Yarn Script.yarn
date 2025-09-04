@@ -46,7 +46,9 @@ image: centennial_hall_empty_flag
 color: green
 ---
 Oh no! The FLAG is missing! #line:09c6bf7 
+<<camera_focus FlagPole>>
 It was on the IGLICA at CENTENNIAL HALL. #line:02f35e4 
+<<camera_reset>>
 Please help me, find it! #line:0fd5d1a 
 Talk to the animals, maybe one of them took it. #line:012b933 
 <<task_start TASK_ANIMALS task_animals_done>>
@@ -341,28 +343,28 @@ color: purple
 ---
 Good, you talked to all the animals. #line:032811f 
 Now let's review these facts. #line:0364f30 
-Match the ANIMALS to the FACTS.  #line:08de86f 
-<<activity order zoo_animal_facts tutorial>>
+Help me put the pieces toghether.  #line:08de86f 
+<<activity ACTIVITY_MATCH_ZOO director_activity_done>>
 ===
 
 title: RECAP_CARDS
-position: -463,88
-group: Recap
+position: -46,23
+group: Icebox
 tags: actor=Narrator
 image: zoo_cards
-color: purple
 ---
 Now match the CARDS. #line:0f6f882 
 <<activity memory zoo_animal_cards tutorial>>
 ===
 
 title: director_activity_done
-position: -628,275
+position: -681,268
 tags: actor=Narrator
 image: zoo_recap
 ---
 It looks like the animals are all innocent. #line:0bc2b46 
 But then, who took the flag? #line:0fc0ab7 
+<<SetActive Antura with Flag>>
 <<jump RETURN_DIRECTOR>>
 ===
 
@@ -371,33 +373,34 @@ But then, who took the flag? #line:0fc0ab7
 //--------------------------------------------
 
 title: RETURN_DIRECTOR
-position: -621,484
+position: -669,472
 group: End
 tags: actor=Zoo Director
 image: centennial_hall_antura_flag
 ---
-Look! ANTURA has the FLAG! #line:0e24973 
--> Ceremony #line:001c615 
-    <<jump CEREMONY_END>>
-
+Wait, Look!  #line:0b3d05f 
+<<camera_focus Antura with Flag>>
+ANTURA has the FLAG! #line:0e24973 
+<<camera_reset>>
+<<jump CEREMONY_END>>
 ===
 title: CEREMONY_END
-position: -366,486
+position: -428,479
 group: End
 tags: actor=Zoo Director
 image: flag_on_iglica
 ---
 The FLAG is finally home. #line:0d91701 
 Thank you, detective. #line:08c71db 
-<<jump FINAL_QUIZ>>
+<<jump QUEST_COMPLETE>>
 
 //--------------------------------------------
 // FINAL QUIZ
 //--------------------------------------------
 ===
 title: FINAL_QUIZ
-position: -119,485
-group: End
+position: -40,178
+group: Icebox
 tags: actor=Narrator
 image: wroclaw_flag_quiz
 ---
@@ -406,7 +409,7 @@ Answer the questions. #line:010b191
 ===
 
 title: QUEST_COMPLETE
-position: -115,618
+position: -177,479
 group: End
 tags: actor=Narrator
 image: quest_complete
@@ -414,5 +417,5 @@ color: red
 ---
 Great work at the ZOO! #line:056d51c 
 See you on the ODRA RIVER! #line:0d4f5f7 
-<<quest_end 3>>
+<<quest_end>>
 ===
