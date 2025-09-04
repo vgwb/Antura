@@ -56,6 +56,12 @@ namespace Antura.Discover.UI
             BookPanel.SetActive(true);
         }
 
+        public void OpenHouse()
+        {
+            // TODO
+        }
+
+
         public void SelectQuest(QuestData questData)
         {
             InfoPanel.Show(questData);
