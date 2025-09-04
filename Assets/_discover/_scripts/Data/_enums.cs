@@ -121,10 +121,11 @@ namespace Antura.Discover
 
     public enum LicenseType
     {
-        CC0,        // Public Domain equivalent
+        CC0,        // CC0 - no rights reserved
         CC_BY,      // Attribution required
         CC_BY_SA,   // Attribution + Share Alike
-        Licensed    // Proprietary or custom license
+        Licensed,    // Proprietary or custom license
+        PublicDomain // Explicitly released into Public Domain
     }
 
     /// <summary>
